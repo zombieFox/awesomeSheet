@@ -1,0 +1,16 @@
+/* utilities
+------------------------------------------------- */
+
+.hide {
+  transform: scale(0) !important;
+  opacity: 0 !important;
+}
+
+.show {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
+.hidden {
+	display: none !important;
+}

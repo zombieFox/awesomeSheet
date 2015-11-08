@@ -1,0 +1,62 @@
+/* core
+------------------------------------------------- */
+
+body {
+  background: $white;
+  margin: 50px 0;
+}
+
+// nav
+nav {
+  ul {
+    margin: 0 0 20px 0;
+    padding: 0;
+    li {
+      margin: 0 0 10px 0;
+      padding: 0;
+      list-style-type: none;
+    }
+  }
+}
+
+hr {
+  border: 0;
+  margin: 50px 0;
+  border-bottom: 1px solid $gray-12;
+  &:last-child {
+    margin: 0;
+    border: 0;
+  }
+}
+
+// basics
+#statistics {
+  .stats {
+    div {
+      box-sizing: border-box;
+      padding: 0 4% 0 0;
+      width: 20%;
+      float: left;
+      input {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: 550px) {}
+
+@media (min-width: 750px) {
+  body {
+    margin: 100px 0;
+  }
+}
+
+@media (min-width: 900px) {}
+
+@media (min-width: 1000px) {}

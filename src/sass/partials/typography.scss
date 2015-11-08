@@ -1,0 +1,145 @@
+/* typography
+------------------------------------------------- */
+
+html {
+  font-size: 13px;
+  font-family: $open-sans-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $gray-03;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-family: $open-sans-light;
+}
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 1.6rem;
+  line-height: 1.35;
+}
+
+h5 {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 1rem;
+  color: $gray-03;
+  margin: 0 0 10px 0;
+}
+
+
+/* Links
+------------------------------------------------- */
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:visited {
+    color: $primary-color;
+  }
+  &:hover,
+  &:focus {
+    color: $primary-color-dark;
+    text-decoration: underline;
+  }
+  &:active {
+    color: $primary-color-light;
+  }
+}
+
+input {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"] {
+    background-color: transparent;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-family: $open-sans-semi-bold;
+    line-height: 2rem;
+    padding: 0;
+    color: $gray-02;
+    border: 0;
+    border-bottom: 2px solid $secondary-color-light;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
+    &:hover {
+      border-color: $primary-color;
+    }
+    &:focus {
+      border-color: $primary-color;
+      outline: 0;
+      color: $gray-02;
+    }
+    &:active {}
+  }
+  &.dark {
+    &[type="email"],
+    &[type="number"],
+    &[type="search"],
+    &[type="text"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="password"] {
+      color: $white;
+      &:hover {}
+      &:focus {
+        background-color: $secondary-color-light;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: $border-radius-small;
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: 550px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 750px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 900px) {}
+
+@media (min-width: 1000px) {}

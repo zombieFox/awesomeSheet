@@ -1,0 +1,169 @@
+/* buttons
+------------------------------------------------- */
+
+.button,
+button {
+  padding: 5px 10px;
+  color: $gray-02;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: $open-sans-semi-bold;
+  line-height: 1.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: $gray-04;
+  border: 1px solid $gray-03;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: $border-radius-small;
+  transition: all $transition-ease-fast;
+  text-decoration: none;
+  display: inline-block;
+  &.button-block {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  [class^="icon-"],
+  [class*=" icon-"] {
+    font-size: 1.3rem;
+    vertical-align: text-bottom;
+  }
+  &.button-small {
+    padding: 5px 7px 3px 7px;
+    line-height: 1rem;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      font-size: 1rem;
+      vertical-align: top;
+    }
+  }
+  &:focus {
+    outline: 0;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $white;
+    background-color: $gray-02;
+    border-color: $gray-02;
+    outline: 0;
+    text-decoration: none;
+  }
+  &:active,
+  &.active {
+    color: $white;
+    background-color: $gray-04;
+    border-color: $gray-04;
+  }
+  &.button-primary {
+    &:link,
+    &:visited {
+      color: $white;
+      background-color: $primary-color;
+      border-color: $primary-color-dark;
+    }
+    &:focus,
+    &:hover {
+      background-color: $primary-color-dark;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      background-color: $primary-color-light;
+    }
+  }
+  &.button-secondary {
+    &:link,
+    &:visited {
+      color: $gray-02;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    &:focus {
+      color: $white;
+      background-color: $secondary-color-light;
+      border-color: $secondary-color-dark;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $white;
+      background-color: $secondary-color-dark;
+      border-color: $secondary-color-dark;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      color: $white;
+      background-color: $secondary-color-light;
+      border-color: $secondary-color-dark;
+    }
+  }
+  &.button-dark {
+    &:link,
+    &:visited {
+      color: $white;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    &:focus {
+      color: $white;
+      background-color: $gray-alpha-04;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $white;
+      background-color: $gray-alpha-03;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      color: $white;
+      background-color: $secondary-color-light-alpha;
+    }
+  }
+}
+
+input {
+  &[type="submit"],
+  &[type="reset"],
+  &[type="button"] {
+    display: inline-block;
+    height: 2rem;
+    padding: 0 15px;
+    color: $gray-01;
+    text-align: center;
+    font-size: 0.8rem;
+    font-family: $open-sans-semi-bold;
+    line-height: 2rem;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: $gray-04;
+    border: 1px solid $gray-03;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: $border-radius-small;
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: $gray-02;
+      border-color: $gray-02;
+      outline: 0;
+    }
+    &:active {
+      color: $white;
+      background-color: $gray-04;
+      border-color: $gray-04;
+    }
+  }
+}
+
+.button,
+button,
+label {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

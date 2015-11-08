@@ -1,0 +1,19 @@
+{
+  "name": "Awsome Sheet",
+  "version": "0.0.0",
+  "authors": [
+    "Kuldeep Matharu <crudetoaster@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-scss": "~3.0.3",
+    "Skeleton-Sass": "skeleton-scss#*"
+  }
+}

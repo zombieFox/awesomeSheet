@@ -1,0 +1,99 @@
+/* basic colors
+------------------------------------------------- */
+
+$black:                               #000000;
+$white:                               #ffffff;
+
+$background-color:                    #fafafa;
+
+$primary-color:                       #ff0055;
+$primary-color-dark:                  #cc0044;
+$primary-color-light:                 #ff3276;
+$primary-color-light-alpha:           rgba(255, 0, 85,0.5);
+
+$secondary-color:                     #003c4f;
+$secondary-color-dark:                #003242;
+$secondary-color-light:               #086482;
+$secondary-color-light-alpha:         rgba(8, 100, 130,0.5);
+
+$gray-01:                             #222222; // dark
+$gray-02:                             #343434;
+$gray-03:                             #464646;
+$gray-04:                             #585858;
+$gray-05:                             #6a6a6a;
+$gray-06:                             #7c7c7c;
+$gray-07:                             #8e8e8e;
+$gray-08:                             #a0a0a0;
+$gray-09:                             #b2b2b2;
+$gray-10:                             #c4c4c4;
+$gray-12:                             #d6d6d6;
+$gray-13:                             #e8e8e8;
+$gray-14:                             #fafafa; // light
+
+$critical-20:                         #33c3f0;
+$critical-1:                          #990000;
+
+$gray-alpha-01:                       rgba(0, 0, 0, 0.8); // dark
+$gray-alpha-02:                       rgba(0, 0, 0, 0.6);
+$gray-alpha-03:                       rgba(0, 0, 0, 0.4);
+$gray-alpha-04:                       rgba(0, 0, 0, 0.2); // light
+
+
+/* grid
+------------------------------------------------- */
+
+$grid-spacing:                        5%;
+
+/* typography
+------------------------------------------------- */
+
+$open-sans-bold:                      "Open Sans Bold", Helvetica, Arial, sans-serif;
+$open-sans-regular:                   "Open Sans Regular", Helvetica, Arial, sans-serif;
+$open-sans-light:                     "Open Sans Light", Helvetica, Arial, sans-serif;
+$open-sans-bold-italic:               "Open Sans Bold Italic", Helvetica, Arial, sans-serif;
+$open-sans-italic:                    "Open Sans Italic", Helvetica, Arial, sans-serif;
+$open-sans-light-italic:              "Open Sans Light Italic", Helvetica, Arial, sans-serif;
+$open-sans-semi-bold-italic:          "Open Sans Semi Bold Italic", Helvetica, Arial, sans-serif;
+$open-sans-semi-bold:                 "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+$open-sans-condensed-bold:            "Open Sans Condensed Bold", Helvetica, Arial, sans-serif;
+$open-sans-condensed-light-italic:    "Open Sans Condensed Light Italic", Helvetica, Arial, sans-serif;
+$open-sans-condensed-light:           "Open Sans Condensed Light", Helvetica, Arial, sans-serif;
+
+
+/* transitions
+------------------------------------------------- */
+
+$transition-bounce-slow:             0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-bounce-medium:           0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-bounce-fast:             0.1s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-ease-slow:               0.5s ease-in-out;
+$transition-ease-medium:             0.3s ease-in-out;
+$transition-ease-fast:               0.1s ease-in-out;
+
+/* drop shadows
+------------------------------------------------- */
+
+$shadow-small:                      0 1px 2px rgba(0, 0, 0, 0.1),
+                                    0 1px 20px rgba(0, 0, 0, 0.3);
+
+$shadow-medium:                     0 1px 5px rgba(0, 0, 0, 0.2),
+                                    0 5px 20px rgba(0, 0, 0, 0.2);
+
+$shadow-large:                      0 1px 5px rgba(0, 0, 0, 0.5),
+                                    0 1px 20px rgba(0, 0, 0, 0.5);
+
+$shadow-small-inset:                inset 0 1px 2px rgba(0, 0, 0, 0.1),
+                                    inset 0 1px 20px rgba(0, 0, 0, 0.3);
+
+$shadow-medium-inset:               inset 0 1px 5px rgba(0, 0, 0, 0.2),
+                                    inset 0 5px 20px rgba(0, 0, 0, 0.2);
+
+$shadow-large-inset:                inset 0 1px 5px rgba(0, 0, 0, 0.5),
+                                    inset 0 1px 20px rgba(0, 0, 0, 0.5);
+
+/* radius
+------------------------------------------------- */
+
+$border-radius-small:               3px;
+$border-radius-medium:              6px;
+$border-radius-large:               10px;
