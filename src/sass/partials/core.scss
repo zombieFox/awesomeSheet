@@ -3,7 +3,6 @@
 
 body {
   background: $white;
-  margin: 50px 0;
 }
 
 section {
@@ -12,19 +11,19 @@ section {
 
 // nav
 nav {
-  width: 30%;
+  width: 18%;
   position: fixed;
-  top: 100px;
-  left: 15%;
-  margin: 0 0 40px 0;
+  float: left;
   ul {
-    margin: 0;
+    margin: 100px 0 0 0;
     padding: 0;
     li {
-      margin: 0 0 10px 0;
+      margin: 0;
       padding: 0;
       list-style-type: none;
       a {
+        padding: 5px 0;
+        display: block;
         font-size: 0.8rem;
       }
     }
@@ -34,11 +33,11 @@ nav {
 .sheet {
   width: 70%;
   float: right;
-  #basics {
-    h1 {
-      padding-top: 100px;
-    }
+  h1,
+  h2 {
+    padding-top: 100px;
   }
+  #basics {}
 }
 
 hr {
@@ -83,7 +82,6 @@ hr {
 
 @media (min-width: 750px) {
   body {
-    margin: 0 0 100px 0;
   }
 }
 
