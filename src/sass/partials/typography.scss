@@ -2,7 +2,7 @@
 ------------------------------------------------- */
 
 html {
-  font-size: 13px;
+  font-size: 12px;
   font-family: $open-sans-regular;
 }
 
@@ -14,23 +14,27 @@ h5,
 h6 {
   color: $gray-03;
   margin-top: 0;
-  margin-bottom: 30px;
-  font-family: $open-sans-light;
+  margin-bottom: 40px;
 }
 
 h1 {
   font-size: 2.2rem;
   line-height: 1.2;
+  font-family: $open-sans-light;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.2rem;
   line-height: 1.25;
+  font-family: $open-sans-bold;
+  text-transform: uppercase;
 }
 
 h3 {
-  font-size: 1.8rem;
+  font-size: 1rem;
   line-height: 1.3;
+  font-family: $open-sans-bold;
+  text-transform: uppercase;
 }
 
 h4 {
@@ -90,7 +94,7 @@ input {
     padding: 0;
     color: $gray-02;
     border: 0;
-    border-bottom: 2px solid $secondary-color-light;
+    border-bottom: 1px solid transparent;
     box-shadow: none;
     box-sizing: border-box;
     transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
@@ -130,13 +134,13 @@ input {
 
 @media (min-width: 550px) {
   html {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
 @media (min-width: 750px) {
   html {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 

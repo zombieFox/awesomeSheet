@@ -1,357 +1,310 @@
 <div class="container">
-  <div class="row">
-    <div class="col-3">
-      <nav>
-        <ul>
-          <li><a href="#basics">Basics</a></li>
-          <li><a href="#statistics">Stats</a></li>
-          <li><a href="#defense">Defense</a></li>
-          <li><a href="#offense">Offense</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#spellbook">Spellbook</a></li>
-          <li><a href="#special-abilities">Special Abilities</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="col-9">
-      <section id="basics">
-        <!-- name -->
-        <h1>Nif Amakiir</h1>
-        <!-- gender, classes -->
-        <p><strong>Elf Conjurer 5</strong></p>
-        <!-- alignment, size, race -->
-        <p>Lawful Neutral, Medium, Humanoid (elf), 15000xp</p>
-        <!-- details -->
-        <p>6'0", 136 lbs., 120 years old, Male</p>
-        <!-- initiative, senses -->
-        <p><strong>Initiative</strong> +3</p>
-        <p><strong>Senses</strong>
-          <!-- Sense and Vision TYPE Abilities -->
-          Low-light vision,
-          <!-- End Sense TYPE Abilities -->
-          Perception +10
-        </p>
-        <!-- auras -->
-      </section>
-      <hr>
-      <div class="row">
-        <div class="col-6">
-          <section id="statistics">
+  <nav>
+    <ul>
+      <li><a href="#basics">Basics</a></li>
+      <li><a href="#statistics">Stats</a></li>
+      <li><a href="#defense">Defense</a></li>
+      <li><a href="#offense">Offense</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#spellbook">Spellbook</a></li>
+      <li><a href="#special-abilities">Special Abilities</a></li>
+    </ul>
+  </nav>
+  <div class="sheet">
+    <div class="row">
+      <div class="col-12">
+        <section id="basics">
+          <!-- name -->
+          <h1>Nif Amakiir</h1>
+          <!-- gender, classes -->
+          <p><strong>Elf Conjurer 5</strong></p>
+          <!-- alignment, size, race -->
+          <p>Lawful Neutral, Medium, Humanoid (elf), 15000xp</p>
+          <!-- details -->
+          <p>6'0", 136 lbs., 120 years old, Male</p>
+          <!-- initiative, senses -->
+          <p><strong>Initiative</strong> +3</p>
+          <p><strong>Senses</strong>
+            <!-- Sense and Vision TYPE Abilities -->
+            Low-light vision,
+            <!-- End Sense TYPE Abilities -->
+            Perception +10
+          </p>
+          <!-- auras -->
+        </section>
+        <hr>
+        <section id="statistics">
           <h2>Stats</h2>
-            <div class="stats str">
-              <div>
-                <p>Str</p>
-              </div>
-              <div>
-                <input type="number" class="scrore" placeholder="Scrore" value="8">
-              </div>
-              <div>
-                <input type="number" class="modifier" placeholder="Mod" value="-1">
-              </div>
-              <div>
-                <input type="number" class="temp-scrore" placeholder="">
-              </div>
-              <div>
-                <input type="number" class="temp-modifier" placeholder="">
-              </div>
-            </div>
-            <div class="stats dex">
-              <div>
-                <p>Dex</p>
-              </div>
-              <div>
-                <input type="number" class="scrore" placeholder="Scrore" value="17">
-              </div>
-              <div>
-                <input type="number" class="modifier" placeholder="Mod" value="+3">
-              </div>
-              <div>
-                <input type="number" class="temp-scrore" placeholder="">
-              </div>
-              <div>
-                <input type="number" class="temp-modifier" placeholder="">
-              </div>
-            </div>
-            <div class="stats con">
-              <div>
-                <p>Con</p>
-              </div>
-              <div>
-                <input type="number" class="scrore" placeholder="Scrore" value="14">
-              </div>
-              <div>
-                <input type="number" class="modifier" placeholder="Mod" value="+2">
-              </div>
-              <div>
-                <input type="number" class="temp-scrore" placeholder="">
-              </div>
-              <div>
-                <input type="number" class="temp-modifier" placeholder="">
-              </div>
-            </div>
-            <div class="stats int">
-              <div>
-                <p>Int</p>
-              </div>
-              <div>
-                <input type="number" class="scrore" placeholder="Scrore" value="23">
-              </div>
-              <div>
-                <input type="number" class="modifier" placeholder="Mod" value="+6">
-              </div>
-              <div>
-                <input type="number" class="temp-scrore" placeholder="">
-              </div>
-              <div>
-                <input type="number" class="temp-modifier" placeholder="">
-              </div>
-            </div>
-            <div class="stats wis">
-              <div>
-                <p>Wis</p>
-              </div>
-              <div>
-                <input type="number" class="scrore" placeholder="Scrore" value="12">
-              </div>
-              <div>
-                <input type="number" class="modifier" placeholder="Mod" value="+1">
-              </div>
-              <div>
-                <input type="number" class="temp-scrore" placeholder="">
-              </div>
-              <div>
-                <input type="number" class="temp-modifier" placeholder="">
-              </div>
-            </div>
-            <div class="stats cha">
-              <div>
-                <p>Cha</p>
-              </div>
-              <div>
-                <input type="number" class="scrore" placeholder="Scrore" value="10">
-              </div>
-              <div>
-                <input type="number" class="modifier" placeholder="Mod" value="+0">
-              </div>
-              <div>
-                <input type="number" class="temp-scrore" placeholder="">
-              </div>
-              <div>
-                <input type="number" class="temp-modifier" placeholder="">
-              </div>
-            </div>
-            <p><strong>Base Atk</strong> +2; <strong>CMB</strong> +1; <strong>CMD</strong> 14</p>
-            <p><strong>Feats </strong>Alertness , Augment Summoning , Craft Wondrous Item , Greater Spell Focus (Conjuration) , Scribe Scroll , Spell Focus (Conjuration)</p>
-            <!-- Trait TYPE Abilities -->
-            <p><strong>Traits</strong> resilient</p>
-            <!-- End SpecialQuality TYPE Abilities -->
-            <!-- Languages and Communicate TYPE Abilities -->
-            <p><strong>Languages</strong> Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan </p>
-            <!-- End Languages Communicate TYPE Abilities -->
-            <!-- SpecialQuality TYPE Abilities -->
-            <p><strong>SQ</strong> arcane bond, bonus feats, cantrips, conjuration school, elven immunities, elven magic, enchantment opposition school, familiar, keen senses, low-light vision, necromancy opposition school, shift, summoner's charm </p>
-            <!-- End SpecialQuality TYPE Abilities -->
-            <!-- Animal Tricks TYPE Abilities -->
-            <!-- End Animal Tricks TYPE Abilities -->
-            <!-- Afflictions Start -->
-            <!-- Afflictions End -->
-            <!-- Equipment -->
-            <p><strong>Gear</strong>
-              <!-- Combat Gear -->
-              <!-- Armor -->
-              <!-- Weapons -->
-              <!-- Magic Items -->
-              headband of vast intelligence +2, ring of sustenance, cloak of resistance +2, pearl of power (1st level),
-              <!-- Remaining Equipment -->spellbook (wizard's/blank)</p>
-            <!-- Equipment End -->
-          </section>
-        </div>
-        <div class="col-6">
-          <section id="defense">
-            <h2>Defense</h2>
-            <!-- armor class -->
-            <p><strong>AC</strong> 13, <strong>touch</strong> 13, <strong>flat-footed</strong> 10 (+3 Dex)</p>
-            <input type="text" placeholder="Temp AC">
-            <!-- hit points -->
-            <p>
-              <strong>hp</strong> 35 (5d6+15)
-              <!-- ModifyHP TYPE Abilities -->
-              <!-- End ModifyHP TYPE Abilities -->
-            </p>
-            <input type="text" placeholder="Current HP">
-            <input type="text" placeholder="Current Non Lethal">
-            <p><strong>Fort</strong> +8</p>
-            <p><strong>Ref</strong> +6</p>
-            <p><strong>Will</strong> +7, +2 vs. enchantment spells and effects</p>
-            <input type="text" placeholder="Temporary Saves">
-            </p>
-            <!-- End SaveBonus TYPE Abilities -->
-            <!-- defensive abilities, damager reduction, immune, resist, SR --->
-            <!-- Defensive TYPE Abilities -->
-            <!-- End Defensive TYPE Abilities -->
-            <!-- Immunity TYPE Abilities -->
-            <!-- End Immunity TYPE Abilities -->
-            <!-- Resistance TYPE Abilities -->
-            <!-- End Resistance TYPE Abilities -->
-            <!-- Weakness TYPE Abilities -->
-            <!-- End Weakness TYPE Abilities -->
-            <!-- Defensive Gear -->
-            <!-- End Defensive Gear -->
-          </section>
-          <section id="offense">
-            <h2>Offense</h2>
-            <p><strong>Speed</strong> 30 ft.</p>
-            <!-- ModifyMovement TYPE Abilities -->
-            <!-- End ModifyMovement TYPE Abilities -->
-            <!-- Attacks -->
-            <!-- End Attacks -->
-            <!-- Space and Reach -->
-            <!-- SpecialAttack TYPE Abilities -->
-            <!-- End SpecialAttack TYPE Abilities -->
-            <!-- Innate Spell-Like Abilities -->
-            <!-- End Innate Spell-Like Abilities -->
-            <!-- Other Spell-Like Abilities -->
-            <!-- End Other Spell-Like Abilities -->
-            <!-- Domain Power Spell-Like Abilities -->
-            <!-- Known Spells -->
-            <!-- End Known Spells -->
-            <!-- Prepared Spells -->
-            <!-- End Prepared Spells -->
-            <!-- domains -->
-            <!-- End Domain list -->
-          </section>
-        </div>
+          <div class="stats str clearfix">
+            <p>Str</p>
+            <input type="number" class="scrore" placeholder="" value="8">
+            <input type="number" class="modifier" placeholder="" value="-1">
+            <input type="number" class="temp-scrore" placeholder="">
+            <input type="number" class="temp-modifier" placeholder="">
+          </div>
+          <div class="stats dex clearfix">
+            <p>Dex</p>
+            <input type="number" class="scrore" placeholder="" value="17">
+            <input type="number" class="modifier" placeholder="" value="3">
+            <input type="number" class="temp-scrore" placeholder="">
+            <input type="number" class="temp-modifier" placeholder="">
+          </div>
+          <div class="stats con clearfix">
+            <p>Con</p>
+            <input type="number" class="scrore" placeholder="" value="14">
+            <input type="number" class="modifier" placeholder="" value="2">
+            <input type="number" class="temp-scrore" placeholder="">
+            <input type="number" class="temp-modifier" placeholder="">
+          </div>
+          <div class="stats int clearfix">
+            <p>Int</p>
+            <input type="number" class="scrore" placeholder="" value="23">
+            <input type="number" class="modifier" placeholder="" value="6">
+            <input type="number" class="temp-scrore" placeholder="">
+            <input type="number" class="temp-modifier" placeholder="">
+          </div>
+          <div class="stats wis clearfix">
+            <p>Wis</p>
+            <input type="number" class="scrore" placeholder="" value="12">
+            <input type="number" class="modifier" placeholder="" value="1">
+            <input type="number" class="temp-scrore" placeholder="">
+            <input type="number" class="temp-modifier" placeholder="">
+          </div>
+          <div class="stats cha clearfix">
+            <p>Cha</p>
+            <input type="number" class="scrore" placeholder="" value="10">
+            <input type="number" class="modifier" placeholder="" value="0">
+            <input type="number" class="temp-scrore" placeholder="">
+            <input type="number" class="temp-modifier" placeholder="">
+          </div>
+          <p><strong>Base Atk</strong> +2; <strong>CMB</strong> +1; <strong>CMD</strong> 14</p>
+          <p><strong>Feats </strong>Alertness , Augment Summoning , Craft Wondrous Item , Greater Spell Focus (Conjuration) , Scribe Scroll , Spell Focus (Conjuration)</p>
+          <!-- Trait TYPE Abilities -->
+          <p><strong>Traits</strong> resilient</p>
+          <!-- End SpecialQuality TYPE Abilities -->
+          <!-- Languages and Communicate TYPE Abilities -->
+          <p><strong>Languages</strong> Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan </p>
+          <!-- End Languages Communicate TYPE Abilities -->
+          <!-- SpecialQuality TYPE Abilities -->
+          <p><strong>SQ</strong> arcane bond, bonus feats, cantrips, conjuration school, elven immunities, elven magic, enchantment opposition school, familiar, keen senses, low-light vision, necromancy opposition school, shift, summoner's charm </p>
+          <!-- End SpecialQuality TYPE Abilities -->
+          <!-- Animal Tricks TYPE Abilities -->
+          <!-- End Animal Tricks TYPE Abilities -->
+          <!-- Afflictions Start -->
+          <!-- Afflictions End -->
+          <!-- Equipment -->
+          <p><strong>Gear</strong>
+            <!-- Combat Gear -->
+            <!-- Armor -->
+            <!-- Weapons -->
+            <!-- Magic Items -->
+            headband of vast intelligence +2, ring of sustenance, cloak of resistance +2, pearl of power (1st level),
+            <!-- Remaining Equipment -->spellbook (wizard's/blank)</p>
+          <!-- Equipment End -->
+        </section>
+        <hr>
+        <section id="defense">
+          <h2>Defense</h2>
+          <!-- armor class -->
+          <p><strong>AC</strong> 13, <strong>touch</strong> 13, <strong>flat-footed</strong> 10 (+3 Dex)</p>
+          <input type="text" placeholder="Temp AC">
+          <!-- hit points -->
+          <p>
+            <strong>hp</strong> 35 (5d6+15)
+            <!-- ModifyHP TYPE Abilities -->
+            <!-- End ModifyHP TYPE Abilities -->
+          </p>
+          <input type="text" placeholder="Current HP">
+          <input type="text" placeholder="Current Non Lethal">
+          <p><strong>Fort</strong> +8</p>
+          <p><strong>Ref</strong> +6</p>
+          <p><strong>Will</strong> +7, +2 vs. enchantment spells and effects</p>
+          <input type="text" placeholder="Temporary Saves">
+          </p>
+          <!-- End SaveBonus TYPE Abilities -->
+          <!-- defensive abilities, damager reduction, immune, resist, SR --->
+          <!-- Defensive TYPE Abilities -->
+          <!-- End Defensive TYPE Abilities -->
+          <!-- Immunity TYPE Abilities -->
+          <!-- End Immunity TYPE Abilities -->
+          <!-- Resistance TYPE Abilities -->
+          <!-- End Resistance TYPE Abilities -->
+          <!-- Weakness TYPE Abilities -->
+          <!-- End Weakness TYPE Abilities -->
+          <!-- Defensive Gear -->
+          <!-- End Defensive Gear -->
+        </section>
+        <section id="offense">
+          <h2>Offense</h2>
+          <p><strong>Speed</strong> 30 ft.</p>
+          <!-- ModifyMovement TYPE Abilities -->
+          <!-- End ModifyMovement TYPE Abilities -->
+          <!-- Attacks -->
+          <!-- End Attacks -->
+          <!-- Space and Reach -->
+          <!-- SpecialAttack TYPE Abilities -->
+          <!-- End SpecialAttack TYPE Abilities -->
+          <!-- Innate Spell-Like Abilities -->
+          <!-- End Innate Spell-Like Abilities -->
+          <!-- Other Spell-Like Abilities -->
+          <!-- End Other Spell-Like Abilities -->
+          <!-- Domain Power Spell-Like Abilities -->
+          <!-- Known Spells -->
+          <!-- End Known Spells -->
+          <!-- Prepared Spells -->
+          <!-- End Prepared Spells -->
+          <!-- domains -->
+          <!-- End Domain list -->
+        </section>
+        <hr>
+        <section id="skills">
+          <h2>Skills</h2>
+          <ul class="skill-list">
+            <li>Appraise
+              <span>+13</span>
+            </li>
+            <li>Knowledge (Arcana)
+              <span>+11</span>
+            </li>
+            <li>Knowledge (Dungeoneering)
+              <span>+11</span>
+            </li>
+            <li>Knowledge (Engineering)
+              <span>+10</span>
+            </li>
+            <li>Knowledge (Geography)
+              <span>+10</span>
+            </li>
+            <li>Knowledge (History)
+              <span>+10</span>
+            </li>
+            <li>Knowledge (Local)
+              <span>+10</span>
+            </li>
+            <li>Knowledge (Nature)
+              <span>+10</span>
+            </li>
+            <li>Knowledge (Nobility)
+              <span>+10</span>
+            </li>
+            <li>Knowledge (Planes)
+              <span>+11</span>
+            </li>
+            <li>Knowledge (Religion)
+              <span>+11</span>
+            </li>
+            <li>Linguistics(Dwarven, Giant)
+              <span>+11</span>
+            </li>
+            <li>Perception
+              <span>+10</span>
+            </li>
+            <li>Sense Motive
+              <span>+8</span>
+            </li>
+            <li>Spellcraft
+              <span>+14</span>
+            </li>
+            <li>Spellcraft (Identify magic item)
+              <span>+16</span>
+            </li>
+            <li>Use Magic Device
+              <span>+5</span>
+            </li>
+          </ul>
+        </section>
+        <hr>
+        <section id="spellbook">
+          <h2>Spellbook</h2>
+          <!-- SpellBooks -->
+          <p><strong>Spell List Class</strong> Wizard</p>
+          <p><strong>Concentration</strong> +7</p>
+          <h3><strong>Spell Level 0</strong></h3>
+          <p><strong>Cast Per Day</strong> 4+0</p>
+          <ul>
+            <li>Bleed (DC 16)</li>
+            <li>Daze (DC 16)</li>
+            <li>Disrupt Undead</li>
+            <li>Touch of Fatigue (DC 16)</li>
+            <li>Prestidigitation (DC 16)</li>
+            <li>Light</li>
+            <li>Ghost Sound (DC 16)</li>
+            <li>Spark (DC 16)</li>
+            <li>Acid Splash</li>
+            <li>Mage Hand</li>
+            <li>Flare (DC 16)</li>
+            <li>Detect Magic</li>
+            <li>Detect Poison</li>
+            <li>Dancing Lights</li>
+            <li>Mending (DC 16)</li>
+            <li>Arcane Mark</li>
+            <li>Message</li>
+            <li>Ray of Frost</li>
+            <li>Read Magic (DC )</li>
+            <li>Open/Close (DC 16)</li>
+            <li>Resistance (DC 16)</li>
+          </ul>
+          <h3><strong>Spell Level 1</strong></h3>
+          <p><strong>Cast Per Day</strong> 5+1</p>
+          <ul>
+            <li>Comprehend Languages (DC )</li>
+            <li>Enlarge Person (DC 17)</li>
+            <li>Feather Fall (DC 17)</li>
+            <li>Grease (DC 19)</li>
+            <li>Mage Armor (DC 19)</li>
+            <li>Mount</li>
+            <li>Obscuring Mist</li>
+            <li>Protection from Chaos (DC 17)</li>
+            <li>Protection from Evil (DC 17)</li>
+            <li>Shield (DC )</li>
+            <li>Summon Monster I</li>
+            <li>Unseen Servant</li>
+          </ul>
+          <h3><strong>Spell Level 2</strong></h3>
+          <p><strong>Cast Per Day</strong> 4+1</p>
+          <ul>
+            <li>Create Pit (DC 20)</li>
+            <li>Flaming Sphere (DC 18)</li>
+            <li>Glitterdust (DC 20)</li>
+            <li>Invisibility (DC 18)</li>
+            <li>Levitate</li>
+            <li>Mirror Image (DC )</li>
+            <li>Resist Energy (DC 18)</li>
+            <li>Stone Call</li>
+            <li>Summon Monster II</li>
+            <li>Web (DC 20)</li>
+          </ul>
+          <h3><strong>Spell Level 3</strong></h3>
+          <p><strong>Cast Per Day</strong> 2+1</p>
+          <ul>
+            <li>Stinking Cloud (DC 21)</li>
+            <li>Summon Monster III</li>
+          </ul>
+        </section>
+        <hr>
+        <section id="special-abilities">
+          <h2>Special Abilities</h2>
+          <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
+          <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
+          <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
+          <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
+          <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
+          <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
+          <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
+          <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
+          <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
+          <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
+          <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
+          <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
+          <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
+          <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
+          <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
+          <p><strong>Teleportation School</strong> </p>
+          <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
+          <!-- Start of Temporary Bonuses Added -->
+          <!-- End of Temporary Bonuses Added -->
+        </section>
       </div>
-      <hr>
-      <section id="skills">
-        <h2>Skills</h2>
-        <ul class="skill-list">
-          <li>Appraise <span>+13</span>
-          </li>
-          <li>Knowledge (Arcana) <span>+11</span>
-          </li>
-          <li>Knowledge (Dungeoneering) <span>+11</span>
-          </li>
-          <li>Knowledge (Engineering) <span>+10</span>
-          </li>
-          <li>Knowledge (Geography) <span>+10</span>
-          </li>
-          <li>Knowledge (History) <span>+10</span>
-          </li>
-          <li>Knowledge (Local) <span>+10</span>
-          </li>
-          <li>Knowledge (Nature) <span>+10</span>
-          </li>
-          <li>Knowledge (Nobility) <span>+10</span>
-          </li>
-          <li>Knowledge (Planes) <span>+11</span>
-          </li>
-          <li>Knowledge (Religion) <span>+11</span>
-          </li>
-          <li>Linguistics(Dwarven, Giant) <span>+11</span>
-          </li>
-          <li>Perception <span>+10</span>
-          </li>
-          <li>Sense Motive <span>+8</span>
-          </li>
-          <li>Spellcraft <span>+14</span>
-          </li>
-          <li>Spellcraft (Identify magic item) <span>+16</span>
-          </li>
-          <li>Use Magic Device <span>+5</span>
-          </li>
-        </ul>
-      </section>
-      <hr>
-      <section id="spellbook">
-        <!-- SpellBooks -->
-        <p><strong>Spell List Class</strong> Wizard</p>
-        <p><strong>Concentration</strong> +7</p>
-        <h3><strong>Spell Level 0</strong></h3>
-        <p><strong>Cast Per Day</strong> 4+0</p>
-        <ul>
-          <li>Bleed (DC 16)</li>
-          <li>Daze (DC 16)</li>
-          <li>Disrupt Undead</li>
-          <li>Touch of Fatigue (DC 16)</li>
-          <li>Prestidigitation (DC 16)</li>
-          <li>Light</li>
-          <li>Ghost Sound (DC 16)</li>
-          <li>Spark (DC 16)</li>
-          <li>Acid Splash</li>
-          <li>Mage Hand</li>
-          <li>Flare (DC 16)</li>
-          <li>Detect Magic</li>
-          <li>Detect Poison</li>
-          <li>Dancing Lights</li>
-          <li>Mending (DC 16)</li>
-          <li>Arcane Mark</li>
-          <li>Message</li>
-          <li>Ray of Frost</li>
-          <li>Read Magic (DC )</li>
-          <li>Open/Close (DC 16)</li>
-          <li>Resistance (DC 16)</li>
-        </ul>
-        <h3><strong>Spell Level 1</strong></h3>
-        <p><strong>Cast Per Day</strong> 5+1</p>
-        <ul>
-          <li>Comprehend Languages (DC )</li>
-          <li>Enlarge Person (DC 17)</li>
-          <li>Feather Fall (DC 17)</li>
-          <li>Grease (DC 19)</li>
-          <li>Mage Armor (DC 19)</li>
-          <li>Mount</li>
-          <li>Obscuring Mist</li>
-          <li>Protection from Chaos (DC 17)</li>
-          <li>Protection from Evil (DC 17)</li>
-          <li>Shield (DC )</li>
-          <li>Summon Monster I</li>
-          <li>Unseen Servant</li>
-        </ul>
-        <h3><strong>Spell Level 2</strong></h3>
-        <p><strong>Cast Per Day</strong> 4+1</p>
-        <ul>
-          <li>Create Pit (DC 20)</li>
-          <li>Flaming Sphere (DC 18)</li>
-          <li>Glitterdust (DC 20)</li>
-          <li>Invisibility (DC 18)</li>
-          <li>Levitate</li>
-          <li>Mirror Image (DC )</li>
-          <li>Resist Energy (DC 18)</li>
-          <li>Stone Call</li>
-          <li>Summon Monster II</li>
-          <li>Web (DC 20)</li>
-        </ul>
-        <h3><strong>Spell Level 3</strong></h3>
-        <p><strong>Cast Per Day</strong> 2+1</p>
-        <ul>
-          <li>Stinking Cloud (DC 21)</li>
-          <li>Summon Monster III</li>
-        </ul>
-      </section>
-      <hr>
-      <section id="special-abilities">
-        <h2>Special Abilities</h2>
-        <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
-        <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
-        <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
-        <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
-        <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
-        <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
-        <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
-        <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
-        <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
-        <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
-        <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
-        <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
-        <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
-        <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
-        <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
-        <p><strong>Teleportation School</strong> </p>
-        <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
-        <!-- Start of Temporary Bonuses Added -->
-        <!-- End of Temporary Bonuses Added -->
-      </section>
     </div>
   </div>
 </div>

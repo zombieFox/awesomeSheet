@@ -4,25 +4,49 @@ function awesomesheet() {
   var str_scrore = e(".str .scrore");
   var str_modifier = e(".str .modifier");
 
-  function calculateModifer(stat) {
-    return Math.floor((stat.value - 10) / 2);
+  function calculateModifer(element) {
+    var modifier = Math.floor((element.value - 10) / 2);
+    return modifier;
   };
 
-  str_scrore.addEventListener("input", function() {
-    str_modifier.value = calculateModifer(str_scrore);
-  }, false);
+  function changeMod(element, field) {
+    var stat = checkValue(element);
+    var modifier = calculateModifer(element);
+    field.value = modifier;
+  };
 
-  str_scrore.addEventListener("click", function() {
-    str_modifier.value = calculateModifer(str_scrore);
-  }, false);
+  function checkValue(element) {
+    var value = parseInt(element.value, 10) || 0;
+    return value;
+  };
 
-  str_modifier.addEventListener("input", function() {
-    str_modifier.value = calculateModifer(str_scrore);
-  }, false);
+  // add listeners to saved formula buttons and inputs
+  function addListenerTo_stats() {
+    var stats = eA(".stats");
+    var stats_scrore = eA(".stats .scrore");
+    var stats_modifier = eA(".stats .modifier");
+    var stats_tempScrore = eA(".stats .temp-scrore");
+    var stats_tempModifier = eA(".stats .temp-modifier");
 
-  str_modifier.addEventListener("click", function() {
-    str_modifier.value = calculateModifer(str_scrore);
-  }, false);
+    for (var i = 0; i < stats.length; i++) {
+      stats_scrore[i].addEventListener("input", function() {
+        var parent = getClosest(this, ".stats");
+        var modifier = parent.children[2];
+        changeMod(this, modifier);
+      }, false);
+    };
+
+    for (var i = 0; i < stats.length; i++) {
+      stats_tempScrore[i].addEventListener("input", function() {
+        var parent = getClosest(this, ".stats");
+        var modifier = parent.children[4];
+        changeMod(this, modifier);
+      }, false);
+    };
+
+  };
+
+  addListenerTo_stats();
 
   // get element by class or id
   function e(selector) {

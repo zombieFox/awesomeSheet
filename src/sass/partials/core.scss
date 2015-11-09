@@ -6,22 +6,39 @@ body {
   margin: 50px 0;
 }
 
+section {
+  margin: 0 0 40px 0;
+}
+
 // nav
 nav {
+  width: 30%;
+  position: fixed;
+  top: 100px;
+  left: 15%;
+  margin: 0 0 40px 0;
   ul {
-    margin: 0 0 20px 0;
+    margin: 0;
     padding: 0;
     li {
       margin: 0 0 10px 0;
       padding: 0;
       list-style-type: none;
+      a {
+        font-size: 0.8rem;
+      }
     }
   }
 }
 
+.sheet {
+  width: 70%;
+  float: right;
+}
+
 hr {
   border: 0;
-  margin: 50px 0;
+  margin: 0 0 40px 0;
   border-bottom: 1px solid $gray-12;
   &:last-child {
     margin: 0;
@@ -32,15 +49,23 @@ hr {
 // basics
 #statistics {
   .stats {
-    div {
+    margin: 0 0 10px 0;
+    > p,
+    > input {
       box-sizing: border-box;
-      padding: 0 4% 0 0;
-      width: 20%;
+      margin: 0 4% 0 0;
+      padding: 0;
+      width: 16%;
       float: left;
-      input {
-        width: 100%;
-        text-align: center;
+      &:last-child {
+        margin: 0;
       }
+    }
+    p {
+      line-height: 2rem;
+    }
+    > input {
+      text-align: center;
     }
   }
 }
