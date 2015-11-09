@@ -107,3 +107,4 @@ function awesomesheet() {
 };
 
 awesomesheet();
+smoothScroll.init();

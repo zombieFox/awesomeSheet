@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js'],
         dest: '<%= folders.build %>/',
         expand: true
       },
@@ -48,15 +48,23 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      scripts: {
-        src: '<%= folders.build %>/js/**/*.js',
-        dest: '<%= folders.build %>/js/awesomeSheet.min.js'
+      thunderscripts: {
+        src: [
+          '<%= folders.build %>/js/awesomeSheet.js'
+        ],
+        dest: '<%= folders.build %>/js/awesomeSheet.js'
+      },
+      vendor: {
+        src: [
+          '<%= folders.build %>/bower_components/smooth-scroll/src/js/smooth-scroll.js'
+        ],
+        dest: '<%= folders.build %>/js/vendor.js'
       }
     },
 
     uglify: {
       build: {
-        src: '<%= folders.build %>/js/awesomeSheet.min.js',
+        src: '<%= folders.build %>/js/awesomeSheet.js',
         dest: '<%= folders.build %>/js/awesomeSheet.min.js'
       }
     },

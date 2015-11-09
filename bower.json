@@ -14,6 +14,7 @@
   ],
   "dependencies": {
     "normalize-scss": "~3.0.3",
-    "Skeleton-Sass": "skeleton-scss#*"
+    "Skeleton-Sass": "skeleton-scss#*",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.1.1"
   }
 }
