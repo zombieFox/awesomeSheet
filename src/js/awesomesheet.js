@@ -3,6 +3,19 @@ function awesomesheet() {
   var statistics = e("#statistics");
   var str_scrore = e(".str .scrore");
   var str_modifier = e(".str .modifier");
+  var skillList = eA(".skill-list .skill-details");
+
+console.log(skillList);
+
+function update_skillModifier() {
+  
+  for (var i = 0; i < skillList.length; i++) {
+    console.log(skillList[i].children[3]);
+  };
+
+};
+
+update_skillModifier();
 
   function calculateModifer(element) {
     var modifier = Math.floor((element.value - 10) / 2);

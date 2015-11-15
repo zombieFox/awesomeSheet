@@ -9,34 +9,13 @@ section {
   margin: 0 0 40px 0;
 }
 
-// nav
 nav {
-  width: 18%;
-  position: fixed;
-  float: left;
-  ul {
-    margin: 100px 0 0 0;
-    padding: 0;
-    li {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      a {
-        padding: 5px 0;
-        display: block;
-        font-size: 0.8rem;
-      }
-    }
-  }
+  display: none;
 }
 
 .sheet {
-  width: 70%;
-  float: right;
   h1,
-  h2 {
-    padding-top: 100px;
-  }
+  h2 {}
   #basics {}
 }
 
@@ -74,6 +53,49 @@ hr {
   }
 }
 
+// skills
+#skills {
+  .skill-list {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    thead {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      border-bottom: 1px solid $gray-08;
+    }
+    tr {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      border-bottom: 1px solid $gray-12;
+      &:last-child {
+        border: 0;
+      }
+      td {
+        border: 0;
+        padding: 10px 0;
+        margin: 10px 0;
+        text-align: right;
+        &:first-child {
+          text-align: left;
+        }
+        &.skill-name {}
+        &.skill-total {}
+        &.skill-ability,
+        &.skill-mod,
+        &.skill-ranks,
+        &.skill-misc {
+          color: $gray-04;
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
 
 /* media queries
 ------------------------------------------------- */
@@ -81,7 +103,34 @@ hr {
 @media (min-width: 550px) {}
 
 @media (min-width: 750px) {
-  body {
+  nav {
+    width: 18%;
+    position: fixed;
+    float: left;
+    display: block;
+    ul {
+      margin: 100px 0 0 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        a {
+          padding: 5px 0;
+          display: block;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .sheet {
+    width: 70%;
+    float: right;
+    h1,
+    h2 {
+      padding-top: 100px;
+    }
+    #basics {}
   }
 }
 
