@@ -3,6 +3,7 @@
 
 body {
   background: $white;
+  padding: 100px 0;
 }
 
 section {
@@ -31,24 +32,37 @@ hr {
 
 // basics
 #statistics {
-  .stats {
-    margin: 0 0 10px 0;
-    > p,
-    > input {
-      box-sizing: border-box;
-      margin: 0 4% 0 0;
+  ul {
+    margin: 0 0 20px 0;
+    padding: 0;
+    .stats {
+      margin: 0;
       padding: 0;
-      width: 16%;
-      float: left;
+      list-style-type: none;
+      border-bottom: 1px solid $gray-13;
       &:last-child {
-        margin: 0;
+        border: 0;
       }
-    }
-    p {
-      line-height: 2rem;
-    }
-    > input {
-      text-align: center;
+      p,
+      input {
+        box-sizing: border-box;
+        margin: 0 4% 0 0;
+        padding: 0;
+        width: 16%;
+        float: left;
+        &:last-child {
+          margin: 0;
+        }
+      }
+      p {
+        font-family: $open-sans-semi-bold;
+        line-height: 3rem;
+      }
+      input {
+        text-align: center;
+        line-height: 3rem;
+        height: 3rem;
+      }
     }
   }
 }
@@ -65,31 +79,50 @@ hr {
       padding: 0;
       margin: 0;
       border-bottom: 1px solid $gray-08;
+      tr {
+        td {
+          font-family: $open-sans-semi-bold;
+        }
+      }
     }
     tr {
       border: 0;
       padding: 0;
       margin: 0;
-      border-bottom: 1px solid $gray-12;
+      border-bottom: 1px solid $gray-13;
       &:last-child {
         border: 0;
       }
       td {
         border: 0;
-        padding: 10px 0;
-        margin: 10px 0;
-        text-align: right;
+        padding: 0 0 0 4%;
+        margin: 0;
+        text-align: center;
+        line-height: 2rem;
+        width: 10%;
         &:first-child {
           text-align: left;
         }
-        &.skill-name {}
-        &.skill-total {}
+        input {
+          width: 100%;
+          text-align: center;
+        }
+        &.skill-name {
+          padding: 0;
+          width: 90%;
+        }
+        &.skill-total {
+          font-family: $open-sans-semi-bold;
+        }
         &.skill-ability,
         &.skill-mod,
         &.skill-ranks,
-        &.skill-misc {
-          color: $gray-04;
-          font-size: 0.6rem;
+        &.skill-misc,
+        input {
+          color: $gray-09;
+          font-size: 0.8rem;
+          line-height: 2rem;
+          height: 2rem;
         }
       }
     }
@@ -109,7 +142,7 @@ hr {
     float: left;
     display: block;
     ul {
-      margin: 100px 0 0 0;
+      margin: 0;
       padding: 0;
       li {
         margin: 0;
@@ -128,7 +161,7 @@ hr {
     float: right;
     h1,
     h2 {
-      padding-top: 100px;
+      // padding-top: 100px;
     }
     #basics {}
   }

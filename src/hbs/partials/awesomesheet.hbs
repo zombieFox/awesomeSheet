@@ -33,50 +33,52 @@
           <!-- auras -->
         </section>
         <hr>
-        <section id="statistics">
+        <section id="statistics" class="clearfix">
           <h2>Stats</h2>
-          <div class="stats str clearfix">
-            <p>Str</p>
-            <input type="number" class="scrore" placeholder="" value="8">
-            <input type="number" class="modifier" placeholder="" value="-1">
-            <input type="number" class="temp-scrore" placeholder="">
-            <input type="number" class="temp-modifier" placeholder="">
-          </div>
-          <div class="stats dex clearfix">
-            <p>Dex</p>
-            <input type="number" class="scrore" placeholder="" value="17">
-            <input type="number" class="modifier" placeholder="" value="3">
-            <input type="number" class="temp-scrore" placeholder="">
-            <input type="number" class="temp-modifier" placeholder="">
-          </div>
-          <div class="stats con clearfix">
-            <p>Con</p>
-            <input type="number" class="scrore" placeholder="" value="14">
-            <input type="number" class="modifier" placeholder="" value="2">
-            <input type="number" class="temp-scrore" placeholder="">
-            <input type="number" class="temp-modifier" placeholder="">
-          </div>
-          <div class="stats int clearfix">
-            <p>Int</p>
-            <input type="number" class="scrore" placeholder="" value="23">
-            <input type="number" class="modifier" placeholder="" value="6">
-            <input type="number" class="temp-scrore" placeholder="">
-            <input type="number" class="temp-modifier" placeholder="">
-          </div>
-          <div class="stats wis clearfix">
-            <p>Wis</p>
-            <input type="number" class="scrore" placeholder="" value="12">
-            <input type="number" class="modifier" placeholder="" value="1">
-            <input type="number" class="temp-scrore" placeholder="">
-            <input type="number" class="temp-modifier" placeholder="">
-          </div>
-          <div class="stats cha clearfix">
-            <p>Cha</p>
-            <input type="number" class="scrore" placeholder="" value="10">
-            <input type="number" class="modifier" placeholder="" value="0">
-            <input type="number" class="temp-scrore" placeholder="">
-            <input type="number" class="temp-modifier" placeholder="">
-          </div>
+          <ul>
+            <li class="stats str clearfix">
+              <p>Str</p>
+              <input type="number" class="scrore" placeholder="" value="8">
+              <input type="number" class="modifier" placeholder="" value="-1"> {{!--
+              <input type="number" class="temp-scrore" placeholder=""> --}} {{!--
+              <input type="number" class="temp-modifier" placeholder=""> --}}
+            </li>
+            <li class="stats dex clearfix">
+              <p>Dex</p>
+              <input type="number" class="scrore" placeholder="" value="17">
+              <input type="number" class="modifier" placeholder="" value="3"> {{!--
+              <input type="number" class="temp-scrore" placeholder=""> --}} {{!--
+              <input type="number" class="temp-modifier" placeholder=""> --}}
+            </li>
+            <li class="stats con clearfix">
+              <p>Con</p>
+              <input type="number" class="scrore" placeholder="" value="14">
+              <input type="number" class="modifier" placeholder="" value="2"> {{!--
+              <input type="number" class="temp-scrore" placeholder=""> --}} {{!--
+              <input type="number" class="temp-modifier" placeholder=""> --}}
+            </li>
+            <li class="stats int clearfix">
+              <p>Int</p>
+              <input type="number" class="scrore" placeholder="" value="23">
+              <input type="number" class="modifier" placeholder="" value="6"> {{!--
+              <input type="number" class="temp-scrore" placeholder=""> --}} {{!--
+              <input type="number" class="temp-modifier" placeholder=""> --}}
+            </li>
+            <li class="stats wis clearfix">
+              <p>Wis</p>
+              <input type="number" class="scrore" placeholder="" value="12">
+              <input type="number" class="modifier" placeholder="" value="1"> {{!--
+              <input type="number" class="temp-scrore" placeholder=""> --}} {{!--
+              <input type="number" class="temp-modifier" placeholder=""> --}}
+            </li>
+            <li class="stats cha clearfix">
+              <p>Cha</p>
+              <input type="number" class="scrore" placeholder="" value="10">
+              <input type="number" class="modifier" placeholder="" value="0"> {{!--
+              <input type="number" class="temp-scrore" placeholder=""> --}} {{!--
+              <input type="number" class="temp-modifier" placeholder=""> --}}
+            </li>
+          </ul>
           <p><strong>Base Atk</strong> +2; <strong>CMB</strong> +1; <strong>CMD</strong> 14</p>
           <p><strong>Feats </strong>Alertness , Augment Summoning , Craft Wondrous Item , Greater Spell Focus (Conjuration) , Scribe Scroll , Spell Focus (Conjuration)</p>
           <!-- Trait TYPE Abilities -->
@@ -161,7 +163,7 @@
           <h2>Skills</h2>
           <table class="skill-list">
             <thead>
-              <tr class="skill-details">
+              <tr>
                 <td class="skill-name skill-title">Skill</td>
                 <td class="skill-total skill-title">Total</td>
                 <td class="skill-ability skill-title">Ability</td>
@@ -175,248 +177,372 @@
               <td class="skill-total skill-value">3</td>
               <td class="skill-ability skill-value">DEX</td>
               <td class="skill-mod skill-value">3</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Appraise</td>
               <td class="skill-total skill-value">13</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">4</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="4">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Bluff</td>
               <td class="skill-total skill-value">0</td>
               <td class="skill-ability skill-value">CHA</td>
               <td class="skill-mod skill-value">0</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Climb</td>
               <td class="skill-total skill-value">-1</td>
               <td class="skill-ability skill-value">STR</td>
               <td class="skill-mod skill-value">-1</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Craft</td>
               <td class="skill-total skill-value">6</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Diplomacy</td>
               <td class="skill-total skill-value">0</td>
               <td class="skill-ability skill-value">CHA</td>
               <td class="skill-mod skill-value">0</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Disguise</td>
               <td class="skill-total skill-value">0</td>
               <td class="skill-ability skill-value">CHA</td>
               <td class="skill-mod skill-value">0</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Escape Artist</td>
               <td class="skill-total skill-value">3</td>
               <td class="skill-ability skill-value">DEX</td>
               <td class="skill-mod skill-value">3</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Fly</td>
               <td class="skill-total skill-value">3</td>
               <td class="skill-ability skill-value">DEX</td>
               <td class="skill-mod skill-value">3</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Heal</td>
               <td class="skill-total skill-value">1</td>
               <td class="skill-ability skill-value">WIS</td>
               <td class="skill-mod skill-value">1</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Intimidate</td>
               <td class="skill-total skill-value">0</td>
               <td class="skill-ability skill-value">CHA</td>
               <td class="skill-mod skill-value">0</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Arcana)</td>
               <td class="skill-total skill-value">11</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">2</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="2">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Dungeoneering)</td>
               <td class="skill-total skill-value">11</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">2</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="2">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Engineering)</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">1</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="1">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Geography)</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">1</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="1">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (History)</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">1</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="1">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Local)</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">1</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="1">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Nature)</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">1</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="1">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Nobility)</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">1</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="1">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Planes)</td>
               <td class="skill-total skill-value">11</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">2</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="2">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Knowledge (Religion)</td>
               <td class="skill-total skill-value">11</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">2</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="2">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Linguistics (Dwarven, Giant)</td>
               <td class="skill-total skill-value">11</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">2</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="2">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Perception</td>
               <td class="skill-total skill-value">10</td>
               <td class="skill-ability skill-value">WIS</td>
               <td class="skill-mod skill-value">1</td>
-              <td class="skill-ranks skill-value">5</td>
-              <td class="skill-misc skill-value">4</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="5">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="4">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Perform (Untrained)</td>
               <td class="skill-total skill-value">0</td>
               <td class="skill-ability skill-value">CHA</td>
               <td class="skill-mod skill-value">0</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Ride</td>
               <td class="skill-total skill-value">3</td>
               <td class="skill-ability skill-value">DEX</td>
               <td class="skill-mod skill-value">3</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Sense Motive</td>
               <td class="skill-total skill-value">8</td>
               <td class="skill-ability skill-value">WIS</td>
               <td class="skill-mod skill-value">1</td>
-              <td class="skill-ranks skill-value">5</td>
-              <td class="skill-misc skill-value">2</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="5">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="2">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Spellcraft</td>
               <td class="skill-total skill-value">14</td>
               <td class="skill-ability skill-value">INT</td>
               <td class="skill-mod skill-value">6</td>
-              <td class="skill-ranks skill-value">5</td>
-              <td class="skill-misc skill-value">3</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="5">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="3">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Stealth</td>
               <td class="skill-total skill-value">3</td>
               <td class="skill-ability skill-value">DEX</td>
               <td class="skill-mod skill-value">3</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Survival</td>
               <td class="skill-total skill-value">1</td>
               <td class="skill-ability skill-value">WIS</td>
               <td class="skill-mod skill-value">1</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Swim</td>
               <td class="skill-total skill-value">-1</td>
               <td class="skill-ability skill-value">STR</td>
               <td class="skill-mod skill-value">-1</td>
-              <td class="skill-ranks skill-value">0</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="0">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
             <tr class="skill-details">
               <td class="skill-name skill-value">Use Magic Device</td>
               <td class="skill-total skill-value">5</td>
               <td class="skill-ability skill-value">CHA</td>
               <td class="skill-mod skill-value">0</td>
-              <td class="skill-ranks skill-value">5</td>
-              <td class="skill-misc skill-value">0</td>
+              <td class="skill-ranks skill-value">
+                <input type="number" value="5">
+              </td>
+              <td class="skill-misc skill-value">
+                <input type="number" value="0">
+              </td>
             </tr>
           </table>
         </section>
