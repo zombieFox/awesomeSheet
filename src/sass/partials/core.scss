@@ -8,6 +8,10 @@ body {
 
 section {
   margin: 0 0 40px 0;
+  > h2 {
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid $primary-color;
+  }
 }
 
 nav {
@@ -43,25 +47,31 @@ hr {
       &:last-child {
         border: 0;
       }
-      p,
-      input {
-        box-sizing: border-box;
+      .name,
+      .scrore,
+      .modifier,
+      .temp-scrore,
+      .temp-modifier {
         margin: 0 4% 0 0;
-        padding: 0;
-        width: 16%;
+        line-height: 3rem;
+        height: 3rem;
         float: left;
+        width: 16%;
         &:last-child {
           margin: 0;
         }
       }
-      p {
+      .name {
         font-family: $open-sans-semi-bold;
-        line-height: 3rem;
+        text-align: left;
       }
-      input {
+      .scrore,
+      .modifier,
+      .temp-scrore,
+      .temp-modifier {
+        box-sizing: border-box;
+        padding: 0;
         text-align: center;
-        line-height: 3rem;
-        height: 3rem;
       }
     }
   }
