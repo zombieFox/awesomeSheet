@@ -51,15 +51,14 @@ hr {
         margin: 0;
         padding: 0;
         float: left;
-        width: 15%;
+        width: 20%;
         text-align: center;
         height: 3rem;
         line-height: 3rem;
         box-sizing: border-box;
       }
       .scrore,
-      .temp-scrore {
-      }
+      .temp-scrore {}
       .name,
       .modifier,
       .temp-modifier {
@@ -171,6 +170,20 @@ hr {
 ------------------------------------------------- */
 
 @media (min-width: 550px) {
+  // basics
+  #statistics {
+    ul {
+      .stats {
+        .name,
+        .modifier,
+        .temp-modifier,
+        .scrore,
+        .temp-scrore {
+          width: 15%;
+        }
+      }
+    }
+  }
   // skills
   #skills {
     .skill-list {
