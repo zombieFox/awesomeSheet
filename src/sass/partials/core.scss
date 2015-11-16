@@ -43,35 +43,31 @@ hr {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      border-bottom: 1px solid $gray-13;
-      &:last-child {
-        border: 0;
+      .name,
+      .modifier,
+      .temp-modifier,
+      .scrore,
+      .temp-scrore {
+        margin: 0;
+        padding: 0;
+        float: left;
+        width: 15%;
+        text-align: center;
+        height: 3rem;
+        line-height: 3rem;
+        box-sizing: border-box;
+      }
+      .scrore,
+      .temp-scrore {
       }
       .name,
-      .scrore,
       .modifier,
-      .temp-scrore,
       .temp-modifier {
-        margin: 0 4% 0 0;
-        line-height: 3rem;
-        height: 3rem;
-        float: left;
-        width: 16%;
-        &:last-child {
-          margin: 0;
-        }
+        border-bottom: 1px solid $gray-13;
       }
       .name {
-        font-family: $open-sans-semi-bold;
         text-align: left;
-      }
-      .scrore,
-      .modifier,
-      .temp-scrore,
-      .temp-modifier {
-        box-sizing: border-box;
-        padding: 0;
-        text-align: center;
+        font-family: $open-sans-semi-bold;
       }
     }
   }
@@ -84,55 +80,86 @@ hr {
     padding: 0;
     margin: 0;
     width: 100%;
+    border-spacing: 0;
     thead {
-      border: 0;
-      padding: 0;
-      margin: 0;
       border-bottom: 1px solid $gray-08;
       tr {
         td {
+          padding: 0 1%;
+          margin: 0;
+          height: 3rem;
+          line-height: 3rem;
+          width: 1%;
           font-family: $open-sans-semi-bold;
+          &:first-child {
+            width: 99%;
+            padding: 0;
+            text-align: left;
+          }
+          &.ability-title,
+          &.mod-title,
+          &.ranks-title,
+          &.misc-title {
+            display: none;
+          }
+          &.ability-title,
+          &.mod-title,
+          &.ranks-title,
+          &.misc-title {
+            color: $gray-09;
+            font-size: 0.8rem;
+          }
         }
       }
     }
     tr {
-      border: 0;
-      padding: 0;
-      margin: 0;
-      border-bottom: 1px solid $gray-13;
-      &:last-child {
-        border: 0;
-      }
       td {
-        border: 0;
-        padding: 0 0 0 4%;
+        padding: 0;
         margin: 0;
         text-align: center;
-        line-height: 2rem;
-        width: 10%;
         &:first-child {
-          text-align: left;
+          width: 99%;
+          p {
+            text-align: left;
+          }
         }
-        input {
-          width: 100%;
-          text-align: center;
-        }
-        &.skill-name {
+        .skill-value {
           padding: 0;
-          width: 90%;
+          margin: 0;
+          height: 3rem;
+          line-height: 3rem;
+          text-align: center;
+          width: 100%;
+          box-sizing: border-box;
         }
-        &.skill-total {
+        &.ability,
+        &.mod,
+        &.ranks,
+        &.misc {
+          display: none;
+        }
+        &.name,
+        &.total,
+        &.ability,
+        &.mod,
+        &.ranks,
+        &.misc {
+          p {
+            border-bottom: 1px solid $gray-13;
+          }
+        }
+        &.ability,
+        &.mod,
+        &.ranks,
+        &.misc {
+          p,
+          input {
+            color: $gray-09;
+            font-size: 0.7rem;
+          }
+        }
+        &.total {
           font-family: $open-sans-semi-bold;
-        }
-        &.skill-ability,
-        &.skill-mod,
-        &.skill-ranks,
-        &.skill-misc,
-        input {
-          color: $gray-09;
-          font-size: 0.8rem;
-          line-height: 2rem;
-          height: 2rem;
         }
       }
     }
@@ -143,7 +170,35 @@ hr {
 /* media queries
 ------------------------------------------------- */
 
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+  // skills
+  #skills {
+    .skill-list {
+      thead {
+        tr {
+          td {
+            &.ability-title,
+            &.mod-title,
+            &.ranks-title,
+            &.misc-title {
+              display: table-cell;
+            }
+          }
+        }
+      }
+      tr {
+        td {
+          &.ability,
+          &.mod,
+          &.ranks,
+          &.misc {
+            display: table-cell;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (min-width: 750px) {
   nav {

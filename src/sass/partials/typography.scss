@@ -58,6 +58,10 @@ p {
   margin: 0 0 10px 0;
 }
 
+strong {
+  font-family: $open-sans-semi-bold;
+}
+
 
 /* Links
 ------------------------------------------------- */
@@ -94,7 +98,7 @@ input {
     padding: 0;
     color: $gray-02;
     border: 0;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid $gray-13;
     box-shadow: none;
     box-sizing: border-box;
     transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
@@ -134,13 +138,13 @@ input {
 
 @media (min-width: 550px) {
   html {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
 @media (min-width: 750px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 

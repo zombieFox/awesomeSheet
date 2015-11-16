@@ -109,11 +109,11 @@ function awesomesheet() {
   function update_skillTotal() {
 
     for (var i = 0; i < skillList.length; i++) {
-      var skillMod = parseInt(skillList[i].children[3].innerHTML, 10) || 0;
+      var skillMod = parseInt(skillList[i].children[3].children[0].innerHTML, 10) || 0;
       var skillRanks = checkValue(skillList[i].children[4].children[0]);
       var skillMisc = checkValue(skillList[i].children[5].children[0]);
       var skillTotal = skillMod + skillRanks + skillMisc;
-      skillList[i].children[1].innerHTML = skillTotal;
+      skillList[i].children[1].children[0].innerHTML = skillTotal;
     };
 
   };
@@ -122,60 +122,60 @@ function awesomesheet() {
   function update_skillModifier() {
 
     for (var i = 0; i < skillList.length; i++) {
-      var ability = skillList[i].children[2].innerHTML;
+      var ability = skillList[i].children[2].children[0].innerHTML;
       var whichAbility = function() {
         // if the skill has STR or DEX or CON or INT or WIS or CHA in its ability 
         if (ability == "STR") {
 
           // if temp score mod has content
           if (stats_strTempMod.innerHTML == "") {
-            skillList[i].children[3].innerHTML = stats_strMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_strMod.innerHTML;
           } else {
-            skillList[i].children[3].innerHTML = stats_strTempMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_strTempMod.innerHTML;
           };
 
         } else if (ability == "DEX") {
           // if temp score mod has content
           if (stats_dexTempMod.innerHTML == "") {
-            skillList[i].children[3].innerHTML = stats_dexMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_dexMod.innerHTML;
           } else {
-            skillList[i].children[3].innerHTML = stats_dexTempMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_dexTempMod.innerHTML;
           };
 
         } else if (ability == "CON") {
 
           // if temp score mod has content
           if (stats_conTempMod.innerHTML == "") {
-            skillList[i].children[3].innerHTML = stats_conMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_conMod.innerHTML;
           } else {
-            skillList[i].children[3].innerHTML = stats_conTempMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_conTempMod.innerHTML;
           };
 
         } else if (ability == "INT") {
 
           // if temp score mod has content
           if (stats_intTempMod.innerHTML == "") {
-            skillList[i].children[3].innerHTML = stats_intMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_intMod.innerHTML;
           } else {
-            skillList[i].children[3].innerHTML = stats_intTempMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_intTempMod.innerHTML;
           };
 
         } else if (ability == "WIS") {
 
           // if temp score mod has content
           if (stats_wisTempMod.innerHTML == "") {
-            skillList[i].children[3].innerHTML = stats_wisMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_wisMod.innerHTML;
           } else {
-            skillList[i].children[3].innerHTML = stats_wisTempMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_wisTempMod.innerHTML;
           };
 
         } else if (ability == "CHA") {
 
           // if temp score mod has content
           if (stats_chaTempMod.innerHTML == "") {
-            skillList[i].children[3].innerHTML = stats_chaMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_chaMod.innerHTML;
           } else {
-            skillList[i].children[3].innerHTML = stats_chaTempMod.innerHTML;
+            skillList[i].children[3].children[0].innerHTML = stats_chaTempMod.innerHTML;
           };
 
         };
@@ -224,8 +224,8 @@ function awesomesheet() {
 
   // add listeners to skills
   function addListenerTo_skillInputs() {
-    var skillRanks = eA(".skill-ranks input");
-    var skillMisc = eA(".skill-misc input");
+    var skillRanks = eA(".ranks input");
+    var skillMisc = eA(".misc input");
 
     for (var i = 0; i < skillRanks.length; i++) {
       skillRanks[i].addEventListener("input", function() {
