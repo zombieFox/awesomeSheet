@@ -132,6 +132,19 @@ input {
   }
 }
 
+::-webkit-input-placeholder {
+   color: $gray-12;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $gray-12;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $gray-12;  
+}
+
+
 
 /* media queries
 ------------------------------------------------- */
@@ -144,7 +157,7 @@ input {
 
 @media (min-width: 750px) {
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
