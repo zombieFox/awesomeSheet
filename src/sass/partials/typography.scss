@@ -82,6 +82,27 @@ a {
   }
 }
 
+textarea {
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  width: 100%;
+  background-color: transparent;
+  min-height: 150px;
+  color: $gray-02;
+  border: 0;
+  border-bottom: 1px solid $gray-13;
+  box-sizing: border-box;
+  transition: border $transition-ease-medium;
+  resize: vertical;
+  &:hover {
+    border-color: $primary-color;
+  }
+  &:focus {
+    border-color: $primary-color;
+    outline: 0;
+  }
+}
+
 input {
   &[type="email"],
   &[type="number"],
@@ -108,7 +129,6 @@ input {
     &:focus {
       border-color: $primary-color;
       outline: 0;
-      color: $gray-02;
     }
     &:active {}
   }
@@ -133,17 +153,18 @@ input {
 }
 
 ::-webkit-input-placeholder {
-   color: $gray-12;
+  color: $gray-12;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: $gray-12;  
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: $gray-12;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: $gray-12;  
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $gray-12;
 }
-
 
 
 /* media queries

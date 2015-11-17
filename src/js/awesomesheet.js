@@ -1,11 +1,11 @@
 function awesomesheet() {
 
-  var stats_strScore = e(".stats.str .scrore");
-  var stats_dexScore = e(".stats.dex .scrore");
-  var stats_conScore = e(".stats.con .scrore");
-  var stats_intScore = e(".stats.int .scrore");
-  var stats_wisScore = e(".stats.wis .scrore");
-  var stats_chaScore = e(".stats.cha .scrore");
+  var stats_strScore = e(".stats.str .score");
+  var stats_dexScore = e(".stats.dex .score");
+  var stats_conScore = e(".stats.con .score");
+  var stats_intScore = e(".stats.int .score");
+  var stats_wisScore = e(".stats.wis .score");
+  var stats_chaScore = e(".stats.cha .score");
 
   var stats_strMod = e(".stats.str .modifier");
   var stats_dexMod = e(".stats.dex .modifier");
@@ -14,12 +14,12 @@ function awesomesheet() {
   var stats_wisMod = e(".stats.wis .modifier");
   var stats_chaMod = e(".stats.cha .modifier");
 
-  var stats_strTempScrore = e(".stats.str .temp-scrore");
-  var stats_dexTempScrore = e(".stats.dex .temp-scrore");
-  var stats_conTempScrore = e(".stats.con .temp-scrore");
-  var stats_intTempScrore = e(".stats.int .temp-scrore");
-  var stats_wisTempScrore = e(".stats.wis .temp-scrore");
-  var stats_chaTempScrore = e(".stats.cha .temp-scrore");
+  var stats_strTempScore = e(".stats.str .temp-score");
+  var stats_dexTempScore = e(".stats.dex .temp-score");
+  var stats_conTempScore = e(".stats.con .temp-score");
+  var stats_intTempScore = e(".stats.int .temp-score");
+  var stats_wisTempScore = e(".stats.wis .temp-score");
+  var stats_chaTempScore = e(".stats.cha .temp-score");
 
   var stats_strTempMod = e(".stats.str .temp-modifier");
   var stats_dexTempMod = e(".stats.dex .temp-modifier");
@@ -59,12 +59,12 @@ function awesomesheet() {
     localStoreAdd("stats_wis", stats_wisScore.value);
     localStoreAdd("stats_cha", stats_chaScore.value);
 
-    localStoreAdd("stats_strTemp", stats_strTempScrore.value);
-    localStoreAdd("stats_dexTemp", stats_dexTempScrore.value);
-    localStoreAdd("stats_conTemp", stats_conTempScrore.value);
-    localStoreAdd("stats_intTemp", stats_intTempScrore.value);
-    localStoreAdd("stats_wisTemp", stats_wisTempScrore.value);
-    localStoreAdd("stats_chaTemp", stats_chaTempScrore.value);
+    localStoreAdd("stats_strTemp", stats_strTempScore.value);
+    localStoreAdd("stats_dexTemp", stats_dexTempScore.value);
+    localStoreAdd("stats_conTemp", stats_conTempScore.value);
+    localStoreAdd("stats_intTemp", stats_intTempScore.value);
+    localStoreAdd("stats_wisTemp", stats_wisTempScore.value);
+    localStoreAdd("stats_chaTemp", stats_chaTempScore.value);
 
   };
 
@@ -89,22 +89,22 @@ function awesomesheet() {
       stats_chaScore.value = localStoreRead("stats_cha");
     };
     if (localStoreRead("stats_strTemp")) {
-      stats_strTempScrore.value = localStoreRead("stats_strTemp");
+      stats_strTempScore.value = localStoreRead("stats_strTemp");
     };
     if (localStoreRead("stats_dexTemp")) {
-      stats_dexTempScrore.value = localStoreRead("stats_dexTemp");
+      stats_dexTempScore.value = localStoreRead("stats_dexTemp");
     };
     if (localStoreRead("stats_conTemp")) {
-      stats_conTempScrore.value = localStoreRead("stats_conTemp");
+      stats_conTempScore.value = localStoreRead("stats_conTemp");
     };
     if (localStoreRead("stats_intTemp")) {
-      stats_intTempScrore.value = localStoreRead("stats_intTemp");
+      stats_intTempScore.value = localStoreRead("stats_intTemp");
     };
     if (localStoreRead("stats_wisTemp")) {
-      stats_wisTempScrore.value = localStoreRead("stats_wisTemp");
+      stats_wisTempScore.value = localStoreRead("stats_wisTemp");
     };
     if (localStoreRead("stats_chaTemp")) {
-      stats_chaTempScrore.value = localStoreRead("stats_chaTemp");
+      stats_chaTempScore.value = localStoreRead("stats_chaTemp");
     };
 
   };
@@ -169,11 +169,12 @@ function awesomesheet() {
   // change mod
   function changeMod(element, field) {
     var stat = checkValue(element);
-    console.log(stat);
+    // console.log("stat = " + stat);
     var modifier = calculateModifer(element);
-    console.log(modifier);
+    // console.log("modifier = " + modifier);
     field.innerHTML = modifier;
-    console.log(field);
+    // console.log("field = ");
+    // console.log(field);
   };
 
   // calculate mod
@@ -189,37 +190,47 @@ function awesomesheet() {
   };
 
   // update mods
-  function update_scoreModifiers (argument) {
+  function update_scoreModifiers() {
+
     changeMod(stats_strScore, stats_strMod);
-    
-    // stats_strScore.value = localStoreRead("stats_str");
+    changeMod(stats_dexScore, stats_dexMod);
+    changeMod(stats_conScore, stats_conMod);
+    changeMod(stats_intScore, stats_intMod);
+    changeMod(stats_wisScore, stats_wisMod);
+    changeMod(stats_chaScore, stats_chaMod);
 
-    // stats_dexScore.value = localStoreRead("stats_dex");
+    // if score temp is not empty calculte the temp mod
+    if (stats_strTempScore.value !== "") {
+      changeMod(stats_strTempScore, stats_strTempMod);
+    };
 
-    // stats_conScore.value = localStoreRead("stats_con");
+    // if score temp is not empty calculte the temp mod
+    if (stats_dexTempScore.value !== "") {
+      changeMod(stats_dexTempScore, stats_dexTempMod);
+    };
 
-    // stats_intScore.value = localStoreRead("stats_int");
+    // if score temp is not empty calculte the temp mod
+    if (stats_conTempScore.value !== "") {
+      changeMod(stats_conTempScore, stats_conTempMod);
+    };
 
-    // stats_wisScore.value = localStoreRead("stats_wis");
+    // if score temp is not empty calculte the temp mod
+    if (stats_intTempScore.value !== "") {
+      changeMod(stats_intTempScore, stats_intTempMod);
+    };
 
-    // stats_chaScore.value = localStoreRead("stats_cha");
+    // if score temp is not empty calculte the temp mod
+    if (stats_wisTempScore.value !== "") {
+      changeMod(stats_wisTempScore, stats_wisTempMod);
+    };
 
-    // stats_strTempScrore.value = localStoreRead("stats_strTemp");
-
-    // stats_dexTempScrore.value = localStoreRead("stats_dexTemp");
-
-    // stats_conTempScrore.value = localStoreRead("stats_conTemp");
-
-    // stats_intTempScrore.value = localStoreRead("stats_intTemp");
-
-    // stats_wisTempScrore.value = localStoreRead("stats_wisTemp");
-
-    // stats_chaTempScrore.value = localStoreRead("stats_chaTemp");
-
+    // if score temp is not empty calculte the temp mod
+    if (stats_chaTempScore.value !== "") {
+      changeMod(stats_chaTempScore, stats_chaTempMod);
+    };
 
   };
 
-  update_scoreModifiers();
 
   // update skill total
   function update_skillTotal() {
@@ -304,14 +315,14 @@ function awesomesheet() {
   // add listeners to stats
   function addListenerTo_stats() {
     var stats = eA(".stats");
-    var stats_scrore = eA(".stats .scrore");
+    var stats_score = eA(".stats .score");
     var stats_modifier = eA(".stats .modifier");
-    var stats_tempScrore = eA(".stats .temp-scrore");
+    var stats_tempScore = eA(".stats .temp-score");
     var stats_tempModifier = eA(".stats .temp-modifier");
 
     // primary scores
     for (var i = 0; i < stats.length; i++) {
-      stats_scrore[i].addEventListener("input", function() {
+      stats_score[i].addEventListener("input", function() {
         var parent = getClosest(this, ".stats");
         var modifier = parent.children[2];
         changeMod(this, modifier);
@@ -323,7 +334,7 @@ function awesomesheet() {
 
     // temp scores
     for (var i = 0; i < stats.length; i++) {
-      stats_tempScrore[i].addEventListener("input", function() {
+      stats_tempScore[i].addEventListener("input", function() {
         var parent = getClosest(this, ".stats");
         var tempStat = parent.children[3];
         var tempModifier = parent.children[4];
@@ -361,9 +372,10 @@ function awesomesheet() {
 
   addListenerTo_stats();
   addListenerTo_skillInputs();
+  read_sheet();
+  update_scoreModifiers();
   update_skillModifier();
   update_skillTotal();
-  read_sheet();
 
 };
 
