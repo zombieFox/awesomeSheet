@@ -63,7 +63,7 @@ function awesomesheet() {
   };
 
   // get parent element
-  var getClosest = function(element, selector) {
+  function getClosest(element, selector) {
     var firstChar = selector.charAt(0);
     // Get closest match
     for (; element && element !== document; element = element.parentNode) {
@@ -113,7 +113,8 @@ function awesomesheet() {
     };
   };
 
-  function store_sheet() {
+  // store stats
+  function store_stats() {
 
     localStoreAdd("stats_str", stats_strScore.value);
     localStoreAdd("stats_dex", stats_dexScore.value);
@@ -131,8 +132,8 @@ function awesomesheet() {
 
   };
 
-  function read_sheet() {
-
+  // read stats
+  function read_stats() {
     if (localStoreRead("stats_str")) {
       stats_strScore.value = localStoreRead("stats_str");
     };
@@ -169,7 +170,70 @@ function awesomesheet() {
     if (localStoreRead("stats_chaTemp")) {
       stats_chaTempScore.value = localStoreRead("stats_chaTemp");
     };
+  };
 
+  // store ac
+  function store_ac() {
+
+    localStoreAdd("ac_armor", ac.children[5].children[0].value);
+    localStoreAdd("ac_shield", ac.children[7].children[0].value);
+    localStoreAdd("ac_deflection", ac.children[9].children[0].value);
+    localStoreAdd("ac_misc", ac.children[11].children[0].value);
+
+    localStoreAdd("acTouch_deflection", acTouch.children[5].children[0].value);
+    localStoreAdd("acTouch_misc", acTouch.children[7].children[0].value);
+
+    localStoreAdd("acFlatFooted_armor", acFlatFooted.children[3].children[0].value);
+    localStoreAdd("acFlatFooted_shield", acFlatFooted.children[5].children[0].value);
+    localStoreAdd("acFlatFooted_deflection", acFlatFooted.children[7].children[0].value);
+    localStoreAdd("acFlatFooted_misc", acFlatFooted.children[9].children[0].value);
+
+  };
+
+  // read ac
+  function read_ac() {
+
+    if (localStoreRead("ac_armor")) {
+      ac.children[5].children[0].value = localStoreRead("ac_armor");
+    };
+    if (localStoreRead("ac_shield")) {
+      ac.children[7].children[0].value = localStoreRead("ac_shield");
+    };
+    if (localStoreRead("ac_deflection")) {
+      ac.children[9].children[0].value = localStoreRead("ac_deflection");
+    };
+    if (localStoreRead("ac_misc")) {
+      ac.children[11].children[0].value = localStoreRead("ac_misc");
+    };
+    if (localStoreRead("acTouch_deflection")) {
+      acTouch.children[5].children[0].value = localStoreRead("acTouch_deflection");
+    };
+    if (localStoreRead("acTouch_misc")) {
+      acTouch.children[7].children[0].value = localStoreRead("acTouch_misc");
+    };
+    if (localStoreRead("acFlatFooted_armor")) {
+      acFlatFooted.children[3].children[0].value = localStoreRead("acFlatFooted_armor");
+    };
+    if (localStoreRead("acFlatFooted_shield")) {
+      acFlatFooted.children[5].children[0].value = localStoreRead("acFlatFooted_shield");
+    };
+    if (localStoreRead("acFlatFooted_deflection")) {
+      acFlatFooted.children[7].children[0].value = localStoreRead("acFlatFooted_deflection");
+    };
+    if (localStoreRead("acFlatFooted_misc")) {
+      acFlatFooted.children[9].children[0].value = localStoreRead("acFlatFooted_misc");
+    };
+
+  };
+
+  // store textareas
+  function store_textarea() {
+    if (localStoreRead("textarea_equipment")) {
+      textarea_equipment.innerHTML = localStoreRead("textarea_equipment");
+    };
+    if (localStoreRead("textarea_gear")) {
+      textarea_gear.innerHTML = localStoreRead("textarea_gear");
+    };
   };
 
   // change mod
@@ -195,6 +259,7 @@ function awesomesheet() {
     return value;
   };
 
+  // upage ac totals and mods
   function update_ac() {
 
     //  loop through ac for dex
@@ -388,15 +453,6 @@ function awesomesheet() {
 
   };
 
-  function update_textarea() {
-    if (localStoreRead("textarea_equipment")) {
-      textarea_equipment.innerHTML = localStoreRead("textarea_equipment");
-    };
-    if (localStoreRead("textarea_gear")) {
-      textarea_gear.innerHTML = localStoreRead("textarea_gear");
-    };
-  };
-
   // add listeners to stats
   function addListenerTo_acInputs() {
 
@@ -410,24 +466,28 @@ function awesomesheet() {
       if (armor != null) {
         armor.addEventListener("input", function() {
           update_ac();
+          store_ac();
         }, false);
       };
 
       if (shield != null) {
         shield.addEventListener("input", function() {
           update_ac();
+          store_ac();
         }, false);
       };
 
       if (deflection != null) {
         deflection.addEventListener("input", function() {
           update_ac();
+          store_ac();
         }, false);
       };
 
       if (misc != null) {
         misc.addEventListener("input", function() {
           update_ac();
+          store_ac();
         }, false);
       };
 
@@ -457,7 +517,8 @@ function awesomesheet() {
         update_skillModifier();
         update_skillTotal();
         update_ac();
-        store_sheet();
+        store_stats();
+        store_ac();
       }, false);
     };
 
@@ -476,7 +537,8 @@ function awesomesheet() {
         update_skillModifier();
         update_skillTotal();
         update_ac();
-        store_sheet();
+        store_stats();
+        store_ac();
       }, false);
     };
 
@@ -512,12 +574,13 @@ function awesomesheet() {
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_acInputs();
-  read_sheet();
+  read_stats();
+  read_ac();
   update_scoreModifiers();
   update_skillModifier();
   update_skillTotal();
   update_ac();
-  update_textarea();
+  store_textarea();
 
 };
 

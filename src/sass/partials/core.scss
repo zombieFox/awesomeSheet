@@ -97,7 +97,7 @@ hr {
           &.mod-title,
           &.ranks-title,
           &.misc-title {
-            color: $gray-10;
+            color: $gray-08;
             font-size: $small-text;
           }
         }
@@ -145,7 +145,7 @@ hr {
         &.misc {
           p,
           input {
-            color: $gray-10;
+            color: $gray-08;
             font-size: $small-text;
           }
         }
@@ -223,10 +223,10 @@ hr {
     .deflection,
     .plus,
     .misc {
-      color: $gray-10;
+      color: $gray-08;
       font-size: $small-text;
       input {
-        color: $gray-10;
+        color: $gray-08;
         font-size: $small-text;
       }
     }
@@ -293,9 +293,9 @@ hr {
 
 @media (min-width: 750px) {
   nav {
-    width: 18%;
+    width: 25%;
     position: fixed;
-    float: left;
+    left: 0;
     display: block;
     ul {
       margin: 0;
@@ -304,16 +304,26 @@ hr {
         margin: 0;
         padding: 0;
         list-style-type: none;
+        text-align: right;
         a {
-          padding: 5px 0;
+          line-height: 2rem;
+          padding: 5px 20px;
           display: block;
           font-size: $small-text;
+          font-family: $open-sans-semi-bold;
+          &:hover {
+            text-decoration: none;
+          }
+          &:active {
+            background-color: $primary-color;
+            color: $white;
+          }
         }
       }
     }
   }
   .sheet {
-    width: 70%;
+    width: 75%;
     float: right;
   }
   // defense
