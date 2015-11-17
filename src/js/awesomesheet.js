@@ -30,6 +30,86 @@ function awesomesheet() {
 
   var skillList = eA(".skill-list .skill-details");
 
+  // local storage add
+  function localStoreAdd(key, data) {
+    if (localStorage.getItem) {
+      localStorage.setItem(key, data);
+      // console.log("added " + key + " + " + data);
+    };
+  };
+
+  // local storage read
+  function localStoreRead(key) {
+    if (localStorage.getItem(key) == "") {
+      localStorage.removeItem(key);
+      // console.log(key + " was deleted");
+    } else if (localStorage.getItem(key)) {
+      return localStorage.getItem(key);
+      // data = localStorage.getItem(key);
+      // console.log("read and displayed " + key + " + " + data);
+    };
+  };
+
+  function store_sheet() {
+
+    localStoreAdd("stats_str", stats_strScore.value);
+    localStoreAdd("stats_dex", stats_dexScore.value);
+    localStoreAdd("stats_con", stats_conScore.value);
+    localStoreAdd("stats_int", stats_intScore.value);
+    localStoreAdd("stats_wis", stats_wisScore.value);
+    localStoreAdd("stats_cha", stats_chaScore.value);
+
+    localStoreAdd("stats_strTemp", stats_strTempScrore.value);
+    localStoreAdd("stats_dexTemp", stats_dexTempScrore.value);
+    localStoreAdd("stats_conTemp", stats_conTempScrore.value);
+    localStoreAdd("stats_intTemp", stats_intTempScrore.value);
+    localStoreAdd("stats_wisTemp", stats_wisTempScrore.value);
+    localStoreAdd("stats_chaTemp", stats_chaTempScrore.value);
+
+  };
+
+  function read_sheet() {
+
+    if (localStoreRead("stats_str")) {
+      stats_strScore.value = localStoreRead("stats_str");
+    };
+    if (localStoreRead("stats_dex")) {
+      stats_dexScore.value = localStoreRead("stats_dex");
+    };
+    if (localStoreRead("stats_con")) {
+      stats_conScore.value = localStoreRead("stats_con");
+    };
+    if (localStoreRead("stats_int")) {
+      stats_intScore.value = localStoreRead("stats_int");
+    };
+    if (localStoreRead("stats_wis")) {
+      stats_wisScore.value = localStoreRead("stats_wis");
+    };
+    if (localStoreRead("stats_cha")) {
+      stats_chaScore.value = localStoreRead("stats_cha");
+    };
+    if (localStoreRead("stats_strTemp")) {
+      stats_strTempScrore.value = localStoreRead("stats_strTemp");
+    };
+    if (localStoreRead("stats_dexTemp")) {
+      stats_dexTempScrore.value = localStoreRead("stats_dexTemp");
+    };
+    if (localStoreRead("stats_conTemp")) {
+      stats_conTempScrore.value = localStoreRead("stats_conTemp");
+    };
+    if (localStoreRead("stats_intTemp")) {
+      stats_intTempScrore.value = localStoreRead("stats_intTemp");
+    };
+    if (localStoreRead("stats_wisTemp")) {
+      stats_wisTempScrore.value = localStoreRead("stats_wisTemp");
+    };
+    if (localStoreRead("stats_chaTemp")) {
+      stats_chaTempScrore.value = localStoreRead("stats_chaTemp");
+    };
+
+  };
+
+
   // get element by class or id
   function e(selector) {
     return document.querySelector(selector);
@@ -89,8 +169,11 @@ function awesomesheet() {
   // change mod
   function changeMod(element, field) {
     var stat = checkValue(element);
+    console.log(stat);
     var modifier = calculateModifer(element);
+    console.log(modifier);
     field.innerHTML = modifier;
+    console.log(field);
   };
 
   // calculate mod
@@ -104,6 +187,39 @@ function awesomesheet() {
     var value = parseInt(element.value, 10) || 0;
     return value;
   };
+
+  // update mods
+  function update_scoreModifiers (argument) {
+    changeMod(stats_strScore, stats_strMod);
+    
+    // stats_strScore.value = localStoreRead("stats_str");
+
+    // stats_dexScore.value = localStoreRead("stats_dex");
+
+    // stats_conScore.value = localStoreRead("stats_con");
+
+    // stats_intScore.value = localStoreRead("stats_int");
+
+    // stats_wisScore.value = localStoreRead("stats_wis");
+
+    // stats_chaScore.value = localStoreRead("stats_cha");
+
+    // stats_strTempScrore.value = localStoreRead("stats_strTemp");
+
+    // stats_dexTempScrore.value = localStoreRead("stats_dexTemp");
+
+    // stats_conTempScrore.value = localStoreRead("stats_conTemp");
+
+    // stats_intTempScrore.value = localStoreRead("stats_intTemp");
+
+    // stats_wisTempScrore.value = localStoreRead("stats_wisTemp");
+
+    // stats_chaTempScrore.value = localStoreRead("stats_chaTemp");
+
+
+  };
+
+  update_scoreModifiers();
 
   // update skill total
   function update_skillTotal() {
@@ -201,6 +317,7 @@ function awesomesheet() {
         changeMod(this, modifier);
         update_skillModifier();
         update_skillTotal();
+        store_sheet();
       }, false);
     };
 
@@ -217,6 +334,7 @@ function awesomesheet() {
         };
         update_skillModifier();
         update_skillTotal();
+        store_sheet();
       }, false);
     };
 
@@ -245,6 +363,7 @@ function awesomesheet() {
   addListenerTo_skillInputs();
   update_skillModifier();
   update_skillTotal();
+  read_sheet();
 
 };
 
