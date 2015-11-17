@@ -1,11 +1,11 @@
 function awesomesheet() {
 
-  var stats_strScore = e(".stats.str .scrore");
-  var stats_dexScore = e(".stats.dex .scrore");
-  var stats_conScore = e(".stats.con .scrore");
-  var stats_intScore = e(".stats.int .scrore");
-  var stats_wisScore = e(".stats.wis .scrore");
-  var stats_chaScore = e(".stats.cha .scrore");
+  var stats_strScore = e(".stats.str .score");
+  var stats_dexScore = e(".stats.dex .score");
+  var stats_conScore = e(".stats.con .score");
+  var stats_intScore = e(".stats.int .score");
+  var stats_wisScore = e(".stats.wis .score");
+  var stats_chaScore = e(".stats.cha .score");
 
   var stats_strMod = e(".stats.str .modifier");
   var stats_dexMod = e(".stats.dex .modifier");
@@ -14,12 +14,12 @@ function awesomesheet() {
   var stats_wisMod = e(".stats.wis .modifier");
   var stats_chaMod = e(".stats.cha .modifier");
 
-  var stats_strTempScrore = e(".stats.str .temp-scrore");
-  var stats_dexTempScrore = e(".stats.dex .temp-scrore");
-  var stats_conTempScrore = e(".stats.con .temp-scrore");
-  var stats_intTempScrore = e(".stats.int .temp-scrore");
-  var stats_wisTempScrore = e(".stats.wis .temp-scrore");
-  var stats_chaTempScrore = e(".stats.cha .temp-scrore");
+  var stats_strTempScore = e(".stats.str .temp-score");
+  var stats_dexTempScore = e(".stats.dex .temp-score");
+  var stats_conTempScore = e(".stats.con .temp-score");
+  var stats_intTempScore = e(".stats.int .temp-score");
+  var stats_wisTempScore = e(".stats.wis .temp-score");
+  var stats_chaTempScore = e(".stats.cha .temp-score");
 
   var stats_strTempMod = e(".stats.str .temp-modifier");
   var stats_dexTempMod = e(".stats.dex .temp-modifier");
@@ -29,6 +29,86 @@ function awesomesheet() {
   var stats_chaTempMod = e(".stats.cha .temp-modifier");
 
   var skillList = eA(".skill-list .skill-details");
+
+  // local storage add
+  function localStoreAdd(key, data) {
+    if (localStorage.getItem) {
+      localStorage.setItem(key, data);
+      // console.log("added " + key + " + " + data);
+    };
+  };
+
+  // local storage read
+  function localStoreRead(key) {
+    if (localStorage.getItem(key) == "") {
+      localStorage.removeItem(key);
+      // console.log(key + " was deleted");
+    } else if (localStorage.getItem(key)) {
+      return localStorage.getItem(key);
+      // data = localStorage.getItem(key);
+      // console.log("read and displayed " + key + " + " + data);
+    };
+  };
+
+  function store_sheet() {
+
+    localStoreAdd("stats_str", stats_strScore.value);
+    localStoreAdd("stats_dex", stats_dexScore.value);
+    localStoreAdd("stats_con", stats_conScore.value);
+    localStoreAdd("stats_int", stats_intScore.value);
+    localStoreAdd("stats_wis", stats_wisScore.value);
+    localStoreAdd("stats_cha", stats_chaScore.value);
+
+    localStoreAdd("stats_strTemp", stats_strTempScore.value);
+    localStoreAdd("stats_dexTemp", stats_dexTempScore.value);
+    localStoreAdd("stats_conTemp", stats_conTempScore.value);
+    localStoreAdd("stats_intTemp", stats_intTempScore.value);
+    localStoreAdd("stats_wisTemp", stats_wisTempScore.value);
+    localStoreAdd("stats_chaTemp", stats_chaTempScore.value);
+
+  };
+
+  function read_sheet() {
+
+    if (localStoreRead("stats_str")) {
+      stats_strScore.value = localStoreRead("stats_str");
+    };
+    if (localStoreRead("stats_dex")) {
+      stats_dexScore.value = localStoreRead("stats_dex");
+    };
+    if (localStoreRead("stats_con")) {
+      stats_conScore.value = localStoreRead("stats_con");
+    };
+    if (localStoreRead("stats_int")) {
+      stats_intScore.value = localStoreRead("stats_int");
+    };
+    if (localStoreRead("stats_wis")) {
+      stats_wisScore.value = localStoreRead("stats_wis");
+    };
+    if (localStoreRead("stats_cha")) {
+      stats_chaScore.value = localStoreRead("stats_cha");
+    };
+    if (localStoreRead("stats_strTemp")) {
+      stats_strTempScore.value = localStoreRead("stats_strTemp");
+    };
+    if (localStoreRead("stats_dexTemp")) {
+      stats_dexTempScore.value = localStoreRead("stats_dexTemp");
+    };
+    if (localStoreRead("stats_conTemp")) {
+      stats_conTempScore.value = localStoreRead("stats_conTemp");
+    };
+    if (localStoreRead("stats_intTemp")) {
+      stats_intTempScore.value = localStoreRead("stats_intTemp");
+    };
+    if (localStoreRead("stats_wisTemp")) {
+      stats_wisTempScore.value = localStoreRead("stats_wisTemp");
+    };
+    if (localStoreRead("stats_chaTemp")) {
+      stats_chaTempScore.value = localStoreRead("stats_chaTemp");
+    };
+
+  };
+
 
   // get element by class or id
   function e(selector) {
@@ -89,8 +169,12 @@ function awesomesheet() {
   // change mod
   function changeMod(element, field) {
     var stat = checkValue(element);
+    // console.log("stat = " + stat);
     var modifier = calculateModifer(element);
+    // console.log("modifier = " + modifier);
     field.innerHTML = modifier;
+    // console.log("field = ");
+    // console.log(field);
   };
 
   // calculate mod
@@ -104,6 +188,49 @@ function awesomesheet() {
     var value = parseInt(element.value, 10) || 0;
     return value;
   };
+
+  // update mods
+  function update_scoreModifiers() {
+
+    changeMod(stats_strScore, stats_strMod);
+    changeMod(stats_dexScore, stats_dexMod);
+    changeMod(stats_conScore, stats_conMod);
+    changeMod(stats_intScore, stats_intMod);
+    changeMod(stats_wisScore, stats_wisMod);
+    changeMod(stats_chaScore, stats_chaMod);
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_strTempScore.value !== "") {
+      changeMod(stats_strTempScore, stats_strTempMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_dexTempScore.value !== "") {
+      changeMod(stats_dexTempScore, stats_dexTempMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_conTempScore.value !== "") {
+      changeMod(stats_conTempScore, stats_conTempMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_intTempScore.value !== "") {
+      changeMod(stats_intTempScore, stats_intTempMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_wisTempScore.value !== "") {
+      changeMod(stats_wisTempScore, stats_wisTempMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_chaTempScore.value !== "") {
+      changeMod(stats_chaTempScore, stats_chaTempMod);
+    };
+
+  };
+
 
   // update skill total
   function update_skillTotal() {
@@ -188,25 +315,26 @@ function awesomesheet() {
   // add listeners to stats
   function addListenerTo_stats() {
     var stats = eA(".stats");
-    var stats_scrore = eA(".stats .scrore");
+    var stats_score = eA(".stats .score");
     var stats_modifier = eA(".stats .modifier");
-    var stats_tempScrore = eA(".stats .temp-scrore");
+    var stats_tempScore = eA(".stats .temp-score");
     var stats_tempModifier = eA(".stats .temp-modifier");
 
     // primary scores
     for (var i = 0; i < stats.length; i++) {
-      stats_scrore[i].addEventListener("input", function() {
+      stats_score[i].addEventListener("input", function() {
         var parent = getClosest(this, ".stats");
         var modifier = parent.children[2];
         changeMod(this, modifier);
         update_skillModifier();
         update_skillTotal();
+        store_sheet();
       }, false);
     };
 
     // temp scores
     for (var i = 0; i < stats.length; i++) {
-      stats_tempScrore[i].addEventListener("input", function() {
+      stats_tempScore[i].addEventListener("input", function() {
         var parent = getClosest(this, ".stats");
         var tempStat = parent.children[3];
         var tempModifier = parent.children[4];
@@ -217,6 +345,7 @@ function awesomesheet() {
         };
         update_skillModifier();
         update_skillTotal();
+        store_sheet();
       }, false);
     };
 
@@ -243,6 +372,8 @@ function awesomesheet() {
 
   addListenerTo_stats();
   addListenerTo_skillInputs();
+  read_sheet();
+  update_scoreModifiers();
   update_skillModifier();
   update_skillTotal();
 
