@@ -51,7 +51,8 @@
     float: left;
     margin-right: $grid-spacing;
     box-sizing: border-box;
-    &:last-child {
+    &:last-child,
+    .col-12 {
       margin-right: 0%;
     }
   }

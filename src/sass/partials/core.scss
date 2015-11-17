@@ -18,12 +18,6 @@ nav {
   display: none;
 }
 
-.sheet {
-  h1,
-  h2 {}
-  #basics {}
-}
-
 hr {
   border: 0;
   margin: 0 0 40px 0;
@@ -57,8 +51,6 @@ hr {
         line-height: 3rem;
         box-sizing: border-box;
       }
-      .score,
-      .temp-score {}
       .name,
       .modifier,
       .temp-modifier {
@@ -105,8 +97,8 @@ hr {
           &.mod-title,
           &.ranks-title,
           &.misc-title {
-            color: $gray-09;
-            font-size: 0.8rem;
+            color: $gray-10;
+            font-size: $small-text;
           }
         }
       }
@@ -153,13 +145,89 @@ hr {
         &.misc {
           p,
           input {
-            color: $gray-09;
-            font-size: 0.7rem;
+            color: $gray-10;
+            font-size: $small-text;
           }
         }
         &.total {
           font-family: $open-sans-semi-bold;
         }
+      }
+    }
+  }
+}
+
+// defense
+#defense {
+  .hp {
+    &.hp-leathal,
+    &.hp-non-leathal {
+      width: 100%;
+    }
+  }
+  .ac,
+  .ac-touch,
+  .ac-flat-footed {
+    .title,
+    .base,
+    .armor,
+    .shield,
+    .dex,
+    .deflection,
+    .plus,
+    .misc {
+      height: 3rem;
+      line-height: 3rem;
+      display: block;
+      float: left;
+      padding: 0 0;
+      max-width: 12%;
+      box-sizing: border-box;
+      input {
+        margin: 0;
+        padding: 0 10px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .base {
+      padding: 0 10px 0 0;
+    }
+    .dex {
+      padding: 0 10px;
+    }
+    .base,
+    .dex,
+    .plus {
+      border-bottom: 1px solid $gray-13;
+    }
+    .armor,
+    .shield,
+    .deflection,
+    .misc {
+      width: 14%;
+    }
+    .plus {
+      padding: 0 1px;
+    }
+    .title {
+      min-width: 100px;
+    }
+    .total {
+      font-family: $open-sans-semi-bold;
+    }
+    .base,
+    .armor,
+    .shield,
+    .dex,
+    .deflection,
+    .plus,
+    .misc {
+      color: $gray-10;
+      font-size: $small-text;
+      input {
+        color: $gray-10;
+        font-size: $small-text;
       }
     }
   }
@@ -211,6 +279,16 @@ hr {
       }
     }
   }
+  // defense
+  #defense {
+    .ac,
+    .ac-touch,
+    .ac-flat-footed {
+      .title {
+        min-width: 120px;
+      }
+    }
+  }
 }
 
 @media (min-width: 750px) {
@@ -229,7 +307,7 @@ hr {
         a {
           padding: 5px 0;
           display: block;
-          font-size: 0.8rem;
+          font-size: $small-text;
         }
       }
     }
@@ -237,11 +315,16 @@ hr {
   .sheet {
     width: 70%;
     float: right;
-    h1,
-    h2 {
-      // padding-top: 100px;
+  }
+  // defense
+  #defense {
+    .ac,
+    .ac-touch,
+    .ac-flat-footed {
+      .title {
+        min-width: 140px;
+      }
     }
-    #basics {}
   }
 }
 

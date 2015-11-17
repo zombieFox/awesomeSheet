@@ -33,6 +33,66 @@ function awesomesheet() {
 
   var skillList = eA(".skill-list .skill-details");
 
+  var ac = e(".ac");
+  var acTouch = e(".ac-touch");
+  var acFlatFooted = e(".ac-flat-footed");
+
+  // get element by class or id
+  function e(selector) {
+    return document.querySelector(selector);
+  };
+
+  // get all elements by class or id
+  function eA(selector) {
+    return document.querySelectorAll(selector);
+  };
+
+  // toggle class
+  function toggleClass(element, theClassName) {
+    element.classList.toggle(theClassName);
+  };
+
+  // add class
+  function addClass(element, theClassName) {
+    element.classList.add(theClassName);
+  };
+
+  // remove class
+  function removeClass(element, theClassName) {
+    element.classList.remove(theClassName);
+  };
+
+  // get parent element
+  var getClosest = function(element, selector) {
+    var firstChar = selector.charAt(0);
+    // Get closest match
+    for (; element && element !== document; element = element.parentNode) {
+      // If selector is a class
+      if (firstChar === '.') {
+        if (element.classList.contains(selector.substr(1))) {
+          return element;
+        };
+      };
+      // If selector is an ID
+      if (firstChar === '#') {
+        if (element.id === selector.substr(1)) {
+          return element;
+        };
+      };
+      // If selector is a data attribute
+      if (firstChar === '[') {
+        if (element.hasAttribute(selector.substr(1, selector.length - 2))) {
+          return element;
+        };
+      };
+      // If selector is a tag
+      if (element.tagName.toLowerCase() === selector) {
+        return element;
+      };
+    };
+    return false;
+  };
+
   // local storage add
   function localStoreAdd(key, data) {
     if (localStorage.getItem) {
@@ -112,62 +172,6 @@ function awesomesheet() {
 
   };
 
-  // get element by class or id
-  function e(selector) {
-    return document.querySelector(selector);
-  };
-
-  // get all elements by class or id
-  function eA(selector) {
-    return document.querySelectorAll(selector);
-  };
-
-  // toggle class
-  function toggleClass(element, theClassName) {
-    element.classList.toggle(theClassName);
-  };
-
-  // add class
-  function addClass(element, theClassName) {
-    element.classList.add(theClassName);
-  };
-
-  // remove class
-  function removeClass(element, theClassName) {
-    element.classList.remove(theClassName);
-  };
-
-  // get parent element
-  var getClosest = function(element, selector) {
-    var firstChar = selector.charAt(0);
-    // Get closest match
-    for (; element && element !== document; element = element.parentNode) {
-      // If selector is a class
-      if (firstChar === '.') {
-        if (element.classList.contains(selector.substr(1))) {
-          return element;
-        };
-      };
-      // If selector is an ID
-      if (firstChar === '#') {
-        if (element.id === selector.substr(1)) {
-          return element;
-        };
-      };
-      // If selector is a data attribute
-      if (firstChar === '[') {
-        if (element.hasAttribute(selector.substr(1, selector.length - 2))) {
-          return element;
-        };
-      };
-      // If selector is a tag
-      if (element.tagName.toLowerCase() === selector) {
-        return element;
-      };
-    };
-    return false;
-  };
-
   // change mod
   function changeMod(element, field) {
     var stat = checkValue(element);
@@ -189,6 +193,77 @@ function awesomesheet() {
   function checkValue(element) {
     var value = parseInt(element.value, 10) || 0;
     return value;
+  };
+
+  function update_ac() {
+
+    //  loop through ac for dex
+    for (var i = 0; i < ac.children.length; i++) {
+      if (ac.children[i].classList.contains("dex")) {
+        ac.children[i].innerHTML = parseInt(stats_dexMod.innerHTML, 10) + " Dex";
+      };
+    };
+
+    //  loop through acTouch for dex
+    for (var i = 0; i < acTouch.children.length; i++) {
+      if (acTouch.children[i].classList.contains("dex")) {
+        acTouch.children[i].innerHTML = parseInt(stats_dexMod.innerHTML, 10) + " Dex";
+      };
+    };
+
+    function acTotal(acType) {
+
+      var base = 10;
+      var dex = acType.querySelector(".dex");
+      var armor = acType.querySelector(".armor input")
+      var shield = acType.querySelector(".shield input")
+      var deflection = acType.querySelector(".deflection input")
+      var misc = acType.querySelector(".misc input")
+      var acCombined = base;
+
+      if (dex != null) {
+        acCombined = acCombined + parseInt(dex.innerHTML, 10);
+      };
+
+      if (armor != null) {
+        if (armor.value != "") {
+          acCombined = acCombined + parseInt(armor.value, 10);
+        };
+      };
+
+      if (shield != null) {
+        if (shield.value != "") {
+          acCombined = acCombined + parseInt(shield.value, 10);
+        };
+      };
+
+      if (deflection != null) {
+        if (deflection.value != "") {
+          acCombined = acCombined + parseInt(deflection.value, 10);
+        };
+      };
+
+      if (misc != null) {
+        if (misc.value != "") {
+          acCombined = acCombined + parseInt(misc.value, 10);
+        };
+      };
+
+      acType.querySelector(".total").innerHTML = acCombined;
+
+      // console.log(dex);
+      // console.log(armor);
+      // console.log(shield);
+      // console.log(deflection);
+      // console.log(misc);
+      // console.log("acCombined = " + acCombined);
+
+    };
+
+    acTotal(ac);
+    acTotal(acTouch);
+    acTotal(acFlatFooted);
+
   };
 
   // update mods
@@ -323,6 +398,48 @@ function awesomesheet() {
   };
 
   // add listeners to stats
+  function addListenerTo_acInputs() {
+
+    function addListener(acType) {
+
+      var armor = acType.querySelector(".armor input");
+      var shield = acType.querySelector(".shield input");
+      var deflection = acType.querySelector(".deflection input");
+      var misc = acType.querySelector(".misc input");
+
+      if (armor != null) {
+        armor.addEventListener("input", function() {
+          update_ac();
+        }, false);
+      };
+
+      if (shield != null) {
+        shield.addEventListener("input", function() {
+          update_ac();
+        }, false);
+      };
+
+      if (deflection != null) {
+        deflection.addEventListener("input", function() {
+          update_ac();
+        }, false);
+      };
+
+      if (misc != null) {
+        misc.addEventListener("input", function() {
+          update_ac();
+        }, false);
+      };
+
+    };
+
+    addListener(ac);
+    addListener(acTouch);
+    addListener(acFlatFooted);
+
+  };
+
+  // add listeners to stats
   function addListenerTo_stats() {
     var stats = eA(".stats");
     var stats_score = eA(".stats .score");
@@ -336,8 +453,10 @@ function awesomesheet() {
         var parent = getClosest(this, ".stats");
         var modifier = parent.children[2];
         changeMod(this, modifier);
+        // update sheet when stats are modified
         update_skillModifier();
         update_skillTotal();
+        update_ac();
         store_sheet();
       }, false);
     };
@@ -353,8 +472,10 @@ function awesomesheet() {
         if (tempStat.value == "") {
           tempModifier.innerHTML = null;
         };
+        // update sheet when stats are modified
         update_skillModifier();
         update_skillTotal();
+        update_ac();
         store_sheet();
       }, false);
     };
@@ -390,10 +511,12 @@ function awesomesheet() {
 
   addListenerTo_stats();
   addListenerTo_skillInputs();
+  addListenerTo_acInputs();
   read_sheet();
   update_scoreModifiers();
   update_skillModifier();
   update_skillTotal();
+  update_ac();
   update_textarea();
 
 };

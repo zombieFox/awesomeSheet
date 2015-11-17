@@ -79,7 +79,7 @@
             </li>
           </ul>
           <p><strong>Base Atk</strong> +2; <strong>CMB</strong> +1; <strong>CMD</strong> 14</p>
-          <p><strong>Feats </strong>Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</p>
+          <p><strong>Feats</strong> Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</p>
           <p><strong>Traits</strong> resilient</p>
           <p><strong>Languages</strong> Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan </p>
           <p><strong>SQ</strong> arcane bond, bonus feats, cantrips, conjuration school, elven immunities, elven magic, enchantment opposition school, familiar, keen senses, low-light vision, necromancy opposition school, shift, summoner's charm </p>
@@ -92,11 +92,89 @@
           <h2>Defense</h2>
           <!-- hp -->
           <p><strong>HP</strong> 35 (5d6+15)</p>
-          <input type="number" placeholder="Current HP">
-          <input type="number" placeholder="Current Non Lethal">
-          <!-- armor class -->
-          <p><strong>AC</strong> 13, <strong>touch</strong> 13, <strong>flat-footed</strong> 10 (+3 Dex)</p>
-          <input type="text" placeholder="Temp AC">
+          <div class="row">
+            <div class="col-6">
+              <input class="hp hp-leathal" type="number" placeholder="Current HP">
+            </div>
+            <div class="col-6">
+              <input class="hp hp-non-leathal" type="number" placeholder="Current Non Lethal">
+            </div>
+          </div>
+          <!-- ac -->
+          <div class="row">
+            <div class="col-12">
+              <div class="ac">
+                <p class="title">AC
+                  <span class="total">13</span>
+                </p>
+                <p class="base">10</p>
+                <p class="plus">+</p>
+                <p class="dex">3</p>
+                <p class="plus">+</p>
+                <p class="armor">
+                  <input type="number" placeholder="Armor">
+                </p>
+                <p class="plus">+</p>
+                <p class="shield">
+                  <input type="number" placeholder="Shield">
+                </p>
+                <p class="plus">+</p>
+                <p class="deflection">
+                  <input type="number" placeholder="Deflec">
+                </p>
+                <p class="plus">+</p>
+                <p class="misc">
+                  <input type="number" placeholder="Misc">
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="ac-touch">
+                <p class="title">Touch
+                  <span class="total">13</span>
+                </p>
+                <p class="base">10</p>
+                <p class="plus">+</p>
+                <p class="dex">3</p>
+                <p class="plus">+</p>
+                <p class="deflection">
+                  <input type="number" placeholder="Deflec">
+                </p>
+                <p class="plus">+</p>
+                <p class="misc">
+                  <input type="number" placeholder="Misc">
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="ac-flat-footed">
+                <p class="title">Flat Flooted
+                  <span class="total">10</span>
+                </p>
+                <p class="base">10</p>
+                <p class="plus">+</p>
+                <p class="armor">
+                  <input type="number" placeholder="Armor">
+                </p>
+                <p class="plus">+</p>
+                <p class="shield">
+                  <input type="number" placeholder="Shield">
+                </p>
+                <p class="plus">+</p>
+                <p class="deflection">
+                  <input type="number" placeholder="Deflec">
+                </p>
+                <p class="plus">+</p>
+                <p class="misc">
+                  <input type="number" placeholder="Misc">
+                </p>
+              </div>
+            </div>
+          </div>
           <!-- hit points -->
           <p><strong>Fort</strong> +8</p>
           <p><strong>Ref</strong> +6</p>

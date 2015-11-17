@@ -112,11 +112,12 @@ input {
   &[type="url"],
   &[type="password"] {
     background-color: transparent;
-    height: 2rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-family: $open-sans-regular;
-    line-height: 2rem;
+    height: 3rem;
+    line-height: 3rem;
     padding: 0;
+    margin: 0 0 20px 0;
     color: $gray-02;
     border: 0;
     border-bottom: 1px solid $gray-13;
@@ -153,17 +154,17 @@ input {
 }
 
 ::-webkit-input-placeholder {
-  color: $gray-12;
+  color: $gray-10;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: $gray-12;
+  color: $gray-10;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: $gray-12;
+  color: $gray-10;
 }
 
 
