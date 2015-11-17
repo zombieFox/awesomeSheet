@@ -311,12 +311,16 @@ hr {
           display: block;
           font-size: $small-text;
           font-family: $open-sans-semi-bold;
+          transition: background-color $transition-ease-medium, color $transition-ease-medium;
+          &:focus,
           &:hover {
-            text-decoration: none;
+            background-color: $gray-13;
+          text-decoration: none;
           }
           &:active {
             background-color: $primary-color;
             color: $white;
+            transition: background-color $transition-ease-fast, color $transition-ease-fast;
           }
         }
       }
