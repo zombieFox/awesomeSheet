@@ -165,9 +165,9 @@ hr {
       width: 100%;
     }
   }
-  .armor-class,
-  .armor-class-touch,
-  .armor-class-flat-footed {
+  .ac,
+  .ac-touch,
+  .ac-flat-footed {
     .title,
     .base,
     .armor,
@@ -180,12 +180,13 @@ hr {
       line-height: 3rem;
       display: block;
       float: left;
-      padding: 0 3px;
+      padding: 0 10px;
+      max-width: 12%;
       &:first-child {
-        padding: 0 3px 0 0;
+        padding: 0 10px 0 0;
       }
       &:last-child {
-        padding: 0 0 0 3px;
+        padding: 0 0 0 10px;
       }
       input {
         margin: 0;
@@ -195,16 +196,15 @@ hr {
     }
     .armor,
     .shield,
-    .dex,
     .deflection,
     .misc {
-      width: 12%;
+      width: 10%;
     }
     .plus {
       padding: 0 1px;
     }
     .title {
-      min-width: 140px;
+      min-width: 100px;
     }
     .title {
       font-family: $open-sans-semi-bold;
@@ -272,6 +272,16 @@ hr {
       }
     }
   }
+  // defense
+  #defense {
+    .ac,
+    .ac-touch,
+    .ac-flat-footed {
+      .title {
+        min-width: 120px;
+      }
+    }
+  }
 }
 
 @media (min-width: 750px) {
@@ -298,11 +308,22 @@ hr {
   .sheet {
     width: 70%;
     float: right;
-    h1,
-    h2 {
-      // padding-top: 100px;
+  }
+  // defense
+  #defense {
+    .ac,
+    .ac-touch,
+    .ac-flat-footed {
+      .title {
+        min-width: 140px;
+      }
+      .armor,
+      .shield,
+      .deflection,
+      .misc {
+        // width: 12%;
+      }
     }
-    #basics {}
   }
 }
 
