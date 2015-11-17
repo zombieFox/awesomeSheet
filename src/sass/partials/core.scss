@@ -180,25 +180,32 @@ hr {
       line-height: 3rem;
       display: block;
       float: left;
-      padding: 0 10px;
+      padding: 0 0;
       max-width: 12%;
-      &:first-child {
-        padding: 0 10px 0 0;
-      }
-      &:last-child {
-        padding: 0 0 0 10px;
-      }
+      box-sizing: border-box;
       input {
         margin: 0;
+        padding: 0 10px;
         width: 100%;
         text-align: center;
       }
+    }
+    .base {
+      padding: 0 10px 0 0;
+    }
+    .dex {
+      padding: 0 10px;
+    }
+    .base,
+    .dex,
+    .plus {
+      border-bottom: 1px solid $gray-13;
     }
     .armor,
     .shield,
     .deflection,
     .misc {
-      width: 10%;
+      width: 14%;
     }
     .plus {
       padding: 0 1px;
@@ -206,7 +213,7 @@ hr {
     .title {
       min-width: 100px;
     }
-    .title {
+    .total {
       font-family: $open-sans-semi-bold;
     }
     .base,
@@ -316,12 +323,6 @@ hr {
     .ac-flat-footed {
       .title {
         min-width: 140px;
-      }
-      .armor,
-      .shield,
-      .deflection,
-      .misc {
-        // width: 12%;
       }
     }
   }
