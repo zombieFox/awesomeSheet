@@ -28,6 +28,9 @@ function awesomesheet() {
   var stats_wisTempMod = e(".stats.wis .temp-modifier");
   var stats_chaTempMod = e(".stats.cha .temp-modifier");
 
+  var textarea_equipment = e(".textarea.equipment");
+  var textarea_gear = e(".textarea.gear");
+
   var skillList = eA(".skill-list .skill-details");
 
   // local storage add
@@ -108,7 +111,6 @@ function awesomesheet() {
     };
 
   };
-
 
   // get element by class or id
   function e(selector) {
@@ -231,7 +233,6 @@ function awesomesheet() {
 
   };
 
-
   // update skill total
   function update_skillTotal() {
 
@@ -312,6 +313,15 @@ function awesomesheet() {
 
   };
 
+  function update_textarea() {
+    if (localStoreRead("textarea_equipment")) {
+      textarea_equipment.innerHTML = localStoreRead("textarea_equipment");
+    };
+    if (localStoreRead("textarea_gear")) {
+      textarea_gear.innerHTML = localStoreRead("textarea_gear");
+    };
+  };
+
   // add listeners to stats
   function addListenerTo_stats() {
     var stats = eA(".stats");
@@ -368,6 +378,14 @@ function awesomesheet() {
       }, false);
     };
 
+    // listners
+    textarea_equipment.addEventListener("input", function() {
+      localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);
+    });
+    textarea_gear.addEventListener("input", function() {
+      localStoreAdd("textarea_gear", textarea_gear.innerHTML);
+    });
+
   };
 
   addListenerTo_stats();
@@ -376,6 +394,7 @@ function awesomesheet() {
   update_scoreModifiers();
   update_skillModifier();
   update_skillTotal();
+  update_textarea();
 
 };
 

@@ -82,12 +82,12 @@ a {
   }
 }
 
+.textarea,
 textarea {
   margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
+  padding: 0 0 10px 0;
   width: 100%;
   background-color: transparent;
-  min-height: 150px;
   color: $gray-02;
   border: 0;
   border-bottom: 1px solid $gray-13;
