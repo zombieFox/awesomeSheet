@@ -551,9 +551,17 @@ function awesomesheet() {
 
     for (var i = 0; i < allSpells.length; i++) {
       allSpells[i].addEventListener("click", function() {
-        console.log("hit");
-        toggleClass(this, "icon-check-box-checked");
-        toggleClass(this, "icon-check-box-unchecked");
+        // if box is unchecked
+        if (this.classList.contains("icon-check-box-unchecked")) {
+          removeClass(this, "icon-check-box-unchecked");
+          addClass(this, "icon-check-box-checked");
+        } else if (this.classList.contains("spell-cast")) {
+          addClass(this, "icon-check-box-unchecked");
+          removeClass(this, "icon-check-box-checked");
+          removeClass(this, "spell-cast");
+        } else if (this.classList.contains("icon-check-box-checked")) {
+          addClass(this, "spell-cast");
+        };
       }, false);
     };
 

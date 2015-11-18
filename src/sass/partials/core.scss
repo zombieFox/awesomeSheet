@@ -48,6 +48,7 @@ hr {
         width: 20%;
         text-align: center;
         height: 2.5rem;
+        line-height: 2.5rem;
         box-sizing: content-box;
       }
       .name,
@@ -58,6 +59,79 @@ hr {
       .name {
         text-align: left;
         font-family: $open-sans-semi-bold;
+      }
+    }
+  }
+}
+
+// defense
+#defense {
+  .hp {
+    &.hp-leathal,
+    &.hp-non-leathal {}
+  }
+  .ac,
+  .ac-touch,
+  .ac-flat-footed {
+    .title,
+    .base,
+    .armor,
+    .shield,
+    .dex,
+    .deflection,
+    .plus,
+    .misc {
+      display: block;
+      float: left;
+      padding: 0 0;
+      max-width: 12%;
+      box-sizing: border-box;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      input {
+        margin: 0;
+        padding: 0 10px;
+        text-align: center;
+      }
+    }
+    .base {
+      padding: 0 10px 0 0;
+    }
+    .dex {
+      padding: 0 10px;
+    }
+    .base,
+    .dex,
+    .plus {
+      border-bottom: 1px solid $gray-13;
+    }
+    .armor,
+    .shield,
+    .deflection,
+    .misc {
+      width: 14%;
+    }
+    .plus {
+      padding: 0 1px;
+    }
+    .title {
+      min-width: 100px;
+    }
+    .total {
+      font-family: $open-sans-semi-bold;
+    }
+    .base,
+    .armor,
+    .shield,
+    .dex,
+    .deflection,
+    .plus,
+    .misc {
+      color: $gray-08;
+      font-size: $small-text;
+      input {
+        color: $gray-08;
+        font-size: $small-text;
       }
     }
   }
@@ -156,79 +230,6 @@ hr {
   }
 }
 
-// defense
-#defense {
-  .hp {
-    &.hp-leathal,
-    &.hp-non-leathal {}
-  }
-  .ac,
-  .ac-touch,
-  .ac-flat-footed {
-    .title,
-    .base,
-    .armor,
-    .shield,
-    .dex,
-    .deflection,
-    .plus,
-    .misc {
-      display: block;
-      float: left;
-      padding: 0 0;
-      max-width: 12%;
-      box-sizing: border-box;
-      height: 2.5rem;
-      line-height: 2.5rem;
-      input {
-        margin: 0;
-        padding: 0 10px;
-        text-align: center;
-      }
-    }
-    .base {
-      padding: 0 10px 0 0;
-    }
-    .dex {
-      padding: 0 10px;
-    }
-    .base,
-    .dex,
-    .plus {
-      border-bottom: 1px solid $gray-13;
-    }
-    .armor,
-    .shield,
-    .deflection,
-    .misc {
-      width: 14%;
-    }
-    .plus {
-      padding: 0 1px;
-    }
-    .title {
-      min-width: 100px;
-    }
-    .total {
-      font-family: $open-sans-semi-bold;
-    }
-    .base,
-    .armor,
-    .shield,
-    .dex,
-    .deflection,
-    .plus,
-    .misc {
-      color: $gray-08;
-      font-size: $small-text;
-      input {
-        color: $gray-08;
-        font-size: $small-text;
-      }
-    }
-  }
-}
-
 // spellbook
 #spellbook {
   .spell-list {
@@ -238,7 +239,7 @@ hr {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      border-bottom: 1px solid $gray-12;
+      border-bottom: 1px solid $gray-13;
       p,
       [class^="icon-"],
       [class*=" icon-"] {
@@ -248,11 +249,21 @@ hr {
       p {
         float: left;
       }
-      [class^="icon-"],
-      [class*=" icon-"] {
-        padding: 0 10px;
+      .icon-check-box-checked,
+      .icon-check-box-unchecked {
+        padding: 0 5px;
         float: right;
         cursor: pointer;
+        font-size: 1.5rem;
+      }
+      .icon-check-box-unchecked {
+        color: $gray-13;
+      }
+      .icon-check-box-checked {
+        color: $primary-color;
+        &.spell-cast {
+          color: $gray-08;
+        }
       }
     }
   }
@@ -263,20 +274,6 @@ hr {
 ------------------------------------------------- */
 
 @media (min-width: 550px) {
-  // basics
-  #statistics {
-    ul {
-      .stats {
-        .name,
-        .modifier,
-        .temp-modifier,
-        .score,
-        .temp-score {
-          width: 15%;
-        }
-      }
-    }
-  }
   // skills
   #skills {
     .skill-list {
@@ -354,6 +351,20 @@ hr {
   .sheet {
     width: 75%;
     float: right;
+  }
+  // basics
+  #statistics {
+    ul {
+      .stats {
+        .name,
+        .modifier,
+        .temp-modifier,
+        .score,
+        .temp-score {
+          width: 15%;
+        }
+      }
+    }
   }
   // defense
   #defense {
