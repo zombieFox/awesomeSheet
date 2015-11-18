@@ -93,13 +93,29 @@
         <section id="defense">
           <h2>Defense</h2>
           <!-- hp -->
-          <p><strong>HP</strong> 35 (5d6+15)</p>
+          <p>HP <strong>35</strong></p>
           <div class="row">
-            <div class="col-6">
-              <input class="hp hp-leathal" type="number" placeholder="Current HP">
+            <div class="col-3">
+              <p>Current HP</p>
             </div>
-            <div class="col-6">
-              <input class="hp hp-non-leathal" type="number" placeholder="Current Non Lethal">
+            <div class="col-9">
+              <div class="input-plus-minus">
+                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-add"></span></a>
+                <input class="total inline-input" type="text" placeholder="0">
+                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-remove"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p>Current Non Lethal HP</p>
+            </div>
+            <div class="col-9">
+              <div class="input-plus-minus">
+                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-add"></span></a>
+                <input class="total inline-input" type="text" placeholder="0">
+                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-remove"></span></a>
+              </div>
             </div>
           </div>
           <!-- ac -->

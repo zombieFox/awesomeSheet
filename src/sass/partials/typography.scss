@@ -147,6 +147,14 @@ input {
       outline: 0;
     }
     &:active {}
+    &.inline-input {
+      width: 50px;
+      margin: 0 10px;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      text-align: center;
+      display: inline-block;
+    }
   }
   &.dark {
     &[type="email"],

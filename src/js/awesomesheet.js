@@ -677,19 +677,19 @@ function awesomesheet() {
 
   textarea_notes.addEventListener("input", function() {
     localStoreAdd("textarea_notes", textarea_notes.innerHTML);
-  });
+  }, false);
 
   textarea_equipment.addEventListener("input", function() {
     localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);
-  });
+  }, false);
 
   textarea_gear.addEventListener("input", function() {
     localStoreAdd("textarea_gear", textarea_gear.innerHTML);
-  });
+  }, false);
 
   clearLocalStorage.addEventListener("click", function() {
     localStorage.clear();
-  });
+  }, false);
 
   toggleFullscreen.addEventListener("click", function() {
     toggleFullScreen();
