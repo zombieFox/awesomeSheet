@@ -54,6 +54,7 @@ h6 {
 
 p {
   font-size: 1rem;
+  line-height: 1.5rem;
   color: $gray-03;
   margin: 0 0 10px 0;
 }
@@ -90,6 +91,8 @@ textarea {
   background-color: transparent;
   color: $gray-02;
   border: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
   border-bottom: 1px solid $gray-13;
   box-sizing: border-box;
   transition: border $transition-ease-medium;
@@ -112,14 +115,15 @@ input {
   &[type="url"],
   &[type="password"] {
     background-color: transparent;
-    font-size: 1rem;
     font-family: $open-sans-regular;
-    height: 3rem;
-    line-height: 3rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
     padding: 0;
     margin: 0 0 20px 0;
     color: $gray-02;
     border: 0;
+    width: 100%;
     border-bottom: 1px solid $gray-13;
     box-shadow: none;
     box-sizing: border-box;
