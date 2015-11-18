@@ -38,6 +38,9 @@ function awesomesheet() {
   var acTouch = e(".ac-touch");
   var acFlatFooted = e(".ac-flat-footed");
 
+  var clearLocalStorage = e(".clear-local-storage");
+  var toggleFullscreen = e(".toggle-fullscreen");
+
   // get element by class or id
   function e(selector) {
     return document.querySelector(selector);
@@ -260,9 +263,9 @@ function awesomesheet() {
     };
     // put values into skill-value elements
     if (read_skill_values) {
-    for (var i = 0; i < skill_inputs.length; i++) {
-      skill_inputs[i].value = parseInt(skill_values[i], 10);
-    };
+      for (var i = 0; i < skill_inputs.length; i++) {
+        skill_inputs[i].value = parseInt(skill_values[i], 10);
+      };
     };
   };
 
@@ -617,15 +620,44 @@ function awesomesheet() {
       }, false);
     };
 
-    // listners
-    textarea_equipment.addEventListener("input", function() {
-      localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);
-    });
-    textarea_gear.addEventListener("input", function() {
-      localStoreAdd("textarea_gear", textarea_gear.innerHTML);
-    });
-
   };
+
+  // toggle fullscreen
+  function toggleFullScreen() {
+    var root = window.document;
+    var rootElement = root.documentElement;
+    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
+    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
+    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
+      requestFullScreen.call(rootElement);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    } else {
+      cancelFullScreen.call(root);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    }
+  };
+
+  // listners
+
+  textarea_equipment.addEventListener("input", function() {
+    localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);
+  });
+
+  textarea_gear.addEventListener("input", function() {
+    localStoreAdd("textarea_gear", textarea_gear.innerHTML);
+  });
+
+  clearLocalStorage.addEventListener("click", function() {
+    localStorage.clear();
+  });
+
+  toggleFullscreen.addEventListener("click", function() {
+    toggleFullScreen();
+  }, false);
 
   addListenerTo_spells();
   addListenerTo_stats();
