@@ -42,6 +42,8 @@ function awesomesheet() {
   var clearLocalStorage = e(".clear-local-storage");
   var toggleFullscreen = e(".toggle-fullscreen");
 
+  var spellCheck = eA(".spell-check");
+
   // get element by class or id
   function e(selector) {
     return document.querySelector(selector);
@@ -177,6 +179,32 @@ function awesomesheet() {
     };
   };
 
+  // store spell check
+  function store_spellCheck() {
+    var spellCheck_state = [];
+    for (var i = 0; i < spellCheck.length; i++) {
+      spellCheck_state.push(spellCheck[i].classList);
+    };
+    localStoreAdd("spellCheck", spellCheck_state);
+  };
+
+  // read spell check
+  function read_spellCheck() {
+    // read stored vaules
+    var spellCheck_state = localStoreRead("spellCheck");
+    // convert stored values into an array
+    if (spellCheck_state) {
+      var spellCheck_classes = spellCheck_state.split(',');
+    };
+
+    // put values into spellCheck elements
+    if (spellCheck_state) {
+      for (var i = 0; i < spellCheck.length; i++) {
+        spellCheck[i].className = spellCheck_classes[i];
+      };
+    };
+  };
+
   // store ac
   function store_ac() {
 
@@ -246,7 +274,6 @@ function awesomesheet() {
 
   // store skills
   function store_skills() {
-    // localStoreAdd("skill_list", skillList.innerHTML);
     var skill_inputs = eA("input.skill-value");
     var skill_values = [];
     for (var i = 0; i < skill_inputs.length; i++) {
@@ -583,22 +610,23 @@ function awesomesheet() {
   };
 
   // add listeners to spells
-  function addListenerTo_spells() {
+  function addListenerTo_spellCheck() {
 
-    var allSpells = eA(".spell-check");
-
-    for (var i = 0; i < allSpells.length; i++) {
-      allSpells[i].addEventListener("click", function() {
+    for (var i = 0; i < spellCheck.length; i++) {
+      spellCheck[i].addEventListener("click", function() {
         // if box is unchecked
         if (this.classList.contains("icon-check-box-unchecked")) {
           removeClass(this, "icon-check-box-unchecked");
           addClass(this, "icon-check-box-checked");
+          store_spellCheck();
         } else if (this.classList.contains("spell-cast")) {
           addClass(this, "icon-check-box-unchecked");
           removeClass(this, "icon-check-box-checked");
           removeClass(this, "spell-cast");
+          store_spellCheck();
         } else if (this.classList.contains("icon-check-box-checked")) {
           addClass(this, "spell-cast");
+          store_spellCheck();
         };
       }, false);
     };
@@ -667,11 +695,12 @@ function awesomesheet() {
     toggleFullScreen();
   }, false);
 
-  addListenerTo_spells();
+  addListenerTo_spellCheck();
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_acInputs();
   read_textarea();
+  read_spellCheck();
   read_skills();
   read_stats();
   read_ac();
