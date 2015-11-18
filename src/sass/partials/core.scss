@@ -244,14 +244,17 @@ hr {
       [class^="icon-"],
       [class*=" icon-"] {
         margin: 0;
-        line-height: 2.5rem;
+        padding: 0.5rem 0;
+        line-height: 1.8rem;
       }
       p {
+        max-width: 160px;
         float: left;
       }
       [class^="icon-"],
       [class*=" icon-"] {
-        padding: 0;
+        padding-left: 0;
+        padding-right: 0;
         font-size: 1.5rem;
         float: right;
         cursor: pointer;
@@ -317,7 +320,11 @@ hr {
       li {
         [class^="icon-"],
         [class*=" icon-"] {
-          padding: 0 5px;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        p {
+          max-width: inherit;
         }
       }
     }
