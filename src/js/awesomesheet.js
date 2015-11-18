@@ -30,6 +30,7 @@ function awesomesheet() {
 
   var textarea_equipment = e(".textarea.equipment");
   var textarea_gear = e(".textarea.gear");
+  var textarea_notes = e(".textarea.notes");
 
   var skillList = e(".skill-list");
   var skillList_skillDetails = eA(".skill-list .skill-details");
@@ -237,6 +238,9 @@ function awesomesheet() {
     };
     if (localStoreRead("textarea_gear")) {
       textarea_gear.innerHTML = localStoreRead("textarea_gear");
+    };
+    if (localStoreRead("textarea_notes")) {
+      textarea_notes.innerHTML = localStoreRead("textarea_notes");
     };
   };
 
@@ -642,6 +646,10 @@ function awesomesheet() {
   };
 
   // listners
+
+  textarea_notes.addEventListener("input", function() {
+    localStoreAdd("textarea_notes", textarea_notes.innerHTML);
+  });
 
   textarea_equipment.addEventListener("input", function() {
     localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);

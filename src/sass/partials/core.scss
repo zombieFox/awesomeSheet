@@ -270,6 +270,28 @@ hr {
       }
     }
   }
+  .new {
+    margin: 0 0 20px 0;
+    .new-spell {
+      padding: 3px 10px;
+      margin: 5px;
+      display: inline-block;
+      color: $gray-03;
+      border-radius: $border-radius-small;
+      background-color: $gray-14;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        background-color: $gray-12;
+        text-decoration: none;
+      }
+      &:active {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+  }
 }
 
 
