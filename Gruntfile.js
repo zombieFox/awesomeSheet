@@ -249,8 +249,8 @@ module.exports = function(grunt) {
     'useminPrepare',
     'concat',
     'uglify',
-    'usemin',
-    'htmlmin'
+    'usemin'
+    // 'htmlmin'
   ]);
 
 };

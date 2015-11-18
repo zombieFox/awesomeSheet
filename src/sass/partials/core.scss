@@ -233,7 +233,7 @@ hr {
 // spellbook
 #spellbook {
   .spell-list {
-    margin: 0;
+    margin: 0 0 40px 5%;
     padding: 0;
     li {
       margin: 0;
@@ -249,21 +249,21 @@ hr {
       p {
         float: left;
       }
-      .icon-check-box-checked,
-      .icon-check-box-unchecked {
-        padding: 0 5px;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        padding: 0;
+        font-size: 1.5rem;
         float: right;
         cursor: pointer;
-        font-size: 1.5rem;
       }
       .icon-check-box-unchecked {
         color: $gray-13;
       }
       .icon-check-box-checked {
         color: $primary-color;
-        &.spell-cast {
-          color: $gray-08;
-        }
+      }
+      .spell-cast {
+        color: $gray-08;
       }
     }
   }
@@ -308,6 +308,17 @@ hr {
     .ac-flat-footed {
       .title {
         min-width: 120px;
+      }
+    }
+  }
+  // spellbook
+  #spellbook {
+    .spell-list {
+      li {
+        [class^="icon-"],
+        [class*=" icon-"] {
+          padding: 0 5px;
+        }
       }
     }
   }
