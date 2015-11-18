@@ -544,6 +544,21 @@ function awesomesheet() {
 
   };
 
+  // add listeners to spells
+  function addListenerTo_spells() {
+
+    var allSpells = eA(".spell-check");
+
+    for (var i = 0; i < allSpells.length; i++) {
+      allSpells[i].addEventListener("click", function() {
+        console.log("hit");
+        toggleClass(this, "icon-check-box-checked");
+        toggleClass(this, "icon-check-box-unchecked");
+      }, false);
+    };
+
+  };
+
   // add listeners to skills
   function addListenerTo_skillInputs() {
     var skillRanks = eA(".ranks input");
@@ -571,6 +586,7 @@ function awesomesheet() {
 
   };
 
+  addListenerTo_spells();
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_acInputs();
