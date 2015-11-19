@@ -67,7 +67,7 @@ p {
   font-size: 1rem;
   line-height: 1.5rem;
   color: $gray-03;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
 }
 
 strong {
@@ -97,7 +97,7 @@ a {
 .textarea,
 textarea {
   margin: 0 0 20px 0;
-  padding: 0 0 10px 0;
+  padding: 0 0 20px 0;
   width: 100%;
   background-color: transparent;
   color: $gray-02;
@@ -148,10 +148,10 @@ input {
     }
     &:active {}
     &.inline-input {
-      width: 50px;
-      margin: 0 10px;
-      height: 1.5rem;
-      line-height: 1.5rem;
+      width: 70px;
+      margin: -0.5rem 5px;
+      height: 2.5rem;
+      line-height: 2.5rem;
       text-align: center;
       display: inline-block;
     }

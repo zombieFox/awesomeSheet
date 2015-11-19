@@ -28,9 +28,7 @@ function awesomesheet() {
   var stats_wisTempMod = e(".stats.wis .temp-modifier");
   var stats_chaTempMod = e(".stats.cha .temp-modifier");
 
-  var textarea_equipment = e(".textarea.equipment");
-  var textarea_gear = e(".textarea.gear");
-  var textarea_notes = e(".textarea.notes");
+  var allTextareas = eA(".textarea");
 
   var skillList = e(".skill-list");
   var skillList_skillDetails = eA(".skill-list .skill-details");
@@ -205,6 +203,27 @@ function awesomesheet() {
     };
   };
 
+  // store textareas
+  function store_textareas(textarea) {
+    // collect all textarea classes
+    var textareaClassList = textarea.classList;
+    // add all textarea to storage
+    localStoreAdd(textareaClassList[1], textarea.innerHTML)
+  };
+
+  // read textareas
+  function read_textarea() {
+    for (var i = 0; i < allTextareas.length; i++) {
+      // collect all textarea classes
+      var textareaClassList = allTextareas[i].classList;
+      // if textarea local store exists
+      if (localStoreRead(textareaClassList[1])) {
+        // search for textarea class and add innerhtml from local storage
+        e("." + textareaClassList[1]).innerHTML = localStoreRead(textareaClassList[1]);
+      };
+    };
+  };
+
   // store ac
   function store_ac() {
 
@@ -257,19 +276,6 @@ function awesomesheet() {
       acFlatFooted.children[9].children[0].value = localStoreRead("acFlatFooted_misc");
     };
 
-  };
-
-  // read textareas
-  function read_textarea() {
-    if (localStoreRead("textarea_equipment")) {
-      textarea_equipment.innerHTML = localStoreRead("textarea_equipment");
-    };
-    if (localStoreRead("textarea_gear")) {
-      textarea_gear.innerHTML = localStoreRead("textarea_gear");
-    };
-    if (localStoreRead("textarea_notes")) {
-      textarea_notes.innerHTML = localStoreRead("textarea_notes");
-    };
   };
 
   // store skills
@@ -518,6 +524,25 @@ function awesomesheet() {
 
   };
 
+  // toggle fullscreen
+  function toggleFullScreen() {
+    var root = window.document;
+    var rootElement = root.documentElement;
+    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
+    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
+    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
+      requestFullScreen.call(rootElement);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    } else {
+      cancelFullScreen.call(root);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    }
+  };
+
   // add listeners to stats
   function addListenerTo_acInputs() {
 
@@ -654,38 +679,16 @@ function awesomesheet() {
 
   };
 
-  // toggle fullscreen
-  function toggleFullScreen() {
-    var root = window.document;
-    var rootElement = root.documentElement;
-    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
-    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
-    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
-      requestFullScreen.call(rootElement);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    } else {
-      cancelFullScreen.call(root);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    }
+  // add listeners to textareas
+  function addListenerTo_textareass() {
+    for (var i = 0; i < allTextareas.length; i++) {
+      allTextareas[i].addEventListener("input", function() {
+        store_textareas(this);
+      }, false);
+    };
   };
 
   // listners
-
-  textarea_notes.addEventListener("input", function() {
-    localStoreAdd("textarea_notes", textarea_notes.innerHTML);
-  }, false);
-
-  textarea_equipment.addEventListener("input", function() {
-    localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);
-  }, false);
-
-  textarea_gear.addEventListener("input", function() {
-    localStoreAdd("textarea_gear", textarea_gear.innerHTML);
-  }, false);
 
   clearLocalStorage.addEventListener("click", function() {
     localStorage.clear();
@@ -699,6 +702,7 @@ function awesomesheet() {
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_acInputs();
+  addListenerTo_textareass();
   read_textarea();
   read_spellCheck();
   read_skills();
