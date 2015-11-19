@@ -42,6 +42,8 @@ function awesomesheet() {
 
   var spellCheck = eA(".spell-check");
 
+  var inputBlock = eA(".input-block");
+
   // get element by class or id
   function e(selector) {
     return document.querySelector(selector);
@@ -543,6 +545,37 @@ function awesomesheet() {
     }
   };
 
+  // move label down when input has a value
+  function inputBlock_focus(input) {
+    var inputBlockRoot = input.parentNode;
+    var inputLabel = inputBlockRoot.querySelector(".input-label");
+    var inputField = inputBlockRoot.querySelector(".input-field");
+
+    if (inputField.value !== "") {
+      addClass(inputLabel, "input-label-focus");
+    } else if (inputField !== document.activeElement) {
+      removeClass(inputLabel, "input-label-focus");
+    } else {
+      addClass(inputLabel, "input-label-focus");
+    };
+  };
+
+  // check and move label down when input has a value
+  function update_inputBlock_focus() {
+    for (var i = 0; i < inputBlock.length; i++) {
+      var inputBlockRoot = inputBlock[i];
+      var inputLabel = inputBlockRoot.querySelector(".input-label");
+      var inputField = inputBlockRoot.querySelector(".input-field");
+      if (inputField.value !== "") {
+        addClass(inputLabel, "input-label-focus");
+      } else if (inputField !== document.activeElement) {
+        removeClass(inputLabel, "input-label-focus");
+      } else {
+        addClass(inputLabel, "input-label-focus");
+      };
+    };
+  };
+
   // add listeners to stats
   function addListenerTo_acInputs() {
 
@@ -688,6 +721,19 @@ function awesomesheet() {
     };
   };
 
+  // add listeners to textareas
+  function addListenerTo_inputBlock() {
+    for (var i = 0; i < inputBlock.length; i++) {
+      var inputLabel = inputBlock[i].querySelector(".input-field");
+      inputLabel.addEventListener("focus", function() {
+        inputBlock_focus(this);
+      }, false);
+      inputLabel.addEventListener("blur", function() {
+        inputBlock_focus(this);
+      }, false);
+    };
+  };
+
   // listners
 
   clearLocalStorage.addEventListener("click", function() {
@@ -703,6 +749,7 @@ function awesomesheet() {
   addListenerTo_skillInputs();
   addListenerTo_acInputs();
   addListenerTo_textareass();
+  addListenerTo_inputBlock();
   read_textarea();
   read_spellCheck();
   read_skills();
@@ -712,6 +759,7 @@ function awesomesheet() {
   update_skillModifier();
   update_skillTotal();
   update_ac();
+  update_inputBlock_focus()
 
 };
 

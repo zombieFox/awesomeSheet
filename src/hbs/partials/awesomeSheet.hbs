@@ -16,111 +16,241 @@
     <div class="row">
       <div class="col-12">
         <section id="basics">
-          <!-- name -->
-          <h1>Nif Amakiir</h1>
-          <!-- race classes -->
-          <p>Elf Conjurer
-            <input class="inline-input" type="number" value="5">
-          </p>
-          <!-- alignment, size, race -->
-          <p>Lawful Neutral, Medium, Humanoid (elf), 15000xp</p>
-          <!-- details -->
-          <p>6'0", 136 lbs., 120 years old, Male</p>
-          <!-- initiative, senses -->
-          <p><strong>Initiative</strong> +3</p>
-          <p><strong>Senses</strong>
-            <!-- Sense and Vision TYPE Abilities -->
-            Low-light vision,
-            <!-- End Sense TYPE Abilities -->
-            Perception +10
-          </p>
-          <!-- auras -->
+          <h1><input type="text" value="Nif Amakiir" class="input-name" placeholder="Name"></h1>
+          <div class="row">
+            <div class="col-8">
+              <div class="input-block">
+                <!-- race classes -->
+                <label class="input-label" for="input-race-class">Race/Class</label>
+                <input class="input-field" id="input-race-class" type="text" value="Elf Wizard">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- level -->
+                <label class="input-label" for="input-level">Level</label>
+                <input class="input-field" id="input-level" type="text" value="5">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- alignment -->
+                <label class="input-label" for="input-alignment">Alignment</label>
+                <input class="input-field" id="input-alignment" type="text" value="Lawful Neutral">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- size -->
+                <label class="input-label" for="input-size">Size</label>
+                <input class="input-field" id="input-size" type="text" value="Medium">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- xp -->
+                <label class="input-label" for="input-xp">XP</label>
+                <input class="input-field" id="input-xp" type="text" value="15,000">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- height -->
+                <label class="input-label" for="input-height">Height</label>
+                <input class="input-field" id="input-height" type="text" value="6'0, 136 lbs">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- age -->
+                <label class="input-label" for="input-age">Age</label>
+                <input class="input-field" id="input-age" type="text" value="120 years">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- gender -->
+                <label class="input-label" for="input-gender">Gender</label>
+                <input class="input-field" id="input-gender" type="text" value="Male">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- initiative -->
+                <label class="input-label" for="input-initiative">Initiative</label>
+                <input class="input-field" id="input-initiative" type="text" value="3">
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="input-block">
+                <!-- speed -->
+                <label class="input-label" for="input-speed">Speed</label>
+                <input class="input-field" id="input-speed" type="text" value="30 feet, 6 squares">
+              </div>
+            </div>
+          </div>
         </section>
         <section id="statistics" class="clearfix">
           <h2>Stats</h2>
-          <ul>
-            <li class="stats str clearfix">
-              <p class="name">Str</p>
-              <input class="score" type="number" placeholder="" value="8">
-              <p class="modifier">-1</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats dex clearfix">
-              <p class="name">Dex</p>
-              <input class="score" type="number" placeholder="" value="17">
-              <p class="modifier">3</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats con clearfix">
-              <p class="name">Con</p>
-              <input class="score" type="number" placeholder="" value="14">
-              <p class="modifier">2</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats int clearfix">
-              <p class="name">Int</p>
-              <input class="score" type="number" placeholder="" value="21">
-              <p class="modifier">5</p>
-              <input class="temp-score" type="number" placeholder="Temp" value="23">
-              <p class="temp-modifier">6</p>
-            </li>
-            <li class="stats wis clearfix">
-              <p class="name">Wis</p>
-              <input class="score" type="number" placeholder="" value="12">
-              <p class="modifier">1</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats cha clearfix">
-              <p class="name">Cha</p>
-              <input class="score" type="number" placeholder="" value="10">
-              <p class="modifier">0</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-          </ul>
-          <p><strong>Base Atk</strong> +2; <strong>CMB</strong> +1; <strong>CMD</strong> 14</p>
-          <p><strong>Feats</strong></p>
-          <div contentEditable="true" class="textarea textarea-feats">Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</div>
-          <p><strong>Traits</strong></p>
-          <div contentEditable="true" class="textarea textarea-traits">Resilient</div>
-          <p><strong>Languages</strong></p>
-          <div contentEditable="true" class="textarea textarea-languages">Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan</div>
-          <p><strong>SQ</strong></p>
-          <div contentEditable="true" class="textarea textarea-sq">arcane bond, bonus feats, cantrips, conjuration school, elven immunities, elven magic, enchantment opposition school, familiar, keen senses, low-light vision, necromancy opposition school, shift, summoner's charm</div>
-          <p><strong>Equipment</strong></P>
-          <div contentEditable="true" class="textarea textarea-equipment">Headband of Vast Intelligence +2, Ring of Sustenance, Cloak of Resistance +2, Pearl of Power (1st Level)</div>
-          <p><strong>Gear</strong></P>
-          <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case</div>
+          <div class="row">
+            <div class="col-12">
+              <ul>
+                <li class="stats str clearfix">
+                  <p class="name">Str</p>
+                  <input class="score" type="number" placeholder="" value="8">
+                  <p class="modifier">-1</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats dex clearfix">
+                  <p class="name">Dex</p>
+                  <input class="score" type="number" placeholder="" value="17">
+                  <p class="modifier">3</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats con clearfix">
+                  <p class="name">Con</p>
+                  <input class="score" type="number" placeholder="" value="14">
+                  <p class="modifier">2</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats int clearfix">
+                  <p class="name">Int</p>
+                  <input class="score" type="number" placeholder="" value="21">
+                  <p class="modifier">5</p>
+                  <input class="temp-score" type="number" placeholder="Temp" value="23">
+                  <p class="temp-modifier">6</p>
+                </li>
+                <li class="stats wis clearfix">
+                  <p class="name">Wis</p>
+                  <input class="score" type="number" placeholder="" value="12">
+                  <p class="modifier">1</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats cha clearfix">
+                  <p class="name">Cha</p>
+                  <input class="score" type="number" placeholder="" value="10">
+                  <p class="modifier">0</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- base attack -->
+                <label class="input-label" for="input-base-attack">Base Attack</label>
+                <input class="input-field" id="input-base-attack" type="text" value="2">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- cmb -->
+                <label class="input-label" for="input-cmb">CMB</label>
+                <input class="input-field" id="input-cmb" type="text" value="1">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- cmd -->
+                <label class="input-label" for="input-cmd">CMD</label>
+                <input class="input-field" id="input-cmd" type="text" value="14">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Feats</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-feats">Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Traits</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-traits">Resilient</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Languages</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-languages">Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>SQ</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-sq">Arcane Bond, Bonus Feats, Cantrips, Conjuration School, Elven Immunities, Elven Magic, Enchantment Opposition School, Familiar, Keen Senses, Low-light Vision, Necromancy Opposition School, Shift, Summoner's Charm, Low-light Vision</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Equipment</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-equipment">Headband of Vast Intelligence +2, Ring of Sustenance, Cloak of Resistance +2, Pearl of Power (1st Level)</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Gear</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case</div>
+            </div>
+          </div>
         </section>
         <section id="defense">
           <h2>Defense</h2>
           <!-- hp -->
           <p>HP <strong>35</strong></p>
           <div class="row">
-            <div class="col-3">
+            <div class="col-4">
               <p>Current HP</p>
             </div>
-            <div class="col-9">
-              <div class="input-plus-minus">
-                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-add"></span></a>
-                <input class="total inline-input" type="text" placeholder="0">
-                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-remove"></span></a>
-              </div>
+            <div class="col-8">
+              <!-- <div class="input-plus-minus">
+                <a href="javascript:void(0)" class="plus button button-secondary button-small">
+                  <span class="icon-add"></span>
+                </a>
+                <input class="total input-inline input-medium" type="text" placeholder="0">
+                <a href="javascript:void(0)" class="minus button button-secondary button-small">
+                  <span class="icon-remove"></span>
+                </a>
+              </div> -->
             </div>
           </div>
           <div class="row">
-            <div class="col-3">
+            <div class="col-4">
               <p>Current Non Lethal HP</p>
             </div>
-            <div class="col-9">
+            <div class="col-8">
               <div class="input-plus-minus">
-                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-add"></span></a>
-                <input class="total inline-input" type="text" placeholder="0">
-                <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-remove"></span></a>
+                <a href="javascript:void(0)" class="plus button button-secondary button-small">
+                  <span class="icon-add"></span>
+                </a>
+                <input class="total input-inline input-medium" type="text" placeholder="0">
+                <a href="javascript:void(0)" class="minus button button-secondary button-small">
+                  <span class="icon-remove"></span>
+                </a>
               </div>
             </div>
           </div>

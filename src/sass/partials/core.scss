@@ -21,10 +21,38 @@ nav {
 hr {
   border: 0;
   margin: 0 0 40px 0;
-  border-bottom: 1px solid $gray-12;
+  border-bottom: $border;
   &:last-child {
     margin: 0;
     border: 0;
+  }
+}
+
+// input with lables
+.input-block {
+  position: relative;
+  .input-label {
+    margin: 0;
+    padding: 0;
+    color: $gray-08;
+    font-size: $small-text;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 2.5rem;
+    z-index: 2;
+    transition: all $transition-ease-fast;
+    cursor: text;
+    &.input-label-focus {
+      top: -1rem;
+      line-height: 1rem;
+    }
+  }
+  .input-field {
+    margin: 0 0 3rem 0;
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -33,15 +61,13 @@ hr {
   .total {
     float: left;
   }
-  .total {
-    
-  }
+  .total {}
 }
 
 // basics
 #statistics {
   ul {
-    margin: 0 0 20px 0;
+    margin: 0 0 60px 0;
     padding: 0;
     .stats {
       margin: 0;
@@ -59,12 +85,11 @@ hr {
         text-align: center;
         height: 2.5rem;
         line-height: 2.5rem;
-        box-sizing: content-box;
       }
       .name,
       .modifier,
       .temp-modifier {
-        border-bottom: 1px solid $gray-13;
+        border-bottom: $border;
       }
       .name {
         text-align: left;
@@ -95,9 +120,9 @@ hr {
       float: left;
       padding: 0 0;
       max-width: 12%;
-      box-sizing: border-box;
       height: 2.5rem;
       line-height: 2.5rem;
+      box-sizing: content-box;
       input {
         margin: 0;
         padding: 0 10px;
@@ -113,7 +138,7 @@ hr {
     .base,
     .dex,
     .plus {
-      border-bottom: 1px solid $gray-13;
+      border-bottom: $border;
     }
     .armor,
     .shield,
@@ -156,7 +181,7 @@ hr {
     width: 100%;
     border-spacing: 0;
     thead {
-      border-bottom: 1px solid $gray-08;
+      border-bottom: 2px solid $gray-08;
       tr {
         td {
           padding: 0 1%;
@@ -219,7 +244,7 @@ hr {
         &.ranks,
         &.misc {
           p {
-            border-bottom: 1px solid $gray-13;
+            border-bottom: $border;
           }
         }
         &.ability,
@@ -249,7 +274,7 @@ hr {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      border-bottom: 1px solid $gray-13;
+      border-bottom: $border;
       p,
       [class^="icon-"],
       [class*=" icon-"] {
