@@ -44,35 +44,7 @@ function awesomesheet() {
 
   var all_textareas = eA(".textarea");
 
-  // move label down when input has a value
-  function inputBlock_focus(element) {
-    var inputBlockRoot = element.parentNode;
-    var inputLabel = inputBlockRoot.querySelector(".input-label");
-    var inputField = inputBlockRoot.querySelector(".input-field");
-    if (inputField.value !== "") {
-      addClass(inputLabel, "input-label-focus");
-    } else if (inputField !== document.activeElement) {
-      removeClass(inputLabel, "input-label-focus");
-    } else {
-      addClass(inputLabel, "input-label-focus");
-    };
-  };
-
-  // check and move label down when input has a value
-  function update_inputBlock_focus() {
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var inputBlockRoot = all_inputBlock[i];
-      var inputLabel = inputBlockRoot.querySelector(".input-label");
-      var inputField = inputBlockRoot.querySelector(".input-field");
-      if (inputField.value !== "") {
-        addClass(inputLabel, "input-label-focus");
-      } else if (inputField !== document.activeElement) {
-        removeClass(inputLabel, "input-label-focus");
-      } else {
-        addClass(inputLabel, "input-label-focus");
-      };
-    };
-  };
+  var all_skill_inputs = eA("input.skill-value");
 
   // get element by class or id
   function e(selector) {
@@ -312,18 +284,15 @@ function awesomesheet() {
 
   // store skills
   function store_skills() {
-    var skill_inputs = eA("input.skill-value");
     var skill_values = [];
-    for (var i = 0; i < skill_inputs.length; i++) {
-      skill_values.push(skill_inputs[i].value);
+    for (var i = 0; i < all_skill_inputs.length; i++) {
+      skill_values.push(all_skill_inputs[i].value);
     };
     localStoreAdd("skill_list", skill_values);
   };
 
   // store skills
   function read_skills() {
-    // make array of all skill-value elements
-    var skill_inputs = eA("input.skill-value");
     // read stored vaules
     var read_skill_values = localStoreRead("skill_list");
     // convert stored values into an array
@@ -332,8 +301,8 @@ function awesomesheet() {
     };
     // put values into skill-value elements
     if (read_skill_values) {
-      for (var i = 0; i < skill_inputs.length; i++) {
-        skill_inputs[i].value = parseInt(skill_values[i], 10);
+      for (var i = 0; i < all_skill_inputs.length; i++) {
+        all_skill_inputs[i].value = parseInt(skill_values[i], 10);
       };
     };
   };
@@ -575,6 +544,36 @@ function awesomesheet() {
     }
   };
 
+  // move label down when input has a value
+  function inputBlock_focus(element) {
+    var inputBlockRoot = element.parentNode;
+    var inputLabel = inputBlockRoot.querySelector(".input-label");
+    var inputField = inputBlockRoot.querySelector(".input-field");
+    if (inputField.value !== "") {
+      addClass(inputLabel, "input-label-focus");
+    } else if (inputField !== document.activeElement) {
+      removeClass(inputLabel, "input-label-focus");
+    } else {
+      addClass(inputLabel, "input-label-focus");
+    };
+  };
+
+  // check and move label down when input has a value
+  function update_inputBlock_focus() {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      var inputBlockRoot = all_inputBlock[i];
+      var inputLabel = inputBlockRoot.querySelector(".input-label");
+      var inputField = inputBlockRoot.querySelector(".input-field");
+      if (inputField.value !== "") {
+        addClass(inputLabel, "input-label-focus");
+      } else if (inputField !== document.activeElement) {
+        removeClass(inputLabel, "input-label-focus");
+      } else {
+        addClass(inputLabel, "input-label-focus");
+      };
+    };
+  };
+
   // add listeners to stats
   function addListenerTo_acInputs() {
 
@@ -724,12 +723,39 @@ function awesomesheet() {
   function addListenerTo_inputBlock() {
     for (var i = 0; i < all_inputBlock.length; i++) {
       var inputLabel = all_inputBlock[i].querySelector(".input-field");
+      inputLabel.addEventListener("input", function() {
+        inputBlock_focus(this);
+        store_inputBlock(this);
+      }, false);
       inputLabel.addEventListener("focus", function() {
         inputBlock_focus(this);
+        store_inputBlock(this);
       }, false);
       inputLabel.addEventListener("blur", function() {
         inputBlock_focus(this);
+        store_inputBlock(this);
       }, false);
+    };
+  };
+
+  // store inputBlock
+  function store_inputBlock(element) {
+    // collect all inputBlock classes
+    var inputBlockId = element.id;
+    // add all inputBlock to storage
+    localStoreAdd(inputBlockId, element.value)
+  };
+
+  // read inputBlock
+  function read_inputBlock() {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      // collect all inputBlock classes
+      var inputBlockId = all_inputBlock[i].querySelector(".input-field").id;
+      // if inputBlock local store exists
+      if (localStoreRead(inputBlockId)) {
+        // search for inputBlock class and add innerhtml from local storage
+        e("#" + inputBlockId).value = localStoreRead(inputBlockId);
+      };
     };
   };
 
@@ -750,6 +776,7 @@ function awesomesheet() {
   addListenerTo_textareass();
   addListenerTo_inputBlock();
   read_textarea();
+  read_inputBlock();
   read_spellCheck();
   read_skills();
   read_stats();

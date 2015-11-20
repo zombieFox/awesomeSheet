@@ -168,15 +168,6 @@ input {
     &.input-large {
       width: 15px;
     }
-    &.input-name {
-      margin: 0;
-      padding: 5px 0 5px 10px;
-      border: 0;
-      border-left: 5px solid $primary-color;
-      font-size: 2.2rem;
-      line-height: 1.2;
-      font-family: $open-sans-light;
-    }
   }
   &.dark {
     &[type="email"],
