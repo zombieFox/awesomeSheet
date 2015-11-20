@@ -658,6 +658,15 @@ function awesomesheet() {
         removeClass(inputLabel, "input-label-focus");
       };
     };
+    // if (inputBlockRoot.querySelector(".input-label")) {
+    //   if (inputField.value !== "") {
+    //     addClass(inputLabel, "input-label-focus");
+    //   } else if (inputField !== document.activeElement) {
+    //     removeClass(inputLabel, "input-label-focus");
+    //   } else {
+    //     addClass(inputLabel, "input-label-focus");
+    //   };
+    // };
   };
 
   // check and move label down when input has a value
