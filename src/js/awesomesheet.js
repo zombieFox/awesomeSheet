@@ -28,12 +28,8 @@ function awesomesheet() {
   var stats_wisTempMod = e(".stats.wis .temp-modifier");
   var stats_chaTempMod = e(".stats.cha .temp-modifier");
 
-  var textarea_equipment = e(".textarea.equipment");
-  var textarea_gear = e(".textarea.gear");
-  var textarea_notes = e(".textarea.notes");
-
   var skillList = e(".skill-list");
-  var skillList_skillDetails = eA(".skill-list .skill-details");
+  var all_skillList_skillDetails = eA(".skill-list .skill-details");
 
   var ac = e(".ac");
   var acTouch = e(".ac-touch");
@@ -43,6 +39,12 @@ function awesomesheet() {
   var toggleFullscreen = e(".toggle-fullscreen");
 
   var spellCheck = eA(".spell-check");
+
+  var all_inputBlock = eA(".input-block");
+
+  var all_textareas = eA(".textarea");
+
+  var all_skill_inputs = eA("input.skill-value");
 
   // get element by class or id
   function e(selector) {
@@ -205,6 +207,27 @@ function awesomesheet() {
     };
   };
 
+  // store textareas
+  function store_textareas(textarea) {
+    // collect all textarea classes
+    var textareaClassList = textarea.classList;
+    // add all textarea to storage
+    localStoreAdd(textareaClassList[1], textarea.innerHTML)
+  };
+
+  // read textareas
+  function read_textarea() {
+    for (var i = 0; i < all_textareas.length; i++) {
+      // collect all textarea classes
+      var textareaClassList = all_textareas[i].classList;
+      // if textarea local store exists
+      if (localStoreRead(textareaClassList[1])) {
+        // search for textarea class and add innerhtml from local storage
+        e("." + textareaClassList[1]).innerHTML = localStoreRead(textareaClassList[1]);
+      };
+    };
+  };
+
   // store ac
   function store_ac() {
 
@@ -259,33 +282,17 @@ function awesomesheet() {
 
   };
 
-  // read textareas
-  function read_textarea() {
-    if (localStoreRead("textarea_equipment")) {
-      textarea_equipment.innerHTML = localStoreRead("textarea_equipment");
-    };
-    if (localStoreRead("textarea_gear")) {
-      textarea_gear.innerHTML = localStoreRead("textarea_gear");
-    };
-    if (localStoreRead("textarea_notes")) {
-      textarea_notes.innerHTML = localStoreRead("textarea_notes");
-    };
-  };
-
   // store skills
   function store_skills() {
-    var skill_inputs = eA("input.skill-value");
     var skill_values = [];
-    for (var i = 0; i < skill_inputs.length; i++) {
-      skill_values.push(skill_inputs[i].value);
+    for (var i = 0; i < all_skill_inputs.length; i++) {
+      skill_values.push(all_skill_inputs[i].value);
     };
     localStoreAdd("skill_list", skill_values);
   };
 
   // store skills
   function read_skills() {
-    // make array of all skill-value elements
-    var skill_inputs = eA("input.skill-value");
     // read stored vaules
     var read_skill_values = localStoreRead("skill_list");
     // convert stored values into an array
@@ -294,8 +301,8 @@ function awesomesheet() {
     };
     // put values into skill-value elements
     if (read_skill_values) {
-      for (var i = 0; i < skill_inputs.length; i++) {
-        skill_inputs[i].value = parseInt(skill_values[i], 10);
+      for (var i = 0; i < all_skill_inputs.length; i++) {
+        all_skill_inputs[i].value = parseInt(skill_values[i], 10);
       };
     };
   };
@@ -440,12 +447,12 @@ function awesomesheet() {
   // update skill total
   function update_skillTotal() {
 
-    for (var i = 0; i < skillList_skillDetails.length; i++) {
-      var skillMod = parseInt(skillList_skillDetails[i].children[3].children[0].innerHTML, 10) || 0;
-      var skillRanks = checkValue(skillList_skillDetails[i].children[4].children[0]);
-      var skillMisc = checkValue(skillList_skillDetails[i].children[5].children[0]);
+    for (var i = 0; i < all_skillList_skillDetails.length; i++) {
+      var skillMod = parseInt(all_skillList_skillDetails[i].children[3].children[0].innerHTML, 10) || 0;
+      var skillRanks = checkValue(all_skillList_skillDetails[i].children[4].children[0]);
+      var skillMisc = checkValue(all_skillList_skillDetails[i].children[5].children[0]);
       var skillTotal = skillMod + skillRanks + skillMisc;
-      skillList_skillDetails[i].children[1].children[0].innerHTML = skillTotal;
+      all_skillList_skillDetails[i].children[1].children[0].innerHTML = skillTotal;
     };
 
   };
@@ -453,8 +460,8 @@ function awesomesheet() {
   // update skill modifiers from stats
   function update_skillModifier() {
 
-    for (var i = 0; i < skillList_skillDetails.length; i++) {
-      var ability = skillList_skillDetails[i].children[2].children[0].innerHTML;
+    for (var i = 0; i < all_skillList_skillDetails.length; i++) {
+      var ability = all_skillList_skillDetails[i].children[2].children[0].innerHTML;
 
       function whichAbility() {
         // if the skill has STR or DEX or CON or INT or WIS or CHA in its ability 
@@ -462,53 +469,53 @@ function awesomesheet() {
 
           // if temp score mod has content
           if (stats_strTempMod.innerHTML == "") {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_strMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_strMod.innerHTML;
           } else {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_strTempMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_strTempMod.innerHTML;
           };
 
         } else if (ability == "DEX") {
           // if temp score mod has content
           if (stats_dexTempMod.innerHTML == "") {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_dexMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_dexMod.innerHTML;
           } else {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_dexTempMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_dexTempMod.innerHTML;
           };
 
         } else if (ability == "CON") {
 
           // if temp score mod has content
           if (stats_conTempMod.innerHTML == "") {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_conMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_conMod.innerHTML;
           } else {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_conTempMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_conTempMod.innerHTML;
           };
 
         } else if (ability == "INT") {
 
           // if temp score mod has content
           if (stats_intTempMod.innerHTML == "") {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_intMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_intMod.innerHTML;
           } else {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_intTempMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_intTempMod.innerHTML;
           };
 
         } else if (ability == "WIS") {
 
           // if temp score mod has content
           if (stats_wisTempMod.innerHTML == "") {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_wisMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_wisMod.innerHTML;
           } else {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_wisTempMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_wisTempMod.innerHTML;
           };
 
         } else if (ability == "CHA") {
 
           // if temp score mod has content
           if (stats_chaTempMod.innerHTML == "") {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_chaMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_chaMod.innerHTML;
           } else {
-            skillList_skillDetails[i].children[3].children[0].innerHTML = stats_chaTempMod.innerHTML;
+            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_chaTempMod.innerHTML;
           };
 
         };
@@ -516,6 +523,55 @@ function awesomesheet() {
       whichAbility();
     };
 
+  };
+
+  // toggle fullscreen
+  function toggleFullScreen() {
+    var root = window.document;
+    var rootElement = root.documentElement;
+    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
+    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
+    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
+      requestFullScreen.call(rootElement);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    } else {
+      cancelFullScreen.call(root);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    }
+  };
+
+  // move label down when input has a value
+  function inputBlock_focus(element) {
+    var inputBlockRoot = element.parentNode;
+    var inputLabel = inputBlockRoot.querySelector(".input-label");
+    var inputField = inputBlockRoot.querySelector(".input-field");
+    if (inputField.value !== "") {
+      addClass(inputLabel, "input-label-focus");
+    } else if (inputField !== document.activeElement) {
+      removeClass(inputLabel, "input-label-focus");
+    } else {
+      addClass(inputLabel, "input-label-focus");
+    };
+  };
+
+  // check and move label down when input has a value
+  function update_inputBlock_focus() {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      var inputBlockRoot = all_inputBlock[i];
+      var inputLabel = inputBlockRoot.querySelector(".input-label");
+      var inputField = inputBlockRoot.querySelector(".input-field");
+      if (inputField.value !== "") {
+        addClass(inputLabel, "input-label-focus");
+      } else if (inputField !== document.activeElement) {
+        removeClass(inputLabel, "input-label-focus");
+      } else {
+        addClass(inputLabel, "input-label-focus");
+      };
+    };
   };
 
   // add listeners to stats
@@ -654,42 +710,60 @@ function awesomesheet() {
 
   };
 
-  // toggle fullscreen
-  function toggleFullScreen() {
-    var root = window.document;
-    var rootElement = root.documentElement;
-    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
-    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
-    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
-      requestFullScreen.call(rootElement);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    } else {
-      cancelFullScreen.call(root);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    }
+  // add listeners to textareas
+  function addListenerTo_textareass() {
+    for (var i = 0; i < all_textareas.length; i++) {
+      all_textareas[i].addEventListener("input", function() {
+        store_textareas(this);
+      }, false);
+    };
+  };
+
+  // add listeners to inputBlock
+  function addListenerTo_inputBlock() {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      var inputLabel = all_inputBlock[i].querySelector(".input-field");
+      inputLabel.addEventListener("input", function() {
+        inputBlock_focus(this);
+        store_inputBlock(this);
+      }, false);
+      inputLabel.addEventListener("focus", function() {
+        inputBlock_focus(this);
+        store_inputBlock(this);
+      }, false);
+      inputLabel.addEventListener("blur", function() {
+        inputBlock_focus(this);
+        store_inputBlock(this);
+      }, false);
+    };
+  };
+
+  // store inputBlock
+  function store_inputBlock(element) {
+    // collect all inputBlock classes
+    var inputBlockId = element.id;
+    // add all inputBlock to storage
+    localStoreAdd(inputBlockId, element.value)
+  };
+
+  // read inputBlock
+  function read_inputBlock() {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      // collect all inputBlock classes
+      var inputBlockId = all_inputBlock[i].querySelector(".input-field").id;
+      // if inputBlock local store exists
+      if (localStoreRead(inputBlockId)) {
+        // search for inputBlock class and add innerhtml from local storage
+        e("#" + inputBlockId).value = localStoreRead(inputBlockId);
+      };
+    };
   };
 
   // listners
 
-  textarea_notes.addEventListener("input", function() {
-    localStoreAdd("textarea_notes", textarea_notes.innerHTML);
-  });
-
-  textarea_equipment.addEventListener("input", function() {
-    localStoreAdd("textarea_equipment", textarea_equipment.innerHTML);
-  });
-
-  textarea_gear.addEventListener("input", function() {
-    localStoreAdd("textarea_gear", textarea_gear.innerHTML);
-  });
-
   clearLocalStorage.addEventListener("click", function() {
     localStorage.clear();
-  });
+  }, false);
 
   toggleFullscreen.addEventListener("click", function() {
     toggleFullScreen();
@@ -699,7 +773,10 @@ function awesomesheet() {
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_acInputs();
+  addListenerTo_textareass();
+  addListenerTo_inputBlock();
   read_textarea();
+  read_inputBlock();
   read_spellCheck();
   read_skills();
   read_stats();
@@ -708,6 +785,7 @@ function awesomesheet() {
   update_skillModifier();
   update_skillTotal();
   update_ac();
+  update_inputBlock_focus()
 
 };
 

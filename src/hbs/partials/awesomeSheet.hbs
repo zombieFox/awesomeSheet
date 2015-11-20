@@ -16,90 +16,235 @@
     <div class="row">
       <div class="col-12">
         <section id="basics">
-          <!-- name -->
-          <h1>Nif Amakiir</h1>
-          <!-- gender, classes -->
-          <p><strong>Elf Conjurer 5</strong></p>
-          <!-- alignment, size, race -->
-          <p>Lawful Neutral, Medium, Humanoid (elf), 15000xp</p>
-          <!-- details -->
-          <p>6'0", 136 lbs., 120 years old, Male</p>
-          <!-- initiative, senses -->
-          <p><strong>Initiative</strong> +3</p>
-          <p><strong>Senses</strong>
-            <!-- Sense and Vision TYPE Abilities -->
-            Low-light vision,
-            <!-- End Sense TYPE Abilities -->
-            Perception +10
-          </p>
-          <!-- auras -->
+          <div class="input-block input-name">
+            <!-- name -->
+            <label class="input-label" for="input-name">Name</label>
+            <input class="input-field" id="input-name" type="text" value="Nif Amakiir">
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="input-block">
+                <!-- race classes -->
+                <label class="input-label" for="input-race-class">Race/Class</label>
+                <input class="input-field" id="input-race-class" type="text" value="Elf Wizard">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- level -->
+                <label class="input-label" for="input-level">Level</label>
+                <input class="input-field" id="input-level" type="text" value="5">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- alignment -->
+                <label class="input-label" for="input-alignment">Alignment</label>
+                <input class="input-field" id="input-alignment" type="text" value="Lawful Neutral">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- size -->
+                <label class="input-label" for="input-size">Size</label>
+                <input class="input-field" id="input-size" type="text" value="Medium">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- xp -->
+                <label class="input-label" for="input-xp">XP</label>
+                <input class="input-field" id="input-xp" type="text" value="15,000">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- height -->
+                <label class="input-label" for="input-height">Height</label>
+                <input class="input-field" id="input-height" type="text" value="6'0, 136 lbs">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- age -->
+                <label class="input-label" for="input-age">Age</label>
+                <input class="input-field" id="input-age" type="text" value="120 years">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- gender -->
+                <label class="input-label" for="input-gender">Gender</label>
+                <input class="input-field" id="input-gender" type="text" value="Male">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- initiative -->
+                <label class="input-label" for="input-initiative">Initiative</label>
+                <input class="input-field" id="input-initiative" type="text" value="3">
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="input-block">
+                <!-- speed -->
+                <label class="input-label" for="input-speed">Speed</label>
+                <input class="input-field" id="input-speed" type="text" value="30 feet, 6 squares">
+              </div>
+            </div>
+          </div>
         </section>
         <section id="statistics" class="clearfix">
           <h2>Stats</h2>
-          <ul>
-            <li class="stats str clearfix">
-              <p class="name">Str</p>
-              <input class="score" type="number" placeholder="" value="8">
-              <p class="modifier">-1</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats dex clearfix">
-              <p class="name">Dex</p>
-              <input class="score" type="number" placeholder="" value="17">
-              <p class="modifier">3</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats con clearfix">
-              <p class="name">Con</p>
-              <input class="score" type="number" placeholder="" value="14">
-              <p class="modifier">2</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats int clearfix">
-              <p class="name">Int</p>
-              <input class="score" type="number" placeholder="" value="21">
-              <p class="modifier">5</p>
-              <input class="temp-score" type="number" placeholder="Temp" value="23">
-              <p class="temp-modifier">6</p>
-            </li>
-            <li class="stats wis clearfix">
-              <p class="name">Wis</p>
-              <input class="score" type="number" placeholder="" value="12">
-              <p class="modifier">1</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-            <li class="stats cha clearfix">
-              <p class="name">Cha</p>
-              <input class="score" type="number" placeholder="" value="10">
-              <p class="modifier">0</p>
-              <input class="temp-score" type="number" placeholder="Temp">
-              <p class="temp-modifier"></p>
-            </li>
-          </ul>
-          <p><strong>Base Atk</strong> +2; <strong>CMB</strong> +1; <strong>CMD</strong> 14</p>
-          <p><strong>Feats</strong> Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</p>
-          <p><strong>Traits</strong> resilient</p>
-          <p><strong>Languages</strong> Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan </p>
-          <p><strong>SQ</strong> arcane bond, bonus feats, cantrips, conjuration school, elven immunities, elven magic, enchantment opposition school, familiar, keen senses, low-light vision, necromancy opposition school, shift, summoner's charm </p>
-          <p><strong>Equipment</strong></P>
-          <div contentEditable="true" class="textarea equipment">Headband of Vast Intelligence +2, Ring of Sustenance, Cloak of Resistance +2, Pearl of Power (1st Level)</div>
-          <p><strong>Gear</strong></P>
-          <div contentEditable="true" class="textarea gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case</div>
+          <div class="row">
+            <div class="col-12">
+              <ul>
+                <li class="stats str clearfix">
+                  <p class="name">Str</p>
+                  <input class="score" type="number" placeholder="" value="8">
+                  <p class="modifier">-1</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats dex clearfix">
+                  <p class="name">Dex</p>
+                  <input class="score" type="number" placeholder="" value="17">
+                  <p class="modifier">3</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats con clearfix">
+                  <p class="name">Con</p>
+                  <input class="score" type="number" placeholder="" value="14">
+                  <p class="modifier">2</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats int clearfix">
+                  <p class="name">Int</p>
+                  <input class="score" type="number" placeholder="" value="21">
+                  <p class="modifier">5</p>
+                  <input class="temp-score" type="number" placeholder="Temp" value="23">
+                  <p class="temp-modifier">6</p>
+                </li>
+                <li class="stats wis clearfix">
+                  <p class="name">Wis</p>
+                  <input class="score" type="number" placeholder="" value="12">
+                  <p class="modifier">1</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+                <li class="stats cha clearfix">
+                  <p class="name">Cha</p>
+                  <input class="score" type="number" placeholder="" value="10">
+                  <p class="modifier">0</p>
+                  <input class="temp-score" type="number" placeholder="Temp">
+                  <p class="temp-modifier"></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- base attack -->
+                <label class="input-label" for="input-base-attack">Base Attack</label>
+                <input class="input-field" id="input-base-attack" type="text" value="2">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- cmb -->
+                <label class="input-label" for="input-cmb">CMB</label>
+                <input class="input-field" id="input-cmb" type="text" value="1">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- cmd -->
+                <label class="input-label" for="input-cmd">CMD</label>
+                <input class="input-field" id="input-cmd" type="text" value="14">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Feats</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-feats">Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Traits</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-traits">Resilient</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Languages</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-languages">Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>SQ</strong></p>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-sq">Arcane Bond, Bonus Feats, Cantrips, Conjuration School, Elven Immunities, Elven Magic, Enchantment Opposition School, Familiar, Keen Senses, Low-light Vision, Necromancy Opposition School, Shift, Summoner's Charm, Low-light Vision</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Equipment</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-equipment">Headband of Vast Intelligence +2, Ring of Sustenance, Cloak of Resistance +2, Pearl of Power (1st Level)</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Gear</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case</div>
+            </div>
+          </div>
         </section>
         <section id="defense">
           <h2>Defense</h2>
-          <!-- hp -->
-          <p><strong>HP</strong> 35 (5d6+15)</p>
           <div class="row">
-            <div class="col-6">
-              <input class="hp hp-leathal" type="number" placeholder="Current HP">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- hp -->
+                <label class="input-label" for="input-hp">HP</label>
+                <input class="input-field" id="input-hp" type="text" value="35">
+              </div>
             </div>
-            <div class="col-6">
-              <input class="hp hp-non-leathal" type="number" placeholder="Current Non Lethal">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- current hp -->
+                <label class="input-label" for="input-current-hp">Current HP</label>
+                <input class="input-field" id="input-current-hp" type="text">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- current non ethal hp -->
+                <label class="input-label" for="input-current-non-ethal-hp">Current Non Lethal HP</label>
+                <input class="input-field" id="input-current-non-ethal-hp" type="text">
+              </div>
             </div>
           </div>
           <!-- ac -->
@@ -1298,29 +1443,29 @@
         </section>
         <section id="special-abilities">
           <h2>Special Abilities</h2>
-          <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
-          <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
-          <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
-          <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
-          <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
-          <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
-          <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
-          <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
-          <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
-          <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
-          <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
-          <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
-          <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
-          <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
-          <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
-          <p><strong>Teleportation School</strong> </p>
-          <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
-          <!-- Start of Temporary Bonuses Added -->
-          <!-- End of Temporary Bonuses Added -->
+          <div contentEditable="true" class="textarea textarea-special-abilities">
+            <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
+            <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
+            <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
+            <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
+            <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
+            <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
+            <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
+            <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
+            <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
+            <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
+            <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
+            <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
+            <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
+            <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
+            <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
+            <p><strong>Teleportation School</strong> </p>
+            <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
+          </div>
         </section>
         <section id="notes">
           <p><strong>Notes</strong></P>
-          <div contentEditable="true" class="textarea notes"></div>
+          <div contentEditable="true" class="textarea textarea-notes"></div>
         </section>
         <section id="utilities">
           <a href="javascript:void(0)" class="button button-primary clear-local-storage">
