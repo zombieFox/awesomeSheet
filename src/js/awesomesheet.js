@@ -405,12 +405,35 @@ function awesomesheet() {
   // update mods
   function update_scoreModifiers() {
 
-    changeMod(stats_strScore, stats_strMod);
-    changeMod(stats_dexScore, stats_dexMod);
-    changeMod(stats_conScore, stats_conMod);
-    changeMod(stats_intScore, stats_intMod);
-    changeMod(stats_wisScore, stats_wisMod);
-    changeMod(stats_chaScore, stats_chaMod);
+    // if score temp is not empty calculte the temp mod
+    if (stats_strScore.value !== "") {
+      changeMod(stats_strScore, stats_strMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_dexScore.value !== "") {
+      changeMod(stats_dexScore, stats_dexMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_conScore.value !== "") {
+      changeMod(stats_conScore, stats_conMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_intScore.value !== "") {
+      changeMod(stats_intScore, stats_intMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_wisScore.value !== "") {
+      changeMod(stats_wisScore, stats_wisMod);
+    };
+
+    // if score temp is not empty calculte the temp mod
+    if (stats_chaScore.value !== "") {
+      changeMod(stats_chaScore, stats_chaMod);
+    };
 
     // if score temp is not empty calculte the temp mod
     if (stats_strTempScore.value !== "") {
@@ -620,6 +643,8 @@ function awesomesheet() {
 
   };
 
+  
+
   // add listeners to stats
   function addListenerTo_stats() {
     var stats = eA(".stats");
@@ -632,8 +657,13 @@ function awesomesheet() {
     for (var i = 0; i < stats.length; i++) {
       stats_score[i].addEventListener("input", function() {
         var parent = getClosest(this, ".stats");
+        var stat = parent.children[1];
         var modifier = parent.children[2];
         changeMod(this, modifier);
+        // if stat is null remove mod content
+        if (stat.value == "") {
+          modifier.innerHTML = null;
+        };
         // update sheet when stats are modified
         update_skillModifier();
         update_skillTotal();

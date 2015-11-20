@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      thunderscripts: {
+      awesomeSheet: {
         src: [
           '<%= folders.build %>/js/awesomeSheet.js'
         ],
