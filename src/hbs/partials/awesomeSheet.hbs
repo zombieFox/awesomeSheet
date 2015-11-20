@@ -2,11 +2,11 @@
   <nav>
     <ul>
       <li><a href="#basics" data-scroll>Basics</a></li>
-      <li><a href="#statistics" data-scroll>Stats</a></li>
+      <li><a href="#statistics" data-scroll>Statistics</a></li>
       <li><a href="#defense" data-scroll>Defense</a></li>
       <li><a href="#offense" data-scroll>Offense</a></li>
       <li><a href="#skills" data-scroll>Skills</a></li>
-      <li><a href="#spellbook" data-scroll>Spellbook</a></li>
+      <li><a href="#spells" data-scroll>Spells</a></li>
       <li><a href="#special-abilities" data-scroll>Special Abilities</a></li>
       <li><a href="#notes" data-scroll>Notes</a></li>
       <li><a href="#utilities" data-scroll>Utilities</a></li>
@@ -100,76 +100,137 @@
             </div>
           </div>
         </section>
-        <section id="statistics" class="clearfix">
-          <h2>Stats</h2>
-          <div class="row">
-            <div class="col-12">
-              <ul>
-                <li class="stats str clearfix">
-                  <p class="name">Str</p>
-                  <input class="score" type="number" placeholder="Score" value="8">
-                  <p class="modifier">-1</p>
-                  <input class="temp-score" type="number" placeholder="Temp">
-                  <p class="temp-modifier"></p>
-                </li>
-                <li class="stats dex clearfix">
-                  <p class="name">Dex</p>
-                  <input class="score" type="number" placeholder="Score" value="17">
-                  <p class="modifier">3</p>
-                  <input class="temp-score" type="number" placeholder="Temp">
-                  <p class="temp-modifier"></p>
-                </li>
-                <li class="stats con clearfix">
-                  <p class="name">Con</p>
-                  <input class="score" type="number" placeholder="Score" value="14">
-                  <p class="modifier">2</p>
-                  <input class="temp-score" type="number" placeholder="Temp">
-                  <p class="temp-modifier"></p>
-                </li>
-                <li class="stats int clearfix">
-                  <p class="name">Int</p>
-                  <input class="score" type="number" placeholder="Score" value="21">
-                  <p class="modifier">5</p>
-                  <input class="temp-score" type="number" placeholder="Temp" value="23">
-                  <p class="temp-modifier">6</p>
-                </li>
-                <li class="stats wis clearfix">
-                  <p class="name">Wis</p>
-                  <input class="score" type="number" placeholder="Score" value="12">
-                  <p class="modifier">1</p>
-                  <input class="temp-score" type="number" placeholder="Temp">
-                  <p class="temp-modifier"></p>
-                </li>
-                <li class="stats cha clearfix">
-                  <p class="name">Cha</p>
-                  <input class="score" type="number" placeholder="Score" value="10">
-                  <p class="modifier">0</p>
-                  <input class="temp-score" type="number" placeholder="Temp">
-                  <p class="temp-modifier"></p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <div class="input-block">
-                <!-- base attack -->
-                <label class="input-label" for="input-base-attack">Base Attack</label>
-                <input class="input-field" id="input-base-attack" type="text" value="2">
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="input-block">
-                <!-- cmb -->
-                <label class="input-label" for="input-cmb">CMB</label>
-                <input class="input-field" id="input-cmb" type="text" value="1">
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="input-block">
-                <!-- cmd -->
-                <label class="input-label" for="input-cmd">CMD</label>
-                <input class="input-field" id="input-cmd" type="text" value="14">
+        <section id="statistics">
+          <h1>Stats</h1>
+          <div class="stat-block">
+            <div class="row">
+              <div class="col-12">
+                <div class="stats str row">
+                  <div class="col-3">
+                    <p class="name inline-with-input"><strong>Str</strong></p>
+                  </div>
+                  <div class="col-9">
+                    <div class="row no-gutter">
+                      <div class="col-3">
+                        <input class="score text-center" type="number" placeholder="Score" value="8">
+                      </div>
+                      <div class="col-3">
+                        <p class="modifier text-center inline-with-input underline-with-input">-1</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="temp-score text-center" type="number" placeholder="Temp">
+                      </div>
+                      <div class="col-3">
+                        <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats dex row">
+                  <div class="col-3">
+                    <p class="name inline-with-input"><strong>Dex</strong></p>
+                  </div>
+                  <div class="col-9">
+                    <div class="row no-gutter">
+                      <div class="col-3">
+                        <input class="score text-center" type="number" placeholder="Score" value="17">
+                      </div>
+                      <div class="col-3">
+                        <p class="modifier text-center inline-with-input underline-with-input">3</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="temp-score text-center" type="number" placeholder="Temp">
+                      </div>
+                      <div class="col-3">
+                        <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats con row">
+                  <div class="col-3">
+                    <p class="name inline-with-input"><strong>Con</strong></p>
+                  </div>
+                  <div class="col-9">
+                    <div class="row no-gutter">
+                      <div class="col-3">
+                        <input class="score text-center" type="number" placeholder="Score" value="14">
+                      </div>
+                      <div class="col-3">
+                        <p class="modifier text-center inline-with-input underline-with-input">2</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="temp-score text-center" type="number" placeholder="Temp">
+                      </div>
+                      <div class="col-3">
+                        <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats int row">
+                  <div class="col-3">
+                    <p class="name inline-with-input"><strong>Int</strong></p>
+                  </div>
+                  <div class="col-9">
+                    <div class="row no-gutter">
+                      <div class="col-3">
+                        <input class="score text-center" type="number" placeholder="Score" value="21">
+                      </div>
+                      <div class="col-3">
+                        <p class="modifier text-center inline-with-input underline-with-input">5</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="temp-score text-center" type="number" placeholder="Temp" value="23">
+                      </div>
+                      <div class="col-3">
+                        <p class="temp-modifier text-center inline-with-input underline-with-input">6</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats wis row">
+                  <div class="col-3">
+                    <p class="name inline-with-input"><strong>Wis</strong></p>
+                  </div>
+                  <div class="col-9">
+                    <div class="row no-gutter">
+                      <div class="col-3">
+                        <input class="score text-center" type="number" placeholder="Score" value="12">
+                      </div>
+                      <div class="col-3">
+                        <p class="modifier text-center inline-with-input underline-with-input">1</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="temp-score text-center" type="number" placeholder="Temp">
+                      </div>
+                      <div class="col-3">
+                        <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stats cha row">
+                  <div class="col-3">
+                    <p class="name inline-with-input"><strong>Cha</strong></p>
+                  </div>
+                  <div class="col-9">
+                    <div class="row no-gutter">
+                      <div class="col-3">
+                        <input class="score text-center" type="number" placeholder="Score" value="10">
+                      </div>
+                      <div class="col-3">
+                        <p class="modifier text-center inline-with-input underline-with-input">0</p>
+                      </div>
+                      <div class="col-3">
+                        <input class="temp-score text-center" type="number" placeholder="Temp">
+                      </div>
+                      <div class="col-3">
+                        <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -186,7 +247,7 @@
               <p><strong>Traits</strong></p>
             </div>
             <div class="col-9">
-              <div contentEditable="true" class="textarea textarea-traits">Resilient</div>
+              <div contentEditable="true" class="textarea textarea-traits">Resilient You gain a +1 trait bonus on Fortitude saves.</div>
             </div>
           </div>
           <div class="row">
@@ -223,131 +284,297 @@
           </div>
         </section>
         <section id="defense">
-          <h2>Defense</h2>
+          <h1>Defense</h1>
           <div class="row">
             <div class="col-4">
-              <div class="input-block">
-                <!-- hp -->
-                <label class="input-label" for="input-hp">HP</label>
-                <input class="input-field" id="input-hp" type="text" value="35">
+              <p class="inline-with-input"><strong>HP <span class="total">35</span></strong></p>
+            </div>
+            <div class="col-8">
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-current-hp">Current HP</label>
+                    <input class="input-field" id="input-current-hp" type="number">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-current-non-ethal-hp">Non Lethal HP</label>
+                    <input class="input-field" id="input-current-non-ethal-hp" type="number">
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-4">
-              <div class="input-block">
-                <!-- current hp -->
-                <label class="input-label" for="input-current-hp">Current HP</label>
-                <input class="input-field" id="input-current-hp" type="text">
+              <p class="inline-with-input"><strong>AC <span class="total">13</span></strong></p>
+            </div>
+            <div class="col-8">
+              <div class="row no-gutter">
+                <div class="col-2">
+                  <div class="input-block-faux">
+                    <p class="input-label-faux">Base</p>
+                    <p class="input-field-faux input-small-text-faux">10</p>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block-faux">
+                    <p class="input-label-faux">Dex</p>
+                    <p class="input-field-faux input-small-text-faux">3</p>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-armor">Armor</label>
+                    <input class="input-field input-small-text" id="input-ac-armor" type="number">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-shield">Shield</label>
+                    <input class="input-field input-small-text" id="input-ac-shield" type="number">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-deflect">Deflect</label>
+                    <input class="input-field input-small-text" id="input-ac-deflect" type="number">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-misc">Misc</label>
+                    <input class="input-field input-small-text" id="input-ac-misc" type="number">
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-4">
-              <div class="input-block">
-                <!-- current non ethal hp -->
-                <label class="input-label" for="input-current-non-ethal-hp">Current Non Lethal HP</label>
-                <input class="input-field" id="input-current-non-ethal-hp" type="text">
-              </div>
+              <p class="inline-with-input"><strong>Touch <span class="total">13</span></strong></p>
             </div>
-          </div>
-          <!-- ac -->
-          <div class="row">
-            <div class="col-12">
-              <div class="ac">
-                <p class="title">AC
-                  <span class="total">13</span>
-                </p>
-                <p class="base">10</p>
-                <p class="plus">+</p>
-                <p class="dex">3</p>
-                <p class="plus">+</p>
-                <p class="armor">
-                  <input type="number" placeholder="Armor">
-                </p>
-                <p class="plus">+</p>
-                <p class="shield">
-                  <input type="number" placeholder="Shield">
-                </p>
-                <p class="plus">+</p>
-                <p class="deflection">
-                  <input type="number" placeholder="Deflec">
-                </p>
-                <p class="plus">+</p>
-                <p class="misc">
-                  <input type="number" placeholder="Misc">
-                </p>
+            <div class="col-8">
+              <div class="row no-gutter">
+                <div class="col-3">
+                  <div class="input-block-faux">
+                    <p class="input-label-faux">Base</p>
+                    <p class="input-field-faux input-small-text-faux">10</p>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block-faux">
+                    <p class="input-label-faux">Dex</p>
+                    <p class="input-field-faux input-small-text-faux">3</p>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-deflect">Deflect</label>
+                    <input class="input-field input-small-text" id="input-ac-deflect" type="number">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-misc">Misc</label>
+                    <input class="input-field input-small-text" id="input-ac-misc" type="number">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
-              <div class="ac-touch">
-                <p class="title">Touch
-                  <span class="total">13</span>
-                </p>
-                <p class="base">10</p>
-                <p class="plus">+</p>
-                <p class="dex">3</p>
-                <p class="plus">+</p>
-                <p class="deflection">
-                  <input type="number" placeholder="Deflec">
-                </p>
-                <p class="plus">+</p>
-                <p class="misc">
-                  <input type="number" placeholder="Misc">
-                </p>
+            <div class="col-4">
+              <p class="inline-with-input"><strong>Flat Flooted <span class="total">10</span></strong></p>
+            </div>
+            <div class="col-8">
+              <div class="row no-gutter">
+                <div class="col-2">
+                  <div class="input-block-faux">
+                    <p class="input-label-faux">Base</p>
+                    <p class="input-field-faux input-small-text-faux">10</p>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-armor">Armor</label>
+                    <input class="input-field input-small-text" id="input-ac-armor" type="number">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-shield">Shield</label>
+                    <input class="input-field input-small-text" id="input-ac-shield" type="number">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-deflect">Deflect</label>
+                    <input class="input-field input-small-text" id="input-ac-deflect" type="number">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-misc">Misc</label>
+                    <input class="input-field input-small-text" id="input-ac-misc" type="number">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
-              <div class="ac-flat-footed">
-                <p class="title">Flat Flooted
-                  <span class="total">10</span>
-                </p>
-                <p class="base">10</p>
-                <p class="plus">+</p>
-                <p class="armor">
-                  <input type="number" placeholder="Armor">
-                </p>
-                <p class="plus">+</p>
-                <p class="shield">
-                  <input type="number" placeholder="Shield">
-                </p>
-                <p class="plus">+</p>
-                <p class="deflection">
-                  <input type="number" placeholder="Deflec">
-                </p>
-                <p class="plus">+</p>
-                <p class="misc">
-                  <input type="number" placeholder="Misc">
-                </p>
+            <div class="col-4">
+              <p class="inline-with-input"><strong>Fortitude <span class="total">8</span></strong></p>
+            </div>
+            <div class="col-8">
+              <div class="row no-gutter">
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-fortitude-base">Base</label>
+                    <input class="input-field input-small-text" id="input-fortitude-base" type="number" value="1">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="inline-with-input-block">
+                    <p class="inline-with-label">Ability</p>
+                    <p class="inline-with-input underline-with-input">2</p>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-fortitude-misc">Misc</label>
+                    <input class="input-field input-small-text" id="input-fortitude-base" type="number" value="5">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-fortitude-temp">Temp</label>
+                    <input class="input-field input-small-text" id="input-fortitude-temp" type="number">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <!-- hit points -->
-          <p><strong>Fort</strong> +8</p>
-          <p><strong>Ref</strong> +6</p>
-          <p><strong>Will</strong> +7, +2 vs. enchantment spells and effects</p>
           <div class="row">
-            <div class="col-12">
-              <input type="text" placeholder="Temporary Saves">
+            <div class="col-4">
+              <p class="inline-with-input"><strong>Reflex <span class="total">6</span></strong></p>
+            </div>
+            <div class="col-8">
+              <div class="row no-gutter">
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-reflex-base">Base</label>
+                    <input class="input-field input-small-text" id="input-reflex-base" type="number" value="1">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="inline-with-input-block">
+                    <p class="inline-with-label">Ability</p>
+                    <p class="inline-with-input underline-with-input">3</p>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-reflex-misc">Misc</label>
+                    <input class="input-field input-small-text" id="input-reflex-base" type="number" value="2">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-reflex-temp">Temp</label>
+                    <input class="input-field input-small-text" id="input-reflex-temp" type="number">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          </p>
-          <!-- End SaveBonus TYPE Abilities -->
-          <!-- defensive abilities, damager reduction, immune, resist, SR --->
+          <div class="row">
+            <div class="col-4">
+              <p class="inline-with-input"><strong>Will <span class="total">7</span></strong></p>
+            </div>
+            <div class="col-8">
+              <div class="row no-gutter">
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-will-base">Base</label>
+                    <input class="input-field input-small-text" id="input-will-base" type="number" value="4">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="inline-with-input-block">
+                    <p class="inline-with-label">Ability</p>
+                    <p class="inline-with-input underline-with-input">1</p>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-will-misc">Misc</label>
+                    <input class="input-field input-small-text" id="input-will-base" type="number" value="2">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <label class="input-label" for="input-will-temp">Temp</label>
+                    <input class="input-field input-small-text" id="input-will-temp" type="number">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Save notes</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-save-notes">+2 vs. Enchantment spells and effects</div>
+            </div>
+          </div>
+          <!-- defensive abilities, damager reduction, immune, resist, SR -->
           <!-- Defensive TYPE Abilities -->
-          <!-- End Defensive TYPE Abilities -->
           <!-- Immunity TYPE Abilities -->
-          <!-- End Immunity TYPE Abilities -->
           <!-- Resistance TYPE Abilities -->
-          <!-- End Resistance TYPE Abilities -->
           <!-- Weakness TYPE Abilities -->
-          <!-- End Weakness TYPE Abilities -->
           <!-- Defensive Gear -->
-          <!-- End Defensive Gear -->
         </section>
         <section id="offense">
-          <h2>Offense</h2>
-          <p><strong>Speed</strong> 30 ft.</p>
+          <div class="row">
+            <div class="col-12">
+              <h1>Offense</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- base attack -->
+                <label class="input-label" for="input-base-attack">Base Attack</label>
+                <input class="input-field" id="input-base-attack" type="number" value="2">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- cmb -->
+                <label class="input-label" for="input-cmb">CMB</label>
+                <input class="input-field" id="input-cmb" type="number" value="1">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- cmd -->
+                <label class="input-label" for="input-cmd">CMD</label>
+                <input class="input-field" id="input-cmd" type="number" value="14">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- concentration -->
+                <label class="input-label" for="input-concentration">Concentration</label>
+                <input class="input-field" id="input-concentration" type="number" value="11">
+              </div>
+            </div>
+          </div>
           <!-- ModifyMovement TYPE Abilities -->
           <!-- End ModifyMovement TYPE Abilities -->
           <!-- Attacks -->
@@ -368,7 +595,7 @@
           <!-- End Domain list -->
         </section>
         <section id="skills">
-          <h2>Skills</h2>
+          <h1>Skills</h1>
           <table class="skill-list">
             <thead>
               <tr>
@@ -1004,468 +1231,544 @@
             </tbody>
           </table>
         </section>
-        <section id="spellbook">
-          <h2>Spellbook</h2>
-          <!-- SpellBooks -->
-          {{!--
-          <div class="new">
-            <a class="new-spell">Bleed (DC 16)</a>
-            <a class="new-spell">Daze (DC 16)</a>
-            <a class="new-spell">Disrupt Undead</a>
-            <a class="new-spell">Touch of Fatigue (DC 16)</a>
-            <a class="new-spell">Prestidigitation (DC 16)</a>
-            <a class="new-spell">Light</a>
-            <a class="new-spell">Ghost Sound (DC 16)</a>
-            <a class="new-spell">Spark (DC 16)</a>
-            <a class="new-spell">Acid Splash</a>
-            <a class="new-spell">Mage Hand</a>
-            <a class="new-spell">Flare (DC 16)</a>
-            <a class="new-spell">Detect Magic</a>
-            <a class="new-spell">Detect Poison</a>
-            <a class="new-spell">Dancing Lights</a>
-            <a class="new-spell">Mending (DC 16)</a>
-            <a class="new-spell">Arcane Mark</a>
-            <a class="new-spell">Message</a>
-            <a class="new-spell">Ray of Frost</a>
-            <a class="new-spell">Read Magic</a>
-            <a class="new-spell">Open/Close (DC 16)</a>
-            <a class="new-spell">Resistance (DC 16)</a>
-            <a class="new-spell">Comprehend Languages</a>
+        <section id="spells">
+          <div class="row">
+            <div class="col-12">
+              <h1>Spells</h1>
+              <!-- <div class="new">
+              <a class="new-spell">Bleed (DC 16)</a>
+              <a class="new-spell">Daze (DC 16)</a>
+              <a class="new-spell">Disrupt Undead</a>
+              <a class="new-spell">Touch of Fatigue (DC 16)</a>
+              <a class="new-spell">Prestidigitation (DC 16)</a>
+              <a class="new-spell">Light</a>
+              <a class="new-spell">Ghost Sound (DC 16)</a>
+              <a class="new-spell">Spark (DC 16)</a>
+              <a class="new-spell">Acid Splash</a>
+              <a class="new-spell">Mage Hand</a>
+              <a class="new-spell">Flare (DC 16)</a>
+              <a class="new-spell">Detect Magic</a>
+              <a class="new-spell">Detect Poison</a>
+              <a class="new-spell">Dancing Lights</a>
+              <a class="new-spell">Mending (DC 16)</a>
+              <a class="new-spell">Arcane Mark</a>
+              <a class="new-spell">Message</a>
+              <a class="new-spell">Ray of Frost</a>
+              <a class="new-spell">Read Magic</a>
+              <a class="new-spell">Open/Close (DC 16)</a>
+              <a class="new-spell">Resistance (DC 16)</a>
+              <a class="new-spell">Comprehend Languages</a>
+            </div>
+            <div class="new">
+              <a class="new-spell">Enlarge Person (DC 17)</a>
+              <a class="new-spell">Feather Fall (DC 17)</a>
+              <a class="new-spell">Grease (DC 19)</a>
+              <a class="new-spell">Mage Armor (DC 19)</a>
+              <a class="new-spell">Mount</a>
+              <a class="new-spell">Obscuring Mist</a>
+              <a class="new-spell">Protection from Chaos (DC 17)</a>
+              <a class="new-spell">Protection from Evil (DC 17)</a>
+              <a class="new-spell">Shield</a>
+              <a class="new-spell">Summon Monster I</a>
+              <a class="new-spell">Unseen Servant</a>
+            </div>
+            <div class="new">
+              <a class="new-spell">Create Pit (DC 20)</a>
+              <a class="new-spell">Flaming Sphere (DC 18)</a>
+              <a class="new-spell">Glitterdust (DC 20)</a>
+              <a class="new-spell">Invisibility (DC 18)</a>
+              <a class="new-spell">Levitate</a>
+              <a class="new-spell">Mirror Image</a>
+              <a class="new-spell">Resist Energy (DC 18)</a>
+              <a class="new-spell">Stone Call</a>
+              <a class="new-spell">Summon Monster II</a>
+              <a class="new-spell">Web (DC 20)</a>
+            </div>
+            <div class="new">
+              <a class="new-spell">Stinking Cloud (DC 21)</a>
+              <a class="new-spell">Summon Monster III</a>
+            </div> -->
+              <div class="row">
+                <div class="col-6">
+                  <h2>Level 0 Spells</h2>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- level 0 per day -->
+                    <label class="input-label" for="input-level-0-per-day">Per Day</label>
+                    <input class="input-field" id="input-level-0-per-day" type="text" value="4+0">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- dc -->
+                    <label class="input-label" for="input-level-0-dc">Base DC</label>
+                    <input class="input-field" id="input-level-0-dc" type="text" value="16">
+                  </div>
+                </div>
+              </div>
+              <ul class="spell-list">
+                <li class="clearfix">
+                  <p>Bleed (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Daze (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Disrupt Undead</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Touch of Fatigue (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Prestidigitation (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Light</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Ghost Sound (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Spark (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Acid Splash</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Mage Hand</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Flare (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Detect Magic</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Detect Poison</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Dancing Lights</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Mending (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Arcane Mark</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Message</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Ray of Frost</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Read Magic</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Open/Close (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Resistance (DC 16)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+              </ul>
+              <div class="row">
+                <div class="col-6">
+                  <h2>Level 1 Spells</h2>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- level 1 per day -->
+                    <label class="input-label" for="input-level-1-per-day">Per Day</label>
+                    <input class="input-field" id="input-level-1-per-day" type="text" value="5+1">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- dc -->
+                    <label class="input-label" for="input-level-1-dc">Base DC</label>
+                    <input class="input-field" id="input-level-1-dc" type="text" value="17">
+                  </div>
+                </div>
+              </div>
+              <ul class="spell-list">
+                <li class="clearfix">
+                  <p>Comprehend Languages</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Enlarge Person (DC 17)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Feather Fall (DC 17)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Grease (DC 19)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Mage Armor (DC 19)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Mount</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Obscuring Mist</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Protection from Chaos (DC 17)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Protection from Evil (DC 17)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Shield</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Summon Monster I</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Unseen Servant</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+              </ul>
+              <div class="row">
+                <div class="col-6">
+                  <h2>Level 2 Spells</h2>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- level 2 per day -->
+                    <label class="input-label" for="input-level-2-per-day">Per Day</label>
+                    <input class="input-field" id="input-level-2-per-day" type="text" value="4+1">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- dc -->
+                    <label class="input-label" for="input-level-2-dc">Base DC</label>
+                    <input class="input-field" id="input-level-2-dc" type="text" value="18">
+                  </div>
+                </div>
+              </div>
+              <ul class="spell-list">
+                <li class="clearfix">
+                  <p>Create Pit (DC 20)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Flaming Sphere (DC 18)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Glitterdust (DC 20)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Invisibility (DC 18)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Levitate</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Mirror Image</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Resist Energy (DC 18)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Stone Call</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Summon Monster II</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Web (DC 20)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+              </ul>
+              <div class="row">
+                <div class="col-6">
+                  <h2>Level 3 Spells</h2>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- level 3 per day -->
+                    <label class="input-label" for="input-level-3-per-day">Per Day</label>
+                    <input class="input-field" id="input-level-3-per-day" type="text" value="2+1">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-block">
+                    <!-- dc -->
+                    <label class="input-label" for="input-level-3-dc">Base DC</label>
+                    <input class="input-field" id="input-level-3-dc" type="text" value="19">
+                  </div>
+                </div>
+              </div>
+              <ul class="spell-list">
+                <li class="clearfix">
+                  <p>Stinking Cloud (DC 21)</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+                <li class="clearfix">
+                  <p>Summon Monster III</p>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                  <span class="spell-check icon-check-box-unchecked"></span>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="new">
-            <a class="new-spell">Enlarge Person (DC 17)</a>
-            <a class="new-spell">Feather Fall (DC 17)</a>
-            <a class="new-spell">Grease (DC 19)</a>
-            <a class="new-spell">Mage Armor (DC 19)</a>
-            <a class="new-spell">Mount</a>
-            <a class="new-spell">Obscuring Mist</a>
-            <a class="new-spell">Protection from Chaos (DC 17)</a>
-            <a class="new-spell">Protection from Evil (DC 17)</a>
-            <a class="new-spell">Shield</a>
-            <a class="new-spell">Summon Monster I</a>
-            <a class="new-spell">Unseen Servant</a>
-          </div>
-          <div class="new">
-            <a class="new-spell">Create Pit (DC 20)</a>
-            <a class="new-spell">Flaming Sphere (DC 18)</a>
-            <a class="new-spell">Glitterdust (DC 20)</a>
-            <a class="new-spell">Invisibility (DC 18)</a>
-            <a class="new-spell">Levitate</a>
-            <a class="new-spell">Mirror Image</a>
-            <a class="new-spell">Resist Energy (DC 18)</a>
-            <a class="new-spell">Stone Call</a>
-            <a class="new-spell">Summon Monster II</a>
-            <a class="new-spell">Web (DC 20)</a>
-          </div>
-          <div class="new">
-            <a class="new-spell">Stinking Cloud (DC 21)</a>
-            <a class="new-spell">Summon Monster III</a>
-          </div>
-          --}}
-          <p><strong>Spell List Class</strong> Wizard</p>
-          <p><strong>Concentration</strong> +7</p>
-          <h3>Spell Level 0</h3>
-          <p><strong>Cast Per Day</strong> 4+0</p>
-          <ul class="spell-list">
-            <li class="clearfix">
-              <p>Bleed (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Daze (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Disrupt Undead</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Touch of Fatigue (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Prestidigitation (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Light</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Ghost Sound (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Spark (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Acid Splash</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Mage Hand</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Flare (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Detect Magic</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Detect Poison</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Dancing Lights</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Mending (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Arcane Mark</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Message</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Ray of Frost</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Read Magic</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Open/Close (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Resistance (DC 16)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-          </ul>
-          <h3>Spell Level 1</h3>
-          <p><strong>Cast Per Day</strong> 5+1</p>
-          <ul class="spell-list">
-            <li class="clearfix">
-              <p>Comprehend Languages</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Enlarge Person (DC 17)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Feather Fall (DC 17)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Grease (DC 19)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Mage Armor (DC 19)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Mount</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Obscuring Mist</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Protection from Chaos (DC 17)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Protection from Evil (DC 17)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Shield</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Summon Monster I</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Unseen Servant</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-          </ul>
-          <h3>Spell Level 2</h3>
-          <p><strong>Cast Per Day</strong> 4+1</p>
-          <ul class="spell-list">
-            <li class="clearfix">
-              <p>Create Pit (DC 20)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Flaming Sphere (DC 18)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Glitterdust (DC 20)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Invisibility (DC 18)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Levitate</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Mirror Image</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Resist Energy (DC 18)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Stone Call</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Summon Monster II</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Web (DC 20)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-          </ul>
-          <h3>Spell Level 3</h3>
-          <p><strong>Cast Per Day</strong> 2+1</p>
-          <ul class="spell-list">
-            <li class="clearfix">
-              <p>Stinking Cloud (DC 21)</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-            <li class="clearfix">
-              <p>Summon Monster III</p>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-              <span class="spell-check icon-check-box-unchecked"></span>
-            </li>
-          </ul>
         </section>
         <section id="special-abilities">
-          <h2>Special Abilities</h2>
-          <div contentEditable="true" class="textarea textarea-special-abilities">
-            <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
-            <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
-            <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
-            <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
-            <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
-            <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
-            <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
-            <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
-            <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
-            <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
-            <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
-            <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
-            <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
-            <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
-            <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
-            <p><strong>Teleportation School</strong> </p>
-            <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
+          <div class="row">
+            <div class="col-12">
+              <h1>Special Abilities</h1>
+              <div contentEditable="true" class="textarea textarea-special-abilities">
+                <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
+                <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
+                <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
+                <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
+                <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
+                <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
+                <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
+                <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
+                <p><strong>Bower</strong> (Rat) Master gains a +2 bonus on Fortitude saves</p>
+                <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
+                <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
+                <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
+                <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
+                <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
+                <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
+                <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
+                <p><strong>Teleportation School</strong> </p>
+                <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
+              </div>
+            </div>
           </div>
         </section>
         <section id="notes">
-          <p><strong>Notes</strong></P>
-          <div contentEditable="true" class="textarea textarea-notes"></div>
+          <div class="row">
+            <div class="col-12">
+              <h1>Notes</h1>
+              <div contentEditable="true" class="textarea textarea-notes"></div>
+            </div>
+          </div>
         </section>
         <section id="utilities">
           <a href="javascript:void(0)" class="button button-primary clear-local-storage">

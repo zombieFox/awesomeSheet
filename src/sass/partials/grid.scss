@@ -28,37 +28,21 @@
   &:after {
     clear: both;
   }
-}
-
-// [class^="col-"],
-// [class*=" col-"] {
-//   float: none;
-//   margin-right: 0;
-// }
-
-// .col-1,
-// .col-2,
-// .col-3,
-// .col-4,
-// .col-5,
-// .col-6,
-// .col-7,
-// .col-8,
-// .col-9,
-// .col-10,
-// .col-11,
-// .col-12 {
-//   width: 100%;
-// }
-
-[class^="col-"],
-[class*=" col-"] {
-  float: left;
-  margin-right: $grid-spacing;
-  box-sizing: border-box;
-  &:last-child,
-  .col-12 {
-    margin-right: 0%;
+  [class^="col-"],
+  [class*=" col-"] {
+    float: left;
+    margin-right: $grid-spacing;
+    box-sizing: border-box;
+    &:last-child,
+    .col-12 {
+      margin-right: 0%;
+    }
+  }
+  &.no-gutter {
+    [class^="col-"],
+    [class*=" col-"] {
+      margin: 0;
+    }
   }
 }
 
@@ -108,6 +92,45 @@
 
 .col-12 {
   width: 100%;
+}
+
+.no-gutter {
+  .col-1 {
+    width: (100% / 12);
+  }
+  .col-2 {
+    width: (100% / 6);
+  }
+  .col-3 {
+    width: (100% / 4);
+  }
+  .col-4 {
+    width: (100% / 3);
+  }
+  .col-5 {
+    width: (100% / 2.4);
+  }
+  .col-6 {
+    width: (100% / 2);
+  }
+  .col-7 {
+    width: (100% / 1.714285714285714);
+  }
+  .col-8 {
+    width: (100% / 1.5);
+  }
+  .col-9 {
+    width: (100% / 1.333333333333333);
+  }
+  .col-10 {
+    width: (100% / 1.2);
+  }
+  .col-11 {
+    width: (100% / 1.090909090909091);
+  }
+  .col-12 {
+    width: 100%;
+  }
 }
 
 

@@ -14,9 +14,13 @@ h5,
 h6 {
   color: $gray-03;
   margin-top: 0;
+  line-height: 2.5rem;
 }
 
-h1,
+h1 {
+  margin-bottom: 60px;
+}
+
 h2 {
   margin-bottom: 40px;
 }
@@ -29,38 +33,31 @@ h6 {
 }
 
 h1 {
-  font-size: 2.2rem;
-  line-height: 1.2;
+  font-size: 1.5rem;
   font-family: $open-sans-light;
 }
 
 h2 {
-  font-size: 1.2rem;
-  line-height: 1.25;
+  font-size: 1.1rem;
   font-family: $open-sans-bold;
-  text-transform: uppercase;
 }
 
 h3 {
   font-size: 1rem;
-  line-height: 1.3;
   font-family: $open-sans-bold;
   text-transform: uppercase;
 }
 
 h4 {
-  font-size: 1.6rem;
-  line-height: 1.35;
+  font-size: 1rem;
 }
 
 h5 {
-  font-size: 1.4rem;
-  line-height: 1.5;
+  font-size: 1rem;
 }
 
 h6 {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1rem;
 }
 
 p {
@@ -159,15 +156,6 @@ input {
       text-align: center;
       display: inline-block;
     }
-    &.input-small {
-      width: 50px;
-    }
-    &.input-medium {
-      width: 100px;
-    }
-    &.input-large {
-      width: 15px;
-    }
   }
   &.dark {
     &[type="email"],
@@ -187,11 +175,6 @@ input {
       }
     }
   }
-}
-
-.inline-with-input {
-  line-height: 2.5rem;
-  margin: 0 0 10px 0;
 }
 
 ::-webkit-input-placeholder {
