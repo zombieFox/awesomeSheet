@@ -53,68 +53,22 @@ hr {
     margin: 0 0 2.5rem 0;
     position: relative;
     z-index: 1;
-    &.input-small-text {
-      color: $gray-08;
-      font-size: $small-text;
-    }
   }
-  &.input-name {
-    .input-label {
-      margin: 0 0 0 20px;
-      font-size: 2rem;
-      line-height: 4rem;
-      opacity: 1;
-      &.input-label-focus {
-        top: inherit;
-        opacity: 0;
-        line-height: 4rem;
-      }
-    }
+}
+
+.awesome-name {
+  .input-block {
     .input-field {
-      margin: 0 0 60px 0;
-      padding: 0 0 0 20px;
+      margin: 0;
       border: 0;
-      border-left: 5px solid $primary-color;
       font-size: 2.5rem;
-      line-height: 4rem;
       height: 4rem;
-      font-family: $open-sans-regular;
-      box-sizing: border-box;
+      font-family: $open-sans-light;
+      line-height: 4rem;
+      position: relative;
+      z-index: 1;
     }
   }
-}
-
-.input-block-faux {
-  position: relative;
-  .input-label-faux {
-    margin: 0;
-    padding: 0;
-    color: $gray-08;
-    display: block;
-    position: absolute;
-    top: 3rem;
-    left: 0;
-    font-size: $small-text;
-    line-height: 1rem;
-    cursor: text;
-  }
-  .input-field-faux {
-    font-size: 1rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    margin: 0 0 2.5rem 0;
-    position: relative;
-    z-index: 1;
-    border-bottom: $border;
-    &.input-small-text-faux {
-      color: $gray-08;
-      font-size: $small-text;
-    }
-  }
-}
-
-.inline-with-input-block {
-  position: relative;
 }
 
 .inline-with-input {
@@ -125,18 +79,6 @@ hr {
 
 .underline-with-input {
   border-bottom: $border;
-}
-
-.inline-with-label {
-  margin: 0;
-  padding: 0;
-  display: block;
-  position: absolute;
-  top: -1rem;
-  left: 0;
-  font-size: $small-text;
-  line-height: 1rem;
-  color: $gray-10;
 }
 
 // stats
@@ -166,31 +108,18 @@ hr {
     width: 100%;
     border-spacing: 0;
     thead {
-      border-bottom: 2px solid $gray-08;
       tr {
         td {
-          padding: 0 1%;
+          padding: 0 10px;
           margin: 0;
+          width: 15%;
+          text-align: center;
           height: 2.5rem;
-          width: 1%;
-          font-family: $open-sans-semi-bold;
+          border-bottom: $border;
           &:first-child {
-            width: 99%;
+            width: 55%;
             padding: 0;
             text-align: left;
-          }
-          &.ability-title,
-          &.mod-title,
-          &.ranks-title,
-          &.misc-title {
-            display: none;
-          }
-          &.ability-title,
-          &.mod-title,
-          &.ranks-title,
-          &.misc-title {
-            color: $gray-08;
-            font-size: $small-text;
           }
         }
       }
@@ -200,8 +129,11 @@ hr {
         padding: 0;
         margin: 0;
         text-align: center;
+        height: 2.5rem;
+        p {
+          border-bottom: $border;
+        }
         &:first-child {
-          width: 99%;
           p {
             text-align: left;
           }
@@ -210,39 +142,16 @@ hr {
           padding: 0;
           margin: 0;
           height: 2.5rem;
-          text-align: center;
-          width: 100%;
-          height: 2.5rem;
           line-height: 2.5rem;
+          text-align: center;
           box-sizing: content-box;
         }
-        &.ability,
-        &.mod,
-        &.ranks,
-        &.misc {
-          display: none;
+        .ranks,
+        .misc {
+          color: $gray-08;
+          font-size: $small-text;
         }
-        &.name,
-        &.total,
-        &.ability,
-        &.mod,
-        &.ranks,
-        &.misc {
-          p {
-            border-bottom: $border;
-          }
-        }
-        &.ability,
-        &.mod,
-        &.ranks,
-        &.misc {
-          p,
-          input {
-            color: $gray-08;
-            font-size: $small-text;
-          }
-        }
-        &.total {
+        .total {
           font-family: $open-sans-semi-bold;
         }
       }
@@ -290,17 +199,18 @@ hr {
       }
     }
   }
-  .new {
+  .spells-known {
     margin: 0 0 20px 0;
-    .new-spell {
-      padding: 3px 10px;
-      margin: 5px;
+    .spell-item {
+      padding: 2px 6px;
+      margin: 2px;
       display: inline-block;
       color: $gray-03;
       border-radius: $border-radius-small;
       background-color: $gray-14;
       cursor: pointer;
       text-decoration: none;
+      transition: all $transition-ease-fast;
       &:hover,
       &:focus {
         background-color: $gray-12;

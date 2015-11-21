@@ -72,10 +72,6 @@ strong {
   font-family: $open-sans-semi-bold;
 }
 
-.text-center {
-  text-align: center;
-}
-
 
 /* Links
 ------------------------------------------------- */
@@ -189,6 +185,15 @@ input {
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: $gray-10;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.small-text {
+  color: $gray-08;
+  font-size: $small-text;
 }
 
 

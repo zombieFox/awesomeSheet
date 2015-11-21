@@ -50,6 +50,8 @@ function awesomesheet() {
 
   var all_skill_inputs = eA("input.skill-value");
 
+  var spellItem = eA(".spell-item");
+
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -186,7 +188,7 @@ function awesomesheet() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         update_scoreModifiers();
-        update_skillModifier();
+        // update_skillModifier();
         update_skillTotal();
         // update_ac();
         store_stats();
@@ -198,7 +200,7 @@ function awesomesheet() {
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         update_scoreModifiers();
-        update_skillModifier();
+        // update_skillModifier();
         update_skillTotal();
         // update_ac();
         store_stats();
@@ -313,6 +315,25 @@ function awesomesheet() {
         };
       }, false);
     };
+  };
+
+  // add listeners to spellItem
+  function addListenerTo_spellItem() {
+    for (var i = 0; i < spellItem.length; i++) {
+      spellItem[i].addEventListener("click", function() {
+        
+        copySpell(this);
+
+      }, false);
+    };
+  };
+
+  function copySpell(spell) {
+    spellLevel = spell.parentNode.classList[1];
+    spellName = spell.innerHTML;
+    console.log(spellLevel);
+    console.log(spellName);
+
   };
 
   // --------------------------------------------------------------------------
@@ -535,73 +556,62 @@ function awesomesheet() {
   // update skill total
   function update_skillTotal() {
     for (var i = 0; i < all_skillList_skillDetails.length; i++) {
-      var skillMod = parseInt(all_skillList_skillDetails[i].children[3].children[0].innerHTML, 10) || 0;
-      var skillRanks = checkValue(all_skillList_skillDetails[i].children[4].children[0]);
-      var skillMisc = checkValue(all_skillList_skillDetails[i].children[5].children[0]);
-      var skillTotal = skillMod + skillRanks + skillMisc;
-      all_skillList_skillDetails[i].children[1].children[0].innerHTML = skillTotal;
-    };
-  };
-
-  // update skill modifiers from stats
-  function update_skillModifier() {
-    for (var i = 0; i < all_skillList_skillDetails.length; i++) {
-      var ability = all_skillList_skillDetails[i].children[2].children[0].innerHTML;
-
-      function whichAbility() {
-        // if the skill has STR or DEX or CON or INT or WIS or CHA in its ability 
-        if (ability == "STR") {
-          // if temp score mod has content
-          if (stats_strTempMod.innerHTML == "") {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_strMod.innerHTML;
-          } else {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_strTempMod.innerHTML;
-          };
-        } else if (ability == "DEX") {
-          // if temp score mod has content
-          if (stats_dexTempMod.innerHTML == "") {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_dexMod.innerHTML;
-          } else {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_dexTempMod.innerHTML;
-          };
-        } else if (ability == "CON") {
-          // if temp score mod has content
-          if (stats_conTempMod.innerHTML == "") {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_conMod.innerHTML;
-          } else {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_conTempMod.innerHTML;
-          };
-        } else if (ability == "INT") {
-          // if temp score mod has content
-          if (stats_intTempMod.innerHTML == "") {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_intMod.innerHTML;
-          } else {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_intTempMod.innerHTML;
-          };
-        } else if (ability == "WIS") {
-          // if temp score mod has content
-          if (stats_wisTempMod.innerHTML == "") {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_wisMod.innerHTML;
-          } else {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_wisTempMod.innerHTML;
-          };
-        } else if (ability == "CHA") {
-          // if temp score mod has content
-          if (stats_chaTempMod.innerHTML == "") {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_chaMod.innerHTML;
-          } else {
-            all_skillList_skillDetails[i].children[3].children[0].innerHTML = stats_chaTempMod.innerHTML;
-          };
+      var skillAbility = all_skillList_skillDetails[i].querySelector(".name.skill-value").dataset.ability;
+      var skillMod;
+      if (skillAbility == "str") {
+        // if ability temp mod is empty
+        if (stats_strTempMod.innerHTML == "") {
+          skillMod = parseInt(stats_strMod.innerHTML, 10);
+        } else {
+          skillMod = parseInt(stats_strTempMod.innerHTML, 10);
+        };
+      } else if (skillAbility == "dex") {
+        // if ability temp mod is empty
+        if (stats_dexTempMod.innerHTML == "") {
+          skillMod = parseInt(stats_dexMod.innerHTML, 10);
+        } else {
+          skillMod = parseInt(stats_dexTempMod.innerHTML, 10);
+        };
+      } else if (skillAbility == "con") {
+        // if ability temp mod is empty
+        if (stats_conTempMod.innerHTML == "") {
+          skillMod = parseInt(stats_conMod.innerHTML, 10);
+        } else {
+          skillMod = parseInt(stats_conTempMod.innerHTML, 10);
+        };
+      } else if (skillAbility == "int") {
+        // if ability temp mod is empty
+        if (stats_intTempMod.innerHTML == "") {
+          skillMod = parseInt(stats_intMod.innerHTML, 10);
+        } else {
+          skillMod = parseInt(stats_intTempMod.innerHTML, 10);
+        };
+      } else if (skillAbility == "wis") {
+        // if ability temp mod is empty
+        if (stats_wisTempMod.innerHTML == "") {
+          skillMod = parseInt(stats_wisMod.innerHTML, 10);
+        } else {
+          skillMod = parseInt(stats_wisTempMod.innerHTML, 10);
+        };
+      } else if (skillAbility == "cha") {
+        // if ability temp mod is empty
+        if (stats_chaTempMod.innerHTML == "") {
+          skillMod = parseInt(stats_chaMod.innerHTML, 10);
+        } else {
+          skillMod = parseInt(stats_chaTempMod.innerHTML, 10);
         };
       };
-      whichAbility();
+      var skillRanks = checkValue(all_skillList_skillDetails[i].querySelector(".ranks.skill-value"));
+      var skillMisc = checkValue(all_skillList_skillDetails[i].querySelector(".misc.skill-value"));
+      var skillTotal = skillMod + skillRanks + skillMisc;
+      all_skillList_skillDetails[i].querySelector(".total.skill-value").innerHTML = skillTotal;
     };
   };
 
   // add listeners to skills
   function addListenerTo_skillInputs() {
-    var skillRanks = eA(".ranks input");
-    var skillMisc = eA(".misc input");
+    var skillRanks = eA(".ranks.skill-value");
+    var skillMisc = eA(".misc.skill-value");
     for (var i = 0; i < skillRanks.length; i++) {
       skillRanks[i].addEventListener("input", function() {
         update_skillTotal();
@@ -744,6 +754,7 @@ function awesomesheet() {
   // --------------------------------------------------------------------------
 
   addListenerTo_spellCheck();
+  addListenerTo_spellItem();
   addListenerTo_stats();
   addListenerTo_skillInputs();
   // addListenerTo_acInputs();
@@ -756,7 +767,7 @@ function awesomesheet() {
   read_stats();
   // read_ac();
   update_scoreModifiers();
-  update_skillModifier();
+  // update_skillModifier();
   update_skillTotal();
   // update_ac();
   update_inputBlock_focus()
