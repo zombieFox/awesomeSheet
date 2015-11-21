@@ -28,37 +28,21 @@
   &:after {
     clear: both;
   }
-}
-
-// [class^="col-"],
-// [class*=" col-"] {
-//   float: none;
-//   margin-right: 0;
-// }
-
-// .col-1,
-// .col-2,
-// .col-3,
-// .col-4,
-// .col-5,
-// .col-6,
-// .col-7,
-// .col-8,
-// .col-9,
-// .col-10,
-// .col-11,
-// .col-12 {
-//   width: 100%;
-// }
-
-[class^="col-"],
-[class*=" col-"] {
-  float: left;
-  margin-right: $grid-spacing;
-  box-sizing: border-box;
-  &:last-child,
-  .col-12 {
-    margin-right: 0%;
+  [class^="col-"],
+  [class*=" col-"] {
+    float: left;
+    margin-right: $grid-spacing;
+    box-sizing: border-box;
+    &:last-child,
+    .col-12 {
+      margin-right: 0%;
+    }
+  }
+  &.no-gutter {
+    [class^="col-"],
+    [class*=" col-"] {
+      margin: 0;
+    }
   }
 }
 
@@ -108,6 +92,89 @@
 
 .col-12 {
   width: 100%;
+}
+
+.col-offset-1 {
+  margin-left: (100% / 12) - ($grid-spacing * 11 / 12) + $grid-spacing;
+}
+
+.col-offset-2 {
+  margin-left: (100% / 6) - ($grid-spacing * 10 / 12) + $grid-spacing;
+}
+
+.col-offset-3 {
+  margin-left: (100% / 4) - ($grid-spacing * 9 / 12) + $grid-spacing;
+}
+
+.col-offset-4 {
+  margin-left: (100% / 3) - ($grid-spacing * 8 / 12) + $grid-spacing;
+}
+
+.col-offset-5 {
+  margin-left: (100% / 2.4) - ($grid-spacing * 7 / 12) + $grid-spacing;
+}
+
+.col-offset-6 {
+  margin-left: (100% / 2) - ($grid-spacing * 6 / 12) + $grid-spacing;
+}
+
+.col-offset-7 {
+  margin-left: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12) + $grid-spacing;
+}
+
+.col-offset-8 {
+  margin-left: (100% / 1.5) - ($grid-spacing * 4 / 12) + $grid-spacing;
+}
+
+.col-offset-9 {
+  margin-left: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12) + $grid-spacing;
+}
+
+.col-offset-10 {
+  margin-left: (100% / 1.2) - ($grid-spacing * 2 / 12) + $grid-spacing;
+}
+
+.col-offset-11 {
+  margin-left: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12) + $grid-spacing;
+}
+
+.no-gutter {
+  .col-1 {
+    width: (100% / 12);
+  }
+  .col-2 {
+    width: (100% / 6);
+  }
+  .col-3 {
+    width: (100% / 4);
+  }
+  .col-4 {
+    width: (100% / 3);
+  }
+  .col-5 {
+    width: (100% / 2.4);
+  }
+  .col-6 {
+    width: (100% / 2);
+  }
+  .col-7 {
+    width: (100% / 1.714285714285714);
+  }
+  .col-8 {
+    width: (100% / 1.5);
+  }
+  .col-9 {
+    width: (100% / 1.333333333333333);
+  }
+  .col-10 {
+    width: (100% / 1.2);
+  }
+  .col-11 {
+    width: (100% / 1.090909090909091);
+  }
+  .col-12 {
+    width: 100%;
+  }
 }
 
 
