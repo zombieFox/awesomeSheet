@@ -269,77 +269,95 @@ function awesomesheet() {
   // spells
   // --------------------------------------------------------------------------
 
-  // store spell check
-  function store_spellCheck() {
-    var spellCheck_state = [];
-    for (var i = 0; i < spellCheck.length; i++) {
-      spellCheck_state.push(spellCheck[i].classList);
-    };
-    localStoreAdd("spellCheck", spellCheck_state);
-  };
+  // // store spell check
+  // function store_spellCheck() {
+  //   var spellCheck_state = [];
+  //   for (var i = 0; i < spellCheck.length; i++) {
+  //     spellCheck_state.push(spellCheck[i].classList);
+  //   };
+  //   localStoreAdd("spellCheck", spellCheck_state);
+  // };
 
-  // read spell check
-  function read_spellCheck() {
-    // read stored vaules
-    var spellCheck_state = localStoreRead("spellCheck");
-    // convert stored values into an array
-    if (spellCheck_state) {
-      var spellCheck_classes = spellCheck_state.split(',');
-    };
+  // // read spell check
+  // function read_spellCheck() {
+  //   // read stored vaules
+  //   var spellCheck_state = localStoreRead("spellCheck");
+  //   // convert stored values into an array
+  //   if (spellCheck_state) {
+  //     var spellCheck_classes = spellCheck_state.split(',');
+  //   };
 
-    // put values into spellCheck elements
-    if (spellCheck_state) {
-      for (var i = 0; i < spellCheck.length; i++) {
-        spellCheck[i].className = spellCheck_classes[i];
-      };
-    };
-  };
+  //   // put values into spellCheck elements
+  //   if (spellCheck_state) {
+  //     for (var i = 0; i < spellCheck.length; i++) {
+  //       spellCheck[i].className = spellCheck_classes[i];
+  //     };
+  //   };
+  // };
 
   // add listeners to spells
-  function addListenerTo_spellCheck() {
-    for (var i = 0; i < spellCheck.length; i++) {
-      spellCheck[i].addEventListener("click", function() {
-        // if box is unchecked
-        if (this.classList.contains("icon-check-box-unchecked")) {
-          removeClass(this, "icon-check-box-unchecked");
-          addClass(this, "icon-check-box-checked");
-          store_spellCheck();
-        } else if (this.classList.contains("spell-cast")) {
-          addClass(this, "icon-check-box-unchecked");
-          removeClass(this, "icon-check-box-checked");
-          removeClass(this, "spell-cast");
-          store_spellCheck();
-        } else if (this.classList.contains("icon-check-box-checked")) {
-          addClass(this, "spell-cast");
-          store_spellCheck();
-        };
-      }, false);
-    };
-  };
+  // function addListenerTo_spellCheck() {
+  //   for (var i = 0; i < spellCheck.length; i++) {
+  //     spellCheck[i].addEventListener("click", function() {
+  //       // if box is unchecked
+  //       if (this.classList.contains("icon-check-box-unchecked")) {
+  //         removeClass(this, "icon-check-box-unchecked");
+  //         addClass(this, "icon-check-box-checked");
+  //         store_spellCheck();
+  //       } else if (this.classList.contains("spell-cast")) {
+  //         addClass(this, "icon-check-box-unchecked");
+  //         removeClass(this, "icon-check-box-checked");
+  //         removeClass(this, "spell-cast");
+  //         store_spellCheck();
+  //       } else if (this.classList.contains("icon-check-box-checked")) {
+  //         addClass(this, "spell-cast");
+  //         store_spellCheck();
+  //       };
+  //     }, false);
+  //   };
+  // };
 
   // add listeners to spellItem
   function addListenerTo_spellItem() {
     for (var i = 0; i < spellItem.length; i++) {
       spellItem[i].addEventListener("click", function() {
-        
         copySpell(this);
+      }, false);
+    };
+  };
+
+  // add listeners to spellPrepared
+  function addListenerTo_spellPrepared() {
+    spellPrepared = eA(".spell-prepared");
+
+    for (var i = 0; i < spellPrepared.length; i++) {
+      spellPrepared[i].addEventListener("click", function() {
+        toggleClass(this, "spell-prepared");
+        toggleClass(this, "spell-cast");
+
+
+
+        if (this.classList.contains("spell-prepared")) {
+          removeClass(this, "spell-prepared");
+          addClass(this, "spell-cast");
+
+        } else if (this.classList.contains("spell-cast")) {
+            console.log("remove");
+
+        };
+        
 
       }, false);
     };
   };
 
   function copySpell(spell) {
-    level = spell.parentNode.dataset.spellLevel;
+    level = getClosest(spell, ".spells-known").dataset.spellLevel;
     name = spell.innerHTML;
-    spellList = e(".spells-prepared.spells-level-" + level);
-    anchor = "<a class=\"spell-item\">" + name + "</a>"
-    console.log(level);
-    console.log(name);
-    console.log(spellList);
-    console.log(anchor);
-
-    spellList.innerHTML = spellList.innerHTML + anchor;
-
+    preparedList = e(".spells-known.spell-level-" + level + " .prepared-list");
+    anchor = "<a href=\"javascript:void(0)\" class=\"spell-prepared button button-primary button-small\">" + name + "</a>"
+    preparedList.innerHTML = preparedList.innerHTML + " " + anchor;
+    addListenerTo_spellPrepared();
   };
 
   // --------------------------------------------------------------------------
@@ -759,7 +777,7 @@ function awesomesheet() {
   // run on page load
   // --------------------------------------------------------------------------
 
-  addListenerTo_spellCheck();
+  // addListenerTo_spellCheck();
   addListenerTo_spellItem();
   addListenerTo_stats();
   addListenerTo_skillInputs();
@@ -768,7 +786,7 @@ function awesomesheet() {
   addListenerTo_inputBlock();
   read_textarea();
   read_inputBlock();
-  read_spellCheck();
+  // read_spellCheck();
   read_skills();
   read_stats();
   // read_ac();
