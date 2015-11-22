@@ -109,11 +109,27 @@
                 <input class="input-field" id="input-initiative" type="text" value="3">
               </div>
             </div>
-            <div class="col-8">
+            <div class="col-4">
               <div class="input-block">
                 <!-- speed -->
                 <label class="input-label" for="input-speed">Speed</label>
                 <input class="input-field" id="input-speed" type="text" value="30 feet, 6 squares">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- wealth -->
+                <label class="input-label" for="input-wealth">Wealth</label>
+                <input class="input-field" id="input-wealth" type="text" value="2,690GP">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- hero points -->
+                <label class="input-label" for="input-hero-points">Hero Points</label>
+                <input class="input-field" id="input-hero-points" type="text" value="1">
               </div>
             </div>
           </div>
@@ -297,7 +313,15 @@
               <p><strong>Gear</strong></P>
             </div>
             <div class="col-9">
-              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case</div>
+              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Magic Gear</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-magic-gear">Scroll of Acid Pit, Potion of CLW x3, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Potion of Erase, Wand of Infernal Healing (16)</div>
             </div>
           </div>
         </section>
@@ -780,772 +804,386 @@
           <div class="row">
             <div class="col-12">
               <h1>Spells</h1>
-              <div class="row">
-                <div class="col-12">
-                  <h2>Known Spells</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-known" data-spell-level="0">
-                    <a class="spell-item">Bleed</a>
-                    <a class="spell-item">Daze</a>
-                    <a class="spell-item">Disrupt Undead</a>
-                    <a class="spell-item">Touch of Fatigue</a>
-                    <a class="spell-item">Prestidigitation</a>
-                    <a class="spell-item">Light</a>
-                    <a class="spell-item">Ghost Sound</a>
-                    <a class="spell-item">Spark</a>
-                    <a class="spell-item">Acid Splash</a>
-                    <a class="spell-item">Mage Hand</a>
-                    <a class="spell-item">Flare</a>
-                    <a class="spell-item">Detect Magic</a>
-                    <a class="spell-item">Detect Poison</a>
-                    <a class="spell-item">Dancing Lights</a>
-                    <a class="spell-item">Mending</a>
-                    <a class="spell-item">Arcane Mark</a>
-                    <a class="spell-item">Message</a>
-                    <a class="spell-item">Ray of Frost</a>
-                    <a class="spell-item">Read Magic</a>
-                    <a class="spell-item">Open/Close</a>
-                    <a class="spell-item">Resistance</a>
-                  </div>
-                  <div class="spells-known" data-spell-level="1">
-                    <a class="spell-item">Comprehend Languages</a>
-                    <a class="spell-item">Enlarge Person</a>
-                    <a class="spell-item">Feather Fall</a>
-                    <a class="spell-item">Grease</a>
-                    <a class="spell-item">Mage Armor</a>
-                    <a class="spell-item">Mount</a>
-                    <a class="spell-item">Obscuring Mist</a>
-                    <a class="spell-item">Protection from Chaos</a>
-                    <a class="spell-item">Protection from Evil</a>
-                    <a class="spell-item">Shield</a>
-                    <a class="spell-item">Summon Monster I</a>
-                    <a class="spell-item">Unseen Servant</a>
-                  </div>
-                  <div class="spells-known" data-spell-level="2">
-                    <a class="spell-item">Create Pit</a>
-                    <a class="spell-item">Flaming Sphere</a>
-                    <a class="spell-item">Glitterdust</a>
-                    <a class="spell-item">Invisibility</a>
-                    <a class="spell-item">Levitate</a>
-                    <a class="spell-item">Mirror Image</a>
-                    <a class="spell-item">Resist Energy</a>
-                    <a class="spell-item">Stone Call</a>
-                    <a class="spell-item">Summon Monster II</a>
-                    <a class="spell-item">Web</a>
-                  </div>
-                  <div class="spells-known" data-spell-level="3">
-                    <a class="spell-item">Stinking Cloud</a>
-                    <a class="spell-item">Summon Monster III</a>
-                  </div>
-                  <div class="spells-known" data-spell-level="4"></div>
-                  <div class="spells-known" data-spell-level="5"></div>
-                  <div class="spells-known" data-spell-level="6"></div>
-                  <div class="spells-known" data-spell-level="7"></div>
-                  <div class="spells-known" data-spell-level="8"></div>
-                  <div class="spells-known" data-spell-level="9"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 0 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 0 per day -->
-                    <label class="input-label" for="input-level-0-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-0-per-day" type="text" value="4+0">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-0-dc">Base DC</label>
-                    <input class="input-field" id="input-level-0-dc" type="text" value="16">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-1"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 1 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 1 per day -->
-                    <label class="input-label" for="input-level-1-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-1-per-day" type="text" value="5+1">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-1-dc">Base DC</label>
-                    <input class="input-field" id="input-level-1-dc" type="text" value="17">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-1"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 2 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 2 per day -->
-                    <label class="input-label" for="input-level-2-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-2-per-day" type="text" value="4+1">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-2-dc">Base DC</label>
-                    <input class="input-field" id="input-level-2-dc" type="text" value="18">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-2"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 3 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 3 per day -->
-                    <label class="input-label" for="input-level-3-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-3-per-day" type="text" value="2+1">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-3-dc">Base DC</label>
-                    <input class="input-field" id="input-level-3-dc" type="text" value="19">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-3"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 4 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 4 per day -->
-                    <label class="input-label" for="input-level-4-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-4-per-day" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-4-dc">Base DC</label>
-                    <input class="input-field" id="input-level-4-dc" type="text" value="20">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-4"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 5 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 5 per day -->
-                    <label class="input-label" for="input-level-5-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-5-per-day" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-5-dc">Base DC</label>
-                    <input class="input-field" id="input-level-5-dc" type="text" value="21">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-5"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 6 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 6 per day -->
-                    <label class="input-label" for="input-level-6-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-6-per-day" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-6-dc">Base DC</label>
-                    <input class="input-field" id="input-level-6-dc" type="text" value="22">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-6"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 7 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 7 per day -->
-                    <label class="input-label" for="input-level-7-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-7-per-day" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-7-dc">Base DC</label>
-                    <input class="input-field" id="input-level-7-dc" type="text" value="23">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-7"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 8 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 8 per day -->
-                    <label class="input-label" for="input-level-8-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-8-per-day" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-8-dc">Base DC</label>
-                    <input class="input-field" id="input-level-8-dc" type="text" value="24">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-8"></div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 9 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 9 per day -->
-                    <label class="input-label" for="input-level-9-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-9-per-day" type="text" value="">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-9-dc">Base DC</label>
-                    <input class="input-field" id="input-level-9-dc" type="text" value="25">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="spells-prepared spells-level-9"></div>
-                </div>
-              </div>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 0 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 0 per day -->
-                    <label class="input-label" for="input-level-0-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-0-per-day" type="text" value="4+0">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-0-dc">Base DC</label>
-                    <input class="input-field" id="input-level-0-dc" type="text" value="16">
-                  </div>
-                </div>
-              </div>
-              <ul class="spell-list">
-                <li class="clearfix">
-                  <p>Bleed (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Daze (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Disrupt Undead</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Touch of Fatigue (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Prestidigitation (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Light</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Ghost Sound (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Spark (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Acid Splash</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Mage Hand</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Flare (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Detect Magic</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Detect Poison</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Dancing Lights</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Mending (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Arcane Mark</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Message</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Ray of Frost</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Read Magic</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Open/Close (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Resistance (DC 16)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-              </ul>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 1 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 1 per day -->
-                    <label class="input-label" for="input-level-1-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-1-per-day" type="text" value="5+1">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-1-dc">Base DC</label>
-                    <input class="input-field" id="input-level-1-dc" type="text" value="17">
-                  </div>
-                </div>
-              </div>
-              <ul class="spell-list">
-                <li class="clearfix">
-                  <p>Comprehend Languages</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Enlarge Person (DC 17)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Feather Fall (DC 17)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Grease (DC 19)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Mage Armor (DC 19)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Mount</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Obscuring Mist</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Protection from Chaos (DC 17)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Protection from Evil (DC 17)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Shield</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Summon Monster I</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Unseen Servant</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-              </ul>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 2 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 2 per day -->
-                    <label class="input-label" for="input-level-2-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-2-per-day" type="text" value="4+1">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-2-dc">Base DC</label>
-                    <input class="input-field" id="input-level-2-dc" type="text" value="18">
-                  </div>
-                </div>
-              </div>
-              <ul class="spell-list">
-                <li class="clearfix">
-                  <p>Create Pit (DC 20)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Flaming Sphere (DC 18)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Glitterdust (DC 20)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Invisibility (DC 18)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Levitate</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Mirror Image</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Resist Energy (DC 18)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Stone Call</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Summon Monster II</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Web (DC 20)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-              </ul>
-              <div class="row">
-                <div class="col-6">
-                  <h2>Level 3 Spells</h2>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- level 3 per day -->
-                    <label class="input-label" for="input-level-3-per-day">Per Day</label>
-                    <input class="input-field" id="input-level-3-per-day" type="text" value="2+1">
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <!-- dc -->
-                    <label class="input-label" for="input-level-3-dc">Base DC</label>
-                    <input class="input-field" id="input-level-3-dc" type="text" value="19">
-                  </div>
-                </div>
-              </div>
-              <ul class="spell-list">
-                <li class="clearfix">
-                  <p>Stinking Cloud (DC 21)</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-                <li class="clearfix">
-                  <p>Summon Monster III</p>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                  <span class="spell-check icon-check-box-unchecked"></span>
-                </li>
-              </ul>
             </div>
           </div>
+          <div class="spells-known spell-level-0" data-spell-level="0">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 0</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-0-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-0-per-day" type="number" value="4">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-0-dc">Base DC</label>
+                  <input class="input-field" id="input-level-0-dc" type="number" value="16">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Bleed</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Daze</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Disrupt Undead</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Touch of Fatigue</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Prestidigitation</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Light</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Ghost Sound</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Spark</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Acid Splash</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Mage Hand</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Flare</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Detect Magic</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Detect Poison</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Dancing Lights</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Mending</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Arcane Mark</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Message</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Ray of Frost</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Read Magic</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Open/Close</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Resistance</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-1" data-spell-level="1">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 1</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-1-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-1-per-day" type="number" value="5">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-1-dc">Base DC</label>
+                  <input class="input-field" id="input-level-1-dc" type="number" value="17">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Comprehend Languages</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Enlarge Person</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Feather Fall</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Grease</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Mage Armor</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Mount</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Obscuring Mist</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Protection from Chaos</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Protection from Evil</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Shield</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster I</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Unseen Servant</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-2" data-spell-level="2">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 2</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-2-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-2-per-day" type="number" value="4">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-2-dc">Base DC</label>
+                  <input class="input-field" id="input-level-2-dc" type="number" value="18">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Blur</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Create Pit</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Flaming Sphere</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Glitterdust</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Invisibility</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Levitate</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Mirror Image</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Resist Energy</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Stone Call</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster II</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Web</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-3" data-spell-level="3">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 3</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-3-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-3-per-day" type="number" value="2">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-3-dc">Base DC</label>
+                  <input class="input-field" id="input-level-3-dc" type="number" value="19">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Stinking Cloud</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster III</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Spiked Pit</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Aqueous Orb</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="spells-known spell-level-4" data-spell-level="4">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 4</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-4-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-4-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-4-dc">Base DC</label>
+                  <input class="input-field" id="input-level-4-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-5" data-spell-level="5">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 5</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-5-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-5-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-5-dc">Base DC</label>
+                  <input class="input-field" id="input-level-5-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-6" data-spell-level="6">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 6</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-6-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-6-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-6-dc">Base DC</label>
+                  <input class="input-field" id="input-level-6-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-7" data-spell-level="7">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 7</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-7-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-dc">Base DC</label>
+                  <input class="input-field" id="input-level-7-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-7" data-spell-level="7">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 7</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-7-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-dc">Base DC</label>
+                  <input class="input-field" id="input-level-7-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-8" data-spell-level="8">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 8</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-8-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-8-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-8-dc">Base DC</label>
+                  <input class="input-field" id="input-level-8-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="spells-known spell-level-9" data-spell-level="9">
+            <div class="row">
+              <div class="col-8">
+                <h2>Level 9</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-9-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-9-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-9-dc">Base DC</label>
+                  <input class="input-field" id="input-level-9-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div> -->
         </section>
         <section id="special-abilities">
           <div class="row">

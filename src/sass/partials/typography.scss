@@ -173,6 +173,19 @@ input {
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
+.small-text {
+  color: $gray-08;
+  font-size: $small-text;
+}
+
+
+/* vendor
+------------------------------------------------- */
+
 ::-webkit-input-placeholder {
   color: $gray-10;
 }
@@ -187,13 +200,9 @@ input {
   color: $gray-10;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.small-text {
-  color: $gray-08;
-  font-size: $small-text;
+::selection {
+  color: $white;
+  background: $secondary-color-light;
 }
 
 
