@@ -478,6 +478,15 @@ input.dark[type="email"], input.dark[type="number"], input.dark[type="search"], 
     padding-right: 10px;
     border-radius: 3px; }
 
+.text-center {
+  text-align: center; }
+
+.small-text {
+  color: #a0a0a0;
+  font-size: 0.8rem; }
+
+/* vendor
+------------------------------------------------- */
 ::-webkit-input-placeholder {
   color: #c4c4c4; }
 
@@ -489,12 +498,13 @@ input.dark[type="email"], input.dark[type="number"], input.dark[type="search"], 
   /* Firefox 19+ */
   color: #c4c4c4; }
 
-.text-center {
-  text-align: center; }
+::-moz-selection {
+  color: #ffffff;
+  background: #086482; }
 
-.small-text {
-  color: #a0a0a0;
-  font-size: 0.8rem; }
+::selection {
+  color: #ffffff;
+  background: #086482; }
 
 /* media queries
 ------------------------------------------------- */
@@ -786,55 +796,35 @@ hr {
     #skills .skill-list tr td .total {
       font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
-#spells .spell-list {
-  margin: 0 0 60px 5%;
-  padding: 0; }
-  #spells .spell-list li {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    border-bottom: 2px solid #e8e8e8; }
-    #spells .spell-list li p,
-    #spells .spell-list li [class^="icon-"],
-    #spells .spell-list li [class*=" icon-"] {
-      margin: 0;
-      padding: 0.5rem 0;
-      line-height: 1.8rem; }
-    #spells .spell-list li p {
-      max-width: 160px;
-      float: left; }
-    #spells .spell-list li [class^="icon-"],
-    #spells .spell-list li [class*=" icon-"] {
-      padding-left: 0;
-      padding-right: 0;
-      font-size: 1.5rem;
-      float: right;
-      cursor: pointer; }
-    #spells .spell-list li .icon-check-box-unchecked {
-      color: #e8e8e8; }
-    #spells .spell-list li .icon-check-box-checked {
-      color: #ff0055; }
-    #spells .spell-list li .spell-cast {
-      color: #a0a0a0; }
-
 #spells .spells-known {
-  margin: 0 0 20px 0; }
-  #spells .spells-known .spell-item {
-    padding: 2px 6px;
-    margin: 2px;
-    display: inline-block;
-    color: #464646;
-    border-radius: 3px;
-    background-color: #fafafa;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.1s ease-in-out; }
-    #spells .spells-known .spell-item:hover, #spells .spells-known .spell-item:focus {
-      background-color: #d6d6d6;
-      text-decoration: none; }
-    #spells .spells-known .spell-item:active {
-      background-color: #ff0055;
-      color: #ffffff; }
+  margin: 0 0 30px 0; }
+  #spells .spells-known h2 {
+    margin: 0; }
+  #spells .spells-known .spell-list,
+  #spells .spells-known .prepared-list {
+    margin: 0 0 20px 0; }
+    #spells .spells-known .spell-list .button,
+    #spells .spells-known .prepared-list .button {
+      margin: 2px 0;
+      display: inline-block; }
+  #spells .spells-known .spell-list .spell-item:link, #spells .spells-known .spell-list .spell-item:visited, #spells .spells-known .spell-list .spell-item:focus {
+    border-color: #fafafa; }
+  #spells .spells-known .prepared-list .spell-cast:link, #spells .spells-known .prepared-list .spell-cast:visited, #spells .spells-known .prepared-list .spell-cast:focus {
+    color: #7c7c7c;
+    background-color: transparent;
+    border-color: #b2b2b2; }
+  #spells .spells-known .prepared-list .spell-cast:hover {
+    color: #7c7c7c;
+    background-color: transparent;
+    border-color: #7c7c7c; }
+  #spells .spells-known .prepared-list .spell-cast:active, #spells .spells-known .prepared-list .spell-cast.active {
+    color: #7c7c7c;
+    background-color: transparent;
+    border-color: transparent; }
+  #spells .spells-known .prepared-list [class^="icon-"],
+  #spells .spells-known .prepared-list [class*=" icon-"] {
+    font-size: 0.8rem;
+    margin: 0 3px 0 0; }
 
 /* media queries
 ------------------------------------------------- */

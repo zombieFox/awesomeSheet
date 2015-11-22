@@ -96,11 +96,27 @@
                 <input class="input-field" id="input-initiative" type="text" value="3">
               </div>
             </div>
-            <div class="col-8">
+            <div class="col-4">
               <div class="input-block">
                 <!-- speed -->
                 <label class="input-label" for="input-speed">Speed</label>
                 <input class="input-field" id="input-speed" type="text" value="30 feet, 6 squares">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-block">
+                <!-- wealth -->
+                <label class="input-label" for="input-wealth">Wealth</label>
+                <input class="input-field" id="input-wealth" type="text" value="2,690GP">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="input-block">
+                <!-- hero points -->
+                <label class="input-label" for="input-hero-points">Hero Points</label>
+                <input class="input-field" id="input-hero-points" type="text" value="1">
               </div>
             </div>
           </div>
@@ -284,7 +300,15 @@
               <p><strong>Gear</strong></P>
             </div>
             <div class="col-9">
-              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case</div>
+              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Magic Gear</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-magic-gear">Scroll of Acid Pit, Potion of CLW x2, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Wand of Infernal Healing (12), Scroll of Summon Monster III x2, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x1, Scroll of Stinking Cloud x1</div>
             </div>
           </div>
         </section>
@@ -771,26 +795,27 @@
           </div>
           <div class="spells-known spell-level-0" data-spell-level="0">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 0 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-0-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-0-per-day" type="text" value="4">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-0-dc">Base DC</label>
-                      <input class="input-field" id="input-level-0-dc" type="text" value="16">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 0</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-0-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-0-per-day" type="number" value="4">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-0-dc">Base DC</label>
+                  <input class="input-field" id="input-level-0-dc" type="number" value="16">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Bleed</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Erase</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Daze</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Disrupt Undead</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Touch of Fatigue</a>
@@ -812,31 +837,34 @@
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Open/Close</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Resistance</a>
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-1" data-spell-level="1">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 1 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-1-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-1-per-day" type="text" value="5">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-1-dc">Base DC</label>
-                      <input class="input-field" id="input-level-1-dc" type="text" value="17">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 1</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-1-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-1-per-day" type="number" value="5">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-1-dc">Base DC</label>
+                  <input class="input-field" id="input-level-1-dc" type="number" value="17">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Comprehend Languages</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Enlarge Person</a>
@@ -851,32 +879,36 @@
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster I</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Unseen Servant</a>
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-2" data-spell-level="2">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 2 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-2-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-2-per-day" type="text" value="4">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-2-dc">Base DC</label>
-                      <input class="input-field" id="input-level-2-dc" type="text" value="18">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 2</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-2-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-2-per-day" type="number" value="4">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-2-dc">Base DC</label>
+                  <input class="input-field" id="input-level-2-dc" type="number" value="18">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Blur</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Create Pit</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Flaming Sphere</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Glitterdust</a>
@@ -888,229 +920,258 @@
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster II</a>
                   <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Web</a>
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-3" data-spell-level="3">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 3 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-3-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-3-per-day" type="text" value="2">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-3-dc">Base DC</label>
-                      <input class="input-field" id="input-level-3-dc" type="text" value="19">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 3</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-3-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-3-per-day" type="number" value="2">
                 </div>
               </div>
-              <div class="col-8">
-                <div class="spell-list">
-                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Stinking Cloud</a>
-                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster III</a>
-                </div>
-                <div class="prepared-list">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-3-dc">Base DC</label>
+                  <input class="input-field" id="input-level-3-dc" type="number" value="19">
                 </div>
               </div>
             </div>
-          </div>
-          <div class="spells-known spell-level-4" data-spell-level="4">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 4 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-4-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-4-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-4-dc">Base DC</label>
-                      <input class="input-field" id="input-level-4-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="spell-list">
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Stinking Cloud</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Summon Monster III</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Spiked Pit</a>
+                  <a href="javascript:void(0)" class="spell-item button button-secondary button-small">Aqueous Orb</a>
                 </div>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="spells-known spell-level-4" data-spell-level="4">
+            <div class="row">
               <div class="col-8">
+                <h2>Level 4</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-4-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-4-per-day" type="number">
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-4-dc">Base DC</label>
+                  <input class="input-field" id="input-level-4-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-5" data-spell-level="5">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 5 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-5-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-5-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-5-dc">Base DC</label>
-                      <input class="input-field" id="input-level-5-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 5</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-5-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-5-per-day" type="number">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-5-dc">Base DC</label>
+                  <input class="input-field" id="input-level-5-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-6" data-spell-level="6">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 6 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-6-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-6-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-6-dc">Base DC</label>
-                      <input class="input-field" id="input-level-6-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 6</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-6-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-6-per-day" type="number">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-6-dc">Base DC</label>
+                  <input class="input-field" id="input-level-6-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-7" data-spell-level="7">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 7 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-7-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-7-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-7-dc">Base DC</label>
-                      <input class="input-field" id="input-level-7-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 7</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-7-per-day" type="number">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-dc">Base DC</label>
+                  <input class="input-field" id="input-level-7-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-7" data-spell-level="7">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 7 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-7-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-7-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-7-dc">Base DC</label>
-                      <input class="input-field" id="input-level-7-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 7</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-7-per-day" type="number">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-7-dc">Base DC</label>
+                  <input class="input-field" id="input-level-7-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-8" data-spell-level="8">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 8 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-8-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-8-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-8-dc">Base DC</label>
-                      <input class="input-field" id="input-level-8-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 8</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-8-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-8-per-day" type="number">
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-8-dc">Base DC</label>
+                  <input class="input-field" id="input-level-8-dc" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
                 <div class="spell-list">
                 </div>
-                <div class="prepared-list">
-                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
               </div>
             </div>
           </div>
           <div class="spells-known spell-level-9" data-spell-level="9">
             <div class="row">
-              <div class="col-4">
-                <h2>Level 9 Known</h2>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-9-per-day">Per Day</label>
-                      <input class="input-field" id="input-level-9-per-day" type="text">
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="input-block">
-                      <label class="input-label" for="input-level-9-dc">Base DC</label>
-                      <input class="input-field" id="input-level-9-dc" type="text">
-                    </div>
-                  </div>
+              <div class="col-8">
+                <h2>Level 9</h2>
+              </div>
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-9-per-day">Per Day</label>
+                  <input class="input-field" id="input-level-9-per-day" type="number">
                 </div>
               </div>
-              <div class="col-8">
-                <div class="spell-list">
-                </div>
-                <div class="prepared-list">
+              <div class="col-2">
+                <div class="input-block">
+                  <label class="input-label" for="input-level-9-dc">Base DC</label>
+                  <input class="input-field" id="input-level-9-dc" type="number">
                 </div>
               </div>
             </div>
-          </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="spell-list">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="prepared-list"></div>
+              </div>
+            </div>
+          </div> -->
         </section>
         <section id="special-abilities">
           <div class="row">
