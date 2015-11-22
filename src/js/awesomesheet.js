@@ -297,7 +297,7 @@ function awesomesheet() {
   function copySpell(spell) {
     var level = getClosest(spell, ".spells-known").dataset.spellLevel;
     var name = spell.innerHTML;
-    var preparedList = e(".spells-known.spell-level-" + level + " .prepared-list");
+    var preparedList = e(".prepared-list.spell-level-" + level);
     var anchor = "<a href=\"javascript:void(0)\" class=\"spell-prepared button button-primary button-small\" data-cast=\"false\"><span class=\"icon-bookmark\"></span> " + name + "</a>"
     preparedList.innerHTML = preparedList.innerHTML + " " + anchor;
     addListenerTo_spellPrepared();
@@ -316,30 +316,53 @@ function awesomesheet() {
       toggleClass(icon, "icon-close");
     };
     store_preparedList();
+    // update_preparedListStatus();
   };
 
   // store spell preparedList
   function store_preparedList() {
     for (var i = 0; i < all_preparedList.length; i++) {
-      var level = getClosest(all_preparedList[i], ".spells-known").dataset.spellLevel;
-      var readName = "prepared-spell-level-" + level;
-      var preparedListToSave = e(".spell-level-" + level + " .prepared-list");
-      localStoreAdd(readName, preparedListToSave.innerHTML);
+      var level = i;
+      var saveName = "prepared-spell-level-" + level;
+      var preparedListToSave = e(".prepared-list.spell-level-" + level);
+      if (preparedListToSave.innerHTML !== "") {
+        localStoreAdd(saveName, preparedListToSave.innerHTML);
+      };
     };
+    // update_preparedListStatus();
   };
 
   // read spell preparedList
   function read_preparedList() {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < all_preparedList.length; i++) {
       var level = i;
-      if (localStoreRead("prepared-spell-level-" + level)) {
-        var preparedListToRead = localStoreRead("prepared-spell-level-" + level);
-        var preparedListToSaveTo = e(".spell-level-" + level + " .prepared-list");
+      var readName = "prepared-spell-level-" + level;
+      var preparedListToRead = localStoreRead(readName);
+      var preparedListToSaveTo = e(".prepared-list.spell-level-" + level);
+      if (localStoreRead(readName)) {
         preparedListToSaveTo.innerHTML = preparedListToRead;
       };
     };
     addListenerTo_spellPrepared();
+    // update_preparedListStatus();
   };
+
+  // // add class to active prepared lists
+  // function update_preparedListStatus() {
+  //   for (var i = 0; i < all_preparedList.length; i++) {
+  //     var level = i;
+  //     var readName = "prepared-spell-level-" + level;
+  //     var preparedListToCheck = e(".prepared-list.spell-level-" + level);
+  //     console.log(level);
+  //     console.log(readName);
+  //     console.log(preparedListToCheck.innerHTML);
+  //     if (preparedListToCheck.innerHTML != "") {
+  //       addClass(preparedListToCheck, "has-spells");
+  //     } else {
+  //       removeClass(preparedListToCheck, "has-spells");
+  //     };
+  //   };
+  // };
 
   // --------------------------------------------------------------------------
   // textarea
@@ -766,6 +789,7 @@ function awesomesheet() {
   addListenerTo_textareass();
   addListenerTo_inputBlock();
   read_preparedList();
+  // update_preparedListStatus();
   read_textarea();
   read_inputBlock();
   read_skills();

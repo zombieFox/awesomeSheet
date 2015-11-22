@@ -2,7 +2,7 @@
 ------------------------------------------------- */
 
 html {
-  font-size: 14px;
+  font-size: 13px;
   font-family: $open-sans-regular;
 }
 
@@ -18,11 +18,11 @@ h6 {
 }
 
 h1 {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 h2 {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 h3,
@@ -211,13 +211,13 @@ input {
 
 @media (min-width: 550px) {
   html {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
 @media (min-width: 750px) {
   html {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 

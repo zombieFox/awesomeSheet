@@ -166,8 +166,7 @@ hr {
     h2 {
       margin: 0;
     }
-    .spell-list,
-    .prepared-list {
+    .spell-list {
       margin: 0 0 20px 0;
       .button {
         margin: 2px 0;
@@ -183,32 +182,40 @@ hr {
         }
       }
     }
-    .prepared-list {
-      .spell-cast {
-        &:link,
-        &:visited,
-        &:focus {
-          color: $gray-06;
-          background-color: transparent;
-          border-color: $gray-09;
-        }
-        &:hover {
-          color: $gray-06;
-          background-color: transparent;
-          border-color: $gray-06;
-        }
-        &:active,
-        &.active {
-          color: $gray-06;
-          background-color: transparent;
-          border-color: transparent;
-        }
+  }
+  .prepared-list {
+    margin: 0 0 20px 0;
+    .has-spells {
+      border-bottom: $border;
+    }
+    .button {
+      margin: 2px 0;
+      display: inline-block;
+    }
+    .spell-cast {
+      &:link,
+      &:visited,
+      &:focus {
+        color: $gray-06;
+        background-color: transparent;
+        border-color: $gray-09;
       }
-      [class^="icon-"],
-      [class*=" icon-"] {
-        font-size: 0.8rem;
-        margin: 0 3px 0 0;
+      &:hover {
+        color: $gray-06;
+        background-color: transparent;
+        border-color: $gray-06;
       }
+      &:active,
+      &.active {
+        color: $gray-06;
+        background-color: transparent;
+        border-color: transparent;
+      }
+    }
+    [class^="icon-"],
+    [class*=" icon-"] {
+      font-size: 0.8rem;
+      margin: 0 3px 0 0;
     }
   }
 }
