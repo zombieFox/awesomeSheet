@@ -50,8 +50,6 @@ function awesomesheet() {
 
   var all_skill_inputs = eA("input.skill-value");
 
-  var all_spellsPrepared = eA(".spells-prepared");
-  var all_spellsKnownItem = eA(".spells-known-item");
   var all_addSpell = eA(".add-spell");
 
   // --------------------------------------------------------------------------
@@ -271,7 +269,7 @@ function awesomesheet() {
 
   // add listeners to all spell know items
   function addListenerTo_all_spellsKnownItem() {
-    all_spellsKnownItem = eA(".spells-known-item");
+    var all_spellsKnownItem = eA(".spells-known-item");
     for (var i = 0; i < all_spellsKnownItem.length; i++) {
       // stop addListenerTo_all_spellsKnownItem from stacking event listeners on the same element
       var doesSpellHaveListener = all_spellsKnownItem[i].dataset.eventListener;
@@ -279,6 +277,7 @@ function awesomesheet() {
         all_spellsKnownItem[i].dataset.eventListener = "true";
         all_spellsKnownItem[i].addEventListener("click", function() {
           copySpell(this);
+          store_preparedList();
         }, false);
       };
     };
@@ -287,14 +286,9 @@ function awesomesheet() {
   // add listeners to prepared spells
   function addListenerTo_all_spellPreparedItem() {
     var all_spellPreparedItem = eA(".spell-prepared-item");
-    var spellCast = eA(".spell-cast");
+    console.log(all_spellPreparedItem);
     for (var i = 0; i < all_spellPreparedItem.length; i++) {
       all_spellPreparedItem[i].addEventListener("click", function() {
-        changeSpellState(this);
-      }, false);
-    };
-    for (var i = 0; i < spellCast.length; i++) {
-      spellCast[i].addEventListener("click", function() {
         changeSpellState(this);
       }, false);
     };
@@ -341,11 +335,11 @@ function awesomesheet() {
     spellToCopy.innerHTML = "<span class=\"icon-bookmark\"></span> " + name;
     preparedListToSaveTo.insertBefore(spellToCopy, theFirstChild);
     addListenerTo_all_spellPreparedItem();
-    store_preparedList();
   };
 
   // change spell class to cast and then remove
   function changeSpellState(spell) {
+    console.log(spell);
     var icon = spell.querySelector(".icon-bookmark");
     var isSpellCast = spell.dataset.cast;
     if (isSpellCast == "true") {
@@ -365,6 +359,7 @@ function awesomesheet() {
 
   // store spell preparedList
   function store_preparedList() {
+    var all_spellsPrepared = eA(".spells-prepared");
     for (var i = 0; i < all_spellsPrepared.length; i++) {
       // console.log(all_spellsPrepared[i]);
       var level = i;
@@ -379,6 +374,7 @@ function awesomesheet() {
 
   // read spell preparedList
   function read_preparedList() {
+    var all_spellsPrepared = eA(".spells-prepared");
     for (var i = 0; i < all_spellsPrepared.length; i++) {
       var level = i;
       var readName = "prepared-spell-level-" + level;
