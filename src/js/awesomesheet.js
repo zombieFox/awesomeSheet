@@ -50,8 +50,8 @@ function awesomesheet() {
 
   var all_skill_inputs = eA("input.skill-value");
 
-  var all_spellItem = eA(".spell-item");
-  var all_preparedList = eA(".prepared-list");
+  var all_spellsPrepared = eA(".spells-prepared");
+  var all_spellsKnownItem = eA(".spells-known-item");
 
   // --------------------------------------------------------------------------
   // helper functions
@@ -268,21 +268,21 @@ function awesomesheet() {
   // spells
   // --------------------------------------------------------------------------
 
-  // add listeners to all_spellItem
+  // add listeners to all spell know items
   function addListenerTo_spellItem() {
-    for (var i = 0; i < all_spellItem.length; i++) {
-      all_spellItem[i].addEventListener("click", function() {
+    for (var i = 0; i < all_spellsKnownItem.length; i++) {
+      all_spellsKnownItem[i].addEventListener("click", function() {
         copySpell(this);
       }, false);
     };
   };
 
-  // add listeners to spellPrepared
+  // add listeners to prepared spells
   function addListenerTo_spellPrepared() {
-    var spellPrepared = eA(".spell-prepared");
+    var all_spellPreparedItem = eA(".spell-prepared-item");
     var spellCast = eA(".spell-cast");
-    for (var i = 0; i < spellPrepared.length; i++) {
-      spellPrepared[i].addEventListener("click", function() {
+    for (var i = 0; i < all_spellPreparedItem.length; i++) {
+      all_spellPreparedItem[i].addEventListener("click", function() {
         changeSpellState(this);
       }, false);
     };
@@ -297,9 +297,9 @@ function awesomesheet() {
   function copySpell(spell) {
     var level = getClosest(spell, ".spells-known").dataset.spellLevel;
     var name = spell.innerHTML;
-    var preparedList = e(".prepared-list.spell-level-" + level);
-    var anchor = "<a href=\"javascript:void(0)\" class=\"spell-prepared button button-primary button-small\" data-cast=\"false\"><span class=\"icon-bookmark\"></span> " + name + "</a>"
-    preparedList.innerHTML = preparedList.innerHTML + " " + anchor;
+    var preparedList = e(".spells-prepared.spell-level-" + level);
+    var spellPreparedItem = "<a href=\"javascript:void(0)\" class=\"spell-prepared-item button button-primary button-small\" data-cast=\"false\"><span class=\"icon-bookmark\"></span> " + name + "</a>"
+    preparedList.innerHTML = preparedList.innerHTML + " " + spellPreparedItem;
     addListenerTo_spellPrepared();
     store_preparedList();
   };
@@ -309,8 +309,7 @@ function awesomesheet() {
     var icon = spell.querySelector(".icon-bookmark");
     if (spell.classList.contains("spell-cast")) {
       spell.remove();
-    } else if (spell.classList.contains("spell-prepared")) {
-      toggleClass(spell, "spell-prepared");
+    } else if (spell.classList.contains("spell-prepared-item")) {
       toggleClass(spell, "spell-cast");
       toggleClass(icon, "icon-bookmark");
       toggleClass(icon, "icon-close");
@@ -321,10 +320,10 @@ function awesomesheet() {
 
   // store spell preparedList
   function store_preparedList() {
-    for (var i = 0; i < all_preparedList.length; i++) {
+    for (var i = 0; i < all_spellsPrepared.length; i++) {
       var level = i;
       var saveName = "prepared-spell-level-" + level;
-      var preparedListToSave = e(".prepared-list.spell-level-" + level);
+      var preparedListToSave = e(".spells-prepared.spell-level-" + level);
       if (preparedListToSave.innerHTML !== "") {
         localStoreAdd(saveName, preparedListToSave.innerHTML);
       };
@@ -334,11 +333,11 @@ function awesomesheet() {
 
   // read spell preparedList
   function read_preparedList() {
-    for (var i = 0; i < all_preparedList.length; i++) {
+    for (var i = 0; i < all_spellsPrepared.length; i++) {
       var level = i;
       var readName = "prepared-spell-level-" + level;
       var preparedListToRead = localStoreRead(readName);
-      var preparedListToSaveTo = e(".prepared-list.spell-level-" + level);
+      var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
       if (localStoreRead(readName)) {
         preparedListToSaveTo.innerHTML = preparedListToRead;
       };
@@ -349,10 +348,10 @@ function awesomesheet() {
 
   // // add class to active prepared lists
   // function update_preparedListStatus() {
-  //   for (var i = 0; i < all_preparedList.length; i++) {
+  //   for (var i = 0; i < all_spellsPrepared.length; i++) {
   //     var level = i;
   //     var readName = "prepared-spell-level-" + level;
-  //     var preparedListToCheck = e(".prepared-list.spell-level-" + level);
+  //     var preparedListToCheck = e(".spells-prepared.spell-level-" + level);
   //     console.log(level);
   //     console.log(readName);
   //     console.log(preparedListToCheck.innerHTML);
@@ -562,13 +561,13 @@ function awesomesheet() {
     for (var i = 0; i < all_skill_inputs.length; i++) {
       skill_values.push(all_skill_inputs[i].value);
     };
-    localStoreAdd("skill_list", skill_values);
+    localStoreAdd("input-skill-list", skill_values);
   };
 
   // store skills
   function read_skills() {
     // read stored vaules
-    var read_skill_values = localStoreRead("skill_list");
+    var read_skill_values = localStoreRead("input-skill-list");
     // convert stored values into an array
     if (read_skill_values) {
       var skill_values = read_skill_values.split(',');

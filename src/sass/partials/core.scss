@@ -161,61 +161,62 @@ hr {
 
 // spells
 #spells {
+  h3 {
+    line-height: 1rem;
+  }
+  .spells-known,
+  .spells-prepared {
+    border-bottom: $border;
+    padding: 20px 0;
+    .button {
+      margin: 0 0 3px 0;
+      display: block;
+      text-align: left;
+      width: 100%;
+    }
+  }
   .spells-known {
-    margin: 0 0 30px 0;
-    h2 {
-      margin: 0;
+    &.spell-level-0 {
+      margin: -20px 0 0 0;
     }
-    .spell-list {
-      margin: 0 0 20px 0;
-      .button {
-        margin: 2px 0;
-        display: inline-block;
-      }
-    }
-    .spell-list {
-      .spell-item {
-        &:link,
-        &:visited,
-        &:focus {
-          border-color: $gray-14;
-        }
+    .spells-known-item {
+      [class^="icon-"],
+      [class*=" icon-"] {
+        font-size: 0.8rem;
+        margin: 0 3px 0 0;
       }
     }
   }
-  .prepared-list {
-    margin: 0 0 20px 0;
-    .has-spells {
-      border-bottom: $border;
+  .spells-prepared {
+    &.spell-level-0 {
+      margin: -20px 0 0 0;
     }
-    .button {
-      margin: 2px 0;
-      display: inline-block;
-    }
-    .spell-cast {
-      &:link,
-      &:visited,
-      &:focus {
-        color: $gray-06;
-        background-color: transparent;
-        border-color: $gray-09;
+    .spell-prepared-item {
+      &.spell-cast {
+        &:link,
+        &:visited,
+        &:focus {
+          color: $gray-06;
+          background-color: transparent;
+          border-color: $gray-09;
+        }
+        &:hover {
+          color: $gray-06;
+          background-color: transparent;
+          border-color: $gray-06;
+        }
+        &:active,
+        &.active {
+          color: $gray-06;
+          background-color: transparent;
+          border-color: transparent;
+        }
       }
-      &:hover {
-        color: $gray-06;
-        background-color: transparent;
-        border-color: $gray-06;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        font-size: 0.8rem;
+        margin: 0 3px 0 0;
       }
-      &:active,
-      &.active {
-        color: $gray-06;
-        background-color: transparent;
-        border-color: transparent;
-      }
-    }
-    [class^="icon-"],
-    [class*=" icon-"] {
-      font-size: 0.8rem;
-      margin: 0 3px 0 0;
     }
   }
 }
@@ -284,6 +285,8 @@ hr {
     width: 25%;
     position: fixed;
     left: 0;
+    top: 50%;
+    transform: translatey(-50%);
     display: block;
     ul {
       margin: 0;
