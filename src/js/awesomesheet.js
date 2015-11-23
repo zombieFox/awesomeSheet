@@ -286,11 +286,32 @@ function awesomesheet() {
   // add listeners to prepared spells
   function addListenerTo_all_spellPreparedItem() {
     var all_spellPreparedItem = eA(".spell-prepared-item");
-    console.log(all_spellPreparedItem);
     for (var i = 0; i < all_spellPreparedItem.length; i++) {
-      all_spellPreparedItem[i].addEventListener("click", function() {
-        changeSpellState(this);
-      }, false);
+      // // stop addListenerTo_all_spellPreparedItem from stacking event listeners on the same element
+      var doesSpellHaveListener = all_spellPreparedItem[i].dataset.eventListener;
+      if (doesSpellHaveListener == "false") {
+        all_spellPreparedItem[i].dataset.eventListener = "true";
+        all_spellPreparedItem[i].addEventListener("click", function() {
+          changeSpellState(this);
+          store_preparedList();
+        }, false);
+      };
+    };
+  };
+
+  // reset data attributes on page reload 
+  function changeData_all_spellsKnownItem() {
+    var all_spellsKnownItem = eA(".spell-prepared-item");
+    for (var i = 0; i < all_spellsKnownItem.length; i++) {
+      all_spellsKnownItem[i].dataset.eventListener = "false"
+    };
+  };
+
+  // reset data attributes on page reload 
+  function changeData_all_spellPreparedItem() {
+    var all_spellPreparedItem = eA(".spell-prepared-item");
+    for (var i = 0; i < all_spellPreparedItem.length; i++) {
+      all_spellPreparedItem[i].dataset.eventListener = "false"
     };
   };
 
@@ -332,6 +353,7 @@ function awesomesheet() {
     spellToCopy.setAttribute("href", "javascript:void(0)");
     spellToCopy.setAttribute("class", "spell-prepared-item button button-primary button-small");
     spellToCopy.setAttribute("data-cast", "false");
+    spellToCopy.setAttribute("data-event-listener", "false");
     spellToCopy.innerHTML = "<span class=\"icon-bookmark\"></span> " + name;
     preparedListToSaveTo.insertBefore(spellToCopy, theFirstChild);
     addListenerTo_all_spellPreparedItem();
@@ -339,21 +361,19 @@ function awesomesheet() {
 
   // change spell class to cast and then remove
   function changeSpellState(spell) {
-    console.log(spell);
     var icon = spell.querySelector(".icon-bookmark");
     var isSpellCast = spell.dataset.cast;
     if (isSpellCast == "true") {
-      console.log("remove!!!");
       spell.remove();
+      store_preparedList();
     };
     if (isSpellCast == "false") {
-      console.log("cast = false ----- cast changes to true");
       spell.dataset.cast = "true";
       toggleClass(spell, "spell-cast");
       toggleClass(icon, "icon-bookmark");
       toggleClass(icon, "icon-close");
+      store_preparedList();
     };
-    store_preparedList();
     // update_preparedListStatus();
   };
 
@@ -365,9 +385,7 @@ function awesomesheet() {
       var level = i;
       var saveName = "prepared-spell-level-" + level;
       var preparedListToSave = e(".spells-prepared.spell-level-" + level);
-      if (preparedListToSave.innerHTML !== "") {
-        localStoreAdd(saveName, preparedListToSave.innerHTML);
-      };
+      localStoreAdd(saveName, preparedListToSave.innerHTML);
     };
     // update_preparedListStatus();
   };
@@ -841,6 +859,16 @@ function awesomesheet() {
   // run on page load
   // --------------------------------------------------------------------------
 
+
+  read_preparedList();
+  // update_preparedListStatus();
+  read_textarea();
+  read_inputBlock();
+  read_skills();
+  read_stats();
+  // read_ac();
+  changeData_all_spellsKnownItem();
+  changeData_all_spellPreparedItem();
   addListenerTo_all_spellPreparedItem();
   addListenerTo_all_spellsKnownItem();
   addListenerTo_stats();
@@ -850,13 +878,6 @@ function awesomesheet() {
   // addListenerTo_acInputs();
   addListenerTo_all_textareass();
   addListenerTo_all_inputBlock();
-  read_preparedList();
-  // update_preparedListStatus();
-  read_textarea();
-  read_inputBlock();
-  read_skills();
-  read_stats();
-  // read_ac();
   update_scoreModifiers();
   update_skillTotal();
   // update_ac();
