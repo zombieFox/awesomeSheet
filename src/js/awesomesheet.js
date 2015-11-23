@@ -298,7 +298,7 @@ function awesomesheet() {
     var level = getClosest(spell, ".spells-known").dataset.spellLevel;
     var name = spell.innerHTML;
     var preparedList = e(".spells-prepared.spell-level-" + level);
-    var spellPreparedItem = "<a href=\"javascript:void(0)\" class=\"spell-prepared-item button button-primary button-small\" data-cast=\"false\"><span class=\"icon-bookmark\"></span> " + name + "</a>"
+    var spellPreparedItem = "<a href=\"javascript:void(0)\" class=\"spell-prepared-item button button-primary button-small\" data-cast=\"false\"><span class=\"icon-bookmark\"></span> <span>" + name + "</span></a>"
     preparedList.innerHTML = preparedList.innerHTML + " " + spellPreparedItem;
     addListenerTo_spellPrepared();
     store_preparedList();
@@ -307,9 +307,12 @@ function awesomesheet() {
   // change spell class to cast and then remove
   function changeSpellState(spell) {
     var icon = spell.querySelector(".icon-bookmark");
-    if (spell.classList.contains("spell-cast")) {
+    var isSpellCast = spell.dataset.cast;
+    if (isSpellCast == "true") {
       spell.remove();
-    } else if (spell.classList.contains("spell-prepared-item")) {
+    };
+    if (isSpellCast == "false") {
+      spell.dataset.cast = "true";
       toggleClass(spell, "spell-cast");
       toggleClass(icon, "icon-bookmark");
       toggleClass(icon, "icon-close");
