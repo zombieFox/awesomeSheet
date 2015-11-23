@@ -102,50 +102,18 @@ hr {
 // skills
 #skills {
   .skill-list {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    border-spacing: 0;
     thead {
       tr {
         td {
-          padding: 0 10px;
-          margin: 0;
           width: 15%;
-          text-align: center;
-          height: 2.5rem;
-          border-bottom: $border;
           &:first-child {
             width: 55%;
-            padding: 0;
-            text-align: left;
           }
         }
       }
     }
     tr {
       td {
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        height: 2.5rem;
-        p {
-          border-bottom: $border;
-        }
-        &:first-child {
-          p {
-            text-align: left;
-          }
-        }
-        .skill-value {
-          padding: 0;
-          margin: 0;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          text-align: center;
-          box-sizing: content-box;
-        }
         .ranks,
         .misc {
           color: $gray-08;
@@ -163,6 +131,17 @@ hr {
 #spells {
   h3 {
     line-height: 1rem;
+  }
+  .spell-stats {
+    thead {
+      td {
+        width: 3%;
+        text-align: left;
+        &:first-child {
+          width: 1%;
+        }
+      }
+    }
   }
   .spells-known,
   .spells-prepared {
