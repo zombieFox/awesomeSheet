@@ -52,6 +52,7 @@ function awesomesheet() {
 
   var all_spellsPrepared = eA(".spells-prepared");
   var all_spellsKnownItem = eA(".spells-known-item");
+  var all_addSpell = eA(".add-spell");
 
   // --------------------------------------------------------------------------
   // helper functions
@@ -269,16 +270,22 @@ function awesomesheet() {
   // --------------------------------------------------------------------------
 
   // add listeners to all spell know items
-  function addListenerTo_spellItem() {
+  function addListenerTo_all_spellsKnownItem() {
+    all_spellsKnownItem = eA(".spells-known-item");
     for (var i = 0; i < all_spellsKnownItem.length; i++) {
-      all_spellsKnownItem[i].addEventListener("click", function() {
-        copySpell(this);
-      }, false);
+      // stop addListenerTo_all_spellsKnownItem from stacking event listeners on the same element
+      var doesSpellHaveListener = all_spellsKnownItem[i].dataset.eventListener;
+      if (doesSpellHaveListener == "false") {
+        all_spellsKnownItem[i].dataset.eventListener = "true";
+        all_spellsKnownItem[i].addEventListener("click", function() {
+          copySpell(this);
+        }, false);
+      };
     };
   };
 
   // add listeners to prepared spells
-  function addListenerTo_spellPrepared() {
+  function addListenerTo_all_spellPreparedItem() {
     var all_spellPreparedItem = eA(".spell-prepared-item");
     var spellCast = eA(".spell-cast");
     for (var i = 0; i < all_spellPreparedItem.length; i++) {
@@ -293,14 +300,47 @@ function awesomesheet() {
     };
   };
 
+  // add listeners to add new spell buttons
+  function addListenerTo_all_addSpell() {
+    for (var i = 0; i < all_addSpell.length; i++) {
+      all_addSpell[i].addEventListener("click", function() {
+        addNewSpell(this);
+      }, false);
+    };
+  };
+
+  // add listeners to add new spell buttons
+  function addListenerTo_all_addSpell_input() {
+    for (var i = 0; i < all_addSpell.length; i++) {
+      var newSpellRoot = getClosest(all_addSpell[i], ".new-spell");
+      var all_addSpell_input = newSpellRoot.querySelector("input");
+      all_addSpell_input.addEventListener("keypress", function() {
+        addNewSpellOnEnter(this);
+      }, false);
+    };
+  };
+
+  // loose focus when enter is pressed
+  function addNewSpellOnEnter(element) {
+    var keystroke = event.keyCode || event.which;
+    if (keystroke == 13) {
+      addNewSpell(element);
+    };
+  };
+
   // copy the selected spell to the prepared list
   function copySpell(spell) {
     var level = getClosest(spell, ".spells-known").dataset.spellLevel;
     var name = spell.innerHTML;
-    var preparedList = e(".spells-prepared.spell-level-" + level);
-    var spellPreparedItem = "<a href=\"javascript:void(0)\" class=\"spell-prepared-item button button-primary button-small\" data-cast=\"false\"><span class=\"icon-bookmark\"></span> <span>" + name + "</span></a>"
-    preparedList.innerHTML = preparedList.innerHTML + " " + spellPreparedItem;
-    addListenerTo_spellPrepared();
+    var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
+    var theFirstChild = preparedListToSaveTo.firstChild;
+    var spellToCopy = document.createElement("a");
+    spellToCopy.setAttribute("href", "javascript:void(0)");
+    spellToCopy.setAttribute("class", "spell-prepared-item button button-primary button-small");
+    spellToCopy.setAttribute("data-cast", "false");
+    spellToCopy.innerHTML = "<span class=\"icon-bookmark\"></span> " + name;
+    preparedListToSaveTo.insertBefore(spellToCopy, theFirstChild);
+    addListenerTo_all_spellPreparedItem();
     store_preparedList();
   };
 
@@ -309,9 +349,11 @@ function awesomesheet() {
     var icon = spell.querySelector(".icon-bookmark");
     var isSpellCast = spell.dataset.cast;
     if (isSpellCast == "true") {
+      console.log("remove!!!");
       spell.remove();
     };
     if (isSpellCast == "false") {
+      console.log("cast = false ----- cast changes to true");
       spell.dataset.cast = "true";
       toggleClass(spell, "spell-cast");
       toggleClass(icon, "icon-bookmark");
@@ -324,6 +366,7 @@ function awesomesheet() {
   // store spell preparedList
   function store_preparedList() {
     for (var i = 0; i < all_spellsPrepared.length; i++) {
+      // console.log(all_spellsPrepared[i]);
       var level = i;
       var saveName = "prepared-spell-level-" + level;
       var preparedListToSave = e(".spells-prepared.spell-level-" + level);
@@ -345,8 +388,27 @@ function awesomesheet() {
         preparedListToSaveTo.innerHTML = preparedListToRead;
       };
     };
-    addListenerTo_spellPrepared();
+    addListenerTo_all_spellPreparedItem();
     // update_preparedListStatus();
+  };
+
+  // add new spell to known spells
+  function addNewSpell(element) {
+    var knownListToSaveTo = getClosest(element, ".spells-known");
+    var newSpellRoot = getClosest(element, ".new-spell");
+    var level = knownListToSaveTo.dataset.spellLevel;
+    var newSpellName = newSpellRoot.querySelector("input");
+    var newSpellName_value = newSpellName.value;
+    var newSpell = document.createElement("a");
+    newSpell.setAttribute("href", "javascript:void(0)");
+    newSpell.setAttribute("class", "spells-known-item button button-secondary button-small");
+    newSpell.setAttribute("data-event-listener", "false");
+    newSpell.innerHTML = newSpellName_value;
+    if (newSpellName_value !== "") {
+      knownListToSaveTo.insertBefore(newSpell, newSpellRoot.nextSibling);
+      newSpellName.value = "";
+    };
+    addListenerTo_all_spellsKnownItem();
   };
 
   // // add class to active prepared lists
@@ -392,7 +454,7 @@ function awesomesheet() {
   };
 
   // add listeners to textareas
-  function addListenerTo_textareass() {
+  function addListenerTo_all_textareass() {
     for (var i = 0; i < all_textareas.length; i++) {
       all_textareas[i].addEventListener("input", function() {
         store_textareas(this);
@@ -728,7 +790,7 @@ function awesomesheet() {
   };
 
   // add listeners to inputBlock
-  function addListenerTo_inputBlock() {
+  function addListenerTo_all_inputBlock() {
     for (var i = 0; i < all_inputBlock.length; i++) {
       var inputLabel = all_inputBlock[i].querySelector(".input-field");
       inputLabel.addEventListener("input", function() {
@@ -783,13 +845,15 @@ function awesomesheet() {
   // run on page load
   // --------------------------------------------------------------------------
 
-  addListenerTo_spellPrepared();
-  addListenerTo_spellItem();
+  addListenerTo_all_spellPreparedItem();
+  addListenerTo_all_spellsKnownItem();
   addListenerTo_stats();
   addListenerTo_skillInputs();
+  addListenerTo_all_addSpell();
+  addListenerTo_all_addSpell_input();
   // addListenerTo_acInputs();
-  addListenerTo_textareass();
-  addListenerTo_inputBlock();
+  addListenerTo_all_textareass();
+  addListenerTo_all_inputBlock();
   read_preparedList();
   // update_preparedListStatus();
   read_textarea();

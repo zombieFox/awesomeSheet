@@ -129,9 +129,6 @@ hr {
 
 // spells
 #spells {
-  h3 {
-    line-height: 1rem;
-  }
   .spell-stats {
     thead {
       td {
@@ -144,31 +141,39 @@ hr {
   }
   .spells-known,
   .spells-prepared {
-    border-bottom: $border;
-    padding: 20px 0;
     .button {
       margin: 0 0 3px 0;
       display: block;
       text-align: left;
       width: 100%;
-    }
-  }
-  .spells-known {
-    &.spell-level-0 {
-      margin: -20px 0 0 0;
-    }
-    .spells-known-item {
       [class^="icon-"],
       [class*=" icon-"] {
         font-size: 0.8rem;
-        margin: 0 3px 0 0;
+      }
+    }
+  }
+  .spells-known {
+    margin: 0 0 20px 0;
+    .spells-known-item {
+      overflow: hidden;
+    }
+    .new-spell {
+      .spell-name {
+        margin: 0 0 0 7px;
+      }
+      .add-spell {
+        height: 2rem;
+        line-height: 2rem;
+        padding-bottom: 0;
+        padding-top: 0;
+        margin: 9px 0 0 0;
       }
     }
   }
   .spells-prepared {
-    &.spell-level-0 {
-      margin: -20px 0 0 0;
-    }
+    border-bottom: $border;
+    padding: 0 0 20px 0;
+    margin: 0 0 20px 0;
     .spell-prepared-item {
       &.spell-cast {
         &:link,
@@ -189,11 +194,6 @@ hr {
           background-color: transparent;
           border-color: transparent;
         }
-      }
-      [class^="icon-"],
-      [class*=" icon-"] {
-        font-size: 0.8rem;
-        margin: 0 3px 0 0;
       }
     }
   }

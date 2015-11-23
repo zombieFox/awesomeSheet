@@ -24,7 +24,8 @@
         </thead>
         <tbody>
           <tr class="spells-per-level">
-            <td><p class="small-text">DC</p></td>
+            <td>
+              <p class="small-text">DC</p>
             <td><input class="spell-dc-level-0" type="number" value="16"></td>
             <td><input class="spell-dc-level-1" type="number" value="17"></td>
             <td><input class="spell-dc-level-2" type="number" value="18"></td>
@@ -48,6 +49,7 @@
             <td><input class="spells-per-day-level-7" type="number" value="0"></td>
             <td><input class="spells-per-day-level-8" type="number" value="0"></td>
             <td><input class="spells-per-day-level-9" type="number" value="0"></td>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -61,149 +63,261 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>0</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-0" data-spell-level="0">
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Bleed</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Erase</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Daze</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Disrupt Undead</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Touch of Fatigue</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Prestidigitation</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Light</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Ghost Sound</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Spark</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Acid Splash</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Mage Hand</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Flare</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Detect Magic</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Detect Poison</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Dancing Lights</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Mending</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Arcane Mark</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Message</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Ray of Frost</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Read Magic</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Open/Close</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Resistance</a>
-            <a href="javascript:void(0)" class="add-spell button button-secondary button-small">
-              <span class="icon-add"></span> Add Spell</a>
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Bleed</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Erase</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Daze</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Disrupt Undead</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Touch of Fatigue</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Prestidigitation</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Light</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Ghost Sound</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Spark</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Acid Splash</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Mage Hand</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Flare</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Detect Magic</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Detect Poison</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Dancing Lights</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Mending</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Arcane Mark</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Message</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Ray of Frost</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Read Magic</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Open/Close</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Resistance</a>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>1</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-1" data-spell-level="1">
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Comprehend Languages</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Enlarge Person</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Feather Fall</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Grease</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Mage Armor</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Mount</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Obscuring Mist</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Protection from Chaos</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Protection from Evil</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Shield</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Summon Monster I</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Unseen Servant</a>
-            <a href="javascript:void(0)" class="add-spell button button-secondary button-small">
-              <span class="icon-add"></span> Add Spell</a>
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Comprehend Languages</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Enlarge Person</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Feather Fall</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Grease</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Mage Armor</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Mount</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Obscuring Mist</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Protection from Chaos</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Protection from Evil</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Shield</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Summon Monster I</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Unseen Servant</a>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>2</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-2" data-spell-level="2">
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Blur</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Create Pit</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Flaming Sphere</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Glitterdust</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Invisibility</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Levitate</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Mirror Image</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Resist Energy</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Stone Call</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Summon Monster II</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Web</a>
-            <a href="javascript:void(0)" class="add-spell button button-secondary button-small">
-              <span class="icon-add"></span> Add Spell</a>
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Blur</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Create Pit</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Flaming Sphere</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Glitterdust</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Invisibility</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Levitate</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Mirror Image</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Resist Energy</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Stone Call</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Summon Monster II</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Web</a>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>3</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-3" data-spell-level="3">
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Stinking Cloud</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Summon Monster III</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Spiked Pit</a>
-            <a href="javascript:void(0)" class="spells-known-item button button-secondary button-small">Aqueous Orb</a>
-            <a href="javascript:void(0)" class="add-spell button button-secondary button-small">
-              <span class="icon-add"></span> Add Spell</a>
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Stinking Cloud</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Summon Monster III</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Spiked Pit</a>
+            <a href="javascript:void(0)" data-event-listener="false" class="spells-known-item button button-secondary button-small">Aqueous Orb</a>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>4</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-4" data-spell-level="4">
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>5</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-5" data-spell-level="5">
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>6</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-6" data-spell-level="6">
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>7</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-7" data-spell-level="7">
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>8</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-8" data-spell-level="8">
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>9</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-known spell-level-9" data-spell-level="9">
+            <div class="new-spell">
+              <div class="row">
+                <div class="col-10">
+                  <div class="spell-name">
+                    <input type="text" placeholder="Add Spell" value="">
+                  </div>
+                </div>
+                <div class="col-2">
+                  <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,82 +329,82 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>0</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-0"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>1</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-1"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>2</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-2"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>3</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-3"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>4</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-4"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>5</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-5"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>6</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-6"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>7</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-7"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>8</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-8"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
+        <div class="col-1">
           <h3>9</h3>
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <div class="spells-prepared spell-level-9"></div>
         </div>
       </div>
