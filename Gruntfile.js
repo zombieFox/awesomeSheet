@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js'],
+        src: ['{images,fonts,js}/**/*'],
         dest: '<%= folders.build %>/',
         expand: true
       },

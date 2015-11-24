@@ -222,18 +222,11 @@ button {
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    font-size: 1.3rem;
-    vertical-align: text-bottom; }
+    font-size: 1.3rem; }
   .button.button-small,
   button.button-small {
     padding: 5px 7px 3px 7px;
     line-height: 1rem; }
-    .button.button-small [class^="icon-"],
-    .button.button-small [class*=" icon-"],
-    button.button-small [class^="icon-"],
-    button.button-small [class*=" icon-"] {
-      font-size: 1rem;
-      vertical-align: top; }
   .button:focus,
   button:focus {
     outline: 0;
@@ -523,6 +516,9 @@ table {
 .small-text {
   color: #a0a0a0;
   font-size: 0.8rem; }
+  .small-text [class^="icon-"],
+  .small-text [class*=" icon-"] {
+    font-size: 0.8rem; }
 
 /* vendor
 ------------------------------------------------- */
@@ -726,7 +722,7 @@ table {
 ------------------------------------------------- */
 body {
   background: #ffffff;
-  padding: 100px 0; }
+  padding: 100px 0 500px 0; }
 
 section {
   margin: 0 0 40px 0; }
@@ -750,15 +746,16 @@ hr {
   position: relative; }
   .input-block .input-label {
     margin: 0;
-    padding: 0;
+    padding: 0.5rem 0 0 0;
     color: #a0a0a0;
     display: block;
     position: absolute;
-    top: 3rem;
+    top: 2.5rem;
     left: 0;
     font-size: 0.8rem;
     line-height: 1rem;
     z-index: 2;
+    width: 100%;
     transition: all 0.3s ease-in-out;
     cursor: text; }
     .input-block .input-label.input-label-focus {
@@ -792,6 +789,9 @@ hr {
     margin: 0;
     padding: 0;
     list-style-type: none; }
+    #statistics .stat-block .stats p,
+    #statistics .stat-block .stats input {
+      margin: 0; }
     #statistics .stat-block .stats .score {
       font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
@@ -808,6 +808,9 @@ hr {
 #skills .skill-list tr td .total {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
+#spells h2 {
+  margin: 0 0 10px 0; }
+
 #spells .spell-stats thead td {
   width: 3%; }
   #spells .spell-stats thead td:first-child {
@@ -815,33 +818,45 @@ hr {
 
 #spells .spells-known .button,
 #spells .spells-prepared .button {
-  margin: 0 0 3px 0;
-  display: block;
-  text-align: left;
-  width: 100%; }
+  margin: 0 3px 3px 0;
+  float: left; }
   #spells .spells-known .button [class^="icon-"],
   #spells .spells-known .button [class*=" icon-"],
   #spells .spells-prepared .button [class^="icon-"],
   #spells .spells-prepared .button [class*=" icon-"] {
     font-size: 0.8rem; }
 
-#spells .spells-known {
-  margin: 0 0 20px 0; }
-  #spells .spells-known .spell-known-item {
-    overflow: hidden; }
+#spells .spell-level {
+  margin: 0 0 30px 0; }
+  #spells .spell-level .spells-known.delete-state .spell-known-item:link, #spells .spell-level .spells-known.delete-state .spell-known-item:visited {
+    color: #cc0044;
+    border-color: #ff3276; }
+  #spells .spell-level .spells-known.delete-state .spell-known-item:focus, #spells .spell-level .spells-known.delete-state .spell-known-item:hover {
+    color: #ffffff;
+    background-color: #ff3276; }
+  #spells .spell-level .spells-known .spell-known-item {
+    margin: 0 3px 3px 0;
+    float: left; }
 
-#spells .new-spell .spell-name {
-  margin: 0 0 0 7px; }
+#spells .remove-spell {
+  margin: 10px 0 0 0; }
+  #spells .remove-spell.delete-state:link, #spells .remove-spell.delete-state:visited {
+    background-color: transparent;
+    color: #cc0044;
+    border-color: #ff3276; }
+  #spells .remove-spell.delete-state:hover {
+    background-color: #ff3276; }
 
-#spells .new-spell .add-spell {
-  height: 2rem;
-  line-height: 2rem;
-  padding-bottom: 0;
-  padding-top: 0;
-  margin: 9px 0 0 0; }
+#spells .new-spell {
+  position: relative; }
+  #spells .new-spell .spell-name {
+    margin: 0 0 0 7px; }
+  #spells .new-spell .add-spell {
+    position: absolute;
+    right: 0;
+    top: 5px; }
 
 #spells .spells-prepared {
-  padding: 0 0 20px 0;
   margin: 0 0 20px 0; }
   #spells .spells-prepared .spell-prepared-item.spell-cast:link, #spells .spells-prepared .spell-prepared-item.spell-cast:visited, #spells .spells-prepared .spell-prepared-item.spell-cast:focus {
     color: #7c7c7c;
@@ -866,13 +881,7 @@ hr {
   #defense .ac .title,
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {
-    min-width: 120px; }
-  #spells .spell-list li [class^="icon-"],
-  #spells .spell-list li [class*=" icon-"] {
-    padding-left: 5px;
-    padding-right: 5px; }
-  #spells .spell-list li p {
-    max-width: inherit; } }
+    min-width: 120px; } }
 
 @media (min-width: 750px) {
   nav {
