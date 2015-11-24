@@ -345,7 +345,23 @@ function awesomesheet() {
     var deleteState = knownListToChangeState.dataset.deleteSpellState;
     // if spells known has children
     if (knownListToChangeState.children.length > 0) {
-      toggleClass(element, "delete-state");
+      var all_spellKnownItem = knownListToChangeState.querySelectorAll(".spell-known-item");
+      var icon = element.querySelector("span");
+      if (element.classList.contains("active")) {
+        toggleClass(element, "active");
+        toggleClass(icon, "icon-close");
+        toggleClass(icon, "icon-check-box-unchecked");
+      } else {
+        toggleClass(element, "active");
+        toggleClass(icon, "icon-close");
+        toggleClass(icon, "icon-check-box-unchecked");
+      };
+      // add close icon to known list item
+      for (var i = 0; i < all_spellKnownItem.length; i++) {
+        var icon = all_spellKnownItem[i].querySelector("span");
+        toggleClass(icon, "icon-bookmark");
+        toggleClass(icon, "icon-close");
+      };
       // toggle delete spell data attribute
       if (deleteState == "true") {
         knownListToChangeState.dataset.deleteSpellState = "false";
@@ -371,7 +387,7 @@ function awesomesheet() {
       } else {
         knownListToCheck.dataset.deleteSpellState = "false";
         removeClass(knownListToCheck, "delete-state");
-        removeClass(removeSpellButton, "delete-state");
+        removeClass(removeSpellButton, "active");
         addClass(removeSpellButton, "hidden");
       };
     };
@@ -406,10 +422,10 @@ function awesomesheet() {
     var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
     var spellToCopy = document.createElement("a");
     spellToCopy.setAttribute("href", "javascript:void(0)");
-    spellToCopy.setAttribute("class", "spell-prepared-item button button-primary button-small");
+    spellToCopy.setAttribute("class", "spell-prepared-item button button-primary");
     spellToCopy.setAttribute("data-cast", "false");
     spellToCopy.setAttribute("data-event-listener", "false");
-    spellToCopy.innerHTML = "<span class=\"icon-bookmark\"></span> " + name;
+    spellToCopy.innerHTML = name;
     if (deleteState == "true") {
       spell.remove();
     };
@@ -473,11 +489,14 @@ function awesomesheet() {
     var newSpell = document.createElement("a");
     newSpell.setAttribute("href", "javascript:void(0)");
     newSpell.setAttribute("data-event-listener", "false");
-    newSpell.setAttribute("class", "spell-known-item button button-secondary button-small");
+    newSpell.setAttribute("class", "spell-known-item button button-secondary");
     newSpell.innerHTML = newSpellName_value;
+    var icon = document.createElement("span");
+    icon.setAttribute("class", "icon-bookmark");
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
+      newSpell.insertBefore(icon, newSpell.firstChild);
       // clear input field
       newSpellName.value = "";
     };

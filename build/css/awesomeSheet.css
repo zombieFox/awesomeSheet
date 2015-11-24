@@ -197,10 +197,10 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 5px 15px;
+  padding: 3px 10px 3px 7px;
   color: #343434;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   line-height: 1.5rem;
   text-decoration: none;
@@ -222,11 +222,22 @@ button {
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    font-size: 1.3rem; }
+    margin: 3px 5px 0 0;
+    font-size: 1rem;
+    vertical-align: text-top;
+    display: inline-block; }
   .button.button-small,
   button.button-small {
-    padding: 5px 7px 3px 7px;
-    line-height: 1rem; }
+    padding: 3px 8px;
+    line-height: 1rem;
+    font-size: 0.8rem; }
+    .button.button-small [class^="icon-"],
+    .button.button-small [class*=" icon-"],
+    button.button-small [class^="icon-"],
+    button.button-small [class*=" icon-"] {
+      line-height: 1rem;
+      margin: 2px 3px 0 0;
+      font-size: 0.8rem; }
   .button:focus,
   button:focus {
     outline: 0;
@@ -516,9 +527,6 @@ table {
 .small-text {
   color: #a0a0a0;
   font-size: 0.8rem; }
-  .small-text [class^="icon-"],
-  .small-text [class*=" icon-"] {
-    font-size: 0.8rem; }
 
 /* vendor
 ------------------------------------------------- */
@@ -820,41 +828,15 @@ hr {
 #spells .spells-prepared .button {
   margin: 0 3px 3px 0;
   float: left; }
-  #spells .spells-known .button [class^="icon-"],
-  #spells .spells-known .button [class*=" icon-"],
-  #spells .spells-prepared .button [class^="icon-"],
-  #spells .spells-prepared .button [class*=" icon-"] {
-    font-size: 0.8rem; }
 
 #spells .spell-level {
   margin: 0 0 30px 0; }
   #spells .spell-level .spells-known.delete-state .spell-known-item:link, #spells .spell-level .spells-known.delete-state .spell-known-item:visited {
     color: #cc0044;
     border-color: #ff3276; }
-  #spells .spell-level .spells-known.delete-state .spell-known-item:focus, #spells .spell-level .spells-known.delete-state .spell-known-item:hover {
+  #spells .spell-level .spells-known.delete-state .spell-known-item:active, #spells .spell-level .spells-known.delete-state .spell-known-item:focus, #spells .spell-level .spells-known.delete-state .spell-known-item:hover {
     color: #ffffff;
     background-color: #ff3276; }
-  #spells .spell-level .spells-known .spell-known-item {
-    margin: 0 3px 3px 0;
-    float: left; }
-
-#spells .remove-spell {
-  margin: 10px 0 0 0; }
-  #spells .remove-spell.delete-state:link, #spells .remove-spell.delete-state:visited {
-    background-color: transparent;
-    color: #cc0044;
-    border-color: #ff3276; }
-  #spells .remove-spell.delete-state:hover {
-    background-color: #ff3276; }
-
-#spells .new-spell {
-  position: relative; }
-  #spells .new-spell .spell-name {
-    margin: 0 0 0 7px; }
-  #spells .new-spell .add-spell {
-    position: absolute;
-    right: 0;
-    top: 5px; }
 
 #spells .spells-prepared {
   margin: 0 0 20px 0; }
@@ -870,6 +852,18 @@ hr {
     color: #7c7c7c;
     background-color: transparent;
     border-color: transparent; }
+
+#spells .remove-spell {
+  margin: 10px 0 0 0; }
+
+#spells .new-spell {
+  position: relative; }
+  #spells .new-spell .spell-name {
+    margin: 0 0 0 7px; }
+  #spells .new-spell .add-spell {
+    position: absolute;
+    right: 0;
+    top: 5px; }
 
 /* media queries
 ------------------------------------------------- */
@@ -906,10 +900,14 @@ hr {
           padding: 5px 20px;
           display: block;
           font-size: 0.8rem;
-          font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+          font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
+          text-transform: uppercase;
           transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
-          nav ul li a:focus, nav ul li a:hover {
+          nav ul li a:hover {
             background-color: #e8e8e8;
+            text-decoration: none; }
+          nav ul li a:focus {
+            background-color: #fafafa;
             text-decoration: none; }
           nav ul li a:active {
             background-color: #ff0055;
