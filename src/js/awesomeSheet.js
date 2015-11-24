@@ -278,6 +278,7 @@ function awesomesheet() {
         all_spellKnownItem[i].addEventListener("click", function() {
           copySpell(this);
           store_preparedList();
+          update_preparedListStatus();
         }, false);
       };
     };
@@ -294,6 +295,7 @@ function awesomesheet() {
         all_spellPreparedItem[i].addEventListener("click", function() {
           changeSpellState(this);
           store_preparedList();
+          update_preparedListStatus();
         }, false);
       };
     };
@@ -315,7 +317,7 @@ function awesomesheet() {
     };
   };
 
-  // add listeners to add new spell buttons
+  // add listeners to add new spell button
   function addListenerTo_all_addSpell() {
     for (var i = 0; i < all_addSpell.length; i++) {
       all_addSpell[i].addEventListener("click", function() {
@@ -325,7 +327,7 @@ function awesomesheet() {
     };
   };
 
-  // add listeners to add new spell buttons
+  // add listeners to add new spell input
   function addListenerTo_all_addSpell_input() {
     for (var i = 0; i < all_addSpell.length; i++) {
       var newSpellRoot = getClosest(all_addSpell[i], ".new-spell");
@@ -336,7 +338,7 @@ function awesomesheet() {
     };
   };
 
-  // loose focus when enter is pressed
+  // add new spell on input enter
   function addNewSpellOnEnter(element) {
     var keystroke = event.keyCode || event.which;
     if (keystroke == 13) {
@@ -347,10 +349,9 @@ function awesomesheet() {
 
   // copy the selected spell to the prepared list
   function copySpell(spell) {
-    var level = getClosest(spell, ".spells-known").dataset.spellLevel;
+    var level = getClosest(spell, ".spell-level").dataset.spellLevel;
     var name = spell.innerHTML;
     var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
-    // var theFirstChild = preparedListToSaveTo.firstChild;
     var spellToCopy = document.createElement("a");
     spellToCopy.setAttribute("href", "javascript:void(0)");
     spellToCopy.setAttribute("class", "spell-prepared-item button button-primary button-small");
@@ -403,36 +404,11 @@ function awesomesheet() {
     };
   };
 
-  // store spell preparedList
-  function store_knownList() {
-    var all_spellsKnown = eA(".spells-known");
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      var level = i;
-      var saveName = "spell-known-level-" + level;
-      var knownListToSave = e(".spells-known.spell-level-" + level);
-      localStoreAdd(saveName, knownListToSave.innerHTML);
-    };
-  };
-
-  // read spell preparedList
-  function read_knownList() {
-    var all_spellsKnown = eA(".spells-known");
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      var level = i;
-      var readName = "spell-known-level-" + level;
-      var knownListToRead = localStoreRead(readName);
-      var knownListToSaveTo = e(".spells-known.spell-level-" + level);
-      if (localStoreRead(readName)) {
-        knownListToSaveTo.innerHTML = knownListToRead;
-      };
-    };
-  };
-
   // add new spell to known spells
   function addNewSpell(element) {
+    var level = getClosest(element, ".spell-level").dataset.spellLevel;
     var newSpellRoot = getClosest(element, ".new-spell");
-    var knownListToSaveTo = newSpellRoot.parentNode.querySelector(".spells-known");
-    var level = knownListToSaveTo.dataset.spellLevel;
+    var knownListToSaveTo = getClosest(element, ".spell-level").querySelector(".spells-known");
     var newSpellName = newSpellRoot.querySelector("input");
     var newSpellName_value = newSpellName.value;
     var newSpell = document.createElement("a");
@@ -449,22 +425,48 @@ function awesomesheet() {
     addListenerTo_all_spellKnownItem();
   };
 
-  // // add class to active prepared lists
-  // function update_preparedListStatus() {
-  //   for (var i = 0; i < all_spellsPrepared.length; i++) {
-  //     var level = i;
-  //     var readName = "spell-prepared-level-" + level;
-  //     var preparedListToCheck = e(".spells-prepared.spell-level-" + level);
-  //     console.log(level);
-  //     console.log(readName);
-  //     console.log(preparedListToCheck.innerHTML);
-  //     if (preparedListToCheck.innerHTML != "") {
-  //       addClass(preparedListToCheck, "has-spells");
-  //     } else {
-  //       removeClass(preparedListToCheck, "has-spells");
-  //     };
-  //   };
-  // };
+  // store spell preparedList
+  function store_knownList() {
+    var all_spellsKnown = eA(".spells-known");
+    for (var i = 0; i < all_spellsKnown.length; i++) {
+      var level = i;
+      var saveName = "spell-known-level-" + level;
+      var knownListToSave = all_spellsKnown[i];
+      localStoreAdd(saveName, knownListToSave.innerHTML);
+    };
+  };
+
+  // read spell preparedList
+  function read_knownList() {
+    var all_spellsKnown = eA(".spells-known");
+    for (var i = 0; i < all_spellsKnown.length; i++) {
+      var level = i;
+      var readName = "spell-known-level-" + level;
+      var knownListToRead = localStoreRead(readName);
+      var knownListToSaveTo = all_spellsKnown[i];
+      if (localStoreRead(readName)) {
+        knownListToSaveTo.innerHTML = knownListToRead;
+      };
+    };
+  };
+
+  // add class to active prepared lists
+  function update_preparedListStatus() {
+    var all_spellsPrepared = eA(".spells-prepared");
+    var spellsPreparedTitle = eA(".spells-prepared");
+    for (var i = 0; i < all_spellsPrepared.length; i++) {
+      var level = i;
+      var readName = "spell-prepared-level-" + level;
+      var preparedListToCheck = e(".spells-prepared.spell-level-" + level);
+      var rowToHide = e(".spells-prepared" + ".spell-level-" + level).parentNode.parentNode;
+      if (preparedListToCheck.hasChildNodes()) {
+        removeClass(rowToHide, "hidden");
+      } else {
+        addClass(rowToHide, "hidden");
+      };
+    };
+  };
+
 
   // --------------------------------------------------------------------------
   // textarea
@@ -891,6 +893,7 @@ function awesomesheet() {
   read_skills();
   read_stats();
   // read_ac();
+  update_preparedListStatus();
   changeData_all_spellKnownItem();
   changeData_all_spellPreparedItem();
   addListenerTo_all_spellPreparedItem();
