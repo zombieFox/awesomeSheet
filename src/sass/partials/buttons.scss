@@ -26,9 +26,8 @@ button {
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    margin: 3px 5px 0 0;
+    margin: 5px 5px 0 0;
     font-size: 1rem;
-    vertical-align: text-top;
     display: inline-block;
   }
   &.button-small {
@@ -38,7 +37,7 @@ button {
     [class^="icon-"],
     [class*=" icon-"] {
       line-height: 1rem;
-      margin: 2px 3px 0 0;
+      margin: 0 3px 0 0;
       font-size: $small-text;
     }
   }
