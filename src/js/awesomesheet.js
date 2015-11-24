@@ -376,7 +376,6 @@ function awesomesheet() {
       toggleClass(icon, "icon-close");
       store_preparedList();
     };
-    // update_preparedListStatus();
   };
 
   // store spell preparedList
@@ -388,7 +387,6 @@ function awesomesheet() {
       var preparedListToSave = e(".spells-prepared.spell-level-" + level);
       localStoreAdd(saveName, preparedListToSave.innerHTML);
     };
-    // update_preparedListStatus();
   };
 
   // read spell preparedList
@@ -403,7 +401,6 @@ function awesomesheet() {
         preparedListToSaveTo.innerHTML = preparedListToRead;
       };
     };
-    // update_preparedListStatus();
   };
 
   // store spell preparedList
@@ -415,7 +412,6 @@ function awesomesheet() {
       var knownListToSave = e(".spells-known.spell-level-" + level);
       localStoreAdd(saveName, knownListToSave.innerHTML);
     };
-    // update_preparedListStatus();
   };
 
   // read spell preparedList
@@ -423,18 +419,13 @@ function awesomesheet() {
     var all_spellsKnown = eA(".spells-known");
     for (var i = 0; i < all_spellsKnown.length; i++) {
       var level = i;
-      console.log(level);
       var readName = "spell-known-level-" + level;
-      console.log(readName);
       var knownListToRead = localStoreRead(readName);
-      console.log(knownListToRead);
       var knownListToSaveTo = e(".spells-known.spell-level-" + level);
-      console.log(knownListToSaveTo);
       if (localStoreRead(readName)) {
         knownListToSaveTo.innerHTML = knownListToRead;
       };
     };
-    // update_preparedListStatus();
   };
 
   // add new spell to known spells
