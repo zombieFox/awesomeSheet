@@ -34,15 +34,16 @@ hr {
   position: relative;
   .input-label {
     margin: 0;
-    padding: 0;
+    padding: 0.5rem 0 0 0;
     color: $gray-08;
     display: block;
     position: absolute;
-    top: 3rem;
+    top: 2.5rem;
     left: 0;
     font-size: $small-text;
     line-height: 1rem;
     z-index: 2;
+    width: 100%;
     transition: all $transition-ease-medium;
     cursor: text;
     &.input-label-focus {
@@ -89,6 +90,10 @@ hr {
       margin: 0;
       padding: 0;
       list-style-type: none;
+      p,
+      input {
+        margin: 0;
+      }
       .score {
         font-family: $open-sans-semi-bold;
       }
@@ -153,12 +158,41 @@ hr {
       }
     }
   }
-  .spells-known {
+  .spell-level {
     margin: 0 0 30px 0;
-    .spell-known-item {
-      margin: 0 3px 3px 0;
-      float: left;
-      overflow: hidden;
+    .spells-known {
+      &.delete-state {
+        .spell-known-item {
+          &:link,
+          &:visited {
+            color: $primary-color-dark;
+            border-color: $primary-color-light;
+          }
+          &:focus,
+          &:hover {
+            color: $white;
+            background-color: $primary-color-light;
+          }
+        }
+      }
+      .spell-known-item {
+        margin: 0 3px 3px 0;
+        float: left;
+      }
+    }
+  }
+  .remove-spell {
+    margin: 10px 0 0 0;
+    &.delete-state {
+      &:link,
+      &:visited {
+        background-color: transparent;
+        color: $primary-color-dark;
+        border-color: $primary-color-light;
+      }
+      &:hover {
+        background-color: $primary-color-light;
+      }
     }
   }
   .new-spell {
@@ -175,7 +209,6 @@ hr {
   .spells-prepared {
     margin: 0 0 20px 0;
     .spell-prepared-item {
-      overflow: hidden;
       &.spell-cast {
         &:link,
         &:visited,
