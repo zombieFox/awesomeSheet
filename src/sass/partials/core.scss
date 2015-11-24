@@ -154,24 +154,24 @@ hr {
   }
   .spells-known {
     margin: 0 0 20px 0;
-    .spells-known-item {
+    .spell-known-item {
       overflow: hidden;
     }
-    .new-spell {
-      .spell-name {
-        margin: 0 0 0 7px;
-      }
-      .add-spell {
-        height: 2rem;
-        line-height: 2rem;
-        padding-bottom: 0;
-        padding-top: 0;
-        margin: 9px 0 0 0;
-      }
+  }
+  .new-spell {
+    .spell-name {
+      margin: 0 0 0 7px;
+    }
+    .add-spell {
+      height: 2rem;
+      line-height: 2rem;
+      padding-bottom: 0;
+      padding-top: 0;
+      margin: 9px 0 0 0;
     }
   }
   .spells-prepared {
-    border-bottom: $border;
+    // border-bottom: $border;
     padding: 0 0 20px 0;
     margin: 0 0 20px 0;
     .spell-prepared-item {

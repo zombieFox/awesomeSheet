@@ -50,8 +50,6 @@ function awesomesheet() {
 
   var all_skill_inputs = eA("input.skill-value");
 
-  var all_spellsPrepared = eA(".spells-prepared");
-  var all_spellsKnownItem = eA(".spells-known-item");
   var all_addSpell = eA(".add-spell");
 
   // --------------------------------------------------------------------------
@@ -270,15 +268,16 @@ function awesomesheet() {
   // --------------------------------------------------------------------------
 
   // add listeners to all spell know items
-  function addListenerTo_all_spellsKnownItem() {
-    all_spellsKnownItem = eA(".spells-known-item");
-    for (var i = 0; i < all_spellsKnownItem.length; i++) {
-      // stop addListenerTo_all_spellsKnownItem from stacking event listeners on the same element
-      var doesSpellHaveListener = all_spellsKnownItem[i].dataset.eventListener;
+  function addListenerTo_all_spellKnownItem() {
+    var all_spellKnownItem = eA(".spell-known-item");
+    for (var i = 0; i < all_spellKnownItem.length; i++) {
+      // stop addListenerTo_all_spellKnownItem from stacking event listeners on the same element
+      var doesSpellHaveListener = all_spellKnownItem[i].dataset.eventListener;
       if (doesSpellHaveListener == "false") {
-        all_spellsKnownItem[i].dataset.eventListener = "true";
-        all_spellsKnownItem[i].addEventListener("click", function() {
+        all_spellKnownItem[i].dataset.eventListener = "true";
+        all_spellKnownItem[i].addEventListener("click", function() {
           copySpell(this);
+          store_preparedList();
         }, false);
       };
     };
@@ -287,16 +286,32 @@ function awesomesheet() {
   // add listeners to prepared spells
   function addListenerTo_all_spellPreparedItem() {
     var all_spellPreparedItem = eA(".spell-prepared-item");
-    var spellCast = eA(".spell-cast");
     for (var i = 0; i < all_spellPreparedItem.length; i++) {
-      all_spellPreparedItem[i].addEventListener("click", function() {
-        changeSpellState(this);
-      }, false);
+      // // stop addListenerTo_all_spellPreparedItem from stacking event listeners on the same element
+      var doesSpellHaveListener = all_spellPreparedItem[i].dataset.eventListener;
+      if (doesSpellHaveListener == "false") {
+        all_spellPreparedItem[i].dataset.eventListener = "true";
+        all_spellPreparedItem[i].addEventListener("click", function() {
+          changeSpellState(this);
+          store_preparedList();
+        }, false);
+      };
     };
-    for (var i = 0; i < spellCast.length; i++) {
-      spellCast[i].addEventListener("click", function() {
-        changeSpellState(this);
-      }, false);
+  };
+
+  // reset data attributes on page reload 
+  function changeData_all_spellKnownItem() {
+    var all_spellKnownItem = eA(".spell-known-item");
+    for (var i = 0; i < all_spellKnownItem.length; i++) {
+      all_spellKnownItem[i].dataset.eventListener = "false";
+    };
+  };
+
+  // reset data attributes on page reload 
+  function changeData_all_spellPreparedItem() {
+    var all_spellPreparedItem = eA(".spell-prepared-item");
+    for (var i = 0; i < all_spellPreparedItem.length; i++) {
+      all_spellPreparedItem[i].dataset.eventListener = "false";
     };
   };
 
@@ -305,6 +320,7 @@ function awesomesheet() {
     for (var i = 0; i < all_addSpell.length; i++) {
       all_addSpell[i].addEventListener("click", function() {
         addNewSpell(this);
+        store_knownList();
       }, false);
     };
   };
@@ -325,6 +341,7 @@ function awesomesheet() {
     var keystroke = event.keyCode || event.which;
     if (keystroke == 13) {
       addNewSpell(element);
+      store_knownList();
     };
   };
 
@@ -333,15 +350,15 @@ function awesomesheet() {
     var level = getClosest(spell, ".spells-known").dataset.spellLevel;
     var name = spell.innerHTML;
     var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
-    var theFirstChild = preparedListToSaveTo.firstChild;
+    // var theFirstChild = preparedListToSaveTo.firstChild;
     var spellToCopy = document.createElement("a");
     spellToCopy.setAttribute("href", "javascript:void(0)");
     spellToCopy.setAttribute("class", "spell-prepared-item button button-primary button-small");
     spellToCopy.setAttribute("data-cast", "false");
+    spellToCopy.setAttribute("data-event-listener", "false");
     spellToCopy.innerHTML = "<span class=\"icon-bookmark\"></span> " + name;
-    preparedListToSaveTo.insertBefore(spellToCopy, theFirstChild);
+    preparedListToSaveTo.appendChild(spellToCopy);
     addListenerTo_all_spellPreparedItem();
-    store_preparedList();
   };
 
   // change spell class to cast and then remove
@@ -349,73 +366,103 @@ function awesomesheet() {
     var icon = spell.querySelector(".icon-bookmark");
     var isSpellCast = spell.dataset.cast;
     if (isSpellCast == "true") {
-      console.log("remove!!!");
       spell.remove();
+      store_preparedList();
     };
     if (isSpellCast == "false") {
-      console.log("cast = false ----- cast changes to true");
       spell.dataset.cast = "true";
       toggleClass(spell, "spell-cast");
       toggleClass(icon, "icon-bookmark");
       toggleClass(icon, "icon-close");
+      store_preparedList();
     };
-    store_preparedList();
     // update_preparedListStatus();
   };
 
   // store spell preparedList
   function store_preparedList() {
+    var all_spellsPrepared = eA(".spells-prepared");
     for (var i = 0; i < all_spellsPrepared.length; i++) {
-      // console.log(all_spellsPrepared[i]);
       var level = i;
-      var saveName = "prepared-spell-level-" + level;
+      var saveName = "spell-prepared-level-" + level;
       var preparedListToSave = e(".spells-prepared.spell-level-" + level);
-      if (preparedListToSave.innerHTML !== "") {
-        localStoreAdd(saveName, preparedListToSave.innerHTML);
-      };
+      localStoreAdd(saveName, preparedListToSave.innerHTML);
     };
     // update_preparedListStatus();
   };
 
   // read spell preparedList
   function read_preparedList() {
+    var all_spellsPrepared = eA(".spells-prepared");
     for (var i = 0; i < all_spellsPrepared.length; i++) {
       var level = i;
-      var readName = "prepared-spell-level-" + level;
+      var readName = "spell-prepared-level-" + level;
       var preparedListToRead = localStoreRead(readName);
       var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
       if (localStoreRead(readName)) {
         preparedListToSaveTo.innerHTML = preparedListToRead;
       };
     };
-    addListenerTo_all_spellPreparedItem();
+    // update_preparedListStatus();
+  };
+
+  // store spell preparedList
+  function store_knownList() {
+    var all_spellsKnown = eA(".spells-known");
+    for (var i = 0; i < all_spellsKnown.length; i++) {
+      var level = i;
+      var saveName = "spell-known-level-" + level;
+      var knownListToSave = e(".spells-known.spell-level-" + level);
+      localStoreAdd(saveName, knownListToSave.innerHTML);
+    };
+    // update_preparedListStatus();
+  };
+
+  // read spell preparedList
+  function read_knownList() {
+    var all_spellsKnown = eA(".spells-known");
+    for (var i = 0; i < all_spellsKnown.length; i++) {
+      var level = i;
+      console.log(level);
+      var readName = "spell-known-level-" + level;
+      console.log(readName);
+      var knownListToRead = localStoreRead(readName);
+      console.log(knownListToRead);
+      var knownListToSaveTo = e(".spells-known.spell-level-" + level);
+      console.log(knownListToSaveTo);
+      if (localStoreRead(readName)) {
+        knownListToSaveTo.innerHTML = knownListToRead;
+      };
+    };
     // update_preparedListStatus();
   };
 
   // add new spell to known spells
   function addNewSpell(element) {
-    var knownListToSaveTo = getClosest(element, ".spells-known");
     var newSpellRoot = getClosest(element, ".new-spell");
+    var knownListToSaveTo = newSpellRoot.parentNode.querySelector(".spells-known");
     var level = knownListToSaveTo.dataset.spellLevel;
     var newSpellName = newSpellRoot.querySelector("input");
     var newSpellName_value = newSpellName.value;
     var newSpell = document.createElement("a");
     newSpell.setAttribute("href", "javascript:void(0)");
-    newSpell.setAttribute("class", "spells-known-item button button-secondary button-small");
     newSpell.setAttribute("data-event-listener", "false");
+    newSpell.setAttribute("class", "spell-known-item button button-secondary button-small");
     newSpell.innerHTML = newSpellName_value;
+    // if input value is not empty
     if (newSpellName_value !== "") {
-      knownListToSaveTo.insertBefore(newSpell, newSpellRoot.nextSibling);
+      knownListToSaveTo.appendChild(newSpell);
+      // clear input field
       newSpellName.value = "";
     };
-    addListenerTo_all_spellsKnownItem();
+    addListenerTo_all_spellKnownItem();
   };
 
   // // add class to active prepared lists
   // function update_preparedListStatus() {
   //   for (var i = 0; i < all_spellsPrepared.length; i++) {
   //     var level = i;
-  //     var readName = "prepared-spell-level-" + level;
+  //     var readName = "spell-prepared-level-" + level;
   //     var preparedListToCheck = e(".spells-prepared.spell-level-" + level);
   //     console.log(level);
   //     console.log(readName);
@@ -845,8 +892,18 @@ function awesomesheet() {
   // run on page load
   // --------------------------------------------------------------------------
 
+
+  read_preparedList();
+  read_knownList();
+  read_textarea();
+  read_inputBlock();
+  read_skills();
+  read_stats();
+  // read_ac();
+  changeData_all_spellKnownItem();
+  changeData_all_spellPreparedItem();
   addListenerTo_all_spellPreparedItem();
-  addListenerTo_all_spellsKnownItem();
+  addListenerTo_all_spellKnownItem();
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_all_addSpell();
@@ -854,13 +911,6 @@ function awesomesheet() {
   // addListenerTo_acInputs();
   addListenerTo_all_textareass();
   addListenerTo_all_inputBlock();
-  read_preparedList();
-  // update_preparedListStatus();
-  read_textarea();
-  read_inputBlock();
-  read_skills();
-  read_stats();
-  // read_ac();
   update_scoreModifiers();
   update_skillTotal();
   // update_ac();
