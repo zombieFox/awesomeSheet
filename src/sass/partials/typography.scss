@@ -239,10 +239,6 @@ table {
 .small-text {
   color: $gray-08;
   font-size: $small-text;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    font-size: $small-text;
-  }
 }
 
 

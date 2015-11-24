@@ -3,10 +3,10 @@
 
 .button,
 button {
-  padding: 5px 15px;
+  padding: 3px 10px 3px 7px;
   color: $gray-02;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: $open-sans-semi-bold;
   line-height: 1.5rem;
   text-decoration: none;
@@ -26,11 +26,21 @@ button {
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    font-size: 1.3rem;
+    margin: 3px 5px 0 0;
+    font-size: 1rem;
+    vertical-align: text-top;
+    display: inline-block;
   }
   &.button-small {
-    padding: 5px 7px 3px 7px;
+    padding: 3px 8px;
     line-height: 1rem;
+    font-size: $small-text;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      line-height: 1rem;
+      margin: 2px 3px 0 0;
+      font-size: $small-text;
+    }
   }
   &:focus {
     outline: 0;

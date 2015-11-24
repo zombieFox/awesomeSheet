@@ -101,9 +101,6 @@ hr {
   }
 }
 
-// defense
-#defense {}
-
 // skills
 #skills {
   .skill-list {
@@ -152,10 +149,6 @@ hr {
     .button {
       margin: 0 3px 3px 0;
       float: left;
-      [class^="icon-"],
-      [class*=" icon-"] {
-        font-size: 0.8rem;
-      }
     }
   }
   .spell-level {
@@ -168,6 +161,7 @@ hr {
             color: $primary-color-dark;
             border-color: $primary-color-light;
           }
+          &:active,
           &:focus,
           &:hover {
             color: $white;
@@ -175,35 +169,6 @@ hr {
           }
         }
       }
-      .spell-known-item {
-        margin: 0 3px 3px 0;
-        float: left;
-      }
-    }
-  }
-  .remove-spell {
-    margin: 10px 0 0 0;
-    &.delete-state {
-      &:link,
-      &:visited {
-        background-color: transparent;
-        color: $primary-color-dark;
-        border-color: $primary-color-light;
-      }
-      &:hover {
-        background-color: $primary-color-light;
-      }
-    }
-  }
-  .new-spell {
-    position: relative;
-    .spell-name {
-      margin: 0 0 0 7px;
-    }
-    .add-spell {
-      position: absolute;
-      right: 0;
-      top: 5px;
     }
   }
   .spells-prepared {
@@ -229,6 +194,20 @@ hr {
           border-color: transparent;
         }
       }
+    }
+  }
+  .remove-spell {
+    margin: 10px 0 0 0;
+  }
+  .new-spell {
+    position: relative;
+    .spell-name {
+      margin: 0 0 0 7px;
+    }
+    .add-spell {
+      position: absolute;
+      right: 0;
+      top: 5px;
     }
   }
 }
@@ -298,11 +277,15 @@ hr {
           padding: 5px 20px;
           display: block;
           font-size: $small-text;
-          font-family: $open-sans-semi-bold;
+          font-family: $open-sans-bold;
+          text-transform: uppercase;
           transition: background-color $transition-ease-medium, color $transition-ease-medium;
-          &:focus,
           &:hover {
             background-color: $gray-13;
+            text-decoration: none;
+          }
+          &:focus {
+            background-color: $gray-14;
             text-decoration: none;
           }
           &:active {
