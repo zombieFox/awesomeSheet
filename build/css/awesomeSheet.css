@@ -351,7 +351,7 @@ label {
 /* typography
 ------------------------------------------------- */
 html {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
 
 h1,
@@ -365,10 +365,10 @@ h6 {
   line-height: 2.5rem; }
 
 h1 {
-  margin-bottom: 60px; }
+  margin-bottom: 30px; }
 
 h2 {
-  margin-bottom: 40px; }
+  margin-bottom: 20px; }
 
 h3,
 h4,
@@ -408,8 +408,6 @@ b,
 strong {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
-/* Links
-------------------------------------------------- */
 a {
   color: #ff0055;
   text-decoration: none; }
@@ -478,6 +476,47 @@ input.dark[type="email"], input.dark[type="number"], input.dark[type="search"], 
     padding-right: 10px;
     border-radius: 3px; }
 
+table {
+  border: 0;
+  margin: 0 0 20px 0;
+  padding: 0;
+  width: 100%;
+  border-spacing: 0; }
+  table thead tr td {
+    padding: 0 5px;
+    margin: 0;
+    height: 2.5rem;
+    text-align: center;
+    border-bottom: 2px solid #e8e8e8;
+    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+    table thead tr td:first-child {
+      padding-left: 0;
+      text-align: left; }
+  table tr td {
+    padding: 0;
+    margin: 0;
+    height: 2.5rem;
+    text-align: center;
+    box-sizing: content-box; }
+    table tr td p {
+      margin: 0;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      box-sizing: content-box;
+      border-bottom: 2px solid #e8e8e8; }
+    table tr td:first-child {
+      text-align: left; }
+      table tr td:first-child p {
+        text-align: left; }
+    table tr td input[type="email"], table tr td input[type="number"], table tr td input[type="search"], table tr td input[type="text"], table tr td input[type="tel"], table tr td input[type="url"], table tr td input[type="password"] {
+      margin: 0;
+      padding: 0;
+      margin: 0;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      text-align: center;
+      box-sizing: content-box; }
+
 .text-center {
   text-align: center; }
 
@@ -510,11 +549,11 @@ input.dark[type="email"], input.dark[type="number"], input.dark[type="search"], 
 ------------------------------------------------- */
 @media (min-width: 550px) {
   html {
-    font-size: 15px; } }
+    font-size: 14px; } }
 
 @media (min-width: 750px) {
   html {
-    font-size: 16px; } }
+    font-size: 15px; } }
 
 /* utilities
 ------------------------------------------------- */
@@ -756,75 +795,66 @@ hr {
     #statistics .stat-block .stats .score {
       font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
-#skills .skill-list {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  border-spacing: 0; }
-  #skills .skill-list thead tr td {
-    padding: 0 10px;
-    margin: 0;
-    width: 15%;
-    text-align: center;
-    height: 2.5rem;
-    border-bottom: 2px solid #e8e8e8; }
-    #skills .skill-list thead tr td:first-child {
-      width: 55%;
-      padding: 0;
-      text-align: left; }
-  #skills .skill-list tr td {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    height: 2.5rem; }
-    #skills .skill-list tr td p {
-      border-bottom: 2px solid #e8e8e8; }
-    #skills .skill-list tr td:first-child p {
-      text-align: left; }
-    #skills .skill-list tr td .skill-value {
-      padding: 0;
-      margin: 0;
-      height: 2.5rem;
-      line-height: 2.5rem;
-      text-align: center;
-      box-sizing: content-box; }
-    #skills .skill-list tr td .ranks,
-    #skills .skill-list tr td .misc {
-      color: #a0a0a0;
-      font-size: 0.8rem; }
-    #skills .skill-list tr td .total {
-      font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+#skills .skill-list thead tr td {
+  width: 15%; }
+  #skills .skill-list thead tr td:first-child {
+    width: 55%; }
+
+#skills .skill-list tr td .ranks,
+#skills .skill-list tr td .misc {
+  color: #a0a0a0;
+  font-size: 0.8rem; }
+
+#skills .skill-list tr td .total {
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+
+#spells .spell-stats thead td {
+  width: 3%; }
+  #spells .spell-stats thead td:first-child {
+    width: 1%; }
+
+#spells .spells-known .button,
+#spells .spells-prepared .button {
+  margin: 0 0 3px 0;
+  display: block;
+  text-align: left;
+  width: 100%; }
+  #spells .spells-known .button [class^="icon-"],
+  #spells .spells-known .button [class*=" icon-"],
+  #spells .spells-prepared .button [class^="icon-"],
+  #spells .spells-prepared .button [class*=" icon-"] {
+    font-size: 0.8rem; }
 
 #spells .spells-known {
-  margin: 0 0 30px 0; }
-  #spells .spells-known h2 {
-    margin: 0; }
-  #spells .spells-known .spell-list,
-  #spells .spells-known .prepared-list {
-    margin: 0 0 20px 0; }
-    #spells .spells-known .spell-list .button,
-    #spells .spells-known .prepared-list .button {
-      margin: 2px 0;
-      display: inline-block; }
-  #spells .spells-known .spell-list .spell-item:link, #spells .spells-known .spell-list .spell-item:visited, #spells .spells-known .spell-list .spell-item:focus {
-    border-color: #fafafa; }
-  #spells .spells-known .prepared-list .spell-cast:link, #spells .spells-known .prepared-list .spell-cast:visited, #spells .spells-known .prepared-list .spell-cast:focus {
+  margin: 0 0 20px 0; }
+  #spells .spells-known .spell-known-item {
+    overflow: hidden; }
+
+#spells .new-spell .spell-name {
+  margin: 0 0 0 7px; }
+
+#spells .new-spell .add-spell {
+  height: 2rem;
+  line-height: 2rem;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin: 9px 0 0 0; }
+
+#spells .spells-prepared {
+  padding: 0 0 20px 0;
+  margin: 0 0 20px 0; }
+  #spells .spells-prepared .spell-prepared-item.spell-cast:link, #spells .spells-prepared .spell-prepared-item.spell-cast:visited, #spells .spells-prepared .spell-prepared-item.spell-cast:focus {
     color: #7c7c7c;
     background-color: transparent;
     border-color: #b2b2b2; }
-  #spells .spells-known .prepared-list .spell-cast:hover {
+  #spells .spells-prepared .spell-prepared-item.spell-cast:hover {
     color: #7c7c7c;
     background-color: transparent;
     border-color: #7c7c7c; }
-  #spells .spells-known .prepared-list .spell-cast:active, #spells .spells-known .prepared-list .spell-cast.active {
+  #spells .spells-prepared .spell-prepared-item.spell-cast:active, #spells .spells-prepared .spell-prepared-item.spell-cast.active {
     color: #7c7c7c;
     background-color: transparent;
     border-color: transparent; }
-  #spells .spells-known .prepared-list [class^="icon-"],
-  #spells .spells-known .prepared-list [class*=" icon-"] {
-    font-size: 0.8rem;
-    margin: 0 3px 0 0; }
 
 /* media queries
 ------------------------------------------------- */
@@ -849,6 +879,10 @@ hr {
     width: 25%;
     position: fixed;
     left: 0;
+    top: 50%;
+    -webkit-transform: translatey(-50%);
+        -ms-transform: translatey(-50%);
+            transform: translatey(-50%);
     display: block; }
     nav ul {
       margin: 0;
