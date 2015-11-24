@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js'],
         dest: '<%= folders.build %>/',
         expand: true
       },
@@ -37,7 +37,8 @@ module.exports = function(grunt) {
         '<%= folders.build %>/*',
         '.tmp/*',
         '.sass-cache/*'
-      ]
+      ],
+      buildCleanBower: '<%= folders.build %>/bower_components/'
     },
 
     useminPrepare: {
@@ -249,7 +250,8 @@ module.exports = function(grunt) {
     'useminPrepare',
     'concat',
     'uglify',
-    'usemin'
+    'usemin',
+    'clean:buildCleanBower'
     // 'htmlmin'
   ]);
 
