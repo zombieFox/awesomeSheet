@@ -44,6 +44,7 @@ function awesomesheet() {
 
   var spellCheck = eA(".spell-check");
 
+  var all_inputTotalBlock = eA(".input-total-block");
   var all_inputBlock = eA(".input-block");
 
   var all_textareas = eA(".textarea");
@@ -190,9 +191,9 @@ function awesomesheet() {
       score[i].addEventListener("input", function() {
         update_scoreModifiers();
         update_skillTotal();
+        update_inputTotalBlock();
         // update_ac();
         store_stats();
-        // store_ac();
       }, false);
     };
 
@@ -201,9 +202,9 @@ function awesomesheet() {
       tempScore[i].addEventListener("input", function() {
         update_scoreModifiers();
         update_skillTotal();
+        update_inputTotalBlock();
         // update_ac();
         store_stats();
-        // store_ac();
       }, false);
     };
   };
@@ -889,6 +890,104 @@ function awesomesheet() {
     // };
   };
 
+  // update input totals
+  // function update_inputTotalBlock(inputBlockName, variable1, variable2, variable3, variable4, variable5, variable6) {
+  function update_inputTotalBlock() {
+    for (var i = 0; i < all_inputTotalBlock.length; i++) {
+      var total = all_inputTotalBlock[i].querySelector(".total");
+      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
+      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+
+      var modifiers = [];
+      for (var q = 0; q < all_inputField.length; q++) {
+        modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+      };
+      var modifiers_total = modifiers.reduce(function(a, b) {
+        return a + b;
+      });
+
+
+
+
+
+
+      // var statBonus = parseInt(e(".stats." + statBonus + " .modifier").innerHTML, 10) || 0;
+      var strBonus = 0;
+      var dexBonus = 0;
+      var conBonus = 0;
+      var intBonus = 0;
+      var wisBonus = 0;
+      var chaBonus = 0;
+      var babBonus = 0;
+
+      if (all_inputTotalBlock[i].dataset.strBonus) {
+        // if ability temp mod is empty
+        if (stats_strTempMod.innerHTML == "") {
+          strBonus = parseInt(stats_strMod.innerHTML, 10 || 0);
+        } else {
+          strBonus = parseInt(stats_strTempMod.innerHTML, 10 || 0);
+        };
+      } else if (all_inputTotalBlock[i].dataset.dexBonus) {
+        // if ability temp mod is empty
+        if (stats_dexTempMod.innerHTML == "") {
+          dexBonus = parseInt(stats_dexMod.innerHTML, 10 || 0);
+        } else {
+          dexBonus = parseInt(stats_dexTempMod.innerHTML, 10 || 0);
+        };
+      } else if (all_inputTotalBlock[i].dataset.conBonus) {
+        // if ability temp mod is empty
+        if (stats_conTempMod.innerHTML == "") {
+          conBonus = parseInt(stats_conMod.innerHTML, 10 || 0);
+        } else {
+          conBonus = parseInt(stats_conTempMod.innerHTML, 10 || 0);
+        };
+      } else if (all_inputTotalBlock[i].dataset.intBonus) {
+        // if ability temp mod is empty
+        if (stats_intTempMod.innerHTML == "") {
+          intBonus = parseInt(stats_intMod.innerHTML, 10 || 0);
+        } else {
+          intBonus = parseInt(stats_intTempMod.innerHTML, 10 || 0);
+        };
+      } else if (all_inputTotalBlock[i].dataset.wisBonus) {
+        // if ability temp mod is empty
+        if (stats_wisTempMod.innerHTML == "") {
+          wisBonus = parseInt(stats_wisMod.innerHTML, 10 || 0);
+        } else {
+          wisBonus = parseInt(stats_wisTempMod.innerHTML, 10 || 0);
+        };
+      } else if (all_inputTotalBlock[i].dataset.chaBonus) {
+        // if ability temp mod is empty
+        if (stats_chaTempMod.innerHTML == "") {
+          chaBonus = parseInt(stats_chaMod.innerHTML, 10 || 0);
+        } else {
+          chaBonus = parseInt(stats_chaTempMod.innerHTML, 10 || 0);
+        };
+      };
+
+      console.log(strBonus);
+      console.log(dexBonus);
+      console.log(conBonus);
+      console.log(intBonus);
+      console.log(wisBonus);
+      console.log(chaBonus);
+
+
+
+
+      // var grandTotal = statBonus + modifiers_total + statBonus;
+      // total.innerHTML = grandTotal;
+
+      // console.log(total);
+      // console.log(total_value);
+      // console.log(all_inputField);
+      // console.log(modifiers);
+      // console.log(modifiers_total);
+      // console.log(statBonus);
+      // console.log(statBonus);
+
+    };
+  };
+
   // check and move label down when input has a value
   function update_inputBlock_focus() {
     for (var i = 0; i < all_inputBlock.length; i++) {
@@ -914,14 +1013,17 @@ function awesomesheet() {
       inputLabel.addEventListener("input", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
+        update_inputTotalBlock();
       }, false);
       inputLabel.addEventListener("focus", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
+        update_inputTotalBlock();
       }, false);
       inputLabel.addEventListener("blur", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
+        update_inputTotalBlock();
       }, false);
     };
   };
@@ -988,7 +1090,8 @@ function awesomesheet() {
   update_scoreModifiers();
   update_skillTotal();
   // update_ac();
-  update_inputBlock_focus()
+  update_inputBlock_focus();
+  update_inputTotalBlock();
 
 };
 
