@@ -107,9 +107,9 @@ hr {
     thead {
       tr {
         td {
-          width: 15%;
+          width: 1%;
           &:first-child {
-            width: 55%;
+            width: 99%;
           }
         }
       }
@@ -223,27 +223,42 @@ hr {
       thead {
         tr {
           td {
-            &.ability-title,
-            &.mod-title,
-            &.ranks-title,
-            &.misc-title {
-              display: table-cell;
+            width: 15%;
+            &:first-child {
+              width: 55%;
             }
-          }
-        }
-      }
-      tr {
-        td {
-          &.ability,
-          &.mod,
-          &.ranks,
-          &.misc {
-            display: table-cell;
           }
         }
       }
     }
   }
+  // skills
+  // #skills {
+  //   .skill-list {
+  //     thead {
+  //       tr {
+  //         td {
+  //           &.ability-title,
+  //           &.mod-title,
+  //           &.ranks-title,
+  //           &.misc-title {
+  //             display: table-cell;
+  //           }
+  //         }
+  //       }
+  //     }
+  //     tr {
+  //       td {
+  //         &.ability,
+  //         &.mod,
+  //         &.ranks,
+  //         &.misc {
+  //           display: table-cell;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   // defense
   #defense {
     .ac,
