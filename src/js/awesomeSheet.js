@@ -891,27 +891,9 @@ function awesomesheet() {
   };
 
   // update input totals
-  // function update_inputTotalBlock(inputBlockName, variable1, variable2, variable3, variable4, variable5, variable6) {
   function update_inputTotalBlock() {
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
-      var total = all_inputTotalBlock[i].querySelector(".total");
-      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
-      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
-
-      var modifiers = [];
-      for (var q = 0; q < all_inputField.length; q++) {
-        modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
-      };
-      var modifiers_total = modifiers.reduce(function(a, b) {
-        return a + b;
-      });
-
-
-
-
-
-
-      // var statBonus = parseInt(e(".stats." + statBonus + " .modifier").innerHTML, 10) || 0;
+      var levelBonus = 0;
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -919,43 +901,60 @@ function awesomesheet() {
       var wisBonus = 0;
       var chaBonus = 0;
       var babBonus = 0;
-
-      if (all_inputTotalBlock[i].dataset.strBonus) {
+      var plusTenBonus = 0;
+      var total = all_inputTotalBlock[i].querySelector(".total");
+      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
+      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+      var modifiers = [];
+      for (var q = 0; q < all_inputField.length; q++) {
+        if (all_inputField[q].dataset.modifier == "true") {
+          modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+        }; 
+      };
+      var modifiers_total = modifiers.reduce(function(a, b) {
+        return a + b;
+      });
+      if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
         if (stats_strTempMod.innerHTML == "") {
           strBonus = parseInt(stats_strMod.innerHTML, 10 || 0);
         } else {
           strBonus = parseInt(stats_strTempMod.innerHTML, 10 || 0);
         };
-      } else if (all_inputTotalBlock[i].dataset.dexBonus) {
+      };
+      if (all_inputTotalBlock[i].dataset.dexBonus == "true") {
         // if ability temp mod is empty
         if (stats_dexTempMod.innerHTML == "") {
           dexBonus = parseInt(stats_dexMod.innerHTML, 10 || 0);
         } else {
           dexBonus = parseInt(stats_dexTempMod.innerHTML, 10 || 0);
         };
-      } else if (all_inputTotalBlock[i].dataset.conBonus) {
+      };
+      if (all_inputTotalBlock[i].dataset.conBonus == "true") {
         // if ability temp mod is empty
         if (stats_conTempMod.innerHTML == "") {
           conBonus = parseInt(stats_conMod.innerHTML, 10 || 0);
         } else {
           conBonus = parseInt(stats_conTempMod.innerHTML, 10 || 0);
         };
-      } else if (all_inputTotalBlock[i].dataset.intBonus) {
+      };
+      if (all_inputTotalBlock[i].dataset.intBonus == "true") {
         // if ability temp mod is empty
         if (stats_intTempMod.innerHTML == "") {
           intBonus = parseInt(stats_intMod.innerHTML, 10 || 0);
         } else {
           intBonus = parseInt(stats_intTempMod.innerHTML, 10 || 0);
         };
-      } else if (all_inputTotalBlock[i].dataset.wisBonus) {
+      };
+      if (all_inputTotalBlock[i].dataset.wisBonus == "true") {
         // if ability temp mod is empty
         if (stats_wisTempMod.innerHTML == "") {
           wisBonus = parseInt(stats_wisMod.innerHTML, 10 || 0);
         } else {
           wisBonus = parseInt(stats_wisTempMod.innerHTML, 10 || 0);
         };
-      } else if (all_inputTotalBlock[i].dataset.chaBonus) {
+      };
+      if (all_inputTotalBlock[i].dataset.chaBonus == "true") {
         // if ability temp mod is empty
         if (stats_chaTempMod.innerHTML == "") {
           chaBonus = parseInt(stats_chaMod.innerHTML, 10 || 0);
@@ -963,28 +962,18 @@ function awesomesheet() {
           chaBonus = parseInt(stats_chaTempMod.innerHTML, 10 || 0);
         };
       };
-
-      console.log(strBonus);
-      console.log(dexBonus);
-      console.log(conBonus);
-      console.log(intBonus);
-      console.log(wisBonus);
-      console.log(chaBonus);
-
-
-
-
-      // var grandTotal = statBonus + modifiers_total + statBonus;
-      // total.innerHTML = grandTotal;
-
-      // console.log(total);
-      // console.log(total_value);
-      // console.log(all_inputField);
-      // console.log(modifiers);
-      // console.log(modifiers_total);
-      // console.log(statBonus);
-      // console.log(statBonus);
-
+      if (all_inputTotalBlock[i].dataset.babBonus == "true") {
+        babBonus = parseInt(e("#input-base-attack").value, 10 || 0);
+      };
+      if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
+        babBonus = parseInt(e("#input-level").value, 10 || 0);
+      };
+      if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
+        plusTenBonus = 10;
+      };
+      // grand total
+      var grandTotal = modifiers_total + levelBonus + babBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus;
+      total.innerHTML = grandTotal;
     };
   };
 
