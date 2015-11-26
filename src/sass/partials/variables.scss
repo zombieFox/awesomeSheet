@@ -73,6 +73,12 @@ $transition-ease-slow:               0.5s ease-in-out;
 $transition-ease-medium:             0.3s ease-in-out;
 $transition-ease-fast:               0.1s ease-in-out;
 
+/* z-index
+------------------------------------------------- */
+
+$body:                               1000;
+$nav:                                2000;
+
 /* drop shadows
 ------------------------------------------------- */
 

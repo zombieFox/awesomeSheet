@@ -3,7 +3,7 @@
 
 body {
   background: $white;
-  padding: 100px 0 500px 0;
+  padding: 100px 0 300px 0;
 }
 
 section {
@@ -17,6 +17,52 @@ section {
 
 nav {
   display: none;
+  // display: block;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // background: rgba(0, 0, 0, 0.7);
+  // width: 100%;
+  // padding: 0;
+  // z-index: $nav;
+  // box-sizing: border-box;
+  // ul {
+  //   width: 100%;
+  //   padding: 0;
+  //   margin: 0;
+  //   li {
+  //     float: left;
+  //     padding: 0;
+  //     list-style-type: none;
+  //     a {
+  //       line-height: 2rem;
+  //       padding: 5px 20px;
+  //       display: block;
+  //       font-size: $small-text;
+  //       font-family: $open-sans-bold;
+  //       text-transform: uppercase;
+  //       transition: background-color $transition-ease-medium, color $transition-ease-medium;
+  //       &:hover {
+  //         background-color: $gray-13;
+  //         text-decoration: none;
+  //       }
+  //       &:focus {
+  //         background-color: $gray-14;
+  //         text-decoration: none;
+  //       }
+  //       &:active {
+  //         background-color: $primary-color;
+  //         color: $white;
+  //         transition: background-color $transition-ease-fast, color $transition-ease-fast;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.sheet {
+  position: relative;
+  z-index: $body;
 }
 
 hr {
@@ -54,6 +100,7 @@ hr {
     margin: 0 0 2.5rem 0;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
   }
 }
 
@@ -166,6 +213,7 @@ hr {
           &:hover {
             color: $white;
             background-color: $primary-color-light;
+            border-color: $primary-color-dark;
           }
         }
       }
@@ -202,12 +250,20 @@ hr {
   .new-spell {
     position: relative;
     .spell-name {
-      margin: 0 0 0 7px;
+      input {
+        padding-right: 34px;
+        box-sizing: border-box;
+      }
     }
     .add-spell {
       position: absolute;
       right: 0;
-      top: 5px;
+      top: 6px;
+      padding: 4px 6px;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        margin: 0;
+      }
     }
   }
 }

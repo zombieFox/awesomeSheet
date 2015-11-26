@@ -5,126 +5,157 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-4 ">
-      <div class="input-block">
-        <label class="input-label" for="input-base-attack">Base Attack</label>
-        <input class="input-field" id="input-base-attack" type="number" value="2">
-      </div>
-    </div>
-    <div class="col-4 ">
-      <div class="input-block">
-        <label class="input-label" for="input-concentration">Concentration</label>
-        <input class="input-field" id="input-concentration" type="number" value="11">
-      </div>
-    </div>
-    <div class="col-4 ">
-      <div class="input-block">
-        <label class="input-label" for="input-spell-resistance">Spell Resistance</label>
-        <input class="input-field" id="input-spell-resistance" type="number" value="11">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-4 ">
-      <p class="inline-with-input"><strong>CMB <span class="total">1</span></strong></p>
-    </div>
-    <div class="col-8">
-      <div class="row no-gutter">
-        <div class="col-3">
+    <div class="col-8 col-offset-4">
+      <div class="row">
+        <div class="col-4">
           <div class="input-block">
-            <label class="input-label" for="input-cmb-size">Size</label>
-            <input class="input-field" id="input-cmb-size" type="number">
+            <label class="input-label" for="input-base-attack">Base Attack</label>
+            <input class="input-field" id="input-base-attack" type="number" value="2">
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-4">
           <div class="input-block">
-            <label class="input-label" for="input-cmb-temp">Temp</label>
-            <input class="input-field" id="input-cmb-temp" type="number">
+            <label class="input-label" for="input-concentration">Concentration</label>
+            <input class="input-field" id="input-concentration" type="number" value="11">
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
           <div class="input-block">
-            <label class="input-label" for="input-cmb-notes">Notes</label>
-            <input class="input-field" id="input-cmb-notes" type="number">
+            <label class="input-label" for="input-spell-resistance">Spell Resistance</label>
+            <input class="input-field" id="input-spell-resistance" type="number">
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-4">
-      <p class="inline-with-input"><strong>CMD <span class="total">14</span></strong></p>
-    </div>
-    <div class="col-8">
-      <div class="row no-gutter">
-        <div class="col-3">
-          <div class="input-block">
-            <label class="input-label" for="input-cmd-size">Size</label>
-            <input class="input-field" id="input-cmd-size" type="number">
+  <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
+    <div class="row">
+      <div class="col-4">
+        <p class="inline-with-input"><strong>CMB <span class="total">1</span></strong></p>
+      </div>
+      <div class="col-4">
+        <div class="row no-gutter">
+          <div class="col-6">
+            <div class="input-block">
+              <label class="input-label" for="input-cmb-size">Size</label>
+              <input class="input-field" id="input-cmb-size" type="number" data-modifier="true">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="input-block">
+              <label class="input-label" for="input-cmb-temp">Temp</label>
+              <input class="input-field" id="input-cmb-temp" type="number" data-modifier="true">
+            </div>
           </div>
         </div>
-        <div class="col-3">
-          <div class="input-block">
-            <label class="input-label" for="input-cmd-temp">Temp</label>
-            <input class="input-field" id="input-cmd-temp" type="number">
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="input-block">
-            <label class="input-label" for="input-cmd-notes">Notes</label>
-            <input class="input-field" id="input-cmd-notes" type="number">
-          </div>
+      </div>
+      <div class="col-4">
+        <div class="input-block">
+          <label class="input-label" for="input-cmb-notes">Notes</label>
+          <input class="input-field" id="input-cmb-notes" type="text" data-modifier="false">
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-4">
-      <p class="inline-with-input"><strong>Melee <span class="total">1</span></strong></p>
-    </div>
-    <div class="col-8">
-      <div class="row no-gutter">
-        <div class="col-3">
-          <div class="input-block">
-            <label class="input-label" for="input-melee-attack-temp">Temp</label>
-            <input class="input-field" id="input-melee-attack-temp" type="number">
+  <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-plus-ten-bonus="true">
+    <div class="row">
+      <div class="col-4">
+        <p class="inline-with-input"><strong>CMD <span class="total">14</span></strong></p>
+      </div>
+      <div class="col-4">
+        <div class="row no-gutter">
+          <div class="col-6">
+            <div class="input-block">
+              <label class="input-label" for="input-cmd-size">Size</label>
+              <input class="input-field" id="input-cmd-size" type="number">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="input-block">
+              <label class="input-label" for="input-cmd-temp">Temp</label>
+              <input class="input-field" id="input-cmd-temp" type="number" data-modifier="true">
+            </div>
           </div>
         </div>
-        <div class="col-9">
-          <div class="input-block">
-            <label class="input-label" for="input-melee-attack-notes">Notes</label>
-            <input class="input-field" id="input-melee-attack-notes" type="number">
-          </div>
+      </div>
+      <div class="col-4">
+        <div class="input-block">
+          <label class="input-label" for="input-cmd-notes">Notes</label>
+          <input class="input-field" id="input-cmd-notes" type="text" data-modifier="false">
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-4">
-      <p class="inline-with-input"><strong>Ranged <span class="total">5</span></strong></p>
-    </div>
-    <div class="col-8">
-      <div class="row no-gutter">
-        <div class="col-3">
-          <div class="input-block">
-            <label class="input-label" for="input-ranged-attack-temp">Temp</label>
-            <input class="input-field" id="input-ranged-attack-temp" type="number">
+  <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
+    <div class="row">
+      <div class="col-4">
+        <p class="inline-with-input"><strong>Melee <span class="total">1</span></strong></p>
+      </div>
+      <div class="col-4">
+        <div class="row no-gutter">
+          <div class="col-12">
+            <div class="input-block">
+              <label class="input-label" for="input-melee-attack-temp">Temp</label>
+              <input class="input-field" id="input-melee-attack-temp" type="number" data-modifier="true">
+            </div>
           </div>
         </div>
-        <div class="col-9">
-          <div class="input-block">
-            <label class="input-label" for="input-ranged-attack-notes">Notes</label>
-            <input class="input-field" id="input-ranged-attack-notes" type="number">
+      </div>
+      <div class="col-4">
+        <div class="input-block">
+          <label class="input-label" for="input-melee-attack-notes">Notes</label>
+          <input class="input-field" id="input-melee-attack-notes" type="text" data-modifier="false">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true">
+    <div class="row">
+      <div class="col-4">
+        <p class="inline-with-input"><strong>Ranged <span class="total">5</span></strong></p>
+      </div>
+      <div class="col-4">
+        <div class="row no-gutter">
+          <div class="col-12">
+            <div class="input-block">
+              <label class="input-label" for="input-ranged-attack-temp">Temp</label>
+              <input class="input-field" id="input-ranged-attack-temp" type="number" data-modifier="true">
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="input-block">
+          <label class="input-label" for="input-ranged-attack-notes">Notes</label>
+          <input class="input-field" id="input-ranged-attack-notes" type="text" data-modifier="false">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="input-total-block" data-level-bonus="true" data-int-bonus="true">
+    <div class="row">
+      <div class="col-4">
+        <p class="inline-with-input"><strong>Concentration <span class="total">11</span></strong></p>
+      </div>
+      <div class="col-4">
+        <div class="input-block">
+          <label class="input-label" for="input-concentration-misc">Misc</label>
+          <input class="input-field" id="input-concentration-misc" type="number" data-modifier="true">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="input-block">
+          <label class="input-label" for="input-cmb-notes">Notes</label>
+          <input class="input-field" id="input-cmb-notes" type="text" data-modifier="false">
         </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-    <h2>Attacks</h2>
+      <h2>Attacks</h2>
     </div>
-    </div>
+  </div>
   <div class="row">
     <div class="col-12">
       <div class="input-block">
@@ -155,7 +186,7 @@
     <div class="col-6">
       <div class="input-block">
         <label class="input-label" for="input-weapon-notes">Notes</label>
-        <input class="input-field" id="input-weapon-notes" type="number">
+        <input class="input-field" id="input-weapon-notes" type="text">
       </div>
     </div>
   </div>

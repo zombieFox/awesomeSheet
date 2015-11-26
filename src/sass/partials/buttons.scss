@@ -3,7 +3,7 @@
 
 .button,
 button {
-  padding: 3px 10px 3px 7px;
+  padding: 3px 10px;
   color: $gray-02;
   text-align: center;
   font-size: 1rem;
@@ -26,7 +26,7 @@ button {
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    margin: 5px 5px 0 0;
+    margin: 0 5px 0 0;
     font-size: 1rem;
     display: inline-block;
   }
@@ -37,7 +37,7 @@ button {
     [class^="icon-"],
     [class*=" icon-"] {
       line-height: 1rem;
-      margin: 0 3px 0 0;
+      margin: 0 5px 0 0;
       font-size: $small-text;
     }
   }
