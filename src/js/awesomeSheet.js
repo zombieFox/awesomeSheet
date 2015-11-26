@@ -355,14 +355,14 @@ function awesomesheet() {
         toggleClass(element, "button-secondary");
         toggleClass(icon, "icon-close");
         toggleClass(icon, "icon-radio-button-unchecked");
-        text.innerHTML = "Delete a Spell";
+        text.innerHTML = "Delete a spell";
       } else {
         toggleClass(element, "active");
         toggleClass(element, "button-primary");
         toggleClass(element, "button-secondary");
         toggleClass(icon, "icon-close");
         toggleClass(icon, "icon-radio-button-unchecked");
-        text.innerHTML = "Done";
+        text.innerHTML = "Done deleting spells";
       };
       // add close icon to known list item
       for (var i = 0; i < all_spellKnownItem.length; i++) {
@@ -400,7 +400,7 @@ function awesomesheet() {
         addClass(removeSpellButton, "hidden");
         removeClass(removeSpellButton, "button-primary");
         addClass(removeSpellButton, "button-secondary");
-        text.innerHTML = "Delete a Spell";
+        text.innerHTML = "Delete a spell";
       };
     };
   };
@@ -451,7 +451,7 @@ function awesomesheet() {
 
   // change spell class to cast and then remove
   function update_spellState(spell) {
-    var icon = spell.querySelector(".icon-bookmark");
+    var icon = spell.querySelector(".icon-bookmark-outline");
     var isSpellCast = spell.dataset.cast;
     if (isSpellCast == "true") {
       spell.remove();
@@ -460,7 +460,7 @@ function awesomesheet() {
     if (isSpellCast == "false") {
       spell.dataset.cast = "true";
       toggleClass(spell, "spell-cast");
-      toggleClass(icon, "icon-bookmark");
+      toggleClass(icon, "icon-bookmark-outline");
       toggleClass(icon, "icon-close");
       store_preparedList();
     };
