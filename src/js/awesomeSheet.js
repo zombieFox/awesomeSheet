@@ -347,20 +347,27 @@ function awesomesheet() {
     // if spells known has children
     if (knownListToChangeState.children.length > 0) {
       var all_spellKnownItem = knownListToChangeState.querySelectorAll(".spell-known-item");
-      var icon = element.querySelector("span");
+      var icon = element.querySelector(".icon");
+      var text = element.querySelector(".text");
       if (element.classList.contains("active")) {
         toggleClass(element, "active");
+        toggleClass(element, "button-primary");
+        toggleClass(element, "button-secondary");
         toggleClass(icon, "icon-close");
-        toggleClass(icon, "icon-check-box-unchecked");
+        toggleClass(icon, "icon-radio-button-unchecked");
+        text.innerHTML = "Delete a Spell";
       } else {
         toggleClass(element, "active");
+        toggleClass(element, "button-primary");
+        toggleClass(element, "button-secondary");
         toggleClass(icon, "icon-close");
-        toggleClass(icon, "icon-check-box-unchecked");
+        toggleClass(icon, "icon-radio-button-unchecked");
+        text.innerHTML = "Done";
       };
       // add close icon to known list item
       for (var i = 0; i < all_spellKnownItem.length; i++) {
         var icon = all_spellKnownItem[i].querySelector("span");
-        toggleClass(icon, "icon-bookmark");
+        toggleClass(icon, "icon-bookmark-outline");
         toggleClass(icon, "icon-close");
       };
       // toggle delete spell data attribute
@@ -382,6 +389,7 @@ function awesomesheet() {
       var spellLevel = getClosest(all_spellsKnown[i], ".spell-level");
       var knownListToCheck = spellLevel.querySelector(".spells-known");
       var removeSpellButton = spellLevel.querySelector(".remove-spell");
+      var text = removeSpellButton.querySelector(".text");
       // if all_spellsKnown[i] has no children remove data attributes and classes
       if (all_spellsKnown[i].children.length > 0) {
         removeClass(removeSpellButton, "hidden");
@@ -390,6 +398,9 @@ function awesomesheet() {
         removeClass(knownListToCheck, "delete-state");
         removeClass(removeSpellButton, "active");
         addClass(removeSpellButton, "hidden");
+        removeClass(removeSpellButton, "button-primary");
+        addClass(removeSpellButton, "button-secondary");
+        text.innerHTML = "Delete a Spell";
       };
     };
   };
@@ -493,7 +504,7 @@ function awesomesheet() {
     newSpell.setAttribute("class", "spell-known-item button button-secondary");
     newSpell.innerHTML = newSpellName_value;
     var icon = document.createElement("span");
-    icon.setAttribute("class", "icon-bookmark");
+    icon.setAttribute("class", "icon-bookmark-outline");
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
