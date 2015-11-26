@@ -389,6 +389,7 @@ function awesomesheet() {
       var spellLevel = getClosest(all_spellsKnown[i], ".spell-level");
       var knownListToCheck = spellLevel.querySelector(".spells-known");
       var removeSpellButton = spellLevel.querySelector(".remove-spell");
+      var icon = removeSpellButton.querySelector(".icon");
       var text = removeSpellButton.querySelector(".text");
       // if all_spellsKnown[i] has no children remove data attributes and classes
       if (all_spellsKnown[i].children.length > 0) {
@@ -400,6 +401,8 @@ function awesomesheet() {
         addClass(removeSpellButton, "hidden");
         removeClass(removeSpellButton, "button-primary");
         addClass(removeSpellButton, "button-secondary");
+        removeClass(icon, "icon-radio-button-unchecked");
+        addClass(icon, "icon-close");
         text.innerHTML = "Delete a spell";
       };
     };
