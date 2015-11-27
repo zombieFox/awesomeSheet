@@ -8,6 +8,8 @@
 ------------------------------------------------- */
 /* transitions
 ------------------------------------------------- */
+/* z-index
+------------------------------------------------- */
 /* drop shadows
 ------------------------------------------------- */
 /* radius
@@ -197,7 +199,7 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 3px 10px 3px 7px;
+  padding: 3px 10px;
   color: #343434;
   text-align: center;
   font-size: 1rem;
@@ -222,7 +224,7 @@ button {
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    margin: 5px 5px 0 0;
+    margin: 0 5px 0 0;
     font-size: 1rem;
     display: inline-block; }
   .button.button-small,
@@ -235,7 +237,7 @@ button {
     button.button-small [class^="icon-"],
     button.button-small [class*=" icon-"] {
       line-height: 1rem;
-      margin: 0 3px 0 0;
+      margin: 0 5px 0 0;
       font-size: 0.8rem; }
   .button:focus,
   button:focus {
@@ -354,7 +356,7 @@ label {
 /* typography
 ------------------------------------------------- */
 html {
-  font-size: 13px;
+  font-size: 12px;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
 
 h1,
@@ -552,11 +554,11 @@ table {
 ------------------------------------------------- */
 @media (min-width: 550px) {
   html {
-    font-size: 14px; } }
+    font-size: 13px; } }
 
 @media (min-width: 750px) {
   html {
-    font-size: 15px; } }
+    font-size: 14px; } }
 
 /* utilities
 ------------------------------------------------- */
@@ -729,7 +731,7 @@ table {
 ------------------------------------------------- */
 body {
   background: #ffffff;
-  padding: 100px 0 500px 0; }
+  padding: 100px 0 300px 0; }
 
 section {
   margin: 0 0 40px 0; }
@@ -740,6 +742,10 @@ section {
 
 nav {
   display: none; }
+
+.sheet {
+  position: relative;
+  z-index: 1000; }
 
 hr {
   border: 0;
@@ -770,7 +776,8 @@ hr {
   .input-block .input-field {
     margin: 0 0 2.5rem 0;
     position: relative;
-    z-index: 1; }
+    z-index: 1;
+    box-sizing: border-box; }
 
 .awesome-name .input-block .input-field {
   margin: 0;
@@ -803,9 +810,9 @@ hr {
       font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 #skills .skill-list thead tr td {
-  width: 15%; }
+  width: 1%; }
   #skills .skill-list thead tr td:first-child {
-    width: 55%; }
+    width: 99%; }
 
 #skills .skill-list tr td .ranks,
 #skills .skill-list tr td .misc {
@@ -835,7 +842,8 @@ hr {
     border-color: #ff3276; }
   #spells .spell-level .spells-known.delete-state .spell-known-item:active, #spells .spell-level .spells-known.delete-state .spell-known-item:focus, #spells .spell-level .spells-known.delete-state .spell-known-item:hover {
     color: #ffffff;
-    background-color: #ff3276; }
+    background-color: #ff3276;
+    border-color: #cc0044; }
 
 #spells .spells-prepared {
   margin: 0 0 20px 0; }
@@ -857,20 +865,25 @@ hr {
 
 #spells .new-spell {
   position: relative; }
-  #spells .new-spell .spell-name {
-    margin: 0 0 0 7px; }
+  #spells .new-spell .spell-name input {
+    padding-right: 34px;
+    box-sizing: border-box; }
   #spells .new-spell .add-spell {
     position: absolute;
     right: 0;
-    top: 5px; }
+    top: 6px;
+    padding: 4px 6px; }
+    #spells .new-spell .add-spell [class^="icon-"],
+    #spells .new-spell .add-spell [class*=" icon-"] {
+      margin: 0; }
 
 /* media queries
 ------------------------------------------------- */
 @media (min-width: 550px) {
-  #skills .skill-list thead tr td.ability-title, #skills .skill-list thead tr td.mod-title, #skills .skill-list thead tr td.ranks-title, #skills .skill-list thead tr td.misc-title {
-    display: table-cell; }
-  #skills .skill-list tr td.ability, #skills .skill-list tr td.mod, #skills .skill-list tr td.ranks, #skills .skill-list tr td.misc {
-    display: table-cell; }
+  #skills .skill-list thead tr td {
+    width: 15%; }
+    #skills .skill-list thead tr td:first-child {
+      width: 55%; }
   #defense .ac .title,
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {

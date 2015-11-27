@@ -44,6 +44,7 @@ function awesomesheet() {
 
   var spellCheck = eA(".spell-check");
 
+  var all_inputTotalBlock = eA(".input-total-block");
   var all_inputBlock = eA(".input-block");
 
   var all_textareas = eA(".textarea");
@@ -190,9 +191,9 @@ function awesomesheet() {
       score[i].addEventListener("input", function() {
         update_scoreModifiers();
         update_skillTotal();
+        update_inputTotalBlock();
         // update_ac();
         store_stats();
-        // store_ac();
       }, false);
     };
 
@@ -201,9 +202,9 @@ function awesomesheet() {
       tempScore[i].addEventListener("input", function() {
         update_scoreModifiers();
         update_skillTotal();
+        update_inputTotalBlock();
         // update_ac();
         store_stats();
-        // store_ac();
       }, false);
     };
   };
@@ -346,20 +347,27 @@ function awesomesheet() {
     // if spells known has children
     if (knownListToChangeState.children.length > 0) {
       var all_spellKnownItem = knownListToChangeState.querySelectorAll(".spell-known-item");
-      var icon = element.querySelector("span");
+      var icon = element.querySelector(".icon");
+      var text = element.querySelector(".text");
       if (element.classList.contains("active")) {
         toggleClass(element, "active");
+        toggleClass(element, "button-primary");
+        toggleClass(element, "button-secondary");
         toggleClass(icon, "icon-close");
-        toggleClass(icon, "icon-check-box-unchecked");
+        toggleClass(icon, "icon-radio-button-unchecked");
+        text.innerHTML = "Delete a spell";
       } else {
         toggleClass(element, "active");
+        toggleClass(element, "button-primary");
+        toggleClass(element, "button-secondary");
         toggleClass(icon, "icon-close");
-        toggleClass(icon, "icon-check-box-unchecked");
+        toggleClass(icon, "icon-radio-button-unchecked");
+        text.innerHTML = "Done deleting spells";
       };
       // add close icon to known list item
       for (var i = 0; i < all_spellKnownItem.length; i++) {
         var icon = all_spellKnownItem[i].querySelector("span");
-        toggleClass(icon, "icon-bookmark");
+        toggleClass(icon, "icon-bookmark-outline");
         toggleClass(icon, "icon-close");
       };
       // toggle delete spell data attribute
@@ -381,6 +389,8 @@ function awesomesheet() {
       var spellLevel = getClosest(all_spellsKnown[i], ".spell-level");
       var knownListToCheck = spellLevel.querySelector(".spells-known");
       var removeSpellButton = spellLevel.querySelector(".remove-spell");
+      var icon = removeSpellButton.querySelector(".icon");
+      var text = removeSpellButton.querySelector(".text");
       // if all_spellsKnown[i] has no children remove data attributes and classes
       if (all_spellsKnown[i].children.length > 0) {
         removeClass(removeSpellButton, "hidden");
@@ -389,6 +399,11 @@ function awesomesheet() {
         removeClass(knownListToCheck, "delete-state");
         removeClass(removeSpellButton, "active");
         addClass(removeSpellButton, "hidden");
+        removeClass(removeSpellButton, "button-primary");
+        addClass(removeSpellButton, "button-secondary");
+        removeClass(icon, "icon-radio-button-unchecked");
+        addClass(icon, "icon-close");
+        text.innerHTML = "Delete a spell";
       };
     };
   };
@@ -439,7 +454,7 @@ function awesomesheet() {
 
   // change spell class to cast and then remove
   function update_spellState(spell) {
-    var icon = spell.querySelector(".icon-bookmark");
+    var icon = spell.querySelector(".icon-bookmark-outline");
     var isSpellCast = spell.dataset.cast;
     if (isSpellCast == "true") {
       spell.remove();
@@ -448,7 +463,7 @@ function awesomesheet() {
     if (isSpellCast == "false") {
       spell.dataset.cast = "true";
       toggleClass(spell, "spell-cast");
-      toggleClass(icon, "icon-bookmark");
+      toggleClass(icon, "icon-bookmark-outline");
       toggleClass(icon, "icon-close");
       store_preparedList();
     };
@@ -492,7 +507,7 @@ function awesomesheet() {
     newSpell.setAttribute("class", "spell-known-item button button-secondary");
     newSpell.innerHTML = newSpellName_value;
     var icon = document.createElement("span");
-    icon.setAttribute("class", "icon-bookmark");
+    icon.setAttribute("class", "icon-bookmark-outline");
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
@@ -889,6 +904,93 @@ function awesomesheet() {
     // };
   };
 
+  // update input totals
+  function update_inputTotalBlock() {
+    for (var i = 0; i < all_inputTotalBlock.length; i++) {
+      var levelBonus = 0;
+      var strBonus = 0;
+      var dexBonus = 0;
+      var conBonus = 0;
+      var intBonus = 0;
+      var wisBonus = 0;
+      var chaBonus = 0;
+      var babBonus = 0;
+      var plusTenBonus = 0;
+      var total = all_inputTotalBlock[i].querySelector(".total");
+      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
+      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+      var modifiers = [];
+      for (var q = 0; q < all_inputField.length; q++) {
+        if (all_inputField[q].dataset.modifier == "true") {
+          modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+        }; 
+      };
+      var modifiers_total = modifiers.reduce(function(a, b) {
+        return a + b;
+      });
+      if (all_inputTotalBlock[i].dataset.strBonus == "true") {
+        // if ability temp mod is empty
+        if (stats_strTempMod.innerHTML == "") {
+          strBonus = parseInt(stats_strMod.innerHTML, 10 || 0);
+        } else {
+          strBonus = parseInt(stats_strTempMod.innerHTML, 10 || 0);
+        };
+      };
+      if (all_inputTotalBlock[i].dataset.dexBonus == "true") {
+        // if ability temp mod is empty
+        if (stats_dexTempMod.innerHTML == "") {
+          dexBonus = parseInt(stats_dexMod.innerHTML, 10 || 0);
+        } else {
+          dexBonus = parseInt(stats_dexTempMod.innerHTML, 10 || 0);
+        };
+      };
+      if (all_inputTotalBlock[i].dataset.conBonus == "true") {
+        // if ability temp mod is empty
+        if (stats_conTempMod.innerHTML == "") {
+          conBonus = parseInt(stats_conMod.innerHTML, 10 || 0);
+        } else {
+          conBonus = parseInt(stats_conTempMod.innerHTML, 10 || 0);
+        };
+      };
+      if (all_inputTotalBlock[i].dataset.intBonus == "true") {
+        // if ability temp mod is empty
+        if (stats_intTempMod.innerHTML == "") {
+          intBonus = parseInt(stats_intMod.innerHTML, 10 || 0);
+        } else {
+          intBonus = parseInt(stats_intTempMod.innerHTML, 10 || 0);
+        };
+      };
+      if (all_inputTotalBlock[i].dataset.wisBonus == "true") {
+        // if ability temp mod is empty
+        if (stats_wisTempMod.innerHTML == "") {
+          wisBonus = parseInt(stats_wisMod.innerHTML, 10 || 0);
+        } else {
+          wisBonus = parseInt(stats_wisTempMod.innerHTML, 10 || 0);
+        };
+      };
+      if (all_inputTotalBlock[i].dataset.chaBonus == "true") {
+        // if ability temp mod is empty
+        if (stats_chaTempMod.innerHTML == "") {
+          chaBonus = parseInt(stats_chaMod.innerHTML, 10 || 0);
+        } else {
+          chaBonus = parseInt(stats_chaTempMod.innerHTML, 10 || 0);
+        };
+      };
+      if (all_inputTotalBlock[i].dataset.babBonus == "true") {
+        babBonus = parseInt(e("#input-base-attack").value, 10 || 0);
+      };
+      if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
+        babBonus = parseInt(e("#input-level").value, 10 || 0);
+      };
+      if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
+        plusTenBonus = 10;
+      };
+      // grand total
+      var grandTotal = modifiers_total + levelBonus + babBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus;
+      total.innerHTML = grandTotal;
+    };
+  };
+
   // check and move label down when input has a value
   function update_inputBlock_focus() {
     for (var i = 0; i < all_inputBlock.length; i++) {
@@ -914,14 +1016,17 @@ function awesomesheet() {
       inputLabel.addEventListener("input", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
+        update_inputTotalBlock();
       }, false);
       inputLabel.addEventListener("focus", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
+        update_inputTotalBlock();
       }, false);
       inputLabel.addEventListener("blur", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
+        update_inputTotalBlock();
       }, false);
     };
   };
@@ -988,7 +1093,8 @@ function awesomesheet() {
   update_scoreModifiers();
   update_skillTotal();
   // update_ac();
-  update_inputBlock_focus()
+  update_inputBlock_focus();
+  update_inputTotalBlock();
 
 };
 

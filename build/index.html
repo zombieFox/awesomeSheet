@@ -318,6 +318,112 @@
             </div>
           </div>
         </section>
+        <section id="statistics">
+          <h1>Equipment</h1>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Magical Equipment</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-equipment">Headband of Vast Intelligence +2, Ring of Sustenance, Cloak of Resistance +2, Pearl of Power (1st Level)</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Magical Gear</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-magic-gear">Scroll of Acid Pit, Potion of CLW x2, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Wand of Infernal Healing (12), Scroll of Summon Monster III x2, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x1, Scroll of Stinking Cloud x1</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <p><strong>Gear</strong></P>
+            </div>
+            <div class="col-9">
+              <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse</div>
+            </div>
+          </div>
+          <div class="consumable-block">
+            <div class="row">
+              <div class="col-9 col-offset-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="input-block">
+                      <label class="input-label" for="input-consumable-1">Consumable</label>
+                      <input class="input-field" id="input-consumable-1" type="text" value="Wand of Infernal Healing">
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="input-block">
+                      <label class="input-label" for="input-consumable-1-total-cahrges">Total Charges</label>
+                      <input class="input-field" id="input-consumable-1-total-cahrges" type="text" value="50">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="consumable-count">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <a href="javascript:void(0)" class="button button-secondary button-small"><span class="icon-add"></span>Add Consumable</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="defense">
           <h1>Defense</h1>
           <div class="row">
@@ -334,176 +440,236 @@
                 </div>
                 <div class="col-6">
                   <div class="input-block">
-                    <label class="input-label" for="input-current-non-ethal-hp">Non Lethal HP</label>
-                    <input class="input-field" id="input-current-non-ethal-hp" type="number">
+                    <label class="input-label" for="input-current-non-lethal-hp">Non Lethal HP</label>
+                    <input class="input-field" id="input-current-non-lethal-hp" type="number">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <p class="inline-with-input"><strong>AC <span class="total">13</span></strong></p>
-            </div>
-            <div class="col-8">
-              <div class="row no-gutter">
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-armor">Armor</label>
-                    <input class="input-field" id="input-ac-armor" type="number">
+          <div class="input-total-block" data-dex-bonus="true" data-plus-ten-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>AC <span class="total">13</span></strong></p>
+              </div>
+              <div class="col-8">
+                <div class="row no-gutter">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-armor">Armor</label>
+                      <input class="input-field" id="input-ac-armor" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-shield">Shield</label>
-                    <input class="input-field" id="input-ac-shield" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-shield">Shield</label>
+                      <input class="input-field" id="input-ac-shield" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-deflect">Deflect</label>
-                    <input class="input-field" id="input-ac-deflect" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-deflect">Deflect</label>
+                      <input class="input-field" id="input-ac-deflect" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-temp">Temp</label>
-                    <input class="input-field" id="input-ac-temp" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-dodge">Dodge</label>
+                      <input class="input-field" id="input-ac-dodge" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-size">Size</label>
+                      <input class="input-field" id="input-ac-size" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-misc">Misc</label>
+                      <input class="input-field" id="input-ac-misc" type="number" data-modifier="true">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <p class="inline-with-input"><strong>Touch <span class="total">13</span></strong></p>
-            </div>
-            <div class="col-8">
-              <div class="row no-gutter">
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-touch-deflect">Deflect</label>
-                    <input class="input-field" id="input-ac-touch-deflect" type="number">
+          <div class="input-total-block" data-plus-ten-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Flat Flooted <span class="total">10</span></strong></p>
+              </div>
+              <div class="col-8">
+                <div class="row no-gutter">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-flat-footed-armor">Armor</label>
+                      <input class="input-field" id="input-ac-flat-footed-armor" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-9">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-touch-temp">Temp</label>
-                    <input class="input-field" id="input-ac-touch-temp" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-flat-footed-shield">Shield</label>
+                      <input class="input-field" id="input-ac-flat-footed-shield" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-flat-footed-deflect">Deflect</label>
+                      <input class="input-field" id="input-ac-flat-footed-deflect" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-flat-footed-size">Size</label>
+                      <input class="input-field" id="input-ac-flat-footed-size" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-flat-footed-misc">Misc</label>
+                      <input class="input-field" id="input-ac-flat-footed-misc" type="number" data-modifier="true">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <p class="inline-with-input"><strong>Flat Flooted <span class="total">10</span></strong></p>
-            </div>
-            <div class="col-8">
-              <div class="row no-gutter">
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-armor">Armor</label>
-                    <input class="input-field" id="input-ac-armor" type="number">
+          <div class="input-total-block" data-dex-bonus="true" data-plus-ten-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Touch <span class="total">13</span></strong></p>
+              </div>
+              <div class="col-8">
+                <div class="row no-gutter">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-touch-deflect">Deflect</label>
+                      <input class="input-field" id="input-ac-touch-deflect" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-shield">Shield</label>
-                    <input class="input-field" id="input-ac-shield" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-touch-dodge">Dodge</label>
+                      <input class="input-field" id="input-ac-touch-dodge" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-deflect">Deflect</label>
-                    <input class="input-field" id="input-ac-deflect" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-touch-size">Size</label>
+                      <input class="input-field" id="input-ac-touch-size" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-ac-temp">Temp</label>
-                    <input class="input-field" id="input-ac-temp" type="number">
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ac-touch-misc">Misc</label>
+                      <input class="input-field" id="input-ac-touch-misc" type="number" data-modifier="true">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <p class="inline-with-input"><strong>Fortitude <span class="total">8</span></strong></p>
-            </div>
-            <div class="col-8">
-              <div class="row no-gutter">
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-fortitude-base">Base</label>
-                    <input class="input-field" id="input-fortitude-base" type="number" value="1">
+          <div class="input-total-block" data-con-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Fortitude <span class="total">8</span></strong></p>
+              </div>
+              <div class="col-8">
+                <div class="row no-gutter">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-fortitude-base">Base</label>
+                      <input class="input-field" id="input-fortitude-base" type="number" value="1" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-fortitude-misc">Misc</label>
-                    <input class="input-field" id="input-fortitude-misc" type="number" value="5">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-fortitude-racial">Racial</label>
+                      <input class="input-field" id="input-fortitude-racial" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-6">
-                  <div class="input-block">
-                    <label class="input-label" for="input-fortitude-temp">Temp</label>
-                    <input class="input-field" id="input-fortitude-temp" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-fortitude-misc">Misc</label>
+                      <input class="input-field" id="input-fortitude-misc" type="number" value="5" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-fortitude-temp">Temp</label>
+                      <input class="input-field" id="input-fortitude-temp" type="number" data-modifier="true">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <p class="inline-with-input"><strong>Reflex <span class="total">6</span></strong></p>
-            </div>
-            <div class="col-8">
-              <div class="row no-gutter">
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-reflex-base">Base</label>
-                    <input class="input-field" id="input-reflex-base" type="number" value="1">
+          <div class="input-total-block" data-dex-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Reflex <span class="total">6</span></strong></p>
+              </div>
+              <div class="col-8">
+                <div class="row no-gutter">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-reflex-base">Base</label>
+                      <input class="input-field" id="input-reflex-base" type="number" value="1" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-reflex-misc">Misc</label>
-                    <input class="input-field" id="input-reflex-misc" type="number" value="2">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-reflex-racial">Racial</label>
+                      <input class="input-field" id="input-reflex-racial" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-6">
-                  <div class="input-block">
-                    <label class="input-label" for="input-reflex-temp">Temp</label>
-                    <input class="input-field" id="input-reflex-temp" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-reflex-misc">Misc</label>
+                      <input class="input-field" id="input-reflex-misc" type="number" value="2" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-reflex-temp">Temp</label>
+                      <input class="input-field" id="input-reflex-temp" type="number" data-modifier="true">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <p class="inline-with-input"><strong>Will <span class="total">7</span></strong></p>
-            </div>
-            <div class="col-8">
-              <div class="row no-gutter">
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-will-base">Base</label>
-                    <input class="input-field" id="input-will-base" type="number" value="4">
+          <div class="input-total-block" data-wis-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Will <span class="total">7</span></strong></p>
+              </div>
+              <div class="col-8">
+                <div class="row no-gutter">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-will-base">Base</label>
+                      <input class="input-field" id="input-will-base" type="number" value="4" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-3">
-                  <div class="input-block">
-                    <label class="input-label" for="input-will-misc">Misc</label>
-                    <input class="input-field" id="input-will-misc" type="number" value="2">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-will-racial">Racial</label>
+                      <input class="input-field" id="input-will-racial" type="number" data-modifier="true">
+                    </div>
                   </div>
-                </div>
-                <div class="col-6">
-                  <div class="input-block">
-                    <label class="input-label" for="input-will-temp">Temp</label>
-                    <input class="input-field" id="input-will-temp" type="number">
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-will-misc">Misc</label>
+                      <input class="input-field" id="input-will-misc" type="number" value="2" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-will-temp">Temp</label>
+                      <input class="input-field" id="input-will-temp" type="number" data-modifier="true">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -528,69 +694,191 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-4">
-              <div class="input-block">
-                <!-- base attack -->
-                <label class="input-label" for="input-base-attack">Base Attack</label>
-                <input class="input-field" id="input-base-attack" type="number" value="2">
+            <div class="col-8 col-offset-4">
+              <div class="row">
+                <div class="col-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-base-attack">Base Attack</label>
+                    <input class="input-field" id="input-base-attack" type="number" value="2">
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-concentration">Concentration</label>
+                    <input class="input-field" id="input-concentration" type="number" value="11">
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-resistance">Spell Resistance</label>
+                    <input class="input-field" id="input-spell-resistance" type="number">
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-4">
-              <div class="input-block">
-                <!-- cmb -->
-                <label class="input-label" for="input-cmb">CMB</label>
-                <input class="input-field" id="input-cmb" type="number" value="1">
+          </div>
+          <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>CMB <span class="total">1</span></strong></p>
+              </div>
+              <div class="col-4">
+                <div class="row no-gutter">
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-cmb-size">Size</label>
+                      <input class="input-field" id="input-cmb-size" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-cmb-temp">Temp</label>
+                      <input class="input-field" id="input-cmb-temp" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="input-block">
+                  <label class="input-label" for="input-cmb-notes">Notes</label>
+                  <input class="input-field" id="input-cmb-notes" type="text" data-modifier="false">
+                </div>
               </div>
             </div>
-            <div class="col-4">
-              <div class="input-block">
-                <!-- cmd -->
-                <label class="input-label" for="input-cmd">CMD</label>
-                <input class="input-field" id="input-cmd" type="number" value="14">
+          </div>
+          <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-plus-ten-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>CMD <span class="total">14</span></strong></p>
+              </div>
+              <div class="col-4">
+                <div class="row no-gutter">
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-cmd-size">Size</label>
+                      <input class="input-field" id="input-cmd-size" type="number">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-block">
+                      <label class="input-label" for="input-cmd-temp">Temp</label>
+                      <input class="input-field" id="input-cmd-temp" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="input-block">
+                  <label class="input-label" for="input-cmd-notes">Notes</label>
+                  <input class="input-field" id="input-cmd-notes" type="text" data-modifier="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Melee <span class="total">1</span></strong></p>
+              </div>
+              <div class="col-4">
+                <div class="row no-gutter">
+                  <div class="col-12">
+                    <div class="input-block">
+                      <label class="input-label" for="input-melee-attack-temp">Temp</label>
+                      <input class="input-field" id="input-melee-attack-temp" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="input-block">
+                  <label class="input-label" for="input-melee-attack-notes">Notes</label>
+                  <input class="input-field" id="input-melee-attack-notes" type="text" data-modifier="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Ranged <span class="total">5</span></strong></p>
+              </div>
+              <div class="col-4">
+                <div class="row no-gutter">
+                  <div class="col-12">
+                    <div class="input-block">
+                      <label class="input-label" for="input-ranged-attack-temp">Temp</label>
+                      <input class="input-field" id="input-ranged-attack-temp" type="number" data-modifier="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="input-block">
+                  <label class="input-label" for="input-ranged-attack-notes">Notes</label>
+                  <input class="input-field" id="input-ranged-attack-notes" type="text" data-modifier="false">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-total-block" data-level-bonus="true" data-int-bonus="true">
+            <div class="row">
+              <div class="col-4">
+                <p class="inline-with-input"><strong>Concentration <span class="total">11</span></strong></p>
+              </div>
+              <div class="col-4">
+                <div class="input-block">
+                  <label class="input-label" for="input-concentration-misc">Misc</label>
+                  <input class="input-field" id="input-concentration-misc" type="number" data-modifier="true">
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="input-block">
+                  <label class="input-label" for="input-cmb-notes">Notes</label>
+                  <input class="input-field" id="input-cmb-notes" type="text" data-modifier="false">
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-4">
-              <div class="input-block">
-                <!-- concentration -->
-                <label class="input-label" for="input-concentration">Concentration</label>
-                <input class="input-field" id="input-concentration" type="number" value="11">
-              </div>
+            <div class="col-12">
+              <h2>Attacks</h2>
             </div>
-            <div class="col-4">
+          </div>
+          <div class="row">
+            <div class="col-12">
               <div class="input-block">
-                <!-- melee attack -->
-                <label class="input-label" for="input-melee-attack">Melee Attack</label>
-                <input class="input-field" id="input-melee-attack" type="number" value="1">
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="input-block">
-                <!-- ranged attack -->
-                <label class="input-label" for="input-ranged-attack">Ranged Attack</label>
-                <input class="input-field" id="input-ranged-attack" type="number" value="5">
+                <label class="input-label" for="input-weapon">Weapon</label>
+                <input class="input-field" id="input-weapon" type="text">
               </div>
             </div>
           </div>
-          <!-- ModifyMovement TYPE Abilities -->
-          <!-- End ModifyMovement TYPE Abilities -->
-          <!-- Attacks -->
-          <!-- End Attacks -->
-          <!-- Space and Reach -->
-          <!-- SpecialAttack TYPE Abilities -->
-          <!-- End SpecialAttack TYPE Abilities -->
-          <!-- Innate Spell-Like Abilities -->
-          <!-- End Innate Spell-Like Abilities -->
-          <!-- Other Spell-Like Abilities -->
-          <!-- End Other Spell-Like Abilities -->
-          <!-- Domain Power Spell-Like Abilities -->
-          <!-- Known Spells -->
-          <!-- End Known Spells -->
-          <!-- Prepared Spells -->
-          <!-- End Prepared Spells -->
-          <!-- domains -->
-          <!-- End Domain list -->
+          <div class="row">
+            <div class="col-2">
+              <div class="input-block">
+                <label class="input-label" for="input-attack">Attack</label>
+                <input class="input-field" id="input-attack" type="number">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-block">
+                <label class="input-label" for="input-damage">Damage</label>
+                <input class="input-field" id="input-damage" type="text">
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-block">
+                <label class="input-label" for="input-critical">Critical</label>
+                <input class="input-field" id="input-critical" type="text">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-block">
+                <label class="input-label" for="input-weapon-notes">Notes</label>
+                <input class="input-field" id="input-weapon-notes" type="text">
+              </div>
+            </div>
+          </div>
         </section>
         <section id="skills">
           <h1>Skills</h1>
@@ -731,7 +1019,7 @@
                 <td><input class="misc skill-value small-text" type="number" value="3"></td>
               </tr>
               <tr class="skill-details">
-                <td><p class="name skill-value" data-ability="int">Linguistics (Dwarven, Giant) <span class="small-text">Int</span></p></td>
+                <td><p class="name skill-value" data-ability="int">Linguistics <span class="small-text">Int</span></p></td>
                 <td><p class="total skill-value">11</p></td>
                 <td><input class="ranks skill-value small-text" type="number" value="2"></td>
                 <td><input class="misc skill-value small-text" type="number" value="3"></td>
@@ -743,7 +1031,7 @@
                 <td><input class="misc skill-value small-text" type="number" value="4"></td>
               </tr>
               <tr class="skill-details">
-                <td><p class="name skill-value" data-ability="cha">Perform (Untrained) <span class="small-text">Cha</span></p></td>
+                <td><p class="name skill-value" data-ability="cha">Perform <span class="small-text">Cha</span></p></td>
                 <td><p class="total skill-value">0</p></td>
                 <td><input class="ranks skill-value small-text" type="number" value="0"></td>
                 <td><input class="misc skill-value small-text" type="number" value="0"></td>
@@ -806,12 +1094,18 @@
                   <div class="col-1">
                     <h2>0</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-0">Known</label>
+                      <input class="input-field" id="input-spells-known-level-0" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -830,34 +1124,34 @@
                 <div class="row">
                   <div class="col-11 col-offset-1">
                     <div class="spells-known spell-level-0" data-delete-spell-state="false">
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Bleed</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Erase</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Daze</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Disrupt Undead</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Touch of Fatigue</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Prestidigitation</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Light</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Ghost Sound</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Spark</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Acid Splash</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Mage Hand</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Flare</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Detect Magic</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Detect Poison</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Dancing Lights</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Mending</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Arcane Mark</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Message</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Ray of Frost</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Read Magic</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Open/Close</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Resistance</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Bleed</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Erase</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Daze</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Disrupt Undead</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Touch of Fatigue</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Prestidigitation</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Light</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Ghost Sound</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Spark</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Acid Splash</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Mage Hand</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Flare</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Detect Magic</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Detect Poison</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Dancing Lights</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Mending</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Arcane Mark</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Message</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Ray of Frost</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Read Magic</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Open/Close</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Resistance</a>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -866,12 +1160,18 @@
                   <div class="col-1">
                     <h2>1</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-1">Known</label>
+                      <input class="input-field" id="input-spells-known-level-1" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -890,24 +1190,24 @@
                 <div class="row">
                   <div class="col-11 col-offset-1">
                     <div class="spells-known spell-level-1" data-delete-spell-state="false">
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Comprehend Languages</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Enlarge Person</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Feather Fall</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Grease</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Mage Armor</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Mount</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Obscuring Mist</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Protection from Chaos</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Protection from Evil</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Shield</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Summon Monster I</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Unseen Servant</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Comprehend Languages</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Enlarge Person</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Feather Fall</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Grease</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Mage Armor</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Mount</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Obscuring Mist</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Protection from Chaos</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Protection from Evil</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Shield</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Summon Monster I</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Unseen Servant</a>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -916,12 +1216,18 @@
                   <div class="col-1">
                     <h2>2</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-2">Known</label>
+                      <input class="input-field" id="input-spells-known-level-2" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -940,23 +1246,23 @@
                 <div class="row">
                   <div class="col-11 col-offset-1">
                     <div class="spells-known spell-level-2" data-delete-spell-state="false">
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Blur</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Create Pit</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Flaming Sphere</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Glitterdust</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Invisibility</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Levitate</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Mirror Image</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Resist Energy</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Stone Call</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Summon Monster II</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Web</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Blur</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Create Pit</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Flaming Sphere</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Glitterdust</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Invisibility</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Levitate</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Mirror Image</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Resist Energy</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Stone Call</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Summon Monster II</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Web</a>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -965,12 +1271,18 @@
                   <div class="col-1">
                     <h2>3</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-3">Known</label>
+                      <input class="input-field" id="input-spells-known-level-3" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -989,16 +1301,16 @@
                 <div class="row">
                   <div class="col-11 col-offset-1">
                     <div class="spells-known spell-level-3" data-delete-spell-state="false">
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Stinking Cloud</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Summon Monster III</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Spiked Pit</a>
-                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark"></span>Aqueous Orb</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Stinking Cloud</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Summon Monster III</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Spiked Pit</a>
+                      <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-secondary"><span class="icon-bookmark-outline"></span>Aqueous Orb</a>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1007,7 +1319,7 @@
                   <div class="col-1">
                     <h2>4</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
@@ -1017,8 +1329,14 @@
                   </div>
                   <div class="col-2">
                     <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-4">Known</label>
+                      <input class="input-field" id="input-spells-known-level-4" type="text">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
                       <label class="input-label" for="input-spells-daily-level-4">Daily</label>
-                      <input class="input-field" id="input-spells-daily-level-4" type="text" value="0">
+                      <input class="input-field" id="input-spells-daily-level-4" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -1035,7 +1353,7 @@
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1044,7 +1362,7 @@
                   <div class="col-1">
                     <h2>5</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
@@ -1054,8 +1372,14 @@
                   </div>
                   <div class="col-2">
                     <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-5">Known</label>
+                      <input class="input-field" id="input-spells-known-level-5" type="text">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
                       <label class="input-label" for="input-spells-daily-level-5">Daily</label>
-                      <input class="input-field" id="input-spells-daily-level-5" type="text" value="0">
+                      <input class="input-field" id="input-spells-daily-level-5" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -1072,7 +1396,7 @@
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1081,7 +1405,7 @@
                   <div class="col-1">
                     <h2>6</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
@@ -1091,8 +1415,14 @@
                   </div>
                   <div class="col-2">
                     <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-6">Known</label>
+                      <input class="input-field" id="input-spells-known-level-6" type="text">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
                       <label class="input-label" for="input-spells-daily-level-6">Daily</label>
-                      <input class="input-field" id="input-spells-daily-level-6" type="text" value="0">
+                      <input class="input-field" id="input-spells-daily-level-6" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -1109,7 +1439,7 @@
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1118,7 +1448,7 @@
                   <div class="col-1">
                     <h2>7</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
@@ -1128,8 +1458,14 @@
                   </div>
                   <div class="col-2">
                     <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-7">Known</label>
+                      <input class="input-field" id="input-spells-known-level-7" type="text">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
                       <label class="input-label" for="input-spells-daily-level-7">Daily</label>
-                      <input class="input-field" id="input-spells-daily-level-7" type="text" value="0">
+                      <input class="input-field" id="input-spells-daily-level-7" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -1146,7 +1482,7 @@
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1155,7 +1491,7 @@
                   <div class="col-1">
                     <h2>8</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
@@ -1165,8 +1501,14 @@
                   </div>
                   <div class="col-2">
                     <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-8">Known</label>
+                      <input class="input-field" id="input-spells-known-level-8" type="text">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
                       <label class="input-label" for="input-spells-daily-level-8">Daily</label>
-                      <input class="input-field" id="input-spells-daily-level-8" type="text" value="0">
+                      <input class="input-field" id="input-spells-daily-level-8" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -1183,7 +1525,7 @@
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1192,7 +1534,7 @@
                   <div class="col-1">
                     <h2>9</h2>
                   </div>
-                  <div class="col-7">
+                  <div class="col-5">
                     <div class="new-spell">
                       <div class="spell-name">
                         <input type="text" placeholder="Add Spell" value="">
@@ -1202,8 +1544,14 @@
                   </div>
                   <div class="col-2">
                     <div class="input-block">
+                      <label class="input-label" for="input-spells-known-level-9">Known</label>
+                      <input class="input-field" id="input-spells-known-level-9" type="text">
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="input-block">
                       <label class="input-label" for="input-spells-daily-level-9">Daily</label>
-                      <input class="input-field" id="input-spells-daily-level-9" type="text" value="0">
+                      <input class="input-field" id="input-spells-daily-level-9" type="text">
                     </div>
                   </div>
                   <div class="col-2">
@@ -1220,7 +1568,7 @@
                 </div>
                 <div class="row">
                   <div class="col-11 col-offset-1">
-                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon-close"></span>Delete a Spell</a>
+                    <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span><span class="text">Delete a spell</span></a>
                   </div>
                 </div>
               </div>
@@ -1320,6 +1668,7 @@
                 <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
                 <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
                 <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
+                <p><span>Linguistics Skill</span> Dwarven, Giant.</p>
                 <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
                 <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
                 <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
