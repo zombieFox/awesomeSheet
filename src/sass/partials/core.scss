@@ -84,7 +84,7 @@ hr {
     color: $gray-08;
     display: block;
     position: absolute;
-    top: 2.5rem;
+    top: -1.3rem;
     left: 0;
     font-size: $small-text;
     line-height: 1rem;
@@ -97,7 +97,7 @@ hr {
     }
   }
   .input-field {
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 20px 0;
     position: relative;
     z-index: 1;
     box-sizing: border-box;
@@ -288,33 +288,14 @@ hr {
       }
     }
   }
-  // skills
-  // #skills {
-  //   .skill-list {
-  //     thead {
-  //       tr {
-  //         td {
-  //           &.ability-title,
-  //           &.mod-title,
-  //           &.ranks-title,
-  //           &.misc-title {
-  //             display: table-cell;
-  //           }
-  //         }
-  //       }
-  //     }
-  //     tr {
-  //       td {
-  //         &.ability,
-  //         &.mod,
-  //         &.ranks,
-  //         &.misc {
-  //           display: table-cell;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  .input-block {
+    .input-label {
+      top: 2.5rem;
+    }
+    .input-field {
+      margin: 0 0 2.5rem 0;
+    }
+  }
   // defense
   #defense {
     .ac,
