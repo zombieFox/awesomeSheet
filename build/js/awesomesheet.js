@@ -290,7 +290,7 @@ function awesomesheet() {
   function addListenerTo_all_spellPreparedItem() {
     var all_spellPreparedItem = eA(".spell-prepared-item");
     for (var i = 0; i < all_spellPreparedItem.length; i++) {
-      // // stop addListenerTo_all_spellPreparedItem from stacking event listeners on the same element
+      // stop addListenerTo_all_spellPreparedItem from stacking event listeners on the same element
       var doesSpellHaveListener = all_spellPreparedItem[i].dataset.eventListener;
       if (doesSpellHaveListener == "false") {
         all_spellPreparedItem[i].dataset.eventListener = "true";
@@ -303,7 +303,8 @@ function awesomesheet() {
     };
   };
 
-  // reset data attributes on page reload 
+  // reset data attributes on page reload
+  // this is needed after spells are populated from local storage 
   function changeData_all_spellKnownItem() {
     var all_spellKnownItem = eA(".spell-known-item");
     for (var i = 0; i < all_spellKnownItem.length; i++) {
@@ -311,7 +312,8 @@ function awesomesheet() {
     };
   };
 
-  // reset data attributes on page reload 
+  // reset data attributes on page reload
+  // this is needed after spells are populated from local storage 
   function changeData_all_spellPreparedItem() {
     var all_spellPreparedItem = eA(".spell-prepared-item");
     for (var i = 0; i < all_spellPreparedItem.length; i++) {
@@ -826,6 +828,10 @@ function awesomesheet() {
           skillMod = parseInt(stats_chaTempMod.innerHTML, 10);
         };
       };
+      // check if skillMod is NaN
+      if (isNaN(skillMod)) {
+        skillMod = 0;
+      };
       var skillRanks = checkValue(all_skillList_skillDetails[i].querySelector(".ranks.skill-value"));
       var skillMisc = checkValue(all_skillList_skillDetails[i].querySelector(".misc.skill-value"));
       var skillTotal = skillMod + skillRanks + skillMisc;
@@ -907,7 +913,6 @@ function awesomesheet() {
   // update input totals
   function update_inputTotalBlock() {
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
-      var levelBonus = 0;
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -915,8 +920,15 @@ function awesomesheet() {
       var wisBonus = 0;
       var chaBonus = 0;
       var babBonus = 0;
+      var sizeBonus = 0;
+      var specialSizeBonus = 0;
+      var levelBonus = 0;
       var plusTenBonus = 0;
-      var spellLevelBonus = 0;
+      var acArmor = 0;
+      var acShield = 0;
+      var acDeflect = 0;
+      var acDodge = 0;
+      var acNatural = 0;
       var total = all_inputTotalBlock[i].querySelector(".total");
       var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
       var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
@@ -938,6 +950,7 @@ function awesomesheet() {
         };
       };
       totalAllModifiers();
+      // str
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
         if (stats_strTempMod.innerHTML == "") {
@@ -946,6 +959,7 @@ function awesomesheet() {
           strBonus = parseInt(stats_strTempMod.innerHTML, 10 || 0);
         };
       };
+      // dex
       if (all_inputTotalBlock[i].dataset.dexBonus == "true") {
         // if ability temp mod is empty
         if (stats_dexTempMod.innerHTML == "") {
@@ -954,6 +968,7 @@ function awesomesheet() {
           dexBonus = parseInt(stats_dexTempMod.innerHTML, 10 || 0);
         };
       };
+      // con
       if (all_inputTotalBlock[i].dataset.conBonus == "true") {
         // if ability temp mod is empty
         if (stats_conTempMod.innerHTML == "") {
@@ -962,6 +977,7 @@ function awesomesheet() {
           conBonus = parseInt(stats_conTempMod.innerHTML, 10 || 0);
         };
       };
+      // int
       if (all_inputTotalBlock[i].dataset.intBonus == "true") {
         // if ability temp mod is empty
         if (stats_intTempMod.innerHTML == "") {
@@ -970,6 +986,7 @@ function awesomesheet() {
           intBonus = parseInt(stats_intTempMod.innerHTML, 10 || 0);
         };
       };
+      // wis
       if (all_inputTotalBlock[i].dataset.wisBonus == "true") {
         // if ability temp mod is empty
         if (stats_wisTempMod.innerHTML == "") {
@@ -978,6 +995,7 @@ function awesomesheet() {
           wisBonus = parseInt(stats_wisTempMod.innerHTML, 10 || 0);
         };
       };
+      // cha
       if (all_inputTotalBlock[i].dataset.chaBonus == "true") {
         // if ability temp mod is empty
         if (stats_chaTempMod.innerHTML == "") {
@@ -986,20 +1004,100 @@ function awesomesheet() {
           chaBonus = parseInt(stats_chaTempMod.innerHTML, 10 || 0);
         };
       };
+      // bab
       if (all_inputTotalBlock[i].dataset.babBonus == "true") {
         babBonus = parseInt(e("#input-base-attack").value, 10 || 0);
       };
-      if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
-        babBonus = parseInt(e("#input-level").value, 10 || 0);
+      // size
+      if (all_inputTotalBlock[i].dataset.sizeBonus == "true") {
+        sizeBonus = parseInt(e("#input-size-bonus").value, 10 || 0);
       };
+      // special size
+      if (all_inputTotalBlock[i].dataset.specialSizeBonus == "true") {
+        specialSizeBonus = parseInt(e("#input-special-size-bonus").value, 10 || 0);
+      };
+      // level
+      if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
+        levelBonus = parseInt(e("#input-level").value, 10 || 0);
+      };
+      // ac armor
+      if (all_inputTotalBlock[i].dataset.acArmor == "true") {
+        acArmor = parseInt(e("#input-ac-armor").value, 10 || 0);
+      };
+      // ac shield
+      if (all_inputTotalBlock[i].dataset.acShield == "true") {
+        acShield = parseInt(e("#input-ac-shield").value, 10 || 0);
+      };
+      // ac deflect
+      if (all_inputTotalBlock[i].dataset.acDeflect == "true") {
+        acDeflect = parseInt(e("#input-ac-deflect").value, 10 || 0);
+      };
+      // ac dodge
+      if (all_inputTotalBlock[i].dataset.acDodge == "true") {
+        acDodge = parseInt(e("#input-ac-dodge").value, 10 || 0);
+      };
+      // ac natural
+      if (all_inputTotalBlock[i].dataset.acNatural == "true") {
+        acNatural = parseInt(e("#input-ac-natural").value, 10 || 0);
+      };
+      // 10
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
-      if (all_inputTotalBlock[i].dataset.spellLevelBonus == "true") {
-        spellLevelBonus = parseInt(getClosest(all_inputTotalBlock[i], ".spell-level").dataset.spellLevel, 10 || 0);
+      // check if any bonus is NaN
+      if (isNaN(levelBonus)) {
+        levelBonus = 0;
+      };
+      if (isNaN(strBonus)) {
+        strBonus = 0;
+      };
+      if (isNaN(dexBonus)) {
+        dexBonus = 0;
+      };
+      if (isNaN(conBonus)) {
+        conBonus = 0;
+      };
+      if (isNaN(intBonus)) {
+        intBonus = 0;
+      };
+      if (isNaN(wisBonus)) {
+        wisBonus = 0;
+      };
+      if (isNaN(chaBonus)) {
+        chaBonus = 0;
+      };
+      if (isNaN(babBonus)) {
+        babBonus = 0;
+      };
+      if (isNaN(sizeBonus)) {
+        sizeBonus = 0;
+      };
+      if (isNaN(specialSizeBonus)) {
+        specialSizeBonus = 0;
+      };
+      if (isNaN(levelBonus)) {
+        levelBonus = 0;
+      };
+      if (isNaN(plusTenBonus)) {
+        plusTenBonus = 0;
+      };
+      if (isNaN(acArmor)) {
+        acArmor = 0;
+      };
+      if (isNaN(acShield)) {
+        acShield = 0;
+      };
+      if (isNaN(acDeflect)) {
+        acDeflect = 0;
+      };
+      if (isNaN(acDodge)) {
+        acDodge = 0;
+      };
+      if (isNaN(acNatural)) {
+        acNatural = 0;
       };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + babBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + spellLevelBonus;
+      var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural;
       total.innerHTML = grandTotal;
     };
   };
