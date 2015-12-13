@@ -49,7 +49,7 @@ function awesomesheet() {
 
   var all_textareas = eA(".textarea");
 
-  var all_skill_inputs = eA("input.skill-value");
+  var all_skill_inputs = eA(".skill-value");
 
   var all_addSpell = eA(".add-spell");
   var all_removeSpell = eA(".remove-spell");
@@ -916,18 +916,28 @@ function awesomesheet() {
       var chaBonus = 0;
       var babBonus = 0;
       var plusTenBonus = 0;
+      var spellLevelBonus = 0;
       var total = all_inputTotalBlock[i].querySelector(".total");
       var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
       var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
       var modifiers = [];
+      var modifiers_total = 0;
       for (var q = 0; q < all_inputField.length; q++) {
-        if (all_inputField[q].dataset.modifier == "true") {
-          modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
-        }; 
+        if (all_inputField.length > 0) {
+          if (all_inputField[q].dataset.modifier == "true") {
+            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+          };
+        };
       };
-      var modifiers_total = modifiers.reduce(function(a, b) {
-        return a + b;
-      });
+      // if modifiers array has values total them 
+      function totalAllModifiers() {
+        if (modifiers.length > 0) {
+          modifiers_total = modifiers.reduce(function(a, b) {
+            return a + b;
+          });
+        };
+      };
+      totalAllModifiers();
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
         if (stats_strTempMod.innerHTML == "") {
@@ -985,8 +995,11 @@ function awesomesheet() {
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
+      if (all_inputTotalBlock[i].dataset.spellLevelBonus == "true") {
+        spellLevelBonus = parseInt(getClosest(all_inputTotalBlock[i], ".spell-level").dataset.spellLevel, 10 || 0);
+      };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + babBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus;
+      var grandTotal = modifiers_total + levelBonus + babBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + spellLevelBonus;
       total.innerHTML = grandTotal;
     };
   };

@@ -199,7 +199,7 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 3px 10px;
+  padding: 3px 8px;
   color: #343434;
   text-align: center;
   font-size: 1rem;
@@ -224,12 +224,12 @@ button {
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    margin: 0 5px 0 0;
+    margin: 0 8px 0 0;
     font-size: 1rem;
     display: inline-block; }
   .button.button-small,
   button.button-small {
-    padding: 3px 8px;
+    padding: 3px 5px;
     line-height: 1rem;
     font-size: 0.8rem; }
     .button.button-small [class^="icon-"],
@@ -366,23 +366,25 @@ h4,
 h5,
 h6 {
   color: #464646;
-  margin-top: 0;
-  line-height: 2.5rem; }
+  margin-top: 0; }
 
 h1 {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  line-height: 2rem; }
 
 h2 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  line-height: 1.6rem; }
 
 h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  line-height: 1.6rem; }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-family: "Open Sans Light", Helvetica, Arial, sans-serif; }
 
 h2 {
@@ -390,18 +392,17 @@ h2 {
   font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
 
 h3 {
-  font-size: 1rem;
-  font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
-  text-transform: uppercase; }
+  font-size: 1.2rem;
+  font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
 
 h4 {
   font-size: 1rem; }
 
 h5 {
-  font-size: 1rem; }
+  font-size: 0.8rem; }
 
 h6 {
-  font-size: 1rem; }
+  font-size: 0.8rem; }
 
 p {
   font-size: 1rem;
@@ -453,7 +454,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   height: 2.5rem;
   line-height: 2.5rem;
   padding: 0;
-  margin: 0 0 20px 0;
+  margin: 0 0 2.5rem 0;
   color: #343434;
   border: 0;
   width: 100%;
@@ -914,9 +915,17 @@ body {
 section {
   margin: 0 0 40px 0; }
   section h1 {
-    padding: 0 0 0 20px;
-    border-left: 5px solid #ff0055;
-    text-transform: uppercase; }
+    padding: 4rem 0 0 30px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    position: relative; }
+    section h1:before {
+      content: "";
+      border-left: 5px solid #ff0055;
+      position: absolute;
+      height: 3rem;
+      top: 3.5rem;
+      left: 0; }
 
 nav {
   display: none; }
@@ -932,6 +941,21 @@ hr {
   hr:last-child {
     margin: 0;
     border: 0; }
+
+.awesome-name {
+  padding-top: 0; }
+  .awesome-name:before {
+    height: 5rem;
+    top: -0.5rem; }
+  .awesome-name .input-block .input-field {
+    margin: 0;
+    border: 0;
+    font-size: 2.5rem;
+    height: 4rem;
+    font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
+    line-height: 4rem;
+    position: relative;
+    z-index: 1; }
 
 .input-block {
   position: relative; }
@@ -952,45 +976,34 @@ hr {
     .input-block .input-label.input-label-focus {
       color: #ff0055; }
   .input-block .input-field {
-    margin: 0 0 20px 0;
     position: relative;
     z-index: 1;
     box-sizing: border-box; }
 
-.awesome-name .input-block .input-field {
-  margin: 0;
-  border: 0;
-  font-size: 2.5rem;
-  height: 4rem;
-  font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
-  line-height: 4rem;
-  position: relative;
-  z-index: 1; }
-
 .inline-with-input {
   height: 2.5rem;
   line-height: 2.5rem;
-  margin: 0 0 10px 0; }
+  margin: 0 0 2.5rem 0; }
 
 .underline-with-input {
   border-bottom: 2px solid #e8e8e8; }
 
 #statistics .stat-block {
   margin: 0 0 60px 0; }
-  #statistics .stat-block .stats {
-    margin: 0;
-    padding: 0;
-    list-style-type: none; }
-    #statistics .stat-block .stats p,
-    #statistics .stat-block .stats input {
-      margin: 0; }
-    #statistics .stat-block .stats .score {
-      font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+  #statistics .stat-block .stats p,
+  #statistics .stat-block .stats input,
+  #statistics .stat-block .stats .name {
+    margin: 0; }
+  #statistics .stat-block .stats .score {
+    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 #skills .skill-list thead tr td {
   width: 1%; }
   #skills .skill-list thead tr td:first-child {
     width: 99%; }
+
+#skills .skill-list tr td .name span {
+  float: right; }
 
 #skills .skill-list tr td .ranks,
 #skills .skill-list tr td .misc {
@@ -1010,8 +1023,10 @@ hr {
 
 #spells .spells-known .button,
 #spells .spells-prepared .button {
-  margin: 0 3px 3px 0;
-  float: left; }
+  margin: 0 0 3px 0;
+  float: left;
+  width: 100%;
+  text-align: left; }
 
 #spells .spell-level {
   margin: 0 0 30px 0; }
@@ -1062,10 +1077,11 @@ hr {
     width: 15%; }
     #skills .skill-list thead tr td:first-child {
       width: 55%; }
-  .input-block .input-label {
-    top: 2.5rem; }
-  .input-block .input-field {
-    margin: 0 0 2.5rem 0; }
+  #spells .spells-known .button,
+  #spells .spells-prepared .button {
+    margin: 0 1% 1% 0;
+    width: 49%;
+    text-align: left; }
   #defense .ac .title,
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {
@@ -1114,3 +1130,10 @@ hr {
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {
     min-width: 140px; } }
+
+@media (min-width: 1000px) {
+  #spells .spells-known .button,
+  #spells .spells-prepared .button {
+    margin: 0 1% 1% 0;
+    width: 32%;
+    text-align: left; } }

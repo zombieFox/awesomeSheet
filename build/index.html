@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<meta charset="utf-8">
-<title>Awesome Sheet</title>
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#003C4F">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<link rel="stylesheet" href="css/vendor.min.css">
-<link rel="stylesheet" href="css/awesomeSheet.min.css">
+  <meta charset="utf-8">
+  <title>Awesome Sheet</title>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#003C4F">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/vendor.min.css">
+  <link rel="stylesheet" href="css/awesomeSheet.min.css">
 </head>
-
-<body id="body">
+<body id="body" class="clearfix">
 <nav>
   <ul>
     <li><a href="#body" data-scroll>Basics</a></li>
     <li><a href="#statistics" data-scroll>Statistics</a></li>
+    <li><a href="#equipment" data-scroll>Equipment</a></li>
     <li><a href="#defense" data-scroll>Defense</a></li>
     <li><a href="#offense" data-scroll>Offense</a></li>
     <li><a href="#skills" data-scroll>Skills</a></li>
@@ -34,10 +33,10 @@
           <div class="row">
             <div class="col-xs-12">
               <h1 class="awesome-name">
-            <div class="input-block">
-              <input class="input-field" id="input-name" type="text" value="Nif Amakir" placeholder="Name">
-            </div>
-          </h1>
+                <div class="input-block">
+                  <input class="input-field" id="input-name" type="text" value="Nif Amakir" placeholder="Character Name">
+                </div>
+              </h1>
             </div>
           </div>
           <div class="row">
@@ -122,15 +121,15 @@
           </div>
         </section>
         <section id="statistics">
-          <h1>Stats</h1>
+          <h1>Statistics</h1>
           <div class="stat-block">
             <div class="row">
               <div class="col-xs-12">
                 <div class="stats str row">
                   <div class="col-xs-3">
-                    <p class="name inline-with-input"><strong>Str</strong></p>
+                    <h2 class="name inline-with-input">Str</h2>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-xs-9 col-sm-8 col-md-6">
                     <div class="row no-gutter">
                       <div class="col-xs-3">
                         <input class="score text-center" type="number" placeholder="Score" value="8">
@@ -149,9 +148,9 @@
                 </div>
                 <div class="stats dex row">
                   <div class="col-xs-3">
-                    <p class="name inline-with-input"><strong>Dex</strong></p>
+                    <h2 class="name inline-with-input">Dex</h2>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-xs-9 col-sm-8 col-md-6">
                     <div class="row no-gutter">
                       <div class="col-xs-3">
                         <input class="score text-center" type="number" placeholder="Score" value="17">
@@ -170,9 +169,9 @@
                 </div>
                 <div class="stats con row">
                   <div class="col-xs-3">
-                    <p class="name inline-with-input"><strong>Con</strong></p>
+                    <h2 class="name inline-with-input">Con</h2>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-xs-9 col-sm-8 col-md-6">
                     <div class="row no-gutter">
                       <div class="col-xs-3">
                         <input class="score text-center" type="number" placeholder="Score" value="14">
@@ -191,9 +190,9 @@
                 </div>
                 <div class="stats int row">
                   <div class="col-xs-3">
-                    <p class="name inline-with-input"><strong>Int</strong></p>
+                    <h2 class="name inline-with-input">Int</h2>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-xs-9 col-sm-8 col-md-6">
                     <div class="row no-gutter">
                       <div class="col-xs-3">
                         <input class="score text-center" type="number" placeholder="Score" value="21">
@@ -212,9 +211,9 @@
                 </div>
                 <div class="stats wis row">
                   <div class="col-xs-3">
-                    <p class="name inline-with-input"><strong>Wis</strong></p>
+                    <h2 class="name inline-with-input">Wis</h2>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-xs-9 col-sm-8 col-md-6">
                     <div class="row no-gutter">
                       <div class="col-xs-3">
                         <input class="score text-center" type="number" placeholder="Score" value="12">
@@ -233,9 +232,9 @@
                 </div>
                 <div class="stats cha row">
                   <div class="col-xs-3">
-                    <p class="name inline-with-input"><strong>Cha</strong></p>
+                    <h2 class="name inline-with-input">Cha</h2>
                   </div>
-                  <div class="col-xs-9">
+                  <div class="col-xs-9 col-sm-8 col-md-6">
                     <div class="row no-gutter">
                       <div class="col-xs-3">
                         <input class="score text-center" type="number" placeholder="Score" value="10">
@@ -257,7 +256,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>Feats</strong></p>
+              <h2>Feats</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
               <div contentEditable="true" class="textarea textarea-feats">Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</div>
@@ -265,7 +264,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>Traits</strong></p>
+              <h2>Traits</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
               <div contentEditable="true" class="textarea textarea-traits">Resilient You gain a +1 trait bonus on Fortitude saves.</div>
@@ -273,7 +272,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>Languages</strong></p>
+              <h2>Languages</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
               <div contentEditable="true" class="textarea textarea-languages">Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan</div>
@@ -281,34 +280,125 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>SQ</strong></p>
+              <h2>SQ</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
               <div contentEditable="true" class="textarea textarea-sq">Arcane Bond, Bonus Feats, Cantrips, Conjuration School, Elven Immunities, Elven Magic, Enchantment Opposition School, Familiar, Keen Senses, Low-light Vision, Necromancy Opposition School, Shift, Summoner's Charm, Low-light Vision</div>
             </div>
           </div>
         </section>
-        <section id="statistics">
+        <section id="equipment">
           <h1>Equipment</h1>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>Magical Equipment</strong></P>
+              <h2>Body Slots</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
-              <div contentEditable="true" class="textarea textarea-equipment">Headband of Vast Intelligence +2, Ring of Sustenance, Cloak of Resistance +2, Pearl of Power (1st Level)</div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-armor">Armor</label>
+                    <input class="input-field" id="input-body-slot-armor" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-belts">Belts</label>
+                    <input class="input-field" id="input-body-slot-belts" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-body">Body</label>
+                    <input class="input-field" id="input-body-slot-body" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-chest">Chest</label>
+                    <input class="input-field" id="input-body-slot-chest" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-eyes">Eyes</label>
+                    <input class="input-field" id="input-body-slot-eyes" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-feet">Feet</label>
+                    <input class="input-field" id="input-body-slot-feet" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-hands">Hands</label>
+                    <input class="input-field" id="input-body-slot-hands" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-head">Head</label>
+                    <input class="input-field" id="input-body-slot-head" type="text" value="Headband of Vast Intelligence +2">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-headband">Headband</label>
+                    <input class="input-field" id="input-body-slot-headband" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-neck">Neck</label>
+                    <input class="input-field" id="input-body-slot-neck" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-ring-left-hand">Ring (Left Hand)</label>
+                    <input class="input-field" id="input-body-slot-ring-left-hand" type="text" value="Ring of Sustenance">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-ring-right-hand">Ring (Right Hand)</label>
+                    <input class="input-field" id="input-body-slot-ring-right-hand" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-shield">Shield</label>
+                    <input class="input-field" id="input-body-slot-shield" type="number" value="Cloak of Resistance +2">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-shoulders">Shoulders</label>
+                    <input class="input-field" id="input-body-slot-shoulders" type="number">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-body-slot-wrist">Wrist</label>
+                    <input class="input-field" id="input-body-slot-wrist" type="number">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>Magical Gear</strong></P>
+              <h2>Magical Gear</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
-              <div contentEditable="true" class="textarea textarea-magic-gear">Scroll of Acid Pit, Potion of CLW x2, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Wand of Infernal Healing (12), Scroll of Summon Monster III x2, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x1, Scroll of Stinking Cloud x1</div>
+              <div contentEditable="true" class="textarea textarea-magic-gear">Pearl of Power (1st Level), Scroll of Acid Pit, Potion of CLW x2, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Wand of Infernal Healing (12), Scroll of Summon Monster III x2, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x1, Scroll of Stinking Cloud x1</div>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-3">
-              <p><strong>Gear</strong></P>
+              <h2>Gear</h2>
             </div>
             <div class="col-xs-12 col-sm-9">
               <div contentEditable="true" class="textarea textarea-gear">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse</div>
@@ -319,7 +409,7 @@
           <h1>Defense</h1>
           <div class="row">
             <div class="col-xs-12 col-sm-4">
-              <p class="inline-with-input"><strong>HP <span class="total">35</span></strong></p>
+              <h2 class="inline-with-input">HP <span class="total">35</span></h2>
             </div>
             <div class="col-xs-12 col-sm-8">
               <div class="row">
@@ -341,7 +431,7 @@
           <div class="input-total-block" data-dex-bonus="true" data-plus-ten-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>AC <span class="total">13</span></strong></p>
+                <h2 class="inline-with-input">AC <span class="total">13</span></h2>
               </div>
               <div class="col-xs-12 col-sm-8">
                 <div class="row no-gutter">
@@ -388,7 +478,7 @@
           <div class="input-total-block" data-plus-ten-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Flat Flooted <span class="total">10</span></strong></p>
+                <h2 class="inline-with-input">Flat Flooted <span class="total">10</span></h2>
               </div>
               <div class="col-xs-12 col-sm-8">
                 <div class="row no-gutter">
@@ -429,7 +519,7 @@
           <div class="input-total-block" data-dex-bonus="true" data-plus-ten-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Touch <span class="total">13</span></strong></p>
+                <h2 class="inline-with-input">Touch <span class="total">13</span></h2>
               </div>
               <div class="col-xs-12 col-sm-8">
                 <div class="row no-gutter">
@@ -464,7 +554,7 @@
           <div class="input-total-block" data-con-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Fortitude <span class="total">8</span></strong></p>
+                <h2 class="inline-with-input">Fortitude <span class="total">8</span></h2>
               </div>
               <div class="col-xs-12 col-sm-8">
                 <div class="row no-gutter">
@@ -499,7 +589,7 @@
           <div class="input-total-block" data-dex-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Reflex <span class="total">6</span></strong></p>
+                <h2 class="inline-with-input">Reflex <span class="total">6</span></h2>
               </div>
               <div class="col-xs-12 col-sm-8">
                 <div class="row no-gutter">
@@ -534,7 +624,7 @@
           <div class="input-total-block" data-wis-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Will <span class="total">7</span></strong></p>
+                <h2 class="inline-with-input">Will <span class="total">7</span></h2>
               </div>
               <div class="col-xs-12 col-sm-8">
                 <div class="row no-gutter">
@@ -571,6 +661,12 @@
               <div contentEditable="true" class="textarea textarea-save-notes">+2 vs. Enchantment spells and effects</div>
             </div>
           </div>
+          <!-- defensive abilities, damager reduction, immune, resist, SR -->
+          <!-- Defensive TYPE Abilities -->
+          <!-- Immunity TYPE Abilities -->
+          <!-- Resistance TYPE Abilities -->
+          <!-- Weakness TYPE Abilities -->
+          <!-- Defensive Gear -->
         </section>
         <section id="offense">
           <div class="row">
@@ -605,7 +701,7 @@
           <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>CMB <span class="total">1</span></strong></p>
+                <h2 class="inline-with-input">CMB <span class="total">1</span></h2>
               </div>
               <div class="col-xs-6 col-sm-4">
                 <div class="row no-gutter">
@@ -634,7 +730,7 @@
           <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-plus-ten-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>CMD <span class="total">14</span></strong></p>
+                <h2 class="inline-with-input">CMD <span class="total">14</span></h2>
               </div>
               <div class="col-xs-6 col-sm-4">
                 <div class="row no-gutter">
@@ -663,7 +759,7 @@
           <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Melee <span class="total">1</span></strong></p>
+                <h2 class="inline-with-input">Melee <span class="total">1</span></h2>
               </div>
               <div class="col-xs-6 col-sm-4">
                 <div class="row no-gutter">
@@ -684,7 +780,7 @@
           <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Ranged <span class="total">5</span></strong></p>
+                <h2 class="inline-with-input">Ranged <span class="total">5</span></h2>
               </div>
               <div class="col-xs-6 col-sm-4">
                 <div class="row no-gutter">
@@ -705,7 +801,7 @@
           <div class="input-total-block" data-level-bonus="true" data-int-bonus="true">
             <div class="row">
               <div class="col-xs-12 col-sm-4">
-                <p class="inline-with-input"><strong>Concentration <span class="total">11</span></strong></p>
+                <h2 class="inline-with-input">Concentration <span class="total">11</span></h2>
               </div>
               <div class="col-xs-6 col-sm-4">
                 <div class="input-block">
@@ -721,6 +817,45 @@
               </div>
             </div>
           </div>
+          <!-- <div class="row">
+            <div class="col-xs-12">
+              <h2>Attacks</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="input-block">
+                <label class="input-label" for="input-weapon">Weapon</label>
+                <input class="input-field" id="input-weapon" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row no-gutter">
+            <div class="col-xs-2">
+              <div class="input-block">
+                <label class="input-label" for="input-attack">Attack</label>
+                <input class="input-field" id="input-attack" type="number">
+              </div>
+            </div>
+            <div class="col-xs-2">
+              <div class="input-block">
+                <label class="input-label" for="input-damage">Damage</label>
+                <input class="input-field" id="input-damage" type="text">
+              </div>
+            </div>
+            <div class="col-xs-2">
+              <div class="input-block">
+                <label class="input-label" for="input-critical">Critical</label>
+                <input class="input-field" id="input-critical" type="text">
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="input-block">
+                <label class="input-label" for="input-weapon-notes">Notes</label>
+                <input class="input-field" id="input-weapon-notes" type="text">
+              </div>
+            </div>
+          </div> -->
         </section>
         <section id="skills">
           <div class="row">
@@ -743,8 +878,8 @@
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="dex">Acrobatics <span class="small-text">Dex</span></p></td>
                     <td><p class="total skill-value">3</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="int">Appraise <span class="small-text">Int</span></p></td>
@@ -755,56 +890,56 @@
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="cha">Bluff <span class="small-text">Cha</span></p></td>
                     <td><p class="total skill-value">0</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="str">Climb <span class="small-text">Str</span></p></td>
                     <td><p class="total skill-value">-1</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="int">Craft <span class="small-text">Int</span></p></td>
                     <td><p class="total skill-value">6</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="cha">Diplomacy <span class="small-text">Cha</span></p></td>
                     <td><p class="total skill-value">0</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="cha">Disguise <span class="small-text">Cha</span></p></td>
                     <td><p class="total skill-value">0</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="dex">Escape Artist <span class="small-text">Dex</span></p></td>
                     <td><p class="total skill-value">3</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="dex">Fly <span class="small-text">Dex</span></p></td>
                     <td><p class="total skill-value">3</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="wis">Heal <span class="small-text">Wis</span></p></td>
                     <td><p class="total skill-value">1</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="cha">Intimidate <span class="small-text">Cha</span></p></td>
                     <td><p class="total skill-value">0</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="int">Knowledge (Arcana) <span class="small-text">Int</span></p></td>
@@ -881,14 +1016,14 @@
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="cha">Perform <span class="small-text">Cha</span></p></td>
                     <td><p class="total skill-value">0</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="dex">Ride <span class="small-text">Dex</span></p></td>
                     <td><p class="total skill-value">3</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="wis">Sense Motive <span class="small-text">Wis</span></p></td>
@@ -905,26 +1040,26 @@
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="dex">Stealth <span class="small-text">Dex</span></p></td>
                     <td><p class="total skill-value">3</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="wis">Survival <span class="small-text">Wis</span></p></td>
                     <td><p class="total skill-value">1</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="str">Swim <span class="small-text">Str</span></p></td>
                     <td><p class="total skill-value">-1</p></td>
-                    <td><input class="ranks skill-value small-text" type="number" value="0"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="ranks skill-value small-text" type="number"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                   <tr class="skill-details">
                     <td><p class="name skill-value" data-ability="cha">Use Magic Device <span class="small-text">Cha</span></p></td>
                     <td><p class="total skill-value">5</p></td>
                     <td><input class="ranks skill-value small-text" type="number" value="5"></td>
-                    <td><input class="misc skill-value small-text" type="number" value="0"></td>
+                    <td><input class="misc skill-value small-text" type="number"></td>
                   </tr>
                 </tbody>
               </table>
@@ -947,7 +1082,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1015,7 +1150,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1071,7 +1206,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1126,7 +1261,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1174,7 +1309,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1217,7 +1352,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1260,7 +1395,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1303,7 +1438,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1346,7 +1481,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1389,7 +1524,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="new-spell">
                       <div class="spell-name">
-                        <input type="text" placeholder="Add Spell" value="">
+                        <input type="text" placeholder="Add Spell">
                       </div>
                       <a href="javascript:void(0)" class="add-spell button button-secondary button-small"><span class="icon-add"></span></a>
                     </div>
@@ -1431,80 +1566,60 @@
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 0 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-0 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 1 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-1 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 2 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-2 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 3 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-3 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 4 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-4 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 5 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-5 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 6 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-6 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 7 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-7 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 8 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-8 clearfix"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <h2>Level 9 Prepared</h2>
-                </div>
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
                   <div class="spells-prepared spell-level-9 clearfix"></div>
                 </div>
               </div>
@@ -1546,12 +1661,11 @@
               <div contentEditable="true" class="textarea textarea-notes"></div>
             </div>
           </div>
-        </section>
-        <section id="utilities">
+        </section>        <section id="utilities">
           <div class="row">
             <div class="col-xs-12">
-              <a href="javascript:void(0)" class="button button-primary button-small clear-local-storage"><span class="icon-clear-all"></span>Clear local storage</a>
-              <a href="javascript:void(0)" class="button button-primary button-small toggle-fullscreen"><span class="icon-fullscreen"></span>Fullscreen</a>
+              <a href="javascript:void(0)" class="button button-primary clear-local-storage"><span class="icon-clear-all"></span>Clear local storage</a>
+              <a href="javascript:void(0)" class="button button-primary toggle-fullscreen"><span class="icon-fullscreen"></span>Fullscreen</a>
             </div>
           </div>
         </section>
@@ -1559,8 +1673,8 @@
     </div>
   </div>
 </div>
+
 <script src="js/vendor.min.js"></script>
 <script src="js/awesomeSheet.min.js"></script>
 </body>
-
 </html>
