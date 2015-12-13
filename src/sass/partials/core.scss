@@ -359,8 +359,9 @@ hr {
             text-decoration: none;
           }
           &:focus {
-            background-color: $gray-14;
+            background-color: $gray-13;
             text-decoration: none;
+            outline: 0;
           }
           &:active {
             background-color: $primary-color;

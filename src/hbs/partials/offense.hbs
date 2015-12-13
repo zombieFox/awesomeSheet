@@ -5,51 +5,37 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-4">
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="input-block">
-            <label class="input-label" for="input-base-attack">Base Attack</label>
-            <input class="input-field" id="input-base-attack" type="number" value="2">
-          </div>
-        </div>
-        <div class="col-xs-4">
-          <div class="input-block">
-            <label class="input-label" for="input-concentration">Concentration</label>
-            <input class="input-field" id="input-concentration" type="number" value="11">
-          </div>
-        </div>
-        <div class="col-xs-4">
-          <div class="input-block">
-            <label class="input-label" for="input-spell-resistance">Spell Resistance</label>
-            <input class="input-field" id="input-spell-resistance" type="number">
-          </div>
-        </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="input-block">
+        <label class="input-label" for="input-base-attack">Base Attack</label>
+        <input class="input-field" id="input-base-attack" type="number" value="2">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="input-block">
+        <label class="input-label" for="input-special-size-bonus">Special Size Bonus</label>
+        <input class="input-field" id="input-special-size-bonus" type="number">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="input-block">
+        <label class="input-label" for="input-concentration">Concentration</label>
+        <input class="input-field" id="input-concentration" type="number" value="11">
       </div>
     </div>
   </div>
-  <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
+  <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-4">
         <h2 class="inline-with-input">CMB <span class="total">1</span></h2>
       </div>
-      <div class="col-xs-6 col-sm-4">
-        <div class="row no-gutter">
-          <div class="col-xs-6">
-            <div class="input-block">
-              <label class="input-label" for="input-cmb-size">Size</label>
-              <input class="input-field" id="input-cmb-size" type="number" data-modifier="true">
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <div class="input-block">
-              <label class="input-label" for="input-cmb-temp">Temp</label>
-              <input class="input-field" id="input-cmb-temp" type="number" data-modifier="true">
-            </div>
-          </div>
+      <div class="col-xs-4 col-md-2">
+        <div class="input-block">
+          <label class="input-label" for="input-cmb-temp">Temp</label>
+          <input class="input-field" id="input-cmb-temp" type="number" data-modifier="true">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-xs-4 col-md-6">
         <div class="input-block">
           <label class="input-label" for="input-cmb-notes">Notes</label>
           <input class="input-field" id="input-cmb-notes" type="text" data-modifier="false">
@@ -57,28 +43,18 @@
       </div>
     </div>
   </div>
-  <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-plus-ten-bonus="true">
+  <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true" data-plus-ten-bonus="true">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-4">
         <h2 class="inline-with-input">CMD <span class="total">14</span></h2>
       </div>
-      <div class="col-xs-6 col-sm-4">
-        <div class="row no-gutter">
-          <div class="col-xs-6">
-            <div class="input-block">
-              <label class="input-label" for="input-cmd-size">Size</label>
-              <input class="input-field" id="input-cmd-size" type="number">
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <div class="input-block">
-              <label class="input-label" for="input-cmd-temp">Temp</label>
-              <input class="input-field" id="input-cmd-temp" type="number" data-modifier="true">
-            </div>
-          </div>
+      <div class="col-xs-4 col-md-2">
+        <div class="input-block">
+          <label class="input-label" for="input-cmd-temp">Temp</label>
+          <input class="input-field" id="input-cmd-temp" type="number" data-modifier="true">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-xs-4 col-md-6">
         <div class="input-block">
           <label class="input-label" for="input-cmd-notes">Notes</label>
           <input class="input-field" id="input-cmd-notes" type="text" data-modifier="false">
@@ -86,20 +62,18 @@
       </div>
     </div>
   </div>
-  <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true">
+  <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-4">
         <h2 class="inline-with-input">Melee <span class="total">1</span></h2>
       </div>
-      <div class="col-xs-6 col-sm-4">
-        <div class="row no-gutter">
-          <div class="input-block">
-            <label class="input-label" for="input-melee-attack-temp">Temp</label>
-            <input class="input-field" id="input-melee-attack-temp" type="number" data-modifier="true">
-          </div>
+      <div class="col-xs-4 col-md-2">
+        <div class="input-block">
+          <label class="input-label" for="input-melee-attack-temp">Temp</label>
+          <input class="input-field" id="input-melee-attack-temp" type="number" data-modifier="true">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-xs-4 col-md-6">
         <div class="input-block">
           <label class="input-label" for="input-melee-attack-notes">Notes</label>
           <input class="input-field" id="input-melee-attack-notes" type="text" data-modifier="false">
@@ -107,20 +81,18 @@
       </div>
     </div>
   </div>
-  <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true">
+  <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-4">
         <h2 class="inline-with-input">Ranged <span class="total">5</span></h2>
       </div>
-      <div class="col-xs-6 col-sm-4">
-        <div class="row no-gutter">
-          <div class="input-block">
-            <label class="input-label" for="input-ranged-attack-temp">Temp</label>
-            <input class="input-field" id="input-ranged-attack-temp" type="number" data-modifier="true">
-          </div>
+      <div class="col-xs-4 col-md-2">
+        <div class="input-block">
+          <label class="input-label" for="input-ranged-attack-temp">Temp</label>
+          <input class="input-field" id="input-ranged-attack-temp" type="number" data-modifier="true">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-xs-4 col-md-6">
         <div class="input-block">
           <label class="input-label" for="input-ranged-attack-notes">Notes</label>
           <input class="input-field" id="input-ranged-attack-notes" type="text" data-modifier="false">
@@ -128,62 +100,57 @@
       </div>
     </div>
   </div>
-  <div class="input-total-block" data-level-bonus="true" data-int-bonus="true">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <h2 class="inline-with-input">Concentration <span class="total">11</span></h2>
-      </div>
-      <div class="col-xs-6 col-sm-4">
-        <div class="input-block">
-          <label class="input-label" for="input-concentration-misc">Misc</label>
-          <input class="input-field" id="input-concentration-misc" type="number" data-modifier="true">
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-4">
-        <div class="input-block">
-          <label class="input-label" for="input-cmb-notes">Notes</label>
-          <input class="input-field" id="input-cmb-notes" type="text" data-modifier="false">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-xs-12">
       <h2>Attacks</h2>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
+  <div class="row no-gutter">
+    <div class="col-xs-8">
       <div class="input-block">
         <label class="input-label" for="input-weapon">Weapon</label>
         <input class="input-field" id="input-weapon" type="text">
       </div>
     </div>
-  </div>
-  <div class="row no-gutter">
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <div class="input-block">
         <label class="input-label" for="input-attack">Attack</label>
-        <input class="input-field" id="input-attack" type="number">
+        <input class="input-field" id="input-attack" type="text">
       </div>
     </div>
-    <div class="col-xs-2">
-      <div class="input-block">
-        <label class="input-label" for="input-damage">Damage</label>
-        <input class="input-field" id="input-damage" type="text">
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-5">
+      <div class="row no-gutter">
+        <div class="col-xs-6">
+          <div class="input-block">
+            <label class="input-label" for="input-range">Range</label>
+            <input class="input-field" id="input-range" type="text">
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="input-block">
+            <label class="input-label" for="input-ammo">Ammo</label>
+            <input class="input-field" id="input-ammo" type="text">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-2">
-      <div class="input-block">
-        <label class="input-label" for="input-critical">Critical</label>
-        <input class="input-field" id="input-critical" type="text">
+    <div class="col-xs-12 col-md-7">
+      <div class="row no-gutter">
+        <div class="col-xs-6">
+          <div class="input-block">
+            <label class="input-label" for="input-damage">Damage</label>
+            <input class="input-field" id="input-damage" type="text">
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="input-block">
+            <label class="input-label" for="input-critical">Critical</label>
+            <input class="input-field" id="input-critical" type="text">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-6">
-      <div class="input-block">
-        <label class="input-label" for="input-weapon-notes">Notes</label>
-        <input class="input-field" id="input-weapon-notes" type="text">
-      </div>
-    </div>
-  </div> -->
+  </div>
 </section>
