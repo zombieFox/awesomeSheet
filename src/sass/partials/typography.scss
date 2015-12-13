@@ -14,15 +14,16 @@ h5,
 h6 {
   color: $gray-03;
   margin-top: 0;
-  line-height: 2.5rem;
 }
 
 h1 {
   margin-bottom: 30px;
+  line-height: 2rem;
 }
 
 h2 {
   margin-bottom: 20px;
+  line-height: 1.6rem;
 }
 
 h3,
@@ -30,10 +31,11 @@ h4,
 h5,
 h6 {
   margin-bottom: 20px;
+  line-height: 1.6rem;
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-family: $open-sans-light;
 }
 
@@ -43,9 +45,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: $open-sans-bold;
-  text-transform: uppercase;
 }
 
 h4 {
@@ -53,11 +54,11 @@ h4 {
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 p {
@@ -125,7 +126,7 @@ input {
     height: 2.5rem;
     line-height: 2.5rem;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 2.5rem 0;
     color: $gray-02;
     border: 0;
     width: 100%;

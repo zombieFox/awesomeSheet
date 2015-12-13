@@ -9,9 +9,18 @@ body {
 section {
   margin: 0 0 40px 0;
   h1 {
-    padding: 0 0 0 20px;
-    border-left: 5px solid $primary-color;
+    padding: 4rem 0 0 30px;
+    margin-bottom: 60px;
     text-transform: uppercase;
+    position: relative;
+    &:before {
+      content: "";
+      border-left: 5px solid $primary-color;
+      position: absolute;
+      height: 3rem;
+      top: 3.5rem;
+      left: 0;
+    }
   }
 }
 
@@ -75,6 +84,27 @@ hr {
   }
 }
 
+// character name
+.awesome-name {
+  padding-top: 0;
+  &:before {
+    height: 5rem;
+    top: -0.5rem;
+  }
+  .input-block {
+    .input-field {
+      margin: 0;
+      border: 0;
+      font-size: 2.5rem;
+      height: 4rem;
+      font-family: $open-sans-light;
+      line-height: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
 // input with lables
 .input-block {
   position: relative;
@@ -97,32 +127,16 @@ hr {
     }
   }
   .input-field {
-    margin: 0 0 20px 0;
     position: relative;
     z-index: 1;
     box-sizing: border-box;
   }
 }
 
-.awesome-name {
-  .input-block {
-    .input-field {
-      margin: 0;
-      border: 0;
-      font-size: 2.5rem;
-      height: 4rem;
-      font-family: $open-sans-light;
-      line-height: 4rem;
-      position: relative;
-      z-index: 1;
-    }
-  }
-}
-
 .inline-with-input {
   height: 2.5rem;
   line-height: 2.5rem;
-  margin: 0 0 10px 0;
+  margin: 0 0 2.5rem 0;
 }
 
 .underline-with-input {
@@ -134,11 +148,9 @@ hr {
   .stat-block {
     margin: 0 0 60px 0;
     .stats {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
       p,
-      input {
+      input,
+      .name {
         margin: 0;
       }
       .score {
@@ -163,6 +175,11 @@ hr {
     }
     tr {
       td {
+        .name {
+          span {
+            float: right;
+          }
+        }
         .ranks,
         .misc {
           color: $gray-08;
@@ -194,8 +211,10 @@ hr {
   .spells-known,
   .spells-prepared {
     .button {
-      margin: 0 3px 3px 0;
+      margin: 0 0 3px 0;
       float: left;
+      width: 100%;
+      text-align: left;
     }
   }
   .spell-level {
@@ -288,12 +307,15 @@ hr {
       }
     }
   }
-  .input-block {
-    .input-label {
-      top: 2.5rem;
-    }
-    .input-field {
-      margin: 0 0 2.5rem 0;
+  // spells
+  #spells {
+    .spells-known,
+    .spells-prepared {
+      .button {
+        margin: 0 1% 1% 0;
+        width: 49%;
+        text-align: left;
+      }
     }
   }
   // defense
@@ -367,4 +389,16 @@ hr {
 
 @media (min-width: 900px) {}
 
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+  // spells
+  #spells {
+    .spells-known,
+    .spells-prepared {
+      .button {
+        margin: 0 1% 1% 0;
+        width: 32%;
+        text-align: left;
+      }
+    }
+  }
+}
