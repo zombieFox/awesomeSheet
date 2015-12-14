@@ -110,11 +110,11 @@ hr {
   position: relative;
   .input-label {
     margin: 0;
-    padding: 0.5rem 0 0 0;
+    padding: 0;
     color: $gray-08;
     display: block;
     position: absolute;
-    top: -1.3rem;
+    top: 2rem;
     left: 0;
     font-size: $small-text;
     line-height: 1rem;
@@ -134,9 +134,9 @@ hr {
 }
 
 .inline-with-input {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  margin: 0 0 2.5rem 0;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  margin: 0 0 1rem 0;
 }
 
 .underline-with-input {
@@ -152,6 +152,7 @@ hr {
       input,
       .name {
         margin: 0;
+        padding: 0;
       }
       .score {
         font-family: $open-sans-semi-bold;
