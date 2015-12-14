@@ -76,12 +76,24 @@ nav {
 
 hr {
   border: 0;
-  margin: 0 0 40px 0;
-  border-bottom: $border;
-  &:last-child {
-    margin: 0;
-    border: 0;
-  }
+  margin: 30px 0;
+  height: 1px;
+  background-color: transparent;
+  // border-top: 1px solid $gray-14;
+  // border-bottom: 1px solid $gray-14;
+  // position: relative;
+  // &:after {
+  //   content: "";
+  //   display: block;
+  //   width: 20px;
+  //   height: 20px;
+  //   background: #fff;
+  //   border: 2px solid $gray-14;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%,-50%) rotate(45deg);
+  // }
 }
 
 // character name
@@ -94,6 +106,7 @@ hr {
   .input-block {
     .input-field {
       margin: 0;
+      padding: 0;
       border: 0;
       font-size: 2.5rem;
       height: 4rem;
@@ -146,7 +159,6 @@ hr {
 // stats
 #statistics {
   .stat-block {
-    margin: 0 0 60px 0;
     .stats {
       p,
       input,

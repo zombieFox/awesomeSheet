@@ -45,12 +45,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
-  font-family: $open-sans-bold;
+  font-size: 1rem;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 h5 {
@@ -97,14 +96,14 @@ textarea {
   background-color: transparent;
   color: $gray-02;
   border: 0;
+  border-bottom: 2px solid transparent;
   font-size: 1rem;
   line-height: 1.5rem;
-  border-bottom: $border;
   box-sizing: border-box;
   transition: border $transition-ease-medium;
   resize: vertical;
   &:hover {
-    border-color: $primary-color;
+    border-color: $gray-13;
   }
   &:focus {
     border-color: $primary-color;
