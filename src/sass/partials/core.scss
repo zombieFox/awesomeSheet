@@ -26,47 +26,6 @@ section {
 
 nav {
   display: none;
-  // display: block;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // background: rgba(0, 0, 0, 0.7);
-  // width: 100%;
-  // padding: 0;
-  // z-index: $nav;
-  // box-sizing: border-box;
-  // ul {
-  //   width: 100%;
-  //   padding: 0;
-  //   margin: 0;
-  //   li {
-  //     float: left;
-  //     padding: 0;
-  //     list-style-type: none;
-  //     a {
-  //       line-height: 2rem;
-  //       padding: 5px 20px;
-  //       display: block;
-  //       font-size: $small-text;
-  //       font-family: $open-sans-bold;
-  //       text-transform: uppercase;
-  //       transition: background-color $transition-ease-medium, color $transition-ease-medium;
-  //       &:hover {
-  //         background-color: $gray-13;
-  //         text-decoration: none;
-  //       }
-  //       &:focus {
-  //         background-color: $gray-14;
-  //         text-decoration: none;
-  //       }
-  //       &:active {
-  //         background-color: $primary-color;
-  //         color: $white;
-  //         transition: background-color $transition-ease-fast, color $transition-ease-fast;
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 .sheet {
@@ -76,12 +35,24 @@ nav {
 
 hr {
   border: 0;
-  margin: 0 0 40px 0;
-  border-bottom: $border;
-  &:last-child {
-    margin: 0;
-    border: 0;
-  }
+  margin: 30px 0;
+  height: 1px;
+  background-color: transparent;
+  // border-top: 1px solid $gray-12;
+  border-bottom: 1px solid $gray-12;
+  position: relative;
+  // &:after {
+  //   content: "";
+  //   display: block;
+  //   width: 20px;
+  //   height: 20px;
+  //   background: #fff;
+  //   border: 2px solid $gray-12;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%,-50%) rotate(45deg);
+  // }
 }
 
 // character name
@@ -94,6 +65,7 @@ hr {
   .input-block {
     .input-field {
       margin: 0;
+      padding: 0;
       border: 0;
       font-size: 2.5rem;
       height: 4rem;
@@ -110,11 +82,11 @@ hr {
   position: relative;
   .input-label {
     margin: 0;
-    padding: 0.5rem 0 0 0;
+    padding: 0;
     color: $gray-08;
     display: block;
     position: absolute;
-    top: -1.3rem;
+    top: 2rem;
     left: 0;
     font-size: $small-text;
     line-height: 1rem;
@@ -134,9 +106,9 @@ hr {
 }
 
 .inline-with-input {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  margin: 0 0 2.5rem 0;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  margin: 0 0 1rem 0;
 }
 
 .underline-with-input {
@@ -146,12 +118,12 @@ hr {
 // stats
 #statistics {
   .stat-block {
-    margin: 0 0 60px 0;
     .stats {
       p,
       input,
       .name {
         margin: 0;
+        padding: 0;
       }
       .score {
         font-family: $open-sans-semi-bold;
@@ -355,11 +327,11 @@ hr {
           text-transform: uppercase;
           transition: background-color $transition-ease-medium, color $transition-ease-medium;
           &:hover {
-            background-color: $gray-13;
+            background-color: $gray-12;
             text-decoration: none;
           }
           &:focus {
-            background-color: $gray-13;
+            background-color: $gray-12;
             text-decoration: none;
             outline: 0;
           }

@@ -2,7 +2,7 @@
 ------------------------------------------------- */
 
 html {
-  font-size: 12px;
+  font-size: 11px;
   font-family: $open-sans-regular;
 }
 
@@ -45,12 +45,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
-  font-family: $open-sans-bold;
+  font-size: 1rem;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 h5 {
@@ -97,14 +96,14 @@ textarea {
   background-color: transparent;
   color: $gray-02;
   border: 0;
+  border-bottom: 2px solid transparent;
   font-size: 1rem;
   line-height: 1.5rem;
-  border-bottom: $border;
   box-sizing: border-box;
   transition: border $transition-ease-medium;
   resize: vertical;
   &:hover {
-    border-color: $primary-color;
+    border-color: $gray-13;
   }
   &:focus {
     border-color: $primary-color;
@@ -123,10 +122,10 @@ input {
     background-color: transparent;
     font-family: $open-sans-regular;
     font-size: 1rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    padding: 0;
-    margin: 0 0 2.5rem 0;
+    height: 3.5rem;
+    line-height: 2rem;
+    padding: 0 0 1.5rem 0;
+    margin: 0 0 1rem 0;
     color: $gray-02;
     border: 0;
     width: 100%;
@@ -271,7 +270,7 @@ table {
 
 @media (min-width: 550px) {
   html {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
