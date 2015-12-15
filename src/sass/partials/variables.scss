@@ -26,9 +26,9 @@ $gray-07:                             #8e8e8e;
 $gray-08:                             #a0a0a0;
 $gray-09:                             #b2b2b2;
 $gray-10:                             #c4c4c4;
-$gray-12:                             #d6d6d6;
-$gray-13:                             #e8e8e8;
-$gray-14:                             #fafafa; // light
+$gray-11:                             #d6d6d6;
+$gray-12:                             #e8e8e8;
+$gray-13:                             #fafafa; // light
 
 $critical-20:                         #33c3f0;
 $critical-1:                          #990000;
@@ -41,6 +41,36 @@ $gray-alpha-04:                       rgba(0, 0, 0, 0.2); // light
 
 /* grid
 ------------------------------------------------- */
+
+// //== Media queries breakpoints
+// //
+// //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// // Extra small screen / phone
+// //** Deprecated `@screen-xs` as of v3.0.1
+// $screen-xs:                  550px;
+// //** Deprecated `$screen-xs-min` as of v3.2.0
+// $screen-xs-min:              $screen-xs;
+
+// // Small screen / tablet
+// //** Deprecated `$screen-sm` as of v3.0.1
+// $screen-sm:                  750px;
+// $screen-sm-min:              $screen-sm;
+
+// // Medium screen / desktop
+// //** Deprecated `$screen-md` as of v3.0.1
+// $screen-md:                  900px;
+// $screen-md-min:              $screen-md;
+
+// // Large screen / wide desktop
+// //** Deprecated `$screen-lg` as of v3.0.1
+// $screen-lg:                  1000px;
+// $screen-lg-min:              $screen-lg;
+
+// // So media queries don't overlap when required, provide a maximum
+// $screen-xs-max:              ($screen-sm-min - 1);
+// $screen-sm-max:              ($screen-md-min - 1);
+// $screen-md-max:              ($screen-lg-min - 1);
 
 $grid-spacing:                        4%;
 

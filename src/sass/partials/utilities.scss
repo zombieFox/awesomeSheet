@@ -26,27 +26,6 @@
   }
 }
 
-// Responsive utilities
-//
-// More easily include all the states for responsive-utilities.less.
-// [converter] $parent hack
-@mixin responsive-visibility($parent) {
-  #{$parent} {
-    display: block !important;
-  }
-  // table#{$parent}  { display: table !important; }
-  // tr#{$parent}     { display: table-row !important; }
-  // th#{$parent},
-  // td#{$parent}     { display: table-cell !important; }
-}
-
-// [converter] $parent hack
-@mixin responsive-invisibility($parent) {
-  #{$parent} {
-    display: none !important;
-  }
-}
-
 .visible-xs,
 .visible-xs-block,
 .visible-xs-inline,
@@ -66,10 +45,12 @@
   display: none !important;
 }
 
-@media (min-width: 550px) {
-  .visible-xs {
-    display: block !important;
-  }
+
+/* media queries
+------------------------------------------------- */
+
+@media (max-width: 550px) {
+  .visible-xs,
   .visible-xs-block {
     display: block !important;
   }
@@ -79,12 +60,13 @@
   .visible-xs-inline-block {
     display: inline-block !important;
   }
+  .hidden-xs {
+    display: none !important;
+  }
 }
 
-@media (min-width: 750px) {
-  .visible-sm {
-    display: block !important;
-  }
+@media (min-width: 551px) and (max-width: 750px) {
+  .visible-sm,
   .visible-sm-block {
     display: block !important;
   }
@@ -94,12 +76,13 @@
   .visible-sm-inline-block {
     display: inline-block !important;
   }
+  .hidden-sm {
+    display: none !important;
+  }
 }
 
-@media (min-width: 900px) {
-  .visible-md {
-    display: block !important;
-  }
+@media (min-width: 751px) and (max-width: 900px) {
+  .visible-md,
   .visible-md-block {
     display: block !important;
   }
@@ -109,12 +92,13 @@
   .visible-md-inline-block {
     display: inline-block !important;
   }
+  .hidden-md {
+    display: none !important;
+  }
 }
 
-@media (min-width: 1000px) {
-  .visible-lg {
-    display: block !important;
-  }
+@media (min-width: 901px) {
+  .visible-lg,
   .visible-lg-block {
     display: block !important;
   }
@@ -124,27 +108,6 @@
   .visible-lg-inline-block {
     display: inline-block !important;
   }
-}
-
-@media (min-width: 550px) {
-  .hidden-xs {
-    display: none !important;
-  }
-}
-
-@media (min-width: 750px) {
-  .hidden-sm {
-    display: none !important;
-  }
-}
-
-@media (min-width: 900px) {
-  .hidden-md {
-    display: none !important;
-  }
-}
-
-@media (min-width: 1000px) {
   .hidden-lg {
     display: none !important;
   }

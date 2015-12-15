@@ -26,47 +26,6 @@ section {
 
 nav {
   display: none;
-  // display: block;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // background: rgba(0, 0, 0, 0.7);
-  // width: 100%;
-  // padding: 0;
-  // z-index: $nav;
-  // box-sizing: border-box;
-  // ul {
-  //   width: 100%;
-  //   padding: 0;
-  //   margin: 0;
-  //   li {
-  //     float: left;
-  //     padding: 0;
-  //     list-style-type: none;
-  //     a {
-  //       line-height: 2rem;
-  //       padding: 5px 20px;
-  //       display: block;
-  //       font-size: $small-text;
-  //       font-family: $open-sans-bold;
-  //       text-transform: uppercase;
-  //       transition: background-color $transition-ease-medium, color $transition-ease-medium;
-  //       &:hover {
-  //         background-color: $gray-13;
-  //         text-decoration: none;
-  //       }
-  //       &:focus {
-  //         background-color: $gray-14;
-  //         text-decoration: none;
-  //       }
-  //       &:active {
-  //         background-color: $primary-color;
-  //         color: $white;
-  //         transition: background-color $transition-ease-fast, color $transition-ease-fast;
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 .sheet {
@@ -77,23 +36,23 @@ nav {
 hr {
   border: 0;
   margin: 30px 0;
-  height: 1px;
+  // height: 1px;
   background-color: transparent;
-  // border-top: 1px solid $gray-14;
-  // border-bottom: 1px solid $gray-14;
-  // position: relative;
-  // &:after {
-  //   content: "";
-  //   display: block;
-  //   width: 20px;
-  //   height: 20px;
-  //   background: #fff;
-  //   border: 2px solid $gray-14;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%,-50%) rotate(45deg);
-  // }
+  // border-top: 1px solid $gray-12;
+  border-bottom: 2px solid $gray-12;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid $gray-12;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
 }
 
 // character name
@@ -368,11 +327,11 @@ hr {
           text-transform: uppercase;
           transition: background-color $transition-ease-medium, color $transition-ease-medium;
           &:hover {
-            background-color: $gray-13;
+            background-color: $gray-12;
             text-decoration: none;
           }
           &:focus {
-            background-color: $gray-13;
+            background-color: $gray-12;
             text-decoration: none;
             outline: 0;
           }
