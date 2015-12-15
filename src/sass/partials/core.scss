@@ -36,11 +36,18 @@ nav {
 hr {
   border: 0;
   margin: 30px 0;
-  height: 1px;
   background-color: transparent;
-  // border-top: 1px solid $gray-12;
-  border-bottom: 1px solid $gray-12;
   position: relative;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  // border-top: 1px solid $gray-12;
+  // border-bottom: 1px solid $gray-12;
   // &:after {
   //   content: "";
   //   display: block;
@@ -64,6 +71,7 @@ hr {
   }
   .input-block {
     .input-field {
+      background-color: transparent;
       margin: 0;
       padding: 0;
       border: 0;
@@ -82,18 +90,19 @@ hr {
   position: relative;
   .input-label {
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
     color: $gray-08;
     display: block;
     position: absolute;
-    top: 2rem;
+    top: -1.5rem;
     left: 0;
     font-size: $small-text;
-    line-height: 1rem;
+    line-height: 1.5rem;
     z-index: 2;
     width: 100%;
     transition: all $transition-ease-medium;
     cursor: text;
+    box-sizing: border-box;
     &.input-label-focus {
       color: $primary-color;
     }
@@ -101,18 +110,7 @@ hr {
   .input-field {
     position: relative;
     z-index: 1;
-    box-sizing: border-box;
   }
-}
-
-.inline-with-input {
-  height: 3.5rem;
-  line-height: 3.5rem;
-  margin: 0 0 1rem 0;
-}
-
-.underline-with-input {
-  border-bottom: $border;
 }
 
 // stats
@@ -126,7 +124,7 @@ hr {
         padding: 0;
       }
       .score {
-        font-family: $open-sans-semi-bold;
+        // font-family: $open-sans-semi-bold;
       }
     }
   }
@@ -187,6 +185,7 @@ hr {
       float: left;
       width: 100%;
       text-align: left;
+      overflow: hidden;
     }
   }
   .spell-level {
@@ -242,13 +241,13 @@ hr {
     position: relative;
     .spell-name {
       input {
-        padding-right: 34px;
+        padding-right: 40px;
         box-sizing: border-box;
       }
     }
     .add-spell {
       position: absolute;
-      right: 0;
+      right: 5px;
       top: 6px;
       padding: 4px 6px;
       [class^="icon-"],

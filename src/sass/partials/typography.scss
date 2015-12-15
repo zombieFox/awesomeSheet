@@ -90,8 +90,8 @@ a {
 
 .textarea,
 textarea {
-  margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
+  padding: 0 0 10px 0;
+  margin: 0 0 3rem 0;
   width: 100%;
   background-color: transparent;
   color: $gray-02;
@@ -119,19 +119,19 @@ input {
   &[type="tel"],
   &[type="url"],
   &[type="password"] {
-    background-color: transparent;
+    background-color: $gray-13;
     font-family: $open-sans-regular;
     font-size: 1rem;
-    height: 3.5rem;
-    line-height: 2rem;
-    padding: 0 0 1.5rem 0;
-    margin: 0 0 1rem 0;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 10px;
+    margin: 0 0 3rem 0;
     color: $gray-02;
     border: 0;
     width: 100%;
     border-bottom: $border;
     box-shadow: none;
-    box-sizing: content-box;
+    box-sizing: border-box;
     transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
     &:hover {
       border-color: $primary-color;
@@ -241,22 +241,33 @@ table {
   font-size: $small-text;
 }
 
+.inline-with-input {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0 0 3rem 0;
+  box-sizing: border-box;
+}
+
+.underline-with-input {
+  border-bottom: $border;
+}
+
 
 /* vendor
 ------------------------------------------------- */
 
 ::-webkit-input-placeholder {
-  color: $gray-10;
+  color: $gray-12;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: $gray-10;
+  color: $gray-12;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: $gray-10;
+  color: $gray-12;
 }
 
 ::selection {
