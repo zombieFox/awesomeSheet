@@ -36,23 +36,23 @@ nav {
 hr {
   border: 0;
   margin: 30px 0;
-  // height: 1px;
+  height: 1px;
   background-color: transparent;
   // border-top: 1px solid $gray-12;
-  border-bottom: 2px solid $gray-12;
+  border-bottom: 1px solid $gray-12;
   position: relative;
-  &:after {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border: 2px solid $gray-12;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) rotate(45deg);
-  }
+  // &:after {
+  //   content: "";
+  //   display: block;
+  //   width: 20px;
+  //   height: 20px;
+  //   background: #fff;
+  //   border: 2px solid $gray-12;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%,-50%) rotate(45deg);
+  // }
 }
 
 // character name
