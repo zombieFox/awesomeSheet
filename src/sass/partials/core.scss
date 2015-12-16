@@ -3,11 +3,13 @@
 
 body {
   background: $white;
-  padding: 100px 0 300px 0;
+  padding: 0 0 300px 0;
 }
 
 section {
-  margin: 0 0 40px 0;
+  position: relative;
+  padding: 0;
+  z-index: $body;
   h1 {
     padding: 4rem 0 0 30px;
     margin-bottom: 60px;
@@ -26,6 +28,7 @@ section {
 
 nav {
   display: none;
+  z-index: $nav;
 }
 
 .sheet {
@@ -35,54 +38,10 @@ nav {
 
 hr {
   border: 0;
-  margin: 30px 0;
+  margin: 0 0 40px 0;
   background-color: transparent;
   position: relative;
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-  // border-top: 1px solid $gray-12;
-  // border-bottom: 1px solid $gray-12;
-  // &:after {
-  //   content: "";
-  //   display: block;
-  //   width: 20px;
-  //   height: 20px;
-  //   background: #fff;
-  //   border: 2px solid $gray-12;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%,-50%) rotate(45deg);
-  // }
-}
-
-// character name
-.awesome-name {
-  padding-top: 0;
-  &:before {
-    height: 5rem;
-    top: -0.5rem;
-  }
-  .input-block {
-    .input-field {
-      background-color: transparent;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 2.5rem;
-      height: 4rem;
-      font-family: $open-sans-light;
-      line-height: 4rem;
-      position: relative;
-      z-index: 1;
-    }
-  }
+  clear: both;
 }
 
 // input with lables
@@ -113,6 +72,43 @@ hr {
   }
 }
 
+// basics
+#basics {
+  padding-top: 100px;
+  background-color: $secondary-color-dark;
+  border-bottom: 5px solid $secondary-color-light;
+  input {
+    background-color: $gray-alpha-12;
+    color: $white;
+    border-color: $gray-alpha-08;
+    &:hover {
+      border-color: $primary-color;
+    }
+  }
+  .awesome-name {
+    padding-top: 0;
+    &:before {
+      height: 5rem;
+      top: -0.5rem;
+    }
+    .input-block {
+      .input-field {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 2.5rem;
+        height: 4rem;
+        color: $white;
+        font-family: $open-sans-light;
+        line-height: 4rem;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+}
+
 // stats
 #statistics {
   .stat-block {
@@ -137,6 +133,7 @@ hr {
       tr {
         td {
           width: 1%;
+          color: $gray-03;
           &:first-child {
             width: 99%;
           }
@@ -145,6 +142,7 @@ hr {
     }
     tr {
       td {
+        color: $gray-03;
         .name {
           span {
             float: right;
@@ -165,9 +163,6 @@ hr {
 
 // spells
 #spells {
-  h2 {
-    margin: 0 0 10px 0;
-  }
   .spell-stats {
     thead {
       td {
@@ -189,7 +184,6 @@ hr {
     }
   }
   .spell-level {
-    margin: 0 0 30px 0;
     .spells-known {
       &.delete-state {
         .spell-known-item {
@@ -235,7 +229,7 @@ hr {
     }
   }
   .remove-spell {
-    margin: 10px 0 0 0;
+    margin: 0 0 20px 0;
   }
   .new-spell {
     position: relative;
@@ -302,12 +296,16 @@ hr {
 }
 
 @media (min-width: 750px) {
+  section {
+    padding: 0 0 0 25%;
+  }
   nav {
     width: 25%;
     position: fixed;
     left: 0;
-    top: 50%;
-    transform: translatey(-50%);
+    top: 100px;
+    // top: 50%;
+    // transform: translatey(-50%);
     display: block;
     ul {
       margin: 0;
@@ -321,16 +319,17 @@ hr {
           line-height: 2rem;
           padding: 5px 20px;
           display: block;
-          font-size: $small-text;
+          font-size: 1rem;
           font-family: $open-sans-bold;
           text-transform: uppercase;
           transition: background-color $transition-ease-medium, color $transition-ease-medium;
           &:hover {
-            background-color: $gray-12;
+            color: $primary-color-light;
+            background-color: $gray-alpha-12;
             text-decoration: none;
           }
           &:focus {
-            background-color: $gray-12;
+            background-color: $gray-alpha-12;
             text-decoration: none;
             outline: 0;
           }
