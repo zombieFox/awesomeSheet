@@ -1,0 +1,111 @@
+/* nav
+------------------------------------------------- */
+
+nav {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: $nav;
+  .nav-toggle {
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    .line {
+      display: block;
+      height: 2px;
+      width: 30px;
+      left: 0;
+      margin: 0 0 2px 0;
+      position: absolute;
+      background-color: $primary-color;
+      border-radius: $border-radius-small;
+      transform: translateY(-1px);
+      opacity: 1;
+      transition: all $transition-ease-medium;
+    }
+    .top {
+      top: 30%;
+    }
+    .middle {
+      top: 50%;
+    }
+    .bottom {
+      top: 70%;
+    }
+    &:hover {
+      .top {
+        top: 50%;
+        transform: translateY(-1px) rotate(-225deg);
+      }
+      .middle {
+        opacity: 0;
+      }
+      .bottom {
+        top: 50%;
+        transform: translateY(-1px) rotate(225deg);
+      }
+    }
+    &:active {
+      .line {
+        background-color: $primary-color-light;
+      }
+    }
+  }
+  .nav-list {
+    background-color: $white;
+    box-shadow: $shadow-large;
+    border-radius: $border-radius-small;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    position: relative;
+    top: 30px;
+    li {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      a {
+        line-height: 2rem;
+        padding: 5px 20px;
+        display: block;
+        font-size: 0.8rem;
+        font-family: $open-sans-bold;
+        text-transform: uppercase;
+        transition: background-color $transition-ease-medium, color $transition-ease-medium;
+        &:hover {
+          color: $primary-color-light;
+          background-color: $gray-alpha-12;
+          text-decoration: none;
+        }
+        &:focus {
+          background-color: $gray-alpha-12;
+          text-decoration: none;
+          outline: 0;
+        }
+        &:active {
+          background-color: $primary-color;
+          color: $white;
+          transition: background-color $transition-ease-fast, color $transition-ease-fast;
+        }
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: 550px) {}
+
+@media (min-width: 750px) {
+  nav {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {}
+
+@media (min-width: 1000px) {}

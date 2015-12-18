@@ -25,11 +25,6 @@ section {
   }
 }
 
-nav {
-  display: none;
-  z-index: $nav;
-}
-
 .sheet {
   position: relative;
   z-index: $body;
@@ -297,55 +292,12 @@ hr {
 
 @media (min-width: 750px) {
   section {
-    padding: 0 0 0 25%;
+    // padding: 0 0 0 25%;
   }
   // basics
   #basics {
     padding-top: 100px;
     padding-bottom: 100px;
-  }
-  nav {
-    width: 25%;
-    position: fixed;
-    left: 0;
-    top: 100px;
-    // top: 50%;
-    // transform: translatey(-50%);
-    display: block;
-    ul {
-      margin: 0;
-      padding: 0;
-      li {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        text-align: right;
-        a {
-          line-height: 2rem;
-          padding: 5px 20px;
-          display: block;
-          font-size: 0.8rem;
-          font-family: $open-sans-bold;
-          text-transform: uppercase;
-          transition: background-color $transition-ease-medium, color $transition-ease-medium;
-          &:hover {
-            color: $primary-color-light;
-            background-color: $gray-alpha-12;
-            text-decoration: none;
-          }
-          &:focus {
-            background-color: $gray-alpha-12;
-            text-decoration: none;
-            outline: 0;
-          }
-          &:active {
-            background-color: $primary-color;
-            color: $white;
-            transition: background-color $transition-ease-fast, color $transition-ease-fast;
-          }
-        }
-      }
-    }
   }
   .sheet {
     width: 75%;
