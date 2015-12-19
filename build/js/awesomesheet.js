@@ -39,7 +39,7 @@ function awesomesheet() {
   var acTouch = e(".ac-touch");
   var acFlatFooted = e(".ac-flat-footed");
 
-  var clearLocalStorage = e(".clear-local-storage");
+  var clearSheet = e(".clear-sheet");
   var toggleFullscreen = e(".toggle-fullscreen");
 
   var spellCheck = eA(".spell-check");
@@ -55,6 +55,7 @@ function awesomesheet() {
   var all_removeSpell = eA(".remove-spell");
 
   var nav = e("nav");
+  var navList = e(".nav-list");
   var navToggle = e(".nav-toggle");
 
   // --------------------------------------------------------------------------
@@ -152,9 +153,11 @@ function awesomesheet() {
   }, false);
 
   window.addEventListener('click', function(event) {
-    if (event.target != nav && event.target.parentNode != nav) {
-      toggleClass(nav, "open");
-    }
+    if (nav.classList.contains("open")) {
+      if (event.target != nav && event.target.parentNode != nav && event.target.parentNode.parentNode != nav && event.target.parentNode.parentNode.parentNode != nav) {
+        removeClass(nav, "open");
+      };
+    };
   });
 
 
@@ -1185,9 +1188,11 @@ function awesomesheet() {
   // utilities
   // --------------------------------------------------------------------------
 
-  clearLocalStorage.addEventListener("click", function() {
+  clearSheet.addEventListener("click", function() {
     localStorage.clear();
+    document.location.reload(true);
   }, false);
+
 
   toggleFullscreen.addEventListener("click", function() {
     toggleFullScreen();
