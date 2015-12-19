@@ -151,6 +151,13 @@ function awesomesheet() {
     toggleClass(nav, "open");
   }, false);
 
+  window.addEventListener('click', function(event) {
+    if (event.target != nav && event.target.parentNode != nav) {
+      toggleClass(nav, "open");
+    }
+  });
+
+
   // --------------------------------------------------------------------------
   // stats
   // --------------------------------------------------------------------------

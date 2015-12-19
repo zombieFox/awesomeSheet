@@ -18,8 +18,8 @@
 }
 
 .row {
-  margin-left: -2%;
-  margin-right: -2%;
+  margin-left: -15px;
+  margin-right: -15px;
   box-sizing: border-box;
   &:before,
   &:after {
@@ -426,6 +426,9 @@
 }
 
 @media (min-width: $screen-xl) {
+  .container {
+    max-width: 70%;
+  }
   .col-xl-1,
   .col-xl-2,
   .col-xl-3,

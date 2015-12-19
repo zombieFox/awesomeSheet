@@ -28,7 +28,7 @@
 				"ligatures": "error"
 			},
 			"setIdx": 0,
-			"setId": 0,
+			"setId": 1,
 			"iconIdx": 0
 		},
 		{
@@ -58,7 +58,7 @@
 				"ligatures": "error_outline"
 			},
 			"setIdx": 0,
-			"setId": 0,
+			"setId": 1,
 			"iconIdx": 1
 		},
 		{
@@ -88,8 +88,8 @@
 				"ligatures": "playlist_add"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 30
+			"setId": 1,
+			"iconIdx": 2
 		},
 		{
 			"icon": {
@@ -118,8 +118,8 @@
 				"ligatures": "clear_all"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 71
+			"setId": 1,
+			"iconIdx": 3
 		},
 		{
 			"icon": {
@@ -148,8 +148,8 @@
 				"ligatures": "add"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 105
+			"setId": 1,
+			"iconIdx": 4
 		},
 		{
 			"icon": {
@@ -178,8 +178,8 @@
 				"ligatures": "add_circle"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 107
+			"setId": 1,
+			"iconIdx": 5
 		},
 		{
 			"icon": {
@@ -208,8 +208,8 @@
 				"ligatures": "add_circle_outline"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 108
+			"setId": 1,
+			"iconIdx": 6
 		},
 		{
 			"icon": {
@@ -238,8 +238,8 @@
 				"ligatures": "remove"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 127
+			"setId": 1,
+			"iconIdx": 7
 		},
 		{
 			"icon": {
@@ -268,8 +268,8 @@
 				"ligatures": "remove_circle"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 128
+			"setId": 1,
+			"iconIdx": 8
 		},
 		{
 			"icon": {
@@ -298,8 +298,8 @@
 				"ligatures": "remove_circle_outline"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 129
+			"setId": 1,
+			"iconIdx": 9
 		},
 		{
 			"icon": {
@@ -320,7 +320,7 @@
 				{}
 			],
 			"properties": {
-				"order": 22,
+				"order": 35,
 				"id": 517,
 				"prevSize": 24,
 				"code": 57861,
@@ -328,8 +328,8 @@
 				"ligatures": "cancel"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 517
+			"setId": 1,
+			"iconIdx": 10
 		},
 		{
 			"icon": {
@@ -358,8 +358,8 @@
 				"ligatures": "chevron_left"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 519
+			"setId": 1,
+			"iconIdx": 11
 		},
 		{
 			"icon": {
@@ -388,8 +388,8 @@
 				"ligatures": "chevron_right"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 520
+			"setId": 1,
+			"iconIdx": 12
 		},
 		{
 			"icon": {
@@ -418,8 +418,8 @@
 				"ligatures": "close"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 521
+			"setId": 1,
+			"iconIdx": 13
 		},
 		{
 			"icon": {
@@ -448,8 +448,8 @@
 				"ligatures": "expand_less"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 522
+			"setId": 1,
+			"iconIdx": 14
 		},
 		{
 			"icon": {
@@ -478,8 +478,8 @@
 				"ligatures": "expand_more"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 523
+			"setId": 1,
+			"iconIdx": 15
 		},
 		{
 			"icon": {
@@ -508,8 +508,8 @@
 				"ligatures": "fullscreen"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 524
+			"setId": 1,
+			"iconIdx": 16
 		},
 		{
 			"icon": {
@@ -538,8 +538,8 @@
 				"ligatures": "fullscreen_exit"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 525
+			"setId": 1,
+			"iconIdx": 17
 		},
 		{
 			"icon": {
@@ -568,8 +568,8 @@
 				"ligatures": "unfold_less"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 530
+			"setId": 1,
+			"iconIdx": 18
 		},
 		{
 			"icon": {
@@ -598,8 +598,8 @@
 				"ligatures": "unfold_more"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 531
+			"setId": 1,
+			"iconIdx": 19
 		},
 		{
 			"icon": {
@@ -628,8 +628,8 @@
 				"ligatures": "check_box"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 604
+			"setId": 1,
+			"iconIdx": 20
 		},
 		{
 			"icon": {
@@ -658,8 +658,8 @@
 				"ligatures": "check_box_outline_blank"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 605
+			"setId": 1,
+			"iconIdx": 21
 		},
 		{
 			"icon": {
@@ -688,8 +688,8 @@
 				"ligatures": "radio_button_unchecked"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 606
+			"setId": 1,
+			"iconIdx": 22
 		},
 		{
 			"icon": {
@@ -718,8 +718,8 @@
 				"ligatures": "radio_button_checked"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 607
+			"setId": 1,
+			"iconIdx": 23
 		},
 		{
 			"icon": {
@@ -748,8 +748,8 @@
 				"ligatures": "bookmark"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 635
+			"setId": 1,
+			"iconIdx": 24
 		},
 		{
 			"icon": {
@@ -778,8 +778,56 @@
 				"ligatures": "bookmark_outline"
 			},
 			"setIdx": 0,
-			"setId": 0,
-			"iconIdx": 636
+			"setId": 1,
+			"iconIdx": 25
+		},
+		{
+			"icon": {
+				"paths": [
+					"M754 270l100-100v300h-300l138-138q-76-76-180-76-106 0-181 75t-75 181 75 181 181 75q84 0 150-47t92-123h88q-28 112-120 184t-210 72q-140 0-240-100t-100-242 100-242 240-100q142 0 242 100z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 24,
+				"tags": [
+					"refresh"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 36,
+				"id": 637,
+				"name": "refresh",
+				"prevSize": 24,
+				"code": 59648
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 26
+		},
+		{
+			"icon": {
+				"paths": [
+					"M810 170v86h-596v-86h148l44-42h212l44 42h148zM256 810v-512h512v512q0 34-26 60t-60 26h-340q-34 0-60-26t-26-60z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 24,
+				"tags": [
+					"delete"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 38,
+				"id": 638,
+				"name": "delete",
+				"prevSize": 24,
+				"code": 59649
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 27
 		}
 	],
 	"height": 1024,
@@ -811,6 +859,7 @@
 			"bgColor": 16777215
 		},
 		"historySize": 100,
-		"gridSize": 16
+		"gridSize": 16,
+		"showCodes": true
 	}
 }

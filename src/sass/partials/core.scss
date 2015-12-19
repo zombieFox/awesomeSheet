@@ -32,7 +32,8 @@ section {
 
 hr {
   border: 0;
-  margin: 0 0 40px 0;
+  border-bottom: 1px solid $gray-13;
+  margin: 40px 0;
   background-color: transparent;
   position: relative;
   clear: both;
@@ -102,21 +103,33 @@ hr {
       }
     }
   }
+  ::-webkit-input-placeholder {
+    color: $secondary-color-light-alpha;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $secondary-color-light-alpha;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $secondary-color-light-alpha;
+  }
 }
 
 // stats
 #statistics {
   .stat-block {
-    margin-bottom: 30px;
     .stats {
       p,
       input,
       .name {
         margin: 0;
-        padding: 0;
       }
-      .score {
-        // font-family: $open-sans-semi-bold;
+      input {
+        font-family: $open-sans-semi-bold;
+      }
+      p {
+        color: $primary-color;
       }
     }
   }
@@ -177,6 +190,8 @@ hr {
       width: 100%;
       text-align: left;
       overflow: hidden;
+      font-size: 0.9rem;
+      font-family: $open-sans-regular;
     }
   }
   .spell-level {
@@ -238,7 +253,7 @@ hr {
     .add-spell {
       position: absolute;
       right: 5px;
-      top: 6px;
+      bottom: 1.75rem;
       padding: 4px 6px;
       [class^="icon-"],
       [class*=" icon-"] {
