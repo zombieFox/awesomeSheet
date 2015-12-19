@@ -56,37 +56,27 @@ $gray-alpha-04:                       rgba(0, 0, 0, 0.2); // light
 /* grid
 ------------------------------------------------- */
 
-// //== Media queries breakpoints
-// //
-// //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+$screen-xs:                           400px;
+$screen-xs-min:                       $screen-xs;
 
-// // Extra small screen / phone
-// //** Deprecated `@screen-xs` as of v3.0.1
-// $screen-xs:                  550px;
-// //** Deprecated `$screen-xs-min` as of v3.2.0
-// $screen-xs-min:              $screen-xs;
+$screen-sm:                           550px;
+$screen-sm-min:                       $screen-sm;
 
-// // Small screen / tablet
-// //** Deprecated `$screen-sm` as of v3.0.1
-// $screen-sm:                  750px;
-// $screen-sm-min:              $screen-sm;
+$screen-md:                           700px;
+$screen-md-min:                       $screen-md;
 
-// // Medium screen / desktop
-// //** Deprecated `$screen-md` as of v3.0.1
-// $screen-md:                  900px;
-// $screen-md-min:              $screen-md;
+$screen-lg:                           900px;
+$screen-lg-min:                       $screen-lg;
 
-// // Large screen / wide desktop
-// //** Deprecated `$screen-lg` as of v3.0.1
-// $screen-lg:                  1000px;
-// $screen-lg-min:              $screen-lg;
+$screen-xl:                           1200px;
+$screen-xl-min:                       $screen-xl;
 
-// // So media queries don't overlap when required, provide a maximum
-// $screen-xs-max:              ($screen-sm-min - 1);
-// $screen-sm-max:              ($screen-md-min - 1);
-// $screen-md-max:              ($screen-lg-min - 1);
+$screen-xs-max:                       ($screen-sm-min - 1);
+$screen-sm-max:                       ($screen-md-min - 1);
+$screen-md-max:                       ($screen-lg-min - 1);
+$screen-lg-max:                       ($screen-xl-min - 1);
 
-$grid-spacing:                        4%;
+$gutter:                              2%;
 
 /* typography
 ------------------------------------------------- */

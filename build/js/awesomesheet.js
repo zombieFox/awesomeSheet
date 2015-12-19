@@ -54,6 +54,9 @@ function awesomesheet() {
   var all_addSpell = eA(".add-spell");
   var all_removeSpell = eA(".remove-spell");
 
+  var nav = e("nav");
+  var navToggle = e(".nav-toggle");
+
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -139,6 +142,14 @@ function awesomesheet() {
     var value = parseInt(element.value, 10) || 0;
     return value;
   };
+
+  // --------------------------------------------------------------------------
+  // nav
+  // --------------------------------------------------------------------------
+
+  navToggle.addEventListener("click", function() {
+    toggleClass(nav, "open");
+  }, false);
 
   // --------------------------------------------------------------------------
   // stats

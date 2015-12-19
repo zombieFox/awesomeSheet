@@ -49,7 +49,8 @@
 /* media queries
 ------------------------------------------------- */
 
-@media (max-width: 550px) {
+// xs
+@media (max-width: $screen-xs-max) {
   .visible-xs,
   .visible-xs-block {
     display: block !important;
@@ -65,7 +66,8 @@
   }
 }
 
-@media (min-width: 551px) and (max-width: 750px) {
+// sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .visible-sm,
   .visible-sm-block {
     display: block !important;
@@ -81,7 +83,8 @@
   }
 }
 
-@media (min-width: 751px) and (max-width: 900px) {
+// md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
   .visible-md,
   .visible-md-block {
     display: block !important;
@@ -97,7 +100,8 @@
   }
 }
 
-@media (min-width: 901px) {
+// lg
+@media (min-width: $screen-lg-min) {
   .visible-lg,
   .visible-lg-block {
     display: block !important;

@@ -1,9 +1,36 @@
 {{> nav }}
 {{> basics }}
-{{> statistics }}
-{{> equipment }}
-{{> defense }}
-{{> offense }}
-{{> skills }}
-{{> spells }}
-{{> special-abilities }}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-xl-6">
+      {{> statistics }}
+    </div>
+    <div class="col-xs-12 col-xl-6">
+      {{> equipment }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-xl-6">
+      {{> defense }}
+    </div>
+    <div class="col-xs-12 col-xl-6">
+      {{> offense }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-xl-6">
+      {{> skills }}
+    </div>
+    <div class="col-xs-12 col-xl-6">
+      {{> spells }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-xl-6">
+      {{> special-abilities }}
+    </div>
+    <div class="col-xs-12 col-xl-6">
+      {{> notes }}
+    </div>
+  </div>
+</div>

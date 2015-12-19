@@ -48,10 +48,10 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 10px 0;
-    width: 200px;
-    position: relative;
+    width: 170px;
+    position: absolute;
     top: 60px;
-    right: -230px;
+    right: -250px;
     opacity: 0;
     transition: all $transition-ease-medium;
     li {
@@ -133,14 +133,20 @@ nav {
 /* media queries
 ------------------------------------------------- */
 
-@media (min-width: 550px) {}
-
-@media (min-width: 750px) {
+@media (min-width: $screen-sm) {
   nav {
-    display: block;
+    .nav-list {
+      width: 200px;
+    }
   }
 }
 
-@media (min-width: 900px) {}
+@media (min-width: $screen-md) {
+  nav {
+    .nav-list {
+      width: 220px;
+    }
+  }
+}
 
-@media (min-width: 1000px) {}
+@media (min-width: $screen-lg) {}
