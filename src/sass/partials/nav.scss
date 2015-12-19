@@ -1,0 +1,146 @@
+/* nav
+------------------------------------------------- */
+
+nav {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: $nav;
+  .nav-toggle {
+    background-color: $gray-alpha-13;
+    cursor: pointer;
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    transition: all $transition-ease-medium;
+    .line {
+      display: block;
+      height: 2px;
+      width: 24px;
+      left: 50%;
+      position: absolute;
+      background-color: $primary-color;
+      border-radius: $border-radius-small;
+      transform: translate(-12px, -1px);
+      opacity: 1;
+      transition: all $transition-ease-medium;
+      &.top {
+        top: 38%;
+      }
+      &.middle {
+        top: 50%;
+      }
+      &.bottom {
+        top: 62%;
+      }
+    }
+    &:hover {
+      background-color: $gray-alpha-11;
+    }
+  }
+  .nav-list {
+    background-color: $white;
+    box-shadow: $shadow-large;
+    border-radius: $border-radius-small;
+    margin: 0;
+    padding: 10px 0;
+    width: 200px;
+    position: relative;
+    top: 60px;
+    right: -230px;
+    opacity: 0;
+    transition: all $transition-ease-medium;
+    li {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      &.divide {
+        margin: 10px 0;
+        background-color: $gray-alpha-12;
+        height: 1px;
+      }
+      a {
+        line-height: 2rem;
+        padding: 5px 20px;
+        display: block;
+        font-size: 0.8rem;
+        border-left: 5px solid transparent;
+        font-family: $open-sans-bold;
+        text-transform: uppercase;
+        transition: background-color $transition-ease-medium, color $transition-ease-medium;
+        [class^="icon-"],
+        [class*=" icon-"] {
+          color: $secondary-color;
+          font-size: 1.2rem;
+          margin: 0 5px 0 0;
+          position: relative;
+          top: 2px;
+          transition: background-color $transition-ease-medium, color $transition-ease-medium;
+        }
+        &:hover {
+          color: $primary-color-light;
+          background-color: $gray-alpha-13;
+          text-decoration: none;
+          border-color: $primary-color;
+        }
+        &:focus {
+          background-color: $gray-alpha-13;
+          text-decoration: none;
+          outline: 0;
+        }
+        &.active,
+        &:active {
+          background-color: $primary-color;
+          color: $white;
+          transition: background-color $transition-ease-fast, color $transition-ease-fast;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            color: $white;
+            transition: background-color $transition-ease-fast, color $transition-ease-fast;
+          }
+        }
+      }
+    }
+  }
+  &.open {
+    .nav-toggle {
+      .line {
+        &.top {
+          top: 50%;
+          transform: translate(-12px, -1px) rotate(-225deg);
+        }
+        &.middle {
+          opacity: 0;
+        }
+        &.bottom {
+          top: 50%;
+          transform: translate(-12px, -1px) rotate(225deg);
+        }
+      }
+    }
+    .nav-list {
+      opacity: 1;
+      right: 0;
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: 550px) {}
+
+@media (min-width: 750px) {
+  nav {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {}
+
+@media (min-width: 1000px) {}
