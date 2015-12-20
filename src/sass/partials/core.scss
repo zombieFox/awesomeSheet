@@ -33,7 +33,7 @@ section {
 hr {
   border: 0;
   border-bottom: 1px solid $gray-13;
-  margin: 40px 0;
+  margin: 10px 0 20px 0;
   background-color: transparent;
   position: relative;
   clear: both;
@@ -119,6 +119,7 @@ hr {
 // stats
 #statistics {
   .stat-block {
+    margin-bottom: 30px;
     .stats {
       p,
       input,
@@ -185,9 +186,9 @@ hr {
   .spells-known,
   .spells-prepared {
     .button {
-      margin: 0 0 3px 0;
       float: left;
-      width: 100%;
+      margin: 0 1% 1% 0;
+      width: 32%;
       text-align: left;
       overflow: hidden;
       font-size: 0.9rem;

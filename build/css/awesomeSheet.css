@@ -664,8 +664,8 @@ table {
 ------------------------------------------------- */
 nav {
   position: fixed;
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 10px;
   z-index: 2000; }
   nav .nav-toggle {
     background-color: rgba(0, 0, 0, 0.02);
@@ -1185,7 +1185,7 @@ section {
 hr {
   border: 0;
   border-bottom: 1px solid #fafafa;
-  margin: 40px 0;
+  margin: 10px 0 20px 0;
   background-color: transparent;
   position: relative;
   clear: both; }
@@ -1250,16 +1250,16 @@ hr {
     /* Firefox 19+ */
     color: rgba(8, 100, 130, 0.5); }
 
-#statistics .stat-block .stats p,
-#statistics .stat-block .stats input,
-#statistics .stat-block .stats .name {
-  margin: 0; }
-
-#statistics .stat-block .stats input {
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
-
-#statistics .stat-block .stats p {
-  color: #ff0055; }
+#statistics .stat-block {
+  margin-bottom: 30px; }
+  #statistics .stat-block .stats p,
+  #statistics .stat-block .stats input,
+  #statistics .stat-block .stats .name {
+    margin: 0; }
+  #statistics .stat-block .stats input {
+    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+  #statistics .stat-block .stats p {
+    color: #ff0055; }
 
 #skills .skill-list thead tr td {
   width: 1%;
@@ -1285,9 +1285,9 @@ hr {
 
 #spells .spells-known .button,
 #spells .spells-prepared .button {
-  margin: 0 0 3px 0;
   float: left;
-  width: 100%;
+  margin: 0 1% 1% 0;
+  width: 32%;
   text-align: left;
   overflow: hidden;
   font-size: 0.9rem;
