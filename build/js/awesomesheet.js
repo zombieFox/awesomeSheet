@@ -384,8 +384,6 @@ function awesomesheet() {
     if (element.classList.contains("active")) {
       for (var i = 0; i < all_spellStateButton.length; i++) {
         removeClass(all_spellStateButton[i], "active");
-        addClass(all_spellStateButton[i], "button-secondary");
-        removeClass(all_spellStateButton[i], "button-primary");
       };
       removeClass(element, "active");
       knownListToChangeState.dataset.prepareSpellState = " false";
@@ -399,12 +397,8 @@ function awesomesheet() {
     } else {
       for (var i = 0; i < all_spellStateButton.length; i++) {
         removeClass(all_spellStateButton[i], "active");
-        addClass(all_spellStateButton[i], "button-secondary");
-        removeClass(all_spellStateButton[i], "button-primary");
       };
       addClass(element, "active");
-      removeClass(element, "button-secondary");
-      addClass(element, "button-primary");
       if (state == "prepare") {
         knownListToChangeState.dataset.prepareSpellState = "true";
         knownListToChangeState.dataset.unprepareSpellState = "false";
@@ -455,8 +449,6 @@ function awesomesheet() {
       var prepareSpellButton = spellLevel.querySelector(".prepare-spell");
       var unprepareSpellButton = spellLevel.querySelector(".unprepare-spell");
       var castSpellButton = spellLevel.querySelector(".cast-spell");
-      var icon = removeSpellButton.querySelector(".icon");
-      var text = removeSpellButton.querySelector(".text");
       // if all_spellsKnown[i] has no children remove data attributes and classes
       if (all_spellsKnown[i].children.length > 0) {
         removeClass(removeSpellButton, "hidden");
@@ -465,17 +457,14 @@ function awesomesheet() {
         removeClass(castSpellButton, "hidden");
       } else {
         knownListToCheck.dataset.deleteSpellState = "false";
-        removeClass(knownListToCheck, "delete-state");
-        removeClass(removeSpellButton, "active");
         addClass(removeSpellButton, "hidden");
         addClass(prepareSpellButton, "hidden");
         addClass(unprepareSpellButton, "hidden");
         addClass(castSpellButton, "hidden");
-        removeClass(removeSpellButton, "button-primary");
-        addClass(removeSpellButton, "button-secondary");
-        removeClass(icon, "icon-radio-button-unchecked");
-        addClass(icon, "icon-close");
-        text.innerHTML = "Delete a spell";
+        removeClass(removeSpellButton, "active");
+        removeClass(prepareSpellButton, "active");
+        removeClass(unprepareSpellButton, "active");
+        removeClass(castSpellButton, "active");
       };
     };
   };
@@ -508,35 +497,55 @@ function awesomesheet() {
     var unprepareState = spellKnown.dataset.unprepareSpellState;
     var castState = spellKnown.dataset.castSpellState;
     var deleteState = spellKnown.dataset.deleteSpellState;
+    var spellMarks = spell.querySelector(".spell-marks");
+    // state prepare
     if (prepareState == "true") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
-      spell.appendChild(preparedIcon);
+      // spell.appendChild(preparedIcon);
       // spell.insertBefore(preparedIcon, spell.firstChild);
-      if (spell.children.length > 0) {
+      spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+      if (spellMarks.children.length > 0) {
         addClass(spell, "button-primary");
-        removeClass(spell, "button-secondary");
+        removeClass(spell, "button-tertiary");
       };
     };
+    // state unprepare
     if (unprepareState == "true") {
-      if (spell.firstChild.nextSibling) {
-        spell.firstChild.nextSibling.remove()
+      if (spellMarks.firstChild) {
+        spellMarks.firstChild.remove()
       };
-      if (spell.children.length <= 0) {
+      if (spellMarks.children.length <= 0) {
         removeClass(spell, "button-primary");
-        addClass(spell, "button-secondary");
+        addClass(spell, "button-tertiary");
       };
     };
+    // state cast
     if (castState == "true") {
-      var spellsPreparedChecks = spell.children;
-      for (var i = 0; i < spellsPreparedChecks.length; i++) {
-        if (spellsPreparedChecks[i].classList.contains("icon-radio-button-checked")) {
-          toggleClass(spellsPreparedChecks[i], "icon-radio-button-checked");
-          toggleClass(spellsPreparedChecks[i], "icon-radio-button-unchecked");
+      var all_spellsMarks = spellMarks.children;
+      var allSpellsCast = false;
+      for (var i = 0; i < all_spellsMarks.length; i++) {
+        if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
+          toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
+          toggleClass(all_spellsMarks[i], "icon-radio-button-unchecked");
           break
         };
       };
+      // if no checked icons can be found change the var allSpellCast to true
+      for (var i = 0; i < all_spellsMarks.length; i++) {
+        if (all_spellsMarks[i].classList.contains("icon-radio-button-unchecked")) {
+          allSpellsCast = true;
+        } else {
+          allSpellsCast = false;
+        };
+      };
+      // allSpellCast to true change spell button class
+      if (allSpellsCast) {
+        removeClass(spell, "button-primary");
+        addClass(spell, "button-tertiary");
+      };
     };
+    // state delete
     if (deleteState == "true") {
       spell.remove();
     };
@@ -567,11 +576,14 @@ function awesomesheet() {
     var newSpell = document.createElement("a");
     newSpell.setAttribute("href", "javascript:void(0)");
     newSpell.setAttribute("data-event-listener", "false");
-    newSpell.setAttribute("class", "spell-known-item button button-secondary");
+    newSpell.setAttribute("class", "spell-known-item button button-tertiary");
     newSpell.innerHTML = newSpellName_value;
+    var spellMarks = document.createElement("span");
+    spellMarks.setAttribute("class", "spell-marks"); 
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
+      newSpell.appendChild(spellMarks);
       // clear input field
       newSpellName.value = "";
     };
@@ -637,160 +649,6 @@ function awesomesheet() {
       }, false);
     };
   };
-
-  // --------------------------------------------------------------------------
-  // ac
-  // --------------------------------------------------------------------------
-
-  // // store ac
-  // function store_ac() {
-  //   localStoreAdd("ac_armor", ac.children[5].children[0].value);
-  //   localStoreAdd("ac_shield", ac.children[7].children[0].value);
-  //   localStoreAdd("ac_deflection", ac.children[9].children[0].value);
-  //   localStoreAdd("ac_misc", ac.children[11].children[0].value);
-  //   localStoreAdd("acTouch_deflection", acTouch.children[5].children[0].value);
-  //   localStoreAdd("acTouch_misc", acTouch.children[7].children[0].value);
-  //   localStoreAdd("acFlatFooted_armor", acFlatFooted.children[3].children[0].value);
-  //   localStoreAdd("acFlatFooted_shield", acFlatFooted.children[5].children[0].value);
-  //   localStoreAdd("acFlatFooted_deflection", acFlatFooted.children[7].children[0].value);
-  //   localStoreAdd("acFlatFooted_misc", acFlatFooted.children[9].children[0].value);
-  // };
-
-  // // read ac
-  // function read_ac() {
-  //   if (localStoreRead("ac_armor")) {
-  //     ac.children[5].children[0].value = localStoreRead("ac_armor");
-  //   };
-  //   if (localStoreRead("ac_shield")) {
-  //     ac.children[7].children[0].value = localStoreRead("ac_shield");
-  //   };
-  //   if (localStoreRead("ac_deflection")) {
-  //     ac.children[9].children[0].value = localStoreRead("ac_deflection");
-  //   };
-  //   if (localStoreRead("ac_misc")) {
-  //     ac.children[11].children[0].value = localStoreRead("ac_misc");
-  //   };
-  //   if (localStoreRead("acTouch_deflection")) {
-  //     acTouch.children[5].children[0].value = localStoreRead("acTouch_deflection");
-  //   };
-  //   if (localStoreRead("acTouch_misc")) {
-  //     acTouch.children[7].children[0].value = localStoreRead("acTouch_misc");
-  //   };
-  //   if (localStoreRead("acFlatFooted_armor")) {
-  //     acFlatFooted.children[3].children[0].value = localStoreRead("acFlatFooted_armor");
-  //   };
-  //   if (localStoreRead("acFlatFooted_shield")) {
-  //     acFlatFooted.children[5].children[0].value = localStoreRead("acFlatFooted_shield");
-  //   };
-  //   if (localStoreRead("acFlatFooted_deflection")) {
-  //     acFlatFooted.children[7].children[0].value = localStoreRead("acFlatFooted_deflection");
-  //   };
-  //   if (localStoreRead("acFlatFooted_misc")) {
-  //     acFlatFooted.children[9].children[0].value = localStoreRead("acFlatFooted_misc");
-  //   };
-  // };
-
-  // // upage ac totals and mods
-  // function update_ac() {
-  //   //  loop through ac for dex
-  //   for (var i = 0; i < ac.children.length; i++) {
-  //     if (ac.children[i].classList.contains("dex")) {
-  //       ac.children[i].innerHTML = parseInt(stats_dexMod.innerHTML, 10) + " Dex";
-  //     };
-  //   };
-  //   //  loop through acTouch for dex
-  //   for (var i = 0; i < acTouch.children.length; i++) {
-  //     if (acTouch.children[i].classList.contains("dex")) {
-  //       acTouch.children[i].innerHTML = parseInt(stats_dexMod.innerHTML, 10) + " Dex";
-  //     };
-  //   };
-  //   function acTotal(acType) {
-  //     var base = 10;
-  //     var dex = acType.querySelector(".dex");
-  //     var armor = acType.querySelector(".armor input")
-  //     var shield = acType.querySelector(".shield input")
-  //     var deflection = acType.querySelector(".deflection input")
-  //     var misc = acType.querySelector(".misc input")
-  //     var acCombined = base;
-
-  //     if (dex != null) {
-  //       acCombined = acCombined + parseInt(dex.innerHTML, 10);
-  //     };
-
-  //     if (armor != null) {
-  //       if (armor.value != "") {
-  //         acCombined = acCombined + parseInt(armor.value, 10);
-  //       };
-  //     };
-
-  //     if (shield != null) {
-  //       if (shield.value != "") {
-  //         acCombined = acCombined + parseInt(shield.value, 10);
-  //       };
-  //     };
-
-  //     if (deflection != null) {
-  //       if (deflection.value != "") {
-  //         acCombined = acCombined + parseInt(deflection.value, 10);
-  //       };
-  //     };
-
-  //     if (misc != null) {
-  //       if (misc.value != "") {
-  //         acCombined = acCombined + parseInt(misc.value, 10);
-  //       };
-  //     };
-
-  //     acType.querySelector(".total").innerHTML = acCombined;
-
-  //     // console.log(dex);
-  //     // console.log(armor);
-  //     // console.log(shield);
-  //     // console.log(deflection);
-  //     // console.log(misc);
-  //     // console.log("acCombined = " + acCombined);
-  //   };
-  //   acTotal(ac);
-  //   acTotal(acTouch);
-  //   acTotal(acFlatFooted);
-  // };
-
-  // // add listeners to stats
-  // function addListenerTo_acInputs() {
-  //   function addListener(acType) {
-  //     var armor = acType.querySelector(".armor input");
-  //     var shield = acType.querySelector(".shield input");
-  //     var deflection = acType.querySelector(".deflection input");
-  //     var misc = acType.querySelector(".misc input");
-  //     if (armor != null) {
-  //       armor.addEventListener("input", function() {
-  //         update_ac();
-  //         store_ac();
-  //       }, false);
-  //     };
-  //     if (shield != null) {
-  //       shield.addEventListener("input", function() {
-  //         update_ac();
-  //         store_ac();
-  //       }, false);
-  //     };
-  //     if (deflection != null) {
-  //       deflection.addEventListener("input", function() {
-  //         update_ac();
-  //         store_ac();
-  //       }, false);
-  //     };
-  //     if (misc != null) {
-  //       misc.addEventListener("input", function() {
-  //         update_ac();
-  //         store_ac();
-  //       }, false);
-  //     };
-  //   };
-  //   addListener(ac);
-  //   addListener(acTouch);
-  //   addListener(acFlatFooted);
-  // };
 
   // --------------------------------------------------------------------------
   // skills

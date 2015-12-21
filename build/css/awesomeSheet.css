@@ -285,9 +285,8 @@ button {
     border-color: transparent; }
   .button.button-secondary:focus,
   button.button-secondary:focus {
-    color: #ffffff;
-    background-color: #086482;
-    border-color: #003242;
+    background-color: transparent;
+    border-color: #d6d6d6;
     outline: 0;
     text-decoration: none; }
   .button.button-secondary:hover,
@@ -303,6 +302,26 @@ button {
     color: #ffffff;
     background-color: #086482;
     border-color: #003242; }
+  .button.button-tertiary:link, .button.button-tertiary:visited,
+  button.button-tertiary:link,
+  button.button-tertiary:visited {
+    color: #343434;
+    background-color: transparent;
+    border-color: transparent; }
+  .button.button-tertiary:focus,
+  button.button-tertiary:focus {
+    border-color: #d6d6d6;
+    outline: 0;
+    text-decoration: none; }
+  .button.button-tertiary:hover,
+  button.button-tertiary:hover {
+    color: #343434;
+    outline: 0;
+    text-decoration: none; }
+  .button.button-tertiary:active, .button.button-tertiary.active,
+  button.button-tertiary:active,
+  button.button-tertiary.active {
+    border-color: #e8e8e8; }
   .button.button-dark:link, .button.button-dark:visited,
   button.button-dark:link,
   button.button-dark:visited {
@@ -442,7 +461,7 @@ textarea {
   width: 100%;
   color: #343434;
   border: 0;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 2px solid #e8e8e8;
   font-size: 1rem;
   box-sizing: border-box;
   transition: border 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -466,7 +485,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   color: #343434;
   border: 0;
   width: 100%;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 2px solid #e8e8e8;
   box-shadow: none;
   box-sizing: border-box;
   transition: border 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.3s ease-in-out; }
@@ -495,7 +514,7 @@ table {
     margin: 0;
     height: 2.5rem;
     text-align: center;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 2px solid #e8e8e8;
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
     table thead tr td:first-child {
       padding-left: 0;
@@ -511,7 +530,7 @@ table {
       height: 2.5rem;
       line-height: 2.5rem;
       box-sizing: content-box;
-      border-bottom: 1px solid #e8e8e8; }
+      border-bottom: 2px solid #e8e8e8; }
     table tr td:first-child {
       text-align: left; }
       table tr td:first-child p {
@@ -535,11 +554,11 @@ table {
 .inline-with-input {
   height: 2.5rem;
   line-height: 2.5rem;
-  margin: 1rem 0 20px 0;
+  margin: 1rem 0 5px 0;
   box-sizing: border-box; }
 
 .underline-with-input {
-  border-bottom: 1px solid #e8e8e8; }
+  border-bottom: 2px solid #e8e8e8; }
 
 /* vendor
 ------------------------------------------------- */
@@ -555,12 +574,12 @@ table {
   color: #e8e8e8; }
 
 ::-moz-selection {
-  color: #ffffff;
-  background: #086482; }
+  background-color: #ff0055;
+  color: #ffffff; }
 
 ::selection {
-  color: #ffffff;
-  background: #086482; }
+  background-color: #ff0055;
+  color: #ffffff; }
 
 /* media queries
 ------------------------------------------------- */
@@ -668,7 +687,6 @@ nav {
   right: 10px;
   z-index: 2000; }
   nav .nav-toggle {
-    background-color: rgba(0, 0, 0, 0.02);
     cursor: pointer;
     display: block;
     width: 50px;
@@ -677,7 +695,8 @@ nav {
     top: 0;
     right: 0;
     border-radius: 50%;
-    transition: all 0.3s ease-in-out; }
+    transition: all 0.3s ease-in-out;
+    -webkit-tap-highlight-color: transparent; }
     nav .nav-toggle .line {
       display: block;
       height: 2px;
@@ -693,22 +712,22 @@ nav {
       transition: all 0.3s ease-in-out; }
       nav .nav-toggle .line.top {
         top: 38%;
-        transition-delay: 0.2s; }
+        transition-delay: 0.1s; }
       nav .nav-toggle .line.middle {
         top: 50%;
-        transition-delay: 0.3s; }
+        transition-delay: 0.2s; }
       nav .nav-toggle .line.bottom {
         top: 62%;
         transition-delay: 0.1s; }
     nav .nav-toggle:hover {
-      background-color: rgba(0, 0, 0, 0.09); }
+      background-color: rgba(0, 0, 0, 0.02); }
   nav .nav-list {
     background-color: #ffffff;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 1px 50px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     margin: 0;
     padding: 10px 0;
-    width: 170px;
+    width: 130px;
     position: absolute;
     top: 60px;
     right: -250px;
@@ -719,15 +738,15 @@ nav {
       padding: 0;
       list-style-type: none; }
       nav .nav-list li.divide {
-        margin: 10px 0;
+        margin: 5px 0;
         background-color: rgba(0, 0, 0, 0.09);
         height: 1px; }
       nav .nav-list li a {
-        line-height: 2rem;
-        padding: 5px 20px;
-        display: block;
+        padding: 4px 10px;
+        line-height: 1rem;
         font-size: 0.8rem;
         border-left: 5px solid transparent;
+        display: block;
         font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
         text-transform: uppercase;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
@@ -759,19 +778,19 @@ nav {
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
   nav.open .nav-toggle .line.top {
     top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(-135deg);
-        -ms-transform: translate(-12px, -1px) rotate(-135deg);
-            transform: translate(-12px, -1px) rotate(-135deg);
+    -webkit-transform: translate(-12px, -1px) rotate(45deg);
+        -ms-transform: translate(-12px, -1px) rotate(45deg);
+            transform: translate(-12px, -1px) rotate(45deg);
     transition-delay: 0.2s; }
   nav.open .nav-toggle .line.middle {
     opacity: 0;
     transition-delay: 0.1s; }
   nav.open .nav-toggle .line.bottom {
     top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(135deg);
-        -ms-transform: translate(-12px, -1px) rotate(135deg);
-            transform: translate(-12px, -1px) rotate(135deg);
-    transition-delay: 0.3s; }
+    -webkit-transform: translate(-12px, -1px) rotate(-45deg);
+        -ms-transform: translate(-12px, -1px) rotate(-45deg);
+            transform: translate(-12px, -1px) rotate(-45deg);
+    transition-delay: 0.2s; }
   nav.open .nav-list {
     opacity: 1;
     right: 0; }
@@ -780,11 +799,17 @@ nav {
 ------------------------------------------------- */
 @media (min-width: 550px) {
   nav .nav-list {
-    width: 200px; } }
+    width: 130px; } }
 
 @media (min-width: 700px) {
   nav .nav-list {
-    width: 220px; } }
+    width: 180px; }
+    nav .nav-list li.divide {
+      margin: 10px 0; }
+    nav .nav-list li a {
+      padding: 6px 14px;
+      line-height: 1.2rem;
+      font-size: 0.9rem; } }
 
 /* grid
 ------------------------------------------------- */
@@ -1228,7 +1253,7 @@ hr {
     background-color: rgba(0, 0, 0, 0.09);
     color: #ffffff;
     border-color: rgba(0, 0, 0, 0.37); }
-    #basics input:hover {
+    #basics input:hover, #basics input:focus {
       border-color: #ff0055; }
   #basics .awesome-name {
     padding-top: 0; }
@@ -1292,13 +1317,17 @@ hr {
 #spells .spells-known .button,
 #spells .spells-prepared .button {
   float: left;
-  margin: 0 0 3px 0;
-  width: 100%;
+  margin: 0 1% 1% 0;
+  width: 49%;
   text-align: left;
   overflow: hidden;
   font-size: 0.9rem;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   white-space: normal; }
+  #spells .spells-known .button:nth-child(even),
+  #spells .spells-prepared .button:nth-child(even) {
+    margin: 0 0 1% 0;
+    width: 50%; }
   #spells .spells-known .button [class^="icon-"],
   #spells .spells-known .button [class*=" icon-"],
   #spells .spells-prepared .button [class^="icon-"],
@@ -1307,42 +1336,27 @@ hr {
     margin: 0 0 0 3px;
     line-height: 1.5rem; }
 
-#spells .spell-level .spells-known.delete-state .button-primary:link, #spells .spell-level .spells-known.delete-state .button-primary:visited {
+#spells .spell-level .spells-known .button:link, #spells .spell-level .spells-known .button:visited {
+  border-color: #fafafa; }
+
+#spells .spell-level .spells-known .button:active, #spells .spell-level .spells-known .button:focus, #spells .spell-level .spells-known .button:hover {
+  border-color: #e8e8e8; }
+
+#spells .spell-level .spells-known.prepare-state .button-tertiary:link, #spells .spell-level .spells-known.prepare-state .button-tertiary:visited, #spells .spell-level .spells-known.unprepare-state .button-tertiary:link, #spells .spell-level .spells-known.unprepare-state .button-tertiary:visited, #spells .spell-level .spells-known.cast-state .button-tertiary:link, #spells .spell-level .spells-known.cast-state .button-tertiary:visited {
+  border-color: #e8e8e8; }
+
+#spells .spell-level .spells-known.delete-state .button:link, #spells .spell-level .spells-known.delete-state .button:visited {
   background-color: #ffffff;
   color: #cc0044;
   border-color: #ff3276; }
 
-#spells .spell-level .spells-known.delete-state .button-primary:active, #spells .spell-level .spells-known.delete-state .button-primary:focus, #spells .spell-level .spells-known.delete-state .button-primary:hover {
+#spells .spell-level .spells-known.delete-state .button:active, #spells .spell-level .spells-known.delete-state .button:focus, #spells .spell-level .spells-known.delete-state .button:hover {
   color: #ffffff;
   background-color: #ff3276;
   border-color: #cc0044; }
-
-#spells .spell-level .spells-known.delete-state .button-secondary:link, #spells .spell-level .spells-known.delete-state .button-secondary:visited {
-  color: #cc0044;
-  border-color: #ff3276; }
-
-#spells .spell-level .spells-known.delete-state .button-secondary:active, #spells .spell-level .spells-known.delete-state .button-secondary:focus, #spells .spell-level .spells-known.delete-state .button-secondary:hover {
-  color: #ffffff;
-  background-color: #ff3276;
-  border-color: #cc0044; }
-
-#spells .spells-prepared {
-  margin: 0 0 20px 0; }
-  #spells .spells-prepared .spell-prepared-item.spell-cast:link, #spells .spells-prepared .spell-prepared-item.spell-cast:visited, #spells .spells-prepared .spell-prepared-item.spell-cast:focus {
-    color: #7c7c7c;
-    background-color: transparent;
-    border-color: #b2b2b2; }
-  #spells .spells-prepared .spell-prepared-item.spell-cast:hover {
-    color: #7c7c7c;
-    background-color: transparent;
-    border-color: #7c7c7c; }
-  #spells .spells-prepared .spell-prepared-item.spell-cast:active, #spells .spells-prepared .spell-prepared-item.spell-cast.active {
-    color: #7c7c7c;
-    background-color: transparent;
-    border-color: transparent; }
 
 #spells .spell-state {
-  margin: 20px 0; }
+  margin: 0 0 20px 0; }
 
 #spells .new-spell {
   position: relative; }
@@ -1374,8 +1388,15 @@ hr {
   #spells .spells-known .button,
   #spells .spells-prepared .button {
     margin: 0 1% 1% 0;
-    width: 49%;
-    text-align: left; }
+    width: 32.333333333%; }
+    #spells .spells-known .button:nth-child(even),
+    #spells .spells-prepared .button:nth-child(even) {
+      margin: 0 1% 1% 0;
+      width: 32.333333333%; }
+    #spells .spells-known .button:nth-child(3n),
+    #spells .spells-prepared .button:nth-child(3n) {
+      margin: 0 0 1% 0;
+      width: 33.333333333%; }
   #spells .new-spell .add-spell {
     top: 17px; }
   #defense .ac .title,
@@ -1398,10 +1419,3 @@ hr {
     min-width: 140px; }
   #spells .new-spell .add-spell {
     top: 21px; } }
-
-@media (min-width: 900px) {
-  #spells .spells-known .button,
-  #spells .spells-prepared .button {
-    margin: 0 1% 1% 0;
-    width: 32%;
-    text-align: left; } }
