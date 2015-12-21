@@ -7,7 +7,6 @@ nav {
   right: 10px;
   z-index: $nav;
   .nav-toggle {
-    background-color: $gray-alpha-13;
     cursor: pointer;
     display: block;
     width: 50px;
@@ -43,7 +42,7 @@ nav {
       }
     }
     &:hover {
-      background-color: $gray-alpha-12;
+      background-color: $gray-alpha-13;
     }
   }
   .nav-list {
@@ -52,7 +51,7 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 10px 0;
-    width: 170px;
+    width: 130px;
     position: absolute;
     top: 60px;
     right: -250px;
@@ -63,16 +62,16 @@ nav {
       padding: 0;
       list-style-type: none;
       &.divide {
-        margin: 10px 0;
+        margin: 5px 0;
         background-color: $gray-alpha-12;
         height: 1px;
       }
       a {
-        line-height: 2rem;
-        padding: 5px 20px;
-        display: block;
+        padding: 4px 10px;
+        line-height: 1rem;
         font-size: 0.8rem;
         border-left: 5px solid transparent;
+        display: block;
         font-family: $open-sans-bold;
         text-transform: uppercase;
         transition: background-color $transition-ease-medium, color $transition-ease-medium;
@@ -143,7 +142,7 @@ nav {
 @media (min-width: $screen-sm) {
   nav {
     .nav-list {
-      width: 200px;
+      width: 130px;
     }
   }
 }
@@ -151,7 +150,17 @@ nav {
 @media (min-width: $screen-md) {
   nav {
     .nav-list {
-      width: 220px;
+      width: 180px;
+      li {
+        &.divide {
+          margin: 10px 0;
+        }
+        a {
+          padding: 6px 14px;
+          line-height: 1.2rem;
+          font-size: 0.9rem;
+        }
+      }
     }
   }
 }
