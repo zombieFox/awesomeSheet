@@ -30,12 +30,15 @@ nav {
       transition: all $transition-ease-medium;
       &.top {
         top: 38%;
+        transition-delay: 0.2s;
       }
       &.middle {
         top: 50%;
+        transition-delay: 0.3s;
       }
       &.bottom {
         top: 62%;
+        transition-delay: 0.1s;
       }
     }
     &:hover {
@@ -111,14 +114,17 @@ nav {
       .line {
         &.top {
           top: 50%;
-          transform: translate(-12px, -1px) rotate(-225deg);
+          transform: translate(-12px, -1px) rotate(-135deg);
+          transition-delay: 0.2s;
         }
         &.middle {
           opacity: 0;
+          transition-delay: 0.1s;
         }
         &.bottom {
           top: 50%;
-          transform: translate(-12px, -1px) rotate(225deg);
+          transform: translate(-12px, -1px) rotate(135deg);
+          transition-delay: 0.3s;
         }
       }
     }

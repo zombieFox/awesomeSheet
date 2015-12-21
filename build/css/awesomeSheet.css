@@ -234,7 +234,7 @@ button {
     display: inline-block; }
   .button.button-small,
   button.button-small {
-    padding: 3px 5px;
+    padding: 3px 10px 3px 5px;
     line-height: 1rem;
     font-size: 0.8rem; }
     .button.button-small [class^="icon-"],
@@ -692,11 +692,14 @@ nav {
       opacity: 1;
       transition: all 0.3s ease-in-out; }
       nav .nav-toggle .line.top {
-        top: 38%; }
+        top: 38%;
+        transition-delay: 0.2s; }
       nav .nav-toggle .line.middle {
-        top: 50%; }
+        top: 50%;
+        transition-delay: 0.3s; }
       nav .nav-toggle .line.bottom {
-        top: 62%; }
+        top: 62%;
+        transition-delay: 0.1s; }
     nav .nav-toggle:hover {
       background-color: rgba(0, 0, 0, 0.09); }
   nav .nav-list {
@@ -756,16 +759,19 @@ nav {
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
   nav.open .nav-toggle .line.top {
     top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(-225deg);
-        -ms-transform: translate(-12px, -1px) rotate(-225deg);
-            transform: translate(-12px, -1px) rotate(-225deg); }
+    -webkit-transform: translate(-12px, -1px) rotate(-135deg);
+        -ms-transform: translate(-12px, -1px) rotate(-135deg);
+            transform: translate(-12px, -1px) rotate(-135deg);
+    transition-delay: 0.2s; }
   nav.open .nav-toggle .line.middle {
-    opacity: 0; }
+    opacity: 0;
+    transition-delay: 0.1s; }
   nav.open .nav-toggle .line.bottom {
     top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(225deg);
-        -ms-transform: translate(-12px, -1px) rotate(225deg);
-            transform: translate(-12px, -1px) rotate(225deg); }
+    -webkit-transform: translate(-12px, -1px) rotate(135deg);
+        -ms-transform: translate(-12px, -1px) rotate(135deg);
+            transform: translate(-12px, -1px) rotate(135deg);
+    transition-delay: 0.3s; }
   nav.open .nav-list {
     opacity: 1;
     right: 0; }
@@ -1286,18 +1292,36 @@ hr {
 #spells .spells-known .button,
 #spells .spells-prepared .button {
   float: left;
-  margin: 0 1% 1% 0;
-  width: 32%;
+  margin: 0 0 3px 0;
+  width: 100%;
   text-align: left;
   overflow: hidden;
   font-size: 0.9rem;
-  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
+  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+  white-space: normal; }
+  #spells .spells-known .button [class^="icon-"],
+  #spells .spells-known .button [class*=" icon-"],
+  #spells .spells-prepared .button [class^="icon-"],
+  #spells .spells-prepared .button [class*=" icon-"] {
+    float: right;
+    margin: 0 0 0 3px;
+    line-height: 1.5rem; }
 
-#spells .spell-level .spells-known.delete-state .spell-known-item:link, #spells .spell-level .spells-known.delete-state .spell-known-item:visited {
+#spells .spell-level .spells-known.delete-state .button-primary:link, #spells .spell-level .spells-known.delete-state .button-primary:visited {
+  background-color: #ffffff;
   color: #cc0044;
   border-color: #ff3276; }
 
-#spells .spell-level .spells-known.delete-state .spell-known-item:active, #spells .spell-level .spells-known.delete-state .spell-known-item:focus, #spells .spell-level .spells-known.delete-state .spell-known-item:hover {
+#spells .spell-level .spells-known.delete-state .button-primary:active, #spells .spell-level .spells-known.delete-state .button-primary:focus, #spells .spell-level .spells-known.delete-state .button-primary:hover {
+  color: #ffffff;
+  background-color: #ff3276;
+  border-color: #cc0044; }
+
+#spells .spell-level .spells-known.delete-state .button-secondary:link, #spells .spell-level .spells-known.delete-state .button-secondary:visited {
+  color: #cc0044;
+  border-color: #ff3276; }
+
+#spells .spell-level .spells-known.delete-state .button-secondary:active, #spells .spell-level .spells-known.delete-state .button-secondary:focus, #spells .spell-level .spells-known.delete-state .button-secondary:hover {
   color: #ffffff;
   background-color: #ff3276;
   border-color: #cc0044; }
@@ -1317,8 +1341,8 @@ hr {
     background-color: transparent;
     border-color: transparent; }
 
-#spells .remove-spell {
-  margin: 0 0 20px 0; }
+#spells .spell-state {
+  margin: 20px 0; }
 
 #spells .new-spell {
   position: relative; }
@@ -1328,7 +1352,7 @@ hr {
   #spells .new-spell .add-spell {
     position: absolute;
     right: 5px;
-    bottom: 1.75rem;
+    top: 14px;
     padding: 4px 6px; }
     #spells .new-spell .add-spell [class^="icon-"],
     #spells .new-spell .add-spell [class*=" icon-"] {
@@ -1352,6 +1376,8 @@ hr {
     margin: 0 1% 1% 0;
     width: 49%;
     text-align: left; }
+  #spells .new-spell .add-spell {
+    top: 17px; }
   #defense .ac .title,
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {
@@ -1369,7 +1395,9 @@ hr {
   #defense .ac .title,
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {
-    min-width: 140px; } }
+    min-width: 140px; }
+  #spells .new-spell .add-spell {
+    top: 21px; } }
 
 @media (min-width: 900px) {
   #spells .spells-known .button,

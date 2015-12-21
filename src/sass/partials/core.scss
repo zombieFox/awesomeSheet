@@ -187,18 +187,40 @@ hr {
   .spells-prepared {
     .button {
       float: left;
-      margin: 0 1% 1% 0;
-      width: 32%;
+      margin: 0 0 3px 0;
+      width: 100%;
       text-align: left;
       overflow: hidden;
       font-size: 0.9rem;
       font-family: $open-sans-regular;
+      white-space: normal;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        float: right;
+        margin: 0 0 0 3px;
+        line-height: 1.5rem;
+      }
     }
   }
   .spell-level {
     .spells-known {
       &.delete-state {
-        .spell-known-item {
+        .button-primary {
+          &:link,
+          &:visited {
+            background-color: $white;
+            color: $primary-color-dark;
+            border-color: $primary-color-light;
+          }
+          &:active,
+          &:focus,
+          &:hover {
+            color: $white;
+            background-color: $primary-color-light;
+            border-color: $primary-color-dark;
+          }
+        }
+        .button-secondary {
           &:link,
           &:visited {
             color: $primary-color-dark;
@@ -240,8 +262,8 @@ hr {
       }
     }
   }
-  .remove-spell {
-    margin: 0 0 20px 0;
+  .spell-state {
+    margin: 20px 0;
   }
   .new-spell {
     position: relative;
@@ -254,7 +276,7 @@ hr {
     .add-spell {
       position: absolute;
       right: 5px;
-      bottom: 1.75rem;
+      top: 14px;
       padding: 4px 6px;
       [class^="icon-"],
       [class*=" icon-"] {
@@ -301,6 +323,11 @@ hr {
         text-align: left;
       }
     }
+    .new-spell {
+      .add-spell {
+        top: 17px;
+      }
+    }
   }
   // defense
   #defense {
@@ -336,6 +363,14 @@ hr {
     .ac-flat-footed {
       .title {
         min-width: 140px;
+      }
+    }
+  }
+  // spells
+  #spells {
+    .new-spell {
+      .add-spell {
+        top: 21px;
       }
     }
   }

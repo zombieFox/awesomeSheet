@@ -31,7 +31,7 @@ button {
     display: inline-block;
   }
   &.button-small {
-    padding: 3px 5px;
+    padding: 3px 10px 3px 5px;
     line-height: 1rem;
     font-size: $small-text;
     [class^="icon-"],

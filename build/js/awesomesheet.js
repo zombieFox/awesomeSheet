@@ -52,6 +52,9 @@ function awesomesheet() {
   var all_skill_inputs = eA(".skill-value");
 
   var all_addSpell = eA(".add-spell");
+  var all_prepareSpell = eA(".prepare-spell");
+  var all_unprepareSpell = eA(".unprepare-spell");
+  var all_castSpell = eA(".cast-spell");
   var all_removeSpell = eA(".remove-spell");
 
   var nav = e("nav");
@@ -299,26 +302,8 @@ function awesomesheet() {
       if (doesSpellHaveListener == "false") {
         all_spellKnownItem[i].dataset.eventListener = "true";
         all_spellKnownItem[i].addEventListener("click", function() {
-          copyOrDeleteSpell(this);
-          store_preparedList();
-          update_preparedListStatus();
-        }, false);
-      };
-    };
-  };
-
-  // add listeners to prepared spells
-  function addListenerTo_all_spellPreparedItem() {
-    var all_spellPreparedItem = eA(".spell-prepared-item");
-    for (var i = 0; i < all_spellPreparedItem.length; i++) {
-      // stop addListenerTo_all_spellPreparedItem from stacking event listeners on the same element
-      var doesSpellHaveListener = all_spellPreparedItem[i].dataset.eventListener;
-      if (doesSpellHaveListener == "false") {
-        all_spellPreparedItem[i].dataset.eventListener = "true";
-        all_spellPreparedItem[i].addEventListener("click", function() {
-          update_spellState(this);
-          store_preparedList();
-          update_preparedListStatus();
+          prepareOrUnprepareOrCastOrDeleteSpell(this);
+          store_knownList();
         }, false);
       };
     };
@@ -333,15 +318,6 @@ function awesomesheet() {
     };
   };
 
-  // reset data attributes on page reload
-  // this is needed after spells are populated from local storage 
-  function changeData_all_spellPreparedItem() {
-    var all_spellPreparedItem = eA(".spell-prepared-item");
-    for (var i = 0; i < all_spellPreparedItem.length; i++) {
-      all_spellPreparedItem[i].dataset.eventListener = "false";
-    };
-  };
-
   // add listeners to add new spell button
   function addListenerTo_all_addSpell() {
     for (var i = 0; i < all_addSpell.length; i++) {
@@ -353,54 +329,118 @@ function awesomesheet() {
     };
   };
 
+  // add listeners to prepare spell button
+  function addListenerTo_all_prepareSpell() {
+    for (var i = 0; i < all_prepareSpell.length; i++) {
+      all_prepareSpell[i].addEventListener("click", function() {
+        changeSpellState(this, "prepare");
+        store_knownList();
+      }, false);
+    };
+  };
+
+  // add listeners to unprepare spell button
+  function addListenerTo_all_unprepareSpell() {
+    for (var i = 0; i < all_unprepareSpell.length; i++) {
+      all_unprepareSpell[i].addEventListener("click", function() {
+        changeSpellState(this, "unprepare");
+        store_knownList();
+      }, false);
+    };
+  };
+
+  // add listeners to cast spell button
+  function addListenerTo_all_castSpell() {
+    for (var i = 0; i < all_castSpell.length; i++) {
+      all_castSpell[i].addEventListener("click", function() {
+        changeSpellState(this, "cast");
+        store_knownList();
+      }, false);
+    };
+  };
+
   // add listeners to remove spell button
   function addListenerTo_all_removeSpell() {
     for (var i = 0; i < all_removeSpell.length; i++) {
       all_removeSpell[i].addEventListener("click", function() {
-        changeData_deleteSpellState(this);
-        update_removeSpellButton();
+        changeSpellState(this, "remove");
+        store_knownList();
       }, false);
     };
   };
 
   // activate delete state on all saved spell lists
-  function changeData_deleteSpellState(element) {
-    var knownListToChangeState = getClosest(element, ".spell-level").querySelector(".spells-known");
+  function changeSpellState(element, state) {
+    var spellLevel = getClosest(element, ".spell-level");
+    var knownListToChangeState = spellLevel.querySelector(".spells-known");
+    var prepareState = knownListToChangeState.dataset.prepareSpellState;
+    var castState = knownListToChangeState.dataset.castSpellState;
     var deleteState = knownListToChangeState.dataset.deleteSpellState;
-    // if spells known has children
-    if (knownListToChangeState.children.length > 0) {
-      var all_spellKnownItem = knownListToChangeState.querySelectorAll(".spell-known-item");
-      var icon = element.querySelector(".icon");
-      var text = element.querySelector(".text");
-      if (element.classList.contains("active")) {
-        toggleClass(element, "active");
-        toggleClass(element, "button-primary");
-        toggleClass(element, "button-secondary");
-        toggleClass(icon, "icon-close");
-        toggleClass(icon, "icon-radio-button-unchecked");
-        text.innerHTML = "Delete a spell";
-      } else {
-        toggleClass(element, "active");
-        toggleClass(element, "button-primary");
-        toggleClass(element, "button-secondary");
-        toggleClass(icon, "icon-close");
-        toggleClass(icon, "icon-radio-button-unchecked");
-        text.innerHTML = "Done deleting spells";
+    var prepareStateButton = spellLevel.querySelector(".prepare-spell");
+    var unprepareStateButton = spellLevel.querySelector(".unprepare-spell");
+    var castStateButton = spellLevel.querySelector(".cast-spell");
+    var deleteStateButton = spellLevel.querySelector(".remove-spell");
+    var all_spellStateButton = getClosest(element, ".spell-state").querySelectorAll(".button");
+    if (element.classList.contains("active")) {
+      for (var i = 0; i < all_spellStateButton.length; i++) {
+        removeClass(all_spellStateButton[i], "active");
+        addClass(all_spellStateButton[i], "button-secondary");
+        removeClass(all_spellStateButton[i], "button-primary");
       };
-      // add close icon to known list item
-      for (var i = 0; i < all_spellKnownItem.length; i++) {
-        var icon = all_spellKnownItem[i].querySelector("span");
-        toggleClass(icon, "icon-bookmark-outline");
-        toggleClass(icon, "icon-close");
+      removeClass(element, "active");
+      knownListToChangeState.dataset.prepareSpellState = " false";
+      knownListToChangeState.dataset.unprepareSpellState = " false";
+      knownListToChangeState.dataset.castSpellState = " false";
+      knownListToChangeState.dataset.deleteSpellState = " false";
+      removeClass(knownListToChangeState, "prepare-state");
+      removeClass(knownListToChangeState, "unprepare-state");
+      removeClass(knownListToChangeState, "cast-state");
+      removeClass(knownListToChangeState, "delete-state");
+    } else {
+      for (var i = 0; i < all_spellStateButton.length; i++) {
+        removeClass(all_spellStateButton[i], "active");
+        addClass(all_spellStateButton[i], "button-secondary");
+        removeClass(all_spellStateButton[i], "button-primary");
       };
-      // toggle delete spell data attribute
-      if (deleteState == "true") {
+      addClass(element, "active");
+      removeClass(element, "button-secondary");
+      addClass(element, "button-primary");
+      if (state == "prepare") {
+        knownListToChangeState.dataset.prepareSpellState = "true";
+        knownListToChangeState.dataset.unprepareSpellState = "false";
+        knownListToChangeState.dataset.castSpellState = "false";
         knownListToChangeState.dataset.deleteSpellState = "false";
-        toggleClass(knownListToChangeState, "delete-state");
-      };
-      if (deleteState == "false") {
+        addClass(knownListToChangeState, "prepare-state");
+        removeClass(knownListToChangeState, "unprepare-state");
+        removeClass(knownListToChangeState, "cast-state");
+        removeClass(knownListToChangeState, "delete-state");
+      } else if (state == "unprepare") {
+        knownListToChangeState.dataset.prepareSpellState = "false";
+        knownListToChangeState.dataset.unprepareSpellState = "true";
+        knownListToChangeState.dataset.castSpellState = "false";
+        knownListToChangeState.dataset.deleteSpellState = "false";
+        removeClass(knownListToChangeState, "prepare-state");
+        addClass(knownListToChangeState, "unprepare-state");
+        removeClass(knownListToChangeState, "cast-state");
+        removeClass(knownListToChangeState, "delete-state");
+      } else if (state == "cast") {
+        knownListToChangeState.dataset.prepareSpellState = "false";
+        knownListToChangeState.dataset.unprepareSpellState = "false";
+        knownListToChangeState.dataset.castSpellState = "true";
+        knownListToChangeState.dataset.deleteSpellState = "false";
+        removeClass(knownListToChangeState, "prepare-state");
+        removeClass(knownListToChangeState, "unprepare-state");
+        addClass(knownListToChangeState, "cast-state");
+        removeClass(knownListToChangeState, "delete-state");
+      } else if (state == "remove") {
+        knownListToChangeState.dataset.prepareSpellState = "false";
+        knownListToChangeState.dataset.unprepareSpellState = "false";
+        knownListToChangeState.dataset.castSpellState = "false";
         knownListToChangeState.dataset.deleteSpellState = "true";
-        toggleClass(knownListToChangeState, "delete-state");
+        removeClass(knownListToChangeState, "prepare-state");
+        removeClass(knownListToChangeState, "unprepare-state");
+        removeClass(knownListToChangeState, "cast-state");
+        addClass(knownListToChangeState, "delete-state");
       };
     };
   };
@@ -412,16 +452,25 @@ function awesomesheet() {
       var spellLevel = getClosest(all_spellsKnown[i], ".spell-level");
       var knownListToCheck = spellLevel.querySelector(".spells-known");
       var removeSpellButton = spellLevel.querySelector(".remove-spell");
+      var prepareSpellButton = spellLevel.querySelector(".prepare-spell");
+      var unprepareSpellButton = spellLevel.querySelector(".unprepare-spell");
+      var castSpellButton = spellLevel.querySelector(".cast-spell");
       var icon = removeSpellButton.querySelector(".icon");
       var text = removeSpellButton.querySelector(".text");
       // if all_spellsKnown[i] has no children remove data attributes and classes
       if (all_spellsKnown[i].children.length > 0) {
         removeClass(removeSpellButton, "hidden");
+        removeClass(prepareSpellButton, "hidden");
+        removeClass(unprepareSpellButton, "hidden");
+        removeClass(castSpellButton, "hidden");
       } else {
         knownListToCheck.dataset.deleteSpellState = "false";
         removeClass(knownListToCheck, "delete-state");
         removeClass(removeSpellButton, "active");
         addClass(removeSpellButton, "hidden");
+        addClass(prepareSpellButton, "hidden");
+        addClass(unprepareSpellButton, "hidden");
+        addClass(castSpellButton, "hidden");
         removeClass(removeSpellButton, "button-primary");
         addClass(removeSpellButton, "button-secondary");
         removeClass(icon, "icon-radio-button-unchecked");
@@ -451,56 +500,47 @@ function awesomesheet() {
     };
   };
 
-  // copy the selected spell to the prepared list
-  function copyOrDeleteSpell(spell) {
+  // prepare or unprepare or cast or delete spell
+  function prepareOrUnprepareOrCastOrDeleteSpell(spell) {
     var spellLevel = getClosest(spell, ".spell-level");
-    var deleteState = spellLevel.querySelector(".spells-known").dataset.deleteSpellState;
-    var name = spell.innerHTML;
-    var level = spellLevel.dataset.spellLevel;
-    var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
-    var spellToCopy = document.createElement("a");
-    spellToCopy.setAttribute("href", "javascript:void(0)");
-    spellToCopy.setAttribute("class", "spell-prepared-item button button-primary");
-    spellToCopy.setAttribute("data-cast", "false");
-    spellToCopy.setAttribute("data-event-listener", "false");
-    spellToCopy.innerHTML = name;
+    var spellKnown = spellLevel.querySelector(".spells-known");
+    var prepareState = spellKnown.dataset.prepareSpellState;
+    var unprepareState = spellKnown.dataset.unprepareSpellState;
+    var castState = spellKnown.dataset.castSpellState;
+    var deleteState = spellKnown.dataset.deleteSpellState;
+    if (prepareState == "true") {
+      var preparedIcon = document.createElement("span");
+      preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
+      spell.appendChild(preparedIcon);
+      // spell.insertBefore(preparedIcon, spell.firstChild);
+      if (spell.children.length > 0) {
+        addClass(spell, "button-primary");
+        removeClass(spell, "button-secondary");
+      };
+    };
+    if (unprepareState == "true") {
+      if (spell.firstChild.nextSibling) {
+        spell.firstChild.nextSibling.remove()
+      };
+      if (spell.children.length <= 0) {
+        removeClass(spell, "button-primary");
+        addClass(spell, "button-secondary");
+      };
+    };
+    if (castState == "true") {
+      var spellsPreparedChecks = spell.children;
+      for (var i = 0; i < spellsPreparedChecks.length; i++) {
+        if (spellsPreparedChecks[i].classList.contains("icon-radio-button-checked")) {
+          toggleClass(spellsPreparedChecks[i], "icon-radio-button-checked");
+          toggleClass(spellsPreparedChecks[i], "icon-radio-button-unchecked");
+          break
+        };
+      };
+    };
     if (deleteState == "true") {
       spell.remove();
     };
-    if (deleteState == "false") {
-      preparedListToSaveTo.appendChild(spellToCopy);
-    };
-    store_knownList();
-    addListenerTo_all_spellPreparedItem();
     update_removeSpellButton();
-  };
-
-  // change spell class to cast and then remove
-  function update_spellState(spell) {
-    var icon = spell.querySelector(".icon-bookmark-outline");
-    var isSpellCast = spell.dataset.cast;
-    if (isSpellCast == "true") {
-      spell.remove();
-      store_preparedList();
-    };
-    if (isSpellCast == "false") {
-      spell.dataset.cast = "true";
-      toggleClass(spell, "spell-cast");
-      toggleClass(icon, "icon-bookmark-outline");
-      toggleClass(icon, "icon-close");
-      store_preparedList();
-    };
-  };
-
-  // store spell preparedList
-  function store_preparedList() {
-    var all_spellsPrepared = eA(".spells-prepared");
-    for (var i = 0; i < all_spellsPrepared.length; i++) {
-      var level = i;
-      var saveName = "spell-prepared-level-" + level;
-      var preparedListToSave = e(".spells-prepared.spell-level-" + level);
-      localStoreAdd(saveName, preparedListToSave.innerHTML);
-    };
   };
 
   // read spell preparedList
@@ -529,12 +569,9 @@ function awesomesheet() {
     newSpell.setAttribute("data-event-listener", "false");
     newSpell.setAttribute("class", "spell-known-item button button-secondary");
     newSpell.innerHTML = newSpellName_value;
-    var icon = document.createElement("span");
-    icon.setAttribute("class", "icon-bookmark-outline");
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
-      newSpell.insertBefore(icon, newSpell.firstChild);
       // clear input field
       newSpellName.value = "";
     };
@@ -566,23 +603,6 @@ function awesomesheet() {
       };
     };
   };
-
-  // add class to active prepared lists
-  function update_preparedListStatus() {
-    var all_spellsPrepared = eA(".spells-prepared");
-    for (var i = 0; i < all_spellsPrepared.length; i++) {
-      var level = i;
-      var readName = "spell-prepared-level-" + level;
-      var preparedListToCheck = e(".spells-prepared.spell-level-" + level);
-      var rowToHide = e(".spells-prepared" + ".spell-level-" + level).parentNode.parentNode;
-      if (preparedListToCheck.children.length > 0) {
-        removeClass(rowToHide, "hidden");
-      } else {
-        addClass(rowToHide, "hidden");
-      };
-    };
-  };
-
 
   // --------------------------------------------------------------------------
   // textarea
@@ -1210,16 +1230,18 @@ function awesomesheet() {
   read_skills();
   read_stats();
   // read_ac();
-  update_preparedListStatus();
   update_removeSpellButton();
   changeData_all_spellKnownItem();
-  changeData_all_spellPreparedItem();
-  addListenerTo_all_spellPreparedItem();
+  // changeData_all_spellPreparedItem();
+  // addListenerTo_all_spellPreparedItem();
   addListenerTo_all_spellKnownItem();
   addListenerTo_stats();
   addListenerTo_skillInputs();
   addListenerTo_all_addSpell();
   addListenerTo_all_addSpell_input();
+  addListenerTo_all_prepareSpell();
+  addListenerTo_all_unprepareSpell();
+  addListenerTo_all_castSpell();
   addListenerTo_all_removeSpell();
   // addListenerTo_acInputs();
   addListenerTo_all_textareass();
