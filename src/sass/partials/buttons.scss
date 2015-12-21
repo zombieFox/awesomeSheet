@@ -84,9 +84,8 @@ button {
       border-color: transparent;
     }
     &:focus {
-      color: $white;
-      background-color: $secondary-color-light;
-      border-color: $secondary-color-dark;
+      background-color: transparent;
+      border-color: $gray-11;
       outline: 0;
       text-decoration: none;
     }
@@ -102,6 +101,28 @@ button {
       color: $white;
       background-color: $secondary-color-light;
       border-color: $secondary-color-dark;
+    }
+  }
+  &.button-tertiary {
+    &:link,
+    &:visited {
+      color: $gray-02;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    &:focus {
+      border-color: $gray-11;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $gray-02;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      border-color: $gray-12;
     }
   }
   &.button-dark {

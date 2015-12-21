@@ -187,13 +187,17 @@ hr {
   .spells-prepared {
     .button {
       float: left;
-      margin: 0 0 3px 0;
-      width: 100%;
+      margin: 0 1% 1% 0;
+      width: 49%;
       text-align: left;
       overflow: hidden;
       font-size: 0.9rem;
       font-family: $open-sans-regular;
       white-space: normal;
+      &:nth-child(even) {
+        margin: 0 0 1% 0;
+        width: 50%;
+      }
       [class^="icon-"],
       [class*=" icon-"] {
         float: right;
@@ -204,25 +208,24 @@ hr {
   }
   .spell-level {
     .spells-known {
-      &.delete-state {
-        .button-primary {
+      &.prepare-state,
+      &.unprepare-state,
+      &.cast-state {
+        .button-tertiary {
           &:link,
           &:visited {
-            background-color: $white;
-            color: $primary-color-dark;
-            border-color: $primary-color-light;
+            border-color: $gray-12;
           }
           &:active,
           &:focus,
-          &:hover {
-            color: $white;
-            background-color: $primary-color-light;
-            border-color: $primary-color-dark;
-          }
+          &:hover {}
         }
-        .button-secondary {
+      }
+      &.delete-state {
+        .button {
           &:link,
           &:visited {
+            background-color: $white;
             color: $primary-color-dark;
             border-color: $primary-color-light;
           }
@@ -263,7 +266,7 @@ hr {
     }
   }
   .spell-state {
-    margin: 20px 0;
+    margin: 0 0 20px 0;
   }
   .new-spell {
     position: relative;
@@ -319,8 +322,15 @@ hr {
     .spells-prepared {
       .button {
         margin: 0 1% 1% 0;
-        width: 49%;
-        text-align: left;
+        width: 32.333333333%;
+        &:nth-child(even) {
+          margin: 0 1% 1% 0;
+          width: 32.333333333%;
+        }
+        &:nth-child(3n) {
+          margin: 0 0 1% 0;
+          width: 33.333333333%;
+        }
       }
     }
     .new-spell {
@@ -376,16 +386,4 @@ hr {
   }
 }
 
-@media (min-width: $screen-lg) {
-  // spells
-  #spells {
-    .spells-known,
-    .spells-prepared {
-      .button {
-        margin: 0 1% 1% 0;
-        width: 32%;
-        text-align: left;
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}

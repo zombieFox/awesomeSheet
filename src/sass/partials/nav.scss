@@ -17,6 +17,7 @@ nav {
     right: 0;
     border-radius: 50%;
     transition: all $transition-ease-medium;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     .line {
       display: block;
       height: 2px;
@@ -30,11 +31,11 @@ nav {
       transition: all $transition-ease-medium;
       &.top {
         top: 38%;
-        transition-delay: 0.2s;
+        transition-delay: 0.1s;
       }
       &.middle {
         top: 50%;
-        transition-delay: 0.3s;
+        transition-delay: 0.2s;
       }
       &.bottom {
         top: 62%;
@@ -114,7 +115,7 @@ nav {
       .line {
         &.top {
           top: 50%;
-          transform: translate(-12px, -1px) rotate(-135deg);
+          transform: translate(-12px, -1px) rotate(45deg);
           transition-delay: 0.2s;
         }
         &.middle {
@@ -123,8 +124,8 @@ nav {
         }
         &.bottom {
           top: 50%;
-          transform: translate(-12px, -1px) rotate(135deg);
-          transition-delay: 0.3s;
+          transform: translate(-12px, -1px) rotate(-45deg);
+          transition-delay: 0.2s;
         }
       }
     }
