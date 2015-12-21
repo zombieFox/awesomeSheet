@@ -497,38 +497,43 @@ function awesomesheet() {
     var unprepareState = spellKnown.dataset.unprepareSpellState;
     var castState = spellKnown.dataset.castSpellState;
     var deleteState = spellKnown.dataset.deleteSpellState;
+    var spellMarks = spell.querySelector(".spell-marks");
+    // state prepare
     if (prepareState == "true") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
-      spell.appendChild(preparedIcon);
+      // spell.appendChild(preparedIcon);
       // spell.insertBefore(preparedIcon, spell.firstChild);
-      if (spell.children.length > 0) {
+      spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+      if (spellMarks.children.length > 0) {
         addClass(spell, "button-primary");
         removeClass(spell, "button-tertiary");
       };
     };
+    // state unprepare
     if (unprepareState == "true") {
-      if (spell.firstChild.nextSibling) {
-        spell.firstChild.nextSibling.remove()
+      if (spellMarks.firstChild) {
+        spellMarks.firstChild.remove()
       };
-      if (spell.children.length <= 0) {
+      if (spellMarks.children.length <= 0) {
         removeClass(spell, "button-primary");
         addClass(spell, "button-tertiary");
       };
     };
+    // state cast
     if (castState == "true") {
-      var spellsPreparedChecks = spell.children;
+      var all_spellsMarks = spellMarks.children;
       var allSpellsCast = false;
-      for (var i = 0; i < spellsPreparedChecks.length; i++) {
-        if (spellsPreparedChecks[i].classList.contains("icon-radio-button-checked")) {
-          toggleClass(spellsPreparedChecks[i], "icon-radio-button-checked");
-          toggleClass(spellsPreparedChecks[i], "icon-radio-button-unchecked");
+      for (var i = 0; i < all_spellsMarks.length; i++) {
+        if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
+          toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
+          toggleClass(all_spellsMarks[i], "icon-radio-button-unchecked");
           break
         };
       };
       // if no checked icons can be found change the var allSpellCast to true
-      for (var i = 0; i < spellsPreparedChecks.length; i++) {
-        if (spellsPreparedChecks[i].classList.contains("icon-radio-button-unchecked")) {
+      for (var i = 0; i < all_spellsMarks.length; i++) {
+        if (all_spellsMarks[i].classList.contains("icon-radio-button-unchecked")) {
           allSpellsCast = true;
         } else {
           allSpellsCast = false;
@@ -540,6 +545,7 @@ function awesomesheet() {
         addClass(spell, "button-tertiary");
       };
     };
+    // state delete
     if (deleteState == "true") {
       spell.remove();
     };
@@ -572,9 +578,12 @@ function awesomesheet() {
     newSpell.setAttribute("data-event-listener", "false");
     newSpell.setAttribute("class", "spell-known-item button button-tertiary");
     newSpell.innerHTML = newSpellName_value;
+    var spellMarks = document.createElement("span");
+    spellMarks.setAttribute("class", "spell-marks"); 
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
+      newSpell.appendChild(spellMarks);
       // clear input field
       newSpellName.value = "";
     };

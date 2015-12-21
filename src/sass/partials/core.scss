@@ -208,6 +208,17 @@ hr {
   }
   .spell-level {
     .spells-known {
+      .button {
+        &:link,
+        &:visited {
+          border-color: $gray-13;
+        }
+        &:active,
+        &:focus,
+        &:hover {
+          border-color: $gray-12;
+        }
+      }
       &.prepare-state,
       &.unprepare-state,
       &.cast-state {
@@ -236,31 +247,6 @@ hr {
             background-color: $primary-color-light;
             border-color: $primary-color-dark;
           }
-        }
-      }
-    }
-  }
-  .spells-prepared {
-    margin: 0 0 20px 0;
-    .spell-prepared-item {
-      &.spell-cast {
-        &:link,
-        &:visited,
-        &:focus {
-          color: $gray-06;
-          background-color: transparent;
-          border-color: $gray-09;
-        }
-        &:hover {
-          color: $gray-06;
-          background-color: transparent;
-          border-color: $gray-06;
-        }
-        &:active,
-        &.active {
-          color: $gray-06;
-          background-color: transparent;
-          border-color: transparent;
         }
       }
     }
