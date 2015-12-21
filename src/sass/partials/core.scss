@@ -77,7 +77,8 @@ hr {
     background-color: $gray-alpha-12;
     color: $white;
     border-color: $gray-alpha-08;
-    &:hover {
+    &:hover,
+    &:focus {
       border-color: $primary-color;
     }
   }

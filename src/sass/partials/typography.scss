@@ -268,8 +268,8 @@ table {
 }
 
 ::selection {
+  background-color: $primary-color;
   color: $white;
-  background: $secondary-color-light;
 }
 
 
