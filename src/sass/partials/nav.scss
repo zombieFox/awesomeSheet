@@ -51,7 +51,7 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 10px 0;
-    width: 130px;
+    width: 150px;
     position: absolute;
     top: 60px;
     right: -250px;
@@ -67,9 +67,9 @@ nav {
         height: 1px;
       }
       a {
-        padding: 4px 10px;
+        padding: 6px 14px;
         line-height: 1rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         border-left: 5px solid transparent;
         display: block;
         font-family: $open-sans-bold;
@@ -142,27 +142,20 @@ nav {
 @media (min-width: $screen-sm) {
   nav {
     .nav-list {
-      width: 130px;
-    }
-  }
-}
-
-@media (min-width: $screen-md) {
-  nav {
-    .nav-list {
       width: 180px;
       li {
         &.divide {
           margin: 10px 0;
         }
         a {
-          padding: 6px 14px;
-          line-height: 1.2rem;
-          font-size: 0.9rem;
+          padding: 4px 14px;
+          font-size: 0.7rem;
         }
       }
     }
   }
 }
+
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
