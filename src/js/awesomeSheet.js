@@ -558,6 +558,7 @@ function awesomesheet() {
       if (spellMarks.children.length > 0) {
         addClass(spell, "button-primary");
         removeClass(spell, "button-tertiary");
+        removeClass(spell, "hidable");
       };
     };
     // state unprepare
@@ -568,6 +569,7 @@ function awesomesheet() {
       if (spellMarks.children.length <= 0) {
         removeClass(spell, "button-primary");
         addClass(spell, "button-tertiary");
+        addClass(spell, "hidable");
       };
     };
     // state cast
@@ -626,7 +628,7 @@ function awesomesheet() {
     var newSpell = document.createElement("a");
     newSpell.setAttribute("href", "javascript:void(0)");
     newSpell.setAttribute("data-event-listener", "false");
-    newSpell.setAttribute("class", "spell-known-item button button-tertiary");
+    newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
     newSpell.innerHTML = newSpellName_value;
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "spell-marks");

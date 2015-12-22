@@ -551,6 +551,9 @@ table {
   color: #a0a0a0;
   font-size: 0.8rem; }
 
+.right {
+  float: right; }
+
 .inline-with-input {
   height: 2.5rem;
   line-height: 2.5rem;
@@ -727,12 +730,12 @@ nav {
     border-radius: 3px;
     margin: 0;
     padding: 10px 0;
-    width: 130px;
+    width: 150px;
     position: absolute;
     top: 60px;
     right: -250px;
     opacity: 0;
-    transition: all 0.3s ease-in-out; }
+    transition: all 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
     nav .nav-list li {
       margin: 0;
       padding: 0;
@@ -742,9 +745,9 @@ nav {
         background-color: rgba(0, 0, 0, 0.09);
         height: 1px; }
       nav .nav-list li a {
-        padding: 4px 10px;
+        padding: 6px 14px;
         line-height: 1rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         border-left: 5px solid transparent;
         display: block;
         font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
@@ -778,18 +781,18 @@ nav {
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
   nav.open .nav-toggle .line.top {
     top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(45deg);
-        -ms-transform: translate(-12px, -1px) rotate(45deg);
-            transform: translate(-12px, -1px) rotate(45deg);
+    -webkit-transform: translate(-12px, -1px) rotate(135deg);
+        -ms-transform: translate(-12px, -1px) rotate(135deg);
+            transform: translate(-12px, -1px) rotate(135deg);
     transition-delay: 0.2s; }
   nav.open .nav-toggle .line.middle {
     opacity: 0;
     transition-delay: 0.1s; }
   nav.open .nav-toggle .line.bottom {
     top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(-45deg);
-        -ms-transform: translate(-12px, -1px) rotate(-45deg);
-            transform: translate(-12px, -1px) rotate(-45deg);
+    -webkit-transform: translate(-12px, -1px) rotate(-135deg);
+        -ms-transform: translate(-12px, -1px) rotate(-135deg);
+            transform: translate(-12px, -1px) rotate(-135deg);
     transition-delay: 0.2s; }
   nav.open .nav-list {
     opacity: 1;
@@ -799,17 +802,12 @@ nav {
 ------------------------------------------------- */
 @media (min-width: 550px) {
   nav .nav-list {
-    width: 130px; } }
-
-@media (min-width: 700px) {
-  nav .nav-list {
     width: 180px; }
     nav .nav-list li.divide {
       margin: 10px 0; }
     nav .nav-list li a {
-      padding: 6px 14px;
-      line-height: 1.2rem;
-      font-size: 0.9rem; } }
+      padding: 4px 14px;
+      font-size: 0.7rem; } }
 
 /* grid
 ------------------------------------------------- */
@@ -1244,6 +1242,9 @@ hr {
     position: relative;
     z-index: 1; }
 
+.hidable-block .hidable-toggle {
+  margin: 4rem 0 0 0; }
+
 #basics {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -1289,8 +1290,6 @@ hr {
     margin: 0; }
   #statistics .stat-block .stats input {
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
-  #statistics .stat-block .stats p {
-    color: #ff0055; }
 
 #skills .skill-list thead tr td {
   width: 1%;
@@ -1298,16 +1297,31 @@ hr {
   #skills .skill-list thead tr td:first-child {
     width: 99%; }
 
-#skills .skill-list tr td {
-  color: #464646; }
-  #skills .skill-list tr td .name span {
-    float: right; }
-  #skills .skill-list tr td .ranks,
-  #skills .skill-list tr td .misc {
-    color: #a0a0a0;
-    font-size: 0.8rem; }
-  #skills .skill-list tr td .total {
-    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+#skills .skill-list tr td .name span {
+  float: right; }
+
+#skills .skill-list tr td .ranks,
+#skills .skill-list tr td .misc {
+  color: #a0a0a0;
+  font-size: 0.8rem; }
+
+#skills .skill-list tr td .total {
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+
+#skills[data-all-hidden="true"] .skill-list tr {
+  width: 50%;
+  float: left; }
+  #skills[data-all-hidden="true"] .skill-list tr td {
+    width: 10%;
+    display: inline-block;
+    float: left;
+    margin: 0 10% 0 0;
+    text-align: right; }
+    #skills[data-all-hidden="true"] .skill-list tr td:first-child {
+      width: 80%;
+      display: inline-block;
+      float: left;
+      margin: 0; }
 
 #spells .spell-stats thead td {
   width: 3%; }
@@ -1342,6 +1356,11 @@ hr {
 #spells .spell-level .spells-known .button:active, #spells .spell-level .spells-known .button:focus, #spells .spell-level .spells-known .button:hover {
   border-color: #e8e8e8; }
 
+#spells .spell-level .spells-known .button-primary:link, #spells .spell-level .spells-known .button-primary:visited {
+  color: #ffffff;
+  background-color: #ff0055;
+  border-color: #cc0044; }
+
 #spells .spell-level .spells-known.prepare-state .button-tertiary:link, #spells .spell-level .spells-known.prepare-state .button-tertiary:visited, #spells .spell-level .spells-known.unprepare-state .button-tertiary:link, #spells .spell-level .spells-known.unprepare-state .button-tertiary:visited, #spells .spell-level .spells-known.cast-state .button-tertiary:link, #spells .spell-level .spells-known.cast-state .button-tertiary:visited {
   border-color: #e8e8e8; }
 
@@ -1353,6 +1372,11 @@ hr {
 #spells .spell-level .spells-known.delete-state .button:active, #spells .spell-level .spells-known.delete-state .button:focus, #spells .spell-level .spells-known.delete-state .button:hover {
   color: #ffffff;
   background-color: #ff3276;
+  border-color: #cc0044; }
+
+#spells .spell-level .spells-known.prepare-state.button-primary:link, #spells .spell-level .spells-known.prepare-state.button-primary:visited, #spells .spell-level .spells-known.unprepare-state.button-primary:link, #spells .spell-level .spells-known.unprepare-state.button-primary:visited, #spells .spell-level .spells-known.cast-state.button-primary:link, #spells .spell-level .spells-known.cast-state.button-primary:visited, #spells .spell-level .spells-known.delete-state.button-primary:link, #spells .spell-level .spells-known.delete-state.button-primary:visited {
+  color: #ffffff;
+  background-color: #ff0055;
   border-color: #cc0044; }
 
 #spells .spell-state {
