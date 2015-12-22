@@ -51,7 +51,7 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 10px 0;
-    width: 150px;
+    width: 180px;
     position: absolute;
     top: 60px;
     right: -250px;
@@ -67,8 +67,8 @@ nav {
         height: 1px;
       }
       a {
-        padding: 6px 14px;
-        line-height: 1rem;
+        padding: 0 14px;
+        line-height: 2.5rem;
         font-size: 0.9rem;
         border-left: 5px solid transparent;
         display: block;
@@ -144,11 +144,8 @@ nav {
     .nav-list {
       width: 180px;
       li {
-        &.divide {
-          margin: 10px 0;
-        }
         a {
-          padding: 4px 14px;
+          line-height: 2rem;
           font-size: 0.7rem;
         }
       }

@@ -176,19 +176,25 @@ hr {
   &[data-all-hidden="true"] {
     .skill-list {
       tr {
-        width: 50%;
+        width: 47%;
         float: left;
+        margin: 0 3% 0 0;
+        &:nth-child(even) {
+          margin: 0 0 0 3%;
+        }
         td {
-          width: 10%;
+          padding-bottom: 2px;
+          width: 15%;
           display: inline-block;
           float: left;
-          margin: 0 10% 0 0;
           text-align: right;
           &:first-child {
-            width: 80%;
-            display: inline-block;
+            width: 85%;
             float: left;
-            margin: 0;
+            text-align: left;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
           }
         }
       }
@@ -198,42 +204,23 @@ hr {
 
 // spells
 #spells {
-  .spell-stats {
-    thead {
-      td {
-        width: 3%;
-        &:first-child {
-          width: 1%;
-        }
-      }
-    }
-  }
-  .spells-known,
-  .spells-prepared {
-    .button {
-      float: left;
-      margin: 0 1% 1% 0;
-      width: 49%;
-      text-align: left;
-      overflow: hidden;
-      font-size: 0.9rem;
-      font-family: $open-sans-regular;
-      white-space: normal;
-      &:nth-child(even) {
-        margin: 0 0 1% 0;
-        width: 50%;
-      }
-      [class^="icon-"],
-      [class*=" icon-"] {
-        float: right;
-        margin: 0 0 0 3px;
-        line-height: 1.5rem;
-      }
-    }
-  }
   .spell-level {
     .spells-known {
       .button {
+        margin: 0 0.5% 0.5% 0;
+        width: 49.5%;
+        text-align: left;
+        overflow: hidden;
+        font-size: 0.9rem;
+        font-family: $open-sans-regular;
+        white-space: normal;
+        float: left;
+        [class^="icon-"],
+        [class*=" icon-"] {
+          float: right;
+          margin: 0 0 0 3px;
+          line-height: 1.5rem;
+        }
         &:link,
         &:visited {
           border-color: $gray-13;
@@ -298,7 +285,10 @@ hr {
     }
   }
   .spell-state {
-    margin: 0 0 20px 0;
+    margin: 20px 0 17px 0;
+    .button {
+      margin: 0 3px 3px 0;
+    }
   }
   .new-spell {
     position: relative;
@@ -350,21 +340,6 @@ hr {
   }
   // spells
   #spells {
-    .spells-known,
-    .spells-prepared {
-      .button {
-        margin: 0 1% 1% 0;
-        width: 32.333333333%;
-        &:nth-child(even) {
-          margin: 0 1% 1% 0;
-          width: 32.333333333%;
-        }
-        &:nth-child(3n) {
-          margin: 0 0 1% 0;
-          width: 33.333333333%;
-        }
-      }
-    }
     .new-spell {
       .add-spell {
         top: 17px;
@@ -419,3 +394,34 @@ hr {
 }
 
 @media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {
+  // skills
+  #skills {
+    &[data-all-hidden="true"] {
+      .skill-list {
+        tr {
+          width: 31.3333333333%;
+          float: left;
+          margin: 0 2% 0 0;
+          &:nth-child(even) {
+            margin: 0 2% 0 0;
+          }
+          &:nth-child(3n) {
+            // margin: 0 0 0 1%;
+          }
+        }
+      }
+    }
+  }
+  // spells
+  #spells {
+    .spell-level {
+      .spells-known {
+        .button {
+          width: 32.8%;
+        }
+      }
+    }
+  }
+}
