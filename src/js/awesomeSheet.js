@@ -61,6 +61,8 @@ function awesomesheet() {
   var navList = e(".nav-list");
   var navToggle = e(".nav-toggle");
 
+  var all_hidableBlock = eA(".hidable-block");
+
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -165,6 +167,56 @@ function awesomesheet() {
 
 
   // --------------------------------------------------------------------------
+  // edit block
+  // --------------------------------------------------------------------------
+
+  function addListenerTo_all_hidableBlock() {
+    for (var i = 0; i < all_hidableBlock.length; i++) {
+      var hidableToggle = all_hidableBlock[i].querySelector(".hidable-toggle");
+      hidableToggle.addEventListener("click", function() {
+        toggleAllHidable(this);
+      }, false);
+    };
+  };
+
+  function toggleAllHidable(element) {
+    buttonLable = element.innerHTML;
+    icon = element.querySelector(".icon");
+    text = element.querySelector(".text");
+    hidableBlock = getClosest(element, ".hidable-block");
+    all_hidableEmpty = hidableBlock.querySelectorAll(".hidable-empty");
+    all_hidable = hidableBlock.querySelectorAll(".hidable");
+    // if hide button data all hidden is true remove all hidden classes and change date hidden to false
+    if (hidableBlock.dataset.allHidden == "true") {
+      for (var i = 0; i < all_hidableEmpty.length; i++) {
+        removeClass(all_hidableEmpty[i], "hidden");
+      };
+      for (var i = 0; i < all_hidable.length; i++) {
+        removeClass(all_hidable[i], "hidden");
+      };
+      hidableBlock.dataset.allHidden = "false";
+      toggleClass(icon, "icon-unfold-less");
+      toggleClass(icon, "icon-unfold-more");
+      text.innerHTML = "Hide Fields";
+    // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
+    } else if (hidableBlock.dataset.allHidden == "false") {
+      for (var i = 0; i < all_hidableEmpty.length; i++) {
+        var input = all_hidableEmpty[i].querySelector(".input-field");
+        if (input.value == null || input.value == "") {
+          addClass(all_hidableEmpty[i], "hidden");
+        };
+      };
+      for (var i = 0; i < all_hidable.length; i++) {
+        addClass(all_hidable[i], "hidden");
+      };
+      hidableBlock.dataset.allHidden = "true";
+      toggleClass(icon, "icon-unfold-less");
+      toggleClass(icon, "icon-unfold-more");
+      text.innerHTML = "Show All";
+    };
+  };
+
+  // --------------------------------------------------------------------------
   // stats
   // --------------------------------------------------------------------------
 
@@ -207,7 +259,7 @@ function awesomesheet() {
   };
 
   // add listeners to stats
-  function addListenerTo_stats() {
+  function addListenerTo_all_stats() {
     var score = eA(".stats .score");
     var tempScore = eA(".stats .temp-score");
     // primary scores
@@ -216,7 +268,6 @@ function awesomesheet() {
         update_scoreModifiers();
         update_skillTotal();
         update_inputTotalBlock();
-        // update_ac();
         store_stats();
       }, false);
     };
@@ -227,7 +278,6 @@ function awesomesheet() {
         update_scoreModifiers();
         update_skillTotal();
         update_inputTotalBlock();
-        // update_ac();
         store_stats();
       }, false);
     };
@@ -579,7 +629,7 @@ function awesomesheet() {
     newSpell.setAttribute("class", "spell-known-item button button-tertiary");
     newSpell.innerHTML = newSpellName_value;
     var spellMarks = document.createElement("span");
-    spellMarks.setAttribute("class", "spell-marks"); 
+    spellMarks.setAttribute("class", "spell-marks");
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
@@ -739,7 +789,7 @@ function awesomesheet() {
   };
 
   // add listeners to skills
-  function addListenerTo_skillInputs() {
+  function addListenerTo_all_skillInputs() {
     var skillRanks = eA(".ranks.skill-value");
     var skillMisc = eA(".misc.skill-value");
     for (var i = 0; i < skillRanks.length; i++) {
@@ -1087,26 +1137,22 @@ function awesomesheet() {
   read_inputBlock();
   read_skills();
   read_stats();
-  // read_ac();
-  update_removeSpellButton();
   changeData_all_spellKnownItem();
-  // changeData_all_spellPreparedItem();
-  // addListenerTo_all_spellPreparedItem();
   addListenerTo_all_spellKnownItem();
-  addListenerTo_stats();
-  addListenerTo_skillInputs();
+  addListenerTo_all_stats();
+  addListenerTo_all_skillInputs();
   addListenerTo_all_addSpell();
   addListenerTo_all_addSpell_input();
   addListenerTo_all_prepareSpell();
   addListenerTo_all_unprepareSpell();
   addListenerTo_all_castSpell();
   addListenerTo_all_removeSpell();
-  // addListenerTo_acInputs();
+  addListenerTo_all_hidableBlock();
   addListenerTo_all_textareass();
   addListenerTo_all_inputBlock();
+  update_removeSpellButton();
   update_scoreModifiers();
   update_skillTotal();
-  // update_ac();
   update_inputBlock_focus();
   update_inputTotalBlock();
 
