@@ -56,7 +56,7 @@ nav {
     top: 60px;
     right: -250px;
     opacity: 0;
-    transition: all $transition-bounce-slow;
+    transition: all $transition-ease-medium;
     li {
       margin: 0;
       padding: 0;
@@ -131,6 +131,7 @@ nav {
     .nav-list {
       opacity: 1;
       right: 0;
+      transition: all $transition-bounce-slow;
     }
   }
 }

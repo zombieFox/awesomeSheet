@@ -117,12 +117,21 @@ textarea {
 }
 
 input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    opacity: 0;
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+input {
   &[type="email"],
   &[type="number"],
   &[type="search"],
   &[type="text"],
   &[type="tel"],
-  &[type="url"],
   &[type="password"] {
     background-color: $gray-13;
     font-family: $open-sans-regular;
@@ -237,7 +246,6 @@ table {
   color: $gray-08;
   font-size: $small-text;
 }
-
 
 .right {
   float: right;

@@ -180,19 +180,23 @@ function awesomesheet() {
   };
 
   function toggleAllHidable(element) {
-    buttonLable = element.innerHTML;
-    icon = element.querySelector(".icon");
-    text = element.querySelector(".text");
-    hidableBlock = getClosest(element, ".hidable-block");
-    all_hidableEmpty = hidableBlock.querySelectorAll(".hidable-empty");
-    all_hidable = hidableBlock.querySelectorAll(".hidable");
+    var buttonLable = element.innerHTML;
+    var icon = element.querySelector(".icon");
+    var text = element.querySelector(".text");
+    var hidableBlock = getClosest(element, ".hidable-block");
+    var all_hidable = hidableBlock.querySelectorAll(".hidable");
+    var all_hidableOnEmptyInput = hidableBlock.querySelectorAll(".hidable-on-empty-input");
+    var all_hideableOnEmptyTextarea = hidableBlock.querySelectorAll(".hidable-on-empty-textarea");
     // if hide button data all hidden is true remove all hidden classes and change date hidden to false
     if (hidableBlock.dataset.allHidden == "true") {
-      for (var i = 0; i < all_hidableEmpty.length; i++) {
-        removeClass(all_hidableEmpty[i], "hidden");
-      };
       for (var i = 0; i < all_hidable.length; i++) {
         removeClass(all_hidable[i], "hidden");
+      };
+      for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
+        removeClass(all_hidableOnEmptyInput[i], "hidden");
+      };
+      for (var i = 0; i < all_hideableOnEmptyTextarea.length; i++) {
+        removeClass(all_hideableOnEmptyTextarea[i], "hidden");
       };
       hidableBlock.dataset.allHidden = "false";
       toggleClass(icon, "icon-unfold-less");
@@ -200,14 +204,20 @@ function awesomesheet() {
       text.innerHTML = "Hide Fields";
     // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
     } else if (hidableBlock.dataset.allHidden == "false") {
-      for (var i = 0; i < all_hidableEmpty.length; i++) {
-        var input = all_hidableEmpty[i].querySelector(".input-field");
+      for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
+        var input = all_hidableOnEmptyInput[i].querySelector(".input-field");
         if (input.value == null || input.value == "") {
-          addClass(all_hidableEmpty[i], "hidden");
+          addClass(all_hidableOnEmptyInput[i], "hidden");
         };
       };
       for (var i = 0; i < all_hidable.length; i++) {
         addClass(all_hidable[i], "hidden");
+      };
+      for (var i = 0; i < all_hideableOnEmptyTextarea.length; i++) {
+        var textarea = all_hideableOnEmptyTextarea[i].querySelector(".textarea");
+        if (textarea.innerHTML == null || textarea.innerHTML == "") {
+          addClass(all_hideableOnEmptyTextarea[i], "hidden");
+        };
       };
       hidableBlock.dataset.allHidden = "true";
       toggleClass(icon, "icon-unfold-less");
@@ -694,7 +704,7 @@ function awesomesheet() {
   };
 
   // add listeners to textareas
-  function addListenerTo_all_textareass() {
+  function addListenerTo_all_textareas() {
     for (var i = 0; i < all_textareas.length; i++) {
       all_textareas[i].addEventListener("input", function() {
         store_textareas(this);
@@ -1150,7 +1160,7 @@ function awesomesheet() {
   addListenerTo_all_castSpell();
   addListenerTo_all_removeSpell();
   addListenerTo_all_hidableBlock();
-  addListenerTo_all_textareass();
+  addListenerTo_all_textareas();
   addListenerTo_all_inputBlock();
   update_removeSpellButton();
   update_scoreModifiers();
