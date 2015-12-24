@@ -141,6 +141,32 @@ hr {
   }
 }
 
+// equipment
+#equipment {
+  .consumable-counts {
+    margin: 0 0 10px 0;
+    .check-group {
+      width: 6rem;
+      height: 4.5rem;
+      margin: 0 0.5rem 0.5rem 0;
+      float: left;
+      .icon-check-box-checked,
+      .icon-check-box-unchecked {
+        margin: 0;
+        float: left;
+        font-size: 1.5rem;
+        color: $primary-color;
+        &:nth-child(4n) {
+          clear: left;
+        }
+      }
+      .icon-check-box-unchecked {
+        color: $gray-10;
+      }
+    }
+  }
+}
+
 // skills
 #skills {
   .skill-list {
@@ -372,6 +398,21 @@ hr {
   .sheet {
     width: 75%;
     float: right;
+  }
+  // equipment
+  #equipment {
+    .consumable-counts {
+      .check-group {
+        width: 7.5rem;
+        height: 3rem;
+        .icon-check-box-checked,
+        .icon-check-box-unchecked {
+          &:nth-child(4n) {
+            clear: none;
+          }
+        }
+      }
+    }
   }
   // defense
   #defense {
