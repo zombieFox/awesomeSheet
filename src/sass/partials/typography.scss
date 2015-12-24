@@ -117,16 +117,6 @@ textarea {
 }
 
 input {
-  &[type="checkbox"],
-  &[type="radio"] {
-    opacity: 0;
-    &:before {
-      opacity: 1;
-    }
-  }
-}
-
-input {
   &[type="email"],
   &[type="number"],
   &[type="search"],

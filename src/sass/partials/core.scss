@@ -141,6 +141,37 @@ hr {
   }
 }
 
+#equipment {
+  .consumable-counts {
+    margin: 0 0 20px 0;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      margin: 0 0.2rem 0.2rem 0;
+      float: left;
+      font-size: 1.2rem;
+      color: $gray-05;
+    }
+    .check-group {
+      border-top: 4px solid red;
+      min-width: 10px;
+      background: #EAEAEA;
+      max-width: 63px;
+      margin: 0 1rem 1rem 0;
+      float: left;
+      // [class^="icon-"],
+      // [class*=" icon-"] {
+      //   margin: 0 0.2rem 0.2rem 0;
+      //   float: left;
+      //   font-size: 1.2rem;
+      //   color: $gray-05;
+      //   &:nth-child(10n) {
+      //     margin-left: 1.4rem;
+      //   }
+      // }
+    }
+  }
+}
+
 // skills
 #skills {
   .skill-list {

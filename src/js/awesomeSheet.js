@@ -63,6 +63,8 @@ function awesomesheet() {
 
   var all_hidableBlock = eA(".hidable-block");
 
+  var all_consumableBlock = eA(".consumable-block");
+
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -165,9 +167,104 @@ function awesomesheet() {
     };
   });
 
+  // --------------------------------------------------------------------------
+  // hidable block
+  // --------------------------------------------------------------------------
+
+  function addListenerTo_all_consumableBlock() {
+    for (var i = 0; i < all_consumableBlock.length; i++) {
+      var consumableTotal = all_consumableBlock[i].querySelector(".consumable-total");
+      consumableTotal.addEventListener("input", function() {
+        minMaxCountLimit(this);
+        addConsumableChecks(this);
+      }, false);
+    };
+  };
+
+  function minMaxCountLimit(element) {
+    var consumableBlock = getClosest(element, ".consumable-block");
+    var consumableTotal = consumableBlock.querySelector(".consumable-total");
+    if (consumableTotal.value <= 0) {
+      consumableTotal.value = "";
+    } else if (consumableTotal.value >= 100) {
+      consumableTotal.value = 100;
+    };
+  };
+
+  function addConsumableChecks(element) {
+    var consumableBlock = getClosest(element, ".consumable-block");
+    var consumableCounts = consumableBlock.querySelector(".consumable-counts");
+    var consumableTotal_value = parseInt(element.value, 10) || 0;
+    var checkGroup = consumableCounts.querySelector(".check-group");
+    var all_checks = consumableCounts.querySelectorAll(".check").length;
+
+    function addCheckGroup() {
+      var checkGroup = document.createElement("div");
+      checkGroup.setAttribute("class", "check-group");
+      // consumableCounts.appendChild(checkGroup);
+      consumableCounts.insertBefore(checkGroup, consumableCounts.firstChild);
+    };
+
+    // if no check group is present and the input value is more than 0 make a check group
+    if (!checkGroup) {
+      if (consumableTotal_value > 0) {
+        addCheckGroup();
+      };
+    };
+
+    // while all the checks in the block is less than the consumable value add a check to the check group
+    while (all_checks < consumableTotal_value) {
+      var checkGroup = consumableCounts.querySelector(".check-group");
+      // if check group children is more than or equal to 10 make a new check group and make that the new target
+      if (checkGroup.children.length >= 10) {
+        addCheckGroup();
+        checkGroup = consumableCounts.querySelector(".check-group");
+      };
+      // make a check
+      var check = document.createElement("span");
+      check.setAttribute("class", "check icon-check-box-checked");
+      // add check to check group
+      checkGroup.insertBefore(check, checkGroup.firstChild);
+      // add listner to new check
+      check.addEventListener("click", function() {
+        toggleCheck(this);
+      }, false);
+      all_checks++;
+    };
+
+    // while all the checks in the block is more than the consumable value remove a check to the check group
+    while (all_checks > consumableTotal_value) {
+      var checkGroup = consumableCounts.querySelector(".check-group");
+      // if check group children is more than 0 remove a check
+      if (checkGroup.children.length > 0) {
+        checkGroup.removeChild(checkGroup.firstElementChild);
+      };
+      // if check group children is less that or equal to 0 remove check group and set new check group as tatget  if it exists
+      if (checkGroup.children.length <= 0) {
+        checkGroup.remove();
+        if (all_checks > 0) {
+          checkGroup = consumableCounts.querySelector(".check-group");
+        };
+      };
+      all_checks--;
+    };
+
+  };
+
+  function toggleCheck(element) {
+    toggleClass(element, "icon-check-box-checked");
+    toggleClass(element, "icon-check-box-unchecked");
+  };
+
+  function update_consumableTotal() {
+    var all_consumableTotal = eA(".consumable-total");
+    for (var i = 0; i < all_consumableTotal.length; i++) {
+      addConsumableChecks(all_consumableTotal[i]);
+    };
+  };
 
   // --------------------------------------------------------------------------
-  // edit block
+  // hidable block
   // --------------------------------------------------------------------------
 
   function addListenerTo_all_hidableBlock() {
@@ -202,7 +299,7 @@ function awesomesheet() {
       toggleClass(icon, "icon-unfold-less");
       toggleClass(icon, "icon-unfold-more");
       text.innerHTML = "Hide Fields";
-    // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
+      // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
     } else if (hidableBlock.dataset.allHidden == "false") {
       for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
         var input = all_hidableOnEmptyInput[i].querySelector(".input-field");
@@ -585,7 +682,7 @@ function awesomesheet() {
     // state cast
     if (castState == "true") {
       var all_spellsMarks = spellMarks.children;
-      var allSpellsCast = false;
+      var all_spellsCast = false;
       for (var i = 0; i < all_spellsMarks.length; i++) {
         if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
           toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
@@ -596,13 +693,13 @@ function awesomesheet() {
       // if no checked icons can be found change the var allSpellCast to true
       for (var i = 0; i < all_spellsMarks.length; i++) {
         if (all_spellsMarks[i].classList.contains("icon-radio-button-unchecked")) {
-          allSpellsCast = true;
+          all_spellsCast = true;
         } else {
-          allSpellsCast = false;
+          all_spellsCast = false;
         };
       };
       // allSpellCast to true change spell button class
-      if (allSpellsCast) {
+      if (all_spellsCast) {
         removeClass(spell, "button-primary");
         addClass(spell, "button-tertiary");
       };
@@ -1162,11 +1259,13 @@ function awesomesheet() {
   addListenerTo_all_hidableBlock();
   addListenerTo_all_textareas();
   addListenerTo_all_inputBlock();
+  addListenerTo_all_consumableBlock();
   update_removeSpellButton();
   update_scoreModifiers();
   update_skillTotal();
   update_inputBlock_focus();
   update_inputTotalBlock();
+  update_consumableTotal();
 
 };
 
