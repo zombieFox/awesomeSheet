@@ -63,6 +63,8 @@ function awesomesheet() {
 
   var all_hidableBlock = eA(".hidable-block");
 
+  var all_cloneBlock = eA(".clone-block");
+
   var all_consumableBlock = eA(".consumable-block");
 
   // --------------------------------------------------------------------------
@@ -168,7 +170,7 @@ function awesomesheet() {
   });
 
   // --------------------------------------------------------------------------
-  // hidable block
+  // consumable block
   // --------------------------------------------------------------------------
 
   function addListenerTo_all_consumableBlock() {
@@ -222,7 +224,8 @@ function awesomesheet() {
       };
       // make a check
       var check = document.createElement("span");
-      check.setAttribute("class", "check icon-check-box-checked");
+      check.setAttribute("class", "check icon-radio-button-checked");
+      check.setAttribute("tabindex", "1");
       // add check to check group
       checkGroup.appendChild(check);
       // add listner to new check
@@ -252,8 +255,9 @@ function awesomesheet() {
   };
 
   function toggleCheck(element) {
-    toggleClass(element, "icon-check-box-checked");
-    toggleClass(element, "icon-check-box-unchecked");
+    toggleClass(element, "icon-radio-button-checked");
+    toggleClass(element, "icon-radio-button-unchecked");
+    toggleClass(element, "active");
   };
 
   function update_consumableTotal() {
@@ -261,6 +265,63 @@ function awesomesheet() {
     for (var i = 0; i < all_consumableTotal.length; i++) {
       addConsumableChecks(all_consumableTotal[i]);
     };
+  };
+
+  // --------------------------------------------------------------------------
+  // copy 
+  // --------------------------------------------------------------------------
+
+  function addListenerTo_all_cloneBlock() {
+    for (var i = 0; i < all_cloneBlock.length; i++) {
+      var cloneAdd = all_cloneBlock[i].querySelector(".clone-add");
+      var cloneRemove = all_cloneBlock[i].querySelector(".clone-remove");
+      cloneAdd.addEventListener("click", function() {
+        cloneBlockAdd(this);
+      }, false);
+      cloneRemove.addEventListener("click", function() {
+        cloneBlockRemove(this);
+      }, false);
+    };
+  };
+
+
+  function cloneBlockAdd(element) {
+    console.log("add hit");
+    var cloneBlock = getClosest(element, ".clone-block");
+    var cloneControls = cloneBlock.querySelector(".clone-controls");
+    var toClone = cloneBlock.querySelectorAll(".consumable-block");
+    // var count = parseInt(toClone.dataset.cloneCount, 10);
+    var count = toClone.length + 1;
+    var newConsumable = 
+        '<div class="col-xs-8 col-sm-10">' +
+          '<div class="input-block">' +
+            '<label class="input-label" for="input-consumable-' + count + '">Consumable</label>' +
+            '<input class="input-field" id="input-consumable-' + count + '" type="text">' +
+          '</div>' +
+        '</div>' +
+        '<div class="col-xs-4 col-sm-2">' +
+          '<div class="input-block">' +
+            '<label class="input-label" for="input-consumable-' + count + '-total-cahrges">Total</label>' +
+            '<input class="input-field consumable-total" id="input-consumable-' + count + '-total-cahrges" type="number">' +
+          '</div>' +
+        '</div>' +
+        '<div class="col-xs-12">' +
+          '<div class="consumable-counts clearfix"></div>' +
+        '</div>';
+    // make a node
+    var newNode = document.createElement("div");
+    newNode.setAttribute("class", "consumable-block");
+    newNode.setAttribute("data-clone-count", count);
+    cloneBlock.insertBefore(newNode, cloneControls);
+    newNode.innerHTML = newConsumable;
+    
+    addListenerTo_all_consumableBlock();
+
+    update_consumableTotal();
+  };
+
+  function cloneBlockRemove(element) {
+    console.log("remove hit");
   };
 
   // --------------------------------------------------------------------------
@@ -1260,6 +1321,7 @@ function awesomesheet() {
   addListenerTo_all_textareas();
   addListenerTo_all_inputBlock();
   addListenerTo_all_consumableBlock();
+  addListenerTo_all_cloneBlock();
   update_removeSpellButton();
   update_scoreModifiers();
   update_skillTotal();
