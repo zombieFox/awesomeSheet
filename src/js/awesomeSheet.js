@@ -201,8 +201,8 @@ function awesomesheet() {
     function addCheckGroup() {
       var checkGroup = document.createElement("div");
       checkGroup.setAttribute("class", "check-group");
-      // consumableCounts.appendChild(checkGroup);
-      consumableCounts.insertBefore(checkGroup, consumableCounts.firstChild);
+      consumableCounts.appendChild(checkGroup);
+      // consumableCounts.insertBefore(checkGroup, consumableCounts.firstChild);
     };
 
     // if no check group is present and the input value is more than 0 make a check group
@@ -214,17 +214,17 @@ function awesomesheet() {
 
     // while all the checks in the block is less than the consumable value add a check to the check group
     while (all_checks < consumableTotal_value) {
-      var checkGroup = consumableCounts.querySelector(".check-group");
+      var checkGroup = consumableCounts.lastChild;
       // if check group children is more than or equal to 10 make a new check group and make that the new target
       if (checkGroup.children.length >= 10) {
         addCheckGroup();
-        checkGroup = consumableCounts.querySelector(".check-group");
+        checkGroup = consumableCounts.lastChild;
       };
       // make a check
       var check = document.createElement("span");
       check.setAttribute("class", "check icon-check-box-checked");
       // add check to check group
-      checkGroup.insertBefore(check, checkGroup.firstChild);
+      checkGroup.appendChild(check);
       // add listner to new check
       check.addEventListener("click", function() {
         toggleCheck(this);
@@ -234,10 +234,10 @@ function awesomesheet() {
 
     // while all the checks in the block is more than the consumable value remove a check to the check group
     while (all_checks > consumableTotal_value) {
-      var checkGroup = consumableCounts.querySelector(".check-group");
+      var checkGroup = consumableCounts.lastChild;
       // if check group children is more than 0 remove a check
       if (checkGroup.children.length > 0) {
-        checkGroup.removeChild(checkGroup.firstElementChild);
+        checkGroup.removeChild(checkGroup.lastChild);
       };
       // if check group children is less that or equal to 0 remove check group and set new check group as tatget  if it exists
       if (checkGroup.children.length <= 0) {
