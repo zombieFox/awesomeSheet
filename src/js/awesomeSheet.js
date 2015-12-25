@@ -268,46 +268,42 @@ function awesomesheet() {
   // copy 
   // --------------------------------------------------------------------------
 
+  // add listners to all clone block controls
   function addListenerTo_all_cloneBlock() {
     for (var i = 0; i < all_cloneBlock.length; i++) {
       var cloneAdd = all_cloneBlock[i].querySelector(".clone-add");
       var cloneRemove = all_cloneBlock[i].querySelector(".clone-remove");
       cloneAdd.addEventListener("click", function() {
-        cloneBlockAdd(".consumable-block");
+        cloneBlockAdd(".consumables");
         // cloneBlockAdd(this);
       }, false);
       cloneRemove.addEventListener("click", function() {
-        cloneBlockRemove(this);
+        cloneBlockRemove(".consumables");
       }, false);
     };
   };
 
+  // clone a block where needed
   function cloneBlockAdd(blockToClone) {
-    console.log("clone add");
-
-    var toClone = e(blockToClone);
-    // console.log(toClone);
-
-    var cloneBlock = getClosest(toClone, ".clone-block");
-    // console.log(cloneBlock);
-
+    // find clone block root
+    var cloneBlock = e(blockToClone);
+    // find clone controls
     var cloneControls = cloneBlock.querySelector(".clone-controls");
-    // console.log(cloneControls);
-
+    // count how many elements already exist
     var blockCount = cloneBlock.querySelectorAll(".consumable-block").length;
-    // console.log("number of blocks already on page = " + blockCount);
-
-    localStoreAdd("clone-consumable-count", blockCount);
-
+    // console.log(blockCount);
+    // advance count
     blockCount++;
-    console.log("new block count is = " + blockCount);
-
+    // console.log(blockCount);
+    // log count in local storage
+    localStoreAdd("clone-consumable-count", blockCount);
+    // create div wrapper element
     var newNode = document.createElement("div");
     newNode.setAttribute("class", "consumable-block");
     newNode.setAttribute("data-clone-count", blockCount);
+    // insert div
     cloneBlock.insertBefore(newNode, cloneControls);
-    console.log("new node is = " + newNode);
-
+    // what to go inside the clone
     var newConsumable =
       '<div class="col-xs-9">' +
       '<div class="input-block">' +
@@ -324,12 +320,12 @@ function awesomesheet() {
       '<div class="col-xs-12">' +
       '<div class="consumable-counts clearfix"></div>' +
       '</div>';
-
+    // add div contents
     newNode.innerHTML = newConsumable;
-
+    // find inputs
     var newNode_inputConsumableName = newNode.querySelector('#input-consumable-' + blockCount);
     var newNode_inputConsumableTotal = newNode.querySelector('#input-consumable-' + blockCount + '-total');
-
+    // add listners to inputs
     newNode_inputConsumableName.addEventListener("input", function() {
       inputBlock_focus(newNode_inputConsumableName);
       store_inputBlock(newNode_inputConsumableName);
@@ -362,14 +358,28 @@ function awesomesheet() {
     }, false);
   };
 
-  function cloneBlockRemove(element) {
-    console.log("remove hit");
+  function cloneBlockRemove(blockToRemove) {
+    // find clone block root
+    var cloneBlock = e(blockToRemove);
+    // find clone controls
+    var cloneControls = cloneBlock.querySelector(".clone-controls");
+    // count how many elements already exist
+    var blockCount = cloneBlock.querySelectorAll(".consumable-block").length;
+    // reduce count
+    if (cloneControls.previousSibling) {
+      cloneControls.previousSibling.remove();
+      blockCount--;
+      localStoreAdd("clone-consumable-count", blockCount);
+      if (localStoreRead("clone-consumable-count") <= "0") {
+        localStoreAdd("clone-consumable-count", "");
+      };
+    };
   };
 
   function update_cloneBlocks() {
     var cloneCount = localStoreRead("clone-consumable-count");
     for (var i = 0; i < cloneCount; i++) {
-      cloneBlockAdd(".consumable-block");
+      cloneBlockAdd(".consumables");
     };
   };
 
@@ -781,7 +791,7 @@ function awesomesheet() {
     // state unprepare
     if (unprepareState == "true") {
       if (spellMarks.firstChild) {
-        spellMarks.firstChild.remove()
+        spellMarks.firstChild.remove();
       };
       if (spellMarks.children.length <= 0) {
         removeClass(spell, "button-primary");
