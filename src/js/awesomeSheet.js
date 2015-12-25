@@ -450,12 +450,8 @@ function awesomesheet() {
   // change mod
   function changeMod(element, field) {
     var stat = checkValue(element);
-    // console.log("stat = " + stat);
     var modifier = calculateModifer(element);
-    // console.log("modifier = " + modifier);
     field.innerHTML = modifier;
-    // console.log("field = ");
-    // console.log(field);
   };
 
   // calculate mod
