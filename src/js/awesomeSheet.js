@@ -44,9 +44,6 @@ function awesomesheet() {
 
   var spellCheck = eA(".spell-check");
 
-  var all_inputTotalBlock = eA(".input-total-block");
-  var all_inputBlock = eA(".input-block");
-
   var all_textareas = eA(".textarea");
 
   var all_skill_inputs = eA(".skill-value");
@@ -276,7 +273,8 @@ function awesomesheet() {
       var cloneAdd = all_cloneBlock[i].querySelector(".clone-add");
       var cloneRemove = all_cloneBlock[i].querySelector(".clone-remove");
       cloneAdd.addEventListener("click", function() {
-        cloneBlockAdd(this);
+        cloneBlockAdd(".consumable-block");
+        // cloneBlockAdd(this);
       }, false);
       cloneRemove.addEventListener("click", function() {
         cloneBlockRemove(this);
@@ -284,44 +282,95 @@ function awesomesheet() {
     };
   };
 
+  function cloneBlockAdd(blockToClone) {
+    console.log("clone add");
 
-  function cloneBlockAdd(element) {
-    console.log("add hit");
-    var cloneBlock = getClosest(element, ".clone-block");
+    var toClone = e(blockToClone);
+    // console.log(toClone);
+
+    var cloneBlock = getClosest(toClone, ".clone-block");
+    // console.log(cloneBlock);
+
     var cloneControls = cloneBlock.querySelector(".clone-controls");
-    var toClone = cloneBlock.querySelectorAll(".consumable-block");
-    // var count = parseInt(toClone.dataset.cloneCount, 10);
-    var count = toClone.length + 1;
-    var newConsumable = 
-        '<div class="col-xs-8 col-sm-10">' +
-          '<div class="input-block">' +
-            '<label class="input-label" for="input-consumable-' + count + '">Consumable</label>' +
-            '<input class="input-field" id="input-consumable-' + count + '" type="text">' +
-          '</div>' +
-        '</div>' +
-        '<div class="col-xs-4 col-sm-2">' +
-          '<div class="input-block">' +
-            '<label class="input-label" for="input-consumable-' + count + '-total-cahrges">Total</label>' +
-            '<input class="input-field consumable-total" id="input-consumable-' + count + '-total-cahrges" type="number">' +
-          '</div>' +
-        '</div>' +
-        '<div class="col-xs-12">' +
-          '<div class="consumable-counts clearfix"></div>' +
-        '</div>';
-    // make a node
+    // console.log(cloneControls);
+
+    var blockCount = cloneBlock.querySelectorAll(".consumable-block").length;
+    // console.log("number of blocks already on page = " + blockCount);
+
+    localStoreAdd("clone-consumable-count", blockCount);
+
+    blockCount++;
+    console.log("new block count is = " + blockCount);
+
     var newNode = document.createElement("div");
     newNode.setAttribute("class", "consumable-block");
-    newNode.setAttribute("data-clone-count", count);
+    newNode.setAttribute("data-clone-count", blockCount);
     cloneBlock.insertBefore(newNode, cloneControls);
-    newNode.innerHTML = newConsumable;
-    
-    addListenerTo_all_consumableBlock();
+    console.log("new node is = " + newNode);
 
-    update_consumableTotal();
+    var newConsumable =
+      '<div class="col-xs-9">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-consumable-' + blockCount + '">Item</label>' +
+      '<input class="input-field" id="input-consumable-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-consumable-' + blockCount + '-total">Ammount</label>' +
+      '<input class="input-field consumable-total" id="input-consumable-' + blockCount + '-total" type="number">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-12">' +
+      '<div class="consumable-counts clearfix"></div>' +
+      '</div>';
+
+    newNode.innerHTML = newConsumable;
+
+    var newNode_inputConsumableName = newNode.querySelector('#input-consumable-' + blockCount);
+    var newNode_inputConsumableTotal = newNode.querySelector('#input-consumable-' + blockCount + '-total');
+
+    newNode_inputConsumableName.addEventListener("input", function() {
+      inputBlock_focus(newNode_inputConsumableName);
+      store_inputBlock(newNode_inputConsumableName);
+    }, false);
+    newNode_inputConsumableName.addEventListener("focus", function() {
+      inputBlock_focus(newNode_inputConsumableName);
+      store_inputBlock(newNode_inputConsumableName);
+    }, false);
+    newNode_inputConsumableName.addEventListener("blur", function() {
+      inputBlock_focus(newNode_inputConsumableName);
+      store_inputBlock(newNode_inputConsumableName);
+    }, false);
+    newNode_inputConsumableTotal.addEventListener("input", function() {
+      inputBlock_focus(newNode_inputConsumableTotal);
+      store_inputBlock(newNode_inputConsumableTotal);
+      minMaxCountLimit(newNode_inputConsumableTotal);
+      addConsumableChecks(newNode_inputConsumableTotal);
+    }, false);
+    newNode_inputConsumableTotal.addEventListener("focus", function() {
+      inputBlock_focus(newNode_inputConsumableTotal);
+      store_inputBlock(newNode_inputConsumableTotal);
+      minMaxCountLimit(newNode_inputConsumableTotal);
+      addConsumableChecks(newNode_inputConsumableTotal);
+    }, false);
+    newNode_inputConsumableTotal.addEventListener("blur", function() {
+      inputBlock_focus(newNode_inputConsumableTotal);
+      store_inputBlock(newNode_inputConsumableTotal);
+      minMaxCountLimit(newNode_inputConsumableTotal);
+      addConsumableChecks(newNode_inputConsumableTotal);
+    }, false);
   };
 
   function cloneBlockRemove(element) {
     console.log("remove hit");
+  };
+
+  function update_cloneBlocks() {
+    var cloneCount = localStoreRead("clone-consumable-count");
+    for (var i = 0; i < cloneCount; i++) {
+      cloneBlockAdd(".consumable-block");
+    };
   };
 
   // --------------------------------------------------------------------------
@@ -453,57 +502,57 @@ function awesomesheet() {
 
   // store stats
   function store_stats() {
-    localStoreAdd("stats_str", stats_strScore.value);
-    localStoreAdd("stats_dex", stats_dexScore.value);
-    localStoreAdd("stats_con", stats_conScore.value);
-    localStoreAdd("stats_int", stats_intScore.value);
-    localStoreAdd("stats_wis", stats_wisScore.value);
-    localStoreAdd("stats_cha", stats_chaScore.value);
-    localStoreAdd("stats_strTemp", stats_strTempScore.value);
-    localStoreAdd("stats_dexTemp", stats_dexTempScore.value);
-    localStoreAdd("stats_conTemp", stats_conTempScore.value);
-    localStoreAdd("stats_intTemp", stats_intTempScore.value);
-    localStoreAdd("stats_wisTemp", stats_wisTempScore.value);
-    localStoreAdd("stats_chaTemp", stats_chaTempScore.value);
+    localStoreAdd("stats-str", stats_strScore.value);
+    localStoreAdd("stats-dex", stats_dexScore.value);
+    localStoreAdd("stats-con", stats_conScore.value);
+    localStoreAdd("stats-int", stats_intScore.value);
+    localStoreAdd("stats-wis", stats_wisScore.value);
+    localStoreAdd("stats-cha", stats_chaScore.value);
+    localStoreAdd("stats-strTemp", stats_strTempScore.value);
+    localStoreAdd("stats-dexTemp", stats_dexTempScore.value);
+    localStoreAdd("stats-conTemp", stats_conTempScore.value);
+    localStoreAdd("stats-intTemp", stats_intTempScore.value);
+    localStoreAdd("stats-wisTemp", stats_wisTempScore.value);
+    localStoreAdd("stats-chaTemp", stats_chaTempScore.value);
   };
 
   // read stats
   function read_stats() {
-    if (localStoreRead("stats_str")) {
-      stats_strScore.value = localStoreRead("stats_str");
+    if (localStoreRead("stats-str")) {
+      stats_strScore.value = localStoreRead("stats-str");
     };
-    if (localStoreRead("stats_dex")) {
-      stats_dexScore.value = localStoreRead("stats_dex");
+    if (localStoreRead("stats-dex")) {
+      stats_dexScore.value = localStoreRead("stats-dex");
     };
-    if (localStoreRead("stats_con")) {
-      stats_conScore.value = localStoreRead("stats_con");
+    if (localStoreRead("stats-con")) {
+      stats_conScore.value = localStoreRead("stats-con");
     };
-    if (localStoreRead("stats_int")) {
-      stats_intScore.value = localStoreRead("stats_int");
+    if (localStoreRead("stats-int")) {
+      stats_intScore.value = localStoreRead("stats-int");
     };
-    if (localStoreRead("stats_wis")) {
-      stats_wisScore.value = localStoreRead("stats_wis");
+    if (localStoreRead("stats-wis")) {
+      stats_wisScore.value = localStoreRead("stats-wis");
     };
-    if (localStoreRead("stats_cha")) {
-      stats_chaScore.value = localStoreRead("stats_cha");
+    if (localStoreRead("stats-cha")) {
+      stats_chaScore.value = localStoreRead("stats-cha");
     };
-    if (localStoreRead("stats_strTemp")) {
-      stats_strTempScore.value = localStoreRead("stats_strTemp");
+    if (localStoreRead("stats-strTemp")) {
+      stats_strTempScore.value = localStoreRead("stats-strTemp");
     };
-    if (localStoreRead("stats_dexTemp")) {
-      stats_dexTempScore.value = localStoreRead("stats_dexTemp");
+    if (localStoreRead("stats-dexTemp")) {
+      stats_dexTempScore.value = localStoreRead("stats-dexTemp");
     };
-    if (localStoreRead("stats_conTemp")) {
-      stats_conTempScore.value = localStoreRead("stats_conTemp");
+    if (localStoreRead("stats-conTemp")) {
+      stats_conTempScore.value = localStoreRead("stats-conTemp");
     };
-    if (localStoreRead("stats_intTemp")) {
-      stats_intTempScore.value = localStoreRead("stats_intTemp");
+    if (localStoreRead("stats-intTemp")) {
+      stats_intTempScore.value = localStoreRead("stats-intTemp");
     };
-    if (localStoreRead("stats_wisTemp")) {
-      stats_wisTempScore.value = localStoreRead("stats_wisTemp");
+    if (localStoreRead("stats-wisTemp")) {
+      stats_wisTempScore.value = localStoreRead("stats-wisTemp");
     };
-    if (localStoreRead("stats_chaTemp")) {
-      stats_chaTempScore.value = localStoreRead("stats_chaTemp");
+    if (localStoreRead("stats-chaTemp")) {
+      stats_chaTempScore.value = localStoreRead("stats-chaTemp");
     };
   };
 
@@ -1031,6 +1080,7 @@ function awesomesheet() {
 
   // update input totals
   function update_inputTotalBlock() {
+    var all_inputTotalBlock = eA(".input-total-block");
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
       var strBonus = 0;
       var dexBonus = 0;
@@ -1223,6 +1273,7 @@ function awesomesheet() {
 
   // check and move label down when input has a value
   function update_inputBlock_focus() {
+    var all_inputBlock = eA(".input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
       var inputBlockRoot = all_inputBlock[i];
       var inputField = inputBlockRoot.querySelector(".input-field");
@@ -1241,6 +1292,7 @@ function awesomesheet() {
 
   // add listeners to inputBlock
   function addListenerTo_all_inputBlock() {
+    var all_inputBlock = eA(".input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
       var inputLabel = all_inputBlock[i].querySelector(".input-field");
       inputLabel.addEventListener("input", function() {
@@ -1271,6 +1323,7 @@ function awesomesheet() {
 
   // read inputBlock
   function read_inputBlock() {
+    var all_inputBlock = eA(".input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
       // collect all inputBlock classes
       var inputBlockId = all_inputBlock[i].querySelector(".input-field").id;
@@ -1301,6 +1354,7 @@ function awesomesheet() {
   // --------------------------------------------------------------------------
 
 
+  update_cloneBlocks();
   read_preparedList();
   read_knownList();
   read_textarea();
