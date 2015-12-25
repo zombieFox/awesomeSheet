@@ -62,8 +62,6 @@ function awesomesheet() {
 
   var all_cloneBlock = eA(".clone-block");
 
-  var all_consumableBlock = eA(".consumable-block");
-
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -171,6 +169,7 @@ function awesomesheet() {
   // --------------------------------------------------------------------------
 
   function addListenerTo_all_consumableBlock() {
+    var all_consumableBlock = eA(".consumable-block");
     for (var i = 0; i < all_consumableBlock.length; i++) {
       var consumableTotal = all_consumableBlock[i].querySelector(".consumable-total");
       consumableTotal.addEventListener("input", function() {
@@ -287,14 +286,19 @@ function awesomesheet() {
   function cloneBlockAdd(blockToClone) {
     // find clone block root
     var cloneBlock = e(blockToClone);
+    // console.log(cloneBlock);
     // find clone controls
     var cloneControls = cloneBlock.querySelector(".clone-controls");
+    // console.log(cloneControls);
+    // find clone target
+    var cloneTarget = cloneBlock.querySelector(".clone-target");
+    // console.log(cloneTarget);
     // count how many elements already exist
-    var blockCount = cloneBlock.querySelectorAll(".consumable-block").length;
+    var blockCount = cloneTarget.querySelectorAll(".consumable-block").length;
     // console.log(blockCount);
     // advance count
     blockCount++;
-    // console.log(blockCount);
+    // console.log("new count = " + blockCount);
     // log count in local storage
     localStoreAdd("clone-consumable-count", blockCount);
     // create div wrapper element
@@ -302,23 +306,25 @@ function awesomesheet() {
     newNode.setAttribute("class", "consumable-block");
     newNode.setAttribute("data-clone-count", blockCount);
     // insert div
-    cloneBlock.insertBefore(newNode, cloneControls);
+    cloneTarget.appendChild(newNode);
     // what to go inside the clone
     var newConsumable =
-      '<div class="col-xs-9">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + blockCount + '">Item</label>' +
-      '<input class="input-field" id="input-consumable-' + blockCount + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + blockCount + '-total">Ammount</label>' +
-      '<input class="input-field consumable-total" id="input-consumable-' + blockCount + '-total" type="number">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-12">' +
-      '<div class="consumable-counts clearfix"></div>' +
+      '<div class="row">' +
+        '<div class="col-xs-9">' +
+          '<div class="input-block">' +
+            '<label class="input-label" for="input-consumable-' + blockCount + '">Item</label>' +
+            '<input class="input-field" id="input-consumable-' + blockCount + '" type="text">' +
+          '</div>' +
+        '</div>' +
+        '<div class="col-xs-3">' +
+          '<div class="input-block">' +
+            '<label class="input-label" for="input-consumable-' + blockCount + '-total-cahrges">Ammount</label>' +
+            '<input class="input-field consumable-total" id="input-consumable-' + blockCount + '-total" type="number">' +
+          '</div>' +
+        '</div>' +
+        '<div class="col-xs-12">' +
+          '<div class="consumable-counts"></div>' +
+        '</div>' +
       '</div>';
     // add div contents
     newNode.innerHTML = newConsumable;
@@ -363,11 +369,14 @@ function awesomesheet() {
     var cloneBlock = e(blockToRemove);
     // find clone controls
     var cloneControls = cloneBlock.querySelector(".clone-controls");
+    // find clone target
+    var cloneTarget = cloneBlock.querySelector(".clone-target");
     // count how many elements already exist
-    var blockCount = cloneBlock.querySelectorAll(".consumable-block").length;
+    var blockCount = cloneTarget.querySelectorAll(".consumable-block").length;
+    // console.log(blockCount);
     // reduce count
-    if (cloneControls.previousSibling) {
-      cloneControls.previousSibling.remove();
+    if (cloneTarget.lastChild) {
+      cloneTarget.lastChild.remove();
       blockCount--;
       localStoreAdd("clone-consumable-count", blockCount);
       if (localStoreRead("clone-consumable-count") <= "0") {

@@ -74,6 +74,44 @@ hr {
   }
 }
 
+// consumables
+.consumable-counts {
+  margin: 0 0 10px 0;
+  .check-group {
+    margin: 0 0.5rem 0.5rem 0;
+    float: left;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      margin: 0;
+      padding: 0.1rem;
+      float: left;
+      font-size: 1.5rem;
+      color: $primary-color;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      &:nth-child(4n) {
+        clear: left;
+      }
+      &:hover,
+      &:focus {
+        color: $primary-color-dark;
+        outline: none;
+      }
+      &:active,
+      &.active {
+        color: $gray-10;
+      }
+    }
+  }
+}
+
+// // clone
+// .clone-block {
+//   .clone-controls {
+//     text-align: right;
+//   }
+// }
+
 // basics
 #basics {
   padding-top: 50px;
@@ -136,39 +174,6 @@ hr {
       }
       input {
         font-family: $open-sans-semi-bold;
-      }
-    }
-  }
-}
-
-// equipment
-#equipment {
-  .consumable-counts {
-    margin: 0 0 10px 0;
-    .check-group {
-      margin: 0 0.5rem 0.5rem 0;
-      float: left;
-      [class^="icon-"],
-      [class*=" icon-"] {
-        margin: 0;
-        padding: 0.1rem;
-        float: left;
-        font-size: 1.5rem;
-        color: $primary-color;
-        cursor: pointer;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        &:nth-child(4n) {
-          clear: left;
-        }
-        &:hover,
-        &:focus {
-          color: $primary-color-dark;
-          outline: none;
-        }
-        &:active,
-        &.active {
-          color: $gray-10;
-        }
       }
     }
   }

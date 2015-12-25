@@ -282,7 +282,7 @@ button {
   button.button-secondary:visited {
     color: #343434;
     background-color: transparent;
-    border-color: transparent; }
+    border-color: #d6d6d6; }
   .button.button-secondary:focus,
   button.button-secondary:focus {
     background-color: transparent;
@@ -321,7 +321,8 @@ button {
   .button.button-tertiary:active, .button.button-tertiary.active,
   button.button-tertiary:active,
   button.button-tertiary.active {
-    border-color: #e8e8e8; }
+    background-color: #e8e8e8;
+    border-color: #d6d6d6; }
   .button.button-dark:link, .button.button-dark:visited,
   button.button-dark:link,
   button.button-dark:visited {
@@ -546,6 +547,9 @@ table {
 
 .text-center {
   text-align: center; }
+
+.text-right {
+  text-align: right; }
 
 .small-text {
   color: #a0a0a0;
@@ -1246,6 +1250,33 @@ hr {
 .hidable-block .hidable-toggle {
   margin: 4rem 0 0 0; }
 
+.consumable-counts {
+  margin: 0 0 10px 0; }
+  .consumable-counts .check-group {
+    margin: 0 0.5rem 0.5rem 0;
+    float: left; }
+    .consumable-counts .check-group [class^="icon-"],
+    .consumable-counts .check-group [class*=" icon-"] {
+      margin: 0;
+      padding: 0.1rem;
+      float: left;
+      font-size: 1.5rem;
+      color: #ff0055;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent; }
+      .consumable-counts .check-group [class^="icon-"]:nth-child(4n),
+      .consumable-counts .check-group [class*=" icon-"]:nth-child(4n) {
+        clear: left; }
+      .consumable-counts .check-group [class^="icon-"]:hover, .consumable-counts .check-group [class^="icon-"]:focus,
+      .consumable-counts .check-group [class*=" icon-"]:hover,
+      .consumable-counts .check-group [class*=" icon-"]:focus {
+        color: #cc0044;
+        outline: none; }
+      .consumable-counts .check-group [class^="icon-"]:active, .consumable-counts .check-group [class^="icon-"].active,
+      .consumable-counts .check-group [class*=" icon-"]:active,
+      .consumable-counts .check-group [class*=" icon-"].active {
+        color: #c4c4c4; }
+
 #basics {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -1291,33 +1322,6 @@ hr {
     margin: 0; }
   #statistics .stat-block .stats input {
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
-
-#equipment .consumable-counts {
-  margin: 0 0 10px 0; }
-  #equipment .consumable-counts .check-group {
-    margin: 0 0.5rem 0.5rem 0;
-    float: left; }
-    #equipment .consumable-counts .check-group [class^="icon-"],
-    #equipment .consumable-counts .check-group [class*=" icon-"] {
-      margin: 0;
-      padding: 0.1rem;
-      float: left;
-      font-size: 1.5rem;
-      color: #ff0055;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent; }
-      #equipment .consumable-counts .check-group [class^="icon-"]:nth-child(4n),
-      #equipment .consumable-counts .check-group [class*=" icon-"]:nth-child(4n) {
-        clear: left; }
-      #equipment .consumable-counts .check-group [class^="icon-"]:hover, #equipment .consumable-counts .check-group [class^="icon-"]:focus,
-      #equipment .consumable-counts .check-group [class*=" icon-"]:hover,
-      #equipment .consumable-counts .check-group [class*=" icon-"]:focus {
-        color: #cc0044;
-        outline: none; }
-      #equipment .consumable-counts .check-group [class^="icon-"]:active, #equipment .consumable-counts .check-group [class^="icon-"].active,
-      #equipment .consumable-counts .check-group [class*=" icon-"]:active,
-      #equipment .consumable-counts .check-group [class*=" icon-"].active {
-        color: #c4c4c4; }
 
 #skills .skill-list thead tr td {
   width: 1%;

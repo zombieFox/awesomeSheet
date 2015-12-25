@@ -81,7 +81,7 @@ button {
     &:visited {
       color: $gray-02;
       background-color: transparent;
-      border-color: transparent;
+      border-color: $gray-11;
     }
     &:focus {
       background-color: transparent;
@@ -122,7 +122,8 @@ button {
     }
     &:active,
     &.active {
-      border-color: $gray-12;
+      background-color: $gray-12;
+      border-color: $gray-11;
     }
   }
   &.button-dark {
