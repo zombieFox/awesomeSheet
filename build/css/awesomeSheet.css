@@ -414,7 +414,7 @@ h6 {
 
 h1 {
   font-size: 1.8rem;
-  font-family: "Open Sans Light", Helvetica, Arial, sans-serif; }
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 h2 {
   font-size: 1.1rem;
@@ -1201,16 +1201,17 @@ section {
   z-index: 1000; }
   section h1 {
     padding: 4rem 0 0 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-transform: uppercase;
     position: relative; }
     section h1:before {
       content: "";
-      border-left: 5px solid #ff0055;
+      border-left: 10px solid #ff0055;
       position: absolute;
       height: 3rem;
       top: 3.5rem;
-      left: 0; }
+      left: 0;
+      border-radius: 3px; }
 
 .sheet {
   position: relative;
@@ -1218,8 +1219,8 @@ section {
 
 hr {
   border: 0;
-  border-bottom: 1px solid #fafafa;
-  margin: 10px 0 20px 0;
+  border-top: 2px solid #e8e8e8;
+  margin: 30px 0 40px 0;
   background-color: transparent;
   position: relative;
   clear: both; }
@@ -1246,36 +1247,36 @@ hr {
   .input-block .input-field {
     position: relative;
     z-index: 1; }
+  .input-block .input-plus,
+  .input-block .input-minus {
+    float: left; }
 
 .hidable-block .hidable-toggle {
-  margin: 4rem 0 0 0; }
+  margin: 4.2rem 0 0 0; }
 
 .consumable-counts {
-  margin: 0 0 10px 0; }
+  margin: -5px 0 10px 0; }
   .consumable-counts .check-group {
-    margin: 0 0.5rem 0.5rem 0;
-    float: left; }
-    .consumable-counts .check-group [class^="icon-"],
-    .consumable-counts .check-group [class*=" icon-"] {
-      margin: 0;
-      padding: 0.1rem;
-      float: left;
+    margin: 0 8px 8px 0;
+    float: right; }
+    .consumable-counts .check-group .check {
+      background-color: #086482;
+      border: 1px solid #086482;
+      margin: 0 3px 3px 0;
+      padding: 0;
+      float: right;
       font-size: 1.5rem;
-      color: #ff0055;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent; }
-      .consumable-counts .check-group [class^="icon-"]:nth-child(4n),
-      .consumable-counts .check-group [class*=" icon-"]:nth-child(4n) {
-        clear: left; }
-      .consumable-counts .check-group [class^="icon-"]:hover, .consumable-counts .check-group [class^="icon-"]:focus,
-      .consumable-counts .check-group [class*=" icon-"]:hover,
-      .consumable-counts .check-group [class*=" icon-"]:focus {
-        color: #cc0044;
-        outline: none; }
-      .consumable-counts .check-group [class^="icon-"]:active, .consumable-counts .check-group [class^="icon-"].active,
-      .consumable-counts .check-group [class*=" icon-"]:active,
-      .consumable-counts .check-group [class*=" icon-"].active {
-        color: #c4c4c4; }
+      width: 4px;
+      height: 4px;
+      border-radius: 2px; }
+      .consumable-counts .check-group .check.used {
+        background-color: transparent;
+        border-color: #b2b2b2; }
+      .consumable-counts .check-group .check:nth-child(6n) {
+        clear: right; }
+
+.clone-block .clone-controls .button {
+  margin-bottom: 20px; }
 
 #basics {
   padding-top: 50px;
@@ -1402,10 +1403,8 @@ hr {
   background-color: #ff0055;
   border-color: #cc0044; }
 
-#spells .spell-state {
-  margin: 20px 0 17px 0; }
-  #spells .spell-state .button {
-    margin: 0 3px 3px 0; }
+#spells .spell-state-controls {
+  margin: 20px 0; }
 
 #spells .new-spell {
   position: relative; }
@@ -1450,11 +1449,6 @@ hr {
   .sheet {
     width: 75%;
     float: right; }
-  #equipment .consumable-counts .check-group {
-    width: 8.5rem; }
-    #equipment .consumable-counts .check-group [class^="icon-"]:nth-child(4n),
-    #equipment .consumable-counts .check-group [class*=" icon-"]:nth-child(4n) {
-      clear: none; }
   #defense .ac .title,
   #defense .ac-touch .title,
   #defense .ac-flat-footed .title {
@@ -1463,6 +1457,8 @@ hr {
     top: 21px; } }
 
 @media (min-width: 1300px) {
+  .consumable-counts .check-group .check:nth-child(6n) {
+    clear: none; }
   #skills[data-all-hidden="true"] .skill-list tr {
     width: 31.3333333333%;
     float: left;
