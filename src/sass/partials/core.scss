@@ -65,6 +65,10 @@ hr {
     position: relative;
     z-index: 1;
   }
+  .input-plus,
+  .input-minus {
+    float: left;
+  }
 }
 
 // input with lables
@@ -76,41 +80,39 @@ hr {
 
 // consumables
 .consumable-counts {
-  margin: 0 0 10px 0;
+  margin: -5px 0 10px 0;
   .check-group {
-    margin: 0 0.5rem 0.5rem 0;
+    margin: 0 10px 10px 0;
     float: left;
-    [class^="icon-"],
-    [class*=" icon-"] {
-      margin: 0;
-      padding: 0.1rem;
+    .check {
+      background-color: $primary-color;
+      border: 1px solid $primary-color;
+      margin: 0 3px 3px 0;
+      padding: 0;
       float: left;
       font-size: 1.5rem;
-      color: $primary-color;
-      cursor: pointer;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      &:nth-child(4n) {
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      &.used {
+        background-color: transparent;
+        border-color: $gray-09;
+      }
+      &:nth-child(6n) {
         clear: left;
-      }
-      &:hover,
-      &:focus {
-        color: $primary-color-dark;
-        outline: none;
-      }
-      &:active,
-      &.active {
-        color: $gray-10;
       }
     }
   }
 }
 
-// // clone
-// .clone-block {
-//   .clone-controls {
-//     text-align: right;
-//   }
-// }
+// clone
+.clone-block {
+  .clone-controls {
+    .button {
+      margin-bottom: 20px;
+    }
+  }
+}
 
 // basics
 #basics {
@@ -411,20 +413,6 @@ hr {
     width: 75%;
     float: right;
   }
-  // equipment
-  #equipment {
-    .consumable-counts {
-      .check-group {
-        width: 8.5rem;
-        [class^="icon-"],
-        [class*=" icon-"] {
-          &:nth-child(4n) {
-            clear: none;
-          }
-        }
-      }
-    }
-  }
   // defense
   #defense {
     .ac,
@@ -448,6 +436,16 @@ hr {
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {
+  // consumables
+  .consumable-counts {
+    .check-group {
+      .check {
+        &:nth-child(6n) {
+          clear: none;
+        }
+      }
+    }
+  }
   // skills
   #skills {
     &[data-all-hidden="true"] {

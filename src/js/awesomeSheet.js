@@ -168,27 +168,33 @@ function awesomesheet() {
   // consumable block
   // --------------------------------------------------------------------------
 
+  // add listners to all consumable blocks
   function addListenerTo_all_consumableBlock() {
     var all_consumableBlock = eA(".consumable-block");
     for (var i = 0; i < all_consumableBlock.length; i++) {
       var consumableTotal = all_consumableBlock[i].querySelector(".consumable-total");
+      var consumableUsed = all_consumableBlock[i].querySelector(".consumable-used");
       consumableTotal.addEventListener("input", function() {
         minMaxCountLimit(this);
         addConsumableChecks(this);
       }, false);
+      consumableUsed.addEventListener("input", function() {
+        minMaxCountLimit(this);
+        toggleConsumableChecks(this);
+      }, false);
     };
   };
 
+  // limit input count to 0 to 100
   function minMaxCountLimit(element) {
-    var consumableBlock = getClosest(element, ".consumable-block");
-    var consumableTotal = consumableBlock.querySelector(".consumable-total");
-    if (consumableTotal.value <= 0) {
-      consumableTotal.value = "";
-    } else if (consumableTotal.value >= 100) {
-      consumableTotal.value = 100;
+    if (element.value <= 0) {
+      element.value = "";
+    } else if (element.value >= 100) {
+      element.value = 100;
     };
   };
 
+  // add consumable checks on total increase
   function addConsumableChecks(element) {
     var consumableBlock = getClosest(element, ".consumable-block");
     var consumableCounts = consumableBlock.querySelector(".consumable-counts");
@@ -220,14 +226,9 @@ function awesomesheet() {
       };
       // make a check
       var check = document.createElement("span");
-      check.setAttribute("class", "check icon-radio-button-checked");
-      check.setAttribute("tabindex", "1");
+      check.setAttribute("class", "check");
       // add check to check group
       checkGroup.appendChild(check);
-      // add listner to new check
-      check.addEventListener("click", function() {
-        toggleCheck(this);
-      }, false);
       all_checks++;
     };
 
@@ -250,16 +251,40 @@ function awesomesheet() {
 
   };
 
-  function toggleCheck(element) {
-    toggleClass(element, "icon-radio-button-checked");
-    toggleClass(element, "icon-radio-button-unchecked");
-    toggleClass(element, "active");
+  // toggle consumable check when used value is changed
+  function toggleConsumableChecks(element) {
+    var consumableBlock = getClosest(element, ".consumable-block");
+    var consumableCounts = consumableBlock.querySelector(".consumable-counts");
+    var consumableUsed_value = parseInt(element.value, 10) || 0;
+    var all_checks = consumableCounts.querySelectorAll(".check");
+    var all_used = consumableCounts.querySelectorAll(".used").length;
+    // if use count is less than used input toggle check
+    while (all_used <= consumableUsed_value) {
+      if (all_checks[all_used]) {
+        addClass(all_checks[all_used], "used");
+      };
+      all_used++;
+    };
+    // if use count is more than used input toggle check
+    while (all_used >= consumableUsed_value) {
+      if (all_checks[all_used]) {
+        removeClass(all_checks[all_used], "used");
+      };
+      all_used--;
+    };
   };
 
   function update_consumableTotal() {
     var all_consumableTotal = eA(".consumable-total");
     for (var i = 0; i < all_consumableTotal.length; i++) {
       addConsumableChecks(all_consumableTotal[i]);
+    };
+  };
+
+  function update_consumableUsed() {
+    var all_consumableUsed = eA(".consumable-used");
+    for (var i = 0; i < all_consumableUsed.length; i++) {
+      toggleConsumableChecks(all_consumableUsed[i]);
     };
   };
 
@@ -310,27 +335,39 @@ function awesomesheet() {
     // what to go inside the clone
     var newConsumable =
       '<div class="row">' +
-        '<div class="col-xs-9">' +
-          '<div class="input-block">' +
-            '<label class="input-label" for="input-consumable-' + blockCount + '">Item</label>' +
-            '<input class="input-field" id="input-consumable-' + blockCount + '" type="text">' +
-          '</div>' +
-        '</div>' +
-        '<div class="col-xs-3">' +
-          '<div class="input-block">' +
-            '<label class="input-label" for="input-consumable-' + blockCount + '-total-cahrges">Ammount</label>' +
-            '<input class="input-field consumable-total" id="input-consumable-' + blockCount + '-total" type="number">' +
-          '</div>' +
-        '</div>' +
-        '<div class="col-xs-12">' +
-          '<div class="consumable-counts"></div>' +
-        '</div>' +
+      '<div class="col-xs-8">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-consumable-' + blockCount + '">Item</label>' +
+      '<input class="input-field" id="input-consumable-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-4">' +
+      '<div class="row no-gutter">' +
+      '<div class="col-xs-6">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-consumable-' + blockCount + '-total">Total</label>' +
+      '<input class="input-field consumable-total" id="input-consumable-' + blockCount + '-total" type="number">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-6">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-consumable-' + blockCount + '-used">Used</label>' +
+      '<input class="input-field consumable-used" id="input-consumable-' + blockCount + '-used" type="number">' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-12">' +
+      '<div class="consumable-counts clearfix"></div>' +
+      '</div>' +
       '</div>';
+
     // add div contents
     newNode.innerHTML = newConsumable;
     // find inputs
     var newNode_inputConsumableName = newNode.querySelector('#input-consumable-' + blockCount);
     var newNode_inputConsumableTotal = newNode.querySelector('#input-consumable-' + blockCount + '-total');
+    var newNode_inputConsumableUsed = newNode.querySelector('#input-consumable-' + blockCount + '-used');
     // add listners to inputs
     newNode_inputConsumableName.addEventListener("input", function() {
       inputBlock_focus(newNode_inputConsumableName);
@@ -361,6 +398,24 @@ function awesomesheet() {
       store_inputBlock(newNode_inputConsumableTotal);
       minMaxCountLimit(newNode_inputConsumableTotal);
       addConsumableChecks(newNode_inputConsumableTotal);
+    }, false);
+    newNode_inputConsumableUsed.addEventListener("input", function() {
+      inputBlock_focus(newNode_inputConsumableUsed);
+      store_inputBlock(newNode_inputConsumableUsed);
+      minMaxCountLimit(newNode_inputConsumableUsed);
+      toggleConsumableChecks(newNode_inputConsumableUsed);
+    }, false);
+    newNode_inputConsumableUsed.addEventListener("focus", function() {
+      inputBlock_focus(newNode_inputConsumableUsed);
+      store_inputBlock(newNode_inputConsumableUsed);
+      minMaxCountLimit(newNode_inputConsumableUsed);
+      toggleConsumableChecks(newNode_inputConsumableUsed);
+    }, false);
+    newNode_inputConsumableUsed.addEventListener("blur", function() {
+      inputBlock_focus(newNode_inputConsumableUsed);
+      store_inputBlock(newNode_inputConsumableUsed);
+      minMaxCountLimit(newNode_inputConsumableUsed);
+      toggleConsumableChecks(newNode_inputConsumableUsed);
     }, false);
   };
 
@@ -1397,6 +1452,7 @@ function awesomesheet() {
   update_inputBlock_focus();
   update_inputTotalBlock();
   update_consumableTotal();
+  update_consumableUsed();
 
 };
 
