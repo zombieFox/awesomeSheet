@@ -168,23 +168,6 @@ function awesomesheet() {
   // consumable block
   // --------------------------------------------------------------------------
 
-  // add listners to all consumable blocks
-  function addListenerTo_all_consumableBlock() {
-    var all_consumableBlock = eA(".consumable-block");
-    for (var i = 0; i < all_consumableBlock.length; i++) {
-      var consumableTotal = all_consumableBlock[i].querySelector(".consumable-total");
-      var consumableUsed = all_consumableBlock[i].querySelector(".consumable-used");
-      consumableTotal.addEventListener("input", function() {
-        minMaxCountLimit(this);
-        addConsumableChecks(this);
-      }, false);
-      consumableUsed.addEventListener("input", function() {
-        minMaxCountLimit(this);
-        toggleConsumableChecks(this);
-      }, false);
-    };
-  };
-
   // limit input count to 0 to 100
   function minMaxCountLimit(element) {
     if (element.value <= 0) {
@@ -294,17 +277,22 @@ function awesomesheet() {
 
   // add listners to all clone block controls
   function addListenerTo_all_cloneBlock() {
-    for (var i = 0; i < all_cloneBlock.length; i++) {
-      var cloneAdd = all_cloneBlock[i].querySelector(".clone-add");
-      var cloneRemove = all_cloneBlock[i].querySelector(".clone-remove");
-      cloneAdd.addEventListener("click", function() {
-        cloneBlockAdd(".consumables");
-        // cloneBlockAdd(this);
-      }, false);
-      cloneRemove.addEventListener("click", function() {
-        cloneBlockRemove(".consumables");
-      }, false);
-    };
+    var consumablesCloneAdd = e(".consumables .clone-add");
+    var consumablesCloneRemove = e(".consumables .clone-remove");
+    var attacksCloneAdd = e(".attacks .clone-add");
+    var attacksCloneRemove = e(".attacks .clone-remove");
+    consumablesCloneAdd.addEventListener("click", function() {
+      cloneBlockAdd(".consumables");
+    }, false);
+    consumablesCloneRemove.addEventListener("click", function() {
+      cloneBlockRemove(".consumables");
+    }, false);
+    attacksCloneAdd.addEventListener("click", function() {
+      cloneBlockAdd(".attacks");
+    }, false);
+    attacksCloneRemove.addEventListener("click", function() {
+      cloneBlockRemove(".attacks");
+    }, false);
   };
 
   // clone a block where needed
@@ -325,7 +313,12 @@ function awesomesheet() {
     blockCount++;
     // console.log("new count = " + blockCount);
     // log count in local storage
-    localStoreAdd("clone-consumable-count", blockCount);
+    if (blockToClone == ".consumables") {
+      localStoreAdd("clone-consumable-count", blockCount);
+    };
+    if (blockToClone == ".attacks") {
+      localStoreAdd("clone-attack-count", blockCount);
+    };
     // create div wrapper element
     var newNode = document.createElement("div");
     newNode.setAttribute("class", "consumable-block");
@@ -346,13 +339,13 @@ function awesomesheet() {
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-consumable-' + blockCount + '-total">Total</label>' +
-      '<input class="input-field consumable-total" id="input-consumable-' + blockCount + '-total" type="number">' +
+      '<input class="input-field consumable-total" id="input-consumable-total-' + blockCount + '" type="number">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-consumable-' + blockCount + '-used">Used</label>' +
-      '<input class="input-field consumable-used" id="input-consumable-' + blockCount + '-used" type="number">' +
+      '<input class="input-field consumable-used" id="input-consumable-used-' + blockCount + '" type="number">' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -361,62 +354,186 @@ function awesomesheet() {
       '<div class="consumable-counts clearfix"></div>' +
       '</div>' +
       '</div>';
-
+    var newAttack =
+      '<div class="row no-gutter">' +
+      '<div class="col-xs-8">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-weapon-' + blockCount + '">Weapon</label>' +
+      '<input class="input-field" id="input-weapon-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-4">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-attack-' + blockCount + '">Attack</label>' +
+      '<input class="input-field" id="input-attack-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-2 col-xs-offset-2">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-range-' + blockCount + '">Range</label>' +
+      '<input class="input-field" id="input-range-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-2">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-ammo-' + blockCount + '">Ammo</label>' +
+      '<input class="input-field" id="input-ammo-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-damage-' + blockCount + '">Damage</label>' +
+      '<input class="input-field" id="input-damage-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-critical-' + blockCount + '">Critical</label>' +
+      '<input class="input-field" id="input-critical-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
+      '</div>';
     // add div contents
-    newNode.innerHTML = newConsumable;
-    // find inputs
-    var newNode_inputConsumableName = newNode.querySelector('#input-consumable-' + blockCount);
-    var newNode_inputConsumableTotal = newNode.querySelector('#input-consumable-' + blockCount + '-total');
-    var newNode_inputConsumableUsed = newNode.querySelector('#input-consumable-' + blockCount + '-used');
-    // add listners to inputs
-    newNode_inputConsumableName.addEventListener("input", function() {
-      inputBlock_focus(newNode_inputConsumableName);
-      store_inputBlock(newNode_inputConsumableName);
-    }, false);
-    newNode_inputConsumableName.addEventListener("focus", function() {
-      inputBlock_focus(newNode_inputConsumableName);
-      store_inputBlock(newNode_inputConsumableName);
-    }, false);
-    newNode_inputConsumableName.addEventListener("blur", function() {
-      inputBlock_focus(newNode_inputConsumableName);
-      store_inputBlock(newNode_inputConsumableName);
-    }, false);
-    newNode_inputConsumableTotal.addEventListener("input", function() {
-      inputBlock_focus(newNode_inputConsumableTotal);
-      store_inputBlock(newNode_inputConsumableTotal);
-      minMaxCountLimit(newNode_inputConsumableTotal);
-      addConsumableChecks(newNode_inputConsumableTotal);
-    }, false);
-    newNode_inputConsumableTotal.addEventListener("focus", function() {
-      inputBlock_focus(newNode_inputConsumableTotal);
-      store_inputBlock(newNode_inputConsumableTotal);
-      minMaxCountLimit(newNode_inputConsumableTotal);
-      addConsumableChecks(newNode_inputConsumableTotal);
-    }, false);
-    newNode_inputConsumableTotal.addEventListener("blur", function() {
-      inputBlock_focus(newNode_inputConsumableTotal);
-      store_inputBlock(newNode_inputConsumableTotal);
-      minMaxCountLimit(newNode_inputConsumableTotal);
-      addConsumableChecks(newNode_inputConsumableTotal);
-    }, false);
-    newNode_inputConsumableUsed.addEventListener("input", function() {
-      inputBlock_focus(newNode_inputConsumableUsed);
-      store_inputBlock(newNode_inputConsumableUsed);
-      minMaxCountLimit(newNode_inputConsumableUsed);
-      toggleConsumableChecks(newNode_inputConsumableUsed);
-    }, false);
-    newNode_inputConsumableUsed.addEventListener("focus", function() {
-      inputBlock_focus(newNode_inputConsumableUsed);
-      store_inputBlock(newNode_inputConsumableUsed);
-      minMaxCountLimit(newNode_inputConsumableUsed);
-      toggleConsumableChecks(newNode_inputConsumableUsed);
-    }, false);
-    newNode_inputConsumableUsed.addEventListener("blur", function() {
-      inputBlock_focus(newNode_inputConsumableUsed);
-      store_inputBlock(newNode_inputConsumableUsed);
-      minMaxCountLimit(newNode_inputConsumableUsed);
-      toggleConsumableChecks(newNode_inputConsumableUsed);
-    }, false);
+    if (blockToClone == ".consumables") {
+      newNode.innerHTML = newConsumable;
+    };
+    if (blockToClone == ".attacks") {
+      newNode.innerHTML = newAttack;
+    };
+    // add listners to consumable inputs
+    function addListenerTo_newNode_input_focus(element) {
+      if (element) {
+        element.addEventListener("input", function() {
+          inputBlock_focus(element);
+        }, false);
+        element.addEventListener("focus", function() {
+          inputBlock_focus(element);
+        }, false);
+        element.addEventListener("blur", function() {
+          inputBlock_focus(element);
+        }, false);
+      };
+    };
+
+    function addListenerTo_newNode_input_store(element) {
+      if (element) {
+        element.addEventListener("input", function() {
+          store_inputBlock(element);
+        }, false);
+        element.addEventListener("focus", function() {
+          store_inputBlock(element);
+        }, false);
+        element.addEventListener("blur", function() {
+          store_inputBlock(element);
+        }, false);
+      };
+    };
+
+    function addListenerTo_newNode_input_minMax(element) {
+      if (element) {
+        element.addEventListener("input", function() {
+          minMaxCountLimit(element);
+        }, false);
+        element.addEventListener("focus", function() {
+          minMaxCountLimit(element);
+        }, false);
+        element.addEventListener("blur", function() {
+          minMaxCountLimit(element);
+        }, false);
+      };
+    };
+
+    function addListenerTo_newNode_input_checks(element) {
+      if (element) {
+        element.addEventListener("input", function() {
+          addConsumableChecks(element);
+        }, false);
+        element.addEventListener("focus", function() {
+          addConsumableChecks(element);
+        }, false);
+        element.addEventListener("blur", function() {
+          addConsumableChecks(element);
+        }, false);
+      };
+    };
+
+    function addListenerTo_newNode_input_toggleChecks(element) {
+      if (element) {
+        element.addEventListener("input", function() {
+          toggleConsumableChecks(element);
+        }, false);
+        element.addEventListener("focus", function() {
+          toggleConsumableChecks(element);
+        }, false);
+        element.addEventListener("blur", function() {
+          toggleConsumableChecks(element);
+        }, false);
+      };
+    };
+    if (blockToClone == ".consumables") {
+      // find inputs
+      if (newNode.querySelector("#input-consumable-" + blockCount)) {
+        var newNode_consumableName_input = newNode.querySelector("#input-consumable-" + blockCount);
+      };
+      if (newNode.querySelector("#input-consumable-total-" + blockCount)) {
+        var newNode_consumableTotal_input = newNode.querySelector("#input-consumable-total-" + blockCount);
+      };
+      if (newNode.querySelector("#input-consumable-used-" + blockCount)) {
+        var newNode_consumableUsed_input = newNode.querySelector("#input-consumable-used-" + blockCount);
+      };
+      // add listners to consumable name
+      addListenerTo_newNode_input_focus(newNode_consumableName_input);
+      addListenerTo_newNode_input_store(newNode_consumableName_input);
+      // add listners to consumable total
+      addListenerTo_newNode_input_focus(newNode_consumableTotal_input);
+      addListenerTo_newNode_input_store(newNode_consumableTotal_input);
+      addListenerTo_newNode_input_minMax(newNode_consumableTotal_input);
+      addListenerTo_newNode_input_checks(newNode_consumableTotal_input);
+      // add listners to consumable used
+      addListenerTo_newNode_input_focus(newNode_consumableUsed_input);
+      addListenerTo_newNode_input_store(newNode_consumableUsed_input);
+      addListenerTo_newNode_input_minMax(newNode_consumableUsed_input);
+      addListenerTo_newNode_input_toggleChecks(newNode_consumableUsed_input);
+    };
+    if (blockToClone == ".attacks") {
+      // find inputs
+      if (newNode.querySelector("#input-weapon-" + blockCount)) {
+        var newNode_attackWeapon_input = newNode.querySelector("#input-weapon-" + blockCount);
+      };
+      if (newNode.querySelector("#input-attack-" + blockCount)) {
+        var newNode_attackAttack_input = newNode.querySelector("#input-attack-" + blockCount);
+      };
+      if (newNode.querySelector("#input-range-" + blockCount)) {
+        var newNode_attackRange_input = newNode.querySelector("#input-range-" + blockCount);
+      };
+      if (newNode.querySelector("#input-ammo-" + blockCount)) {
+        var newNode_attackAmmo_input = newNode.querySelector("#input-ammo-" + blockCount);
+      };
+      if (newNode.querySelector("#input-damage-" + blockCount)) {
+        var newNode_attackDamage_input = newNode.querySelector("#input-damage-" + blockCount);
+      };
+      if (newNode.querySelector("#input-critical-" + blockCount)) {
+        var newNode_attackCritical_input = newNode.querySelector("#input-critical-" + blockCount);
+      };
+      // add listners to attack weapon
+      addListenerTo_newNode_input_focus(newNode_attackWeapon_input);
+      addListenerTo_newNode_input_store(newNode_attackWeapon_input);
+      // add listners to attack attack
+      addListenerTo_newNode_input_focus(newNode_attackAttack_input);
+      addListenerTo_newNode_input_store(newNode_attackAttack_input);
+      // add listners to attack range
+      addListenerTo_newNode_input_focus(newNode_attackRange_input);
+      addListenerTo_newNode_input_store(newNode_attackRange_input);
+      // add listners to attack ammo
+      addListenerTo_newNode_input_focus(newNode_attackAmmo_input);
+      addListenerTo_newNode_input_store(newNode_attackAmmo_input);
+      // add listners to attack damage
+      addListenerTo_newNode_input_focus(newNode_attackDamage_input);
+      addListenerTo_newNode_input_store(newNode_attackDamage_input);
+      // add listners to attack critical
+      addListenerTo_newNode_input_focus(newNode_attackCritical_input);
+      addListenerTo_newNode_input_store(newNode_attackCritical_input);
+    };
   };
 
   function cloneBlockRemove(blockToRemove) {
@@ -433,17 +550,31 @@ function awesomesheet() {
     if (cloneTarget.lastChild) {
       cloneTarget.lastChild.remove();
       blockCount--;
-      localStoreAdd("clone-consumable-count", blockCount);
+      if (blockToRemove == ".consumables") {
+        localStoreAdd("clone-consumable-count", blockCount);
+      };
+      if (blockToRemove == ".attacks") {
+        localStoreAdd("clone-attack-count", blockCount);
+      };
       if (localStoreRead("clone-consumable-count") <= "0") {
-        localStoreAdd("clone-consumable-count", "");
+        if (blockToRemove == ".consumables") {
+          localStoreAdd("clone-consumable-count", "");
+        };
+        if (blockToRemove == ".attacks") {
+          localStoreAdd("clone-consumable-count", "");
+        };
       };
     };
   };
 
   function update_cloneBlocks() {
-    var cloneCount = localStoreRead("clone-consumable-count");
-    for (var i = 0; i < cloneCount; i++) {
+    var consumables_cloneCount = localStoreRead("clone-consumable-count");
+    var attacks_cloneCount = localStoreRead("clone-attack-count");
+    for (var i = 0; i < consumables_cloneCount; i++) {
       cloneBlockAdd(".consumables");
+    };
+    for (var i = 0; i < attacks_cloneCount; i++) {
+      cloneBlockAdd(".attacks");
     };
   };
 
@@ -717,10 +848,10 @@ function awesomesheet() {
     var unprepareStateButton = spellLevel.querySelector(".unprepare-spell");
     var castStateButton = spellLevel.querySelector(".cast-spell");
     var deleteStateButton = spellLevel.querySelector(".remove-spell");
-    var all_spellStateButton = getClosest(element, ".spell-state").querySelectorAll(".button");
+    var all_spellStateControls = getClosest(element, ".spell-state-controls").querySelectorAll(".button");
     if (element.classList.contains("active")) {
-      for (var i = 0; i < all_spellStateButton.length; i++) {
-        removeClass(all_spellStateButton[i], "active");
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        removeClass(all_spellStateControls[i], "active");
       };
       removeClass(element, "active");
       knownListToChangeState.dataset.prepareSpellState = " false";
@@ -732,8 +863,8 @@ function awesomesheet() {
       removeClass(knownListToChangeState, "cast-state");
       removeClass(knownListToChangeState, "delete-state");
     } else {
-      for (var i = 0; i < all_spellStateButton.length; i++) {
-        removeClass(all_spellStateButton[i], "active");
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        removeClass(all_spellStateControls[i], "active");
       };
       addClass(element, "active");
       if (state == "prepare") {
@@ -1444,7 +1575,7 @@ function awesomesheet() {
   addListenerTo_all_hidableBlock();
   addListenerTo_all_textareas();
   addListenerTo_all_inputBlock();
-  addListenerTo_all_consumableBlock();
+  // addListenerTo_all_consumableBlock();
   addListenerTo_all_cloneBlock();
   update_removeSpellButton();
   update_scoreModifiers();
