@@ -9,6 +9,7 @@ body {
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: $open-sans-regular;
+  color: $gray-01;
 }
 
 h1,
@@ -17,17 +18,16 @@ h3,
 h4,
 h5,
 h6 {
-  color: $gray-03;
-  margin-top: 0;
+  color: $gray-02;
+  margin: 0;
 }
 
 h1 {
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
   line-height: 2rem;
 }
 
 h2 {
-  margin-bottom: 10px;
   line-height: 1.6rem;
 }
 
@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   line-height: 1.6rem;
 }
 
@@ -97,10 +97,9 @@ a {
 .textarea,
 textarea {
   background-color: $gray-13;
-  padding: 10px;
-  margin: 0 0 20px 0;
+  padding: 10px 15px;
+  margin: 0 0 1.5rem 0;
   width: 100%;
-  color: $gray-02;
   border: 0;
   border-bottom: $border;
   font-size: 1rem;
@@ -127,10 +126,9 @@ input {
     font-family: $open-sans-regular;
     font-size: 1rem;
     height: 2.5rem;
-    line-height: 2.5rem;
+    line-height: 2.3rem;
     padding: 0 10px;
-    margin: 1rem 0 20px 0;
-    color: $gray-02;
+    margin: 0 0 2rem 0;
     border: 0;
     width: 100%;
     border-bottom: $border;
@@ -145,24 +143,6 @@ input {
       outline: 0;
     }
   }
-  &.dark {
-    &[type="email"],
-    &[type="number"],
-    &[type="search"],
-    &[type="text"],
-    &[type="tel"],
-    &[type="url"],
-    &[type="password"] {
-      color: $white;
-      &:hover {}
-      &:focus {
-        background-color: $secondary-color-light;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: $border-radius-small;
-      }
-    }
-  }
 }
 
 table {
@@ -174,10 +154,11 @@ table {
   thead {
     tr {
       td {
-        padding: 0 5px;
+        padding: 0 20px;
         margin: 0;
-        height: 2.5rem;
+        height: 2.4rem;
         text-align: center;
+        border: 0;
         border-bottom: $border;
         font-family: $open-sans-semi-bold;
         &:first-child {
@@ -191,6 +172,7 @@ table {
     td {
       padding: 0;
       margin: 0;
+      border: 0;
       height: 2.5rem;
       text-align: center;
       box-sizing: content-box;
@@ -246,14 +228,20 @@ table {
 }
 
 .inline-with-input {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  margin: 1rem 0 5px 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 2.4rem;
+  line-height: 2.4rem;
   box-sizing: border-box;
+}
+
+.margin-with-input {
+  margin: 0 0 2rem 0;
 }
 
 .underline-with-input {
   border-bottom: $border;
+  border-color: $gray-13;
 }
 
 
@@ -261,21 +249,21 @@ table {
 ------------------------------------------------- */
 
 ::-webkit-input-placeholder {
-  color: $gray-12;
+  color: $gray-11;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: $gray-12;
+  color: $gray-11;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: $gray-12;
+  color: $gray-11;
 }
 
 ::selection {
-  background-color: $primary-color;
+  background-color: $secondary-color-light;
   color: $white;
 }
 

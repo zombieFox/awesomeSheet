@@ -368,13 +368,15 @@ function awesomesheet() {
       '<input class="input-field" id="input-attack-' + blockCount + '" type="text">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-2 col-xs-offset-2">' +
+      '<div class="col-xs-10">' +
+      '<div class="row no-gutter">' +
+      '<div class="col-xs-3">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-range-' + blockCount + '">Range</label>' +
       '<input class="input-field" id="input-range-' + blockCount + '" type="text">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-2">' +
+      '<div class="col-xs-3">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-ammo-' + blockCount + '">Ammo</label>' +
       '<input class="input-field" id="input-ammo-' + blockCount + '" type="text">' +
@@ -390,6 +392,8 @@ function awesomesheet() {
       '<div class="input-block">' +
       '<label class="input-label" for="input-critical-' + blockCount + '">Critical</label>' +
       '<input class="input-field" id="input-critical-' + blockCount + '" type="text">' +
+      '</div>' +
+      '</div>' +
       '</div>' +
       '</div>' +
       '</div>';

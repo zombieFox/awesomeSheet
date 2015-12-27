@@ -95,7 +95,7 @@ $open-sans-condensed-light:           "Open Sans Condensed Light", Helvetica, Ar
 
 $small-text:                          0.8rem;
 
-$border:                              2px solid $gray-12;
+$border:                              2px solid transparent;
 
 /* transitions
 ------------------------------------------------- */
@@ -137,6 +137,6 @@ $shadow-large-inset:                inset 0 1px 5px rgba(0, 0, 0, 0.1),
 /* radius
 ------------------------------------------------- */
 
-$border-radius-small:               3px;
+$border-radius-small:               2px;
 $border-radius-medium:              6px;
 $border-radius-large:               10px;

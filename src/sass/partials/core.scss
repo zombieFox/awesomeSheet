@@ -10,7 +10,7 @@ section {
   position: relative;
   z-index: $body;
   h1 {
-    padding: 4rem 0 0 30px;
+    padding: 6rem 0 0 30px;
     margin-bottom: 40px;
     text-transform: uppercase;
     position: relative;
@@ -19,10 +19,18 @@ section {
       border-left: 10px solid $primary-color;
       position: absolute;
       height: 3rem;
-      top: 3.5rem;
+      top: 5.5rem;
       left: 0;
       border-radius: $border-radius-small;
     }
+  }
+  h2 {
+    background-color: $gray-12;
+    padding: 0 10px;
+    min-height: 2.4rem;
+    line-height: 2.4rem;
+    box-sizing: border-box;
+    border-radius: $border-radius-small $border-radius-small 0 0;
   }
 }
 
@@ -33,30 +41,11 @@ section {
 
 hr {
   border: 0;
-  border-top: 2px solid $gray-12;
-  // border-bottom: 5px solid $gray-12;
-  margin: 30px 0 40px 0;
+  border-top: 1px solid $gray-13;
+  margin: 0 0 20px 0;
   background-color: transparent;
   position: relative;
   clear: both;
-  // &:before,
-  // &:after {
-  //   content: "";
-  //   width: 15px;
-  //   height: 15px;
-  //   background: #fff;
-  //   background-color: $white;
-  //   position: absolute;
-  //   top: 0  ;
-  // }
-  // &:before {
-  //   left: 0;
-  //   transform: translate(-50%, 0) rotate(45deg);
-  // }
-  // &:after {
-  //   right: 0;
-  //   transform: translate(50%, -100%) rotate(45deg);
-  // }
 }
 
 // input with lables
@@ -68,9 +57,10 @@ hr {
     color: $gray-08;
     display: block;
     position: absolute;
-    top: -0.5rem;
+    top: -1.5rem;
     left: 0;
     font-size: $small-text;
+    height: 1.5rem;
     line-height: 1.5rem;
     z-index: 2;
     width: 100%;
@@ -94,7 +84,7 @@ hr {
 // input with lables
 .hidable-block {
   .hidable-toggle {
-    margin: 4.2rem 0 0 0;
+    margin: 6.5rem 0 0 0;
   }
 }
 
@@ -128,9 +118,7 @@ hr {
 // clone
 .clone-block {
   .clone-controls {
-    .button {
-      margin-bottom: 20px;
-    }
+    margin: 0 0 3rem 0;
   }
 }
 
@@ -139,11 +127,11 @@ hr {
   padding-top: 50px;
   padding-bottom: 50px;
   background-color: $secondary-color-dark;
-  border-bottom: 5px solid $secondary-color-light;
+  border-bottom: 10px solid $secondary-color-light;
   input {
     background-color: $gray-alpha-12;
     color: $white;
-    border-color: $gray-alpha-08;
+    border-color: transparent;
     &:hover,
     &:focus {
       border-color: $primary-color;
@@ -194,8 +182,27 @@ hr {
       .name {
         margin: 0;
       }
-      input {
-        font-family: $open-sans-semi-bold;
+      .name {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    .str {
+      h2 {
+        border-radius: $border-radius-small $border-radius-small 0 0;
+      }
+    }
+    .dex,
+    .con,
+    .int,
+    .wis {
+      h2 {
+        border-radius: 0;
+      }
+    }
+    .cha {
+      h2 {
+        border-radius: 0 0 $border-radius-small $border-radius-small;
       }
     }
   }
@@ -218,9 +225,8 @@ hr {
     tr {
       td {
         .name {
-          span {
-            float: right;
-          }
+          white-space: nowrap;
+          overflow: hidden;
         }
         .ranks,
         .misc {
@@ -345,7 +351,7 @@ hr {
     }
   }
   .spell-state-controls {
-    margin: 20px 0;
+    margin: 0 0 3rem 0;
   }
   .new-spell {
     position: relative;
@@ -358,7 +364,8 @@ hr {
     .add-spell {
       position: absolute;
       right: 5px;
-      top: 14px;
+      top: 1.25rem;
+      transform: translateY(-50%);
       padding: 4px 6px;
       [class^="icon-"],
       [class*=" icon-"] {
@@ -380,29 +387,6 @@ hr {
 ------------------------------------------------- */
 
 @media (min-width: $screen-sm) {
-  // skills
-  #skills {
-    .skill-list {
-      thead {
-        tr {
-          td {
-            width: 15%;
-            &:first-child {
-              width: 55%;
-            }
-          }
-        }
-      }
-    }
-  }
-  // spells
-  #spells {
-    .new-spell {
-      .add-spell {
-        top: 17px;
-      }
-    }
-  }
   // defense
   #defense {
     .ac,
@@ -440,14 +424,6 @@ hr {
       }
     }
   }
-  // spells
-  #spells {
-    .new-spell {
-      .add-spell {
-        top: 21px;
-      }
-    }
-  }
 }
 
 @media (min-width: $screen-lg) {}
@@ -473,9 +449,6 @@ hr {
           margin: 0 2% 0 0;
           &:nth-child(even) {
             margin: 0 2% 0 0;
-          }
-          &:nth-child(3n) {
-            // margin: 0 0 0 1%;
           }
         }
       }
