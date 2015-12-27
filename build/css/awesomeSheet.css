@@ -1420,7 +1420,7 @@ hr {
   border-color: #cc0044; }
 
 #spells .spell-state-controls {
-  margin: 0 0 3rem 0; }
+  margin: 20px 0 3rem 0; }
 
 #spells .new-spell {
   position: relative; }
