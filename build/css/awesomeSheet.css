@@ -280,13 +280,13 @@ button {
   .button.button-secondary:link, .button.button-secondary:visited,
   button.button-secondary:link,
   button.button-secondary:visited {
-    color: #343434;
+    color: #003242;
     background-color: transparent;
-    border-color: #d6d6d6; }
+    border-color: #086482; }
   .button.button-secondary:focus,
   button.button-secondary:focus {
     background-color: transparent;
-    border-color: #d6d6d6;
+    border-color: #086482;
     outline: 0;
     text-decoration: none; }
   .button.button-secondary:hover,
