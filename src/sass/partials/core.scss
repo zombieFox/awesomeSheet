@@ -3,7 +3,7 @@
 
 body {
   background: $white;
-  padding: 0 0 300px 0;
+  padding: 0 0 500px 0;
 }
 
 section {
@@ -25,7 +25,8 @@ section {
     }
   }
   h2 {
-    background-color: $gray-12;
+    background-color: $secondary-color-dark;
+    color: $white;
     padding: 0 10px;
     min-height: 2.4rem;
     line-height: 2.4rem;
@@ -41,8 +42,8 @@ section {
 
 hr {
   border: 0;
-  border-top: 1px solid $gray-13;
-  margin: 0 0 20px 0;
+  border-top: 1px solid $gray-12;
+  margin: 0 0 30px 0;
   background-color: transparent;
   position: relative;
   clear: both;
@@ -89,27 +90,30 @@ hr {
 }
 
 // consumables
-.consumable-counts {
-  margin: -5px 0 10px 0;
-  .check-group {
-    margin: 0 8px 8px 0;
-    float: right;
-    .check {
-      background-color: $secondary-color-light;
-      border: 1px solid $secondary-color-light;
-      margin: 0 3px 3px 0;
-      padding: 0;
-      float: right;
-      font-size: 1.5rem;
-      width: 4px;
-      height: 4px;
-      border-radius: 2px;
-      &.used {
-        background-color: transparent;
-        border-color: $gray-09;
-      }
-      &:nth-child(6n) {
-        clear: right;
+.consumable-block {
+  margin-bottom: 2rem;
+  .consumable-counts {
+    margin: -15px 0 0 0;
+    .check-group {
+      margin: 0 8px 8px 0;
+      float: left;
+      .check {
+        background-color: $secondary-color-light;
+        border: 1px solid $secondary-color-light;
+        margin: 0 3px 3px 0;
+        padding: 0;
+        float: left;
+        font-size: 1.5rem;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        &.used {
+          background-color: transparent;
+          border-color: $gray-09;
+        }
+        &:nth-child(6n) {
+          clear: left;
+        }
       }
     }
   }
@@ -118,7 +122,7 @@ hr {
 // clone
 .clone-block {
   .clone-controls {
-    margin: 0 0 3rem 0;
+    margin: 2rem 0 3rem 0;
   }
 }
 
@@ -287,23 +291,6 @@ hr {
           margin: 0 0 0 3px;
           line-height: 1.5rem;
         }
-        &:link,
-        &:visited {
-          border-color: $gray-13;
-        }
-        &:active,
-        &:focus,
-        &:hover {
-          border-color: $gray-12;
-        }
-      }
-      .button-primary {
-        &:link,
-        &:visited {
-          color: $white;
-          background-color: $primary-color;
-          border-color: $primary-color-dark;
-        }
       }
       &.prepare-state,
       &.unprepare-state,
@@ -311,7 +298,7 @@ hr {
         .button-tertiary {
           &:link,
           &:visited {
-            border-color: $gray-12;
+            border-color: $gray-11;
           }
           &:active,
           &:focus,
@@ -335,23 +322,10 @@ hr {
           }
         }
       }
-      &.prepare-state,
-      &.unprepare-state,
-      &.cast-state,
-      &.delete-state {
-        &.button-primary {
-          &:link,
-          &:visited {
-            color: $white;
-            background-color: $primary-color;
-            border-color: $primary-color-dark;
-          }
-        }
-      }
     }
   }
   .spell-state-controls {
-    margin: 20px 0 3rem 0;
+    margin: 10px 0 3rem 0;
   }
   .new-spell {
     position: relative;
@@ -403,6 +377,12 @@ hr {
   section {
     h1 {
       margin-bottom: 60px;
+    }
+  }
+  // clone
+  .clone-block {
+    .clone-controls {
+      margin: 5px 0 2rem 0;
     }
   }
   // basics

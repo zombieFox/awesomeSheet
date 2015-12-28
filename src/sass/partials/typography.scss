@@ -97,6 +97,7 @@ a {
 .textarea,
 textarea {
   background-color: $gray-13;
+  background-color: $secondary-color-light-alpha;
   padding: 10px 15px;
   margin: 0 0 1.5rem 0;
   width: 100%;
@@ -123,6 +124,7 @@ input {
   &[type="tel"],
   &[type="password"] {
     background-color: $gray-13;
+    background-color: $secondary-color-light-alpha;
     font-family: $open-sans-regular;
     font-size: 1rem;
     height: 2.5rem;
@@ -249,17 +251,17 @@ table {
 ------------------------------------------------- */
 
 ::-webkit-input-placeholder {
-  color: $gray-11;
+  color: $gray-09;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: $gray-11;
+  color: $gray-09;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: $gray-11;
+  color: $gray-09;
 }
 
 ::selection {

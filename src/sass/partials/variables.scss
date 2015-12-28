@@ -9,12 +9,14 @@ $background-color:                    #fafafa;
 $primary-color:                       #ff0055;
 $primary-color-dark:                  #cc0044;
 $primary-color-light:                 #ff3276;
-$primary-color-light-alpha:           rgba(255, 0, 85,0.5);
+$primary-color-dark-alpha:            rgba(255, 0, 85,0.5);
+$primary-color-light-alpha:           rgba(255, 0, 85,0.05);
 
 $secondary-color:                     #003c4f;
 $secondary-color-dark:                #003242;
 $secondary-color-light:               #086482;
-$secondary-color-light-alpha:         rgba(8, 100, 130,0.5);
+$secondary-color-dark-alpha:          rgba(0, 70, 130,0.5);
+$secondary-color-light-alpha:         rgba(0, 70, 130,0.05);
 
 $gray-01:                             #222222; // dark
 $gray-02:                             #343434;

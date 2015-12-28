@@ -368,7 +368,7 @@ function awesomesheet() {
       '<input class="input-field" id="input-attack-' + blockCount + '" type="text">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-10">' +
+      '<div class="col-xs-10 col-xs-offset-2">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
