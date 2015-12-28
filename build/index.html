@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Awesome Sheet</title>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#003C4F">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/vendor.min.css">
+  <link rel="stylesheet" href="css/awesomeSheet.min.css">
+</head>
+<body id="body" class="clearfix">
+<nav>
+  <div class="nav-toggle">
+    <span class="line top"></span>
+    <span class="line middle"></span>
+    <span class="line bottom"></span>
+  </div>
+  <ul class="nav-list">
+    <li><a href="#body" data-scroll tabindex="10">Basics</a></li>
+    <li><a href="#statistics" data-scroll tabindex="10">Statistics</a></li>
+    <li><a href="#equipment" data-scroll tabindex="10">Equipment</a></li>
+    <li><a href="#defense" data-scroll tabindex="10">Defense</a></li>
+    <li><a href="#offense" data-scroll tabindex="10">Offense</a></li>
+    <li><a href="#skills" data-scroll tabindex="10">Skills</a></li>
+    <li><a href="#spells" data-scroll tabindex="10">Spells</a></li>
+    <li><a href="#special-abilities" data-scroll tabindex="10">Special Abilities</a></li>
+    <li><a href="#notes" data-scroll tabindex="10">Notes</a></li>
+    <li class="divide"></li>
+    <li><a href="javascript:void(0)" class="toggle-fullscreen"><span class="icon-fullscreen"></span>Fullscreen</a></li>
+    <li class="divide"></li>
+    <li><a href="javascript:void(0)" class="clear-sheet"><span class="icon-delete"></span>Clear Sheet</a></li>
+  </ul>
+</nav>
+<section id="basics">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="awesome-name">
+        <div class="input-block">
+          <input class="input-field" id="input-name" type="text" value="Nif Amakir" placeholder="Character Name" tabindex="1">
+        </div>
+      </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="input-block">
+          <label class="input-label" for="input-race-class">Race &amp; Class</label>
+          <input class="input-field" id="input-race-class" type="text" value="Elf Wizard" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-level">Level</label>
+          <input class="input-field" id="input-level" type="text" value="5" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-size">Size</label>
+          <input class="input-field" id="input-size" type="text" value="Medium" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-alignment">Alignment</label>
+          <input class="input-field" id="input-alignment" type="text" value="Lawful Neutral" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-xp">XP</label>
+          <input class="input-field" id="input-xp" type="text" value="15,000" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-height">Height</label>
+          <input class="input-field" id="input-height" type="text" value="6'0" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-weight">Weight</label>
+          <input class="input-field" id="input-weight" type="text" value="136 lbs" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-age">Age</label>
+          <input class="input-field" id="input-age" type="text" value="120 years" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-gender">Gender</label>
+          <input class="input-field" id="input-gender" type="text" value="Male" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-speed">Speed</label>
+          <input class="input-field" id="input-speed" type="text" value="30 feet, 6 squares" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-wealth">Wealth</label>
+          <input class="input-field" id="input-wealth" type="text" value="2,690gp" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-initiative">Initiative</label>
+          <input class="input-field" id="input-initiative" type="text" value="3" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-hero-points">Hero Points</label>
+          <input class="input-field" id="input-hero-points" type="text" value="1" tabindex="1">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-xl-2">
+        <div class="input-block">
+          <label class="input-label" for="input-luck-points">Luck Points</label>
+          <input class="input-field" id="input-luck-points" type="text" tabindex="1">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <section id="statistics">
+    <h1>Statistics</h1>
+    <div class="stat-block row">
+      <div class="col-xs-12">
+        <div class="stats str row">
+          <div class="col-xs-3 col-sm-3">
+            <h2 class="name">Str</h2>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-lg-6">
+            <div class="row no-gutter">
+              <div class="col-xs-3">
+                <input class="score text-center" type="number" placeholder="Score" value="8" tabindex="1">
+              </div>
+              <div class="col-xs-3">
+                <p class="modifier text-center inline-with-input underline-with-input">-1</p>
+              </div>
+              <div class="col-xs-3">
+                <input class="temp-score text-center" type="number" placeholder="Temp" tabindex="2">
+              </div>
+              <div class="col-xs-3">
+                <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats dex row">
+          <div class="col-xs-3 col-sm-3">
+            <h2 class="name">Dex</h2>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-lg-6">
+            <div class="row no-gutter">
+              <div class="col-xs-3">
+                <input class="score text-center" type="number" placeholder="Score" value="17" tabindex="1">
+              </div>
+              <div class="col-xs-3">
+                <p class="modifier text-center inline-with-input underline-with-input">3</p>
+              </div>
+              <div class="col-xs-3">
+                <input class="temp-score text-center" type="number" placeholder="Temp" tabindex="2">
+              </div>
+              <div class="col-xs-3">
+                <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats con row">
+          <div class="col-xs-3 col-sm-3">
+            <h2 class="name">Con</h2>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-lg-6">
+            <div class="row no-gutter">
+              <div class="col-xs-3">
+                <input class="score text-center" type="number" placeholder="Score" value="14" tabindex="1">
+              </div>
+              <div class="col-xs-3">
+                <p class="modifier text-center inline-with-input underline-with-input">2</p>
+              </div>
+              <div class="col-xs-3">
+                <input class="temp-score text-center" type="number" placeholder="Temp" tabindex="2">
+              </div>
+              <div class="col-xs-3">
+                <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats int row">
+          <div class="col-xs-3 col-sm-3">
+            <h2 class="name">Int</h2>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-lg-6">
+            <div class="row no-gutter">
+              <div class="col-xs-3">
+                <input class="score text-center" type="number" placeholder="Score" value="21" tabindex="1">
+              </div>
+              <div class="col-xs-3">
+                <p class="modifier text-center inline-with-input underline-with-input">5</p>
+              </div>
+              <div class="col-xs-3">
+                <input class="temp-score text-center" type="number" placeholder="Temp" value="23" tabindex="2">
+              </div>
+              <div class="col-xs-3">
+                <p class="temp-modifier text-center inline-with-input underline-with-input">6</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats wis row">
+          <div class="col-xs-3 col-sm-3">
+            <h2 class="name">Wis</h2>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-lg-6">
+            <div class="row no-gutter">
+              <div class="col-xs-3">
+                <input class="score text-center" type="number" placeholder="Score" value="12" tabindex="1">
+              </div>
+              <div class="col-xs-3">
+                <p class="modifier text-center inline-with-input underline-with-input">1</p>
+              </div>
+              <div class="col-xs-3">
+                <input class="temp-score text-center" type="number" placeholder="Temp" tabindex="2">
+              </div>
+              <div class="col-xs-3">
+                <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats cha row">
+          <div class="col-xs-3 col-sm-3">
+            <h2 class="name">Cha</h2>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-lg-6">
+            <div class="row no-gutter">
+              <div class="col-xs-3">
+                <input class="score text-center" type="number" placeholder="Score" value="10" tabindex="1">
+              </div>
+              <div class="col-xs-3">
+                <p class="modifier text-center inline-with-input underline-with-input">0</p>
+              </div>
+              <div class="col-xs-3">
+                <input class="temp-score text-center" type="number" placeholder="Temp" tabindex="2">
+              </div>
+              <div class="col-xs-3">
+                <p class="temp-modifier text-center inline-with-input underline-with-input"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h2>Feats</h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div contentEditable="true" class="textarea textarea-feats" tabindex="3">Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)</div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <h2>Traits</h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div contentEditable="true" class="textarea textarea-traits" tabindex="3">Resilient</div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <h2>Languages</h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div contentEditable="true" class="textarea textarea-languages" tabindex="3">Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan</div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <h2>Special Qualities</h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div contentEditable="true" class="textarea textarea-sq" tabindex="3">Arcane Bond, Bonus Feats, Cantrips, Conjuration School, Elven Immunities, Elven Magic, Enchantment Opposition School, Familiar, Keen Senses, Low-light Vision, Necromancy Opposition School, Shift, Summoner's Charm, Low-light Vision</div>
+      </div>
+    </div>
+  </section>
+  <section id="equipment" class="hidable-block" data-all-hidden="false">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>Equipment</h1>
+      </div>
+      <div class="col-xs-6">
+        <a href="javascript:void(0)" class="hidable-toggle right button button-secondary button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide Fields</span></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h2 class="margin-with-input">Body Slots</h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-armor">Armor</label>
+              <input class="input-field" id="input-body-slot-armor" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-belts">Belts</label>
+              <input class="input-field" id="input-body-slot-belts" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-body">Body</label>
+              <input class="input-field" id="input-body-slot-body" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-chest">Chest</label>
+              <input class="input-field" id="input-body-slot-chest" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-eyes">Eyes</label>
+              <input class="input-field" id="input-body-slot-eyes" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-feet">Feet</label>
+              <input class="input-field" id="input-body-slot-feet" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-hands">Hands</label>
+              <input class="input-field" id="input-body-slot-hands" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-head">Head</label>
+              <input class="input-field" id="input-body-slot-head" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-headband">Headband</label>
+              <input class="input-field" id="input-body-slot-headband" type="text" tabindex="3" value="Headband of Vast Intelligence +2">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-neck">Neck</label>
+              <input class="input-field" id="input-body-slot-neck" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-ring-left-hand">Ring (Left Hand)</label>
+              <input class="input-field" id="input-body-slot-ring-left-hand" type="text" tabindex="3" value="Ring of Sustenance">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-ring-right-hand">Ring (Right Hand)</label>
+              <input class="input-field" id="input-body-slot-ring-right-hand" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-shield">Shield</label>
+              <input class="input-field" id="input-body-slot-shield" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-shoulders">Shoulders</label>
+              <input class="input-field" id="input-body-slot-shoulders" type="text" tabindex="3" value="Cloak of Resistance +2">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 hidable-on-empty-input">
+            <div class="input-block">
+              <label class="input-label" for="input-body-slot-wrist">Wrist</label>
+              <input class="input-field" id="input-body-slot-wrist" type="text" tabindex="3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h2>Magic Gear</h2>
+      </div>
+      <div class="col-xs-12 col-md-9 hidable-on-empty-textarea">
+        <div contentEditable="true" class="textarea textarea-magic-gear" tabindex="3">Pearl of Power (1st Level), Scroll of Acid Pit, Potion of CLW x2, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Wand of Infernal Healing (12), Scroll of Summon Monster III x2, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x1, Scroll of Stinking Cloud x1</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h2>Gear</h2>
+      </div>
+      <div class="col-xs-12 col-md-9 hidable-on-empty-textarea">
+        <div contentEditable="true" class="textarea textarea-gear" tabindex="3">Spell component pouch, Spellbook, Backpack, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse</div>
+      </div>
+    </div>
+    <div class="clone-block consumables">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <h2>Consumables</h2>
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="clone-controls">
+            <a href="javascript:void(0)" class="clone-add button button-secondary button-small"><span class="icon-add"></span>Add Consumables</a>
+            <a href="javascript:void(0)" class="clone-remove button button-secondary button-small"><span class="icon-remove"></span>Remove Consumables</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="clone-target"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="defense" class="hidable-block" data-all-hidden="false">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>Defense</h1>
+      </div>
+      <div class="col-xs-6">
+        <a href="javascript:void(0)" class="hidable-toggle right button button-secondary button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide Fields</span></a>
+      </div>
+    </div>
+    <div class="input-total-block">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <h2 class="margin-with-input">HP <span class="total">35</span></h2>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <div class="row no-gutter">
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-hp">HP</label>
+                <input class="input-field" id="input-hp" type="number" value="35" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-temp-hp">Temp HP</label>
+                <input class="input-field" id="input-temp-hp" type="number" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-current-hp">Current HP</label>
+                <input class="input-field" id="input-current-hp" type="number">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-current-non-lethal-hp">Non Lethal HP</label>
+                <input class="input-field" id="input-current-non-lethal-hp" type="number">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="input-total-block" data-dex-bonus="true" data-plus-ten-bonus="true" data-ac-armor="true" data-ac-shield="true" data-ac-deflect="true" data-ac-dodge="true" data-ac-natural="true" data-size-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input">AC <span class="total">13</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-misc">Misc</label>
+                    <input class="input-field" id="input-ac-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-temp">Temp</label>
+                    <input class="input-field" id="input-ac-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="input-total-block" data-plus-ten-bonus="true" data-ac-armor="true" data-ac-shield="true" data-ac-deflect="true" data-ac-natural="true" data-size-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input"><span class="hidden-xs">Flat Footed</span><span class="visible-xs-inline">FF AC</span> <span class="total">10</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-flat-footed-misc">Misc</label>
+                    <input class="input-field" id="input-ac-flat-footed-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-flat-footed-temp">Temp</label>
+                    <input class="input-field" id="input-ac-flat-footed-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="input-total-block" data-dex-bonus="true" data-plus-ten-bonus="true" data-ac-deflect="true" data-ac-dodge="true" data-size-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input"><span class="hidden-xs">Touch</span><span class="visible-xs-inline">T AC</span> <span class="total">13</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-touch-misc">Misc</label>
+                    <input class="input-field" id="input-ac-touch-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ac-touch-temp">Temp</label>
+                    <input class="input-field" id="input-ac-touch-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutter hidable">
+      <div class="col-xs-2">
+        <div class="input-block">
+          <label class="input-label" for="input-ac-armor">Armor</label>
+          <input class="input-field" id="input-ac-armor" type="number">
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="input-block">
+          <label class="input-label" for="input-ac-shield">Shield</label>
+          <input class="input-field" id="input-ac-shield" type="number">
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="input-block">
+          <label class="input-label" for="input-ac-deflect">Deflect</label>
+          <input class="input-field" id="input-ac-deflect" type="number">
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="input-block">
+          <label class="input-label" for="input-ac-dodge">Dodge</label>
+          <input class="input-field" id="input-ac-dodge" type="number">
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="input-block">
+          <label class="input-label" for="input-ac-natural">Natural</label>
+          <input class="input-field" id="input-ac-natural" type="number">
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="input-block">
+          <label class="input-label" for="input-size-bonus">Size</label>
+          <input class="input-field" id="input-size-bonus" type="number">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-total-block" data-con-bonus="true">
+        <div class="col-xs-4">
+          <h2 class="margin-with-input"><span class="hidden-xs">Fortitude</span><span class="visible-xs-inline">Fort</span> <span class="total">8</span></h2>
+        </div>
+        <div class="col-xs-8 hidable">
+          <div class="row no-gutter">
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-fortitude-base">Base</label>
+                <input class="input-field" id="input-fortitude-base" type="number" value="1" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-fortitude-racial">Racial</label>
+                <input class="input-field" id="input-fortitude-racial" type="number" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-fortitude-misc">Misc</label>
+                <input class="input-field" id="input-fortitude-misc" type="number" value="5" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-fortitude-temp">Temp</label>
+                <input class="input-field" id="input-fortitude-temp" type="number" data-modifier="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input-total-block" data-dex-bonus="true">
+        <div class="col-xs-4">
+          <h2 class="margin-with-input"><span class="hidden-xs">Reflex</span><span class="visible-xs-inline">Ref</span> <span class="total">6</span></h2>
+        </div>
+        <div class="col-xs-8 hidable">
+          <div class="row no-gutter">
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-reflex-base">Base</label>
+                <input class="input-field" id="input-reflex-base" type="number" value="1" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-reflex-racial">Racial</label>
+                <input class="input-field" id="input-reflex-racial" type="number" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-reflex-misc">Misc</label>
+                <input class="input-field" id="input-reflex-misc" type="number" value="2" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-reflex-temp">Temp</label>
+                <input class="input-field" id="input-reflex-temp" type="number" data-modifier="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input-total-block" data-wis-bonus="true">
+        <div class="col-xs-4">
+          <h2 class="margin-with-input"><span class="hidden-xs">Will</span><span class="visible-xs-inline">Wil</span> <span class="total">7</span></h2>
+        </div>
+        <div class="col-xs-8 hidable">
+          <div class="row no-gutter">
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-will-base">Base</label>
+                <input class="input-field" id="input-will-base" type="number" value="4" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-will-racial">Racial</label>
+                <input class="input-field" id="input-will-racial" type="number" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-will-misc">Misc</label>
+                <input class="input-field" id="input-will-misc" type="number" value="2" data-modifier="true">
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="input-block">
+                <label class="input-label" for="input-will-temp">Temp</label>
+                <input class="input-field" id="input-will-temp" type="number" data-modifier="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <h3>Notes</h3>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div contentEditable="true" class="textarea textarea-defense-notes">+2 vs. Enchantment spells and effects</div>
+      </div>
+    </div>
+  </section>
+  <section id="offense" class="hidable-block" data-all-hidden="false">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>Offense</h1>
+      </div>
+      <div class="col-xs-6">
+        <a href="javascript:void(0)" class="hidable-toggle right button button-secondary button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide Fields</span></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-3">
+        <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input">CMB <span class="total">1</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-cmb-misc">Misc</label>
+                    <input class="input-field" id="input-cmb-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-cmb-temp">Temp</label>
+                    <input class="input-field" id="input-cmb-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true" data-plus-ten-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input">CMD <span class="total">14</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-cmd-misc">Misc</label>
+                    <input class="input-field" id="input-cmd-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-cmd-temp">Temp</label>
+                    <input class="input-field" id="input-cmd-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input">Melee <span class="total">1</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-melee-attack-misc">Misc</label>
+                    <input class="input-field" id="input-melee-attack-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-melee-attack-temp">Temp</label>
+                    <input class="input-field" id="input-melee-attack-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="margin-with-input">Ranged <span class="total">5</span></h2>
+            </div>
+            <div class="col-xs-12 hidable">
+              <div class="row no-gutter">
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ranged-attack-misc">Misc</label>
+                    <input class="input-field" id="input-ranged-attack-misc" type="number" data-modifier="true">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="input-block">
+                    <label class="input-label" for="input-ranged-attack-temp">Temp</label>
+                    <input class="input-field" id="input-ranged-attack-temp" type="number" data-modifier="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row hidable">
+      <div class="col-xs-4 col-sm-4">
+        <div class="input-block">
+          <label class="input-label" for="input-base-attack">Base Attack</label>
+          <input class="input-field" id="input-base-attack" type="number" value="2">
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4">
+        <div class="input-block">
+          <label class="input-label" for="input-special-size-bonus">Size</label>
+          <input class="input-field" id="input-special-size-bonus" type="number">
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4">
+        <div class="input-block">
+          <label class="input-label" for="input-concentration">Concentration</label>
+          <input class="input-field" id="input-concentration" type="number" value="11">
+        </div>
+      </div>
+    </div>
+    <div class="clone-block attacks">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <h2>Attacks</h2>
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="clone-controls">
+            <a href="javascript:void(0)" class="clone-add button button-secondary button-small"><span class="icon-add"></span>Add Attack</a>
+            <a href="javascript:void(0)" class="clone-remove button button-secondary button-small"><span class="icon-remove"></span>Remove Attack</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="clone-target"></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <h3>Notes</h3>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div contentEditable="true" class="textarea textarea-attack-notes"></div>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="hidable-block" data-all-hidden="false">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>Skills</h1>
+      </div>
+      <div class="col-xs-6">
+        <a href="javascript:void(0)" class="hidable-toggle right button button-secondary button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide Fields</span></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="skill-list">
+          <thead class="hidable">
+            <tr>
+              <td class="name-title"></td>
+              <td class="stat-title"></td>
+              <td class="total-title">Total</td>
+              <td class="ranks-title small-text">Ranks</td>
+              <td class="misc-title small-text">Misc</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="dex">Acrobatics</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Dex</p></td>
+              <td><p class="total skill-value underline-with-input">3</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Appraise</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">13</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="4"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="cha">Bluff</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Cha</p></td>
+              <td><p class="total skill-value underline-with-input">0</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="str">Climb</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Str</p></td>
+              <td><p class="total skill-value underline-with-input">-1</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Craft</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">6</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="cha">Diplomacy</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Cha</p></td>
+              <td><p class="total skill-value underline-with-input">0</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="cha">Disguise</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Cha</p></td>
+              <td><p class="total skill-value underline-with-input">0</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="dex">Escape Artist</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Dex</p></td>
+              <td><p class="total skill-value underline-with-input">3</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="dex">Fly</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Dex</p></td>
+              <td><p class="total skill-value underline-with-input">3</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="wis">Heal</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Wis</p></td>
+              <td><p class="total skill-value underline-with-input">1</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="cha">Intimidate</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Cha</p></td>
+              <td><p class="total skill-value underline-with-input">0</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Arcana)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">11</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="2"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Dungeoneering)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">11</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="2"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Engineering)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Geography)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (History)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Local)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Nature)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Nobility)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Planes)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">11</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="2"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge (Religion)</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">11</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="2"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Linguistics</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">11</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="2"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="wis">Perception</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Wis</p></td>
+              <td><p class="total skill-value underline-with-input">10</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="5"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="4"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="cha">Perform</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Cha</p></td>
+              <td><p class="total skill-value underline-with-input">0</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="dex">Ride</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Dex</p></td>
+              <td><p class="total skill-value underline-with-input">3</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="wis">Sense Motive</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Wis</p></td>
+              <td><p class="total skill-value underline-with-input">8</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="5"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="2"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="int">Spellcraft</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Int</p></td>
+              <td><p class="total skill-value underline-with-input">14</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="5"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number" value="3"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="dex">Stealth</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Dex</p></td>
+              <td><p class="total skill-value underline-with-input">3</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="wis">Survival</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Wis</p></td>
+              <td><p class="total skill-value underline-with-input">1</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="str">Swim</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Str</p></td>
+              <td><p class="total skill-value underline-with-input">-1</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+            <tr class="skill-details">
+              <td><p class="name skill-value underline-with-input" data-ability="cha">Use Magic Device</p></td>
+              <td class="hidable"><p class="name skill-value small-text underline-with-input">Cha</p></td>
+              <td><p class="total skill-value underline-with-input">5</p></td>
+              <td class="hidable"><input class="ranks skill-value small-text" type="number" value="5"></td>
+              <td class="hidable"><input class="misc skill-value small-text" type="number"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section id="spells" class="hidable-block" data-all-hidden="false">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>Spells</h1>
+      </div>
+      <div class="col-xs-6">
+        <a href="javascript:void(0)" class="hidable-toggle right button button-secondary button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide Fields</span></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="spell-level" data-spell-level="0">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>0</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-0">Known</label>
+                    <input class="input-field" id="input-spells-known-level-0" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-0">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-0" type="text" value="4">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-0">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-0" type="text" value="16">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-0" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Bleed <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Erase <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Daze <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Disrupt Undead <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Touch of Fatigue <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Prestidigitation <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Light <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Ghost Sound <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Spark <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Acid Splash <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mage Hand <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Flare <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Detect Magic <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Detect Poison <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Dancing Lights <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mending <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Arcane Mark <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Message <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Ray of Frost <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Read Magic <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Open/Close <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Resistance <span class="spell-marks"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="1">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>1</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-1">Known</label>
+                    <input class="input-field" id="input-spells-known-level-1" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-1">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-1" type="text" value="5">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-1">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-1" type="text" value="17">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-1" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Comprehend Languages <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Enlarge Person <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Feather Fall <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Grease <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mage Armor <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mount <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Obscuring Mist <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Protection from Chaos <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Protection from Evil <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Shield <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster I <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Unseen Servant <span class="spell-marks"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="2">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>2</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-2">Known</label>
+                    <input class="input-field" id="input-spells-known-level-2" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-2">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-2" type="text" value="4">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-2">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-2" type="text" value="18">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-2" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Blur <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Create Pit <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Flaming Sphere <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Glitterdust <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Invisibility <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Levitate <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mirror Image <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Resist Energy <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Stone Call <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster II <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Web <span class="spell-marks"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="3">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>3</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-3">Known</label>
+                    <input class="input-field" id="input-spells-known-level-3" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-3">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-3" type="text" value="2">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-3">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-3" type="text" value="19">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-3" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Stinking Cloud <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster III <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Spiked Pit <span class="spell-marks"></span></a>
+                <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Aqueous Orb <span class="spell-marks"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="4">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>4</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-4">Known</label>
+                    <input class="input-field" id="input-spells-known-level-4" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-4">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-4" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-4">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-4" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-4" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="5">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>5</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-5">Known</label>
+                    <input class="input-field" id="input-spells-known-level-5" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-5">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-5" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-5">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-5" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-5" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="6">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>6</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-6">Known</label>
+                    <input class="input-field" id="input-spells-known-level-6" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-6">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-6" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-6">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-6" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-6" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="7">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>7</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-7">Known</label>
+                    <input class="input-field" id="input-spells-known-level-7" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-7">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-7" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-7">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-7" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-7" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="8">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>8</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-8">Known</label>
+                    <input class="input-field" id="input-spells-known-level-8" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-8">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-8" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-8">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-8" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-8" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spell-level" data-spell-level="9">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2">
+              <h2 class="margin-with-input"><span class="hidden-xs">Level </span>9</h2>
+            </div>
+            <div class="col-xs-10 col-sm-5 col-md-6 hidable">
+              <div class="new-spell">
+                <div class="spell-name">
+                  <input type="text" placeholder="Add Spell">
+                </div>
+                <a href="javascript:void(0)" class="add-spell button button-tertiary button-small"><span class="icon-add"></span></a>
+              </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-known-level-9">Known</label>
+                    <input class="input-field" id="input-spells-known-level-9" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4 hidable">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spells-daily-level-9">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-9" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block">
+                    <label class="input-label" for="input-spell-dc-level-9">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-9" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spells-known spell-level-9" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="spell-state-controls">
+                <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+                <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
+                <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+                <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="special-abilities">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Special Abilities</h1>
+        <div contentEditable="true" class="textarea textarea-special-abilities">
+          <p><strong>Arcane Bond (Su)</strong> You have selected to establish a powerful arcane bond with a creature.</p>
+          <p><strong>Bonus Feats</strong> At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, he can choose a metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus feat, including caster level minimums. These bonus feats are in addition to the feats that a character of any class gets from advancing levels. The wizard is not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing those feats.</p>
+          <p><strong>Cantrips</strong> You can prepare a number of cantrips, or 0-level spells, each day. These spells are cast like any other spell, but they are not expended when cast and may be used again. You can prepare a cantrip from a prohibited school, but it uses up two of your available slots.</p>
+          <p><strong>Conjuration School</strong> You have chosen to specialize in conjuration spells.</p>
+          <p><strong>Elven Immunities (Ex)</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.</p>
+          <p><span>Linguistics Skill</span> Dwarven, Giant.</p>
+          <p><strong>Elven Magic (Ex)</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.</p>
+          <p><strong>Enchantment Opposition School</strong> You have chosen enchantment spells as an opposition school. Preparing an enchantment spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an enchantment spell as a prerequisite.</p>
+          <p><strong>Familiar</strong> A familiar grants special abilities to its master. These special abilities apply only when the master and familiar are within 1 mile of each other.</p>
+          <p><strong>Bower</strong> (Rat) Master gains a +2 bonus on Fortitude saves</p>
+          <p><strong>Headband of Intellect Skill Selection (Use Magic Device)</strong> </p>
+          <p><strong>Keen Senses (Ex)</strong> Elves receive a +2 bonus on Perception skill checks.</p>
+          <p><strong>Low-Light Vision (Ex)</strong> You can see x2 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</p>
+          <p><strong>Necromancy Opposition School</strong> You have chosen necromancy spells as an opposition school. Preparing an necromancy spell takes up two spell slots of the same level. You take a -4 penalty on any skill checks made when crafting a magic item that has an necromancy spell as a prerequisite.</p>
+          <p><strong>Resilient</strong> Growing up in a violent neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You gain a +1 trait bonus on Fortitude saves.</p>
+          <p><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 10 feet. You can use this ability 9 times per day.</p>
+          <p><strong>Summoner's Charm (Su)</strong> When casting Conjuration (summoning) spells the duration is increased by 2 rounds.</p>
+          <p><strong>Teleportation School</strong> </p>
+          <p><strong>Weapon Familiarity (Ex)</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="notes">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Notes</h1>
+        <div contentEditable="true" class="textarea textarea-notes"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="js/vendor.min.js"></script>
+<script src="js/awesomeSheet.min.js"></script>
+</body>
+</html>
