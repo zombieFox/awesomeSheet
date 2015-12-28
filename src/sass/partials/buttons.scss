@@ -108,7 +108,7 @@ button {
     &:visited {
       color: $gray-02;
       background-color: transparent;
-      border-color: transparent;
+      border-color: $gray-13;
     }
     &:focus {
       border-color: $gray-11;

@@ -201,6 +201,9 @@
 .icon-delete:before {
   content: "\e901"; }
 
+.icon-play-arrow:before {
+  content: "\e902"; }
+
 /* buttons
 ------------------------------------------------- */
 .button,
@@ -307,7 +310,7 @@ button {
   button.button-tertiary:visited {
     color: #343434;
     background-color: transparent;
-    border-color: transparent; }
+    border-color: #fafafa; }
   .button.button-tertiary:focus,
   button.button-tertiary:focus {
     border-color: #d6d6d6;
@@ -1382,33 +1385,25 @@ hr {
       white-space: nowrap;
       overflow: hidden; }
 
-#spells .spell-level .spells-known .button {
-  margin: 0 0.5% 0.5% 0;
-  width: 49.5%;
-  text-align: left;
-  overflow: hidden;
-  font-size: 0.9rem;
-  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  white-space: normal;
-  float: left; }
-  #spells .spell-level .spells-known .button [class^="icon-"],
-  #spells .spell-level .spells-known .button [class*=" icon-"] {
-    float: right;
-    margin: 0 0 0 3px;
-    line-height: 1.5rem; }
-
-#spells .spell-level .spells-known.prepare-state .button-tertiary:link, #spells .spell-level .spells-known.prepare-state .button-tertiary:visited, #spells .spell-level .spells-known.unprepare-state .button-tertiary:link, #spells .spell-level .spells-known.unprepare-state .button-tertiary:visited, #spells .spell-level .spells-known.cast-state .button-tertiary:link, #spells .spell-level .spells-known.cast-state .button-tertiary:visited {
-  border-color: #d6d6d6; }
-
-#spells .spell-level .spells-known.delete-state .button:link, #spells .spell-level .spells-known.delete-state .button:visited {
-  background-color: #ffffff;
-  color: #cc0044;
-  border-color: #ff3276; }
-
-#spells .spell-level .spells-known.delete-state .button:active, #spells .spell-level .spells-known.delete-state .button:focus, #spells .spell-level .spells-known.delete-state .button:hover {
-  color: #ffffff;
-  background-color: #ff3276;
-  border-color: #cc0044; }
+#spells .spell-level {
+  margin: 0 0 2rem 0; }
+  #spells .spell-level .spells-known .button {
+    margin: 0 0.5% 0.5% 0;
+    width: 49.5%;
+    text-align: left;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+    white-space: normal;
+    float: left; }
+    #spells .spell-level .spells-known .button [class^="icon-"],
+    #spells .spell-level .spells-known .button [class*=" icon-"] {
+      float: right;
+      margin: 0 0 0 3px;
+      line-height: 1.5rem; }
+    #spells .spell-level .spells-known .button .spell-active {
+      float: left;
+      margin: 0 8px 0 0; }
 
 #spells .spell-state-controls {
   margin: 10px 0 3rem 0; }
@@ -1429,6 +1424,16 @@ hr {
     #spells .new-spell .add-spell [class^="icon-"],
     #spells .new-spell .add-spell [class*=" icon-"] {
       margin: 0; }
+
+#spells.delete-state .spell-level .spells-known .button:link, #spells.delete-state .spell-level .spells-known .button:visited {
+  background-color: #ffffff;
+  color: #cc0044;
+  border-color: #ff3276; }
+
+#spells.delete-state .spell-level .spells-known .button:active, #spells.delete-state .spell-level .spells-known .button:focus, #spells.delete-state .spell-level .spells-known .button:hover {
+  color: #ffffff;
+  background-color: #ff3276;
+  border-color: #cc0044; }
 
 ::-webkit-full-screen {
   width: 100%;

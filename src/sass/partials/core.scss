@@ -275,6 +275,7 @@ hr {
 // spells
 #spells {
   .spell-level {
+    margin: 0 0 2rem 0;
     .spells-known {
       .button {
         margin: 0 0.5% 0.5% 0;
@@ -291,35 +292,9 @@ hr {
           margin: 0 0 0 3px;
           line-height: 1.5rem;
         }
-      }
-      &.prepare-state,
-      &.unprepare-state,
-      &.cast-state {
-        .button-tertiary {
-          &:link,
-          &:visited {
-            border-color: $gray-11;
-          }
-          &:active,
-          &:focus,
-          &:hover {}
-        }
-      }
-      &.delete-state {
-        .button {
-          &:link,
-          &:visited {
-            background-color: $white;
-            color: $primary-color-dark;
-            border-color: $primary-color-light;
-          }
-          &:active,
-          &:focus,
-          &:hover {
-            color: $white;
-            background-color: $primary-color-light;
-            border-color: $primary-color-dark;
-          }
+        .spell-active {
+          float: left;
+          margin: 0 8px 0 0;
         }
       }
     }
@@ -344,6 +319,31 @@ hr {
       [class^="icon-"],
       [class*=" icon-"] {
         margin: 0;
+      }
+    }
+  }
+  &.prepare-state {}
+  &.unprepare-state {}
+  &.cast-state {}
+  &.active-state {}
+  &.delete-state {
+    .spell-level {
+      .spells-known {
+        .button {
+          &:link,
+          &:visited {
+            background-color: $white;
+            color: $primary-color-dark;
+            border-color: $primary-color-light;
+          }
+          &:active,
+          &:focus,
+          &:hover {
+            color: $white;
+            background-color: $primary-color-light;
+            border-color: $primary-color-dark;
+          }
+        }
       }
     }
   }

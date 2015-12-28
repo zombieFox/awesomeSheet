@@ -1,4 +1,4 @@
-<section id="spells" class="hidable-block" data-all-hidden="false">
+<section id="spells" class="hidable-block" data-all-hidden="false" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-active-spell-state="false" data-delete-spell-state="false">
   <div class="row">
     <div class="col-xs-6">
       <h1>Spells</h1>
@@ -8,6 +8,15 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-xs-12">
+      <div class="spell-state-controls">
+        <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small"><span class="icon icon-radio-button-checked"></span>Prepare</a>
+        <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small"><span class="icon icon-refresh"></span>Unprepare</a>
+        <a href="javascript:void(0)" class="cast-spell button button-secondary button-small"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
+        <a href="javascript:void(0)" class="active-spell button button-secondary button-small"><span class="icon icon-play-arrow"></span>Active</a>
+        <a href="javascript:void(0)" class="remove-spell button button-secondary button-small"><span class="icon icon-close"></span>Delete</a>
+      </div>
+    </div>
     <div class="col-xs-12">
       <div class="spell-level" data-spell-level="0">
         <div class="row">
@@ -47,39 +56,29 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-0" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Bleed <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Erase <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Daze <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Disrupt Undead <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Touch of Fatigue <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Prestidigitation <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Light <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Ghost Sound <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Spark <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Acid Splash <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mage Hand <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Flare <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Detect Magic <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Detect Poison <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Dancing Lights <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mending <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Arcane Mark <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Message <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Ray of Frost <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Read Magic <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Open/Close <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Resistance <span class="spell-marks"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+            <div class="spells-known spell-level-0">
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Bleed <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Erase <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Daze <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Disrupt Undead <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Touch of Fatigue <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Prestidigitation <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Light <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Ghost Sound <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Spark <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Acid Splash <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mage Hand <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Flare <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Detect Magic <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Detect Poison <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Dancing Lights <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mending <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Arcane Mark <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Message <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Ray of Frost <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Read Magic <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Open/Close <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Resistance <span class="spell-active"></span><span class="spell-marks"></span></a>
             </div>
           </div>
         </div>
@@ -124,29 +123,19 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-1" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Comprehend Languages <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Enlarge Person <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Feather Fall <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Grease <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mage Armor <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mount <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Obscuring Mist <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Protection from Chaos <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Protection from Evil <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Shield <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster I <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Unseen Servant <span class="spell-marks"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+            <div class="spells-known spell-level-1">
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Comprehend Languages <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Enlarge Person <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Feather Fall <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Grease <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mage Armor <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mount <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Obscuring Mist <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Protection from Chaos <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Protection from Evil <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Shield <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster I <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Unseen Servant <span class="spell-active"></span><span class="spell-marks"></span></a>
             </div>
           </div>
         </div>
@@ -189,28 +178,18 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-2" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Blur <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Create Pit <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Flaming Sphere <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Glitterdust <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Invisibility <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Levitate <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mirror Image <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Resist Energy <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Stone Call <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster II <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Web <span class="spell-marks"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+            <div class="spells-known spell-level-2">
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Blur <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Create Pit <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Flaming Sphere <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Glitterdust <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Invisibility <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Levitate <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Mirror Image <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Resist Energy <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Stone Call <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster II <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Web <span class="spell-active"></span><span class="spell-marks"></span></a>
             </div>
           </div>
         </div>
@@ -253,21 +232,11 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-3" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false">
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Stinking Cloud <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster III <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Spiked Pit <span class="spell-marks"></span></a>
-              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Aqueous Orb <span class="spell-marks"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
+            <div class="spells-known spell-level-3">
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Stinking Cloud <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Summon Monster III <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Spiked Pit <span class="spell-active"></span><span class="spell-marks"></span></a>
+              <a href="javascript:void(0)" data-event-listener class="spell-known-item button button-tertiary hidable">Aqueous Orb <span class="spell-active"></span><span class="spell-marks"></span></a>
             </div>
           </div>
         </div>
@@ -310,17 +279,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-4" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
-            </div>
+            <div class="spells-known spell-level-4"></div>
           </div>
         </div>
       </div>
@@ -362,17 +321,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-5" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
-            </div>
+            <div class="spells-known spell-level-5"></div>
           </div>
         </div>
       </div>
@@ -414,17 +363,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-6" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
-            </div>
+            <div class="spells-known spell-level-6"></div>
           </div>
         </div>
       </div>
@@ -466,17 +405,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-7" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
-            </div>
+            <div class="spells-known spell-level-7"></div>
           </div>
         </div>
       </div>
@@ -518,17 +447,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-8" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
-            </div>
+            <div class="spells-known spell-level-8"></div>
           </div>
         </div>
       </div>
@@ -570,17 +489,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-9" data-prepare-spell-state="false" data-unprepare-spell-state="false" data-cast-spell-state="false" data-delete-spell-state="false"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="spell-state-controls">
-              <a href="javascript:void(0)" class="prepare-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-checked"></span>Prepare</a>
-              <a href="javascript:void(0)" class="unprepare-spell button button-secondary button-small hidden"><span class="icon icon-refresh"></span>Unprepare</a>
-              <a href="javascript:void(0)" class="cast-spell button button-secondary button-small hidden"><span class="icon icon-radio-button-unchecked"></span>Cast</a>
-              <a href="javascript:void(0)" class="remove-spell button button-secondary button-small hidden"><span class="icon icon-close"></span>Delete</a>
-            </div>
+            <div class="spells-known spell-level-9"></div>
           </div>
         </div>
       </div>

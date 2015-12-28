@@ -35,4 +35,5 @@
 <glyph unicode="&#xe27c;" glyph-name="bookmark_outline" d="M726 170.667v554h-428v-554l214 94zM726 810.667q34 0 59-26t25-60v-682l-298 128-298-128v682q0 34 25 60t59 26h428z" />
 <glyph unicode="&#xe900;" glyph-name="refresh" d="M754 668.667l100 100v-300h-300l138 138q-76 76-180 76-106 0-181-75t-75-181 75-181 181-75q84 0 150 47t92 123h88q-28-112-120-184t-210-72q-140 0-240 100t-100 242 100 242 240 100q142 0 242-100z" />
 <glyph unicode="&#xe901;" glyph-name="delete" d="M810 768.667v-86h-596v86h148l44 42h212l44-42h148zM256 128.667v512h512v-512q0-34-26-60t-60-26h-340q-34 0-60 26t-26 60z" />
+<glyph unicode="&#xe902;" glyph-name="play_arrow" d="M342 724.667l468-298-468-298v596z" />
 </font></defs></svg>

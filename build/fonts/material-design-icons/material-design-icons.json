@@ -795,7 +795,7 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 36,
+				"order": 39,
 				"id": 637,
 				"name": "refresh",
 				"prevSize": 24,
@@ -828,6 +828,30 @@
 			"setIdx": 0,
 			"setId": 1,
 			"iconIdx": 27
+		},
+		{
+			"icon": {
+				"paths": [
+					"M342 214l468 298-468 298v-596z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 24,
+				"tags": [
+					"play_arrow"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 40,
+				"id": 639,
+				"prevSize": 24,
+				"name": "play_arrow",
+				"code": 59650
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 28
 		}
 	],
 	"height": 1024,
@@ -856,7 +880,8 @@
 			"png": true,
 			"useClassSelector": true,
 			"color": 4473924,
-			"bgColor": 16777215
+			"bgColor": 16777215,
+			"classSelector": ".icon"
 		},
 		"historySize": 100,
 		"gridSize": 16,
