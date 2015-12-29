@@ -111,7 +111,7 @@ button {
       border-color: $gray-13;
     }
     &:focus {
-      border-color: $gray-11;
+      border-color: $gray-12;
       outline: 0;
       text-decoration: none;
     }
@@ -122,8 +122,8 @@ button {
     }
     &:active,
     &.active {
-      background-color: $gray-12;
-      border-color: $gray-11;
+      background-color: $gray-13;
+      border-color: $gray-12;
     }
   }
   &.button-dark {

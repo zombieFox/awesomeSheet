@@ -322,10 +322,51 @@ hr {
       }
     }
   }
-  &.prepare-state {}
-  &.unprepare-state {}
-  &.cast-state {}
-  &.active-state {}
+  &.prepare-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          &:link,
+          &:visited {
+            background-color: $primary-color-light-alpha;
+          }
+        }
+      }
+    }
+  }
+  &.unprepare-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          &:link,
+          &:visited {
+            background-color: $primary-color-light-alpha;
+          }
+        }
+      }
+    }}
+  &.cast-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          &:link,
+          &:visited {
+            background-color: $secondary-color-light-alpha;
+          }
+        }
+      }
+    }}
+  &.active-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          &:link,
+          &:visited {
+            background-color: $gray-13;
+          }
+        }
+      }
+    }}
   &.delete-state {
     .spell-level {
       .spells-known {

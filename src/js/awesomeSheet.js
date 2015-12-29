@@ -778,11 +778,13 @@ function awesomesheet() {
   };
 
   // reset data attributes on page reload
+  // remove hidden class on page reload
   // this is needed after spells are populated from local storage 
-  function changeData_all_spellKnownItem() {
+  function update_all_spellKnownItem() {
     var all_spellKnownItem = eA(".spell-known-item");
     for (var i = 0; i < all_spellKnownItem.length; i++) {
       all_spellKnownItem[i].dataset.eventListener = "false";
+      removeClass(all_spellKnownItem[i], "hidden");
     };
   };
 
@@ -846,10 +848,9 @@ function awesomesheet() {
     var deleteStateButton = spellRoot.querySelector(".remove-spell");
     var all_spellStateControls = getClosest(element, ".spell-state-controls").querySelectorAll(".button");
     if (element.classList.contains("active")) {
-      // for (var i = 0; i < all_spellStateControls.length; i++) {
-      //   removeClass(all_spellStateControls[i], "active");
-      // };
-      removeClass(element, "active");
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        removeClass(all_spellStateControls[i], "active");
+      };
       spellRoot.dataset.prepareSpellState = " false";
       spellRoot.dataset.unprepareSpellState = " false";
       spellRoot.dataset.castSpellState = " false";
@@ -981,7 +982,7 @@ function awesomesheet() {
     // state cast
     if (castState == "true") {
       var all_spellsMarks = spellMarks.children;
-      var all_spellsCast = false;
+      var all_spellsCast = 0;
       for (var i = 0; i < all_spellsMarks.length; i++) {
         if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
           toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
@@ -991,14 +992,12 @@ function awesomesheet() {
       };
       // if no checked icons can be found change the var allSpellCast to true
       for (var i = 0; i < all_spellsMarks.length; i++) {
-        if (all_spellsMarks[i].classList.contains("icon-radio-button-unchecked")) {
-          all_spellsCast = true;
-        } else {
-          all_spellsCast = false;
+        if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
+          all_spellsCast++;
         };
       };
       // allSpellCast to true change spell button class
-      if (all_spellsCast) {
+      if (all_spellsCast <= 0) {
         removeClass(spell, "button-primary");
         addClass(spell, "button-tertiary");
       };
@@ -1007,10 +1006,12 @@ function awesomesheet() {
     if (activeState == "true") {
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon icon-play-arrow");
-      if (spellActive.children.length > 0) {
-        spellActive.firstChild.remove();
-      } else {
-        spellActive.insertBefore(activeIcon, spellActive.firstChild);
+      if (spell.classList.contains("button-primary")) {
+        if (spellActive.children.length > 0) {
+          spellActive.firstChild.remove();
+        } else {
+          spellActive.insertBefore(activeIcon, spellActive.firstChild);
+        };
       };
     };
     // state delete
@@ -1559,7 +1560,7 @@ function awesomesheet() {
   read_inputBlock();
   read_skills();
   read_stats();
-  changeData_all_spellKnownItem();
+  update_all_spellKnownItem();
   addListenerTo_all_spellKnownItem();
   addListenerTo_all_stats();
   addListenerTo_all_skillInputs();
