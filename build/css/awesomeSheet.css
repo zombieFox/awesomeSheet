@@ -1407,6 +1407,8 @@ hr {
 
 #spells .spell-state-controls {
   margin: 10px 0 3rem 0; }
+  #spells .spell-state-controls .button {
+    margin: 0 5px 5px 0; }
 
 #spells .new-spell {
   position: relative; }
