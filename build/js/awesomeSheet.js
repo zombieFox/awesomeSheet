@@ -160,6 +160,86 @@ function awesomesheet() {
     };
   });
 
+  clearSheet.addEventListener("click", function() {
+    clearAwesomeSheet();
+  }, false);
+
+  function clearAwesomeSheet() {
+    var prompt = document.createElement("div");
+    prompt.setAttribute("class", "prompt prompt-clear-awesome-sheet");
+    var promptShade = document.createElement("div");
+    promptShade.setAttribute("class", "prompt prompt-shade");
+    var body = e("body");
+    var promptContents =
+      '<div class="container">' +
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
+      '<h1>Are you sure?</h1>' +
+      '<p>This can not be undone.</p>' +
+      '</div>' +
+      '</div>' +
+      '<div class="row">' +
+      '<div class="col-xs-6">' +
+      '<a href="javascript:void(0)" class="clear-sheet-cancel button button-secondary">Cancel</a>' +
+      '</div>' +
+      '<div class="col-xs-6 text-right">' +
+      '<a href="javascript:void(0)" class="clear-sheet-confirm button button-primary">Delete Character</a>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    prompt.innerHTML = promptContents;
+    if (!body.querySelector(".prompt-clear-awesome-sheet")) {
+      body.appendChild(promptShade);
+      body.appendChild(prompt);
+    };
+    var clearSheetCancel = prompt.querySelector(".clear-sheet-cancel");
+    var clearSheetConfirm = prompt.querySelector(".clear-sheet-confirm");
+    clearSheetConfirm.addEventListener("click", function() {
+      localStorage.clear();
+      document.location.reload(true);
+    }, false);
+    clearSheetCancel.addEventListener("click", function() {
+      promptShade.remove();
+      prompt.remove();
+    }, false);
+    addListenerTo_promptClearAwesomeSheet();
+    removeClass(nav, "open");
+  };
+
+  function addListenerTo_promptClearAwesomeSheet() {
+    var promptShade = e(".prompt-shade");
+    var promptClearAwesomeSheet = e(".prompt-clear-awesome-sheet");
+    promptShade.addEventListener('click', function(event) {
+      if (promptShade && promptClearAwesomeSheet) {
+        promptShade.remove();
+        promptClearAwesomeSheet.remove();
+      };
+    });
+  };
+
+  toggleFullscreen.addEventListener("click", function() {
+    toggleFullScreen();
+  }, false);
+
+  // toggle fullscreen
+  function toggleFullScreen() {
+    var root = window.document;
+    var rootElement = root.documentElement;
+    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
+    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
+    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
+      requestFullScreen.call(rootElement);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    } else {
+      cancelFullScreen.call(root);
+      toggleClass(toggleFullscreen, "active");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
+      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
+    }
+  };
+
   // --------------------------------------------------------------------------
   // consumable block
   // --------------------------------------------------------------------------
@@ -1002,7 +1082,7 @@ function awesomesheet() {
         addClass(spell, "button-tertiary");
       };
     };
-    // active delete
+    // state active
     if (activeState == "true") {
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon icon-play-arrow");
@@ -1011,6 +1091,11 @@ function awesomesheet() {
           spellActive.firstChild.remove();
         } else {
           spellActive.insertBefore(activeIcon, spellActive.firstChild);
+        };
+      };
+      if (spell.classList.contains("button-tertiary")) {
+        if (spellActive.children.length > 0) {
+          spellActive.firstChild.remove();
         };
       };
     };
@@ -1222,29 +1307,6 @@ function awesomesheet() {
         store_skills();
       }, false);
     };
-  };
-
-  // --------------------------------------------------------------------------
-  // fullscreen
-  // --------------------------------------------------------------------------
-
-  // toggle fullscreen
-  function toggleFullScreen() {
-    var root = window.document;
-    var rootElement = root.documentElement;
-    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
-    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
-    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
-      requestFullScreen.call(rootElement);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    } else {
-      cancelFullScreen.call(root);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    }
   };
 
   // --------------------------------------------------------------------------
@@ -1533,20 +1595,6 @@ function awesomesheet() {
       };
     };
   };
-
-  // --------------------------------------------------------------------------
-  // utilities
-  // --------------------------------------------------------------------------
-
-  clearSheet.addEventListener("click", function() {
-    localStorage.clear();
-    document.location.reload(true);
-  }, false);
-
-
-  toggleFullscreen.addEventListener("click", function() {
-    toggleFullScreen();
-  }, false);
 
   // --------------------------------------------------------------------------
   // run on page load

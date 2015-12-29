@@ -46,9 +46,6 @@ $gray-alpha-11:                       rgba(0, 0, 0, 0.16);
 $gray-alpha-12:                       rgba(0, 0, 0, 0.09);
 $gray-alpha-13:                       rgba(0, 0, 0, 0.02); // light
 
-$critical-20:                         #33c3f0;
-$critical-1:                          #990000;
-
 $gray-alpha-01:                       rgba(0, 0, 0, 0.8); // dark
 $gray-alpha-02:                       rgba(0, 0, 0, 0.6);
 $gray-alpha-03:                       rgba(0, 0, 0, 0.4);
@@ -114,6 +111,7 @@ $transition-ease-fast:               0.1s ease-in-out;
 
 $body:                               1000;
 $nav:                                2000;
+$prompt:                             3000;
 
 /* drop shadows
 ------------------------------------------------- */
@@ -125,7 +123,7 @@ $shadow-medium:                     0 1px 5px rgba(0, 0, 0, 0.2),
                                     0 5px 20px rgba(0, 0, 0, 0.2);
 
 $shadow-large:                      0 1px 5px rgba(0, 0, 0, 0.1),
-                                    0 1px 50px rgba(0, 0, 0, 0.1);
+                                    0 1px 50px rgba(0, 0, 0, 0.2);
 
 $shadow-small-inset:                inset 0 1px 2px rgba(0, 0, 0, 0.1),
                                     inset 0 1px 20px rgba(0, 0, 0, 0.3);
