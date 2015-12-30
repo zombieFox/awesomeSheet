@@ -179,11 +179,11 @@ function awesomesheet() {
       '</div>' +
       '</div>' +
       '<div class="row">' +
-      '<div class="col-xs-6">' +
-      '<a href="javascript:void(0)" class="clear-sheet-cancel button button-secondary">Cancel</a>' +
+      '<div class="col-xs-12 col-md-6">' +
+      '<a href="javascript:void(0)" class="clear-sheet-cancel button button-secondary button-block">Cancel</a>' +
       '</div>' +
-      '<div class="col-xs-6 text-right">' +
-      '<a href="javascript:void(0)" class="clear-sheet-confirm button button-primary">Delete Character</a>' +
+      '<div class="col-xs-12 col-md-6">' +
+      '<a href="javascript:void(0)" class="clear-sheet-confirm button button-primary button-block">Delete Character</a>' +
       '</div>' +
       '</div>' +
       '</div>';
