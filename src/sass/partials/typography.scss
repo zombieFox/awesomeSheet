@@ -156,7 +156,7 @@ table {
   thead {
     tr {
       td {
-        padding: 0 20px;
+        padding: 0;
         margin: 0;
         height: 2.4rem;
         text-align: center;
@@ -164,7 +164,6 @@ table {
         border-bottom: $border;
         font-family: $open-sans-semi-bold;
         &:first-child {
-          padding-left: 0;
           text-align: left;
         }
       }
@@ -177,12 +176,12 @@ table {
       border: 0;
       height: 2.5rem;
       text-align: center;
-      box-sizing: content-box;
+      box-sizing: border-box;
       p {
         margin: 0;
         height: 2.5rem;
         line-height: 2.5rem;
-        box-sizing: content-box;
+        box-sizing: border-box;
         border-bottom: $border;
       }
       &:first-child {
@@ -203,9 +202,9 @@ table {
           padding: 0;
           margin: 0;
           height: 2.5rem;
-          line-height: 2.5rem;
+          line-height: 2.3rem;
           text-align: center;
-          box-sizing: content-box;
+          box-sizing: border-box;
         }
       }
     }

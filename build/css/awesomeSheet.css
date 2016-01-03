@@ -506,7 +506,7 @@ table {
   width: 100%;
   border-spacing: 0; }
   table thead tr td {
-    padding: 0 20px;
+    padding: 0;
     margin: 0;
     height: 2.4rem;
     text-align: center;
@@ -514,7 +514,6 @@ table {
     border-bottom: 2px solid transparent;
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
     table thead tr td:first-child {
-      padding-left: 0;
       text-align: left; }
   table tr td {
     padding: 0;
@@ -522,12 +521,12 @@ table {
     border: 0;
     height: 2.5rem;
     text-align: center;
-    box-sizing: content-box; }
+    box-sizing: border-box; }
     table tr td p {
       margin: 0;
       height: 2.5rem;
       line-height: 2.5rem;
-      box-sizing: content-box;
+      box-sizing: border-box;
       border-bottom: 2px solid transparent; }
     table tr td:first-child {
       text-align: left; }
@@ -538,9 +537,9 @@ table {
       padding: 0;
       margin: 0;
       height: 2.5rem;
-      line-height: 2.5rem;
+      line-height: 2.3rem;
       text-align: center;
-      box-sizing: content-box; }
+      box-sizing: border-box; }
 
 .text-center {
   text-align: center; }
@@ -694,8 +693,8 @@ table {
   max-width: 80%;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 12px;
+  padding-right: 12px; }
   .container:before, .container:after {
     content: " ";
     display: table; }
@@ -703,8 +702,8 @@ table {
     clear: both; }
 
 .row {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -12px;
+  margin-right: -12px;
   box-sizing: border-box; }
   .row:before, .row:after {
     content: " ";
@@ -716,8 +715,8 @@ table {
 [class*=" col-"] {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 12px;
+  padding-right: 12px;
   float: left;
   box-sizing: border-box; }
 
@@ -1107,10 +1106,10 @@ nav {
         top: 62%;
         transition-delay: 0.1s; }
     nav .nav-toggle:hover {
-      background-color: rgba(0, 0, 0, 0.02); }
+      background-color: rgba(0, 0, 0, 0.09); }
   nav .nav-list {
     background-color: #ffffff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 1px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
     margin: 0;
     padding: 10px 0;
@@ -1126,10 +1125,10 @@ nav {
       list-style-type: none; }
       nav .nav-list li.divide {
         margin: 5px 0;
-        background-color: rgba(0, 0, 0, 0.09);
+        background-color: rgba(0, 0, 0, 0.02);
         height: 1px; }
       nav .nav-list li a {
-        padding: 0 14px;
+        padding: 0 16px;
         line-height: 2.5rem;
         font-size: 0.9rem;
         border-left: 5px solid transparent;
@@ -1229,7 +1228,7 @@ section {
 
 hr {
   border: 0;
-  border-top: 1px solid #e8e8e8;
+  border-top: 5px solid #fafafa;
   margin: 0 0 30px 0;
   background-color: transparent;
   position: relative;
@@ -1298,7 +1297,7 @@ hr {
   margin: 1rem 0; }
 
 .prompt.prompt-shade {
-  background-color: rgba(0, 70, 130, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -1313,13 +1312,14 @@ hr {
   left: 50%;
   z-index: 3000;
   background: #ffffff;
-  width: 50%;
+  width: 90%;
   padding: 20px 15px 20px 25px;
+  box-sizing: border-box;
   border-radius: 2px;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 1px 50px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 30px rgba(0, 0, 0, 0.3); }
 
 .prompt .button {
   margin: 0 5px 5px 0; }
@@ -1382,23 +1382,17 @@ hr {
   #statistics .stat-block .cha h2 {
     border-radius: 0 0 2px 2px; }
 
-#skills .skill-list thead tr td {
-  width: 1%;
-  color: #464646; }
-  #skills .skill-list thead tr td:first-child {
-    width: 99%; }
-
-#skills .skill-list tr td .name {
-  white-space: nowrap;
-  overflow: hidden; }
-
-#skills .skill-list tr td .ranks,
-#skills .skill-list tr td .misc {
-  color: #a0a0a0;
-  font-size: 0.8rem; }
-
-#skills .skill-list tr td .total {
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+#skills .skill-list tr td {
+  width: 15%;
+  display: inline-block; }
+  #skills .skill-list tr td .name {
+    white-space: nowrap; }
+  #skills .skill-list tr td .total {
+    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+  #skills .skill-list tr td:first-child {
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden; }
 
 #skills[data-all-hidden="true"] .skill-list tr {
   width: 47%;
@@ -1407,14 +1401,12 @@ hr {
   #skills[data-all-hidden="true"] .skill-list tr:nth-child(even) {
     margin: 0 0 0 3%; }
   #skills[data-all-hidden="true"] .skill-list tr td {
-    padding-bottom: 2px;
     width: 15%;
     display: inline-block;
     float: left;
     text-align: right; }
     #skills[data-all-hidden="true"] .skill-list tr td:first-child {
       width: 85%;
-      float: left;
       text-align: left;
       display: inline-block;
       white-space: nowrap;
@@ -1504,6 +1496,8 @@ hr {
     margin-bottom: 60px; }
   .clone-block .clone-controls {
     margin: 5px 0 2rem 0; }
+  .prompt.prompt-clear-awesome-sheet {
+    width: 70%; }
   #basics {
     padding-top: 100px;
     padding-bottom: 100px; }
@@ -1518,11 +1512,23 @@ hr {
 @media (min-width: 1300px) {
   .consumable-counts .check-group .check:nth-child(6n) {
     clear: none; }
+  #skills .skill-list thead tr td {
+    color: #464646; }
+  #skills .skill-list tr td {
+    width: 10%; }
+    #skills .skill-list tr td:first-child {
+      width: 60%; }
   #skills[data-all-hidden="true"] .skill-list tr {
-    width: 31.3333333333%;
+    width: 30.3333333333%;
     float: left;
-    margin: 0 2% 0 0; }
+    margin: 0 3% 0 0; }
     #skills[data-all-hidden="true"] .skill-list tr:nth-child(even) {
-      margin: 0 2% 0 0; }
+      margin: 0 3% 0 0; }
+    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n-1) {
+      width: 33.3333333333%;
+      margin: 0; }
+    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n) {
+      width: 30.3333333333%;
+      margin: 0 0 0 3%; }
   #spells .spell-level .spells-known .button {
     width: 32.8%; } }

@@ -42,12 +42,12 @@ nav {
       }
     }
     &:hover {
-      background-color: $gray-alpha-13;
+      background-color: $gray-alpha-12;
     }
   }
   .nav-list {
     background-color: $white;
-    box-shadow: $shadow-large;
+    box-shadow: $shadow-medium;
     border-radius: $border-radius-small;
     margin: 0;
     padding: 10px 0;
@@ -63,11 +63,11 @@ nav {
       list-style-type: none;
       &.divide {
         margin: 5px 0;
-        background-color: $gray-alpha-12;
+        background-color: $gray-alpha-13;
         height: 1px;
       }
       a {
-        padding: 0 14px;
+        padding: 0 16px;
         line-height: 2.5rem;
         font-size: 0.9rem;
         border-left: 5px solid transparent;
