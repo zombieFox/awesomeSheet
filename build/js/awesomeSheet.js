@@ -260,21 +260,19 @@ function awesomesheet() {
     var consumableTotal_value = parseInt(element.value, 10) || 0;
     var checkGroup = consumableCounts.querySelector(".check-group");
     var all_checks = consumableCounts.querySelectorAll(".check").length;
-
+    // make check group
     function addCheckGroup() {
       var checkGroup = document.createElement("div");
       checkGroup.setAttribute("class", "check-group");
       consumableCounts.appendChild(checkGroup);
       // consumableCounts.insertBefore(checkGroup, consumableCounts.firstChild);
     };
-
     // if no check group is present and the input value is more than 0 make a check group
     if (!checkGroup) {
       if (consumableTotal_value > 0) {
         addCheckGroup();
       };
     };
-
     // while all the checks in the block is less than the consumable value add a check to the check group
     while (all_checks < consumableTotal_value) {
       var checkGroup = consumableCounts.lastChild;
@@ -290,7 +288,6 @@ function awesomesheet() {
       checkGroup.appendChild(check);
       all_checks++;
     };
-
     // while all the checks in the block is more than the consumable value remove a check to the check group
     while (all_checks > consumableTotal_value) {
       var checkGroup = consumableCounts.lastChild;
@@ -307,29 +304,24 @@ function awesomesheet() {
       };
       all_checks--;
     };
-
+    toggleConsumableChecks(element);
   };
 
   // toggle consumable check when used value is changed
   function toggleConsumableChecks(element) {
     var consumableBlock = getClosest(element, ".consumable-block");
     var consumableCounts = consumableBlock.querySelector(".consumable-counts");
-    var consumableUsed_value = parseInt(element.value, 10) || 0;
+    var consumableUsed = consumableBlock.querySelector(".consumable-used");
+    var consumableUsed_value = parseInt(consumableUsed.value, 10) || 0;
     var all_checks = consumableCounts.querySelectorAll(".check");
-    var all_used = consumableCounts.querySelectorAll(".used").length;
-    // if use count is less than used input toggle check
-    while (all_used <= consumableUsed_value) {
-      if (all_checks[all_used]) {
-        addClass(all_checks[all_used], "used");
-      };
-      all_used++;
+    var remainingUses = all_checks.length - consumableUsed_value;
+    // add used class to all checks
+    for (var i = 0; i < all_checks.length; i++) {
+      addClass(all_checks[i], "used");
     };
-    // if use count is more than used input toggle check
-    while (all_used >= consumableUsed_value) {
-      if (all_checks[all_used]) {
-        removeClass(all_checks[all_used], "used");
-      };
-      all_used--;
+    // remove used class from remaing checks
+    for (var i = 0; i < remainingUses; i++) {
+      removeClass(all_checks[i], "used");
     };
   };
 

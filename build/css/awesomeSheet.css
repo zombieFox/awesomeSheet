@@ -1270,22 +1270,47 @@ hr {
     margin: -15px 0 0 0; }
     .consumable-block .consumable-counts .check-group {
       margin: 0 8px 8px 0;
-      float: left; }
+      float: left;
+      position: relative; }
       .consumable-block .consumable-counts .check-group .check {
-        background-color: #086482;
-        border: 1px solid #086482;
-        margin: 0 3px 3px 0;
+        background-color: #ff3276;
+        border: 1px solid #cc0044;
+        margin: 0 -1px -1px 0;
         padding: 0;
         float: left;
         font-size: 1.5rem;
-        width: 4px;
-        height: 4px;
-        border-radius: 2px; }
+        width: 10px;
+        height: 10px;
+        box-sizing: border-box;
+        position: relative; }
         .consumable-block .consumable-counts .check-group .check.used {
-          background-color: transparent;
-          border-color: #b2b2b2; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(6n) {
-          clear: left; }
+          background-color: #e8e8e8;
+          border-color: #d6d6d6; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(1) {
+          border-radius: 2px 0 0 0;
+          z-index: 10; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(2) {
+          z-index: 9; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(3) {
+          z-index: 8; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(4) {
+          z-index: 7; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(5) {
+          border-radius: 0 2px 0 0;
+          z-index: 6; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(6) {
+          border-radius: 0 0 0 2px;
+          clear: left;
+          z-index: 5; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(7) {
+          z-index: 4; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(8) {
+          z-index: 3; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(9) {
+          z-index: 2; }
+        .consumable-block .consumable-counts .check-group .check:nth-child(10) {
+          border-radius: 0 0 2px 0;
+          z-index: 1; }
 
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
