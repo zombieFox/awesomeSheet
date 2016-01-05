@@ -393,93 +393,95 @@ function awesomesheet() {
     newNode.setAttribute("class", "clone");
     newNode.setAttribute("data-clone-count", all_clone_count);
     // insert div
-    cloneTarget.appendChild(newNode);
-    // what to go inside the clone
-    var newConsumable =
-      '<div class="row">' +
-      '<div class="col-xs-8">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + all_clone_count + '">Item</label>' +
-      '<input class="input-field" id="input-consumable-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-4">' +
-      '<div class="row no-gutter">' +
-      '<div class="col-xs-6">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-total-' + all_clone_count + '">Total</label>' +
-      '<input class="input-field consumable-total" id="input-consumable-total-' + all_clone_count + '" type="number">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-6">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-used-' + all_clone_count + '">Used</label>' +
-      '<input class="input-field consumable-used" id="input-consumable-used-' + all_clone_count + '" type="number">' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-12">' +
-      '<div class="consumable-counts clearfix"></div>' +
-      '<div class="clone-delete-controls hidden">' +
-      '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
-      '</div>' +
-      '</div>' +
-      '</div>';
-    var newAttack =
-      '<div class="row no-gutter">' +
-      '<div class="col-xs-8">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-weapon-' + all_clone_count + '">Weapon</label>' +
-      '<input class="input-field" id="input-weapon-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-4">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-attack-' + all_clone_count + '">Attack</label>' +
-      '<input class="input-field" id="input-attack-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-10 col-xs-offset-2">' +
-      '<div class="row no-gutter">' +
-      '<div class="col-xs-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-range-' + all_clone_count + '">Range</label>' +
-      '<input class="input-field" id="input-range-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-ammo-' + all_clone_count + '">Ammo</label>' +
-      '<input class="input-field" id="input-ammo-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-damage-' + all_clone_count + '">Damage</label>' +
-      '<input class="input-field" id="input-damage-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-critical-' + all_clone_count + '">Critical</label>' +
-      '<input class="input-field" id="input-critical-' + all_clone_count + '" type="text">' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-12">' +
-      '<div class="clone-delete-controls hidden">' +
-      '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
-      '</div>' +
-      '</div>' +
-      '</div>';
-    // add div contents
-    if (blockToClone == ".consumables") {
-      newNode.innerHTML = newConsumable;
-    };
-    if (blockToClone == ".attacks") {
-      newNode.innerHTML = newAttack;
+    if (all_clone_count <= 99) {
+      cloneTarget.appendChild(newNode);
+      // what to go inside the clone
+      var newConsumable =
+        '<div class="row">' +
+        '<div class="col-xs-8">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-consumable-' + all_clone_count + '">Item</label>' +
+        '<input class="input-field" id="input-consumable-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-4">' +
+        '<div class="row no-gutter">' +
+        '<div class="col-xs-6">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-consumable-total-' + all_clone_count + '">Total</label>' +
+        '<input class="input-field consumable-total" id="input-consumable-total-' + all_clone_count + '" type="number">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-6">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-consumable-used-' + all_clone_count + '">Used</label>' +
+        '<input class="input-field consumable-used" id="input-consumable-used-' + all_clone_count + '" type="number">' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-12">' +
+        '<div class="consumable-counts clearfix"></div>' +
+        '<div class="clone-delete-controls hidden">' +
+        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+      var newAttack =
+        '<div class="row no-gutter">' +
+        '<div class="col-xs-8">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-weapon-' + all_clone_count + '">Weapon</label>' +
+        '<input class="input-field" id="input-weapon-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-4">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-attack-' + all_clone_count + '">Attack</label>' +
+        '<input class="input-field" id="input-attack-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-10 col-xs-offset-2">' +
+        '<div class="row no-gutter">' +
+        '<div class="col-xs-3">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-range-' + all_clone_count + '">Range</label>' +
+        '<input class="input-field" id="input-range-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-3">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-ammo-' + all_clone_count + '">Ammo</label>' +
+        '<input class="input-field" id="input-ammo-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-3">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-damage-' + all_clone_count + '">Damage</label>' +
+        '<input class="input-field" id="input-damage-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-3">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-critical-' + all_clone_count + '">Critical</label>' +
+        '<input class="input-field" id="input-critical-' + all_clone_count + '" type="text">' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-12">' +
+        '<div class="clone-delete-controls hidden">' +
+        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+      // add div contents
+      if (blockToClone == ".consumables") {
+        newNode.innerHTML = newConsumable;
+      };
+      if (blockToClone == ".attacks") {
+        newNode.innerHTML = newAttack;
+      };
     };
     // add listners to new elements
     function addListenerTo_newNode_input_focus(element) {
@@ -670,16 +672,18 @@ function awesomesheet() {
         // remove local strage for this input
         remove_inputBlock(all_inputs[q]);
         // make new id
-        var currentId = all_inputs[q].id.slice(0, -1);
-        var newId = currentId + newCount;
+        var currentId = all_inputs[q].id;
+        var currentId_noNumber = currentId.replace(/\d+/g,'');
+        var newId = currentId_noNumber + newCount;
         all_inputs[q].id = newId;
         // store local storage for this input
         store_inputBlock(all_inputs[q]);
       };
       // change all label for attributes
       for (var x = 0; x < all_label.length; x++) {
-        var currentFor = all_label[x].htmlFor.slice(0, -1);
-        var newFor = currentFor + newCount;
+        var currentFor = all_label[x].htmlFor;
+        var currentFor_noNumber = currentFor.replace(/\d+/g,'');
+        var newFor = currentFor_noNumber + newCount;
         all_label[x].htmlFor = newFor;
       };
     };
