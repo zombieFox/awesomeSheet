@@ -160,6 +160,17 @@ hr {
   .clone-controls {
     margin: 2rem 0 3rem 0;
   }
+  .clone-delete-controls {
+    margin: 0 0 1rem 0;
+    .button {
+      padding-left: 0;
+      padding-right: 0;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        margin: 0;
+      }
+    }
+  }
   &.delete-state {
     input {
       &[type="email"],

@@ -423,7 +423,7 @@ function awesomesheet() {
         '<div class="col-xs-12">' +
         '<div class="consumable-counts clearfix"></div>' +
         '<div class="clone-delete-controls hidden">' +
-        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
+        '<a href="javascript:void(0)" class="button button-primary button-small button-block" id="remove-consumable-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -471,7 +471,7 @@ function awesomesheet() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="clone-delete-controls hidden">' +
-        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
+        '<a href="javascript:void(0)" class="button button-primary button-small button-block" id="remove-attack-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
         '</div>' +
         '</div>' +
         '</div>';
