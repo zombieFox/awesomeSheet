@@ -353,44 +353,37 @@ function awesomesheet() {
       cloneBlockAdd(".consumables");
     }, false);
     consumablesCloneRemove.addEventListener("click", function() {
-      cloneBlockRemove(".consumables");
+      changeCloneState(".consumables");
     }, false);
     attacksCloneAdd.addEventListener("click", function() {
       cloneBlockAdd(".attacks");
     }, false);
     attacksCloneRemove.addEventListener("click", function() {
-      cloneBlockRemove(".attacks");
+      changeCloneState(".attacks");
     }, false);
   };
 
   // clone a block where needed
   function cloneBlockAdd(blockToClone) {
-    // find clone block root
     var cloneBlock = e(blockToClone);
-    // console.log(cloneBlock);
-    // find clone controls
     var cloneControls = cloneBlock.querySelector(".clone-controls");
-    // console.log(cloneControls);
-    // find clone target
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    // console.log(cloneTarget);
-    // count how many elements already exist
-    var blockCount = cloneTarget.querySelectorAll(".consumable-block").length;
-    // console.log(blockCount);
+    var all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
+    var all_consumableBlock_count = all_consumableBlock.length;
     // advance count
-    blockCount++;
-    // console.log("new count = " + blockCount);
+    all_consumableBlock_count++;
+    // console.log("new count = " + all_consumableBlock_count);
     // log count in local storage
     if (blockToClone == ".consumables") {
-      localStoreAdd("clone-consumable-count", blockCount);
+      localStoreAdd("clone-consumable-count", all_consumableBlock_count);
     };
     if (blockToClone == ".attacks") {
-      localStoreAdd("clone-attack-count", blockCount);
+      localStoreAdd("clone-attack-count", all_consumableBlock_count);
     };
     // create div wrapper element
     var newNode = document.createElement("div");
     newNode.setAttribute("class", "consumable-block");
-    newNode.setAttribute("data-clone-count", blockCount);
+    newNode.setAttribute("data-clone-count", all_consumableBlock_count);
     // insert div
     cloneTarget.appendChild(newNode);
     // what to go inside the clone
@@ -398,68 +391,71 @@ function awesomesheet() {
       '<div class="row">' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + blockCount + '">Item</label>' +
-      '<input class="input-field" id="input-consumable-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-consumable-' + all_consumableBlock_count + '">Item</label>' +
+      '<input class="input-field" id="input-consumable-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + blockCount + '-total">Total</label>' +
-      '<input class="input-field consumable-total" id="input-consumable-total-' + blockCount + '" type="number">' +
+      '<label class="input-label" for="input-consumable-' + all_consumableBlock_count + '-total">Total</label>' +
+      '<input class="input-field consumable-total" id="input-consumable-total-' + all_consumableBlock_count + '" type="number">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + blockCount + '-used">Used</label>' +
-      '<input class="input-field consumable-used" id="input-consumable-used-' + blockCount + '" type="number">' +
+      '<label class="input-label" for="input-consumable-' + all_consumableBlock_count + '-used">Used</label>' +
+      '<input class="input-field consumable-used" id="input-consumable-used-' + all_consumableBlock_count + '" type="number">' +
       '</div>' +
       '</div>' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-12">' +
       '<div class="consumable-counts clearfix"></div>' +
+      '<div class="clone-delete-controls hidden">' +
+      '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_consumableBlock_count + '"><span class="icon-close"></span> Remove</a>' +
+      '</div>' +
       '</div>' +
       '</div>';
     var newAttack =
       '<div class="row no-gutter">' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-weapon-' + blockCount + '">Weapon</label>' +
-      '<input class="input-field" id="input-weapon-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-weapon-' + all_consumableBlock_count + '">Weapon</label>' +
+      '<input class="input-field" id="input-weapon-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-attack-' + blockCount + '">Attack</label>' +
-      '<input class="input-field" id="input-attack-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-attack-' + all_consumableBlock_count + '">Attack</label>' +
+      '<input class="input-field" id="input-attack-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-10 col-xs-offset-2">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-range-' + blockCount + '">Range</label>' +
-      '<input class="input-field" id="input-range-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-range-' + all_consumableBlock_count + '">Range</label>' +
+      '<input class="input-field" id="input-range-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-ammo-' + blockCount + '">Ammo</label>' +
-      '<input class="input-field" id="input-ammo-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-ammo-' + all_consumableBlock_count + '">Ammo</label>' +
+      '<input class="input-field" id="input-ammo-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-damage-' + blockCount + '">Damage</label>' +
-      '<input class="input-field" id="input-damage-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-damage-' + all_consumableBlock_count + '">Damage</label>' +
+      '<input class="input-field" id="input-damage-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-critical-' + blockCount + '">Critical</label>' +
-      '<input class="input-field" id="input-critical-' + blockCount + '" type="text">' +
+      '<label class="input-label" for="input-critical-' + all_consumableBlock_count + '">Critical</label>' +
+      '<input class="input-field" id="input-critical-' + all_consumableBlock_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -472,7 +468,7 @@ function awesomesheet() {
     if (blockToClone == ".attacks") {
       newNode.innerHTML = newAttack;
     };
-    // add listners to consumable inputs
+    // add listners to new elements
     function addListenerTo_newNode_input_focus(element) {
       if (element) {
         element.addEventListener("input", function() {
@@ -542,16 +538,27 @@ function awesomesheet() {
         }, false);
       };
     };
+
+    function addListenerTo_newNode_consumableRemove_button(element) {
+      if (element) {
+        element.addEventListener("click", function() {
+          cloneBlockRemove(element);
+        }, false);
+      };
+    };
     if (blockToClone == ".consumables") {
       // find inputs
-      if (newNode.querySelector("#input-consumable-" + blockCount)) {
-        var newNode_consumableName_input = newNode.querySelector("#input-consumable-" + blockCount);
+      if (newNode.querySelector("#input-consumable-" + all_consumableBlock_count)) {
+        var newNode_consumableName_input = newNode.querySelector("#input-consumable-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-consumable-total-" + blockCount)) {
-        var newNode_consumableTotal_input = newNode.querySelector("#input-consumable-total-" + blockCount);
+      if (newNode.querySelector("#input-consumable-total-" + all_consumableBlock_count)) {
+        var newNode_consumableTotal_input = newNode.querySelector("#input-consumable-total-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-consumable-used-" + blockCount)) {
-        var newNode_consumableUsed_input = newNode.querySelector("#input-consumable-used-" + blockCount);
+      if (newNode.querySelector("#input-consumable-used-" + all_consumableBlock_count)) {
+        var newNode_consumableUsed_input = newNode.querySelector("#input-consumable-used-" + all_consumableBlock_count);
+      };
+      if (newNode.querySelector("#remove-consumable-" + all_consumableBlock_count)) {
+        var newNode_consumableRemove_button = newNode.querySelector("#remove-consumable-" + all_consumableBlock_count);
       };
       // add listners to consumable name
       addListenerTo_newNode_input_focus(newNode_consumableName_input);
@@ -566,26 +573,28 @@ function awesomesheet() {
       addListenerTo_newNode_input_store(newNode_consumableUsed_input);
       addListenerTo_newNode_input_minMax(newNode_consumableUsed_input);
       addListenerTo_newNode_input_toggleChecks(newNode_consumableUsed_input);
+      // add listners to remove button
+      addListenerTo_newNode_consumableRemove_button(newNode_consumableRemove_button);
     };
     if (blockToClone == ".attacks") {
       // find inputs
-      if (newNode.querySelector("#input-weapon-" + blockCount)) {
-        var newNode_attackWeapon_input = newNode.querySelector("#input-weapon-" + blockCount);
+      if (newNode.querySelector("#input-weapon-" + all_consumableBlock_count)) {
+        var newNode_attackWeapon_input = newNode.querySelector("#input-weapon-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-attack-" + blockCount)) {
-        var newNode_attackAttack_input = newNode.querySelector("#input-attack-" + blockCount);
+      if (newNode.querySelector("#input-attack-" + all_consumableBlock_count)) {
+        var newNode_attackAttack_input = newNode.querySelector("#input-attack-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-range-" + blockCount)) {
-        var newNode_attackRange_input = newNode.querySelector("#input-range-" + blockCount);
+      if (newNode.querySelector("#input-range-" + all_consumableBlock_count)) {
+        var newNode_attackRange_input = newNode.querySelector("#input-range-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-ammo-" + blockCount)) {
-        var newNode_attackAmmo_input = newNode.querySelector("#input-ammo-" + blockCount);
+      if (newNode.querySelector("#input-ammo-" + all_consumableBlock_count)) {
+        var newNode_attackAmmo_input = newNode.querySelector("#input-ammo-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-damage-" + blockCount)) {
-        var newNode_attackDamage_input = newNode.querySelector("#input-damage-" + blockCount);
+      if (newNode.querySelector("#input-damage-" + all_consumableBlock_count)) {
+        var newNode_attackDamage_input = newNode.querySelector("#input-damage-" + all_consumableBlock_count);
       };
-      if (newNode.querySelector("#input-critical-" + blockCount)) {
-        var newNode_attackCritical_input = newNode.querySelector("#input-critical-" + blockCount);
+      if (newNode.querySelector("#input-critical-" + all_consumableBlock_count)) {
+        var newNode_attackCritical_input = newNode.querySelector("#input-critical-" + all_consumableBlock_count);
       };
       // add listners to attack weapon
       addListenerTo_newNode_input_focus(newNode_attackWeapon_input);
@@ -609,34 +618,99 @@ function awesomesheet() {
   };
 
   function cloneBlockRemove(blockToRemove) {
-    // find clone block root
-    var cloneBlock = e(blockToRemove);
-    // find clone controls
-    var cloneControls = cloneBlock.querySelector(".clone-controls");
-    // find clone target
+
+    var cloneBlock = getClosest(blockToRemove, ".clone-block");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    // count how many elements already exist
-    var blockCount = cloneTarget.querySelectorAll(".consumable-block").length;
-    // console.log(blockCount);
+    var consumableBlockToRemove = getClosest(blockToRemove, ".consumable-block");
+    var all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
+    var all_consumableBlock_count = all_consumableBlock.length;
+
+    console.log(consumableBlockToRemove);
+
+    consumableBlockToRemove.remove();
+    all_consumableBlock_count--;
+
+
+    // to fix later
+    //
+    //
+    //
+    for (var i = 1; i < all_consumableBlock_count; i++) {
+      // all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
+      // all_consumableBlock[i].dataset.cloneCount = i;
+    };
+
+
+  };
+
+  function changeCloneState(cloneBlockType) {
+    var cloneBlock = e(cloneBlockType);
+    var cloneControls = cloneBlock.querySelector(".clone-controls");
+    var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
+    var cloneTarget = cloneBlock.querySelector(".clone-target");
+    var all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
+    var all_consumableBlock_count = all_consumableBlock.length;
     // reduce count
-    if (cloneTarget.lastChild) {
-      cloneTarget.lastChild.remove();
-      blockCount--;
-      if (blockToRemove == ".consumables") {
-        localStoreAdd("clone-consumable-count", blockCount);
+    // if (cloneTarget.lastChild) {
+    //   cloneTarget.lastChild.remove();
+    //   all_consumableBlock_count--;
+    //   if (cloneBlockType == ".consumables") {
+    //     localStoreAdd("clone-consumable-count", all_consumableBlock_count);
+    //   };
+    //   if (cloneBlockType == ".attacks") {
+    //     localStoreAdd("clone-attack-count", all_consumableBlock_count);
+    //   };
+    //   if (localStoreRead("clone-consumable-count") <= "0") {
+    //     if (cloneBlockType == ".consumables") {
+    //       localStoreAdd("clone-consumable-count", "");
+    //     };
+    //     if (cloneBlockType == ".attacks") {
+    //       localStoreAdd("clone-consumable-count", "");
+    //     };
+    //   };
+    // };
+
+    if (cloneBlock.dataset.deleteCloneState == "true") {
+      removeClass(cloneBlock, "delete-state");
+      cloneBlock.dataset.deleteCloneState = "false";
+      for (var i = 0; i < cloneDeleteControls.length; i++) {
+        addClass(cloneDeleteControls[i], "hidden");
       };
-      if (blockToRemove == ".attacks") {
-        localStoreAdd("clone-attack-count", blockCount);
+    } else if (cloneBlock.dataset.deleteCloneState == "false") {
+      addClass(cloneBlock, "delete-state");
+      cloneBlock.dataset.deleteCloneState = "true";
+
+      for (var i = 0; i < all_consumableBlock_count; i++) {
+
+        // cloneDeleteControls[i].querySelector(".button").addEventListener("click", function() {
+        //   var cloneBlockType = getClosest(this, ".consumable-block");
+        //   cloneBlockType.remove();
+        //   var all_cloneBlock = cloneTarget.querySelectorAll(".consumable-block");
+        //   for (var i = 0; i < all_cloneBlock.length; i++) {
+        //     all_cloneBlock[i].dataset.cloneCount = i + 1;
+        //   };
+        // }, false);
+
+        removeClass(cloneDeleteControls[i], "hidden");
       };
-      if (localStoreRead("clone-consumable-count") <= "0") {
-        if (blockToRemove == ".consumables") {
-          localStoreAdd("clone-consumable-count", "");
-        };
-        if (blockToRemove == ".attacks") {
-          localStoreAdd("clone-consumable-count", "");
-        };
+
+    };
+    if (all_consumableBlock_count <= 0) {
+      if (cloneBlockType == ".consumables") {
+        localStoreAdd("clone-consumable-count", "");
+      };
+      if (cloneBlockType == ".attacks") {
+        localStoreAdd("clone-attack-count", "");
+      };
+    } else {
+      if (cloneBlockType == ".consumables") {
+        localStoreAdd("clone-consumable-count", all_consumableBlock_count);
+      };
+      if (cloneBlockType == ".attacks") {
+        localStoreAdd("clone-attack-count", all_consumableBlock_count);
       };
     };
+
   };
 
   function update_cloneBlocks() {
@@ -923,11 +997,11 @@ function awesomesheet() {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         removeClass(all_spellStateControls[i], "active");
       };
-      spellRoot.dataset.prepareSpellState = " false";
-      spellRoot.dataset.unprepareSpellState = " false";
-      spellRoot.dataset.castSpellState = " false";
-      spellRoot.dataset.activeSpellState = " false";
-      spellRoot.dataset.deleteSpellState = " false";
+      spellRoot.dataset.prepareSpellState = "false";
+      spellRoot.dataset.unprepareSpellState = "false";
+      spellRoot.dataset.castSpellState = "false";
+      spellRoot.dataset.activeSpellState = "false";
+      spellRoot.dataset.deleteSpellState = "false";
       removeClass(spellRoot, "prepare-state");
       removeClass(spellRoot, "unprepare-state");
       removeClass(spellRoot, "cast-state");

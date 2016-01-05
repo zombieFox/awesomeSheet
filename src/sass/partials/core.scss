@@ -95,7 +95,7 @@ hr {
   .consumable-counts {
     margin: -15px 0 0 0;
     .check-group {
-      margin: 0 8px 8px 0;
+      margin: 0 5px 5px 0;
       float: left;
       position: relative;
       .check {
@@ -110,8 +110,8 @@ hr {
         box-sizing: border-box;
         position: relative;
         &.used {
-          background-color: $gray-12;
-          border-color: $gray-11;
+          background-color: $gray-13;
+          border-color: $gray-12;
         }
         &:nth-child(1) {
           border-radius: $border-radius-small 0 0 0;
@@ -157,6 +157,18 @@ hr {
 .clone-block {
   .clone-controls {
     margin: 2rem 0 3rem 0;
+  }
+  &.delete-state {
+    input {
+      &[type="email"],
+      &[type="number"],
+      &[type="search"],
+      &[type="text"],
+      &[type="tel"],
+      &[type="password"] {
+        background-color: $primary-color-light-alpha;
+      }
+    }
   }
 }
 

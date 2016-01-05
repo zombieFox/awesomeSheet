@@ -123,7 +123,6 @@ input {
   &[type="text"],
   &[type="tel"],
   &[type="password"] {
-    background-color: $gray-13;
     background-color: $secondary-color-light-alpha;
     font-family: $open-sans-regular;
     font-size: 1rem;
