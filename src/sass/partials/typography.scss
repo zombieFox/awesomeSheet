@@ -178,8 +178,8 @@ table {
       box-sizing: border-box;
       p {
         margin: 0;
-        height: 2.5rem;
-        line-height: 2.5rem;
+        min-height: 2.5rem;
+        line-height: 2.3rem;
         box-sizing: border-box;
         border-bottom: $border;
       }
@@ -230,8 +230,8 @@ table {
 .inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  min-height: 2.4rem;
-  line-height: 2.4rem;
+  min-height: 2.5rem;
+  line-height: 2.3rem;
   box-sizing: border-box;
 }
 

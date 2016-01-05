@@ -401,7 +401,7 @@ function awesomesheet() {
         '<div class="col-xs-8">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-consumable-' + all_clone_count + '">Item</label>' +
-        '<input class="input-field" id="input-consumable-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-consumable-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-4">' +
@@ -409,13 +409,13 @@ function awesomesheet() {
         '<div class="col-xs-6">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-consumable-total-' + all_clone_count + '">Total</label>' +
-        '<input class="input-field consumable-total" id="input-consumable-total-' + all_clone_count + '" type="number">' +
+        '<input class="input-field consumable-total" id="input-consumable-total-' + all_clone_count + '" type="number" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-6">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-consumable-used-' + all_clone_count + '">Used</label>' +
-        '<input class="input-field consumable-used" id="input-consumable-used-' + all_clone_count + '" type="number">' +
+        '<input class="input-field consumable-used" id="input-consumable-used-' + all_clone_count + '" type="number" tabindex="3">' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -423,7 +423,7 @@ function awesomesheet() {
         '<div class="col-xs-12">' +
         '<div class="consumable-counts clearfix"></div>' +
         '<div class="clone-delete-controls hidden">' +
-        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
+        '<a href="javascript:void(0)" class="button button-primary button-small button-block" id="remove-consumable-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</a>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -432,13 +432,13 @@ function awesomesheet() {
         '<div class="col-xs-8">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-weapon-' + all_clone_count + '">Weapon</label>' +
-        '<input class="input-field" id="input-weapon-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-weapon-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-4">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-attack-' + all_clone_count + '">Attack</label>' +
-        '<input class="input-field" id="input-attack-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-attack-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-10 col-xs-offset-2">' +
@@ -446,32 +446,32 @@ function awesomesheet() {
         '<div class="col-xs-3">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-range-' + all_clone_count + '">Range</label>' +
-        '<input class="input-field" id="input-range-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-range-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-3">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-ammo-' + all_clone_count + '">Ammo</label>' +
-        '<input class="input-field" id="input-ammo-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-ammo-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-3">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-damage-' + all_clone_count + '">Damage</label>' +
-        '<input class="input-field" id="input-damage-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-damage-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-3">' +
         '<div class="input-block">' +
         '<label class="input-label" for="input-critical-' + all_clone_count + '">Critical</label>' +
-        '<input class="input-field" id="input-critical-' + all_clone_count + '" type="text">' +
+        '<input class="input-field" id="input-critical-' + all_clone_count + '" type="text" tabindex="3">' +
         '</div>' +
         '</div>' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="clone-delete-controls hidden">' +
-        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
+        '<a href="javascript:void(0)" class="button button-primary button-small button-block" id="remove-attack-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</a>' +
         '</div>' +
         '</div>' +
         '</div>';

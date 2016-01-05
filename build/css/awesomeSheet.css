@@ -523,8 +523,8 @@ table {
     box-sizing: border-box; }
     table tr td p {
       margin: 0;
-      height: 2.5rem;
-      line-height: 2.5rem;
+      min-height: 2.5rem;
+      line-height: 2.3rem;
       box-sizing: border-box;
       border-bottom: 2px solid transparent; }
     table tr td:first-child {
@@ -556,8 +556,8 @@ table {
 .inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  min-height: 2.4rem;
-  line-height: 2.4rem;
+  min-height: 2.5rem;
+  line-height: 2.3rem;
   box-sizing: border-box; }
 
 .margin-with-input {
@@ -1314,6 +1314,15 @@ hr {
 
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
+
+.clone-block .clone-delete-controls {
+  margin: 0 0 1rem 0; }
+  .clone-block .clone-delete-controls .button {
+    padding-left: 0;
+    padding-right: 0; }
+    .clone-block .clone-delete-controls .button [class^="icon-"],
+    .clone-block .clone-delete-controls .button [class*=" icon-"] {
+      margin: 0; }
 
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: #ffffff;
