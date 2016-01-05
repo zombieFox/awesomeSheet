@@ -126,6 +126,14 @@ function awesomesheet() {
     };
   };
 
+  // local storage remove
+  function localStoreRemove(key) {
+    if (localStorage.getItem) {
+      localStorage.removeItem(key);
+      // console.log("removed " + key + " + " + data);
+    };
+  };
+
   // local storage read
   function localStoreRead(key) {
     if (localStorage.getItem(key) == "") {
@@ -255,8 +263,8 @@ function awesomesheet() {
 
   // add consumable checks on total increase
   function addConsumableChecks(element) {
-    var consumableBlock = getClosest(element, ".consumable-block");
-    var consumableCounts = consumableBlock.querySelector(".consumable-counts");
+    var clone = getClosest(element, ".clone");
+    var consumableCounts = clone.querySelector(".consumable-counts");
     var consumableTotal_value = parseInt(element.value, 10) || 0;
     var checkGroup = consumableCounts.querySelector(".check-group");
     var all_checks = consumableCounts.querySelectorAll(".check").length;
@@ -309,9 +317,9 @@ function awesomesheet() {
 
   // toggle consumable check when used value is changed
   function toggleConsumableChecks(element) {
-    var consumableBlock = getClosest(element, ".consumable-block");
-    var consumableCounts = consumableBlock.querySelector(".consumable-counts");
-    var consumableUsed = consumableBlock.querySelector(".consumable-used");
+    var clone = getClosest(element, ".clone");
+    var consumableCounts = clone.querySelector(".consumable-counts");
+    var consumableUsed = clone.querySelector(".consumable-used");
     var consumableUsed_value = parseInt(consumableUsed.value, 10) || 0;
     var all_checks = consumableCounts.querySelectorAll(".check");
     var remainingUses = all_checks.length - consumableUsed_value;
@@ -368,22 +376,22 @@ function awesomesheet() {
     var cloneBlock = e(blockToClone);
     var cloneControls = cloneBlock.querySelector(".clone-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
-    var all_consumableBlock_count = all_consumableBlock.length;
+    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone_count = all_clone.length;
     // advance count
-    all_consumableBlock_count++;
-    // console.log("new count = " + all_consumableBlock_count);
+    all_clone_count++;
+    // console.log("new count = " + all_clone_count);
     // log count in local storage
     if (blockToClone == ".consumables") {
-      localStoreAdd("clone-consumable-count", all_consumableBlock_count);
+      localStoreAdd("clone-consumable-count", all_clone_count);
     };
     if (blockToClone == ".attacks") {
-      localStoreAdd("clone-attack-count", all_consumableBlock_count);
+      localStoreAdd("clone-attack-count", all_clone_count);
     };
     // create div wrapper element
     var newNode = document.createElement("div");
-    newNode.setAttribute("class", "consumable-block");
-    newNode.setAttribute("data-clone-count", all_consumableBlock_count);
+    newNode.setAttribute("class", "clone");
+    newNode.setAttribute("data-clone-count", all_clone_count);
     // insert div
     cloneTarget.appendChild(newNode);
     // what to go inside the clone
@@ -391,22 +399,22 @@ function awesomesheet() {
       '<div class="row">' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + all_consumableBlock_count + '">Item</label>' +
-      '<input class="input-field" id="input-consumable-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-consumable-' + all_clone_count + '">Item</label>' +
+      '<input class="input-field" id="input-consumable-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + all_consumableBlock_count + '-total">Total</label>' +
-      '<input class="input-field consumable-total" id="input-consumable-total-' + all_consumableBlock_count + '" type="number">' +
+      '<label class="input-label" for="input-consumable-total-' + all_clone_count + '">Total</label>' +
+      '<input class="input-field consumable-total" id="input-consumable-total-' + all_clone_count + '" type="number">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-consumable-' + all_consumableBlock_count + '-used">Used</label>' +
-      '<input class="input-field consumable-used" id="input-consumable-used-' + all_consumableBlock_count + '" type="number">' +
+      '<label class="input-label" for="input-consumable-used-' + all_clone_count + '">Used</label>' +
+      '<input class="input-field consumable-used" id="input-consumable-used-' + all_clone_count + '" type="number">' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -414,7 +422,7 @@ function awesomesheet() {
       '<div class="col-xs-12">' +
       '<div class="consumable-counts clearfix"></div>' +
       '<div class="clone-delete-controls hidden">' +
-      '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_consumableBlock_count + '"><span class="icon-close"></span> Remove</a>' +
+      '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -422,42 +430,47 @@ function awesomesheet() {
       '<div class="row no-gutter">' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-weapon-' + all_consumableBlock_count + '">Weapon</label>' +
-      '<input class="input-field" id="input-weapon-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-weapon-' + all_clone_count + '">Weapon</label>' +
+      '<input class="input-field" id="input-weapon-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-attack-' + all_consumableBlock_count + '">Attack</label>' +
-      '<input class="input-field" id="input-attack-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-attack-' + all_clone_count + '">Attack</label>' +
+      '<input class="input-field" id="input-attack-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-10 col-xs-offset-2">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-range-' + all_consumableBlock_count + '">Range</label>' +
-      '<input class="input-field" id="input-range-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-range-' + all_clone_count + '">Range</label>' +
+      '<input class="input-field" id="input-range-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-ammo-' + all_consumableBlock_count + '">Ammo</label>' +
-      '<input class="input-field" id="input-ammo-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-ammo-' + all_clone_count + '">Ammo</label>' +
+      '<input class="input-field" id="input-ammo-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-damage-' + all_consumableBlock_count + '">Damage</label>' +
-      '<input class="input-field" id="input-damage-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-damage-' + all_clone_count + '">Damage</label>' +
+      '<input class="input-field" id="input-damage-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-critical-' + all_consumableBlock_count + '">Critical</label>' +
-      '<input class="input-field" id="input-critical-' + all_consumableBlock_count + '" type="text">' +
+      '<label class="input-label" for="input-critical-' + all_clone_count + '">Critical</label>' +
+      '<input class="input-field" id="input-critical-' + all_clone_count + '" type="text">' +
       '</div>' +
       '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-12">' +
+      '<div class="clone-delete-controls hidden">' +
+      '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '"><span class="icon-close"></span> Remove</a>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -542,23 +555,23 @@ function awesomesheet() {
     function addListenerTo_newNode_consumableRemove_button(element) {
       if (element) {
         element.addEventListener("click", function() {
-          cloneBlockRemove(element);
+          cloneBlockRemove(element, blockToClone);
         }, false);
       };
     };
     if (blockToClone == ".consumables") {
       // find inputs
-      if (newNode.querySelector("#input-consumable-" + all_consumableBlock_count)) {
-        var newNode_consumableName_input = newNode.querySelector("#input-consumable-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-consumable-" + all_clone_count)) {
+        var newNode_consumableName_input = newNode.querySelector("#input-consumable-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-consumable-total-" + all_consumableBlock_count)) {
-        var newNode_consumableTotal_input = newNode.querySelector("#input-consumable-total-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-consumable-total-" + all_clone_count)) {
+        var newNode_consumableTotal_input = newNode.querySelector("#input-consumable-total-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-consumable-used-" + all_consumableBlock_count)) {
-        var newNode_consumableUsed_input = newNode.querySelector("#input-consumable-used-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-consumable-used-" + all_clone_count)) {
+        var newNode_consumableUsed_input = newNode.querySelector("#input-consumable-used-" + all_clone_count);
       };
-      if (newNode.querySelector("#remove-consumable-" + all_consumableBlock_count)) {
-        var newNode_consumableRemove_button = newNode.querySelector("#remove-consumable-" + all_consumableBlock_count);
+      if (newNode.querySelector("#remove-consumable-" + all_clone_count)) {
+        var newNode_consumableRemove_button = newNode.querySelector("#remove-consumable-" + all_clone_count);
       };
       // add listners to consumable name
       addListenerTo_newNode_input_focus(newNode_consumableName_input);
@@ -578,23 +591,26 @@ function awesomesheet() {
     };
     if (blockToClone == ".attacks") {
       // find inputs
-      if (newNode.querySelector("#input-weapon-" + all_consumableBlock_count)) {
-        var newNode_attackWeapon_input = newNode.querySelector("#input-weapon-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-weapon-" + all_clone_count)) {
+        var newNode_attackWeapon_input = newNode.querySelector("#input-weapon-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-attack-" + all_consumableBlock_count)) {
-        var newNode_attackAttack_input = newNode.querySelector("#input-attack-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-attack-" + all_clone_count)) {
+        var newNode_attackAttack_input = newNode.querySelector("#input-attack-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-range-" + all_consumableBlock_count)) {
-        var newNode_attackRange_input = newNode.querySelector("#input-range-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-range-" + all_clone_count)) {
+        var newNode_attackRange_input = newNode.querySelector("#input-range-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-ammo-" + all_consumableBlock_count)) {
-        var newNode_attackAmmo_input = newNode.querySelector("#input-ammo-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-ammo-" + all_clone_count)) {
+        var newNode_attackAmmo_input = newNode.querySelector("#input-ammo-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-damage-" + all_consumableBlock_count)) {
-        var newNode_attackDamage_input = newNode.querySelector("#input-damage-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-damage-" + all_clone_count)) {
+        var newNode_attackDamage_input = newNode.querySelector("#input-damage-" + all_clone_count);
       };
-      if (newNode.querySelector("#input-critical-" + all_consumableBlock_count)) {
-        var newNode_attackCritical_input = newNode.querySelector("#input-critical-" + all_consumableBlock_count);
+      if (newNode.querySelector("#input-critical-" + all_clone_count)) {
+        var newNode_attackCritical_input = newNode.querySelector("#input-critical-" + all_clone_count);
+      };
+      if (newNode.querySelector("#remove-attack-" + all_clone_count)) {
+        var newNode_consumableRemove_button = newNode.querySelector("#remove-attack-" + all_clone_count);
       };
       // add listners to attack weapon
       addListenerTo_newNode_input_focus(newNode_attackWeapon_input);
@@ -614,103 +630,101 @@ function awesomesheet() {
       // add listners to attack critical
       addListenerTo_newNode_input_focus(newNode_attackCritical_input);
       addListenerTo_newNode_input_store(newNode_attackCritical_input);
+      // add listners to remove button
+      addListenerTo_newNode_consumableRemove_button(newNode_consumableRemove_button);
     };
   };
 
-  function cloneBlockRemove(blockToRemove) {
-
-    var cloneBlock = getClosest(blockToRemove, ".clone-block");
+  function cloneBlockRemove(element, blockToRemove) {
+    var cloneBlock = getClosest(element, ".clone-block");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var consumableBlockToRemove = getClosest(blockToRemove, ".consumable-block");
-    var all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
-    var all_consumableBlock_count = all_consumableBlock.length;
-
-    console.log(consumableBlockToRemove);
-
-    consumableBlockToRemove.remove();
-    all_consumableBlock_count--;
-
-
-    // to fix later
-    //
-    //
-    //
-    for (var i = 1; i < all_consumableBlock_count; i++) {
-      // all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
-      // all_consumableBlock[i].dataset.cloneCount = i;
+    var cloneToRemove = getClosest(element, ".clone");
+    var cloneToRemove_input = cloneToRemove.querySelectorAll("input");
+    // remove block
+    cloneToRemove.remove();
+    // remove local storage
+    for (var i = 0; i < cloneToRemove_input.length; i++) {
+      localStorage.removeItem(cloneToRemove_input[i].id);
     };
-
-
+    // recount remaining blocks and length
+    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone_count = all_clone.length;
+    // renumber remaining block count
+    for (var i = 0; i < all_clone_count; i++) {
+      // start a count
+      var newCount = i + 1;
+      // renumber the clone
+      all_clone[i].dataset.cloneCount = newCount;
+    };
+    // recount remaining blocks and length
+    all_clone = cloneTarget.querySelectorAll(".clone");
+    all_clone_count = all_clone.length;
+    // all clone blocks are reprocessed
+    for (var i = 0; i < all_clone_count; i++) {
+      // start a count
+      var newCount = i + 1;
+      var all_inputs = all_clone[i].querySelectorAll("input");
+      var all_label = all_clone[i].querySelectorAll("label");
+      // change all input ids
+      for (var q = 0; q < all_inputs.length; q++) {
+        // remove local strage for this input
+        remove_inputBlock(all_inputs[q]);
+        // make new id
+        var currentId = all_inputs[q].id.slice(0, -1);
+        var newId = currentId + newCount;
+        all_inputs[q].id = newId;
+        // store local storage for this input
+        store_inputBlock(all_inputs[q]);
+      };
+      // change all label for attributes
+      for (var x = 0; x < all_label.length; x++) {
+        var currentFor = all_label[x].htmlFor.slice(0, -1);
+        var newFor = currentFor + newCount;
+        all_label[x].htmlFor = newFor;
+      };
+    };
+    // set or remove clone counts
+    if (all_clone_count <= 0) {
+      if (blockToRemove == ".consumables") {
+        localStoreAdd("clone-consumable-count", "");
+      };
+      if (blockToRemove == ".attacks") {
+        localStoreAdd("clone-attack-count", "");
+      };
+    } else {
+      if (blockToRemove == ".consumables") {
+        localStoreAdd("clone-consumable-count", all_clone_count);
+      };
+      if (blockToRemove == ".attacks") {
+        localStoreAdd("clone-attack-count", all_clone_count);
+      };
+    };
   };
 
   function changeCloneState(cloneBlockType) {
     var cloneBlock = e(cloneBlockType);
     var cloneControls = cloneBlock.querySelector(".clone-controls");
+    var cloneRemove = cloneControls.querySelector(".clone-remove");
     var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_consumableBlock = cloneTarget.querySelectorAll(".consumable-block");
-    var all_consumableBlock_count = all_consumableBlock.length;
-    // reduce count
-    // if (cloneTarget.lastChild) {
-    //   cloneTarget.lastChild.remove();
-    //   all_consumableBlock_count--;
-    //   if (cloneBlockType == ".consumables") {
-    //     localStoreAdd("clone-consumable-count", all_consumableBlock_count);
-    //   };
-    //   if (cloneBlockType == ".attacks") {
-    //     localStoreAdd("clone-attack-count", all_consumableBlock_count);
-    //   };
-    //   if (localStoreRead("clone-consumable-count") <= "0") {
-    //     if (cloneBlockType == ".consumables") {
-    //       localStoreAdd("clone-consumable-count", "");
-    //     };
-    //     if (cloneBlockType == ".attacks") {
-    //       localStoreAdd("clone-consumable-count", "");
-    //     };
-    //   };
-    // };
-
+    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone_count = all_clone.length;
+    toggleClass(cloneRemove, "active");
+    toggleClass(cloneRemove, "button-primary");
+    toggleClass(cloneRemove, "button-secondary");
     if (cloneBlock.dataset.deleteCloneState == "true") {
       removeClass(cloneBlock, "delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
-      for (var i = 0; i < cloneDeleteControls.length; i++) {
+      for (var i = 0; i < all_clone_count; i++) {
         addClass(cloneDeleteControls[i], "hidden");
       };
     } else if (cloneBlock.dataset.deleteCloneState == "false") {
       addClass(cloneBlock, "delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
-
-      for (var i = 0; i < all_consumableBlock_count; i++) {
-
-        // cloneDeleteControls[i].querySelector(".button").addEventListener("click", function() {
-        //   var cloneBlockType = getClosest(this, ".consumable-block");
-        //   cloneBlockType.remove();
-        //   var all_cloneBlock = cloneTarget.querySelectorAll(".consumable-block");
-        //   for (var i = 0; i < all_cloneBlock.length; i++) {
-        //     all_cloneBlock[i].dataset.cloneCount = i + 1;
-        //   };
-        // }, false);
-
+      for (var i = 0; i < all_clone_count; i++) {
         removeClass(cloneDeleteControls[i], "hidden");
       };
-
     };
-    if (all_consumableBlock_count <= 0) {
-      if (cloneBlockType == ".consumables") {
-        localStoreAdd("clone-consumable-count", "");
-      };
-      if (cloneBlockType == ".attacks") {
-        localStoreAdd("clone-attack-count", "");
-      };
-    } else {
-      if (cloneBlockType == ".consumables") {
-        localStoreAdd("clone-consumable-count", all_consumableBlock_count);
-      };
-      if (cloneBlockType == ".attacks") {
-        localStoreAdd("clone-attack-count", all_consumableBlock_count);
-      };
-    };
-
   };
 
   function update_cloneBlocks() {
@@ -1645,7 +1659,15 @@ function awesomesheet() {
     // collect all inputBlock classes
     var inputBlockId = element.id;
     // add all inputBlock to storage
-    localStoreAdd(inputBlockId, element.value)
+    localStoreAdd(inputBlockId, element.value);
+  };
+
+  // remove inputBlock
+  function remove_inputBlock(element) {
+    // collect all inputBlock classes
+    var inputBlockId = element.id;
+    // remove all inputBlock from storage
+    localStoreRemove(inputBlockId);
   };
 
   // read inputBlock

@@ -90,8 +90,7 @@ hr {
 }
 
 // consumables
-.consumable-block {
-  margin-bottom: 2rem;
+.consumables {
   .consumable-counts {
     margin: -15px 0 0 0;
     .check-group {
@@ -105,8 +104,8 @@ hr {
         padding: 0;
         float: left;
         font-size: 1.5rem;
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         box-sizing: border-box;
         position: relative;
         &.used {
@@ -155,6 +154,9 @@ hr {
 
 // clone
 .clone-block {
+  .clone {
+    margin-bottom: 2rem;
+  }
   .clone-controls {
     margin: 2rem 0 3rem 0;
   }

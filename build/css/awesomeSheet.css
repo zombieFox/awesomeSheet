@@ -479,7 +479,6 @@ textarea {
     outline: 0; }
 
 input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="password"] {
-  background-color: #fafafa;
   background-color: rgba(0, 70, 130, 0.05);
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   font-size: 1rem;
@@ -1264,56 +1263,60 @@ hr {
 .hidable-block .hidable-toggle {
   margin: 6.5rem 0 0 0; }
 
-.consumable-block {
-  margin-bottom: 2rem; }
-  .consumable-block .consumable-counts {
-    margin: -15px 0 0 0; }
-    .consumable-block .consumable-counts .check-group {
-      margin: 0 8px 8px 0;
+.consumables .consumable-counts {
+  margin: -15px 0 0 0; }
+  .consumables .consumable-counts .check-group {
+    margin: 0 5px 5px 0;
+    float: left;
+    position: relative; }
+    .consumables .consumable-counts .check-group .check {
+      background-color: #ff3276;
+      border: 1px solid #cc0044;
+      margin: 0 -1px -1px 0;
+      padding: 0;
       float: left;
+      font-size: 1.5rem;
+      width: 8px;
+      height: 8px;
+      box-sizing: border-box;
       position: relative; }
-      .consumable-block .consumable-counts .check-group .check {
-        background-color: #ff3276;
-        border: 1px solid #cc0044;
-        margin: 0 -1px -1px 0;
-        padding: 0;
-        float: left;
-        font-size: 1.5rem;
-        width: 10px;
-        height: 10px;
-        box-sizing: border-box;
-        position: relative; }
-        .consumable-block .consumable-counts .check-group .check.used {
-          background-color: #e8e8e8;
-          border-color: #d6d6d6; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(1) {
-          border-radius: 2px 0 0 0;
-          z-index: 10; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(2) {
-          z-index: 9; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(3) {
-          z-index: 8; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(4) {
-          z-index: 7; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(5) {
-          border-radius: 0 2px 0 0;
-          z-index: 6; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(6) {
-          border-radius: 0 0 0 2px;
-          clear: left;
-          z-index: 5; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(7) {
-          z-index: 4; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(8) {
-          z-index: 3; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(9) {
-          z-index: 2; }
-        .consumable-block .consumable-counts .check-group .check:nth-child(10) {
-          border-radius: 0 0 2px 0;
-          z-index: 1; }
+      .consumables .consumable-counts .check-group .check.used {
+        background-color: #fafafa;
+        border-color: #e8e8e8; }
+      .consumables .consumable-counts .check-group .check:nth-child(1) {
+        border-radius: 2px 0 0 0;
+        z-index: 10; }
+      .consumables .consumable-counts .check-group .check:nth-child(2) {
+        z-index: 9; }
+      .consumables .consumable-counts .check-group .check:nth-child(3) {
+        z-index: 8; }
+      .consumables .consumable-counts .check-group .check:nth-child(4) {
+        z-index: 7; }
+      .consumables .consumable-counts .check-group .check:nth-child(5) {
+        border-radius: 0 2px 0 0;
+        z-index: 6; }
+      .consumables .consumable-counts .check-group .check:nth-child(6) {
+        border-radius: 0 0 0 2px;
+        clear: left;
+        z-index: 5; }
+      .consumables .consumable-counts .check-group .check:nth-child(7) {
+        z-index: 4; }
+      .consumables .consumable-counts .check-group .check:nth-child(8) {
+        z-index: 3; }
+      .consumables .consumable-counts .check-group .check:nth-child(9) {
+        z-index: 2; }
+      .consumables .consumable-counts .check-group .check:nth-child(10) {
+        border-radius: 0 0 2px 0;
+        z-index: 1; }
+
+.clone-block .clone {
+  margin-bottom: 2rem; }
 
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
+
+.clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
+  background-color: rgba(255, 0, 85, 0.05); }
 
 .prompt .container {
   max-width: 100%; }
