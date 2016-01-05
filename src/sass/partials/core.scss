@@ -161,7 +161,6 @@ hr {
     margin: 2rem 0 3rem 0;
   }
   .clone-delete-controls {
-    margin: 0 0 1rem 0;
     .button {
       padding-left: 0;
       padding-right: 0;
@@ -186,6 +185,11 @@ hr {
     }
     label {
       color: $primary-color;
+    }
+    .clone {
+      padding: 40px 20px 20px 20px;
+      border-radius: $border-radius-medium;
+      border: 2px solid $primary-color;
     }
   }
 }

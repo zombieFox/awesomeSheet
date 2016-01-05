@@ -1315,14 +1315,12 @@ hr {
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
 
-.clone-block .clone-delete-controls {
-  margin: 0 0 1rem 0; }
-  .clone-block .clone-delete-controls .button {
-    padding-left: 0;
-    padding-right: 0; }
-    .clone-block .clone-delete-controls .button [class^="icon-"],
-    .clone-block .clone-delete-controls .button [class*=" icon-"] {
-      margin: 0; }
+.clone-block .clone-delete-controls .button {
+  padding-left: 0;
+  padding-right: 0; }
+  .clone-block .clone-delete-controls .button [class^="icon-"],
+  .clone-block .clone-delete-controls .button [class*=" icon-"] {
+    margin: 0; }
 
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: #ffffff;
@@ -1330,6 +1328,11 @@ hr {
 
 .clone-block.delete-state label {
   color: #ff0055; }
+
+.clone-block.delete-state .clone {
+  padding: 40px 20px 20px 20px;
+  border-radius: 6px;
+  border: 2px solid #ff0055; }
 
 .prompt .container {
   max-width: 100%; }
