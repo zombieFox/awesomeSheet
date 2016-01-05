@@ -168,8 +168,13 @@ hr {
       &[type="text"],
       &[type="tel"],
       &[type="password"] {
-        background-color: $primary-color-light-alpha;
+        // background-color: $primary-color-light-alpha;
+        background-color: $white;
+        border-color: $primary-color;
       }
+    }
+    label {
+      color: $primary-color;
     }
   }
 }
