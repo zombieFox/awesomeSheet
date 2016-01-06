@@ -1264,7 +1264,7 @@ hr {
   margin: 6.5rem 0 0 0; }
 
 .consumables .consumable-counts {
-  margin: -15px 0 0 0; }
+  margin: -15px 0 10px 0; }
   .consumables .consumable-counts .check-group {
     margin: 0 5px 5px 0;
     float: left;
@@ -1315,24 +1315,24 @@ hr {
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
 
-.clone-block .clone-delete-controls .button {
-  padding-left: 0;
-  padding-right: 0; }
-  .clone-block .clone-delete-controls .button [class^="icon-"],
-  .clone-block .clone-delete-controls .button [class*=" icon-"] {
-    margin: 0; }
-
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: #ffffff;
-  border-color: #ff0055; }
+  border-color: #ff0055;
+  color: #ff0055; }
 
 .clone-block.delete-state label {
   color: #ff0055; }
 
 .clone-block.delete-state .clone {
   padding: 40px 20px 20px 20px;
-  border-radius: 6px;
-  border: 2px solid #ff0055; }
+  border-radius: 2px;
+  border: 1px solid #ff0055; }
+  .clone-block.delete-state .clone .consumable-counts .check-group .check {
+    background-color: #ffffff;
+    border: 1px solid #ff0055; }
+    .clone-block.delete-state .clone .consumable-counts .check-group .check.used {
+      background-color: #ffffff;
+      border-color: #ffffff; }
 
 .prompt .container {
   max-width: 100%; }

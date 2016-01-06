@@ -92,7 +92,7 @@ hr {
 // consumables
 .consumables {
   .consumable-counts {
-    margin: -15px 0 0 0;
+    margin: -15px 0 10px 0;
     .check-group {
       margin: 0 5px 5px 0;
       float: left;
@@ -161,14 +161,14 @@ hr {
     margin: 2rem 0 3rem 0;
   }
   .clone-delete-controls {
-    .button {
-      padding-left: 0;
-      padding-right: 0;
-      [class^="icon-"],
-      [class*=" icon-"] {
-        margin: 0;
-      }
-    }
+    // .button {
+    //   padding-left: 0;
+    //   padding-right: 0;
+    //   [class^="icon-"],
+    //   [class*=" icon-"] {
+    //     margin: 0;
+    //   }
+    // }
   }
   &.delete-state {
     input {
@@ -178,9 +178,9 @@ hr {
       &[type="text"],
       &[type="tel"],
       &[type="password"] {
-        // background-color: $primary-color-light-alpha;
         background-color: $white;
         border-color: $primary-color;
+        color: $primary-color;
       }
     }
     label {
@@ -188,8 +188,20 @@ hr {
     }
     .clone {
       padding: 40px 20px 20px 20px;
-      border-radius: $border-radius-medium;
-      border: 2px solid $primary-color;
+      border-radius: $border-radius-small;
+      border: 1px solid $primary-color;
+      .consumable-counts {
+        .check-group {
+          .check {
+            background-color: $white;
+            border: 1px solid $primary-color;
+            &.used {
+              background-color: $white;
+              border-color: $white;
+            }
+          }
+        }
+      }
     }
   }
 }
