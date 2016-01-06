@@ -1105,7 +1105,7 @@ function awesomesheet() {
     };
   };
 
-  // prepare or unprepare or cast or delete spell
+  // prepare or unprepare or cast or active or delete spell
   function prepareOrUnprepareOrCastOrActiveOrDeleteSpell(spell) {
     var spellRoot = getClosest(spell, "#spells");
     var prepareState = spellRoot.dataset.prepareSpellState;
@@ -1166,14 +1166,14 @@ function awesomesheet() {
     if (activeState == "true") {
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon icon-play-arrow");
-      if (spell.classList.contains("button-primary")) {
+      if (spellMarks.children.length > 0) {
         if (spellActive.children.length > 0) {
           spellActive.firstChild.remove();
         } else {
-          spellActive.insertBefore(activeIcon, spellActive.firstChild);
+          spellActive.appendChild(activeIcon);
         };
       };
-      if (spell.classList.contains("button-tertiary")) {
+      if (spellMarks.children.length <= 0) {
         if (spellActive.children.length > 0) {
           spellActive.firstChild.remove();
         };
