@@ -669,7 +669,7 @@ function awesomesheet() {
         remove_inputBlock(all_inputs[q]);
         // make new id
         var currentId = all_inputs[q].id;
-        var currentId_noNumber = currentId.replace(/\d+/g,'');
+        var currentId_noNumber = currentId.replace(/\d+/g, '');
         var newId = currentId_noNumber + newCount;
         all_inputs[q].id = newId;
         // store local storage for this input
@@ -678,7 +678,7 @@ function awesomesheet() {
       // change all label for attributes
       for (var x = 0; x < all_label.length; x++) {
         var currentFor = all_label[x].htmlFor;
-        var currentFor_noNumber = currentFor.replace(/\d+/g,'');
+        var currentFor_noNumber = currentFor.replace(/\d+/g, '');
         var newFor = currentFor_noNumber + newCount;
         all_label[x].htmlFor = newFor;
       };
@@ -1248,6 +1248,33 @@ function awesomesheet() {
       };
     };
   };
+
+  function spell(spellName, spellLevel, spellPrepared, spellActive, spellCast) {
+    this.name = spellName;
+    this.level = spellLevel;
+    this.prepared = spellPrepared;
+    this.active = spellActive;
+    this.cast = spellCast;
+  };
+
+  var spellA = new spell("Fireball", 2, 3, true, 1);
+  var spellB = new spell("Glitter Dust", 11, 33, false, 3);
+  
+  console.log(spellA);
+  console.log(spellB);
+  
+
+  
+
+  // // Put the object into storage
+  // localStorage.setItem('spellList', JSON.stringify(spellA));
+
+  // // Retrieve the object from storage
+  // var retrievedObject = JSON.parse(localStorage.getItem('spellList'));
+
+  // console.log(retrievedObject);
+
+
 
   // --------------------------------------------------------------------------
   // textarea
