@@ -669,7 +669,7 @@ function awesomesheet() {
         remove_inputBlock(all_inputs[q]);
         // make new id
         var currentId = all_inputs[q].id;
-        var currentId_noNumber = currentId.replace(/\d+/g,'');
+        var currentId_noNumber = currentId.replace(/\d+/g, '');
         var newId = currentId_noNumber + newCount;
         all_inputs[q].id = newId;
         // store local storage for this input
@@ -678,7 +678,7 @@ function awesomesheet() {
       // change all label for attributes
       for (var x = 0; x < all_label.length; x++) {
         var currentFor = all_label[x].htmlFor;
-        var currentFor_noNumber = currentFor.replace(/\d+/g,'');
+        var currentFor_noNumber = currentFor.replace(/\d+/g, '');
         var newFor = currentFor_noNumber + newCount;
         all_label[x].htmlFor = newFor;
       };
@@ -1181,21 +1181,112 @@ function awesomesheet() {
     };
     // state delete
     if (deleteState == "true") {
+      var spellName = spell.textContent;
+      localStoreRemove("spell-saved - " + spellName);
       spell.remove();
     };
-    // update_removeSpellButton();
+  };
+
+  // make a spell button
+  function createSpellButton(spellName) {
+    var newSpell = document.createElement("a");
+    newSpell.setAttribute("href", "javascript:void(0)");
+    newSpell.setAttribute("data-event-listener", "false");
+    newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
+    newSpell.innerHTML = spellName;
+    var spellMarks = document.createElement("span");
+    spellMarks.setAttribute("class", "spell-marks");
+    newSpell.appendChild(spellMarks);
+    var spellActive = document.createElement("span");
+    spellActive.setAttribute("class", "spell-active");
+    newSpell.appendChild(spellActive);
+    return newSpell;
+  };
+
+  // store spell preparedList
+  function store_knownList() {
+    var all_spellKnownItems = eA(".spell-known-item");
+    // spell object constructor
+    var spell = function(spellName, spellLevel, spellPrepared, spellActive, spellCast) {
+      this.name = spellName;
+      this.level = spellLevel;
+      this.prepared = spellPrepared || 0;
+      this.active = spellActive || false;
+      this.cast = spellCast || 0;
+    };
+    for (var i = 0; i < all_spellKnownItems.length; i++) {
+      var name = all_spellKnownItems[i].textContent;
+      var level = getClosest(all_spellKnownItems[i], ".spell-level").dataset.spellLevel;
+      var prepared = all_spellKnownItems[i].querySelector(".spell-marks").children.length;
+      var cast = all_spellKnownItems[i].querySelector(".spell-marks").querySelectorAll(".icon-radio-button-unchecked").length;
+      var active = all_spellKnownItems[i].querySelector(".spell-active").children.length;
+      if (active > 0) {
+        active = true;
+      } else {
+        active = false;
+      };
+      var newSpell = new spell(name, level, prepared, active, cast);
+      localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
+    };
   };
 
   // read spell preparedList
-  function read_preparedList() {
-    var all_spellsPrepared = eA(".spells-prepared");
-    for (var i = 0; i < all_spellsPrepared.length; i++) {
-      var level = i;
-      var readName = "spell-prepared-level-" + level;
-      var preparedListToRead = localStoreRead(readName);
-      var preparedListToSaveTo = e(".spells-prepared.spell-level-" + level);
-      if (localStoreRead(readName)) {
-        preparedListToSaveTo.innerHTML = preparedListToRead;
+  function read_knownList() {
+    // iterate over all local stored items and insert the keys that meet the condition into spellsStored
+    var spellsStored = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i).substring(0, 11) == "spell-saved") {
+        spellsStored.push(localStorage.key(i));
+      }
+    };
+    // read spells and add them to spell lists
+    for (var i = 0; i < spellsStored.length; i++) {
+      // read local storage
+      var readSpell = JSON.parse(localStorage.getItem(spellsStored[i]));
+      // find spell list to add too
+      var knownListToSaveTo = e(".spells-known.spell-level-" + readSpell.level);
+      // make new spell
+      var newSpell = createSpellButton(readSpell.name);
+      // append new spell to spell list
+      knownListToSaveTo.appendChild(newSpell);
+      // find spell mark parent
+      var spellMarks = newSpell.querySelector(".spell-marks");
+      var spellActive = newSpell.querySelector(".spell-active");
+      // add spell marks
+      if (readSpell.prepared > 0) {
+        removeClass(newSpell, "button-tertiary");
+        addClass(newSpell, "button-primary");
+        for (var j = 0; j < readSpell.prepared; j++) {
+          var preparedIcon = document.createElement("span");
+          preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
+          spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+        };
+      };
+      // cast spells if cast > 0
+      if (readSpell.cast > 0) {
+        var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
+        for (var j = 0; j < readSpell.cast; j++) {
+          if (all_check[j]) {
+            removeClass(all_check[j], "icon-radio-button-checked");
+            addClass(all_check[j], "icon-radio-button-unchecked");
+          };
+        };
+        if (readSpell.cast >= readSpell.prepared) {
+          removeClass(newSpell, "button-primary");
+          addClass(newSpell, "button-tertiary");
+        };
+      };
+      // if spell is active
+      if (readSpell.active) {
+        var activeIcon = document.createElement("span");
+        activeIcon.setAttribute("class", "icon icon-play-arrow");
+        if (readSpell.prepared > 0) {
+          if (spellActive.children.length > 0) {
+            spellActive.firstChild.remove();
+          } else {
+            spellActive.appendChild(activeIcon);
+          };
+        };
       };
     };
   };
@@ -1207,46 +1298,27 @@ function awesomesheet() {
     var knownListToSaveTo = getClosest(element, ".spell-level").querySelector(".spells-known");
     var newSpellName = newSpellRoot.querySelector("input");
     var newSpellName_value = newSpellName.value;
-    var newSpell = document.createElement("a");
-    newSpell.setAttribute("href", "javascript:void(0)");
-    newSpell.setAttribute("data-event-listener", "false");
-    newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
-    newSpell.innerHTML = newSpellName_value;
-    var spellMarks = document.createElement("span");
-    spellMarks.setAttribute("class", "spell-marks");
+    var newSpell = createSpellButton(newSpellName_value);
+    // spell object constructor
+    var spell = function(spellName, spellLevel, spellPrepared, spellActive, spellCast) {
+      this.name = spellName;
+      this.level = spellLevel;
+      this.prepared = spellPrepared || 0;
+      this.active = spellActive || false;
+      this.cast = spellCast || 0;
+    };
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
-      newSpell.appendChild(spellMarks);
       // clear input field
       newSpellName.value = "";
+      // make spell object
+      var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
+      // store spell in local storage
+      localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
     };
+    // add listners to spell
     addListenerTo_all_spellKnownItem();
-  };
-
-  // store spell preparedList
-  function store_knownList() {
-    var all_spellsKnown = eA(".spells-known");
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      var level = i;
-      var saveName = "spell-known-level-" + level;
-      var knownListToSave = all_spellsKnown[i];
-      localStoreAdd(saveName, knownListToSave.innerHTML);
-    };
-  };
-
-  // read spell preparedList
-  function read_knownList() {
-    var all_spellsKnown = eA(".spells-known");
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      var level = i;
-      var readName = "spell-known-level-" + level;
-      var knownListToRead = localStoreRead(readName);
-      var knownListToSaveTo = all_spellsKnown[i];
-      if (localStoreRead(readName)) {
-        knownListToSaveTo.innerHTML = knownListToRead;
-      };
-    };
   };
 
   // --------------------------------------------------------------------------
@@ -1690,7 +1762,7 @@ function awesomesheet() {
 
 
   update_cloneBlocks();
-  read_preparedList();
+  // read_preparedList();
   read_knownList();
   read_textarea();
   read_inputBlock();

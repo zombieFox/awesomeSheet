@@ -281,17 +281,6 @@ hr {
       }
     }
   }
-  ::-webkit-input-placeholder {
-    color: $secondary-color-light-alpha;
-  }
-  :-moz-placeholder {
-    /* Firefox 18- */
-    color: $secondary-color-light-alpha;
-  }
-  ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: $secondary-color-light-alpha;
-  }
 }
 
 // stats
