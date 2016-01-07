@@ -1200,6 +1200,92 @@ function awesomesheet() {
     };
   };
 
+  // // add new spell to known spells
+  // function addNewSpell(element) {
+  //   var level = getClosest(element, ".spell-level").dataset.spellLevel;
+  //   var newSpellRoot = getClosest(element, ".new-spell");
+  //   var knownListToSaveTo = getClosest(element, ".spell-level").querySelector(".spells-known");
+  //   var newSpellName = newSpellRoot.querySelector("input");
+  //   var newSpellName_value = newSpellName.value;
+  //   var newSpell = document.createElement("a");
+  //   newSpell.setAttribute("href", "javascript:void(0)");
+  //   newSpell.setAttribute("data-event-listener", "false");
+  //   newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
+  //   newSpell.innerHTML = newSpellName_value;
+  //   var spellMarks = document.createElement("span");
+  //   spellMarks.setAttribute("class", "spell-marks");
+  //   // if input value is not empty
+  //   if (newSpellName_value !== "") {
+  //     knownListToSaveTo.appendChild(newSpell);
+  //     newSpell.appendChild(spellMarks);
+  //     // clear input field
+  //     newSpellName.value = "";
+  //   };
+  //   addListenerTo_all_spellKnownItem();
+  // };
+
+  // store spell preparedList
+  function store_knownList() {
+    // var all_spellsKnown = eA(".spells-known");
+    // for (var i = 0; i < all_spellsKnown.length; i++) {
+    //   var level = i;
+    //   var saveName = "spell-known-level-" + level;
+    //   var knownListToSave = all_spellsKnown[i];
+    //   localStoreAdd(saveName, knownListToSave.innerHTML);
+    // };
+  };
+
+  // read spell preparedList
+  function read_knownList() {
+    // var all_spellsKnown = eA(".spells-known");
+    // for (var i = 0; i < all_spellsKnown.length; i++) {
+    //   var level = i;
+    //   var readName = "spell-known-level-" + level;
+    //   var knownListToRead = localStoreRead(readName);
+    //   var knownListToSaveTo = all_spellsKnown[i];
+    //   if (localStoreRead(readName)) {
+    //     knownListToSaveTo.innerHTML = knownListToRead;
+    //   };
+    // };
+
+;
+
+    var spellsStored = []; // Array to hold the keys
+    // Iterate over localStorage and insert the keys that meet the condition into arr
+    for (var i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i).substring(0, 11) == "spell-saved") {
+        spellsStored.push(localStorage.key(i));
+      }
+    };
+
+    console.log(spellsStored);
+
+    for (var i = 0; i < spellsStored.length; i++) {
+      var temp = JSON.parse(localStorage.getItem(spellsStored[i]));
+      var knownListToSaveTo = e(".spells-known.spell-level-" + temp.level);
+
+      var newSpell = document.createElement("a");
+      newSpell.setAttribute("href", "javascript:void(0)");
+      newSpell.setAttribute("data-event-listener", "false");
+      newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
+      newSpell.innerHTML = temp.name;
+      knownListToSaveTo.appendChild(newSpell);
+      var spellMarks = document.createElement("span");
+      spellMarks.setAttribute("class", "spell-marks");
+      newSpell.appendChild(spellMarks);
+      var spellActive = document.createElement("span");
+      spellActive.setAttribute("class", "spell-active");
+      newSpell.appendChild(spellActive);
+    };
+
+
+  };
+
+
+
+
+
+
   // add new spell to known spells
   function addNewSpell(element) {
     var level = getClosest(element, ".spell-level").dataset.spellLevel;
@@ -1214,6 +1300,14 @@ function awesomesheet() {
     newSpell.innerHTML = newSpellName_value;
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "spell-marks");
+    // spell object constructor
+    var spell = function(spellName, spellLevel, spellPrepared, spellActive, spellCast) {
+      this.name = spellName;
+      this.level = spellLevel;
+      this.prepared = spellPrepared || 0;
+      this.active = spellActive || false;
+      this.cast = spellCast || 0;
+    };
     // if input value is not empty
     if (newSpellName_value !== "") {
       knownListToSaveTo.appendChild(newSpell);
@@ -1221,58 +1315,54 @@ function awesomesheet() {
       // clear input field
       newSpellName.value = "";
     };
+    // make spell object
+    var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
+    // store spell in local storage
+    localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
+    // console.log(JSON.parse(localStorage.getItem("spell-saved - " + newSpell.name)));
+    // add listners to spell
     addListenerTo_all_spellKnownItem();
   };
 
-  // store spell preparedList
-  function store_knownList() {
-    var all_spellsKnown = eA(".spells-known");
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      var level = i;
-      var saveName = "spell-known-level-" + level;
-      var knownListToSave = all_spellsKnown[i];
-      localStoreAdd(saveName, knownListToSave.innerHTML);
-    };
-  };
 
-  // read spell preparedList
-  function read_knownList() {
-    var all_spellsKnown = eA(".spells-known");
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      var level = i;
-      var readName = "spell-known-level-" + level;
-      var knownListToRead = localStoreRead(readName);
-      var knownListToSaveTo = all_spellsKnown[i];
-      if (localStoreRead(readName)) {
-        knownListToSaveTo.innerHTML = knownListToRead;
-      };
-    };
-  };
+  // function collectSpells() {
 
-  function spell(spellName, spellLevel, spellPrepared, spellActive, spellCast) {
-    this.name = spellName;
-    this.level = spellLevel;
-    this.prepared = spellPrepared;
-    this.active = spellActive;
-    this.cast = spellCast;
-  };
+  //   var spell = function(spellName, spellLevel, spellPrepared, spellActive, spellCast) {
+  //     this.name = spellName;
+  //     this.level = spellLevel;
+  //     this.prepared = spellPrepared || 0;
+  //     this.active = spellActive || false;
+  //     this.cast = spellCast || 0;
+  //   };
 
-  var spellA = new spell("Fireball", 2, 3, true, 1);
-  var spellB = new spell("Glitter Dust", 11, 33, false, 3);
-  
-  console.log(spellA);
-  console.log(spellB);
-  
+  //   var spellA = new spell("Fireball", 2, 3, true, 1);
+  //   var spellB = new spell("Glitter Dust", 11, 33, false, 3);
 
-  
+  //   console.log(spellA);
+  //   console.log(spellB);
+  //   localStoreAdd("spell-saved " + spellA.name, JSON.stringify(spellA));
+  //   localStoreAdd("spell-saved " + spellB.name, JSON.stringify(spellB));
 
-  // // Put the object into storage
-  // localStorage.setItem('spellList', JSON.stringify(spellA));
+  //   var spellsStored = []; // Array to hold the keys
+  //   // Iterate over localStorage and insert the keys that meet the condition into arr
+  //   for (var i = 0; i < localStorage.length; i++) {
+  //     if (localStorage.key(i).substring(0, 11) == "spell-saved") {
+  //       spellsStored.push(localStorage.key(i));
+  //     }
+  //   };
+  //   console.log(spellsStored);
 
-  // // Retrieve the object from storage
-  // var retrievedObject = JSON.parse(localStorage.getItem('spellList'));
+  //   for (var i = 0; i < spellsStored.length; i++) {
+  //     var temp = spellsStored[i];
+  //     console.log(JSON.parse(localStorage.getItem(temp)));
+  //   };
 
-  // console.log(retrievedObject);
+
+  // };
+
+  // collectSpells();
+
+
 
 
 
