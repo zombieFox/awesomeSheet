@@ -1289,6 +1289,8 @@ function awesomesheet() {
         };
       };
     };
+    // add listners to spell
+    addListenerTo_all_spellKnownItem();
   };
 
   // add new spell to known spells
@@ -1759,7 +1761,6 @@ function awesomesheet() {
   // --------------------------------------------------------------------------
   // run on page load
   // --------------------------------------------------------------------------
-
 
   update_cloneBlocks();
   read_knownList();
