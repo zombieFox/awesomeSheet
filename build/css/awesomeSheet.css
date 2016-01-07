@@ -570,15 +570,15 @@ table {
 /* vendor
 ------------------------------------------------- */
 ::-webkit-input-placeholder {
-  color: #b2b2b2; }
+  color: #a0a0a0; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #b2b2b2; }
+  color: #a0a0a0; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #b2b2b2; }
+  color: #a0a0a0; }
 
 ::-moz-selection {
   background-color: #086482;
@@ -1398,14 +1398,6 @@ hr {
       line-height: 4rem;
       position: relative;
       z-index: 1; }
-  #basics ::-webkit-input-placeholder {
-    color: rgba(0, 70, 130, 0.05); }
-  #basics :-moz-placeholder {
-    /* Firefox 18- */
-    color: rgba(0, 70, 130, 0.05); }
-  #basics ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: rgba(0, 70, 130, 0.05); }
 
 #statistics .stat-block {
   margin-bottom: 30px; }
