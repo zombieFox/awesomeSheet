@@ -1248,34 +1248,19 @@ function awesomesheet() {
     //   };
     // };
 
-;
-
-    var spellsStored = []; // Array to hold the keys
-    // Iterate over localStorage and insert the keys that meet the condition into arr
+    // Iterate over localStorage and insert the keys that meet the condition into spellsStored
+    var spellsStored = [];
     for (var i = 0; i < localStorage.length; i++) {
       if (localStorage.key(i).substring(0, 11) == "spell-saved") {
         spellsStored.push(localStorage.key(i));
       }
     };
-
-    console.log(spellsStored);
-
+    // read spells and add them to spell lists
     for (var i = 0; i < spellsStored.length; i++) {
-      var temp = JSON.parse(localStorage.getItem(spellsStored[i]));
-      var knownListToSaveTo = e(".spells-known.spell-level-" + temp.level);
-
-      var newSpell = document.createElement("a");
-      newSpell.setAttribute("href", "javascript:void(0)");
-      newSpell.setAttribute("data-event-listener", "false");
-      newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
-      newSpell.innerHTML = temp.name;
+      var readSPell = JSON.parse(localStorage.getItem(spellsStored[i]));
+      var knownListToSaveTo = e(".spells-known.spell-level-" + readSPell.level);
+      var newSpell = createSpellButton(readSPell.name);
       knownListToSaveTo.appendChild(newSpell);
-      var spellMarks = document.createElement("span");
-      spellMarks.setAttribute("class", "spell-marks");
-      newSpell.appendChild(spellMarks);
-      var spellActive = document.createElement("span");
-      spellActive.setAttribute("class", "spell-active");
-      newSpell.appendChild(spellActive);
     };
 
 
@@ -1283,7 +1268,20 @@ function awesomesheet() {
 
 
 
-
+  function createSpellButton(spellName) {
+    var newSpell = document.createElement("a");
+    newSpell.setAttribute("href", "javascript:void(0)");
+    newSpell.setAttribute("data-event-listener", "false");
+    newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
+    newSpell.innerHTML = spellName;
+    var spellMarks = document.createElement("span");
+    spellMarks.setAttribute("class", "spell-marks");
+    newSpell.appendChild(spellMarks);
+    var spellActive = document.createElement("span");
+    spellActive.setAttribute("class", "spell-active");
+    newSpell.appendChild(spellActive);
+    return newSpell;
+  };
 
 
   // add new spell to known spells
@@ -1315,11 +1313,13 @@ function awesomesheet() {
       // clear input field
       newSpellName.value = "";
     };
-    // make spell object
-    var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
-    // store spell in local storage
-    localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
-    // console.log(JSON.parse(localStorage.getItem("spell-saved - " + newSpell.name)));
+    // if input value is not empty
+    if (newSpellName_value !== "") {
+      // make spell object
+      var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
+      // store spell in local storage
+      localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
+    };
     // add listners to spell
     addListenerTo_all_spellKnownItem();
   };
