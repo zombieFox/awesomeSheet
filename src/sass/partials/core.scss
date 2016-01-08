@@ -387,15 +387,25 @@ hr {
         font-family: $open-sans-regular;
         white-space: normal;
         float: left;
-        [class^="icon-"],
-        [class*=" icon-"] {
+        .spell-marks {
           float: right;
-          margin: 0 0 0 3px;
-          line-height: 1.5rem;
+          margin: 0 0 0 5px;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            float: right;
+            margin: 0 0 0 1px;
+            line-height: 1.5rem;
+          }
         }
         .spell-active {
           float: left;
-          margin: 0 8px 0 0;
+          margin: 0 5px 0 0;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            float: left;
+            margin: 0;
+            line-height: 1.5rem;
+          }
         }
       }
     }
