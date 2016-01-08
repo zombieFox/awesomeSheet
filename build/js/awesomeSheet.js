@@ -752,7 +752,7 @@ function awesomesheet() {
   };
 
   function toggleAllHidable(element) {
-    var buttonLable = element.innerHTML;
+    var buttonLable = element.textContent;
     var icon = element.querySelector(".icon");
     var text = element.querySelector(".text");
     var hidableBlock = getClosest(element, ".hidable-block");
@@ -773,7 +773,7 @@ function awesomesheet() {
       hidableBlock.dataset.allHidden = "false";
       toggleClass(icon, "icon-unfold-less");
       toggleClass(icon, "icon-unfold-more");
-      text.innerHTML = "Hide Fields";
+      text.textContent = "Hide Fields";
       // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
     } else if (hidableBlock.dataset.allHidden == "false") {
       for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
@@ -787,14 +787,14 @@ function awesomesheet() {
       };
       for (var i = 0; i < all_hideableOnEmptyTextarea.length; i++) {
         var textarea = all_hideableOnEmptyTextarea[i].querySelector(".textarea");
-        if (textarea.innerHTML == null || textarea.innerHTML == "") {
+        if (textarea.textContent == null || textarea.textContent == "") {
           addClass(all_hideableOnEmptyTextarea[i], "hidden");
         };
       };
       hidableBlock.dataset.allHidden = "true";
       toggleClass(icon, "icon-unfold-less");
       toggleClass(icon, "icon-unfold-more");
-      text.innerHTML = "Show All";
+      text.textContent = "Show All";
     };
   };
 
@@ -806,7 +806,7 @@ function awesomesheet() {
   function changeMod(element, field) {
     var stat = checkValue(element);
     var modifier = calculateModifer(element);
-    field.innerHTML = modifier;
+    field.textContent = modifier;
   };
 
   // calculate mod
@@ -826,12 +826,12 @@ function awesomesheet() {
       if (score.value !== "") {
         changeMod(score, modifier);
       } else {
-        modifier.innerHTML = "";
+        modifier.textContent = "";
       };
       if (tempScore.value !== "") {
         changeMod(tempScore, tempModifier);
       } else {
-        tempModifier.innerHTML = "";
+        tempModifier.textContent = "";
       };
     };
   };
@@ -930,7 +930,7 @@ function awesomesheet() {
       if (doesSpellHaveListener == "false") {
         all_spellKnownItem[i].dataset.eventListener = "true";
         all_spellKnownItem[i].addEventListener("click", function() {
-          prepareOrUnprepareOrCastOrActiveOrDeleteSpell(this);
+          checkSpellListState_changeSpellKnowItem(this);
           store_knownList();
         }, false);
       };
@@ -1106,7 +1106,7 @@ function awesomesheet() {
   };
 
   // prepare or unprepare or cast or active or delete spell
-  function prepareOrUnprepareOrCastOrActiveOrDeleteSpell(spell) {
+  function checkSpellListState_changeSpellKnowItem(spell) {
     var spellRoot = getClosest(spell, "#spells");
     var prepareState = spellRoot.dataset.prepareSpellState;
     var unprepareState = spellRoot.dataset.unprepareSpellState;
@@ -1181,8 +1181,8 @@ function awesomesheet() {
     };
     // state delete
     if (deleteState == "true") {
-      var spellName = spell.textContent;
-      localStoreRemove("spell-saved - " + spellName);
+      var spellName = spell.dataset.spellName;
+      localStoreRemove("spell-saved-" + spellName.replace(/\s+/g, "-").toLowerCase());
       spell.remove();
     };
   };
@@ -1191,9 +1191,11 @@ function awesomesheet() {
   function createSpellButton(spellName) {
     var newSpell = document.createElement("a");
     newSpell.setAttribute("href", "javascript:void(0)");
+    newSpell.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
+    newSpell.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
     newSpell.setAttribute("data-event-listener", "false");
     newSpell.setAttribute("class", "spell-known-item button button-tertiary hidable");
-    newSpell.innerHTML = spellName;
+    newSpell.textContent = spellName;
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "spell-marks");
     newSpell.appendChild(spellMarks);
@@ -1226,7 +1228,7 @@ function awesomesheet() {
         active = false;
       };
       var newSpell = new spell(name, level, prepared, active, cast);
-      localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
+      localStoreAdd("spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase(), JSON.stringify(newSpell));
     };
   };
 
@@ -1242,45 +1244,49 @@ function awesomesheet() {
     // read spells and add them to spell lists
     for (var i = 0; i < spellsStored.length; i++) {
       // read local storage
-      var readSpell = JSON.parse(localStorage.getItem(spellsStored[i]));
+      var loadedSpell = JSON.parse(localStorage.getItem(spellsStored[i]));
       // find spell list to add too
-      var knownListToSaveTo = e(".spells-known.spell-level-" + readSpell.level);
-      // make new spell
-      var newSpell = createSpellButton(readSpell.name);
-      // append new spell to spell list
-      knownListToSaveTo.appendChild(newSpell);
+      var knownListToSaveTo = e(".spells-known.spell-level-" + loadedSpell.level);
+      // append new spell to spell list or assign existing spell button as newSpell
+      if (knownListToSaveTo.querySelector("#" + loadedSpell.name.replace(/\s+/g, "-").toLowerCase())) {
+        var newSpell = knownListToSaveTo.querySelector("#" + loadedSpell.name.replace(/\s+/g, "-").toLowerCase());
+      } else {
+        // make new spell
+        var newSpell = createSpellButton(loadedSpell.name);
+        knownListToSaveTo.appendChild(newSpell);
+      };
       // find spell mark parent
       var spellMarks = newSpell.querySelector(".spell-marks");
       var spellActive = newSpell.querySelector(".spell-active");
       // add spell marks
-      if (readSpell.prepared > 0) {
+      if (loadedSpell.prepared > 0) {
         removeClass(newSpell, "button-tertiary");
         addClass(newSpell, "button-primary");
-        for (var j = 0; j < readSpell.prepared; j++) {
+        for (var j = 0; j < loadedSpell.prepared; j++) {
           var preparedIcon = document.createElement("span");
           preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
           spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
         };
       };
       // cast spells if cast > 0
-      if (readSpell.cast > 0) {
+      if (loadedSpell.cast > 0) {
         var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
-        for (var j = 0; j < readSpell.cast; j++) {
+        for (var j = 0; j < loadedSpell.cast; j++) {
           if (all_check[j]) {
             removeClass(all_check[j], "icon-radio-button-checked");
             addClass(all_check[j], "icon-radio-button-unchecked");
           };
         };
-        if (readSpell.cast >= readSpell.prepared) {
+        if (loadedSpell.cast >= loadedSpell.prepared) {
           removeClass(newSpell, "button-primary");
           addClass(newSpell, "button-tertiary");
         };
       };
       // if spell is active
-      if (readSpell.active) {
+      if (loadedSpell.active) {
         var activeIcon = document.createElement("span");
         activeIcon.setAttribute("class", "icon icon-play-arrow");
-        if (readSpell.prepared > 0) {
+        if (loadedSpell.prepared > 0) {
           if (spellActive.children.length > 0) {
             spellActive.firstChild.remove();
           } else {
@@ -1315,7 +1321,7 @@ function awesomesheet() {
       // make spell object
       var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
       // store spell in local storage
-      localStoreAdd("spell-saved - " + newSpell.name, JSON.stringify(newSpell));
+      localStoreAdd("spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase(), JSON.stringify(newSpell));
     };
     // add listners to spell
     addListenerTo_all_spellKnownItem();
@@ -1391,45 +1397,45 @@ function awesomesheet() {
       var skillMod;
       if (skillAbility == "str") {
         // if ability temp mod is empty
-        if (stats_strTempMod.innerHTML == "") {
-          skillMod = parseInt(stats_strMod.innerHTML, 10);
+        if (stats_strTempMod.textContent == "") {
+          skillMod = parseInt(stats_strMod.textContent, 10);
         } else {
-          skillMod = parseInt(stats_strTempMod.innerHTML, 10);
+          skillMod = parseInt(stats_strTempMod.textContent, 10);
         };
       } else if (skillAbility == "dex") {
         // if ability temp mod is empty
-        if (stats_dexTempMod.innerHTML == "") {
-          skillMod = parseInt(stats_dexMod.innerHTML, 10);
+        if (stats_dexTempMod.textContent == "") {
+          skillMod = parseInt(stats_dexMod.textContent, 10);
         } else {
-          skillMod = parseInt(stats_dexTempMod.innerHTML, 10);
+          skillMod = parseInt(stats_dexTempMod.textContent, 10);
         };
       } else if (skillAbility == "con") {
         // if ability temp mod is empty
-        if (stats_conTempMod.innerHTML == "") {
-          skillMod = parseInt(stats_conMod.innerHTML, 10);
+        if (stats_conTempMod.textContent == "") {
+          skillMod = parseInt(stats_conMod.textContent, 10);
         } else {
-          skillMod = parseInt(stats_conTempMod.innerHTML, 10);
+          skillMod = parseInt(stats_conTempMod.textContent, 10);
         };
       } else if (skillAbility == "int") {
         // if ability temp mod is empty
-        if (stats_intTempMod.innerHTML == "") {
-          skillMod = parseInt(stats_intMod.innerHTML, 10);
+        if (stats_intTempMod.textContent == "") {
+          skillMod = parseInt(stats_intMod.textContent, 10);
         } else {
-          skillMod = parseInt(stats_intTempMod.innerHTML, 10);
+          skillMod = parseInt(stats_intTempMod.textContent, 10);
         };
       } else if (skillAbility == "wis") {
         // if ability temp mod is empty
-        if (stats_wisTempMod.innerHTML == "") {
-          skillMod = parseInt(stats_wisMod.innerHTML, 10);
+        if (stats_wisTempMod.textContent == "") {
+          skillMod = parseInt(stats_wisMod.textContent, 10);
         } else {
-          skillMod = parseInt(stats_wisTempMod.innerHTML, 10);
+          skillMod = parseInt(stats_wisTempMod.textContent, 10);
         };
       } else if (skillAbility == "cha") {
         // if ability temp mod is empty
-        if (stats_chaTempMod.innerHTML == "") {
-          skillMod = parseInt(stats_chaMod.innerHTML, 10);
+        if (stats_chaTempMod.textContent == "") {
+          skillMod = parseInt(stats_chaMod.textContent, 10);
         } else {
-          skillMod = parseInt(stats_chaTempMod.innerHTML, 10);
+          skillMod = parseInt(stats_chaTempMod.textContent, 10);
         };
       };
       // check if skillMod is NaN
@@ -1439,7 +1445,7 @@ function awesomesheet() {
       var skillRanks = checkValue(all_skillList_skillDetails[i].querySelector(".ranks.skill-value"));
       var skillMisc = checkValue(all_skillList_skillDetails[i].querySelector(".misc.skill-value"));
       var skillTotal = skillMod + skillRanks + skillMisc;
-      all_skillList_skillDetails[i].querySelector(".total.skill-value").innerHTML = skillTotal;
+      all_skillList_skillDetails[i].querySelector(".total.skill-value").textContent = skillTotal;
     };
   };
 
@@ -1512,7 +1518,7 @@ function awesomesheet() {
       var acDodge = 0;
       var acNatural = 0;
       var total = all_inputTotalBlock[i].querySelector(".total");
-      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").innerHTML, 10) || 0;
+      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").textContent, 10) || 0;
       var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
       var modifiers = [];
       var modifiers_total = 0;
@@ -1535,55 +1541,55 @@ function awesomesheet() {
       // str
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
-        if (stats_strTempMod.innerHTML == "") {
-          strBonus = parseInt(stats_strMod.innerHTML, 10 || 0);
+        if (stats_strTempMod.textContent == "") {
+          strBonus = parseInt(stats_strMod.textContent, 10 || 0);
         } else {
-          strBonus = parseInt(stats_strTempMod.innerHTML, 10 || 0);
+          strBonus = parseInt(stats_strTempMod.textContent, 10 || 0);
         };
       };
       // dex
       if (all_inputTotalBlock[i].dataset.dexBonus == "true") {
         // if ability temp mod is empty
-        if (stats_dexTempMod.innerHTML == "") {
-          dexBonus = parseInt(stats_dexMod.innerHTML, 10 || 0);
+        if (stats_dexTempMod.textContent == "") {
+          dexBonus = parseInt(stats_dexMod.textContent, 10 || 0);
         } else {
-          dexBonus = parseInt(stats_dexTempMod.innerHTML, 10 || 0);
+          dexBonus = parseInt(stats_dexTempMod.textContent, 10 || 0);
         };
       };
       // con
       if (all_inputTotalBlock[i].dataset.conBonus == "true") {
         // if ability temp mod is empty
-        if (stats_conTempMod.innerHTML == "") {
-          conBonus = parseInt(stats_conMod.innerHTML, 10 || 0);
+        if (stats_conTempMod.textContent == "") {
+          conBonus = parseInt(stats_conMod.textContent, 10 || 0);
         } else {
-          conBonus = parseInt(stats_conTempMod.innerHTML, 10 || 0);
+          conBonus = parseInt(stats_conTempMod.textContent, 10 || 0);
         };
       };
       // int
       if (all_inputTotalBlock[i].dataset.intBonus == "true") {
         // if ability temp mod is empty
-        if (stats_intTempMod.innerHTML == "") {
-          intBonus = parseInt(stats_intMod.innerHTML, 10 || 0);
+        if (stats_intTempMod.textContent == "") {
+          intBonus = parseInt(stats_intMod.textContent, 10 || 0);
         } else {
-          intBonus = parseInt(stats_intTempMod.innerHTML, 10 || 0);
+          intBonus = parseInt(stats_intTempMod.textContent, 10 || 0);
         };
       };
       // wis
       if (all_inputTotalBlock[i].dataset.wisBonus == "true") {
         // if ability temp mod is empty
-        if (stats_wisTempMod.innerHTML == "") {
-          wisBonus = parseInt(stats_wisMod.innerHTML, 10 || 0);
+        if (stats_wisTempMod.textContent == "") {
+          wisBonus = parseInt(stats_wisMod.textContent, 10 || 0);
         } else {
-          wisBonus = parseInt(stats_wisTempMod.innerHTML, 10 || 0);
+          wisBonus = parseInt(stats_wisTempMod.textContent, 10 || 0);
         };
       };
       // cha
       if (all_inputTotalBlock[i].dataset.chaBonus == "true") {
         // if ability temp mod is empty
-        if (stats_chaTempMod.innerHTML == "") {
-          chaBonus = parseInt(stats_chaMod.innerHTML, 10 || 0);
+        if (stats_chaTempMod.textContent == "") {
+          chaBonus = parseInt(stats_chaMod.textContent, 10 || 0);
         } else {
-          chaBonus = parseInt(stats_chaTempMod.innerHTML, 10 || 0);
+          chaBonus = parseInt(stats_chaTempMod.textContent, 10 || 0);
         };
       };
       // bab
@@ -1680,7 +1686,7 @@ function awesomesheet() {
       };
       // grand total
       var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural;
-      total.innerHTML = grandTotal;
+      total.textContent = grandTotal;
     };
   };
 
@@ -1760,9 +1766,7 @@ function awesomesheet() {
   // run on page load
   // --------------------------------------------------------------------------
 
-
   update_cloneBlocks();
-  // read_preparedList();
   read_knownList();
   read_textarea();
   read_inputBlock();

@@ -1460,14 +1460,22 @@ hr {
     font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
     white-space: normal;
     float: left; }
-    #spells .spell-level .spells-known .button [class^="icon-"],
-    #spells .spell-level .spells-known .button [class*=" icon-"] {
+    #spells .spell-level .spells-known .button .spell-marks {
       float: right;
-      margin: 0 0 0 3px;
-      line-height: 1.5rem; }
+      margin: 0 0 0 5px; }
+      #spells .spell-level .spells-known .button .spell-marks [class^="icon-"],
+      #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"] {
+        float: right;
+        margin: 0 0 0 1px;
+        line-height: 1.5rem; }
     #spells .spell-level .spells-known .button .spell-active {
       float: left;
-      margin: 0 8px 0 0; }
+      margin: 0 5px 0 0; }
+      #spells .spell-level .spells-known .button .spell-active [class^="icon-"],
+      #spells .spell-level .spells-known .button .spell-active [class*=" icon-"] {
+        float: left;
+        margin: 0;
+        line-height: 1.5rem; }
 
 #spells .spell-state-controls {
   margin: 10px 0 3rem 0; }
