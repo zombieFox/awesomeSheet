@@ -9,9 +9,9 @@ body {
 section {
   position: relative;
   z-index: $body;
-  padding: 40px 0 20px 0;
+  padding: 60px 0 20px 0;
   h1 {
-    padding: 0 0 3rem 20px;
+    padding: 0 0 3rem 30px;
     margin-bottom: 0;
     text-transform: uppercase;
     position: relative;
@@ -29,8 +29,8 @@ section {
     background-color: $secondary-color-dark;
     color: $white;
     padding: 0 10px;
-    min-height: 2.4rem;
-    line-height: 2.4rem;
+  min-height: 2.3rem;
+  line-height: 2.3rem;
     box-sizing: border-box;
     border-radius: $border-radius-small $border-radius-small 0 0;
   }
@@ -79,7 +79,7 @@ hr {
 
 .hidable-block {
   .hidable-toggle {
-    margin: 0.5rem 0 0 0;
+    margin: 0.3rem 0 0 0;
   }
 }
 
@@ -98,11 +98,6 @@ hr {
       height: 0;
       overflow: hidden;
       transition: all $transition-ease-medium;
-      .button {
-        // transform-origin: 0 0;
-        // transform: scale(0);
-        margin: 0;
-      }
     }
   }
   &.consumables {
@@ -192,9 +187,6 @@ hr {
       border: 1px solid $primary-color;
       .clone-delete-controls {
         height: 24px;
-        .button {
-          // transform: scale(1);
-        }
       }
       .consumable-counts {
         .check-group {
@@ -268,7 +260,7 @@ hr {
     }
   }
   .awesome-name {
-    padding: 2rem 0 4rem 20px;
+    padding: 2rem 0 4rem 30px;
     &:before {
       height: 4rem;
       top: 2rem;
@@ -289,6 +281,17 @@ hr {
       }
     }
   }
+  ::-webkit-input-placeholder {
+    color: $gray-alpha-08;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $gray-alpha-08;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $gray-alpha-08;
+  }
 }
 
 #statistics {
@@ -300,10 +303,10 @@ hr {
       .name {
         margin: 0;
       }
-      .name {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
+      // .name {
+      //   min-height: 2.5rem;
+      //   line-height: 2.5rem;
+      // }
     }
     .str {
       h2 {
@@ -411,7 +414,7 @@ hr {
     }
   }
   .spell-state-controls {
-    margin: 10px 0 3rem 0;
+    margin: 0 0 2rem 0;
     .button {
       margin: 0 5px 5px 0;
     }

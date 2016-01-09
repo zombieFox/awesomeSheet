@@ -32,17 +32,8 @@ function awesomesheet() {
   var stats_wisTempMod = e(".stats.wis .temp-modifier");
   var stats_chaTempMod = e(".stats.cha .temp-modifier");
 
-  var skillList = e(".skill-list");
-  var all_skillList_skillDetails = eA(".skill-list .skill-details");
-
-  var ac = e(".ac");
-  var acTouch = e(".ac-touch");
-  var acFlatFooted = e(".ac-flat-footed");
-
   var clearSheet = e(".clear-sheet");
   var toggleFullscreen = e(".toggle-fullscreen");
-
-  var spellCheck = eA(".spell-check");
 
   var all_textareas = eA(".textarea");
 
@@ -245,6 +236,7 @@ function awesomesheet() {
 
   toggleFullscreen.addEventListener("click", function() {
     toggleFullScreen();
+    removeClass(nav, "open");
   }, false);
 
   // toggle fullscreen
@@ -1028,11 +1020,12 @@ function awesomesheet() {
   // activate delete state on all saved spell lists
   function changeSpellState(element, state) {
     var spellRoot = getClosest(element, "#spells");
+    var spellRoot = getClosest(element, "#spells");
     var prepareStateButton = spellRoot.querySelector(".prepare-spell");
     var unprepareStateButton = spellRoot.querySelector(".unprepare-spell");
     var castStateButton = spellRoot.querySelector(".cast-spell");
     var activeStateButton = spellRoot.querySelector(".active-spell");
-    var deleteStateButton = spellRoot.querySelector(".remove-spell");
+    var removeStateButton = spellRoot.querySelector(".remove-spell");
     var all_spellStateControls = getClosest(element, ".spell-state-controls").querySelectorAll(".button");
     if (element.classList.contains("active")) {
       for (var i = 0; i < all_spellStateControls.length; i++) {
@@ -1048,6 +1041,8 @@ function awesomesheet() {
       removeClass(spellRoot, "cast-state");
       removeClass(spellRoot, "active-state");
       removeClass(spellRoot, "delete-state");
+      removeClass(removeStateButton, "button-primary");
+      addClass(removeStateButton, "button-secondary");
     } else {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         removeClass(all_spellStateControls[i], "active");
@@ -1064,6 +1059,8 @@ function awesomesheet() {
         removeClass(spellRoot, "cast-state");
         removeClass(spellRoot, "active-state");
         removeClass(spellRoot, "delete-state");
+        removeClass(removeStateButton, "button-primary");
+        addClass(removeStateButton, "button-secondary");
       } else if (state == "unprepare") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "true";
@@ -1075,6 +1072,8 @@ function awesomesheet() {
         removeClass(spellRoot, "cast-state");
         removeClass(spellRoot, "active-state");
         removeClass(spellRoot, "delete-state");
+        removeClass(removeStateButton, "button-primary");
+        addClass(removeStateButton, "button-secondary");
       } else if (state == "cast") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -1086,6 +1085,8 @@ function awesomesheet() {
         addClass(spellRoot, "cast-state");
         removeClass(spellRoot, "active-state");
         removeClass(spellRoot, "delete-state");
+        removeClass(removeStateButton, "button-primary");
+        addClass(removeStateButton, "button-secondary");
       } else if (state == "active") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -1097,6 +1098,8 @@ function awesomesheet() {
         removeClass(spellRoot, "cast-state");
         addClass(spellRoot, "active-state");
         removeClass(spellRoot, "delete-state");
+        removeClass(removeStateButton, "button-primary");
+        addClass(removeStateButton, "button-secondary");
       } else if (state == "remove") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -1108,6 +1111,8 @@ function awesomesheet() {
         removeClass(spellRoot, "cast-state");
         removeClass(spellRoot, "active-state");
         addClass(spellRoot, "delete-state");
+        addClass(removeStateButton, "button-primary");
+        removeClass(removeStateButton, "button-secondary");
       };
     };
   };
@@ -1419,6 +1424,7 @@ function awesomesheet() {
 
   // update skill total
   function update_skillTotal() {
+    var all_skillList_skillDetails = eA(".skill-list .skill-details");
     for (var i = 0; i < all_skillList_skillDetails.length; i++) {
       var skillAbility = all_skillList_skillDetails[i].querySelector(".name.skill-value").dataset.ability;
       var skillMod;
