@@ -122,7 +122,6 @@ function awesomesheet() {
   function localStoreAdd(key, data) {
     if (localStorage.getItem) {
       localStorage.setItem(key, data);
-      // console.log("added " + key + " + " + data);
     };
   };
 
@@ -130,7 +129,6 @@ function awesomesheet() {
   function localStoreRemove(key) {
     if (localStorage.getItem) {
       localStorage.removeItem(key);
-      // console.log("removed " + key + " + " + data);
     };
   };
 
@@ -138,11 +136,8 @@ function awesomesheet() {
   function localStoreRead(key) {
     if (localStorage.getItem(key) == "") {
       localStorage.removeItem(key);
-      // console.log(key + " was deleted");
     } else if (localStorage.getItem(key)) {
       return localStorage.getItem(key);
-      // data = localStorage.getItem(key);
-      // console.log("read and displayed " + key + " + " + data);
     };
   };
 
@@ -150,6 +145,11 @@ function awesomesheet() {
   function checkValue(element) {
     var value = parseInt(element.value, 10) || 0;
     return value;
+  };
+
+  // delay function
+  function delayFunction(functionToDelay, time) {
+    window.setTimeout(functionToDelay, time);
   };
 
   // --------------------------------------------------------------------------
@@ -173,8 +173,8 @@ function awesomesheet() {
   }, false);
 
   function clearAwesomeSheet() {
-    var prompt = document.createElement("div");
-    prompt.setAttribute("class", "prompt prompt-clear-awesome-sheet");
+    var promptClearAwesomeSheet = document.createElement("div");
+    promptClearAwesomeSheet.setAttribute("class", "prompt prompt-clear-awesome-sheet");
     var promptShade = document.createElement("div");
     promptShade.setAttribute("class", "prompt prompt-shade");
     var body = e("body");
@@ -195,20 +195,32 @@ function awesomesheet() {
       '</div>' +
       '</div>' +
       '</div>';
-    prompt.innerHTML = promptContents;
+    promptClearAwesomeSheet.innerHTML = promptContents;
     if (!body.querySelector(".prompt-clear-awesome-sheet")) {
       body.appendChild(promptShade);
-      body.appendChild(prompt);
+      body.appendChild(promptClearAwesomeSheet);
+
+      function fadeIn() {
+        promptClearAwesomeSheet.style.opacity = 1;
+        promptShade.style.opacity = 1;
+      }
+      delayFunction(fadeIn, 100);
     };
-    var clearSheetCancel = prompt.querySelector(".clear-sheet-cancel");
-    var clearSheetConfirm = prompt.querySelector(".clear-sheet-confirm");
+    var clearSheetCancel = promptClearAwesomeSheet.querySelector(".clear-sheet-cancel");
+    var clearSheetConfirm = promptClearAwesomeSheet.querySelector(".clear-sheet-confirm");
     clearSheetConfirm.addEventListener("click", function() {
       localStorage.clear();
       document.location.reload(true);
     }, false);
     clearSheetCancel.addEventListener("click", function() {
-      promptShade.remove();
-      prompt.remove();
+      promptShade.style.opacity = 0;
+      promptClearAwesomeSheet.style.opacity = 0;
+
+      function removePrompt() {
+        promptShade.remove();
+        promptClearAwesomeSheet.remove();
+      }
+      delayFunction(removePrompt, 500);
     }, false);
     addListenerTo_promptClearAwesomeSheet();
     removeClass(nav, "open");
@@ -219,8 +231,14 @@ function awesomesheet() {
     var promptClearAwesomeSheet = e(".prompt-clear-awesome-sheet");
     promptShade.addEventListener('click', function(event) {
       if (promptShade && promptClearAwesomeSheet) {
-        promptShade.remove();
-        promptClearAwesomeSheet.remove();
+        promptShade.style.opacity = 0;
+        promptClearAwesomeSheet.style.opacity = 0;
+
+        function removePrompt() {
+          promptShade.remove();
+          promptClearAwesomeSheet.remove();
+        }
+        delayFunction(removePrompt, 500);
       };
     });
   };
@@ -348,7 +366,7 @@ function awesomesheet() {
   };
 
   // --------------------------------------------------------------------------
-  // copy 
+  // clone 
   // --------------------------------------------------------------------------
 
   // add listners to all clone block controls
@@ -422,7 +440,7 @@ function awesomesheet() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="consumable-counts clearfix"></div>' +
-        '<div class="clone-delete-controls hidden">' +
+        '<div class="clone-delete-controls">' +
         '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</a>' +
         '</div>' +
         '</div>' +
@@ -466,7 +484,7 @@ function awesomesheet() {
         '</div>' +
         '</div>' +
         '<div class="col-xs-12">' +
-        '<div class="clone-delete-controls hidden">' +
+        '<div class="clone-delete-controls">' +
         '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</a>' +
         '</div>' +
         '</div>' +
@@ -640,63 +658,68 @@ function awesomesheet() {
     var cloneToRemove_input = cloneToRemove.querySelectorAll("input");
     // remove block
     cloneToRemove.remove();
-    // remove local storage
+    // remove local storage for all inputs in clone that is being removed
     for (var i = 0; i < cloneToRemove_input.length; i++) {
       localStorage.removeItem(cloneToRemove_input[i].id);
     };
     // recount remaining blocks and length
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var all_clone_count = all_clone.length;
-    // renumber remaining block count
-    for (var i = 0; i < all_clone_count; i++) {
-      // start a count
-      var newCount = i + 1;
-      // renumber the clone
-      all_clone[i].dataset.cloneCount = newCount;
-    };
-    // recount remaining blocks and length
-    all_clone = cloneTarget.querySelectorAll(".clone");
-    all_clone_count = all_clone.length;
-    // all clone blocks are reprocessed
-    for (var i = 0; i < all_clone_count; i++) {
-      // start a count
-      var newCount = i + 1;
-      var all_inputs = all_clone[i].querySelectorAll("input");
-      var all_label = all_clone[i].querySelectorAll("label");
-      // change all input ids
-      for (var q = 0; q < all_inputs.length; q++) {
-        // remove local strage for this input
-        remove_inputBlock(all_inputs[q]);
-        // make new id
-        var currentId = all_inputs[q].id;
-        var currentId_noNumber = currentId.replace(/\d+/g, '');
-        var newId = currentId_noNumber + newCount;
-        all_inputs[q].id = newId;
-        // store local storage for this input
-        store_inputBlock(all_inputs[q]);
-      };
-      // change all label for attributes
-      for (var x = 0; x < all_label.length; x++) {
-        var currentFor = all_label[x].htmlFor;
-        var currentFor_noNumber = currentFor.replace(/\d+/g, '');
-        var newFor = currentFor_noNumber + newCount;
-        all_label[x].htmlFor = newFor;
-      };
-    };
-    // set or remove clone counts
-    if (all_clone_count <= 0) {
-      if (blockToRemove == ".consumables") {
-        localStoreAdd("clone-consumable-count", "");
-      };
-      if (blockToRemove == ".attacks") {
-        localStoreAdd("clone-attack-count", "");
-      };
+    // if clone count is 0 restore clone block state or start recounting and renumbering clone blocks
+    if (all_clone_count == 0) {
+      changeCloneState(blockToRemove);
     } else {
-      if (blockToRemove == ".consumables") {
-        localStoreAdd("clone-consumable-count", all_clone_count);
+      // renumber remaining block count
+      for (var i = 0; i < all_clone_count; i++) {
+        // start a count
+        var newCount = i + 1;
+        // renumber the clone
+        all_clone[i].dataset.cloneCount = newCount;
       };
-      if (blockToRemove == ".attacks") {
-        localStoreAdd("clone-attack-count", all_clone_count);
+      // recount remaining blocks and length
+      all_clone = cloneTarget.querySelectorAll(".clone");
+      all_clone_count = all_clone.length;
+      // all clone blocks are reprocessed
+      for (var i = 0; i < all_clone_count; i++) {
+        // start a count
+        var newCount = i + 1;
+        var all_inputs = all_clone[i].querySelectorAll("input");
+        var all_label = all_clone[i].querySelectorAll("label");
+        // change all input ids
+        for (var q = 0; q < all_inputs.length; q++) {
+          // remove local strage for this input
+          remove_inputBlock(all_inputs[q]);
+          // make new id
+          var currentId = all_inputs[q].id;
+          var currentId_noNumber = currentId.replace(/\d+/g, '');
+          var newId = currentId_noNumber + newCount;
+          all_inputs[q].id = newId;
+          // store local storage for this input
+          store_inputBlock(all_inputs[q]);
+        };
+        // change all label for attributes
+        for (var x = 0; x < all_label.length; x++) {
+          var currentFor = all_label[x].htmlFor;
+          var currentFor_noNumber = currentFor.replace(/\d+/g, '');
+          var newFor = currentFor_noNumber + newCount;
+          all_label[x].htmlFor = newFor;
+        };
+      };
+      // set or remove clone counts
+      if (all_clone_count <= 0) {
+        if (blockToRemove == ".consumables") {
+          localStoreAdd("clone-consumable-count", "");
+        };
+        if (blockToRemove == ".attacks") {
+          localStoreAdd("clone-attack-count", "");
+        };
+      } else {
+        if (blockToRemove == ".consumables") {
+          localStoreAdd("clone-consumable-count", all_clone_count);
+        };
+        if (blockToRemove == ".attacks") {
+          localStoreAdd("clone-attack-count", all_clone_count);
+        };
       };
     };
   };
@@ -709,21 +732,25 @@ function awesomesheet() {
     var cloneTarget = cloneBlock.querySelector(".clone-target");
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var all_clone_count = all_clone.length;
+    // change clone remove button
     toggleClass(cloneRemove, "active");
     toggleClass(cloneRemove, "button-primary");
     toggleClass(cloneRemove, "button-secondary");
+    // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       removeClass(cloneBlock, "delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
-      for (var i = 0; i < all_clone_count; i++) {
-        addClass(cloneDeleteControls[i], "hidden");
-      };
     } else if (cloneBlock.dataset.deleteCloneState == "false") {
       addClass(cloneBlock, "delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
-      for (var i = 0; i < all_clone_count; i++) {
-        removeClass(cloneDeleteControls[i], "hidden");
-      };
+    };
+    // if clone count us 0 remove restore all classes to normal
+    if (all_clone_count == 0) {
+      removeClass(cloneBlock, "delete-state");
+      cloneBlock.dataset.deleteCloneState = "false";
+      removeClass(cloneRemove, "active");
+      removeClass(cloneRemove, "button-primary");
+      addClass(cloneRemove, "button-secondary");
     };
   };
 

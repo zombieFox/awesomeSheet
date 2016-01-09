@@ -135,7 +135,7 @@ input {
     border-bottom: $border;
     box-shadow: none;
     box-sizing: border-box;
-    transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
+    transition: all $transition-ease-medium;
     &:hover {
       border-color: $primary-color;
     }

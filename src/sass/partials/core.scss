@@ -9,9 +9,10 @@ body {
 section {
   position: relative;
   z-index: $body;
+  padding: 40px 0 20px 0;
   h1 {
-    padding: 6rem 0 0 30px;
-    margin-bottom: 40px;
+    padding: 0 0 3rem 20px;
+    margin-bottom: 0;
     text-transform: uppercase;
     position: relative;
     &:before {
@@ -19,7 +20,7 @@ section {
       border-left: 10px solid $primary-color;
       position: absolute;
       height: 3rem;
-      top: 5.5rem;
+      top: -0.5rem;
       left: 0;
       border-radius: $border-radius-small;
     }
@@ -35,11 +36,6 @@ section {
   }
 }
 
-.sheet {
-  position: relative;
-  z-index: $body;
-}
-
 hr {
   border: 0;
   border-top: 5px solid $gray-13;
@@ -49,7 +45,6 @@ hr {
   clear: both;
 }
 
-// input with lables
 .input-block {
   position: relative;
   .input-label {
@@ -82,93 +77,96 @@ hr {
   }
 }
 
-// input with lables
 .hidable-block {
   .hidable-toggle {
-    margin: 6.5rem 0 0 0;
+    margin: 0.5rem 0 0 0;
   }
 }
 
-// consumables
-.consumables {
-  .consumable-counts {
-    margin: -15px 0 10px 0;
-    .check-group {
-      margin: 0 5px 5px 0;
-      float: left;
-      position: relative;
-      .check {
-        background-color: $primary-color-light;
-        border: 1px solid $primary-color-dark;
-        margin: 0 -1px -1px 0;
-        padding: 0;
-        float: left;
-        font-size: 1.5rem;
-        width: 8px;
-        height: 8px;
-        box-sizing: border-box;
-        position: relative;
-        &.used {
-          background-color: $gray-13;
-          border-color: $gray-12;
-        }
-        &:nth-child(1) {
-          border-radius: $border-radius-small 0 0 0;
-          z-index: 10;
-        }
-        &:nth-child(2) {
-          z-index: 9;
-        }
-        &:nth-child(3) {
-          z-index: 8;
-        }
-        &:nth-child(4) {
-          z-index: 7;
-        }
-        &:nth-child(5) {
-          border-radius: 0 $border-radius-small 0 0;
-          z-index: 6;
-        }
-        &:nth-child(6) {
-          border-radius: 0 0 0 $border-radius-small;
-          clear: left;
-          z-index: 5;
-        }
-        &:nth-child(7) {
-          z-index: 4;
-        }
-        &:nth-child(8) {
-          z-index: 3;
-        }
-        &:nth-child(9) {
-          z-index: 2;
-        }
-        &:nth-child(10) {
-          border-radius: 0 0 $border-radius-small 0;
-          z-index: 1;
-        }
-      }
-    }
-  }
-}
-
-// clone
 .clone-block {
-  .clone {
-    margin-bottom: 2rem;
-  }
   .clone-controls {
     margin: 2rem 0 3rem 0;
   }
-  .clone-delete-controls {
-    // .button {
-    //   padding-left: 0;
-    //   padding-right: 0;
-    //   [class^="icon-"],
-    //   [class*=" icon-"] {
-    //     margin: 0;
-    //   }
-    // }
+  .clone {
+    padding: 0;
+    margin: -1px;
+    margin-bottom: 2rem;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: all $transition-ease-medium;
+    .clone-delete-controls {
+      height: 0;
+      overflow: hidden;
+      transition: all $transition-ease-medium;
+      .button {
+        // transform-origin: 0 0;
+        // transform: scale(0);
+        margin: 0;
+      }
+    }
+  }
+  &.consumables {
+    .consumable-counts {
+      margin: -15px 0 10px 0;
+      .check-group {
+        margin: 0 5px 5px 0;
+        float: left;
+        position: relative;
+        transition: all $transition-ease-medium;
+        .check {
+          background-color: $primary-color-light;
+          border: 1px solid $primary-color-dark;
+          margin: 0 -1px -1px 0;
+          padding: 0;
+          float: left;
+          font-size: 1.5rem;
+          width: 8px;
+          height: 8px;
+          box-sizing: border-box;
+          position: relative;
+          transition: all $transition-ease-medium;
+          &.used {
+            background-color: $gray-13;
+            border-color: $gray-12;
+          }
+          &:nth-child(1) {
+            border-radius: $border-radius-small 0 0 0;
+            z-index: 10;
+          }
+          &:nth-child(2) {
+            z-index: 9;
+          }
+          &:nth-child(3) {
+            z-index: 8;
+          }
+          &:nth-child(4) {
+            z-index: 7;
+          }
+          &:nth-child(5) {
+            border-radius: 0 $border-radius-small 0 0;
+            z-index: 6;
+          }
+          &:nth-child(6) {
+            border-radius: 0 0 0 $border-radius-small;
+            clear: left;
+            z-index: 5;
+          }
+          &:nth-child(7) {
+            z-index: 4;
+          }
+          &:nth-child(8) {
+            z-index: 3;
+          }
+          &:nth-child(9) {
+            z-index: 2;
+          }
+          &:nth-child(10) {
+            border-radius: 0 0 $border-radius-small 0;
+            z-index: 1;
+          }
+        }
+      }
+    }
   }
   &.delete-state {
     input {
@@ -188,13 +186,20 @@ hr {
     }
     .clone {
       padding: 40px 20px 20px 20px;
+      margin: 0;
+      margin-bottom: 2rem;
       border-radius: $border-radius-small;
       border: 1px solid $primary-color;
+      .clone-delete-controls {
+        height: 24px;
+        .button {
+          // transform: scale(1);
+        }
+      }
       .consumable-counts {
         .check-group {
           .check {
-            background-color: $white;
-            border: 1px solid $primary-color;
+            border-color: $white;
             &.used {
               background-color: $white;
               border-color: $white;
@@ -221,6 +226,8 @@ hr {
     width: 100%;
     height: 100%;
     z-index: $prompt;
+    opacity: 0;
+    transition: all $transition-bounce-medium;
   }
   &.prompt-clear-awesome-sheet {
     border-left: 10px solid $primary-color;
@@ -235,6 +242,8 @@ hr {
     border-radius: $border-radius-small;
     transform: translate(-50%, -50%);
     box-shadow: $shadow-large;
+    opacity: 0;
+    transition: all $transition-bounce-medium;
   }
   .button {
     margin: 0 5px 5px 0;
@@ -244,7 +253,6 @@ hr {
   }
 }
 
-// basics
 #basics {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -260,10 +268,10 @@ hr {
     }
   }
   .awesome-name {
-    padding-top: 0;
+    padding: 2rem 0 4rem 20px;
     &:before {
-      height: 5rem;
-      top: -0.5rem;
+      height: 4rem;
+      top: 2rem;
     }
     .input-block {
       .input-field {
@@ -283,7 +291,6 @@ hr {
   }
 }
 
-// stats
 #statistics {
   .stat-block {
     margin-bottom: 30px;
@@ -319,14 +326,8 @@ hr {
   }
 }
 
-// skills
 #skills {
   .skill-list {
-    thead {
-      tr {
-        td {}
-      }
-    }
     tr {
       td {
         width: 15%;
@@ -372,7 +373,6 @@ hr {
   }
 }
 
-// spells
 #spells {
   .spell-level {
     margin: 0 0 2rem 0;
@@ -518,26 +518,9 @@ hr {
 /* media queries
 ------------------------------------------------- */
 
-@media (min-width: $screen-sm) {
-  // defense
-  #defense {
-    .ac,
-    .ac-touch,
-    .ac-flat-footed {
-      .title {
-        min-width: 120px;
-      }
-    }
-  }
-}
+@media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {
-  section {
-    h1 {
-      margin-bottom: 60px;
-    }
-  }
-  // clone
   .clone-block {
     .clone-controls {
       margin: 5px 0 2rem 0;
@@ -548,16 +531,10 @@ hr {
       width: 70%;
     }
   }
-  // basics
   #basics {
     padding-top: 100px;
     padding-bottom: 100px;
   }
-  .sheet {
-    width: 75%;
-    float: right;
-  }
-  // defense
   #defense {
     .ac,
     .ac-touch,
@@ -572,7 +549,6 @@ hr {
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {
-  // consumables
   .consumable-counts {
     .check-group {
       .check {
@@ -582,7 +558,6 @@ hr {
       }
     }
   }
-  // skills
   #skills {
     .skill-list {
       thead {
@@ -623,7 +598,6 @@ hr {
       }
     }
   }
-  // spells
   #spells {
     .spell-level {
       .spells-known {
