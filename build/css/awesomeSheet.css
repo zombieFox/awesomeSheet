@@ -208,7 +208,7 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 4px 14px 4px 12px;
+  padding: 4px 14px;
   color: #343434;
   text-align: center;
   font-size: 1rem;
@@ -1563,6 +1563,8 @@ hr {
     min-width: 140px; } }
 
 @media (min-width: 1300px) {
+  .prompt.prompt-clear-awesome-sheet {
+    width: 40%; }
   .consumable-counts .check-group .check:nth-child(6n) {
     clear: none; }
   #skills .skill-list thead tr td {

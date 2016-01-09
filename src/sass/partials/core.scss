@@ -552,6 +552,11 @@ hr {
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {
+  .prompt {
+    &.prompt-clear-awesome-sheet {
+      width: 40%;
+    }
+  }
   .consumable-counts {
     .check-group {
       .check {
