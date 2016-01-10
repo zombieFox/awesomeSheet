@@ -1292,6 +1292,7 @@ function awesomesheet() {
       var spellActive = newSpell.querySelector(".spell-active");
       // add spell marks
       if (loadedSpell.prepared > 0) {
+        removeClass(newSpell, "hidable");
         removeClass(newSpell, "button-tertiary");
         addClass(newSpell, "button-primary");
         for (var j = 0; j < loadedSpell.prepared; j++) {

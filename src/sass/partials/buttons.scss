@@ -3,12 +3,12 @@
 
 .button,
 button {
-  padding: 4px 14px;
+  padding: 0 14px;
   color: $gray-02;
   text-align: center;
   font-size: 1rem;
   // font-family: $open-sans-semi-bold;
-  line-height: 1.5rem;
+  line-height: 2rem;
   text-decoration: none;
   white-space: nowrap;
   background-color: $gray-04;
@@ -28,6 +28,7 @@ button {
   [class*=" icon-"] {
     margin: 0 10px 0 0;
     font-size: 1rem;
+    line-height: 2rem;
     display: inline-block;
   }
   &.button-small {
