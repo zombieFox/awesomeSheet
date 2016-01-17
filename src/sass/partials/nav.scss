@@ -6,7 +6,7 @@ nav {
   top: 10px;
   right: 10px;
   z-index: $nav;
-  .nav-toggle {
+  .toggle-nav {
     cursor: pointer;
     display: block;
     width: 50px;
@@ -25,7 +25,7 @@ nav {
       position: absolute;
       background-color: $primary-color;
       border-radius: $border-radius-small;
-      transform: translate(-12px, -1px);
+      transform: translate(-50%, -50%);
       opacity: 1;
       transition: all $transition-ease-medium;
       &.top {
@@ -50,8 +50,8 @@ nav {
     box-shadow: $shadow-medium;
     border-radius: $border-radius-small;
     margin: 0;
-    padding: 10px 0;
-    width: 180px;
+    padding: 8px 0;
+    width: 240px;
     position: absolute;
     top: 60px;
     right: -250px;
@@ -62,27 +62,33 @@ nav {
       padding: 0;
       list-style-type: none;
       &.divide {
-        margin: 5px 0;
-        background-color: $gray-alpha-13;
+        margin: 8px 0;
+        background-color: $gray-alpha-12;
         height: 1px;
       }
       a {
         padding: 0 16px;
         line-height: 2.5rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
         border-left: 5px solid transparent;
         display: block;
         font-family: $open-sans-bold;
         text-transform: uppercase;
         transition: background-color $transition-ease-medium, color $transition-ease-medium;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         [class^="icon-"],
         [class*=" icon-"] {
           color: $secondary-color;
-          font-size: 1.2rem;
-          margin: 0 5px 0 0;
+          font-size: 1.5rem;
+          margin: 0 10px 0 0;
           position: relative;
-          top: 2px;
+          top: 3px;
           transition: background-color $transition-ease-medium, color $transition-ease-medium;
+        }
+        &:link,
+        &:visited {
+          color: $primary-color;
+          background-color: transparent;
         }
         &:hover {
           color: $primary-color-light;
@@ -106,11 +112,16 @@ nav {
             transition: background-color $transition-ease-fast, color $transition-ease-fast;
           }
         }
+        &.active {
+          &:hover {
+            color: $white;
+          }
+        }
       }
     }
   }
   &.open {
-    .nav-toggle {
+    .toggle-nav {
       .line {
         &.top {
           top: 50%;
@@ -135,25 +146,3 @@ nav {
     }
   }
 }
-
-
-/* media queries
-------------------------------------------------- */
-
-@media (min-width: $screen-sm) {
-  nav {
-    .nav-list {
-      width: 180px;
-      li {
-        a {
-          line-height: 2rem;
-          font-size: 0.7rem;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: $screen-md) {}
-
-@media (min-width: $screen-lg) {}

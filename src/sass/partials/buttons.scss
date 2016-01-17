@@ -3,12 +3,13 @@
 
 .button,
 button {
-  padding: 0 14px;
+  padding: 0 15px;
   color: $gray-02;
   text-align: center;
   font-size: 1rem;
-  // font-family: $open-sans-semi-bold;
-  line-height: 2rem;
+  font-family: $open-sans-semi-bold;
+  height: 40px;
+  line-height: 38px;
   text-decoration: none;
   white-space: nowrap;
   background-color: $gray-04;
@@ -23,23 +24,28 @@ button {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
+    display: inline-block;
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    margin: 0 10px 0 0;
+    margin: 0 5px 0 0;
     font-size: 1rem;
-    line-height: 2rem;
+    height: 38px;
+    line-height: 38px;
     display: inline-block;
   }
   &.button-small {
-    padding: 3px 10px 3px 5px;
-    line-height: 1rem;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 20px;
     font-size: $small-text;
     [class^="icon-"],
     [class*=" icon-"] {
-      line-height: 1rem;
       margin: 0 5px 0 0;
+      line-height: 20px;
+      height: 20px;
       font-size: $small-text;
+      display: inline-block;
     }
   }
   &:focus {
@@ -80,13 +86,14 @@ button {
   &.button-secondary {
     &:link,
     &:visited {
-      color: $gray-03;
+      color: $gray-01;
       background-color: transparent;
-      border-color: $gray-12;
+      border-color: $gray-alpha-10;
     }
     &:focus {
-      background-color: transparent;
+      background-color: $secondary-color-dark;
       border-color: $secondary-color-light;
+      color: $white;
       outline: 0;
       text-decoration: none;
     }
@@ -130,26 +137,26 @@ button {
   &.button-dark {
     &:link,
     &:visited {
-      color: $white;
+      color: $gray-10;
       background-color: transparent;
-      border-color: transparent;
+      border-color: $gray-alpha-10;
     }
     &:focus {
-      color: $white;
-      background-color: $gray-alpha-04;
+      color: $gray-10;
+      background-color: $gray-alpha-08;
       outline: 0;
       text-decoration: none;
     }
     &:hover {
-      color: $white;
-      background-color: $gray-alpha-03;
+      color: $gray-10;
+      background-color: $gray-alpha-10;
       outline: 0;
       text-decoration: none;
     }
     &:active,
     &.active {
       color: $white;
-      background-color: $secondary-color-dark-alpha;
+      background-color: $gray-alpha-06;
     }
   }
 }

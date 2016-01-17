@@ -208,11 +208,13 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 0 14px;
+  padding: 0 15px;
   color: #343434;
   text-align: center;
   font-size: 1rem;
-  line-height: 2rem;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  height: 40px;
+  line-height: 38px;
   text-decoration: none;
   white-space: nowrap;
   background-color: #585858;
@@ -227,27 +229,32 @@ button {
   button.button-block {
     width: 100%;
     padding-left: 0;
-    padding-right: 0; }
+    padding-right: 0;
+    display: inline-block; }
   .button [class^="icon-"],
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    margin: 0 10px 0 0;
+    margin: 0 5px 0 0;
     font-size: 1rem;
-    line-height: 2rem;
+    height: 38px;
+    line-height: 38px;
     display: inline-block; }
   .button.button-small,
   button.button-small {
-    padding: 3px 10px 3px 5px;
-    line-height: 1rem;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 20px;
     font-size: 0.8rem; }
     .button.button-small [class^="icon-"],
     .button.button-small [class*=" icon-"],
     button.button-small [class^="icon-"],
     button.button-small [class*=" icon-"] {
-      line-height: 1rem;
       margin: 0 5px 0 0;
-      font-size: 0.8rem; }
+      line-height: 20px;
+      height: 20px;
+      font-size: 0.8rem;
+      display: inline-block; }
   .button:focus,
   button:focus {
     outline: 0;
@@ -284,13 +291,14 @@ button {
   .button.button-secondary:link, .button.button-secondary:visited,
   button.button-secondary:link,
   button.button-secondary:visited {
-    color: #464646;
+    color: #222222;
     background-color: transparent;
-    border-color: #e8e8e8; }
+    border-color: rgba(0, 0, 0, 0.23); }
   .button.button-secondary:focus,
   button.button-secondary:focus {
-    background-color: transparent;
+    background-color: #003242;
     border-color: #086482;
+    color: #ffffff;
     outline: 0;
     text-decoration: none; }
   .button.button-secondary:hover,
@@ -330,26 +338,26 @@ button {
   .button.button-dark:link, .button.button-dark:visited,
   button.button-dark:link,
   button.button-dark:visited {
-    color: #ffffff;
+    color: #c4c4c4;
     background-color: transparent;
-    border-color: transparent; }
+    border-color: rgba(0, 0, 0, 0.23); }
   .button.button-dark:focus,
   button.button-dark:focus {
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.2);
+    color: #c4c4c4;
+    background-color: rgba(0, 0, 0, 0.37);
     outline: 0;
     text-decoration: none; }
   .button.button-dark:hover,
   button.button-dark:hover {
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.4);
+    color: #c4c4c4;
+    background-color: rgba(0, 0, 0, 0.23);
     outline: 0;
     text-decoration: none; }
   .button.button-dark:active, .button.button-dark.active,
   button.button-dark:active,
   button.button-dark.active {
     color: #ffffff;
-    background-color: rgba(0, 70, 130, 0.5); }
+    background-color: rgba(0, 0, 0, 0.51); }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
   display: inline-block;
@@ -1071,8 +1079,8 @@ nav {
   position: fixed;
   top: 10px;
   right: 10px;
-  z-index: 2000; }
-  nav .nav-toggle {
+  z-index: 4000; }
+  nav .toggle-nav {
     cursor: pointer;
     display: block;
     width: 50px;
@@ -1083,7 +1091,7 @@ nav {
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
     -webkit-tap-highlight-color: transparent; }
-    nav .nav-toggle .line {
+    nav .toggle-nav .line {
       display: block;
       height: 2px;
       width: 24px;
@@ -1091,29 +1099,29 @@ nav {
       position: absolute;
       background-color: #ff0055;
       border-radius: 2px;
-      -webkit-transform: translate(-12px, -1px);
-          -ms-transform: translate(-12px, -1px);
-              transform: translate(-12px, -1px);
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       opacity: 1;
       transition: all 0.3s ease-in-out; }
-      nav .nav-toggle .line.top {
+      nav .toggle-nav .line.top {
         top: 38%;
         transition-delay: 0.1s; }
-      nav .nav-toggle .line.middle {
+      nav .toggle-nav .line.middle {
         top: 50%;
         transition-delay: 0.2s; }
-      nav .nav-toggle .line.bottom {
+      nav .toggle-nav .line.bottom {
         top: 62%;
         transition-delay: 0.1s; }
-    nav .nav-toggle:hover {
+    nav .toggle-nav:hover {
       background-color: rgba(0, 70, 130, 0.05); }
   nav .nav-list {
     background-color: #ffffff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
     margin: 0;
-    padding: 10px 0;
-    width: 180px;
+    padding: 8px 0;
+    width: 240px;
     position: absolute;
     top: 60px;
     right: -250px;
@@ -1124,26 +1132,30 @@ nav {
       padding: 0;
       list-style-type: none; }
       nav .nav-list li.divide {
-        margin: 5px 0;
-        background-color: rgba(0, 0, 0, 0.02);
+        margin: 8px 0;
+        background-color: rgba(0, 0, 0, 0.09);
         height: 1px; }
       nav .nav-list li a {
         padding: 0 16px;
         line-height: 2.5rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
         border-left: 5px solid transparent;
         display: block;
         font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
         text-transform: uppercase;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        -webkit-tap-highlight-color: transparent; }
         nav .nav-list li a [class^="icon-"],
         nav .nav-list li a [class*=" icon-"] {
           color: #003c4f;
-          font-size: 1.2rem;
-          margin: 0 5px 0 0;
+          font-size: 1.5rem;
+          margin: 0 10px 0 0;
           position: relative;
-          top: 2px;
+          top: 3px;
           transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
+        nav .nav-list li a:link, nav .nav-list li a:visited {
+          color: #ff0055;
+          background-color: transparent; }
         nav .nav-list li a:hover {
           color: #ff3276;
           background-color: rgba(0, 0, 0, 0.02);
@@ -1162,16 +1174,18 @@ nav {
           nav .nav-list li a:active [class*=" icon-"] {
             color: #ffffff;
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
-  nav.open .nav-toggle .line.top {
+        nav .nav-list li a.active:hover {
+          color: #ffffff; }
+  nav.open .toggle-nav .line.top {
     top: 50%;
     -webkit-transform: translate(-12px, -1px) rotate(135deg);
         -ms-transform: translate(-12px, -1px) rotate(135deg);
             transform: translate(-12px, -1px) rotate(135deg);
     transition-delay: 0.2s; }
-  nav.open .nav-toggle .line.middle {
+  nav.open .toggle-nav .line.middle {
     opacity: 0;
     transition-delay: 0.1s; }
-  nav.open .nav-toggle .line.bottom {
+  nav.open .toggle-nav .line.bottom {
     top: 50%;
     -webkit-transform: translate(-12px, -1px) rotate(-135deg);
         -ms-transform: translate(-12px, -1px) rotate(-135deg);
@@ -1182,14 +1196,62 @@ nav {
     right: 0;
     transition: all 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
 
+/* prompt
+------------------------------------------------- */
+.prompt .container {
+  max-width: 100%; }
+
+.prompt .prompt-heading {
+  margin: 1rem 0; }
+
+.prompt.prompt-shade {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
+
+.prompt.prompt-modal {
+  border-left: 10px solid #ff0055;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 5000;
+  background: #ffffff;
+  width: 70%;
+  max-width: 60%;
+  min-width: 300px;
+  padding: 20px 15px 20px 25px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
+
+.prompt .button {
+  margin: 0 5px 5px 0; }
+  .prompt .button:last-child {
+    margin-right: 0; }
+
+.prompt.reveal {
+  opacity: 1; }
+
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 550px) {
-  nav .nav-list {
-    width: 180px; }
-    nav .nav-list li a {
-      line-height: 2rem;
-      font-size: 0.7rem; } }
+@media (min-width: 700px) {
+  .prompt.prompt-clear-awesome-sheet {
+    width: 70%; } }
+
+@media (min-width: 1300px) {
+  .prompt.prompt-clear-awesome-sheet {
+    width: 40%; } }
 
 /* core
 ------------------------------------------------- */
@@ -1346,46 +1408,6 @@ hr {
       background-color: #ffffff;
       border-color: #ffffff; }
 
-.prompt .container {
-  max-width: 100%; }
-
-.prompt h1 {
-  margin: 1rem 0; }
-
-.prompt.prompt-shade {
-  background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3000;
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
-
-.prompt.prompt-clear-awesome-sheet {
-  border-left: 10px solid #ff0055;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 3000;
-  background: #ffffff;
-  width: 90%;
-  padding: 20px 15px 20px 25px;
-  box-sizing: border-box;
-  border-radius: 2px;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 30px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
-
-.prompt .button {
-  margin: 0 5px 5px 0; }
-  .prompt .button:last-child {
-    margin-right: 0; }
-
 #basics {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -1472,7 +1494,7 @@ hr {
 #spells .spell-level {
   margin: 0 0 2rem 0; }
   #spells .spell-level .spells-known .button {
-    padding: 3px 10px;
+    padding: 0 10px;
     margin: 0 0.5% 0.5% 0;
     width: 49.5%;
     text-align: left;
@@ -1480,7 +1502,9 @@ hr {
     font-size: 0.9rem;
     font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
     white-space: normal;
-    float: left; }
+    float: left;
+    line-height: 2rem;
+    height: auto; }
     #spells .spell-level .spells-known .button .spell-marks {
       float: right;
       margin: 0 0 0 5px; }
@@ -1488,7 +1512,8 @@ hr {
       #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"] {
         float: right;
         margin: 0 0 0 1px;
-        line-height: 1.5rem; }
+        line-height: 2rem;
+        height: auto; }
     #spells .spell-level .spells-known .button .spell-active {
       float: left;
       margin: 0 5px 0 0; }
@@ -1496,7 +1521,8 @@ hr {
       #spells .spell-level .spells-known .button .spell-active [class*=" icon-"] {
         float: left;
         margin: 0;
-        line-height: 1.5rem; }
+        line-height: 2rem;
+        height: auto; }
 
 #spells .spell-state-controls {
   margin: 0 0 2rem 0; }
@@ -1515,7 +1541,7 @@ hr {
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-    padding: 4px 6px; }
+    padding: 0 6px; }
     #spells .new-spell .add-spell [class^="icon-"],
     #spells .new-spell .add-spell [class*=" icon-"] {
       margin: 0; }
@@ -1542,6 +1568,11 @@ hr {
   background-color: #ff3276;
   border-color: #cc0044; }
 
+.summon-stats {
+  margin: 0 0 30px 0; }
+  .summon-stats p {
+    margin: 0 0 3px 0; }
+
 ::-webkit-full-screen {
   width: 100%;
   height: 100%;
@@ -1553,8 +1584,6 @@ hr {
 @media (min-width: 700px) {
   .clone-block .clone-controls {
     margin: 5px 0 2rem 0; }
-  .prompt.prompt-clear-awesome-sheet {
-    width: 70%; }
   #basics {
     padding-top: 100px;
     padding-bottom: 100px; }
@@ -1564,8 +1593,6 @@ hr {
     min-width: 140px; } }
 
 @media (min-width: 1300px) {
-  .prompt.prompt-clear-awesome-sheet {
-    width: 40%; }
   .consumable-counts .check-group .check:nth-child(6n) {
     clear: none; }
   #skills .skill-list thead tr td {

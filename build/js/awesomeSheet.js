@@ -32,18 +32,11 @@ function awesomesheet() {
   var stats_wisTempMod = e(".stats.wis .temp-modifier");
   var stats_chaTempMod = e(".stats.cha .temp-modifier");
 
-  var clearSheet = e(".clear-sheet");
-  var toggleFullscreen = e(".toggle-fullscreen");
-
   var all_textareas = eA(".textarea");
 
   var all_skill_inputs = eA(".skill-value");
 
   var all_addSpell = eA(".add-spell");
-
-  var nav = e("nav");
-  var navList = e(".nav-list");
-  var navToggle = e(".nav-toggle");
 
   var all_hidableBlock = eA(".hidable-block");
 
@@ -109,6 +102,21 @@ function awesomesheet() {
     return false;
   };
 
+  // check value
+  function checkValue(element) {
+    var value = parseInt(element.value, 10) || 0;
+    return value;
+  };
+
+  // delay function
+  function delayFunction(functionToDelay, time) {
+    window.setTimeout(functionToDelay, time);
+  };
+
+  // --------------------------------------------------------------------------
+  // local store
+  // --------------------------------------------------------------------------
+
   // local storage add
   function localStoreAdd(key, data) {
     if (localStorage.getItem) {
@@ -132,22 +140,44 @@ function awesomesheet() {
     };
   };
 
-  // check value
-  function checkValue(element) {
-    var value = parseInt(element.value, 10) || 0;
-    return value;
-  };
-
-  // delay function
-  function delayFunction(functionToDelay, time) {
-    window.setTimeout(functionToDelay, time);
-  };
-
   // --------------------------------------------------------------------------
   // nav
   // --------------------------------------------------------------------------
 
-  navToggle.addEventListener("click", function() {
+  var nav = e("nav");
+  var nav_toggle = e("nav .toggle-nav");
+  var nav_clearAll = e(".clear-all");
+  var nav_toggleFullscreen = e(".toggle-fullscreen");
+
+  function toggleFullScreen() {
+    var icon = nav_toggleFullscreen.querySelector("span");
+    var root = window.document;
+    var rootElement = root.documentElement;
+    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
+    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
+    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
+      requestFullScreen.call(rootElement);
+      toggleClass(nav_toggleFullscreen, "active");
+      toggleClass(icon, "icon-fullscreen-exit");
+      toggleClass(icon, "icon-fullscreen");
+    } else {
+      cancelFullScreen.call(root);
+      toggleClass(nav_toggleFullscreen, "active");
+      toggleClass(icon, "icon-fullscreen-exit");
+      toggleClass(icon, "icon-fullscreen");
+    }
+  };
+
+  nav_toggleFullscreen.addEventListener("click", function() {
+    toggleFullScreen();
+  }, false);
+
+  nav_clearAll.addEventListener("click", function() {
+    createPrompt("Are you sure?", "All information will be removed. This can not be undone.", "clear all");
+    removeClass(nav, "open");
+  }, false);
+
+  nav_toggle.addEventListener("click", function() {
     toggleClass(nav, "open");
   }, false);
 
@@ -158,105 +188,6 @@ function awesomesheet() {
       };
     };
   });
-
-  clearSheet.addEventListener("click", function() {
-    clearAwesomeSheet();
-  }, false);
-
-  function clearAwesomeSheet() {
-    var promptClearAwesomeSheet = document.createElement("div");
-    promptClearAwesomeSheet.setAttribute("class", "prompt prompt-clear-awesome-sheet");
-    var promptShade = document.createElement("div");
-    promptShade.setAttribute("class", "prompt prompt-shade");
-    var body = e("body");
-    var promptContents =
-      '<div class="container">' +
-      '<div class="row">' +
-      '<div class="col-xs-12">' +
-      '<h1>Are you sure?</h1>' +
-      '<p>This can not be undone.</p>' +
-      '</div>' +
-      '</div>' +
-      '<div class="row">' +
-      '<div class="col-xs-6 col-md-5">' +
-      '<a href="javascript:void(0)" class="clear-sheet-cancel button button-secondary button-block">Cancel</a>' +
-      '</div>' +
-      '<div class="col-xs-6 col-md-5 col-md-offset-2">' +
-      '<a href="javascript:void(0)" class="clear-sheet-confirm button button-primary button-block">Clear Sheet</a>' +
-      '</div>' +
-      '</div>' +
-      '</div>';
-    promptClearAwesomeSheet.innerHTML = promptContents;
-    if (!body.querySelector(".prompt-clear-awesome-sheet")) {
-      body.appendChild(promptShade);
-      body.appendChild(promptClearAwesomeSheet);
-
-      function fadeIn() {
-        promptClearAwesomeSheet.style.opacity = 1;
-        promptShade.style.opacity = 1;
-      }
-      delayFunction(fadeIn, 100);
-    };
-    var clearSheetCancel = promptClearAwesomeSheet.querySelector(".clear-sheet-cancel");
-    var clearSheetConfirm = promptClearAwesomeSheet.querySelector(".clear-sheet-confirm");
-    clearSheetConfirm.addEventListener("click", function() {
-      localStorage.clear();
-      document.location.reload(true);
-    }, false);
-    clearSheetCancel.addEventListener("click", function() {
-      promptShade.style.opacity = 0;
-      promptClearAwesomeSheet.style.opacity = 0;
-
-      function removePrompt() {
-        promptShade.remove();
-        promptClearAwesomeSheet.remove();
-      }
-      delayFunction(removePrompt, 500);
-    }, false);
-    addListenerTo_promptClearAwesomeSheet();
-    removeClass(nav, "open");
-  };
-
-  function addListenerTo_promptClearAwesomeSheet() {
-    var promptShade = e(".prompt-shade");
-    var promptClearAwesomeSheet = e(".prompt-clear-awesome-sheet");
-    promptShade.addEventListener('click', function(event) {
-      if (promptShade && promptClearAwesomeSheet) {
-        promptShade.style.opacity = 0;
-        promptClearAwesomeSheet.style.opacity = 0;
-
-        function removePrompt() {
-          promptShade.remove();
-          promptClearAwesomeSheet.remove();
-        }
-        delayFunction(removePrompt, 500);
-      };
-    });
-  };
-
-  toggleFullscreen.addEventListener("click", function() {
-    toggleFullScreen();
-    removeClass(nav, "open");
-  }, false);
-
-  // toggle fullscreen
-  function toggleFullScreen() {
-    var root = window.document;
-    var rootElement = root.documentElement;
-    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
-    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
-    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
-      requestFullScreen.call(rootElement);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    } else {
-      cancelFullScreen.call(root);
-      toggleClass(toggleFullscreen, "active");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen-exit");
-      toggleClass(toggleFullscreen.querySelector("span"), "icon-fullscreen");
-    }
-  };
 
   // --------------------------------------------------------------------------
   // consumable block
@@ -1794,6 +1725,107 @@ function awesomesheet() {
         e("#" + inputBlockId).value = localStoreRead(inputBlockId);
       };
     };
+  };
+
+  // --------------------------------------------------------------------------
+  // prompt
+  // --------------------------------------------------------------------------
+
+  function createPrompt(heading, message, confirmAction) {
+    var body = e("body");
+    // make prmpt elements
+    var promptShade = document.createElement("div");
+    promptShade.setAttribute("class", "prompt prompt-shade");
+    var prompt = document.createElement("div");
+    prompt.setAttribute("class", "prompt prompt-modal");
+    var container = document.createElement("div");
+    container.setAttribute("class", "container");
+    var row1 = document.createElement("div");
+    row1.setAttribute("class", "row");
+    var row2 = document.createElement("div");
+    row2.setAttribute("class", "row");
+    var col1 = document.createElement("div");
+    col1.setAttribute("class", "col-xs-12");
+    var col2 = document.createElement("div");
+    col2.setAttribute("class", "col-xs-6 col-lg-5");
+    var col3 = document.createElement("div");
+    col3.setAttribute("class", "col-xs-6 col-lg-5 col-lg-offset-2");
+    var promptHeading = document.createElement("h1");
+    promptHeading.setAttribute("class", "prompt-heading");
+    promptHeading.textContent = heading;
+    var promptMessage = document.createElement("p");
+    promptMessage.setAttribute("class", "prompt-message");
+    promptMessage.textContent = message;
+    var promptAction = document.createElement("a");
+    promptAction.setAttribute("href", "javascript:void(0)");
+    promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+    promptAction.textContent = "Confirm";
+    var promptCencel = document.createElement("a");
+    promptCencel.setAttribute("href", "javascript:void(0)");
+    promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
+    promptCencel.textContent = "Cancel";
+    // connect elements
+    col1.appendChild(promptHeading);
+    col1.appendChild(promptMessage);
+    col2.appendChild(promptCencel);
+    col3.appendChild(promptAction);
+    row1.appendChild(col1);
+    row2.appendChild(col2);
+    row2.appendChild(col3);
+    container.appendChild(row1);
+    container.appendChild(row2);
+    prompt.appendChild(container);
+    // append prompt and shade
+    if (!body.querySelector(".prompt.prompt-shade") && !body.querySelector(".prompt.prompt-modal")) {
+      body.appendChild(promptShade);
+      body.appendChild(prompt);
+
+      function revealPrompt() {
+        addClass(prompt, "reveal");
+        addClass(promptShade, "reveal");
+      };
+      delayFunction(revealPrompt, 10);
+      addListenerTo_prompt(confirmAction);
+    };
+  };
+
+  function addListenerTo_prompt(confirmAction) {
+    var promptShade = e(".prompt-shade");
+    var promptModal = e(".prompt-modal");
+    var promptAction = e(".prompt-modal .prompt-action");
+    var promptCancel = e(".prompt-modal .prompt-cancel");
+    promptShade.addEventListener('click', function() {
+      removePrompt();
+    });
+    promptCancel.addEventListener('click', function() {
+      removePrompt();
+    });
+    promptAction.addEventListener('click', function() {
+      if (confirmAction == "clear all") {
+        clearAwesomeSheet();
+      };
+    });
+  };
+
+  function removePrompt() {
+    var promptShade = e(".prompt-shade");
+    var promptModal = e(".prompt-modal");
+    var promptCancel = e(".prompt-modal .prompt-cancel");
+    if (promptShade && promptModal) {
+      promptShade.style.opacity = 0;
+      promptModal.style.opacity = 0;
+
+      function fadeRemovePrompt() {
+        promptShade.remove();
+        promptModal.remove();
+      }
+      delayFunction(fadeRemovePrompt, 500);
+    };
+  };
+
+  function clearAwesomeSheet() {
+    localStorage.clear();
+    document.location.reload(true);
   };
 
   // --------------------------------------------------------------------------
