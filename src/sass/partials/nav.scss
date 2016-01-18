@@ -123,8 +123,6 @@ nav {
   }
   &.open {
     .toggle-nav {
-      animation: spin $transition-ease-medium;
-      animation-iteration-count: 1;
       .line {
         &.top {
           top: 50%;
@@ -202,16 +200,3 @@ nav {
 }
 
 @media (min-width: $screen-xl) {}
-
-
-/* animations
-------------------------------------------------- */
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-180deg);
-  }
-}
