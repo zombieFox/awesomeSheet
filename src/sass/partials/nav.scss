@@ -52,10 +52,10 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 8px 0;
-    width: 240px;
+    width: 200px;
     position: absolute;
     top: 60px;
-    right: -250px;
+    right: -200px;
     opacity: 0;
     transition: all $transition-ease-medium;
     li {
@@ -123,20 +123,22 @@ nav {
   }
   &.open {
     .toggle-nav {
+      animation: spin $transition-ease-medium;
+      animation-iteration-count: 1;
       .line {
         &.top {
           top: 50%;
           transform: translate(-12px, -1px) rotate(135deg);
-          transition-delay: 0.2s;
+          transition-delay: 0.3s;
         }
         &.middle {
           opacity: 0;
-          transition-delay: 0.1s;
+          transition-delay: 0s;
         }
         &.bottom {
           top: 50%;
           transform: translate(-12px, -1px) rotate(-135deg);
-          transition-delay: 0.2s;
+          transition-delay: 0.3s;
         }
       }
     }
@@ -150,8 +152,6 @@ nav {
     .toggle-nav {
       background-color: $primary-color;
       box-shadow: $shadow-medium;
-      animation: spin $transition-ease-medium;
-      animation-iteration-count: 1;
       &:hover {
         background-color: $primary-color;
       }
@@ -163,6 +163,47 @@ nav {
 }
 
 
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {
+  nav {
+    right: inherit;
+    left: 10px;
+    .toggle-nav {
+      right: inherit;
+      left: 0;
+    }
+    .nav-list {
+      width: 250px;
+      right: inherit;
+      left: -250px;
+      li {
+        a {
+          line-height: 3rem;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            top: 4px;
+          }
+        }
+      }
+    }
+    &.open {
+      .nav-list {
+        left: inherit;
+        left: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xl) {}
+
+
 /* animations
 ------------------------------------------------- */
 
@@ -171,6 +212,6 @@ nav {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
   }
 }
