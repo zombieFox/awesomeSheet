@@ -6,6 +6,7 @@ nav {
   top: 10px;
   right: 10px;
   z-index: $nav;
+  transition: all $transition-ease-medium;
   .toggle-nav {
     cursor: pointer;
     display: block;
@@ -144,5 +145,32 @@ nav {
       right: 0;
       transition: all $transition-bounce-slow;
     }
+  }
+  &.bright {
+    .toggle-nav {
+      background-color: $primary-color;
+      box-shadow: $shadow-medium;
+      animation: spin $transition-ease-medium;
+      animation-iteration-count: 1;
+      &:hover {
+        background-color: $primary-color;
+      }
+      .line {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+
+/* animations
+------------------------------------------------- */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
   }
 }
