@@ -181,12 +181,12 @@ function awesomesheet() {
     toggleClass(nav, "open");
   }, false);
 
-  window.addEventListener('click', function(event) {
-    if (nav.classList.contains("open")) {
-      if (event.target != nav && event.target.parentNode != nav && event.target.parentNode.parentNode != nav && event.target.parentNode.parentNode.parentNode != nav) {
-        removeClass(nav, "open");
-      };
-    };
+  window.addEventListener('click', function() {
+    removeClass(nav, "open");
+  });
+
+  nav.addEventListener('click', function(event) {
+    event.stopPropagation();
   });
 
   // --------------------------------------------------------------------------
