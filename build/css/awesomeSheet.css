@@ -1243,26 +1243,26 @@ nav {
   height: 100%;
   z-index: 5000;
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
+  transition: all 0.3s ease-in-out; }
 
 .prompt.prompt-modal {
-  border-left: 10px solid #ff0055;
+  border-top: 10px solid #ff0055;
   position: fixed;
   top: 50%;
   left: 50%;
   z-index: 5000;
   background: #ffffff;
   width: 80%;
-  min-width: 300px;
+  min-width: 250px;
   padding: 20px 15px 20px 25px;
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 4px;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 30px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
+  transition: all 0.3s ease-in-out; }
 
 .prompt .button {
   margin: 0 5px 5px 0; }
@@ -1276,7 +1276,7 @@ nav {
 ------------------------------------------------- */
 @media (min-width: 700px) {
   .prompt.prompt-modal {
-    width: 70%; } }
+    width: 80%; } }
 
 @media (min-width: 900px) {
   .prompt.prompt-modal {
