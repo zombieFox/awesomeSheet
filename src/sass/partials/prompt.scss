@@ -17,24 +17,24 @@
     height: 100%;
     z-index: $prompt;
     opacity: 0;
-    transition: all $transition-bounce-medium;
+    transition: all $transition-ease-medium;
   }
   &.prompt-modal {
-    border-left: 10px solid $primary-color;
+    border-top: 10px solid $primary-color;
     position: fixed;
     top: 50%;
     left: 50%;
     z-index: $prompt;
     background: $white;
     width: 80%;
-    min-width: 300px;
+    min-width: 250px;
     padding: 20px 15px 20px 25px;
     box-sizing: border-box;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
     transform: translate(-50%, -50%);
     box-shadow: $shadow-large;
     opacity: 0;
-    transition: all $transition-bounce-medium;
+    transition: all $transition-ease-medium;
   }
   .button {
     margin: 0 5px 5px 0;
@@ -56,7 +56,7 @@
 @media (min-width: $screen-md) {
   .prompt {
     &.prompt-modal {
-      width: 70%;
+      width: 80%;
     }
   }
 }
