@@ -55,8 +55,7 @@ nav {
     width: 200px;
     position: absolute;
     top: 60px;
-    right: -200px;
-    opacity: 0;
+    right: -240px;
     transition: all $transition-ease-medium;
     li {
       margin: 0;
@@ -141,7 +140,6 @@ nav {
       }
     }
     .nav-list {
-      opacity: 1;
       right: 0;
       transition: all $transition-bounce-slow;
     }
@@ -179,7 +177,7 @@ nav {
     .nav-list {
       width: 250px;
       right: inherit;
-      left: -250px;
+      left: -290px;
       li {
         a {
           line-height: 3rem;

@@ -1125,8 +1125,7 @@ nav {
     width: 200px;
     position: absolute;
     top: 60px;
-    right: -200px;
-    opacity: 0;
+    right: -240px;
     transition: all 0.3s ease-in-out; }
     nav .nav-list li {
       margin: 0;
@@ -1193,7 +1192,6 @@ nav {
             transform: translate(-12px, -1px) rotate(-135deg);
     transition-delay: 0.3s; }
   nav.open .nav-list {
-    opacity: 1;
     right: 0;
     transition: all 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
   nav.bright .toggle-nav {
@@ -1216,7 +1214,7 @@ nav {
     nav .nav-list {
       width: 250px;
       right: inherit;
-      left: -250px; }
+      left: -290px; }
       nav .nav-list li a {
         line-height: 3rem; }
         nav .nav-list li a [class^="icon-"],
