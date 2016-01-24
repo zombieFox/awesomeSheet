@@ -181,12 +181,10 @@ function awesomesheet() {
     toggleClass(nav, "open");
   }, false);
 
-  window.addEventListener('click', function() {
-    removeClass(nav, "open");
-  });
-
-  nav.addEventListener('click', function(event) {
-    event.stopPropagation();
+  window.addEventListener('click', function(event) {
+    if (event.target != nav && getClosest(event.target, "nav") != nav) {
+      removeClass(nav, "open");
+    };
   });
 
   // --------------------------------------------------------------------------
@@ -364,7 +362,7 @@ function awesomesheet() {
         '<div class="col-xs-12">' +
         '<div class="consumable-counts clearfix"></div>' +
         '<div class="clone-delete-controls">' +
-        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</a>' +
+        '<button class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</button>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -408,7 +406,7 @@ function awesomesheet() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="clone-delete-controls">' +
-        '<a href="javascript:void(0)" class="button button-primary button-small" id="remove-attack-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</a>' +
+        '<button class="button button-primary button-small" id="remove-attack-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</button>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -951,7 +949,6 @@ function awesomesheet() {
   // activate delete state on all saved spell lists
   function changeSpellState(element, state) {
     var spellRoot = getClosest(element, "#spells");
-    var spellRoot = getClosest(element, "#spells");
     var prepareStateButton = spellRoot.querySelector(".prepare-spell");
     var unprepareStateButton = spellRoot.querySelector(".unprepare-spell");
     var castStateButton = spellRoot.querySelector(".cast-spell");
@@ -1152,8 +1149,7 @@ function awesomesheet() {
 
   // make a spell button
   function createSpellButton(spellName) {
-    var newSpell = document.createElement("a");
-    newSpell.setAttribute("href", "javascript:void(0)");
+    var newSpell = document.createElement("button");
     newSpell.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     newSpell.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
     newSpell.setAttribute("data-event-listener", "false");
@@ -1756,12 +1752,10 @@ function awesomesheet() {
     var promptMessage = document.createElement("p");
     promptMessage.setAttribute("class", "prompt-message");
     promptMessage.textContent = message;
-    var promptAction = document.createElement("a");
-    promptAction.setAttribute("href", "javascript:void(0)");
+    var promptAction = document.createElement("button");
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
-    promptAction.textContent = "Confirm";
-    var promptCencel = document.createElement("a");
-    promptCencel.setAttribute("href", "javascript:void(0)");
+    promptAction.textContent = "OK";
+    var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
     promptCencel.textContent = "Cancel";
     // connect elements
@@ -1826,6 +1820,7 @@ function awesomesheet() {
   function clearAwesomeSheet() {
     localStorage.clear();
     document.location.reload(true);
+    removePrompt();
   };
 
   // --------------------------------------------------------------------------
@@ -1863,4 +1858,3 @@ function awesomesheet() {
 };
 
 awesomesheet();
-smoothScroll.init();

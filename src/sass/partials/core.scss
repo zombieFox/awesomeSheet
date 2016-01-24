@@ -405,6 +405,7 @@ hr {
     .spell-level {
       .spells-known {
         .button-tertiary {
+          background-color: $primary-color-light-alpha;
           &:link,
           &:visited {
             background-color: $primary-color-light-alpha;
@@ -417,6 +418,7 @@ hr {
     .spell-level {
       .spells-known {
         .button-tertiary {
+          background-color: $primary-color-light-alpha;
           &:link,
           &:visited {
             background-color: $primary-color-light-alpha;
@@ -429,6 +431,7 @@ hr {
     .spell-level {
       .spells-known {
         .button-tertiary {
+          background-color: $secondary-color-light-alpha;
           &:link,
           &:visited {
             background-color: $secondary-color-light-alpha;
@@ -441,6 +444,7 @@ hr {
     .spell-level {
       .spells-known {
         .button-tertiary {
+          background-color: $gray-13;
           &:link,
           &:visited {
             background-color: $gray-13;
@@ -453,6 +457,9 @@ hr {
     .spell-level {
       .spells-known {
         .button {
+          background-color: $white;
+          color: $primary-color-dark;
+          border-color: $primary-color-light;
           &:link,
           &:visited {
             background-color: $white;

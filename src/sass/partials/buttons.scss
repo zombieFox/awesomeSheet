@@ -12,7 +12,7 @@ button {
   line-height: 32px;
   text-decoration: none;
   white-space: nowrap;
-  background-color: $gray-04;
+  background-color: $white;
   border: 1px solid $gray-03;
   cursor: pointer;
   box-sizing: border-box;
@@ -66,6 +66,9 @@ button {
     border-color: $gray-04;
   }
   &.button-primary {
+    color: $white;
+    background-color: $primary-color;
+    border-color: $primary-color-dark;
     &:link,
     &:visited {
       color: $white;
@@ -84,6 +87,9 @@ button {
     }
   }
   &.button-secondary {
+    color: $gray-04;
+    background-color: transparent;
+    border-color: $gray-alpha-12;
     &:link,
     &:visited {
       color: $gray-04;
@@ -112,6 +118,9 @@ button {
     }
   }
   &.button-tertiary {
+    color: $gray-02;
+    background-color: transparent;
+    border-color: $gray-13;
     &:link,
     &:visited {
       color: $gray-02;
@@ -135,6 +144,9 @@ button {
     }
   }
   &.button-dark {
+    color: $gray-10;
+    background-color: transparent;
+    border-color: $gray-alpha-10;
     &:link,
     &:visited {
       color: $gray-10;

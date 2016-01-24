@@ -1,0 +1,106 @@
+/* snacks
+------------------------------------------------- */
+
+.snacks {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  z-index: $snacks;
+  box-sizing: border-box;
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  .snack-bar {
+    background-color: $gray-01;
+    padding: 0 20px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all $transition-ease-medium;
+    .snack-message {
+      margin: 0;
+      color: $white;
+      height: 30px;
+      line-height: 30px;
+      font-size: 1rem;
+      font-family: $open-sans-semi-bold;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .button {
+      border: 0;
+      margin: 0 0 0 5px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 1rem;
+      float: right;
+      color: $white;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        margin: 0;
+        height: 30px;
+        line-height: 30px;
+        font-size: 1.4rem;
+      }
+    }
+    &.reveal {
+      background-color: $gray-02;
+      padding: 10px 20px;
+      height: 50px;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {
+  .snacks {
+    padding: 30px;
+    max-width: 60%;
+    .snack-bar {
+      margin: 0;
+      padding: 0 20px;
+      border: 0;
+      border-radius: $border-radius-medium;
+      box-shadow: $shadow-medium;
+      box-sizing: border-box;
+      .snack-message {
+        line-height: 2rem;
+      }
+      .button {
+        height: 2rem;
+        line-height: 2rem;
+        [class^="icon-"],
+        [class*=" icon-"] {
+          height: 2rem;
+          line-height: 2rem;
+        }
+      }
+      &.reveal {
+        margin: 2px 0 0 0;
+        padding: 10px 20px;
+        border-bottom-width: 0;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xl) {}
