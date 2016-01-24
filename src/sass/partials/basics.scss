@@ -1,0 +1,68 @@
+/* basics
+------------------------------------------------- */
+
+#basics {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: $secondary-color-dark;
+  border-bottom: 10px solid $secondary-color-light;
+  input {
+    background-color: $gray-alpha-12;
+    color: $white;
+    border-color: transparent;
+    &:hover,
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+  .awesome-name {
+    padding: 2rem 0 4rem 30px;
+    &:before {
+      height: 4rem;
+      top: 2rem;
+    }
+    .input-block {
+      .input-field {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 2.5rem;
+        height: 4rem;
+        color: $white;
+        font-family: $open-sans-light;
+        line-height: 4rem;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: $gray-alpha-08;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $gray-alpha-08;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $gray-alpha-08;
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {
+  #basics {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

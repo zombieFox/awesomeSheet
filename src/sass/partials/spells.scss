@@ -1,0 +1,169 @@
+/* spells
+------------------------------------------------- */
+
+#spells {
+  .spell-level {
+    margin: 0 0 2rem 0;
+    .spells-known {
+      .button {
+        padding: 0 10px;
+        margin: 0 0.5% 0.5% 0;
+        width: 49.5%;
+        text-align: left;
+        overflow: hidden;
+        font-size: 0.9rem;
+        font-family: $open-sans-regular;
+        white-space: normal;
+        float: left;
+        line-height: 2rem;
+        height: auto;
+        .spell-marks {
+          float: right;
+          margin: 0 0 0 5px;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            float: right;
+            margin: 0 0 0 1px;
+            line-height: 2rem;
+            height: auto;
+          }
+        }
+        .spell-active {
+          float: left;
+          margin: 0 5px 0 0;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            float: left;
+            margin: 0;
+            line-height: 2rem;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  .spell-state-controls {
+    margin: 0 0 2rem 0;
+    .button {
+      margin: 0 5px 5px 0;
+    }
+  }
+  .new-spell {
+    position: relative;
+    .spell-name {
+      input {
+        padding-right: 40px;
+        box-sizing: border-box;
+      }
+    }
+    .add-spell {
+      position: absolute;
+      right: 5px;
+      top: 1.25rem;
+      transform: translateY(-50%);
+      padding: 0 6px;
+      [class^="icon-"],
+      [class*=" icon-"] {
+        margin: 0;
+      }
+    }
+  }
+  &.prepare-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          background-color: $primary-color-light-alpha;
+          &:link,
+          &:visited {
+            background-color: $primary-color-light-alpha;
+          }
+        }
+      }
+    }
+  }
+  &.unprepare-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          background-color: $primary-color-light-alpha;
+          &:link,
+          &:visited {
+            background-color: $primary-color-light-alpha;
+          }
+        }
+      }
+    }
+  }
+  &.cast-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          background-color: $secondary-color-light-alpha;
+          &:link,
+          &:visited {
+            background-color: $secondary-color-light-alpha;
+          }
+        }
+      }
+    }
+  }
+  &.active-state {
+    .spell-level {
+      .spells-known {
+        .button-tertiary {
+          background-color: $gray-13;
+          &:link,
+          &:visited {
+            background-color: $gray-13;
+          }
+        }
+      }
+    }
+  }
+  &.delete-state {
+    .spell-level {
+      .spells-known {
+        .button {
+          background-color: $white;
+          color: $primary-color-dark;
+          border-color: $primary-color-light;
+          &:link,
+          &:visited {
+            background-color: $white;
+            color: $primary-color-dark;
+            border-color: $primary-color-light;
+          }
+          &:active,
+          &:focus,
+          &:hover {
+            color: $white;
+            background-color: $primary-color-light;
+            border-color: $primary-color-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {
+  #spells {
+    .spell-level {
+      .spells-known {
+        .button {
+          width: 32.8%;
+        }
+      }
+    }
+  }
+}

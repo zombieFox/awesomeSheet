@@ -263,8 +263,15 @@ table {
 }
 
 ::selection {
-  background-color: $secondary-color-light;
+  background-color: $primary-color-light;
   color: $white;
+}
+
+::-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 
@@ -284,3 +291,5 @@ table {
 }
 
 @media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

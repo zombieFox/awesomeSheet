@@ -1,0 +1,45 @@
+/* statistics
+------------------------------------------------- */
+
+#statistics {
+  .stat-block {
+    margin-bottom: 30px;
+    .stats {
+      p,
+      input,
+      .name {
+        margin: 0;
+      }
+    }
+    .str {
+      h2 {
+        border-radius: $border-radius-small $border-radius-small 0 0;
+      }
+    }
+    .dex,
+    .con,
+    .int,
+    .wis {
+      h2 {
+        border-radius: 0;
+      }
+    }
+    .cha {
+      h2 {
+        border-radius: 0 0 $border-radius-small $border-radius-small;
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

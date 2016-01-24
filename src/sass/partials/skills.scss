@@ -1,0 +1,102 @@
+/* skills
+------------------------------------------------- */
+
+#skills {
+  .skill-list {
+    tr {
+      td {
+        width: 15%;
+        display: inline-block;
+        .name {
+          white-space: nowrap;
+        }
+        .total {
+          font-family: $open-sans-semi-bold;
+        }
+        &:first-child {
+          width: 40%;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  &[data-all-hidden="true"] {
+    .skill-list {
+      tr {
+        width: 47%;
+        float: left;
+        margin: 0 3% 0 0;
+        &:nth-child(even) {
+          margin: 0 0 0 3%;
+        }
+        td {
+          width: 15%;
+          display: inline-block;
+          float: left;
+          text-align: right;
+          &:first-child {
+            width: 85%;
+            text-align: left;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {
+  #skills {
+    .skill-list {
+      thead {
+        tr {
+          td {
+            color: $gray-03;
+            &:first-child {}
+          }
+        }
+      }
+      tr {
+        td {
+          width: 10%;
+          &:first-child {
+            width: 60%;
+          }
+        }
+      }
+    }
+    &[data-all-hidden="true"] {
+      .skill-list {
+        tr {
+          width: 30.3333333333%;
+          float: left;
+          margin: 0 3% 0 0;
+          &:nth-child(even) {
+            margin: 0 3% 0 0;
+          }
+          &:nth-child(3n-1) {
+            width: 33.3333333333%;
+            margin: 0;
+          }
+          &:nth-child(3n) {
+            width: 30.3333333333%;
+            margin: 0 0 0 3%;
+          }
+        }
+      }
+    }
+  }
+}

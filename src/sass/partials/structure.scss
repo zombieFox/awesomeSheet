@@ -1,0 +1,225 @@
+/* structure
+------------------------------------------------- */
+
+body {
+  background: $white;
+  padding: 0 0 500px 0;
+}
+
+section {
+  position: relative;
+  z-index: $body;
+  padding: 60px 0 20px 0;
+  h1 {
+    padding: 0 0 3rem 30px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    position: relative;
+    &:before {
+      content: "";
+      border-left: 10px solid $primary-color;
+      position: absolute;
+      height: 3rem;
+      top: -0.5rem;
+      left: 0;
+      border-radius: $border-radius-small;
+    }
+  }
+  h2 {
+    background-color: $secondary-color-dark;
+    color: $white;
+    padding: 0 10px;
+    min-height: 2.3rem;
+    line-height: 2.3rem;
+    box-sizing: border-box;
+    border-radius: $border-radius-small $border-radius-small 0 0;
+  }
+}
+
+hr {
+  border: 0;
+  border-top: 5px solid $gray-13;
+  margin: 0 0 30px 0;
+  background-color: transparent;
+  position: relative;
+  clear: both;
+}
+
+.input-block {
+  position: relative;
+  .input-label {
+    margin: 0;
+    padding: 0;
+    color: $gray-08;
+    display: block;
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    font-size: $small-text;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    z-index: 2;
+    width: 100%;
+    transition: all $transition-ease-medium;
+    cursor: text;
+    box-sizing: border-box;
+    &.input-label-focus {
+      color: $primary-color;
+    }
+  }
+  .input-field {
+    position: relative;
+    z-index: 1;
+  }
+  .input-plus,
+  .input-minus {
+    float: left;
+  }
+}
+
+.hidable-block {
+  .hidable-toggle {
+    margin: 0.3rem 0 0 0;
+  }
+}
+
+.clone-block {
+  .clone-controls {
+    margin: 2rem 0 3rem 0;
+    .button {
+      margin: 0 10px 0 0;
+    }
+  }
+  .clone {
+    padding: 0;
+    margin: -1px;
+    margin-bottom: 2rem;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: all $transition-ease-medium;
+    .clone-delete-controls {
+      height: 0;
+      overflow: hidden;
+      transition: all $transition-ease-medium;
+    }
+  }
+  &.consumables {
+    .consumable-counts {
+      margin: -15px 0 10px 0;
+      .check-group {
+        margin: 0 5px 5px 0;
+        float: left;
+        position: relative;
+        transition: all $transition-ease-medium;
+        .check {
+          background-color: $primary-color-light;
+          border: 1px solid $primary-color-dark;
+          margin: 0 -1px -1px 0;
+          padding: 0;
+          float: left;
+          font-size: 1.5rem;
+          width: 8px;
+          height: 8px;
+          box-sizing: border-box;
+          position: relative;
+          transition: all $transition-ease-medium;
+          &.used {
+            background-color: $gray-13;
+            border-color: $gray-12;
+          }
+          &:nth-child(1) {
+            border-radius: $border-radius-small 0 0 0;
+            z-index: 10;
+          }
+          &:nth-child(2) {
+            z-index: 9;
+          }
+          &:nth-child(3) {
+            z-index: 8;
+          }
+          &:nth-child(4) {
+            z-index: 7;
+          }
+          &:nth-child(5) {
+            border-radius: 0 $border-radius-small 0 0;
+            z-index: 6;
+          }
+          &:nth-child(6) {
+            border-radius: 0 0 0 $border-radius-small;
+            clear: left;
+            z-index: 5;
+          }
+          &:nth-child(7) {
+            z-index: 4;
+          }
+          &:nth-child(8) {
+            z-index: 3;
+          }
+          &:nth-child(9) {
+            z-index: 2;
+          }
+          &:nth-child(10) {
+            border-radius: 0 0 $border-radius-small 0;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+  &.delete-state {
+    input {
+      &[type="email"],
+      &[type="number"],
+      &[type="search"],
+      &[type="text"],
+      &[type="tel"],
+      &[type="password"] {
+        background-color: $white;
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+    label {
+      color: $primary-color;
+    }
+    .clone {
+      padding: 40px 20px 20px 20px;
+      margin: 0;
+      margin-bottom: 2rem;
+      border-radius: $border-radius-small;
+      border: 1px solid $primary-color;
+      .clone-delete-controls {
+        height: 24px;
+      }
+      .consumable-counts {
+        .check-group {
+          .check {
+            border-color: $white;
+            &.used {
+              background-color: $white;
+              border-color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {
+  .clone-block {
+    .clone-controls {
+      margin: 0 0 2rem 0;
+    }
+  }
+}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

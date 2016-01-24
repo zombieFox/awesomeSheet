@@ -128,6 +128,8 @@
   .no-gutter [class*=" col-"] {
     padding: 0; }
 
+/* media queries
+------------------------------------------------- */
 @media (min-width: 550px) {
   .col-sm-1,
   .col-sm-2,
@@ -613,7 +615,7 @@ button {
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    margin: 0 10px 0 0;
+    margin: 0 5px 0 0;
     font-size: 1rem;
     height: 32px;
     line-height: 32px;
@@ -988,12 +990,18 @@ table {
   color: #a0a0a0; }
 
 ::-moz-selection {
-  background-color: #086482;
+  background-color: #ff3276;
   color: #ffffff; }
 
 ::selection {
-  background-color: #086482;
+  background-color: #ff3276;
   color: #ffffff; }
+
+::-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto; }
 
 /* media queries
 ------------------------------------------------- */
@@ -1392,7 +1400,7 @@ nav {
         border-bottom-width: 0;
         height: 50px; } }
 
-/* core
+/* structure
 ------------------------------------------------- */
 body {
   background: #ffffff;
@@ -1464,6 +1472,8 @@ hr {
 
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
+  .clone-block .clone-controls .button {
+    margin: 0 10px 0 0; }
 
 .clone-block .clone {
   padding: 0;
@@ -1547,6 +1557,14 @@ hr {
       background-color: #ffffff;
       border-color: #ffffff; }
 
+/* media queries
+------------------------------------------------- */
+@media (min-width: 700px) {
+  .clone-block .clone-controls {
+    margin: 0 0 2rem 0; } }
+
+/* basics
+------------------------------------------------- */
 #basics {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -1584,6 +1602,25 @@ hr {
     /* Firefox 19+ */
     color: rgba(0, 0, 0, 0.37); }
 
+/* media queries
+------------------------------------------------- */
+@media (min-width: 700px) {
+  #basics {
+    padding-top: 100px;
+    padding-bottom: 100px; } }
+
+/* defense
+------------------------------------------------- */
+/* media queries
+------------------------------------------------- */
+@media (min-width: 700px) {
+  #defense .ac .title,
+  #defense .ac-touch .title,
+  #defense .ac-flat-footed .title {
+    min-width: 140px; } }
+
+/* statistics
+------------------------------------------------- */
 #statistics .stat-block {
   margin-bottom: 30px; }
   #statistics .stat-block .stats p,
@@ -1600,6 +1637,10 @@ hr {
   #statistics .stat-block .cha h2 {
     border-radius: 0 0 2px 2px; }
 
+/* media queries
+------------------------------------------------- */
+/* skills
+------------------------------------------------- */
 #skills .skill-list tr td {
   width: 15%;
   display: inline-block; }
@@ -1630,6 +1671,30 @@ hr {
       white-space: nowrap;
       overflow: hidden; }
 
+/* media queries
+------------------------------------------------- */
+@media (min-width: 1300px) {
+  #skills .skill-list thead tr td {
+    color: #464646; }
+  #skills .skill-list tr td {
+    width: 10%; }
+    #skills .skill-list tr td:first-child {
+      width: 60%; }
+  #skills[data-all-hidden="true"] .skill-list tr {
+    width: 30.3333333333%;
+    float: left;
+    margin: 0 3% 0 0; }
+    #skills[data-all-hidden="true"] .skill-list tr:nth-child(even) {
+      margin: 0 3% 0 0; }
+    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n-1) {
+      width: 33.3333333333%;
+      margin: 0; }
+    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n) {
+      width: 30.3333333333%;
+      margin: 0 0 0 3%; } }
+
+/* spells
+------------------------------------------------- */
 #spells .spell-level {
   margin: 0 0 2rem 0; }
   #spells .spell-level .spells-known .button {
@@ -1718,50 +1783,8 @@ hr {
     background-color: #ff3276;
     border-color: #cc0044; }
 
-.summon-stats {
-  margin: 0 0 30px 0; }
-  .summon-stats p {
-    margin: 0 0 3px 0; }
-
-::-webkit-full-screen {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: auto; }
-
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 700px) {
-  .clone-block .clone-controls {
-    margin: 5px 0 2rem 0; }
-  #basics {
-    padding-top: 100px;
-    padding-bottom: 100px; }
-  #defense .ac .title,
-  #defense .ac-touch .title,
-  #defense .ac-flat-footed .title {
-    min-width: 140px; } }
-
 @media (min-width: 1300px) {
-  .consumable-counts .check-group .check:nth-child(6n) {
-    clear: none; }
-  #skills .skill-list thead tr td {
-    color: #464646; }
-  #skills .skill-list tr td {
-    width: 10%; }
-    #skills .skill-list tr td:first-child {
-      width: 60%; }
-  #skills[data-all-hidden="true"] .skill-list tr {
-    width: 30.3333333333%;
-    float: left;
-    margin: 0 3% 0 0; }
-    #skills[data-all-hidden="true"] .skill-list tr:nth-child(even) {
-      margin: 0 3% 0 0; }
-    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n-1) {
-      width: 33.3333333333%;
-      margin: 0; }
-    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n) {
-      width: 30.3333333333%;
-      margin: 0 0 0 3%; }
   #spells .spell-level .spells-known .button {
     width: 32.8%; } }
