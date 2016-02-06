@@ -729,14 +729,15 @@ button {
     .button.button-dark:hover,
     button.button-dark:hover {
       color: #c4c4c4;
-      background-color: rgba(0, 0, 0, 0.23);
+      background-color: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.16);
       outline: 0;
       text-decoration: none; }
     .button.button-dark:active, .button.button-dark.active,
     button.button-dark:active,
     button.button-dark.active {
       color: #ffffff;
-      background-color: rgba(0, 0, 0, 0.51); }
+      background-color: rgba(255, 255, 255, 0.37); }
   .button.button-small,
   button.button-small {
     padding: 0 10px;
