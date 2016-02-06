@@ -1,9 +1,7 @@
-function vendorOptions() {
+(function() {
 
   smoothScroll.init({
     speed: 500
   });
 
-};
-
-vendorOptions();
+})();

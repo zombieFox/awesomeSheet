@@ -3,7 +3,7 @@
 
 .button,
 button {
-  padding: 0 15px;
+  padding: 0 10px;
   color: $gray-02;
   text-align: center;
   font-size: 1rem;
@@ -20,33 +20,13 @@ button {
   transition: all $transition-ease-fast;
   text-decoration: none;
   display: inline-block;
-  &.button-block {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    display: inline-block;
-  }
   [class^="icon-"],
   [class*=" icon-"] {
-    margin: 0 5px 0 0;
+    margin: 0 10px 0 0;
     font-size: 1rem;
     height: 32px;
     line-height: 32px;
     display: inline-block;
-  }
-  &.button-small {
-    padding: 0 10px;
-    height: 22px;
-    line-height: 20px;
-    font-size: $small-text;
-    [class^="icon-"],
-    [class*=" icon-"] {
-      margin: 0 5px 0 0;
-      line-height: 20px;
-      height: 20px;
-      font-size: $small-text;
-      display: inline-block;
-    }
   }
   &:focus {
     outline: 0;
@@ -170,6 +150,29 @@ button {
       color: $white;
       background-color: $gray-alpha-06;
     }
+  }
+  &.button-small {
+    padding: 0 10px;
+    height: 22px;
+    line-height: 20px;
+    font-size: $small-text;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      margin: 0 5px 0 0;
+      line-height: 20px;
+      height: 20px;
+      font-size: $small-text;
+      display: inline-block;
+    }
+  }
+  &.button-block {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    display: inline-block;
+  }
+  &.button-icon {
+    padding-right: 15px;
   }
 }
 

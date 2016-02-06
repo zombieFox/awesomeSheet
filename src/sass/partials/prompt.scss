@@ -5,8 +5,13 @@
   .container {
     max-width: 100%;
   }
-  .prompt-heading {
-    margin: 1rem 0;
+  .prompt-message {
+    h1 {
+      margin: 0 0 20px 0;
+    }
+    :last-child {
+      margin: 0 0 40px 0;
+    }
   }
   &.prompt-shade {
     background-color: $gray-alpha-02;
@@ -28,7 +33,7 @@
     background: $white;
     width: 80%;
     min-width: 250px;
-    padding: 20px 15px 20px 25px;
+    padding: 30px 20px;
     box-sizing: border-box;
     border-radius: $border-radius-medium;
     transform: translate(-50%, -50%);
@@ -37,7 +42,6 @@
     transition: all $transition-ease-medium;
   }
   .button {
-    margin: 0 5px 5px 0;
     &:last-child {
       margin-right: 0;
     }
@@ -55,6 +59,11 @@
 
 @media (min-width: $screen-md) {
   .prompt {
+    .prompt-message {
+      :last-child {
+        margin: 0 0 60px 0;
+      }
+    }
     &.prompt-modal {
       width: 80%;
     }

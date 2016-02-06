@@ -14,7 +14,7 @@
     padding: 0;
   }
   .snack-bar {
-    background-color: $gray-01;
+    background-color: $gray-03;
     padding: 0 20px;
     margin: 0;
     width: 100%;
@@ -23,8 +23,8 @@
     height: 0;
     overflow: hidden;
     box-sizing: border-box;
-    transform: scale(0.9);
-    opacity: 0;
+    // transform: scale(0.9);
+    // opacity: 0;
     transition: all $transition-ease-medium;
     .snack-message {
       margin: 0;
@@ -53,11 +53,11 @@
       }
     }
     &.reveal {
-      background-color: $gray-02;
+      background-color: $gray-01;
       padding: 10px 20px;
       height: 50px;
-      transform: scale(1);
-      opacity: 1;
+      // transform: scale(1);
+      // opacity: 1;
     }
   }
 }

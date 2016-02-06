@@ -1,4 +1,4 @@
-function awesomesheet() {
+(function() {
 
   // --------------------------------------------------------------------------
   // vars
@@ -298,12 +298,14 @@ function awesomesheet() {
     var attacksCloneRemove = e(".attacks .clone-remove");
     consumablesCloneAdd.addEventListener("click", function() {
       cloneBlockAdd(".consumables");
+      createSnackBar("Consumables block added.", true, false);
     }, false);
     consumablesCloneRemove.addEventListener("click", function() {
       changeCloneState(".consumables");
     }, false);
     attacksCloneAdd.addEventListener("click", function() {
       cloneBlockAdd(".attacks");
+      createSnackBar("Attack block added.", true, false);
     }, false);
     attacksCloneRemove.addEventListener("click", function() {
       changeCloneState(".attacks");
@@ -362,7 +364,7 @@ function awesomesheet() {
         '<div class="col-xs-12">' +
         '<div class="consumable-counts clearfix"></div>' +
         '<div class="clone-delete-controls">' +
-        '<button class="button button-primary button-small" id="remove-consumable-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+        '<button class="button button-primary button-small button-icon" id="remove-consumable-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</button>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -406,7 +408,7 @@ function awesomesheet() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="clone-delete-controls">' +
-        '<button class="button button-primary button-small" id="remove-attack-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+        '<button class="button button-primary button-small button-icon" id="remove-attack-' + all_clone_count + '" tabindex="3"><span class="icon-close"></span> Remove</button>' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -586,6 +588,7 @@ function awesomesheet() {
     // recount remaining blocks and length
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var all_clone_count = all_clone.length;
+    console.log(all_clone_count);
     // if clone count is 0 restore clone block state or start recounting and renumbering clone blocks
     if (all_clone_count == 0) {
       changeCloneState(blockToRemove);
@@ -626,22 +629,28 @@ function awesomesheet() {
           all_label[x].htmlFor = newFor;
         };
       };
-      // set or remove clone counts
-      if (all_clone_count <= 0) {
-        if (blockToRemove == ".consumables") {
-          localStoreAdd("clone-consumable-count", "");
-        };
-        if (blockToRemove == ".attacks") {
-          localStoreAdd("clone-attack-count", "");
-        };
-      } else {
-        if (blockToRemove == ".consumables") {
-          localStoreAdd("clone-consumable-count", all_clone_count);
-        };
-        if (blockToRemove == ".attacks") {
-          localStoreAdd("clone-attack-count", all_clone_count);
-        };
+    };
+    // set or remove clone counts
+    if (all_clone_count <= 0) {
+      if (blockToRemove == ".consumables") {
+        localStoreAdd("clone-consumable-count", "");
       };
+      if (blockToRemove == ".attacks") {
+        localStoreAdd("clone-attack-count", "");
+      };
+    } else {
+      if (blockToRemove == ".consumables") {
+        localStoreAdd("clone-consumable-count", all_clone_count);
+      };
+      if (blockToRemove == ".attacks") {
+        localStoreAdd("clone-attack-count", all_clone_count);
+      };
+    };
+    if (blockToRemove == ".consumables") {
+      createSnackBar("Consumables block removed.", true, false);
+    };
+    if (blockToRemove == ".attacks") {
+      createSnackBar("Attack block removed.", true, false);
     };
   };
 
@@ -1068,6 +1077,7 @@ function awesomesheet() {
   // prepare or unprepare or cast or active or delete spell
   function checkSpellListState_changeSpellKnowItem(spell) {
     var spellRoot = getClosest(spell, "#spells");
+    var spellLevel = getClosest(spell, ".spell-level").dataset.spellLevel;
     var prepareState = spellRoot.dataset.prepareSpellState;
     var unprepareState = spellRoot.dataset.unprepareSpellState;
     var castState = spellRoot.dataset.castSpellState;
@@ -1142,8 +1152,11 @@ function awesomesheet() {
     // state delete
     if (deleteState == "true") {
       var spellName = spell.dataset.spellName;
-      localStoreRemove("spell-saved-" + spellName.replace(/\s+/g, "-").toLowerCase());
+      var spellNameText = spell.textContent;
+      var spellNameConverted = spellName.replace(/\s+/g, "-").toLowerCase();
+      localStoreRemove("spell-saved-" + spellNameConverted);
       spell.remove();
+      createSnackBar(spellNameText + " Removed.", true, false);
     };
   };
 
@@ -1285,6 +1298,7 @@ function awesomesheet() {
     };
     // add listners to spell
     addListenerTo_all_spellKnownItem();
+    createSnackBar(newSpellName_value + " added to spell level " + level + ".", true, false);
   };
 
   // --------------------------------------------------------------------------
@@ -1724,6 +1738,138 @@ function awesomesheet() {
   };
 
   // --------------------------------------------------------------------------
+  // snack bar
+  // --------------------------------------------------------------------------
+
+  function createSnackBar(message, close, undo, numberOfDice, whichDice, bonusModifier, rollName) {
+    var element_snackBars = e(".snacks .snack-bars");
+    // make snack bar elements
+    var snackBar = document.createElement("div");
+    snackBar.setAttribute("class", "snack-bar");
+    snackBar.setAttribute("data-roll-name", rollName);
+    snackBar.setAttribute("data-ammount-of-dice", numberOfDice);
+    snackBar.setAttribute("data-dice", whichDice);
+    snackBar.setAttribute("data-ammount-of-bonus", bonusModifier);
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    var col1 = document.createElement("div");
+    col1.setAttribute("class", "col-xs-7");
+    var col2 = document.createElement("div");
+    col2.setAttribute("class", "col-xs-5");
+    var snackClose = document.createElement("button");
+    snackClose.setAttribute("class", "button button-dark button-small snack-clear");
+    var snackUndo = document.createElement("button");
+    snackUndo.setAttribute("class", "button button-dark button-small snack-undo");
+    snackUndo.textContent = "Undo";
+    var iconClose = document.createElement("span");
+    iconClose.setAttribute("class", "icon-close");
+    var snackMessage = document.createElement("p");
+    snackMessage.setAttribute("class", "snack-message");
+    snackMessage.textContent = message;
+    snackClose.appendChild(iconClose);
+    // connect elements
+    if (close) {
+      col2.appendChild(snackClose);
+    };
+    if (undo) {
+      col2.appendChild(snackUndo);
+    };
+    col1.appendChild(snackMessage);
+    row.appendChild(col1);
+    row.appendChild(col2);
+    // container.appendChild(row);
+    snackBar.appendChild(row);
+    // mark current snack bars for removal
+    var allSnackBars = element_snackBars.querySelectorAll(".snack-bar");
+    for (var i = 0; i < allSnackBars.length; i++) {
+      var snackBarToRemove = allSnackBars[i];
+
+      function removeReveal() {
+        removeClass(snackBarToRemove, "reveal");
+      };
+      delayFunction(removeReveal, 100);
+
+      function deleteSnackBar() {
+        snackBarToRemove.remove();
+      };
+      delayFunction(deleteSnackBar, 400);
+    };
+    // append snack bar
+    element_snackBars.appendChild(snackBar);
+    // add listners
+    addListenerTo_snackBar(snackBar);
+    // reveal snack bar
+    var revealSnackBar = function() {
+      addClass(snackBar, "reveal");
+    };
+    delayFunction(revealSnackBar, 10);
+    // auto clear snack bar
+    var autoClearSnackBar = function() {
+      // if the snack bar hasn't been dismised or undone
+      if (snackBar) {
+        // console.log("clearing");
+        clearSnackBar(snackBar);
+      };
+    };
+    delayFunction(autoClearSnackBar, 5000);
+  };
+
+  // add listeners to snack bar buttons
+  function addListenerTo_snackBar(element) {
+    var formula_savedFormula = getClosest(element, ".snack-bar");
+    var formula_savedFormula_clear = formula_savedFormula.querySelector(".snack-clear");
+    var formula_savedFormula_undo = formula_savedFormula.querySelector(".snack-undo");
+    // add listner to clear
+    if (formula_savedFormula_clear) {
+      formula_savedFormula_clear.addEventListener("click", function() {
+        clearSnackBar(this);
+      }, false);
+    };
+    // add listner to undo
+    if (formula_savedFormula_undo) {
+      formula_savedFormula_undo.addEventListener("click", function() {
+        undoSnackBar(this);
+        localStoreAdd("saved-formulas", element_formulas_list);
+        checkListListState();
+      }, false);
+    };
+  };
+
+  // snack bar undo
+  function undoSnackBar(element) {
+    var snackBar = getClosest(element, ".snack-bar");
+    var readSaved_name = snackBar.dataset.rollName;
+    var readSaved_amountOfDice = parseInt(snackBar.dataset.ammountOfDice, 10);
+    var readSaved_diceSides = parseInt(snackBar.dataset.dice, 10);
+    var readSaved_amountOfBonus = parseInt(snackBar.dataset.ammountOfBonus, 10);
+    if (readSaved_name == "nameless formula") {
+      readSaved_name = "";
+    };
+    saveCurrentFormula(readSaved_amountOfDice, readSaved_diceSides, readSaved_amountOfBonus, readSaved_name);
+    clearSnackBar(element);
+  };
+
+  // snack bar clear
+  function clearSnackBar(element) {
+    if (element) {
+      var snackBar = getClosest(element, ".snack-bar");
+    } else {
+      var snackBar = e(".snack-bar");
+    };
+    if (snackBar) {
+      function removeReveal() {
+        removeClass(snackBar, "reveal");
+      };
+      delayFunction(removeReveal, 10);
+
+      function deleteSnackBar() {
+        snackBar.remove();
+      };
+      delayFunction(deleteSnackBar, 500);
+    };
+  };
+
+  // --------------------------------------------------------------------------
   // prompt
   // --------------------------------------------------------------------------
 
@@ -1743,15 +1889,15 @@ function awesomesheet() {
     var col1 = document.createElement("div");
     col1.setAttribute("class", "col-xs-12");
     var col2 = document.createElement("div");
-    col2.setAttribute("class", "col-xs-6 col-lg-5");
+    col2.setAttribute("class", "col-xs-6");
     var col3 = document.createElement("div");
-    col3.setAttribute("class", "col-xs-6 col-lg-5 col-lg-offset-2");
-    var promptHeading = document.createElement("h1");
-    promptHeading.setAttribute("class", "prompt-heading");
-    promptHeading.textContent = heading;
-    var promptMessage = document.createElement("p");
+    col3.setAttribute("class", "col-xs-6");
+    var promptMessage = document.createElement("div");
     promptMessage.setAttribute("class", "prompt-message");
-    promptMessage.textContent = message;
+    var promptHeading = document.createElement("h1");
+    promptHeading.textContent = heading;
+    var promptPara = document.createElement("p");
+    promptPara.textContent = message;
     var promptAction = document.createElement("button");
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
     promptAction.textContent = "OK";
@@ -1759,7 +1905,8 @@ function awesomesheet() {
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
     promptCencel.textContent = "Cancel";
     // connect elements
-    col1.appendChild(promptHeading);
+    promptMessage.appendChild(promptHeading);
+    promptMessage.appendChild(promptPara);
     col1.appendChild(promptMessage);
     col2.appendChild(promptCencel);
     col3.appendChild(promptAction);
@@ -1824,6 +1971,17 @@ function awesomesheet() {
   };
 
   // --------------------------------------------------------------------------
+  // escape
+  // --------------------------------------------------------------------------
+
+  window.addEventListener("keydown", function(event) {
+    if (event.keyCode == 27) {
+      removePrompt();
+      clearSnackBar();
+    };
+  }, false);
+
+  // --------------------------------------------------------------------------
   // run on page load
   // --------------------------------------------------------------------------
 
@@ -1855,6 +2013,4 @@ function awesomesheet() {
   update_consumableTotal();
   update_consumableUsed();
 
-};
-
-awesomesheet();
+})();

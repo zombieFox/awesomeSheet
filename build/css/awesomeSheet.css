@@ -588,7 +588,7 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 0 15px;
+  padding: 0 10px;
   color: #343434;
   text-align: center;
   font-size: 1rem;
@@ -605,36 +605,15 @@ button {
   transition: all 0.1s ease-in-out;
   text-decoration: none;
   display: inline-block; }
-  .button.button-block,
-  button.button-block {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    display: inline-block; }
   .button [class^="icon-"],
   .button [class*=" icon-"],
   button [class^="icon-"],
   button [class*=" icon-"] {
-    margin: 0 5px 0 0;
+    margin: 0 10px 0 0;
     font-size: 1rem;
     height: 32px;
     line-height: 32px;
     display: inline-block; }
-  .button.button-small,
-  button.button-small {
-    padding: 0 10px;
-    height: 22px;
-    line-height: 20px;
-    font-size: 0.8rem; }
-    .button.button-small [class^="icon-"],
-    .button.button-small [class*=" icon-"],
-    button.button-small [class^="icon-"],
-    button.button-small [class*=" icon-"] {
-      margin: 0 5px 0 0;
-      line-height: 20px;
-      height: 20px;
-      font-size: 0.8rem;
-      display: inline-block; }
   .button:focus,
   button:focus {
     outline: 0;
@@ -758,6 +737,30 @@ button {
     button.button-dark.active {
       color: #ffffff;
       background-color: rgba(0, 0, 0, 0.51); }
+  .button.button-small,
+  button.button-small {
+    padding: 0 10px;
+    height: 22px;
+    line-height: 20px;
+    font-size: 0.8rem; }
+    .button.button-small [class^="icon-"],
+    .button.button-small [class*=" icon-"],
+    button.button-small [class^="icon-"],
+    button.button-small [class*=" icon-"] {
+      margin: 0 5px 0 0;
+      line-height: 20px;
+      height: 20px;
+      font-size: 0.8rem;
+      display: inline-block; }
+  .button.button-block,
+  button.button-block {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    display: inline-block; }
+  .button.button-icon,
+  button.button-icon {
+    padding-right: 15px; }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
   display: inline-block;
@@ -1257,8 +1260,11 @@ nav {
 .prompt .container {
   max-width: 100%; }
 
-.prompt .prompt-heading {
-  margin: 1rem 0; }
+.prompt .prompt-message h1 {
+  margin: 0 0 20px 0; }
+
+.prompt .prompt-message :last-child {
+  margin: 0 0 40px 0; }
 
 .prompt.prompt-shade {
   background-color: rgba(0, 0, 0, 0.8);
@@ -1280,7 +1286,7 @@ nav {
   background: #ffffff;
   width: 80%;
   min-width: 250px;
-  padding: 20px 15px 20px 25px;
+  padding: 30px 20px;
   box-sizing: border-box;
   border-radius: 4px;
   -webkit-transform: translate(-50%, -50%);
@@ -1290,10 +1296,8 @@ nav {
   opacity: 0;
   transition: all 0.3s ease-in-out; }
 
-.prompt .button {
-  margin: 0 5px 5px 0; }
-  .prompt .button:last-child {
-    margin-right: 0; }
+.prompt .button:last-child {
+  margin-right: 0; }
 
 .prompt.reveal {
   opacity: 1; }
@@ -1301,6 +1305,8 @@ nav {
 /* media queries
 ------------------------------------------------- */
 @media (min-width: 700px) {
+  .prompt .prompt-message :last-child {
+    margin: 0 0 60px 0; }
   .prompt.prompt-modal {
     width: 80%; } }
 
@@ -1326,7 +1332,7 @@ nav {
     max-width: 100%;
     padding: 0; }
   .snacks .snack-bar {
-    background-color: #222222;
+    background-color: #464646;
     padding: 0 20px;
     margin: 0;
     width: 100%;
@@ -1335,10 +1341,6 @@ nav {
     height: 0;
     overflow: hidden;
     box-sizing: border-box;
-    -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-            transform: scale(0.9);
-    opacity: 0;
     transition: all 0.3s ease-in-out; }
     .snacks .snack-bar .snack-message {
       margin: 0;
@@ -1364,13 +1366,9 @@ nav {
         line-height: 30px;
         font-size: 1.4rem; }
     .snacks .snack-bar.reveal {
-      background-color: #343434;
+      background-color: #222222;
       padding: 10px 20px;
-      height: 50px;
-      -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-              transform: scale(1);
-      opacity: 1; }
+      height: 50px; }
 
 /* media queries
 ------------------------------------------------- */
