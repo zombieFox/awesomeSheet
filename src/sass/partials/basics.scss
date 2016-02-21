@@ -16,22 +16,18 @@
     }
   }
   .awesome-name {
-    padding: 2rem 0 4rem 30px;
-    &:before {
-      height: 4rem;
-      top: 2rem;
-    }
+    padding: 0 30px;
     .input-block {
       .input-field {
         background-color: transparent;
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 2.5rem;
-        height: 4rem;
+        font-size: 3rem;
+        height: 6rem;
         color: $white;
         font-family: $open-sans-light;
-        line-height: 4rem;
+        line-height: 6rem;
         position: relative;
         z-index: 1;
       }

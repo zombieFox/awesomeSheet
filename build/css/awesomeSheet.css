@@ -815,7 +815,7 @@ h6 {
   margin: 0; }
 
 h1 {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   line-height: 2rem; }
 
 h2 {
@@ -872,7 +872,6 @@ a {
 
 .textarea,
 textarea {
-  background-color: #fafafa;
   background-color: rgba(0, 70, 130, 0.05);
   padding: 10px 15px;
   margin: 0 0 2rem 0;
@@ -1410,33 +1409,26 @@ section {
   z-index: 1000;
   padding: 60px 0 20px 0; }
   section h1 {
-    padding: 0 0 3rem 30px;
-    margin-bottom: 0;
-    text-transform: uppercase;
-    position: relative; }
-    section h1:before {
-      content: "";
-      border-left: 10px solid #ff0055;
-      position: absolute;
-      height: 3rem;
-      top: -0.5rem;
-      left: 0;
-      border-radius: 2px; }
-  section h2 {
-    background-color: #003242;
+    padding: 10px 20px;
+    background-color: #003c4f;
     color: #ffffff;
+    text-transform: uppercase;
+    position: relative;
+    border-left: 10px solid #ff0055;
+    border-radius: 2px; }
+  section h2 {
+    background-color: #fafafa;
     padding: 0 10px;
     min-height: 2.3rem;
     line-height: 2.3rem;
     box-sizing: border-box;
-    border-radius: 2px 2px 0 0; }
+    border-left: 10px solid #003c4f;
+    border-radius: 2px; }
 
 hr {
   border: 0;
-  border-top: 5px solid #fafafa;
-  margin: 0 0 30px 0;
-  background-color: transparent;
-  position: relative;
+  border-top: 2px solid #003c4f;
+  margin: 1rem 0 3rem 0;
   clear: both; }
 
 .input-block {
@@ -1467,7 +1459,7 @@ hr {
     float: left; }
 
 .hidable-block .hidable-toggle {
-  margin: 0.3rem 0 0 0; }
+  margin: 0 0 2rem 0; }
 
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
@@ -1576,20 +1568,17 @@ hr {
     #basics input:hover, #basics input:focus {
       border-color: #ff0055; }
   #basics .awesome-name {
-    padding: 2rem 0 4rem 30px; }
-    #basics .awesome-name:before {
-      height: 4rem;
-      top: 2rem; }
+    padding: 0 30px; }
     #basics .awesome-name .input-block .input-field {
       background-color: transparent;
       margin: 0;
       padding: 0;
       border: 0;
-      font-size: 2.5rem;
-      height: 4rem;
+      font-size: 3rem;
+      height: 6rem;
       color: #ffffff;
       font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
-      line-height: 4rem;
+      line-height: 6rem;
       position: relative;
       z-index: 1; }
   #basics ::-webkit-input-placeholder {
