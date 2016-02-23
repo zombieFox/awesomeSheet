@@ -1569,7 +1569,8 @@ hr {
     #basics input:hover, #basics input:focus {
       border-color: #ff0055; }
   #basics .awesome-name {
-    padding: 0 30px; }
+    padding: 0 30px;
+    margin: 0 0 60px 0; }
     #basics .awesome-name .input-block .input-field {
       background-color: transparent;
       margin: 0;
