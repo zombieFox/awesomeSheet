@@ -17,7 +17,7 @@ section {
     text-transform: uppercase;
     position: relative;
     border-left: 10px solid $primary-color;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
   }
   h2 {
     background-color: $gray-13;
@@ -26,7 +26,7 @@ section {
     line-height: 2.3rem;
     box-sizing: border-box;
     border-left: 10px solid $secondary-color;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
   }
 }
 
@@ -69,9 +69,10 @@ hr {
   }
 }
 
-.hidable-block {
-  .hidable-toggle {
-    margin: 0 0 2rem 0;
+.section-controls {
+  margin: 0 0 2rem 0;
+  .button {
+    margin: 0 5px 5px 0;
   }
 }
 
@@ -110,14 +111,14 @@ hr {
           padding: 0;
           float: left;
           font-size: 1.5rem;
-          width: 8px;
-          height: 8px;
+          width: 10px;
+          height: 10px;
           box-sizing: border-box;
           position: relative;
           transition: all $transition-ease-medium;
           &.used {
             background-color: $gray-13;
-            border-color: $gray-12;
+            border-color: $gray-13;
           }
           &:nth-child(1) {
             border-radius: $border-radius-small 0 0 0;

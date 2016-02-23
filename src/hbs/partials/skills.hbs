@@ -4,7 +4,9 @@
       <h1>Skills</h1>
     </div>
     <div class="col-xs-12">
-      <button class="hidable-toggle right button button-secondary button-small button-icon"><span class="icon icon-unfold-less"></span><span class="text">Hide Fields</span></button>
+      <div class="section-controls">
+        <button class="hidable-toggle button button-secondary button-icon button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide</span></button>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -12,230 +14,354 @@
       <table class="skill-list">
         <thead class="hidable">
           <tr>
-            <td class="name-title"></td>
-            <td class="stat-title"></td>
-            <td class="total-title">Total</td>
-            <td class="ranks-title small-text">Ranks</td>
-            <td class="misc-title small-text">Misc</td>
+            <td></td>
+            <td></td>
+            <td>Total</td>
+            <td class="small-text">Ranks</td>
+            <td class="small-text">Misc</td>
           </tr>
         </thead>
         <tbody>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="dex">Acrobatics</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Dex</p></td>
-            <td><p class="total skill-value underline-with-input">3</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-dex-bonus="true">
+            <td><p class="name underline-with-input">Acrobatics</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Dex</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-acrobatics-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-acrobatics-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Appraise</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">13</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="4" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Appraise</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-appraise-ranks" type="number" data-modifier="true" tabindex="3" value="4">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-appraise-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="cha">Bluff</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Cha</p></td>
-            <td><p class="total skill-value underline-with-input">0</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-cha-bonus="true">
+            <td><p class="name underline-with-input">Bluff</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Cha</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-bluff-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-bluff-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="str">Climb</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Str</p></td>
-            <td><p class="total skill-value underline-with-input">-1</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-str-bonus="true">
+            <td><p class="name underline-with-input">Climb</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Str</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-climb-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-climb-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Craft</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">6</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Craft</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-craft-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-craft-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="cha">Diplomacy</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Cha</p></td>
-            <td><p class="total skill-value underline-with-input">0</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-cha-bonus="true">
+            <td><p class="name underline-with-input">Diplomacy</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Cha</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-diplomacy-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-diplomacy-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="cha">Disguise</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Cha</p></td>
-            <td><p class="total skill-value underline-with-input">0</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-cha-bonus="true">
+            <td><p class="name underline-with-input">Disguise</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Cha</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-disguise-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-disguise-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="dex">Escape Artist</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Dex</p></td>
-            <td><p class="total skill-value underline-with-input">3</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-dex-bonus="true">
+            <td><p class="name underline-with-input">Escape Artist</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Dex</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-escape-artist-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-escape-artist-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="dex">Fly</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Dex</p></td>
-            <td><p class="total skill-value underline-with-input">3</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-dex-bonus="true">
+            <td><p class="name underline-with-input">Fly</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Dex</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-fly-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-fly-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="wis">Heal</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Wis</p></td>
-            <td><p class="total skill-value underline-with-input">1</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-wis-bonus="true">
+            <td><p class="name underline-with-input">Heal</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Wis</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-heal-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-heal-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="cha">Intimidate</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Cha</p></td>
-            <td><p class="total skill-value underline-with-input">0</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-cha-bonus="true">
+            <td><p class="name underline-with-input">Intimidate</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Cha</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-intimidate-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-intimidate-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Arcana</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">11</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="3" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Arcana</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-arcana-ranks" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-arcana-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Dungeoneering</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">11</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="2" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Dungeoneering</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-dungeoneering-ranks" type="number" data-modifier="true" tabindex="3" value="2">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-dungeoneering-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Engineering</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Engineering</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-engineering-ranks" type="number" data-modifier="true" tabindex="3" value="1">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-engineering-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Geography</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Geography</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-geography-ranks" type="number" data-modifier="true" tabindex="3" value="1">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-geography-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge History</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge History</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-history-ranks" type="number" data-modifier="true" tabindex="3" value="1">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-history-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Local</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Local</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-local-ranks" type="number" data-modifier="true" tabindex="3" value="1">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-local-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Nature</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Nature</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-nature-ranks" type="number" data-modifier="true" tabindex="3" value="1">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-nature-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Nobility</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="1" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Nobility</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-nobility-ranks" type="number" data-modifier="true" tabindex="3" value="1">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-nobility-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Planes</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">11</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="3" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Planes</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-planes-ranks" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-planes-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Knowledge Religion</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">11</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="3" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Knowledge Religion</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-religion-ranks" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-knowledge-religion-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Linguistics</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">11</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="3" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Linguistics</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-linguistics-ranks" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-linguistics-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="wis">Perception</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Wis</p></td>
-            <td><p class="total skill-value underline-with-input">10</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="6" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="4" tabindex="3"></td>
+          <tr class="input-total-block" data-wis-bonus="true">
+            <td><p class="name underline-with-input">Perception</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Wis</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-perception-ranks" type="number" data-modifier="true" tabindex="3" value="6">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-perception-misc" type="number" data-modifier="true" tabindex="3" value="4">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="cha">Perform</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Cha</p></td>
-            <td><p class="total skill-value underline-with-input">0</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-cha-bonus="true">
+            <td><p class="name underline-with-input">Perform</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Cha</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-perform-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-perform-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="dex">Ride</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Dex</p></td>
-            <td><p class="total skill-value underline-with-input">3</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-dex-bonus="true">
+            <td><p class="name underline-with-input">Ride</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Dex</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-ride-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-ride-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="wis">Sense Motive</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Wis</p></td>
-            <td><p class="total skill-value underline-with-input">8</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="6" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="2" tabindex="3"></td>
+          <tr class="input-total-block" data-wis-bonus="true">
+            <td><p class="name underline-with-input">Sense Motive</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Wis</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-sense-motive-ranks" type="number" data-modifier="true" tabindex="3" value="6">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-sense-motive-misc" type="number" data-modifier="true" tabindex="3" value="2">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="int">Spellcraft</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Int</p></td>
-            <td><p class="total skill-value underline-with-input">14</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="6" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" value="3" tabindex="3"></td>
+          <tr class="input-total-block" data-int-bonus="true">
+            <td><p class="name underline-with-input">Spellcraft</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Int</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-spellcraft-ranks" type="number" data-modifier="true" tabindex="3" value="6">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-spellcraft-misc" type="number" data-modifier="true" tabindex="3" value="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="dex">Stealth</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Dex</p></td>
-            <td><p class="total skill-value underline-with-input">3</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-dex-bonus="true">
+            <td><p class="name underline-with-input">Stealth</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Dex</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-stealth-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-stealth-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="wis">Survival</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Wis</p></td>
-            <td><p class="total skill-value underline-with-input">1</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-wis-bonus="true">
+            <td><p class="name underline-with-input">Survival</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Wis</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-survival-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-survival-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="str">Swim</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Str</p></td>
-            <td><p class="total skill-value underline-with-input">-1</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-str-bonus="true">
+            <td><p class="name underline-with-input">Swim</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Str</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-swim-ranks" type="number" data-modifier="true" tabindex="3">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-swim-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
-          <tr class="skill-details">
-            <td><p class="name skill-value underline-with-input" data-ability="cha">Use Magic Device</p></td>
-            <td class="hidable"><p class="stat skill-value small-text underline-with-input">Cha</p></td>
-            <td><p class="total skill-value underline-with-input">5</p></td>
-            <td class="hidable"><input class="ranks skill-value small-text" type="number" value="6" tabindex="3"></td>
-            <td class="hidable"><input class="misc skill-value small-text" type="number" tabindex="3"></td>
+          <tr class="input-total-block" data-cha-bonus="true">
+            <td><p class="name underline-with-input">Use Magic Device</p></td>
+            <td class="hidable"><p class="small-text underline-with-input">Cha</p></td>
+            <td><p class="total underline-with-input"></p></td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-use-magic-device-ranks" type="number" data-modifier="true" tabindex="3" value="6">
+            </td>
+            <td class="hidable input-block">
+              <input class="input-field" id="skill-use-magic-device-misc" type="number" data-modifier="true" tabindex="3">
+            </td>
           </tr>
         </tbody>
       </table>

@@ -13,7 +13,7 @@
     }
     .str {
       h2 {
-        border-radius: $border-radius-small $border-radius-small 0 0;
+        border-radius: $border-radius-medium $border-radius-medium 0 0;
       }
     }
     .dex,
@@ -26,7 +26,7 @@
     }
     .cha {
       h2 {
-        border-radius: 0 0 $border-radius-small $border-radius-small;
+        border-radius: 0 0 $border-radius-medium $border-radius-medium;
       }
     }
   }

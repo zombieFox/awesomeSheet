@@ -18,23 +18,21 @@
   var stats_wisMod = e(".stats.wis .modifier");
   var stats_chaMod = e(".stats.cha .modifier");
 
-  var stats_strTempScore = e(".stats.str .temp-score");
-  var stats_dexTempScore = e(".stats.dex .temp-score");
-  var stats_conTempScore = e(".stats.con .temp-score");
-  var stats_intTempScore = e(".stats.int .temp-score");
-  var stats_wisTempScore = e(".stats.wis .temp-score");
-  var stats_chaTempScore = e(".stats.cha .temp-score");
+  var stats_strScoreTemp = e(".stats.str .score-temp");
+  var stats_dexScoreTemp = e(".stats.dex .score-temp");
+  var stats_conScoreTemp = e(".stats.con .score-temp");
+  var stats_intScoreTemp = e(".stats.int .score-temp");
+  var stats_wisScoreTemp = e(".stats.wis .score-temp");
+  var stats_chaScoreTemp = e(".stats.cha .score-temp");
 
-  var stats_strTempMod = e(".stats.str .temp-modifier");
-  var stats_dexTempMod = e(".stats.dex .temp-modifier");
-  var stats_conTempMod = e(".stats.con .temp-modifier");
-  var stats_intTempMod = e(".stats.int .temp-modifier");
-  var stats_wisTempMod = e(".stats.wis .temp-modifier");
-  var stats_chaTempMod = e(".stats.cha .temp-modifier");
+  var stats_strModTemp = e(".stats.str .modifier-temp");
+  var stats_dexModTemp = e(".stats.dex .modifier-temp");
+  var stats_conModTemp = e(".stats.con .modifier-temp");
+  var stats_intModTemp = e(".stats.int .modifier-temp");
+  var stats_wisModTemp = e(".stats.wis .modifier-temp");
+  var stats_chaModTemp = e(".stats.cha .modifier-temp");
 
   var all_textareas = eA(".textarea");
-
-  var all_skill_inputs = eA(".skill-value");
 
   var all_addSpell = eA(".add-spell");
 
@@ -298,14 +296,14 @@
     var attacksCloneRemove = e(".attacks .clone-remove");
     consumablesCloneAdd.addEventListener("click", function() {
       cloneBlockAdd(".consumables");
-      createSnackBar("Consumables block added.", true, false);
+      createSnackBar("Consumables block added.", false, false);
     }, false);
     consumablesCloneRemove.addEventListener("click", function() {
       changeCloneState(".consumables");
     }, false);
     attacksCloneAdd.addEventListener("click", function() {
       cloneBlockAdd(".attacks");
-      createSnackBar("Attack block added.", true, false);
+      createSnackBar("Attack block added.", false, false);
     }, false);
     attacksCloneRemove.addEventListener("click", function() {
       changeCloneState(".attacks");
@@ -647,10 +645,10 @@
       };
     };
     if (blockToRemove == ".consumables") {
-      createSnackBar("Consumables block removed.", true, false);
+      createSnackBar("Consumables block removed.", false, false);
     };
     if (blockToRemove == ".attacks") {
-      createSnackBar("Attack block removed.", true, false);
+      createSnackBar("Attack block removed.", false, false);
     };
   };
 
@@ -730,7 +728,7 @@
       hidableBlock.dataset.allHidden = "false";
       toggleClass(icon, "icon-unfold-less");
       toggleClass(icon, "icon-unfold-more");
-      text.textContent = "Hide Fields";
+      text.textContent = "Hide";
       // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
     } else if (hidableBlock.dataset.allHidden == "false") {
       for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
@@ -751,7 +749,7 @@
       hidableBlock.dataset.allHidden = "true";
       toggleClass(icon, "icon-unfold-less");
       toggleClass(icon, "icon-unfold-more");
-      text.textContent = "Show All";
+      text.textContent = "Show";
     };
   };
 
@@ -760,7 +758,7 @@
   // --------------------------------------------------------------------------
 
   // change mod
-  function changeMod(element, field) {
+  function changeModifer(element, field) {
     var stat = checkValue(element);
     var modifier = calculateModifer(element);
     field.textContent = modifier;
@@ -778,17 +776,17 @@
     for (var i = 0; i < stats.length; i++) {
       var score = stats[i].querySelector(".score");
       var modifier = stats[i].querySelector(".modifier");
-      var tempScore = stats[i].querySelector(".temp-score");
-      var tempModifier = stats[i].querySelector(".temp-modifier");
+      var Scoretemp = stats[i].querySelector(".score-temp");
+      var Modtempifier = stats[i].querySelector(".modifier-temp");
       if (score.value !== "") {
-        changeMod(score, modifier);
+        changeModifer(score, modifier);
       } else {
         modifier.textContent = "";
       };
-      if (tempScore.value !== "") {
-        changeMod(tempScore, tempModifier);
+      if (Scoretemp.value !== "") {
+        changeModifer(Scoretemp, Modtempifier);
       } else {
-        tempModifier.textContent = "";
+        Modtempifier.textContent = "";
       };
     };
   };
@@ -796,42 +794,22 @@
   // add listeners to stats
   function addListenerTo_all_stats() {
     var score = eA(".stats .score");
-    var tempScore = eA(".stats .temp-score");
+    var Scoretemp = eA(".stats .score-temp");
     // primary scores
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         update_scoreModifiers();
-        update_skillTotal();
         update_inputTotalBlock();
-        store_stats();
       }, false);
     };
 
     // temp scores
-    for (var i = 0; i < tempScore.length; i++) {
-      tempScore[i].addEventListener("input", function() {
+    for (var i = 0; i < Scoretemp.length; i++) {
+      Scoretemp[i].addEventListener("input", function() {
         update_scoreModifiers();
-        update_skillTotal();
         update_inputTotalBlock();
-        store_stats();
       }, false);
     };
-  };
-
-  // store stats
-  function store_stats() {
-    localStoreAdd("stats-str", stats_strScore.value);
-    localStoreAdd("stats-dex", stats_dexScore.value);
-    localStoreAdd("stats-con", stats_conScore.value);
-    localStoreAdd("stats-int", stats_intScore.value);
-    localStoreAdd("stats-wis", stats_wisScore.value);
-    localStoreAdd("stats-cha", stats_chaScore.value);
-    localStoreAdd("stats-strTemp", stats_strTempScore.value);
-    localStoreAdd("stats-dexTemp", stats_dexTempScore.value);
-    localStoreAdd("stats-conTemp", stats_conTempScore.value);
-    localStoreAdd("stats-intTemp", stats_intTempScore.value);
-    localStoreAdd("stats-wisTemp", stats_wisTempScore.value);
-    localStoreAdd("stats-chaTemp", stats_chaTempScore.value);
   };
 
   // read stats
@@ -855,22 +833,22 @@
       stats_chaScore.value = localStoreRead("stats-cha");
     };
     if (localStoreRead("stats-strTemp")) {
-      stats_strTempScore.value = localStoreRead("stats-strTemp");
+      stats_strScoreTemp.value = localStoreRead("stats-strTemp");
     };
     if (localStoreRead("stats-dexTemp")) {
-      stats_dexTempScore.value = localStoreRead("stats-dexTemp");
+      stats_dexScoreTemp.value = localStoreRead("stats-dexTemp");
     };
     if (localStoreRead("stats-conTemp")) {
-      stats_conTempScore.value = localStoreRead("stats-conTemp");
+      stats_conScoreTemp.value = localStoreRead("stats-conTemp");
     };
     if (localStoreRead("stats-intTemp")) {
-      stats_intTempScore.value = localStoreRead("stats-intTemp");
+      stats_intScoreTemp.value = localStoreRead("stats-intTemp");
     };
     if (localStoreRead("stats-wisTemp")) {
-      stats_wisTempScore.value = localStoreRead("stats-wisTemp");
+      stats_wisScoreTemp.value = localStoreRead("stats-wisTemp");
     };
     if (localStoreRead("stats-chaTemp")) {
-      stats_chaTempScore.value = localStoreRead("stats-chaTemp");
+      stats_chaScoreTemp.value = localStoreRead("stats-chaTemp");
     };
   };
 
@@ -955,7 +933,7 @@
     }, false);
   };
 
-  // activate delete state on all saved spell lists
+  // change states on all saved spell lists
   function changeSpellState(element, state) {
     var spellRoot = getClosest(element, "#spells");
     var prepareStateButton = spellRoot.querySelector(".prepare-spell");
@@ -963,7 +941,7 @@
     var castStateButton = spellRoot.querySelector(".cast-spell");
     var activeStateButton = spellRoot.querySelector(".active-spell");
     var removeStateButton = spellRoot.querySelector(".remove-spell");
-    var all_spellStateControls = getClosest(element, ".spell-state-controls").querySelectorAll(".button");
+    var all_spellStateControls = spellRoot.querySelectorAll(".spell-state-control");
     if (element.classList.contains("active")) {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         removeClass(all_spellStateControls[i], "active");
@@ -1156,7 +1134,7 @@
       var spellNameConverted = spellName.replace(/\s+/g, "-").toLowerCase();
       localStoreRemove("spell-saved-" + spellNameConverted);
       spell.remove();
-      createSnackBar(spellNameText + " Removed.", true, false);
+      createSnackBar(spellNameText + " Removed.", false, false);
     };
   };
 
@@ -1288,17 +1266,22 @@
     };
     // if input value is not empty
     if (newSpellName_value !== "") {
-      knownListToSaveTo.appendChild(newSpell);
-      // clear input field
-      newSpellName.value = "";
-      // make spell object
-      var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
-      // store spell in local storage
-      localStoreAdd("spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase(), JSON.stringify(newSpell));
+      //  if first character is not a number
+      if (isNaN(newSpellName_value.charAt(0))) {
+        knownListToSaveTo.appendChild(newSpell);
+        // clear input field
+        newSpellName.value = "";
+        // make spell object
+        var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
+        // store spell in local storage
+        localStoreAdd("spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase(), JSON.stringify(newSpell));
+        createSnackBar(newSpellName_value + " added to spell level " + level + ".", false, false);
+      } else {
+        createSnackBar("Can't start with a number.", false, false);
+      };
     };
     // add listners to spell
     addListenerTo_all_spellKnownItem();
-    createSnackBar(newSpellName_value + " added to spell level " + level + ".", true, false);
   };
 
   // --------------------------------------------------------------------------
@@ -1331,113 +1314,6 @@
     for (var i = 0; i < all_textareas.length; i++) {
       all_textareas[i].addEventListener("input", function() {
         store_textareas(this);
-      }, false);
-    };
-  };
-
-  // --------------------------------------------------------------------------
-  // skills
-  // --------------------------------------------------------------------------
-
-  // store skills
-  function store_skills() {
-    var skill_values = [];
-    for (var i = 0; i < all_skill_inputs.length; i++) {
-      skill_values.push(all_skill_inputs[i].value);
-    };
-    localStoreAdd("input-skill-list", skill_values);
-  };
-
-  // store skills
-  function read_skills() {
-    // read stored vaules
-    var read_skill_values = localStoreRead("input-skill-list");
-    // convert stored values into an array
-    if (read_skill_values) {
-      var skill_values = read_skill_values.split(',');
-    };
-    // put values into skill-value elements
-    if (read_skill_values) {
-      for (var i = 0; i < all_skill_inputs.length; i++) {
-        all_skill_inputs[i].value = parseInt(skill_values[i], 10);
-      };
-    };
-  };
-
-  // update skill total
-  function update_skillTotal() {
-    var all_skillList_skillDetails = eA(".skill-list .skill-details");
-    for (var i = 0; i < all_skillList_skillDetails.length; i++) {
-      var skillAbility = all_skillList_skillDetails[i].querySelector(".name.skill-value").dataset.ability;
-      var skillMod;
-      if (skillAbility == "str") {
-        // if ability temp mod is empty
-        if (stats_strTempMod.textContent == "") {
-          skillMod = parseInt(stats_strMod.textContent, 10);
-        } else {
-          skillMod = parseInt(stats_strTempMod.textContent, 10);
-        };
-      } else if (skillAbility == "dex") {
-        // if ability temp mod is empty
-        if (stats_dexTempMod.textContent == "") {
-          skillMod = parseInt(stats_dexMod.textContent, 10);
-        } else {
-          skillMod = parseInt(stats_dexTempMod.textContent, 10);
-        };
-      } else if (skillAbility == "con") {
-        // if ability temp mod is empty
-        if (stats_conTempMod.textContent == "") {
-          skillMod = parseInt(stats_conMod.textContent, 10);
-        } else {
-          skillMod = parseInt(stats_conTempMod.textContent, 10);
-        };
-      } else if (skillAbility == "int") {
-        // if ability temp mod is empty
-        if (stats_intTempMod.textContent == "") {
-          skillMod = parseInt(stats_intMod.textContent, 10);
-        } else {
-          skillMod = parseInt(stats_intTempMod.textContent, 10);
-        };
-      } else if (skillAbility == "wis") {
-        // if ability temp mod is empty
-        if (stats_wisTempMod.textContent == "") {
-          skillMod = parseInt(stats_wisMod.textContent, 10);
-        } else {
-          skillMod = parseInt(stats_wisTempMod.textContent, 10);
-        };
-      } else if (skillAbility == "cha") {
-        // if ability temp mod is empty
-        if (stats_chaTempMod.textContent == "") {
-          skillMod = parseInt(stats_chaMod.textContent, 10);
-        } else {
-          skillMod = parseInt(stats_chaTempMod.textContent, 10);
-        };
-      };
-      // check if skillMod is NaN
-      if (isNaN(skillMod)) {
-        skillMod = 0;
-      };
-      var skillRanks = checkValue(all_skillList_skillDetails[i].querySelector(".ranks.skill-value"));
-      var skillMisc = checkValue(all_skillList_skillDetails[i].querySelector(".misc.skill-value"));
-      var skillTotal = skillMod + skillRanks + skillMisc;
-      all_skillList_skillDetails[i].querySelector(".total.skill-value").textContent = skillTotal;
-    };
-  };
-
-  // add listeners to skills
-  function addListenerTo_all_skillInputs() {
-    var skillRanks = eA(".ranks.skill-value");
-    var skillMisc = eA(".misc.skill-value");
-    for (var i = 0; i < skillRanks.length; i++) {
-      skillRanks[i].addEventListener("input", function() {
-        update_skillTotal();
-        store_skills();
-      }, false);
-    };
-    for (var i = 0; i < skillMisc.length; i++) {
-      skillMisc[i].addEventListener("input", function() {
-        update_skillTotal();
-        store_skills();
       }, false);
     };
   };
@@ -1516,55 +1392,55 @@
       // str
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
-        if (stats_strTempMod.textContent == "") {
+        if (stats_strModTemp.textContent == "") {
           strBonus = parseInt(stats_strMod.textContent, 10 || 0);
         } else {
-          strBonus = parseInt(stats_strTempMod.textContent, 10 || 0);
+          strBonus = parseInt(stats_strModTemp.textContent, 10 || 0);
         };
       };
       // dex
       if (all_inputTotalBlock[i].dataset.dexBonus == "true") {
         // if ability temp mod is empty
-        if (stats_dexTempMod.textContent == "") {
+        if (stats_dexModTemp.textContent == "") {
           dexBonus = parseInt(stats_dexMod.textContent, 10 || 0);
         } else {
-          dexBonus = parseInt(stats_dexTempMod.textContent, 10 || 0);
+          dexBonus = parseInt(stats_dexModTemp.textContent, 10 || 0);
         };
       };
       // con
       if (all_inputTotalBlock[i].dataset.conBonus == "true") {
         // if ability temp mod is empty
-        if (stats_conTempMod.textContent == "") {
+        if (stats_conModTemp.textContent == "") {
           conBonus = parseInt(stats_conMod.textContent, 10 || 0);
         } else {
-          conBonus = parseInt(stats_conTempMod.textContent, 10 || 0);
+          conBonus = parseInt(stats_conModTemp.textContent, 10 || 0);
         };
       };
       // int
       if (all_inputTotalBlock[i].dataset.intBonus == "true") {
         // if ability temp mod is empty
-        if (stats_intTempMod.textContent == "") {
+        if (stats_intModTemp.textContent == "") {
           intBonus = parseInt(stats_intMod.textContent, 10 || 0);
         } else {
-          intBonus = parseInt(stats_intTempMod.textContent, 10 || 0);
+          intBonus = parseInt(stats_intModTemp.textContent, 10 || 0);
         };
       };
       // wis
       if (all_inputTotalBlock[i].dataset.wisBonus == "true") {
         // if ability temp mod is empty
-        if (stats_wisTempMod.textContent == "") {
+        if (stats_wisModTemp.textContent == "") {
           wisBonus = parseInt(stats_wisMod.textContent, 10 || 0);
         } else {
-          wisBonus = parseInt(stats_wisTempMod.textContent, 10 || 0);
+          wisBonus = parseInt(stats_wisModTemp.textContent, 10 || 0);
         };
       };
       // cha
       if (all_inputTotalBlock[i].dataset.chaBonus == "true") {
         // if ability temp mod is empty
-        if (stats_chaTempMod.textContent == "") {
+        if (stats_chaModTemp.textContent == "") {
           chaBonus = parseInt(stats_chaMod.textContent, 10 || 0);
         } else {
-          chaBonus = parseInt(stats_chaTempMod.textContent, 10 || 0);
+          chaBonus = parseInt(stats_chaModTemp.textContent, 10 || 0);
         };
       };
       // bab
@@ -1986,15 +1862,13 @@
   // --------------------------------------------------------------------------
 
   update_cloneBlocks();
+  read_stats();
   read_knownList();
   read_textarea();
   read_inputBlock();
-  read_skills();
-  read_stats();
   update_all_spellKnownItem();
   addListenerTo_all_spellKnownItem();
   addListenerTo_all_stats();
-  addListenerTo_all_skillInputs();
   addListenerTo_all_addSpell();
   addListenerTo_all_addSpell_input();
   addListenerTo_prepareSpell();
@@ -2007,7 +1881,6 @@
   addListenerTo_all_inputBlock();
   addListenerTo_all_cloneBlock();
   update_scoreModifiers();
-  update_skillTotal();
   update_inputBlock_focus();
   update_inputTotalBlock();
   update_consumableTotal();

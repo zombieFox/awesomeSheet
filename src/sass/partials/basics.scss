@@ -2,10 +2,9 @@
 ------------------------------------------------- */
 
 #basics {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   background-color: $secondary-color-dark;
-  border-bottom: 10px solid $secondary-color-light;
   input {
     background-color: $gray-alpha-12;
     color: $white;
@@ -23,7 +22,7 @@
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 3rem;
+        font-size: 2.8rem;
         height: 6rem;
         color: $white;
         font-family: $open-sans-light;

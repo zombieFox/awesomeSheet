@@ -601,7 +601,7 @@ button {
   border: 1px solid #464646;
   cursor: pointer;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: all 0.1s ease-in-out;
   text-decoration: none;
   display: inline-block; }
@@ -1415,7 +1415,7 @@ section {
     text-transform: uppercase;
     position: relative;
     border-left: 10px solid #ff0055;
-    border-radius: 2px; }
+    border-radius: 4px; }
   section h2 {
     background-color: #fafafa;
     padding: 0 10px;
@@ -1423,7 +1423,7 @@ section {
     line-height: 2.3rem;
     box-sizing: border-box;
     border-left: 10px solid #003c4f;
-    border-radius: 2px; }
+    border-radius: 4px; }
 
 hr {
   border: 0;
@@ -1458,8 +1458,10 @@ hr {
   .input-block .input-minus {
     float: left; }
 
-.hidable-block .hidable-toggle {
+.section-controls {
   margin: 0 0 2rem 0; }
+  .section-controls .button {
+    margin: 0 5px 5px 0; }
 
 .clone-block .clone-controls {
   margin: 2rem 0 3rem 0; }
@@ -1492,14 +1494,14 @@ hr {
       padding: 0;
       float: left;
       font-size: 1.5rem;
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       box-sizing: border-box;
       position: relative;
       transition: all 0.3s ease-in-out; }
       .clone-block.consumables .consumable-counts .check-group .check.used {
         background-color: #fafafa;
-        border-color: #e8e8e8; }
+        border-color: #fafafa; }
       .clone-block.consumables .consumable-counts .check-group .check:nth-child(1) {
         border-radius: 2px 0 0 0;
         z-index: 10; }
@@ -1557,10 +1559,9 @@ hr {
 /* basics
 ------------------------------------------------- */
 #basics {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background-color: #003242;
-  border-bottom: 10px solid #086482; }
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #003242; }
   #basics input {
     background-color: rgba(0, 0, 0, 0.09);
     color: #ffffff;
@@ -1574,7 +1575,7 @@ hr {
       margin: 0;
       padding: 0;
       border: 0;
-      font-size: 3rem;
+      font-size: 2.8rem;
       height: 6rem;
       color: #ffffff;
       font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
@@ -1616,14 +1617,14 @@ hr {
   #statistics .stat-block .stats .name {
     margin: 0; }
   #statistics .stat-block .str h2 {
-    border-radius: 2px 2px 0 0; }
+    border-radius: 4px 4px 0 0; }
   #statistics .stat-block .dex h2,
   #statistics .stat-block .con h2,
   #statistics .stat-block .int h2,
   #statistics .stat-block .wis h2 {
     border-radius: 0; }
   #statistics .stat-block .cha h2 {
-    border-radius: 0 0 2px 2px; }
+    border-radius: 0 0 4px 4px; }
 
 /* media queries
 ------------------------------------------------- */
@@ -1715,11 +1716,6 @@ hr {
         margin: 0;
         line-height: 2rem;
         height: auto; }
-
-#spells .spell-state-controls {
-  margin: 0 0 2rem 0; }
-  #spells .spell-state-controls .button {
-    margin: 0 5px 5px 0; }
 
 #spells .new-spell {
   position: relative; }
