@@ -32,17 +32,6 @@
   var stats_wisModTemp = e(".stats.wis .modifier-temp");
   var stats_chaModTemp = e(".stats.cha .modifier-temp");
 
-  var all_textareas = eA(".textarea");
-
-  var all_addSpell = eA(".add-spell");
-
-  var all_hidableBlock = eA(".hidable-block");
-
-  var all_cloneBlock = eA(".clone-block");
-
-  var currentCharacterCount;
-  var currentCharacter;
-
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -139,6 +128,37 @@
     } else if (localStorage.getItem(key)) {
       return localStorage.getItem(key);
     };
+  };
+
+  // --------------------------------------------------------------------------
+  // current character
+  // --------------------------------------------------------------------------
+
+  var currentCharacterCount;
+  var currentCharacter;
+
+  function setCharacterCount() {
+    // if there is a character count read it or set it to 1
+    if (localStoreRead("current-character-count")) {
+      currentCharacterCount = localStoreRead("current-character-count");
+    } else {
+      currentCharacterCount = 1;
+      localStoreAdd("current-character-count", currentCharacterCount);
+    };
+  };
+
+  function setCharacter() {
+    // if there is a character read it or make a new character object
+    if (localStoreRead("character-" + currentCharacterCount)) {
+      currentCharacter = JSON.parse(localStoreRead("character-" + currentCharacterCount));
+    } else {
+      currentCharacter = new Object();
+    };
+  };
+
+  function store_currentCharacter() {
+    localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
+    // console.log(currentCharacter);
   };
 
   // --------------------------------------------------------------------------
@@ -322,13 +342,14 @@
     var all_clone_count = all_clone.length;
     // advance count
     all_clone_count++;
-    // console.log("new count = " + all_clone_count);
     // log count in local storage
     if (blockToClone == ".consumables") {
-      localStoreAdd("clone-consumable-count", all_clone_count);
+      currentCharacter["clone-consumable-count"] = all_clone_count;
+      store_currentCharacter();
     };
     if (blockToClone == ".attacks") {
-      localStoreAdd("clone-attack-count", all_clone_count);
+      currentCharacter["clone-attack-count"] = all_clone_count;
+      store_currentCharacter();
     };
     // create div wrapper element
     var newNode = document.createElement("div");
@@ -582,14 +603,14 @@
     var cloneToRemove_input = cloneToRemove.querySelectorAll("input");
     // remove block
     cloneToRemove.remove();
-    // remove local storage for all inputs in clone that is being removed
+    // remove clone inputs from  current character
     for (var i = 0; i < cloneToRemove_input.length; i++) {
-      localStorage.removeItem(cloneToRemove_input[i].id);
+      delete currentCharacter[cloneToRemove_input[i].id];
+      store_currentCharacter();
     };
     // recount remaining blocks and length
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var all_clone_count = all_clone.length;
-    console.log(all_clone_count);
     // if clone count is 0 restore clone block state or start recounting and renumbering clone blocks
     if (all_clone_count == 0) {
       changeCloneState(blockToRemove);
@@ -632,21 +653,26 @@
       };
     };
     // set or remove clone counts
+    if (blockToRemove == ".consumables") {
+      currentCharacter["clone-consumable-count"] = all_clone_count;
+      store_currentCharacter();
+    };
+    if (blockToRemove == ".attacks") {
+      currentCharacter["clone-attack-count"] = all_clone_count;
+      store_currentCharacter();
+    };
+    // if count is 0 or less remove count
     if (all_clone_count <= 0) {
       if (blockToRemove == ".consumables") {
-        localStoreAdd("clone-consumable-count", "");
+        delete currentCharacter["clone-consumable-count"];
+        store_currentCharacter();
       };
       if (blockToRemove == ".attacks") {
-        localStoreAdd("clone-attack-count", "");
-      };
-    } else {
-      if (blockToRemove == ".consumables") {
-        localStoreAdd("clone-consumable-count", all_clone_count);
-      };
-      if (blockToRemove == ".attacks") {
-        localStoreAdd("clone-attack-count", all_clone_count);
+        delete currentCharacter["clone-attack-count"];
+        store_currentCharacter();
       };
     };
+    // snack bar message
     if (blockToRemove == ".consumables") {
       createSnackBar("Consumables block removed.", false, false);
     };
@@ -686,8 +712,8 @@
   };
 
   function update_cloneBlocks() {
-    var consumables_cloneCount = localStoreRead("clone-consumable-count");
-    var attacks_cloneCount = localStoreRead("clone-attack-count");
+    var consumables_cloneCount = currentCharacter["clone-consumable-count"];
+    var attacks_cloneCount = currentCharacter["clone-attack-count"];
     for (var i = 0; i < consumables_cloneCount; i++) {
       cloneBlockAdd(".consumables");
     };
@@ -701,6 +727,7 @@
   // --------------------------------------------------------------------------
 
   function addListenerTo_all_hidableBlock() {
+    var all_hidableBlock = eA(".hidable-block");
     for (var i = 0; i < all_hidableBlock.length; i++) {
       var hidableToggle = all_hidableBlock[i].querySelector(".hidable-toggle");
       hidableToggle.addEventListener("click", function() {
@@ -888,6 +915,7 @@
 
   // add listeners to add new spell button
   function addListenerTo_all_addSpell() {
+    var all_addSpell = eA(".add-spell");
     for (var i = 0; i < all_addSpell.length; i++) {
       all_addSpell[i].addEventListener("click", function() {
         addNewSpell(this);
@@ -1037,6 +1065,7 @@
 
   // add listeners to add new spell input
   function addListenerTo_all_addSpell_input() {
+    var all_addSpell = eA(".add-spell");
     for (var i = 0; i < all_addSpell.length; i++) {
       var newSpellRoot = getClosest(all_addSpell[i], ".new-spell");
       var all_addSpell_input = newSpellRoot.querySelector("input");
@@ -1184,23 +1213,23 @@
       // add to current character object
       currentCharacter["spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase()] = JSON.stringify(newSpell);
       // save to local storage
-      localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
+      store_currentCharacter();
     };
   };
 
   // read spell preparedList
   function read_knownList() {
-    // iterate over all local stored items and insert the keys that meet the condition into spellsStored
     var spellsStored = [];
-    for (var i = 0; i < localStorage.length; i++) {
-      if (localStorage.key(i).substring(0, 11) == "spell-saved") {
-        spellsStored.push(localStorage.key(i));
-      }
+    // iterate over all objects keys to file "spell-saved" then push those values to spellsStored
+    for (var i in currentCharacter) {
+      if (i.substring(0, 11) == "spell-saved") {
+        spellsStored.push(JSON.parse(currentCharacter[i]));
+      };
     };
     // read spells and add them to spell lists
     for (var i = 0; i < spellsStored.length; i++) {
       // read local storage
-      var loadedSpell = JSON.parse(localStorage.getItem(spellsStored[i]));
+      var loadedSpell = spellsStored[i];
       // find spell list to add too
       var knownListToSaveTo = e(".spells-known.spell-level-" + loadedSpell.level);
       // append new spell to spell list or assign existing spell button as newSpell
@@ -1282,7 +1311,7 @@
         // add to current character object
         currentCharacter["spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase()] = JSON.stringify(newSpell);
         // save to local storage
-        localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
+        store_currentCharacter();
         createSnackBar(newSpellName_value + " added to spell level " + level + ".", false, false);
       } else {
         createSnackBar("Can't start with a number.", false, false);
@@ -1297,28 +1326,29 @@
   // --------------------------------------------------------------------------
 
   // store textareas
-  function store_textareas(textarea) {
+  function store_textareas(element) {
     // collect all textarea classes
-    var textareaClassList = textarea.classList;
+    currentCharacter[element.id] = element.innerHTML;
     // add all textarea to storage
-    localStoreAdd(textareaClassList[1], textarea.innerHTML)
+    store_currentCharacter();
   };
 
   // read textareas
   function read_textarea() {
+    var all_textareas = eA(".textarea");
     for (var i = 0; i < all_textareas.length; i++) {
       // collect all textarea classes
-      var textareaClassList = all_textareas[i].classList;
-      // if textarea local store exists
-      if (localStoreRead(textareaClassList[1])) {
-        // search for textarea class and add innerhtml from local storage
-        e("." + textareaClassList[1]).innerHTML = localStoreRead(textareaClassList[1]);
+      var textareaId = all_textareas[i].id;
+      // if inputBlock local store exists
+      if (currentCharacter[textareaId]) {
+        e("#" + textareaId).innerHTML = currentCharacter[textareaId];
       };
     };
   };
 
   // add listeners to textareas
   function addListenerTo_all_textareas() {
+    var all_textareas = eA(".textarea");
     for (var i = 0; i < all_textareas.length; i++) {
       all_textareas[i].addEventListener("input", function() {
         store_textareas(this);
@@ -1345,15 +1375,6 @@
         removeClass(inputLabel, "input-label-focus");
       };
     };
-    // if (inputBlockRoot.querySelector(".input-label")) {
-    //   if (inputField.value !== "") {
-    //     addClass(inputLabel, "input-label-focus");
-    //   } else if (inputField !== document.activeElement) {
-    //     removeClass(inputLabel, "input-label-focus");
-    //   } else {
-    //     addClass(inputLabel, "input-label-focus");
-    //   };
-    // };
   };
 
   // update input totals
@@ -1594,46 +1615,12 @@
     };
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-  function setCharacterCount() {
-    // if there is a character count read it or set it to 1
-    if (localStoreRead("current-character-count")) {
-      currentCharacterCount = localStoreRead("current-character-count");
-    } else {
-      currentCharacterCount = 1;
-      localStoreAdd("current-character-count", currentCharacterCount);
-    };
-  };
-
-
-  function setCharacter() {
-    // if there is a character read it or make a new character object
-    if (localStoreRead("character-" + currentCharacterCount)) {
-      currentCharacter = JSON.parse(localStoreRead("character-" + currentCharacterCount));
-    } else {
-      currentCharacter = new Object();
-    };
-  };
-
-
   // store inputBlock
   function store_inputBlock(element) {
     // add to current character object
     currentCharacter[element.id] = element.value;
     // save to local storage
-    localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
-    console.log(currentCharacter);
+    store_currentCharacter();
   };
 
   // remove inputBlock
@@ -1652,7 +1639,6 @@
       var inputBlockId = all_inputBlock[i].querySelector(".input-field").id;
       // if inputBlock local store exists
       if (currentCharacter[inputBlockId]) {
-        console.log(currentCharacter[inputBlockId]);
         e("#" + inputBlockId).value = currentCharacter[inputBlockId];
       };
     };
@@ -1728,7 +1714,6 @@
     var autoClearSnackBar = function() {
       // if the snack bar hasn't been dismised or undone
       if (snackBar) {
-        // console.log("clearing");
         clearSnackBar(snackBar);
       };
     };
