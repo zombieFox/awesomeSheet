@@ -40,6 +40,9 @@
 
   var all_cloneBlock = eA(".clone-block");
 
+  var currentCharacterCount;
+  var currentCharacter;
+
   // --------------------------------------------------------------------------
   // helper functions
   // --------------------------------------------------------------------------
@@ -1134,7 +1137,7 @@
       var spellNameConverted = spellName.replace(/\s+/g, "-").toLowerCase();
       localStoreRemove("spell-saved-" + spellNameConverted);
       spell.remove();
-      createSnackBar(spellNameText + " Removed.", false, false);
+      createSnackBar(spellNameText + " removed.", false, false);
     };
   };
 
@@ -1178,7 +1181,10 @@
         active = false;
       };
       var newSpell = new spell(name, level, prepared, active, cast);
-      localStoreAdd("spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase(), JSON.stringify(newSpell));
+      // add to current character object
+      currentCharacter["spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase()] = JSON.stringify(newSpell);
+      // save to local storage
+      localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
     };
   };
 
@@ -1273,8 +1279,10 @@
         newSpellName.value = "";
         // make spell object
         var newSpell = new spell(newSpellName_value, parseInt(level, 10), 0, false, 0);
-        // store spell in local storage
-        localStoreAdd("spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase(), JSON.stringify(newSpell));
+        // add to current character object
+        currentCharacter["spell-saved-" + newSpell.name.replace(/\s+/g, "-").toLowerCase()] = JSON.stringify(newSpell);
+        // save to local storage
+        localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
         createSnackBar(newSpellName_value + " added to spell level " + level + ".", false, false);
       } else {
         createSnackBar("Can't start with a number.", false, false);
@@ -1569,26 +1577,63 @@
         inputBlock_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
+        // store_inputBlock_toObject(this);
       }, false);
       inputLabel.addEventListener("focus", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
+        // store_inputBlock_toObject(this);
       }, false);
       inputLabel.addEventListener("blur", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
+        // store_inputBlock_toObject(this);
       }, false);
     };
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+  function setCharacterCount() {
+    // if there is a character count read it or set it to 1
+    if (localStoreRead("current-character-count")) {
+      currentCharacterCount = localStoreRead("current-character-count");
+    } else {
+      currentCharacterCount = 1;
+      localStoreAdd("current-character-count", currentCharacterCount);
+    };
+  };
+
+
+  function setCharacter() {
+    // if there is a character read it or make a new character object
+    if (localStoreRead("character-" + currentCharacterCount)) {
+      currentCharacter = JSON.parse(localStoreRead("character-" + currentCharacterCount));
+    } else {
+      currentCharacter = new Object();
+    };
+  };
+
+
   // store inputBlock
   function store_inputBlock(element) {
-    // collect all inputBlock classes
-    var inputBlockId = element.id;
-    // add all inputBlock to storage
-    localStoreAdd(inputBlockId, element.value);
+    // add to current character object
+    currentCharacter[element.id] = element.value;
+    // save to local storage
+    localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
+    console.log(currentCharacter);
   };
 
   // remove inputBlock
@@ -1606,9 +1651,9 @@
       // collect all inputBlock classes
       var inputBlockId = all_inputBlock[i].querySelector(".input-field").id;
       // if inputBlock local store exists
-      if (localStoreRead(inputBlockId)) {
-        // search for inputBlock class and add innerhtml from local storage
-        e("#" + inputBlockId).value = localStoreRead(inputBlockId);
+      if (currentCharacter[inputBlockId]) {
+        console.log(currentCharacter[inputBlockId]);
+        e("#" + inputBlockId).value = currentCharacter[inputBlockId];
       };
     };
   };
@@ -1861,6 +1906,8 @@
   // run on page load
   // --------------------------------------------------------------------------
 
+  setCharacterCount();
+  setCharacter();
   update_cloneBlocks();
   read_stats();
   read_knownList();
