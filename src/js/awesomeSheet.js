@@ -148,17 +148,32 @@
   };
 
   function setCharacter() {
-    // if there is a character read it or make a new character object
+    // if there is a character in local storage read it or use an external js file
     if (localStoreRead("character-" + currentCharacterCount)) {
       currentCharacter = JSON.parse(localStoreRead("character-" + currentCharacterCount));
     } else {
-      currentCharacter = new Object();
+      // currentCharacter = new Object();
+      currentCharacter = nif;
+    };
+  };
+
+  function read_inputAndTextarea() {
+    // iterate over the character object and find id for element and populate the value
+    for (var i in currentCharacter) {
+      if (i.substring(0, 8) == "textarea") {
+        e("#" + i).innerHTML = currentCharacter[i];
+      };
+    };
+    for (var i in currentCharacter) {
+      if (i.substring(0, 5) == "input") {
+        e("#" + i).value = currentCharacter[i];
+      };
     };
   };
 
   function store_currentCharacter() {
     localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
-    // console.log(currentCharacter);
+    console.log(currentCharacter);
   };
 
   // --------------------------------------------------------------------------
@@ -603,10 +618,12 @@
     var cloneToRemove_input = cloneToRemove.querySelectorAll("input");
     // remove block
     cloneToRemove.remove();
-    // remove clone inputs from  current character
+    // remove clone inputs from current character
     for (var i = 0; i < cloneToRemove_input.length; i++) {
-      delete currentCharacter[cloneToRemove_input[i].id];
-      store_currentCharacter();
+      // if (currentCharacter[cloneToRemove_input[i].id]) {
+        delete currentCharacter[cloneToRemove_input[i].id];
+        store_currentCharacter();
+      // };
     };
     // recount remaining blocks and length
     var all_clone = cloneTarget.querySelectorAll(".clone");
@@ -711,7 +728,7 @@
     };
   };
 
-  function update_cloneBlocks() {
+  function read_cloneBlocks() {
     var consumables_cloneCount = currentCharacter["clone-consumable-count"];
     var attacks_cloneCount = currentCharacter["clone-attack-count"];
     for (var i = 0; i < consumables_cloneCount; i++) {
@@ -1218,7 +1235,7 @@
   };
 
   // read spell preparedList
-  function read_knownList() {
+  function read_spells() {
     var spellsStored = [];
     // iterate over all objects keys to file "spell-saved" then push those values to spellsStored
     for (var i in currentCharacter) {
@@ -1353,6 +1370,12 @@
       all_textareas[i].addEventListener("input", function() {
         store_textareas(this);
       }, false);
+      all_textareas[i].addEventListener("focus", function() {
+        store_textareas(this);
+      }, false);
+      all_textareas[i].addEventListener("blur", function() {
+        store_textareas(this);
+      }, false);
     };
   };
 
@@ -1360,7 +1383,7 @@
   // input blocks
   // --------------------------------------------------------------------------
 
-  // move label down when input has a value
+  // add class to label when input is in focus
   function inputBlock_focus(element) {
     var inputBlockRoot = element.parentNode;
     var inputField = inputBlockRoot.querySelector(".input-field");
@@ -1570,25 +1593,6 @@
     };
   };
 
-  // check and move label down when input has a value
-  function update_inputBlock_focus() {
-    var all_inputBlock = eA(".input-block");
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var inputBlockRoot = all_inputBlock[i];
-      var inputField = inputBlockRoot.querySelector(".input-field");
-      if (inputBlockRoot.querySelector(".input-label")) {
-        var inputLabel = inputBlockRoot.querySelector(".input-label");
-      };
-      if (inputBlockRoot.querySelector(".input-label")) {
-        if (inputField == document.activeElement) {
-          addClass(inputLabel, "input-label-focus");
-        } else {
-          removeClass(inputLabel, "input-label-focus");
-        };
-      };
-    };
-  };
-
   // add listeners to inputBlock
   function addListenerTo_all_inputBlock() {
     var all_inputBlock = eA(".input-block");
@@ -1598,19 +1602,16 @@
         inputBlock_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
-        // store_inputBlock_toObject(this);
       }, false);
       inputLabel.addEventListener("focus", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
-        // store_inputBlock_toObject(this);
       }, false);
       inputLabel.addEventListener("blur", function() {
         inputBlock_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
-        // store_inputBlock_toObject(this);
       }, false);
     };
   };
@@ -1893,12 +1894,17 @@
 
   setCharacterCount();
   setCharacter();
-  update_cloneBlocks();
+  read_cloneBlocks();
+  read_inputAndTextarea();
   read_stats();
-  read_knownList();
+  read_spells();
   read_textarea();
   read_inputBlock();
   update_all_spellKnownItem();
+  update_scoreModifiers();
+  update_inputTotalBlock();
+  update_consumableTotal();
+  update_consumableUsed();
   addListenerTo_all_spellKnownItem();
   addListenerTo_all_stats();
   addListenerTo_all_addSpell();
@@ -1912,10 +1918,5 @@
   addListenerTo_all_textareas();
   addListenerTo_all_inputBlock();
   addListenerTo_all_cloneBlock();
-  update_scoreModifiers();
-  update_inputBlock_focus();
-  update_inputTotalBlock();
-  update_consumableTotal();
-  update_consumableUsed();
 
 })();
