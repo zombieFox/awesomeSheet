@@ -173,7 +173,7 @@
 
   function store_currentCharacter() {
     localStoreAdd("character-" + currentCharacterCount, JSON.stringify(currentCharacter));
-    console.log(currentCharacter);
+    // console.log(currentCharacter);
   };
 
   // --------------------------------------------------------------------------
