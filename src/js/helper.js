@@ -1,31 +1,30 @@
 var helper = (function() {
 
-  // get element by class or id
+  // methods on this object 
   function e(selector) {
     return document.querySelector(selector);
   };
 
-  // get all elements by class or id
   function eA(selector) {
     return document.querySelectorAll(selector);
   };
 
-  // toggle class
   function toggleClass(element, theClassName) {
     element.classList.toggle(theClassName);
   };
 
-  // add class
   function addClass(element, theClassName) {
     element.classList.add(theClassName);
   };
 
-  // remove class
   function removeClass(element, theClassName) {
     element.classList.remove(theClassName);
   };
 
-  // get parent element
+  function delayFunction(functionToDelay, time) {
+    window.setTimeout(functionToDelay, time);
+  };
+
   function getClosest(element, selector) {
     var firstChar = selector.charAt(0);
     // Get closest match
@@ -56,17 +55,7 @@ var helper = (function() {
     return false;
   };
 
-  // check value
-  function checkValue(element) {
-    var value = parseInt(element.value, 10) || 0;
-    return value;
-  };
-
-  // delay function
-  function delayFunction(functionToDelay, time) {
-    window.setTimeout(functionToDelay, time);
-  };
-
+  // exposed methods
   return {
     e: e,
     eA: eA,
@@ -74,7 +63,6 @@ var helper = (function() {
     addClass: addClass,
     removeClass: removeClass,
     getClosest: getClosest,
-    checkValue: checkValue,
     delayFunction: delayFunction
   };
 
