@@ -80,7 +80,7 @@ var nif = (function() {
       skill_use_magic_device_ranks: "6",
       weapon_1: "Dagger MW",
       attack_1: "3",
-      damage_1: "1d6_1",
+      damage_1: "1d6+1",
       critical_1: "19–20/×2",
       ammo_1: "_",
       range_1: "_",

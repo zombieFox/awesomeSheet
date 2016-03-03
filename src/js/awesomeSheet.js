@@ -220,10 +220,12 @@
     all_clone_count++;
     // log count in local storage
     if (blockToClone == ".consumables") {
-      sheet.currentCharacter["clone-consumable-count"] = all_clone_count;
+      sheet.currentCharacter.clone["consumable_count"] = all_clone_count;
+      sheet.store_character();
     };
     if (blockToClone == ".attacks") {
-      sheet.currentCharacter["clone-attack-count"] = all_clone_count;
+      sheet.currentCharacter.clone["attack_count"] = all_clone_count;
+      sheet.store_character();
     };
     // create div wrapper element
     var newNode = document.createElement("div");
@@ -320,13 +322,13 @@
     function addListenerTo_newNode_input_focus(element) {
       if (element) {
         element.addEventListener("input", function() {
-          inputBlock_focus(element);
+          inputBlock.input_focus(element);
         }, false);
         element.addEventListener("focus", function() {
-          inputBlock_focus(element);
+          inputBlock.input_focus(element);
         }, false);
         element.addEventListener("blur", function() {
-          inputBlock_focus(element);
+          inputBlock.input_focus(element);
         }, false);
       };
     };
@@ -529,18 +531,22 @@
     };
     // set or remove clone counts
     if (blockToRemove == ".consumables") {
-      sheet.currentCharacter["clone-consumable-count"] = all_clone_count;
+      sheet.currentCharacter.clone["consumable_count"] = all_clone_count;
+      sheet.store_character();
     };
     if (blockToRemove == ".attacks") {
-      sheet.currentCharacter["clone-attack-count"] = all_clone_count;
+      sheet.currentCharacter.clone["attack_count"] = all_clone_count;
+      sheet.store_character();
     };
     // if count is 0 or less remove count
     if (all_clone_count <= 0) {
       if (blockToRemove == ".consumables") {
-        delete sheet.currentCharacter["clone-consumable-count"];
+        delete sheet.currentCharacter.clone["consumable_count"];
+        sheet.store_character();
       };
       if (blockToRemove == ".attacks") {
-        delete sheet.currentCharacter["clone-attack-count"];
+        delete sheet.currentCharacter.clone["attack_count"];
+        sheet.store_character();
       };
     };
     // snack bar message
@@ -583,8 +589,8 @@
   };
 
   function read_cloneBlocks() {
-    var consumables_cloneCount = sheet.currentCharacter.clone.consumable_count;
-    var attacks_cloneCount = sheet.currentCharacter.clone.attack_count;
+    var consumables_cloneCount = sheet.currentCharacter.clone["consumable_count"];
+    var attacks_cloneCount = sheet.currentCharacter.clone["attack_count"];
     for (var i = 0; i < consumables_cloneCount; i++) {
       cloneBlockAdd(".consumables");
     };
@@ -1445,17 +1451,17 @@
     for (var i = 0; i < all_inputBlock.length; i++) {
       var inputLabel = all_inputBlock[i].querySelector(".input-field");
       inputLabel.addEventListener("input", function() {
-        inputBlock_focus(this);
+        inputBlock.input_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
       }, false);
       inputLabel.addEventListener("focus", function() {
-        inputBlock_focus(this);
+        inputBlock.input_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
       }, false);
       inputLabel.addEventListener("blur", function() {
-        inputBlock_focus(this);
+        inputBlock.input_focus(this);
         store_inputBlock(this);
         update_inputTotalBlock();
       }, false);
@@ -1465,7 +1471,7 @@
   // store inputBlock
   function store_inputBlock(element) {
     // add to current character object
-    sheet.currentCharacter[element.id] = element.value;
+    // sheet.currentCharacter[element.id] = element.value;
   };
 
   // remove inputBlock
@@ -1512,7 +1518,7 @@
   read_stats();
   read_spells();
   read_textarea();
-  read_inputBlock();
+  // read_inputBlock();
   update_all_spellKnownItem();
   update_scoreModifiers();
   update_inputTotalBlock();
@@ -1529,7 +1535,7 @@
   addListenerTo_removeSpell();
   addListenerTo_all_hidableBlock();
   addListenerTo_all_textareas();
-  addListenerTo_all_inputBlock();
+  // addListenerTo_all_inputBlock();
   addListenerTo_all_cloneBlock();
 
 })();

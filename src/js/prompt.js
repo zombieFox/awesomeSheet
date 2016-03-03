@@ -52,7 +52,7 @@ var prompt = (function() {
         helper.addClass(promptShade, "reveal");
       };
       helper.delayFunction(_reveal_prompt, 10);
-      addListenerTo_prompt(confirmAction);
+      _addListenerTo_prompt(confirmAction);
     };
   };
 
@@ -72,7 +72,7 @@ var prompt = (function() {
     };
   };
 
-  function addListenerTo_prompt(confirmAction) {
+  function _addListenerTo_prompt(confirmAction) {
     var promptShade = helper.e(".prompt-shade");
     var promptModal = helper.e(".prompt-modal");
     var promptAction = helper.e(".prompt-modal .prompt-action");
@@ -90,6 +90,7 @@ var prompt = (function() {
     };
   };
 
+  // exposed methods
   return {
     render: render,
     destroy: destroy

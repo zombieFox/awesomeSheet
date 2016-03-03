@@ -9,7 +9,7 @@ var sheet = (function() {
       currentCharacter = JSON.parse(read("character"));
     } else {
       currentCharacter = nif;
-      store("character", JSON.stringify(currentCharacter));
+      store_character();
     };
   };
 
@@ -24,6 +24,11 @@ var sheet = (function() {
       var id = "#" + "textarea-" + i.replace(/_/g, '-');
       helper.e(id).innerHTML = currentCharacter.textarea[i];
     };
+  };
+
+  function store_character() {
+    store("character", JSON.stringify(currentCharacter));
+    console.log(currentCharacter);
   };
 
   function store(key, data) {
@@ -54,13 +59,15 @@ var sheet = (function() {
 
   setCharacter();
 
+  // exposed methods
   return {
+    currentCharacter: currentCharacter,
     destroy: destroy,
     store: store,
     remove: remove,
     read: read,
     update: update,
-    currentCharacter: currentCharacter
+    store_character: store_character
   };
 
 })();
