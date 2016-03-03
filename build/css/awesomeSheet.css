@@ -870,7 +870,7 @@ a {
   a:active {
     color: #ff3276; }
 
-.textarea,
+.textarea-block,
 textarea {
   background-color: rgba(0, 70, 130, 0.05);
   padding: 10px 15px;
@@ -882,10 +882,10 @@ textarea {
   box-sizing: border-box;
   transition: border 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
   resize: vertical; }
-  .textarea:hover,
+  .textarea-block:hover,
   textarea:hover {
     border-color: #ff0055; }
-  .textarea:focus,
+  .textarea-block:focus,
   textarea:focus {
     border-color: #ff0055;
     outline: 0; }
@@ -1569,6 +1569,7 @@ hr {
     #basics input:hover, #basics input:focus {
       border-color: #ff0055; }
   #basics .awesome-name {
+    background-color: rgba(0, 0, 0, 0.09);
     padding: 0 30px;
     margin: 0 0 60px 0; }
     #basics .awesome-name .input-block .input-field {
