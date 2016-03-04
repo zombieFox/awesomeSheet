@@ -28,17 +28,17 @@ var inputBlock = (function() {
       input.addEventListener("input", function() {
         _store(this);
         focus(this);
-        totalBlock.total();
+        totalBlock.render();
       }, false);
       input.addEventListener("focus", function() {
         _store(this);
         focus(this);
-        totalBlock.total();
+        totalBlock.render();
       }, false);
       input.addEventListener("blur", function() {
         _store(this);
         focus(this);
-        totalBlock.total();
+        totalBlock.render();
       }, false);
     };
   };
