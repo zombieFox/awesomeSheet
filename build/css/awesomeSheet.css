@@ -1407,7 +1407,7 @@ body {
 section {
   position: relative;
   z-index: 1000;
-  padding: 60px 0 20px 0; }
+  padding: 0 0 1rem 0; }
   section h1 {
     padding: 10px 20px;
     background-color: #003c4f;
@@ -1428,7 +1428,7 @@ section {
 hr {
   border: 0;
   border-top: 2px solid #003c4f;
-  margin: 1rem 0 3rem 0;
+  margin: -2rem 0 2rem 0;
   clear: both; }
 
 .input-block {
@@ -1480,15 +1480,15 @@ hr {
     overflow: hidden;
     transition: all 0.3s ease-in-out; }
 
-.clone-block.consumables .consumable-counts {
+.clone-block.consumable .consumable-counts {
   margin: -15px 0 10px 0; }
-  .clone-block.consumables .consumable-counts .check-group {
+  .clone-block.consumable .consumable-counts .check-group {
     margin: 0 5px 5px 0;
     float: left;
     position: relative;
     transition: all 0.3s ease-in-out; }
-    .clone-block.consumables .consumable-counts .check-group .check {
-      background-color: #ff3276;
+    .clone-block.consumable .consumable-counts .check-group .check {
+      background-color: #ff0055;
       border: 1px solid #cc0044;
       margin: 0 -1px -1px 0;
       padding: 0;
@@ -1499,32 +1499,32 @@ hr {
       box-sizing: border-box;
       position: relative;
       transition: all 0.3s ease-in-out; }
-      .clone-block.consumables .consumable-counts .check-group .check.used {
+      .clone-block.consumable .consumable-counts .check-group .check.used {
         background-color: #fafafa;
         border-color: #fafafa; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(1) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(1) {
         border-radius: 2px 0 0 0;
         z-index: 10; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(2) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(2) {
         z-index: 9; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(3) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(3) {
         z-index: 8; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(4) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(4) {
         z-index: 7; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(5) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(5) {
         border-radius: 0 2px 0 0;
         z-index: 6; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(6) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(6) {
         border-radius: 0 0 0 2px;
         clear: left;
         z-index: 5; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(7) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(7) {
         z-index: 4; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(8) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(8) {
         z-index: 3; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(9) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(9) {
         z-index: 2; }
-      .clone-block.consumables .consumable-counts .check-group .check:nth-child(10) {
+      .clone-block.consumable .consumable-counts .check-group .check:nth-child(10) {
         border-radius: 0 0 2px 0;
         z-index: 1; }
 
@@ -1559,8 +1559,8 @@ hr {
 /* basics
 ------------------------------------------------- */
 #basics {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 70px 0 30px;
+  margin: 0 0 3rem 0;
   background-color: #003242; }
   #basics input {
     background-color: rgba(0, 0, 0, 0.09);
@@ -1571,17 +1571,17 @@ hr {
   #basics .awesome-name {
     background-color: rgba(0, 0, 0, 0.09);
     padding: 0 30px;
-    margin: 0 0 60px 0; }
+    margin: 0 0 2rem 0; }
     #basics .awesome-name .input-block .input-field {
       background-color: transparent;
       margin: 0;
       padding: 0;
       border: 0;
-      font-size: 2.8rem;
-      height: 6rem;
+      font-size: 2rem;
+      height: 4rem;
       color: #ffffff;
       font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
-      line-height: 6rem;
+      line-height: 4rem;
       position: relative;
       z-index: 1; }
   #basics ::-webkit-input-placeholder {

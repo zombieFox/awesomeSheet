@@ -5,7 +5,7 @@ var spells = (function() {
     for (var i = 0; i < all_addSpell.length; i++) {
       all_addSpell[i].addEventListener("click", function() {
         _addNewSpell(this);
-        _updateSpellsKnown();
+        _updateSpells();
         sheet.storeCharacter();
       }, false);
     };
@@ -14,7 +14,7 @@ var spells = (function() {
       var all_addSpell_input = newSpellRoot.querySelector("input");
       all_addSpell_input.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
-        _updateSpellsKnown();
+        _updateSpells();
         sheet.storeCharacter();
       }, false);
     };
@@ -123,7 +123,7 @@ var spells = (function() {
       spell.remove();
       snack.render(spellNameText + " removed.", false, false);
     };
-    _updateSpellsKnown();
+    _updateSpells();
   };
 
   function _addNewSpell(element) {
@@ -140,7 +140,7 @@ var spells = (function() {
         // clear input field
         element.value = "";
         // add spell to current character object
-        sheet.currentCharacter.spells_known.push(newSpell);
+        sheet.currentCharacter.spells.push(newSpell);
         // make a snack bar
         snack.render(spallName + " added to spell level " + level + ".", false, false);
       } else {
@@ -259,7 +259,6 @@ var spells = (function() {
   function _render_spell(array) {
     // read spells and add them to spell lists
     for (var i = 0; i < array.length; i++) {
-      // read local storage
       var spellObject = array[i];
       // find spell list to add too
       var knownListToSaveTo = helper.e(".spells-known.spell-level-" + spellObject.level);
@@ -335,9 +334,9 @@ var spells = (function() {
     };
   };
 
-  function _updateSpellsKnown() {
+  function _updateSpells() {
     var all_spellKnownItems = helper.eA(".spell-known-item");
-    var spells_known = [];
+    var spells = [];
     for (var i = 0; i < all_spellKnownItems.length; i++) {
       var name = all_spellKnownItems[i].textContent;
       var level = parseInt(helper.getClosest(all_spellKnownItems[i], ".spell-level").dataset.spellLevel, 10) || 0;
@@ -351,17 +350,19 @@ var spells = (function() {
       };
       var newSpell = new _createSpellObject(name, level, prepared, active, cast);
       // add to current character object
-      spells_known.push(newSpell);
+      spells.push(newSpell);
     };
-    sheet.currentCharacter.spells_known = spells_known;
+    sheet.currentCharacter.spells = spells;
   };
 
   function render() {
     // build an array of spell objects
     var all_spells = [];
-    // iterate over all objects keys to file "spell-saved" then push those values to all_spells
-    for (var i in sheet.currentCharacter.spells_known) {
-      all_spells.push(sheet.currentCharacter.spells_known[i]);
+    // iterate over all objects keys to find spells then push those values to all_spells
+    if (sheet.currentCharacter.spells) {
+      for (var i in sheet.currentCharacter.spells) {
+        all_spells.push(sheet.currentCharacter.spells[i]);
+      };
     };
     _render_spell(all_spells);
   };

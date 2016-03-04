@@ -1,19 +1,35 @@
 var sheet = (function() {
 
-  var currentCharacter;
+  var currentCharacter = {
+    clone: {},
+    input: {},
+    textarea: {},
+    spells: []
+  };
 
   var setCharacter = (function() {
     // if there is a character in local storage read it or use an external js file
+    if (typeof savedCharacterObject !== "undefined") {
+      // found hard coded character, setting currentCharacter as it
+      currentCharacter = savedCharacterObject;
+    };
     if (read("character")) {
+      // found local stored character, setting currentCharacter as it
       currentCharacter = JSON.parse(read("character"));
-    } else {
-      currentCharacter = character;
     };
   })();
 
+  // var saveAllCharacters = (function() {
+  //   var count = 1;
+  //   for (var i = 0; i < characters.load.length; i++) {
+  //     store("character-" + count, JSON.stringify(characters.load[i]));
+  //     count++;
+  //   };
+  // })();
+
   function storeCharacter() {
     store("character", JSON.stringify(currentCharacter));
-    console.log(currentCharacter);
+    // console.log(currentCharacter);
   };
 
   function store(key, data) {

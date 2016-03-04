@@ -19,9 +19,17 @@ var sheet = (function() {
     };
   })();
 
+  // var saveAllCharacters = (function() {
+  //   var count = 1;
+  //   for (var i = 0; i < characters.load.length; i++) {
+  //     store("character-" + count, JSON.stringify(characters.load[i]));
+  //     count++;
+  //   };
+  // })();
+
   function storeCharacter() {
     store("character", JSON.stringify(currentCharacter));
-    console.log(currentCharacter);
+    // console.log(currentCharacter);
   };
 
   function store(key, data) {
