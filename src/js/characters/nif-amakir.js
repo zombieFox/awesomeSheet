@@ -2,23 +2,14 @@ var savedCharacterObject = (function() {
 
   return {
     clone: {
-      attack_count: 1,
-      consumable_count: 3,
-      weapon_1: "Dagger MW",
-      attack_1: "3",
-      damage_1: "1d6+1",
-      critical_1: "19–20/×2",
-      ammo_1: "_",
-      range_1: "_",
-      consumable_1: "Wand of Infernal Healing",
-      consumable_total_1: "50",
-      consumable_used_1: "48",
-      consumable_2: "Wand of Lightning Bolt",
-      consumable_total_2: "50",
-      consumable_used_2: "38",
-      consumable_3: "Shift",
-      consumable_total_3: "9",
-      consumable_used_3: "",
+      attack: [
+        { weapon: "Dagger MW", attack: "3", damage: "1d6+1", critical: "19–20/×2", ammo: "-", range: "-" },
+        { weapon: "Machine Gun", attack: "43", damage: "100d6+1", critical: "13–20/×4", ammo: "1000", range: "200ft" },
+      ],
+      consumable: [
+        { item: "Wand of Infernal Healing", total: "100", used: "30" },
+        { item: "Wand of Death", total: "30", used: "3" }
+      ]
     },
     input: {
       name: "Nif Amakir",

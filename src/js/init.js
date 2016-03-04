@@ -1,7 +1,6 @@
 (function() {
 
   nav.bind();
-  sheet.storeCharacter();
   clone.render();
   inputBlock.bind(helper.eA(".input-block"));
   inputBlock.render();

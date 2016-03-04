@@ -24,31 +24,33 @@ var inputBlock = (function() {
 
   function bind(array) {
     for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".input-field");
-      input.addEventListener("input", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
-      input.addEventListener("focus", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
-      input.addEventListener("blur", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
+      if (array[i].dataset.inputStore) {
+        var input = array[i].querySelector(".input-field");
+        input.addEventListener("input", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+        input.addEventListener("focus", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+        input.addEventListener("blur", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+      };
     };
   };
 
   function render() {
     if (sheet.currentCharacter.input) {
       for (var i in sheet.currentCharacter.input) {
-        // console.log(sheet.currentCharacter.input[i]);
-        var id = "#" + "input-" + i.replace(/_/g, "-");
+        var id = "#input-" + i.replace(/_/g, "-");
         helper.e(id).value = sheet.currentCharacter.input[i];
+        // console.log(sheet.currentCharacter.input[i]);
       };
     };
   };

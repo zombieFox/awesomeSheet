@@ -21,7 +21,7 @@ var sheet = (function() {
 
   function storeCharacter() {
     store("character", JSON.stringify(currentCharacter));
-    // console.log(currentCharacter);
+    console.log(currentCharacter);
   };
 
   function store(key, data) {
