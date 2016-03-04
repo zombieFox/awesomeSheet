@@ -159,7 +159,7 @@ module.exports = function(grunt) {
         options: {
           port: 9999,
           base: '<%= folders.dev %>',
-          hostname: 'localhost',
+          hostname: '0.0.0.0',
           livereload: 35729,
           open: {
             target: 'http://localhost:9999'
