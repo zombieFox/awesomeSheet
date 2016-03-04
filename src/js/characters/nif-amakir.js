@@ -3,12 +3,13 @@ var savedCharacterObject = (function() {
   return {
     clone: {
       attack: [
-        { weapon: "Dagger MW", attack: "3", damage: "1d6+1", critical: "19–20/×2", ammo: "-", range: "-" },
-        { weapon: "Machine Gun", attack: "43", damage: "100d6+1", critical: "13–20/×4", ammo: "1000", range: "200ft" },
+        { weapon: "Dagger (Master Work)", attack: "3", damage: "1d6+1", critical: "19–20/x2", ammo: "-", range: "-" },
+        { weapon: "Shortbow", attack: "6", damage: "1d6", critical: "x3", ammo: "50", range: "60 ft" }
       ],
       consumable: [
-        { item: "Wand of Infernal Healing", total: "100", used: "30" },
-        { item: "Wand of Death", total: "30", used: "3" }
+        { item: "Wand of Infernal Healing", total: "50", used: "48" },
+        { item: "Wand of Lightning Bolt", total: "50", used: "38" },
+        { item: "Shift", total: "9", used: "" }
       ]
     },
     input: {

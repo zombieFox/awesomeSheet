@@ -7,7 +7,7 @@ var inputBlock = (function() {
   };
 
   function focus(element) {
-    var inputBlockRoot = element.parentNode;
+    var inputBlockRoot = helper.getClosest(element, ".input-block");
     var inputField = inputBlockRoot.querySelector(".input-field");
     var inputLabel;
     if (inputBlockRoot.querySelector(".input-label")) {
