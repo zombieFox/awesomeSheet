@@ -1,6 +1,6 @@
 var totalBlock = (function() {
 
-  function total() {
+  function render() {
     var stats_strMod = helper.e(".stats.str .modifier");
     var stats_dexMod = helper.e(".stats.dex .modifier");
     var stats_conMod = helper.e(".stats.con .modifier");
@@ -206,7 +206,7 @@ var totalBlock = (function() {
 
   // exposed methods
   return {
-    total: total
+    render: render
   };
 
 })();

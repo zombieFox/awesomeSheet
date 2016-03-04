@@ -7,7 +7,7 @@ var sheet = (function() {
     if (read("character")) {
       currentCharacter = JSON.parse(read("character"));
     } else {
-      currentCharacter = nif;
+      currentCharacter = character;
     };
   })();
 
