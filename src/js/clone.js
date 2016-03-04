@@ -1,26 +1,26 @@
 var clone = (function() {
 
-  // add listners to all clone block controls
-  function addListenerTo_all_cloneBlock() {
+
+  var _bind_cloneControls = (function() {
     var consumablesCloneAdd = helper.e(".consumables .clone-add");
     var consumablesCloneRemove = helper.e(".consumables .clone-remove");
     var attacksCloneAdd = helper.e(".attacks .clone-add");
     var attacksCloneRemove = helper.e(".attacks .clone-remove");
     consumablesCloneAdd.addEventListener("click", function() {
-      _render_clone(".consumables");
+      _render_clone("consumables");
       snack.render("Consumables block added.", false, false);
     }, false);
     consumablesCloneRemove.addEventListener("click", function() {
-      changeCloneState(".consumables");
+      changeCloneState("consumables");
     }, false);
     attacksCloneAdd.addEventListener("click", function() {
-      _render_clone(".attacks");
+      _render_clone("attacks");
       snack.render("Attack block added.", false, false);
     }, false);
     attacksCloneRemove.addEventListener("click", function() {
-      changeCloneState(".attacks");
+      changeCloneState("attacks");
     }, false);
-  };
+  })();
 
   function cloneBlockRemove(element, cloneType) {
     var cloneBlock = helper.getClosest(element, ".clone-block");
@@ -109,7 +109,7 @@ var clone = (function() {
   };
 
   function changeCloneState(cloneType) {
-    var cloneBlock = helper.e(cloneType);
+    var cloneBlock = helper.e("." + cloneType);
     var cloneControls = cloneBlock.querySelector(".clone-controls");
     var cloneRemove = cloneControls.querySelector(".clone-remove");
     var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
