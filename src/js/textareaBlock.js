@@ -22,9 +22,11 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    for (var i in sheet.currentCharacter.textarea) {
-      var id = "#" + "textarea-" + i.replace(/_/g, '-');
-      helper.e(id).innerHTML = sheet.currentCharacter.textarea[i];
+    if (sheet.currentCharacter.textarea) {
+      for (var i in sheet.currentCharacter.textarea) {
+        var id = "#" + "textarea-" + i.replace(/_/g, '-');
+        helper.e(id).innerHTML = sheet.currentCharacter.textarea[i];
+      };
     };
   };
 

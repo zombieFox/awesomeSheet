@@ -1,6 +1,5 @@
 var clone = (function() {
 
-
   var _bind_cloneControls = (function() {
     var consumablesCloneAdd = helper.e(".consumables .clone-add");
     var consumablesCloneRemove = helper.e(".consumables .clone-remove");
@@ -141,21 +140,21 @@ var clone = (function() {
   // clone a block where needed
   function _render_clone(cloneType) {
     var cloneBlock = helper.e("." + cloneType);
-    var cloneControls = cloneBlock.querySelector(".clone-controls");
+    // var cloneControls = cloneBlock.querySelector(".clone-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var all_clone_count = all_clone.length;
     // advance count
     all_clone_count++;
     // log count in local storage
-    if (cloneType == "consumables") {
-      sheet.currentCharacter.clone["consumable_count"] = all_clone_count;
-      sheet.storeCharacter();
-    };
-    if (cloneType == "attacks") {
-      sheet.currentCharacter.clone["attack_count"] = all_clone_count;
-      sheet.storeCharacter();
-    };
+    // if (cloneType == "consumables") {
+    //   sheet.currentCharacter.clone["consumable_count"] = all_clone_count;
+    //   sheet.storeCharacter();
+    // };
+    // if (cloneType == "attacks") {
+    //   sheet.currentCharacter.clone["attack_count"] = all_clone_count;
+    //   sheet.storeCharacter();
+    // };
     // create div wrapper element
     var newNode = document.createElement("div");
     newNode.setAttribute("class", "clone");
@@ -397,13 +396,17 @@ var clone = (function() {
   };
 
   function render() {
-    var cloneConsumablesCount = sheet.currentCharacter.clone["consumable_count"];
-    var cloneAttacksCount = sheet.currentCharacter.clone["attack_count"];
-    for (var i = 0; i < cloneConsumablesCount; i++) {
-      _render_clone("consumables");
+     console.log("clone count consumable " + sheet.currentCharacter.clone["consumable_count"]);
+     console.log("clone count attack " + sheet.currentCharacter.clone["attack_count"]);
+    if (sheet.currentCharacter.clone) {
+      for (var i = 0; i < sheet.currentCharacter.clone["consumable_count"]; i++) {
+        _render_clone("consumables");
+      };
     };
-    for (var i = 0; i < cloneAttacksCount; i++) {
-      _render_clone("attacks");
+    if (sheet.currentCharacter.clone) {
+      for (var i = 0; i < sheet.currentCharacter.clone["attack_count"]; i++) {
+        _render_clone("attacks");
+      };
     };
   };
 

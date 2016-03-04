@@ -44,9 +44,12 @@ var inputBlock = (function() {
   };
 
   function render() {
-    for (var i in sheet.currentCharacter.input) {
-      var id = "#" + "input-" + i.replace(/_/g, "-");
-      helper.e(id).value = sheet.currentCharacter.input[i];
+    if (sheet.currentCharacter.input) {
+      for (var i in sheet.currentCharacter.input) {
+        // console.log(sheet.currentCharacter.input[i]);
+        var id = "#" + "input-" + i.replace(/_/g, "-");
+        helper.e(id).value = sheet.currentCharacter.input[i];
+      };
     };
   };
 
