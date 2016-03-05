@@ -1,9 +1,14 @@
-var savedCharacterObject = (function() {
+var ro = (function() {
 
-  return {
+  var data = {
     clone: {
-      attack_count: 0,
-      consumable_count: 0
+      attack: [
+        { weapon: "Rapier", attack: "5", damage: "1d6+1", critical: "18–20/x2", ammo: "-", range: "-" },
+        { weapon: "Shortbow", attack: "5", damage: "1d6", critical: "x3", ammo: "50", range: "60 ft" }
+      ],
+      consumable: [
+        { item: "Arcane Pool", total: "4", used: "1" }
+      ]
     },
     input: {
       name: "Ro Flint",
@@ -229,6 +234,11 @@ var savedCharacterObject = (function() {
       { name: "Infernal Healing", level: 1, prepared: 0, active: false, cast: 0 },
       { name: "Windy Escape", level: 1, prepared: 0, active: false, cast: 0 }
     ]
-  }
+  };
+
+  // exposed methods
+  return {
+    data: data
+  };
 
 })();

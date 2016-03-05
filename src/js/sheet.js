@@ -2,15 +2,13 @@ var sheet = (function() {
 
   var newCharacter = [{
     clone: {},
-    input: {
-      name: "New Character"
-    },
+    input: {},
     textarea: {},
     spells: []
   }];
 
   var allCharacters = newCharacter;
-  var currentCharacterIndex = 2;
+  var currentCharacterIndex = 0;
 
   var saveAllCharacters = (function() {
     if (read("allCharacters")) {
@@ -21,12 +19,14 @@ var sheet = (function() {
       };
     };
     storeCharacters();
-    console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name)
+    console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name);
+    console.log("laoded Character index is " + currentCharacterIndex);
+    console.log(allCharacters);
   })();
 
   function storeCharacters() {
     store("allCharacters", JSON.stringify(allCharacters));
-    console.log(allCharacters);
+    // console.log(allCharacters);
   };
 
   function store(key, data) {
