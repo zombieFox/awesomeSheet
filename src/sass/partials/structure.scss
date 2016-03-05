@@ -117,8 +117,8 @@ hr {
           position: relative;
           transition: all $transition-ease-medium;
           &.used {
-            background-color: $gray-13;
-            border-color: $gray-13;
+            background-color: $secondary-color-light-alpha;
+            border-color: $white;
           }
           &:nth-child(1) {
             border-radius: $border-radius-small 0 0 0;

@@ -1,35 +1,32 @@
 var sheet = (function() {
 
-  var currentCharacter = {
+  var newCharacter = [{
     clone: {},
-    input: {},
+    input: {
+      name: "New Character"
+    },
     textarea: {},
     spells: []
-  };
+  }];
 
-  var setCharacter = (function() {
-    // if there is a character in local storage read it or use an external js file
-    if (typeof savedCharacterObject !== "undefined") {
-      // found hard coded character, setting currentCharacter as it
-      currentCharacter = savedCharacterObject;
+  var allCharacters = newCharacter;
+  var currentCharacterIndex = 2;
+
+  var saveAllCharacters = (function() {
+    if (read("allCharacters")) {
+      allCharacters = JSON.parse(read("allCharacters"));
+    } else {
+      if (typeof hardCodedCharacters !== "undefined") {
+        allCharacters = hardCodedCharacters.load;
+      };
     };
-    if (read("character")) {
-      // found local stored character, setting currentCharacter as it
-      currentCharacter = JSON.parse(read("character"));
-    };
+    storeCharacters();
+    console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name)
   })();
 
-  // var saveAllCharacters = (function() {
-  //   var count = 1;
-  //   for (var i = 0; i < characters.load.length; i++) {
-  //     store("character-" + count, JSON.stringify(characters.load[i]));
-  //     count++;
-  //   };
-  // })();
-
-  function storeCharacter() {
-    store("character", JSON.stringify(currentCharacter));
-    // console.log(currentCharacter);
+  function storeCharacters() {
+    store("allCharacters", JSON.stringify(allCharacters));
+    console.log(allCharacters);
   };
 
   function store(key, data) {
@@ -60,12 +57,13 @@ var sheet = (function() {
 
   // exposed methods
   return {
-    currentCharacter: currentCharacter,
+    allCharacters: allCharacters,
+    currentCharacterIndex: currentCharacterIndex,
+    storeCharacters: storeCharacters,
     destroy: destroy,
     store: store,
     remove: remove,
     read: read,
-    storeCharacter: storeCharacter
   };
 
 })();

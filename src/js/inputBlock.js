@@ -2,8 +2,8 @@ var inputBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("input-", "").replace(/-/g, "_");
-    sheet.currentCharacter.input[key] = element.value;
-    sheet.storeCharacter();
+    sheet.allCharacters[sheet.currentCharacterIndex].input[key] = element.value;
+    sheet.storeCharacters();
   };
 
   function focus(element) {
@@ -46,11 +46,11 @@ var inputBlock = (function() {
   };
 
   function render() {
-    if (sheet.currentCharacter.input) {
-      for (var i in sheet.currentCharacter.input) {
+    if (sheet.allCharacters[sheet.currentCharacterIndex].input) {
+      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].input) {
         var id = "#input-" + i.replace(/_/g, "-");
-        helper.e(id).value = sheet.currentCharacter.input[i];
-        // console.log(sheet.currentCharacter.input[i]);
+        helper.e(id).value = sheet.allCharacters[sheet.currentCharacterIndex].input[i];
+        // console.log(sheet.allCharacters[sheet.currentCharacterIndex].input[i]);
       };
     };
   };
