@@ -1,6 +1,6 @@
-var savedCharacterObject = (function() {
+var nif = (function() {
 
-  return {
+  var data = {
     clone: {
       attack: [
         { weapon: "Dagger (Master Work)", attack: "3", damage: "1d6+1", critical: "19–20/x2", ammo: "-", range: "-" },
@@ -262,6 +262,11 @@ var savedCharacterObject = (function() {
       { name: "Fly", level: 3, prepared: 1, active: false, cast: 0 },
       { name: "Sleet Storm", level: 3, prepared: 0, active: false, cast: 0 }
     ]
-  }
+  };
+
+  // exposed methods
+  return {
+    data: data
+  };
 
 })();

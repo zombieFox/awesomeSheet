@@ -21,17 +21,17 @@
     <span class="line bottom"></span>
   </div>
   <ul class="nav-list">
-    <li><a href="#body" data-scroll tabindex="10">Basics</a></li>
-    <li><a href="#statistics" data-scroll tabindex="10">Statistics</a></li>
-    <li><a href="#equipment" data-scroll tabindex="10">Equipment</a></li>
-    <li><a href="#defense" data-scroll tabindex="10">Defense</a></li>
-    <li><a href="#offense" data-scroll tabindex="10">Offense</a></li>
-    <li><a href="#skills" data-scroll tabindex="10">Skills</a></li>
-    <li><a href="#spells" data-scroll tabindex="10">Spells</a></li>
-    <li><a href="#notes" data-scroll tabindex="10">Notes</a></li>
+    <li><h1>Characters</h1></li>
+    <li>
+      <ul class="nav-characters"></ul>
+    </li>
+    <li><a href="javascript:void(0)" class="add-character" tabindex="10"><span class="icon-add"></span><span>New Character</span></a></li>
+    <li><a href="javascript:void(0)" class="remove-character" tabindex="10"><span class="icon-remove"></span><span>Clear Character</span></a></li>
     <li class="divide"></li>
-    <li><a href="javascript:void(0)" class="toggle-fullscreen"><span class="icon-fullscreen"></span>Fullscreen</a></li>
-    <li><a href="javascript:void(0)" class="clear-all"><span class="icon-delete"></span>Clear All</a></li>
+    <li><h2>Tools</h2></li>
+    <li><a href="javascript:void(0)" class="fullscreen" tabindex="10"><span class="icon-fullscreen"></span><span>Fullscreen</span></a></li>
+    <li><a href="javascript:void(0)" class="export" tabindex="10"><span class="icon-expand-more"></span><span>Export</span></a></li>
+    <li><a href="javascript:void(0)" class="clear-all" tabindex="10"><span class="icon-delete"></span><span>Clear All</span></a></li>
   </ul>
 </nav>
 <section id="basics">
@@ -40,7 +40,7 @@
       <div class="col-xs-12">
         <h1 class="awesome-name">
           <div class="input-block" data-input-store="true">
-            <input class="input-field" id="input-name" type="text" placeholder="Character Name" tabindex="1">
+            <input class="input-field" id="input-name" maxlength="150" type="text" placeholder="Character Name" tabindex="1">
           </div>
         </h1>
       </div>
@@ -121,25 +121,25 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-xs-6 col-sm-4 col-xl-2">
+      <div class="col-xs-6 col-sm-3 col-xl-2">
         <div class="input-block" data-input-store="true">
           <label class="input-label" for="input-platinum">Platinum</label>
           <input class="input-field" id="input-platinum" type="text" tabindex="1">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4 col-xl-2">
+      <div class="col-xs-6 col-sm-3 col-xl-2">
         <div class="input-block" data-input-store="true">
           <label class="input-label" for="input-gold">Gold</label>
           <input class="input-field" id="input-gold" type="text" tabindex="1">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4 col-xl-2">
+      <div class="col-xs-6 col-sm-3 col-xl-2">
         <div class="input-block" data-input-store="true">
           <label class="input-label" for="input-silver">Silver</label>
           <input class="input-field" id="input-silver" type="text" tabindex="1">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4 col-xl-2">
+      <div class="col-xs-6 col-sm-3 col-xl-2">
         <div class="input-block" data-input-store="true">
           <label class="input-label" for="input-copper">Copper</label>
           <input class="input-field" id="input-copper" type="text" tabindex="1">
@@ -148,13 +148,13 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-xs-6 col-sm-4 col-xl-2">
+      <div class="col-xs-6 col-sm-3 col-xl-2">
         <div class="input-block" data-input-store="true">
           <label class="input-label" for="input-hero-points">Hero Points</label>
           <input class="input-field" id="input-hero-points" type="text" tabindex="1">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-4 col-xl-2">
+      <div class="col-xs-6 col-sm-3 col-xl-2">
         <div class="input-block" data-input-store="true">
           <label class="input-label" for="input-luck-points">Luck Points</label>
           <input class="input-field" id="input-luck-points" type="text" tabindex="1">

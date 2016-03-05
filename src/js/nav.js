@@ -96,7 +96,7 @@ var nav = (function() {
       _fullscreen();
     }, false);
     clearAll.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All information will be removed. This can not be undone.", "clear all");
+      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
       helper.removeClass(nav, "open");
     }, false);
     toggleNav.addEventListener("click", function() {

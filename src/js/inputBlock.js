@@ -50,6 +50,7 @@ var inputBlock = (function() {
     var input = helper.e(".awesome-name input");
     input.addEventListener("input", function() {
       _render_characterLink(this.value);
+      _maxLengthWarning(this.value);
     }, false);
     input.addEventListener("focus", function() {
       _render_characterLink(this.value);
@@ -62,6 +63,12 @@ var inputBlock = (function() {
   function _render_characterLink(awesomeNameValue) {
     var name = helper.e(".character-index-" + sheet.currentCharacterIndex).querySelector(".name");
     name.textContent = awesomeNameValue;
+  };
+
+  function _maxLengthWarning(awesomeNameValue) {
+    if (awesomeNameValue.length >= 150) {
+      snack.render("Character name is too long.", false, false);
+    };
   };
 
   function render() {

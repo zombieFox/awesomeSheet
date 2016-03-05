@@ -6,7 +6,7 @@ var spells = (function() {
       all_addSpell[i].addEventListener("click", function() {
         _addNewSpell(this);
         _updateSpells();
-        sheet.storeCharacter();
+        sheet.storeCharacters();
       }, false);
     };
     for (var i = 0; i < all_addSpell.length; i++) {
@@ -15,7 +15,7 @@ var spells = (function() {
       all_addSpell_input.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
         _updateSpells();
-        sheet.storeCharacter();
+        sheet.storeCharacters();
       }, false);
     };
     helper.e("#spells .prepare-spell").addEventListener("click", function() {
@@ -38,7 +38,7 @@ var spells = (function() {
   function _bind_spellKnownItem(element) {
     element.addEventListener("click", function() {
       _changeSpellKnowItem(this);
-      sheet.storeCharacter();
+      sheet.storeCharacters();
     }, false);
   };
 
@@ -116,10 +116,7 @@ var spells = (function() {
     };
     // state delete
     if (deleteState == "true") {
-      var spellName = spell.dataset.spellName;
       var spellNameText = spell.textContent;
-      var spellNameConverted = spellName.replace(/\s+/g, "-").toLowerCase();
-      sheet.remove("spell-saved-" + spellNameConverted);
       spell.remove();
       snack.render(spellNameText + " removed.", false, false);
     };
@@ -140,7 +137,7 @@ var spells = (function() {
         // clear input field
         element.value = "";
         // add spell to current character object
-        sheet.currentCharacter.spells.push(newSpell);
+        sheet.allCharacters[sheet.currentCharacterIndex].spells.push(newSpell);
         // make a snack bar
         snack.render(spallName + " added to spell level " + level + ".", false, false);
       } else {
@@ -154,7 +151,7 @@ var spells = (function() {
     var keystroke = event.keyCode || event.which;
     if (keystroke == 13) {
       _addNewSpell(element);
-      sheet.storeCharacter();
+      sheet.storeCharacters();
     };
   };
 
@@ -352,16 +349,16 @@ var spells = (function() {
       // add to current character object
       spells.push(newSpell);
     };
-    sheet.currentCharacter.spells = spells;
+    sheet.allCharacters[sheet.currentCharacterIndex].spells = spells;
   };
 
   function render() {
     // build an array of spell objects
     var all_spells = [];
     // iterate over all objects keys to find spells then push those values to all_spells
-    if (sheet.currentCharacter.spells) {
-      for (var i in sheet.currentCharacter.spells) {
-        all_spells.push(sheet.currentCharacter.spells[i]);
+    if (sheet.allCharacters[sheet.currentCharacterIndex].spells) {
+      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].spells) {
+        all_spells.push(sheet.allCharacters[sheet.currentCharacterIndex].spells[i]);
       };
     };
     _render_spell(all_spells);

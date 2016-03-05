@@ -56,15 +56,6 @@ var sheet = (function() {
     document.location.reload(true);
   };
 
-  // function test(argument) {
-  //   var allCharacterToggle = helper.eA(".character-toggle");
-  //   for (var i = 0; i < allCharacterToggle.length; i++) {
-  //     var icon = allCharacterToggle[i].querySelector(".icon");
-  //     helper.removeClass(icon, "icon-check-box-checked");
-  //     helper.addClass(icon, "icon-check-box-unchecked");
-  //   };
-  // };
-
   function clear() {
     var allInputBlock = helper.eA(".input-block");
     var allTextareaBlock = helper.eA(".textarea-block");

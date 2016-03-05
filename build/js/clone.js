@@ -40,43 +40,43 @@ var clone = (function() {
     var timeStamp = Date.now();
     var cloneString =
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6">' +
+      '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-weapon-' + timeStamp + '">Weapon</label>' +
       '<input class="input-field input-weapon" id="input-weapon-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3">' +
+      '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-attack-' + timeStamp + '">Attack</label>' +
       '<input class="input-field input-attack" id="input-attack-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3">' +
+      '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-damage-' + timeStamp + '">Damage</label>' +
       '<input class="input-field input-damage" id="input-damage-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-4 col-md-1">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-range-' + timeStamp + '">Range</label>' +
       '<input class="input-field input-range" id="input-range-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-4 col-md-1">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-ammo-' + timeStamp + '">Ammo</label>' +
       '<input class="input-field input-ammo" id="input-ammo-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-4 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-critical-' + timeStamp + '">Critical</label>' +
       '<input class="input-field input-critical" id="input-critical-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-12">' +
+      '<div class="col-xs-12 col-md-2">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-small button-icon" id="remove-attack" tabindex="3"><span class="icon-close"></span> Remove</button>' +
       '</div>' +
@@ -102,23 +102,23 @@ var clone = (function() {
       _render_clone([{ item: "", total: "", used: "" }], "consumable");
       _updateCloneConsumable();
       snack.render("Consumable added.", false, false);
-      sheet.storeCharacter();
+      sheet.storeCharacters();
     }, false);
     consumableCloneRemove.addEventListener("click", function() {
       _changeCloneState("consumable");
       _updateCloneConsumable();
-      sheet.storeCharacter();
+      sheet.storeCharacters();
     }, false);
     attackCloneAdd.addEventListener("click", function() {
       _render_clone([{ weapon: "", attack: "", damage: "", critical: "", ammo: "", range: "" }], "attack");
       _updateCloneAttack();
       snack.render("Attack added.", false, false);
-      sheet.storeCharacter();
+      sheet.storeCharacters();
     }, false);
     attackCloneRemove.addEventListener("click", function() {
       _changeCloneState("attack");
       _updateCloneAttack();
-      sheet.storeCharacter();
+      sheet.storeCharacters();
     }, false);
   })();
 
@@ -127,7 +127,7 @@ var clone = (function() {
       _destroy_clone(this, cloneType);
       _updateCloneAttack();
       _updateCloneConsumable();
-      sheet.storeCharacter();
+      sheet.storeCharacters();
       if (cloneType == "consumable") {
         _checkCloneCount("consumable");
        snack.render("Consumable removed.", false, false);
@@ -145,19 +145,19 @@ var clone = (function() {
       input.addEventListener("input", function() {
         _updateCloneAttack();
         _minMaxCountLimit(this);
-        sheet.storeCharacter();
+        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneAttack();
         _minMaxCountLimit(this);
-        sheet.storeCharacter();
+        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneAttack();
         _minMaxCountLimit(this);
-        sheet.storeCharacter();
+        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
     };
@@ -171,7 +171,7 @@ var clone = (function() {
         _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
-        sheet.storeCharacter();
+        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
@@ -179,7 +179,7 @@ var clone = (function() {
         _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
-        sheet.storeCharacter();
+        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
@@ -187,7 +187,7 @@ var clone = (function() {
         _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
-        sheet.storeCharacter();
+        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
     };
@@ -313,7 +313,7 @@ var clone = (function() {
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
-    sheet.currentCharacter.clone.attack = cloneAttack;
+    sheet.allCharacters[sheet.currentCharacterIndex].clone.attack = cloneAttack;
   };
 
   function _updateCloneConsumable() {
@@ -328,7 +328,7 @@ var clone = (function() {
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
-    sheet.currentCharacter.clone.consumable = cloneConsumable;
+    sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable = cloneConsumable;
   };
 
   function render() {
@@ -336,15 +336,15 @@ var clone = (function() {
     var all_attack = [];
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
-    if (sheet.currentCharacter.clone.attack) {
-      for (var i in sheet.currentCharacter.clone.attack) {
-        all_attack.push(sheet.currentCharacter.clone.attack[i]);
+    if (sheet.allCharacters[sheet.currentCharacterIndex].clone.attack) {
+      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].clone.attack) {
+        all_attack.push(sheet.allCharacters[sheet.currentCharacterIndex].clone.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.currentCharacter.clone.consumable) {
-      for (var i in sheet.currentCharacter.clone.consumable) {
-        all_consumable.push(sheet.currentCharacter.clone.consumable[i]);
+    if (sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable) {
+      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable) {
+        all_consumable.push(sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable[i]);
       };
     };
     _render_clone(all_attack, "attack");

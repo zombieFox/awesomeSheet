@@ -2,8 +2,8 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("textarea-", "").replace(/-/g, "_");
-    sheet.currentCharacter.textarea[key] = element.innerHTML;
-    sheet.storeCharacter();
+    sheet.allCharacters[sheet.currentCharacterIndex].textarea[key] = element.innerHTML;
+    sheet.storeCharacters();
   };
 
   function bind(array) {
@@ -22,10 +22,10 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    if (sheet.currentCharacter.textarea) {
-      for (var i in sheet.currentCharacter.textarea) {
+    if (sheet.allCharacters[sheet.currentCharacterIndex].textarea) {
+      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].textarea) {
         var id = "#" + "textarea-" + i.replace(/_/g, '-');
-        helper.e(id).innerHTML = sheet.currentCharacter.textarea[i];
+        helper.e(id).innerHTML = sheet.allCharacters[sheet.currentCharacterIndex].textarea[i];
       };
     };
   };

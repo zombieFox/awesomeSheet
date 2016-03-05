@@ -1,35 +1,32 @@
 var sheet = (function() {
 
-  var currentCharacter = {
+  var singleNewCharacter = [{
     clone: {},
     input: {},
     textarea: {},
     spells: []
-  };
+  }];
 
-  var setCharacter = (function() {
-    // if there is a character in local storage read it or use an external js file
-    if (typeof savedCharacterObject !== "undefined") {
-      // found hard coded character, setting currentCharacter as it
-      currentCharacter = savedCharacterObject;
+  var allCharacters = singleNewCharacter;
+  var currentCharacterIndex = 0;
+
+  var saveAllCharacters = (function() {
+    if (read("allCharacters")) {
+      allCharacters = JSON.parse(read("allCharacters"));
+    } else {
+      if (typeof hardCodedCharacters !== "undefined") {
+        allCharacters = hardCodedCharacters.load;
+      };
     };
-    if (read("character")) {
-      // found local stored character, setting currentCharacter as it
-      currentCharacter = JSON.parse(read("character"));
-    };
+    storeCharacters();
+    // console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name);
+    // console.log("laoded Character index is " + currentCharacterIndex);
+    // console.log(allCharacters);
   })();
 
-  // var saveAllCharacters = (function() {
-  //   var count = 1;
-  //   for (var i = 0; i < characters.load.length; i++) {
-  //     store("character-" + count, JSON.stringify(characters.load[i]));
-  //     count++;
-  //   };
-  // })();
-
-  function storeCharacter() {
-    store("character", JSON.stringify(currentCharacter));
-    // console.log(currentCharacter);
+  function storeCharacters() {
+    store("allCharacters", JSON.stringify(allCharacters));
+    // console.log(allCharacters);
   };
 
   function store(key, data) {
@@ -54,18 +51,54 @@ var sheet = (function() {
 
   function destroy() {
     localStorage.clear();
-    document.location.reload(true);
     prompt.destroy();
+    snack.destroy();
+    document.location.reload(true);
+  };
+
+  function clear() {
+    var allInputBlock = helper.eA(".input-block");
+    var allTextareaBlock = helper.eA(".textarea-block");
+    var allCloneTarget = helper.eA(".clone-target");
+    var allSpellsKnown = helper.eA(".spells-known");
+    for (var i = 0; i < allInputBlock.length; i++) {
+      var input = allInputBlock[i].querySelector(".input-field");
+      helper.e("#" + input.id).value = "";
+    };
+    for (var i = 0; i < allTextareaBlock.length; i++) {
+      helper.e("#" + allTextareaBlock[i].id).innerHTML = "";
+    };
+    for (var i = 0; i < allCloneTarget.length; i++) {
+      allCloneTarget[i].innerHTML = "";
+    };
+    for (var i = 0; i < allSpellsKnown.length; i++) {
+      allSpellsKnown[i].innerHTML = "";
+    };
+    stats.render();
+    totalBlock.render();
+  };
+
+  function render() {
+    clone.render();
+    consumable.render();
+    inputBlock.render();
+    textareaBlock.render();
+    stats.render();
+    spells.render();
+    totalBlock.render();
   };
 
   // exposed methods
   return {
-    currentCharacter: currentCharacter,
+    allCharacters: allCharacters,
+    currentCharacterIndex: currentCharacterIndex,
+    storeCharacters: storeCharacters,
     destroy: destroy,
     store: store,
     remove: remove,
     read: read,
-    storeCharacter: storeCharacter
+    clear: clear,
+    render: render
   };
 
 })();

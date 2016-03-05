@@ -40,43 +40,43 @@ var clone = (function() {
     var timeStamp = Date.now();
     var cloneString =
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6">' +
+      '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-weapon-' + timeStamp + '">Weapon</label>' +
       '<input class="input-field input-weapon" id="input-weapon-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3">' +
+      '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-attack-' + timeStamp + '">Attack</label>' +
       '<input class="input-field input-attack" id="input-attack-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3">' +
+      '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-damage-' + timeStamp + '">Damage</label>' +
       '<input class="input-field input-damage" id="input-damage-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-4 col-md-1">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-range-' + timeStamp + '">Range</label>' +
       '<input class="input-field input-range" id="input-range-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-4 col-md-1">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-ammo-' + timeStamp + '">Ammo</label>' +
       '<input class="input-field input-ammo" id="input-ammo-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-4 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-critical-' + timeStamp + '">Critical</label>' +
       '<input class="input-field input-critical" id="input-critical-' + timeStamp + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-12">' +
+      '<div class="col-xs-12 col-md-2">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-small button-icon" id="remove-attack" tabindex="3"><span class="icon-close"></span> Remove</button>' +
       '</div>' +

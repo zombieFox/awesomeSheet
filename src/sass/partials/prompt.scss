@@ -25,7 +25,7 @@
     transition: all $transition-ease-medium;
   }
   &.prompt-modal {
-    border-top: 10px solid $primary-color;
+    border-left: 5px solid $primary-color;
     position: fixed;
     top: 50%;
     left: 50%;
