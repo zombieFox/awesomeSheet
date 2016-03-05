@@ -43,6 +43,25 @@ var inputBlock = (function() {
         }, false);
       };
     };
+    _bind_awesomeName();
+  };
+
+  function _bind_awesomeName() {
+    var input = helper.e(".awesome-name input");
+    input.addEventListener("input", function() {
+      _render_characterLink(this.value);
+    }, false);
+    input.addEventListener("focus", function() {
+      _render_characterLink(this.value);
+    }, false);
+    input.addEventListener("blur", function() {
+      _render_characterLink(this.value);
+    }, false);
+  };
+
+  function _render_characterLink(awesomeNameValue) {
+    var name = helper.e(".character-index-" + sheet.currentCharacterIndex).querySelector(".name");
+    name.textContent = awesomeNameValue;
   };
 
   function render() {
@@ -50,7 +69,6 @@ var inputBlock = (function() {
       for (var i in sheet.allCharacters[sheet.currentCharacterIndex].input) {
         var id = "#input-" + i.replace(/_/g, "-");
         helper.e(id).value = sheet.allCharacters[sheet.currentCharacterIndex].input[i];
-        // console.log(sheet.allCharacters[sheet.currentCharacterIndex].input[i]);
       };
     };
   };

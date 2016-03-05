@@ -1,16 +1,11 @@
 (function() {
 
   nav.bind();
-  clone.render();
-  consumable.render();
+  nav.render(sheet.allCharacters);
   hidableBlock.bind();
   inputBlock.bind(helper.eA(".input-block"));
-  inputBlock.render();
   textareaBlock.bind(helper.eA(".textarea-block"));
-  textareaBlock.render();
-  spells.render();
-  stats.render();
   stats.bind();
-  totalBlock.render();
+  sheet.render();
 
 })();

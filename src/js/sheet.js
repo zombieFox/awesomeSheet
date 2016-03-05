@@ -1,13 +1,13 @@
 var sheet = (function() {
 
-  var newCharacter = [{
+  var singleNewCharacter = [{
     clone: {},
     input: {},
     textarea: {},
     spells: []
   }];
 
-  var allCharacters = newCharacter;
+  var allCharacters = singleNewCharacter;
   var currentCharacterIndex = 0;
 
   var saveAllCharacters = (function() {
@@ -19,9 +19,9 @@ var sheet = (function() {
       };
     };
     storeCharacters();
-    console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name);
-    console.log("laoded Character index is " + currentCharacterIndex);
-    console.log(allCharacters);
+    // console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name);
+    // console.log("laoded Character index is " + currentCharacterIndex);
+    // console.log(allCharacters);
   })();
 
   function storeCharacters() {
@@ -51,8 +51,50 @@ var sheet = (function() {
 
   function destroy() {
     localStorage.clear();
-    document.location.reload(true);
     prompt.destroy();
+    snack.destroy();
+    document.location.reload(true);
+  };
+
+  // function test(argument) {
+  //   var allCharacterToggle = helper.eA(".character-toggle");
+  //   for (var i = 0; i < allCharacterToggle.length; i++) {
+  //     var icon = allCharacterToggle[i].querySelector(".icon");
+  //     helper.removeClass(icon, "icon-check-box-checked");
+  //     helper.addClass(icon, "icon-check-box-unchecked");
+  //   };
+  // };
+
+  function clear() {
+    var allInputBlock = helper.eA(".input-block");
+    var allTextareaBlock = helper.eA(".textarea-block");
+    var allCloneTarget = helper.eA(".clone-target");
+    var allSpellsKnown = helper.eA(".spells-known");
+    for (var i = 0; i < allInputBlock.length; i++) {
+      var input = allInputBlock[i].querySelector(".input-field");
+      helper.e("#" + input.id).value = "";
+    };
+    for (var i = 0; i < allTextareaBlock.length; i++) {
+      helper.e("#" + allTextareaBlock[i].id).innerHTML = "";
+    };
+    for (var i = 0; i < allCloneTarget.length; i++) {
+      allCloneTarget[i].innerHTML = "";
+    };
+    for (var i = 0; i < allSpellsKnown.length; i++) {
+      allSpellsKnown[i].innerHTML = "";
+    };
+    stats.render();
+    totalBlock.render();
+  };
+
+  function render() {
+    clone.render();
+    consumable.render();
+    inputBlock.render();
+    textareaBlock.render();
+    stats.render();
+    spells.render();
+    totalBlock.render();
   };
 
   // exposed methods
@@ -64,6 +106,8 @@ var sheet = (function() {
     store: store,
     remove: remove,
     read: read,
+    clear: clear,
+    render: render
   };
 
 })();

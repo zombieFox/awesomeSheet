@@ -52,11 +52,15 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 8px 0;
-    width: 200px;
+    width: 260px;
     position: absolute;
     top: 60px;
-    right: -240px;
+    right: -300px;
     transition: all $transition-ease-medium;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
     li {
       margin: 0;
       padding: 0;
@@ -65,6 +69,17 @@ nav {
         margin: 8px 0;
         background-color: $gray-alpha-12;
         height: 1px;
+      }
+      h1,
+      h2 {
+        padding: 0 16px;
+        margin: 0;
+        line-height: 2.5rem;
+        font-size: 1rem;
+        border-left: 5px solid transparent;
+        display: block;
+        font-family: $open-sans-bold;
+        text-transform: uppercase;
       }
       a {
         padding: 0 16px;
@@ -92,12 +107,12 @@ nav {
         }
         &:hover {
           color: $primary-color-light;
-          background-color: $gray-alpha-13;
+          background-color: $gray-alpha-12;
           text-decoration: none;
           border-color: $primary-color;
         }
         &:focus {
-          background-color: $gray-alpha-13;
+          background-color: $gray-alpha-12;
           text-decoration: none;
           outline: 0;
         }

@@ -1,7 +1,6 @@
 var nav = (function() {
 
   var fullscreen = helper.e(".fullscreen");
-  var addCharacter = helper.e(".add-character");
 
   function _fullscreen() {
     var root = window.document;
@@ -22,25 +21,71 @@ var nav = (function() {
     }
   };
 
-  function _createNavAnchor(characterName, key) {
+  function _createNavAnchor(characterName, characterIndex) {
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
-    var name = document.createElement("span");
-    name.textContent = characterName;
+    var text = document.createElement("span");
+    text.textContent = characterName;
+    text.setAttribute("class", "name");
     var navAnchor = document.createElement("a");
     navAnchor.setAttribute("href", "javascript:void(0)");
-    navAnchor.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase());
-    navAnchor.setAttribute("data-character-key", key);
+    navAnchor.setAttribute("data-character-index", characterIndex);
+    navAnchor.setAttribute("class", "character-toggle character-index-" + characterIndex);
     navAnchor.setAttribute("tabindex", 10);
     navAnchor.appendChild(icon);
-    navAnchor.appendChild(name);
+    navAnchor.appendChild(text);
     navLi.appendChild(navAnchor);
+    _bindCharacterOption(navAnchor);
     return navLi;
   };
 
-  function addCharacter() {
+  function _bindCharacterOption(characterLink) {
+    characterLink.addEventListener("click", function() {
+      _switchCharacter(this);
+    }, false);
+  };
 
+  function _switchCharacter(characterLink) {
+    var newIndex = characterLink.dataset.characterIndex;
+    var allCharacterToggle = helper.eA(".character-toggle");
+    sheet.currentCharacterIndex = newIndex;
+    sheet.clear();
+    sheet.render();
+    for (var i = 0; i < allCharacterToggle.length; i++) {
+      var icon = allCharacterToggle[i].querySelector(".icon");
+      helper.removeClass(icon, "icon-check-box-checked");
+      helper.addClass(icon, "icon-check-box-unchecked");
+    };
+    var icon = characterLink.querySelector(".icon");
+    helper.removeClass(icon, "icon-check-box-unchecked");
+    helper.addClass(icon, "icon-check-box-checked");
+  };
+
+  function test(argument) {
+    var allCharacterToggle = helper.eA(".character-toggle");
+    for (var i = 0; i < allCharacterToggle.length; i++) {
+      var icon = allCharacterToggle[i].querySelector(".icon");
+      helper.removeClass(icon, "icon-check-box-checked");
+      helper.addClass(icon, "icon-check-box-unchecked");
+    };
+  };
+
+  function render(array) {
+    var navCharacters = helper.e(".nav-characters");
+    for (i in array) {
+      if (array[i].input.name) {
+        var name = _createNavAnchor(array[i].input.name, i);
+        navCharacters.appendChild(name);
+        if (i == sheet.currentCharacterIndex) {
+          helper.removeClass(name.querySelector(".icon"), "icon-check-box-unchecked");
+          helper.addClass(name.querySelector(".icon"), "icon-check-box-checked");
+        };
+      } else {
+        var name = _createNavAnchor("Unnamed Character", i);
+        navCharacters.appendChild(name);
+      };
+    };
   };
 
   function bind() {
@@ -67,7 +112,7 @@ var nav = (function() {
   // exposed methods
   return {
     bind: bind,
-    addCharacter: addCharacter
+    render: render
   }
 
 })();

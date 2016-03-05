@@ -116,10 +116,7 @@ var spells = (function() {
     };
     // state delete
     if (deleteState == "true") {
-      var spellName = spell.dataset.spellName;
       var spellNameText = spell.textContent;
-      var spellNameConverted = spellName.replace(/\s+/g, "-").toLowerCase();
-      sheet.remove("spell-saved-" + spellNameConverted);
       spell.remove();
       snack.render(spellNameText + " removed.", false, false);
     };
