@@ -852,6 +852,54 @@
 			"setIdx": 0,
 			"setId": 1,
 			"iconIdx": 28
+		},
+		{
+			"icon": {
+				"paths": [
+					"M810.667 384h-170.667v-256h-256v256h-170.667l298.667 298.667 298.667-298.667zM213.333 768v85.333h597.333v-85.333h-597.333z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 24,
+				"tags": [
+					"file_download"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 41,
+				"id": 640,
+				"prevSize": 24,
+				"code": 59651,
+				"name": "file_download"
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 29
+		},
+		{
+			"icon": {
+				"paths": [
+					"M384 682.667h256v-256h170.667l-298.667-298.667-298.667 298.667h170.667zM213.333 768h597.333v85.333h-597.333z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 24,
+				"tags": [
+					"file_upload"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 42,
+				"id": 641,
+				"prevSize": 24,
+				"code": 59652,
+				"name": "file_upload"
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 30
 		}
 	],
 	"height": 1024,
@@ -885,6 +933,7 @@
 		},
 		"historySize": 100,
 		"gridSize": 16,
-		"showCodes": true
+		"showCodes": true,
+		"showGrid": true
 	}
 }

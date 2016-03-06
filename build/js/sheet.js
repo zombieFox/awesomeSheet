@@ -78,6 +78,11 @@ var sheet = (function() {
     totalBlock.render();
   };
 
+  function exportCharacterObject(index) {
+    var exportData = JSON.stringify(allCharacters[index]);
+    prompt.render("Copy and paste your characters data string:", exportData, "ok", false);
+  };
+
   function render() {
     clone.render();
     consumable.render();
@@ -98,6 +103,7 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
+    export: exportCharacterObject,
     render: render
   };
 

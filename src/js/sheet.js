@@ -78,9 +78,9 @@ var sheet = (function() {
     totalBlock.render();
   };
 
-  function exportCharacterObject() {
-    var exportData = JSON.stringify(allCharacters[currentCharacterIndex]);
-    prompt.render("Copy and paste your character data string", exportData, "ok", false);
+  function exportCharacterObject(index) {
+    var exportData = JSON.stringify(allCharacters[index]);
+    prompt.render("Copy and paste your characters data string:", exportData, "ok", false);
   };
 
   function render() {

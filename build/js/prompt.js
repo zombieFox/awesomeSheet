@@ -1,6 +1,6 @@
 var prompt = (function() {
 
-  function render(heading, message, confirmAction) {
+  function render(heading, message, confirmAction, cancelAction) {
     var body = helper.e("body");
     var promptShade = document.createElement("div");
     promptShade.setAttribute("class", "prompt prompt-shade");
@@ -34,8 +34,12 @@ var prompt = (function() {
     promptMessage.appendChild(promptHeading);
     promptMessage.appendChild(promptPara);
     col1.appendChild(promptMessage);
-    col2.appendChild(promptCencel);
-    col3.appendChild(promptAction);
+    if (cancelAction) {
+      col2.appendChild(promptCencel);
+    };
+    if (confirmAction) {
+      col3.appendChild(promptAction);
+    };
     row1.appendChild(col1);
     row2.appendChild(col2);
     row2.appendChild(col3);
@@ -72,7 +76,7 @@ var prompt = (function() {
     };
   };
 
-  function _bind(confirmAction) {
+  function _bind(confirmAction, cancelAction) {
     var promptShade = helper.e(".prompt-shade");
     var promptModal = helper.e(".prompt-modal");
     var promptAction = helper.e(".prompt-modal .prompt-action");
@@ -80,12 +84,19 @@ var prompt = (function() {
     promptShade.addEventListener('click', function() {
       destroy();
     });
-    promptCancel.addEventListener('click', function() {
-      destroy();
-    });
+    if (cancelAction) {
+      promptCancel.addEventListener('click', function() {
+        destroy();
+      });
+    };
     if (confirmAction == "clear all") {
       promptAction.addEventListener('click', function() {
         sheet.destroy();
+      });
+    };
+    if (confirmAction == "ok") {
+      promptAction.addEventListener('click', function() {
+        destroy();
       });
     };
     window.addEventListener("keydown", function(event) {

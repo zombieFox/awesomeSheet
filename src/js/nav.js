@@ -102,7 +102,7 @@ var nav = (function() {
       helper.toggleClass(nav, "open");
     }, false);
     exportCharacter.addEventListener("click", function() {
-      sheet.export();
+      sheet.export(sheet.currentCharacterIndex);
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {

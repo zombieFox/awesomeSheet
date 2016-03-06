@@ -24,7 +24,7 @@ var vos = (function() {
       speed: "20 feet/4 squares",
       initiative: "2",
       platinum: "",
-      gold: "585",
+      gold: "1,585",
       silver: "5",
       copper: "",
       hero_points: "",
