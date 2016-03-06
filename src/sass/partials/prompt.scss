@@ -9,7 +9,11 @@
     h1 {
       margin: 0 0 20px 0;
     }
-    :last-child {
+    p {
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+    &:last-child {
       margin: 0 0 40px 0;
     }
   }
@@ -32,6 +36,7 @@
     z-index: $prompt;
     background: $white;
     width: 80%;
+    max-height: 90%;
     min-width: 250px;
     padding: 30px 20px;
     box-sizing: border-box;

@@ -1,8 +1,8 @@
 var nav = (function() {
 
-  var fullscreen = helper.e(".fullscreen");
 
   function _fullscreen() {
+    var fullscreen = helper.e(".fullscreen");
     var root = window.document;
     var icon = fullscreen.querySelector("span");
     var rootElement = root.documentElement;
@@ -56,51 +56,53 @@ var nav = (function() {
       var icon = allCharacterToggle[i].querySelector(".icon");
       helper.removeClass(icon, "icon-check-box-checked");
       helper.addClass(icon, "icon-check-box-unchecked");
+      helper.removeClass(allCharacterToggle[i], "active");
     };
     var icon = characterLink.querySelector(".icon");
     helper.removeClass(icon, "icon-check-box-unchecked");
     helper.addClass(icon, "icon-check-box-checked");
-  };
-
-  function test(argument) {
-    var allCharacterToggle = helper.eA(".character-toggle");
-    for (var i = 0; i < allCharacterToggle.length; i++) {
-      var icon = allCharacterToggle[i].querySelector(".icon");
-      helper.removeClass(icon, "icon-check-box-checked");
-      helper.addClass(icon, "icon-check-box-unchecked");
-    };
+    helper.addClass(characterLink, "active");
   };
 
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (i in array) {
       if (array[i].input.name) {
-        var name = _createNavAnchor(array[i].input.name, i);
-        navCharacters.appendChild(name);
+        var characterToggle = _createNavAnchor(array[i].input.name, i);
+        navCharacters.appendChild(characterToggle);
         if (i == sheet.currentCharacterIndex) {
-          helper.removeClass(name.querySelector(".icon"), "icon-check-box-unchecked");
-          helper.addClass(name.querySelector(".icon"), "icon-check-box-checked");
+          var icon = characterToggle.querySelector(".icon");
+          var anchor = characterToggle.querySelector("a");
+          helper.removeClass(icon, "icon-check-box-unchecked");
+          helper.addClass(icon, "icon-check-box-checked");
+          helper.addClass(icon, "icon-check-box-checked");
+          helper.addClass(anchor, "active");
         };
       } else {
-        var name = _createNavAnchor("Unnamed Character", i);
-        navCharacters.appendChild(name);
+        var characterToggle = _createNavAnchor("Unnamed Character", i);
+        navCharacters.appendChild(characterToggle);
       };
     };
   };
 
   function bind() {
     var nav = helper.e("nav");
-    var toggleNav = helper.e("nav .toggle-nav");
+    var toggleNav = helper.e(".toggle-nav");
+    var fullscreen = helper.e(".fullscreen");
     var clearAll = helper.e(".clear-all");
+    var exportCharacter = helper.e(".export-character");
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
     clearAll.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "clear all", true);
       helper.removeClass(nav, "open");
     }, false);
     toggleNav.addEventListener("click", function() {
       helper.toggleClass(nav, "open");
+    }, false);
+    exportCharacter.addEventListener("click", function() {
+      sheet.export();
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {
