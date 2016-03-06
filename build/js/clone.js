@@ -25,8 +25,10 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-12">' +
+      '<div class="col-xs-8">' +
       '<div class="consumable-counts clearfix"></div>' +
+      '</div>' +
+      '<div class="col-xs-4">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-small button-icon" tabindex="3"><span class="icon-close"></span> Remove</button>' +
       '</div>' +
@@ -44,37 +46,37 @@ var clone = (function() {
       '<input class="input-field input-weapon" id="input-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-2">' +
+      '<div class="col-xs-2 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-attack-' + index + '">Attack</label>' +
       '<input class="input-field input-attack" id="input-attack-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-2">' +
+      '<div class="col-xs-2 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-damage-' + index + '">Damage</label>' +
       '<input class="input-field input-damage" id="input-damage-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-md-1">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-range-' + index + '">Range</label>' +
-      '<input class="input-field input-range" id="input-range-' + index + '" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-4 col-md-1">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-ammo-' + index + '">Ammo</label>' +
-      '<input class="input-field input-ammo" id="input-ammo-' + index + '" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-4 col-md-2">' +
+      '<div class="col-xs-2 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-critical-' + index + '">Critical</label>' +
       '<input class="input-field input-critical" id="input-critical-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-12 col-md-2">' +
+      '<div class="col-xs-3 col-md-1">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-range-' + index + '">Range</label>' +
+      '<input class="input-field input-range" id="input-range-' + index + '" type="text" tabindex="3">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3 col-md-1">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="input-ammo-' + index + '">Ammo</label>' +
+      '<input class="input-field input-ammo" id="input-ammo-' + index + '" type="text" tabindex="3">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-6 col-md-12">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-small button-icon" id="remove-attack" tabindex="3"><span class="icon-close"></span> Remove</button>' +
       '</div>' +

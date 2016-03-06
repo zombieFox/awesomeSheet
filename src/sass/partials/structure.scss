@@ -93,11 +93,17 @@ hr {
       height: 0;
       overflow: hidden;
       transition: all $transition-ease-medium;
+      position: relative;
+      .button {
+        margin: 0;
+        position: absolute;
+        right: 0;
+      }
     }
   }
   &.consumable {
     .consumable-counts {
-      margin: -15px 0 10px 0;
+      margin: 0 0 2rem 0;
       .check-group {
         margin: 0 5px 5px 0;
         float: left;
@@ -157,6 +163,18 @@ hr {
         }
       }
     }
+    .clone-delete-controls {
+      .button {
+        top: 0;
+      }
+    }
+  }
+  &.attack {
+    .clone-delete-controls {
+      .button {
+        bottom: 0;
+      }
+    }
   }
   &.delete-state {
     input {
@@ -175,13 +193,13 @@ hr {
       color: $primary-color;
     }
     .clone {
-      padding: 40px 20px 20px 20px;
+      padding: 40px 20px 0 20px;
       margin: 0;
       margin-bottom: 2rem;
       border-radius: $border-radius-small;
       border: 1px solid $primary-color;
       .clone-delete-controls {
-        height: 24px;
+        height: 2.5rem;
       }
       .consumable-counts {
         .check-group {
