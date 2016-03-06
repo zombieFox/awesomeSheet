@@ -163,19 +163,16 @@ var clone = (function() {
       var input = array[i].querySelector(".input-field");
       input.addEventListener("input", function() {
         _updateCloneAttack();
-        _minMaxCountLimit(this);
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneAttack();
-        _minMaxCountLimit(this);
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneAttack();
-        _minMaxCountLimit(this);
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
@@ -185,9 +182,19 @@ var clone = (function() {
   function _bind_cloneConsumableInput(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".input-field");
+      if (input.classList.contains("consumable-used") || input.classList.contains("consumable-total") ) {
+        input.addEventListener("input", function() {
+          _minMaxCountLimit(this);
+        }, false);
+        input.addEventListener("focus", function() {
+          _minMaxCountLimit(this);
+        }, false);
+        input.addEventListener("blur", function() {
+          _minMaxCountLimit(this);
+        }, false);
+      };
       input.addEventListener("input", function() {
         _updateCloneConsumable();
-        _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
         sheet.storeCharacters();
@@ -195,7 +202,6 @@ var clone = (function() {
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneConsumable();
-        _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
         sheet.storeCharacters();
@@ -203,7 +209,6 @@ var clone = (function() {
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneConsumable();
-        _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
         sheet.storeCharacters();
