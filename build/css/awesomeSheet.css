@@ -1489,14 +1489,13 @@ hr {
     margin: 0 5px 5px 0; }
 
 .clone-block .clone-controls {
-  margin: 2rem 0 3rem 0; }
+  margin: 0 0 1rem 0; }
   .clone-block .clone-controls .button {
     margin: 0 10px 0 0; }
 
 .clone-block .clone {
   padding: 0;
-  margin: -1px;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
   border: 0 solid transparent;
   border-radius: 0;
   transition: all 0.3s ease-in-out; }

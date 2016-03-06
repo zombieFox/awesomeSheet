@@ -1,27 +1,26 @@
 var clone = (function() {
 
-  function _newConsumable() {
-    var timeStamp = Date.now();
+  function _newConsumable(index) {
     var cloneString =
       '<div class="row">' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-item-' + timeStamp + '">Item</label>' +
-      '<input class="input-field input-item" id="input-item-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-item-' + index + '">Item</label>' +
+      '<input class="input-field input-item" id="input-item-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-total-' + timeStamp + '">Total</label>' +
-      '<input class="input-field consumable-total input-total" id="input-total-' + timeStamp + '" type="number" tabindex="3">' +
+      '<label class="input-label" for="input-total-' + index + '">Total</label>' +
+      '<input class="input-field consumable-total input-total" id="input-total-' + index + '" type="number" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-6">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-used-' + timeStamp + '">Used</label>' +
-      '<input class="input-field consumable-used input-used" id="input-used-' + timeStamp + '" type="number" tabindex="3">' +
+      '<label class="input-label" for="input-used-' + index + '">Used</label>' +
+      '<input class="input-field consumable-used input-used" id="input-used-' + index + '" type="number" tabindex="3">' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -36,44 +35,43 @@ var clone = (function() {
     return cloneString;
   };
 
-  function _newAttack() {
-    var timeStamp = Date.now();
+  function _newAttack(index) {
     var cloneString =
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-weapon-' + timeStamp + '">Weapon</label>' +
-      '<input class="input-field input-weapon" id="input-weapon-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-weapon-' + index + '">Weapon</label>' +
+      '<input class="input-field input-weapon" id="input-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-attack-' + timeStamp + '">Attack</label>' +
-      '<input class="input-field input-attack" id="input-attack-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-attack-' + index + '">Attack</label>' +
+      '<input class="input-field input-attack" id="input-attack-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-damage-' + timeStamp + '">Damage</label>' +
-      '<input class="input-field input-damage" id="input-damage-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-damage-' + index + '">Damage</label>' +
+      '<input class="input-field input-damage" id="input-damage-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4 col-md-1">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-range-' + timeStamp + '">Range</label>' +
-      '<input class="input-field input-range" id="input-range-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-range-' + index + '">Range</label>' +
+      '<input class="input-field input-range" id="input-range-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4 col-md-1">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-ammo-' + timeStamp + '">Ammo</label>' +
-      '<input class="input-field input-ammo" id="input-ammo-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-ammo-' + index + '">Ammo</label>' +
+      '<input class="input-field input-ammo" id="input-ammo-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4 col-md-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-critical-' + timeStamp + '">Critical</label>' +
-      '<input class="input-field input-critical" id="input-critical-' + timeStamp + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="input-critical-' + index + '">Critical</label>' +
+      '<input class="input-field input-critical" id="input-critical-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-12 col-md-2">' +
@@ -122,6 +120,25 @@ var clone = (function() {
     }, false);
   })();
 
+  // function test(event) {
+  //   console.log(event);
+  //   console.log(this);
+  //   _updateCloneAttack();
+  //   _minMaxCountLimit(this);
+  //   inputBlock.focus(this);
+  //   sheet.storeCharacters();
+  // };
+
+  // function _unbind_cloneAttackInput(array) {
+  //   for (var i = 0; i < array.length; i++) {
+  //     var input = array[i].querySelector(".input-field");
+  //     console.log(input);
+  //     input.removeEventListener("input", test, false);
+  //     input.removeEventListener("focus", test, false);
+  //     input.removeEventListener("blur", test, false);
+  //   };
+  // };
+
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       _destroy_clone(this, cloneType);
@@ -144,19 +161,16 @@ var clone = (function() {
       var input = array[i].querySelector(".input-field");
       input.addEventListener("input", function() {
         _updateCloneAttack();
-        _minMaxCountLimit(this);
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneAttack();
-        _minMaxCountLimit(this);
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneAttack();
-        _minMaxCountLimit(this);
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
@@ -166,9 +180,19 @@ var clone = (function() {
   function _bind_cloneConsumableInput(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".input-field");
+      if (input.classList.contains("consumable-used") || input.classList.contains("consumable-total") ) {
+        input.addEventListener("input", function() {
+          _minMaxCountLimit(this);
+        }, false);
+        input.addEventListener("focus", function() {
+          _minMaxCountLimit(this);
+        }, false);
+        input.addEventListener("blur", function() {
+          _minMaxCountLimit(this);
+        }, false);
+      };
       input.addEventListener("input", function() {
         _updateCloneConsumable();
-        _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
         sheet.storeCharacters();
@@ -176,7 +200,6 @@ var clone = (function() {
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneConsumable();
-        _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
         sheet.storeCharacters();
@@ -184,7 +207,6 @@ var clone = (function() {
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneConsumable();
-        _minMaxCountLimit(this);
         consumable.render();
         consumable.update();
         sheet.storeCharacters();
@@ -255,11 +277,16 @@ var clone = (function() {
       var cloneObject = array[i];
       var newNode = document.createElement("div");
       var cloneString;
+      var index = i;
+      if (index < cloneCount) {
+        console.log("index is less than cloneCount");
+        index = cloneCount;
+      };
       if (cloneType == "consumable") {
-        cloneString = _newConsumable();
+        cloneString = _newConsumable(index);
       };
       if (cloneType == "attack") {
-        cloneString = _newAttack();
+        cloneString = _newAttack(index);
       };
       newNode.setAttribute("class", "clone");
       newNode.innerHTML = cloneString;
@@ -273,8 +300,10 @@ var clone = (function() {
         };
         _bind_cloneRemoveButton(newNode.querySelector(".clone-delete-controls button"), cloneType);
       };
-      for (var j in array[i]) {
-        newNode.querySelector(".input-" + j.replace(/_/g, "-")).value = array[i][j];
+      if (index == i) {
+        for (var j in array[i]) {
+          newNode.querySelector(".input-" + j.replace(/_/g, "-")).value = array[index][j];
+        };
       };
     };
   };

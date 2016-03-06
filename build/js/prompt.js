@@ -56,7 +56,7 @@ var prompt = (function() {
         helper.addClass(promptShade, "reveal");
       };
       helper.delayFunction(_reveal_prompt, 10);
-      _bind(confirmAction);
+      _bind(confirmAction, cancelAction);
     };
   };
 

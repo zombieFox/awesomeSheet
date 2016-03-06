@@ -3,9 +3,9 @@ var vos = (function() {
   var data = {
     clone: {
       attack: [
-        { weapon: "Flurry of Blows", attack: "3/3", damage: "1d6+3", critical: "-", ammo: "-", range: "20x2"},
-        { weapon: "Grapple", attack: "7", damage: "1d6+3", critical: "-", ammo: "-", range: "20x2" },
-        { weapon: "Stunning Fist", attack: "5", damage: "1d6+3", critical: "-", ammo: "-", range: "20x2" }
+        { weapon: "Flurry of Blows", attack: "3/3", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
+        { weapon: "Grapple", attack: "7", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
+        { weapon: "Stunning Fist", attack: "5", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" }
       ],
       consumable: []
     },
@@ -24,7 +24,7 @@ var vos = (function() {
       speed: "20 feet/4 squares",
       initiative: "2",
       platinum: "",
-      gold: "1,585",
+      gold: "585",
       silver: "5",
       copper: "",
       hero_points: "",
@@ -57,7 +57,7 @@ var vos = (function() {
       body_slot_ring_left_hand: "",
       body_slot_ring_right_hand: "",
       body_slot_shield: "",
-      body_slot_shoulders: "",
+      body_slot_shoulders: "Cloak of Resistance +1",
       body_slot_wrist: "",
       hp: "17",
       temp_hp: "",
@@ -77,15 +77,15 @@ var vos = (function() {
       size_bonus: "",
       fortitude_base: "3",
       fortitude_racial: "",
-      fortitude_misc: "",
+      fortitude_misc: "1",
       fortitude_temp: "",
       reflex_base: "3",
       reflex_racial: "",
-      reflex_misc: "",
+      reflex_misc: "1",
       reflex_temp: "",
       will_base: "3",
       will_racial: "",
-      will_misc: "",
+      will_misc: "1",
       will_temp: "",
       cmb_misc: "",
       cmb_temp: "",
@@ -197,7 +197,7 @@ var vos = (function() {
       languages: "Common, Dwarven",
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)",
       gear: "Backpack, flask of oil x3, pouch (belt), sack, candle, flint and steel, tindertwig, rations (5 days), waterskin, bedroll, blanket, bloodblock, rope (silk), mirror, compass, ink, inkpen, paper sheets, case for maps/scrolls, torch, rubbing poweder, rubbing oils, scented oils (5), fine cheese (1), smelly cheese (3), wine (2), wrestling costume (2)",
-      magic_gear: "Potion of Cure Light Wounds (1)",
+      magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1)",
       defense_notes: "+2 against poison, spells, and spell-like abilities.",
       attack_notes: "+1 Weapon Focus, +2 Grapple",
       notes: "<strong>Darkvision</strong> See in the dark up to 60 feet.<br><br><strong>Defensive Training</strong> +4 dodge bonus to AC against monsters of the giant subtype.<br><br><strong>Greed</strong> +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><br><strong>Hatred</strong> +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes.<br><br><strong>Hardy</strong> +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><br><strong>Stability</strong> +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><br><strong>Stonecunning</strong> +2 bonus on Perception checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.<br><br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><br><strong>Evasion</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Flurry of Blows (Ex)</strong> Make a flurry of blows as a full-attack. Taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat.<br><br><strong>Stunning Fist (Ex)</strong> Gain Stunning Fist as a bonus feat. Fortitude saving DC 10 + 1/2 your character level + your Wis modifier.<br><br><strong>Unarmed Strike</strong> Gain Improved Unarmed Strike as a bonus feat. Add full Strength bonus on damage rolls for all unarmed strikes. You can choose to deal lethal or nonlethal damage with no penalty on his attack or grappling rolls. Unarmed damage is 1d6 plus Strength bonus.<br><br><strong>Evasion (Ex)</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Weapon Focus</strong> +1 bonus on attack rolls with one weapon (Grapple)<br><br><strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. +2 to grapple a foe. +2 CMD whenever an opponent tries to grapple you."
