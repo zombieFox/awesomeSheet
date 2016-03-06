@@ -122,6 +122,25 @@ var clone = (function() {
     }, false);
   })();
 
+  // function test(event) {
+  //   console.log(event);
+  //   console.log(this);
+  //   _updateCloneAttack();
+  //   _minMaxCountLimit(this);
+  //   inputBlock.focus(this);
+  //   sheet.storeCharacters();
+  // };
+
+  // function _unbind_cloneAttackInput(array) {
+  //   for (var i = 0; i < array.length; i++) {
+  //     var input = array[i].querySelector(".input-field");
+  //     console.log(input);
+  //     input.removeEventListener("input", test, false);
+  //     input.removeEventListener("focus", test, false);
+  //     input.removeEventListener("blur", test, false);
+  //   };
+  // };
+
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       _destroy_clone(this, cloneType);
