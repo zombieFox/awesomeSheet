@@ -3,9 +3,9 @@ var vos = (function() {
   var data = {
     clone: {
       attack: [
-        { weapon: "Flurry of Blows", attack: "3/3", damage: "1d6+3", critical: "-", ammo: "-", range: "20x2"},
-        { weapon: "Grapple", attack: "7", damage: "1d6+3", critical: "-", ammo: "-", range: "20x2" },
-        { weapon: "Stunning Fist", attack: "5", damage: "1d6+3", critical: "-", ammo: "-", range: "20x2" }
+        { weapon: "Flurry of Blows", attack: "3/3", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
+        { weapon: "Grapple", attack: "7", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
+        { weapon: "Stunning Fist", attack: "5", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" }
       ],
       consumable: []
     },
