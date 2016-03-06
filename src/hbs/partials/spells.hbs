@@ -17,36 +17,36 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="spell-level" data-spell-level="0">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 0</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 0</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-0">Known</label>
-                  <input class="input-field" id="input-spells-known-level-0" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-0">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-0" type="text" value="4" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-0">Known</label>
+                    <input class="input-field" id="input-spells-known-level-0" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-0">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-0" type="text" value="16" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-0">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-0" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-0">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-0" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -54,66 +54,41 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-0">
-              <button data-event-listener data-spell-name="bleed" id="bleed" class="spell-known-item button button-tertiary hidable">Bleed<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="erase" id="erase" class="spell-known-item button button-tertiary hidable">Erase<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="daze" id="daze" class="spell-known-item button button-tertiary hidable">Daze<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="disrupt-undead" id="disrupt-undead" class="spell-known-item button button-tertiary hidable">Disrupt Undead<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="touch-of-fatigue" id="touch-of-fatigue" class="spell-known-item button button-tertiary hidable">Touch of Fatigue<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="prestidigitation" id="prestidigitation" class="spell-known-item button button-tertiary hidable">Prestidigitation<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="light" id="light" class="spell-known-item button button-tertiary hidable">Light<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="ghost-sound" id="ghost-sound" class="spell-known-item button button-tertiary hidable">Ghost Sound<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="spark" id="spark" class="spell-known-item button button-tertiary hidable">Spark<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="acid-splash" id="acid-splash" class="spell-known-item button button-tertiary hidable">Acid Splash<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="mage-hand" id="mage-hand" class="spell-known-item button button-tertiary hidable">Mage Hand<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="flare" id="flare" class="spell-known-item button button-tertiary hidable">Flare<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="detect-magic" id="detect-magic" class="spell-known-item button button-tertiary hidable">Detect Magic<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="detect-poison" id="detect-poison" class="spell-known-item button button-tertiary hidable">Detect Poison<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="dancing-lights" id="dancing-lights" class="spell-known-item button button-tertiary hidable">Dancing Lights<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="mending" id="mending" class="spell-known-item button button-tertiary hidable">Mending<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="arcane-mark" id="arcane-mark" class="spell-known-item button button-tertiary hidable">Arcane Mark<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="message" id="message" class="spell-known-item button button-tertiary hidable">Message<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="ray-of-frost" id="ray-of-frost" class="spell-known-item button button-tertiary hidable">Ray of Frost<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="read-magic" id="read-magic" class="spell-known-item button button-tertiary hidable">Read Magic<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="open-close" id="open-close" class="spell-known-item button button-tertiary hidable">Open Close<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="resistance" id="resistance" class="spell-known-item button button-tertiary hidable">Resistance<span class="spell-active"></span><span class="spell-marks"></span></button>
-            </div>
+            <div class="spells-known spell-level-0"></div>
           </div>
         </div>
       </div>
       <div class="spell-level" data-spell-level="1">
-        <div class="row">
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 1</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 1</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-1">Known</label>
-                  <input class="input-field" id="input-spells-known-level-1" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-1">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-1" type="text" value="5" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-1">Known</label>
+                    <input class="input-field" id="input-spells-known-level-1" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-1">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-1" type="text" value="17" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-1">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-1" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-1">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-1" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,54 +96,41 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-1">
-              <button data-event-listener data-spell-name="comprehend-languages" id="comprehend-languages" class="spell-known-item button button-tertiary hidable">Comprehend Languages<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="enlarge-person" id="enlarge-person" class="spell-known-item button button-tertiary hidable">Enlarge Person<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="feather-fall" id="feather-fall" class="spell-known-item button button-tertiary hidable">Feather Fall<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="grease" id="grease" class="spell-known-item button button-tertiary hidable">Grease<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="mage-armor" id="mage-armor" class="spell-known-item button button-tertiary hidable">Mage Armor<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="mount" id="mount" class="spell-known-item button button-tertiary hidable">Mount<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="obscuring-mist" id="obscuring-mist" class="spell-known-item button button-tertiary hidable">Obscuring Mist<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="protection-from-chaos" id="protection-from-chaos" class="spell-known-item button button-tertiary hidable">Protection from Chaos<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="protection-from-evil" id="protection-from-evil" class="spell-known-item button button-tertiary hidable">Protection from Evil<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="shield" id="shield" class="spell-known-item button button-tertiary hidable">Shield<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="summon-monster-i" id="summon-monster-i" class="spell-known-item button button-tertiary hidable">Summon Monster I<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="unseen-servant" id="unseen-servant" class="spell-known-item button button-tertiary hidable">Unseen Servant<span class="spell-active"></span><span class="spell-marks"></span></button>
-            </div>
+            <div class="spells-known spell-level-1"></div>
           </div>
         </div>
       </div>
       <div class="spell-level" data-spell-level="2">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 2</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 2</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-2">Known</label>
-                  <input class="input-field" id="input-spells-known-level-2" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-2">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-2" type="text" value="4" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-2">Known</label>
+                    <input class="input-field" id="input-spells-known-level-2" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-2">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-2" type="text" value="18" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-2">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-2" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-2">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-2" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,53 +138,41 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-2">
-              <button data-event-listener data-spell-name="blur" id="blur" class="spell-known-item button button-tertiary hidable">Blur<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="create-pit" id="create-pit" class="spell-known-item button button-tertiary hidable">Create Pit<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="flaming-sphere" id="flaming-sphere" class="spell-known-item button button-tertiary hidable">Flaming Sphere<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="glitterdust" id="glitterdust" class="spell-known-item button button-tertiary hidable">Glitterdust<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="invisibility" id="invisibility" class="spell-known-item button button-tertiary hidable">Invisibility<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="levitate" id="levitate" class="spell-known-item button button-tertiary hidable">Levitate<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="mirror-image" id="mirror-image" class="spell-known-item button button-tertiary hidable">Mirror Image<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="resist-energy" id="resist-energy" class="spell-known-item button button-tertiary hidable">Resist Energy<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="stone-call" id="stone-call" class="spell-known-item button button-tertiary hidable">Stone Call<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="summon-monster-ii" id="summon-monster-ii" class="spell-known-item button button-tertiary hidable">Summon Monster II<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="web" id="web" class="spell-known-item button button-tertiary hidable">Web<span class="spell-active"></span><span class="spell-marks"></span></button>
-            </div>
+            <div class="spells-known spell-level-2"></div>
           </div>
         </div>
       </div>
       <div class="spell-level" data-spell-level="3">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 3</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 3</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-3">Known</label>
-                  <input class="input-field" id="input-spells-known-level-3" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-3">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-3" type="text" value="3" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-3">Known</label>
+                    <input class="input-field" id="input-spells-known-level-3" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-3">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-3" type="text" value="19" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-3">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-3" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-3">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-3" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,48 +180,41 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="spells-known spell-level-3">
-              <button data-event-listener data-spell-name="stinking-cloud" id="stinking-cloud" class="spell-known-item button button-tertiary hidable">Stinking Cloud<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="summon-monster-iii" id="summon-monster-iii" class="spell-known-item button button-tertiary hidable">Summon Monster III<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="spiked-pit" id="spiked-pit" class="spell-known-item button button-tertiary hidable">Spiked Pit<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="aqueous-orb" id="aqueous-orb" class="spell-known-item button button-tertiary hidable">Aqueous Orb<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="fly" id="fly" class="spell-known-item button button-tertiary hidable">Fly<span class="spell-active"></span><span class="spell-marks"></span></button>
-              <button data-event-listener data-spell-name="sleet-storm" id="sleet-storm" class="spell-known-item button button-tertiary hidable">Sleet Storm<span class="spell-active"></span><span class="spell-marks"></span></button>
-            </div>
+            <div class="spells-known spell-level-3"></div>
           </div>
         </div>
       </div>
       <div class="spell-level" data-spell-level="4">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 4</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 4</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-4">Known</label>
-                  <input class="input-field" id="input-spells-known-level-4" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-4">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-4" type="text" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-4">Known</label>
+                    <input class="input-field" id="input-spells-known-level-4" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-4">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-4" type="text" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-4">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-4" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-4">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-4" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -284,36 +227,36 @@
         </div>
       </div>
       <div class="spell-level" data-spell-level="5">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 5</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 5</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-5">Known</label>
-                  <input class="input-field" id="input-spells-known-level-5" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-5">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-5" type="text" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-5">Known</label>
+                    <input class="input-field" id="input-spells-known-level-5" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-5">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-5" type="text" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-5">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-5" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-5">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-5" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -326,36 +269,36 @@
         </div>
       </div>
       <div class="spell-level" data-spell-level="6">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 6</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 6</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-6">Known</label>
-                  <input class="input-field" id="input-spells-known-level-6" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-6">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-6" type="text" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-6">Known</label>
+                    <input class="input-field" id="input-spells-known-level-6" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-6">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-6" type="text" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-6">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-6" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-6">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-6" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -368,36 +311,36 @@
         </div>
       </div>
       <div class="spell-level" data-spell-level="7">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 7</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 7</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-7">Known</label>
-                  <input class="input-field" id="input-spells-known-level-7" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-7">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-7" type="text" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-7">Known</label>
+                    <input class="input-field" id="input-spells-known-level-7" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-7">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-7" type="text" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-7">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-7" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-7">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-7" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -410,36 +353,36 @@
         </div>
       </div>
       <div class="spell-level" data-spell-level="8">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 8</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 8</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-8">Known</label>
-                  <input class="input-field" id="input-spells-known-level-8" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-8">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-8" type="text" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-8">Known</label>
+                    <input class="input-field" id="input-spells-known-level-8" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-8">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-8" type="text" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-8">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-8" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-8">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-8" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>
@@ -452,36 +395,36 @@
         </div>
       </div>
       <div class="spell-level" data-spell-level="9">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <h2 class="margin-with-input">Level 9</h2>
-          </div>
-          <div class="col-xs-7 col-sm-5">
-            <div class="new-spell">
-              <div class="spell-name">
-                <input type="text" placeholder="Add Spell" tabindex="3">
-              </div>
-              <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
+        <div class="hidable">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <h2 class="margin-with-input">Level 9</h2>
             </div>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-known-level-9">Known</label>
-                  <input class="input-field" id="input-spells-known-level-9" type="text" tabindex="3">
-                </div>
+            <div class="col-xs-7 col-sm-5">
+              <div class="new-spell">
+                <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
+                <button class="add-spell button button-secondary button-small" tabindex="3"><span class="icon-add"></span></button>
               </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spells-daily-level-9">Daily</label>
-                  <input class="input-field" id="input-spells-daily-level-9" type="text" tabindex="3">
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="row no-gutter">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-known-level-9">Known</label>
+                    <input class="input-field" id="input-spells-known-level-9" type="text" tabindex="3">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-4">
-                <div class="input-block">
-                  <label class="input-label" for="input-spell-dc-level-9">DC</label>
-                  <input class="input-field" id="input-spell-dc-level-9" type="text" tabindex="3">
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spells-daily-level-9">Daily</label>
+                    <input class="input-field" id="input-spells-daily-level-9" type="text" tabindex="3">
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="input-block" data-input-store="true">
+                    <label class="input-label" for="input-spell-dc-level-9">DC</label>
+                    <input class="input-field" id="input-spell-dc-level-9" type="text" tabindex="3">
+                  </div>
                 </div>
               </div>
             </div>

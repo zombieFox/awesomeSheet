@@ -23,11 +23,12 @@ h6 {
 }
 
 h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   line-height: 2rem;
 }
 
 h2 {
+  margin-bottom: 1rem;
   line-height: 1.6rem;
 }
 
@@ -94,7 +95,7 @@ a {
   }
 }
 
-.textarea,
+.textarea-block,
 textarea {
   background-color: $secondary-color-light-alpha;
   padding: 10px 15px;

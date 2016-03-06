@@ -9,15 +9,15 @@ body {
 section {
   position: relative;
   z-index: $body;
-  padding: 60px 0 20px 0;
+  padding: 0 0 1rem 0;
   h1 {
     padding: 10px 20px;
     background-color: $secondary-color;
     color: $white;
     text-transform: uppercase;
     position: relative;
-    border-left: 10px solid $primary-color;
-    border-radius: $border-radius-medium;
+    border-left: 5px solid $primary-color;
+    border-radius: $border-radius-small;
   }
   h2 {
     background-color: $gray-13;
@@ -25,15 +25,15 @@ section {
     min-height: 2.3rem;
     line-height: 2.3rem;
     box-sizing: border-box;
-    border-left: 10px solid $secondary-color;
-    border-radius: $border-radius-medium;
+    border-left: 5px solid $secondary-color;
+    border-radius: $border-radius-small;
   }
 }
 
 hr {
   border: 0;
   border-top: 2px solid $secondary-color;
-  margin: 1rem 0 3rem 0;
+  margin: 0 0 2.5rem 0;
   clear: both;
 }
 
@@ -70,7 +70,7 @@ hr {
 }
 
 .section-controls {
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   .button {
     margin: 0 5px 5px 0;
   }
@@ -87,7 +87,7 @@ hr {
     padding: 0;
     margin: -1px;
     margin-bottom: 2rem;
-    border: 1px solid transparent;
+    border: 0 solid transparent;
     border-radius: 0;
     transition: all $transition-ease-medium;
     .clone-delete-controls {
@@ -96,7 +96,7 @@ hr {
       transition: all $transition-ease-medium;
     }
   }
-  &.consumables {
+  &.consumable {
     .consumable-counts {
       margin: -15px 0 10px 0;
       .check-group {
@@ -105,7 +105,7 @@ hr {
         position: relative;
         transition: all $transition-ease-medium;
         .check {
-          background-color: $primary-color-light;
+          background-color: $primary-color;
           border: 1px solid $primary-color-dark;
           margin: 0 -1px -1px 0;
           padding: 0;
@@ -117,8 +117,8 @@ hr {
           position: relative;
           transition: all $transition-ease-medium;
           &.used {
-            background-color: $gray-13;
-            border-color: $gray-13;
+            background-color: $secondary-color-light-alpha;
+            border-color: $white;
           }
           &:nth-child(1) {
             border-radius: $border-radius-small 0 0 0;
