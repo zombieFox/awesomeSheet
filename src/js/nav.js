@@ -31,7 +31,7 @@ var nav = (function() {
     var navAnchor = document.createElement("a");
     navAnchor.setAttribute("href", "javascript:void(0)");
     navAnchor.setAttribute("data-character-index", characterIndex);
-    navAnchor.setAttribute("class", "character-toggle character-index-" + characterIndex);
+    navAnchor.setAttribute("class", "clearfix character-toggle character-index-" + characterIndex);
     navAnchor.setAttribute("tabindex", 10);
     navAnchor.appendChild(icon);
     navAnchor.appendChild(text);
@@ -43,15 +43,17 @@ var nav = (function() {
   function _bindCharacterOption(characterLink) {
     characterLink.addEventListener("click", function() {
       _switchCharacter(this);
+      sheet.storeCharacters();
+      sheet.storeCharacterIndex();
+      sheet.clear();
+      sheet.render();
     }, false);
   };
 
   function _switchCharacter(characterLink) {
     var newIndex = characterLink.dataset.characterIndex;
     var allCharacterToggle = helper.eA(".character-toggle");
-    sheet.currentCharacterIndex = newIndex;
-    sheet.clear();
-    sheet.render();
+    sheet.setIndex(newIndex);
     for (var i = 0; i < allCharacterToggle.length; i++) {
       var icon = allCharacterToggle[i].querySelector(".icon");
       helper.removeClass(icon, "icon-check-box-checked");
@@ -70,7 +72,7 @@ var nav = (function() {
       if (array[i].input.name) {
         var characterToggle = _createNavAnchor(array[i].input.name, i);
         navCharacters.appendChild(characterToggle);
-        if (i == sheet.currentCharacterIndex) {
+        if (i == sheet.getIndex()) {
           var icon = characterToggle.querySelector(".icon");
           var anchor = characterToggle.querySelector("a");
           helper.removeClass(icon, "icon-check-box-unchecked");
@@ -102,7 +104,7 @@ var nav = (function() {
       helper.toggleClass(nav, "open");
     }, false);
     exportCharacter.addEventListener("click", function() {
-      sheet.export(sheet.currentCharacterIndex);
+      sheet.export(sheet.getIndex());
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {

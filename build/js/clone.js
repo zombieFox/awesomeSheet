@@ -344,7 +344,7 @@ var clone = (function() {
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
-    sheet.allCharacters[sheet.currentCharacterIndex].clone.attack = cloneAttack;
+    sheet.allCharacters[sheet.getIndex()].clone.attack = cloneAttack;
   };
 
   function _updateCloneConsumable() {
@@ -359,7 +359,7 @@ var clone = (function() {
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
-    sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable = cloneConsumable;
+    sheet.allCharacters[sheet.getIndex()].clone.consumable = cloneConsumable;
   };
 
   function render() {
@@ -367,15 +367,15 @@ var clone = (function() {
     var all_attack = [];
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
-    if (sheet.allCharacters[sheet.currentCharacterIndex].clone.attack) {
-      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].clone.attack) {
-        all_attack.push(sheet.allCharacters[sheet.currentCharacterIndex].clone.attack[i]);
+    if (sheet.allCharacters[sheet.getIndex()].clone.attack) {
+      for (var i in sheet.allCharacters[sheet.getIndex()].clone.attack) {
+        all_attack.push(sheet.allCharacters[sheet.getIndex()].clone.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable) {
-      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable) {
-        all_consumable.push(sheet.allCharacters[sheet.currentCharacterIndex].clone.consumable[i]);
+    if (sheet.allCharacters[sheet.getIndex()].clone.consumable) {
+      for (var i in sheet.allCharacters[sheet.getIndex()].clone.consumable) {
+        all_consumable.push(sheet.allCharacters[sheet.getIndex()].clone.consumable[i]);
       };
     };
     _render_clone(all_attack, "attack");

@@ -52,10 +52,10 @@ nav {
     border-radius: $border-radius-small;
     margin: 0;
     padding: 8px 0;
-    width: 260px;
+    width: 300px;
     position: absolute;
     top: 60px;
-    right: -300px;
+    right: -350px;
     transition: all $transition-ease-medium;
     ul {
       margin: 0;
@@ -66,39 +66,48 @@ nav {
       padding: 0;
       list-style-type: none;
       &.divide {
-        margin: 8px 0;
+        margin: 10px 0;
         background-color: $gray-alpha-12;
         height: 1px;
       }
       h1,
       h2 {
-        padding: 0 16px;
-        margin: 0;
-        line-height: 2.5rem;
+        padding: 0;
+        margin: 0 0 0 20%;
+        line-height: 3rem;
         font-size: 1rem;
-        border-left: 5px solid transparent;
+        width: 80%;
         display: block;
         font-family: $open-sans-bold;
         text-transform: uppercase;
       }
       a {
-        padding: 0 16px;
-        line-height: 2.5rem;
+        padding: 0;
+        margin: 0;
+        line-height: 3rem;
         font-size: 1rem;
-        border-left: 5px solid transparent;
         display: block;
         font-family: $open-sans-bold;
         text-transform: uppercase;
+        clear: both;
         transition: background-color $transition-ease-medium, color $transition-ease-medium;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        [class^="icon-"],
-        [class*=" icon-"] {
-          color: $secondary-color;
-          font-size: 1.5rem;
-          margin: 0 10px 0 0;
-          position: relative;
-          top: 3px;
-          transition: background-color $transition-ease-medium, color $transition-ease-medium;
+        span {
+          display: inline-block;
+          float: left;
+          &.name {
+            width: 70%;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          &.icon {
+            color: $secondary-color;
+            font-size: 1.5rem;
+            line-height: 3rem;
+            width: 20%;
+            text-align: center;
+            transition: background-color $transition-ease-medium, color $transition-ease-medium;
+          }
         }
         &:link,
         &:visited {
@@ -121,8 +130,7 @@ nav {
           background-color: $primary-color;
           color: $white;
           transition: background-color $transition-ease-fast, color $transition-ease-fast;
-          [class^="icon-"],
-          [class*=" icon-"] {
+          .icon {
             color: $white;
             transition: background-color $transition-ease-fast, color $transition-ease-fast;
           }

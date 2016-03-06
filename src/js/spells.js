@@ -137,7 +137,7 @@ var spells = (function() {
         // clear input field
         element.value = "";
         // add spell to current character object
-        sheet.allCharacters[sheet.currentCharacterIndex].spells.push(newSpell);
+        sheet.allCharacters[sheet.getIndex()].spells.push(newSpell);
         // make a snack bar
         snack.render(spallName + " added to spell level " + level + ".", false, false);
       } else {
@@ -349,16 +349,16 @@ var spells = (function() {
       // add to current character object
       spells.push(newSpell);
     };
-    sheet.allCharacters[sheet.currentCharacterIndex].spells = spells;
+    sheet.allCharacters[sheet.getIndex()].spells = spells;
   };
 
   function render() {
     // build an array of spell objects
     var all_spells = [];
     // iterate over all objects keys to find spells then push those values to all_spells
-    if (sheet.allCharacters[sheet.currentCharacterIndex].spells) {
-      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].spells) {
-        all_spells.push(sheet.allCharacters[sheet.currentCharacterIndex].spells[i]);
+    if (sheet.allCharacters[sheet.getIndex()].spells) {
+      for (var i in sheet.allCharacters[sheet.getIndex()].spells) {
+        all_spells.push(sheet.allCharacters[sheet.getIndex()].spells[i]);
       };
     };
     _render_spell(all_spells);

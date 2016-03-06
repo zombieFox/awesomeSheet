@@ -19,14 +19,28 @@ var sheet = (function() {
       };
     };
     storeCharacters();
-    // console.log("laoded Character is " + allCharacters[currentCharacterIndex].input.name);
-    // console.log("laoded Character index is " + currentCharacterIndex);
-    // console.log(allCharacters);
+  })();
+
+  var setCurrentCharacterIndex = (function() {
+    if (read("charactersIndex")) {
+      currentCharacterIndex = read("charactersIndex");
+    };
   })();
 
   function storeCharacters() {
     store("allCharacters", JSON.stringify(allCharacters));
-    // console.log(allCharacters);
+  };
+
+  function getIndex() {
+    return currentCharacterIndex;
+  };
+
+  function setIndex(index) {
+    currentCharacterIndex = index;
+  };
+
+  function storeCharacterIndex() {
+    store("charactersIndex", currentCharacterIndex);
   };
 
   function store(key, data) {
@@ -97,7 +111,10 @@ var sheet = (function() {
   return {
     allCharacters: allCharacters,
     currentCharacterIndex: currentCharacterIndex,
+    getIndex: getIndex,
+    setIndex: setIndex,
     storeCharacters: storeCharacters,
+    storeCharacterIndex: storeCharacterIndex,
     destroy: destroy,
     store: store,
     remove: remove,

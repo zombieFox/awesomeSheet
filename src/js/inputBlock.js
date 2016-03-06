@@ -2,7 +2,7 @@ var inputBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("input-", "").replace(/-/g, "_");
-    sheet.allCharacters[sheet.currentCharacterIndex].input[key] = element.value;
+    sheet.allCharacters[sheet.getIndex()].input[key] = element.value;
     sheet.storeCharacters();
   };
 
@@ -61,7 +61,7 @@ var inputBlock = (function() {
   };
 
   function _render_characterLink(awesomeNameValue) {
-    var name = helper.e(".character-index-" + sheet.currentCharacterIndex).querySelector(".name");
+    var name = helper.e(".character-index-" + sheet.getIndex()).querySelector(".name");
     name.textContent = awesomeNameValue;
   };
 
@@ -72,10 +72,10 @@ var inputBlock = (function() {
   };
 
   function render() {
-    if (sheet.allCharacters[sheet.currentCharacterIndex].input) {
-      for (var i in sheet.allCharacters[sheet.currentCharacterIndex].input) {
+    if (sheet.allCharacters[sheet.getIndex()].input) {
+      for (var i in sheet.allCharacters[sheet.getIndex()].input) {
         var id = "#input-" + i.replace(/_/g, "-");
-        helper.e(id).value = sheet.allCharacters[sheet.currentCharacterIndex].input[i];
+        helper.e(id).value = sheet.allCharacters[sheet.getIndex()].input[i];
       };
     };
   };
