@@ -196,12 +196,12 @@ var ro = (function() {
       feats: "Weapon Finesse",
       traits: "<strong>Magical Lineage</strong> (Shocking Grasp), <strong>Focused Mind</strong> (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "<strong>Low-Light Vision (Ex)</strong> (see x2 as far as humans in low illumination), <strong>Elven Immunities (Ex)</strong> (Immune to magic sleep effects, +2 against Enchantment spells and effects.), <strong>Elven Magic (Ex)</strong> (+2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items), <strong>Weapon Familiarity (Ex)</strong> (Proficient with longbows [including composite longbows], longswords, rapiers, and shortbows [including composite shortbows], treat weapon with \"elven\" in name as a martial weapon) <strong>Keen Senses (Ex)</strong> (+2 Perception checks), <strong>Arcane Pool</strong> (4), <strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> (cast spells and wield his weapons at the same time)",
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX)",
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3)",
       magic_gear: "",
       defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather",
       attack_notes: "",
-      notes: ""
+      notes: "<strong>Low-Light Vision (Ex)</strong> (see x2 as far as humans in low illumination),<br><br><strong>Elven Immunities (Ex)</strong> (Immune to magic sleep effects, +2 against Enchantment spells and effects.),<br><br><strong>Elven Magic (Ex)</strong> (+2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items),<br><br><strong>Weapon Familiarity (Ex)</strong> (Proficient with longbows [including composite longbows], longswords, rapiers, and shortbows [including composite shortbows], treat weapon with \"elven\" in name as a martial weapon) <strong>Keen Senses (Ex)</strong> (+2 Perception checks),<br><br><strong>Arcane Pool</strong> (4),<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> (cast spells and wield his weapons at the same time)"
     },
     spells: [
       // level 1
