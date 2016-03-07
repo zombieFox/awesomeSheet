@@ -1735,13 +1735,16 @@ hr {
     margin: 0 0.5% 0.5% 0;
     width: 49.5%;
     text-align: left;
-    overflow: hidden;
     font-size: 0.9rem;
+    overflow: hidden;
     font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
     white-space: normal;
     float: left;
     line-height: 2rem;
     height: auto; }
+    #spells .spell-level .spells-known .button .spell-name {
+      white-space: nowrap;
+      overflow: hidden; }
     #spells .spell-level .spells-known .button .spell-marks {
       float: right;
       margin: 0 0 0 5px; }

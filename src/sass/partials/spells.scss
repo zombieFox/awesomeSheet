@@ -10,13 +10,17 @@
         margin: 0 0.5% 0.5% 0;
         width: 49.5%;
         text-align: left;
-        overflow: hidden;
         font-size: 0.9rem;
+        overflow: hidden;
         font-family: $open-sans-regular;
         white-space: normal;
         float: left;
         line-height: 2rem;
         height: auto;
+        .spell-name {
+          white-space: nowrap;
+          overflow: hidden;
+        }
         .spell-marks {
           float: right;
           margin: 0 0 0 5px;

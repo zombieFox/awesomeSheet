@@ -311,7 +311,10 @@ var spells = (function() {
     spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("class", "spell-known-item button button-tertiary hidable");
-    spellButton.textContent = spellName;
+    var spellNameSpan = document.createElement("span");
+    spellNameSpan.setAttribute("class", "spell-name");
+    spellNameSpan.textContent = spellName;
+    spellButton.appendChild(spellNameSpan);
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "spell-marks");
     spellButton.appendChild(spellMarks);
