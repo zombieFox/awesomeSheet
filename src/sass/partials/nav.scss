@@ -7,7 +7,7 @@ nav {
   right: 10px;
   z-index: $nav;
   transition: all $transition-ease-medium;
-  .toggle-nav {
+  .nav-toggle {
     cursor: pointer;
     display: block;
     width: 50px;
@@ -144,7 +144,7 @@ nav {
     }
   }
   &.open {
-    .toggle-nav {
+    .nav-toggle {
       .line {
         &.top {
           top: 50%;
@@ -168,7 +168,7 @@ nav {
     }
   }
   &.bright {
-    .toggle-nav {
+    .nav-toggle {
       background-color: $primary-color;
       box-shadow: $shadow-medium;
       &:hover {
@@ -193,7 +193,7 @@ nav {
   nav {
     right: inherit;
     left: 10px;
-    .toggle-nav {
+    .nav-toggle {
       right: inherit;
       left: 0;
     }

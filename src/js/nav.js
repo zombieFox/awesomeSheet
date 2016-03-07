@@ -21,7 +21,7 @@ var nav = (function() {
     }
   };
 
-  function _createNavAnchor(characterName, characterIndex) {
+  function _render_navAnchor(characterName, characterIndex) {
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
@@ -36,13 +36,14 @@ var nav = (function() {
     navAnchor.appendChild(icon);
     navAnchor.appendChild(text);
     navLi.appendChild(navAnchor);
-    _bindCharacterOption(navAnchor);
+    _bind_characterOption(navAnchor);
     return navLi;
   };
 
-  function _bindCharacterOption(characterLink) {
+  function _bind_characterOption(characterLink) {
     characterLink.addEventListener("click", function() {
-      _switchCharacter(this);
+      _switch_character(this);
+      navClose();
       sheet.storeCharacters();
       sheet.storeCharacterIndex();
       sheet.clear();
@@ -50,7 +51,7 @@ var nav = (function() {
     }, false);
   };
 
-  function _switchCharacter(characterLink) {
+  function _switch_character(characterLink) {
     var newIndex = characterLink.dataset.characterIndex;
     var allCharacterToggle = helper.eA(".character-toggle");
     sheet.setIndex(newIndex);
@@ -70,7 +71,7 @@ var nav = (function() {
     var navCharacters = helper.e(".nav-characters");
     for (i in array) {
       if (array[i].input.name) {
-        var characterToggle = _createNavAnchor(array[i].input.name, i);
+        var characterToggle = _render_navAnchor(array[i].input.name, i);
         navCharacters.appendChild(characterToggle);
         if (i == sheet.getIndex()) {
           var icon = characterToggle.querySelector(".icon");
@@ -81,34 +82,52 @@ var nav = (function() {
           helper.addClass(anchor, "active");
         };
       } else {
-        var characterToggle = _createNavAnchor("Unnamed Character", i);
+        var characterToggle = _render_navAnchor("Unnamed Character", i);
         navCharacters.appendChild(characterToggle);
       };
     };
   };
 
+  function navClose() {
+    helper.removeClass(helper.e("nav"), "open");
+  };
+
+  function navOpen() {
+    helper.addClass(helper.e("nav"), "open");
+  };
+
+  function navToggle() {
+    helper.toggleClass(helper.e("nav"), "open");
+  };
+
   function bind() {
     var nav = helper.e("nav");
-    var toggleNav = helper.e(".toggle-nav");
+    var navToggleElement = helper.e(".nav-toggle");
     var fullscreen = helper.e(".fullscreen");
     var clearAll = helper.e(".clear-all");
     var exportCharacter = helper.e(".export-character");
+    navToggleElement.addEventListener("click", function() {
+      navToggle();
+    }, false);
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "clear all", true);
-      helper.removeClass(nav, "open");
-    }, false);
-    toggleNav.addEventListener("click", function() {
-      helper.toggleClass(nav, "open");
+      navClose();
     }, false);
     exportCharacter.addEventListener("click", function() {
       sheet.export(sheet.getIndex());
+      navClose();
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {
-        helper.removeClass(nav, "open");
+        navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        navClose();
       };
     }, false);
   };
@@ -116,7 +135,10 @@ var nav = (function() {
   // exposed methods
   return {
     bind: bind,
-    render: render
+    render: render,
+    navOpen: navOpen,
+    navClose: navClose,
+    navToggle: navToggle
   }
 
 })();

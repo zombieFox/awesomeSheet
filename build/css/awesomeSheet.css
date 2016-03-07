@@ -916,6 +916,8 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
     border-color: #ff0055;
     outline: 0; }
+  input[type="email"].no-margin, input[type="number"].no-margin, input[type="search"].no-margin, input[type="text"].no-margin, input[type="tel"].no-margin, input[type="password"].no-margin {
+    margin: 0; }
 
 table {
   border: 0;
@@ -1119,7 +1121,7 @@ nav {
   right: 10px;
   z-index: 4000;
   transition: all 0.3s ease-in-out; }
-  nav .toggle-nav {
+  nav .nav-toggle {
     cursor: pointer;
     display: block;
     width: 50px;
@@ -1130,7 +1132,7 @@ nav {
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
     -webkit-tap-highlight-color: transparent; }
-    nav .toggle-nav .line {
+    nav .nav-toggle .line {
       display: block;
       height: 2px;
       width: 24px;
@@ -1143,16 +1145,16 @@ nav {
               transform: translate(-50%, -50%);
       opacity: 1;
       transition: all 0.3s ease-in-out; }
-      nav .toggle-nav .line.top {
+      nav .nav-toggle .line.top {
         top: 38%;
         transition-delay: 0.1s; }
-      nav .toggle-nav .line.middle {
+      nav .nav-toggle .line.middle {
         top: 50%;
         transition-delay: 0.2s; }
-      nav .toggle-nav .line.bottom {
+      nav .nav-toggle .line.bottom {
         top: 62%;
         transition-delay: 0.1s; }
-    nav .toggle-nav:hover {
+    nav .nav-toggle:hover {
       background-color: rgba(0, 70, 130, 0.05); }
   nav .nav-list {
     background-color: #ffffff;
@@ -1232,16 +1234,16 @@ nav {
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
         nav .nav-list li a.active:hover {
           color: #ffffff; }
-  nav.open .toggle-nav .line.top {
+  nav.open .nav-toggle .line.top {
     top: 50%;
     -webkit-transform: translate(-12px, -1px) rotate(135deg);
         -ms-transform: translate(-12px, -1px) rotate(135deg);
             transform: translate(-12px, -1px) rotate(135deg);
     transition-delay: 0.3s; }
-  nav.open .toggle-nav .line.middle {
+  nav.open .nav-toggle .line.middle {
     opacity: 0;
     transition-delay: 0s; }
-  nav.open .toggle-nav .line.bottom {
+  nav.open .nav-toggle .line.bottom {
     top: 50%;
     -webkit-transform: translate(-12px, -1px) rotate(-135deg);
         -ms-transform: translate(-12px, -1px) rotate(-135deg);
@@ -1250,12 +1252,12 @@ nav {
   nav.open .nav-list {
     right: 0;
     transition: all 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
-  nav.bright .toggle-nav {
+  nav.bright .nav-toggle {
     background-color: #ff0055;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2); }
-    nav.bright .toggle-nav:hover {
+    nav.bright .nav-toggle:hover {
       background-color: #ff0055; }
-    nav.bright .toggle-nav .line {
+    nav.bright .nav-toggle .line {
       background-color: #ffffff; }
 
 /* media queries
@@ -1264,7 +1266,7 @@ nav {
   nav {
     right: inherit;
     left: 10px; }
-    nav .toggle-nav {
+    nav .nav-toggle {
       right: inherit;
       left: 0; }
     nav .nav-list {

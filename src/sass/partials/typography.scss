@@ -143,6 +143,9 @@ input {
       border-color: $primary-color;
       outline: 0;
     }
+    &.no-margin {
+      margin: 0;
+    }
   }
 }
 
