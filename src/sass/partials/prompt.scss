@@ -9,9 +9,14 @@
     h1 {
       margin: 0 0 20px 0;
     }
-    p {
+    pre {
+      background-color: $gray-alpha-13;
       max-height: 300px;
       overflow-y: scroll;
+      border-radius: $border-radius-medium;
+      padding: 15px;
+      box-sizing: border-box;
+      box-shadow: $shadow-small-inset;
     }
     &:last-child {
       margin: 0 0 40px 0;
