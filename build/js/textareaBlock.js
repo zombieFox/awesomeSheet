@@ -24,7 +24,7 @@ var textareaBlock = (function() {
   function render() {
     if (sheet.allCharacters[sheet.getIndex()].textarea) {
       for (var i in sheet.allCharacters[sheet.getIndex()].textarea) {
-        var id = "#" + "textarea-" + i.replace(/_/g, '-');
+        var id = "#" + "textarea-" + i.replace(/_/g, "-");
         helper.e(id).innerHTML = sheet.allCharacters[sheet.getIndex()].textarea[i];
       };
     };

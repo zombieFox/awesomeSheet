@@ -1290,12 +1290,18 @@ nav {
 .prompt .prompt-message h1 {
   margin: 0 0 20px 0; }
 
-.prompt .prompt-message p {
-  max-height: 300px;
-  overflow-y: scroll; }
+.prompt .prompt-message pre {
+  background-color: rgba(0, 0, 0, 0.02);
+  max-height: 200px;
+  overflow-y: scroll;
+  border-radius: 4px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 1px 10px rgba(0, 0, 0, 0.1);
+  white-space: pre-wrap; }
 
 .prompt .prompt-message:last-child {
-  margin: 0 0 40px 0; }
+  margin: 0 0 20px 0; }
 
 .prompt.prompt-shade {
   background-color: rgba(0, 0, 0, 0.8);
@@ -1309,7 +1315,7 @@ nav {
   transition: all 0.3s ease-in-out; }
 
 .prompt.prompt-modal {
-  border-left: 5px solid #ff0055;
+  border-top: 10px solid #ff0055;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1729,7 +1735,7 @@ hr {
 /* spells
 ------------------------------------------------- */
 #spells .spell-level {
-  margin: 0 0 2rem 0; }
+  margin: 0 0 1.5rem 0; }
   #spells .spell-level .spells-known .button {
     padding: 0 10px;
     margin: 0 0.5% 0.5% 0;

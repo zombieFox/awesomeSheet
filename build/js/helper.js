@@ -25,6 +25,20 @@ var helper = (function() {
     window.setTimeout(functionToDelay, time);
   };
 
+  function selectText(element) {
+    var node = helper.e(element);
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(node);
+      range.select();
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNodeContents(node);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    }
+  };
+
   function getClosest(element, selector) {
     var firstChar = selector.charAt(0);
     // Get closest match
@@ -63,6 +77,7 @@ var helper = (function() {
     addClass: addClass,
     removeClass: removeClass,
     getClosest: getClosest,
+    selectText: selectText,
     delayFunction: delayFunction
   };
 
