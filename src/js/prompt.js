@@ -16,10 +16,10 @@ var prompt = (function() {
     colForMessage.setAttribute("class", "col-xs-12");
     var colForCancel = document.createElement("div");
     colForCancel.setAttribute("class", "col-xs-6");
-    var colForCopy = document.createElement("div");
-    colForCopy.setAttribute("class", "col-xs-6");
     var colForConfirm = document.createElement("div");
     colForConfirm.setAttribute("class", "col-xs-6");
+    var colForConfirmOnly = document.createElement("div");
+    colForConfirmOnly.setAttribute("class", "col-xs-12 col-sm-6 col-sm-offset-6");
     var promptMessage = document.createElement("div");
     promptMessage.setAttribute("class", "prompt-message");
     var promptHeading = document.createElement("h1");
@@ -29,7 +29,6 @@ var prompt = (function() {
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
     var promptPre = document.createElement("pre");
-    promptPre.setAttribute("class", "pre");
     if (promptType == "confirm") {
       promptHeading.textContent = heading;
       promptPara.textContent = content;
@@ -50,16 +49,13 @@ var prompt = (function() {
     if (promptType == "code") {
       promptHeading.textContent = heading;
       promptPre.textContent = content;
-      promptAction.textContent = "Copy";
-      promptCencel.textContent = "Cancel";
+      promptAction.textContent = "Close";
       promptMessage.appendChild(promptHeading);
       promptMessage.appendChild(promptPre);
       colForMessage.appendChild(promptMessage);
       rowForMessage.appendChild(colForMessage);
-      colForCancel.appendChild(promptCencel);
-      rowForActions.appendChild(colForCancel);
-      colForCopy.appendChild(promptAction);
-      rowForActions.appendChild(colForCopy);
+      colForConfirmOnly.appendChild(promptAction);
+      rowForActions.appendChild(colForConfirmOnly);
       container.appendChild(rowForMessage);
       container.appendChild(rowForActions);
       prompt.appendChild(container);
@@ -101,25 +97,18 @@ var prompt = (function() {
     promptShade.addEventListener('click', function() {
       destroy();
     });
-    promptCancel.addEventListener('click', function() {
-      destroy();
-    });
     if (confirmAction == "clear all") {
       promptAction.addEventListener('click', function() {
         destroy();
         sheet.destroy();
       });
-    };
-    if (confirmAction == "ok") {
-      promptAction.addEventListener('click', function() {
+      promptCancel.addEventListener('click', function() {
         destroy();
       });
     };
-    if (confirmAction == "copy") {
+    if (confirmAction == "close") {
       promptAction.addEventListener('click', function() {
-        console.log("copy something");
         destroy();
-        snack.render("Data copied to clipbaord.");
       });
     };
     window.addEventListener("keydown", function(event) {

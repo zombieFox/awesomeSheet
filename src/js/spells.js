@@ -4,7 +4,7 @@ var spells = (function() {
     var all_addSpell = helper.eA(".add-spell");
     for (var i = 0; i < all_addSpell.length; i++) {
       all_addSpell[i].addEventListener("click", function() {
-        _addNewSpell(this);
+        _addNewSpell(helper.getClosest(this, ".new-spell").querySelector(".spell-name"));
         _updateSpells();
         sheet.storeCharacters();
       }, false);
