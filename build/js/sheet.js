@@ -93,8 +93,9 @@ var sheet = (function() {
   };
 
   function exportCharacterObject(index) {
-    var exportData = JSON.stringify(allCharacters[index]);
-    prompt.render("Copy and paste your characters data string:", exportData, "ok", false);
+    var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
+    prompt.render("code", "Character object data:", exportData, "close");
+    helper.selectText(".prompt pre");
   };
 
   function render() {

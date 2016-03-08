@@ -113,7 +113,7 @@ var nav = (function() {
       _fullscreen();
     }, false);
     clearAll.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "clear all", true);
+      prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
       navClose();
     }, false);
     exportCharacter.addEventListener("click", function() {
