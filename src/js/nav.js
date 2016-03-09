@@ -140,8 +140,7 @@ var nav = (function() {
       sheet.addCharacter();
     }, false);
     characterRemove.addEventListener("click", function() {
-      // remove();
-      sheet.removeCharacter();
+      remove();
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {
