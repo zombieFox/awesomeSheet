@@ -31,6 +31,14 @@ var sheet = (function() {
     store("allCharacters", JSON.stringify(allCharacters));
   };
 
+  function getAllCharacters() {
+    return allCharacters;
+  };
+
+  function getCharacter(index) {
+    return allCharacters[index];
+  };
+
   function getIndex() {
     return currentCharacterIndex;
   };
@@ -92,10 +100,16 @@ var sheet = (function() {
     totalBlock.render();
   };
 
-  function exportCharacterObject(index) {
+  function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("code", "Character object data:", exportData, "close");
+    prompt.render("code", "Character object data:", exportData, "download");
     helper.selectText(".prompt pre");
+  };
+
+  function downloadCharacterObject(element) {
+    var object = allCharacters[currentCharacterIndex];
+    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(object), null, " ");
+    element.href = "data:" + data;
   };
 
   function render() {
@@ -112,6 +126,8 @@ var sheet = (function() {
   return {
     allCharacters: allCharacters,
     currentCharacterIndex: currentCharacterIndex,
+    getCharacter: getCharacter,
+    getAllCharacters: getAllCharacters,
     getIndex: getIndex,
     setIndex: setIndex,
     storeCharacters: storeCharacters,
@@ -121,7 +137,8 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
-    export: exportCharacterObject,
+    download: downloadCharacterObject,
+    print: printCharacterObject,
     render: render
   };
 

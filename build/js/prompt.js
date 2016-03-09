@@ -26,6 +26,9 @@ var prompt = (function() {
     var promptPara = document.createElement("p");
     var promptAction = document.createElement("button");
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+    var promptDownload = document.createElement("a");
+    promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
+    promptDownload.setAttribute("download", sheet.getCharacter(sheet.getIndex()).input.name + ".json");
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
     var promptPre = document.createElement("pre");
@@ -49,13 +52,16 @@ var prompt = (function() {
     if (promptType == "code") {
       promptHeading.textContent = heading;
       promptPre.textContent = content;
-      promptAction.textContent = "Close";
+      promptDownload.textContent = "Download";
+      promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
       promptMessage.appendChild(promptPre);
       colForMessage.appendChild(promptMessage);
       rowForMessage.appendChild(colForMessage);
-      colForConfirmOnly.appendChild(promptAction);
-      rowForActions.appendChild(colForConfirmOnly);
+      colForCancel.appendChild(promptCencel);
+      colForConfirm.appendChild(promptDownload);
+      rowForActions.appendChild(colForCancel);
+      rowForActions.appendChild(colForConfirm);
       container.appendChild(rowForMessage);
       container.appendChild(rowForActions);
       prompt.appendChild(container);
@@ -101,15 +107,18 @@ var prompt = (function() {
       promptAction.addEventListener('click', function() {
         destroy();
         sheet.destroy();
-      });
+      }, false);
       promptCancel.addEventListener('click', function() {
         destroy();
-      });
+      }, false);
     };
-    if (confirmAction == "close") {
+    if (confirmAction == "download") {
       promptAction.addEventListener('click', function() {
+        sheet.download(this);
+      }, false);
+      promptCancel.addEventListener('click', function() {
         destroy();
-      });
+      }, false);
     };
     window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27) {

@@ -117,7 +117,7 @@ var nav = (function() {
       navClose();
     }, false);
     exportCharacter.addEventListener("click", function() {
-      sheet.export(sheet.getIndex());
+      sheet.print();
       navClose();
     }, false);
     window.addEventListener('click', function(event) {
@@ -136,9 +136,9 @@ var nav = (function() {
   return {
     bind: bind,
     render: render,
-    navOpen: navOpen,
-    navClose: navClose,
-    navToggle: navToggle
+    open: navOpen,
+    close: navClose,
+    toggle: navToggle
   }
 
 })();
