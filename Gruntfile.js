@@ -51,7 +51,24 @@ module.exports = function(grunt) {
     concat: {
       awesomeSheet: {
         src: [
-          '<%= folders.build %>/js/awesomeSheet.js'
+          '<%= folders.build %>/js/characters/nif.js',
+          '<%= folders.build %>/js/characters/ro.js',
+          '<%= folders.build %>/js/characters/vos.js',
+          '<%= folders.build %>/js/characters.js',
+          '<%= folders.build %>/js/helper.js',
+          '<%= folders.build %>/js/sheet.js',
+          '<%= folders.build %>/js/nav.js',
+          '<%= folders.build %>/js/prompt.js',
+          '<%= folders.build %>/js/snack.js',
+          '<%= folders.build %>/js/clone.js',
+          '<%= folders.build %>/js/consumable.js',
+          '<%= folders.build %>/js/hidableBlock.js',
+          '<%= folders.build %>/js/inputBlock.js',
+          '<%= folders.build %>/js/textareaBlock.js',
+          '<%= folders.build %>/js/spells.js',
+          '<%= folders.build %>/js/stats.js',
+          '<%= folders.build %>/js/totalBlock.js',
+          '<%= folders.build %>/js/init.js'
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
@@ -251,8 +268,8 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'usemin',
-    'clean:buildCleanBower'
-    // 'htmlmin'
+    'clean:buildCleanBower',
+    'htmlmin'
   ]);
 
 };

@@ -189,35 +189,6 @@ nav {
 
 @media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  nav {
-    right: inherit;
-    left: 10px;
-    .nav-toggle {
-      right: inherit;
-      left: 0;
-    }
-    .nav-list {
-      width: 250px;
-      right: inherit;
-      left: -290px;
-      li {
-        a {
-          line-height: 3rem;
-          [class^="icon-"],
-          [class*=" icon-"] {
-            top: 4px;
-          }
-        }
-      }
-    }
-    &.open {
-      .nav-list {
-        left: inherit;
-        left: 0;
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}

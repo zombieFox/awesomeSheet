@@ -1262,26 +1262,6 @@ nav {
 
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 900px) {
-  nav {
-    right: inherit;
-    left: 10px; }
-    nav .nav-toggle {
-      right: inherit;
-      left: 0; }
-    nav .nav-list {
-      width: 250px;
-      right: inherit;
-      left: -290px; }
-      nav .nav-list li a {
-        line-height: 3rem; }
-        nav .nav-list li a [class^="icon-"],
-        nav .nav-list li a [class*=" icon-"] {
-          top: 4px; }
-    nav.open .nav-list {
-      left: inherit;
-      left: 0; } }
-
 /* prompt
 ------------------------------------------------- */
 .prompt .container {
@@ -1322,7 +1302,7 @@ nav {
   z-index: 5000;
   background: #ffffff;
   width: 80%;
-  max-height: 90%;
+  max-height: 80%;
   min-width: 250px;
   padding: 30px 20px;
   box-sizing: border-box;
