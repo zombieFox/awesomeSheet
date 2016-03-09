@@ -64,7 +64,7 @@ var sheet = (function() {
   function removeCharacter() {
     allCharacters.splice(getIndex(), 1)
     var newIndex = getAllCharacters().length - 1;
-    if (newIndex <= 0) {
+    if (newIndex < 0) {
       allCharacters = [{
         clone: {},
         input: {},
