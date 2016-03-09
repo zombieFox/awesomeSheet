@@ -1,22 +1,19 @@
 var sheet = (function() {
 
-  var singleNewCharacter = [{
+  var allCharacters = [{
     clone: {},
     input: {},
     textarea: {},
     spells: []
   }];
 
-  var allCharacters = singleNewCharacter;
   var currentCharacterIndex = 0;
 
-  var saveAllCharacters = (function() {
+  var saveHardCodedCharacters = (function() {
     if (read("allCharacters")) {
       allCharacters = JSON.parse(read("allCharacters"));
-    } else {
-      if (typeof hardCodedCharacters !== "undefined") {
-        allCharacters = hardCodedCharacters.load;
-      };
+    } else if (typeof hardCodedCharacters !== "undefined") {
+      allCharacters = hardCodedCharacters.load;
     };
     storeCharacters();
   })();
@@ -45,10 +42,44 @@ var sheet = (function() {
 
   function setIndex(index) {
     currentCharacterIndex = index;
+    store("charactersIndex", currentCharacterIndex);
   };
 
-  function storeCharacterIndex() {
-    store("charactersIndex", currentCharacterIndex);
+  function addCharacter() {
+    allCharacters.push({
+      clone: {},
+      input: {},
+      textarea: {},
+      spells: []
+    });
+    var newIndex = getAllCharacters().length - 1;
+    setIndex(newIndex);
+    storeCharacters();
+    clear();
+    render();
+    nav.clear();
+    nav.render(getAllCharacters());
+  };
+
+  function removeCharacter() {
+    allCharacters.splice(getIndex(), 1)
+    var newIndex = getAllCharacters().length - 1;
+    if (newIndex <= 0) {
+      allCharacters = [{
+        clone: {},
+        input: {},
+        textarea: {},
+        spells: []
+      }];
+      setIndex(0);
+    } else {
+      setIndex(newIndex);
+    };
+    clear();
+    render();
+    storeCharacters();
+    nav.clear();
+    nav.render(getAllCharacters());
   };
 
   function store(key, data) {
@@ -124,14 +155,13 @@ var sheet = (function() {
 
   // exposed methods
   return {
-    allCharacters: allCharacters,
-    currentCharacterIndex: currentCharacterIndex,
-    getCharacter: getCharacter,
     getAllCharacters: getAllCharacters,
+    getCharacter: getCharacter,
+    addCharacter: addCharacter,
+    removeCharacter: removeCharacter,
     getIndex: getIndex,
     setIndex: setIndex,
     storeCharacters: storeCharacters,
-    storeCharacterIndex: storeCharacterIndex,
     destroy: destroy,
     store: store,
     remove: remove,

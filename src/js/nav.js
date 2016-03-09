@@ -21,7 +21,7 @@ var nav = (function() {
     }
   };
 
-  function _render_navAnchor(characterName, characterIndex) {
+  function _render_navCharacters(characterName, characterIndex) {
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
@@ -36,16 +36,15 @@ var nav = (function() {
     navAnchor.appendChild(icon);
     navAnchor.appendChild(text);
     navLi.appendChild(navAnchor);
-    _bind_characterOption(navAnchor);
+    _bind_characterOption(navAnchor, characterIndex);
     return navLi;
   };
 
-  function _bind_characterOption(characterLink) {
+  function _bind_characterOption(characterLink, newIndex) {
     characterLink.addEventListener("click", function() {
       _switch_character(this);
-      navClose();
       sheet.storeCharacters();
-      sheet.storeCharacterIndex();
+      sheet.setIndex(newIndex);
       sheet.clear();
       sheet.render();
     }, false);
@@ -53,13 +52,13 @@ var nav = (function() {
 
   function _switch_character(characterLink) {
     var newIndex = characterLink.dataset.characterIndex;
-    var allCharacterToggle = helper.eA(".character-toggle");
+    var allCharacterAnchor = helper.eA(".character-toggle");
     sheet.setIndex(newIndex);
-    for (var i = 0; i < allCharacterToggle.length; i++) {
-      var icon = allCharacterToggle[i].querySelector(".icon");
+    for (var i = 0; i < allCharacterAnchor.length; i++) {
+      var icon = allCharacterAnchor[i].querySelector(".icon");
       helper.removeClass(icon, "icon-check-box-checked");
       helper.addClass(icon, "icon-check-box-unchecked");
-      helper.removeClass(allCharacterToggle[i], "active");
+      helper.removeClass(allCharacterAnchor[i], "active");
     };
     var icon = characterLink.querySelector(".icon");
     helper.removeClass(icon, "icon-check-box-unchecked");
@@ -67,23 +66,28 @@ var nav = (function() {
     helper.addClass(characterLink, "active");
   };
 
+  function clear() {
+    var navCharacters = helper.e(".nav-characters");
+    navCharacters.innerHTML = "";
+  };
+
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (i in array) {
+      var characterAnchor;
       if (array[i].input.name) {
-        var characterToggle = _render_navAnchor(array[i].input.name, i);
-        navCharacters.appendChild(characterToggle);
-        if (i == sheet.getIndex()) {
-          var icon = characterToggle.querySelector(".icon");
-          var anchor = characterToggle.querySelector("a");
-          helper.removeClass(icon, "icon-check-box-unchecked");
-          helper.addClass(icon, "icon-check-box-checked");
-          helper.addClass(icon, "icon-check-box-checked");
-          helper.addClass(anchor, "active");
-        };
+        characterAnchor = _render_navCharacters(array[i].input.name, i)
       } else {
-        var characterToggle = _render_navAnchor("Unnamed Character", i);
-        navCharacters.appendChild(characterToggle);
+        characterAnchor = _render_navCharacters("New Character", i)
+      };
+      navCharacters.appendChild(characterAnchor);
+      if (i == sheet.getIndex()) {
+        var icon = characterAnchor.querySelector(".icon");
+        var anchor = characterAnchor.querySelector("a");
+        helper.removeClass(icon, "icon-check-box-unchecked");
+        helper.addClass(icon, "icon-check-box-checked");
+        helper.addClass(icon, "icon-check-box-checked");
+        helper.addClass(anchor, "active");
       };
     };
   };
@@ -100,12 +104,24 @@ var nav = (function() {
     helper.toggleClass(helper.e("nav"), "open");
   };
 
+  function remove() {
+    var name;
+    if (sheet.getCharacter(sheet.getIndex()).input.name) {
+      name = sheet.getCharacter(sheet.getIndex()).input.name;
+    } else {
+      name = "New Character";
+    };
+    prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
+  };
+
   function bind() {
     var nav = helper.e("nav");
     var navToggleElement = helper.e(".nav-toggle");
     var fullscreen = helper.e(".fullscreen");
     var clearAll = helper.e(".clear-all");
-    var exportCharacter = helper.e(".export-character");
+    var characterAdd = helper.e(".character-add");
+    var characterRemove = helper.e(".character-remove");
+    var characterExport = helper.e(".character-export");
     navToggleElement.addEventListener("click", function() {
       navToggle();
     }, false);
@@ -116,9 +132,16 @@ var nav = (function() {
       prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
       navClose();
     }, false);
-    exportCharacter.addEventListener("click", function() {
+    characterExport.addEventListener("click", function() {
       sheet.print();
       navClose();
+    }, false);
+    characterAdd.addEventListener("click", function() {
+      sheet.addCharacter();
+    }, false);
+    characterRemove.addEventListener("click", function() {
+      // remove();
+      sheet.removeCharacter();
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {
@@ -135,6 +158,7 @@ var nav = (function() {
   // exposed methods
   return {
     bind: bind,
+    clear: clear,
     render: render,
     open: navOpen,
     close: navClose,

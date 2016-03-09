@@ -108,7 +108,10 @@ var prompt = (function() {
         destroy();
         sheet.destroy();
       }, false);
-      promptCancel.addEventListener('click', function() {
+    };
+    if (confirmAction == "clear character") {
+      promptAction.addEventListener('click', function() {
+        sheet.removeCharacter();
         destroy();
       }, false);
     };
@@ -116,10 +119,10 @@ var prompt = (function() {
       promptAction.addEventListener('click', function() {
         sheet.download(this);
       }, false);
-      promptCancel.addEventListener('click', function() {
-        destroy();
-      }, false);
     };
+    promptCancel.addEventListener('click', function() {
+      destroy();
+    }, false);
     window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27) {
         destroy();
