@@ -3,34 +3,34 @@ var clone = (function() {
   function _newConsumable(index) {
     var cloneString =
       '<div class="row">' +
-      '<div class="col-xs-8">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-item-' + index + '">Item</label>' +
-      '<input class="input-field input-item" id="input-item-' + index + '" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-sm-12 col-lg-6">' +
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-total-' + index + '">Total</label>' +
-      '<input class="input-field consumable-total input-total" id="input-total-' + index + '" type="number" tabindex="3">' +
+        '<div class="col-xs-8">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-item-' + index + '">Item</label>' +
+        '<input class="input-field input-item" id="input-item-' + index + '" type="text" tabindex="3">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-2">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-total-' + index + '">Total</label>' +
+        '<input class="input-field consumable-total input-total" id="input-total-' + index + '" type="number" tabindex="3">' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xs-2">' +
+        '<div class="input-block">' +
+        '<label class="input-label" for="input-used-' + index + '">Used</label>' +
+        '<input class="input-field consumable-used input-used" id="input-used-' + index + '" type="number" tabindex="3">' +
+        '</div>' +
+        '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-6">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="input-used-' + index + '">Used</label>' +
-      '<input class="input-field consumable-used input-used" id="input-used-' + index + '" type="number" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-8">' +
+      '<div class="col-sm-12 col-lg-6">' +
       '<div class="consumable-counts clearfix"></div>' +
       '</div>' +
-      '<div class="col-xs-4">' +
+      '<div class="col-xs-12">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-icon" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '<button class="button button-primary button-small" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -78,7 +78,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-6 col-md-12">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-icon" id="remove-attack" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '<button class="button button-primary button-small" id="remove-attack" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';

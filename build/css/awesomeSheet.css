@@ -1494,16 +1494,23 @@ hr {
   transition: all 0.3s ease-in-out; }
   .clone-block .clone .clone-delete-controls {
     height: 0;
+    opacity: 0;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    position: relative; }
+    text-align: right; }
     .clone-block .clone .clone-delete-controls .button {
       margin: 0;
-      position: absolute;
-      right: 0; }
+      line-height: 2rem;
+      height: 2rem; }
+      .clone-block .clone .clone-delete-controls .button [class^="icon-"],
+      .clone-block .clone .clone-delete-controls .button [class*=" icon-"] {
+        margin: 0;
+        font-size: 1.2rem;
+        display: block; }
 
 .clone-block.consumable .consumable-counts {
-  margin: 0 0 2rem 0; }
+  margin: -10px 0 20px 0;
+  transition: all 0.3s ease-in-out; }
   .clone-block.consumable .consumable-counts .check-group {
     margin: 0 5px 5px 0;
     float: left;
@@ -1516,8 +1523,8 @@ hr {
       padding: 0;
       float: left;
       font-size: 1.5rem;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       box-sizing: border-box;
       position: relative;
       transition: all 0.3s ease-in-out; }
@@ -1550,12 +1557,6 @@ hr {
         border-radius: 0 0 2px 0;
         z-index: 1; }
 
-.clone-block.consumable .clone-delete-controls .button {
-  top: 0; }
-
-.clone-block.attack .clone-delete-controls .button {
-  bottom: 0; }
-
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: #ffffff;
   border-color: #ff0055;
@@ -1566,23 +1567,30 @@ hr {
 
 .clone-block.delete-state .clone {
   padding: 40px 20px 0 20px;
-  margin: 0;
-  margin-bottom: 2rem;
+  margin: 0 0 1rem 0;
   border-radius: 2px;
   border: 1px solid #ff0055; }
   .clone-block.delete-state .clone .clone-delete-controls {
-    height: 2.5rem; }
-  .clone-block.delete-state .clone .consumable-counts .check-group .check {
-    border-color: #ffffff; }
-    .clone-block.delete-state .clone .consumable-counts .check-group .check.used {
-      background-color: #ffffff;
+    height: 2rem;
+    margin: 0 0 1rem 0;
+    opacity: 1; }
+  .clone-block.delete-state .clone .consumable-counts {
+    margin-bottom: 0; }
+    .clone-block.delete-state .clone .consumable-counts .check-group .check {
       border-color: #ffffff; }
+      .clone-block.delete-state .clone .consumable-counts .check-group .check.used {
+        background-color: #ffffff;
+        border-color: #ffffff; }
 
 /* media queries
 ------------------------------------------------- */
 @media (min-width: 700px) {
   .clone-block .clone-controls {
     margin: 0 0 2rem 0; } }
+
+@media (min-width: 900px) {
+  .clone-block.consumable .consumable-counts {
+    margin: 0; } }
 
 /* basics
 ------------------------------------------------- */

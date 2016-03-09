@@ -91,19 +91,27 @@ hr {
     transition: all $transition-ease-medium;
     .clone-delete-controls {
       height: 0;
+      opacity: 0;
       overflow: hidden;
       transition: all $transition-ease-medium;
-      position: relative;
+      text-align: right;
       .button {
         margin: 0;
-        position: absolute;
-        right: 0;
+        line-height: 2rem;
+        height: 2rem;
+        [class^="icon-"],
+        [class*=" icon-"] {
+          margin: 0;
+          font-size: 1.2rem;
+          display: block;
+        }
       }
     }
   }
   &.consumable {
     .consumable-counts {
-      margin: 0 0 2rem 0;
+      margin: -10px 0 20px 0;
+      transition: all $transition-ease-medium;
       .check-group {
         margin: 0 5px 5px 0;
         float: left;
@@ -116,8 +124,8 @@ hr {
           padding: 0;
           float: left;
           font-size: 1.5rem;
-          width: 10px;
-          height: 10px;
+          width: 8px;
+          height: 8px;
           box-sizing: border-box;
           position: relative;
           transition: all $transition-ease-medium;
@@ -164,16 +172,12 @@ hr {
       }
     }
     .clone-delete-controls {
-      .button {
-        top: 0;
-      }
+      .button {}
     }
   }
   &.attack {
     .clone-delete-controls {
-      .button {
-        bottom: 0;
-      }
+      .button {}
     }
   }
   &.delete-state {
@@ -194,14 +198,16 @@ hr {
     }
     .clone {
       padding: 40px 20px 0 20px;
-      margin: 0;
-      margin-bottom: 2rem;
+      margin: 0 0 1rem 0;
       border-radius: $border-radius-small;
       border: 1px solid $primary-color;
       .clone-delete-controls {
-        height: 2.5rem;
+        height: 2rem;
+        margin: 0 0 1rem 0;
+        opacity: 1;
       }
       .consumable-counts {
+        margin-bottom: 0;
         .check-group {
           .check {
             border-color: $white;
@@ -230,6 +236,14 @@ hr {
   }
 }
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .clone-block {
+    &.consumable {
+      .consumable-counts {
+        margin: 0;
+      }
+    }
+  }
+}
 
 @media (min-width: $screen-xl) {}
