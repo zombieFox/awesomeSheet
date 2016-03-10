@@ -1120,8 +1120,7 @@ var nav = (function() {
 
   function resizeNavList() {
     var navList = helper.e(".nav-list");
-    var height = window.innerHeight - 100;
-    console.log(height);
+    var height = window.innerHeight - 120;
     navList.style.maxHeight = height + "px";
   };
 
