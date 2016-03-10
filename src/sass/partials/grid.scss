@@ -18,8 +18,8 @@
 }
 
 .row {
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: -14px;
+  margin-right: -14px;
   box-sizing: border-box;
   &:before,
   &:after {
@@ -339,7 +339,7 @@
 
 @media (min-width: $screen-lg) {
   .container {
-    max-width: 70%;
+    max-width: 75%;
   }
   .col-lg-1,
   .col-lg-2,
@@ -434,7 +434,7 @@
 
 @media (min-width: $screen-xl) {
   .container {
-    max-width: 60%;
+    max-width: 65%;
   }
   .col-xl-1,
   .col-xl-2,

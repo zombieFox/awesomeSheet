@@ -1118,6 +1118,13 @@ var nav = (function() {
     prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
   };
 
+  function resizeNavList() {
+    var navList = helper.e(".nav-list");
+    var height = window.innerHeight - 100;
+    console.log(height);
+    navList.style.maxHeight = height + "px";
+  };
+
   function bind() {
     var nav = helper.e("nav");
     var navToggleElement = helper.e(".nav-toggle");
@@ -1156,11 +1163,15 @@ var nav = (function() {
         navClose();
       };
     }, false);
+    window.addEventListener("resize", function(event) {
+      resizeNavList();
+    }, false);
   };
 
   // exposed methods
   return {
     bind: bind,
+    resizeNavList: resizeNavList,
     clear: clear,
     render: render,
     open: navOpen,
@@ -2749,6 +2760,7 @@ var totalBlock = (function() {
 
   nav.bind();
   nav.render(sheet.getAllCharacters());
+  nav.resizeNavList();
   hidableBlock.bind();
   inputBlock.bind(helper.eA(".input-block"));
   textareaBlock.bind(helper.eA(".textarea-block"));

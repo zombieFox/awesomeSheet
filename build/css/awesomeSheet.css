@@ -20,8 +20,8 @@
   max-width: 80%;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 12px;
-  padding-right: 12px; }
+  padding-left: 14px;
+  padding-right: 14px; }
   .container:before, .container:after {
     content: " ";
     display: table; }
@@ -29,8 +29,8 @@
     clear: both; }
 
 .row {
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: -14px;
+  margin-right: -14px;
   box-sizing: border-box; }
   .row:before, .row:after {
     content: " ";
@@ -42,8 +42,8 @@
 [class*=" col-"] {
   position: relative;
   min-height: 1px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 14px;
+  padding-right: 14px;
   float: left;
   box-sizing: border-box; }
 
@@ -262,7 +262,7 @@
 
 @media (min-width: 900px) {
   .container {
-    max-width: 70%; }
+    max-width: 75%; }
   .col-lg-1,
   .col-lg-2,
   .col-lg-3,
@@ -329,7 +329,7 @@
 
 @media (min-width: 1300px) {
   .container {
-    max-width: 60%; }
+    max-width: 65%; }
   .col-xl-1,
   .col-xl-2,
   .col-xl-3,
@@ -671,24 +671,24 @@ button {
       border-color: rgba(0, 0, 0, 0.09); }
     .button.button-secondary:focus,
     button.button-secondary:focus {
-      background-color: #003242;
-      border-color: #086482;
+      background-color: #225577;
+      border-color: #5599cc;
       color: #ffffff;
       outline: 0;
       text-decoration: none; }
     .button.button-secondary:hover,
     button.button-secondary:hover {
       color: #ffffff;
-      background-color: #003242;
-      border-color: #003242;
+      background-color: #225577;
+      border-color: #225577;
       outline: 0;
       text-decoration: none; }
     .button.button-secondary:active, .button.button-secondary.active,
     button.button-secondary:active,
     button.button-secondary.active {
       color: #ffffff;
-      background-color: #086482;
-      border-color: #003242; }
+      background-color: #5599cc;
+      border-color: #225577; }
   .button.button-tertiary,
   button.button-tertiary {
     color: #343434;
@@ -879,7 +879,7 @@ a {
 
 .textarea-block,
 textarea {
-  background-color: rgba(0, 70, 130, 0.05);
+  background-color: rgba(85, 153, 204, 0.05);
   padding: 10px 15px;
   margin: 0 0 2rem 0;
   width: 100%;
@@ -898,7 +898,7 @@ textarea {
     outline: 0; }
 
 input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="password"] {
-  background-color: rgba(0, 70, 130, 0.05);
+  background-color: rgba(85, 153, 204, 0.05);
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   height: 2.5rem;
@@ -1019,11 +1019,11 @@ table {
 ------------------------------------------------- */
 @media (min-width: 550px) {
   html {
-    font-size: 13px; } }
+    font-size: 12px; } }
 
 @media (min-width: 700px) {
   html {
-    font-size: 15px; } }
+    font-size: 13px; } }
 
 /* utilities
 ------------------------------------------------- */
@@ -1155,7 +1155,7 @@ nav {
         top: 62%;
         transition-delay: 0.1s; }
     nav .nav-toggle:hover {
-      background-color: rgba(0, 70, 130, 0.05); }
+      background-color: rgba(85, 153, 204, 0.05); }
   nav .nav-list {
     background-color: #ffffff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2);
@@ -1166,7 +1166,8 @@ nav {
     position: absolute;
     top: 60px;
     right: -350px;
-    transition: all 0.3s ease-in-out; }
+    transition: all 0.3s ease-in-out;
+    overflow-y: auto; }
     nav .nav-list ul {
       margin: 0;
       padding: 0; }
@@ -1207,7 +1208,7 @@ nav {
             overflow: hidden;
             white-space: nowrap; }
           nav .nav-list li a span.icon {
-            color: #003c4f;
+            color: #336688;
             font-size: 1.5rem;
             line-height: 3rem;
             width: 20%;
@@ -1284,7 +1285,7 @@ nav {
   margin: 0 0 20px 0; }
 
 .prompt.prompt-shade {
-  background-color: rgba(0, 70, 130, 0.5);
+  background-color: rgba(34, 85, 119, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -1428,7 +1429,7 @@ section {
   padding: 0 0 1rem 0; }
   section h1 {
     padding: 10px 20px;
-    background-color: #003c4f;
+    background-color: #336688;
     color: #ffffff;
     text-transform: uppercase;
     position: relative;
@@ -1440,12 +1441,12 @@ section {
     min-height: 2.3rem;
     line-height: 2.3rem;
     box-sizing: border-box;
-    border-left: 5px solid #003c4f;
+    border-left: 5px solid #336688;
     border-radius: 2px; }
 
 hr {
   border: 0;
-  border-top: 2px solid #003c4f;
+  border-top: 2px solid #336688;
   margin: 0 0 2.5rem 0;
   clear: both; }
 
@@ -1529,7 +1530,7 @@ hr {
       position: relative;
       transition: all 0.3s ease-in-out; }
       .clone-block.consumable .consumable-counts .check-group .check.used {
-        background-color: rgba(0, 70, 130, 0.05);
+        background-color: rgba(85, 153, 204, 0.05);
         border-color: #ffffff; }
       .clone-block.consumable .consumable-counts .check-group .check:nth-child(1) {
         border-radius: 2px 0 0 0;
@@ -1597,7 +1598,7 @@ hr {
 #basics {
   padding: 70px 0 30px;
   margin: 0 0 3rem 0;
-  background-color: #003242; }
+  background-color: #225577; }
   #basics input {
     background-color: rgba(0, 0, 0, 0.09);
     color: #ffffff;
@@ -1776,19 +1777,19 @@ hr {
       margin: 0; }
 
 #spells.prepare-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(255, 0, 85, 0.05); }
+  background-color: rgba(255, 50, 118, 0.05); }
   #spells.prepare-state .spell-level .spells-known .button-tertiary:link, #spells.prepare-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(255, 0, 85, 0.05); }
+    background-color: rgba(255, 50, 118, 0.05); }
 
 #spells.unprepare-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(255, 0, 85, 0.05); }
+  background-color: rgba(255, 50, 118, 0.05); }
   #spells.unprepare-state .spell-level .spells-known .button-tertiary:link, #spells.unprepare-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(255, 0, 85, 0.05); }
+    background-color: rgba(255, 50, 118, 0.05); }
 
 #spells.cast-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(0, 70, 130, 0.05); }
+  background-color: rgba(85, 153, 204, 0.05); }
   #spells.cast-state .spell-level .spells-known .button-tertiary:link, #spells.cast-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(0, 70, 130, 0.05); }
+    background-color: rgba(85, 153, 204, 0.05); }
 
 #spells.active-state .spell-level .spells-known .button-tertiary {
   background-color: #fafafa; }

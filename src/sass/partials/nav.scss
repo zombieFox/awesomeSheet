@@ -57,6 +57,7 @@ nav {
     top: 60px;
     right: -350px;
     transition: all $transition-ease-medium;
+    overflow-y: auto;
     ul {
       margin: 0;
       padding: 0;
