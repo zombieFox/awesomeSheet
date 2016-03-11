@@ -56,7 +56,9 @@ var spells = (function() {
     if (prepareState == "true") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
-      spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+      if (spellMarks.children.length <= 20) {
+        spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+      };
       if (spellMarks.children.length > 0) {
         helper.addClass(spell, "button-primary");
         helper.removeClass(spell, "button-tertiary");

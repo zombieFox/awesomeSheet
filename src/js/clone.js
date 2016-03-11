@@ -3,7 +3,7 @@ var clone = (function() {
   function _newConsumable(index) {
     var cloneString =
       '<div class="row">' +
-      '<div class="col-sm-12 col-lg-6">' +
+      '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
@@ -25,8 +25,10 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-sm-12 col-lg-6">' +
-      '<div class="consumable-counts clearfix"></div>' +
+      '<div class="col-xs-12">' +
+      '<div class="consumable-bar">' +
+      '<div class="consumable-bar-percentage"></div>' +
+      '</div>' +
       '</div>' +
       '<div class="col-xs-12">' +
       '<div class="clone-delete-controls">' +
