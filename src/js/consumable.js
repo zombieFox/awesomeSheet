@@ -75,12 +75,21 @@ var consumable = (function() {
   function _render_consumablePercentage(element) {
     var clone = helper.getClosest(element, ".clone");
     var consumableBarPercentage = clone.querySelector(".consumable-bar-percentage");
+    var percentageTotal = clone.querySelector(".percentage-total");
     var consumableTotal = clone.querySelector(".consumable-total");
     var consumableUsed = clone.querySelector(".consumable-used");
     var consumableTotal_value = parseInt(consumableTotal.value, 10) || 0;
     var consumableUsed_value = parseInt(consumableUsed.value, 10) || 0;
     var pencentage = ((consumableTotal_value - consumableUsed_value) / consumableTotal_value) * 100;
     consumableBarPercentage.style.width = pencentage + "%";
+    percentageTotal.textContent = consumableTotal_value - consumableUsed_value;
+    if (consumableUsed_value >= consumableTotal_value) {
+      helper.addClass(consumableBarPercentage, "empty");
+      consumableBarPercentage.style.width = "0%";
+      percentageTotal.textContent = "0";
+    } else {
+      helper.removeClass(consumableBarPercentage, "empty");
+    };
   };
 
   function render() {

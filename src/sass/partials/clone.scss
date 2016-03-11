@@ -59,18 +59,25 @@
         margin: 0 0 1rem 0;
         opacity: 1;
       }
-      .consumable-counts {
-        margin-bottom: 0;
-        .check-group {
-          .check {
-            border-color: $white;
-            &.used {
-              background-color: $white;
-              border-color: $white;
-            }
+      .consumable-bar {
+        .consumable-bar-percentage {
+          .percentage-total {
+            color: $primary-color;
           }
         }
       }
+      // .consumable-counts {
+      //   margin-bottom: 0;
+      //   .check-group {
+      //     .check {
+      //       border-color: $white;
+      //       &.used {
+      //         background-color: $white;
+      //         border-color: $white;
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 }

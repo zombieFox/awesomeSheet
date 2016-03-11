@@ -1450,6 +1450,11 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
+      '<div class="col-xs-12">' +
+      '<div class="consumable-bar">' +
+      '<div class="consumable-bar-percentage"><span class="percentage-total">100%</span></div>' +
+      '</div>' +
+      '</div>' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-item-' + index + '">Item</label>' +
@@ -1468,11 +1473,6 @@ var clone = (function() {
       '<input class="input-field consumable-used input-used" id="input-used-' + index + '" type="number" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-12">' +
-      '<div class="consumable-bar">' +
-      '<div class="consumable-bar-percentage"></div>' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-12">' +
@@ -1550,6 +1550,7 @@ var clone = (function() {
       _updateCloneConsumable();
       snack.render("Consumable added.", false, false);
       sheet.storeCharacters();
+      consumable.render();
     }, false);
     consumableCloneRemove.addEventListener("click", function() {
       _changeCloneState("consumable");
@@ -1894,12 +1895,21 @@ var consumable = (function() {
   function _render_consumablePercentage(element) {
     var clone = helper.getClosest(element, ".clone");
     var consumableBarPercentage = clone.querySelector(".consumable-bar-percentage");
+    var percentageTotal = clone.querySelector(".percentage-total");
     var consumableTotal = clone.querySelector(".consumable-total");
     var consumableUsed = clone.querySelector(".consumable-used");
     var consumableTotal_value = parseInt(consumableTotal.value, 10) || 0;
     var consumableUsed_value = parseInt(consumableUsed.value, 10) || 0;
     var pencentage = ((consumableTotal_value - consumableUsed_value) / consumableTotal_value) * 100;
     consumableBarPercentage.style.width = pencentage + "%";
+    percentageTotal.textContent = consumableTotal_value - consumableUsed_value;
+    if (consumableUsed_value >= consumableTotal_value) {
+      helper.addClass(consumableBarPercentage, "empty");
+      consumableBarPercentage.style.width = "0%";
+      percentageTotal.textContent = "0";
+    } else {
+      helper.removeClass(consumableBarPercentage, "empty");
+    };
   };
 
   function render() {
