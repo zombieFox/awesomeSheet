@@ -1,0 +1,102 @@
+/* clone
+------------------------------------------------- */
+
+.clone-block {
+  .clone-controls {
+    margin: 0 0 1rem 0;
+    .button {
+      margin: 0 10px 0 0;
+    }
+  }
+  .clone {
+    padding: 0;
+    margin: 1rem 0;
+    border: 0 solid transparent;
+    border-radius: 0;
+    transition: all $transition-ease-medium;
+    .clone-delete-controls {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all $transition-ease-medium;
+      text-align: right;
+      .button {
+        margin: 0;
+        line-height: 2rem;
+        height: 2rem;
+        [class^="icon-"],
+        [class*=" icon-"] {
+          margin: 0;
+          font-size: 1.2rem;
+          display: block;
+        }
+      }
+    }
+  }
+  &.delete-state {
+    input {
+      &[type="email"],
+      &[type="number"],
+      &[type="search"],
+      &[type="text"],
+      &[type="tel"],
+      &[type="password"] {
+        background-color: $white;
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+    label {
+      color: $primary-color;
+    }
+    .clone {
+      padding: 40px 20px 0 20px;
+      margin: 0 0 1rem 0;
+      border-radius: $border-radius-small;
+      border: 1px solid $primary-color;
+      .clone-delete-controls {
+        height: 2rem;
+        margin: 0 0 1rem 0;
+        opacity: 1;
+      }
+      .consumable-counts {
+        margin-bottom: 0;
+        .check-group {
+          .check {
+            border-color: $white;
+            &.used {
+              background-color: $white;
+              border-color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {
+  .clone-block {
+    .clone-controls {
+      margin: 0 0 2rem 0;
+    }
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .clone-block {
+    &.consumable {
+      .consumable-counts {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xl) {}

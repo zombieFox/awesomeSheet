@@ -11,13 +11,13 @@ section {
   z-index: $body;
   padding: 0 0 1rem 0;
   h1 {
-    padding: 10px 20px;
+    padding: 5px 10px;
     background-color: $secondary-color;
     color: $white;
     text-transform: uppercase;
     position: relative;
     border-left: 5px solid $primary-color;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
   }
   h2 {
     background-color: $gray-13;
@@ -26,7 +26,7 @@ section {
     line-height: 2.3rem;
     box-sizing: border-box;
     border-left: 5px solid $secondary-color;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
   }
 }
 
@@ -37,188 +37,10 @@ hr {
   clear: both;
 }
 
-.input-block {
-  position: relative;
-  .input-label {
-    margin: 0;
-    padding: 0;
-    color: $gray-08;
-    display: block;
-    position: absolute;
-    top: -1.5rem;
-    left: 0;
-    font-size: $small-text;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    z-index: 2;
-    width: 100%;
-    transition: all $transition-ease-medium;
-    cursor: text;
-    box-sizing: border-box;
-    &.input-label-focus {
-      color: $primary-color;
-    }
-  }
-  .input-field {
-    position: relative;
-    z-index: 1;
-  }
-  .input-plus,
-  .input-minus {
-    float: left;
-  }
-}
-
 .section-controls {
   margin: 0 0 1rem 0;
   .button {
     margin: 0 5px 5px 0;
-  }
-}
-
-.clone-block {
-  .clone-controls {
-    margin: 0 0 1rem 0;
-    .button {
-      margin: 0 10px 0 0;
-    }
-  }
-  .clone {
-    padding: 0;
-    margin: 1rem 0;
-    border: 0 solid transparent;
-    border-radius: 0;
-    transition: all $transition-ease-medium;
-    .clone-delete-controls {
-      height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all $transition-ease-medium;
-      text-align: right;
-      .button {
-        margin: 0;
-        line-height: 2rem;
-        height: 2rem;
-        [class^="icon-"],
-        [class*=" icon-"] {
-          margin: 0;
-          font-size: 1.2rem;
-          display: block;
-        }
-      }
-    }
-  }
-  &.consumable {
-    .consumable-counts {
-      margin: -10px 0 20px 0;
-      transition: all $transition-ease-medium;
-      .check-group {
-        margin: 0 5px 5px 0;
-        float: left;
-        position: relative;
-        transition: all $transition-ease-medium;
-        .check {
-          background-color: $primary-color;
-          border: 1px solid $primary-color-dark;
-          margin: 0 -1px -1px 0;
-          padding: 0;
-          float: left;
-          font-size: 1.5rem;
-          width: 8px;
-          height: 8px;
-          box-sizing: border-box;
-          position: relative;
-          transition: all $transition-ease-medium;
-          &.used {
-            background-color: $secondary-color-light-alpha;
-            border-color: $white;
-          }
-          &:nth-child(1) {
-            border-radius: $border-radius-small 0 0 0;
-            z-index: 10;
-          }
-          &:nth-child(2) {
-            z-index: 9;
-          }
-          &:nth-child(3) {
-            z-index: 8;
-          }
-          &:nth-child(4) {
-            z-index: 7;
-          }
-          &:nth-child(5) {
-            border-radius: 0 $border-radius-small 0 0;
-            z-index: 6;
-          }
-          &:nth-child(6) {
-            border-radius: 0 0 0 $border-radius-small;
-            clear: left;
-            z-index: 5;
-          }
-          &:nth-child(7) {
-            z-index: 4;
-          }
-          &:nth-child(8) {
-            z-index: 3;
-          }
-          &:nth-child(9) {
-            z-index: 2;
-          }
-          &:nth-child(10) {
-            border-radius: 0 0 $border-radius-small 0;
-            z-index: 1;
-          }
-        }
-      }
-    }
-    .clone-delete-controls {
-      .button {}
-    }
-  }
-  &.attack {
-    .clone-delete-controls {
-      .button {}
-    }
-  }
-  &.delete-state {
-    input {
-      &[type="email"],
-      &[type="number"],
-      &[type="search"],
-      &[type="text"],
-      &[type="tel"],
-      &[type="password"] {
-        background-color: $white;
-        border-color: $primary-color;
-        color: $primary-color;
-      }
-    }
-    label {
-      color: $primary-color;
-    }
-    .clone {
-      padding: 40px 20px 0 20px;
-      margin: 0 0 1rem 0;
-      border-radius: $border-radius-small;
-      border: 1px solid $primary-color;
-      .clone-delete-controls {
-        height: 2rem;
-        margin: 0 0 1rem 0;
-        opacity: 1;
-      }
-      .consumable-counts {
-        margin-bottom: 0;
-        .check-group {
-          .check {
-            border-color: $white;
-            &.used {
-              background-color: $white;
-              border-color: $white;
-            }
-          }
-        }
-      }
-    }
   }
 }
 
@@ -228,22 +50,8 @@ hr {
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .clone-block {
-    .clone-controls {
-      margin: 0 0 2rem 0;
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  .clone-block {
-    &.consumable {
-      .consumable-counts {
-        margin: 0;
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}

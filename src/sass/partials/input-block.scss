@@ -1,0 +1,46 @@
+/* input-block
+------------------------------------------------- */
+
+.input-block {
+  position: relative;
+  .input-label {
+    margin: 0;
+    padding: 0;
+    color: $gray-08;
+    display: block;
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    font-size: $small-text;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    z-index: 2;
+    width: 100%;
+    transition: all $transition-ease-medium;
+    cursor: text;
+    box-sizing: border-box;
+    &.input-label-focus {
+      color: $primary-color;
+    }
+  }
+  .input-field {
+    position: relative;
+    z-index: 1;
+  }
+  .input-plus,
+  .input-minus {
+    float: left;
+  }
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}
