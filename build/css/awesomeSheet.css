@@ -836,7 +836,7 @@ h6 {
   line-height: 1.6rem; }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 h2 {
@@ -1417,39 +1417,8 @@ nav {
         border-bottom-width: 0;
         height: 50px; } }
 
-/* structure
+/* input-block
 ------------------------------------------------- */
-body {
-  background: #ffffff;
-  padding: 0 0 500px 0; }
-
-section {
-  position: relative;
-  z-index: 1000;
-  padding: 0 0 1rem 0; }
-  section h1 {
-    padding: 10px 20px;
-    background-color: #336688;
-    color: #ffffff;
-    text-transform: uppercase;
-    position: relative;
-    border-left: 5px solid #ff0055;
-    border-radius: 2px; }
-  section h2 {
-    background-color: #fafafa;
-    padding: 0 10px;
-    min-height: 2.3rem;
-    line-height: 2.3rem;
-    box-sizing: border-box;
-    border-left: 5px solid #336688;
-    border-radius: 2px; }
-
-hr {
-  border: 0;
-  border-top: 2px solid #336688;
-  margin: 0 0 2.5rem 0;
-  clear: both; }
-
 .input-block {
   position: relative; }
   .input-block .input-label {
@@ -1477,11 +1446,10 @@ hr {
   .input-block .input-minus {
     float: left; }
 
-.section-controls {
-  margin: 0 0 1rem 0; }
-  .section-controls .button {
-    margin: 0 5px 5px 0; }
-
+/* media queries
+------------------------------------------------- */
+/* clone
+------------------------------------------------- */
 .clone-block .clone-controls {
   margin: 0 0 1rem 0; }
   .clone-block .clone-controls .button {
@@ -1508,55 +1476,6 @@ hr {
         margin: 0;
         font-size: 1.2rem;
         display: block; }
-
-.clone-block.consumable .consumable-counts {
-  margin: -10px 0 20px 0;
-  transition: all 0.3s ease-in-out; }
-  .clone-block.consumable .consumable-counts .check-group {
-    margin: 0 5px 5px 0;
-    float: left;
-    position: relative;
-    transition: all 0.3s ease-in-out; }
-    .clone-block.consumable .consumable-counts .check-group .check {
-      background-color: #ff0055;
-      border: 1px solid #cc0044;
-      margin: 0 -1px -1px 0;
-      padding: 0;
-      float: left;
-      font-size: 1.5rem;
-      width: 8px;
-      height: 8px;
-      box-sizing: border-box;
-      position: relative;
-      transition: all 0.3s ease-in-out; }
-      .clone-block.consumable .consumable-counts .check-group .check.used {
-        background-color: rgba(85, 153, 204, 0.05);
-        border-color: #ffffff; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(1) {
-        border-radius: 2px 0 0 0;
-        z-index: 10; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(2) {
-        z-index: 9; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(3) {
-        z-index: 8; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(4) {
-        z-index: 7; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(5) {
-        border-radius: 0 2px 0 0;
-        z-index: 6; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(6) {
-        border-radius: 0 0 0 2px;
-        clear: left;
-        z-index: 5; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(7) {
-        z-index: 4; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(8) {
-        z-index: 3; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(9) {
-        z-index: 2; }
-      .clone-block.consumable .consumable-counts .check-group .check:nth-child(10) {
-        border-radius: 0 0 2px 0;
-        z-index: 1; }
 
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: #ffffff;
@@ -1593,6 +1512,65 @@ hr {
   .clone-block.consumable .consumable-counts {
     margin: 0; } }
 
+/* consumable
+------------------------------------------------- */
+.consumable .input-block .input-field {
+  border: 0;
+  margin-bottom: 0; }
+
+.consumable .consumable-bar {
+  background-color: transparent;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  height: 2px;
+  overflow: hidden; }
+  .consumable .consumable-bar .consumable-bar-percentage {
+    background-color: #ff0055;
+    width: 100%;
+    height: 5px; }
+
+/* media queries
+------------------------------------------------- */
+/* structure
+------------------------------------------------- */
+body {
+  background: #ffffff;
+  padding: 0 0 500px 0; }
+
+section {
+  position: relative;
+  z-index: 1000;
+  padding: 0 0 1rem 0; }
+  section h1 {
+    padding: 5px 10px;
+    background-color: #336688;
+    color: #ffffff;
+    text-transform: uppercase;
+    position: relative;
+    border-left: 5px solid #ff0055;
+    border-radius: 4px; }
+  section h2 {
+    background-color: #fafafa;
+    padding: 0 10px;
+    min-height: 2.3rem;
+    line-height: 2.3rem;
+    box-sizing: border-box;
+    border-left: 5px solid #336688;
+    border-radius: 4px; }
+
+hr {
+  border: 0;
+  border-top: 2px solid #336688;
+  margin: 0 0 2.5rem 0;
+  clear: both; }
+
+.section-controls {
+  margin: 0 0 1rem 0; }
+  .section-controls .button {
+    margin: 0 5px 5px 0; }
+
+/* media queries
+------------------------------------------------- */
 /* basics
 ------------------------------------------------- */
 #basics {
@@ -1727,7 +1705,7 @@ hr {
   margin: 0 0 1.5rem 0; }
   #spells .spell-level .spells-known .button {
     padding: 0 10px;
-    margin: 0 0.5% 0.5% 0;
+    margin: 0 0.5% 1% 0;
     width: 49.5%;
     text-align: left;
     font-size: 0.9rem;
@@ -1737,6 +1715,8 @@ hr {
     float: left;
     line-height: 2rem;
     height: auto; }
+    #spells .spell-level .spells-known .button:nth-child(even) {
+      margin: 0 0 1% 0.5%; }
     #spells .spell-level .spells-known .button .spell-name {
       white-space: nowrap;
       overflow: hidden; }
@@ -1761,9 +1741,8 @@ hr {
 
 #spells .new-spell {
   position: relative; }
-  #spells .new-spell .spell-name input {
-    padding-right: 40px;
-    box-sizing: border-box; }
+  #spells .new-spell .spell-name {
+    padding-right: 40px; }
   #spells .new-spell .add-spell {
     position: absolute;
     right: 5px;
@@ -1811,6 +1790,3 @@ hr {
 
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 1300px) {
-  #spells .spell-level .spells-known .button {
-    width: 32.8%; } }
