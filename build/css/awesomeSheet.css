@@ -594,7 +594,7 @@
 ------------------------------------------------- */
 .button,
 button {
-  padding: 0 10px;
+  padding: 0 15px;
   color: #343434;
   text-align: center;
   font-size: 1rem;
@@ -691,30 +691,30 @@ button {
       border-color: #225577; }
   .button.button-tertiary,
   button.button-tertiary {
-    color: #343434;
+    color: rgba(0, 0, 0, 0.8);
     background-color: transparent;
-    border-color: #e8e8e8; }
+    border-color: rgba(0, 0, 0, 0.02); }
     .button.button-tertiary:link, .button.button-tertiary:visited,
     button.button-tertiary:link,
     button.button-tertiary:visited {
-      color: #343434;
+      color: rgba(0, 0, 0, 0.8);
       background-color: transparent;
-      border-color: #fafafa; }
+      border-color: rgba(0, 0, 0, 0.02); }
     .button.button-tertiary:focus,
     button.button-tertiary:focus {
-      border-color: #e8e8e8;
+      border-color: rgba(0, 0, 0, 0.09);
       outline: 0;
       text-decoration: none; }
     .button.button-tertiary:hover,
     button.button-tertiary:hover {
-      color: #343434;
+      color: rgba(0, 0, 0, 0.8);
       outline: 0;
       text-decoration: none; }
     .button.button-tertiary:active, .button.button-tertiary.active,
     button.button-tertiary:active,
     button.button-tertiary.active {
-      background-color: #fafafa;
-      border-color: #e8e8e8; }
+      background-color: rgba(0, 0, 0, 0.02);
+      border-color: rgba(0, 0, 0, 0.09); }
   .button.button-dark,
   button.button-dark {
     color: #c4c4c4;
@@ -746,7 +746,7 @@ button {
       background-color: rgba(255, 255, 255, 0.37); }
   .button.button-small,
   button.button-small {
-    padding: 0 10px;
+    padding: 0 15px;
     height: 22px;
     line-height: 20px;
     font-size: 0.8rem; }
@@ -767,7 +767,7 @@ button {
     display: inline-block; }
   .button.button-icon,
   button.button-icon {
-    padding-right: 15px; }
+    padding-right: 20px; }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
   display: inline-block;
@@ -1227,14 +1227,17 @@ nav {
           text-decoration: none;
           outline: 0; }
         nav .nav-list li a.active, nav .nav-list li a:active {
-          background-color: #ff0055;
           color: #ffffff;
           transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
           nav .nav-list li a.active .icon, nav .nav-list li a:active .icon {
             color: #ffffff;
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
-        nav .nav-list li a.active:hover {
-          color: #ffffff; }
+        nav .nav-list li a:active {
+          background-color: #cc0044; }
+        nav .nav-list li a.active {
+          background-color: #ff0055; }
+        nav .nav-list li a.active:active {
+          background-color: #cc0044; }
   nav.open .nav-toggle .line.top {
     top: 50%;
     -webkit-transform: translate(-12px, -1px) rotate(135deg);

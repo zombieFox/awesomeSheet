@@ -128,7 +128,6 @@ nav {
         }
         &.active,
         &:active {
-          background-color: $primary-color;
           color: $white;
           transition: background-color $transition-ease-fast, color $transition-ease-fast;
           .icon {
@@ -136,9 +135,17 @@ nav {
             transition: background-color $transition-ease-fast, color $transition-ease-fast;
           }
         }
+        &:active {
+          background-color: $primary-color-dark;
+        }
+        &.active {
+          background-color: $primary-color;
+        }
         &.active {
           &:hover {
-            color: $white;
+          }
+          &:active {
+            background-color: $primary-color-dark;
           }
         }
       }
