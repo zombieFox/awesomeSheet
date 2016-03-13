@@ -44,40 +44,39 @@
         background-color: $white;
         border-color: $primary-color;
         color: $primary-color;
+        margin: 0;
       }
     }
     label {
-      color: $primary-color;
+      color: transparent;
+      visibility: hidden;
     }
     .clone {
-      padding: 40px 20px 0 20px;
-      margin: 0 0 1rem 0;
-      border-radius: $border-radius-small;
-      border: 1px solid $primary-color;
       .clone-delete-controls {
         height: 2rem;
-        margin: 0 0 1rem 0;
+        margin: 1rem 0 0 0;
         opacity: 1;
       }
-      .consumable-bar {
-        .consumable-bar-percentage {
-          .percentage-total {
-            color: $primary-color;
+    }
+    &.attack {
+      .clone {
+        .clone-delete-controls {}
+      }
+    }
+    &.consumable {
+      .clone {
+        .clone-delete-controls {}
+        .consumable-bar {
+          .consumable-bar-percentage {
+            background-color: transparent;
+            border-color: transparent;
+            .percentage-total {
+              color: transparent;
+              visibility: hidden;
+            }
           }
         }
       }
-      // .consumable-counts {
-      //   margin-bottom: 0;
-      //   .check-group {
-      //     .check {
-      //       border-color: $white;
-      //       &.used {
-      //         background-color: $white;
-      //         border-color: $white;
-      //       }
-      //     }
-      //   }
-      // }
     }
   }
 }

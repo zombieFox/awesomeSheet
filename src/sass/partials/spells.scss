@@ -3,11 +3,11 @@
 
 #spells {
   .spell-level {
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 2rem 0;
     .spells-known {
       .button {
         padding: 0 10px;
-        margin: 0 0.5% 1% 0;
+        margin: 0 0.5% 0.5% 0;
         width: 49.5%;
         text-align: left;
         font-size: 0.9rem;
@@ -17,9 +17,6 @@
         float: left;
         line-height: 2rem;
         height: auto;
-        &:nth-child(even) {
-          margin: 0 0 1% 0.5%;
-        }
         .spell-name {
           white-space: nowrap;
           overflow: hidden;

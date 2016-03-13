@@ -1480,22 +1480,24 @@ nav {
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: #ffffff;
   border-color: #ff0055;
-  color: #ff0055; }
+  color: #ff0055;
+  margin: 0; }
 
 .clone-block.delete-state label {
-  color: #ff0055; }
+  color: transparent;
+  visibility: hidden; }
 
-.clone-block.delete-state .clone {
-  padding: 40px 20px 0 20px;
-  margin: 0 0 1rem 0;
-  border-radius: 2px;
-  border: 1px solid #ff0055; }
-  .clone-block.delete-state .clone .clone-delete-controls {
-    height: 2rem;
-    margin: 0 0 1rem 0;
-    opacity: 1; }
-  .clone-block.delete-state .clone .consumable-bar .consumable-bar-percentage .percentage-total {
-    color: #ff0055; }
+.clone-block.delete-state .clone .clone-delete-controls {
+  height: 2rem;
+  margin: 1rem 0 0 0;
+  opacity: 1; }
+
+.clone-block.delete-state.consumable .clone .consumable-bar .consumable-bar-percentage {
+  background-color: transparent;
+  border-color: transparent; }
+  .clone-block.delete-state.consumable .clone .consumable-bar .consumable-bar-percentage .percentage-total {
+    color: transparent;
+    visibility: hidden; }
 
 /* media queries
 ------------------------------------------------- */
@@ -1559,7 +1561,7 @@ section {
     text-transform: uppercase;
     position: relative;
     border-left: 5px solid #ff0055;
-    border-radius: 4px; }
+    border-radius: 2px; }
   section h2 {
     background-color: #fafafa;
     padding: 0 10px;
@@ -1567,7 +1569,7 @@ section {
     line-height: 2.3rem;
     box-sizing: border-box;
     border-left: 5px solid #336688;
-    border-radius: 4px; }
+    border-radius: 2px; }
 
 hr {
   border: 0;
@@ -1576,7 +1578,7 @@ hr {
   clear: both; }
 
 .section-controls {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 2rem 0; }
   .section-controls .button {
     margin: 0 5px 5px 0; }
 
@@ -1713,10 +1715,10 @@ hr {
 /* spells
 ------------------------------------------------- */
 #spells .spell-level {
-  margin: 0 0 1.5rem 0; }
+  margin: 0 0 2rem 0; }
   #spells .spell-level .spells-known .button {
     padding: 0 10px;
-    margin: 0 0.5% 1% 0;
+    margin: 0 0.5% 0.5% 0;
     width: 49.5%;
     text-align: left;
     font-size: 0.9rem;
@@ -1726,8 +1728,6 @@ hr {
     float: left;
     line-height: 2rem;
     height: auto; }
-    #spells .spell-level .spells-known .button:nth-child(even) {
-      margin: 0 0 1% 0.5%; }
     #spells .spell-level .spells-known .button .spell-name {
       white-space: nowrap;
       overflow: hidden; }
