@@ -939,17 +939,26 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     document.location.reload(true);
-    // clear();
+    // destroy and reset without reload
+    // localStorage.clear();
+    // prompt.destroy();
+    // snack.destroy();
     // allCharacters = [{
     //     clone: {},
     //     input: {},
     //     textarea: {},
     //     spells: []
     //   }];
+    // if (typeof hardCodedCharacters !== "undefined") {
+    //   allCharacters = hardCodedCharacters.load;
+    // };
     // currentCharacterIndex = 0;
     // storeCharacters();
     // setIndex(currentCharacterIndex);
-    // saveHardCodedCharacters;
+    // clear();
+    // render();
+    // nav.clear();
+    // nav.render(sheet.getAllCharacters());
     // snack.render("All characters removed.", false, false);
   };
 
@@ -995,6 +1004,8 @@ var sheet = (function() {
     stats.render();
     spells.render();
     totalBlock.render();
+    var name = allCharacters[currentCharacterIndex].input.name;
+    snack.render(name + " loaded.", false, false);
   };
 
   // exposed methods

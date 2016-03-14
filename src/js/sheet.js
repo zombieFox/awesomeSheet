@@ -176,6 +176,8 @@ var sheet = (function() {
     stats.render();
     spells.render();
     totalBlock.render();
+    var name = allCharacters[currentCharacterIndex].input.name;
+    snack.render(name + " loaded.", false, false);
   };
 
   // exposed methods
