@@ -887,9 +887,12 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render(getAllCharacters());
+    snack.render("New character added.", false, false);
   };
 
   function removeCharacter() {
+    var name = allCharacters[currentCharacterIndex].input.name || "New character";
+    console.log(name);
     allCharacters.splice(getIndex(), 1)
     var newIndex = getAllCharacters().length - 1;
     if (newIndex < 0) {
@@ -908,6 +911,7 @@ var sheet = (function() {
     storeCharacters();
     nav.clear();
     nav.render(getAllCharacters());
+    snack.render(name + " removed.", false, false);
   };
 
   function store(key, data) {
@@ -935,6 +939,18 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     document.location.reload(true);
+    // clear();
+    // allCharacters = [{
+    //     clone: {},
+    //     input: {},
+    //     textarea: {},
+    //     spells: []
+    //   }];
+    // currentCharacterIndex = 0;
+    // storeCharacters();
+    // setIndex(currentCharacterIndex);
+    // saveHardCodedCharacters;
+    // snack.render("All characters removed.", false, false);
   };
 
   function clear() {
@@ -1026,6 +1042,9 @@ var nav = (function() {
   };
 
   function _render_navCharacters(characterName, characterIndex) {
+    if (typeof characterName == "undefined" || characterName == "") {
+      characterName = "New character";
+    };
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
@@ -1078,12 +1097,7 @@ var nav = (function() {
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (i in array) {
-      var characterAnchor;
-      if (array[i].input.name) {
-        characterAnchor = _render_navCharacters(array[i].input.name, i)
-      } else {
-        characterAnchor = _render_navCharacters("New Character", i)
-      };
+      var characterAnchor =_render_navCharacters(array[i].input.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
@@ -1113,7 +1127,7 @@ var nav = (function() {
     if (sheet.getCharacter(sheet.getIndex()).input.name) {
       name = sheet.getCharacter(sheet.getIndex()).input.name;
     } else {
-      name = "New Character";
+      name = "New character";
     };
     prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
   };
@@ -1379,7 +1393,12 @@ var snack = (function() {
     var _revealSnackBar = function() {
       helper.addClass(snackBar, "reveal");
     };
-    helper.delayFunction(_revealSnackBar, 10);
+    var currentSnackBars = element_snackBars.querySelectorAll(".snack-bar");
+    if (currentSnackBars.length > 1) {
+      helper.delayFunction(_revealSnackBar, 300);
+    } else {
+      helper.delayFunction(_revealSnackBar, 10);
+    };
     // auto clear snack bar
     var _delay_destroy = function() {
       // if the snack bar hasn't been dismised or undone

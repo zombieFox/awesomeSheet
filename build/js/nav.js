@@ -22,6 +22,9 @@ var nav = (function() {
   };
 
   function _render_navCharacters(characterName, characterIndex) {
+    if (typeof characterName == "undefined" || characterName == "") {
+      characterName = "New character";
+    };
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
@@ -74,12 +77,7 @@ var nav = (function() {
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (i in array) {
-      var characterAnchor;
-      if (array[i].input.name) {
-        characterAnchor = _render_navCharacters(array[i].input.name, i)
-      } else {
-        characterAnchor = _render_navCharacters("New Character", i)
-      };
+      var characterAnchor =_render_navCharacters(array[i].input.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
@@ -109,7 +107,7 @@ var nav = (function() {
     if (sheet.getCharacter(sheet.getIndex()).input.name) {
       name = sheet.getCharacter(sheet.getIndex()).input.name;
     } else {
-      name = "New Character";
+      name = "New character";
     };
     prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
   };

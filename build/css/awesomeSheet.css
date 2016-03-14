@@ -1354,16 +1354,22 @@ nav {
     max-width: 100%;
     padding: 0; }
   .snacks .snack-bar {
-    background-color: #464646;
-    padding: 0 20px;
+    background-color: #222222;
+    padding: 5px 20px;
     margin: 0;
     width: 100%;
     box-sizing: border-box;
-    position: relative;
-    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 40px;
     overflow: hidden;
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out; }
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: translateY(100px);
+        -ms-transform: translateY(100px);
+            transform: translateY(100px);
+    opacity: 0; }
     .snacks .snack-bar .snack-message {
       margin: 0;
       color: #ffffff;
@@ -1388,37 +1394,35 @@ nav {
         line-height: 30px;
         font-size: 1.4rem; }
     .snacks .snack-bar.reveal {
-      background-color: #222222;
-      padding: 10px 20px;
-      height: 50px; }
+      -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1; }
 
 /* media queries
 ------------------------------------------------- */
 @media (min-width: 900px) {
   .snacks {
-    padding: 30px;
-    max-width: 60%; }
+    max-width: 50%;
+    bottom: 30px;
+    left: 30px; }
     .snacks .snack-bar {
       margin: 0;
-      padding: 0 20px;
+      padding: 10px 20px;
       border: 0;
+      height: 50px;
       border-radius: 4px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2);
       box-sizing: border-box; }
       .snacks .snack-bar .snack-message {
-        line-height: 2rem; }
+        line-height: 30px; }
       .snacks .snack-bar .button {
-        height: 2rem;
-        line-height: 2rem; }
+        height: 30px;
+        line-height: 30px; }
         .snacks .snack-bar .button [class^="icon-"],
         .snacks .snack-bar .button [class*=" icon-"] {
-          height: 2rem;
-          line-height: 2rem; }
-      .snacks .snack-bar.reveal {
-        margin: 2px 0 0 0;
-        padding: 10px 20px;
-        border-bottom-width: 0;
-        height: 50px; } }
+          height: 30px;
+          line-height: 30px; } }
 
 /* input-block
 ------------------------------------------------- */

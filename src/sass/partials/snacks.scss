@@ -14,18 +14,20 @@
     padding: 0;
   }
   .snack-bar {
-    background-color: $gray-03;
-    padding: 0 20px;
+    background-color: $gray-01;
+    padding: 5px 20px;
     margin: 0;
     width: 100%;
     box-sizing: border-box;
-    position: relative;
-    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 40px;
     overflow: hidden;
     box-sizing: border-box;
-    // transform: scale(0.9);
-    // opacity: 0;
     transition: all $transition-ease-medium;
+    transform: translateY(100px);
+    opacity: 0;
     .snack-message {
       margin: 0;
       color: $white;
@@ -53,11 +55,8 @@
       }
     }
     &.reveal {
-      background-color: $gray-01;
-      padding: 10px 20px;
-      height: 50px;
-      // transform: scale(1);
-      // opacity: 1;
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 }
@@ -72,32 +71,28 @@
 
 @media (min-width: $screen-lg) {
   .snacks {
-    padding: 30px;
-    max-width: 60%;
+    max-width: 50%;
+    bottom: 30px;
+    left: 30px;
     .snack-bar {
       margin: 0;
-      padding: 0 20px;
+      padding: 10px 20px;
       border: 0;
+      height: 50px;
       border-radius: $border-radius-medium;
       box-shadow: $shadow-medium;
       box-sizing: border-box;
       .snack-message {
-        line-height: 2rem;
+        line-height: 30px;
       }
       .button {
-        height: 2rem;
-        line-height: 2rem;
+        height: 30px;
+        line-height: 30px;
         [class^="icon-"],
         [class*=" icon-"] {
-          height: 2rem;
-          line-height: 2rem;
+          height: 30px;
+          line-height: 30px;
         }
-      }
-      &.reveal {
-        margin: 2px 0 0 0;
-        padding: 10px 20px;
-        border-bottom-width: 0;
-        height: 50px;
       }
     }
   }

@@ -59,9 +59,12 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render(getAllCharacters());
+    snack.render("New character added.", false, false);
   };
 
   function removeCharacter() {
+    var name = allCharacters[currentCharacterIndex].input.name || "New character";
+    console.log(name);
     allCharacters.splice(getIndex(), 1)
     var newIndex = getAllCharacters().length - 1;
     if (newIndex < 0) {
@@ -80,6 +83,7 @@ var sheet = (function() {
     storeCharacters();
     nav.clear();
     nav.render(getAllCharacters());
+    snack.render(name + " removed.", false, false);
   };
 
   function store(key, data) {
@@ -107,6 +111,18 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     document.location.reload(true);
+    // clear();
+    // allCharacters = [{
+    //     clone: {},
+    //     input: {},
+    //     textarea: {},
+    //     spells: []
+    //   }];
+    // currentCharacterIndex = 0;
+    // storeCharacters();
+    // setIndex(currentCharacterIndex);
+    // saveHardCodedCharacters;
+    // snack.render("All characters removed.", false, false);
   };
 
   function clear() {

@@ -57,7 +57,12 @@ var snack = (function() {
     var _revealSnackBar = function() {
       helper.addClass(snackBar, "reveal");
     };
-    helper.delayFunction(_revealSnackBar, 10);
+    var currentSnackBars = element_snackBars.querySelectorAll(".snack-bar");
+    if (currentSnackBars.length > 1) {
+      helper.delayFunction(_revealSnackBar, 300);
+    } else {
+      helper.delayFunction(_revealSnackBar, 10);
+    };
     // auto clear snack bar
     var _delay_destroy = function() {
       // if the snack bar hasn't been dismised or undone
