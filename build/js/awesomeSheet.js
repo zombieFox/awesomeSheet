@@ -1098,6 +1098,11 @@ var nav = (function() {
     helper.removeClass(icon, "icon-check-box-unchecked");
     helper.addClass(icon, "icon-check-box-checked");
     helper.addClass(characterLink, "active");
+    var name = sheet.getCharacter().input.name;
+    if (typeof name == "undefined" || name == "") {
+      name = "New character";
+    };
+    snack.render("Switched to " + name + ".", false, false);
   };
 
   function clear() {
