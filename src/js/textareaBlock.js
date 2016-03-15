@@ -2,7 +2,7 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("textarea-", "").replace(/-/g, "_");
-    sheet.getCharacter(sheet.getIndex()).textarea[key] = element.innerHTML;
+    sheet.getCharacter().textarea[key] = element.innerHTML;
     sheet.storeCharacters();
   };
 
@@ -22,10 +22,10 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter(sheet.getIndex()).textarea) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).textarea) {
+    if (sheet.getCharacter().textarea) {
+      for (var i in sheet.getCharacter().textarea) {
         var id = "#" + "textarea-" + i.replace(/_/g, "-");
-        helper.e(id).innerHTML = sheet.getCharacter(sheet.getIndex()).textarea[i];
+        helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
       };
     };
   };

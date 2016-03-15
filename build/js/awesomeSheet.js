@@ -860,8 +860,8 @@ var sheet = (function() {
     return allCharacters;
   };
 
-  function getCharacter(index) {
-    return allCharacters[index];
+  function getCharacter() {
+    return allCharacters[currentCharacterIndex];
   };
 
   function getIndex() {
@@ -1005,7 +1005,7 @@ var sheet = (function() {
     spells.render();
     totalBlock.render();
     var name = allCharacters[currentCharacterIndex].input.name;
-    snack.render(name + " loaded.", false, false);
+    // snack.render(name + " loaded.", false, false);
   };
 
   // exposed methods
@@ -1135,8 +1135,8 @@ var nav = (function() {
 
   function remove() {
     var name;
-    if (sheet.getCharacter(sheet.getIndex()).input.name) {
-      name = sheet.getCharacter(sheet.getIndex()).input.name;
+    if (sheet.getCharacter().input.name) {
+      name = sheet.getCharacter().input.name;
     } else {
       name = "New character";
     };
@@ -1235,7 +1235,7 @@ var prompt = (function() {
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
     var promptDownload = document.createElement("a");
     promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
-    promptDownload.setAttribute("download", sheet.getCharacter(sheet.getIndex()).input.name + ".json");
+    promptDownload.setAttribute("download", sheet.getCharacter().input.name + ".json");
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
     var promptPre = document.createElement("pre");
@@ -1802,7 +1802,7 @@ var clone = (function() {
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
-    sheet.getCharacter(sheet.getIndex()).clone.attack = cloneAttack;
+    sheet.getCharacter().clone.attack = cloneAttack;
   };
 
   function _updateCloneConsumable() {
@@ -1817,7 +1817,7 @@ var clone = (function() {
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
-    sheet.getCharacter(sheet.getIndex()).clone.consumable = cloneConsumable;
+    sheet.getCharacter().clone.consumable = cloneConsumable;
   };
 
   function render() {
@@ -1825,16 +1825,16 @@ var clone = (function() {
     var all_attack = [];
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
-    // console.log(sheet.getCharacter(sheet.getIndex()));
-    if (sheet.getCharacter(sheet.getIndex()).clone.attack) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).clone.attack) {
-        all_attack.push(sheet.getCharacter(sheet.getIndex()).clone.attack[i]);
+    // console.log(sheet.getCharacter());
+    if (sheet.getCharacter().clone.attack) {
+      for (var i in sheet.getCharacter().clone.attack) {
+        all_attack.push(sheet.getCharacter().clone.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.getCharacter(sheet.getIndex()).clone.consumable) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).clone.consumable) {
-        all_consumable.push(sheet.getCharacter(sheet.getIndex()).clone.consumable[i]);
+    if (sheet.getCharacter().clone.consumable) {
+      for (var i in sheet.getCharacter().clone.consumable) {
+        all_consumable.push(sheet.getCharacter().clone.consumable[i]);
       };
     };
     _render_clone(all_attack, "attack");
@@ -2037,7 +2037,7 @@ var inputBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("input-", "").replace(/-/g, "_");
-    sheet.getCharacter(sheet.getIndex()).input[key] = element.value;
+    sheet.getCharacter().input[key] = element.value;
     sheet.storeCharacters();
   };
 
@@ -2107,10 +2107,10 @@ var inputBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter(sheet.getIndex()).input) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).input) {
+    if (sheet.getCharacter().input) {
+      for (var i in sheet.getCharacter().input) {
         var id = "#input-" + i.replace(/_/g, "-");
-        helper.e(id).value = sheet.getCharacter(sheet.getIndex()).input[i];
+        helper.e(id).value = sheet.getCharacter().input[i];
       };
     };
   };
@@ -2128,7 +2128,7 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("textarea-", "").replace(/-/g, "_");
-    sheet.getCharacter(sheet.getIndex()).textarea[key] = element.innerHTML;
+    sheet.getCharacter().textarea[key] = element.innerHTML;
     sheet.storeCharacters();
   };
 
@@ -2148,10 +2148,10 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter(sheet.getIndex()).textarea) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).textarea) {
+    if (sheet.getCharacter().textarea) {
+      for (var i in sheet.getCharacter().textarea) {
         var id = "#" + "textarea-" + i.replace(/_/g, "-");
-        helper.e(id).innerHTML = sheet.getCharacter(sheet.getIndex()).textarea[i];
+        helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
       };
     };
   };
@@ -2304,7 +2304,7 @@ var spells = (function() {
         // clear input field
         element.value = "";
         // add spell to current character object
-        sheet.getCharacter(sheet.getIndex()).spells.push(newSpell);
+        sheet.getCharacter().spells.push(newSpell);
         // make a snack bar
         snack.render(spallName + " added to spell level " + level + ".", false, false);
       } else {
@@ -2519,16 +2519,16 @@ var spells = (function() {
       // add to current character object
       spells.push(newSpell);
     };
-    sheet.getCharacter(sheet.getIndex()).spells = spells;
+    sheet.getCharacter().spells = spells;
   };
 
   function render() {
     // build an array of spell objects
     var all_spells = [];
     // iterate over all objects keys to find spells then push those values to all_spells
-    if (sheet.getCharacter(sheet.getIndex()).spells) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).spells) {
-        all_spells.push(sheet.getCharacter(sheet.getIndex()).spells[i]);
+    if (sheet.getCharacter().spells) {
+      for (var i in sheet.getCharacter().spells) {
+        all_spells.push(sheet.getCharacter().spells[i]);
       };
     };
     _render_spell(all_spells);

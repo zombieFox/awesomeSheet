@@ -2,7 +2,7 @@ var inputBlock = (function() {
 
   function _store(element) {
     var key = element.id.replace("input-", "").replace(/-/g, "_");
-    sheet.getCharacter(sheet.getIndex()).input[key] = element.value;
+    sheet.getCharacter().input[key] = element.value;
     sheet.storeCharacters();
   };
 
@@ -72,10 +72,10 @@ var inputBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter(sheet.getIndex()).input) {
-      for (var i in sheet.getCharacter(sheet.getIndex()).input) {
+    if (sheet.getCharacter().input) {
+      for (var i in sheet.getCharacter().input) {
         var id = "#input-" + i.replace(/_/g, "-");
-        helper.e(id).value = sheet.getCharacter(sheet.getIndex()).input[i];
+        helper.e(id).value = sheet.getCharacter().input[i];
       };
     };
   };

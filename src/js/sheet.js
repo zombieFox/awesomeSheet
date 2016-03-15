@@ -32,8 +32,8 @@ var sheet = (function() {
     return allCharacters;
   };
 
-  function getCharacter(index) {
-    return allCharacters[index];
+  function getCharacter() {
+    return allCharacters[currentCharacterIndex];
   };
 
   function getIndex() {
@@ -177,7 +177,7 @@ var sheet = (function() {
     spells.render();
     totalBlock.render();
     var name = allCharacters[currentCharacterIndex].input.name;
-    snack.render(name + " loaded.", false, false);
+    // snack.render(name + " loaded.", false, false);
   };
 
   // exposed methods

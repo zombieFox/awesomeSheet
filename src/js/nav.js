@@ -104,8 +104,8 @@ var nav = (function() {
 
   function remove() {
     var name;
-    if (sheet.getCharacter(sheet.getIndex()).input.name) {
-      name = sheet.getCharacter(sheet.getIndex()).input.name;
+    if (sheet.getCharacter().input.name) {
+      name = sheet.getCharacter().input.name;
     } else {
       name = "New character";
     };
