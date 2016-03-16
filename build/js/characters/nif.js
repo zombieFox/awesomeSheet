@@ -2,15 +2,41 @@ var nif = (function() {
 
   var data = {
     clone: {
-      attack: [
-        { weapon: "Dagger (Master Work)", attack: "3", damage: "1d6+1", critical: "19–20/x2", ammo: "-", range: "-" },
-        { weapon: "Shortbow", attack: "6", damage: "1d6", critical: "x3", ammo: "50", range: "60 ft" }
-      ],
-      consumable: [
-        { item: "Wand of Infernal Healing", total: "50", used: "48" },
-        { item: "Wand of Lightning Bolt", total: "50", used: "38" },
-        { item: "Shift", total: "9", used: "" }
-      ]
+      attack: [{
+        weapon: "Dagger (Master Work)",
+        attack: "3",
+        damage: "1d6+1",
+        critical: "19–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortbow",
+        attack: "6",
+        damage: "1d6",
+        critical: "x3",
+        range: "60 ft",
+        ammo: "50"
+      }, {
+        weapon: "weapon",
+        attack: "attack",
+        damage: "damage",
+        critical: "critical",
+        range: "range",
+        ammo: "ammo"
+      }],
+      consumable: [{
+        item: "Wand of Infernal Healing",
+        total: "50",
+        used: "48"
+      }, {
+        item: "Wand of Lightning Bolt",
+        total: "50",
+        used: "38"
+      }, {
+        item: "Shift",
+        total: "9",
+        used: ""
+      }]
     },
     input: {
       name: "Nif Amakir",

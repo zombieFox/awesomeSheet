@@ -2,15 +2,41 @@ var nif = (function() {
 
   var data = {
     clone: {
-      attack: [
-        { weapon: "Dagger (Master Work)", attack: "3", damage: "1d6+1", critical: "19–20/x2", ammo: "-", range: "-" },
-        { weapon: "Shortbow", attack: "6", damage: "1d6", critical: "x3", ammo: "50", range: "60 ft" }
-      ],
-      consumable: [
-        { item: "Wand of Infernal Healing", total: "50", used: "48" },
-        { item: "Wand of Lightning Bolt", total: "50", used: "38" },
-        { item: "Shift", total: "9", used: "" }
-      ]
+      attack: [{
+        weapon: "Dagger (Master Work)",
+        attack: "3",
+        damage: "1d6+1",
+        critical: "19–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortbow",
+        attack: "6",
+        damage: "1d6",
+        critical: "x3",
+        range: "60 ft",
+        ammo: "50"
+      }, {
+        weapon: "weapon",
+        attack: "attack",
+        damage: "damage",
+        critical: "critical",
+        range: "range",
+        ammo: "ammo"
+      }],
+      consumable: [{
+        item: "Wand of Infernal Healing",
+        total: "50",
+        used: "48"
+      }, {
+        item: "Wand of Lightning Bolt",
+        total: "50",
+        used: "38"
+      }, {
+        item: "Shift",
+        total: "9",
+        used: ""
+      }]
     },
     input: {
       name: "Nif Amakir",
@@ -275,13 +301,26 @@ var ro = (function() {
 
   var data = {
     clone: {
-      attack: [
-        { weapon: "Rapier", attack: "5", damage: "1d6+1", critical: "18–20/x2", ammo: "-", range: "-" },
-        { weapon: "Shortbow", attack: "5", damage: "1d6", critical: "x3", ammo: "50", range: "60 ft" }
-      ],
-      consumable: [
-        { item: "Arcane Pool", total: "4", used: "1" }
-      ]
+      attack: [{
+        weapon: "Rapier",
+        attack: "5",
+        damage: "1d6+1",
+        critical: "18–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortbow",
+        attack: "5",
+        damage: "1d6",
+        critical: "x3",
+        range: "60 ft",
+        ammo: "50"
+      }],
+      consumable: [{
+        item: "Arcane Pool",
+        total: "4",
+        used: "1"
+      }]
     },
     input: {
       name: "Ro Flint",
@@ -520,12 +559,33 @@ var vos = (function() {
 
   var data = {
     clone: {
-      attack: [
-        { weapon: "Flurry of Blows", attack: "3/3", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
-        { weapon: "Grapple", attack: "7", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
-        { weapon: "Stunning Fist", attack: "5", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" }
-      ],
-      consumable: []
+      attack: [{
+        weapon: "Flurry of Blows",
+        attack: "3/3",
+        damage: "1d6+3",
+        critical: "20x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Grapple",
+        attack: "7",
+        damage: "1d6+3",
+        critical: "20x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Stunning Fist",
+        attack: "5",
+        damage: "1d6+3",
+        critical: "20x2",
+        ammo: "",
+        range: ""
+      }],
+      consumable: [{
+        item: "Scented Oils",
+        total: "5",
+        used: ""
+      }]
     },
     input: {
       name: "Vos Thunderstomp",
@@ -714,7 +774,7 @@ var vos = (function() {
       traits: "",
       languages: "Common, Dwarven",
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)",
-      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Scented Oils (5), Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
+      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
       magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
       defense_notes: "+2 against poison, spells, and spell-like abilities.",
       attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple",
@@ -1801,9 +1861,9 @@ var clone = (function() {
       var weapon = all_clone[i].querySelector(".input-weapon").value || "";
       var attack = all_clone[i].querySelector(".input-attack").value || "";
       var damage = all_clone[i].querySelector(".input-damage").value || "";
-      var critical = all_clone[i].querySelector(".input-range").value || "";
+      var critical = all_clone[i].querySelector(".input-critical").value || "";
       var ammo = all_clone[i].querySelector(".input-ammo").value || "";
-      var range = all_clone[i].querySelector(".input-critical").value || "";
+      var range = all_clone[i].querySelector(".input-range").value || "";
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
@@ -1832,13 +1892,13 @@ var clone = (function() {
     // iterate over all objects keys to find clones then push those values to all_attack
     // console.log(sheet.getCharacter());
     if (sheet.getCharacter().clone.attack) {
-      for (var i in sheet.getCharacter().clone.attack) {
+      for (i in sheet.getCharacter().clone.attack) {
         all_attack.push(sheet.getCharacter().clone.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
     if (sheet.getCharacter().clone.consumable) {
-      for (var i in sheet.getCharacter().clone.consumable) {
+      for (i in sheet.getCharacter().clone.consumable) {
         all_consumable.push(sheet.getCharacter().clone.consumable[i]);
       };
     };
@@ -2113,7 +2173,7 @@ var inputBlock = (function() {
 
   function render() {
     if (sheet.getCharacter().input) {
-      for (var i in sheet.getCharacter().input) {
+      for (i in sheet.getCharacter().input) {
         var id = "#input-" + i.replace(/_/g, "-");
         helper.e(id).value = sheet.getCharacter().input[i];
       };
@@ -2154,7 +2214,7 @@ var textareaBlock = (function() {
 
   function render() {
     if (sheet.getCharacter().textarea) {
-      for (var i in sheet.getCharacter().textarea) {
+      for (i in sheet.getCharacter().textarea) {
         var id = "#" + "textarea-" + i.replace(/_/g, "-");
         helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
       };
@@ -2532,7 +2592,7 @@ var spells = (function() {
     var all_spells = [];
     // iterate over all objects keys to find spells then push those values to all_spells
     if (sheet.getCharacter().spells) {
-      for (var i in sheet.getCharacter().spells) {
+      for (i in sheet.getCharacter().spells) {
         all_spells.push(sheet.getCharacter().spells[i]);
       };
     };

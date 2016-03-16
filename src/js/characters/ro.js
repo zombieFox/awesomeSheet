@@ -2,13 +2,26 @@ var ro = (function() {
 
   var data = {
     clone: {
-      attack: [
-        { weapon: "Rapier", attack: "5", damage: "1d6+1", critical: "18–20/x2", ammo: "-", range: "-" },
-        { weapon: "Shortbow", attack: "5", damage: "1d6", critical: "x3", ammo: "50", range: "60 ft" }
-      ],
-      consumable: [
-        { item: "Arcane Pool", total: "4", used: "1" }
-      ]
+      attack: [{
+        weapon: "Rapier",
+        attack: "5",
+        damage: "1d6+1",
+        critical: "18–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortbow",
+        attack: "5",
+        damage: "1d6",
+        critical: "x3",
+        range: "60 ft",
+        ammo: "50"
+      }],
+      consumable: [{
+        item: "Arcane Pool",
+        total: "4",
+        used: "1"
+      }]
     },
     input: {
       name: "Ro Flint",

@@ -321,9 +321,9 @@ var clone = (function() {
       var weapon = all_clone[i].querySelector(".input-weapon").value || "";
       var attack = all_clone[i].querySelector(".input-attack").value || "";
       var damage = all_clone[i].querySelector(".input-damage").value || "";
-      var critical = all_clone[i].querySelector(".input-range").value || "";
+      var critical = all_clone[i].querySelector(".input-critical").value || "";
       var ammo = all_clone[i].querySelector(".input-ammo").value || "";
-      var range = all_clone[i].querySelector(".input-critical").value || "";
+      var range = all_clone[i].querySelector(".input-range").value || "";
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
@@ -352,13 +352,13 @@ var clone = (function() {
     // iterate over all objects keys to find clones then push those values to all_attack
     // console.log(sheet.getCharacter());
     if (sheet.getCharacter().clone.attack) {
-      for (var i in sheet.getCharacter().clone.attack) {
+      for (i in sheet.getCharacter().clone.attack) {
         all_attack.push(sheet.getCharacter().clone.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
     if (sheet.getCharacter().clone.consumable) {
-      for (var i in sheet.getCharacter().clone.consumable) {
+      for (i in sheet.getCharacter().clone.consumable) {
         all_consumable.push(sheet.getCharacter().clone.consumable[i]);
       };
     };

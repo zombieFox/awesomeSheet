@@ -362,7 +362,7 @@ var spells = (function() {
     var all_spells = [];
     // iterate over all objects keys to find spells then push those values to all_spells
     if (sheet.getCharacter().spells) {
-      for (var i in sheet.getCharacter().spells) {
+      for (i in sheet.getCharacter().spells) {
         all_spells.push(sheet.getCharacter().spells[i]);
       };
     };

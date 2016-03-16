@@ -23,7 +23,7 @@ var textareaBlock = (function() {
 
   function render() {
     if (sheet.getCharacter().textarea) {
-      for (var i in sheet.getCharacter().textarea) {
+      for (i in sheet.getCharacter().textarea) {
         var id = "#" + "textarea-" + i.replace(/_/g, "-");
         helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
       };

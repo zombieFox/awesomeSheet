@@ -73,7 +73,7 @@ var inputBlock = (function() {
 
   function render() {
     if (sheet.getCharacter().input) {
-      for (var i in sheet.getCharacter().input) {
+      for (i in sheet.getCharacter().input) {
         var id = "#input-" + i.replace(/_/g, "-");
         helper.e(id).value = sheet.getCharacter().input[i];
       };

@@ -1162,7 +1162,7 @@ nav {
     border-radius: 2px;
     margin: 0;
     padding: 8px 0;
-    width: 300px;
+    width: 240px;
     position: absolute;
     top: 60px;
     right: -350px;
@@ -1458,9 +1458,9 @@ nav {
 /* clone
 ------------------------------------------------- */
 .clone-block .clone-controls {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 1.5rem 0; }
   .clone-block .clone-controls .button {
-    margin: 0 10px 0 0; }
+    margin: 0 10px 10px 0; }
 
 .clone-block .clone {
   padding: 0;
@@ -1585,9 +1585,9 @@ hr {
   clear: both; }
 
 .section-controls {
-  margin: 0 0 2rem 0; }
+  margin: 0 0 1.5rem 0; }
   .section-controls .button {
-    margin: 0 5px 5px 0; }
+    margin: 0 10px 10px 0; }
 
 /* media queries
 ------------------------------------------------- */

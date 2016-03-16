@@ -2,12 +2,33 @@ var vos = (function() {
 
   var data = {
     clone: {
-      attack: [
-        { weapon: "Flurry of Blows", attack: "3/3", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
-        { weapon: "Grapple", attack: "7", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" },
-        { weapon: "Stunning Fist", attack: "5", damage: "1d6+3", critical: "20x2", ammo: "-", range: "-" }
-      ],
-      consumable: []
+      attack: [{
+        weapon: "Flurry of Blows",
+        attack: "3/3",
+        damage: "1d6+3",
+        critical: "20x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Grapple",
+        attack: "7",
+        damage: "1d6+3",
+        critical: "20x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Stunning Fist",
+        attack: "5",
+        damage: "1d6+3",
+        critical: "20x2",
+        ammo: "",
+        range: ""
+      }],
+      consumable: [{
+        item: "Scented Oils",
+        total: "5",
+        used: ""
+      }]
     },
     input: {
       name: "Vos Thunderstomp",
@@ -196,7 +217,7 @@ var vos = (function() {
       traits: "",
       languages: "Common, Dwarven",
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)",
-      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Scented Oils (5), Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
+      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
       magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
       defense_notes: "+2 against poison, spells, and spell-like abilities.",
       attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple",
