@@ -16,13 +16,6 @@ var nif = (function() {
         critical: "x3",
         range: "60 ft",
         ammo: "50"
-      }, {
-        weapon: "weapon",
-        attack: "attack",
-        damage: "damage",
-        critical: "critical",
-        range: "range",
-        ammo: "ammo"
       }],
       consumable: [{
         item: "Wand of Infernal Healing",

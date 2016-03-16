@@ -64,7 +64,6 @@ var sheet = (function() {
 
   function removeCharacter() {
     var name = allCharacters[currentCharacterIndex].input.name || "New character";
-    console.log(name);
     allCharacters.splice(getIndex(), 1)
     var newIndex = getAllCharacters().length - 1;
     if (newIndex < 0) {

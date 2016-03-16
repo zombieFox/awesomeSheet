@@ -350,7 +350,6 @@ var clone = (function() {
     var all_attack = [];
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
-    // console.log(sheet.getCharacter());
     if (sheet.getCharacter().clone.attack) {
       for (i in sheet.getCharacter().clone.attack) {
         all_attack.push(sheet.getCharacter().clone.attack[i]);
