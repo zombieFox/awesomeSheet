@@ -7,6 +7,11 @@ var textareaBlock = (function() {
       var key = element.id.replace("statistics-", "").replace(/-/g, "_");
       sheet.getCharacter().statistics[key] = element.innerHTML;
     };
+    // equipment
+    if (type == "equipment") {
+      var key = element.id.replace("equipment-", "").replace(/-/g, "_");
+      sheet.getCharacter().equipment[key] = element.innerHTML;
+    };
     sheet.storeCharacters();
   };
 
@@ -44,14 +49,15 @@ var textareaBlock = (function() {
         element.innerHTML = content;
       };
     };
-
-
-    // if (sheet.getCharacter().textarea) {
-    //   for (var i in sheet.getCharacter().textarea) {
-    //     var id = "#" + "textarea-" + i.replace(/_/g, "-");
-    //     helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
-    //   };
-    // };
+    // equipment
+    for (var i in equipment) {
+      if (i == "gear" || i == "magic_gear") {
+        var id = "#equipment-" + i.replace(/_/g, "-");
+        var element = helper.e(id);
+        var content = equipment[i];
+        element.innerHTML = content;
+      };
+    };
   };
 
   // exposed methods

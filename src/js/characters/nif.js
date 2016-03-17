@@ -57,11 +57,10 @@ var nif = (function() {
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse",
       magic_gear: "Pearl of Power (1st Level), Potion of CLW x1, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit x1, Scroll of Summon Monster III x5, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x4, Scroll of Stinking Cloud x2, Scroll of Grease x2, Scroll of Mirror Image x3, Scroll of Spiked Pit x3 Scroll of Fly x2",
-      defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects",
       encumbrance: {
-        light: "26 lbs or less",
-        medium: "27–53 lbs",
-        heavy: "54–80 lbs"
+        light_load: "26 lbs or less",
+        medium_load: "27–53 lbs",
+        heavy_load: "54–80 lbs"
       },
       body_slots: {
         armor: "",
@@ -137,7 +136,7 @@ var nif = (function() {
         misc: "2",
         temp: ""
       },
-      defense_notes: ""
+      defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
     },
     offense: {
       base_attack: "3",

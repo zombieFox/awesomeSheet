@@ -167,6 +167,8 @@ var sheet = (function() {
     textareaBlock.render();
     stats.render();
     totalBlock.render();
+    clone.render();
+    consumable.render();
     // clone.render();
     // consumable.render();
     // inputBlock.render();

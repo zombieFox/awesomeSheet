@@ -2,30 +2,31 @@ var inputBlock = (function() {
 
   function _store(element) {
     var type = element.dataset.store;
-    // var character = sheet.getCharacter();
-    // var basics = character.basics;
-    // var statistics = character.statistics;
-    // var equipment = character.equipment;
-    // var defense = character.defense;
-    // var offense = character.offense;
-    // var skills = character.skills;
-    // var spells = character.spells;
-    // var notes = character.notes;
     // basics
     if (type == "basics") {
       var key = element.id.replace("basics-", "").replace(/-/g, "_");
       sheet.getCharacter().basics[key] = element.value;
     };
-    // basics
-    if (type == "stat") {
-      var stat = element.id.replace("stat-", "").replace(/-/g, "_");
-      var key = element.id.replace("stat-", "").replace(/-/g, "_").substring(0, 3);
+    // statistics.stats
+    if (type == "statistics-stats") {
+      var stat = element.id.replace("stats-", "").replace(/-/g, "_");
+      var key = element.id.replace("stats-", "").replace(/-/g, "_").substring(0, 3);
       if (stat.substring(4, 9) == "score") {
         sheet.getCharacter().statistics.stats[key].score = element.value;
       };
       if (stat.substring(4, 8) == "temp") {
         sheet.getCharacter().statistics.stats[key].temp = element.value;
       };
+    };
+    // equipment.encumbrance
+    if (type == "equipment-encumbrance") {
+      var key = element.id.replace("equipment-encumbrance-", "").replace(/-/g, "_");
+      sheet.getCharacter().equipment.body_slots[key] = element.value;
+    };
+    // equipment.body_slots
+    if (type == "equipment-body-slots") {
+      var key = element.id.replace("equipment-body-slots-", "").replace(/-/g, "_");
+      sheet.getCharacter().equipment.body_slots[key] = element.value;
     };
     sheet.storeCharacters();
   };
@@ -116,20 +117,37 @@ var inputBlock = (function() {
         for (var j in statistics[i]) {
           var score = statistics[i][j].score;
           var temp = statistics[i][j].temp;
-          var scoreId = "#stat-" + j.replace(/_/g, "-") + "-score";
-          var tempId = "#stat-" + j.replace(/_/g, "-") + "-temp";
+          var scoreId = "#stats-" + j.replace(/_/g, "-") + "-score";
+          var tempId = "#stats-" + j.replace(/_/g, "-") + "-temp";
           helper.e(scoreId).value = score;
           helper.e(tempId).value = temp;
         };
       };
     };
 
-    // if (sheet.getCharacter().input) {
-    //   for (var i in sheet.getCharacter().input) {
-    //     var id = "#input-" + i.replace(/_/g, "-");
-    //     helper.e(id).value = sheet.getCharacter().input[i];
-    //   };
-    // };
+
+    // equipment.encumbrance
+    // equipment.body_slots
+    for (var i in equipment) {
+      if (i == "encumbrance" || i == "body_slots") {
+        if (i == "encumbrance") {
+          for (var j in equipment[i]) {
+            var content = equipment[i][j];
+            var element = helper.e("#equipment-encumbrance-" + j.replace(/_/g, "-"));
+            element.value = content;
+          };
+        };
+        if (i == "body_slots") {
+          for (var j in equipment[i]) {
+            var content = equipment[i][j];
+            var element = helper.e("#equipment-body-slots-" + j.replace(/_/g, "-"));
+            element.value = content;
+          };
+        };
+      };
+    };
+
+
   };
 
   // exposed methods

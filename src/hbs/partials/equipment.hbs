@@ -14,7 +14,7 @@
       <h2>Gear</h2>
     </div>
     <div class="col-xs-12 col-md-9 hidable-on-empty-textarea">
-      <div contentEditable="true" class="textarea-block" id="textarea-gear" tabindex="3"></div>
+      <div class="textarea-block" id="equipment-gear" data-store="equipment" contentEditable="true" tabindex="3"></div>
     </div>
   </div>
   <div class="row">
@@ -22,7 +22,7 @@
       <h2>Magic Gear</h2>
     </div>
     <div class="col-xs-12 col-md-9 hidable-on-empty-textarea">
-      <div contentEditable="true" class="textarea-block" id="textarea-magic-gear" tabindex="3"></div>
+      <div class="textarea-block" id="equipment-magic-gear" data-store="equipment" contentEditable="true" tabindex="3"></div>
     </div>
   </div>
   <div class="row">
@@ -31,20 +31,20 @@
     </div>
     <div class="col-xs-6 col-sm-4 col-md-3 hidable-on-empty-input">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-light-load">Light Load</label>
-        <input class="input-field" id="input-light-load" type="text" tabindex="3">
+        <label class="input-label" for="equipment-encumbrance-light-load">Light Load</label>
+        <input class="input-field" id="equipment-encumbrance-light-load" data-store="equipment-encumbrance" type="text" tabindex="3">
       </div>
     </div>
     <div class="col-xs-6 col-sm-4 col-md-3 hidable-on-empty-input">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-medium-load">Medium Load</label>
-        <input class="input-field" id="input-medium-load" type="text" tabindex="3">
+        <label class="input-label" for="equipment-encumbrance-medium-load">Medium Load</label>
+        <input class="input-field" id="equipment-encumbrance-medium-load" data-store="equipment-encumbrance" type="text" tabindex="3">
       </div>
     </div>
     <div class="col-xs-6 col-sm-4 col-md-3 hidable-on-empty-input">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-heavy-load">Heavy Load</label>
-        <input class="input-field" id="input-heavy-load" type="text" tabindex="3">
+        <label class="input-label" for="equipment-encumbrance-heavy-load">Heavy Load</label>
+        <input class="input-field" id="equipment-encumbrance-heavy-load" data-store="equipment-encumbrance" type="text" tabindex="3">
       </div>
     </div>
   </div>
@@ -56,92 +56,92 @@
       <div class="row">
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-armor">Armor</label>
-            <input class="input-field" id="input-body-slot-armor" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-armor">Armor</label>
+            <input class="input-field" id="equipment-body-slots-armor" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-belts">Belts</label>
-            <input class="input-field" id="input-body-slot-belts" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-belts">Belts</label>
+            <input class="input-field" id="equipment-body-slots-belts" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-body">Body</label>
-            <input class="input-field" id="input-body-slot-body" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-body">Body</label>
+            <input class="input-field" id="equipment-body-slots-body" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-chest">Chest</label>
-            <input class="input-field" id="input-body-slot-chest" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-chest">Chest</label>
+            <input class="input-field" id="equipment-body-slots-chest" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-eyes">Eyes</label>
-            <input class="input-field" id="input-body-slot-eyes" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-eyes">Eyes</label>
+            <input class="input-field" id="equipment-body-slots-eyes" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-feet">Feet</label>
-            <input class="input-field" id="input-body-slot-feet" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-feet">Feet</label>
+            <input class="input-field" id="equipment-body-slots-feet" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-hands">Hands</label>
-            <input class="input-field" id="input-body-slot-hands" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-hands">Hands</label>
+            <input class="input-field" id="equipment-body-slots-hands" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-head">Head</label>
-            <input class="input-field" id="input-body-slot-head" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-head">Head</label>
+            <input class="input-field" id="equipment-body-slots-head" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-headband">Headband</label>
-            <input class="input-field" id="input-body-slot-headband" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-headband">Headband</label>
+            <input class="input-field" id="equipment-body-slots-headband" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-neck">Neck</label>
-            <input class="input-field" id="input-body-slot-neck" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-neck">Neck</label>
+            <input class="input-field" id="equipment-body-slots-neck" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-ring-left-hand">Ring (Left Hand)</label>
-            <input class="input-field" id="input-body-slot-ring-left-hand" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-ring-left-hand">Ring (Left Hand)</label>
+            <input class="input-field" id="equipment-body-slots-ring-left-hand" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-ring-right-hand">Ring (Right Hand)</label>
-            <input class="input-field" id="input-body-slot-ring-right-hand" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-ring-right-hand">Ring (Right Hand)</label>
+            <input class="input-field" id="equipment-body-slots-ring-right-hand" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-shield">Shield</label>
-            <input class="input-field" id="input-body-slot-shield" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-shield">Shield</label>
+            <input class="input-field" id="equipment-body-slots-shield" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-shoulders">Shoulders</label>
-            <input class="input-field" id="input-body-slot-shoulders" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-shoulders">Shoulders</label>
+            <input class="input-field" id="equipment-body-slots-shoulders" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
         <div class="col-xs-6 hidable-on-empty-input">
           <div class="input-block" data-input-store="true">
-            <label class="input-label" for="input-body-slot-wrist">Wrist</label>
-            <input class="input-field" id="input-body-slot-wrist" type="text" tabindex="3">
+            <label class="input-label" for="equipment-body-slots-wrist">Wrist</label>
+            <input class="input-field" id="equipment-body-slots-wrist" data-store="equipment-body-slots" type="text" tabindex="3">
           </div>
         </div>
       </div>

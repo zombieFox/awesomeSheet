@@ -57,7 +57,6 @@ var blank = (function() {
     equipment: {
       gear: "",
       magic_gear: "",
-      defense_notes: "",
       encumbrance: {
         light: "",
         medium: "",
