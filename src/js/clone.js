@@ -351,13 +351,13 @@ var clone = (function() {
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
     if (sheet.getCharacter().clone.attack) {
-      for (i in sheet.getCharacter().clone.attack) {
+      for (var i in sheet.getCharacter().clone.attack) {
         all_attack.push(sheet.getCharacter().clone.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
     if (sheet.getCharacter().clone.consumable) {
-      for (i in sheet.getCharacter().clone.consumable) {
+      for (var i in sheet.getCharacter().clone.consumable) {
         all_consumable.push(sheet.getCharacter().clone.consumable[i]);
       };
     };

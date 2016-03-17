@@ -81,7 +81,7 @@ var nav = (function() {
 
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
-    for (i in array) {
+    for (var i in array) {
       var characterAnchor =_render_navCharacters(array[i].input.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {

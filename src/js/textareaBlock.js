@@ -1,8 +1,12 @@
 var textareaBlock = (function() {
 
   function _store(element) {
-    var key = element.id.replace("textarea-", "").replace(/-/g, "_");
-    sheet.getCharacter().textarea[key] = element.innerHTML;
+    var type = element.dataset.store;
+    // statistics
+    if (type == "statistics") {
+      var key = element.id.replace("statistics-", "").replace(/-/g, "_");
+      sheet.getCharacter().statistics[key] = element.innerHTML;
+    };
     sheet.storeCharacters();
   };
 
@@ -22,12 +26,32 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter().textarea) {
-      for (i in sheet.getCharacter().textarea) {
-        var id = "#" + "textarea-" + i.replace(/_/g, "-");
-        helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
+    var character = sheet.getCharacter();
+    var basics = character.basics;
+    var statistics = character.statistics;
+    var equipment = character.equipment;
+    var defense = character.defense;
+    var offense = character.offense;
+    var skills = character.skills;
+    var spells = character.spells;
+    var notes = character.notes;
+    // statistics
+    for (var i in statistics) {
+      if (i == "feats" || i == "traits" || i == "languages" || i == "special_abilities") {
+        var id = "#statistics-" + i.replace(/_/g, "-");
+        var element = helper.e(id);
+        var content = statistics[i];
+        element.innerHTML = content;
       };
     };
+
+
+    // if (sheet.getCharacter().textarea) {
+    //   for (var i in sheet.getCharacter().textarea) {
+    //     var id = "#" + "textarea-" + i.replace(/_/g, "-");
+    //     helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
+    //   };
+    // };
   };
 
   // exposed methods
