@@ -1,8 +1,8 @@
 var textareaBlock = (function() {
 
   function _store(element) {
-    var key = element.id.replace("textarea-", "").replace(/-/g, "_");
-    sheet.getCharacter().textarea[key] = element.innerHTML;
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
     sheet.storeCharacters();
   };
 
@@ -22,11 +22,11 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter().textarea) {
-      for (i in sheet.getCharacter().textarea) {
-        var id = "#" + "textarea-" + i.replace(/_/g, "-");
-        helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
-      };
+    var all_textareaBlock = helper.eA(".textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      var path = all_textareaBlock[i].dataset.path;
+      var content = helper.getObject(sheet.getCharacter(), path);
+      all_textareaBlock[i].innerHTML = content;
     };
   };
 

@@ -1,10 +1,11 @@
 var inputBlock = (function() {
 
   function _store(element) {
-    var key = element.id.replace("input-", "").replace(/-/g, "_");
-    sheet.getCharacter().input[key] = element.value;
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.value);
     sheet.storeCharacters();
   };
+
 
   function focus(element) {
     var inputBlockRoot = helper.getClosest(element, ".input-block");
@@ -72,11 +73,11 @@ var inputBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter().input) {
-      for (i in sheet.getCharacter().input) {
-        var id = "#input-" + i.replace(/_/g, "-");
-        helper.e(id).value = sheet.getCharacter().input[i];
-      };
+    var all_inputField = helper.eA(".input-field");
+    for (var i = 0; i < all_inputField.length; i++) {
+      var path = all_inputField[i].dataset.path;
+      var content = helper.getObject(sheet.getCharacter(), path);
+      all_inputField[i].value = content;
     };
   };
 

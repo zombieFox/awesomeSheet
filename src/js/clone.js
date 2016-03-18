@@ -261,9 +261,12 @@ var clone = (function() {
     for (var i = 0; i < array.length; i++) {
       var cloneCount = cloneTarget.querySelectorAll(".clone").length;
       var cloneObject = array[i];
-      var newNode = document.createElement("div");
       var cloneString;
       var index = i;
+      // make new clone node
+      var newNode = document.createElement("div");
+      newNode.setAttribute("class", "clone");
+      // check if adding new node or adding to clone target with already existing clones
       if (index < cloneCount) {
         index = cloneCount;
       };
@@ -273,10 +276,13 @@ var clone = (function() {
       if (cloneType == "attack") {
         cloneString = _newAttack(index);
       };
-      newNode.setAttribute("class", "clone");
+      // add content
       newNode.innerHTML = cloneString;
+      // max of 100 clones
       if (cloneCount <= 99) {
+        // append new clone
         cloneTarget.appendChild(newNode);
+        // bind listeners
         if (cloneType == "consumable") {
           _bind_cloneConsumableInput(newNode.querySelectorAll(".input-block"));
         };
@@ -287,6 +293,7 @@ var clone = (function() {
       };
       if (index == i) {
         for (var j in array[i]) {
+          // read character data and fill values
           newNode.querySelector(".input-" + j.replace(/_/g, "-")).value = array[index][j];
         };
       };
@@ -327,7 +334,7 @@ var clone = (function() {
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
-    sheet.getCharacter().clone.attack = cloneAttack;
+    sheet.getCharacter().offense.attack = cloneAttack;
   };
 
   function _updateCloneConsumable() {
@@ -342,7 +349,7 @@ var clone = (function() {
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
-    sheet.getCharacter().clone.consumable = cloneConsumable;
+    sheet.getCharacter().equipment.consumable = cloneConsumable;
   };
 
   function render() {
@@ -350,15 +357,15 @@ var clone = (function() {
     var all_attack = [];
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
-    if (sheet.getCharacter().clone.attack) {
-      for (i in sheet.getCharacter().clone.attack) {
-        all_attack.push(sheet.getCharacter().clone.attack[i]);
+    if (sheet.getCharacter().offense.attack) {
+      for (var i in sheet.getCharacter().offense.attack) {
+        all_attack.push(sheet.getCharacter().offense.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.getCharacter().clone.consumable) {
-      for (i in sheet.getCharacter().clone.consumable) {
-        all_consumable.push(sheet.getCharacter().clone.consumable[i]);
+    if (sheet.getCharacter().equipment.consumable) {
+      for (var i in sheet.getCharacter().equipment.consumable) {
+        all_consumable.push(sheet.getCharacter().equipment.consumable[i]);
       };
     };
     _render_clone(all_attack, "attack");

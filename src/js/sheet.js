@@ -1,11 +1,6 @@
 var sheet = (function() {
 
-  var allCharacters = [{
-    clone: {},
-    input: {},
-    textarea: {},
-    spells: []
-  }];
+  var allCharacters = blank.data;
 
   var currentCharacterIndex = 0;
 
@@ -168,15 +163,13 @@ var sheet = (function() {
   };
 
   function render() {
-    clone.render();
-    consumable.render();
     inputBlock.render();
     textareaBlock.render();
     stats.render();
-    spells.render();
     totalBlock.render();
-    var name = allCharacters[currentCharacterIndex].input.name;
-    // snack.render(name + " loaded.", false, false);
+    clone.render();
+    consumable.render();
+    spells.render();
   };
 
   // exposed methods

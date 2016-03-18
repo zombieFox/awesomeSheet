@@ -39,6 +39,22 @@ var helper = (function() {
     }
   };
 
+  function updateObject(object, path, newValue) {
+    var address = path.split('.');
+    while (address.length > 1) {
+      object = object[address.shift()];
+    };
+    object[address.shift()] = newValue;
+  };
+
+  function getObject(object, path) {
+    var address = path.split('.');
+    while (address.length > 1) {
+      object = object[address.shift()];
+    };
+    return object[address.shift()];
+  };
+
   function getClosest(element, selector) {
     var firstChar = selector.charAt(0);
     // Get closest match
@@ -78,7 +94,9 @@ var helper = (function() {
     removeClass: removeClass,
     getClosest: getClosest,
     selectText: selectText,
-    delayFunction: delayFunction
+    delayFunction: delayFunction,
+    updateObject: updateObject,
+    getObject: getObject
   };
 
 })();
