@@ -1,7 +1,155 @@
 var vos = (function() {
 
   var data = {
-    clone: {
+    basics: {
+      name: "Vos Thunderstomp",
+      race: "Dwarf",
+      class: "Monk",
+      level: "2",
+      size: "Medium",
+      alignment: "Chaotic Neutral",
+      xp: "3,852",
+      height: "5'0",
+      weight: "190 lbs",
+      age: "40 years",
+      gender: "Male",
+      speed: "20 feet/4 squares",
+      initiative: "2",
+      platinum: "",
+      gold: "150",
+      silver: "5",
+      copper: "",
+      hero_points: "",
+      luck_points: ""
+    },
+    statistics: {
+      stats: {
+        str: {
+          score: "16",
+          temp: ""
+        },
+        dex: {
+          score: "14",
+          temp: ""
+        },
+        con: {
+          score: "12",
+          temp: ""
+        },
+        int: {
+          score: "10",
+          temp: ""
+        },
+        wis: {
+          score: "14",
+          temp: ""
+        },
+        cha: {
+          score: "7",
+          temp: ""
+        }
+      },
+      feats: "Improved Grapple, Weapon Focus (Grapple)",
+      traits: "",
+      languages: "Common, Dwarven",
+      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)"
+    },
+    equipment: {
+      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
+      magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
+      encumbrance: {
+        light: "76 lbs or less",
+        medium: "77–153 lbs",
+        heavy: "154–230 lbs"
+      },
+      body_slots: {
+        armor: "",
+        belts: "",
+        body: "",
+        chest: "",
+        eyes: "",
+        feet: "",
+        hands: "",
+        head: "",
+        headband: "",
+        neck: "",
+        ring_left_hand: "",
+        ring_right_hand: "",
+        shield: "",
+        shoulders: "Cloak of Resistance +1",
+        wrist: "Bracers of Armor +1"
+      },
+      consumable: [{
+        item: "Scented Oils",
+        total: "5",
+        used: ""
+      }]
+    },
+    defense: {
+      hp: {
+        total: "17",
+        temp: "",
+        current: "17",
+        non_lethal: ""
+      },
+      ac: {
+        flat_footed: {
+          misc: "2",
+          temp: ""
+        },
+        touch: {
+          misc: "2",
+          temp: ""
+        },
+        misc: "2",
+        temp: "",
+        armor: "1",
+        shield: "",
+        deflect: "",
+        dodge: "",
+        natural: "",
+        size_bonus: ""
+      },
+      fortitude: {
+        base: "3",
+        racial: "",
+        misc: "1",
+        temp: ""
+      },
+      reflex: {
+        base: "3",
+        racial: "",
+        misc: "1",
+        temp: ""
+      },
+      will: {
+        base: "3",
+        racial: "",
+        misc: "1",
+        temp: ""
+      },
+      defense_notes: "+2 against poison, spells, and spell-like abilities."
+    },
+    offense: {
+      base_attack: "1",
+      special_size_bonus: "",
+      concentration: "",
+      cmb: {
+        misc: "",
+        temp: ""
+      },
+      cmd: {
+        misc: "",
+        temp: ""
+      },
+      melee_attack: {
+        misc: "",
+        temp: ""
+      },
+      ranged_attack: {
+        misc: "",
+        temp: ""
+      },
       attack: [{
         weapon: "Flurry of Blows",
         attack: "3/3",
@@ -24,206 +172,174 @@ var vos = (function() {
         ammo: "",
         range: ""
       }],
-      consumable: [{
-        item: "Scented Oils",
-        total: "5",
-        used: ""
-      }]
+      attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple"
     },
-    input: {
-      name: "Vos Thunderstomp",
-      race: "Dwarf",
-      class: "Monk",
-      level: "2",
-      size: "Medium",
-      alignment: "Chaotic Neutral",
-      xp: "3,852",
-      height: "5'0",
-      weight: "190 lbs",
-      age: "40 years",
-      gender: "Male",
-      speed: "20 feet/4 squares",
-      initiative: "2",
-      platinum: "",
-      gold: "150",
-      silver: "5",
-      copper: "",
-      hero_points: "",
-      luck_points: "",
-      stat_str: "16",
-      stat_dex: "14",
-      stat_con: "12",
-      stat_int: "10",
-      stat_wis: "14",
-      stat_cha: "7",
-      light_load: "76 lbs or less",
-      medium_load: "77–153 lbs",
-      heavy_load: "154–230 lbs",
-      stat_str_temp: "",
-      stat_dex_temp: "",
-      stat_con_temp: "",
-      stat_int_temp: "",
-      stat_wis_temp: "",
-      stat_cha_temp: "",
-      body_slot_armor: "",
-      body_slot_belts: "",
-      body_slot_body: "",
-      body_slot_chest: "",
-      body_slot_eyes: "",
-      body_slot_feet: "",
-      body_slot_hands: "",
-      body_slot_head: "",
-      body_slot_headband: "",
-      body_slot_neck: "",
-      body_slot_ring_left_hand: "",
-      body_slot_ring_right_hand: "",
-      body_slot_shield: "",
-      body_slot_shoulders: "Cloak of Resistance +1",
-      body_slot_wrist: "Bracers of Armor +1",
-      hp: "17",
-      temp_hp: "",
-      current_hp: "17",
-      current_non_lethal_hp: "",
-      ac_misc: "2",
-      ac_temp: "",
-      ac_flat_footed_misc: "2",
-      ac_flat_footed_temp: "",
-      ac_touch_misc: "2",
-      ac_touch_temp: "",
-      ac_armor: "1",
-      ac_shield: "",
-      ac_deflect: "",
-      ac_dodge: "",
-      ac_natural: "",
-      size_bonus: "",
-      fortitude_base: "3",
-      fortitude_racial: "",
-      fortitude_misc: "1",
-      fortitude_temp: "",
-      reflex_base: "3",
-      reflex_racial: "",
-      reflex_misc: "1",
-      reflex_temp: "",
-      will_base: "3",
-      will_racial: "",
-      will_misc: "1",
-      will_temp: "",
-      cmb_misc: "",
-      cmb_temp: "",
-      cmd_misc: "2",
-      cmd_temp: "",
-      melee_attack_misc: "",
-      melee_attack_temp: "",
-      ranged_attack_misc: "",
-      ranged_attack_temp: "",
-      base_attack: "1",
-      special_size_bonus: "",
-      concentration: "",
-      skill_acrobatics_ranks: "2",
-      skill_acrobatics_misc: "3",
-      skill_appraise_ranks: "",
-      skill_appraise_misc: "2",
-      skill_bluff_ranks: "",
-      skill_bluff_misc: "",
-      skill_climb_ranks: "2",
-      skill_climb_misc: "3",
-      skill_craft_ranks: "",
-      skill_craft_misc: "",
-      skill_diplomacy_ranks: "",
-      skill_diplomacy_misc: "",
-      skill_disguise_ranks: "",
-      skill_disguise_misc: "",
-      skill_escape_artist_ranks: "",
-      skill_escape_artist_misc: "",
-      skill_fly_ranks: "",
-      skill_fly_misc: "",
-      skill_heal_ranks: "",
-      skill_heal_misc: "",
-      skill_intimidate_ranks: "",
-      skill_intimidate_misc: "",
-      skill_knowledge_arcana_ranks: "",
-      skill_knowledge_arcana_misc: "",
-      skill_knowledge_dungeoneering_ranks: "",
-      skill_knowledge_dungeoneering_misc: "",
-      skill_knowledge_engineering_ranks: "",
-      skill_knowledge_engineering_misc: "",
-      skill_knowledge_geography_ranks: "",
-      skill_knowledge_geography_misc: "",
-      skill_knowledge_history_ranks: "",
-      skill_knowledge_history_misc: "",
-      skill_knowledge_local_ranks: "",
-      skill_knowledge_local_misc: "",
-      skill_knowledge_nature_ranks: "",
-      skill_knowledge_nature_misc: "",
-      skill_knowledge_nobility_ranks: "",
-      skill_knowledge_nobility_misc: "",
-      skill_knowledge_planes_ranks: "",
-      skill_knowledge_planes_misc: "",
-      skill_knowledge_religion_ranks: "",
-      skill_knowledge_religion_misc: "",
-      skill_linguistics_ranks: "",
-      skill_linguistics_misc: "",
-      skill_perception_ranks: "2",
-      skill_perception_misc: "3",
-      skill_perform_ranks: "",
-      skill_perform_misc: "",
-      skill_ride_ranks: "",
-      skill_ride_misc: "",
-      skill_sense_motive_ranks: "",
-      skill_sense_motive_misc: "",
-      skill_spellcraft_ranks: "",
-      skill_spellcraft_misc: "",
-      skill_stealth_ranks: "2",
-      skill_stealth_misc: "3",
-      skill_survival_ranks: "",
-      skill_survival_misc: "",
-      skill_swim_ranks: "",
-      skill_swim_misc: "",
-      skill_use_magic_device_ranks: "",
-      skill_use_magic_device_misc: "",
-      spells_known_level_0: "",
-      spells_daily_level_0: "",
-      spell_dc_level_0: "",
-      spells_known_level_1: "",
-      spells_daily_level_1: "",
-      spell_dc_level_1: "",
-      spells_known_level_2: "",
-      spells_daily_level_2: "",
-      spell_dc_level_2: "",
-      spells_known_level_3: "",
-      spells_daily_level_3: "",
-      spell_dc_level_3: "",
-      spells_known_level_4: "",
-      spells_daily_level_4: "",
-      spell_dc_level_4: "",
-      spells_known_level_5: "",
-      spells_daily_level_5: "",
-      spell_dc_level_5: "",
-      spells_known_level_6: "",
-      spells_daily_level_6: "",
-      spell_dc_level_6: "",
-      spells_known_level_7: "",
-      spells_daily_level_7: "",
-      spell_dc_level_7: "",
-      spells_known_level_8: "",
-      spells_daily_level_8: "",
-      spell_dc_level_8: "",
-      spells_known_level_9: "",
-      spells_daily_level_9: "",
-      spell_dc_level_9: ""
+    skills: {
+      acrobatics: {
+        ranks: "2",
+        misc: "3"
+      },
+      appraise: {
+        ranks: "",
+        misc: "2"
+      },
+      bluff: {
+        ranks: "",
+        misc: ""
+      },
+      climb: {
+        ranks: "2",
+        misc: "3"
+      },
+      craft: {
+        ranks: "",
+        misc: ""
+      },
+      diplomacy: {
+        ranks: "",
+        misc: ""
+      },
+      disguise: {
+        ranks: "",
+        misc: ""
+      },
+      escape_artist: {
+        ranks: "",
+        misc: ""
+      },
+      fly: {
+        ranks: "",
+        misc: ""
+      },
+      heal: {
+        ranks: "",
+        misc: ""
+      },
+      intimidate: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_arcana: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_dungeoneering: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_engineering: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_geography: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_history: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_local: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_nature: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_nobility: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_planes: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_religion: {
+        ranks: "",
+        misc: ""
+      },
+      linguistics: {
+        ranks: "",
+        misc: ""
+      },
+      perception: {
+        ranks: "2",
+        misc: "3"
+      },
+      perform: {
+        ranks: "",
+        misc: ""
+      },
+      ride: {
+        ranks: "",
+        misc: ""
+      },
+      sense_motive: {
+        ranks: "",
+        misc: ""
+      },
+      spellcraft: {
+        ranks: "",
+        misc: ""
+      },
+      stealth: {
+        ranks: "2",
+        misc: "3"
+      },
+      survival: {
+        ranks: "",
+        misc: ""
+      },
+      swim: {
+        ranks: "",
+        misc: ""
+      },
+      use_magic_device: {
+        ranks: "",
+        misc: ""
+      },
     },
-    textarea: {
-      feats: "Improved Grapple, Weapon Focus (Grapple)",
-      traits: "",
-      languages: "Common, Dwarven",
-      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)",
-      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
-      magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
-      defense_notes: "+2 against poison, spells, and spell-like abilities.",
-      attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple",
-      notes: "<strong>Darkvision</strong> See in the dark up to 60 feet.<br><br><strong>Defensive Training</strong> +4 dodge bonus to AC against monsters of the giant subtype.<br><br><strong>Greed</strong> +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><br><strong>Hatred</strong> +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes.<br><br><strong>Hardy</strong> +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><br><strong>Stability</strong> +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><br><strong>Stonecunning</strong> +2 bonus on Perception checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.<br><br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><br><strong>Evasion</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Flurry of Blows (Ex)</strong> Make a flurry of blows as a full-attack. Taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat.<br><br><strong>Stunning Fist (Ex)</strong> Gain Stunning Fist as a bonus feat. Fortitude saving DC 10 + 1/2 your character level + your Wis modifier.<br><br><strong>Unarmed Strike</strong> Gain Improved Unarmed Strike as a bonus feat. Add full Strength bonus on damage rolls for all unarmed strikes. You can choose to deal lethal or nonlethal damage with no penalty on his attack or grappling rolls. Unarmed damage is 1d6 plus Strength bonus.<br><br><strong>Evasion (Ex)</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Weapon Focus</strong> +1 bonus on attack rolls with one weapon (Grapple)<br><br><strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. +2 to grapple a foe. +2 CMD whenever an opponent tries to grapple you."
+    spells: {
+      per_day: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      dc: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      book: []
     },
-    spells: []
+    notes: "<strong>Darkvision</strong> See in the dark up to 60 feet.<br><br><strong>Defensive Training</strong> +4 dodge bonus to AC against monsters of the giant subtype.<br><br><strong>Greed</strong> +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><br><strong>Hatred</strong> +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes.<br><br><strong>Hardy</strong> +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><br><strong>Stability</strong> +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><br><strong>Stonecunning</strong> +2 bonus on Perception checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.<br><br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><br><strong>Evasion</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Flurry of Blows (Ex)</strong> Make a flurry of blows as a full-attack. Taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat.<br><br><strong>Stunning Fist (Ex)</strong> Gain Stunning Fist as a bonus feat. Fortitude saving DC 10 + 1/2 your character level + your Wis modifier.<br><br><strong>Unarmed Strike</strong> Gain Improved Unarmed Strike as a bonus feat. Add full Strength bonus on damage rolls for all unarmed strikes. You can choose to deal lethal or nonlethal damage with no penalty on his attack or grappling rolls. Unarmed damage is 1d6 plus Strength bonus.<br><br><strong>Evasion (Ex)</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Weapon Focus</strong> +1 bonus on attack rolls with one weapon (Grapple)<br><br><strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. +2 to grapple a foe. +2 CMD whenever an opponent tries to grapple you."
   };
 
   // exposed methods

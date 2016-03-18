@@ -67,7 +67,7 @@ var nav = (function() {
     helper.removeClass(icon, "icon-check-box-unchecked");
     helper.addClass(icon, "icon-check-box-checked");
     helper.addClass(characterLink, "active");
-    var name = sheet.getCharacter().input.name;
+    var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
@@ -81,8 +81,8 @@ var nav = (function() {
 
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
-    for (i in array) {
-      var characterAnchor =_render_navCharacters(array[i].input.name, i);
+    for (var i in array) {
+      var characterAnchor =_render_navCharacters(array[i].basics.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
@@ -109,8 +109,8 @@ var nav = (function() {
 
   function remove() {
     var name;
-    if (sheet.getCharacter().input.name) {
-      name = sheet.getCharacter().input.name;
+    if (sheet.getCharacter().basics.name) {
+      name = sheet.getCharacter().basics.name;
     } else {
       name = "New character";
     };

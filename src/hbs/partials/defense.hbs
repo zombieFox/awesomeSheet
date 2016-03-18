@@ -18,26 +18,26 @@
         <div class="row no-gutter">
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-hp">HP</label>
-              <input class="input-field" id="input-hp" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-hp-total">HP</label>
+              <input class="input-field" id="defense-hp-total" data-modifier="true" data-path="defense.hp.total" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-temp-hp">Temp HP</label>
-              <input class="input-field" id="input-temp-hp" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-hp-temp">Temp HP</label>
+              <input class="input-field" id="defense-hp-temp" data-modifier="true" data-path="defense.hp.temp" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-current-hp">Current HP</label>
-              <input class="input-field" id="input-current-hp" type="number" tabindex="3">
+              <label class="input-label" for="defense-hp-current">Current HP</label>
+              <input class="input-field" id="defense-hp-current" data-path="defense.hp.current" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-current-non-lethal-hp">Non Lethal HP</label>
-              <input class="input-field" id="input-current-non-lethal-hp" type="number" tabindex="3">
+              <label class="input-label" for="defense-hp-non-lethal">Non Lethal HP</label>
+              <input class="input-field" id="defense-hp-non-lethal" data-path="defense.hp.non_lethal" type="number" tabindex="3">
             </div>
           </div>
         </div>
@@ -55,14 +55,14 @@
             <div class="row no-gutter">
               <div class="col-xs-6">
                 <div class="input-block" data-input-store="true">
-                  <label class="input-label" for="input-ac-misc">Misc</label>
-                  <input class="input-field" id="input-ac-misc" type="number" data-modifier="true" tabindex="3">
+                  <label class="input-label" for="defense-ac-misc">Misc</label>
+                  <input class="input-field" id="defense-ac-misc" data-modifier="true" data-path="defense.ac.misc" type="number" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="input-block" data-input-store="true">
-                  <label class="input-label" for="input-ac-temp">Temp</label>
-                  <input class="input-field" id="input-ac-temp" type="number" data-modifier="true" tabindex="3">
+                  <label class="input-label" for="defense-ac-temp">Temp</label>
+                  <input class="input-field" id="defense-ac-temp" data-modifier="true" data-path="defense.ac.temp" type="number" tabindex="3">
                 </div>
               </div>
             </div>
@@ -80,14 +80,14 @@
             <div class="row no-gutter">
               <div class="col-xs-6">
                 <div class="input-block" data-input-store="true">
-                  <label class="input-label" for="input-ac-flat-footed-misc">Misc</label>
-                  <input class="input-field" id="input-ac-flat-footed-misc" type="number" data-modifier="true" tabindex="3">
+                  <label class="input-label" for="defense-ac-flat-footed-misc">Misc</label>
+                  <input class="input-field" id="defense-ac-flat-footed-misc" data-modifier="true" data-path="defense.ac.flat_footed.misc" type="number" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="input-block" data-input-store="true">
-                  <label class="input-label" for="input-ac-flat-footed-temp">Temp</label>
-                  <input class="input-field" id="input-ac-flat-footed-temp" type="number" data-modifier="true" tabindex="3">
+                  <label class="input-label" for="defense-ac-flat-footed-temp">Temp</label>
+                  <input class="input-field" id="defense-ac-flat-footed-temp" data-modifier="true" data-path="defense.ac.flat_footed.temp" type="number" tabindex="3">
                 </div>
               </div>
             </div>
@@ -105,14 +105,14 @@
             <div class="row no-gutter">
               <div class="col-xs-6">
                 <div class="input-block" data-input-store="true">
-                  <label class="input-label" for="input-ac-touch-misc">Misc</label>
-                  <input class="input-field" id="input-ac-touch-misc" type="number" data-modifier="true" tabindex="3">
+                  <label class="input-label" for="defense-ac-touch-misc">Misc</label>
+                  <input class="input-field" id="defense-ac-touch-misc" data-modifier="true" data-path="defense.ac.touch.misc" type="number" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="input-block" data-input-store="true">
-                  <label class="input-label" for="input-ac-touch-temp">Temp</label>
-                  <input class="input-field" id="input-ac-touch-temp" type="number" data-modifier="true" tabindex="3">
+                  <label class="input-label" for="defense-ac-touch-temp">Temp</label>
+                  <input class="input-field" id="defense-ac-touch-temp" data-modifier="true" data-path="defense.ac.touch.temp" type="number" tabindex="3">
                 </div>
               </div>
             </div>
@@ -124,38 +124,38 @@
   <div class="row no-gutter hidable">
     <div class="col-xs-2">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-ac-armor">Armor</label>
-        <input class="input-field" id="input-ac-armor" type="number" tabindex="3">
+        <label class="input-label" for="defense-ac-armor">Armor</label>
+        <input class="input-field" id="defense-ac-armor" data-path="defense.ac.armor" type="number" tabindex="3">
       </div>
     </div>
     <div class="col-xs-2">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-ac-shield">Shield</label>
-        <input class="input-field" id="input-ac-shield" type="number" tabindex="3">
+        <label class="input-label" for="defense-ac-shield">Shield</label>
+        <input class="input-field" id="defense-ac-shield" data-path="defense.ac.shield" type="number" tabindex="3">
       </div>
     </div>
     <div class="col-xs-2">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-ac-deflect">Deflect</label>
-        <input class="input-field" id="input-ac-deflect" type="number" tabindex="3">
+        <label class="input-label" for="defense-ac-deflect">Deflect</label>
+        <input class="input-field" id="defense-ac-deflect" data-path="defense.ac.deflect" type="number" tabindex="3">
       </div>
     </div>
     <div class="col-xs-2">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-ac-dodge">Dodge</label>
-        <input class="input-field" id="input-ac-dodge" type="number" tabindex="3">
+        <label class="input-label" for="defense-ac-dodge">Dodge</label>
+        <input class="input-field" id="defense-ac-dodge" data-path="defense.ac.dodge" type="number" tabindex="3">
       </div>
     </div>
     <div class="col-xs-2">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-ac-natural">Natural</label>
-        <input class="input-field" id="input-ac-natural" type="number" tabindex="3">
+        <label class="input-label" for="defense-ac-natural">Natural</label>
+        <input class="input-field" id="defense-ac-natural" data-path="defense.ac.natural" type="number" tabindex="3">
       </div>
     </div>
     <div class="col-xs-2">
       <div class="input-block" data-input-store="true">
-        <label class="input-label" for="input-size-bonus">Size</label>
-        <input class="input-field" id="input-size-bonus" type="number" tabindex="3">
+        <label class="input-label" for="defense-ac-size-bonus">Size</label>
+        <input class="input-field" id="defense-ac-size-bonus" data-path="defense.ac.size_bonus" type="number" tabindex="3">
       </div>
     </div>
   </div>
@@ -168,26 +168,26 @@
         <div class="row no-gutter">
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-fortitude-base">Base</label>
-              <input class="input-field" id="input-fortitude-base" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-fortitude-base">Base</label>
+              <input class="input-field" id="defense-fortitude-base" data-path="defense.fortitude.base" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-fortitude-racial">Racial</label>
-              <input class="input-field" id="input-fortitude-racial" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-fortitude-racial">Racial</label>
+              <input class="input-field" id="defense-fortitude-racial" data-path="defense.fortitude.racial" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-fortitude-misc">Misc</label>
-              <input class="input-field" id="input-fortitude-misc" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-fortitude-misc">Misc</label>
+              <input class="input-field" id="defense-fortitude-misc" data-path="defense.fortitude.misc" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-fortitude-temp">Temp</label>
-              <input class="input-field" id="input-fortitude-temp" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-fortitude-temp">Temp</label>
+              <input class="input-field" id="defense-fortitude-temp" data-path="defense.fortitude.temp" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
         </div>
@@ -201,26 +201,26 @@
         <div class="row no-gutter">
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-reflex-base">Base</label>
-              <input class="input-field" id="input-reflex-base" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-reflex-base">Base</label>
+              <input class="input-field" id="defense-reflex-base" data-path="defense.reflex.base" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-reflex-racial">Racial</label>
-              <input class="input-field" id="input-reflex-racial" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-reflex-racial">Racial</label>
+              <input class="input-field" id="defense-reflex-racial" data-path="defense.reflex.racial" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-reflex-misc">Misc</label>
-              <input class="input-field" id="input-reflex-misc" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-reflex-misc">Misc</label>
+              <input class="input-field" id="defense-reflex-misc" data-path="defense.reflex.misc" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-reflex-temp">Temp</label>
-              <input class="input-field" id="input-reflex-temp" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-reflex-temp">Temp</label>
+              <input class="input-field" id="defense-reflex-temp" data-path="defense.reflex.temp" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
         </div>
@@ -234,26 +234,26 @@
         <div class="row no-gutter">
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-will-base">Base</label>
-              <input class="input-field" id="input-will-base" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-will-base">Base</label>
+              <input class="input-field" id="defense-will-base" data-path="defense.will.base" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-will-racial">Racial</label>
-              <input class="input-field" id="input-will-racial" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-will-racial">Racial</label>
+              <input class="input-field" id="defense-will-racial" data-path="defense.will.racial" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-will-misc">Misc</label>
-              <input class="input-field" id="input-will-misc" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-will-misc">Misc</label>
+              <input class="input-field" id="defense-will-misc" data-path="defense.will.misc" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
           <div class="col-xs-3">
             <div class="input-block" data-input-store="true">
-              <label class="input-label" for="input-will-temp">Temp</label>
-              <input class="input-field" id="input-will-temp" type="number" data-modifier="true" tabindex="3">
+              <label class="input-label" for="defense-will-temp">Temp</label>
+              <input class="input-field" id="defense-will-temp" data-path="defense.will.temp" data-modifier="true" type="number" tabindex="3">
             </div>
           </div>
         </div>
@@ -265,7 +265,7 @@
       <h3>Notes</h3>
     </div>
     <div class="col-xs-12">
-      <div contentEditable="true" class="textarea-block" id="textarea-defense-notes" tabindex="3"></div>
+      <div class="textarea-block" id="defense-defense-notes" data-path="defense.defense_notes" contentEditable="true" tabindex="3"></div>
     </div>
   </div>
 </section>

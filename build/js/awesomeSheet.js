@@ -1,37 +1,7 @@
 var nif = (function() {
 
   var data = {
-    clone: {
-      attack: [{
-        weapon: "Dagger (Master Work)",
-        attack: "3",
-        damage: "1d6+1",
-        critical: "19–20/x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Shortbow",
-        attack: "6",
-        damage: "1d6",
-        critical: "x3",
-        range: "60 ft",
-        ammo: "50"
-      }],
-      consumable: [{
-        item: "Wand of Infernal Healing",
-        total: "50",
-        used: "48"
-      }, {
-        item: "Wand of Lightning Bolt",
-        total: "50",
-        used: "38"
-      }, {
-        item: "Shift",
-        total: "9",
-        used: ""
-      }]
-    },
-    input: {
+    basics: {
       name: "Nif Amakir",
       race: "Elf",
       class: "Wizard",
@@ -50,237 +20,383 @@ var nif = (function() {
       silver: "",
       copper: "",
       hero_points: "2",
-      luck_points: "",
-      stat_str: "8",
-      stat_dex: "17",
-      stat_con: "14",
-      stat_int: "21",
-      stat_wis: "12",
-      stat_cha: "10",
-      light_load: "26 lbs or less",
-      medium_load: "27–53 lbs",
-      heavy_load: "54–80 lbs",
-      stat_str_temp: "",
-      stat_dex_temp: "",
-      stat_con_temp: "",
-      stat_int_temp: "23",
-      stat_wis_temp: "",
-      stat_cha_temp: "",
-      body_slot_armor: "",
-      body_slot_belts: "",
-      body_slot_body: "",
-      body_slot_chest: "",
-      body_slot_eyes: "",
-      body_slot_feet: "",
-      body_slot_hands: "",
-      body_slot_head: "",
-      body_slot_headband: "Headband of Vast Intelligence +2",
-      body_slot_neck: "Amulet of Natural Armor +1",
-      body_slot_ring_left_hand: "Ring of Sustenance",
-      body_slot_ring_right_hand: "",
-      body_slot_shield: "",
-      body_slot_shoulders: "Cloak of Resistance +2",
-      body_slot_wrist: "",
-      hp: "42",
-      temp_hp: "",
-      current_hp: "42",
-      current_non_lethal_hp: "",
-      ac_misc: "",
-      ac_temp: "",
-      ac_flat_footed_misc: "",
-      ac_flat_footed_temp: "",
-      ac_touch_misc: "",
-      ac_touch_temp: "",
-      ac_armor: "",
-      ac_shield: "",
-      ac_deflect: "",
-      ac_dodge: "",
-      ac_natural: "1",
-      size_bonus: "",
-      fortitude_base: "2",
-      fortitude_racial: "",
-      fortitude_misc: "5",
-      fortitude_temp: "",
-      reflex_base: "2",
-      reflex_racial: "",
-      reflex_misc: "2",
-      reflex_temp: "",
-      will_base: "5",
-      will_racial: "",
-      will_misc: "2",
-      will_temp: "",
-      cmb_misc: "",
-      cmb_temp: "",
-      cmd_misc: "",
-      cmd_temp: "",
-      melee_attack_misc: "",
-      melee_attack_temp: "",
-      ranged_attack_misc: "",
-      ranged_attack_temp: "",
-      base_attack: "3",
-      special_size_bonus: "",
-      concentration: "11",
-      skill_acrobatics_ranks: "",
-      skill_acrobatics_misc: "",
-      skill_appraise_ranks: "2",
-      skill_appraise_misc: "3",
-      skill_bluff_ranks: "",
-      skill_bluff_misc: "",
-      skill_climb_ranks: "",
-      skill_climb_misc: "",
-      skill_craft_ranks: "",
-      skill_craft_misc: "",
-      skill_diplomacy_ranks: "",
-      skill_diplomacy_misc: "",
-      skill_disguise_ranks: "",
-      skill_disguise_misc: "",
-      skill_escape_artist_ranks: "",
-      skill_escape_artist_misc: "",
-      skill_fly_ranks: "2",
-      skill_fly_misc: "3",
-      skill_heal_ranks: "",
-      skill_heal_misc: "",
-      skill_intimidate_ranks: "",
-      skill_intimidate_misc: "",
-      skill_knowledge_arcana_ranks: "3",
-      skill_knowledge_arcana_misc: "3",
-      skill_knowledge_dungeoneering_ranks: "2",
-      skill_knowledge_dungeoneering_misc: "3",
-      skill_knowledge_engineering_ranks: "1",
-      skill_knowledge_engineering_misc: "3",
-      skill_knowledge_geography_ranks: "1",
-      skill_knowledge_geography_misc: "3",
-      skill_knowledge_history_ranks: "1",
-      skill_knowledge_history_misc: "3",
-      skill_knowledge_local_ranks: "1",
-      skill_knowledge_local_misc: "3",
-      skill_knowledge_nature_ranks: "1",
-      skill_knowledge_nature_misc: "3",
-      skill_knowledge_nobility_ranks: "1",
-      skill_knowledge_nobility_misc: "3",
-      skill_knowledge_planes_ranks: "3",
-      skill_knowledge_planes_misc: "3",
-      skill_knowledge_religion_ranks: "3",
-      skill_knowledge_religion_misc: "3",
-      skill_linguistics_ranks: "3",
-      skill_linguistics_misc: "3",
-      skill_perception_ranks: "6",
-      skill_perception_misc: "4",
-      skill_perform_ranks: "",
-      skill_perform_misc: "",
-      skill_ride_ranks: "",
-      skill_ride_misc: "",
-      skill_sense_motive_ranks: "",
-      skill_sense_motive_misc: "",
-      skill_spellcraft_ranks: "6",
-      skill_spellcraft_misc: "3",
-      skill_stealth_ranks: "",
-      skill_stealth_misc: "",
-      skill_survival_ranks: "",
-      skill_survival_misc: "",
-      skill_swim_ranks: "",
-      skill_swim_misc: "",
-      skill_use_magic_device_ranks: "6",
-      skill_use_magic_device_misc: "",
-      spells_known_level_0: "4",
-      spells_daily_level_0: "",
-      spell_dc_level_0: "16",
-      spells_known_level_1: "5",
-      spells_daily_level_1: "",
-      spell_dc_level_1: "17",
-      spells_known_level_2: "4",
-      spells_daily_level_2: "",
-      spell_dc_level_2: "18",
-      spells_known_level_3: "3",
-      spells_daily_level_3: "",
-      spell_dc_level_3: "19",
-      spells_known_level_4: "",
-      spells_daily_level_4: "",
-      spell_dc_level_4: "",
-      spells_known_level_5: "",
-      spells_daily_level_5: "",
-      spell_dc_level_5: "",
-      spells_known_level_6: "",
-      spells_daily_level_6: "",
-      spell_dc_level_6: "",
-      spells_known_level_7: "",
-      spells_daily_level_7: "",
-      spell_dc_level_7: "",
-      spells_known_level_8: "",
-      spells_daily_level_8: "",
-      spell_dc_level_8: "",
-      spells_known_level_9: "",
-      spells_daily_level_9: "",
-      spell_dc_level_9: ""
+      luck_points: ""
     },
-    textarea: {
+    statistics: {
+      stats: {
+        str: {
+          score: "8",
+          temp: ""
+        },
+        dex: {
+          score: "17",
+          temp: ""
+        },
+        con: {
+          score: "14",
+          temp: ""
+        },
+        int: {
+          score: "21",
+          temp: "23"
+        },
+        wis: {
+          score: "12",
+          temp: ""
+        },
+        cha: {
+          score: "10",
+          temp: ""
+        }
+      },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)",
       traits: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)",
       languages: "Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan, Undercommon",
-      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)",
+      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
+    },
+    equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse",
       magic_gear: "Pearl of Power (1st Level), Potion of CLW x1, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit x1, Scroll of Summon Monster III x5, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x4, Scroll of Stinking Cloud x2, Scroll of Grease x2, Scroll of Mirror Image x3, Scroll of Spiked Pit x3 Scroll of Fly x2",
-      defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects",
-      attack_notes: "",
-      notes: "<strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +2 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+      encumbrance: {
+        light: "26 lbs or less",
+        medium: "27–53 lbs",
+        heavy: "54–80 lbs"
+      },
+      body_slots: {
+        armor: "",
+        belts: "",
+        body: "",
+        chest: "",
+        eyes: "",
+        feet: "",
+        hands: "",
+        head: "",
+        headband: "Headband of Vast Intelligence +2",
+        neck: "Amulet of Natural Armor +1",
+        ring_left_hand: "Ring of Sustenance",
+        ring_right_hand: "",
+        shield: "",
+        shoulders: "Cloak of Resistance +2",
+        wrist: ""
+      },
+      consumable: [{
+        item: "Wand of Infernal Healing",
+        total: "50",
+        used: "48"
+      }, {
+        item: "Wand of Lightning Bolt",
+        total: "50",
+        used: "38"
+      }, {
+        item: "Shift",
+        total: "9",
+        used: ""
+      }]
     },
-    spells: [
-      // level 0
-      { name: "Bleed", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Erase", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Touch of Fatigue", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Mage Hand", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Detect Poison", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Mending", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Message", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Read Magic", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Resistance", level: 0, prepared: 0, active: false, cast: 0 },
-      // level 1
-      { name: "Comprehend Languages", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Enlarge Person", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Feather Fall", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Grease", level: 1, prepared: 2, active: false, cast: 0 },
-      { name: "Mage Armor", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Mount", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Obscuring Mist", level: 1, prepared: 1, active: false, cast: 0 },
-      { name: "Protection from Chaos", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Protection from Evil", level: 1, prepared: 2, active: false, cast: 0 },
-      { name: "Shield", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Summon Monster I", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Unseen Servant", level: 1, prepared: 0, active: false, cast: 0 },
-      // level 2
-      { name: "Blur", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Create Pit", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Flaming Sphere", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Glitterdust", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Invisibility", level: 2, prepared: 2, active: false, cast: 0 },
-      { name: "Levitate", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Mirror Image", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Resist Energy", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Stone Call", level: 2, prepared: 0, active: false, cast: 0 },
-      { name: "Summon Monster II", level: 2, prepared: 1, active: false, cast: 0 },
-      { name: "Web", level: 2, prepared: 1, active: false, cast: 0 },
-      // level 3
-      { name: "Stinking Cloud", level: 3, prepared: 0, active: false, cast: 0 },
-      { name: "Summon Monster III", level: 3, prepared: 1, active: false, cast: 0 },
-      { name: "Spiked Pit", level: 3, prepared: 1, active: false, cast: 0 },
-      { name: "Aqueous Orb", level: 3, prepared: 0, active: false, cast: 0 },
-      { name: "Fly", level: 3, prepared: 1, active: false, cast: 0 },
-      { name: "Sleet Storm", level: 3, prepared: 0, active: false, cast: 0 }
-    ]
+    defense: {
+      hp: {
+        total: "42",
+        temp: "",
+        current: "42",
+        non_lethal: ""
+      },
+      ac: {
+        flat_footed: {
+          misc: "",
+          temp: ""
+        },
+        touch: {
+          misc: "",
+          temp: ""
+        },
+        misc: "",
+        temp: "",
+        armor: "",
+        shield: "",
+        deflect: "",
+        dodge: "",
+        natural: "1",
+        size_bonus: ""
+      },
+      fortitude: {
+        base: "2",
+        racial: "",
+        misc: "5",
+        temp: ""
+      },
+      reflex: {
+        base: "2",
+        racial: "",
+        misc: "2",
+        temp: ""
+      },
+      will: {
+        base: "5",
+        racial: "",
+        misc: "2",
+        temp: ""
+      },
+      defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
+    },
+    offense: {
+      base_attack: "3",
+      special_size_bonus: "",
+      concentration: "11",
+      cmb: {
+        misc: "",
+        temp: ""
+      },
+      cmd: {
+        misc: "",
+        temp: ""
+      },
+      melee_attack: {
+        misc: "",
+        temp: ""
+      },
+      ranged_attack: {
+        misc: "",
+        temp: ""
+      },
+      attack: [{
+        weapon: "Dagger (Master Work)",
+        attack: "3",
+        damage: "1d6+1",
+        critical: "19–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortbow",
+        attack: "6",
+        damage: "1d6",
+        critical: "x3",
+        range: "60 ft",
+        ammo: "50"
+      }],
+      attack_notes: ""
+    },
+    skills: {
+      acrobatics: {
+        ranks: "",
+        misc: ""
+      },
+      appraise: {
+        ranks: "2",
+        misc: "3"
+      },
+      bluff: {
+        ranks: "",
+        misc: ""
+      },
+      climb: {
+        ranks: "",
+        misc: ""
+      },
+      craft: {
+        ranks: "",
+        misc: ""
+      },
+      diplomacy: {
+        ranks: "",
+        misc: ""
+      },
+      disguise: {
+        ranks: "",
+        misc: ""
+      },
+      escape_artist: {
+        ranks: "",
+        misc: ""
+      },
+      fly: {
+        ranks: "2",
+        misc: "3"
+      },
+      heal: {
+        ranks: "",
+        misc: ""
+      },
+      intimidate: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_arcana: {
+        ranks: "3",
+        misc: "3"
+      },
+      knowledge_dungeoneering: {
+        ranks: "2",
+        misc: "3"
+      },
+      knowledge_engineering: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_geography: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_history: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_local: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_nature: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_nobility: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_planes: {
+        ranks: "3",
+        misc: "3"
+      },
+      knowledge_religion: {
+        ranks: "3",
+        misc: "3"
+      },
+      linguistics: {
+        ranks: "3",
+        misc: "3"
+      },
+      perception: {
+        ranks: "6",
+        misc: "4"
+      },
+      perform: {
+        ranks: "",
+        misc: ""
+      },
+      ride: {
+        ranks: "",
+        misc: ""
+      },
+      sense_motive: {
+        ranks: "",
+        misc: ""
+      },
+      spellcraft: {
+        ranks: "6",
+        misc: "3"
+      },
+      stealth: {
+        ranks: "",
+        misc: ""
+      },
+      survival: {
+        ranks: "",
+        misc: ""
+      },
+      swim: {
+        ranks: "",
+        misc: ""
+      },
+      use_magic_device: {
+        ranks: "6",
+        misc: ""
+      },
+    },
+    spells: {
+      per_day: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      dc: {
+        level_0: "16",
+        level_1: "17",
+        level_2: "18",
+        level_3: "19",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "4",
+        level_1: "5",
+        level_2: "4",
+        level_3: "3",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      book: [
+        // level 0
+        { name: "Bleed", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Erase", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Touch of Fatigue", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Mage Hand", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Detect Poison", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Mending", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Message", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Read Magic", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Resistance", level: 0, prepared: 0, active: false, cast: 0 },
+        // level 1
+        { name: "Comprehend Languages", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Enlarge Person", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Feather Fall", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Grease", level: 1, prepared: 2, active: false, cast: 0 },
+        { name: "Mage Armor", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Mount", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Obscuring Mist", level: 1, prepared: 1, active: false, cast: 0 },
+        { name: "Protection from Chaos", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Protection from Evil", level: 1, prepared: 2, active: false, cast: 0 },
+        { name: "Shield", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Summon Monster I", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Unseen Servant", level: 1, prepared: 0, active: false, cast: 0 },
+        // level 2
+        { name: "Blur", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Create Pit", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Flaming Sphere", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Glitterdust", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Invisibility", level: 2, prepared: 2, active: false, cast: 0 },
+        { name: "Levitate", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Mirror Image", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Resist Energy", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Stone Call", level: 2, prepared: 0, active: false, cast: 0 },
+        { name: "Summon Monster II", level: 2, prepared: 1, active: false, cast: 0 },
+        { name: "Web", level: 2, prepared: 1, active: false, cast: 0 },
+        // level 3
+        { name: "Stinking Cloud", level: 3, prepared: 0, active: false, cast: 0 },
+        { name: "Summon Monster III", level: 3, prepared: 1, active: false, cast: 0 },
+        { name: "Spiked Pit", level: 3, prepared: 1, active: false, cast: 0 },
+        { name: "Aqueous Orb", level: 3, prepared: 0, active: false, cast: 0 },
+        { name: "Fly", level: 3, prepared: 1, active: false, cast: 0 },
+        { name: "Sleet Storm", level: 3, prepared: 0, active: false, cast: 0 }
+      ]
+    },
+    notes: "<strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +2 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
   };
 
   // exposed methods
@@ -293,36 +409,14 @@ var nif = (function() {
 var ro = (function() {
 
   var data = {
-    clone: {
-      attack: [{
-        weapon: "Rapier",
-        attack: "5",
-        damage: "1d6+1",
-        critical: "18–20/x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Shortbow",
-        attack: "5",
-        damage: "1d6",
-        critical: "x3",
-        range: "60 ft",
-        ammo: "50"
-      }],
-      consumable: [{
-        item: "Arcane Pool",
-        total: "4",
-        used: "1"
-      }]
-    },
-    input: {
+    basics: {
       name: "Ro Flint",
       race: "Elf",
       class: "Magus",
       level: "2",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "1,971",
+      xp: "2,891",
       height: "6'0",
       weight: "",
       age: "120 years",
@@ -334,211 +428,356 @@ var ro = (function() {
       silver: "",
       copper: "",
       hero_points: "",
-      luck_points: "",
-      stat_str: "12",
-      stat_dex: "18",
-      stat_con: "10",
-      stat_int: "16",
-      stat_wis: "10",
-      stat_cha: "7",
-      light_load: "43 lbs or less",
-      medium_load: "44–86 lbs",
-      heavy_load: "87–130 lbs",
-      stat_str_temp: "",
-      stat_dex_temp: "",
-      stat_con_temp: "",
-      stat_int_temp: "",
-      stat_wis_temp: "",
-      stat_cha_temp: "",
-      body_slot_armor: "Studded leather",
-      body_slot_belts: "",
-      body_slot_body: "",
-      body_slot_chest: "",
-      body_slot_eyes: "",
-      body_slot_feet: "",
-      body_slot_hands: "",
-      body_slot_head: "",
-      body_slot_headband: "",
-      body_slot_neck: "",
-      body_slot_ring_left_hand: "",
-      body_slot_ring_right_hand: "",
-      body_slot_shield: "",
-      body_slot_shoulders: "",
-      body_slot_wrist: "",
-      hp: "14",
-      temp_hp: "",
-      current_hp: "14",
-      current_non_lethal_hp: "",
-      ac_misc: "",
-      ac_temp: "",
-      ac_flat_footed_misc: "",
-      ac_flat_footed_temp: "",
-      ac_touch_misc: "",
-      ac_touch_temp: "",
-      ac_armor: "3",
-      ac_shield: "",
-      ac_deflect: "",
-      ac_dodge: "",
-      ac_natural: "",
-      size_bonus: "",
-      fortitude_base: "3",
-      fortitude_racial: "",
-      fortitude_misc: "",
-      fortitude_temp: "",
-      reflex_base: "0",
-      reflex_racial: "",
-      reflex_misc: "",
-      reflex_temp: "",
-      will_base: "3",
-      will_racial: "",
-      will_misc: "",
-      will_temp: "",
-      cmb_misc: "",
-      cmb_temp: "",
-      cmd_misc: "",
-      cmd_temp: "",
-      melee_attack_misc: "",
-      melee_attack_temp: "",
-      ranged_attack_misc: "",
-      ranged_attack_temp: "",
-      base_attack: "1",
-      special_size_bonus: "",
-      concentration: "6",
-      skill_acrobatics_ranks: "2",
-      skill_acrobatics_misc: "",
-      skill_appraise_ranks: "",
-      skill_appraise_misc: "",
-      skill_bluff_ranks: "",
-      skill_bluff_misc: "",
-      skill_climb_ranks: "",
-      skill_climb_misc: "",
-      skill_craft_ranks: "",
-      skill_craft_misc: "",
-      skill_diplomacy_ranks: "",
-      skill_diplomacy_misc: "",
-      skill_disguise_ranks: "",
-      skill_disguise_misc: "",
-      skill_escape_artist_ranks: "",
-      skill_escape_artist_misc: "",
-      skill_fly_ranks: "",
-      skill_fly_misc: "",
-      skill_heal_ranks: "",
-      skill_heal_misc: "",
-      skill_intimidate_ranks: "",
-      skill_intimidate_misc: "",
-      skill_knowledge_arcana_ranks: "1",
-      skill_knowledge_arcana_misc: "3",
-      skill_knowledge_dungeoneering_ranks: "",
-      skill_knowledge_dungeoneering_misc: "",
-      skill_knowledge_engineering_ranks: "",
-      skill_knowledge_engineering_misc: "",
-      skill_knowledge_geography_ranks: "",
-      skill_knowledge_geography_misc: "",
-      skill_knowledge_history_ranks: "",
-      skill_knowledge_history_misc: "",
-      skill_knowledge_local_ranks: "",
-      skill_knowledge_local_misc: "",
-      skill_knowledge_nature_ranks: "",
-      skill_knowledge_nature_misc: "",
-      skill_knowledge_nobility_ranks: "",
-      skill_knowledge_nobility_misc: "",
-      skill_knowledge_planes_ranks: "",
-      skill_knowledge_planes_misc: "",
-      skill_knowledge_religion_ranks: "",
-      skill_knowledge_religion_misc: "",
-      skill_linguistics_ranks: "",
-      skill_linguistics_misc: "",
-      skill_perception_ranks: "2",
-      skill_perception_misc: "2",
-      skill_perform_ranks: "",
-      skill_perform_misc: "",
-      skill_ride_ranks: "2",
-      skill_ride_misc: "3",
-      skill_sense_motive_ranks: "",
-      skill_sense_motive_misc: "",
-      skill_spellcraft_ranks: "2",
-      skill_spellcraft_misc: "3",
-      skill_stealth_ranks: "1",
-      skill_stealth_misc: "",
-      skill_survival_ranks: "",
-      skill_survival_misc: "",
-      skill_swim_ranks: "",
-      skill_swim_misc: "",
-      skill_use_magic_device_ranks: "",
-      skill_use_magic_device_misc: "",
-      spells_known_level_0: "",
-      spells_daily_level_0: "4",
-      spell_dc_level_0: "13",
-      spells_known_level_1: "",
-      spells_daily_level_1: "3",
-      spell_dc_level_1: "14",
-      spells_known_level_2: "",
-      spells_daily_level_2: "",
-      spell_dc_level_2: "",
-      spells_known_level_3: "",
-      spells_daily_level_3: "",
-      spell_dc_level_3: "",
-      spells_known_level_4: "",
-      spells_daily_level_4: "",
-      spell_dc_level_4: "",
-      spells_known_level_5: "",
-      spells_daily_level_5: "",
-      spell_dc_level_5: "",
-      spells_known_level_6: "",
-      spells_daily_level_6: "",
-      spell_dc_level_6: "",
-      spells_known_level_7: "",
-      spells_daily_level_7: "",
-      spell_dc_level_7: "",
-      spells_known_level_8: "",
-      spells_daily_level_8: "",
-      spell_dc_level_8: "",
-      spells_known_level_9: "",
-      spells_daily_level_9: "",
-      spell_dc_level_9: ""
+      luck_points: ""
     },
-    textarea: {
+    statistics: {
+      stats: {
+        str: {
+          score: "12",
+          temp: ""
+        },
+        dex: {
+          score: "18",
+          temp: ""
+        },
+        con: {
+          score: "10",
+          temp: ""
+        },
+        int: {
+          score: "16",
+          temp: ""
+        },
+        wis: {
+          score: "10",
+          temp: ""
+        },
+        cha: {
+          score: "7",
+          temp: ""
+        }
+      },
       feats: "Weapon Finesse",
       traits: "<strong>Magical Lineage</strong> (Shocking Grasp), <strong>Focused Mind</strong> (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX)",
-      gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3)",
-      magic_gear: "",
-      defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather",
-      attack_notes: "",
-      notes: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time."
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX)"
     },
-    spells: [
-      // level 1
-      { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Mage Hand", level: 0, prepared: 1, active: false, cast: 0 },
-      { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Read Magic", level: 0, prepared: 0, active: false, cast: 0 },
-      { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
-      // level 2
-      { name: "Color Spray", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Grease", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Shocking Grasp", level: 1, prepared: 2, active: false, cast: 0 },
-      { name: "True Strike", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Magic Missile", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Shield", level: 1, prepared: 1, active: false, cast: 0 },
-      { name: "Vanish", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Obscuring Mist", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Chill Touch", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Frostbite", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Infernal Healing", level: 1, prepared: 0, active: false, cast: 0 },
-      { name: "Windy Escape", level: 1, prepared: 0, active: false, cast: 0 }
-    ]
+    equipment: {
+      gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3)",
+      magic_gear: "",
+      encumbrance: {
+        light: "43 lbs or less",
+        medium: "44–86 lbs",
+        heavy: "87–130 lbs"
+      },
+      body_slots: {
+        armor: "Studded leather",
+        belts: "",
+        body: "",
+        chest: "",
+        eyes: "",
+        feet: "",
+        hands: "",
+        head: "",
+        headband: "",
+        neck: "",
+        ring_left_hand: "",
+        ring_right_hand: "",
+        shield: "",
+        shoulders: "",
+        wrist: ""
+      },
+      consumable: [{
+        item: "Arcane Pool",
+        total: "4",
+        used: "1"
+      }]
+    },
+    defense: {
+      hp: {
+        total: "14",
+        temp: "",
+        current: "14",
+        non_lethal: ""
+      },
+      ac: {
+        flat_footed: {
+          misc: "",
+          temp: ""
+        },
+        touch: {
+          misc: "",
+          temp: ""
+        },
+        misc: "",
+        temp: "",
+        armor: "3",
+        shield: "",
+        deflect: "",
+        dodge: "",
+        natural: "",
+        size_bonus: ""
+      },
+      fortitude: {
+        base: "3",
+        racial: "",
+        misc: "",
+        temp: ""
+      },
+      reflex: {
+        base: "0",
+        racial: "",
+        misc: "",
+        temp: ""
+      },
+      will: {
+        base: "3",
+        racial: "",
+        misc: "",
+        temp: ""
+      },
+      defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather"
+    },
+    offense: {
+      base_attack: "1",
+      special_size_bonus: "",
+      concentration: "6",
+      cmb: {
+        misc: "",
+        temp: ""
+      },
+      cmd: {
+        misc: "",
+        temp: ""
+      },
+      melee_attack: {
+        misc: "",
+        temp: ""
+      },
+      ranged_attack: {
+        misc: "",
+        temp: ""
+      },
+      attack: [{
+        weapon: "Rapier",
+        attack: "5",
+        damage: "1d6+1",
+        critical: "18–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortsword +1",
+        attack: "6",
+        damage: "1d6+2",
+        critical: "18–20/x2",
+        range: "",
+        ammo: ""
+      }, {
+        weapon: "Shortbow",
+        attack: "5",
+        damage: "1d6",
+        critical: "x3",
+        range: "60 ft",
+        ammo: "50"
+      }],
+      attack_notes: ""
+    },
+    skills: {
+      acrobatics: {
+        ranks: "2",
+        misc: ""
+      },
+      appraise: {
+        ranks: "",
+        misc: ""
+      },
+      bluff: {
+        ranks: "",
+        misc: ""
+      },
+      climb: {
+        ranks: "",
+        misc: ""
+      },
+      craft: {
+        ranks: "",
+        misc: ""
+      },
+      diplomacy: {
+        ranks: "",
+        misc: ""
+      },
+      disguise: {
+        ranks: "",
+        misc: ""
+      },
+      escape_artist: {
+        ranks: "",
+        misc: ""
+      },
+      fly: {
+        ranks: "",
+        misc: ""
+      },
+      heal: {
+        ranks: "",
+        misc: ""
+      },
+      intimidate: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_arcana: {
+        ranks: "1",
+        misc: "3"
+      },
+      knowledge_dungeoneering: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_engineering: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_geography: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_history: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_local: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_nature: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_nobility: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_planes: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_religion: {
+        ranks: "",
+        misc: ""
+      },
+      linguistics: {
+        ranks: "",
+        misc: ""
+      },
+      perception: {
+        ranks: "2",
+        misc: "2"
+      },
+      perform: {
+        ranks: "",
+        misc: ""
+      },
+      ride: {
+        ranks: "2",
+        misc: "3"
+      },
+      sense_motive: {
+        ranks: "",
+        misc: ""
+      },
+      spellcraft: {
+        ranks: "2",
+        misc: "3"
+      },
+      stealth: {
+        ranks: "1",
+        misc: ""
+      },
+      survival: {
+        ranks: "",
+        misc: ""
+      },
+      swim: {
+        ranks: "",
+        misc: ""
+      },
+      use_magic_device: {
+        ranks: "",
+        misc: ""
+      },
+    },
+    spells: {
+      per_day: {
+        level_0: "4",
+        level_1: "3",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      dc: {
+        level_0: "13",
+        level_1: "14",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      book: [
+        // level 1
+        { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Mage Hand", level: 0, prepared: 1, active: false, cast: 0 },
+        { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Read Magic", level: 0, prepared: 0, active: false, cast: 0 },
+        { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
+        // level 2
+        { name: "Color Spray", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Grease", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Shocking Grasp", level: 1, prepared: 2, active: false, cast: 0 },
+        { name: "True Strike", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Magic Missile", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Shield", level: 1, prepared: 1, active: false, cast: 0 },
+        { name: "Vanish", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Obscuring Mist", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Chill Touch", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Frostbite", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Infernal Healing", level: 1, prepared: 0, active: false, cast: 0 },
+        { name: "Windy Escape", level: 1, prepared: 0, active: false, cast: 0 }
+      ]
+    },
+    notes: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time."
   };
 
   // exposed methods
@@ -551,7 +790,155 @@ var ro = (function() {
 var vos = (function() {
 
   var data = {
-    clone: {
+    basics: {
+      name: "Vos Thunderstomp",
+      race: "Dwarf",
+      class: "Monk",
+      level: "2",
+      size: "Medium",
+      alignment: "Chaotic Neutral",
+      xp: "3,852",
+      height: "5'0",
+      weight: "190 lbs",
+      age: "40 years",
+      gender: "Male",
+      speed: "20 feet/4 squares",
+      initiative: "2",
+      platinum: "",
+      gold: "150",
+      silver: "5",
+      copper: "",
+      hero_points: "",
+      luck_points: ""
+    },
+    statistics: {
+      stats: {
+        str: {
+          score: "16",
+          temp: ""
+        },
+        dex: {
+          score: "14",
+          temp: ""
+        },
+        con: {
+          score: "12",
+          temp: ""
+        },
+        int: {
+          score: "10",
+          temp: ""
+        },
+        wis: {
+          score: "14",
+          temp: ""
+        },
+        cha: {
+          score: "7",
+          temp: ""
+        }
+      },
+      feats: "Improved Grapple, Weapon Focus (Grapple)",
+      traits: "",
+      languages: "Common, Dwarven",
+      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)"
+    },
+    equipment: {
+      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
+      magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
+      encumbrance: {
+        light: "76 lbs or less",
+        medium: "77–153 lbs",
+        heavy: "154–230 lbs"
+      },
+      body_slots: {
+        armor: "",
+        belts: "",
+        body: "",
+        chest: "",
+        eyes: "",
+        feet: "",
+        hands: "",
+        head: "",
+        headband: "",
+        neck: "",
+        ring_left_hand: "",
+        ring_right_hand: "",
+        shield: "",
+        shoulders: "Cloak of Resistance +1",
+        wrist: "Bracers of Armor +1"
+      },
+      consumable: [{
+        item: "Scented Oils",
+        total: "5",
+        used: ""
+      }]
+    },
+    defense: {
+      hp: {
+        total: "17",
+        temp: "",
+        current: "17",
+        non_lethal: ""
+      },
+      ac: {
+        flat_footed: {
+          misc: "2",
+          temp: ""
+        },
+        touch: {
+          misc: "2",
+          temp: ""
+        },
+        misc: "2",
+        temp: "",
+        armor: "1",
+        shield: "",
+        deflect: "",
+        dodge: "",
+        natural: "",
+        size_bonus: ""
+      },
+      fortitude: {
+        base: "3",
+        racial: "",
+        misc: "1",
+        temp: ""
+      },
+      reflex: {
+        base: "3",
+        racial: "",
+        misc: "1",
+        temp: ""
+      },
+      will: {
+        base: "3",
+        racial: "",
+        misc: "1",
+        temp: ""
+      },
+      defense_notes: "+2 against poison, spells, and spell-like abilities."
+    },
+    offense: {
+      base_attack: "1",
+      special_size_bonus: "",
+      concentration: "",
+      cmb: {
+        misc: "",
+        temp: ""
+      },
+      cmd: {
+        misc: "",
+        temp: ""
+      },
+      melee_attack: {
+        misc: "",
+        temp: ""
+      },
+      ranged_attack: {
+        misc: "",
+        temp: ""
+      },
       attack: [{
         weapon: "Flurry of Blows",
         attack: "3/3",
@@ -574,206 +961,174 @@ var vos = (function() {
         ammo: "",
         range: ""
       }],
-      consumable: [{
-        item: "Scented Oils",
-        total: "5",
-        used: ""
-      }]
+      attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple"
     },
-    input: {
-      name: "Vos Thunderstomp",
-      race: "Dwarf",
-      class: "Monk",
-      level: "2",
-      size: "Medium",
-      alignment: "Chaotic Neutral",
-      xp: "3,852",
-      height: "5'0",
-      weight: "190 lbs",
-      age: "40 years",
-      gender: "Male",
-      speed: "20 feet/4 squares",
-      initiative: "2",
-      platinum: "",
-      gold: "150",
-      silver: "5",
-      copper: "",
-      hero_points: "",
-      luck_points: "",
-      stat_str: "16",
-      stat_dex: "14",
-      stat_con: "12",
-      stat_int: "10",
-      stat_wis: "14",
-      stat_cha: "7",
-      light_load: "76 lbs or less",
-      medium_load: "77–153 lbs",
-      heavy_load: "154–230 lbs",
-      stat_str_temp: "",
-      stat_dex_temp: "",
-      stat_con_temp: "",
-      stat_int_temp: "",
-      stat_wis_temp: "",
-      stat_cha_temp: "",
-      body_slot_armor: "",
-      body_slot_belts: "",
-      body_slot_body: "",
-      body_slot_chest: "",
-      body_slot_eyes: "",
-      body_slot_feet: "",
-      body_slot_hands: "",
-      body_slot_head: "",
-      body_slot_headband: "",
-      body_slot_neck: "",
-      body_slot_ring_left_hand: "",
-      body_slot_ring_right_hand: "",
-      body_slot_shield: "",
-      body_slot_shoulders: "Cloak of Resistance +1",
-      body_slot_wrist: "Bracers of Armor +1",
-      hp: "17",
-      temp_hp: "",
-      current_hp: "17",
-      current_non_lethal_hp: "",
-      ac_misc: "2",
-      ac_temp: "",
-      ac_flat_footed_misc: "2",
-      ac_flat_footed_temp: "",
-      ac_touch_misc: "2",
-      ac_touch_temp: "",
-      ac_armor: "1",
-      ac_shield: "",
-      ac_deflect: "",
-      ac_dodge: "",
-      ac_natural: "",
-      size_bonus: "",
-      fortitude_base: "3",
-      fortitude_racial: "",
-      fortitude_misc: "1",
-      fortitude_temp: "",
-      reflex_base: "3",
-      reflex_racial: "",
-      reflex_misc: "1",
-      reflex_temp: "",
-      will_base: "3",
-      will_racial: "",
-      will_misc: "1",
-      will_temp: "",
-      cmb_misc: "",
-      cmb_temp: "",
-      cmd_misc: "2",
-      cmd_temp: "",
-      melee_attack_misc: "",
-      melee_attack_temp: "",
-      ranged_attack_misc: "",
-      ranged_attack_temp: "",
-      base_attack: "1",
-      special_size_bonus: "",
-      concentration: "",
-      skill_acrobatics_ranks: "2",
-      skill_acrobatics_misc: "3",
-      skill_appraise_ranks: "",
-      skill_appraise_misc: "2",
-      skill_bluff_ranks: "",
-      skill_bluff_misc: "",
-      skill_climb_ranks: "2",
-      skill_climb_misc: "3",
-      skill_craft_ranks: "",
-      skill_craft_misc: "",
-      skill_diplomacy_ranks: "",
-      skill_diplomacy_misc: "",
-      skill_disguise_ranks: "",
-      skill_disguise_misc: "",
-      skill_escape_artist_ranks: "",
-      skill_escape_artist_misc: "",
-      skill_fly_ranks: "",
-      skill_fly_misc: "",
-      skill_heal_ranks: "",
-      skill_heal_misc: "",
-      skill_intimidate_ranks: "",
-      skill_intimidate_misc: "",
-      skill_knowledge_arcana_ranks: "",
-      skill_knowledge_arcana_misc: "",
-      skill_knowledge_dungeoneering_ranks: "",
-      skill_knowledge_dungeoneering_misc: "",
-      skill_knowledge_engineering_ranks: "",
-      skill_knowledge_engineering_misc: "",
-      skill_knowledge_geography_ranks: "",
-      skill_knowledge_geography_misc: "",
-      skill_knowledge_history_ranks: "",
-      skill_knowledge_history_misc: "",
-      skill_knowledge_local_ranks: "",
-      skill_knowledge_local_misc: "",
-      skill_knowledge_nature_ranks: "",
-      skill_knowledge_nature_misc: "",
-      skill_knowledge_nobility_ranks: "",
-      skill_knowledge_nobility_misc: "",
-      skill_knowledge_planes_ranks: "",
-      skill_knowledge_planes_misc: "",
-      skill_knowledge_religion_ranks: "",
-      skill_knowledge_religion_misc: "",
-      skill_linguistics_ranks: "",
-      skill_linguistics_misc: "",
-      skill_perception_ranks: "2",
-      skill_perception_misc: "3",
-      skill_perform_ranks: "",
-      skill_perform_misc: "",
-      skill_ride_ranks: "",
-      skill_ride_misc: "",
-      skill_sense_motive_ranks: "",
-      skill_sense_motive_misc: "",
-      skill_spellcraft_ranks: "",
-      skill_spellcraft_misc: "",
-      skill_stealth_ranks: "2",
-      skill_stealth_misc: "3",
-      skill_survival_ranks: "",
-      skill_survival_misc: "",
-      skill_swim_ranks: "",
-      skill_swim_misc: "",
-      skill_use_magic_device_ranks: "",
-      skill_use_magic_device_misc: "",
-      spells_known_level_0: "",
-      spells_daily_level_0: "",
-      spell_dc_level_0: "",
-      spells_known_level_1: "",
-      spells_daily_level_1: "",
-      spell_dc_level_1: "",
-      spells_known_level_2: "",
-      spells_daily_level_2: "",
-      spell_dc_level_2: "",
-      spells_known_level_3: "",
-      spells_daily_level_3: "",
-      spell_dc_level_3: "",
-      spells_known_level_4: "",
-      spells_daily_level_4: "",
-      spell_dc_level_4: "",
-      spells_known_level_5: "",
-      spells_daily_level_5: "",
-      spell_dc_level_5: "",
-      spells_known_level_6: "",
-      spells_daily_level_6: "",
-      spell_dc_level_6: "",
-      spells_known_level_7: "",
-      spells_daily_level_7: "",
-      spell_dc_level_7: "",
-      spells_known_level_8: "",
-      spells_daily_level_8: "",
-      spell_dc_level_8: "",
-      spells_known_level_9: "",
-      spells_daily_level_9: "",
-      spell_dc_level_9: ""
+    skills: {
+      acrobatics: {
+        ranks: "2",
+        misc: "3"
+      },
+      appraise: {
+        ranks: "",
+        misc: "2"
+      },
+      bluff: {
+        ranks: "",
+        misc: ""
+      },
+      climb: {
+        ranks: "2",
+        misc: "3"
+      },
+      craft: {
+        ranks: "",
+        misc: ""
+      },
+      diplomacy: {
+        ranks: "",
+        misc: ""
+      },
+      disguise: {
+        ranks: "",
+        misc: ""
+      },
+      escape_artist: {
+        ranks: "",
+        misc: ""
+      },
+      fly: {
+        ranks: "",
+        misc: ""
+      },
+      heal: {
+        ranks: "",
+        misc: ""
+      },
+      intimidate: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_arcana: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_dungeoneering: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_engineering: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_geography: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_history: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_local: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_nature: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_nobility: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_planes: {
+        ranks: "",
+        misc: ""
+      },
+      knowledge_religion: {
+        ranks: "",
+        misc: ""
+      },
+      linguistics: {
+        ranks: "",
+        misc: ""
+      },
+      perception: {
+        ranks: "2",
+        misc: "3"
+      },
+      perform: {
+        ranks: "",
+        misc: ""
+      },
+      ride: {
+        ranks: "",
+        misc: ""
+      },
+      sense_motive: {
+        ranks: "",
+        misc: ""
+      },
+      spellcraft: {
+        ranks: "",
+        misc: ""
+      },
+      stealth: {
+        ranks: "2",
+        misc: "3"
+      },
+      survival: {
+        ranks: "",
+        misc: ""
+      },
+      swim: {
+        ranks: "",
+        misc: ""
+      },
+      use_magic_device: {
+        ranks: "",
+        misc: ""
+      },
     },
-    textarea: {
-      feats: "Improved Grapple, Weapon Focus (Grapple)",
-      traits: "",
-      languages: "Common, Dwarven",
-      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)",
-      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
-      magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
-      defense_notes: "+2 against poison, spells, and spell-like abilities.",
-      attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple",
-      notes: "<strong>Darkvision</strong> See in the dark up to 60 feet.<br><br><strong>Defensive Training</strong> +4 dodge bonus to AC against monsters of the giant subtype.<br><br><strong>Greed</strong> +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><br><strong>Hatred</strong> +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes.<br><br><strong>Hardy</strong> +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><br><strong>Stability</strong> +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><br><strong>Stonecunning</strong> +2 bonus on Perception checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.<br><br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><br><strong>Evasion</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Flurry of Blows (Ex)</strong> Make a flurry of blows as a full-attack. Taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat.<br><br><strong>Stunning Fist (Ex)</strong> Gain Stunning Fist as a bonus feat. Fortitude saving DC 10 + 1/2 your character level + your Wis modifier.<br><br><strong>Unarmed Strike</strong> Gain Improved Unarmed Strike as a bonus feat. Add full Strength bonus on damage rolls for all unarmed strikes. You can choose to deal lethal or nonlethal damage with no penalty on his attack or grappling rolls. Unarmed damage is 1d6 plus Strength bonus.<br><br><strong>Evasion (Ex)</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Weapon Focus</strong> +1 bonus on attack rolls with one weapon (Grapple)<br><br><strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. +2 to grapple a foe. +2 CMD whenever an opponent tries to grapple you."
+    spells: {
+      per_day: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      dc: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      book: []
     },
-    spells: []
+    notes: "<strong>Darkvision</strong> See in the dark up to 60 feet.<br><br><strong>Defensive Training</strong> +4 dodge bonus to AC against monsters of the giant subtype.<br><br><strong>Greed</strong> +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><br><strong>Hatred</strong> +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes.<br><br><strong>Hardy</strong> +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><br><strong>Stability</strong> +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><br><strong>Stonecunning</strong> +2 bonus on Perception checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.<br><br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><br><strong>Evasion</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Flurry of Blows (Ex)</strong> Make a flurry of blows as a full-attack. Taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat.<br><br><strong>Stunning Fist (Ex)</strong> Gain Stunning Fist as a bonus feat. Fortitude saving DC 10 + 1/2 your character level + your Wis modifier.<br><br><strong>Unarmed Strike</strong> Gain Improved Unarmed Strike as a bonus feat. Add full Strength bonus on damage rolls for all unarmed strikes. You can choose to deal lethal or nonlethal damage with no penalty on his attack or grappling rolls. Unarmed damage is 1d6 plus Strength bonus.<br><br><strong>Evasion (Ex)</strong> On a successful Reflex save against an attack that normally deals half damage take no damage.<br><br><strong>Weapon Focus</strong> +1 bonus on attack rolls with one weapon (Grapple)<br><br><strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. +2 to grapple a foe. +2 CMD whenever an opponent tries to grapple you."
   };
 
   // exposed methods
@@ -835,6 +1190,22 @@ var helper = (function() {
     }
   };
 
+  function updateObject(object, path, newValue) {
+    var address = path.split('.');
+    while (address.length > 1) {
+      object = object[address.shift()];
+    };
+    object[address.shift()] = newValue;
+  };
+
+  function getObject(object, path) {
+    var address = path.split('.');
+    while (address.length > 1) {
+      object = object[address.shift()];
+    };
+    return object[address.shift()];
+  };
+
   function getClosest(element, selector) {
     var firstChar = selector.charAt(0);
     // Get closest match
@@ -874,19 +1245,16 @@ var helper = (function() {
     removeClass: removeClass,
     getClosest: getClosest,
     selectText: selectText,
-    delayFunction: delayFunction
+    delayFunction: delayFunction,
+    updateObject: updateObject,
+    getObject: getObject
   };
 
 })();
 
 var sheet = (function() {
 
-  var allCharacters = [{
-    clone: {},
-    input: {},
-    textarea: {},
-    spells: []
-  }];
+  var allCharacters = blank.data;
 
   var currentCharacterIndex = 0;
 
@@ -1049,15 +1417,13 @@ var sheet = (function() {
   };
 
   function render() {
-    clone.render();
-    consumable.render();
     inputBlock.render();
     textareaBlock.render();
     stats.render();
-    spells.render();
     totalBlock.render();
-    var name = allCharacters[currentCharacterIndex].input.name;
-    // snack.render(name + " loaded.", false, false);
+    clone.render();
+    consumable.render();
+    spells.render();
   };
 
   // exposed methods
@@ -1150,7 +1516,7 @@ var nav = (function() {
     helper.removeClass(icon, "icon-check-box-unchecked");
     helper.addClass(icon, "icon-check-box-checked");
     helper.addClass(characterLink, "active");
-    var name = sheet.getCharacter().input.name;
+    var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
@@ -1164,8 +1530,8 @@ var nav = (function() {
 
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
-    for (i in array) {
-      var characterAnchor =_render_navCharacters(array[i].input.name, i);
+    for (var i in array) {
+      var characterAnchor =_render_navCharacters(array[i].basics.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
@@ -1192,8 +1558,8 @@ var nav = (function() {
 
   function remove() {
     var name;
-    if (sheet.getCharacter().input.name) {
-      name = sheet.getCharacter().input.name;
+    if (sheet.getCharacter().basics.name) {
+      name = sheet.getCharacter().basics.name;
     } else {
       name = "New character";
     };
@@ -1292,7 +1658,7 @@ var prompt = (function() {
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
     var promptDownload = document.createElement("a");
     promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
-    promptDownload.setAttribute("download", sheet.getCharacter().input.name + ".json");
+    promptDownload.setAttribute("download", sheet.getCharacter().basics.name + ".json");
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
     var promptPre = document.createElement("pre");
@@ -1793,9 +2159,12 @@ var clone = (function() {
     for (var i = 0; i < array.length; i++) {
       var cloneCount = cloneTarget.querySelectorAll(".clone").length;
       var cloneObject = array[i];
-      var newNode = document.createElement("div");
       var cloneString;
       var index = i;
+      // make new clone node
+      var newNode = document.createElement("div");
+      newNode.setAttribute("class", "clone");
+      // check if adding new node or adding to clone target with already existing clones
       if (index < cloneCount) {
         index = cloneCount;
       };
@@ -1805,10 +2174,13 @@ var clone = (function() {
       if (cloneType == "attack") {
         cloneString = _newAttack(index);
       };
-      newNode.setAttribute("class", "clone");
+      // add content
       newNode.innerHTML = cloneString;
+      // max of 100 clones
       if (cloneCount <= 99) {
+        // append new clone
         cloneTarget.appendChild(newNode);
+        // bind listeners
         if (cloneType == "consumable") {
           _bind_cloneConsumableInput(newNode.querySelectorAll(".input-block"));
         };
@@ -1819,6 +2191,7 @@ var clone = (function() {
       };
       if (index == i) {
         for (var j in array[i]) {
+          // read character data and fill values
           newNode.querySelector(".input-" + j.replace(/_/g, "-")).value = array[index][j];
         };
       };
@@ -1859,7 +2232,7 @@ var clone = (function() {
       var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
       cloneAttack.push(newAttack);
     };
-    sheet.getCharacter().clone.attack = cloneAttack;
+    sheet.getCharacter().offense.attack = cloneAttack;
   };
 
   function _updateCloneConsumable() {
@@ -1874,7 +2247,7 @@ var clone = (function() {
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
-    sheet.getCharacter().clone.consumable = cloneConsumable;
+    sheet.getCharacter().equipment.consumable = cloneConsumable;
   };
 
   function render() {
@@ -1882,15 +2255,15 @@ var clone = (function() {
     var all_attack = [];
     var all_consumable = [];
     // iterate over all objects keys to find clones then push those values to all_attack
-    if (sheet.getCharacter().clone.attack) {
-      for (i in sheet.getCharacter().clone.attack) {
-        all_attack.push(sheet.getCharacter().clone.attack[i]);
+    if (sheet.getCharacter().offense.attack) {
+      for (var i in sheet.getCharacter().offense.attack) {
+        all_attack.push(sheet.getCharacter().offense.attack[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.getCharacter().clone.consumable) {
-      for (i in sheet.getCharacter().clone.consumable) {
-        all_consumable.push(sheet.getCharacter().clone.consumable[i]);
+    if (sheet.getCharacter().equipment.consumable) {
+      for (var i in sheet.getCharacter().equipment.consumable) {
+        all_consumable.push(sheet.getCharacter().equipment.consumable[i]);
       };
     };
     _render_clone(all_attack, "attack");
@@ -2092,10 +2465,11 @@ var hidableBlock = (function() {
 var inputBlock = (function() {
 
   function _store(element) {
-    var key = element.id.replace("input-", "").replace(/-/g, "_");
-    sheet.getCharacter().input[key] = element.value;
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.value);
     sheet.storeCharacters();
   };
+
 
   function focus(element) {
     var inputBlockRoot = helper.getClosest(element, ".input-block");
@@ -2163,11 +2537,11 @@ var inputBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter().input) {
-      for (i in sheet.getCharacter().input) {
-        var id = "#input-" + i.replace(/_/g, "-");
-        helper.e(id).value = sheet.getCharacter().input[i];
-      };
+    var all_inputField = helper.eA(".input-field");
+    for (var i = 0; i < all_inputField.length; i++) {
+      var path = all_inputField[i].dataset.path;
+      var content = helper.getObject(sheet.getCharacter(), path);
+      all_inputField[i].value = content;
     };
   };
 
@@ -2183,8 +2557,8 @@ var inputBlock = (function() {
 var textareaBlock = (function() {
 
   function _store(element) {
-    var key = element.id.replace("textarea-", "").replace(/-/g, "_");
-    sheet.getCharacter().textarea[key] = element.innerHTML;
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
     sheet.storeCharacters();
   };
 
@@ -2204,11 +2578,11 @@ var textareaBlock = (function() {
   };
 
   function render() {
-    if (sheet.getCharacter().textarea) {
-      for (i in sheet.getCharacter().textarea) {
-        var id = "#" + "textarea-" + i.replace(/_/g, "-");
-        helper.e(id).innerHTML = sheet.getCharacter().textarea[i];
-      };
+    var all_textareaBlock = helper.eA(".textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      var path = all_textareaBlock[i].dataset.path;
+      var content = helper.getObject(sheet.getCharacter(), path);
+      all_textareaBlock[i].innerHTML = content;
     };
   };
 
@@ -2219,6 +2593,7 @@ var textareaBlock = (function() {
   };
 
 })();
+
 var spells = (function() {
 
   var _bind_spellControls = (function() {
@@ -2360,7 +2735,7 @@ var spells = (function() {
         // clear input field
         element.value = "";
         // add spell to current character object
-        sheet.getCharacter().spells.push(newSpell);
+        sheet.getCharacter().spells.book.push(newSpell);
         // make a snack bar
         snack.render(spallName + " added to spell level " + level + ".", false, false);
       } else {
@@ -2575,16 +2950,16 @@ var spells = (function() {
       // add to current character object
       spells.push(newSpell);
     };
-    sheet.getCharacter().spells = spells;
+    sheet.getCharacter().spells.book = spells;
   };
 
   function render() {
     // build an array of spell objects
     var all_spells = [];
     // iterate over all objects keys to find spells then push those values to all_spells
-    if (sheet.getCharacter().spells) {
-      for (i in sheet.getCharacter().spells) {
-        all_spells.push(sheet.getCharacter().spells[i]);
+    if (sheet.getCharacter().spells.book) {
+      for (var i in sheet.getCharacter().spells.book) {
+        all_spells.push(sheet.getCharacter().spells.book[i]);
       };
     };
     _render_spell(all_spells);
@@ -2765,39 +3140,39 @@ var totalBlock = (function() {
       };
       // bab
       if (all_inputTotalBlock[i].dataset.babBonus == "true") {
-        babBonus = parseInt(helper.e("#input-base-attack").value, 10 || 0);
+        babBonus = parseInt(helper.e("#offense-base-attack").value, 10 || 0);
       };
       // size
       if (all_inputTotalBlock[i].dataset.sizeBonus == "true") {
-        sizeBonus = parseInt(helper.e("#input-size-bonus").value, 10 || 0);
+        sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
       };
       // special size
       if (all_inputTotalBlock[i].dataset.specialSizeBonus == "true") {
-        specialSizeBonus = parseInt(helper.e("#input-special-size-bonus").value, 10 || 0);
+        specialSizeBonus = parseInt(helper.e("#offense-special-size-bonus").value, 10 || 0);
       };
       // level
       if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
-        levelBonus = parseInt(helper.e("#input-level").value, 10 || 0);
+        levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
       };
       // ac armor
       if (all_inputTotalBlock[i].dataset.acArmor == "true") {
-        acArmor = parseInt(helper.e("#input-ac-armor").value, 10 || 0);
+        acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
       };
       // ac shield
       if (all_inputTotalBlock[i].dataset.acShield == "true") {
-        acShield = parseInt(helper.e("#input-ac-shield").value, 10 || 0);
+        acShield = parseInt(helper.e("#defense-ac-shield").value, 10 || 0);
       };
       // ac deflect
       if (all_inputTotalBlock[i].dataset.acDeflect == "true") {
-        acDeflect = parseInt(helper.e("#input-ac-deflect").value, 10 || 0);
+        acDeflect = parseInt(helper.e("#defense-ac-deflect").value, 10 || 0);
       };
       // ac dodge
       if (all_inputTotalBlock[i].dataset.acDodge == "true") {
-        acDodge = parseInt(helper.e("#input-ac-dodge").value, 10 || 0);
+        acDodge = parseInt(helper.e("#defense-ac-dodge").value, 10 || 0);
       };
       // ac natural
       if (all_inputTotalBlock[i].dataset.acNatural == "true") {
-        acNatural = parseInt(helper.e("#input-ac-natural").value, 10 || 0);
+        acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
       };
       // 10
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {

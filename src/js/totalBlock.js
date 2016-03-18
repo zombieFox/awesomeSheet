@@ -108,39 +108,39 @@ var totalBlock = (function() {
       };
       // bab
       if (all_inputTotalBlock[i].dataset.babBonus == "true") {
-        babBonus = parseInt(helper.e("#input-base-attack").value, 10 || 0);
+        babBonus = parseInt(helper.e("#offense-base-attack").value, 10 || 0);
       };
       // size
       if (all_inputTotalBlock[i].dataset.sizeBonus == "true") {
-        sizeBonus = parseInt(helper.e("#input-size-bonus").value, 10 || 0);
+        sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
       };
       // special size
       if (all_inputTotalBlock[i].dataset.specialSizeBonus == "true") {
-        specialSizeBonus = parseInt(helper.e("#input-special-size-bonus").value, 10 || 0);
+        specialSizeBonus = parseInt(helper.e("#offense-special-size-bonus").value, 10 || 0);
       };
       // level
       if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
-        levelBonus = parseInt(helper.e("#input-level").value, 10 || 0);
+        levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
       };
       // ac armor
       if (all_inputTotalBlock[i].dataset.acArmor == "true") {
-        acArmor = parseInt(helper.e("#input-ac-armor").value, 10 || 0);
+        acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
       };
       // ac shield
       if (all_inputTotalBlock[i].dataset.acShield == "true") {
-        acShield = parseInt(helper.e("#input-ac-shield").value, 10 || 0);
+        acShield = parseInt(helper.e("#defense-ac-shield").value, 10 || 0);
       };
       // ac deflect
       if (all_inputTotalBlock[i].dataset.acDeflect == "true") {
-        acDeflect = parseInt(helper.e("#input-ac-deflect").value, 10 || 0);
+        acDeflect = parseInt(helper.e("#defense-ac-deflect").value, 10 || 0);
       };
       // ac dodge
       if (all_inputTotalBlock[i].dataset.acDodge == "true") {
-        acDodge = parseInt(helper.e("#input-ac-dodge").value, 10 || 0);
+        acDodge = parseInt(helper.e("#defense-ac-dodge").value, 10 || 0);
       };
       // ac natural
       if (all_inputTotalBlock[i].dataset.acNatural == "true") {
-        acNatural = parseInt(helper.e("#input-ac-natural").value, 10 || 0);
+        acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
       };
       // 10
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {

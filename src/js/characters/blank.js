@@ -83,14 +83,6 @@ var blank = (function() {
         item: "",
         total: "",
         used: ""
-      }, {
-        item: "",
-        total: "",
-        used: ""
-      }, {
-        item: "",
-        total: "",
-        used: ""
       }]
     },
     defense: {

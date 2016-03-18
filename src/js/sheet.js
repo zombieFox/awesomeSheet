@@ -169,15 +169,7 @@ var sheet = (function() {
     totalBlock.render();
     clone.render();
     consumable.render();
-    // clone.render();
-    // consumable.render();
-    // inputBlock.render();
-    // textareaBlock.render();
-    // stats.render();
-    // spells.render();
-    // totalBlock.render();
-    // var name = allCharacters[currentCharacterIndex].input.name;
-    // snack.render(name + " loaded.", false, false);
+    spells.render();
   };
 
   // exposed methods
