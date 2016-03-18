@@ -1309,12 +1309,10 @@ var sheet = (function() {
   function removeCharacter() {
     var name = allCharacters[currentCharacterIndex].basics.name || "New character";
     allCharacters.splice(getIndex(), 1);
-    var lastCharacter;
-    if (allCharacters.length < 1) {
-      lastCharacter = true;
-    };
-    if (lastCharacter) {
+    var lastCharacterRemoved = false;
+    if (allCharacters.length == 0) {
       addCharacter();
+      lastCharacterRemoved = true;
     };
     setIndex(0);
     clear();
@@ -1322,7 +1320,7 @@ var sheet = (function() {
     storeCharacters();
     nav.clear();
     nav.render(getAllCharacters());
-    if (!lastCharacter) {
+    if (lastCharacterRemoved == false) {
       snack.render(name + " removed.", false, false);
     };
   };
