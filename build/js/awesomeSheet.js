@@ -1295,12 +1295,7 @@ var sheet = (function() {
   };
 
   function addCharacter() {
-    allCharacters.push({
-      clone: {},
-      input: {},
-      textarea: {},
-      spells: []
-    });
+    allCharacters.push(blank.data);
     var newIndex = getAllCharacters().length - 1;
     setIndex(newIndex);
     storeCharacters();
@@ -1312,26 +1307,24 @@ var sheet = (function() {
   };
 
   function removeCharacter() {
-    var name = allCharacters[currentCharacterIndex].input.name || "New character";
-    allCharacters.splice(getIndex(), 1)
-    var newIndex = getAllCharacters().length - 1;
-    if (newIndex < 0) {
-      allCharacters = [{
-        clone: {},
-        input: {},
-        textarea: {},
-        spells: []
-      }];
-      setIndex(0);
-    } else {
-      setIndex(newIndex);
+    var name = allCharacters[currentCharacterIndex].basics.name || "New character";
+    allCharacters.splice(getIndex(), 1);
+    var lastCharacter;
+    if (allCharacters.length < 1) {
+      lastCharacter = true;
     };
+    if (lastCharacter) {
+      addCharacter();
+    };
+    setIndex(0);
     clear();
     render();
     storeCharacters();
     nav.clear();
     nav.render(getAllCharacters());
-    snack.render(name + " removed.", false, false);
+    if (!lastCharacter) {
+      snack.render(name + " removed.", false, false);
+    };
   };
 
   function store(key, data) {
