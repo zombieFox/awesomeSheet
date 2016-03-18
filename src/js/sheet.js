@@ -41,7 +41,7 @@ var sheet = (function() {
   };
 
   function addCharacter() {
-    allCharacters.push(blank.data);
+    allCharacters.push(JSON.parse(JSON.stringify(blank.data)));
     var newIndex = getAllCharacters().length - 1;
     setIndex(newIndex);
     storeCharacters();
@@ -49,7 +49,6 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render(getAllCharacters());
-    snack.render("New character added.", false, false);
   };
 
   function removeCharacter() {
@@ -66,7 +65,9 @@ var sheet = (function() {
     storeCharacters();
     nav.clear();
     nav.render(getAllCharacters());
-    if (lastCharacterRemoved == false) {
+    if (lastCharacterRemoved) {
+      snack.render(name + " removed. New character added.", false, false);
+    } else {
       snack.render(name + " removed.", false, false);
     };
   };

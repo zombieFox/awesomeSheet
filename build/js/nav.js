@@ -147,6 +147,7 @@ var nav = (function() {
     }, false);
     characterAdd.addEventListener("click", function() {
       sheet.addCharacter();
+      snack.render("New character added.", false, false);
     }, false);
     characterRemove.addEventListener("click", function() {
       remove();
