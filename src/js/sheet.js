@@ -144,7 +144,7 @@ var sheet = (function() {
 
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("code", "Character object data:", exportData, "download");
+    prompt.render("code", "Character JSON data:", exportData, "download");
     helper.selectText(".prompt pre");
   };
 

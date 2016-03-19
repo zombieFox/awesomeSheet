@@ -60,19 +60,19 @@ var clone = (function() {
       '<input class="input-field input-damage" id="input-damage-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-md-2">' +
+      '<div class="col-xs-3 col-xs-offset-3 col-md-2 col-md-offset-0">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-critical-' + index + '">Critical</label>' +
       '<input class="input-field input-critical" id="input-critical-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-md-1">' +
+      '<div class="col-xs-3 col-md-1">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-range-' + index + '">Range</label>' +
       '<input class="input-field input-range" id="input-range-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-md-1">' +
+      '<div class="col-xs-3 col-md-1">' +
       '<div class="input-block">' +
       '<label class="input-label" for="input-ammo-' + index + '">Ammo</label>' +
       '<input class="input-field input-ammo" id="input-ammo-' + index + '" type="text" tabindex="3">' +

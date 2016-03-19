@@ -1,70 +1,63 @@
 var prompt = (function() {
 
-  function render(promptType, heading, content, confirmAction) {
+  function render(promptType, heading, text, confirmAction) {
     var body = helper.e("body");
+
     var promptShade = document.createElement("div");
     promptShade.setAttribute("class", "prompt prompt-shade");
+
     var prompt = document.createElement("div");
-    prompt.setAttribute("class", "prompt prompt-modal");
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    var rowForMessage = document.createElement("div");
-    rowForMessage.setAttribute("class", "row");
-    var rowForActions = document.createElement("div");
-    rowForActions.setAttribute("class", "row");
-    var colForMessage = document.createElement("div");
-    colForMessage.setAttribute("class", "col-xs-12");
-    var colForCancel = document.createElement("div");
-    colForCancel.setAttribute("class", "col-xs-6");
-    var colForConfirm = document.createElement("div");
-    colForConfirm.setAttribute("class", "col-xs-6");
-    var colForConfirmOnly = document.createElement("div");
-    colForConfirmOnly.setAttribute("class", "col-xs-12 col-sm-6 col-sm-offset-6");
+
+    var promptControls = document.createElement("div");
+    promptControls.setAttribute("class", "prompt-controls");
+
     var promptMessage = document.createElement("div");
     promptMessage.setAttribute("class", "prompt-message");
+
     var promptHeading = document.createElement("h1");
-    var promptPara = document.createElement("p");
+    promptHeading.setAttribute("class", "prompt-heading");
+
+    var promptText = document.createElement("p");
+    promptText.setAttribute("class", "prompt-text");
+
+    var promptCode = document.createElement("pre");
+    promptCode.setAttribute("class", "prompt-code");
+
     var promptAction = document.createElement("button");
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+
+    var promptCencel = document.createElement("button");
+    promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
+
     var promptDownload = document.createElement("a");
     promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
     promptDownload.setAttribute("download", sheet.getCharacter().basics.name + ".json");
-    var promptCencel = document.createElement("button");
-    promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
-    var promptPre = document.createElement("pre");
+
     if (promptType == "confirm") {
       promptHeading.textContent = heading;
-      promptPara.textContent = content;
+      promptText.textContent = text;
       promptAction.textContent = "OK";
       promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
-      promptMessage.appendChild(promptPara);
-      colForMessage.appendChild(promptMessage);
-      rowForMessage.appendChild(colForMessage);
-      colForCancel.appendChild(promptCencel);
-      rowForActions.appendChild(colForCancel);
-      colForConfirm.appendChild(promptAction);
-      rowForActions.appendChild(colForConfirm);
-      container.appendChild(rowForMessage);
-      container.appendChild(rowForActions);
-      prompt.appendChild(container);
+      promptMessage.appendChild(promptText);
+      prompt.appendChild(promptMessage);
+      promptControls.appendChild(promptCencel);
+      promptControls.appendChild(promptAction);
+      prompt.appendChild(promptControls);
+      prompt.setAttribute("class", "prompt prompt-modal confirm");
     };
     if (promptType == "code") {
       promptHeading.textContent = heading;
-      promptPre.textContent = content;
+      promptCode.textContent = text;
       promptDownload.textContent = "Download";
       promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
-      promptMessage.appendChild(promptPre);
-      colForMessage.appendChild(promptMessage);
-      rowForMessage.appendChild(colForMessage);
-      colForCancel.appendChild(promptCencel);
-      colForConfirm.appendChild(promptDownload);
-      rowForActions.appendChild(colForCancel);
-      rowForActions.appendChild(colForConfirm);
-      container.appendChild(rowForMessage);
-      container.appendChild(rowForActions);
-      prompt.appendChild(container);
+      prompt.appendChild(promptMessage);
+      prompt.appendChild(promptCode);
+      promptControls.appendChild(promptCencel);
+      promptControls.appendChild(promptDownload);
+      prompt.appendChild(promptControls);
+      prompt.setAttribute("class", "prompt prompt-modal code");
     };
     // append prompt and shade
     if (!body.querySelector(".prompt.prompt-shade") && !body.querySelector(".prompt.prompt-modal")) {
@@ -117,6 +110,7 @@ var prompt = (function() {
     };
     if (confirmAction == "download") {
       promptAction.addEventListener('click', function() {
+        destroy();
         sheet.download(this);
       }, false);
     };
