@@ -17,7 +17,6 @@
     transition: all $transition-ease-medium;
   }
   &.prompt-modal {
-    // border-top: 10px solid $primary-color;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -25,7 +24,6 @@
     width: 80%;
     max-height: 80%;
     min-width: 300px;
-    // padding: 30px 20px;
     box-sizing: border-box;
     border-radius: $border-radius-small;
     transform: translate(-50%, -50%);

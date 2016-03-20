@@ -2,37 +2,26 @@ var prompt = (function() {
 
   function render(promptType, heading, text, confirmAction) {
     var body = helper.e("body");
-
     var promptShade = document.createElement("div");
     promptShade.setAttribute("class", "prompt prompt-shade");
-
     var prompt = document.createElement("div");
-
     var promptControls = document.createElement("div");
     promptControls.setAttribute("class", "prompt-controls");
-
     var promptMessage = document.createElement("div");
     promptMessage.setAttribute("class", "prompt-message");
-
     var promptHeading = document.createElement("h1");
     promptHeading.setAttribute("class", "prompt-heading");
-
     var promptText = document.createElement("p");
     promptText.setAttribute("class", "prompt-text");
-
     var promptCode = document.createElement("pre");
     promptCode.setAttribute("class", "prompt-code");
-
     var promptAction = document.createElement("button");
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
-
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
-
     var promptDownload = document.createElement("a");
     promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
     promptDownload.setAttribute("download", sheet.getCharacter().basics.name + ".json");
-
     if (promptType == "confirm") {
       promptHeading.textContent = heading;
       promptText.textContent = text;

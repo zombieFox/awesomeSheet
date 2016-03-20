@@ -158,21 +158,22 @@ var nif = (function() {
         misc: "",
         temp: ""
       },
-      attack: [{
-        weapon: "Dagger (Master Work)",
-        attack: "3",
-        damage: "1d6+1",
-        critical: "19–20/x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Shortbow",
-        attack: "6",
-        damage: "1d6",
-        critical: "x3",
-        range: "60 ft",
-        ammo: "50"
-      }],
+      attack: {
+        melee: [{
+          weapon: "Dagger (Master Work)",
+          attack: "3",
+          damage: "1d6+1",
+          critical: "19–20/x2"
+        }],
+        ranged: [{
+          weapon: "Shortbow",
+          attack: "6",
+          damage: "1d6",
+          critical: "x3",
+          range: "60 ft",
+          ammo: "50"
+        }]
+      },
       attack_notes: ""
     },
     skills: {

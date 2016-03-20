@@ -150,28 +150,25 @@ var vos = (function() {
         misc: "",
         temp: ""
       },
-      attack: [{
-        weapon: "Flurry of Blows",
-        attack: "3/3",
-        damage: "1d6+3",
-        critical: "20x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Grapple",
-        attack: "7",
-        damage: "1d6+3",
-        critical: "20x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Stunning Fist",
-        attack: "5",
-        damage: "1d6+3",
-        critical: "20x2",
-        ammo: "",
-        range: ""
-      }],
+      attack: {
+        melee: [{
+          weapon: "Flurry of Blows",
+          attack: "3/3",
+          damage: "1d6+3",
+          critical: "20x2"
+        }, {
+          weapon: "Grapple",
+          attack: "7",
+          damage: "1d6+3",
+          critical: "20x2"
+        }, {
+          weapon: "Stunning Fist",
+          attack: "5",
+          damage: "1d6+3",
+          critical: "20x2"
+        }],
+        ranged: []
+      },
       attack_notes: "+1 weapon focus, +2 grapple, +2 to resist grapple"
     },
     skills: {

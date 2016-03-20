@@ -12,20 +12,20 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-8">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-item-' + index + '">Item</label>' +
-      '<input class="input-field input-item" id="input-item-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="consumable-item-' + index + '">Item</label>' +
+      '<input class="input-field consumable-item" id="consumable-item-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-total-' + index + '">Total</label>' +
-      '<input class="input-field consumable-total input-total" id="input-total-' + index + '" type="number" tabindex="3">' +
+      '<label class="input-label" for="consumable-total-' + index + '">Total</label>' +
+      '<input class="input-field consumable-total" id="consumable-total-' + index + '" type="number" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-used-' + index + '">Used</label>' +
-      '<input class="input-field consumable-used input-used" id="input-used-' + index + '" type="number" tabindex="3">' +
+      '<label class="input-label" for="consumable-used-' + index + '">Used</label>' +
+      '<input class="input-field consumable-used" id="consumable-used-' + index + '" type="number" tabindex="3">' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -39,43 +39,79 @@ var clone = (function() {
     return cloneString;
   };
 
-  function _newAttack(index) {
+  function _newAttackMelee(index) {
     var cloneString =
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-weapon-' + index + '">Weapon</label>' +
-      '<input class="input-field input-weapon" id="input-weapon-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
+      '<input class="input-field attack-melee-weapon" id="attack-melee-weapon-' + index + '" type="text" tabindex="3">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-6 col-md-2">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="attack-melee-attack-' + index + '">Attack</label>' +
+      '<input class="input-field attack-melee-attack" id="attack-melee-attack-' + index + '" type="text" tabindex="3">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-5 col-xs-offset-3 col-md-3 col-md-offset-0">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="attack-melee-damage-' + index + '">Damage</label>' +
+      '<input class="input-field attack-melee-damage" id="attack-melee-damage-' + index + '" type="text" tabindex="3">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-4 col-md-3">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="attack-melee-critical-' + index + '">Critical</label>' +
+      '<input class="input-field attack-melee-critical" id="attack-melee-critical-' + index + '" type="text" tabindex="3">' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="clone-delete-controls">' +
+      '<button class="button button-primary button-small button-block" id="remove-attack" tabindex="3"><span class="icon-close"></span></button>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    return cloneString;
+  };
+
+  function _newAttackRanged(index) {
+    var cloneString =
+      '<div class="row no-gutter">' +
+      '<div class="col-xs-6 col-md-4">' +
+      '<div class="input-block">' +
+      '<label class="input-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
+      '<input class="input-field attack-ranged-weapon" id="attack-ranged-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-attack-' + index + '">Attack</label>' +
-      '<input class="input-field input-attack" id="input-attack-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
+      '<input class="input-field attack-ranged-attack" id="attack-ranged-attack-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-2">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-damage-' + index + '">Damage</label>' +
-      '<input class="input-field input-damage" id="input-damage-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
+      '<input class="input-field attack-ranged-damage" id="attack-ranged-damage-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-3 col-md-2 col-md-offset-0">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-critical-' + index + '">Critical</label>' +
-      '<input class="input-field input-critical" id="input-critical-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
+      '<input class="input-field attack-ranged-critical" id="attack-ranged-critical-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-1">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-range-' + index + '">Range</label>' +
-      '<input class="input-field input-range" id="input-range-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="attack-ranged-range-' + index + '">Range</label>' +
+      '<input class="input-field attack-ranged-range" id="attack-ranged-range-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-1">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="input-ammo-' + index + '">Ammo</label>' +
-      '<input class="input-field input-ammo" id="input-ammo-' + index + '" type="text" tabindex="3">' +
+      '<label class="input-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
+      '<input class="input-field attack-ranged-ammo" id="attack-ranged-ammo-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-4 col-xs-offset-4">' +
@@ -98,10 +134,11 @@ var clone = (function() {
   var _bind_cloneControls = (function() {
     var consumableCloneAdd = helper.e(".consumable .clone-add");
     var consumableCloneRemove = helper.e(".consumable .clone-remove");
-    var attackCloneAdd = helper.e(".attack .clone-add");
+    var attackCloneAddMelee = helper.e(".attack .clone-add-melee");
+    var attackCloneAddRanged = helper.e(".attack .clone-add-ranged");
     var attackCloneRemove = helper.e(".attack .clone-remove");
     consumableCloneAdd.addEventListener("click", function() {
-      _render_clone([{ item: "", total: "", used: "" }], "consumable");
+      _render_clone(1, "consumable");
       _updateCloneConsumable();
       snack.render("Consumable added.", false, false);
       sheet.storeCharacters();
@@ -112,23 +149,132 @@ var clone = (function() {
       _updateCloneConsumable();
       sheet.storeCharacters();
     }, false);
-    attackCloneAdd.addEventListener("click", function() {
-      _render_clone([{ weapon: "", attack: "", damage: "", critical: "", ammo: "", range: "" }], "attack");
-      _updateCloneAttack();
-      snack.render("Attack added.", false, false);
+    attackCloneAddMelee.addEventListener("click", function() {
+      _render_clone(1, "attack-melee");
+      _updateCloneAttackMelee();
+      snack.render("Melee attack added.", false, false);
+      sheet.storeCharacters();
+    }, false);
+    attackCloneAddRanged.addEventListener("click", function() {
+      _render_clone(1, "attack-ranged");
+      _updateCloneAttackRanged();
+      snack.render("Ranged attack added.", false, false);
       sheet.storeCharacters();
     }, false);
     attackCloneRemove.addEventListener("click", function() {
       _changeCloneState("attack");
-      _updateCloneAttack();
+      _updateCloneAttackMelee();
+      _updateCloneAttackRanged();
       sheet.storeCharacters();
     }, false);
   })();
 
+  function _render_clone(clone, cloneType) {
+    var cloneBlock;
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".consumable");
+      cloneTarget = cloneBlock.querySelector(".clone-target")
+    };
+    for (var i = 0; i < clone; i++) {
+      var cloneCount = cloneTarget.querySelectorAll(".clone").length;
+      var cloneString;
+      var index = i;
+      // make new clone node
+      var newNode = document.createElement("div");
+      newNode.setAttribute("class", "clone");
+      newNode.setAttribute("data-attack-type", cloneType);
+      // check if adding new node or adding to clone target with already existing clones
+      if (index < cloneCount) {
+        index = cloneCount;
+      };
+      if (cloneType == "consumable") {
+        cloneString = _newConsumable(index);
+      };
+      if (cloneType == "attack-melee") {
+        cloneString = _newAttackMelee(index);
+      };
+      if (cloneType == "attack-ranged") {
+        cloneString = _newAttackRanged(index);
+      };
+      // add content
+      newNode.innerHTML = cloneString;
+      // max of 100 clones
+      if (cloneCount <= 99) {
+        // append new clone
+        cloneTarget.appendChild(newNode);
+        // bind listeners
+        if (cloneType == "consumable") {
+          _bind_cloneConsumableInput(newNode.querySelectorAll(".input-block"));
+        };
+        if (cloneType == "attack-melee") {
+          _bind_cloneAttackMeleeInput(newNode.querySelectorAll(".input-block"));
+        };
+        if (cloneType == "attack-ranged") {
+          _bind_cloneAttackRangedInput(newNode.querySelectorAll(".input-block"));
+        };
+        _bind_cloneRemoveButton(newNode.querySelector(".clone-delete-controls button"), cloneType);
+      };
+    };
+  };
+
+  function _render_cloneInput(array, cloneType) {
+    var cloneBlock;
+    var cloneTarget;
+    var all_clone;
+    if (cloneType == "attack-melee") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
+      all_clone = cloneTarget.querySelectorAll(".clone");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
+      all_clone = cloneTarget.querySelectorAll(".clone");
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".consumable");
+      cloneTarget = cloneBlock.querySelector(".clone-target");
+      all_clone = cloneTarget.querySelectorAll(".clone");
+    };
+    // for (var i = 0; i < all_clone.length; i++) {
+    //   console.log(all_clone[i]);
+    //   var all_input = all_clone[i].querySelectorAll(".input-field");
+    //   for (var j = 0; j < all_input.length; j++) {
+    //     console.log(all_input[j]);
+    //     console.log(array[i]);
+    //   };
+    // };
+    for (var i = 0; i < array.length; i++) {
+      for (var j in array[i]) {
+        var input;
+        if (cloneType == "consumable") {
+          input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
+        };
+        if (cloneType == "attack-melee") {
+          input = cloneTarget.querySelector("#attack-melee-" + j.replace(/_/g, "-") + "-" + i);
+        };
+        if (cloneType == "attack-ranged") {
+          input = cloneTarget.querySelector("#attack-ranged-" + j.replace(/_/g, "-") + "-" + i);
+        };
+        input.value = array[i][j];
+      };
+    };
+  };
+
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       _destroy_clone(this, cloneType);
-      _updateCloneAttack();
+      _updateCloneAttackMelee();
+      _updateCloneAttackRanged();
       _updateCloneConsumable();
       sheet.storeCharacters();
       if (cloneType == "consumable") {
@@ -142,21 +288,42 @@ var clone = (function() {
     }, false);
   };
 
-  function _bind_cloneAttackInput(array) {
+  function _bind_cloneAttackMeleeInput(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".input-field");
       input.addEventListener("input", function() {
-        _updateCloneAttack();
+        _updateCloneAttackMelee();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
-        _updateCloneAttack();
+        _updateCloneAttackMelee();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
-        _updateCloneAttack();
+        _updateCloneAttackMelee();
+        sheet.storeCharacters();
+        inputBlock.focus(this);
+      }, false);
+    };
+  };
+
+  function _bind_cloneAttackRangedInput(array) {
+    for (var i = 0; i < array.length; i++) {
+      var input = array[i].querySelector(".input-field");
+      input.addEventListener("input", function() {
+        _updateCloneAttackRanged();
+        sheet.storeCharacters();
+        inputBlock.focus(this);
+      }, false);
+      input.addEventListener("focus", function() {
+        _updateCloneAttackRanged();
+        sheet.storeCharacters();
+        inputBlock.focus(this);
+      }, false);
+      input.addEventListener("blur", function() {
+        _updateCloneAttackRanged();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
@@ -255,59 +422,23 @@ var clone = (function() {
     cloneToRemove.remove();
   };
 
-  function _render_clone(array, cloneType) {
-    var cloneBlock = helper.e("." + cloneType);
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
-    for (var i = 0; i < array.length; i++) {
-      var cloneCount = cloneTarget.querySelectorAll(".clone").length;
-      var cloneObject = array[i];
-      var cloneString;
-      var index = i;
-      // make new clone node
-      var newNode = document.createElement("div");
-      newNode.setAttribute("class", "clone");
-      // check if adding new node or adding to clone target with already existing clones
-      if (index < cloneCount) {
-        index = cloneCount;
-      };
-      if (cloneType == "consumable") {
-        cloneString = _newConsumable(index);
-      };
-      if (cloneType == "attack") {
-        cloneString = _newAttack(index);
-      };
-      // add content
-      newNode.innerHTML = cloneString;
-      // max of 100 clones
-      if (cloneCount <= 99) {
-        // append new clone
-        cloneTarget.appendChild(newNode);
-        // bind listeners
-        if (cloneType == "consumable") {
-          _bind_cloneConsumableInput(newNode.querySelectorAll(".input-block"));
-        };
-        if (cloneType == "attack") {
-          _bind_cloneAttackInput(newNode.querySelectorAll(".input-block"));
-        };
-        _bind_cloneRemoveButton(newNode.querySelector(".clone-delete-controls button"), cloneType);
-      };
-      if (index == i) {
-        for (var j in array[i]) {
-          // read character data and fill values
-          newNode.querySelector(".input-" + j.replace(/_/g, "-")).value = array[index][j];
-        };
-      };
+  function _createAttackMeleeObject(weapon, attack, damage, critical) {
+    return {
+      weapon: this.weapon = weapon,
+      attack: this.attack = attack,
+      damage: this.damage = damage,
+      critical: this.critical = critical
     };
   };
 
-  function _createAttackObject(weapon, attack, damage, critical, ammo, range) {
+  function _createAttackRangedObject(weapon, attack, damage, critical, range, ammo) {
     return {
       weapon: this.weapon = weapon,
       attack: this.attack = attack,
       damage: this.damage = damage,
       critical: this.critical = critical,
+      range: this.range = range,
       ammo: this.ammo = ammo,
-      range: this.range = range
     };
   };
 
@@ -319,22 +450,38 @@ var clone = (function() {
     };
   };
 
-  function _updateCloneAttack() {
+  function _updateCloneAttackMelee() {
     var cloneBlock = helper.e(".clone-block.attack");
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
+    var cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var cloneAttack = [];
     for (var i = 0; i < all_clone.length; i++) {
-      var weapon = all_clone[i].querySelector(".input-weapon").value || "";
-      var attack = all_clone[i].querySelector(".input-attack").value || "";
-      var damage = all_clone[i].querySelector(".input-damage").value || "";
-      var critical = all_clone[i].querySelector(".input-critical").value || "";
-      var ammo = all_clone[i].querySelector(".input-ammo").value || "";
-      var range = all_clone[i].querySelector(".input-range").value || "";
-      var newAttack = new _createAttackObject(weapon, attack, damage, critical, ammo, range);
-      cloneAttack.push(newAttack);
+      var weapon = all_clone[i].querySelector(".attack-melee-weapon").value || "";
+      var attack = all_clone[i].querySelector(".attack-melee-attack").value || "";
+      var damage = all_clone[i].querySelector(".attack-melee-damage").value || "";
+      var critical = all_clone[i].querySelector(".attack-melee-critical").value || "";
+      var newAttackMelee = new _createAttackMeleeObject(weapon, attack, damage, critical);
+      cloneAttack.push(newAttackMelee);
     };
-    sheet.getCharacter().offense.attack = cloneAttack;
+    sheet.getCharacter().offense.attack.melee = cloneAttack;
+  };
+
+  function _updateCloneAttackRanged() {
+    var cloneBlock = helper.e(".clone-block.attack");
+    var cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
+    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var cloneAttack = [];
+    for (var i = 0; i < all_clone.length; i++) {
+      var weapon = all_clone[i].querySelector(".attack-ranged-weapon").value || "";
+      var attack = all_clone[i].querySelector(".attack-ranged-attack").value || "";
+      var damage = all_clone[i].querySelector(".attack-ranged-damage").value || "";
+      var critical = all_clone[i].querySelector(".attack-ranged-critical").value || "";
+      var range = all_clone[i].querySelector(".attack-ranged-range").value || "";
+      var ammo = all_clone[i].querySelector(".attack-ranged-ammo").value || "";
+      var newAttackRanged = new _createAttackRangedObject(weapon, attack, damage, critical, range, ammo);
+      cloneAttack.push(newAttackRanged);
+    };
+    sheet.getCharacter().offense.attack.ranged = cloneAttack;
   };
 
   function _updateCloneConsumable() {
@@ -343,9 +490,9 @@ var clone = (function() {
     var all_clone = cloneTarget.querySelectorAll(".clone");
     var cloneConsumable = [];
     for (var i = 0; i < all_clone.length; i++) {
-      var item = all_clone[i].querySelector(".input-item").value || "";
-      var total = all_clone[i].querySelector(".input-total").value || "";
-      var used = all_clone[i].querySelector(".input-used").value || "";
+      var item = all_clone[i].querySelector(".consumable-item").value || "";
+      var total = all_clone[i].querySelector(".consumable-total").value || "";
+      var used = all_clone[i].querySelector(".consumable-used").value || "";
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
@@ -354,12 +501,19 @@ var clone = (function() {
 
   function render() {
     // build an array of clone objects
-    var all_attack = [];
+    var all_attackMelee = [];
+    var all_attackRanged = [];
     var all_consumable = [];
-    // iterate over all objects keys to find clones then push those values to all_attack
-    if (sheet.getCharacter().offense.attack) {
-      for (var i in sheet.getCharacter().offense.attack) {
-        all_attack.push(sheet.getCharacter().offense.attack[i]);
+    // iterate over all objects keys to find clones then push those values to all_attackMelee
+    if (sheet.getCharacter().offense.attack.melee) {
+      for (var i in sheet.getCharacter().offense.attack.melee) {
+        all_attackMelee.push(sheet.getCharacter().offense.attack.melee[i]);
+      };
+    };
+    // iterate over all objects keys to find clones then push those values to all_attackRanged
+    if (sheet.getCharacter().offense.attack.ranged) {
+      for (var i in sheet.getCharacter().offense.attack.ranged) {
+        all_attackRanged.push(sheet.getCharacter().offense.attack.ranged[i]);
       };
     };
     // iterate over all objects keys to find clones then push those values to all_consumable
@@ -368,8 +522,12 @@ var clone = (function() {
         all_consumable.push(sheet.getCharacter().equipment.consumable[i]);
       };
     };
-    _render_clone(all_attack, "attack");
-    _render_clone(all_consumable, "consumable");
+    _render_clone(all_attackMelee.length, "attack-melee");
+    _render_clone(all_attackRanged.length, "attack-ranged");
+    _render_clone(all_consumable.length, "consumable");
+    _render_cloneInput(all_attackMelee, "attack-melee");
+    _render_cloneInput(all_attackRanged, "attack-ranged");
+    _render_cloneInput(all_consumable, "consumable");
   };
 
   // exposed methods

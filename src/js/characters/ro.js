@@ -150,28 +150,27 @@ var ro = (function() {
         misc: "",
         temp: ""
       },
-      attack: [{
-        weapon: "Rapier",
-        attack: "5",
-        damage: "1d6+1",
-        critical: "18–20/x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Shortsword +1",
-        attack: "6",
-        damage: "1d6+2",
-        critical: "18–20/x2",
-        range: "",
-        ammo: ""
-      }, {
-        weapon: "Shortbow",
-        attack: "5",
-        damage: "1d6",
-        critical: "x3",
-        range: "60 ft",
-        ammo: "50"
-      }],
+      attack: {
+        melee: [{
+          weapon: "Rapier",
+          attack: "5",
+          damage: "1d6+1",
+          critical: "18–20/x2",
+        }, {
+          weapon: "Shortsword +1",
+          attack: "6",
+          damage: "1d6+2",
+          critical: "18–20/x2",
+        }],
+        ranged: [{
+          weapon: "Shortbow",
+          attack: "5",
+          damage: "1d6",
+          critical: "x3",
+          range: "60 ft",
+          ammo: "50"
+        }]
+      },
       attack_notes: ""
     },
     skills: {
