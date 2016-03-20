@@ -150,7 +150,10 @@ var blank = (function() {
         misc: "",
         temp: ""
       },
-      attack: [],
+      attack: {
+        melee: [],
+        ranged: []
+      },
       attack_notes: ""
     },
     skills: {
