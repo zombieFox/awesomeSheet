@@ -797,7 +797,7 @@ var vos = (function() {
       level: "2",
       size: "Medium",
       alignment: "Chaotic Neutral",
-      xp: "3,852",
+      xp: "4,572",
       height: "5'0",
       weight: "190 lbs",
       age: "40 years",
@@ -808,7 +808,7 @@ var vos = (function() {
       gold: "150",
       silver: "5",
       copper: "",
-      hero_points: "",
+      hero_points: "1",
       luck_points: ""
     },
     statistics: {
@@ -844,7 +844,7 @@ var vos = (function() {
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, Evasion (Ex)"
     },
     equipment: {
-      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger",
+      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger, Lavendar soap, Soap bar",
       magic_gear: "Potion of Cure Light Wounds (2), Potion of Owls Wisdom (1), Kessens Boon (1)",
       encumbrance: {
         light: "76 lbs or less",
@@ -2152,9 +2152,13 @@ var clone = (function() {
         _checkCloneCount("consumable");
         snack.render("Consumable removed.", false, false);
       };
-      if (cloneType == "attack") {
+      if (cloneType == "attack-melee") {
         _checkCloneCount("attack");
-        snack.render("Attack removed.", false, false);
+        snack.render("Melee attack removed.", false, false);
+      };
+      if (cloneType == "attack-ranged") {
+        _checkCloneCount("attack");
+        snack.render("Ranged attack removed.", false, false);
       };
     }, false);
   };

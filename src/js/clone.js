@@ -281,9 +281,13 @@ var clone = (function() {
         _checkCloneCount("consumable");
         snack.render("Consumable removed.", false, false);
       };
-      if (cloneType == "attack") {
+      if (cloneType == "attack-melee") {
         _checkCloneCount("attack");
-        snack.render("Attack removed.", false, false);
+        snack.render("Melee attack removed.", false, false);
+      };
+      if (cloneType == "attack-ranged") {
+        _checkCloneCount("attack");
+        snack.render("Ranged attack removed.", false, false);
       };
     }, false);
   };

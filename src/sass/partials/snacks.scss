@@ -65,13 +65,9 @@
 /* media queries
 ------------------------------------------------- */
 
-@media (min-width: $screen-sm) {}
-
-@media (min-width: $screen-md) {}
-
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-sm) {
   .snacks {
-    max-width: 50%;
+    max-width: 80%;
     bottom: 30px;
     left: 30px;
     .snack-bar {
@@ -95,6 +91,14 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {
+  .snacks {
+    max-width: 50%;
   }
 }
 
