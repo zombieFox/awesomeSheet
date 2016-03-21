@@ -3,7 +3,6 @@
 
 .clone-block {
   .clone-controls {
-    margin: 0 0 1.5rem 0;
     .button {
       margin: 0 10px 10px 0;
     }
@@ -54,7 +53,7 @@
     .clone {
       .clone-delete-controls {
         height: 2rem;
-        margin: 1rem 0 0 0;
+        margin: 0.5rem 0 0 0;
         opacity: 1;
       }
     }
@@ -90,7 +89,7 @@
 @media (min-width: $screen-md) {
   .clone-block {
     .clone-controls {
-      margin: 0 0 2rem 0;
+      margin: 0;
     }
   }
 }

@@ -95,15 +95,16 @@ a {
   }
 }
 
-.textarea-block,
+.textarea-box,
 textarea {
   background-color: $secondary-color-light-alpha;
-  padding: 10px 15px;
+  padding: 0.5rem 10px;
   margin: 0 0 2rem 0;
   width: 100%;
   border: 0;
   border-bottom: $border;
   font-size: 1rem;
+  line-height: 1.5rem;
   box-sizing: border-box;
   transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
   resize: vertical;
@@ -252,17 +253,17 @@ table {
 ------------------------------------------------- */
 
 ::-webkit-input-placeholder {
-  color: $gray-08;
+  color: $secondary-color-dark-alpha;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: $gray-08;
+  color: $secondary-color-dark-alpha;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: $gray-08;
+  color: $secondary-color-dark-alpha;
 }
 
 ::selection {

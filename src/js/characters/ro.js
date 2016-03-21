@@ -13,7 +13,7 @@ var ro = (function() {
       weight: "",
       age: "120 years",
       gender: "Male",
-      speed: "30 feet/6 squares",
+      speed: "30 ft, 6 sq",
       initiative: "4",
       platinum: "",
       gold: "570",
@@ -50,7 +50,7 @@ var ro = (function() {
         }
       },
       feats: "Weapon Finesse",
-      traits: "<strong>Magical Lineage</strong> (Shocking Grasp), <strong>Focused Mind</strong> (+2 on concentration checks)",
+      traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
       special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX)"
     },

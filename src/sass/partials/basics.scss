@@ -5,13 +5,24 @@
   padding: 70px 0 30px;
   margin: 0 0 3rem 0;
   background-color: $secondary-color-dark;
-  input {
-    background-color: $gray-alpha-12;
-    color: $white;
-    border-color: transparent;
-    &:hover,
-    &:focus {
-      border-color: $primary-color;
+  .input-block {
+    .input-label {
+      color: $gray-alpha-06;
+      &.input-label-focus {
+        color: $secondary-color-light;
+      }
+      &.input-label-active {
+        color: $light-alpha-06;
+      }
+    }
+    .input-field {
+      background-color: $gray-alpha-12;
+      color: $white;
+      border-color: transparent;
+      &:hover,
+      &:focus {
+        border-color: $primary-color;
+      }
     }
   }
   .awesome-name {
@@ -35,15 +46,15 @@
     }
   }
   ::-webkit-input-placeholder {
-    color: $gray-alpha-08;
+    color: $gray-alpha-06;
   }
   :-moz-placeholder {
     /* Firefox 18- */
-    color: $gray-alpha-08;
+    color: $gray-alpha-06;
   }
   ::-moz-placeholder {
     /* Firefox 19+ */
-    color: $gray-alpha-08;
+    color: $gray-alpha-06;
   }
 }
 

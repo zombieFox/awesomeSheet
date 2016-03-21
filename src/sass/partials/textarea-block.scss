@@ -1,9 +1,9 @@
-/* input-block
+/* textarea-block
 ------------------------------------------------- */
 
-.input-block {
+.textarea-block {
   position: relative;
-  .input-label {
+  .textarea-label {
     margin: 0;
     padding: 0;
     display: block;
@@ -18,10 +18,10 @@
     transition: all $transition-ease-fast;
     cursor: text;
     box-sizing: border-box;
-    &.input-label-focus {
+    &.textarea-label-focus {
       color: $primary-color;
     }
-    &.input-label-active {
+    &.textarea-label-active {
       top: -1.5rem;
       left: 0;
       color: $gray-08;
@@ -30,7 +30,7 @@
       line-height: 1.5rem;
     }
   }
-  .input-field {
+  .textarea-box {
     position: relative;
     z-index: 1;
   }

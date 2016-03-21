@@ -20,12 +20,10 @@ section {
     border-radius: $border-radius-small;
   }
   h2 {
-    background-color: $gray-13;
-    padding: 0 10px;
-    min-height: 2.3rem;
-    line-height: 2.3rem;
+    padding: 0;
+    min-height: 2.5rem;
+    line-height: 2.5rem;
     box-sizing: border-box;
-    border-left: 5px solid $secondary-color;
     border-radius: $border-radius-small;
   }
 }
@@ -38,7 +36,6 @@ hr {
 }
 
 .section-controls {
-  margin: 0 0 1.5rem 0;
   .button {
     margin: 0 10px 10px 0;
   }
