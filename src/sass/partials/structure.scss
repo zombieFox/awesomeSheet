@@ -6,25 +6,26 @@ body {
   padding: 0 0 200px 0;
 }
 
-section {
-  position: relative;
+.section {
+  margin: 0 0 1rem 0;
   z-index: $body;
-  padding: 0 0 1rem 0;
-  h1 {
-    padding: 5px 10px;
-    background-color: $secondary-color;
-    color: $white;
+  .section-heading {
+    border-top: 2px solid $secondary-color-01;
+    margin: 0 0 3rem 0;
+    padding: 20px 0;
+    background-color: $gray-12;
     text-transform: uppercase;
     position: relative;
-    border-left: 5px solid $primary-color;
-    border-radius: $border-radius-small;
+    h1 {
+      margin: 0;
+      color: $secondary-color-01;
+    }
   }
-  h2 {
-    padding: 0;
-    min-height: 2.5rem;
-    line-height: 2.5rem;
-    box-sizing: border-box;
-    border-radius: $border-radius-small;
+  .section-controls {
+    text-align: right;
+    .button {
+      margin: 0 0 0 10px;
+    }
   }
 }
 
@@ -33,12 +34,6 @@ hr {
   border-top: 2px solid $secondary-color;
   margin: 0 0 2.5rem 0;
   clear: both;
-}
-
-.section-controls {
-  .button {
-    margin: 0 10px 10px 0;
-  }
 }
 
 

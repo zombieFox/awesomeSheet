@@ -3,7 +3,6 @@
 
 #basics {
   padding: 70px 0 30px;
-  margin: 0 0 3rem 0;
   background-color: $secondary-color-dark;
   .input-block {
     .input-label {
@@ -27,8 +26,9 @@
   }
   .awesome-name {
     background-color: $gray-alpha-12;
-    padding: 0 30px;
+    padding: 0 20px;
     margin: 0 0 2rem 0;
+    border-left: 2px solid $primary-color;
     .input-block {
       .input-field {
         background-color: transparent;
