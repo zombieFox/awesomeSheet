@@ -2,6 +2,7 @@
 ------------------------------------------------- */
 
 .snacks {
+  margin: 0;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -22,7 +23,6 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 40px;
     overflow: hidden;
     box-sizing: border-box;
     transition: all $transition-ease-medium;
@@ -67,27 +67,24 @@
 
 @media (min-width: $screen-sm) {
   .snacks {
-    max-width: 80%;
-    bottom: 30px;
-    left: 30px;
+    max-width: 92%;
+    width: 92%;
+    margin: 4%;
     .snack-bar {
-      margin: 0;
-      padding: 10px 20px;
-      border: 0;
-      height: 50px;
       border-radius: $border-radius-medium;
       box-shadow: $shadow-medium;
       box-sizing: border-box;
       .snack-message {
-        line-height: 30px;
+        height: 35px;
+        line-height: 35px;
       }
       .button {
-        height: 30px;
-        line-height: 30px;
+        height: 35px;
+        line-height: 35px;
         [class^="icon-"],
         [class*=" icon-"] {
-          height: 30px;
-          line-height: 30px;
+          height: 35px;
+          line-height: 35px;
         }
       }
     }
@@ -98,8 +95,16 @@
 
 @media (min-width: $screen-lg) {
   .snacks {
-    max-width: 50%;
+    max-width: 60%;
+    width: 60%;
+    margin: 2%;
   }
 }
 
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  .snacks {
+    max-width: 50%;
+    width: 50%;
+    margin: 2%;
+  }
+}

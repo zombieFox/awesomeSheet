@@ -96,15 +96,15 @@ var nav = (function() {
   };
 
   function navClose() {
-    helper.removeClass(helper.e("nav"), "open");
+    helper.removeClass(helper.e("#nav"), "open");
   };
 
   function navOpen() {
-    helper.addClass(helper.e("nav"), "open");
+    helper.addClass(helper.e("#nav"), "open");
   };
 
   function navToggle() {
-    helper.toggleClass(helper.e("nav"), "open");
+    helper.toggleClass(helper.e("#nav"), "open");
   };
 
   function remove() {
@@ -119,12 +119,12 @@ var nav = (function() {
 
   function resizeNavList() {
     var navList = helper.e(".nav-list");
-    var height = window.innerHeight - 120;
+    var height = window.innerHeight - 130;
     navList.style.maxHeight = height + "px";
   };
 
   function bind() {
-    var nav = helper.e("nav");
+    var nav = helper.e("#nav");
     var navToggleElement = helper.e(".nav-toggle");
     var fullscreen = helper.e(".fullscreen");
     var clearAll = helper.e(".clear-all");
@@ -153,7 +153,7 @@ var nav = (function() {
       remove();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {
+      if (event.target != nav && helper.getClosest(event.target, "#nav") != nav) {
         navClose();
       };
     }, false);

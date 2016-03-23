@@ -13,12 +13,8 @@ var vos = (function() {
       weight: "190 lbs",
       age: "40 years",
       gender: "Male",
-      speed: "20 feet/4 squares",
+      speed: "20 ft, 4 sq",
       initiative: "2",
-      platinum: "",
-      gold: "228",
-      silver: "5",
-      copper: "",
       hero_points: "1",
       luck_points: ""
     },
@@ -78,6 +74,12 @@ var vos = (function() {
         shield: "",
         shoulders: "Cloak of Resistance +1",
         wrist: "Bracers of Armor +1"
+      },
+      wealth: {
+        platinum: "",
+        gold: "228",
+        silver: "5",
+        copper: ""
       },
       consumable: [{
         item: "Scented Oils",

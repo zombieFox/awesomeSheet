@@ -13,12 +13,8 @@ var nif = (function() {
       weight: "136 lbs",
       age: "120 years",
       gender: "Male",
-      speed: "30 feet, 6 squares",
+      speed: "30 ft, 6 sq",
       initiative: "3",
-      platinum: "",
-      gold: "1,090",
-      silver: "",
-      copper: "",
       hero_points: "2",
       luck_points: ""
     },
@@ -50,7 +46,7 @@ var nif = (function() {
         }
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)",
-      traits: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)",
+      traits: "Resilient",
       languages: "Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan, Undercommon",
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
@@ -78,6 +74,12 @@ var nif = (function() {
         shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: ""
+      },
+      wealth: {
+        platinum: "",
+        gold: "1,090",
+        silver: "",
+        copper: ""
       },
       consumable: [{
         item: "Wand of Infernal Healing",
@@ -397,7 +399,7 @@ var nif = (function() {
         { name: "Sleet Storm", level: 3, prepared: 0, active: false, cast: 0 }
       ]
     },
-    character_notes: "<strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +2 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+    character_notes: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +2 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
   };
 
   // exposed methods
@@ -406,7 +408,6 @@ var nif = (function() {
   };
 
 })();
-
 var ro = (function() {
 
   var data = {
@@ -422,12 +423,8 @@ var ro = (function() {
       weight: "",
       age: "120 years",
       gender: "Male",
-      speed: "30 feet/6 squares",
+      speed: "30 ft, 6 sq",
       initiative: "4",
-      platinum: "",
-      gold: "570",
-      silver: "",
-      copper: "",
       hero_points: "",
       luck_points: ""
     },
@@ -459,7 +456,7 @@ var ro = (function() {
         }
       },
       feats: "Weapon Finesse",
-      traits: "<strong>Magical Lineage</strong> (Shocking Grasp), <strong>Focused Mind</strong> (+2 on concentration checks)",
+      traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
       special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX)"
     },
@@ -487,6 +484,12 @@ var ro = (function() {
         shield: "",
         shoulders: "",
         wrist: ""
+      },
+      wealth: {
+        platinum: "",
+        gold: "570",
+        silver: "",
+        copper: ""
       },
       consumable: [{
         item: "Arcane Pool",
@@ -786,7 +789,6 @@ var ro = (function() {
   };
 
 })();
-
 var vos = (function() {
 
   var data = {
@@ -802,12 +804,8 @@ var vos = (function() {
       weight: "190 lbs",
       age: "40 years",
       gender: "Male",
-      speed: "20 feet/4 squares",
+      speed: "20 ft, 4 sq",
       initiative: "2",
-      platinum: "",
-      gold: "228",
-      silver: "5",
-      copper: "",
       hero_points: "1",
       luck_points: ""
     },
@@ -867,6 +865,12 @@ var vos = (function() {
         shield: "",
         shoulders: "Cloak of Resistance +1",
         wrist: "Bracers of Armor +1"
+      },
+      wealth: {
+        platinum: "",
+        gold: "228",
+        silver: "5",
+        copper: ""
       },
       consumable: [{
         item: "Scented Oils",
@@ -1373,7 +1377,7 @@ var sheet = (function() {
 
   function clear() {
     var allInputBlock = helper.eA(".input-block");
-    var allTextareaBlock = helper.eA(".textarea-block");
+    var allTextareaBlock = helper.eA(".textarea-box");
     var allCloneTarget = helper.eA(".clone-target");
     var allSpellsKnown = helper.eA(".spells-known");
     for (var i = 0; i < allInputBlock.length; i++) {
@@ -1534,15 +1538,15 @@ var nav = (function() {
   };
 
   function navClose() {
-    helper.removeClass(helper.e("nav"), "open");
+    helper.removeClass(helper.e("#nav"), "open");
   };
 
   function navOpen() {
-    helper.addClass(helper.e("nav"), "open");
+    helper.addClass(helper.e("#nav"), "open");
   };
 
   function navToggle() {
-    helper.toggleClass(helper.e("nav"), "open");
+    helper.toggleClass(helper.e("#nav"), "open");
   };
 
   function remove() {
@@ -1557,12 +1561,12 @@ var nav = (function() {
 
   function resizeNavList() {
     var navList = helper.e(".nav-list");
-    var height = window.innerHeight - 120;
+    var height = window.innerHeight - 130;
     navList.style.maxHeight = height + "px";
   };
 
   function bind() {
-    var nav = helper.e("nav");
+    var nav = helper.e("#nav");
     var navToggleElement = helper.e(".nav-toggle");
     var fullscreen = helper.e(".fullscreen");
     var clearAll = helper.e(".clear-all");
@@ -1591,7 +1595,7 @@ var nav = (function() {
       remove();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != nav && helper.getClosest(event.target, "nav") != nav) {
+      if (event.target != nav && helper.getClosest(event.target, "#nav") != nav) {
         navClose();
       };
     }, false);
@@ -1913,25 +1917,25 @@ var clone = (function() {
   function _newAttackMelee(index) {
     var cloneString =
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6 col-md-4">' +
+      '<div class="col-xs-5 col-md-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
+      '<label class="input-label" for="attack-melee-weapon-' + index + '">Melee Weapon</label>' +
       '<input class="input-field attack-melee-weapon" id="attack-melee-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-6 col-md-2">' +
+      '<div class="col-xs-2 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '<input class="input-field attack-melee-attack" id="attack-melee-attack-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-5 col-xs-offset-3 col-md-3 col-md-offset-0">' +
+      '<div class="col-xs-3 col-md-3">' +
       '<div class="input-block">' +
       '<label class="input-label" for="attack-melee-damage-' + index + '">Damage</label>' +
       '<input class="input-field attack-melee-damage" id="attack-melee-damage-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-md-3">' +
+      '<div class="col-xs-2 col-md-3">' +
       '<div class="input-block">' +
       '<label class="input-label" for="attack-melee-critical-' + index + '">Critical</label>' +
       '<input class="input-field attack-melee-critical" id="attack-melee-critical-' + index + '" type="text" tabindex="3">' +
@@ -1951,7 +1955,7 @@ var clone = (function() {
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
+      '<label class="input-label" for="attack-ranged-weapon-' + index + '">Ranged Weapon</label>' +
       '<input class="input-field attack-ranged-weapon" id="attack-ranged-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
@@ -2137,6 +2141,7 @@ var clone = (function() {
           input = cloneTarget.querySelector("#attack-ranged-" + j.replace(/_/g, "-") + "-" + i);
         };
         input.value = array[i][j];
+        inputBlock.update(input);
       };
     };
   };
@@ -2249,7 +2254,7 @@ var clone = (function() {
     var cloneRemove = cloneControls.querySelector(".clone-remove");
     var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone = cloneBlock.querySelectorAll(".clone");
     var cloneCount = all_clone.length;
     // change clone remove button
     helper.toggleClass(cloneRemove, "active");
@@ -2279,7 +2284,7 @@ var clone = (function() {
     var cloneRemove = cloneControls.querySelector(".clone-remove");
     var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone = cloneBlock.querySelectorAll(".clone");
     var cloneCount = all_clone.length;
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
@@ -2375,28 +2380,9 @@ var clone = (function() {
   };
 
   function render() {
-    // build an array of clone objects
-    var all_attackMelee = [];
-    var all_attackRanged = [];
-    var all_consumable = [];
-    // iterate over all objects keys to find clones then push those values to all_attackMelee
-    if (sheet.getCharacter().offense.attack.melee) {
-      for (var i in sheet.getCharacter().offense.attack.melee) {
-        all_attackMelee.push(sheet.getCharacter().offense.attack.melee[i]);
-      };
-    };
-    // iterate over all objects keys to find clones then push those values to all_attackRanged
-    if (sheet.getCharacter().offense.attack.ranged) {
-      for (var i in sheet.getCharacter().offense.attack.ranged) {
-        all_attackRanged.push(sheet.getCharacter().offense.attack.ranged[i]);
-      };
-    };
-    // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.getCharacter().equipment.consumable) {
-      for (var i in sheet.getCharacter().equipment.consumable) {
-        all_consumable.push(sheet.getCharacter().equipment.consumable[i]);
-      };
-    };
+    var all_attackMelee = sheet.getCharacter().offense.attack.melee;
+    var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
+    var all_consumable = sheet.getCharacter().equipment.consumable;
     _render_clone(all_attackMelee.length, "attack-melee");
     _render_clone(all_attackRanged.length, "attack-ranged");
     _render_clone(all_consumable.length, "consumable");
@@ -2577,7 +2563,7 @@ var hidableBlock = (function() {
         helper.addClass(all_hidable[i], "hidden");
       };
       for (var i = 0; i < all_hideableOnEmptyTextarea.length; i++) {
-        var textarea = all_hideableOnEmptyTextarea[i].querySelector(".textarea-block");
+        var textarea = all_hideableOnEmptyTextarea[i].querySelector(".textarea-box");
         if (textarea.textContent == null || textarea.textContent == "") {
           helper.addClass(all_hideableOnEmptyTextarea[i], "hidden");
         };
@@ -2605,7 +2591,6 @@ var inputBlock = (function() {
     sheet.storeCharacters();
   };
 
-
   function focus(element) {
     var inputBlockRoot = helper.getClosest(element, ".input-block");
     var inputField = inputBlockRoot.querySelector(".input-field");
@@ -2616,32 +2601,41 @@ var inputBlock = (function() {
     if (inputBlockRoot.querySelector(".input-label")) {
       if (inputField == document.activeElement) {
         helper.addClass(inputLabel, "input-label-focus");
+        helper.addClass(inputLabel, "input-label-active");
       } else {
         helper.removeClass(inputLabel, "input-label-focus");
+        helper.removeClass(inputLabel, "input-label-active");
+      };
+      if (element.value == "" && inputField != document.activeElement) {
+        helper.removeClass(inputLabel, "input-label-active");
+      } else {
+        helper.addClass(inputLabel, "input-label-active");
       };
     };
   };
 
+  function updateInputBlock(element) {
+    focus(element);
+  };
+
   function bind(array) {
     for (var i = 0; i < array.length; i++) {
-      if (array[i].dataset.inputStore) {
-        var input = array[i].querySelector(".input-field");
-        input.addEventListener("input", function() {
-          _store(this);
-          focus(this);
-          totalBlock.render();
-        }, false);
-        input.addEventListener("focus", function() {
-          _store(this);
-          focus(this);
-          totalBlock.render();
-        }, false);
-        input.addEventListener("blur", function() {
-          _store(this);
-          focus(this);
-          totalBlock.render();
-        }, false);
-      };
+      var input = array[i].querySelector(".input-field");
+      input.addEventListener("input", function() {
+        _store(this);
+        focus(this);
+        totalBlock.render();
+      }, false);
+      input.addEventListener("focus", function() {
+        _store(this);
+        focus(this);
+        totalBlock.render();
+      }, false);
+      input.addEventListener("blur", function() {
+        _store(this);
+        focus(this);
+        totalBlock.render();
+      }, false);
     };
     _bind_awesomeName();
   };
@@ -2677,18 +2671,19 @@ var inputBlock = (function() {
       var path = all_inputField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
       all_inputField[i].value = content;
+      updateInputBlock(all_inputField[i]);
     };
   };
 
   // exposed methods
   return {
+    update: updateInputBlock,
     focus: focus,
     render: render,
     bind: bind
   };
 
 })();
-
 var textareaBlock = (function() {
 
   function _store(element) {
@@ -2697,38 +2692,85 @@ var textareaBlock = (function() {
     sheet.storeCharacters();
   };
 
-  function bind(array) {
-    for (var i = 0; i < array.length; i++) {
-      var textarea = array[i];
-      textarea.addEventListener("input", function() {
-        _store(this);
-      }, false);
-      textarea.addEventListener("focus", function() {
-        _store(this);
-      }, false);
-      textarea.addEventListener("blur", function() {
-        _store(this);
-      }, false);
+  function focus(element) {
+    var textareaBlockRoot = helper.getClosest(element, ".textarea-block");
+    var textareaBox = textareaBlockRoot.querySelector(".textarea-box");
+    var textareaLabel;
+    if (textareaBlockRoot.querySelector(".textarea-label")) {
+      var textareaLabel = textareaBlockRoot.querySelector(".textarea-label");
+    };
+    if (textareaBlockRoot.querySelector(".textarea-label")) {
+      if (textareaBox == document.activeElement) {
+        helper.addClass(textareaLabel, "textarea-label-focus");
+        helper.addClass(textareaLabel, "textarea-label-active");
+      } else {
+        helper.removeClass(textareaLabel, "textarea-label-focus");
+        helper.removeClass(textareaLabel, "textarea-label-active");
+      };
+      if (element.innerHTML == "" && textareaBox != document.activeElement) {
+        helper.removeClass(textareaLabel, "textarea-label-active");
+      } else {
+        helper.addClass(textareaLabel, "textarea-label-active");
+      };
     };
   };
 
+  function updateTextareaBlock(element) {
+    focus(element);
+  };
+
+  function bind(array) {
+    for (var i = 0; i < array.length; i++) {
+      var textarea = array[i].querySelector(".textarea-box");
+      var textareaLabel;
+      if (array[i].querySelector(".textarea-label")) {
+        textareaLabel = array[i].querySelector(".textarea-label");
+      };
+      textarea.addEventListener("input", function() {
+        _store(this);
+        focus(this);
+      }, false);
+      textarea.addEventListener("focus", function() {
+        _store(this);
+        focus(this);
+      }, false);
+      textarea.addEventListener("blur", function() {
+        _store(this);
+        focus(this);
+      }, false);
+      if (array[i].querySelector(".textarea-label")) {
+        textareaLabel.addEventListener("click", function() {
+          _textareaLabelshiftFocus(this);
+        }, false);
+      };
+    };
+  };
+
+  function _textareaLabelshiftFocus(element) {
+    var textareaBlockRoot = helper.getClosest(element, ".textarea-block");
+    var textareaBox = textareaBlockRoot.querySelector(".textarea-box");
+    textareaBox.focus();
+  };
+
   function render() {
-    var all_textareaBlock = helper.eA(".textarea-block");
+    var all_textareaBlock = helper.eA(".textarea-box");
     for (var i = 0; i < all_textareaBlock.length; i++) {
       var path = all_textareaBlock[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
       all_textareaBlock[i].innerHTML = content;
+      updateTextareaBlock(all_textareaBlock[i]);
     };
   };
 
   // exposed methods
   return {
+    update: updateTextareaBlock,
+    focus: focus,
     render: render,
     bind: bind
   };
 
 })();
-
 var spells = (function() {
 
   var _bind_spellControls = (function() {
@@ -3388,5 +3430,6 @@ var totalBlock = (function() {
   textareaBlock.bind(helper.eA(".textarea-block"));
   stats.bind();
   sheet.render();
+  // quickNav.render();
 
 })();

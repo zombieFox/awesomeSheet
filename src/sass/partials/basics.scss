@@ -2,22 +2,34 @@
 ------------------------------------------------- */
 
 #basics {
-  padding: 70px 0 30px;
-  margin: 0 0 3rem 0;
+  margin: 0;
+  padding: 120px 0 30px;
   background-color: $secondary-color-dark;
-  input {
-    background-color: $gray-alpha-12;
-    color: $white;
-    border-color: transparent;
-    &:hover,
-    &:focus {
-      border-color: $primary-color;
+  .input-block {
+    .input-label {
+      color: $secondary-color-05;
+      &.input-label-focus {
+        color: $secondary-color-light;
+      }
+      &.input-label-active {
+        color: $light-alpha-06;
+      }
+    }
+    .input-field {
+      background-color: $gray-alpha-12;
+      color: $white;
+      border-color: transparent;
+      &:hover,
+      &:focus {
+        border-color: $primary-color;
+      }
     }
   }
   .awesome-name {
     background-color: $gray-alpha-12;
-    padding: 0 30px;
+    padding: 0 20px;
     margin: 0 0 2rem 0;
+    border-left: 2px solid $primary-color;
     .input-block {
       .input-field {
         background-color: transparent;
@@ -35,15 +47,15 @@
     }
   }
   ::-webkit-input-placeholder {
-    color: $gray-alpha-08;
+    color: $secondary-color-05;
   }
   :-moz-placeholder {
     /* Firefox 18- */
-    color: $gray-alpha-08;
+    color: $secondary-color-05;
   }
   ::-moz-placeholder {
     /* Firefox 19+ */
-    color: $gray-alpha-08;
+    color: $secondary-color-05;
   }
 }
 
@@ -55,8 +67,8 @@
 
 @media (min-width: $screen-md) {
   #basics {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    // padding-top: 100px;
+    // padding-bottom: 100px;
   }
 }
 

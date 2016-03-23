@@ -3,7 +3,13 @@
 
 #spells {
   .spell-level {
-    margin: 0 0 2rem 0;
+    margin: 0 0 0.5rem 0;
+    h2 {
+      margin: 0 0 0.5rem 0;
+    }
+    input {
+      margin: 0 0 0.5rem 0;
+    }
     .spells-known {
       .button {
         padding: 0 10px;
@@ -61,6 +67,12 @@
       [class*=" icon-"] {
         margin: 0;
       }
+    }
+  }
+  .spell-controls {
+    margin: 0 0 1rem 0;
+    .button {
+      margin: 0 5px 5px 0;
     }
   }
   &.prepare-state {
@@ -151,14 +163,4 @@
 
 @media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-xl) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          // width: 32.8%;
-        }
-      }
-    }
-  }
-}
+@media (min-width: $screen-xl) {}

@@ -1,7 +1,7 @@
 /* nav
 ------------------------------------------------- */
 
-nav {
+#nav {
   position: fixed;
   top: 10px;
   right: 10px;
@@ -54,7 +54,7 @@ nav {
     padding: 8px 0;
     width: 240px;
     position: absolute;
-    top: 60px;
+    top: 70px;
     right: -350px;
     transition: all $transition-ease-medium;
     overflow-y: auto;
