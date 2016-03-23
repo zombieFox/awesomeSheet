@@ -3,20 +3,22 @@
 
 body {
   background: $white;
-  padding: 0 0 200px 0;
+  padding: 0 0 300px 0;
 }
 
 section {
-  margin: 0 0 2rem 0;
   z-index: $body;
   .section-heading {
-    margin: 0 0 3rem 0;
     padding: 10px 0;
-    background-color: $secondary-color;
+    position: relative;
+    background-color: $secondary-color-02;
     text-transform: uppercase;
     position: relative;
+    z-index: $section-heading;
+    height: 30px;
     h1 {
       margin: 0;
+      line-height: 30px;
       color: $white;
     }
   }
@@ -24,6 +26,20 @@ section {
     text-align: right;
     .button {
       margin: 0 0 0 10px;
+    }
+  }
+  .section-wrapper {
+    padding: 3rem 0;
+  }
+  &.pinned {
+    padding-top: 50px;
+    .section-heading {
+      margin: 0;
+      background-color: $secondary-color-02;
+      position: fixed;
+      top: 70px;
+      width: 100%;
+      h1 {}
     }
   }
 }

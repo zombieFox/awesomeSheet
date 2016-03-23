@@ -323,7 +323,7 @@ var blank = (function() {
       },
       book: []
     },
-    notes: ""
+    character_notes: ""
   };
 
   // exposed methods
