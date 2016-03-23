@@ -15,10 +15,6 @@ var blank = (function() {
       gender: "",
       speed: "",
       initiative: "",
-      platinum: "",
-      gold: "",
-      silver: "",
-      copper: "",
       hero_points: "",
       luck_points: ""
     },
@@ -78,6 +74,12 @@ var blank = (function() {
         shield: "",
         shoulders: "",
         wrist: ""
+      },
+      wealth: {
+        platinum: "",
+        gold: "",
+        silver: "",
+        copper: ""
       },
       consumable: [{
         item: "",

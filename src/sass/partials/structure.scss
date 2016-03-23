@@ -6,19 +6,18 @@ body {
   padding: 0 0 200px 0;
 }
 
-.section {
-  margin: 0 0 1rem 0;
+section {
+  margin: 0 0 2rem 0;
   z-index: $body;
   .section-heading {
-    border-top: 2px solid $secondary-color-01;
     margin: 0 0 3rem 0;
-    padding: 20px 0;
-    background-color: $gray-12;
+    padding: 10px 0;
+    background-color: $secondary-color;
     text-transform: uppercase;
     position: relative;
     h1 {
       margin: 0;
-      color: $secondary-color-01;
+      color: $white;
     }
   }
   .section-controls {
@@ -31,8 +30,8 @@ body {
 
 hr {
   border: 0;
-  border-top: 2px solid $secondary-color;
-  margin: 0 0 2.5rem 0;
+  border-top: 1px solid $secondary-color-05;
+  margin: 0 0 2rem 0;
   clear: both;
 }
 

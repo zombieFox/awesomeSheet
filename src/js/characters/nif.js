@@ -15,10 +15,6 @@ var nif = (function() {
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "3",
-      platinum: "",
-      gold: "1,090",
-      silver: "",
-      copper: "",
       hero_points: "2",
       luck_points: ""
     },
@@ -78,6 +74,12 @@ var nif = (function() {
         shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: ""
+      },
+      wealth: {
+        platinum: "",
+        gold: "1,090",
+        silver: "",
+        copper: ""
       },
       consumable: [{
         item: "Wand of Infernal Healing",

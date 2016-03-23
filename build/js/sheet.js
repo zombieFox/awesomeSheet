@@ -122,7 +122,7 @@ var sheet = (function() {
 
   function clear() {
     var allInputBlock = helper.eA(".input-block");
-    var allTextareaBlock = helper.eA(".textarea-block");
+    var allTextareaBlock = helper.eA(".textarea-box");
     var allCloneTarget = helper.eA(".clone-target");
     var allSpellsKnown = helper.eA(".spells-known");
     for (var i = 0; i < allInputBlock.length; i++) {

@@ -15,10 +15,6 @@ var ro = (function() {
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "4",
-      platinum: "",
-      gold: "570",
-      silver: "",
-      copper: "",
       hero_points: "",
       luck_points: ""
     },
@@ -78,6 +74,12 @@ var ro = (function() {
         shield: "",
         shoulders: "",
         wrist: ""
+      },
+      wealth: {
+        platinum: "",
+        gold: "570",
+        silver: "",
+        copper: ""
       },
       consumable: [{
         item: "Arcane Pool",

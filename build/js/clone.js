@@ -42,25 +42,25 @@ var clone = (function() {
   function _newAttackMelee(index) {
     var cloneString =
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6 col-md-4">' +
+      '<div class="col-xs-5 col-md-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
+      '<label class="input-label" for="attack-melee-weapon-' + index + '">Melee Weapon</label>' +
       '<input class="input-field attack-melee-weapon" id="attack-melee-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-6 col-md-2">' +
+      '<div class="col-xs-2 col-md-2">' +
       '<div class="input-block">' +
       '<label class="input-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '<input class="input-field attack-melee-attack" id="attack-melee-attack-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-5 col-xs-offset-3 col-md-3 col-md-offset-0">' +
+      '<div class="col-xs-3 col-md-3">' +
       '<div class="input-block">' +
       '<label class="input-label" for="attack-melee-damage-' + index + '">Damage</label>' +
       '<input class="input-field attack-melee-damage" id="attack-melee-damage-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-md-3">' +
+      '<div class="col-xs-2 col-md-3">' +
       '<div class="input-block">' +
       '<label class="input-label" for="attack-melee-critical-' + index + '">Critical</label>' +
       '<input class="input-field attack-melee-critical" id="attack-melee-critical-' + index + '" type="text" tabindex="3">' +
@@ -80,7 +80,7 @@ var clone = (function() {
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
+      '<label class="input-label" for="attack-ranged-weapon-' + index + '">Ranged Weapon</label>' +
       '<input class="input-field attack-ranged-weapon" id="attack-ranged-weapon-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
@@ -266,6 +266,7 @@ var clone = (function() {
           input = cloneTarget.querySelector("#attack-ranged-" + j.replace(/_/g, "-") + "-" + i);
         };
         input.value = array[i][j];
+        inputBlock.update(input);
       };
     };
   };
@@ -378,7 +379,7 @@ var clone = (function() {
     var cloneRemove = cloneControls.querySelector(".clone-remove");
     var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone = cloneBlock.querySelectorAll(".clone");
     var cloneCount = all_clone.length;
     // change clone remove button
     helper.toggleClass(cloneRemove, "active");
@@ -408,7 +409,7 @@ var clone = (function() {
     var cloneRemove = cloneControls.querySelector(".clone-remove");
     var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
     var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var all_clone = cloneBlock.querySelectorAll(".clone");
     var cloneCount = all_clone.length;
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
@@ -504,28 +505,9 @@ var clone = (function() {
   };
 
   function render() {
-    // build an array of clone objects
-    var all_attackMelee = [];
-    var all_attackRanged = [];
-    var all_consumable = [];
-    // iterate over all objects keys to find clones then push those values to all_attackMelee
-    if (sheet.getCharacter().offense.attack.melee) {
-      for (var i in sheet.getCharacter().offense.attack.melee) {
-        all_attackMelee.push(sheet.getCharacter().offense.attack.melee[i]);
-      };
-    };
-    // iterate over all objects keys to find clones then push those values to all_attackRanged
-    if (sheet.getCharacter().offense.attack.ranged) {
-      for (var i in sheet.getCharacter().offense.attack.ranged) {
-        all_attackRanged.push(sheet.getCharacter().offense.attack.ranged[i]);
-      };
-    };
-    // iterate over all objects keys to find clones then push those values to all_consumable
-    if (sheet.getCharacter().equipment.consumable) {
-      for (var i in sheet.getCharacter().equipment.consumable) {
-        all_consumable.push(sheet.getCharacter().equipment.consumable[i]);
-      };
-    };
+    var all_attackMelee = sheet.getCharacter().offense.attack.melee;
+    var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
+    var all_consumable = sheet.getCharacter().equipment.consumable;
     _render_clone(all_attackMelee.length, "attack-melee");
     _render_clone(all_attackRanged.length, "attack-ranged");
     _render_clone(all_consumable.length, "consumable");

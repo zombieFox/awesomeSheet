@@ -45,7 +45,7 @@ var hidableBlock = (function() {
         helper.addClass(all_hidable[i], "hidden");
       };
       for (var i = 0; i < all_hideableOnEmptyTextarea.length; i++) {
-        var textarea = all_hideableOnEmptyTextarea[i].querySelector(".textarea-block");
+        var textarea = all_hideableOnEmptyTextarea[i].querySelector(".textarea-box");
         if (textarea.textContent == null || textarea.textContent == "") {
           helper.addClass(all_hideableOnEmptyTextarea[i], "hidden");
         };

@@ -2,11 +2,12 @@
 ------------------------------------------------- */
 
 #basics {
-  padding: 70px 0 30px;
+  margin: 0;
+  padding: 120px 0 30px;
   background-color: $secondary-color-dark;
   .input-block {
     .input-label {
-      color: $gray-alpha-06;
+      color: $secondary-color-05;
       &.input-label-focus {
         color: $secondary-color-light;
       }
@@ -46,15 +47,15 @@
     }
   }
   ::-webkit-input-placeholder {
-    color: $gray-alpha-06;
+    color: $secondary-color-05;
   }
   :-moz-placeholder {
     /* Firefox 18- */
-    color: $gray-alpha-06;
+    color: $secondary-color-05;
   }
   ::-moz-placeholder {
     /* Firefox 19+ */
-    color: $gray-alpha-06;
+    color: $secondary-color-05;
   }
 }
 
@@ -66,8 +67,8 @@
 
 @media (min-width: $screen-md) {
   #basics {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    // padding-top: 100px;
+    // padding-bottom: 100px;
   }
 }
 
