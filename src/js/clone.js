@@ -30,9 +30,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-2 col-xs-offset-10">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -41,6 +41,8 @@ var clone = (function() {
 
   function _newAttackMelee(index) {
     var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-5 col-md-4">' +
       '<div class="input-block">' +
@@ -66,9 +68,13 @@ var clone = (function() {
       '<input class="input-field attack-melee-critical" id="attack-melee-critical-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="row">' +
+      '<div class="col-xs-2 col-xs-offset-10">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-block" id="remove-attack" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -77,6 +83,8 @@ var clone = (function() {
 
   function _newAttackRanged(index) {
     var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
@@ -114,9 +122,13 @@ var clone = (function() {
       '<input class="input-field attack-ranged-ammo" id="attack-ranged-ammo-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="row">' +
+      '<div class="col-xs-2 col-xs-offset-10">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-block" id="remove-attack" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -384,7 +396,7 @@ var clone = (function() {
     // change clone remove button
     helper.toggleClass(cloneRemove, "active");
     helper.toggleClass(cloneRemove, "button-primary");
-    helper.toggleClass(cloneRemove, "button-secondary");
+    helper.toggleClass(cloneRemove, "button-tertiary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       helper.removeClass(cloneBlock, "delete-state");
@@ -399,7 +411,7 @@ var clone = (function() {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneRemove, "active");
       helper.removeClass(cloneRemove, "button-primary");
-      helper.addClass(cloneRemove, "button-secondary");
+      helper.addClass(cloneRemove, "button-tertiary");
     };
   };
 

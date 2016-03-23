@@ -81,11 +81,7 @@ var blank = (function() {
         silver: "",
         copper: ""
       },
-      consumable: [{
-        item: "",
-        total: "",
-        used: ""
-      }]
+      consumable: []
     },
     defense: {
       hp: {

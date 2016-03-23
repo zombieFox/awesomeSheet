@@ -4,12 +4,12 @@
 #basics {
   margin: 0;
   padding: 120px 0 30px;
-  background-color: $secondary-color-dark;
+  background-color: $secondary-color-03;
   .input-block {
     .input-label {
       color: $secondary-color-05;
       &.input-label-focus {
-        color: $secondary-color-light;
+        color: $secondary-color-07;
       }
       &.input-label-active {
         color: $light-alpha-06;
@@ -21,7 +21,7 @@
       border-color: transparent;
       &:hover,
       &:focus {
-        border-color: $primary-color;
+        border-color: $primary-color-07;
       }
     }
   }
@@ -29,7 +29,7 @@
     background-color: $gray-alpha-12;
     padding: 0 20px;
     margin: 0 0 2rem 0;
-    border-left: 2px solid $primary-color;
+    border-left: 2px solid $primary-color-07;
     .input-block {
       .input-field {
         background-color: transparent;
@@ -65,12 +65,7 @@
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  #basics {
-    // padding-top: 100px;
-    // padding-bottom: 100px;
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

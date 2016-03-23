@@ -22,13 +22,12 @@
       text-align: right;
       .button {
         margin: 0;
-        line-height: 2rem;
-        height: 2rem;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
         [class^="icon-"],
         [class*=" icon-"] {
           margin: 0;
-          font-size: 1.2rem;
-          display: block;
         }
       }
     }
@@ -41,9 +40,9 @@
       &[type="text"],
       &[type="tel"],
       &[type="password"] {
-        background-color: $white;
-        border-color: $primary-color;
-        color: $primary-color;
+        background-color: transparent;
+        border-color: $primary-color-07;
+        color: $primary-color-07;
         margin: 0;
       }
     }
@@ -53,8 +52,7 @@
     }
     .clone {
       .clone-delete-controls {
-        height: 2rem;
-        margin: 0.5rem 0 0 0;
+        height: 40px;
         opacity: 1;
       }
     }

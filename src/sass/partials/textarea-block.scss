@@ -8,7 +8,7 @@
     padding: 0;
     display: block;
     position: absolute;
-    color: $secondary-color-dark-alpha;
+    color: $secondary-color-alpha-01;
     top: 0;
     left: 10px;
     font-size: 1rem;
@@ -19,7 +19,7 @@
     cursor: text;
     box-sizing: border-box;
     &.textarea-label-focus {
-      color: $primary-color;
+      color: $primary-color-07;
     }
     &.textarea-label-active {
       top: -1.5rem;

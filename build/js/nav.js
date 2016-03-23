@@ -117,7 +117,7 @@ var nav = (function() {
     prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
   };
 
-  function resizeNavList() {
+  function resize() {
     var navList = helper.e(".nav-list");
     var height = window.innerHeight - 130;
     navList.style.maxHeight = height + "px";
@@ -163,14 +163,14 @@ var nav = (function() {
       };
     }, false);
     window.addEventListener("resize", function(event) {
-      resizeNavList();
+      resize();
     }, false);
   };
 
   // exposed methods
   return {
     bind: bind,
-    resizeNavList: resizeNavList,
+    resize: resize,
     clear: clear,
     render: render,
     open: navOpen,
