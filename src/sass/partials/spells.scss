@@ -79,10 +79,10 @@
     .spell-level {
       .spells-known {
         .button-tertiary {
-          background-color: $primary-color-light-alpha;
+          background-color: $primary-color-alpha-07;
           &:link,
           &:visited {
-            background-color: $primary-color-light-alpha;
+            background-color: $primary-color-alpha-07;
           }
         }
       }
@@ -92,10 +92,10 @@
     .spell-level {
       .spells-known {
         .button-tertiary {
-          background-color: $primary-color-light-alpha;
+          background-color: $primary-color-alpha-07;
           &:link,
           &:visited {
-            background-color: $primary-color-light-alpha;
+            background-color: $primary-color-alpha-07;
           }
         }
       }
@@ -105,10 +105,10 @@
     .spell-level {
       .spells-known {
         .button-tertiary {
-          background-color: $secondary-color-light-alpha;
+          background-color: $secondary-color-alpha-07;
           &:link,
           &:visited {
-            background-color: $secondary-color-light-alpha;
+            background-color: $secondary-color-alpha-07;
           }
         }
       }
@@ -132,20 +132,20 @@
       .spells-known {
         .button {
           background-color: $white;
-          color: $primary-color-dark;
-          border-color: $primary-color-light;
+          color: $primary-color-07;
+          border-color: $primary-color-07;
           &:link,
           &:visited {
             background-color: $white;
-            color: $primary-color-dark;
-            border-color: $primary-color-light;
+            color: $primary-color-07;
+            border-color: $primary-color-07;
           }
           &:active,
           &:focus,
           &:hover {
             color: $white;
-            background-color: $primary-color-light;
-            border-color: $primary-color-dark;
+            background-color: $primary-color-07;
+            border-color: $primary-color-01;
           }
         }
       }

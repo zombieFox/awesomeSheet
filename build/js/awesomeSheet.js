@@ -1559,7 +1559,7 @@ var nav = (function() {
     prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
   };
 
-  function resizeNavList() {
+  function resize() {
     var navList = helper.e(".nav-list");
     var height = window.innerHeight - 130;
     navList.style.maxHeight = height + "px";
@@ -1605,14 +1605,14 @@ var nav = (function() {
       };
     }, false);
     window.addEventListener("resize", function(event) {
-      resizeNavList();
+      resize();
     }, false);
   };
 
   // exposed methods
   return {
     bind: bind,
-    resizeNavList: resizeNavList,
+    resize: resize,
     clear: clear,
     render: render,
     open: navOpen,
@@ -1905,9 +1905,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-2 col-xs-offset-10">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -1916,6 +1916,8 @@ var clone = (function() {
 
   function _newAttackMelee(index) {
     var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-5 col-md-4">' +
       '<div class="input-block">' +
@@ -1941,9 +1943,13 @@ var clone = (function() {
       '<input class="input-field attack-melee-critical" id="attack-melee-critical-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="row">' +
+      '<div class="col-xs-2 col-xs-offset-10">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-block" id="remove-attack" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -1952,6 +1958,8 @@ var clone = (function() {
 
   function _newAttackRanged(index) {
     var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-md-4">' +
       '<div class="input-block">' +
@@ -1989,9 +1997,13 @@ var clone = (function() {
       '<input class="input-field attack-ranged-ammo" id="attack-ranged-ammo-' + index + '" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="row">' +
+      '<div class="col-xs-2 col-xs-offset-10">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-small button-block" id="remove-attack" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -2259,7 +2271,7 @@ var clone = (function() {
     // change clone remove button
     helper.toggleClass(cloneRemove, "active");
     helper.toggleClass(cloneRemove, "button-primary");
-    helper.toggleClass(cloneRemove, "button-secondary");
+    helper.toggleClass(cloneRemove, "button-tertiary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       helper.removeClass(cloneBlock, "delete-state");
@@ -2274,7 +2286,7 @@ var clone = (function() {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneRemove, "active");
       helper.removeClass(cloneRemove, "button-primary");
-      helper.addClass(cloneRemove, "button-secondary");
+      helper.addClass(cloneRemove, "button-tertiary");
     };
   };
 
@@ -2397,7 +2409,6 @@ var clone = (function() {
   };
 
 })();
-
 var consumable = (function() {
 
   // // add consumable checks on total increase
@@ -2953,7 +2964,7 @@ var spells = (function() {
       helper.removeClass(spellRoot, "active-state");
       helper.removeClass(spellRoot, "delete-state");
       helper.removeClass(removeStateButton, "button-primary");
-      helper.addClass(removeStateButton, "button-secondary");
+      helper.addClass(removeStateButton, "button-tertiary");
     } else {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         helper.removeClass(all_spellStateControls[i], "active");
@@ -2971,7 +2982,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "unprepare") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "true";
@@ -2984,7 +2995,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "cast") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -2997,7 +3008,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "active") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -3010,7 +3021,7 @@ var spells = (function() {
         helper.addClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "remove") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -3023,7 +3034,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.addClass(spellRoot, "delete-state");
         helper.addClass(removeStateButton, "button-primary");
-        helper.removeClass(removeStateButton, "button-secondary");
+        helper.removeClass(removeStateButton, "button-tertiary");
       };
     };
   };
@@ -3424,12 +3435,12 @@ var totalBlock = (function() {
 
   nav.bind();
   nav.render(sheet.getAllCharacters());
-  nav.resizeNavList();
+  nav.resize();
   hidableBlock.bind();
   inputBlock.bind(helper.eA(".input-block"));
   textareaBlock.bind(helper.eA(".textarea-block"));
   stats.bind();
   sheet.render();
-  // quickNav.render();
+  quickNav.render();
 
 })();

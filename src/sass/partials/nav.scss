@@ -24,7 +24,7 @@
       width: 24px;
       left: 50%;
       position: absolute;
-      background-color: $primary-color;
+      background-color: $primary-color-07;
       border-radius: $border-radius-small;
       transform: translate(-50%, -50%);
       opacity: 1;
@@ -43,7 +43,7 @@
       }
     }
     &:hover {
-      background-color: $secondary-color-light-alpha;
+      background-color: $secondary-color-alpha-07;
     }
   }
   .nav-list {
@@ -102,7 +102,7 @@
             white-space: nowrap;
           }
           &.icon {
-            color: $secondary-color;
+            color: $secondary-color-03;
             font-size: 1.5rem;
             line-height: 3rem;
             width: 20%;
@@ -112,14 +112,14 @@
         }
         &:link,
         &:visited {
-          color: $primary-color;
+          color: $primary-color-07;
           background-color: transparent;
         }
         &:hover {
-          color: $primary-color-light;
+          color: $primary-color-07;
           background-color: $gray-alpha-12;
           text-decoration: none;
-          border-color: $primary-color;
+          border-color: $primary-color-07;
         }
         &:focus {
           background-color: $gray-alpha-12;
@@ -136,16 +136,16 @@
           }
         }
         &:active {
-          background-color: $primary-color-dark;
+          background-color: $primary-color-01;
         }
         &.active {
-          background-color: $primary-color;
+          background-color: $primary-color-07;
         }
         &.active {
           &:hover {
           }
           &:active {
-            background-color: $primary-color-dark;
+            background-color: $primary-color-01;
           }
         }
       }
@@ -177,10 +177,10 @@
   }
   &.bright {
     .nav-toggle {
-      background-color: $primary-color;
+      background-color: $primary-color-07;
       box-shadow: $shadow-medium;
       &:hover {
-        background-color: $primary-color;
+        background-color: $primary-color-07;
       }
       .line {
         background-color: $white;

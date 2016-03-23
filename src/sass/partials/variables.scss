@@ -6,35 +6,37 @@ $white:                               #ffffff;
 
 $background-color:                    #fafafa;
 
-$primary-color:                       #ff0055;
-$primary-color-dark:                  #cc0044;
-$primary-color-light:                 #ff3276;
-$primary-color-alpha:                 rgba(255, 0, 85, 0.5);
-$primary-color-dark-alpha:            rgba(204, 0, 68, 0.9);
-$primary-color-light-alpha:           rgba(255, 50, 118, 0.1);
+$primary-color-01:                    #770022; // dark
+$primary-color-02:                    #8d002a;
+$primary-color-03:                    #a40033;
+$primary-color-04:                    #bb003b;
+$primary-color-05:                    #d10044;
+$primary-color-06:                    #e8004c;
+$primary-color-07:                    #ff0055; // light
 
-$secondary-color:                     #336688;
-$secondary-color-light:               #5599cc;
-$secondary-color-dark:                #225577;
-$secondary-color-alpha:               rgba(51, 102, 136, 0.5);
-$secondary-color-dark-alpha:          rgba(34, 85, 119, 0.9);
-$secondary-color-light-alpha:         rgba(85, 153, 204, 0.1);
+$primary-color-alpha-01:              rgba(187, 0, 59, 0.7); // dark
+$primary-color-alpha-02:              rgba(187, 0, 59, 0.6);
+$primary-color-alpha-03:              rgba(187, 0, 59, 0.5);
+$primary-color-alpha-04:              rgba(187, 0, 59, 0.4);
+$primary-color-alpha-05:              rgba(187, 0, 59, 0.3);
+$primary-color-alpha-06:              rgba(187, 0, 59, 0.2);
+$primary-color-alpha-07:              rgba(187, 0, 59, 0.1); // light
 
-$primary-color-01:                    #770022;
-$primary-color-02:                    #850027;
-$primary-color-03:                    #93002d;
-$primary-color-04:                    #a10033;
-$primary-color-05:                    #af0038;
-$primary-color-06:                    #bd003e;
-$primary-color-07:                    #cc0044;
-
-$secondary-color-01:                  #223344;
-$secondary-color-02:                  #2a445a;
+$secondary-color-01:                  #223344; // dark
+$secondary-color-02:                  #2A445A;
 $secondary-color-03:                  #335571;
-$secondary-color-04:                  #3b6688;
-$secondary-color-05:                  #44779e;
-$secondary-color-06:                  #4c88b5;
-$secondary-color-07:                  #5599cc;
+$secondary-color-04:                  #3B6688;
+$secondary-color-05:                  #44779E;
+$secondary-color-06:                  #4C88B5;
+$secondary-color-07:                  #5599CC; // light
+
+$secondary-color-alpha-01:            rgba(59, 102, 136, 0.7); // dark
+$secondary-color-alpha-02:            rgba(59, 102, 136, 0.6);
+$secondary-color-alpha-03:            rgba(59, 102, 136, 0.5);
+$secondary-color-alpha-04:            rgba(59, 102, 136, 0.4);
+$secondary-color-alpha-05:            rgba(59, 102, 136, 0.3);
+$secondary-color-alpha-06:            rgba(59, 102, 136, 0.2);
+$secondary-color-alpha-07:            rgba(59, 102, 136, 0.1); // light
 
 $gray-01:                             #222222; // dark
 $gray-02:                             #343434;
@@ -49,9 +51,6 @@ $gray-10:                             #c4c4c4;
 $gray-11:                             #d6d6d6;
 $gray-12:                             #e8e8e8;
 $gray-13:                             #fafafa; // light
-
-$critical-20:                         #33c3f0;
-$critical-1:                          #990000;
 
 $gray-alpha-01:                       rgba(0, 0, 0, 0.87); // dark
 $gray-alpha-02:                       rgba(0, 0, 0, 0.80);
@@ -80,6 +79,9 @@ $light-alpha-10:                      rgba(255, 255, 255, 0.23);
 $light-alpha-11:                      rgba(255, 255, 255, 0.16);
 $light-alpha-12:                      rgba(255, 255, 255, 0.09);
 $light-alpha-13:                      rgba(255, 255, 255, 0.02); // dark
+
+$critical-20:                         #33c3f0;
+$critical-1:                          #990000;
 
 
 /* grid
@@ -172,5 +174,5 @@ $shadow-large-inset:                inset 0 1px 3px rgba(0, 0, 0, 0.3),
 ------------------------------------------------- */
 
 $border-radius-small:               2px;
-$border-radius-medium:              4px;
-$border-radius-large:               6px;
+$border-radius-medium:              3px;
+$border-radius-large:               4px;

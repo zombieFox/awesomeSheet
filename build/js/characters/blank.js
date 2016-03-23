@@ -81,11 +81,7 @@ var blank = (function() {
         silver: "",
         copper: ""
       },
-      consumable: [{
-        item: "",
-        total: "",
-        used: ""
-      }]
+      consumable: []
     },
     defense: {
       hp: {
@@ -323,7 +319,7 @@ var blank = (function() {
       },
       book: []
     },
-    notes: ""
+    character_notes: ""
   };
 
   // exposed methods

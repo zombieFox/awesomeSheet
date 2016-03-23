@@ -180,7 +180,7 @@ var spells = (function() {
       helper.removeClass(spellRoot, "active-state");
       helper.removeClass(spellRoot, "delete-state");
       helper.removeClass(removeStateButton, "button-primary");
-      helper.addClass(removeStateButton, "button-secondary");
+      helper.addClass(removeStateButton, "button-tertiary");
     } else {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         helper.removeClass(all_spellStateControls[i], "active");
@@ -198,7 +198,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "unprepare") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "true";
@@ -211,7 +211,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "cast") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -224,7 +224,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "active") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -237,7 +237,7 @@ var spells = (function() {
         helper.addClass(spellRoot, "active-state");
         helper.removeClass(spellRoot, "delete-state");
         helper.removeClass(removeStateButton, "button-primary");
-        helper.addClass(removeStateButton, "button-secondary");
+        helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "remove") {
         spellRoot.dataset.prepareSpellState = "false";
         spellRoot.dataset.unprepareSpellState = "false";
@@ -250,7 +250,7 @@ var spells = (function() {
         helper.removeClass(spellRoot, "active-state");
         helper.addClass(spellRoot, "delete-state");
         helper.addClass(removeStateButton, "button-primary");
-        helper.removeClass(removeStateButton, "button-secondary");
+        helper.removeClass(removeStateButton, "button-tertiary");
       };
     };
   };

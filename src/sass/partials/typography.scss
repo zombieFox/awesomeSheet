@@ -80,24 +80,24 @@ strong {
 }
 
 a {
-  color: $primary-color;
+  color: $primary-color-07;
   text-decoration: none;
   &:visited {
-    color: $primary-color;
+    color: $primary-color-07;
   }
   &:hover,
   &:focus {
-    color: $primary-color-dark;
+    color: $primary-color-alpha-01;
     text-decoration: underline;
   }
   &:active {
-    color: $primary-color-light;
+    color: $primary-color-alpha-07;
   }
 }
 
 .textarea-box,
 textarea {
-  background-color: $secondary-color-light-alpha;
+  background-color: $secondary-color-alpha-07;
   padding: 0.5rem 10px;
   margin: 0 0 2rem 0;
   width: 100%;
@@ -109,10 +109,10 @@ textarea {
   transition: border $transition-ease-medium, padding $transition-ease-medium, background-color $transition-ease-medium;
   resize: vertical;
   &:hover {
-    border-color: $primary-color;
+    border-color: $primary-color-07;
   }
   &:focus {
-    border-color: $primary-color;
+    border-color: $primary-color-07;
     outline: 0;
   }
 }
@@ -124,7 +124,7 @@ input {
   &[type="text"],
   &[type="tel"],
   &[type="password"] {
-    background-color: $secondary-color-light-alpha;
+    background-color: $secondary-color-alpha-07;
     font-family: $open-sans-regular;
     font-size: 1rem;
     height: 2.5rem;
@@ -138,10 +138,10 @@ input {
     box-sizing: border-box;
     transition: all $transition-ease-medium;
     &:hover {
-      border-color: $primary-color;
+      border-color: $primary-color-07;
     }
     &:focus {
-      border-color: $primary-color;
+      border-color: $primary-color-07;
       outline: 0;
     }
     &.no-margin {
@@ -253,21 +253,21 @@ table {
 ------------------------------------------------- */
 
 ::-webkit-input-placeholder {
-  color: $secondary-color-dark-alpha;
+  color: $secondary-color-alpha-01;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: $secondary-color-dark-alpha;
+  color: $secondary-color-alpha-01;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: $secondary-color-dark-alpha;
+  color: $secondary-color-alpha-01;
 }
 
 ::selection {
-  background-color: $secondary-color-light;
+  background-color: $secondary-color-07;
   color: $white;
 }
 
