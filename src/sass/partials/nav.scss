@@ -142,8 +142,7 @@
           background-color: $primary-color-07;
         }
         &.active {
-          &:hover {
-          }
+          &:hover {}
           &:active {
             background-color: $primary-color-01;
           }
@@ -154,6 +153,7 @@
   &.open {
     .nav-toggle {
       .line {
+        background-color: $white;
         &.top {
           top: 50%;
           transform: translate(-12px, -1px) rotate(135deg);

@@ -3,14 +3,14 @@
 
 .clone-block {
   .clone-controls {
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
     .button {
       margin: 0 5px 5px 0;
     }
   }
   .clone {
     padding: 0;
-    margin: 1rem 0;
+    margin: 0 0 2rem 0;
     border: 0 solid transparent;
     border-radius: 0;
     transition: all $transition-ease-medium;
@@ -51,29 +51,10 @@
       visibility: hidden;
     }
     .clone {
+      margin: 0;
       .clone-delete-controls {
         height: 40px;
         opacity: 1;
-      }
-    }
-    &.attack {
-      .clone {
-        .clone-delete-controls {}
-      }
-    }
-    &.consumable {
-      .clone {
-        .clone-delete-controls {}
-        .consumable-bar {
-          .consumable-bar-percentage {
-            background-color: transparent;
-            border-color: transparent;
-            .percentage-total {
-              color: transparent;
-              visibility: hidden;
-            }
-          }
-        }
       }
     }
   }
@@ -85,22 +66,8 @@
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .clone-block {
-    .clone-controls {
-      margin: 0;
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  .clone-block {
-    &.consumable {
-      .consumable-counts {
-        margin: 0;
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}

@@ -1,11 +1,5 @@
 var textareaBlock = (function() {
 
-  function _store(element) {
-    var path = element.dataset.path;
-    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
-    sheet.storeCharacters();
-  };
-
   function focus(element) {
     var textareaBlockRoot = helper.getClosest(element, ".textarea-block");
     var textareaBox = textareaBlockRoot.querySelector(".textarea-box");
@@ -74,6 +68,12 @@ var textareaBlock = (function() {
       all_textareaBlock[i].innerHTML = content;
       updateTextareaBlock(all_textareaBlock[i]);
     };
+  };
+
+  function _store(element) {
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
+    sheet.storeCharacters();
   };
 
   // exposed methods

@@ -2,6 +2,16 @@
 ------------------------------------------------- */
 
 .consumable {
+  input {
+    &[type="email"],
+    &[type="number"],
+    &[type="search"],
+    &[type="text"],
+    &[type="tel"],
+    &[type="password"] {
+      margin: 0;
+    }
+  }
   .consumable-bar {
     background-color: transparent;
     margin: 0;
@@ -35,6 +45,22 @@
       }
       &.empty {
         border: 0 solid transparent;
+      }
+    }
+  }
+  &.delete-state {
+    &.consumable {
+      .clone {
+        .consumable-bar {
+          .consumable-bar-percentage {
+            background-color: transparent;
+            border-color: transparent;
+            .percentage-total {
+              color: transparent;
+              visibility: hidden;
+            }
+          }
+        }
       }
     }
   }

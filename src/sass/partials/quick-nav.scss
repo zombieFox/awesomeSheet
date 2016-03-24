@@ -11,7 +11,6 @@
   height: 70px;
   background-color: $secondary-color-01;
   z-index: $quick-nav;
-  box-shadow: $shadow-small;
   ul {
     margin: 0;
     padding: 10px 0;
@@ -43,7 +42,10 @@
           outline: 0;
           transform: scale(1.2);
         }
-        &:active,
+        &:active {
+          color: $primary-color-07;
+          transform: scale(1.3);
+        }
         &.active {
           color: $white;
           transform: scale(1.3);

@@ -727,8 +727,8 @@ button {
     .button.button-tertiary:active, .button.button-tertiary.active,
     button.button-tertiary:active,
     button.button-tertiary.active {
-      background-color: rgba(0, 0, 0, 0.02);
-      border-color: rgba(0, 0, 0, 0.09); }
+      background-color: rgba(0, 0, 0, 0.09);
+      border-color: rgba(0, 0, 0, 0.16); }
   .button.button-dark,
   button.button-dark {
     color: #c4c4c4;
@@ -1253,21 +1253,23 @@ table {
           background-color: #ff0055; }
         #nav .nav-list li a.active:active {
           background-color: #770022; }
-  #nav.open .nav-toggle .line.top {
-    top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(135deg);
-        -ms-transform: translate(-12px, -1px) rotate(135deg);
-            transform: translate(-12px, -1px) rotate(135deg);
-    transition-delay: 0.3s; }
-  #nav.open .nav-toggle .line.middle {
-    opacity: 0;
-    transition-delay: 0s; }
-  #nav.open .nav-toggle .line.bottom {
-    top: 50%;
-    -webkit-transform: translate(-12px, -1px) rotate(-135deg);
-        -ms-transform: translate(-12px, -1px) rotate(-135deg);
-            transform: translate(-12px, -1px) rotate(-135deg);
-    transition-delay: 0.3s; }
+  #nav.open .nav-toggle .line {
+    background-color: #ffffff; }
+    #nav.open .nav-toggle .line.top {
+      top: 50%;
+      -webkit-transform: translate(-12px, -1px) rotate(135deg);
+          -ms-transform: translate(-12px, -1px) rotate(135deg);
+              transform: translate(-12px, -1px) rotate(135deg);
+      transition-delay: 0.3s; }
+    #nav.open .nav-toggle .line.middle {
+      opacity: 0;
+      transition-delay: 0s; }
+    #nav.open .nav-toggle .line.bottom {
+      top: 50%;
+      -webkit-transform: translate(-12px, -1px) rotate(-135deg);
+          -ms-transform: translate(-12px, -1px) rotate(-135deg);
+              transform: translate(-12px, -1px) rotate(-135deg);
+      transition-delay: 0.3s; }
   #nav.open .nav-list {
     right: 0;
     transition: all 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6); }
@@ -1292,8 +1294,7 @@ table {
   width: 100%;
   height: 70px;
   background-color: #223344;
-  z-index: 4000;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1); }
+  z-index: 4000; }
   #quick-nav ul {
     margin: 0;
     padding: 10px 0;
@@ -1329,7 +1330,12 @@ table {
           -webkit-transform: scale(1.2);
               -ms-transform: scale(1.2);
                   transform: scale(1.2); }
-        #quick-nav ul li a:active, #quick-nav ul li a.active {
+        #quick-nav ul li a:active {
+          color: #ff0055;
+          -webkit-transform: scale(1.3);
+              -ms-transform: scale(1.3);
+                  transform: scale(1.3); }
+        #quick-nav ul li a.active {
           color: #ffffff;
           -webkit-transform: scale(1.3);
               -ms-transform: scale(1.3);
@@ -1588,13 +1594,13 @@ table {
 /* clone
 ------------------------------------------------- */
 .clone-block .clone-controls {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 2rem 0; }
   .clone-block .clone-controls .button {
     margin: 0 5px 5px 0; }
 
 .clone-block .clone {
   padding: 0;
-  margin: 1rem 0;
+  margin: 0 0 2rem 0;
   border: 0 solid transparent;
   border-radius: 0;
   transition: all 0.3s ease-in-out; }
@@ -1625,29 +1631,19 @@ table {
   color: transparent;
   visibility: hidden; }
 
-.clone-block.delete-state .clone .clone-delete-controls {
-  height: 40px;
-  opacity: 1; }
-
-.clone-block.delete-state.consumable .clone .consumable-bar .consumable-bar-percentage {
-  background-color: transparent;
-  border-color: transparent; }
-  .clone-block.delete-state.consumable .clone .consumable-bar .consumable-bar-percentage .percentage-total {
-    color: transparent;
-    visibility: hidden; }
+.clone-block.delete-state .clone {
+  margin: 0; }
+  .clone-block.delete-state .clone .clone-delete-controls {
+    height: 40px;
+    opacity: 1; }
 
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 700px) {
-  .clone-block .clone-controls {
-    margin: 0; } }
-
-@media (min-width: 900px) {
-  .clone-block.consumable .consumable-counts {
-    margin: 0; } }
-
 /* consumable
 ------------------------------------------------- */
+.consumable input[type="email"], .consumable input[type="number"], .consumable input[type="search"], .consumable input[type="text"], .consumable input[type="tel"], .consumable input[type="password"] {
+  margin: 0; }
+
 .consumable .consumable-bar {
   background-color: transparent;
   margin: 0;
@@ -1681,6 +1677,13 @@ table {
     .consumable .consumable-bar .consumable-bar-percentage.empty {
       border: 0 solid transparent; }
 
+.consumable.delete-state.consumable .clone .consumable-bar .consumable-bar-percentage {
+  background-color: transparent;
+  border-color: transparent; }
+  .consumable.delete-state.consumable .clone .consumable-bar .consumable-bar-percentage .percentage-total {
+    color: transparent;
+    visibility: hidden; }
+
 /* structure
 ------------------------------------------------- */
 body {
@@ -1696,7 +1699,8 @@ section {
     text-transform: uppercase;
     position: relative;
     z-index: 3000;
-    height: 30px; }
+    height: 30px;
+    transition: background-color 0.3s ease-in-out; }
     section .section-heading h1 {
       margin: 0;
       line-height: 30px;
@@ -1716,6 +1720,7 @@ section {
   section.pinned {
     padding-top: 50px; }
     section.pinned .section-heading {
+      background-color: #2A445A;
       margin: 0;
       position: fixed;
       top: 70px;
@@ -1862,14 +1867,14 @@ hr {
 /* spells
 ------------------------------------------------- */
 #spells .spell-level {
-  margin: 0 0 0.5rem 0; }
+  margin: 0 0 2rem 0; }
   #spells .spell-level h2 {
     margin: 0 0 0.5rem 0; }
   #spells .spell-level input {
     margin: 0 0 0.5rem 0; }
   #spells .spell-level .spells-known .button {
     padding: 0 10px;
-    margin: 0 0.5% 0.5% 0;
+    margin: 0 0.5% 1px 0;
     width: 49.5%;
     text-align: left;
     font-size: 0.9rem;
@@ -1957,3 +1962,18 @@ hr {
 
 /* media queries
 ------------------------------------------------- */
+@media (min-width: 550px) {
+  #spells .spell-level .spells-known .button {
+    margin: 0 0.5% 2px 0; } }
+
+@media (min-width: 700px) {
+  #spells .spell-level .spells-known .button {
+    margin: 0 0.5% 3px 0; } }
+
+@media (min-width: 900px) {
+  #spells .spell-level .spells-known .button {
+    margin: 0 0.5% 4px 0; } }
+
+@media (min-width: 1300px) {
+  #spells .spell-level .spells-known .button {
+    margin: 0 0.5% 5px 0; } }
