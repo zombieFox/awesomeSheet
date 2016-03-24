@@ -18,7 +18,7 @@ var prompt = (function() {
     var promptAction = document.createElement("button");
     promptAction.setAttribute("class", "button button-primary button-block prompt-action");
     var promptCencel = document.createElement("button");
-    promptCencel.setAttribute("class", "button button-secondary button-block prompt-cancel");
+    promptCencel.setAttribute("class", "button button-tertiary button-block prompt-cancel");
     var promptDownload = document.createElement("a");
     promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
     promptDownload.setAttribute("download", sheet.getCharacter().basics.name + ".json");

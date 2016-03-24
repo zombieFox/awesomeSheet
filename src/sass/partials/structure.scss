@@ -16,7 +16,7 @@ section {
     position: relative;
     z-index: $section-heading;
     height: 30px;
-    // transition: background-color $transition-ease-fast;
+    transition: background-color $transition-ease-medium;
     h1 {
       margin: 0;
       line-height: 30px;
@@ -39,11 +39,11 @@ section {
   &.pinned {
     padding-top: 50px;
     .section-heading {
+      background-color: $secondary-color-02;
       margin: 0;
       position: fixed;
       top: 70px;
       width: 100%;
-      h1 {}
     }
   }
 }

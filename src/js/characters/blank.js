@@ -319,7 +319,10 @@ var blank = (function() {
       },
       book: []
     },
-    character_notes: ""
+    notes: {
+      character: "",
+      story: "",
+    }
   };
 
   // exposed methods
