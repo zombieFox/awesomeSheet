@@ -3439,6 +3439,8 @@ var totalBlock = (function() {
 
 })();
 
+"use strict";
+
 (function() {
 
   nav.bind();

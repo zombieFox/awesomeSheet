@@ -3,45 +3,63 @@
 
 #skills {
   .skill-list {
-    tr {
-      td {
+    .skill {
+      .name,
+      .stat,
+      .total,
+      .ranks,
+      .misc {
+        float: left;
+        display: block;
+        margin: 0;
+      }
+      .name {
+        width: 45%;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .stat {
+        width: 10%;
+        text-align: center;
+      }
+      .total {
         width: 15%;
-        display: inline-block;
-        .name {
-          white-space: nowrap;
-        }
-        .total {
-          font-family: $open-sans-semi-bold;
-        }
-        &:first-child {
-          width: 40%;
-          white-space: nowrap;
-          overflow: hidden;
+        font-family: $open-sans-semi-bold;
+        text-align: center;
+      }
+      .ranks,
+      .misc {
+        width: 15%;
+        text-align: center;
+        input {
+          &[type="email"],
+          &[type="number"],
+          &[type="search"],
+          &[type="text"],
+          &[type="tel"],
+          &[type="url"],
+          &[type="password"] {
+            text-align: center;
+            padding: 0;
+          }
         }
       }
     }
   }
   &[data-all-hidden="true"] {
     .skill-list {
-      tr {
+      .skill {
         width: 47%;
-        float: left;
         margin: 0 3% 0 0;
-        &:nth-child(even) {
-          margin: 0 0 0 3%;
+        float: left;
+        .name {
+          width: 85%;
         }
-        td {
+        .total {
           width: 15%;
-          display: inline-block;
-          float: left;
-          text-align: right;
-          &:first-child {
-            width: 85%;
-            text-align: left;
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-          }
+        }
+        &:nth-child(odd) {
+          margin: 0 0 0 3%;
         }
       }
     }
@@ -60,40 +78,20 @@
 
 @media (min-width: $screen-xl) {
   #skills {
-    .skill-list {
-      thead {
-        tr {
-          td {
-            color: $gray-03;
-            &:first-child {}
-          }
-        }
-      }
-      tr {
-        td {
-          width: 10%;
-          &:first-child {
-            width: 60%;
-          }
-        }
-      }
-    }
     &[data-all-hidden="true"] {
       .skill-list {
-        tr {
-          width: 30.3333333333%;
+        .skill {
+          width: 31.3333333333%;
+          margin: 0;
           float: left;
-          margin: 0 3% 0 0;
-          &:nth-child(even) {
-            margin: 0 3% 0 0;
-          }
-          &:nth-child(3n-1) {
-            width: 33.3333333333%;
+          &:nth-child(3n) {
             margin: 0;
           }
-          &:nth-child(3n) {
-            width: 30.3333333333%;
-            margin: 0 0 0 3%;
+          &:nth-child(3n+1) {
+            margin: 0 0 0 2%;
+          }
+          &:nth-child(3n+2) {
+            margin: 0 2% 0 0;
           }
         }
       }

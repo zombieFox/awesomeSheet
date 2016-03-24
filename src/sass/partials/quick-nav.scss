@@ -18,9 +18,11 @@
     li {
       margin: 0;
       padding: 0;
-      width: 10%;
-      display: inline-block;
+      width: 12.5%;
+      display: block;
+      float: left;
       list-style-type: none;
+      text-align: center;
       a {
         width: 100%;
         height: 50px;

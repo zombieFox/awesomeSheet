@@ -685,38 +685,38 @@ button {
   .button.button-secondary,
   button.button-secondary {
     color: #ffffff;
-    background-color: #3B6688;
-    border-color: #2A445A; }
+    background-color: #3b6688;
+    border-color: #2a445a; }
     .button.button-secondary:link, .button.button-secondary:visited,
     button.button-secondary:link,
     button.button-secondary:visited {
       color: #ffffff;
-      background-color: #2A445A;
+      background-color: #2a445a;
       border-color: #223344; }
     .button.button-secondary:focus, .button.button-secondary:hover,
     button.button-secondary:focus,
     button.button-secondary:hover {
-      background-color: #4C88B5;
+      background-color: #4c88b5;
       outline: 0;
       text-decoration: none; }
     .button.button-secondary:active, .button.button-secondary.active,
     button.button-secondary:active,
     button.button-secondary.active {
-      background-color: #2A445A; }
+      background-color: #2a445a; }
   .button.button-tertiary,
   button.button-tertiary {
     color: rgba(0, 0, 0, 0.8);
     background-color: transparent;
-    border-color: rgba(0, 0, 0, 0.02); }
+    border-color: rgba(0, 0, 0, 0.09); }
     .button.button-tertiary:link, .button.button-tertiary:visited,
     button.button-tertiary:link,
     button.button-tertiary:visited {
       color: rgba(0, 0, 0, 0.8);
       background-color: transparent;
-      border-color: rgba(0, 0, 0, 0.02); }
+      border-color: rgba(0, 0, 0, 0.09); }
     .button.button-tertiary:focus,
     button.button-tertiary:focus {
-      border-color: rgba(0, 0, 0, 0.09);
+      border-color: rgba(0, 0, 0, 0.16);
       outline: 0;
       text-decoration: none; }
     .button.button-tertiary:hover,
@@ -1017,11 +1017,11 @@ table {
   color: rgba(59, 102, 136, 0.7); }
 
 ::-moz-selection {
-  background-color: #5599CC;
+  background-color: #5599cc;
   color: #ffffff; }
 
 ::selection {
-  background-color: #5599CC;
+  background-color: #5599cc;
   color: #ffffff; }
 
 ::-webkit-full-screen {
@@ -1302,16 +1302,18 @@ table {
     #quick-nav ul li {
       margin: 0;
       padding: 0;
-      width: 10%;
-      display: inline-block;
-      list-style-type: none; }
+      width: 12.5%;
+      display: block;
+      float: left;
+      list-style-type: none;
+      text-align: center; }
       #quick-nav ul li a {
         width: 100%;
         height: 50px;
         line-height: 50px;
         font-size: 2rem;
         text-decoration: none;
-        color: #44779E;
+        color: #44779e;
         -webkit-transform: scale(1);
             -ms-transform: scale(1);
                 transform: scale(1);
@@ -1319,13 +1321,13 @@ table {
         -webkit-tap-highlight-color: transparent;
         transition: all 0.1s ease-in-out; }
         #quick-nav ul li a:focus {
-          color: #4C88B5;
+          color: #4c88b5;
           outline: 0;
           -webkit-transform: scale(1.1);
               -ms-transform: scale(1.1);
                   transform: scale(1.1); }
         #quick-nav ul li a:hover {
-          color: #5599CC;
+          color: #5599cc;
           outline: 0;
           -webkit-transform: scale(1.2);
               -ms-transform: scale(1.2);
@@ -1695,7 +1697,7 @@ section {
   section .section-heading {
     padding: 10px 0;
     position: relative;
-    background-color: #3B6688;
+    background-color: #3b6688;
     text-transform: uppercase;
     position: relative;
     z-index: 3000;
@@ -1720,7 +1722,7 @@ section {
   section.pinned {
     padding-top: 50px; }
     section.pinned .section-heading {
-      background-color: #2A445A;
+      background-color: #2a445a;
       margin: 0;
       position: fixed;
       top: 70px;
@@ -1728,7 +1730,7 @@ section {
 
 hr {
   border: 0;
-  border-top: 1px solid #44779E;
+  border-top: 1px solid #44779e;
   margin: 0 0 2rem 0;
   clear: both; }
 
@@ -1741,9 +1743,9 @@ hr {
   padding: 120px 0 30px;
   background-color: #335571; }
   #basics .input-block .input-label {
-    color: #44779E; }
+    color: #44779e; }
     #basics .input-block .input-label.input-label-focus {
-      color: #5599CC; }
+      color: #5599cc; }
     #basics .input-block .input-label.input-label-active {
       color: rgba(255, 255, 255, 0.51); }
   #basics .input-block .input-field {
@@ -1770,13 +1772,13 @@ hr {
       position: relative;
       z-index: 1; }
   #basics ::-webkit-input-placeholder {
-    color: #44779E; }
+    color: #44779e; }
   #basics :-moz-placeholder {
     /* Firefox 18- */
-    color: #44779E; }
+    color: #44779e; }
   #basics ::-moz-placeholder {
     /* Firefox 19+ */
-    color: #44779E; }
+    color: #44779e; }
 
 /* media queries
 ------------------------------------------------- */
@@ -1812,57 +1814,68 @@ hr {
 ------------------------------------------------- */
 /* skills
 ------------------------------------------------- */
-#skills .skill-list tr td {
-  width: 15%;
-  display: inline-block; }
-  #skills .skill-list tr td .name {
-    white-space: nowrap; }
-  #skills .skill-list tr td .total {
-    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
-  #skills .skill-list tr td:first-child {
-    width: 40%;
-    white-space: nowrap;
-    overflow: hidden; }
-
-#skills[data-all-hidden="true"] .skill-list tr {
-  width: 47%;
+#skills .skill-list .skill .name,
+#skills .skill-list .skill .stat,
+#skills .skill-list .skill .total,
+#skills .skill-list .skill .ranks,
+#skills .skill-list .skill .misc {
   float: left;
-  margin: 0 3% 0 0; }
-  #skills[data-all-hidden="true"] .skill-list tr:nth-child(even) {
+  display: block;
+  margin: 0; }
+
+#skills .skill-list .skill .name {
+  width: 45%;
+  white-space: nowrap;
+  overflow: hidden; }
+
+#skills .skill-list .skill .stat {
+  width: 10%;
+  text-align: center; }
+
+#skills .skill-list .skill .total {
+  width: 15%;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  text-align: center; }
+
+#skills .skill-list .skill .ranks,
+#skills .skill-list .skill .misc {
+  width: 15%;
+  text-align: center; }
+  #skills .skill-list .skill .ranks input[type="email"], #skills .skill-list .skill .ranks input[type="number"], #skills .skill-list .skill .ranks input[type="search"], #skills .skill-list .skill .ranks input[type="text"], #skills .skill-list .skill .ranks input[type="tel"], #skills .skill-list .skill .ranks input[type="url"], #skills .skill-list .skill .ranks input[type="password"],
+  #skills .skill-list .skill .misc input[type="email"],
+  #skills .skill-list .skill .misc input[type="number"],
+  #skills .skill-list .skill .misc input[type="search"],
+  #skills .skill-list .skill .misc input[type="text"],
+  #skills .skill-list .skill .misc input[type="tel"],
+  #skills .skill-list .skill .misc input[type="url"],
+  #skills .skill-list .skill .misc input[type="password"] {
+    text-align: center;
+    padding: 0; }
+
+#skills[data-all-hidden="true"] .skill-list .skill {
+  width: 47%;
+  margin: 0 3% 0 0;
+  float: left; }
+  #skills[data-all-hidden="true"] .skill-list .skill .name {
+    width: 85%; }
+  #skills[data-all-hidden="true"] .skill-list .skill .total {
+    width: 15%; }
+  #skills[data-all-hidden="true"] .skill-list .skill:nth-child(odd) {
     margin: 0 0 0 3%; }
-  #skills[data-all-hidden="true"] .skill-list tr td {
-    width: 15%;
-    display: inline-block;
-    float: left;
-    text-align: right; }
-    #skills[data-all-hidden="true"] .skill-list tr td:first-child {
-      width: 85%;
-      text-align: left;
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden; }
 
 /* media queries
 ------------------------------------------------- */
 @media (min-width: 1300px) {
-  #skills .skill-list thead tr td {
-    color: #464646; }
-  #skills .skill-list tr td {
-    width: 10%; }
-    #skills .skill-list tr td:first-child {
-      width: 60%; }
-  #skills[data-all-hidden="true"] .skill-list tr {
-    width: 30.3333333333%;
-    float: left;
-    margin: 0 3% 0 0; }
-    #skills[data-all-hidden="true"] .skill-list tr:nth-child(even) {
-      margin: 0 3% 0 0; }
-    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n-1) {
-      width: 33.3333333333%;
+  #skills[data-all-hidden="true"] .skill-list .skill {
+    width: 31.3333333333%;
+    margin: 0;
+    float: left; }
+    #skills[data-all-hidden="true"] .skill-list .skill:nth-child(3n) {
       margin: 0; }
-    #skills[data-all-hidden="true"] .skill-list tr:nth-child(3n) {
-      width: 30.3333333333%;
-      margin: 0 0 0 3%; } }
+    #skills[data-all-hidden="true"] .skill-list .skill:nth-child(3n+1) {
+      margin: 0 0 0 2%; }
+    #skills[data-all-hidden="true"] .skill-list .skill:nth-child(3n+2) {
+      margin: 0 2% 0 0; } }
 
 /* spells
 ------------------------------------------------- */

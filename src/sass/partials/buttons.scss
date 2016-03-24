@@ -90,15 +90,15 @@ button {
   &.button-tertiary {
     color: $gray-alpha-02;
     background-color: transparent;
-    border-color: $gray-alpha-13;
+    border-color: $gray-alpha-12;
     &:link,
     &:visited {
       color: $gray-alpha-02;
       background-color: transparent;
-      border-color: $gray-alpha-13;
+      border-color: $gray-alpha-12;
     }
     &:focus {
-      border-color: $gray-alpha-12;
+      border-color: $gray-alpha-11;
       outline: 0;
       text-decoration: none;
     }
