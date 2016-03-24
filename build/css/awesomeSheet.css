@@ -1697,16 +1697,15 @@ section {
   section .section-heading {
     padding: 10px 0;
     position: relative;
-    background-color: #3b6688;
+    background-color: rgba(59, 102, 136, 0.1);
     text-transform: uppercase;
     position: relative;
     z-index: 3000;
     height: 30px;
-    transition: background-color 0.3s ease-in-out; }
+    transition: background-color 0.1s ease-in-out; }
     section .section-heading h1 {
       margin: 0;
-      line-height: 30px;
-      color: #ffffff; }
+      line-height: 30px; }
   section .section-controls {
     text-align: right;
     height: 30px; }
@@ -1719,6 +1718,10 @@ section {
               transform: translateY(-50%); }
   section .section-wrapper {
     padding: 3rem 0; }
+  section.almost-pinned .section-heading {
+    background-color: #2a445a; }
+    section.almost-pinned .section-heading h1 {
+      color: #ffffff; }
   section.pinned {
     padding-top: 50px; }
     section.pinned .section-heading {
@@ -1727,6 +1730,8 @@ section {
       position: fixed;
       top: 70px;
       width: 100%; }
+      section.pinned .section-heading h1 {
+        color: #ffffff; }
 
 hr {
   border: 0;
@@ -1977,16 +1982,17 @@ hr {
 ------------------------------------------------- */
 @media (min-width: 550px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0.5% 2px 0; } }
+    margin-bottom: 2px; } }
 
 @media (min-width: 700px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0.5% 3px 0; } }
+    margin-bottom: 3px; } }
 
 @media (min-width: 900px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0.5% 4px 0; } }
+    margin-bottom: 4px; } }
 
 @media (min-width: 1300px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0.5% 5px 0; } }
+    width: 32.3333333333%;
+    margin: 0 1% 6px 0; } }

@@ -5,6 +5,15 @@ var quickNav = (function() {
       var quickNavLinks = helper.eA(".quick-link");
       var sections = helper.eA("section");
       var menu = 70;
+      var preMenu = 200;
+      for (var i = 0; i < sections.length; i++) {
+        // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
+        if (sections[i].getBoundingClientRect().top <= preMenu && sections[i].getBoundingClientRect().bottom > preMenu) {
+          helper.addClass(sections[i], "almost-pinned");
+        } else {
+          helper.removeClass(sections[i], "almost-pinned");
+        };
+      };
       for (var i = 0; i < sections.length; i++) {
         // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
         if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {

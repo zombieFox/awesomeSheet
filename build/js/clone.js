@@ -30,7 +30,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-8 col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 col-lg-1 col-lg-offset-11">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -72,7 +72,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '<div class="row">' +
-      '<div class="col-xs-4 col-xs-offset-8 col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 col-lg-1 col-lg-offset-11">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -126,7 +126,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '<div class="row">' +
-      '<div class="col-xs-4 col-xs-offset-8 col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 col-lg-1 col-lg-offset-11">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +

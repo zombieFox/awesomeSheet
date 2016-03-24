@@ -11,16 +11,15 @@ section {
   .section-heading {
     padding: 10px 0;
     position: relative;
-    background-color: $secondary-color-04;
+    background-color: $secondary-color-alpha-07;
     text-transform: uppercase;
     position: relative;
     z-index: $section-heading;
     height: 30px;
-    transition: background-color $transition-ease-medium;
+    transition: background-color $transition-ease-fast;
     h1 {
       margin: 0;
       line-height: 30px;
-      color: $white;
     }
   }
   .section-controls {
@@ -36,6 +35,14 @@ section {
   .section-wrapper {
     padding: 3rem 0;
   }
+  &.almost-pinned {
+    .section-heading {
+      background-color: $secondary-color-02;
+      h1 {
+        color: $white;
+      }
+    }
+  }
   &.pinned {
     padding-top: 50px;
     .section-heading {
@@ -44,6 +51,9 @@ section {
       position: fixed;
       top: 70px;
       width: 100%;
+      h1 {
+        color: $white;
+      }
     }
   }
 }

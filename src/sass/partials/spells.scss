@@ -162,7 +162,7 @@
     .spell-level {
       .spells-known {
         .button {
-          margin: 0 0.5% 2px 0;
+          margin-bottom: 2px;
         }
       }
     }
@@ -174,7 +174,7 @@
     .spell-level {
       .spells-known {
         .button {
-          margin: 0 0.5% 3px 0;
+          margin-bottom: 3px;
         }
       }
     }
@@ -186,7 +186,7 @@
     .spell-level {
       .spells-known {
         .button {
-          margin: 0 0.5% 4px 0;
+          margin-bottom: 4px;
         }
       }
     }
@@ -198,7 +198,8 @@
     .spell-level {
       .spells-known {
         .button {
-          margin: 0 0.5% 5px 0;
+          width: 32.3333333333%;
+          margin: 0 1% 6px 0;
         }
       }
     }

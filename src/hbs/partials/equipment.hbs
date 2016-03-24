@@ -33,24 +33,6 @@
                 <div class="textarea-box" id="equipment-magic-gear" data-path="equipment.magic_gear" contentEditable="true" tabindex="3"></div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-4 hidable-on-empty-input">
-              <div class="input-block">
-                <label class="input-label" for="equipment-encumbrance-light">Light Load</label>
-                <input class="input-field" id="equipment-encumbrance-light" data-path="equipment.encumbrance.light" type="text" tabindex="3">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-4 hidable-on-empty-input">
-              <div class="input-block">
-                <label class="input-label" for="equipment-encumbrance-medium">Medium Load</label>
-                <input class="input-field" id="equipment-encumbrance-medium" data-path="equipment.encumbrance.medium" type="text" tabindex="3">
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-4 hidable-on-empty-input">
-              <div class="input-block">
-                <label class="input-label" for="equipment-encumbrance-heavy">Heavy Load</label>
-                <input class="input-field" id="equipment-encumbrance-heavy" data-path="equipment.encumbrance.heavy" type="text" tabindex="3">
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -155,6 +137,33 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-3">
+          <h2 class="margin-with-input">Encumbrance</h2>
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="row no-gutter">
+            <div class="col-xs-4 hidable-on-empty-input">
+              <div class="input-block">
+                <label class="input-label" for="equipment-encumbrance-light">Light Load</label>
+                <input class="input-field" id="equipment-encumbrance-light" data-path="equipment.encumbrance.light" type="text" tabindex="3">
+              </div>
+            </div>
+            <div class="col-xs-4 hidable-on-empty-input">
+              <div class="input-block">
+                <label class="input-label" for="equipment-encumbrance-medium">Medium Load</label>
+                <input class="input-field" id="equipment-encumbrance-medium" data-path="equipment.encumbrance.medium" type="text" tabindex="3">
+              </div>
+            </div>
+            <div class="col-xs-4 hidable-on-empty-input">
+              <div class="input-block">
+                <label class="input-label" for="equipment-encumbrance-heavy">Heavy Load</label>
+                <input class="input-field" id="equipment-encumbrance-heavy" data-path="equipment.encumbrance.heavy" type="text" tabindex="3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
           <h2 class="margin-with-input">Wealth</h2>
         </div>
         <div class="col-xs-12 col-md-9">
@@ -188,19 +197,21 @@
       </div>
       <div class="clone-block consumable" data-delete-clone-state="false">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-xs-12 col-md-3">
             <h2>Consumables</h2>
           </div>
-          <div class="col-xs-12">
-            <div class="clone-controls">
-              <button class="clone-add button button-tertiary button-icon" tabindex="3"><span class="icon-add"></span>Add</button>
-              <button class="clone-remove button button-tertiary button-icon" tabindex="3"><span class="icon-remove"></span>Remove</button>
+          <div class="col-xs-12 col-md-9">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="clone-controls">
+                  <button class="clone-add button button-tertiary button-icon" tabindex="3"><span class="icon-add"></span>Add</button>
+                  <button class="clone-remove button button-tertiary button-icon" tabindex="3"><span class="icon-remove"></span>Remove</button>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="clone-target"></div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="clone-target"></div>
           </div>
         </div>
       </div>
