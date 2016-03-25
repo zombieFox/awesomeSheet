@@ -1289,12 +1289,14 @@ table {
   padding: 0;
   margin: 0;
   position: fixed;
+  border-bottom: 0 solid transparent;
   top: 0;
   left: 0;
   width: 100%;
   height: 70px;
   background-color: #223344;
-  z-index: 4000; }
+  z-index: 3000;
+  transition: border 0.3s ease-in-out; }
   #quick-nav ul {
     margin: 0;
     padding: 10px 0;
@@ -1342,6 +1344,9 @@ table {
           -webkit-transform: scale(1.3);
               -ms-transform: scale(1.3);
                   transform: scale(1.3); }
+  #quick-nav.pinned {
+    border-bottom: 50px solid #335571;
+    transition: border 0.3s ease-in-out; }
 
 /* media queries
 ------------------------------------------------- */
@@ -1590,6 +1595,8 @@ table {
   .textarea-block .textarea-box {
     position: relative;
     z-index: 1; }
+    .textarea-block .textarea-box.tall {
+      min-height: 100px; }
 
 /* media queries
 ------------------------------------------------- */
@@ -1697,15 +1704,16 @@ section {
   section .section-heading {
     padding: 10px 0;
     position: relative;
-    background-color: rgba(59, 102, 136, 0.1);
+    background-color: rgba(59, 102, 136, 0.2);
     text-transform: uppercase;
     position: relative;
-    z-index: 3000;
+    z-index: 4000;
     height: 30px;
-    transition: background-color 0.1s ease-in-out; }
+    transition: background-color 0.3s ease-in-out; }
     section .section-heading h1 {
       margin: 0;
-      line-height: 30px; }
+      line-height: 30px;
+      transition: background-color 0.3s ease-in-out; }
   section .section-controls {
     text-align: right;
     height: 30px; }
@@ -1718,14 +1726,10 @@ section {
               transform: translateY(-50%); }
   section .section-wrapper {
     padding: 3rem 0; }
-  section.almost-pinned .section-heading {
-    background-color: #2a445a; }
-    section.almost-pinned .section-heading h1 {
-      color: #ffffff; }
   section.pinned {
     padding-top: 50px; }
     section.pinned .section-heading {
-      background-color: #2a445a;
+      background-color: transparent;
       margin: 0;
       position: fixed;
       top: 70px;

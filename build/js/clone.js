@@ -152,9 +152,11 @@ var clone = (function() {
     consumableCloneAdd.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
-      snack.render("Consumable added.", false, false);
       sheet.storeCharacters();
       consumable.render();
+      if (getCloneCount("consumable") <= 99) {
+        snack.render("Consumable added.", false, false);
+      };
     }, false);
     consumableCloneRemove.addEventListener("click", function() {
       _changeCloneState("consumable");
@@ -164,14 +166,18 @@ var clone = (function() {
     attackCloneAddMelee.addEventListener("click", function() {
       _render_clone(1, "attack-melee");
       _updateCloneAttackMelee();
-      snack.render("Melee attack added.", false, false);
       sheet.storeCharacters();
+      if (getCloneCount("attack-melee") <= 99) {
+        snack.render("Melee attack added.", false, false);
+      };
     }, false);
     attackCloneAddRanged.addEventListener("click", function() {
       _render_clone(1, "attack-ranged");
       _updateCloneAttackRanged();
-      snack.render("Ranged attack added.", false, false);
       sheet.storeCharacters();
+      if (getCloneCount("attack-ranged") <= 99) {
+        snack.render("Ranged attack added.", false, false);
+      };
     }, false);
     attackCloneRemove.addEventListener("click", function() {
       _changeCloneState("attack");
@@ -197,7 +203,7 @@ var clone = (function() {
       cloneTarget = cloneBlock.querySelector(".clone-target")
     };
     for (var i = 0; i < clone; i++) {
-      var cloneCount = cloneTarget.querySelectorAll(".clone").length;
+      var cloneCount = getCloneCount(cloneType);
       var cloneString;
       var index = i;
       // make new clone node
@@ -236,6 +242,24 @@ var clone = (function() {
         _bind_cloneRemoveButton(newNode.querySelector(".clone-delete-controls button"), cloneType);
       };
     };
+  };
+
+  function getCloneCount(cloneType) {
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".consumable");
+      cloneTarget = cloneBlock.querySelector(".clone-target")
+    };
+    var cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    return cloneCount;
   };
 
   function _render_cloneInput(array, cloneType) {
