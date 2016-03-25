@@ -187,7 +187,7 @@ var clone = (function() {
     }, false);
   })();
 
-  function _render_clone(clone, cloneType) {
+  function _render_clone(numberOfClones, cloneType) {
     var cloneBlock;
     var cloneTarget;
     if (cloneType == "attack-melee") {
@@ -202,7 +202,8 @@ var clone = (function() {
       cloneBlock = helper.e(".consumable");
       cloneTarget = cloneBlock.querySelector(".clone-target")
     };
-    for (var i = 0; i < clone; i++) {
+    for (var i = 0; i < numberOfClones; i++) {
+      var cloneCount = cloneTarget.querySelectorAll(".clone").length;
       var cloneString;
       var index = i;
       // make new clone node
@@ -243,21 +244,6 @@ var clone = (function() {
     };
   };
 
-    var cloneTarget;
-    if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
-    };
-    if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
-    };
-    if (cloneType == "consumable") {
-      cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target")
-    };
-  };
-
   function _render_cloneInput(array, cloneType) {
     var cloneBlock;
     var cloneTarget;
@@ -292,6 +278,53 @@ var clone = (function() {
         input.value = array[i][j];
         inputBlock.update(input);
       };
+    };
+  };
+
+  function _getCloneCount(cloneType) {
+    var cloneCount;
+    if (cloneType == "attack-melee") {
+      var cloneBlock = helper.e(".attack");
+      var cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
+      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    };
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      var cloneBlock = helper.e(".attack");
+      var cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
+      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    };
+    if (cloneType == "consumable") {
+      var cloneBlock = helper.e(".consumable");
+      var cloneTarget = cloneBlock.querySelector(".clone-target")
+      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    };
+    return cloneCount;
+  };
+
+  function _checkCloneState(cloneType) {
+    var cloneBlock;
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".consumable");
+      cloneTarget = cloneBlock.querySelector(".clone-target")
+    };
+    var cloneCount = cloneBlock.querySelectorAll(".clone").length;
+    var cloneControls = cloneBlock.querySelector(".clone-controls");
+    var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
+    if (cloneCount == 0) {
+      cloneBlock.dataset.deleteCloneState = "false";
+      helper.removeClass(cloneBlock, "delete-state");
+      helper.removeClass(cloneRemoveButton, "active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-tertiary");
     };
   };
 
@@ -398,13 +431,14 @@ var clone = (function() {
   };
 
   function _changeCloneState(cloneType) {
-    var cloneBlock = helper.e("." + cloneType);
+    var cloneBlock = helper.e(".clone-block." + cloneType);
     var cloneControls = cloneBlock.querySelector(".clone-controls");
-    var cloneRemove = cloneControls.querySelector(".clone-remove");
+    var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
+    var cloneCount = cloneBlock.querySelectorAll(".clone").length;
     // change clone remove button
-    helper.toggleClass(cloneRemove, "active");
-    helper.toggleClass(cloneRemove, "button-primary");
-    helper.toggleClass(cloneRemove, "button-tertiary");
+    helper.toggleClass(cloneRemoveButton, "active");
+    helper.toggleClass(cloneRemoveButton, "button-primary");
+    helper.toggleClass(cloneRemoveButton, "button-tertiary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       helper.removeClass(cloneBlock, "delete-state");
@@ -417,15 +451,13 @@ var clone = (function() {
     if (cloneCount == 0) {
       helper.removeClass(cloneBlock, "delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
-      helper.removeClass(cloneRemove, "active");
-      helper.removeClass(cloneRemove, "button-primary");
-      helper.addClass(cloneRemove, "button-tertiary");
+      helper.removeClass(cloneRemoveButton, "active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-tertiary");
     };
   };
 
-  function _destroy_clone(element, cloneType) {
-    var cloneBlock = helper.getClosest(element, ".clone-block");
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
+  function _destroy_clone(element) {
     var cloneToRemove = helper.getClosest(element, ".clone");
     cloneToRemove.remove();
   };

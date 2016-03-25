@@ -187,7 +187,7 @@ var clone = (function() {
     }, false);
   })();
 
-  function _render_clone(clone, cloneType) {
+  function _render_clone(numberOfClones, cloneType) {
     var cloneBlock;
     var cloneTarget;
     if (cloneType == "attack-melee") {
@@ -202,8 +202,8 @@ var clone = (function() {
       cloneBlock = helper.e(".consumable");
       cloneTarget = cloneBlock.querySelector(".clone-target")
     };
-    for (var i = 0; i < clone; i++) {
-      var cloneCount = cloneBlock.querySelectorAll(".clone").length;
+    for (var i = 0; i < numberOfClones; i++) {
+      var cloneCount = cloneTarget.querySelectorAll(".clone").length;
       var cloneString;
       var index = i;
       // make new clone node
