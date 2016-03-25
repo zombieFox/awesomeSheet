@@ -11,16 +11,15 @@ section {
   .section-heading {
     padding: 10px 0;
     position: relative;
-    background-color: $secondary-color-alpha-06;
+    background-color: $secondary-color-alpha-07;
     text-transform: uppercase;
     position: relative;
     z-index: $section-heading;
     height: 30px;
-    transition: background-color $transition-ease-medium;
+    transition: background-color $transition-ease-fast;
     h1 {
       margin: 0;
       line-height: 30px;
-      transition: background-color $transition-ease-medium;
     }
   }
   .section-controls {
@@ -39,11 +38,13 @@ section {
   &.pinned {
     padding-top: 50px;
     .section-heading {
-      background-color: transparent;
+      background-color: $secondary-color-04;
       margin: 0;
       position: fixed;
       top: 70px;
       width: 100%;
+      z-index: $section-heading-pinned;
+      animation: header-flash ease-out 0.5s;
       h1 {
         color: $white;
       }
@@ -69,3 +70,16 @@ hr {
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
+
+
+/* animations
+------------------------------------------------- */
+
+@keyframes header-flash {
+  0% {
+    background-color: $secondary-color-07;
+  }
+  100% {
+    background-color: $secondary-color-04;
+  }
+}

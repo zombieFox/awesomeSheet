@@ -5,7 +5,7 @@
   padding: 0;
   margin: 0;
   position: fixed;
-  border-bottom: 0 solid transparent;
+  // border-bottom: 0 solid transparent;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,8 +58,8 @@
     }
   }
   &.pinned {
-    border-bottom: 50px solid $secondary-color-03;
-    transition: border $transition-ease-medium;
+    // border-bottom: 50px solid $secondary-color-03;
+    // transition: border $transition-ease-medium;
   }
 }
 
