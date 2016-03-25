@@ -30,6 +30,8 @@
         .spell-marks {
           float: right;
           margin: 0 0 0 5px;
+          display: block;
+          visibility: visible;
           [class^="icon-"],
           [class*=" icon-"] {
             float: right;
@@ -41,10 +43,25 @@
         .spell-active {
           float: left;
           margin: 0 5px 0 0;
+          display: block;
+          visibility: visible;
           [class^="icon-"],
           [class*=" icon-"] {
             float: left;
             margin: 0;
+            line-height: 2rem;
+            height: auto;
+          }
+        }
+        .spell-remove {
+          float: right;
+          margin: 0 0 0 5px;
+          display: none;
+          visibility: hidden;
+          [class^="icon-"],
+          [class*=" icon-"] {
+            float: right;
+            margin: 0 0 0 1px;
             line-height: 2rem;
             height: auto;
           }
@@ -131,21 +148,20 @@
     .spell-level {
       .spells-known {
         .button {
-          background-color: $white;
+          background-color: $primary-color-alpha-07;
           color: $primary-color-07;
-          border-color: $primary-color-07;
-          &:link,
-          &:visited {
-            background-color: $white;
-            color: $primary-color-07;
-            border-color: $primary-color-07;
+          border-color: transparent;
+          .spell-marks {
+            display: none;
+            visibility: hidden;
           }
-          &:active,
-          &:focus,
-          &:hover {
-            color: $white;
-            background-color: $primary-color-07;
-            border-color: $primary-color-01;
+          .spell-active {
+            display: none;
+            visibility: hidden;
+          }
+          .spell-remove {
+            display: block;
+            visibility: visible;
           }
         }
       }

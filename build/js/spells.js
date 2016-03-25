@@ -323,6 +323,12 @@ var spells = (function() {
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "spell-active");
     spellButton.appendChild(spellActive);
+    var spellRemove = document.createElement("span");
+    spellRemove.setAttribute("class", "spell-remove");
+    spellButton.appendChild(spellRemove);
+    var spellRemoveIcon = document.createElement("span");
+    spellRemoveIcon.setAttribute("class", "icon-close");
+    spellRemove.appendChild(spellRemoveIcon);
     return spellButton;
   };
 

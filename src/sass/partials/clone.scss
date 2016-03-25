@@ -10,7 +10,6 @@
   }
   .clone {
     padding: 0;
-    margin: 0 0 2rem 0;
     border: 0 solid transparent;
     border-radius: 0;
     transition: all $transition-ease-medium;
@@ -41,7 +40,7 @@
       &[type="tel"],
       &[type="password"] {
         background-color: transparent;
-        border-color: $primary-color-07;
+        border-color: transparent;
         color: $primary-color-07;
         margin: 0;
       }
@@ -51,7 +50,10 @@
       visibility: hidden;
     }
     .clone {
-      margin: 0;
+      background-color: $primary-color-alpha-07;
+      margin: 0 0 1rem 0;
+      padding: 5px 10px;
+      border-radius: $border-radius-medium;
       .clone-delete-controls {
         height: 40px;
         opacity: 1;

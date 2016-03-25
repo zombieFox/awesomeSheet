@@ -1605,7 +1605,6 @@ table {
 
 .clone-block .clone {
   padding: 0;
-  margin: 0 0 2rem 0;
   border: 0 solid transparent;
   border-radius: 0;
   transition: all 0.3s ease-in-out; }
@@ -1628,7 +1627,7 @@ table {
 
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: transparent;
-  border-color: #ff0055;
+  border-color: transparent;
   color: #ff0055;
   margin: 0; }
 
@@ -1637,7 +1636,10 @@ table {
   visibility: hidden; }
 
 .clone-block.delete-state .clone {
-  margin: 0; }
+  background-color: rgba(187, 0, 59, 0.1);
+  margin: 0 0 1rem 0;
+  padding: 5px 10px;
+  border-radius: 3px; }
   .clone-block.delete-state .clone .clone-delete-controls {
     height: 40px;
     opacity: 1; }
@@ -1646,8 +1648,10 @@ table {
 ------------------------------------------------- */
 /* consumable
 ------------------------------------------------- */
-.consumable input[type="email"], .consumable input[type="number"], .consumable input[type="search"], .consumable input[type="text"], .consumable input[type="tel"], .consumable input[type="password"] {
-  margin: 0; }
+.consumable .clone {
+  margin: 0 0 2rem 0; }
+  .consumable .clone input[type="email"], .consumable .clone input[type="number"], .consumable .clone input[type="search"], .consumable .clone input[type="text"], .consumable .clone input[type="tel"], .consumable .clone input[type="password"] {
+    margin: 0; }
 
 .consumable .consumable-bar {
   background-color: transparent;
@@ -1922,7 +1926,9 @@ hr {
       overflow: hidden; }
     #spells .spell-level .spells-known .button .spell-marks {
       float: right;
-      margin: 0 0 0 5px; }
+      margin: 0 0 0 5px;
+      display: block;
+      visibility: visible; }
       #spells .spell-level .spells-known .button .spell-marks [class^="icon-"],
       #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"] {
         float: right;
@@ -1931,11 +1937,24 @@ hr {
         height: auto; }
     #spells .spell-level .spells-known .button .spell-active {
       float: left;
-      margin: 0 5px 0 0; }
+      margin: 0 5px 0 0;
+      display: block;
+      visibility: visible; }
       #spells .spell-level .spells-known .button .spell-active [class^="icon-"],
       #spells .spell-level .spells-known .button .spell-active [class*=" icon-"] {
         float: left;
         margin: 0;
+        line-height: 2rem;
+        height: auto; }
+    #spells .spell-level .spells-known .button .spell-remove {
+      float: right;
+      margin: 0 0 0 5px;
+      display: none;
+      visibility: hidden; }
+      #spells .spell-level .spells-known .button .spell-remove [class^="icon-"],
+      #spells .spell-level .spells-known .button .spell-remove [class*=" icon-"] {
+        float: right;
+        margin: 0 0 0 1px;
         line-height: 2rem;
         height: auto; }
 
@@ -1981,17 +2000,18 @@ hr {
     background-color: #fafafa; }
 
 #spells.delete-state .spell-level .spells-known .button {
-  background-color: #ffffff;
+  background-color: rgba(187, 0, 59, 0.1);
   color: #ff0055;
-  border-color: #ff0055; }
-  #spells.delete-state .spell-level .spells-known .button:link, #spells.delete-state .spell-level .spells-known .button:visited {
-    background-color: #ffffff;
-    color: #ff0055;
-    border-color: #ff0055; }
-  #spells.delete-state .spell-level .spells-known .button:active, #spells.delete-state .spell-level .spells-known .button:focus, #spells.delete-state .spell-level .spells-known .button:hover {
-    color: #ffffff;
-    background-color: #ff0055;
-    border-color: #770022; }
+  border-color: transparent; }
+  #spells.delete-state .spell-level .spells-known .button .spell-marks {
+    display: none;
+    visibility: hidden; }
+  #spells.delete-state .spell-level .spells-known .button .spell-active {
+    display: none;
+    visibility: hidden; }
+  #spells.delete-state .spell-level .spells-known .button .spell-remove {
+    display: block;
+    visibility: visible; }
 
 /* media queries
 ------------------------------------------------- */

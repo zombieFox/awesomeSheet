@@ -1913,7 +1913,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -1953,9 +1953,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '</div>' +
-      '<div class="row">' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -2007,9 +2005,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '</div>' +
-      '<div class="row">' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
       '<div class="clone-delete-controls">' +
       '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -3138,6 +3134,12 @@ var spells = (function() {
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "spell-active");
     spellButton.appendChild(spellActive);
+    var spellRemove = document.createElement("span");
+    spellRemove.setAttribute("class", "spell-remove");
+    spellButton.appendChild(spellRemove);
+    var spellRemoveIcon = document.createElement("span");
+    spellRemoveIcon.setAttribute("class", "icon-close");
+    spellRemove.appendChild(spellRemoveIcon);
     return spellButton;
   };
 

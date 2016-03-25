@@ -2,14 +2,17 @@
 ------------------------------------------------- */
 
 .consumable {
-  input {
-    &[type="email"],
-    &[type="number"],
-    &[type="search"],
-    &[type="text"],
-    &[type="tel"],
-    &[type="password"] {
-      margin: 0;
+  .clone {
+    margin: 0 0 2rem 0;
+    input {
+      &[type="email"],
+      &[type="number"],
+      &[type="search"],
+      &[type="text"],
+      &[type="tel"],
+      &[type="password"] {
+        margin: 0;
+      }
     }
   }
   .consumable-bar {
