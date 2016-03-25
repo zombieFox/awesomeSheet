@@ -154,7 +154,7 @@ var clone = (function() {
       _updateCloneConsumable();
       sheet.storeCharacters();
       consumable.render();
-      if (getCloneCount("consumable") <= 99) {
+      if (_getCloneCount("consumable") <= 99) {
         snack.render("Consumable added.", false, false);
       };
     }, false);
@@ -167,7 +167,7 @@ var clone = (function() {
       _render_clone(1, "attack-melee");
       _updateCloneAttackMelee();
       sheet.storeCharacters();
-      if (getCloneCount("attack-melee") <= 99) {
+      if (_getCloneCount("attack-melee") <= 99) {
         snack.render("Melee attack added.", false, false);
       };
     }, false);
@@ -175,7 +175,7 @@ var clone = (function() {
       _render_clone(1, "attack-ranged");
       _updateCloneAttackRanged();
       sheet.storeCharacters();
-      if (getCloneCount("attack-ranged") <= 99) {
+      if (_getCloneCount("attack-ranged") <= 99) {
         snack.render("Ranged attack added.", false, false);
       };
     }, false);
@@ -203,13 +203,13 @@ var clone = (function() {
       cloneTarget = cloneBlock.querySelector(".clone-target")
     };
     for (var i = 0; i < clone; i++) {
-      var cloneCount = getCloneCount(cloneType);
+      var cloneCount = cloneBlock.querySelectorAll(".clone").length;
       var cloneString;
       var index = i;
       // make new clone node
       var newNode = document.createElement("div");
       newNode.setAttribute("class", "clone");
-      newNode.setAttribute("data-attack-type", cloneType);
+      // newNode.setAttribute("data-attack-type", cloneType);
       // check if adding new node or adding to clone target with already existing clones
       if (index < cloneCount) {
         index = cloneCount;
@@ -244,24 +244,6 @@ var clone = (function() {
     };
   };
 
-  function getCloneCount(cloneType) {
-    var cloneTarget;
-    if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
-    };
-    if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
-    };
-    if (cloneType == "consumable") {
-      cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target")
-    };
-    var cloneCount = cloneTarget.querySelectorAll(".clone").length;
-    return cloneCount;
-  };
-
   function _render_cloneInput(array, cloneType) {
     var cloneBlock;
     var cloneTarget;
@@ -281,14 +263,6 @@ var clone = (function() {
       cloneTarget = cloneBlock.querySelector(".clone-target");
       all_clone = cloneTarget.querySelectorAll(".clone");
     };
-    // for (var i = 0; i < all_clone.length; i++) {
-    //   console.log(all_clone[i]);
-    //   var all_input = all_clone[i].querySelectorAll(".input-field");
-    //   for (var j = 0; j < all_input.length; j++) {
-    //     console.log(all_input[j]);
-    //     console.log(array[i]);
-    //   };
-    // };
     for (var i = 0; i < array.length; i++) {
       for (var j in array[i]) {
         var input;
@@ -307,6 +281,53 @@ var clone = (function() {
     };
   };
 
+  function _getCloneCount(cloneType) {
+    var cloneCount;
+    if (cloneType == "attack-melee") {
+      var cloneBlock = helper.e(".attack");
+      var cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
+      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    };
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      var cloneBlock = helper.e(".attack");
+      var cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
+      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    };
+    if (cloneType == "consumable") {
+      var cloneBlock = helper.e(".consumable");
+      var cloneTarget = cloneBlock.querySelector(".clone-target")
+      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+    };
+    return cloneCount;
+  };
+
+  function _checkCloneState(cloneType) {
+    var cloneBlock;
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".attack");
+      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".consumable");
+      cloneTarget = cloneBlock.querySelector(".clone-target")
+    };
+    var cloneCount = cloneBlock.querySelectorAll(".clone").length;
+    var cloneControls = cloneBlock.querySelector(".clone-controls");
+    var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
+    if (cloneCount == 0) {
+      cloneBlock.dataset.deleteCloneState = "false";
+      helper.removeClass(cloneBlock, "delete-state");
+      helper.removeClass(cloneRemoveButton, "active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-tertiary");
+    };
+  };
+
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       _destroy_clone(this, cloneType);
@@ -315,15 +336,15 @@ var clone = (function() {
       _updateCloneConsumable();
       sheet.storeCharacters();
       if (cloneType == "consumable") {
-        _checkCloneCount("consumable");
+        _checkCloneState("consumable");
         snack.render("Consumable removed.", false, false);
       };
       if (cloneType == "attack-melee") {
-        _checkCloneCount("attack");
+        _checkCloneState("attack-melee");
         snack.render("Melee attack removed.", false, false);
       };
       if (cloneType == "attack-ranged") {
-        _checkCloneCount("attack");
+        _checkCloneState("attack-ranged");
         snack.render("Ranged attack removed.", false, false);
       };
     }, false);
@@ -410,17 +431,14 @@ var clone = (function() {
   };
 
   function _changeCloneState(cloneType) {
-    var cloneBlock = helper.e("." + cloneType);
+    var cloneBlock = helper.e(".clone-block." + cloneType);
     var cloneControls = cloneBlock.querySelector(".clone-controls");
-    var cloneRemove = cloneControls.querySelector(".clone-remove");
-    var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneBlock.querySelectorAll(".clone");
-    var cloneCount = all_clone.length;
+    var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
+    var cloneCount = cloneBlock.querySelectorAll(".clone").length;
     // change clone remove button
-    helper.toggleClass(cloneRemove, "active");
-    helper.toggleClass(cloneRemove, "button-primary");
-    helper.toggleClass(cloneRemove, "button-tertiary");
+    helper.toggleClass(cloneRemoveButton, "active");
+    helper.toggleClass(cloneRemoveButton, "button-primary");
+    helper.toggleClass(cloneRemoveButton, "button-tertiary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       helper.removeClass(cloneBlock, "delete-state");
@@ -433,32 +451,13 @@ var clone = (function() {
     if (cloneCount == 0) {
       helper.removeClass(cloneBlock, "delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
-      helper.removeClass(cloneRemove, "active");
-      helper.removeClass(cloneRemove, "button-primary");
-      helper.addClass(cloneRemove, "button-tertiary");
+      helper.removeClass(cloneRemoveButton, "active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-tertiary");
     };
   };
 
-  function _checkCloneCount(cloneType) {
-    var cloneBlock = helper.e("." + cloneType);
-    var cloneControls = cloneBlock.querySelector(".clone-controls");
-    var cloneRemove = cloneControls.querySelector(".clone-remove");
-    var cloneDeleteControls = cloneBlock.querySelectorAll(".clone-delete-controls");
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneBlock.querySelectorAll(".clone");
-    var cloneCount = all_clone.length;
-    if (cloneCount == 0) {
-      cloneBlock.dataset.deleteCloneState = "false";
-      helper.removeClass(cloneBlock, "delete-state");
-      helper.removeClass(cloneRemove, "active");
-      helper.removeClass(cloneRemove, "button-primary");
-      helper.addClass(cloneRemove, "button-secondary");
-    };
-  };
-
-  function _destroy_clone(element, cloneType) {
-    var cloneBlock = helper.getClosest(element, ".clone-block");
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
+  function _destroy_clone(element) {
     var cloneToRemove = helper.getClosest(element, ".clone");
     cloneToRemove.remove();
   };
