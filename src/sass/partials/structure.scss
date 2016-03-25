@@ -37,22 +37,22 @@ section {
   }
   &.almost-pinned {
     .section-heading {
-      background-color: $secondary-color-02;
+      // background-color: $secondary-color-02;
       h1 {
-        color: $white;
+        // color: $white;
       }
     }
   }
   &.pinned {
     padding-top: 50px;
     .section-heading {
-      background-color: $secondary-color-02;
+      // background-color: $secondary-color-02;
       margin: 0;
       position: fixed;
       top: 70px;
       width: 100%;
       h1 {
-        color: $white;
+        // color: $white;
       }
     }
   }
