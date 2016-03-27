@@ -93,11 +93,13 @@ var blank = (function() {
       ac: {
         flat_footed: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         touch: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         misc: "",
         temp: "",
@@ -106,7 +108,8 @@ var blank = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: ""
+        size_bonus: "",
+        notes: ""
       },
       fortitude: {
         base: "",

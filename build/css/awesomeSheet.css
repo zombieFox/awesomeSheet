@@ -817,7 +817,7 @@ label {
 /* typography
 ------------------------------------------------- */
 html {
-  font-size: 11px; }
+  font-size: 10px; }
 
 body {
   font-size: 1rem;
@@ -917,7 +917,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   height: 2.5rem;
-  line-height: 2.3rem;
+  line-height: 2.5rem;
   padding: 0 10px;
   margin: 0 0 2rem 0;
   border: 0;
@@ -931,8 +931,6 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
     border-color: #ff0055;
     outline: 0; }
-  input[type="email"].no-margin, input[type="number"].no-margin, input[type="search"].no-margin, input[type="text"].no-margin, input[type="tel"].no-margin, input[type="password"].no-margin {
-    margin: 0; }
 
 table {
   border: 0;
@@ -960,7 +958,7 @@ table {
     table tr td p {
       margin: 0;
       min-height: 2.5rem;
-      line-height: 2.3rem;
+      line-height: 2.5rem;
       box-sizing: border-box;
       border-bottom: 2px solid transparent; }
     table tr td:first-child {
@@ -972,7 +970,7 @@ table {
       padding: 0;
       margin: 0;
       height: 2.5rem;
-      line-height: 2.3rem;
+      line-height: 2.5rem;
       text-align: center;
       box-sizing: border-box; }
 
@@ -992,8 +990,8 @@ table {
 .inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  min-height: 2.5rem;
-  line-height: 2.3rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   box-sizing: border-box; }
 
 .margin-with-input {
@@ -1002,6 +1000,11 @@ table {
 .underline-with-input {
   border-bottom: 2px solid transparent;
   border-color: #fafafa; }
+
+.no-margin {
+  margin: 0; }
+  .no-margin[type="email"], .no-margin[type="number"], .no-margin[type="search"], .no-margin[type="text"], .no-margin[type="tel"], .no-margin[type="password"] {
+    margin: 0; }
 
 /* vendor
 ------------------------------------------------- */
@@ -1038,7 +1041,7 @@ table {
 
 @media (min-width: 700px) {
   html {
-    font-size: 13px; } }
+    font-size: 14px; } }
 
 /* utilities
 ------------------------------------------------- */
@@ -1627,7 +1630,7 @@ table {
 
 .clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
   background-color: transparent;
-  border-color: transparent;
+  border-color: rgba(187, 0, 59, 0.1);
   color: #ff0055;
   margin: 0; }
 
@@ -1638,7 +1641,7 @@ table {
 .clone-block.delete-state .clone {
   background-color: rgba(187, 0, 59, 0.1);
   margin: 0 0 1rem 0;
-  padding: 5px 10px;
+  padding: 5px 10px 0 10px;
   border-radius: 3px; }
   .clone-block.delete-state .clone .clone-delete-controls {
     height: 40px;
@@ -1741,7 +1744,7 @@ section {
 
 hr {
   border: 0;
-  border-top: 1px solid #44779e;
+  border-top: 1px solid rgba(59, 102, 136, 0.2);
   margin: 0 0 2rem 0;
   clear: both; }
 
@@ -1820,19 +1823,6 @@ hr {
 ------------------------------------------------- */
 #statistics .stat-block {
   margin-bottom: 2rem; }
-  #statistics .stat-block .stats p,
-  #statistics .stat-block .stats input,
-  #statistics .stat-block .stats .name {
-    margin: 0; }
-  #statistics .stat-block .str h2 {
-    border-radius: 3px 3px 0 0; }
-  #statistics .stat-block .dex h2,
-  #statistics .stat-block .con h2,
-  #statistics .stat-block .int h2,
-  #statistics .stat-block .wis h2 {
-    border-radius: 0; }
-  #statistics .stat-block .cha h2 {
-    border-radius: 0 0 3px 3px; }
 
 /* media queries
 ------------------------------------------------- */

@@ -2,7 +2,7 @@
 ------------------------------------------------- */
 
 html {
-  font-size: 11px;
+  font-size: 10px;
 }
 
 body {
@@ -128,7 +128,7 @@ input {
     font-family: $open-sans-regular;
     font-size: 1rem;
     height: 2.5rem;
-    line-height: 2.3rem;
+    line-height: 2.5rem;
     padding: 0 10px;
     margin: 0 0 2rem 0;
     border: 0;
@@ -143,9 +143,6 @@ input {
     &:focus {
       border-color: $primary-color-07;
       outline: 0;
-    }
-    &.no-margin {
-      margin: 0;
     }
   }
 }
@@ -183,7 +180,7 @@ table {
       p {
         margin: 0;
         min-height: 2.5rem;
-        line-height: 2.3rem;
+        line-height: 2.5rem;
         box-sizing: border-box;
         border-bottom: $border;
       }
@@ -205,7 +202,7 @@ table {
           padding: 0;
           margin: 0;
           height: 2.5rem;
-          line-height: 2.3rem;
+          line-height: 2.5rem;
           text-align: center;
           box-sizing: border-box;
         }
@@ -234,8 +231,8 @@ table {
 .inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  min-height: 2.5rem;
-  line-height: 2.3rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   box-sizing: border-box;
 }
 
@@ -246,6 +243,18 @@ table {
 .underline-with-input {
   border-bottom: $border;
   border-color: $gray-13;
+}
+
+.no-margin {
+  margin: 0;
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    margin: 0;
+  }
 }
 
 
@@ -290,7 +299,7 @@ table {
 
 @media (min-width: $screen-md) {
   html {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 

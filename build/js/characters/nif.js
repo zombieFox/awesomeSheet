@@ -105,11 +105,13 @@ var nif = (function() {
       ac: {
         flat_footed: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         touch: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         misc: "",
         temp: "",
@@ -118,7 +120,8 @@ var nif = (function() {
         deflect: "",
         dodge: "",
         natural: "1",
-        size_bonus: ""
+        size_bonus: "",
+        notes: ""
       },
       fortitude: {
         base: "2",

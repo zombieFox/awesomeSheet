@@ -15,108 +15,6 @@
   </div>
   <div class="section-wrapper">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-sm-3">
-          <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
-            <div class="row">
-              <div class="col-xs-12">
-                <h2 class="margin-with-input">CMB <span class="total"></span></h2>
-              </div>
-              <div class="col-xs-12 hidable">
-                <div class="row no-gutter">
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-cmb-misc">Misc</label>
-                      <input class="input-field" id="offense-cmb-misc" data-path="offense.cmb.misc" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-cmb-temp">Temp</label>
-                      <input class="input-field" id="offense-cmb-temp" data-path="offense.cmb.temp" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-          <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true" data-plus-ten-bonus="true">
-            <div class="row">
-              <div class="col-xs-12">
-                <h2 class="margin-with-input">CMD <span class="total"></span></h2>
-              </div>
-              <div class="col-xs-12 hidable">
-                <div class="row no-gutter">
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-cmd-misc">Misc</label>
-                      <input class="input-field" id="offense-cmd-misc" data-path="offense.cmd.misc" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-cmd-temp">Temp</label>
-                      <input class="input-field" id="offense-cmd-temp" data-path="offense.cmd.temp" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-          <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
-            <div class="row">
-              <div class="col-xs-12">
-                <h2 class="margin-with-input">Melee <span class="total"></span></h2>
-              </div>
-              <div class="col-xs-12 hidable">
-                <div class="row no-gutter">
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-melee-attack-misc">Misc</label>
-                      <input class="input-field" id="offense-melee-attack-misc" data-path="offense.melee_attack.misc" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-melee-attack-temp">Temp</label>
-                      <input class="input-field" id="offense-melee-attack-temp" data-path="offense.melee_attack.temp" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-          <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
-            <div class="row">
-              <div class="col-xs-12">
-                <h2 class="margin-with-input">Ranged <span class="total"></span></h2>
-              </div>
-              <div class="col-xs-12 hidable">
-                <div class="row no-gutter">
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-ranged-attack-misc">Misc</label>
-                      <input class="input-field" id="offense-ranged-attack-misc" data-path="offense.ranged_attack.misc" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-block">
-                      <label class="input-label" for="offense-ranged-attack-temp">Temp</label>
-                      <input class="input-field" id="offense-ranged-attack-temp" data-path="offense.ranged_attack.temp" data-modifier="true" type="number" tabindex="3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="row hidable">
         <div class="col-xs-4 col-sm-4">
           <div class="input-block">
@@ -137,10 +35,98 @@
           </div>
         </div>
       </div>
-      <div class="clone-block attack" data-delete-clone-state="false">
-        <div class="row">
+      <hr class="hidable">
+      <div class="row">
+        <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="inline-with-input margin-with-input">CMB <span class="total"></span></h2>
+          </div>
+          <div class="col-xs-9 hidable">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-cmb-misc">Misc</label>
+                  <input class="input-field" id="offense-cmb-misc" data-path="offense.cmb.misc" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-cmb-temp">Temp</label>
+                  <input class="input-field" id="offense-cmb-temp" data-path="offense.cmb.temp" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-total-block" data-str-bonus="true" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true" data-plus-ten-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="inline-with-input margin-with-input">CMD <span class="total"></span></h2>
+          </div>
+          <div class="col-xs-9 hidable">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-cmd-misc">Misc</label>
+                  <input class="input-field" id="offense-cmd-misc" data-path="offense.cmd.misc" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-cmd-temp">Temp</label>
+                  <input class="input-field" id="offense-cmd-temp" data-path="offense.cmd.temp" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="inline-with-input margin-with-input">Melee <span class="total"></span></h2>
+          </div>
+          <div class="col-xs-9 hidable">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-melee-attack-misc">Misc</label>
+                  <input class="input-field" id="offense-melee-attack-misc" data-path="offense.melee_attack.misc" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-melee-attack-temp">Temp</label>
+                  <input class="input-field" id="offense-melee-attack-temp" data-path="offense.melee_attack.temp" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-total-block" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="inline-with-input margin-with-input">Ranged <span class="total"></span></h2>
+          </div>
+          <div class="col-xs-9 hidable">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-ranged-attack-misc">Misc</label>
+                  <input class="input-field" id="offense-ranged-attack-misc" data-path="offense.ranged_attack.misc" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="input-block">
+                  <label class="input-label" for="offense-ranged-attack-temp">Temp</label>
+                  <input class="input-field" id="offense-ranged-attack-temp" data-path="offense.ranged_attack.temp" data-modifier="true" type="number" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="clone-block attack" data-delete-clone-state="false">
           <div class="col-xs-12 col-md-3">
-            <h2>Attacks</h2>
+            <h2 class="inline-with-input">Attacks</h2>
           </div>
           <div class="col-xs-12 col-md-9">
             <div class="row">
@@ -163,7 +149,7 @@
         <div class="col-xs-12">
           <div class="textarea-block">
             <label class="textarea-label" for="offense-attack-notes">Notes</label>
-            <div class="textarea-box" id="offense-attack-notes" data-path="offense.attack_notes" contentEditable="true" tabindex="3"></div>
+            <div class="textarea-box tall" id="offense-attack-notes" data-path="offense.attack_notes" contentEditable="true" tabindex="3"></div>
           </div>
         </div>
       </div>

@@ -105,11 +105,13 @@ var nif = (function() {
       ac: {
         flat_footed: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         touch: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         misc: "",
         temp: "",
@@ -118,7 +120,8 @@ var nif = (function() {
         deflect: "",
         dodge: "",
         natural: "1",
-        size_bonus: ""
+        size_bonus: "",
+        notes: ""
       },
       fortitude: {
         base: "2",
@@ -510,11 +513,13 @@ var ro = (function() {
       ac: {
         flat_footed: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         touch: {
           misc: "",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         misc: "",
         temp: "",
@@ -523,7 +528,8 @@ var ro = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: ""
+        size_bonus: "",
+        notes: ""
       },
       fortitude: {
         base: "3",
@@ -894,11 +900,13 @@ var vos = (function() {
       ac: {
         flat_footed: {
           misc: "2",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         touch: {
           misc: "2",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         misc: "2",
         temp: "",
@@ -907,7 +915,8 @@ var vos = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: ""
+        size_bonus: "",
+        notes: ""
       },
       fortitude: {
         base: "3",
@@ -1913,9 +1922,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -1953,9 +1962,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -2005,9 +2014,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';

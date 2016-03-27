@@ -97,11 +97,13 @@ var vos = (function() {
       ac: {
         flat_footed: {
           misc: "2",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         touch: {
           misc: "2",
-          temp: ""
+          temp: "",
+          notes: ""
         },
         misc: "2",
         temp: "",
@@ -110,7 +112,8 @@ var vos = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: ""
+        size_bonus: "",
+        notes: ""
       },
       fortitude: {
         base: "3",

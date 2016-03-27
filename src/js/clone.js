@@ -30,9 +30,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -70,9 +70,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -122,9 +122,9 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">' +
+      '<div class="col-xs-4 col-xs-offset-4">' +
       '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
