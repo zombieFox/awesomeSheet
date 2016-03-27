@@ -39,6 +39,7 @@ var spells = (function() {
     element.addEventListener("click", function() {
       _changeSpellKnowItem(this);
       sheet.storeCharacters();
+      _checkSpellState();
     }, false);
   };
 
@@ -239,19 +240,49 @@ var spells = (function() {
         helper.removeClass(removeStateButton, "button-primary");
         helper.addClass(removeStateButton, "button-tertiary");
       } else if (state == "remove") {
-        spellRoot.dataset.prepareSpellState = "false";
-        spellRoot.dataset.unprepareSpellState = "false";
-        spellRoot.dataset.castSpellState = "false";
-        spellRoot.dataset.activeSpellState = "false";
-        spellRoot.dataset.deleteSpellState = "true";
-        helper.removeClass(spellRoot, "prepare-state");
-        helper.removeClass(spellRoot, "unprepare-state");
-        helper.removeClass(spellRoot, "cast-state");
-        helper.removeClass(spellRoot, "active-state");
-        helper.addClass(spellRoot, "delete-state");
-        helper.addClass(removeStateButton, "button-primary");
-        helper.removeClass(removeStateButton, "button-tertiary");
+        if (helper.eA(".spell-known-item").length > 0) {
+          spellRoot.dataset.prepareSpellState = "false";
+          spellRoot.dataset.unprepareSpellState = "false";
+          spellRoot.dataset.castSpellState = "false";
+          spellRoot.dataset.activeSpellState = "false";
+          spellRoot.dataset.deleteSpellState = "true";
+          helper.removeClass(spellRoot, "prepare-state");
+          helper.removeClass(spellRoot, "unprepare-state");
+          helper.removeClass(spellRoot, "cast-state");
+          helper.removeClass(spellRoot, "active-state");
+          helper.addClass(spellRoot, "delete-state");
+          helper.addClass(removeStateButton, "button-primary");
+          helper.removeClass(removeStateButton, "button-tertiary");
+        };
       };
+    };
+  };
+
+  function _checkSpellState() {
+    var spellRoot = helper.e("#spells");
+    var prepareStateButton = spellRoot.querySelector(".prepare-spell");
+    var unprepareStateButton = spellRoot.querySelector(".unprepare-spell");
+    var castStateButton = spellRoot.querySelector(".cast-spell");
+    var activeStateButton = spellRoot.querySelector(".active-spell");
+    var removeStateButton = spellRoot.querySelector(".remove-spell");
+    var all_spellStateControls = spellRoot.querySelectorAll(".spell-state-control");
+    var all_spellKnownItem = helper.eA(".spell-known-item");
+    if (all_spellKnownItem.length == 0) {
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        helper.removeClass(all_spellStateControls[i], "active");
+      };
+      spellRoot.dataset.prepareSpellState = "false";
+      spellRoot.dataset.unprepareSpellState = "false";
+      spellRoot.dataset.castSpellState = "false";
+      spellRoot.dataset.activeSpellState = "false";
+      spellRoot.dataset.deleteSpellState = "false";
+      helper.removeClass(spellRoot, "prepare-state");
+      helper.removeClass(spellRoot, "unprepare-state");
+      helper.removeClass(spellRoot, "cast-state");
+      helper.removeClass(spellRoot, "active-state");
+      helper.removeClass(spellRoot, "delete-state");
+      helper.removeClass(removeStateButton, "button-primary");
+      helper.addClass(removeStateButton, "button-tertiary");
     };
   };
 

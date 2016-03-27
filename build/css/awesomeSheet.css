@@ -1895,8 +1895,7 @@ hr {
 ------------------------------------------------- */
 #spells .spell-level {
   margin: 0 0 2rem 0; }
-  #spells .spell-level h2 {
-    margin: 0 0 0.5rem 0; }
+  #spells .spell-level h2,
   #spells .spell-level input {
     margin: 0 0 0.5rem 0; }
   #spells .spell-level .spells-known .button {
@@ -1965,29 +1964,31 @@ hr {
       margin: 0; }
 
 #spells .spell-controls {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 2rem 0; }
   #spells .spell-controls .button {
     margin: 0 5px 5px 0; }
 
 #spells.prepare-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(187, 0, 59, 0.1); }
-  #spells.prepare-state .spell-level .spells-known .button-tertiary:link, #spells.prepare-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(187, 0, 59, 0.1); }
-
-#spells.unprepare-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(187, 0, 59, 0.1); }
-  #spells.unprepare-state .spell-level .spells-known .button-tertiary:link, #spells.unprepare-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(187, 0, 59, 0.1); }
-
-#spells.cast-state .spell-level .spells-known .button-tertiary {
   background-color: rgba(59, 102, 136, 0.1); }
-  #spells.cast-state .spell-level .spells-known .button-tertiary:link, #spells.cast-state .spell-level .spells-known .button-tertiary:visited {
+  #spells.prepare-state .spell-level .spells-known .button-tertiary:link, #spells.prepare-state .spell-level .spells-known .button-tertiary:visited {
     background-color: rgba(59, 102, 136, 0.1); }
 
-#spells.active-state .spell-level .spells-known .button-tertiary {
-  background-color: #fafafa; }
-  #spells.active-state .spell-level .spells-known .button-tertiary:link, #spells.active-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: #fafafa; }
+#spells.unprepare-state .spell-level .spells-known .button-tertiary {
+  background-color: rgba(59, 102, 136, 0.1); }
+  #spells.unprepare-state .spell-level .spells-known .button-tertiary:link, #spells.unprepare-state .spell-level .spells-known .button-tertiary:visited {
+    background-color: rgba(59, 102, 136, 0.1); }
+
+#spells.cast-state .spell-level .spells-known .button-primary {
+  background-color: #b2b2b2;
+  border-color: #7c7c7c; }
+  #spells.cast-state .spell-level .spells-known .button-primary:link, #spells.cast-state .spell-level .spells-known .button-primary:visited {
+    background-color: #b2b2b2; }
+
+#spells.active-state .spell-level .spells-known .button-primary {
+  background-color: #b2b2b2;
+  border-color: #7c7c7c; }
+  #spells.active-state .spell-level .spells-known .button-primary:link, #spells.active-state .spell-level .spells-known .button-primary:visited {
+    background-color: #b2b2b2; }
 
 #spells.delete-state .spell-level .spells-known .button {
   background-color: rgba(187, 0, 59, 0.1);

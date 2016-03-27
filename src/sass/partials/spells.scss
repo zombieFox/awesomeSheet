@@ -4,9 +4,7 @@
 #spells {
   .spell-level {
     margin: 0 0 2rem 0;
-    h2 {
-      margin: 0 0 0.5rem 0;
-    }
+    h2,
     input {
       margin: 0 0 0.5rem 0;
     }
@@ -87,38 +85,12 @@
     }
   }
   .spell-controls {
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
     .button {
       margin: 0 5px 5px 0;
     }
   }
   &.prepare-state {
-    .spell-level {
-      .spells-known {
-        .button-tertiary {
-          background-color: $primary-color-alpha-07;
-          &:link,
-          &:visited {
-            background-color: $primary-color-alpha-07;
-          }
-        }
-      }
-    }
-  }
-  &.unprepare-state {
-    .spell-level {
-      .spells-known {
-        .button-tertiary {
-          background-color: $primary-color-alpha-07;
-          &:link,
-          &:visited {
-            background-color: $primary-color-alpha-07;
-          }
-        }
-      }
-    }
-  }
-  &.cast-state {
     .spell-level {
       .spells-known {
         .button-tertiary {
@@ -131,14 +103,42 @@
       }
     }
   }
-  &.active-state {
+  &.unprepare-state {
     .spell-level {
       .spells-known {
         .button-tertiary {
-          background-color: $gray-13;
+          background-color: $secondary-color-alpha-07;
           &:link,
           &:visited {
-            background-color: $gray-13;
+            background-color: $secondary-color-alpha-07;
+          }
+        }
+      }
+    }
+  }
+  &.cast-state {
+    .spell-level {
+      .spells-known {
+        .button-primary {
+          background-color: $gray-09;
+          border-color: $gray-06;
+          &:link,
+          &:visited {
+            background-color: $gray-09;
+          }
+        }
+      }
+    }
+  }
+  &.active-state {
+    .spell-level {
+      .spells-known {
+        .button-primary {
+          background-color: $gray-09;
+          border-color: $gray-06;
+          &:link,
+          &:visited {
+            background-color: $gray-09;
           }
         }
       }
