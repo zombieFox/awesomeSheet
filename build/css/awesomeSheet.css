@@ -1595,7 +1595,7 @@ table {
     position: relative;
     z-index: 1; }
     .textarea-block .textarea-box.tall {
-      min-height: 100px; }
+      min-height: 70px; }
 
 /* media queries
 ------------------------------------------------- */
