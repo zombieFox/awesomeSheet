@@ -262,7 +262,7 @@
 
 @media (min-width: 900px) {
   .container {
-    max-width: 75%; }
+    max-width: 70%; }
   .col-lg-1,
   .col-lg-2,
   .col-lg-3,
@@ -329,7 +329,7 @@
 
 @media (min-width: 1300px) {
   .container {
-    max-width: 65%; }
+    max-width: 60%; }
   .col-xl-1,
   .col-xl-2,
   .col-xl-3,
@@ -1541,13 +1541,14 @@ table {
     color: rgba(59, 102, 136, 0.7);
     top: 0;
     left: 10px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     height: 2.5rem;
     line-height: 2.5rem;
     z-index: 2;
     transition: all 0.1s ease-in-out;
     cursor: text;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    white-space: nowrap; }
     .input-block .input-label.input-label-focus {
       color: #ff0055; }
     .input-block .input-label.input-label-active {

@@ -11,13 +11,14 @@
     color: $secondary-color-alpha-01;
     top: 0;
     left: 10px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     height: 2.5rem;
     line-height: 2.5rem;
     z-index: 2;
     transition: all $transition-ease-fast;
     cursor: text;
     box-sizing: border-box;
+    white-space: nowrap;
     &.input-label-focus {
       color: $primary-color-07;
     }
