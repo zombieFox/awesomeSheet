@@ -10,6 +10,5 @@
   textareaBlock.bind(helper.eA(".textarea-block"));
   stats.bind();
   sheet.render();
-  quickNav.render();
 
 })();

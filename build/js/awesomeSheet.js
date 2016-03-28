@@ -1552,18 +1552,53 @@ var nav = (function() {
         helper.addClass(anchor, "active");
       };
     };
+    render_quickNav();
+  };
+
+  function render_quickNav() {
+    window.onscroll = function() {
+      var quickNav = helper.e("#quick-nav");
+      var quickNavLinks = helper.eA(".quick-link");
+      var sections = helper.eA("section");
+      var menu = 70;
+      if (helper.e("#statistics").getBoundingClientRect().top <= menu) {
+        helper.addClass(quickNav, "pinned");
+      } else {
+        helper.removeClass(quickNav, "pinned");
+      };
+      for (var i = 0; i < sections.length; i++) {
+        // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
+        if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {
+          helper.addClass(quickNavLinks[i], "active");
+          helper.addClass(sections[i], "pinned");
+        } else {
+          helper.removeClass(quickNavLinks[i], "active");
+          helper.removeClass(sections[i], "pinned");
+        };
+      };
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        var lastQuickLink = helper.e(".quick-link.notes");
+        for (var i = 0; i < quickNavLinks.length; i++) {
+          helper.removeClass(quickNavLinks[i], "active");
+        };
+        helper.addClass(lastQuickLink, "active");
+      };
+    };
   };
 
   function navClose() {
-    helper.removeClass(helper.e("#nav"), "open");
+    helper.removeClass(helper.e(".nav-list"), "open");
+    helper.removeClass(helper.e(".nav-toggle"), "open");
   };
 
   function navOpen() {
-    helper.addClass(helper.e("#nav"), "open");
+    helper.addClass(helper.e(".nav-list"), "open");
+    helper.addClass(helper.e(".nav-toggle"), "open");
   };
 
   function navToggle() {
-    helper.toggleClass(helper.e("#nav"), "open");
+    helper.toggleClass(helper.e(".nav-list"), "open");
+    helper.toggleClass(helper.e(".nav-toggle"), "open");
   };
 
   function remove() {
@@ -1583,7 +1618,7 @@ var nav = (function() {
   };
 
   function bind() {
-    var nav = helper.e("#nav");
+    var navList = helper.e(".nav-list");
     var navToggleElement = helper.e(".nav-toggle");
     var fullscreen = helper.e(".fullscreen");
     var clearAll = helper.e(".clear-all");
@@ -1612,7 +1647,7 @@ var nav = (function() {
       remove();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != nav && helper.getClosest(event.target, "#nav") != nav) {
+      if (event.target != navList && helper.getClosest(event.target, ".nav-list") != navList && event.target != navToggleElement && helper.getClosest(event.target, ".nav-toggle") != navToggleElement) {
         navClose();
       };
     }, false);
@@ -3516,6 +3551,5 @@ var totalBlock = (function() {
   textareaBlock.bind(helper.eA(".textarea-block"));
   stats.bind();
   sheet.render();
-  quickNav.render();
 
 })();
