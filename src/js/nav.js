@@ -97,14 +97,17 @@ var nav = (function() {
 
   function navClose() {
     helper.removeClass(helper.e("#nav"), "open");
+    helper.removeClass(helper.e(".nav-toggle"), "open");
   };
 
   function navOpen() {
     helper.addClass(helper.e("#nav"), "open");
+    helper.addClass(helper.e(".nav-toggle"), "open");
   };
 
   function navToggle() {
     helper.toggleClass(helper.e("#nav"), "open");
+    helper.toggleClass(helper.e(".nav-toggle"), "open");
   };
 
   function remove() {
@@ -153,7 +156,7 @@ var nav = (function() {
       remove();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != nav && helper.getClosest(event.target, "#nav") != nav) {
+      if (event.target != nav && helper.getClosest(event.target, "#nav") != nav && event.target != navToggleElement && helper.getClosest(event.target, ".nav-toggle") != navToggleElement) {
         navClose();
       };
     }, false);

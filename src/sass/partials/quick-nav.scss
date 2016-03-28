@@ -16,11 +16,13 @@
   ul {
     margin: 0;
     padding: 10px 0;
-    text-align: center;
     li {
       margin: 0;
       padding: 0;
-      width: 12.5%;
+      // width: 12.5%;
+      width: 11.1111111111%;
+      height: 50px;
+      position: relative;
       display: block;
       float: left;
       list-style-type: none;

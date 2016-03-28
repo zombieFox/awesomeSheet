@@ -3,49 +3,10 @@
 
 #nav {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: -800px;
+  right: 20px;
   z-index: $nav;
-  transition: all $transition-ease-medium;
-  .nav-toggle {
-    cursor: pointer;
-    display: block;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 50%;
-    transition: all $transition-ease-medium;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    .line {
-      display: block;
-      height: 2px;
-      width: 24px;
-      left: 50%;
-      position: absolute;
-      background-color: $primary-color-07;
-      border-radius: $border-radius-small;
-      transform: translate(-50%, -50%);
-      opacity: 1;
-      transition: all $transition-ease-medium;
-      &.top {
-        top: 38%;
-        transition-delay: 0.1s;
-      }
-      &.middle {
-        top: 50%;
-        transition-delay: 0.2s;
-      }
-      &.bottom {
-        top: 62%;
-        transition-delay: 0.1s;
-      }
-    }
-    &:hover {
-      background-color: $secondary-color-alpha-07;
-    }
-  }
+  transition: all $transition-bounce-medium;
   .nav-list {
     background-color: $white;
     box-shadow: $shadow-medium;
@@ -53,9 +14,6 @@
     margin: 0;
     padding: 8px 0;
     width: 240px;
-    position: absolute;
-    top: 70px;
-    right: -350px;
     transition: all $transition-ease-medium;
     overflow-y: auto;
     ul {
@@ -151,29 +109,9 @@
     }
   }
   &.open {
-    .nav-toggle {
-      .line {
-        background-color: $white;
-        &.top {
-          top: 50%;
-          transform: translate(-12px, -1px) rotate(135deg);
-          transition-delay: 0.3s;
-        }
-        &.middle {
-          opacity: 0;
-          transition-delay: 0s;
-        }
-        &.bottom {
-          top: 50%;
-          transform: translate(-12px, -1px) rotate(-135deg);
-          transition-delay: 0.3s;
-        }
-      }
-    }
-    .nav-list {
-      right: 0;
-      transition: all $transition-bounce-slow;
-    }
+    top: 80px;
+    transition: all $transition-bounce-slow;
+    .nav-list {}
   }
   &.bright {
     .nav-toggle {
@@ -184,6 +122,56 @@
       }
       .line {
         background-color: $white;
+      }
+    }
+  }
+}
+
+.nav-toggle {
+  cursor: pointer;
+  transition: all $transition-ease-medium;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  .line {
+    display: block;
+    height: 2px;
+    width: 24px;
+    left: 50%;
+    position: absolute;
+    background-color: $primary-color-07;
+    border-radius: $border-radius-small;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: all $transition-ease-medium;
+    &.top {
+      top: 38%;
+      transition-delay: 0.1s;
+    }
+    &.middle {
+      top: 50%;
+      transition-delay: 0.2s;
+    }
+    &.bottom {
+      top: 62%;
+      transition-delay: 0.1s;
+    }
+  }
+  &:hover {}
+  &.open {
+    .line {
+      background-color: $white;
+      &.top {
+        top: 50%;
+        transform: translate(-12px, -1px) rotate(135deg);
+        transition-delay: 0.3s;
+      }
+      &.middle {
+        opacity: 0;
+        transition-delay: 0s;
+      }
+      &.bottom {
+        top: 50%;
+        transform: translate(-12px, -1px) rotate(-135deg);
+        transition-delay: 0.3s;
       }
     }
   }
