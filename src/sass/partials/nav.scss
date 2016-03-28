@@ -25,7 +25,7 @@
       float: left;
       list-style-type: none;
       text-align: center;
-      > a {
+      .quick-link {
         width: 100%;
         height: 50px;
         line-height: 50px;
@@ -34,8 +34,8 @@
         color: $secondary-color-05;
         transform: scale(1);
         display: block;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         transition: all $transition-ease-fast;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         &:focus {
           color: $secondary-color-06;
           outline: 0;
@@ -55,8 +55,19 @@
         }
       }
       .nav-toggle {
-        transition: all $transition-ease-medium;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 2rem;
+        text-decoration: none;
+        display: block;
+        position: relative;
+        transition: all $transition-ease-fast;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        &:focus,
+        &:hover {
+          outline: 0;
+        }
         .line {
           display: block;
           height: 2px;
