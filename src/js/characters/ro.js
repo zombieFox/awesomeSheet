@@ -181,127 +181,158 @@ var ro = (function() {
     skills: {
       acrobatics: {
         ranks: "2",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       appraise: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       bluff: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       climb: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       craft: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       diplomacy: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       disguise: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       escape_artist: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       fly: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       heal: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       intimidate: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_arcana: {
         ranks: "1",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       knowledge_dungeoneering: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_engineering: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_geography: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_history: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_local: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_nature: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_nobility: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_planes: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_religion: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       linguistics: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       perception: {
         ranks: "2",
-        misc: "2"
+        misc: "2",
+        class_skill: false
       },
       perform: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       ride: {
         ranks: "2",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       sense_motive: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       spellcraft: {
         ranks: "2",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       stealth: {
         ranks: "1",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       survival: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       swim: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       use_magic_device: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
     },
     spells: {

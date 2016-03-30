@@ -8,13 +8,14 @@
       .stat,
       .total,
       .ranks,
-      .misc {
+      .misc,
+      .class-skill {
         float: left;
         display: block;
         margin: 0;
       }
       .name {
-        width: 45%;
+        width: 40%;
         white-space: nowrap;
         overflow: hidden;
       }
@@ -27,9 +28,13 @@
         font-family: $open-sans-semi-bold;
         text-align: center;
       }
+      .class-skill {
+        width: 10%;
+        text-align: center;
+      }
       .ranks,
       .misc {
-        width: 15%;
+        width: 10%;
         text-align: center;
         input {
           &[type="email"],

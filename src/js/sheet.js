@@ -151,6 +151,7 @@ var sheet = (function() {
   function render() {
     inputBlock.render();
     textareaBlock.render();
+    checkBlock.render();
     stats.render();
     totalBlock.render();
     clone.render();
