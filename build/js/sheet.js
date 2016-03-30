@@ -144,14 +144,8 @@ var sheet = (function() {
 
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("code", "Character JSON data:", exportData, "download");
+    prompt.render("download", "Character JSON data:", exportData, "download");
     helper.selectText(".prompt pre");
-  };
-
-  function downloadCharacterObject(element) {
-    var object = allCharacters[currentCharacterIndex];
-    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(object), null, " ");
-    element.href = "data:" + data;
   };
 
   function render() {
@@ -178,7 +172,6 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
-    download: downloadCharacterObject,
     print: printCharacterObject,
     render: render
   };

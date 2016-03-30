@@ -82,7 +82,7 @@ var nav = (function() {
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (var i in array) {
-      var characterAnchor =_render_navCharacters(array[i].basics.name, i);
+      var characterAnchor = _render_navCharacters(array[i].basics.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
@@ -193,8 +193,25 @@ var nav = (function() {
       };
     }, false);
     window.addEventListener("keydown", function(event) {
+      if (event.which == 8 && event.ctrlKey) {
+        prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+        navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
+      if (event.which == 69 && event.ctrlKey) {
+        sheet.print();
+        navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27) {
         navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 77 && event.ctrlKey) {
+        navToggle();
       };
     }, false);
     window.addEventListener("resize", function(event) {

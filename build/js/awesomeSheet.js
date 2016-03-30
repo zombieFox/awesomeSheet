@@ -1429,14 +1429,8 @@ var sheet = (function() {
 
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("code", "Character JSON data:", exportData, "download");
+    prompt.render("download", "Character JSON data:", exportData, "download");
     helper.selectText(".prompt pre");
-  };
-
-  function downloadCharacterObject(element) {
-    var object = allCharacters[currentCharacterIndex];
-    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(object), null, " ");
-    element.href = "data:" + data;
   };
 
   function render() {
@@ -1463,7 +1457,6 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
-    download: downloadCharacterObject,
     print: printCharacterObject,
     render: render
   };
@@ -1554,7 +1547,7 @@ var nav = (function() {
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (var i in array) {
-      var characterAnchor =_render_navCharacters(array[i].basics.name, i);
+      var characterAnchor = _render_navCharacters(array[i].basics.name, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
@@ -1665,8 +1658,25 @@ var nav = (function() {
       };
     }, false);
     window.addEventListener("keydown", function(event) {
+      if (event.which == 8 && event.ctrlKey) {
+        prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+        navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
+      if (event.which == 69 && event.ctrlKey) {
+        sheet.print();
+        navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27) {
         navClose();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 77 && event.ctrlKey) {
+        navToggle();
       };
     }, false);
     window.addEventListener("resize", function(event) {
@@ -1686,7 +1696,6 @@ var nav = (function() {
   }
 
 })();
-
 var prompt = (function() {
 
   function render(promptType, heading, text, confirmAction) {
@@ -1704,17 +1713,14 @@ var prompt = (function() {
     promptText.setAttribute("class", "prompt-text");
     var promptCode = document.createElement("pre");
     promptCode.setAttribute("class", "prompt-code");
-    var promptAction = document.createElement("button");
-    promptAction.setAttribute("class", "button button-primary button-block prompt-action");
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-tertiary button-block prompt-cancel");
-    var promptDownload = document.createElement("a");
-    promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
-    promptDownload.setAttribute("download", sheet.getCharacter().basics.name + ".json");
     if (promptType == "confirm") {
+      var promptAction = document.createElement("button");
+      promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+      promptAction.textContent = "OK";
       promptHeading.textContent = heading;
       promptText.textContent = text;
-      promptAction.textContent = "OK";
       promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
       promptMessage.appendChild(promptText);
@@ -1724,16 +1730,20 @@ var prompt = (function() {
       prompt.appendChild(promptControls);
       prompt.setAttribute("class", "prompt prompt-modal confirm");
     };
-    if (promptType == "code") {
+    if (promptType == "download") {
+      var promptAction = document.createElement("a");
+      promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+      promptAction.setAttribute("download", sheet.getCharacter().basics.name + ".json");
+      promptAction.textContent = "Download";
+      promptAction.href = "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sheet.getCharacter()), null, " ");
       promptHeading.textContent = heading;
       promptCode.textContent = text;
-      promptDownload.textContent = "Download";
       promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
       prompt.appendChild(promptMessage);
       prompt.appendChild(promptCode);
       promptControls.appendChild(promptCencel);
-      promptControls.appendChild(promptDownload);
+      promptControls.appendChild(promptAction);
       prompt.appendChild(promptControls);
       prompt.setAttribute("class", "prompt prompt-modal code");
     };
@@ -1748,6 +1758,7 @@ var prompt = (function() {
       helper.delayFunction(_reveal_prompt, 10);
       _bind(confirmAction);
     };
+    promptAction.focus();
   };
 
   function destroy() {
@@ -1789,7 +1800,6 @@ var prompt = (function() {
     if (confirmAction == "download") {
       promptAction.addEventListener('click', function() {
         destroy();
-        sheet.download(this);
       }, false);
     };
     promptCancel.addEventListener('click', function() {
@@ -1809,7 +1819,6 @@ var prompt = (function() {
   };
 
 })();
-
 var snack = (function() {
 
   function render(message, close) {

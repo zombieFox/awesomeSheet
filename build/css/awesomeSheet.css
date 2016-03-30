@@ -1161,7 +1161,7 @@ table {
         line-height: 50px;
         font-size: 2rem;
         text-decoration: none;
-        color: #44779e;
+        color: #3b6688;
         -webkit-transform: scale(1);
             -ms-transform: scale(1);
                 transform: scale(1);
@@ -1173,15 +1173,9 @@ table {
           outline: 0; }
         #quick-nav .quick-nav-list > li .quick-link:hover {
           color: #5599cc;
-          outline: 0;
-          -webkit-transform: scale(1.2);
-              -ms-transform: scale(1.2);
-                  transform: scale(1.2); }
+          outline: 0; }
         #quick-nav .quick-nav-list > li .quick-link:active {
-          color: #ff0055;
-          -webkit-transform: scale(1.3);
-              -ms-transform: scale(1.3);
-                  transform: scale(1.3); }
+          color: #ff0055; }
         #quick-nav .quick-nav-list > li .quick-link.active {
           color: #ffffff;
           -webkit-transform: scale(1.3);
@@ -1390,7 +1384,7 @@ table {
         border-radius: 0 0 2px 0; }
   .prompt.prompt-modal.confirm .prompt-message .prompt-heading {
     margin: 0 0 20px 0; }
-  .prompt.prompt-modal.code .prompt-message .prompt-heading {
+  .prompt.prompt-modal.download .prompt-message .prompt-heading {
     margin: 0; }
 
 .prompt .button:last-child {

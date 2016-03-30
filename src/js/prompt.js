@@ -15,17 +15,14 @@ var prompt = (function() {
     promptText.setAttribute("class", "prompt-text");
     var promptCode = document.createElement("pre");
     promptCode.setAttribute("class", "prompt-code");
-    var promptAction = document.createElement("button");
-    promptAction.setAttribute("class", "button button-primary button-block prompt-action");
     var promptCencel = document.createElement("button");
     promptCencel.setAttribute("class", "button button-tertiary button-block prompt-cancel");
-    var promptDownload = document.createElement("a");
-    promptDownload.setAttribute("class", "button button-primary button-block prompt-action");
-    promptDownload.setAttribute("download", sheet.getCharacter().basics.name + ".json");
     if (promptType == "confirm") {
+      var promptAction = document.createElement("button");
+      promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+      promptAction.textContent = "OK";
       promptHeading.textContent = heading;
       promptText.textContent = text;
-      promptAction.textContent = "OK";
       promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
       promptMessage.appendChild(promptText);
@@ -35,16 +32,20 @@ var prompt = (function() {
       prompt.appendChild(promptControls);
       prompt.setAttribute("class", "prompt prompt-modal confirm");
     };
-    if (promptType == "code") {
+    if (promptType == "download") {
+      var promptAction = document.createElement("a");
+      promptAction.setAttribute("class", "button button-primary button-block prompt-action");
+      promptAction.setAttribute("download", sheet.getCharacter().basics.name + ".json");
+      promptAction.textContent = "Download";
+      promptAction.href = "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sheet.getCharacter()), null, " ");
       promptHeading.textContent = heading;
       promptCode.textContent = text;
-      promptDownload.textContent = "Download";
       promptCencel.textContent = "Cancel";
       promptMessage.appendChild(promptHeading);
       prompt.appendChild(promptMessage);
       prompt.appendChild(promptCode);
       promptControls.appendChild(promptCencel);
-      promptControls.appendChild(promptDownload);
+      promptControls.appendChild(promptAction);
       prompt.appendChild(promptControls);
       prompt.setAttribute("class", "prompt prompt-modal code");
     };
@@ -59,6 +60,7 @@ var prompt = (function() {
       helper.delayFunction(_reveal_prompt, 10);
       _bind(confirmAction);
     };
+    promptAction.focus();
   };
 
   function destroy() {
@@ -100,7 +102,6 @@ var prompt = (function() {
     if (confirmAction == "download") {
       promptAction.addEventListener('click', function() {
         destroy();
-        sheet.download(this);
       }, false);
     };
     promptCancel.addEventListener('click', function() {
