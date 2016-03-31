@@ -1841,7 +1841,8 @@ hr {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    line-height: 100%; }
+    line-height: 100%;
+    -webkit-tap-highlight-color: transparent; }
   #skills .skill-list .skill .class-skill .class-skill-icon {
     font-size: 1.5rem;
     line-height: 2.5rem;
