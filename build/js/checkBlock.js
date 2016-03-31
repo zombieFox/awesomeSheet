@@ -11,7 +11,6 @@ var checkBlock = (function() {
   function toggle(element) {
     var totalBlock = helper.getClosest(element, ".input-total-block");
     var toggleState = totalBlock.dataset.classSkill;
-    var checkbox = totalBlock.querySelector(".input-check")
     var icon = totalBlock.querySelector(".class-skill-icon");
     if (toggleState == "true") {
       totalBlock.dataset.classSkill = "false";

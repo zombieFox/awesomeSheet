@@ -123,11 +123,20 @@ var sheet = (function() {
   function clear() {
     var allInputBlock = helper.eA(".input-block");
     var allTextareaBlock = helper.eA(".textarea-box");
+    var allCheckBlock = helper.eA(".check-block");
     var allCloneTarget = helper.eA(".clone-target");
     var allSpellsKnown = helper.eA(".spells-known");
     for (var i = 0; i < allInputBlock.length; i++) {
       var input = allInputBlock[i].querySelector(".input-field");
       helper.e("#" + input.id).value = "";
+    };
+    for (var i = 0; i < allCheckBlock.length; i++) {
+      var checkbox = allCheckBlock[i].querySelector(".input-check");
+      var icon = allCheckBlock[i].querySelector(".class-skill-icon");
+      allCheckBlock[i].dataset.classSkill = "false";
+      checkbox.checked = false;
+      helper.addClass(icon, "icon-check-box-unchecked");
+      helper.removeClass(icon, "icon-check-box-checked");
     };
     for (var i = 0; i < allTextareaBlock.length; i++) {
       helper.e("#" + allTextareaBlock[i].id).innerHTML = "";

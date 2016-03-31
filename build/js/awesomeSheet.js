@@ -205,7 +205,7 @@ var nif = (function() {
       craft: {
         ranks: "",
         misc: "",
-        class_skill: true
+        class_skill: false
       },
       diplomacy: {
         ranks: "",
@@ -305,7 +305,7 @@ var nif = (function() {
       profession: {
         ranks: "",
         misc: "",
-        class_skill: true
+        class_skill: false
       },
       ride: {
         ranks: "",
@@ -688,8 +688,8 @@ var ro = (function() {
       },
       knowledge_arcana: {
         ranks: "1",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       knowledge_dungeoneering: {
         ranks: "",
@@ -751,10 +751,15 @@ var ro = (function() {
         misc: "",
         class_skill: false
       },
+      profession: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       ride: {
         ranks: "2",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       sense_motive: {
         ranks: "",
@@ -763,8 +768,8 @@ var ro = (function() {
       },
       spellcraft: {
         ranks: "2",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       stealth: {
         ranks: "1",
@@ -1062,8 +1067,8 @@ var vos = (function() {
     skills: {
       acrobatics: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       appraise: {
         ranks: "",
@@ -1077,8 +1082,8 @@ var vos = (function() {
       },
       climb: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       craft: {
         ranks: "",
@@ -1172,10 +1177,15 @@ var vos = (function() {
       },
       perception: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       perform: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      profession: {
         ranks: "",
         misc: "",
         class_skill: false
@@ -1197,8 +1207,8 @@ var vos = (function() {
       },
       stealth: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       survival: {
         ranks: "",
@@ -1506,11 +1516,20 @@ var sheet = (function() {
   function clear() {
     var allInputBlock = helper.eA(".input-block");
     var allTextareaBlock = helper.eA(".textarea-box");
+    var allCheckBlock = helper.eA(".check-block");
     var allCloneTarget = helper.eA(".clone-target");
     var allSpellsKnown = helper.eA(".spells-known");
     for (var i = 0; i < allInputBlock.length; i++) {
       var input = allInputBlock[i].querySelector(".input-field");
       helper.e("#" + input.id).value = "";
+    };
+    for (var i = 0; i < allCheckBlock.length; i++) {
+      var checkbox = allCheckBlock[i].querySelector(".input-check");
+      var icon = allCheckBlock[i].querySelector(".class-skill-icon");
+      allCheckBlock[i].dataset.classSkill = "false";
+      checkbox.checked = false;
+      helper.addClass(icon, "icon-check-box-unchecked");
+      helper.removeClass(icon, "icon-check-box-checked");
     };
     for (var i = 0; i < allTextareaBlock.length; i++) {
       helper.e("#" + allTextareaBlock[i].id).innerHTML = "";
@@ -2873,7 +2892,6 @@ var inputBlock = (function() {
   function render() {
     var all_inputField = helper.eA(".input-field");
     for (var i = 0; i < all_inputField.length; i++) {
-      console.log(all_inputField[i]);
       var path = all_inputField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
       all_inputField[i].value = content;

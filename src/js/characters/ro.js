@@ -236,8 +236,8 @@ var ro = (function() {
       },
       knowledge_arcana: {
         ranks: "1",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       knowledge_dungeoneering: {
         ranks: "",
@@ -299,10 +299,15 @@ var ro = (function() {
         misc: "",
         class_skill: false
       },
+      profession: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       ride: {
         ranks: "2",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       sense_motive: {
         ranks: "",
@@ -311,8 +316,8 @@ var ro = (function() {
       },
       spellcraft: {
         ranks: "2",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       stealth: {
         ranks: "1",

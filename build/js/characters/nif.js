@@ -205,7 +205,7 @@ var nif = (function() {
       craft: {
         ranks: "",
         misc: "",
-        class_skill: true
+        class_skill: false
       },
       diplomacy: {
         ranks: "",
@@ -305,7 +305,7 @@ var nif = (function() {
       profession: {
         ranks: "",
         misc: "",
-        class_skill: true
+        class_skill: false
       },
       ride: {
         ranks: "",

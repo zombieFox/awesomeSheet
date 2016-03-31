@@ -192,8 +192,8 @@ var vos = (function() {
     skills: {
       acrobatics: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       appraise: {
         ranks: "",
@@ -207,8 +207,8 @@ var vos = (function() {
       },
       climb: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       craft: {
         ranks: "",
@@ -302,10 +302,15 @@ var vos = (function() {
       },
       perception: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       perform: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      profession: {
         ranks: "",
         misc: "",
         class_skill: false
@@ -327,8 +332,8 @@ var vos = (function() {
       },
       stealth: {
         ranks: "3",
-        misc: "3",
-        class_skill: false
+        misc: "",
+        class_skill: true
       },
       survival: {
         ranks: "",
