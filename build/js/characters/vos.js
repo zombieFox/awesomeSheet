@@ -210,10 +210,17 @@ var vos = (function() {
         misc: "",
         class_skill: true
       },
-      craft: {
+      craft_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      craft_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       diplomacy: {
         ranks: "",
@@ -305,15 +312,29 @@ var vos = (function() {
         misc: "",
         class_skill: true
       },
-      perform: {
+      perform_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
       },
-      profession: {
+      perform_2: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      profession_1: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
+      },
+      profession_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       ride: {
         ranks: "",
@@ -346,6 +367,27 @@ var vos = (function() {
         class_skill: false
       },
       use_magic_device: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_1: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_2: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_3: {
+        stat: "",
+        name: "",
         ranks: "",
         misc: "",
         class_skill: false
