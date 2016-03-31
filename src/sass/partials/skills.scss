@@ -29,8 +29,34 @@
         text-align: center;
       }
       .class-skill {
-        width: 10%;
+        width: 15%;
+        height: 2.5rem;
         text-align: center;
+        position: relative;
+    box-sizing: border-box;
+        .input-check {
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          line-height: 100%;
+        }
+        .class-skill-icon {
+          font-size: 1.5rem;
+          line-height: 2.5rem;
+          height: 2.5rem;
+          display: block;
+          &.icon-check-box-unchecked {
+            color: $secondary-color-02;
+          }
+          &.icon-check-box-checked {
+            color: $primary-color-07;
+          }
+        }
       }
       .ranks,
       .misc {

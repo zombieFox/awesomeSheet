@@ -278,6 +278,11 @@ var blank = (function() {
         misc: "",
         class_skill: false
       },
+      profession: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       ride: {
         ranks: "",
         misc: "",

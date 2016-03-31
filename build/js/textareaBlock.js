@@ -30,23 +30,22 @@ var textareaBlock = (function() {
   function bind(array) {
     for (var i = 0; i < array.length; i++) {
       var textarea = array[i].querySelector(".textarea-box");
-      var textareaLabel;
-      if (array[i].querySelector(".textarea-label")) {
-        textareaLabel = array[i].querySelector(".textarea-label");
+      var textareaLabel = array[i].querySelector(".textarea-label");
+      if (textarea) {
+        textarea.addEventListener("input", function() {
+          _store(this);
+          focus(this);
+        }, false);
+        textarea.addEventListener("focus", function() {
+          _store(this);
+          focus(this);
+        }, false);
+        textarea.addEventListener("blur", function() {
+          _store(this);
+          focus(this);
+        }, false);
       };
-      textarea.addEventListener("input", function() {
-        _store(this);
-        focus(this);
-      }, false);
-      textarea.addEventListener("focus", function() {
-        _store(this);
-        focus(this);
-      }, false);
-      textarea.addEventListener("blur", function() {
-        _store(this);
-        focus(this);
-      }, false);
-      if (array[i].querySelector(".textarea-label")) {
+      if (textareaLabel) {
         textareaLabel.addEventListener("click", function() {
           _textareaLabelshiftFocus(this);
         }, false);

@@ -36,6 +36,7 @@ var totalBlock = (function() {
       var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
       var modifiers = [];
       var modifiers_total = 0;
+      var classSkill = 0;
       for (var q = 0; q < all_inputField.length; q++) {
         if (all_inputField.length > 0) {
           if (all_inputField[q].dataset.modifier == "true") {
@@ -146,6 +147,10 @@ var totalBlock = (function() {
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
+      // 10
+      if (all_inputTotalBlock[i].dataset.classSkill == "true") {
+        classSkill = 3;
+      };
       // check if any bonus is NaN
       if (isNaN(levelBonus)) {
         levelBonus = 0;
@@ -198,8 +203,11 @@ var totalBlock = (function() {
       if (isNaN(acNatural)) {
         acNatural = 0;
       };
+      if (isNaN(classSkill)) {
+        classSkill = 0;
+      };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural;
+      var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
       total.textContent = grandTotal;
     };
   };

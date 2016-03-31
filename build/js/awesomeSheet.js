@@ -184,127 +184,163 @@ var nif = (function() {
     skills: {
       acrobatics: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       appraise: {
         ranks: "2",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       bluff: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       climb: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       craft: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: true
       },
       diplomacy: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       disguise: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       escape_artist: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       fly: {
         ranks: "2",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       heal: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       intimidate: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_arcana: {
         ranks: "3",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_dungeoneering: {
         ranks: "2",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_engineering: {
         ranks: "1",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_geography: {
         ranks: "1",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_history: {
         ranks: "1",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_local: {
         ranks: "1",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_nature: {
         ranks: "1",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_nobility: {
         ranks: "1",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_planes: {
         ranks: "3",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       knowledge_religion: {
         ranks: "3",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       linguistics: {
         ranks: "3",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       perception: {
         ranks: "6",
-        misc: "4"
+        misc: "4",
+        class_skill: false
       },
       perform: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
+      },
+      profession: {
+        ranks: "",
+        misc: "",
+        class_skill: true
       },
       ride: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       sense_motive: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       spellcraft: {
         ranks: "6",
-        misc: "3"
+        misc: "",
+        class_skill: true
       },
       stealth: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       survival: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       swim: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       use_magic_device: {
         ranks: "6",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
     },
     spells: {
@@ -597,127 +633,158 @@ var ro = (function() {
     skills: {
       acrobatics: {
         ranks: "2",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       appraise: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       bluff: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       climb: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       craft: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       diplomacy: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       disguise: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       escape_artist: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       fly: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       heal: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       intimidate: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_arcana: {
         ranks: "1",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       knowledge_dungeoneering: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_engineering: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_geography: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_history: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_local: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_nature: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_nobility: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_planes: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_religion: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       linguistics: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       perception: {
         ranks: "2",
-        misc: "2"
+        misc: "2",
+        class_skill: false
       },
       perform: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       ride: {
         ranks: "2",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       sense_motive: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       spellcraft: {
         ranks: "2",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       stealth: {
         ranks: "1",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       survival: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       swim: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       use_magic_device: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
     },
     spells: {
@@ -995,127 +1062,158 @@ var vos = (function() {
     skills: {
       acrobatics: {
         ranks: "3",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       appraise: {
         ranks: "",
-        misc: "2"
+        misc: "2",
+        class_skill: false
       },
       bluff: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       climb: {
         ranks: "3",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       craft: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       diplomacy: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       disguise: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       escape_artist: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       fly: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       heal: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       intimidate: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_arcana: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_dungeoneering: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_engineering: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_geography: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_history: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_local: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_nature: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_nobility: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_planes: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       knowledge_religion: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       linguistics: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       perception: {
         ranks: "3",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       perform: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       ride: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       sense_motive: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       spellcraft: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       stealth: {
         ranks: "3",
-        misc: "3"
+        misc: "3",
+        class_skill: false
       },
       survival: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       swim: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       },
       use_magic_device: {
         ranks: "",
-        misc: ""
+        misc: "",
+        class_skill: false
       }
     },
     spells: {
@@ -1436,6 +1534,7 @@ var sheet = (function() {
   function render() {
     inputBlock.render();
     textareaBlock.render();
+    checkBlock.render();
     stats.render();
     totalBlock.render();
     clone.render();
@@ -2725,21 +2824,23 @@ var inputBlock = (function() {
   function bind(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".input-field");
-      input.addEventListener("input", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
-      input.addEventListener("focus", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
-      input.addEventListener("blur", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
+      if (input) {
+        input.addEventListener("input", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+        input.addEventListener("focus", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+        input.addEventListener("blur", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+      };
     };
     _bind_awesomeName();
   };
@@ -2772,6 +2873,7 @@ var inputBlock = (function() {
   function render() {
     var all_inputField = helper.eA(".input-field");
     for (var i = 0; i < all_inputField.length; i++) {
+      console.log(all_inputField[i]);
       var path = all_inputField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
       all_inputField[i].value = content;
@@ -2820,23 +2922,22 @@ var textareaBlock = (function() {
   function bind(array) {
     for (var i = 0; i < array.length; i++) {
       var textarea = array[i].querySelector(".textarea-box");
-      var textareaLabel;
-      if (array[i].querySelector(".textarea-label")) {
-        textareaLabel = array[i].querySelector(".textarea-label");
+      var textareaLabel = array[i].querySelector(".textarea-label");
+      if (textarea) {
+        textarea.addEventListener("input", function() {
+          _store(this);
+          focus(this);
+        }, false);
+        textarea.addEventListener("focus", function() {
+          _store(this);
+          focus(this);
+        }, false);
+        textarea.addEventListener("blur", function() {
+          _store(this);
+          focus(this);
+        }, false);
       };
-      textarea.addEventListener("input", function() {
-        _store(this);
-        focus(this);
-      }, false);
-      textarea.addEventListener("focus", function() {
-        _store(this);
-        focus(this);
-      }, false);
-      textarea.addEventListener("blur", function() {
-        _store(this);
-        focus(this);
-      }, false);
-      if (array[i].querySelector(".textarea-label")) {
+      if (textareaLabel) {
         textareaLabel.addEventListener("click", function() {
           _textareaLabelshiftFocus(this);
         }, false);
@@ -3386,6 +3487,7 @@ var totalBlock = (function() {
       var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
       var modifiers = [];
       var modifiers_total = 0;
+      var classSkill = 0;
       for (var q = 0; q < all_inputField.length; q++) {
         if (all_inputField.length > 0) {
           if (all_inputField[q].dataset.modifier == "true") {
@@ -3496,6 +3598,10 @@ var totalBlock = (function() {
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
+      // 10
+      if (all_inputTotalBlock[i].dataset.classSkill == "true") {
+        classSkill = 3;
+      };
       // check if any bonus is NaN
       if (isNaN(levelBonus)) {
         levelBonus = 0;
@@ -3548,8 +3654,11 @@ var totalBlock = (function() {
       if (isNaN(acNatural)) {
         acNatural = 0;
       };
+      if (isNaN(classSkill)) {
+        classSkill = 0;
+      };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural;
+      var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
       total.textContent = grandTotal;
     };
   };
@@ -3571,6 +3680,7 @@ var totalBlock = (function() {
   hidableBlock.bind();
   inputBlock.bind(helper.eA(".input-block"));
   textareaBlock.bind(helper.eA(".textarea-block"));
+  checkBlock.bind(helper.eA(".check-block"));
   stats.bind();
   sheet.render();
 

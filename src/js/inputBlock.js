@@ -85,6 +85,7 @@ var inputBlock = (function() {
   function render() {
     var all_inputField = helper.eA(".input-field");
     for (var i = 0; i < all_inputField.length; i++) {
+      console.log(all_inputField[i]);
       var path = all_inputField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
       all_inputField[i].value = content;
