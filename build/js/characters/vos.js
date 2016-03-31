@@ -384,6 +384,13 @@ var vos = (function() {
         ranks: "",
         misc: "",
         class_skill: false
+      },
+      custom_3: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
       }
     },
     spells: {
