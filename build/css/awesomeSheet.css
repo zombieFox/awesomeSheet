@@ -1824,6 +1824,8 @@ hr {
 #skills .skill-list .skill .stat {
   width: 10%;
   text-align: center; }
+  #skills .skill-list .skill .stat.stat-select {
+    cursor: pointer; }
 
 #skills .skill-list .skill .total {
   width: 20%;
@@ -1882,11 +1884,18 @@ hr {
     width: 85%; }
     #skills[data-all-hidden="true"] .skill-list .skill .name.with-type {
       width: 30%; }
+    #skills[data-all-hidden="true"] .skill-list .skill .name .input-field {
+      background-color: transparent;
+      border-color: #fafafa;
+      padding: 0; }
+      #skills[data-all-hidden="true"] .skill-list .skill .name .input-field:hover {
+        border-color: #ff0055; }
   #skills[data-all-hidden="true"] .skill-list .skill .type {
     width: 55%; }
     #skills[data-all-hidden="true"] .skill-list .skill .type .input-field {
       background-color: transparent;
-      border-color: #fafafa; }
+      border-color: #fafafa;
+      padding: 0; }
       #skills[data-all-hidden="true"] .skill-list .skill .type .input-field:hover {
         border-color: #ff0055; }
   #skills[data-all-hidden="true"] .skill-list .skill .total {

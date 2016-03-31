@@ -25,6 +25,7 @@ var totalBlock = (function() {
       var sizeBonus = 0;
       var specialSizeBonus = 0;
       var levelBonus = 0;
+      var halfLevelBonus = 0;
       var plusTenBonus = 0;
       var acArmor = 0;
       var acShield = 0;
@@ -123,6 +124,10 @@ var totalBlock = (function() {
       if (all_inputTotalBlock[i].dataset.levelBonus == "true") {
         levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
       };
+      // half level
+      if (all_inputTotalBlock[i].dataset.halfLevelBonus == "true") {
+        halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2);
+      };
       // ac armor
       if (all_inputTotalBlock[i].dataset.acArmor == "true") {
         acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
@@ -147,7 +152,7 @@ var totalBlock = (function() {
       if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
-      // 10
+      // class skill
       if (all_inputTotalBlock[i].dataset.classSkill == "true") {
         classSkill = 3;
       };
@@ -207,7 +212,7 @@ var totalBlock = (function() {
         classSkill = 0;
       };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
+      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
       total.textContent = grandTotal;
     };
   };

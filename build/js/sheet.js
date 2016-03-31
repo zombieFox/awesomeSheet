@@ -162,6 +162,7 @@ var sheet = (function() {
     textareaBlock.render();
     checkBlock.render();
     stats.render();
+    skills.render();
     totalBlock.render();
     clone.render();
     consumable.render();

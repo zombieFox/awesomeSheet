@@ -360,6 +360,20 @@ var ro = (function() {
         misc: "",
         class_skill: false
       },
+      custom_1: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_2: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      }
     },
     spells: {
       per_day: {
