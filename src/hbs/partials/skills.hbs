@@ -28,7 +28,7 @@
             </div>
             <div id="skill-acrobatics" class="skill input-total-block clearfix" data-class-skill="false" data-dex-bonus="true">
               <p class="underline-with-input inline-with-input name">Acrobatics</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-acrobatics-ranks" data-path="skills.acrobatics.ranks" data-modifier="true" type="number" tabindex="3">
@@ -43,7 +43,7 @@
             </div>
             <div id="skill-appraise" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Appraise</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-appraise-ranks" data-path="skills.appraise.ranks" data-modifier="true" type="number" tabindex="3">
@@ -58,7 +58,7 @@
             </div>
             <div id="skill-bluff" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
               <p class="underline-with-input inline-with-input name">Bluff</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Cha</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-bluff-ranks" data-path="skills.bluff.ranks" data-modifier="true" type="number" tabindex="3">
@@ -73,7 +73,7 @@
             </div>
             <div id="skill-climb" class="skill input-total-block clearfix" data-class-skill="false" data-str-bonus="true">
               <p class="underline-with-input inline-with-input name">Climb</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Str</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Str</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-climb-ranks" data-path="skills.climb.ranks" data-modifier="true" type="number" tabindex="3">
@@ -86,24 +86,45 @@
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
-            <div id="skill-craft" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
-              <p class="underline-with-input inline-with-input name">Craft</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+            <div id="skill-craft-1" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
+              <p class="underline-with-input inline-with-input name with-type">Craft</p>
+              <div class="input-block type">
+                <input class="input-field no-margin" id="skill-craft-1-type" data-path="skills.craft_1.type" type="text" tabindex="3">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
-                <input class="input-field no-margin" id="skill-craft-ranks" data-path="skills.craft.ranks" data-modifier="true" type="number" tabindex="3">
+                <input class="input-field no-margin" id="skill-craft-1-ranks" data-path="skills.craft_1.ranks" data-modifier="true" type="number" tabindex="3">
               </div>
               <div class="hidable input-block misc">
-                <input class="input-field no-margin" id="skill-craft-misc" data-path="skills.craft.misc" data-modifier="true" type="number" tabindex="3">
+                <input class="input-field no-margin" id="skill-craft-1-misc" data-path="skills.craft_1.misc" data-modifier="true" type="number" tabindex="3">
               </div>
               <div class="hidable underline-with-input check-block class-skill">
-                <input class="input-check no-margin" id="skill-craft-misc" data-path="skills.craft.class_skill" data-modifier="true" type="checkbox" tabindex="3">
+                <input class="input-check no-margin" id="skill-craft-1-misc" data-path="skills.craft_1.class_skill" data-modifier="true" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
+            <div id="skill-craft-2" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
+              <p class="underline-with-input inline-with-input name with-type">Craft</p>
+              <div class="input-block type">
+                <input class="input-field no-margin" id="skill-craft-2-type" data-path="skills.craft_2.type" type="text" tabindex="3">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-craft-2-ranks" data-path="skills.craft_2.ranks" data-modifier="true" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-craft-2-misc" data-path="skills.craft_2.misc" data-modifier="true" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-craft-2-misc" data-path="skills.craft_2.class_skill" data-modifier="true" type="checkbox" tabindex="3">
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
             <div id="skill-diplomacy" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
               <p class="underline-with-input inline-with-input name">Diplomacy</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Cha</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-diplomacy-ranks" data-path="skills.diplomacy.ranks" data-modifier="true" type="number" tabindex="3">
@@ -118,7 +139,7 @@
             </div>
             <div id="skill-disguise" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
               <p class="underline-with-input inline-with-input name">Disguise</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Cha</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-disguise-ranks" data-path="skills.disguise.ranks" data-modifier="true" type="number" tabindex="3">
@@ -133,7 +154,7 @@
             </div>
             <div id="skill-escape-artist" class="skill input-total-block clearfix" data-class-skill="false" data-dex-bonus="true">
               <p class="underline-with-input inline-with-input name">Escape Artist</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-escape-artist-ranks" data-path="skills.escape_artist.ranks" data-modifier="true" type="number" tabindex="3">
@@ -148,7 +169,7 @@
             </div>
             <div id="skill-fly" class="skill input-total-block clearfix" data-class-skill="false" data-dex-bonus="true">
               <p class="underline-with-input inline-with-input name">Fly</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-fly-ranks" data-path="skills.fly.ranks" data-modifier="true" type="number" tabindex="3">
@@ -163,7 +184,7 @@
             </div>
             <div id="skill-heal" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
               <p class="underline-with-input inline-with-input name">Heal</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Wis</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Wis</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-heal-ranks" data-path="skills.heal.ranks" data-modifier="true" type="number" tabindex="3">
@@ -178,7 +199,7 @@
             </div>
             <div id="skill-intimidate" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
               <p class="underline-with-input inline-with-input name">Intimidate</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Cha</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-intimidate-ranks" data-path="skills.intimidate.ranks" data-modifier="true" type="number" tabindex="3">
@@ -193,7 +214,7 @@
             </div>
             <div id="skill-knowledge-arcana" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Arcana</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-arcana-ranks" data-path="skills.knowledge_arcana.ranks" data-modifier="true" type="number" tabindex="3">
@@ -208,7 +229,7 @@
             </div>
             <div id="skill-knowledge-dungeoneering" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Dungeoneering</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-dungeoneering-ranks" data-path="skills.knowledge_dungeoneering.ranks" data-modifier="true" type="number" tabindex="3">
@@ -223,7 +244,7 @@
             </div>
             <div id="skill-knowledge-engineering" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Engineering</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-engineering-ranks" data-path="skills.knowledge_engineering.ranks" data-modifier="true" type="number" tabindex="3">
@@ -238,7 +259,7 @@
             </div>
             <div id="skill-knowledge-geography" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Geography</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-geography-ranks" data-path="skills.knowledge_geography.ranks" data-modifier="true" type="number" tabindex="3">
@@ -253,7 +274,7 @@
             </div>
             <div id="skill-knowledge-history" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge History</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-history-ranks" data-path="skills.knowledge_history.ranks" data-modifier="true" type="number" tabindex="3">
@@ -268,7 +289,7 @@
             </div>
             <div id="skill-knowledge-local" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Local</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-local-ranks" data-path="skills.knowledge_local.ranks" data-modifier="true" type="number" tabindex="3">
@@ -283,7 +304,7 @@
             </div>
             <div id="skill-knowledge-nature" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Nature</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-nature-ranks" data-path="skills.knowledge_nature.ranks" data-modifier="true" type="number" tabindex="3">
@@ -298,7 +319,7 @@
             </div>
             <div id="skill-knowledge-nobility" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Nobility</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-nobility-ranks" data-path="skills.knowledge_nobility.ranks" data-modifier="true" type="number" tabindex="3">
@@ -313,7 +334,7 @@
             </div>
             <div id="skill-knowledge-planes" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Planes</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-planes-ranks" data-path="skills.knowledge_planes.ranks" data-modifier="true" type="number" tabindex="3">
@@ -328,7 +349,7 @@
             </div>
             <div id="skill-knowledge-religion" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Knowledge Religion</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-knowledge-religion-ranks" data-path="skills.knowledge_religion.ranks" data-modifier="true" type="number" tabindex="3">
@@ -343,7 +364,7 @@
             </div>
             <div id="skill-linguistics" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Linguistics</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-linguistics-ranks" data-path="skills.linguistics.ranks" data-modifier="true" type="number" tabindex="3">
@@ -358,7 +379,7 @@
             </div>
             <div id="skill-perception" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
               <p class="underline-with-input inline-with-input name">Perception</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Wis</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Wis</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-perception-ranks" data-path="skills.perception.ranks" data-modifier="true" type="number" tabindex="3">
@@ -371,39 +392,81 @@
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
-            <div id="skill-perform" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
-              <p class="underline-with-input inline-with-input name">Perform</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Cha</p>
+            <div id="skill-perform-1" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
+              <p class="underline-with-input inline-with-input name with-type">Perform</p>
+              <div class="input-block type">
+                <input class="input-field no-margin" id="skill-perform-1-type" data-path="skills.perform_1.type" type="text" tabindex="3">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
-                <input class="input-field no-margin" id="skill-perform-ranks" data-path="skills.perform.ranks" data-modifier="true" type="number" tabindex="3">
+                <input class="input-field no-margin" id="skill-perform-1-ranks" data-path="skills.perform_1.ranks" data-modifier="true" type="number" tabindex="3">
               </div>
               <div class="hidable input-block misc">
-                <input class="input-field no-margin" id="skill-perform-misc" data-path="skills.perform.misc" data-modifier="true" type="number" tabindex="3">
+                <input class="input-field no-margin" id="skill-perform-1-misc" data-path="skills.perform_1.misc" data-modifier="true" type="number" tabindex="3">
               </div>
               <div class="hidable underline-with-input check-block class-skill">
-                <input class="input-check no-margin" id="skill-perform-misc" data-path="skills.perform.class_skill" data-modifier="true" type="checkbox" tabindex="3">
+                <input class="input-check no-margin" id="skill-perform-1-misc" data-path="skills.perform_1.class_skill" data-modifier="true" type="checkbox" tabindex="3">
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
-            <div id="skill-profession" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
-              <p class="underline-with-input inline-with-input name">Profession</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Wis</p>
+            <div id="skill-perform-2" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
+              <p class="underline-with-input inline-with-input name with-type">Perform</p>
+              <div class="input-block type">
+                <input class="input-field no-margin" id="skill-perform-2-type" data-path="skills.perform_2.type" type="text" tabindex="3">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
-                <input class="input-field no-margin" id="skill-profession-ranks" data-path="skills.profession.ranks" data-modifier="true" type="number" tabindex="3">
+                <input class="input-field no-margin" id="skill-perform-2-ranks" data-path="skills.perform_2.ranks" data-modifier="true" type="number" tabindex="3">
               </div>
               <div class="hidable input-block misc">
-                <input class="input-field no-margin" id="skill-profession-misc" data-path="skills.profession.misc" data-modifier="true" type="number" tabindex="3">
+                <input class="input-field no-margin" id="skill-perform-2-misc" data-path="skills.perform_2.misc" data-modifier="true" type="number" tabindex="3">
               </div>
               <div class="hidable underline-with-input check-block class-skill">
-                <input class="input-check no-margin" id="skill-profession-misc" data-path="skills.profession.class_skill" data-modifier="true" type="checkbox" tabindex="3">
+                <input class="input-check no-margin" id="skill-perform-2-misc" data-path="skills.perform_2.class_skill" data-modifier="true" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
+            <div id="skill-profession-1" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
+              <p class="underline-with-input inline-with-input name with-type">Profession</p>
+              <div class="input-block type">
+                <input class="input-field no-margin" id="skill-profession-1-type" data-path="skills.profession_1.type" type="text" tabindex="3">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Wis</p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-profession-1-ranks" data-path="skills.profession_1.ranks" data-modifier="true" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-profession-1-misc" data-path="skills.profession_1.misc" data-modifier="true" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-profession-1-misc" data-path="skills.profession_1.class_skill" data-modifier="true" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
+            <div id="skill-profession-2" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
+              <p class="underline-with-input inline-with-input name with-type">Profession</p>
+              <div class="input-block type">
+                <input class="input-field no-margin" id="skill-profession-2-type" data-path="skills.profession_2.type" type="text" tabindex="3">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Wis</p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-profession-2-ranks" data-path="skills.profession_2.ranks" data-modifier="true" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-profession-2-misc" data-path="skills.profession_2.misc" data-modifier="true" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-profession-2-misc" data-path="skills.profession_2.class_skill" data-modifier="true" type="checkbox" tabindex="3">
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
             <div id="skill-ride" class="skill input-total-block clearfix" data-class-skill="false" data-dex-bonus="true">
               <p class="underline-with-input inline-with-input name">Ride</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-ride-ranks" data-path="skills.ride.ranks" data-modifier="true" type="number" tabindex="3">
@@ -418,7 +481,7 @@
             </div>
             <div id="skill-sense-motive" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
               <p class="underline-with-input inline-with-input name">Sense Motive</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Wis</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Wis</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-sense-motive-ranks" data-path="skills.sense_motive.ranks" data-modifier="true" type="number" tabindex="3">
@@ -433,7 +496,7 @@
             </div>
             <div id="skill-spellcraft" class="skill input-total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Spellcraft</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Int</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-spellcraft-ranks" data-path="skills.spellcraft.ranks" data-modifier="true" type="number" tabindex="3">
@@ -448,7 +511,7 @@
             </div>
             <div id="skill-stealth" class="skill input-total-block clearfix" data-class-skill="false" data-dex-bonus="true">
               <p class="underline-with-input inline-with-input name">Stealth</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-stealth-ranks" data-path="skills.stealth.ranks" data-modifier="true" type="number" tabindex="3">
@@ -463,7 +526,7 @@
             </div>
             <div id="skill-survival" class="skill input-total-block clearfix" data-class-skill="false" data-wis-bonus="true">
               <p class="underline-with-input inline-with-input name">Survival</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Wis</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Wis</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-survival-ranks" data-path="skills.survival.ranks" data-modifier="true" type="number" tabindex="3">
@@ -478,7 +541,7 @@
             </div>
             <div id="skill-swim" class="skill input-total-block clearfix" data-class-skill="false" data-str-bonus="true">
               <p class="underline-with-input inline-with-input name">Swim</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Str</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Str</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-swim-ranks" data-path="skills.swim.ranks" data-modifier="true" type="number" tabindex="3">
@@ -493,7 +556,7 @@
             </div>
             <div id="skill-use-magic-device" class="skill input-total-block clearfix" data-class-skill="false" data-cha-bonus="true">
               <p class="underline-with-input inline-with-input name">Use Magic Device</p>
-              <p class="underline-with-input inline-with-input hidable  small-text stat">Cha</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
               <p class="underline-with-input inline-with-input total"></p>
               <div class="hidable input-block ranks">
                 <input class="input-field no-margin" id="skill-use-magic-device-ranks" data-path="skills.use_magic_device.ranks" data-modifier="true" type="number" tabindex="3">

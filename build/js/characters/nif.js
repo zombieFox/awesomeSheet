@@ -202,10 +202,17 @@ var nif = (function() {
         misc: "",
         class_skill: false
       },
-      craft: {
+      craft_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      craft_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       diplomacy: {
         ranks: "",
@@ -297,15 +304,29 @@ var nif = (function() {
         misc: "4",
         class_skill: false
       },
-      perform: {
+      perform_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
       },
-      profession: {
+      perform_2: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      profession_1: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
+      },
+      profession_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       ride: {
         ranks: "",

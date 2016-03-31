@@ -1801,6 +1801,7 @@ hr {
 /* skills
 ------------------------------------------------- */
 #skills .skill-list .skill .name,
+#skills .skill-list .skill .type,
 #skills .skill-list .skill .stat,
 #skills .skill-list .skill .total,
 #skills .skill-list .skill .ranks,
@@ -1814,6 +1815,11 @@ hr {
   width: 35%;
   white-space: nowrap;
   overflow: hidden; }
+  #skills .skill-list .skill .name.with-type {
+    width: 15%; }
+
+#skills .skill-list .skill .type {
+  width: 20%; }
 
 #skills .skill-list .skill .stat {
   width: 10%;
@@ -1874,6 +1880,15 @@ hr {
   float: left; }
   #skills[data-all-hidden="true"] .skill-list .skill .name {
     width: 85%; }
+    #skills[data-all-hidden="true"] .skill-list .skill .name.with-type {
+      width: 30%; }
+  #skills[data-all-hidden="true"] .skill-list .skill .type {
+    width: 55%; }
+    #skills[data-all-hidden="true"] .skill-list .skill .type .input-field {
+      background-color: transparent;
+      border-color: #fafafa; }
+      #skills[data-all-hidden="true"] .skill-list .skill .type .input-field:hover {
+        border-color: #ff0055; }
   #skills[data-all-hidden="true"] .skill-list .skill .total {
     width: 15%; }
   #skills[data-all-hidden="true"] .skill-list .skill:nth-child(odd) {
@@ -1884,6 +1899,10 @@ hr {
 @media (min-width: 700px) {
   #skills .skill-list .skill .name {
     width: 45%; }
+    #skills .skill-list .skill .name.with-type {
+      width: 15%; }
+  #skills .skill-list .skill .type {
+    width: 30%; }
   #skills .skill-list .skill .stat {
     width: 10%; }
   #skills .skill-list .skill .total {

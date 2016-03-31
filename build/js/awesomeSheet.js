@@ -202,10 +202,17 @@ var nif = (function() {
         misc: "",
         class_skill: false
       },
-      craft: {
+      craft_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      craft_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       diplomacy: {
         ranks: "",
@@ -297,15 +304,29 @@ var nif = (function() {
         misc: "4",
         class_skill: false
       },
-      perform: {
+      perform_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
       },
-      profession: {
+      perform_2: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      profession_1: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
+      },
+      profession_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       ride: {
         ranks: "",
@@ -651,10 +672,17 @@ var ro = (function() {
         misc: "",
         class_skill: false
       },
-      craft: {
+      craft_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      craft_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       diplomacy: {
         ranks: "",
@@ -746,15 +774,29 @@ var ro = (function() {
         misc: "2",
         class_skill: false
       },
-      perform: {
+      perform_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
       },
-      profession: {
+      perform_2: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      profession_1: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
+      },
+      profession_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       ride: {
         ranks: "2",
@@ -1085,10 +1127,17 @@ var vos = (function() {
         misc: "",
         class_skill: true
       },
-      craft: {
+      craft_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      craft_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       diplomacy: {
         ranks: "",
@@ -1180,15 +1229,29 @@ var vos = (function() {
         misc: "",
         class_skill: true
       },
-      perform: {
+      perform_1: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
       },
-      profession: {
+      perform_2: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        type: ""
+      },
+      profession_1: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
+      },
+      profession_2: {
+        ranks: "",
+        misc: "",
+        class_skill: false,
+        type: ""
       },
       ride: {
         ranks: "",

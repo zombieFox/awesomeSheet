@@ -5,6 +5,7 @@
   .skill-list {
     .skill {
       .name,
+      .type,
       .stat,
       .total,
       .ranks,
@@ -18,6 +19,12 @@
         width: 35%;
         white-space: nowrap;
         overflow: hidden;
+        &.with-type {
+          width: 15%;
+        }
+      }
+      .type {
+        width: 20%;
       }
       .stat {
         width: 10%;
@@ -86,6 +93,19 @@
         float: left;
         .name {
           width: 85%;
+          &.with-type {
+            width: 30%;
+          }
+        }
+        .type {
+          width: 55%;
+          .input-field {
+            background-color: transparent;
+            border-color: $gray-13;
+            &:hover {
+              border-color: $primary-color-07;
+            }
+          }
         }
         .total {
           width: 15%;
@@ -110,6 +130,12 @@
       .skill {
         .name {
           width: 45%;
+          &.with-type {
+            width: 15%;
+          }
+        }
+        .type {
+          width: 30%;
         }
         .stat {
           width: 10%;
