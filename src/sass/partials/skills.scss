@@ -29,6 +29,9 @@
       .stat {
         width: 10%;
         text-align: center;
+        &.stat-select {
+          cursor: pointer;
+        }
       }
       .total {
         width: 20%;
@@ -96,12 +99,21 @@
           &.with-type {
             width: 30%;
           }
+          .input-field {
+            background-color: transparent;
+            border-color: $gray-13;
+            padding: 0;
+            &:hover {
+              border-color: $primary-color-07;
+            }
+          }
         }
         .type {
           width: 55%;
           .input-field {
             background-color: transparent;
             border-color: $gray-13;
+            padding: 0;
             &:hover {
               border-color: $primary-color-07;
             }
