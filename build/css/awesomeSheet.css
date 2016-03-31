@@ -1811,7 +1811,7 @@ hr {
   margin: 0; }
 
 #skills .skill-list .skill .name {
-  width: 40%;
+  width: 35%;
   white-space: nowrap;
   overflow: hidden; }
 
@@ -1820,7 +1820,7 @@ hr {
   text-align: center; }
 
 #skills .skill-list .skill .total {
-  width: 15%;
+  width: 20%;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   text-align: center; }
 
@@ -1880,6 +1880,19 @@ hr {
 
 /* media queries
 ------------------------------------------------- */
+@media (min-width: 700px) {
+  #skills .skill-list .skill .name {
+    width: 45%; }
+  #skills .skill-list .skill .stat {
+    width: 10%; }
+  #skills .skill-list .skill .total {
+    width: 15%; }
+  #skills .skill-list .skill .class-skill {
+    width: 10%; }
+  #skills .skill-list .skill .ranks,
+  #skills .skill-list .skill .misc {
+    width: 10%; } }
+
 @media (min-width: 1300px) {
   #skills[data-all-hidden="true"] .skill-list .skill {
     width: 31.3333333333%;

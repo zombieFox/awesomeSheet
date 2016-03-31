@@ -15,7 +15,7 @@
         margin: 0;
       }
       .name {
-        width: 40%;
+        width: 35%;
         white-space: nowrap;
         overflow: hidden;
       }
@@ -24,7 +24,7 @@
         text-align: center;
       }
       .total {
-        width: 15%;
+        width: 20%;
         font-family: $open-sans-semi-bold;
         text-align: center;
       }
@@ -103,7 +103,30 @@
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  #skills {
+    .skill-list {
+      .skill {
+        .name {
+          width: 45%;
+        }
+        .stat {
+          width: 10%;
+        }
+        .total {
+          width: 15%;
+        }
+        .class-skill {
+          width: 10%;
+        }
+        .ranks,
+        .misc {
+          width: 10%;
+        }
+      }
+    }
+  }
+}
 
 @media (min-width: $screen-lg) {}
 
