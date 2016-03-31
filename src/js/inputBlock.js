@@ -36,21 +36,23 @@ var inputBlock = (function() {
   function bind(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".input-field");
-      input.addEventListener("input", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
-      input.addEventListener("focus", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
-      input.addEventListener("blur", function() {
-        _store(this);
-        focus(this);
-        totalBlock.render();
-      }, false);
+      if (input) {
+        input.addEventListener("input", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+        input.addEventListener("focus", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+        input.addEventListener("blur", function() {
+          _store(this);
+          focus(this);
+          totalBlock.render();
+        }, false);
+      };
     };
     _bind_awesomeName();
   };

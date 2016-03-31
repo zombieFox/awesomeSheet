@@ -1804,13 +1804,14 @@ hr {
 #skills .skill-list .skill .stat,
 #skills .skill-list .skill .total,
 #skills .skill-list .skill .ranks,
-#skills .skill-list .skill .misc {
+#skills .skill-list .skill .misc,
+#skills .skill-list .skill .class-skill {
   float: left;
   display: block;
   margin: 0; }
 
 #skills .skill-list .skill .name {
-  width: 45%;
+  width: 35%;
   white-space: nowrap;
   overflow: hidden; }
 
@@ -1819,13 +1820,42 @@ hr {
   text-align: center; }
 
 #skills .skill-list .skill .total {
-  width: 15%;
+  width: 20%;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   text-align: center; }
 
+#skills .skill-list .skill .class-skill {
+  width: 15%;
+  height: 2.5rem;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box; }
+  #skills .skill-list .skill .class-skill .input-check {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    -webkit-tap-highlight-color: transparent; }
+  #skills .skill-list .skill .class-skill .class-skill-icon {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    display: block; }
+    #skills .skill-list .skill .class-skill .class-skill-icon.icon-check-box-unchecked {
+      color: #2a445a; }
+    #skills .skill-list .skill .class-skill .class-skill-icon.icon-check-box-checked {
+      color: #ff0055; }
+
 #skills .skill-list .skill .ranks,
 #skills .skill-list .skill .misc {
-  width: 15%;
+  width: 10%;
   text-align: center; }
   #skills .skill-list .skill .ranks input[type="email"], #skills .skill-list .skill .ranks input[type="number"], #skills .skill-list .skill .ranks input[type="search"], #skills .skill-list .skill .ranks input[type="text"], #skills .skill-list .skill .ranks input[type="tel"], #skills .skill-list .skill .ranks input[type="url"], #skills .skill-list .skill .ranks input[type="password"],
   #skills .skill-list .skill .misc input[type="email"],
@@ -1851,6 +1881,19 @@ hr {
 
 /* media queries
 ------------------------------------------------- */
+@media (min-width: 700px) {
+  #skills .skill-list .skill .name {
+    width: 45%; }
+  #skills .skill-list .skill .stat {
+    width: 10%; }
+  #skills .skill-list .skill .total {
+    width: 15%; }
+  #skills .skill-list .skill .class-skill {
+    width: 10%; }
+  #skills .skill-list .skill .ranks,
+  #skills .skill-list .skill .misc {
+    width: 10%; } }
+
 @media (min-width: 1300px) {
   #skills[data-all-hidden="true"] .skill-list .skill {
     width: 31.3333333333%;
