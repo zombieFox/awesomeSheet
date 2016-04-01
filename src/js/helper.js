@@ -39,6 +39,14 @@ var helper = (function() {
     }
   };
 
+  function truncateString(string, length) {
+    if (string.length >= length) {
+      var newString = string.substring(0, length) + "... ";
+      return newString;
+    };
+    return string;
+  };
+
   function updateObject(object, path, newValue) {
     var address = path.split('.');
     while (address.length > 1) {
@@ -96,7 +104,8 @@ var helper = (function() {
     selectText: selectText,
     delayFunction: delayFunction,
     updateObject: updateObject,
-    getObject: getObject
+    getObject: getObject,
+    truncate: truncateString
   };
 
 })();

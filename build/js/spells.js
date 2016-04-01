@@ -119,9 +119,9 @@ var spells = (function() {
     };
     // state delete
     if (deleteState == "true") {
-      var spellNameText = spell.textContent;
+      var spellName = spell.textContent;
       spell.remove();
-      snack.render(spellNameText + " removed.", false, false);
+      snack.render(helper.truncate(spellName, 40) + " removed.", false, false);
     };
     _updateSpells();
   };
@@ -142,10 +142,10 @@ var spells = (function() {
         // add spell to current character object
         sheet.getCharacter().spells.book.push(newSpell);
         // make a snack bar
-        snack.render(spallName + " added to spell level " + level + ".", false, false);
+        snack.render(helper.truncate(spallName, 40) + " added to spell level " + level + ".", false, false);
       } else {
         // error if the name starts with a number
-        snack.render("Name can't start with a number.", false, false);
+        snack.render("Name can't start with a space or number.", false, false);
       };
     };
   };

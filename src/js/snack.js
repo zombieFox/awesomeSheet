@@ -8,7 +8,7 @@ var snack = (function() {
     var row = document.createElement("div");
     row.setAttribute("class", "row");
     var col1 = document.createElement("div");
-    col1.setAttribute("class", "col-xs-7");
+    col1.setAttribute("class", "col-xs-12");
     var col2 = document.createElement("div");
     col2.setAttribute("class", "col-xs-5");
     var snackClose = document.createElement("button");
@@ -31,7 +31,7 @@ var snack = (function() {
     // };
     col1.appendChild(snackMessage);
     row.appendChild(col1);
-    row.appendChild(col2);
+    // row.appendChild(col2);
     // container.appendChild(row);
     snackBar.appendChild(row);
     // mark current snack bars for removal

@@ -71,7 +71,7 @@ var nav = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render("Switched to " + name + ".", false, false);
+    snack.render("Switched to " + helper.truncate(name, 50) + ".", false, false);
   };
 
   function clear() {

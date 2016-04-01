@@ -1455,6 +1455,14 @@ var helper = (function() {
     }
   };
 
+  function truncateString(string, length) {
+    if (string.length >= length) {
+      var newString = string.substring(0, length) + "... ";
+      return newString;
+    };
+    return string;
+  };
+
   function updateObject(object, path, newValue) {
     var address = path.split('.');
     while (address.length > 1) {
@@ -1512,7 +1520,8 @@ var helper = (function() {
     selectText: selectText,
     delayFunction: delayFunction,
     updateObject: updateObject,
-    getObject: getObject
+    getObject: getObject,
+    truncate: truncateString
   };
 
 })();
@@ -1585,9 +1594,9 @@ var sheet = (function() {
     nav.clear();
     nav.render(getAllCharacters());
     if (lastCharacterRemoved) {
-      snack.render(name + " removed. New character added.", false, false);
+      snack.render(helper.truncate(name, 40) + " removed. New character added.", false, false);
     } else {
-      snack.render(name + " removed.", false, false);
+      snack.render(helper.truncate(name, 50) + " removed.", false, false);
     };
   };
 
@@ -1788,7 +1797,7 @@ var nav = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render("Switched to " + name + ".", false, false);
+    snack.render("Switched to " + helper.truncate(name, 50) + ".", false, false);
   };
 
   function clear() {
@@ -2081,7 +2090,7 @@ var snack = (function() {
     var row = document.createElement("div");
     row.setAttribute("class", "row");
     var col1 = document.createElement("div");
-    col1.setAttribute("class", "col-xs-7");
+    col1.setAttribute("class", "col-xs-12");
     var col2 = document.createElement("div");
     col2.setAttribute("class", "col-xs-5");
     var snackClose = document.createElement("button");
@@ -2104,7 +2113,7 @@ var snack = (function() {
     // };
     col1.appendChild(snackMessage);
     row.appendChild(col1);
-    row.appendChild(col2);
+    // row.appendChild(col2);
     // container.appendChild(row);
     snackBar.appendChild(row);
     // mark current snack bars for removal
@@ -3249,9 +3258,9 @@ var spells = (function() {
     };
     // state delete
     if (deleteState == "true") {
-      var spellNameText = spell.textContent;
+      var spellName = spell.textContent;
       spell.remove();
-      snack.render(spellNameText + " removed.", false, false);
+      snack.render(helper.truncate(spellName, 40) + " removed.", false, false);
     };
     _updateSpells();
   };
@@ -3272,10 +3281,10 @@ var spells = (function() {
         // add spell to current character object
         sheet.getCharacter().spells.book.push(newSpell);
         // make a snack bar
-        snack.render(spallName + " added to spell level " + level + ".", false, false);
+        snack.render(helper.truncate(spallName, 40) + " added to spell level " + level + ".", false, false);
       } else {
         // error if the name starts with a number
-        snack.render("Name can't start with a number.", false, false);
+        snack.render("Name can't start with a space or number.", false, false);
       };
     };
   };
