@@ -8,7 +8,7 @@ A dynamic character sheet which auto calculates many scores and bonuses. Try the
 - Export character as JSON file.
 - Local store all changes made so changes will persist after reload.
 
-##To use
+### Development
 
 Dependencies:
 NodeJS, Bower, Grunt
