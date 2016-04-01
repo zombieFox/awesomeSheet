@@ -3635,12 +3635,12 @@ var totalBlock = (function() {
       var acDeflect = 0;
       var acDodge = 0;
       var acNatural = 0;
+      var classSkill = 0;
       var total = all_inputTotalBlock[i].querySelector(".total");
       var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").textContent, 10) || 0;
       var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
       var modifiers = [];
       var modifiers_total = 0;
-      var classSkill = 0;
       for (var q = 0; q < all_inputField.length; q++) {
         if (all_inputField.length > 0) {
           if (all_inputField[q].dataset.modifier == "true") {

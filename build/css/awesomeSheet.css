@@ -1809,12 +1809,12 @@ hr {
 #skills .skill-list .skill .class-skill {
   float: left;
   display: block;
-  margin: 0; }
-
-#skills .skill-list .skill .name {
-  width: 35%;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden; }
+
+#skills .skill-list .skill .name {
+  width: 35%; }
   #skills .skill-list .skill .name.with-type {
     width: 15%; }
 
@@ -1822,18 +1822,22 @@ hr {
   width: 20%; }
 
 #skills .skill-list .skill .stat {
-  width: 10%;
+  width: 20%;
   text-align: center; }
   #skills .skill-list .skill .stat.stat-select {
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    -webkit-tap-highlight-color: transparent; }
+    #skills .skill-list .skill .stat.stat-select:active {
+      background-color: rgba(59, 102, 136, 0.1); }
 
 #skills .skill-list .skill .total {
-  width: 20%;
+  width: 15%;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   text-align: center; }
 
 #skills .skill-list .skill .class-skill {
-  width: 15%;
+  width: 10%;
   height: 2.5rem;
   text-align: center;
   position: relative;

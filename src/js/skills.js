@@ -9,7 +9,6 @@ var skills = (function() {
   function toggle(element) {
     var totalBlock = helper.getClosest(element, ".input-total-block");
     var stats = ["Str", "Dex", "Con", "Int", "Wis", "Cha", "Level", "Half Level", "Bab", " - "];
-    var totalBonus = ["str", "dex", "con", "int", "wis", "cha", "level", "half-level", "bab", " - "];
     var statIndex = stats.indexOf(element.textContent);
     var newStatIndex = statIndex + 1;
     if (newStatIndex >= stats.length) {
@@ -17,9 +16,9 @@ var skills = (function() {
     };
     // console.log("statIndex = " + statIndex + " ||| " + "newStatIndex = " + newStatIndex);
     element.textContent = stats[newStatIndex];
-    totalBlock.removeAttribute("data-" + totalBonus[statIndex] + "-bonus");
+    totalBlock.removeAttribute("data-" + stats[statIndex].replace(/\s+/g, "-").toLowerCase() + "-bonus");
     if (newStatIndex <= 8) {
-      totalBlock.setAttribute("data-" + totalBonus[newStatIndex] + "-bonus", "true");
+      totalBlock.setAttribute("data-" + stats[newStatIndex].replace(/\s+/g, "-").toLowerCase() + "-bonus", "true");
     };
   };
 
