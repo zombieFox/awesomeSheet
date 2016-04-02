@@ -161,7 +161,9 @@ var sheet = (function() {
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
     prompt.render("download", "Character JSON data:", exportData, "download");
-    helper.selectText(".prompt pre");
+    if (helper.e(".prompt pre")) {
+      helper.selectText(".prompt pre");
+    };
   };
 
   function render() {
