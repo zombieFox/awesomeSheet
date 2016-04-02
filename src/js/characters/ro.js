@@ -4,11 +4,11 @@ var ro = (function() {
     basics: {
       name: "Ro Flint",
       race: "Elf",
-      class: "Magus",
-      level: "2",
+      class: "Magus Bladebound",
+      level: "3",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "2,891",
+      xp: "3,891",
       height: "6'0",
       weight: "",
       age: "120 years",
@@ -45,14 +45,14 @@ var ro = (function() {
           temp: ""
         }
       },
-      feats: "Weapon Finesse",
+      feats: "Weapon Finesse, Dervish Dance, Alertness",
       traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX)"
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex)"
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3)",
-      magic_gear: "",
+      magic_gear: "Short Sword +1, Black Blade Scimitar +1",
       encumbrance: {
         light: "43 lbs or less",
         medium: "44–86 lbs",
@@ -84,12 +84,20 @@ var ro = (function() {
       consumable: [{
         item: "Arcane Pool",
         total: "4",
-        used: "1"
+        used: ""
+      }, {
+        item: "Black Blade Arcane Pool",
+        total: "1",
+        used: ""
+      }, {
+        item: "Alchemist Fire",
+        total: "3",
+        used: "2"
       }]
     },
     defense: {
       hp: {
-        total: "14",
+        total: "20",
         temp: "",
         damage: "",
         non_lethal_damage: ""
@@ -122,7 +130,7 @@ var ro = (function() {
         temp: ""
       },
       reflex: {
-        base: "0",
+        base: "1",
         racial: "",
         misc: "",
         temp: ""
@@ -136,9 +144,9 @@ var ro = (function() {
       defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "1",
+      base_attack: "2",
       special_size_bonus: "",
-      concentration: "6",
+      concentration: "8",
       cmb: {
         misc: "",
         temp: ""
@@ -158,12 +166,22 @@ var ro = (function() {
       attack: {
         melee: [{
           weapon: "Rapier",
-          attack: "5",
-          damage: "1d6+1",
+          attack: "6",
+          damage: "1d6+4",
+          critical: "18–20/x2",
+        }, {
+          weapon: "Black Blade Scimitar +1",
+          attack: "7",
+          damage: "1d6+5",
+          critical: "18–20/x2",
+        }, {
+          weapon: "Spell Strike BB Scimitar +1",
+          attack: "5/5",
+          damage: "1d6+5",
           critical: "18–20/x2",
         }, {
           weapon: "Shortsword +1",
-          attack: "6",
+          attack: "7",
           damage: "1d6+2",
           critical: "18–20/x2",
         }],
@@ -180,7 +198,7 @@ var ro = (function() {
     },
     skills: {
       acrobatics: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         class_skill: false
       },
@@ -297,15 +315,15 @@ var ro = (function() {
         class_skill: false
       },
       perception: {
-        ranks: "2",
+        ranks: "3",
         misc: "2",
         class_skill: false
       },
       perform_1: {
-        ranks: "",
+        ranks: "2",
         misc: "",
         class_skill: false,
-        type: ""
+        type: "Dance"
       },
       perform_2: {
         ranks: "",
@@ -336,7 +354,7 @@ var ro = (function() {
         class_skill: false
       },
       spellcraft: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         class_skill: true
       },
@@ -385,7 +403,7 @@ var ro = (function() {
     spells: {
       per_day: {
         level_0: "4",
-        level_1: "3",
+        level_1: "4",
         level_2: "",
         level_3: "",
         level_4: "",
@@ -610,11 +628,25 @@ var ro = (function() {
           prepared: 0,
           active: false,
           cast: 0
+        },
+        {
+          name: "Unerring Weapon",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ray of Enfeeblement",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
         }
       ]
     },
     notes: {
-      character: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time.",
+      character: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time.<br><br><strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade.<br><br><strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable.",
       story: "",
     }
   };

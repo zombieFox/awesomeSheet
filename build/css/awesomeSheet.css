@@ -1541,7 +1541,7 @@ table {
       border: 0;
       height: 2.5rem;
       line-height: 2.5rem;
-      margin: 0 0 0 5px;
+      margin: 0;
       padding: 0 15px;
       float: left; }
       .input-block .input-controls .button [class*=" icon-"],
@@ -2022,7 +2022,7 @@ hr {
       border: 0;
       height: 2.5rem;
       line-height: 2.5rem;
-      margin: 0 0 0 5px;
+      margin: 0;
       padding: 0 15px;
       float: left; }
       #spells .new-spell .new-spell-controls .button [class*=" icon-"],
