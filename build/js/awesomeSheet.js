@@ -99,8 +99,8 @@ var nif = (function() {
       hp: {
         total: "42",
         temp: "",
-        current: "42",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {
@@ -492,6 +492,7 @@ var nif = (function() {
   };
 
 })();
+
 var ro = (function() {
 
   var data = {
@@ -585,8 +586,8 @@ var ro = (function() {
       hp: {
         total: "14",
         temp: "",
-        current: "14",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {
@@ -957,6 +958,7 @@ var ro = (function() {
   };
 
 })();
+
 var vos = (function() {
 
   var data = {
@@ -1058,8 +1060,8 @@ var vos = (function() {
       hp: {
         total: "26",
         temp: "",
-        current: "26",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {
@@ -1403,6 +1405,7 @@ var vos = (function() {
   };
 
 })();
+
 var hardCodedCharacters = (function() {
 
   var load = [nif.data, ro.data, vos.data];
@@ -1668,7 +1671,7 @@ var sheet = (function() {
       helper.removeClass(icon, "icon-check-box-checked");
     };
     for (var i = 0; i < all_statSelect.length; i++) {
-      var inputTotalBlock = helper.getClosest(all_statSelect[i], ".input-total-block");
+      var inputTotalBlock = helper.getClosest(all_statSelect[i], ".total-block");
       var stat = all_statSelect[i].textContent;
       inputTotalBlock.removeAttribute("data-" + stat.replace(/\s+/g, "-").toLowerCase() + "-bonus");
       all_statSelect[i].textContent = " - ";
@@ -1689,7 +1692,9 @@ var sheet = (function() {
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
     prompt.render("download", "Character JSON data:", exportData, "download");
-    helper.selectText(".prompt pre");
+    if (helper.e(".prompt pre")) {
+      helper.selectText(".prompt pre");
+    };
   };
 
   function render() {
@@ -1725,7 +1730,6 @@ var sheet = (function() {
 })();
 
 var nav = (function() {
-
 
   function _fullscreen() {
     var fullscreen = helper.e(".fullscreen");
@@ -2984,9 +2988,45 @@ var inputBlock = (function() {
     focus(element);
   };
 
-  function bind(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".input-field");
+  function bind() {
+    _bind_inputBlock();
+    _bind_awesomeName();
+    _bind_inputControls();
+  };
+
+  function _bind_inputControls() {
+    var all_inputControls = helper.eA(".input-controls");
+    for (var i = 0; i < all_inputControls.length; i++) {
+      var add = all_inputControls[i].querySelector(".add");
+      var minus = all_inputControls[i].querySelector(".minus");
+      add.addEventListener("click", function() {
+        _addOrMinusInput(this);
+      }, false);
+      minus.addEventListener("click", function() {
+        _addOrMinusInput(this);
+      }, false);
+    };
+  };
+
+  function _addOrMinusInput(element) {
+    var target;
+    if (element.dataset.add) {
+      target = helper.e("#" + element.dataset.add);
+      target.value = (parseInt(target.value, 10) || 0) + 1;
+    };
+    if (element.dataset.minus) {
+      target = helper.e("#" + element.dataset.minus);
+      target.value = (parseInt(target.value, 10) || 0) - 1;
+    };
+    _store(target);
+    updateInputBlock(target);
+    totalBlock.render();
+  };
+
+  function _bind_inputBlock() {
+    var all_inputBlock = helper.eA(".input-block");
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      var input = all_inputBlock[i].querySelector(".input-field");
       if (input) {
         input.addEventListener("input", function() {
           _store(this);
@@ -3005,7 +3045,6 @@ var inputBlock = (function() {
         }, false);
       };
     };
-    _bind_awesomeName();
   };
 
   function _bind_awesomeName() {
@@ -3052,6 +3091,7 @@ var inputBlock = (function() {
   };
 
 })();
+
 var textareaBlock = (function() {
 
   function focus(element) {
@@ -3081,20 +3121,21 @@ var textareaBlock = (function() {
     focus(element);
   };
 
-  function bind(array) {
-    for (var i = 0; i < array.length; i++) {
-      var textarea = array[i].querySelector(".textarea-box");
-      var textareaLabel = array[i].querySelector(".textarea-label");
-      if (textarea) {
-        textarea.addEventListener("input", function() {
+  function bind() {
+    var all_textareaBlock = helper.eA(".textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      var textareaBox = all_textareaBlock[i].querySelector(".textarea-box");
+      var textareaLabel = all_textareaBlock[i].querySelector(".textarea-label");
+      if (textareaBox) {
+        textareaBox.addEventListener("input", function() {
           _store(this);
           focus(this);
         }, false);
-        textarea.addEventListener("focus", function() {
+        textareaBox.addEventListener("focus", function() {
           _store(this);
           focus(this);
         }, false);
-        textarea.addEventListener("blur", function() {
+        textareaBox.addEventListener("blur", function() {
           _store(this);
           focus(this);
         }, false);
@@ -3138,6 +3179,7 @@ var textareaBlock = (function() {
   };
 
 })();
+
 var spells = (function() {
 
   var _bind_spellControls = (function() {
@@ -3614,20 +3656,20 @@ var stats = (function() {
 var totalBlock = (function() {
 
   function render() {
-    var stats_strMod = helper.e(".stats.str .modifier");
-    var stats_dexMod = helper.e(".stats.dex .modifier");
-    var stats_conMod = helper.e(".stats.con .modifier");
-    var stats_intMod = helper.e(".stats.int .modifier");
-    var stats_wisMod = helper.e(".stats.wis .modifier");
-    var stats_chaMod = helper.e(".stats.cha .modifier");
-    var stats_strModTemp = helper.e(".stats.str .modifier-temp");
-    var stats_dexModTemp = helper.e(".stats.dex .modifier-temp");
-    var stats_conModTemp = helper.e(".stats.con .modifier-temp");
-    var stats_intModTemp = helper.e(".stats.int .modifier-temp");
-    var stats_wisModTemp = helper.e(".stats.wis .modifier-temp");
-    var stats_chaModTemp = helper.e(".stats.cha .modifier-temp");
-    var all_inputTotalBlock = helper.eA(".input-total-block");
+    var all_inputTotalBlock = helper.eA(".total-block");
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
+      var stats_strMod = helper.e(".stats.str .modifier");
+      var stats_dexMod = helper.e(".stats.dex .modifier");
+      var stats_conMod = helper.e(".stats.con .modifier");
+      var stats_intMod = helper.e(".stats.int .modifier");
+      var stats_wisMod = helper.e(".stats.wis .modifier");
+      var stats_chaMod = helper.e(".stats.cha .modifier");
+      var stats_strModTemp = helper.e(".stats.str .modifier-temp");
+      var stats_dexModTemp = helper.e(".stats.dex .modifier-temp");
+      var stats_conModTemp = helper.e(".stats.con .modifier-temp");
+      var stats_intModTemp = helper.e(".stats.int .modifier-temp");
+      var stats_wisModTemp = helper.e(".stats.wis .modifier-temp");
+      var stats_chaModTemp = helper.e(".stats.cha .modifier-temp");
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -3646,27 +3688,6 @@ var totalBlock = (function() {
       var acDodge = 0;
       var acNatural = 0;
       var classSkill = 0;
-      var total = all_inputTotalBlock[i].querySelector(".total");
-      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").textContent, 10) || 0;
-      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
-      var modifiers = [];
-      var modifiers_total = 0;
-      for (var q = 0; q < all_inputField.length; q++) {
-        if (all_inputField.length > 0) {
-          if (all_inputField[q].dataset.modifier == "true") {
-            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
-          };
-        };
-      };
-      // if modifiers array has values total them 
-      function totalAllModifiers() {
-        if (modifiers.length > 0) {
-          modifiers_total = modifiers.reduce(function(a, b) {
-            return a + b;
-          });
-        };
-      };
-      totalAllModifiers();
       // str
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
@@ -3824,6 +3845,26 @@ var totalBlock = (function() {
       if (isNaN(classSkill)) {
         classSkill = 0;
       };
+      var total = all_inputTotalBlock[i].querySelector(".total");
+      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+      var modifiers = [];
+      var modifiers_total = 0;
+      for (var q = 0; q < all_inputField.length; q++) {
+        if (all_inputField.length > 0) {
+          if (all_inputField[q].dataset.total == "addition") {
+            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+          };
+          if (all_inputField[q].dataset.total == "subtract") {
+            modifiers.push(-parseInt(all_inputField[q].value, 10) || 0);
+          };
+        };
+      };
+      // if modifiers array has values total them
+      if (modifiers.length > 0) {
+        modifiers_total = modifiers.reduce(function(a, b) {
+          return a + b;
+        });
+      };
       // grand total
       var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
       total.textContent = grandTotal;
@@ -3845,10 +3886,10 @@ var totalBlock = (function() {
   nav.render(sheet.getAllCharacters());
   nav.resize();
   hidableBlock.bind();
-  inputBlock.bind(helper.eA(".input-block"));
-  textareaBlock.bind(helper.eA(".textarea-block"));
-  checkBlock.bind(helper.eA(".check-block"));
-  skills.bind(helper.eA(".stat-select"));
+  inputBlock.bind();
+  textareaBlock.bind();
+  checkBlock.bind();
+  skills.bind();
   stats.bind();
   sheet.render();
 

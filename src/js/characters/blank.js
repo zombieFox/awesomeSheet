@@ -87,8 +87,8 @@ var blank = (function() {
       hp: {
         total: "",
         temp: "",
-        current: "",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {

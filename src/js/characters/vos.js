@@ -99,8 +99,8 @@ var vos = (function() {
       hp: {
         total: "26",
         temp: "",
-        current: "26",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {

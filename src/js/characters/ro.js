@@ -91,8 +91,8 @@ var ro = (function() {
       hp: {
         total: "14",
         temp: "",
-        current: "14",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {

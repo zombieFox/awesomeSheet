@@ -6,10 +6,10 @@
   nav.render(sheet.getAllCharacters());
   nav.resize();
   hidableBlock.bind();
-  inputBlock.bind(helper.eA(".input-block"));
-  textareaBlock.bind(helper.eA(".textarea-block"));
-  checkBlock.bind(helper.eA(".check-block"));
-  skills.bind(helper.eA(".stat-select"));
+  inputBlock.bind();
+  textareaBlock.bind();
+  checkBlock.bind();
+  skills.bind();
   stats.bind();
   sheet.render();
 

@@ -99,8 +99,8 @@ var nif = (function() {
       hp: {
         total: "42",
         temp: "",
-        current: "42",
-        non_lethal: ""
+        damage: "",
+        non_lethal_damage: ""
       },
       ac: {
         flat_footed: {

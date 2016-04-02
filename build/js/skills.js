@@ -7,7 +7,7 @@ var skills = (function() {
   };
 
   function toggle(element) {
-    var totalBlock = helper.getClosest(element, ".input-total-block");
+    var totalBlock = helper.getClosest(element, ".total-block");
     var stats = ["Str", "Dex", "Con", "Int", "Wis", "Cha", "Level", "Half Level", "Bab", " - "];
     var statIndex = stats.indexOf(element.textContent);
     var newStatIndex = statIndex + 1;
@@ -22,9 +22,10 @@ var skills = (function() {
     };
   };
 
-  function bind(array) {
-    for (var i = 0; i < array.length; i++) {
-      array[i].addEventListener("click", function() {
+  function bind() {
+    var all_statSelect = helper.eA(".stat-select");
+    for (var i = 0; i < all_statSelect.length; i++) {
+      all_statSelect[i].addEventListener("click", function() {
         toggle(this);
         _store(this);
         totalBlock.render();
@@ -35,7 +36,7 @@ var skills = (function() {
   function render() {
     var all_statSelect = helper.eA(".stat-select");
     for (var i = 0; i < all_statSelect.length; i++) {
-      var totalBlock = helper.getClosest(all_statSelect[i], ".input-total-block");
+      var totalBlock = helper.getClosest(all_statSelect[i], ".total-block");
       var path = all_statSelect[i].dataset.path;
       var stat = helper.getObject(sheet.getCharacter(), path);
       if (stat != " - " && stat != "undefined" && stat != "") {

@@ -1,6 +1,5 @@
 var nav = (function() {
 
-
   function _fullscreen() {
     var fullscreen = helper.e(".fullscreen");
     var root = window.document;

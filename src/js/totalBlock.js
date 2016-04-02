@@ -1,20 +1,20 @@
 var totalBlock = (function() {
 
   function render() {
-    var stats_strMod = helper.e(".stats.str .modifier");
-    var stats_dexMod = helper.e(".stats.dex .modifier");
-    var stats_conMod = helper.e(".stats.con .modifier");
-    var stats_intMod = helper.e(".stats.int .modifier");
-    var stats_wisMod = helper.e(".stats.wis .modifier");
-    var stats_chaMod = helper.e(".stats.cha .modifier");
-    var stats_strModTemp = helper.e(".stats.str .modifier-temp");
-    var stats_dexModTemp = helper.e(".stats.dex .modifier-temp");
-    var stats_conModTemp = helper.e(".stats.con .modifier-temp");
-    var stats_intModTemp = helper.e(".stats.int .modifier-temp");
-    var stats_wisModTemp = helper.e(".stats.wis .modifier-temp");
-    var stats_chaModTemp = helper.e(".stats.cha .modifier-temp");
-    var all_inputTotalBlock = helper.eA(".input-total-block");
+    var all_inputTotalBlock = helper.eA(".total-block");
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
+      var stats_strMod = helper.e(".stats.str .modifier");
+      var stats_dexMod = helper.e(".stats.dex .modifier");
+      var stats_conMod = helper.e(".stats.con .modifier");
+      var stats_intMod = helper.e(".stats.int .modifier");
+      var stats_wisMod = helper.e(".stats.wis .modifier");
+      var stats_chaMod = helper.e(".stats.cha .modifier");
+      var stats_strModTemp = helper.e(".stats.str .modifier-temp");
+      var stats_dexModTemp = helper.e(".stats.dex .modifier-temp");
+      var stats_conModTemp = helper.e(".stats.con .modifier-temp");
+      var stats_intModTemp = helper.e(".stats.int .modifier-temp");
+      var stats_wisModTemp = helper.e(".stats.wis .modifier-temp");
+      var stats_chaModTemp = helper.e(".stats.cha .modifier-temp");
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -33,27 +33,6 @@ var totalBlock = (function() {
       var acDodge = 0;
       var acNatural = 0;
       var classSkill = 0;
-      var total = all_inputTotalBlock[i].querySelector(".total");
-      var total_value = parseInt(all_inputTotalBlock[i].querySelector(".total").textContent, 10) || 0;
-      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
-      var modifiers = [];
-      var modifiers_total = 0;
-      for (var q = 0; q < all_inputField.length; q++) {
-        if (all_inputField.length > 0) {
-          if (all_inputField[q].dataset.modifier == "true") {
-            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
-          };
-        };
-      };
-      // if modifiers array has values total them 
-      function totalAllModifiers() {
-        if (modifiers.length > 0) {
-          modifiers_total = modifiers.reduce(function(a, b) {
-            return a + b;
-          });
-        };
-      };
-      totalAllModifiers();
       // str
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
@@ -210,6 +189,26 @@ var totalBlock = (function() {
       };
       if (isNaN(classSkill)) {
         classSkill = 0;
+      };
+      var total = all_inputTotalBlock[i].querySelector(".total");
+      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+      var modifiers = [];
+      var modifiers_total = 0;
+      for (var q = 0; q < all_inputField.length; q++) {
+        if (all_inputField.length > 0) {
+          if (all_inputField[q].dataset.total == "addition") {
+            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+          };
+          if (all_inputField[q].dataset.total == "subtract") {
+            modifiers.push(-parseInt(all_inputField[q].value, 10) || 0);
+          };
+        };
+      };
+      // if modifiers array has values total them
+      if (modifiers.length > 0) {
+        modifiers_total = modifiers.reduce(function(a, b) {
+          return a + b;
+        });
       };
       // grand total
       var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;

@@ -7,17 +7,7 @@
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  #defense {
-    .ac,
-    .ac-touch,
-    .ac-flat-footed {
-      .title {
-        min-width: 140px;
-      }
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

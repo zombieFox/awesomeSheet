@@ -27,20 +27,21 @@ var textareaBlock = (function() {
     focus(element);
   };
 
-  function bind(array) {
-    for (var i = 0; i < array.length; i++) {
-      var textarea = array[i].querySelector(".textarea-box");
-      var textareaLabel = array[i].querySelector(".textarea-label");
-      if (textarea) {
-        textarea.addEventListener("input", function() {
+  function bind() {
+    var all_textareaBlock = helper.eA(".textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      var textareaBox = all_textareaBlock[i].querySelector(".textarea-box");
+      var textareaLabel = all_textareaBlock[i].querySelector(".textarea-label");
+      if (textareaBox) {
+        textareaBox.addEventListener("input", function() {
           _store(this);
           focus(this);
         }, false);
-        textarea.addEventListener("focus", function() {
+        textareaBox.addEventListener("focus", function() {
           _store(this);
           focus(this);
         }, false);
-        textarea.addEventListener("blur", function() {
+        textareaBox.addEventListener("blur", function() {
           _store(this);
           focus(this);
         }, false);

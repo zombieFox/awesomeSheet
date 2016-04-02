@@ -33,9 +33,45 @@ var inputBlock = (function() {
     focus(element);
   };
 
-  function bind(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".input-field");
+  function bind() {
+    _bind_inputBlock();
+    _bind_awesomeName();
+    _bind_inputControls();
+  };
+
+  function _bind_inputControls() {
+    var all_inputControls = helper.eA(".input-controls");
+    for (var i = 0; i < all_inputControls.length; i++) {
+      var add = all_inputControls[i].querySelector(".add");
+      var minus = all_inputControls[i].querySelector(".minus");
+      add.addEventListener("click", function() {
+        _addOrMinusInput(this);
+      }, false);
+      minus.addEventListener("click", function() {
+        _addOrMinusInput(this);
+      }, false);
+    };
+  };
+
+  function _addOrMinusInput(element) {
+    var target;
+    if (element.dataset.add) {
+      target = helper.e("#" + element.dataset.add);
+      target.value = (parseInt(target.value, 10) || 0) + 1;
+    };
+    if (element.dataset.minus) {
+      target = helper.e("#" + element.dataset.minus);
+      target.value = (parseInt(target.value, 10) || 0) - 1;
+    };
+    _store(target);
+    updateInputBlock(target);
+    totalBlock.render();
+  };
+
+  function _bind_inputBlock() {
+    var all_inputBlock = helper.eA(".input-block");
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      var input = all_inputBlock[i].querySelector(".input-field");
       if (input) {
         input.addEventListener("input", function() {
           _store(this);
@@ -54,7 +90,6 @@ var inputBlock = (function() {
         }, false);
       };
     };
-    _bind_awesomeName();
   };
 
   function _bind_awesomeName() {

@@ -1375,9 +1375,14 @@ table {
     background-color: #ffffff;
     border-radius: 0 0 2px 2px; }
     .prompt.prompt-modal .prompt-controls .button {
+      margin: 0;
       width: 50%;
       height: 50px;
       line-height: 48px; }
+      .prompt.prompt-modal .prompt-controls .button.button-primary, .prompt.prompt-modal .prompt-controls .button.button-tertiary {
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0; }
       .prompt.prompt-modal .prompt-controls .button:first-child {
         border-radius: 0 0 0 2px; }
       .prompt.prompt-modal .prompt-controls .button:last-child {
@@ -1386,9 +1391,6 @@ table {
     margin: 0 0 20px 0; }
   .prompt.prompt-modal.download .prompt-message .prompt-heading {
     margin: 0; }
-
-.prompt .button:last-child {
-  margin-right: 0; }
 
 .prompt.reveal {
   opacity: 1; }
@@ -1503,7 +1505,8 @@ table {
 /* input-block
 ------------------------------------------------- */
 .input-block {
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .input-block .input-label {
     margin: 0;
     padding: 0;
@@ -1529,6 +1532,23 @@ table {
       font-size: 0.8rem;
       height: 1.5rem;
       line-height: 1.5rem; }
+  .input-block .input-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2; }
+    .input-block .input-controls .button {
+      border: 0;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      margin: 0 0 0 5px;
+      padding: 0 15px;
+      float: left; }
+      .input-block .input-controls .button [class*=" icon-"],
+      .input-block .input-controls .button [class^="icon-"] {
+        margin: 0;
+        height: 2.5rem;
+        line-height: 2.5rem; }
   .input-block .input-field {
     position: relative;
     z-index: 1; }
@@ -1785,12 +1805,6 @@ hr {
 ------------------------------------------------- */
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 700px) {
-  #defense .ac .title,
-  #defense .ac-touch .title,
-  #defense .ac-flat-footed .title {
-    min-width: 140px; } }
-
 /* statistics
 ------------------------------------------------- */
 #statistics .stat-block {
@@ -1941,10 +1955,10 @@ hr {
 /* spells
 ------------------------------------------------- */
 #spells .spell-level {
-  margin: 0 0 2rem 0; }
+  margin: 0 0 2rem; }
   #spells .spell-level h2,
   #spells .spell-level input {
-    margin: 0 0 0.5rem 0; }
+    margin: 0 0 0.5rem; }
   #spells .spell-level .spells-known .button {
     padding: 0 10px;
     margin: 0 0.5% 1px 0;
@@ -1965,8 +1979,8 @@ hr {
       margin: 0 0 0 5px;
       display: block;
       visibility: visible; }
-      #spells .spell-level .spells-known .button .spell-marks [class^="icon-"],
-      #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"] {
+      #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"],
+      #spells .spell-level .spells-known .button .spell-marks [class^="icon-"] {
         float: right;
         margin: 0 0 0 1px;
         line-height: 2rem;
@@ -1976,8 +1990,8 @@ hr {
       margin: 0 5px 0 0;
       display: block;
       visibility: visible; }
-      #spells .spell-level .spells-known .button .spell-active [class^="icon-"],
-      #spells .spell-level .spells-known .button .spell-active [class*=" icon-"] {
+      #spells .spell-level .spells-known .button .spell-active [class*=" icon-"],
+      #spells .spell-level .spells-known .button .spell-active [class^="icon-"] {
         float: left;
         margin: 0;
         line-height: 2rem;
@@ -1987,31 +2001,38 @@ hr {
       margin: 0 0 0 5px;
       display: none;
       visibility: hidden; }
-      #spells .spell-level .spells-known .button .spell-remove [class^="icon-"],
-      #spells .spell-level .spells-known .button .spell-remove [class*=" icon-"] {
+      #spells .spell-level .spells-known .button .spell-remove [class*=" icon-"],
+      #spells .spell-level .spells-known .button .spell-remove [class^="icon-"] {
         float: right;
         margin: 0 0 0 1px;
         line-height: 2rem;
         height: auto; }
 
 #spells .new-spell {
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   #spells .new-spell .spell-name {
     padding-right: 40px; }
-  #spells .new-spell .add-spell {
+  #spells .new-spell .new-spell-controls {
     position: absolute;
-    right: 5px;
-    top: 1.25rem;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    padding: 0 6px; }
-    #spells .new-spell .add-spell [class^="icon-"],
-    #spells .new-spell .add-spell [class*=" icon-"] {
-      margin: 0; }
+    top: 0;
+    right: 0;
+    z-index: 2; }
+    #spells .new-spell .new-spell-controls .button {
+      border: 0;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      margin: 0 0 0 5px;
+      padding: 0 15px;
+      float: left; }
+      #spells .new-spell .new-spell-controls .button [class*=" icon-"],
+      #spells .new-spell .new-spell-controls .button [class^="icon-"] {
+        margin: 0;
+        height: 2.5rem;
+        line-height: 2.5rem; }
 
 #spells .spell-controls {
-  margin: 0 0 2rem 0; }
+  margin: 0 0 2rem; }
   #spells .spell-controls .button {
     margin: 0 5px 5px 0; }
 

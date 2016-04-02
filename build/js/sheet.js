@@ -140,7 +140,7 @@ var sheet = (function() {
       helper.removeClass(icon, "icon-check-box-checked");
     };
     for (var i = 0; i < all_statSelect.length; i++) {
-      var inputTotalBlock = helper.getClosest(all_statSelect[i], ".input-total-block");
+      var inputTotalBlock = helper.getClosest(all_statSelect[i], ".total-block");
       var stat = all_statSelect[i].textContent;
       inputTotalBlock.removeAttribute("data-" + stat.replace(/\s+/g, "-").toLowerCase() + "-bonus");
       all_statSelect[i].textContent = " - ";
@@ -161,7 +161,9 @@ var sheet = (function() {
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
     prompt.render("download", "Character JSON data:", exportData, "download");
-    helper.selectText(".prompt pre");
+    if (helper.e(".prompt pre")) {
+      helper.selectText(".prompt pre");
+    };
   };
 
   function render() {

@@ -1,12 +1,11 @@
 /* spells
 ------------------------------------------------- */
-
 #spells {
   .spell-level {
-    margin: 0 0 2rem 0;
+    margin: 0 0 2rem;
     h2,
     input {
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 0.5rem;
     }
     .spells-known {
       .button {
@@ -30,8 +29,8 @@
           margin: 0 0 0 5px;
           display: block;
           visibility: visible;
-          [class^="icon-"],
-          [class*=" icon-"] {
+          [class*=" icon-"],
+          [class^="icon-"] {
             float: right;
             margin: 0 0 0 1px;
             line-height: 2rem;
@@ -43,8 +42,8 @@
           margin: 0 5px 0 0;
           display: block;
           visibility: visible;
-          [class^="icon-"],
-          [class*=" icon-"] {
+          [class*=" icon-"],
+          [class^="icon-"] {
             float: left;
             margin: 0;
             line-height: 2rem;
@@ -56,8 +55,8 @@
           margin: 0 0 0 5px;
           display: none;
           visibility: hidden;
-          [class^="icon-"],
-          [class*=" icon-"] {
+          [class*=" icon-"],
+          [class^="icon-"] {
             float: right;
             margin: 0 0 0 1px;
             line-height: 2rem;
@@ -69,23 +68,33 @@
   }
   .new-spell {
     position: relative;
+    z-index: 1;
     .spell-name {
       padding-right: 40px;
     }
-    .add-spell {
+    .new-spell-controls {
       position: absolute;
-      right: 5px;
-      top: 1.25rem;
-      transform: translateY(-50%);
-      padding: 0 6px;
-      [class^="icon-"],
-      [class*=" icon-"] {
-        margin: 0;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      .button {
+        border: 0;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        margin: 0 0 0 5px;
+        padding: 0 15px;
+        float: left;
+        [class*=" icon-"],
+        [class^="icon-"] {
+          margin: 0;
+          height: 2.5rem;
+          line-height: 2.5rem;
+        }
       }
     }
   }
   .spell-controls {
-    margin: 0 0 2rem 0;
+    margin: 0 0 2rem;
     .button {
       margin: 0 5px 5px 0;
     }
@@ -168,11 +177,8 @@
     }
   }
 }
-
-
 /* media queries
 ------------------------------------------------- */
-
 @media (min-width: $screen-sm) {
   #spells {
     .spell-level {
@@ -184,7 +190,6 @@
     }
   }
 }
-
 @media (min-width: $screen-md) {
   #spells {
     .spell-level {
@@ -196,7 +201,6 @@
     }
   }
 }
-
 @media (min-width: $screen-lg) {
   #spells {
     .spell-level {
@@ -208,7 +212,6 @@
     }
   }
 }
-
 @media (min-width: $screen-xl) {
   #spells {
     .spell-level {
