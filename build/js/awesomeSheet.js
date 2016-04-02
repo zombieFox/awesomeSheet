@@ -1797,7 +1797,7 @@ var nav = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render("Switched to " + helper.truncate(name, 50) + ".", false, false);
+    snack.render(helper.truncate(name, 50) + " now active.", false, false);
   };
 
   function clear() {
@@ -1957,6 +1957,7 @@ var nav = (function() {
   }
 
 })();
+
 var prompt = (function() {
 
   function render(promptType, heading, text, confirmAction) {
