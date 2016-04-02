@@ -33,7 +33,7 @@ var hidableBlock = (function() {
       helper.toggleClass(icon, "icon-unfold-less");
       helper.toggleClass(icon, "icon-unfold-more");
       text.textContent = "Hide";
-      // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
+      // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true
     } else if (hidableBlock.dataset.allHidden == "false") {
       for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
         var input = all_hidableOnEmptyInput[i].querySelector(".input-field");

@@ -421,34 +421,196 @@ var ro = (function() {
       },
       book: [
         // level 1
-        { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Mage Hand", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Read Magic", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
+        {
+          name: "Acid Splash",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Arcane Mark",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Dancing Lights",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Daze",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Detect Magic",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Disrupt Undead",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Flare",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ghost Sound",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Light",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mage Hand",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Open Close",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Prestidigitation",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ray of Frost",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Read Magic",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Spark",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
         // level 2
-        { name: "Color Spray", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Grease", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Shocking Grasp", level: 1, prepared: 2, active: false, cast: 0 },
-        { name: "True Strike", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Magic Missile", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Shield", level: 1, prepared: 1, active: false, cast: 0 },
-        { name: "Vanish", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Obscuring Mist", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Chill Touch", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Frostbite", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Infernal Healing", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Windy Escape", level: 1, prepared: 0, active: false, cast: 0 }
+        {
+          name: "Color Spray",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Grease",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Shocking Grasp",
+          level: 1,
+          prepared: 2,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "True Strike",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Magic Missile",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Shield",
+          level: 1,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Vanish",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Obscuring Mist",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Chill Touch",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Frostbite",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Infernal Healing",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Windy Escape",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        }
       ]
     },
     notes: {

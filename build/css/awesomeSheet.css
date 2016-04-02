@@ -120,7 +120,7 @@
   margin-left: 8.3333333333%; }
 
 .col-xs-offset-0 {
-  margin-left: 0%; }
+  margin-left: 0; }
 
 .no-gutter {
   margin: 0; }
@@ -193,7 +193,7 @@
   .col-sm-offset-1 {
     margin-left: 8.3333333333%; }
   .col-sm-offset-0 {
-    margin-left: 0%; } }
+    margin-left: 0; } }
 
 @media (min-width: 700px) {
   .col-md-1,
@@ -258,7 +258,7 @@
   .col-md-offset-1 {
     margin-left: 8.3333333333%; }
   .col-md-offset-0 {
-    margin-left: 0%; } }
+    margin-left: 0; } }
 
 @media (min-width: 900px) {
   .container {
@@ -325,7 +325,7 @@
   .col-lg-offset-1 {
     margin-left: 8.3333333333%; }
   .col-lg-offset-0 {
-    margin-left: 0%; } }
+    margin-left: 0; } }
 
 @media (min-width: 1300px) {
   .container {
@@ -392,7 +392,7 @@
   .col-xl-offset-1 {
     margin-left: 8.3333333333%; }
   .col-xl-offset-0 {
-    margin-left: 0%; } }
+    margin-left: 0; } }
 
 /* fonts
 ------------------------------------------------- */
@@ -478,7 +478,7 @@
 /* material icons
 ------------------------------------------------- */
 @font-face {
-  font-family: 'Material Design Icons';
+  font-family: "Material Design Icons";
   src: url("../fonts/material-design-icons/material-design-icons.eot?ju29xy");
   src: url("../fonts/material-design-icons/material-design-icons.eot?#iefixju29xy") format("embedded-opentype"), url("../fonts/material-design-icons/material-design-icons.ttf?ju29xy") format("truetype"), url("../fonts/material-design-icons/material-design-icons.woff?ju29xy") format("woff"), url("../fonts/material-design-icons/material-design-icons.svg?ju29xy#icomoon") format("svg");
   font-weight: normal;
@@ -486,7 +486,7 @@
 
 [class^="icon-"],
 [class*=" icon-"] {
-  font-family: 'Material Design Icons';
+  font-family: "Material Design Icons";
   speak: none;
   font-style: normal;
   font-weight: normal;

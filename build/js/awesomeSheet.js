@@ -424,60 +424,366 @@ var nif = (function() {
       },
       book: [
         // level 0
-        { name: "Bleed", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Erase", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Touch of Fatigue", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Mage Hand", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Detect Poison", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Mending", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Message", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Read Magic", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Resistance", level: 0, prepared: 0, active: false, cast: 0 },
+        {
+          name: "Bleed",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Erase",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Daze",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Disrupt Undead",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Touch of Fatigue",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Prestidigitation",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Light",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ghost Sound",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Spark",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Acid Splash",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mage Hand",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Flare",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Detect Magic",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Detect Poison",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Dancing Lights",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mending",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Arcane Mark",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Message",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ray of Frost",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Read Magic",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Open Close",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Resistance",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
         // level 1
-        { name: "Comprehend Languages", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Enlarge Person", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Feather Fall", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Grease", level: 1, prepared: 2, active: false, cast: 0 },
-        { name: "Mage Armor", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Mount", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Obscuring Mist", level: 1, prepared: 1, active: false, cast: 0 },
-        { name: "Protection from Chaos", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Protection from Evil", level: 1, prepared: 2, active: false, cast: 0 },
-        { name: "Shield", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Summon Monster I", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Unseen Servant", level: 1, prepared: 0, active: false, cast: 0 },
+        {
+          name: "Comprehend Languages",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Enlarge Person",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Feather Fall",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Grease",
+          level: 1,
+          prepared: 2,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mage Armor",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mount",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Obscuring Mist",
+          level: 1,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Protection from Chaos",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Protection from Evil",
+          level: 1,
+          prepared: 2,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Shield",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Summon Monster I",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Unseen Servant",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
         // level 2
-        { name: "Blur", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Create Pit", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Flaming Sphere", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Glitterdust", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Invisibility", level: 2, prepared: 2, active: false, cast: 0 },
-        { name: "Levitate", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Mirror Image", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Resist Energy", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Stone Call", level: 2, prepared: 0, active: false, cast: 0 },
-        { name: "Summon Monster II", level: 2, prepared: 1, active: false, cast: 0 },
-        { name: "Web", level: 2, prepared: 1, active: false, cast: 0 },
+        {
+          name: "Blur",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Create Pit",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Flaming Sphere",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Glitterdust",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Invisibility",
+          level: 2,
+          prepared: 2,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Levitate",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mirror Image",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Resist Energy",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Stone Call",
+          level: 2,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Summon Monster II",
+          level: 2,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Web",
+          level: 2,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
         // level 3
-        { name: "Stinking Cloud", level: 3, prepared: 0, active: false, cast: 0 },
-        { name: "Summon Monster III", level: 3, prepared: 1, active: false, cast: 0 },
-        { name: "Spiked Pit", level: 3, prepared: 1, active: false, cast: 0 },
-        { name: "Aqueous Orb", level: 3, prepared: 0, active: false, cast: 0 },
-        { name: "Fly", level: 3, prepared: 1, active: false, cast: 0 },
-        { name: "Sleet Storm", level: 3, prepared: 0, active: false, cast: 0 }
+        {
+          name: "Stinking Cloud",
+          level: 3,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Summon Monster III",
+          level: 3,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Spiked Pit",
+          level: 3,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Aqueous Orb",
+          level: 3,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Fly",
+          level: 3,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Sleet Storm",
+          level: 3,
+          prepared: 0,
+          active: false,
+          cast: 0
+        }
       ]
     },
     notes: {
@@ -916,34 +1222,196 @@ var ro = (function() {
       },
       book: [
         // level 1
-        { name: "Acid Splash", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Arcane Mark", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Dancing Lights", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Daze", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Detect Magic", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Disrupt Undead", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Flare", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Ghost Sound", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Light", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Mage Hand", level: 0, prepared: 1, active: false, cast: 0 },
-        { name: "Open Close", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Prestidigitation", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Ray of Frost", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Read Magic", level: 0, prepared: 0, active: false, cast: 0 },
-        { name: "Spark", level: 0, prepared: 0, active: false, cast: 0 },
+        {
+          name: "Acid Splash",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Arcane Mark",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Dancing Lights",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Daze",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Detect Magic",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Disrupt Undead",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Flare",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ghost Sound",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Light",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Mage Hand",
+          level: 0,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Open Close",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Prestidigitation",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Ray of Frost",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Read Magic",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Spark",
+          level: 0,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
         // level 2
-        { name: "Color Spray", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Grease", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Shocking Grasp", level: 1, prepared: 2, active: false, cast: 0 },
-        { name: "True Strike", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Magic Missile", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Shield", level: 1, prepared: 1, active: false, cast: 0 },
-        { name: "Vanish", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Obscuring Mist", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Chill Touch", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Frostbite", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Infernal Healing", level: 1, prepared: 0, active: false, cast: 0 },
-        { name: "Windy Escape", level: 1, prepared: 0, active: false, cast: 0 }
+        {
+          name: "Color Spray",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Grease",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Shocking Grasp",
+          level: 1,
+          prepared: 2,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "True Strike",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Magic Missile",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Shield",
+          level: 1,
+          prepared: 1,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Vanish",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Obscuring Mist",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Chill Touch",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Frostbite",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Infernal Healing",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Windy Escape",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        }
       ]
     },
     notes: {
@@ -1419,7 +1887,7 @@ var hardCodedCharacters = (function() {
 
 var helper = (function() {
 
-  // methods on this object 
+  // methods on this object
   function e(selector) {
     return document.querySelector(selector);
   };
@@ -2085,6 +2553,7 @@ var prompt = (function() {
   };
 
 })();
+
 var snack = (function() {
 
   function render(message, close) {
@@ -2768,79 +3237,8 @@ var clone = (function() {
   };
 
 })();
+
 var consumable = (function() {
-
-  // // add consumable checks on total increase
-  // function _addConsumableChecks(element) {
-  //   var clone = helper.getClosest(element, ".clone");
-  //   var consumableCounts = clone.querySelector(".consumable-counts");
-  //   var consumableTotal_value = parseInt(element.value, 10) || 0;
-  //   var checkGroup = consumableCounts.querySelector(".check-group");
-  //   var all_checks = consumableCounts.querySelectorAll(".check").length;
-  //   // make check group
-  //   function _addCheckGroup() {
-  //     var checkGroup = document.createElement("div");
-  //     checkGroup.setAttribute("class", "check-group");
-  //     consumableCounts.appendChild(checkGroup);
-  //     // consumableCounts.insertBefore(checkGroup, consumableCounts.firstChild);
-  //   };
-  //   // if no check group is present and the input value is more than 0 make a check group
-  //   if (!checkGroup) {
-  //     if (consumableTotal_value > 0) {
-  //       _addCheckGroup();
-  //     };
-  //   };
-  //   // while all the checks in the block is less than the consumable value add a check to the check group
-  //   while (all_checks < consumableTotal_value) {
-  //     var checkGroup = consumableCounts.lastChild;
-  //     // if check group children is more than or equal to 10 make a new check group and make that the new target
-  //     if (checkGroup.children.length >= 10) {
-  //       _addCheckGroup();
-  //       checkGroup = consumableCounts.lastChild;
-  //     };
-  //     // make a check
-  //     var check = document.createElement("span");
-  //     check.setAttribute("class", "check");
-  //     // add check to check group
-  //     checkGroup.appendChild(check);
-  //     all_checks++;
-  //   };
-  //   // while all the checks in the block is more than the consumable value remove a check to the check group
-  //   while (all_checks > consumableTotal_value) {
-  //     var checkGroup = consumableCounts.lastChild;
-  //     // if check group children is more than 0 remove a check
-  //     if (checkGroup.children.length > 0) {
-  //       checkGroup.removeChild(checkGroup.lastChild);
-  //     };
-  //     // if check group children is less that or equal to 0 remove check group and set new check group as tatget  if it exists
-  //     if (checkGroup.children.length <= 0) {
-  //       checkGroup.remove();
-  //       if (all_checks > 0) {
-  //         checkGroup = consumableCounts.querySelector(".check-group");
-  //       };
-  //     };
-  //     all_checks--;
-  //   };
-  //   _toggleConsumableChecks(element);
-  // };
-
-  // // toggle consumable check when used value is changed
-  // function _toggleConsumableChecks(element) {
-  //   var clone = helper.getClosest(element, ".clone");
-  //   var consumableCounts = clone.querySelector(".consumable-counts");
-  //   var consumableUsed = clone.querySelector(".consumable-used");
-  //   var consumableUsed_value = parseInt(consumableUsed.value, 10) || 0;
-  //   var all_checks = consumableCounts.querySelectorAll(".check");
-  //   var remainingUses = all_checks.length - consumableUsed_value;
-  //   // add used class to all checks
-  //   for (var i = 0; i < all_checks.length; i++) {
-  //     helper.addClass(all_checks[i], "used");
-  //   };
-  //   // remove used class from remaing checks
-  //   for (var i = 0; i < remainingUses; i++) {
-  //     helper.removeClass(all_checks[i], "used");
-  //   };
-  // };
 
   function _render_consumablePercentage(element) {
     var clone = helper.getClosest(element, ".clone");
@@ -2921,7 +3319,7 @@ var hidableBlock = (function() {
       helper.toggleClass(icon, "icon-unfold-less");
       helper.toggleClass(icon, "icon-unfold-more");
       text.textContent = "Hide";
-      // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true 
+      // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true
     } else if (hidableBlock.dataset.allHidden == "false") {
       for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
         var input = all_hidableOnEmptyInput[i].querySelector(".input-field");
@@ -3877,8 +4275,6 @@ var totalBlock = (function() {
   };
 
 })();
-
-"use strict";
 
 (function() {
 

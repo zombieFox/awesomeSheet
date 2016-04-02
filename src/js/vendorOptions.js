@@ -1,7 +1,7 @@
 (function() {
 
   smoothScroll.init({
-    speed: 800,
+    speed: 600,
     offset: 70
   });
 

@@ -1,6 +1,6 @@
 var helper = (function() {
 
-  // methods on this object 
+  // methods on this object
   function e(selector) {
     return document.querySelector(selector);
   };
