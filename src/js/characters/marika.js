@@ -45,47 +45,51 @@ var marika = (function() {
           temp: ""
         }
       },
-      feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Extra Rogue Talent.",
+      feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",
       traits: "Child of the Streets, Deft Dodger.",
       languages: "Common, Giant, Goblin.",
       special_abilities: "Sneak Attack +5d6, Trapfinding, Trap Sense +3, Uncanny Dodge, Improved Uncanny Dodge, Minor Magic (Mage Hand 3/day), Major Magic (Unseen Servant 2/day), Fast Fingers, Fast Stealth, Powerful Sneak."
     },
     equipment: {
       gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
-      magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +1 (Flaming Crystal), Short Sword +1 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Mood Ring, Energy Protection Crystal (10 Lightning), Energy Protection Crystal (10 Sonic), Eyes of the Eagle, Handy Haversack.",
+      magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: ""
+        light: "43 lbs or less",
+        medium: "44–86 lbs",
+        heavy: "87–130 lbs"
       },
       body_slots: {
-        armor: "",
-        belts: "",
+        armor: "Leather +2",
+        belts: "Belt of Dexterity +4",
         body: "",
         chest: "",
-        eyes: "",
-        feet: "",
+        eyes: "Eyes of the Eagle",
+        feet: "Slippers of Spider Climbing",
         hands: "",
         head: "",
         headband: "",
         neck: "",
-        ring_left_hand: "",
+        ring_left_hand: "Ring of Protection +2",
         ring_right_hand: "",
         shield: "",
-        shoulders: "",
+        shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
       wealth: {
-        platinum: "",
-        gold: "",
+        platinum: "21",
+        gold: "763",
         silver: "",
         copper: ""
       },
-      consumable: []
+      consumable: [{
+        item: "Slippers of Spider Climbing",
+        total: "10",
+        used: ""
+      }]
     },
     defense: {
       hp: {
-        total: "",
+        total: "60",
         temp: "",
         damage: "",
         non_lethal_damage: ""
@@ -103,36 +107,36 @@ var marika = (function() {
         },
         misc: "",
         temp: "",
-        armor: "",
+        armor: "4",
         shield: "",
-        deflect: "",
+        deflect: "2",
         dodge: "",
         natural: "",
         size_bonus: "",
-        notes: ""
+        notes: "+3 dodge bonus to AC against attacks made by traps."
       },
       fortitude: {
-        base: "",
+        base: "3",
         racial: "",
-        misc: "",
+        misc: "3",
         temp: ""
       },
       reflex: {
-        base: "",
+        base: "6",
         racial: "",
-        misc: "",
+        misc: "4",
         temp: ""
       },
       will: {
-        base: "",
+        base: "3",
         racial: "",
-        misc: "",
+        misc: "3",
         temp: ""
       },
-      defense_notes: ""
+      defense_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "",
+      base_attack: "6\/1",
       special_size_bonus: "",
       concentration: "",
       cmb: {
@@ -152,26 +156,53 @@ var marika = (function() {
         temp: ""
       },
       attack: {
-        melee: [],
-        ranged: []
+        melee: [{
+          weapon: "Rapier +2",
+          attack: "15",
+          damage: "1d6+3",
+          critical: "18–20/x2"
+        }, {
+          weapon: "Rapier +2 Powerful Sneak",
+          attack: "13",
+          damage: "1d6+3",
+          critical: "18–20/x2"
+        }, {
+          weapon: "Short Sword +2",
+          attack: "15",
+          damage: "1d6+3",
+          critical: "19–20/x2"
+        }, {
+          weapon: "Short Sword +2 Powerful Sneak",
+          attack: "13",
+          damage: "1d6+3",
+          critical: "19–20/x2"
+        }],
+        ranged: [{
+          weapon: "Shortbow Masterwork",
+          attack: "15",
+          damage: "1d6",
+          critical: "x3",
+          range: "60 ft",
+          ammo: "50"
+        }]
       },
       attack_notes: ""
     },
     skills: {
       acrobatics: {
-        ranks: "",
+        ranks: "9",
         misc: "",
-        class_skill: false
+        class_skill: true
       },
       appraise: {
-        ranks: "",
-        misc: "",
-        class_skill: false
+        ranks: "9",
+        misc: "4",
+        class_skill: true
       },
       bluff: {
-        ranks: "",
+        ranks: "8",
         misc: "",
-        class_skill: false
+        class_skill: true
       },
       climb: {
         ranks: "",
@@ -195,17 +226,27 @@ var marika = (function() {
         misc: "",
         class_skill: false
       },
+      disable_device: {
+        ranks: "9",
+        misc: "4",
+        class_skill: true
+      },
       disguise: {
         ranks: "",
         misc: "",
         class_skill: false
       },
       escape_artist: {
+        ranks: "9",
+        misc: "",
+        class_skill: true
+      },
+      fly: {
         ranks: "",
         misc: "",
         class_skill: false
       },
-      fly: {
+      handle_animal: {
         ranks: "",
         misc: "",
         class_skill: false
@@ -276,9 +317,9 @@ var marika = (function() {
         class_skill: false
       },
       perception: {
-        ranks: "",
-        misc: "",
-        class_skill: false
+        ranks: "9",
+        misc: "5",
+        class_skill: true
       },
       perform_1: {
         ranks: "",
@@ -310,9 +351,14 @@ var marika = (function() {
         class_skill: false
       },
       sense_motive: {
-        ranks: "",
+        ranks: "9",
         misc: "",
-        class_skill: false
+        class_skill: true
+      },
+      sleight_of_hand: {
+        ranks: "9",
+        misc: "3",
+        class_skill: true
       },
       spellcraft: {
         ranks: "",
@@ -320,9 +366,9 @@ var marika = (function() {
         class_skill: false
       },
       stealth: {
-        ranks: "",
-        misc: "",
-        class_skill: false
+        ranks: "9",
+        misc: "5",
+        class_skill: true
       },
       survival: {
         ranks: "",
@@ -340,11 +386,11 @@ var marika = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "",
-        name: "",
-        ranks: "",
-        misc: "",
-        class_skill: false
+        stat: "Wis",
+        name: "Perception Trap",
+        ranks: "9",
+        misc: "9",
+        class_skill: true
       },
       custom_2: {
         stat: "",
@@ -354,6 +400,13 @@ var marika = (function() {
         class_skill: false
       },
       custom_3: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_4: {
         stat: "",
         name: "",
         ranks: "",
@@ -398,7 +451,21 @@ var marika = (function() {
         level_8: "",
         level_9: ""
       },
-      book: []
+      book: [
+        {
+          name: "Mage Hand",
+          level: 0,
+          prepared: 3,
+          active: false,
+          cast: 0
+        }, {
+          name: "Unseen Servant",
+          level: 1,
+          prepared: 2,
+          active: false,
+          cast: 0
+        }
+      ]
     },
     notes: {
       character: "",

@@ -227,6 +227,11 @@ var vos = (function() {
         misc: "",
         class_skill: false
       },
+      disable_device: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       disguise: {
         ranks: "",
         misc: "",
@@ -238,6 +243,11 @@ var vos = (function() {
         class_skill: false
       },
       fly: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      handle_animal: {
         ranks: "",
         misc: "",
         class_skill: false
@@ -346,6 +356,11 @@ var vos = (function() {
         misc: "",
         class_skill: false
       },
+      sleight_of_hand: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       spellcraft: {
         ranks: "",
         misc: "",
@@ -386,6 +401,13 @@ var vos = (function() {
         class_skill: false
       },
       custom_3: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_4: {
         stat: "",
         name: "",
         ranks: "",

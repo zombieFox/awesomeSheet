@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <div class="skill-list">
+          <div class="skill-list clearfix">
             <div class="skill hidable clearfix">
               <p class="inline-with-input small-text name">Skill</p>
               <p class="inline-with-input small-text stat">Stat</p>
@@ -137,6 +137,21 @@
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
+            <div id="skill-disable-device" class="skill total-block clearfix" data-class-skill="false" data-dex-bonus="true">
+              <p class="underline-with-input inline-with-input name">Disable Device</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-disable-device-ranks" data-path="skills.disable_device.ranks" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-disable-device-misc" data-path="skills.disable_device.misc" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-disable-device-misc" data-path="skills.disable_device.class_skill" data-total="addition" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
             <div id="skill-disguise" class="skill total-block clearfix" data-class-skill="false" data-cha-bonus="true">
               <p class="underline-with-input inline-with-input name">Disguise</p>
               <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
@@ -179,6 +194,21 @@
               </div>
               <div class="hidable underline-with-input check-block class-skill">
                 <input class="input-check no-margin" id="skill-fly-misc" data-path="skills.fly.class_skill" data-total="addition" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
+            <div id="skill-handle-animal" class="skill total-block clearfix" data-class-skill="false" data-cha-bonus="true">
+              <p class="underline-with-input inline-with-input name">Handle Animal</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Cha</p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-handle-animal-ranks" data-path="skills.handle_animal.ranks" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-handle-animal-misc" data-path="skills.handle_animal.misc" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-handle-animal-misc" data-path="skills.handle_animal.class_skill" data-total="addition" type="checkbox" tabindex="3">
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
@@ -494,6 +524,21 @@
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
+            <div id="skill-sleight-of-hand" class="skill total-block clearfix" data-class-skill="false" data-dex-bonus="true">
+              <p class="underline-with-input inline-with-input name">Sleight of Hand</p>
+              <p class="underline-with-input inline-with-input hidable small-text stat">Dex</p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-sleight-of-hand-ranks" data-path="skills.sleight_of_hand.ranks" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-sleight-of-hand-misc" data-path="skills.sleight_of_hand.misc" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-sleight-of-hand-misc" data-path="skills.sleight_of_hand.class_skill" data-total="addition" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
             <div id="skill-spellcraft" class="skill total-block clearfix" data-class-skill="false" data-int-bonus="true">
               <p class="underline-with-input inline-with-input name">Spellcraft</p>
               <p class="underline-with-input inline-with-input hidable small-text stat">Int</p>
@@ -569,6 +614,16 @@
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
+          </div>
+          <div class="skill-list clearfix">
+            <div class="skill hidable clearfix">
+              <p class="inline-with-input small-text name">Custom</p>
+              <p class="inline-with-input small-text stat">Stat</p>
+              <p class="inline-with-input total">Total</p>
+              <p class="inline-with-input small-text ranks">Ranks</p>
+              <p class="inline-with-input small-text misc">Misc</p>
+              <p class="inline-with-input small-text class-skill">Class Skill</p>
+            </div>
             <div id="skill-custom-1" class="skill total-block clearfix" data-class-skill="false">
               <div class="input-block name">
                 <input class="input-field no-margin" id="skill-custom-1-name" data-path="skills.custom_1.name" type="text" tabindex="3" placeholder="Skill">
@@ -617,6 +672,23 @@
               </div>
               <div class="hidable underline-with-input check-block class-skill">
                 <input class="input-check no-margin" id="skill-custom-3-misc" data-path="skills.custom_3.class_skill" data-total="addition" type="checkbox" tabindex="3">
+                <span class="class-skill-icon icon-check-box-unchecked"></span>
+              </div>
+            </div>
+            <div id="skill-custom-4" class="skill total-block clearfix" data-class-skill="false">
+              <div class="input-block name">
+                <input class="input-field no-margin" id="skill-custom-4-name" data-path="skills.custom_4.name" type="text" tabindex="3" placeholder="Skill">
+              </div>
+              <p class="underline-with-input inline-with-input hidable small-text stat stat-select" data-path="skills.custom_4.stat"> - </p>
+              <p class="underline-with-input inline-with-input total"></p>
+              <div class="hidable input-block ranks">
+                <input class="input-field no-margin" id="skill-custom-4-ranks" data-path="skills.custom_4.ranks" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable input-block misc">
+                <input class="input-field no-margin" id="skill-custom-4-misc" data-path="skills.custom_4.misc" data-total="addition" type="number" tabindex="3">
+              </div>
+              <div class="hidable underline-with-input check-block class-skill">
+                <input class="input-check no-margin" id="skill-custom-4-misc" data-path="skills.custom_4.class_skill" data-total="addition" type="checkbox" tabindex="3">
                 <span class="class-skill-icon icon-check-box-unchecked"></span>
               </div>
             </div>
