@@ -126,18 +126,21 @@ var ro = (function() {
       fortitude: {
         base: "3",
         racial: "",
+        resistance: "",
         misc: "",
         temp: ""
       },
       reflex: {
         base: "1",
         racial: "",
+        resistance: "",
         misc: "",
         temp: ""
       },
       will: {
         base: "3",
         racial: "",
+        resistance: "",
         misc: "",
         temp: ""
       },

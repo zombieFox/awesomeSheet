@@ -126,19 +126,22 @@ var vos = (function() {
       fortitude: {
         base: "3",
         racial: "",
-        misc: "1",
+        resistance: "1",
+        misc: "",
         temp: ""
       },
       reflex: {
         base: "3",
         racial: "",
-        misc: "1",
+        resistance: "1",
+        misc: "",
         temp: ""
       },
       will: {
         base: "3",
         racial: "",
-        misc: "1",
+        resistance: "1",
+        misc: "",
         temp: ""
       },
       defense_notes: "+2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."

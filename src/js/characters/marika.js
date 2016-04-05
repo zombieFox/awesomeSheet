@@ -118,19 +118,22 @@ var marika = (function() {
       fortitude: {
         base: "3",
         racial: "",
-        misc: "3",
+        resistance: "3",
+        misc: "",
         temp: ""
       },
       reflex: {
         base: "6",
         racial: "",
-        misc: "4",
+        resistance: "3",
+        misc: "1",
         temp: ""
       },
       will: {
         base: "3",
         racial: "",
-        misc: "3",
+        resistance: "3",
+        misc: "",
         temp: ""
       },
       defense_notes: "+3 bonus on Reflex saves made to avoid traps."

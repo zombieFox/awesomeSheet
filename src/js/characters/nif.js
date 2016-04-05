@@ -126,19 +126,22 @@ var nif = (function() {
       fortitude: {
         base: "2",
         racial: "",
-        misc: "5",
+        resistance: "2",
+        misc: "3",
         temp: ""
       },
       reflex: {
         base: "2",
         racial: "",
-        misc: "2",
+        resistance: "2",
+        misc: "",
         temp: ""
       },
       will: {
         base: "5",
         racial: "",
-        misc: "2",
+        resistance: "2",
+        misc: "",
         temp: ""
       },
       defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
