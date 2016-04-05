@@ -89,7 +89,7 @@ var marika = (function() {
     },
     defense: {
       hp: {
-        total: "60",
+        total: "53",
         temp: "",
         damage: "",
         non_lethal_damage: ""
@@ -183,8 +183,8 @@ var marika = (function() {
           critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2"
         }],
         ranged: [{
-          weapon: "Shortbow Masterwork",
-          attack: "16",
+          weapon: "Shortbow +1",
+          attack: "15",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -205,7 +205,7 @@ var marika = (function() {
         class_skill: true
       },
       bluff: {
-        ranks: "8",
+        ranks: "9",
         misc: "",
         class_skill: true
       },
