@@ -16,6 +16,7 @@ section {
     position: relative;
     z-index: $section-heading;
     height: 30px;
+    box-shadow: $shadow-small;
     // transition: all $transition-ease-fast;
     h1 {
       margin: 0;
@@ -42,8 +43,6 @@ section {
       position: fixed;
       top: 70px;
       width: 100%;
-      box-shadow: $shadow-small;
-      // z-index: $section-heading-pinned;
     }
   }
 }

@@ -111,16 +111,6 @@ var nav = (function() {
           helper.removeClass(quickNavLinks[i], "active");
           helper.removeClass(sections[i], "pinned");
         };
-        if (sections[i].getBoundingClientRect().bottom <= (menu + 50)) {
-          if (sections[i].querySelector(".section-heading")) {
-            sections[i].querySelector(".section-heading").style.top = (sections[i].getBoundingClientRect().bottom - 50) + "px";
-          };
-        };
-        if (sections[i].getBoundingClientRect().bottom > (menu + 50)) {
-          if (sections[i].querySelector(".section-heading")) {
-            sections[i].querySelector(".section-heading").removeAttribute("style");
-          };
-        };
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         var lastQuickLink = helper.e(".quick-link.notes");
