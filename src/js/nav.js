@@ -101,11 +101,7 @@ var nav = (function() {
       var quickNavLinks = helper.eA(".quick-link");
       var sections = helper.eA("section");
       var menu = 70;
-      if (helper.e("#statistics").getBoundingClientRect().top <= menu) {
-        helper.addClass(quickNav, "pinned");
-      } else {
-        helper.removeClass(quickNav, "pinned");
-      };
+      var preMenu = 200;
       for (var i = 0; i < sections.length; i++) {
         // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
         if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {
@@ -114,6 +110,13 @@ var nav = (function() {
         } else {
           helper.removeClass(quickNavLinks[i], "active");
           helper.removeClass(sections[i], "pinned");
+        };
+        if (sections[i].getBoundingClientRect().top <= preMenu && sections[i].getBoundingClientRect().bottom > preMenu) {
+          helper.addClass(quickNavLinks[i], "active");
+          helper.addClass(sections[i], "pre-pinned");
+        } else {
+          helper.removeClass(quickNavLinks[i], "active");
+          helper.removeClass(sections[i], "pre-pinned");
         };
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
