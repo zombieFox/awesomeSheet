@@ -126,19 +126,22 @@ var nif = (function() {
       fortitude: {
         base: "2",
         racial: "",
-        misc: "5",
+        resistance: "2",
+        misc: "3",
         temp: ""
       },
       reflex: {
         base: "2",
         racial: "",
-        misc: "2",
+        resistance: "2",
+        misc: "",
         temp: ""
       },
       will: {
         base: "5",
         racial: "",
-        misc: "2",
+        resistance: "2",
+        misc: "",
         temp: ""
       },
       defense_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
@@ -219,6 +222,11 @@ var nif = (function() {
         misc: "",
         class_skill: false
       },
+      disable_device: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       disguise: {
         ranks: "",
         misc: "",
@@ -233,6 +241,11 @@ var nif = (function() {
         ranks: "2",
         misc: "",
         class_skill: true
+      },
+      handle_animal: {
+        ranks: "",
+        misc: "",
+        class_skill: false
       },
       heal: {
         ranks: "",
@@ -338,6 +351,11 @@ var nif = (function() {
         misc: "",
         class_skill: false
       },
+      sleight_of_hand: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       spellcraft: {
         ranks: "6",
         misc: "",
@@ -378,6 +396,13 @@ var nif = (function() {
         class_skill: false
       },
       custom_3: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      custom_4: {
         stat: "",
         name: "",
         ranks: "",

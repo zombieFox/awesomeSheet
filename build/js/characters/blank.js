@@ -114,18 +114,21 @@ var blank = (function() {
       fortitude: {
         base: "",
         racial: "",
+        resistance: "",
         misc: "",
         temp: ""
       },
       reflex: {
         base: "",
         racial: "",
+        resistance: "",
         misc: "",
         temp: ""
       },
       will: {
         base: "",
         racial: "",
+        resistance: "",
         misc: "",
         temp: ""
       },
