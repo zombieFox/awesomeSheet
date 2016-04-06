@@ -51,7 +51,7 @@ var ro = (function() {
       special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3)",
+      gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
       magic_gear: "Short Sword +1, Black Blade Scimitar +1",
       encumbrance: {
         light: "43 lbs or less",
@@ -93,6 +93,10 @@ var ro = (function() {
         item: "Alchemist Fire",
         total: "3",
         used: "2"
+      }, {
+        item: "Potion of CLW",
+        total: "3",
+        used: ""
       }]
     },
     defense: {
@@ -580,7 +584,7 @@ var ro = (function() {
         {
           name: "Grease",
           level: 1,
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         },
@@ -663,6 +667,20 @@ var ro = (function() {
         },
         {
           name: "Ray of Enfeeblement",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Burning Hands",
+          level: 1,
+          prepared: 0,
+          active: false,
+          cast: 0
+        },
+        {
+          name: "Expeditious Retreat",
           level: 1,
           prepared: 0,
           active: false,
