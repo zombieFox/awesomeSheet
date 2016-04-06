@@ -1703,8 +1703,7 @@ section {
     text-transform: uppercase;
     position: relative;
     z-index: 3000;
-    height: 30px;
-    transition: all 0.1s ease-in-out; }
+    height: 30px; }
     section .section-heading h1 {
       margin: 0;
       line-height: 30px; }
@@ -1720,8 +1719,6 @@ section {
               transform: translateY(-50%); }
   section .section-wrapper {
     padding: 3rem 0; }
-  section.pre-pinned .section-heading {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1); }
   section.pinned {
     padding-top: 50px; }
     section.pinned .section-heading {

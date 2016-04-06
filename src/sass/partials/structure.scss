@@ -16,7 +16,7 @@ section {
     position: relative;
     z-index: $section-heading;
     height: 30px;
-    transition: all $transition-ease-fast;
+    // transition: all $transition-ease-fast;
     h1 {
       margin: 0;
       line-height: 30px;
@@ -35,11 +35,6 @@ section {
   .section-wrapper {
     padding: 3rem 0;
   }
-  &.pre-pinned {
-    .section-heading {
-      box-shadow: $shadow-small;
-    }
-  }
   &.pinned {
     padding-top: 50px;
     .section-heading {
@@ -48,6 +43,7 @@ section {
       top: 70px;
       width: 100%;
       box-shadow: $shadow-small;
+      // z-index: $section-heading-pinned;
     }
   }
 }

@@ -101,7 +101,7 @@ var nav = (function() {
       var quickNavLinks = helper.eA(".quick-link");
       var sections = helper.eA("section");
       var menu = 70;
-      var preMenu = 200;
+      var preMenu = 140;
       for (var i = 0; i < sections.length; i++) {
         // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
         if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {
@@ -111,12 +111,15 @@ var nav = (function() {
           helper.removeClass(quickNavLinks[i], "active");
           helper.removeClass(sections[i], "pinned");
         };
-        if (sections[i].getBoundingClientRect().top <= preMenu && sections[i].getBoundingClientRect().bottom > preMenu) {
-          helper.addClass(quickNavLinks[i], "active");
-          helper.addClass(sections[i], "pre-pinned");
-        } else {
-          helper.removeClass(quickNavLinks[i], "active");
-          helper.removeClass(sections[i], "pre-pinned");
+        if (sections[i].getBoundingClientRect().bottom <= (menu + 50)) {
+          if (sections[i].querySelector(".section-heading")) {
+            sections[i].querySelector(".section-heading").style.top = (sections[i].getBoundingClientRect().bottom - 50) + "px";
+          };
+        };
+        if (sections[i].getBoundingClientRect().bottom > (menu + 50)) {
+          if (sections[i].querySelector(".section-heading")) {
+            sections[i].querySelector(".section-heading").removeAttribute("style");
+          };
         };
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
