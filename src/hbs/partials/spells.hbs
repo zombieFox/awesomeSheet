@@ -2,12 +2,19 @@
   <div class="section-heading">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-2">
           <h1>Spells</h1>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-10">
           <div class="section-controls">
-            <button class="hidable-toggle button button-secondary button-icon button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide</span></button>
+            <div class="button-group clearfix">
+              <button class="spell-state-control prepare-spell button button-tertiary button-icon button-small"><span class="icon icon-radio-button-checked"></span>Prepare</button>
+              <button class="spell-state-control unprepare-spell button button-tertiary button-icon button-small"><span class="icon icon-refresh"></span>Unprepare</button>
+              <button class="spell-state-control cast-spell button button-tertiary button-icon button-small"><span class="icon icon-radio-button-unchecked"></span>Cast</button>
+              <button class="spell-state-control active-spell button button-tertiary button-icon button-small"><span class="icon icon-play-arrow"></span>Active</button>
+              <button class="spell-state-control remove-spell button button-tertiary button-icon button-small"><span class="icon icon-close"></span>Remove</button>
+              <button class="hidable-toggle button button-tertiary button-icon button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide</span></button>
+            </div>
           </div>
         </div>
       </div>
@@ -16,15 +23,6 @@
   <div class="section-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
-          <div class="spell-controls">
-            <button class="spell-state-control prepare-spell button button-tertiary button-icon"><span class="icon icon-radio-button-checked"></span>Prepare</button>
-            <button class="spell-state-control unprepare-spell button button-tertiary button-icon"><span class="icon icon-refresh"></span>Unprepare</button>
-            <button class="spell-state-control cast-spell button button-tertiary button-icon"><span class="icon icon-radio-button-unchecked"></span>Cast</button>
-            <button class="spell-state-control active-spell button button-tertiary button-icon"><span class="icon icon-play-arrow"></span>Active</button>
-            <button class="spell-state-control remove-spell button button-tertiary button-icon"><span class="icon icon-close"></span>Remove</button>
-          </div>
-        </div>
         <div class="clearfix spell-level" data-spell-level="0">
           <div class="col-xs-12 col-sm-12 col-lg-3">
             <h2 class="inline-with-input">Level 0</h2>

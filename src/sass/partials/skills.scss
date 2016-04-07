@@ -78,6 +78,27 @@
             color: $primary-color-07;
           }
         }
+        &:hover,
+        &:focus {
+          .class-skill-icon {
+            &.icon-check-box-unchecked {
+              color: $primary-color-07;
+            }
+            &.icon-check-box-checked {
+              color: $primary-color-05;
+            }
+          }
+        }
+        &:active {
+          .class-skill-icon {
+            &.icon-check-box-unchecked {
+              color: $primary-color-02;
+            }
+            &.icon-check-box-checked {
+              color: $primary-color-02;
+            }
+          }
+        }
       }
       .ranks,
       .misc {

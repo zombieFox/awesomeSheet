@@ -2,12 +2,6 @@
 ------------------------------------------------- */
 
 .clone-block {
-  .clone-controls {
-    margin: 0 0 2rem 0;
-    .button {
-      margin: 0 5px 5px 0;
-    }
-  }
   .clone {
     padding: 0;
     border: 0 solid transparent;
@@ -32,36 +26,37 @@
     }
   }
   &.delete-state {
-    input {
-      &[type="email"],
-      &[type="number"],
-      &[type="search"],
-      &[type="text"],
-      &[type="tel"],
-      &[type="password"] {
-        background-color: transparent;
-        border-color: $primary-color-alpha-07;
-        color: $primary-color-07;
-        margin: 0;
+    .clone-target {
+      input {
+        &[type="email"],
+        &[type="number"],
+        &[type="search"],
+        &[type="text"],
+        &[type="tel"],
+        &[type="password"] {
+          background-color: transparent;
+          border-color: $primary-color-alpha-07;
+          color: $primary-color-07;
+          margin: 0;
+        }
       }
-    }
-    label {
-      color: transparent;
-      visibility: hidden;
-    }
-    .clone {
-      background-color: $primary-color-alpha-07;
-      margin: 0 0 1rem 0;
-      padding: 5px 10px 0 10px;
-      border-radius: $border-radius-medium;
-      .clone-delete-controls {
-        height: 40px;
-        opacity: 1;
+      label {
+        color: transparent;
+        visibility: hidden;
+      }
+      .clone {
+        background-color: $primary-color-alpha-07;
+        margin: 0 0 1rem 0;
+        padding: 5px 10px 0 10px;
+        border-radius: $border-radius-medium;
+        .clone-delete-controls {
+          height: 40px;
+          opacity: 1;
+        }
       }
     }
   }
 }
-
 
 /* media queries
 ------------------------------------------------- */

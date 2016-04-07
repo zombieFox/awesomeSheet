@@ -705,30 +705,30 @@ button {
       background-color: #2a445a; }
   .button.button-tertiary,
   button.button-tertiary {
-    color: rgba(0, 0, 0, 0.8);
+    color: #343434;
     background-color: transparent;
-    border-color: rgba(0, 0, 0, 0.09); }
+    border-color: #e8e8e8; }
     .button.button-tertiary:link, .button.button-tertiary:visited,
     button.button-tertiary:link,
     button.button-tertiary:visited {
-      color: rgba(0, 0, 0, 0.8);
+      color: #343434;
       background-color: transparent;
-      border-color: rgba(0, 0, 0, 0.09); }
+      border-color: #e8e8e8; }
     .button.button-tertiary:focus,
     button.button-tertiary:focus {
-      border-color: rgba(0, 0, 0, 0.16);
+      border-color: #d6d6d6;
       outline: 0;
       text-decoration: none; }
     .button.button-tertiary:hover,
     button.button-tertiary:hover {
-      color: rgba(0, 0, 0, 0.8);
+      color: #343434;
       outline: 0;
       text-decoration: none; }
     .button.button-tertiary:active, .button.button-tertiary.active,
     button.button-tertiary:active,
     button.button-tertiary.active {
-      background-color: rgba(0, 0, 0, 0.09);
-      border-color: rgba(0, 0, 0, 0.16); }
+      background-color: #e8e8e8;
+      border-color: #d6d6d6; }
   .button.button-dark,
   button.button-dark {
     color: #c4c4c4;
@@ -760,7 +760,7 @@ button {
       background-color: rgba(255, 255, 255, 0.37); }
   .button.button-small,
   button.button-small {
-    padding: 0 10px;
+    padding: 0 8px;
     height: 22px;
     line-height: 20px;
     font-size: 0.8rem; }
@@ -781,7 +781,22 @@ button {
     display: inline-block; }
   .button.button-icon,
   button.button-icon {
-    padding: 0 12px 0 8px; }
+    padding: 0 10px 0 6px; }
+
+.button-group .button,
+.button-group button {
+  margin-right: 0;
+  margin-left: -1px;
+  border-radius: 0;
+  float: left; }
+  .button-group .button:first-child,
+  .button-group button:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+  .button-group .button:last-child,
+  .button-group button:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
   display: inline-block;
@@ -813,6 +828,24 @@ input[type="submit"], input[type="reset"], input[type="button"] {
 button,
 label {
   -webkit-tap-highlight-color: transparent; }
+
+/* media queries
+------------------------------------------------- */
+@media (min-width: 700px) {
+  .button.button-small,
+  button.button-small {
+    padding: 0 10px;
+    height: 26px;
+    line-height: 24px; }
+    .button.button-small [class^="icon-"],
+    .button.button-small [class*=" icon-"],
+    button.button-small [class^="icon-"],
+    button.button-small [class*=" icon-"] {
+      line-height: 24px;
+      height: 24px; }
+  .button.button-icon,
+  button.button-icon {
+    padding: 0 12px 0 8px; } }
 
 /* typography
 ------------------------------------------------- */
@@ -1594,11 +1627,6 @@ table {
 ------------------------------------------------- */
 /* clone
 ------------------------------------------------- */
-.clone-block .clone-controls {
-  margin: 0 0 2rem 0; }
-  .clone-block .clone-controls .button {
-    margin: 0 5px 5px 0; }
-
 .clone-block .clone {
   padding: 0;
   border: 0 solid transparent;
@@ -1621,22 +1649,22 @@ table {
       .clone-block .clone .clone-delete-controls .button [class*=" icon-"] {
         margin: 0; }
 
-.clone-block.delete-state input[type="email"], .clone-block.delete-state input[type="number"], .clone-block.delete-state input[type="search"], .clone-block.delete-state input[type="text"], .clone-block.delete-state input[type="tel"], .clone-block.delete-state input[type="password"] {
+.clone-block.delete-state .clone-target input[type="email"], .clone-block.delete-state .clone-target input[type="number"], .clone-block.delete-state .clone-target input[type="search"], .clone-block.delete-state .clone-target input[type="text"], .clone-block.delete-state .clone-target input[type="tel"], .clone-block.delete-state .clone-target input[type="password"] {
   background-color: transparent;
   border-color: rgba(187, 0, 59, 0.1);
   color: #ff0055;
   margin: 0; }
 
-.clone-block.delete-state label {
+.clone-block.delete-state .clone-target label {
   color: transparent;
   visibility: hidden; }
 
-.clone-block.delete-state .clone {
+.clone-block.delete-state .clone-target .clone {
   background-color: rgba(187, 0, 59, 0.1);
   margin: 0 0 1rem 0;
   padding: 5px 10px 0 10px;
   border-radius: 3px; }
-  .clone-block.delete-state .clone .clone-delete-controls {
+  .clone-block.delete-state .clone-target .clone .clone-delete-controls {
     height: 40px;
     opacity: 1; }
 
@@ -1710,12 +1738,12 @@ section {
       margin: 0;
       line-height: 30px; }
   section .section-controls {
-    text-align: right;
-    height: 30px; }
-    section .section-controls .button {
-      margin: 0 0 0 10px;
-      position: relative;
+    height: 30px;
+    position: relative; }
+    section .section-controls .button-group {
+      position: absolute;
       top: 50%;
+      right: 0;
       -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
               transform: translateY(-50%); }
@@ -1873,6 +1901,14 @@ hr {
         color: #2a445a; }
       #skills .skill-list .skill .class-skill .class-skill-icon.icon-check-box-checked {
         color: #ff0055; }
+    #skills .skill-list .skill .class-skill:hover .class-skill-icon.icon-check-box-unchecked, #skills .skill-list .skill .class-skill:focus .class-skill-icon.icon-check-box-unchecked {
+      color: #ff0055; }
+    #skills .skill-list .skill .class-skill:hover .class-skill-icon.icon-check-box-checked, #skills .skill-list .skill .class-skill:focus .class-skill-icon.icon-check-box-checked {
+      color: #d10044; }
+    #skills .skill-list .skill .class-skill:active .class-skill-icon.icon-check-box-unchecked {
+      color: #8d002a; }
+    #skills .skill-list .skill .class-skill:active .class-skill-icon.icon-check-box-checked {
+      color: #8d002a; }
   #skills .skill-list .skill .ranks,
   #skills .skill-list .skill .misc {
     width: 10%;
@@ -2024,11 +2060,6 @@ hr {
         margin: 0;
         height: 2.5rem;
         line-height: 2.5rem; }
-
-#spells .spell-controls {
-  margin: 0 0 2rem; }
-  #spells .spell-controls .button {
-    margin: 0 5px 5px 0; }
 
 #spells.prepare-state .spell-level .spells-known .button-tertiary {
   background-color: rgba(59, 102, 136, 0.1); }

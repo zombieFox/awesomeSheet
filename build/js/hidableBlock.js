@@ -30,9 +30,10 @@ var hidableBlock = (function() {
         helper.removeClass(all_hideableOnEmptyTextarea[i], "hidden");
       };
       hidableBlock.dataset.allHidden = "false";
+      helper.toggleClass(element, "active");
       helper.toggleClass(icon, "icon-unfold-less");
       helper.toggleClass(icon, "icon-unfold-more");
-      text.textContent = "Hide";
+      // text.textContent = "Hide";
       // if hide button data all hidden is false loop through all hidable and hide all with empty inputs and change date hidden to true
     } else if (hidableBlock.dataset.allHidden == "false") {
       for (var i = 0; i < all_hidableOnEmptyInput.length; i++) {
@@ -51,9 +52,10 @@ var hidableBlock = (function() {
         };
       };
       hidableBlock.dataset.allHidden = "true";
+      helper.toggleClass(element, "active");
       helper.toggleClass(icon, "icon-unfold-less");
       helper.toggleClass(icon, "icon-unfold-more");
-      text.textContent = "Show";
+      // text.textContent = "Show";
     };
   };
 

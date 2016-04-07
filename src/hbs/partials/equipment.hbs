@@ -1,13 +1,17 @@
-<section id="equipment" class="hidable-block" data-all-hidden="false">
+<section id="equipment" class="hidable-block clone-block consumable" data-delete-clone-state="false" data-all-hidden="false">
   <div class="section-heading">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-2">
           <h1>Equipment</h1>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-10">
           <div class="section-controls">
-            <button class="hidable-toggle button button-secondary button-icon button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide</span></button>
+            <div class="clone-controls button-group clearfix">
+              <button class="clone-add button button-tertiary button-icon button-small" tabindex="3"><span class="icon-add"></span>Add</button>
+              <button class="clone-remove button button-tertiary button-icon button-small" tabindex="3"><span class="icon-close"></span>Remove</button>
+              <button class="hidable-toggle button button-tertiary button-icon button-small"><span class="icon icon-unfold-less"></span><span class="text">Hide</span></button>
+            </div>
           </div>
         </div>
       </div>
@@ -171,25 +175,25 @@
             <div class="col-xs-3">
               <div class="input-block">
                 <label class="input-label" for="equipment-wealth-platinum">Platinum</label>
-                <input class="input-field" id="equipment-wealth-platinum" data-path="equipment.wealth.platinum" type="text" tabindex="1">
+                <input class="input-field" id="equipment-wealth-platinum" data-path="equipment.wealth.platinum" type="text" tabindex="3">
               </div>
             </div>
             <div class="col-xs-3">
               <div class="input-block">
                 <label class="input-label" for="equipment-wealth-gold">Gold</label>
-                <input class="input-field" id="equipment-wealth-gold" data-path="equipment.wealth.gold" type="text" tabindex="1">
+                <input class="input-field" id="equipment-wealth-gold" data-path="equipment.wealth.gold" type="text" tabindex="3">
               </div>
             </div>
             <div class="col-xs-3">
               <div class="input-block">
                 <label class="input-label" for="equipment-wealth-silver">Silver</label>
-                <input class="input-field" id="equipment-wealth-silver" data-path="equipment.wealth.silver" type="text" tabindex="1">
+                <input class="input-field" id="equipment-wealth-silver" data-path="equipment.wealth.silver" type="text" tabindex="3">
               </div>
             </div>
             <div class="col-xs-3">
               <div class="input-block">
                 <label class="input-label" for="equipment-wealth-copper">Copper</label>
-                <input class="input-field" id="equipment-wealth-copper" data-path="equipment.wealth.copper" type="text" tabindex="1">
+                <input class="input-field" id="equipment-wealth-copper" data-path="equipment.wealth.copper" type="text" tabindex="3">
               </div>
             </div>
           </div>
@@ -197,23 +201,11 @@
       </div>
       <hr>
       <div class="row">
-        <div class="clone-block consumable" data-delete-clone-state="false">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="inline-with-input">Consumables</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="row">
-              <div class="col-xs-12">
-                <div class="clone-controls">
-                  <button class="clone-add button button-tertiary button-icon" tabindex="3"><span class="icon-add"></span>Add</button>
-                  <button class="clone-remove button button-tertiary button-icon" tabindex="3"><span class="icon-remove"></span>Remove</button>
-                </div>
-              </div>
-              <div class="col-xs-12">
-                <div class="clone-target"></div>
-              </div>
-            </div>
-          </div>
+        <div class="col-xs-12 col-md-3">
+          <h2 class="inline-with-input">Consumables</h2>
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="clone-target"></div>
         </div>
       </div>
     </div>

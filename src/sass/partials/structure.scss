@@ -24,12 +24,12 @@ section {
     }
   }
   .section-controls {
-    text-align: right;
     height: 30px;
-    .button {
-      margin: 0 0 0 10px;
-      position: relative;
+    position: relative;
+    .button-group {
+      position: absolute;;
       top: 50%;
+      right: 0;
       transform: translateY(-50%);
     }
   }
