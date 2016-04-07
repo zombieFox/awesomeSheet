@@ -466,227 +466,60 @@ var ro = (function() {
         level_8: "",
         level_9: ""
       },
-      book: [
-        // level 1
-        {
-          name: "Acid Splash",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Arcane Mark",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Dancing Lights",
-          level: 0,
-          prepared: 1,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Daze",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Detect Magic",
-          level: 0,
-          prepared: 1,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Disrupt Undead",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Flare",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Ghost Sound",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Light",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Mage Hand",
-          level: 0,
-          prepared: 1,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Open Close",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Prestidigitation",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Ray of Frost",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Read Magic",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Spark",
-          level: 0,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        // level 2
-        {
-          name: "Color Spray",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Grease",
-          level: 1,
-          prepared: 1,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Shocking Grasp",
-          level: 1,
-          prepared: 2,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "True Strike",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Magic Missile",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Shield",
-          level: 1,
-          prepared: 1,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Vanish",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Obscuring Mist",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Chill Touch",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Frostbite",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Infernal Healing",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Windy Escape",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Unerring Weapon",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Ray of Enfeeblement",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Burning Hands",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        },
-        {
-          name: "Expeditious Retreat",
-          level: 1,
-          prepared: 0,
-          active: false,
-          cast: 0
-        }
-      ]
+      book: [{
+        level_0: [
+          { name: "Acid Splash", prepared: 0, active: false, cast: 0 },
+          { name: "Arcane Mark", prepared: 0, active: false, cast: 0 },
+          { name: "Dancing Lights", prepared: 1, active: false, cast: 0 },
+          { name: "Daze", prepared: 0, active: false, cast: 0 },
+          { name: "Detect Magic", prepared: 1, active: false, cast: 0 },
+          { name: "Disrupt Undead", prepared: 0, active: false, cast: 0 },
+          { name: "Flare", prepared: 0, active: false, cast: 0 },
+          { name: "Ghost Sound", prepared: 0, active: false, cast: 0 },
+          { name: "Light", prepared: 0, active: false, cast: 0 },
+          { name: "Mage Hand", prepared: 1, active: false, cast: 0 },
+          { name: "Open Close", prepared: 0, active: false, cast: 0 },
+          { name: "Prestidigitation", prepared: 0, active: false, cast: 0 },
+          { name: "Ray of Frost", prepared: 0, active: false, cast: 0 },
+          { name: "Read Magic", prepared: 0, active: false, cast: 0 },
+          { name: "Spark", prepared: 0, active: false, cast: 0 }
+        ]
+      }, {
+        level_1: [
+          { name: "Color Spray", prepared: 0, active: false, cast: 0 },
+          { name: "Grease", prepared: 1, active: false, cast: 0 },
+          { name: "Shocking Grasp", prepared: 2, active: false, cast: 0 },
+          { name: "True Strike", prepared: 0, active: false, cast: 0 },
+          { name: "Magic Missile", prepared: 0, active: false, cast: 0 },
+          { name: "Shield", prepared: 1, active: false, cast: 0 },
+          { name: "Vanish", prepared: 0, active: false, cast: 0 },
+          { name: "Obscuring Mist", prepared: 0, active: false, cast: 0 },
+          { name: "Chill Touch", prepared: 0, active: false, cast: 0 },
+          { name: "Frostbite", prepared: 0, active: false, cast: 0 },
+          { name: "Infernal Healing", prepared: 0, active: false, cast: 0 },
+          { name: "Windy Escape", prepared: 0, active: false, cast: 0 },
+          { name: "Unerring Weapon", prepared: 0, active: false, cast: 0 },
+          { name: "Ray of Enfeeblement", prepared: 0, active: false, cast: 0 },
+          { name: "Burning Hands", prepared: 0, active: false, cast: 0 },
+          { name: "Expeditious Retreat", prepared: 0, active: false, cast: 0 }
+        ]
+      }, {
+        level_2: []
+      }, {
+        level_3: []
+      }, {
+        level_4: []
+      }, {
+        level_5: []
+      }, {
+        level_6: []
+      }, {
+        level_7: []
+      }, {
+        level_8: []
+      }, {
+        level_9: []
+      }]
     },
     notes: {
       character: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time.<br><br><strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade.<br><br><strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable.",

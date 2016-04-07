@@ -52,9 +52,11 @@ module.exports = function(grunt) {
       awesomeSheet: {
         src: [
           // '<%= folders.build %>/js/strict.js',
+          // '<%= folders.build %>/js/characters/blank.js',
           // '<%= folders.build %>/js/characters/nif.js',
           // '<%= folders.build %>/js/characters/ro.js',
           // '<%= folders.build %>/js/characters/vos.js',
+          // '<%= folders.build %>/js/characters/marika.js',
           // '<%= folders.build %>/js/characters.js',
           // '<%= folders.build %>/js/helper.js',
           // '<%= folders.build %>/js/sheet.js',
@@ -67,8 +69,8 @@ module.exports = function(grunt) {
           // '<%= folders.build %>/js/inputBlock.js',
           // '<%= folders.build %>/js/checkBlock.js',
           // '<%= folders.build %>/js/textareaBlock.js',
-          // '<%= folders.build %>/js/spells.js',
           // '<%= folders.build %>/js/skills.js',
+          // '<%= folders.build %>/js/spells.js',
           // '<%= folders.build %>/js/stats.js',
           // '<%= folders.build %>/js/totalBlock.js',
           // '<%= folders.build %>/js/init.js'

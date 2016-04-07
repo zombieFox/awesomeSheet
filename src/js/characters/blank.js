@@ -198,6 +198,11 @@ var blank = (function() {
         misc: "",
         class_skill: false
       },
+      disable_device: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       disguise: {
         ranks: "",
         misc: "",
@@ -209,6 +214,11 @@ var blank = (function() {
         class_skill: false
       },
       fly: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
+      handle_animal: {
         ranks: "",
         misc: "",
         class_skill: false
@@ -317,6 +327,11 @@ var blank = (function() {
         misc: "",
         class_skill: false
       },
+      sleight_of_hand: {
+        ranks: "",
+        misc: "",
+        class_skill: false
+      },
       spellcraft: {
         ranks: "",
         misc: "",
@@ -362,6 +377,13 @@ var blank = (function() {
         ranks: "",
         misc: "",
         class_skill: false
+      },
+      custom_4: {
+        stat: "",
+        name: "",
+        ranks: "",
+        misc: "",
+        class_skill: false
       }
     },
     spells: {
@@ -401,7 +423,27 @@ var blank = (function() {
         level_8: "",
         level_9: ""
       },
-      book: []
+      book: [{
+        level_0: []
+      }, {
+        level_1: []
+      }, {
+        level_2: []
+      }, {
+        level_3: []
+      }, {
+        level_4: []
+      }, {
+        level_5: []
+      }, {
+        level_6: []
+      }, {
+        level_7: []
+      }, {
+        level_8: []
+      }, {
+        level_9: []
+      }]
     },
     notes: {
       character: "",
