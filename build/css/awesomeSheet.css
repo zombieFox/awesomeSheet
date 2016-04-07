@@ -922,6 +922,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   margin: 0 0 2rem 0;
   border: 0;
   width: 100%;
+  border-radius: 0;
   border-bottom: 2px solid transparent;
   box-shadow: none;
   box-sizing: border-box;
