@@ -14,8 +14,6 @@ var spells = (function() {
       var all_addSpell_input = newSpellRoot.querySelector("input");
       all_addSpell_input.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
-        _updateSpells();
-        sheet.storeCharacters();
       }, false);
     };
     helper.e("#spells .prepare-spell").addEventListener("click", function() {
@@ -129,7 +127,7 @@ var spells = (function() {
   function _addNewSpell(element) {
     var level = helper.getClosest(element, ".spell-level").dataset.spellLevel;
     var spallName = element.value;
-    var newSpell = _createSpellObject(spallName, parseInt(level, 10), 0, false, 0);
+    var newSpell = new _createSpellObject(spallName, parseInt(level, 10), 0, false, 0);
     // if input value is not empty
     if (spallName !== "") {
       //  if first character is not a number
@@ -154,6 +152,7 @@ var spells = (function() {
     var keystroke = event.keyCode || event.which;
     if (keystroke == 13) {
       _addNewSpell(element);
+      _updateSpells();
       sheet.storeCharacters();
     };
   };
@@ -374,24 +373,27 @@ var spells = (function() {
   };
 
   function _updateSpells() {
+    var spellRoot = helper.e("#spells");
     var all_spellKnownItems = helper.eA(".spell-known-item");
     var spells = [];
-    for (var i = 0; i < all_spellKnownItems.length; i++) {
-      var name = all_spellKnownItems[i].textContent;
-      var level = parseInt(helper.getClosest(all_spellKnownItems[i], ".spell-level").dataset.spellLevel, 10) || 0;
-      var prepared = all_spellKnownItems[i].querySelector(".spell-marks").children.length;
-      var cast = all_spellKnownItems[i].querySelector(".spell-marks").querySelectorAll(".icon-radio-button-unchecked").length;
-      var active = all_spellKnownItems[i].querySelector(".spell-active").children.length;
-      if (active > 0) {
-        active = true;
-      } else {
-        active = false;
+    if (spellRoot.classList.contains("prepare-state") || spellRoot.classList.contains("unprepare-state") || spellRoot.classList.contains("cast-state") || spellRoot.classList.contains("active-state") || spellRoot.classList.contains("delete-state")) {
+      for (var i = 0; i < all_spellKnownItems.length; i++) {
+        var name = all_spellKnownItems[i].textContent;
+        var level = parseInt(helper.getClosest(all_spellKnownItems[i], ".spell-level").dataset.spellLevel, 10) || 0;
+        var prepared = all_spellKnownItems[i].querySelector(".spell-marks").children.length;
+        var cast = all_spellKnownItems[i].querySelector(".spell-marks").querySelectorAll(".icon-radio-button-unchecked").length;
+        var active = all_spellKnownItems[i].querySelector(".spell-active").children.length;
+        if (active > 0) {
+          active = true;
+        } else {
+          active = false;
+        };
+        var newSpell = new _createSpellObject(name, level, prepared, active, cast);
+        // add to current character object
+        spells.push(newSpell);
       };
-      var newSpell = new _createSpellObject(name, level, prepared, active, cast);
-      // add to current character object
-      spells.push(newSpell);
+      sheet.getCharacter().spells.book = spells;
     };
-    sheet.getCharacter().spells.book = spells;
   };
 
   function render() {
