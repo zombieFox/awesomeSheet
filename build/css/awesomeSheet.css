@@ -1274,8 +1274,8 @@ table {
     padding: 8px 0;
     position: absolute;
     top: 90px;
-    right: -300px;
-    width: 240px;
+    right: -400px;
+    width: 300px;
     transition: all 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6);
     overflow-y: auto; }
     #quick-nav .nav .nav-list li {
@@ -1290,6 +1290,8 @@ table {
       #quick-nav .nav .nav-list li ul {
         margin: 0;
         padding: 0; }
+      #quick-nav .nav .nav-list li h1 {
+        font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
       #quick-nav .nav .nav-list li h1,
       #quick-nav .nav .nav-list li h2 {
         padding: 0;
@@ -1298,33 +1300,49 @@ table {
         font-size: 1rem;
         width: 80%;
         display: block;
-        font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
         text-transform: uppercase; }
       #quick-nav .nav .nav-list li a {
         padding: 0;
         margin: 0;
-        line-height: 3rem;
-        font-size: 1rem;
         display: block;
         font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
-        text-transform: uppercase;
         clear: both;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         -webkit-tap-highlight-color: transparent; }
-        #quick-nav .nav .nav-list li a span {
-          display: inline-block;
+        #quick-nav .nav .nav-list li a .nav-link {
+          line-height: 3rem;
+          display: block;
+          text-transform: uppercase;
           float: left; }
-          #quick-nav .nav .nav-list li a span.name {
-            width: 70%;
-            overflow: hidden;
-            white-space: nowrap; }
-          #quick-nav .nav .nav-list li a span.icon {
-            color: #335571;
-            font-size: 1.5rem;
-            line-height: 3rem;
-            width: 20%;
-            text-align: center;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
+        #quick-nav .nav .nav-list li a .icon {
+          color: #335571;
+          font-size: 1.5rem;
+          line-height: 3rem;
+          width: 20%;
+          text-align: center;
+          display: block;
+          float: left;
+          vertical-align: bottom;
+          transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
+        #quick-nav .nav .nav-list li a.character-toggle {
+          padding: 0.5rem 0; }
+          #quick-nav .nav .nav-list li a.character-toggle .character {
+            width: 80%;
+            display: block;
+            float: left; }
+            #quick-nav .nav .nav-list li a.character-toggle .character .name,
+            #quick-nav .nav .nav-list li a.character-toggle .character .class,
+            #quick-nav .nav .nav-list li a.character-toggle .character .level {
+              line-height: 1.5rem;
+              font-size: 1rem; }
+            #quick-nav .nav .nav-list li a.character-toggle .character .name {
+              font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
+              width: 100%;
+              display: block; }
+            #quick-nav .nav .nav-list li a.character-toggle .character .class,
+            #quick-nav .nav .nav-list li a.character-toggle .character .level {
+              font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+              color: #b2b2b2; }
         #quick-nav .nav .nav-list li a:link, #quick-nav .nav .nav-list li a:visited {
           color: #ff0055;
           background-color: transparent; }
@@ -1343,6 +1361,10 @@ table {
           #quick-nav .nav .nav-list li a.active .icon, #quick-nav .nav .nav-list li a:active .icon {
             color: #ffffff;
             transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out; }
+          #quick-nav .nav .nav-list li a.active.character-toggle .class,
+          #quick-nav .nav .nav-list li a.active.character-toggle .level, #quick-nav .nav .nav-list li a:active.character-toggle .class,
+          #quick-nav .nav .nav-list li a:active.character-toggle .level {
+            color: #a40033; }
         #quick-nav .nav .nav-list li a:active {
           background-color: #770022; }
         #quick-nav .nav .nav-list li a.active {

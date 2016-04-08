@@ -20,23 +20,40 @@ var nav = (function() {
     }
   };
 
-  function _render_navCharacters(characterName, characterIndex) {
+  function _render_navCharacters(characterName, characterClass, characterLevel, characterIndex) {
     if (typeof characterName == "undefined" || characterName == "") {
       characterName = "New character";
+    };
+    if (typeof characterClass == "undefined" || characterClass == "") {
+      characterClass = "Class";
+    };
+    if (typeof characterLevel == "undefined" || characterLevel == "") {
+      characterLevel = "Level";
     };
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
-    var text = document.createElement("span");
-    text.textContent = characterName;
-    text.setAttribute("class", "name");
+    var character = document.createElement("div");
+    character.setAttribute("class", "character");
+    var nameSpan = document.createElement("span");
+    nameSpan.setAttribute("class", "name");
+    var classSpan = document.createElement("span");
+    classSpan.setAttribute("class", "class");
+    var levelSpan = document.createElement("span");
+    levelSpan.setAttribute("class", "level");
+    nameSpan.textContent = helper.truncate(characterName, 30, true) + " ";
+    classSpan.textContent = "(" + helper.truncate(characterClass, 20, true) + " ";
+    levelSpan.textContent = helper.truncate(characterLevel, 6) + ")";
     var navAnchor = document.createElement("a");
     navAnchor.setAttribute("href", "javascript:void(0)");
     navAnchor.setAttribute("data-character-index", characterIndex);
     navAnchor.setAttribute("class", "clearfix character-toggle character-index-" + characterIndex);
     navAnchor.setAttribute("tabindex", 10);
     navAnchor.appendChild(icon);
-    navAnchor.appendChild(text);
+    character.appendChild(nameSpan);
+    character.appendChild(classSpan);
+    character.appendChild(levelSpan);
+    navAnchor.appendChild(character);
     navLi.appendChild(navAnchor);
     _bind_characterOption(navAnchor, characterIndex);
     return navLi;
@@ -70,7 +87,7 @@ var nav = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render(helper.truncate(name, 50) + " now active.", false, false);
+    snack.render(helper.truncate(name, 50, true) + " now active.", false, false);
   };
 
   function clear() {
@@ -81,7 +98,7 @@ var nav = (function() {
   function render(array) {
     var navCharacters = helper.e(".nav-characters");
     for (var i in array) {
-      var characterAnchor = _render_navCharacters(array[i].basics.name, i);
+      var characterAnchor = _render_navCharacters(array[i].basics.name, array[i].basics.class, array[i].basics.level, i);
       navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");

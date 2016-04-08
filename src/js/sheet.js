@@ -66,9 +66,9 @@ var sheet = (function() {
     nav.clear();
     nav.render(getAllCharacters());
     if (lastCharacterRemoved) {
-      snack.render(helper.truncate(name, 40) + " removed. New character added.", false, false);
+      snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
-      snack.render(helper.truncate(name, 50) + " removed.", false, false);
+      snack.render(helper.truncate(name, 50, true) + " removed.", false, false);
     };
   };
 

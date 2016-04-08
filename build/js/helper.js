@@ -39,9 +39,14 @@ var helper = (function() {
     }
   };
 
-  function truncateString(string, length) {
+  function truncateString(string, length, dotDotDot) {
+    if (dotDotDot) {
+      dotDotDot = "...";
+    } else {
+      dotDotDot = "";
+    };
     if (string.length >= length) {
-      var newString = string.substring(0, length) + "... ";
+      var newString = string.substring(0, length) + dotDotDot;
       return newString;
     };
     return string;

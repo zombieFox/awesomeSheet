@@ -119,8 +119,8 @@
       padding: 8px 0;
       position: absolute;
       top: 90px;
-      right: -300px;
-      width: 240px;
+      right: -400px;
+      width: 300px;
       transition: all $transition-bounce-slow;
       overflow-y: auto;
       li {
@@ -137,6 +137,9 @@
           margin: 0;
           padding: 0;
         }
+        h1 {
+          font-family: $open-sans-bold;
+        }
         h1,
         h2 {
           padding: 0;
@@ -145,35 +148,55 @@
           font-size: 1rem;
           width: 80%;
           display: block;
-          font-family: $open-sans-bold;
           text-transform: uppercase;
         }
         a {
           padding: 0;
           margin: 0;
-          line-height: 3rem;
-          font-size: 1rem;
           display: block;
           font-family: $open-sans-bold;
-          text-transform: uppercase;
           clear: both;
           transition: background-color $transition-ease-medium, color $transition-ease-medium;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-          span {
-            display: inline-block;
+          .nav-link {
+            line-height: 3rem;
+            display: block;
+            text-transform: uppercase;
             float: left;
-            &.name {
-              width: 70%;
-              overflow: hidden;
-              white-space: nowrap;
-            }
-            &.icon {
-              color: $secondary-color-03;
-              font-size: 1.5rem;
-              line-height: 3rem;
-              width: 20%;
-              text-align: center;
-              transition: background-color $transition-ease-medium, color $transition-ease-medium;
+          }
+          .icon {
+            color: $secondary-color-03;
+            font-size: 1.5rem;
+            line-height: 3rem;
+            width: 20%;
+            text-align: center;
+            display: block;
+            float: left;
+            vertical-align: bottom;
+            transition: background-color $transition-ease-medium, color $transition-ease-medium;
+          }
+          &.character-toggle {
+            padding: 0.5rem 0;
+            .character {
+              width: 80%;
+              display: block;
+              float: left;
+              .name,
+              .class,
+              .level {
+                line-height: 1.5rem;
+                font-size: 1rem;
+              }
+              .name {
+                font-family: $open-sans-bold;
+                width: 100%;
+                display: block;
+              }
+              .class,
+              .level {
+                font-family: $open-sans-semi-bold;
+                color: $gray-09;
+              }
             }
           }
           &:link,
@@ -199,6 +222,12 @@
             .icon {
               color: $white;
               transition: background-color $transition-ease-fast, color $transition-ease-fast;
+            }
+            &.character-toggle {
+              .class,
+              .level {
+                color: $primary-color-03;
+              }
             }
           }
           &:active {

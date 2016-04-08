@@ -36,6 +36,8 @@ var inputBlock = (function() {
   function bind() {
     _bind_inputBlock();
     _bind_awesomeName();
+    _bind_class();
+    _bind_level();
     _bind_inputControls();
   };
 
@@ -95,20 +97,56 @@ var inputBlock = (function() {
   function _bind_awesomeName() {
     var input = helper.e(".awesome-name input");
     input.addEventListener("input", function() {
-      _render_characterLink(this.value);
+      _render_characterName(this.value);
       _maxLengthWarning(this.value);
     }, false);
     input.addEventListener("focus", function() {
-      _render_characterLink(this.value);
+      _render_characterName(this.value);
     }, false);
     input.addEventListener("blur", function() {
-      _render_characterLink(this.value);
+      _render_characterName(this.value);
     }, false);
   };
 
-  function _render_characterLink(awesomeNameValue) {
-    var name = helper.e(".character-index-" + sheet.getIndex()).querySelector(".name");
-    name.textContent = awesomeNameValue;
+  function _bind_class() {
+    var input = helper.e("#basics-class");
+    input.addEventListener("input", function() {
+      _render_characterClass(this.value);
+    }, false);
+    input.addEventListener("focus", function() {
+      _render_characterClass(this.value);
+    }, false);
+    input.addEventListener("blur", function() {
+      _render_characterClass(this.value);
+    }, false);
+  };
+
+  function _bind_level() {
+    var input = helper.e("#basics-level");
+    input.addEventListener("input", function() {
+      _render_characterLevel(this.value);
+    }, false);
+    input.addEventListener("focus", function() {
+      _render_characterLevel(this.value);
+    }, false);
+    input.addEventListener("blur", function() {
+      _render_characterLevel(this.value);
+    }, false);
+  };
+
+  function _render_characterName(characterName) {
+    var nameLinkText = helper.e(".character-index-" + sheet.getIndex()).querySelector(".name");
+    nameLinkText.textContent = helper.truncate(characterName, 30, true) + " ";
+  };
+
+  function _render_characterClass(characterClass) {
+    var classLinkText = helper.e(".character-index-" + sheet.getIndex()).querySelector(".class");
+    classLinkText.textContent = "(" + helper.truncate(characterClass, 20, true) + " ";
+  };
+
+  function _render_characterLevel(characterLevel) {
+    var levelLinkText = helper.e(".character-index-" + sheet.getIndex()).querySelector(".level");
+    levelLinkText.textContent = helper.truncate(characterLevel, 6, false) + ")";
   };
 
   function _maxLengthWarning(awesomeNameValue) {
