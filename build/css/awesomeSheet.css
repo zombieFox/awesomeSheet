@@ -788,7 +788,9 @@ button {
   margin-right: 0;
   margin-left: -1px;
   border-radius: 0;
-  float: left; }
+  float: left;
+  z-index: 1;
+  position: relative; }
   .button-group .button:first-child,
   .button-group button:first-child {
     border-top-left-radius: 3px;
@@ -797,6 +799,10 @@ button {
   .button-group button:last-child {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px; }
+  .button-group .button.active, .button-group .button:active,
+  .button-group button.active,
+  .button-group button:active {
+    z-index: 2; }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
   display: inline-block;
