@@ -25,10 +25,10 @@ var nav = (function() {
       characterName = "New character";
     };
     if (typeof characterClass == "undefined" || characterClass == "") {
-      characterClass = "Class";
+      characterClass = "No class";
     };
     if (typeof characterLevel == "undefined" || characterLevel == "") {
-      characterLevel = "Level";
+      characterLevel = "0";
     };
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
@@ -41,9 +41,9 @@ var nav = (function() {
     classSpan.setAttribute("class", "class");
     var levelSpan = document.createElement("span");
     levelSpan.setAttribute("class", "level");
-    nameSpan.textContent = helper.truncate(characterName, 30, true) + " ";
-    classSpan.textContent = "(" + helper.truncate(characterClass, 20, true) + " ";
-    levelSpan.textContent = helper.truncate(characterLevel, 6) + ")";
+    nameSpan.textContent = helper.truncate(characterName, 30, true);
+    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
+    levelSpan.textContent = helper.truncate(characterLevel, 5);
     var navAnchor = document.createElement("a");
     navAnchor.setAttribute("href", "javascript:void(0)");
     navAnchor.setAttribute("data-character-index", characterIndex);
