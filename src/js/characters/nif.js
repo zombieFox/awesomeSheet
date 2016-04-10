@@ -412,10 +412,10 @@ var nif = (function() {
     },
     spells: {
       per_day: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
+        level_0: "4",
+        level_1: "5",
+        level_2: "4",
+        level_3: "3",
         level_4: "",
         level_5: "",
         level_6: "",
@@ -436,10 +436,10 @@ var nif = (function() {
         level_9: ""
       },
       known: {
-        level_0: "4",
-        level_1: "5",
-        level_2: "4",
-        level_3: "3",
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
         level_4: "",
         level_5: "",
         level_6: "",
