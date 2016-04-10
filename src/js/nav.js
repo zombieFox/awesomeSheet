@@ -59,6 +59,27 @@ var nav = (function() {
     return navLi;
   };
 
+  function updateNavCharacters(input) {
+    var inputType = input.dataset.characterNav;
+    var inputValue = input.value;
+    if (inputType == "name") {
+      if (typeof inputValue == "undefined" || inputValue == "") {
+        inputValue = "New character";
+      };
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".name").textContent = helper.truncate(inputValue, 30, true);
+    } else if (inputType == "class") {
+      if (typeof inputValue == "undefined" || inputValue == "") {
+        inputValue = "No class";
+      };
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".class").textContent = helper.truncate(inputValue, 20, true) + " ";
+    } else if (inputType == "level") {
+      if (typeof inputValue == "undefined" || inputValue == "") {
+        inputValue = "0";
+      };
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 5, false);
+    };
+  };
+
   function _bind_characterOption(characterLink, newIndex) {
     characterLink.addEventListener("click", function() {
       _switch_character(this);
@@ -237,6 +258,7 @@ var nav = (function() {
     resize: resize,
     clear: clear,
     render: render,
+    update: updateNavCharacters,
     open: navOpen,
     close: navClose,
     toggle: navToggle
