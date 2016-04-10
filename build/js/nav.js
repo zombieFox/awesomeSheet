@@ -43,7 +43,7 @@ var nav = (function() {
     levelSpan.setAttribute("class", "level");
     nameSpan.textContent = helper.truncate(characterName, 30, true);
     classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
-    levelSpan.textContent = helper.truncate(characterLevel, 5);
+    levelSpan.textContent = helper.truncate(characterLevel, 10);
     var navAnchor = document.createElement("a");
     navAnchor.setAttribute("href", "javascript:void(0)");
     navAnchor.setAttribute("data-character-index", characterIndex);
@@ -76,7 +76,7 @@ var nav = (function() {
       if (typeof inputValue == "undefined" || inputValue == "") {
         inputValue = "0";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 5, false);
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 10, false);
     };
   };
 
