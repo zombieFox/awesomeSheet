@@ -17,46 +17,44 @@
   </div>
   <div class="section-wrapper">
     <div class="container">
-      <div class="row">
-        <div class="total-block">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="inline-with-input margin-with-input">HP <span class="total"></span></h2>
+      <div class="total-block">
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="inline-with-input margin-with-input">Hit Points <span class="total"></span></h2>
           </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="row no-gutter">
-              <div class="col-xs-6 hidable">
-                <div class="input-block">
-                  <label class="input-label" for="defense-hp-total">HP Total</label>
-                  <input class="input-field" id="defense-hp-total" data-total="addition" data-path="defense.hp.total" type="number" tabindex="3">
-                </div>
-              </div>
-              <div class="col-xs-6 hidable">
-                <div class="input-block">
-                  <label class="input-label" for="defense-hp-temp">Temp HP</label>
-                  <input class="input-field" id="defense-hp-temp" data-total="addition" data-path="defense.hp.temp" type="number" tabindex="3">
-                </div>
+        </div>
+        <div class="row no-gutter">
+          <div class="col-xs-6 hidable">
+            <div class="input-block">
+              <label class="input-label" for="defense-hp-total">Total HP</label>
+              <input class="input-field" id="defense-hp-total" data-total="addition" data-path="defense.hp.total" type="number" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-6 hidable">
+            <div class="input-block">
+              <label class="input-label" for="defense-hp-temp">Temporary HP</label>
+              <input class="input-field" id="defense-hp-temp" data-total="addition" data-path="defense.hp.temp" type="number" tabindex="3">
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutter">
+          <div class="col-xs-6">
+            <div class="input-block">
+              <label class="input-label" for="defense-hp-damage">Damage</label>
+              <input class="input-field" id="defense-hp-damage" data-total="subtract" data-path="defense.hp.damage" type="number" tabindex="3">
+              <div class="input-controls">
+                <button class="button button-tertiary button-small minus" data-minus="defense-hp-damage"><span class="icon-remove"></span></button>
+                <button class="button button-tertiary button-small add" data-add="defense-hp-damage"><span class="icon-add"></span></button>
               </div>
             </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="input-block">
-                  <label class="input-label" for="defense-hp-damage">Damage Taken</label>
-                  <input class="input-field" id="defense-hp-damage" data-total="subtract" data-path="defense.hp.damage" type="number" tabindex="3">
-                  <div class="input-controls">
-                    <button class="button button-tertiary button-small minus" data-minus="defense-hp-damage"><span class="icon-remove"></span></button>
-                    <button class="button button-tertiary button-small add" data-add="defense-hp-damage"><span class="icon-add"></span></button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-6">
-                <div class="input-block">
-                  <label class="input-label" for="defense-hp-non-lethal-damage">Non Lethal Damage</label>
-                  <input class="input-field" id="defense-hp-non-lethal-damage" data-path="defense.hp.non_lethal_damage" type="number" tabindex="3">
-                  <div class="input-controls">
-                    <button class="button button-tertiary button-small minus" data-minus="defense-hp-non-lethal-damage"><span class="icon-remove"></span></button>
-                    <button class="button button-tertiary button-small add" data-add="defense-hp-non-lethal-damage"><span class="icon-add"></span></button>
-                  </div>
-                </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="input-block">
+              <label class="input-label" for="defense-hp-non-lethal-damage">Non Lethal Damage</label>
+              <input class="input-field" id="defense-hp-non-lethal-damage" data-path="defense.hp.non_lethal_damage" type="number" tabindex="3">
+              <div class="input-controls">
+                <button class="button button-tertiary button-small minus" data-minus="defense-hp-non-lethal-damage"><span class="icon-remove"></span></button>
+                <button class="button button-tertiary button-small add" data-add="defense-hp-non-lethal-damage"><span class="icon-add"></span></button>
               </div>
             </div>
           </div>
