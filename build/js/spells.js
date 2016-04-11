@@ -64,7 +64,7 @@ var spells = (function() {
     if (prepareState == "true") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
-      if (spellMarks.children.length <= 20) {
+      if (spellMarks.children.length <= 15) {
         spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
       };
       if (spellMarks.children.length > 0) {
@@ -290,6 +290,9 @@ var spells = (function() {
     spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("class", "spell-known-item button button-tertiary hidable");
+    var spellActive = document.createElement("span");
+    spellActive.setAttribute("class", "spell-active");
+    spellButton.appendChild(spellActive);
     var spellNameSpan = document.createElement("span");
     spellNameSpan.setAttribute("class", "spell-name");
     spellNameSpan.textContent = spellName;
@@ -297,9 +300,6 @@ var spells = (function() {
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "spell-marks");
     spellButton.appendChild(spellMarks);
-    var spellActive = document.createElement("span");
-    spellActive.setAttribute("class", "spell-active");
-    spellButton.appendChild(spellActive);
     var spellRemove = document.createElement("span");
     spellRemove.setAttribute("class", "spell-remove");
     spellButton.appendChild(spellRemove);

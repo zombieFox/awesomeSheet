@@ -2171,6 +2171,19 @@ hr {
     float: left;
     line-height: 2rem;
     height: auto; }
+    #spells .spell-level .spells-known .button .spell-active,
+    #spells .spell-level .spells-known .button .spell-name {
+      float: left;
+      margin: 0 5px 0 0;
+      display: block; }
+    #spells .spell-level .spells-known .button .spell-active {
+      visibility: visible; }
+      #spells .spell-level .spells-known .button .spell-active [class*=" icon-"],
+      #spells .spell-level .spells-known .button .spell-active [class^="icon-"] {
+        float: left;
+        margin: 0;
+        line-height: 2rem;
+        height: auto; }
     #spells .spell-level .spells-known .button .spell-name {
       white-space: nowrap;
       overflow: hidden; }
@@ -2181,19 +2194,8 @@ hr {
       visibility: visible; }
       #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"],
       #spells .spell-level .spells-known .button .spell-marks [class^="icon-"] {
-        float: right;
-        margin: 0 0 0 1px;
-        line-height: 2rem;
-        height: auto; }
-    #spells .spell-level .spells-known .button .spell-active {
-      float: left;
-      margin: 0 5px 0 0;
-      display: block;
-      visibility: visible; }
-      #spells .spell-level .spells-known .button .spell-active [class*=" icon-"],
-      #spells .spell-level .spells-known .button .spell-active [class^="icon-"] {
         float: left;
-        margin: 0;
+        margin: 0 0 0 1px;
         line-height: 2rem;
         height: auto; }
     #spells .spell-level .spells-known .button .spell-remove {

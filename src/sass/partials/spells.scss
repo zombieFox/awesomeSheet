@@ -20,6 +20,22 @@
         float: left;
         line-height: 2rem;
         height: auto;
+        .spell-active,
+        .spell-name {
+          float: left;
+          margin: 0 5px 0 0;
+          display: block;
+        }
+        .spell-active {
+          visibility: visible;
+          [class*=" icon-"],
+          [class^="icon-"] {
+            float: left;
+            margin: 0;
+            line-height: 2rem;
+            height: auto;
+          }
+        }
         .spell-name {
           white-space: nowrap;
           overflow: hidden;
@@ -31,21 +47,8 @@
           visibility: visible;
           [class*=" icon-"],
           [class^="icon-"] {
-            float: right;
-            margin: 0 0 0 1px;
-            line-height: 2rem;
-            height: auto;
-          }
-        }
-        .spell-active {
-          float: left;
-          margin: 0 5px 0 0;
-          display: block;
-          visibility: visible;
-          [class*=" icon-"],
-          [class^="icon-"] {
             float: left;
-            margin: 0;
+            margin: 0 0 0 1px;
             line-height: 2rem;
             height: auto;
           }
