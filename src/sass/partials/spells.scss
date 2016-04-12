@@ -1,8 +1,9 @@
 /* spells
 ------------------------------------------------- */
+
 #spells {
   .spell-level {
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
     h2,
     input {
       margin: 0 0 0.5rem;
@@ -10,16 +11,18 @@
     .spells-known {
       .button {
         padding: 0 10px;
-        margin: 0 0.5% 1px 0;
-        width: 49.5%;
+        margin: 0;
+        width: 45%;
         text-align: left;
         font-size: 0.9rem;
         overflow: hidden;
+        position: relative;
         font-family: $open-sans-regular;
         white-space: normal;
         float: left;
         line-height: 2rem;
         height: auto;
+        // border-color: white;
         .spell-active,
         .spell-name {
           float: left;
@@ -47,7 +50,7 @@
           visibility: visible;
           [class*=" icon-"],
           [class^="icon-"] {
-            float: left;
+            float: right;
             margin: 0 0 0 1px;
             line-height: 2rem;
             height: auto;
@@ -127,7 +130,6 @@
       .spells-known {
         .button-primary {
           background-color: $gray-09;
-          border-color: $gray-06;
           &:link,
           &:visited {
             background-color: $gray-09;
@@ -141,7 +143,6 @@
       .spells-known {
         .button-primary {
           background-color: $gray-09;
-          border-color: $gray-06;
           &:link,
           &:visited {
             background-color: $gray-09;
@@ -156,7 +157,6 @@
         .button {
           background-color: $primary-color-alpha-07;
           color: $primary-color-07;
-          border-color: transparent;
           .spell-marks {
             display: none;
             visibility: hidden;
@@ -174,48 +174,23 @@
     }
   }
 }
+
+
 /* media queries
 ------------------------------------------------- */
-@media (min-width: $screen-sm) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin-bottom: 2px;
-        }
-      }
-    }
-  }
-}
-@media (min-width: $screen-md) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin-bottom: 3px;
-        }
-      }
-    }
-  }
-}
-@media (min-width: $screen-lg) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin-bottom: 4px;
-        }
-      }
-    }
-  }
-}
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
 @media (min-width: $screen-xl) {
   #spells {
     .spell-level {
       .spells-known {
         .button {
-          width: 32.3333333333%;
-          margin: 0 1% 6px 0;
+          width: 33.3333333333%;
         }
       }
     }

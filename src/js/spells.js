@@ -65,7 +65,8 @@ var spells = (function() {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
       if (spellMarks.children.length <= 15) {
-        spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+        // spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+        spellMarks.appendChild(preparedIcon);
       };
       if (spellMarks.children.length > 0) {
         helper.addClass(spell, "button-primary");
@@ -75,8 +76,8 @@ var spells = (function() {
     };
     // state unprepare
     if (unprepareState == "true") {
-      if (spellMarks.firstChild) {
-        spellMarks.firstChild.remove();
+      if (spellMarks.lastChild) {
+        spellMarks.lastChild.remove();
       };
       if (spellMarks.children.length <= 0) {
         helper.removeClass(spell, "button-primary");
