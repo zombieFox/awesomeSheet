@@ -184,6 +184,9 @@ button {
       border-top-right-radius: $border-radius-medium;
       border-bottom-right-radius: $border-radius-medium;
     }
+    &:focus {
+      z-index: 2;
+    }
     &.active,
     &:active {
       z-index: 2;

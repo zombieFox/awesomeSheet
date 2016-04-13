@@ -1,23 +1,28 @@
 /* spells
 ------------------------------------------------- */
+
 #spells {
   .spell-level {
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
     h2,
     input {
       margin: 0 0 0.5rem;
     }
     .spells-known {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
       .button {
         padding: 0 10px;
-        margin: 0 0.5% 1px 0;
+        margin: 0 0 1% 0;
         width: 49.5%;
         text-align: left;
         font-size: 0.9rem;
         overflow: hidden;
+        position: relative;
         font-family: $open-sans-regular;
         white-space: normal;
-        float: left;
         line-height: 2rem;
         height: auto;
         .spell-active,
@@ -47,7 +52,7 @@
           visibility: visible;
           [class*=" icon-"],
           [class^="icon-"] {
-            float: left;
+            float: right;
             margin: 0 0 0 1px;
             line-height: 2rem;
             height: auto;
@@ -96,67 +101,84 @@
       }
     }
   }
-  &.prepare-state {
+  &[data-spell-state="prepare"],
+  &[data-spell-state="unprepare"] {
     .spell-level {
       .spells-known {
         .button-tertiary {
           background-color: $secondary-color-alpha-07;
+          border-color: transparent;
           &:link,
           &:visited {
-            background-color: $secondary-color-alpha-07;
+          }
+          &:focus {
+            outline: 0;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: $secondary-color-alpha-06;
+            outline: 0;
+            text-decoration: none;
+          }
+          &:active,
+          &.active {
+            background-color: $secondary-color-alpha-05;
           }
         }
       }
     }
   }
-  &.unprepare-state {
-    .spell-level {
-      .spells-known {
-        .button-tertiary {
-          background-color: $secondary-color-alpha-07;
-          &:link,
-          &:visited {
-            background-color: $secondary-color-alpha-07;
-          }
-        }
-      }
-    }
-  }
-  &.cast-state {
-    .spell-level {
-      .spells-known {
-        .button-primary {
-          background-color: $gray-09;
-          border-color: $gray-06;
-          &:link,
-          &:visited {
-            background-color: $gray-09;
-          }
-        }
-      }
-    }
-  }
-  &.active-state {
+  &[data-spell-state="cast"],
+  &[data-spell-state="active"] {
     .spell-level {
       .spells-known {
         .button-primary {
-          background-color: $gray-09;
-          border-color: $gray-06;
+          background-color: $gray-alpha-07;
+          border-color: transparent;
           &:link,
           &:visited {
-            background-color: $gray-09;
+          }
+          &:focus {
+            outline: 0;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: $gray-alpha-06;
+            outline: 0;
+            text-decoration: none;
+          }
+          &:active,
+          &.active {
+            background-color: $gray-alpha-05;
           }
         }
       }
     }
   }
-  &.delete-state {
+  &[data-spell-state="remove"] {
     .spell-level {
       .spells-known {
         .button {
           background-color: $primary-color-alpha-07;
           color: $primary-color-07;
           border-color: transparent;
+          &:link,
+          &:visited {
+            color: $gray-10;
+          }
+          &:focus {
+            outline: 0;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: $primary-color-alpha-06;
+            outline: 0;
+            text-decoration: none;
+          }
+          &:active,
+          &.active {
+            background-color: $primary-color-alpha-05;
+          }
           .spell-marks {
             display: none;
             visibility: hidden;
@@ -174,48 +196,24 @@
     }
   }
 }
+
+
 /* media queries
 ------------------------------------------------- */
-@media (min-width: $screen-sm) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin-bottom: 2px;
-        }
-      }
-    }
-  }
-}
-@media (min-width: $screen-md) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin-bottom: 3px;
-        }
-      }
-    }
-  }
-}
-@media (min-width: $screen-lg) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin-bottom: 4px;
-        }
-      }
-    }
-  }
-}
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
 @media (min-width: $screen-xl) {
   #spells {
     .spell-level {
       .spells-known {
         .button {
-          width: 32.3333333333%;
-          margin: 0 1% 6px 0;
+          margin: 0 0 0.6666666666% 0;
+          width: 33%;
         }
       }
     }
