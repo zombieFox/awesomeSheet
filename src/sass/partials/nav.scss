@@ -117,9 +117,9 @@
       margin: 0;
       padding: 8px 0;
       position: absolute;
-      top: 90px;
+      top: 70px;
       right: -440px;
-      width: 340px;
+      width: 250px;
       transition: right $transition-bounce-slow;
       overflow-y: auto;
       li {
@@ -256,6 +256,12 @@
 
 @media (min-width: $screen-sm) {
   #quick-nav {
+    .nav {
+      .nav-list {
+        top: 90px;
+        width: 340px;
+      }
+    }
     .quick-nav-list {
       > li {
         .quick-link {

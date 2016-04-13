@@ -1424,9 +1424,9 @@ table {
     margin: 0;
     padding: 8px 0;
     position: absolute;
-    top: 90px;
+    top: 70px;
     right: -440px;
-    width: 340px;
+    width: 250px;
     transition: right 0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6);
     overflow-y: auto; }
     #quick-nav .nav .nav-list li {
@@ -1528,6 +1528,9 @@ table {
 /* media queries
 ------------------------------------------------- */
 @media (min-width: 550px) {
+  #quick-nav .nav .nav-list {
+    top: 90px;
+    width: 340px; }
   #quick-nav .quick-nav-list > li .quick-link {
     height: 70px;
     line-height: 70px; }
