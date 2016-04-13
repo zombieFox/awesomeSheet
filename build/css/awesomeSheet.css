@@ -942,6 +942,9 @@ button {
   .button-group button:last-child {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px; }
+  .button-group .button:focus,
+  .button-group button:focus {
+    z-index: 2; }
   .button-group .button.active, .button-group .button:active,
   .button-group button.active,
   .button-group button:active {
@@ -2155,60 +2158,73 @@ hr {
 /* spells
 ------------------------------------------------- */
 #spells .spell-level {
-  margin: 0 0 1rem; }
+  margin: 0 0 2rem; }
   #spells .spell-level h2,
   #spells .spell-level input {
     margin: 0 0 0.5rem; }
-  #spells .spell-level .spells-known .button {
-    padding: 0 10px;
-    margin: 0 0.5% 1px 0;
-    width: 49.5%;
-    text-align: left;
-    font-size: 0.9rem;
-    overflow: hidden;
-    font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-    white-space: normal;
-    float: left;
-    line-height: 2rem;
-    height: auto; }
-    #spells .spell-level .spells-known .button .spell-active,
-    #spells .spell-level .spells-known .button .spell-name {
-      float: left;
-      margin: 0 5px 0 0;
-      display: block; }
-    #spells .spell-level .spells-known .button .spell-active {
-      visibility: visible; }
-      #spells .spell-level .spells-known .button .spell-active [class*=" icon-"],
-      #spells .spell-level .spells-known .button .spell-active [class^="icon-"] {
+  #spells .spell-level .spells-known {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    #spells .spell-level .spells-known .button {
+      padding: 0 10px;
+      margin: 0 0 1% 0;
+      width: 49.5%;
+      text-align: left;
+      font-size: 0.9rem;
+      overflow: hidden;
+      position: relative;
+      font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+      white-space: normal;
+      line-height: 2rem;
+      height: auto; }
+      #spells .spell-level .spells-known .button .spell-active,
+      #spells .spell-level .spells-known .button .spell-name {
         float: left;
-        margin: 0;
-        line-height: 2rem;
-        height: auto; }
-    #spells .spell-level .spells-known .button .spell-name {
-      white-space: nowrap;
-      overflow: hidden; }
-    #spells .spell-level .spells-known .button .spell-marks {
-      float: right;
-      margin: 0 0 0 5px;
-      display: block;
-      visibility: visible; }
-      #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"],
-      #spells .spell-level .spells-known .button .spell-marks [class^="icon-"] {
-        float: left;
-        margin: 0 0 0 1px;
-        line-height: 2rem;
-        height: auto; }
-    #spells .spell-level .spells-known .button .spell-remove {
-      float: right;
-      margin: 0 0 0 5px;
-      display: none;
-      visibility: hidden; }
-      #spells .spell-level .spells-known .button .spell-remove [class*=" icon-"],
-      #spells .spell-level .spells-known .button .spell-remove [class^="icon-"] {
+        margin: 0 5px 0 0;
+        display: block; }
+      #spells .spell-level .spells-known .button .spell-active {
+        visibility: visible; }
+        #spells .spell-level .spells-known .button .spell-active [class*=" icon-"],
+        #spells .spell-level .spells-known .button .spell-active [class^="icon-"] {
+          float: left;
+          margin: 0;
+          line-height: 2rem;
+          height: auto; }
+      #spells .spell-level .spells-known .button .spell-name {
+        white-space: nowrap;
+        overflow: hidden; }
+      #spells .spell-level .spells-known .button .spell-marks {
         float: right;
-        margin: 0 0 0 1px;
-        line-height: 2rem;
-        height: auto; }
+        margin: 0 0 0 5px;
+        display: block;
+        visibility: visible; }
+        #spells .spell-level .spells-known .button .spell-marks [class*=" icon-"],
+        #spells .spell-level .spells-known .button .spell-marks [class^="icon-"] {
+          float: right;
+          margin: 0 0 0 1px;
+          line-height: 2rem;
+          height: auto; }
+      #spells .spell-level .spells-known .button .spell-remove {
+        float: right;
+        margin: 0 0 0 5px;
+        display: none;
+        visibility: hidden; }
+        #spells .spell-level .spells-known .button .spell-remove [class*=" icon-"],
+        #spells .spell-level .spells-known .button .spell-remove [class^="icon-"] {
+          float: right;
+          margin: 0 0 0 1px;
+          line-height: 2rem;
+          height: auto; }
 
 #spells .new-spell {
   position: relative;
@@ -2233,57 +2249,60 @@ hr {
         height: 2.5rem;
         line-height: 2.5rem; }
 
-#spells.prepare-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(59, 102, 136, 0.1); }
-  #spells.prepare-state .spell-level .spells-known .button-tertiary:link, #spells.prepare-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(59, 102, 136, 0.1); }
+#spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary {
+  background-color: rgba(59, 102, 136, 0.1);
+  border-color: transparent; }
+  #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary:focus, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary:focus {
+    outline: 0;
+    text-decoration: none; }
+  #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary:hover, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary:hover {
+    background-color: rgba(59, 102, 136, 0.2);
+    outline: 0;
+    text-decoration: none; }
+  #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary:active, #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary.active, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary:active, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary.active {
+    background-color: rgba(59, 102, 136, 0.3); }
 
-#spells.unprepare-state .spell-level .spells-known .button-tertiary {
-  background-color: rgba(59, 102, 136, 0.1); }
-  #spells.unprepare-state .spell-level .spells-known .button-tertiary:link, #spells.unprepare-state .spell-level .spells-known .button-tertiary:visited {
-    background-color: rgba(59, 102, 136, 0.1); }
+#spells[data-spell-state="cast"] .spell-level .spells-known .button-primary, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary {
+  background-color: rgba(0, 0, 0, 0.44);
+  border-color: transparent; }
+  #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary:focus, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary:focus {
+    outline: 0;
+    text-decoration: none; }
+  #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary:hover, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary:hover {
+    background-color: rgba(0, 0, 0, 0.51);
+    outline: 0;
+    text-decoration: none; }
+  #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary:active, #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary.active, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary:active, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary.active {
+    background-color: rgba(0, 0, 0, 0.59); }
 
-#spells.cast-state .spell-level .spells-known .button-primary {
-  background-color: #b2b2b2;
-  border-color: #7c7c7c; }
-  #spells.cast-state .spell-level .spells-known .button-primary:link, #spells.cast-state .spell-level .spells-known .button-primary:visited {
-    background-color: #b2b2b2; }
-
-#spells.active-state .spell-level .spells-known .button-primary {
-  background-color: #b2b2b2;
-  border-color: #7c7c7c; }
-  #spells.active-state .spell-level .spells-known .button-primary:link, #spells.active-state .spell-level .spells-known .button-primary:visited {
-    background-color: #b2b2b2; }
-
-#spells.delete-state .spell-level .spells-known .button {
+#spells[data-spell-state="remove"] .spell-level .spells-known .button {
   background-color: rgba(187, 0, 59, 0.1);
   color: #ff0055;
   border-color: transparent; }
-  #spells.delete-state .spell-level .spells-known .button .spell-marks {
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button:link, #spells[data-spell-state="remove"] .spell-level .spells-known .button:visited {
+    color: #c4c4c4; }
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button:focus {
+    outline: 0;
+    text-decoration: none; }
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button:hover {
+    background-color: rgba(187, 0, 59, 0.2);
+    outline: 0;
+    text-decoration: none; }
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button:active, #spells[data-spell-state="remove"] .spell-level .spells-known .button.active {
+    background-color: rgba(187, 0, 59, 0.3); }
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button .spell-marks {
     display: none;
     visibility: hidden; }
-  #spells.delete-state .spell-level .spells-known .button .spell-active {
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button .spell-active {
     display: none;
     visibility: hidden; }
-  #spells.delete-state .spell-level .spells-known .button .spell-remove {
+  #spells[data-spell-state="remove"] .spell-level .spells-known .button .spell-remove {
     display: block;
     visibility: visible; }
 
 /* media queries
 ------------------------------------------------- */
-@media (min-width: 550px) {
-  #spells .spell-level .spells-known .button {
-    margin-bottom: 2px; } }
-
-@media (min-width: 700px) {
-  #spells .spell-level .spells-known .button {
-    margin-bottom: 3px; } }
-
-@media (min-width: 900px) {
-  #spells .spell-level .spells-known .button {
-    margin-bottom: 4px; } }
-
 @media (min-width: 1300px) {
   #spells .spell-level .spells-known .button {
-    width: 32.3333333333%;
-    margin: 0 1% 6px 0; } }
+    margin: 0 0 0.6666666666% 0;
+    width: 33%; } }
