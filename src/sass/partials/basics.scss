@@ -3,7 +3,7 @@
 
 #basics {
   margin: 0;
-  padding: 120px 0 30px;
+  padding: 100px 0 30px;
   background-color: $secondary-color-03;
   .input-block {
     .input-label {
@@ -64,13 +64,13 @@
 ------------------------------------------------- */
 
 @media (min-width: $screen-sm) {
+  #basics {
+    padding: 120px 0 30px;
+  }
 }
 
-@media (min-width: $screen-md) {
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-}
+@media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-xl) {
-}
+@media (min-width: $screen-xl) {}

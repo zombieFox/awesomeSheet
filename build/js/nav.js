@@ -138,8 +138,12 @@ var nav = (function() {
       var quickNav = helper.e("#quick-nav");
       var quickNavLinks = helper.eA(".quick-link");
       var sections = helper.eA("section");
-      var menu = 70;
-      var preMenu = 140;
+      var menu;
+      if (window.innerWidth < 550) {
+        menu = 50;
+      } else {
+        menu = 70;
+      };
       for (var i = 0; i < sections.length; i++) {
         // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
         if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {

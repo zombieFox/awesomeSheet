@@ -9,7 +9,7 @@ body {
 section {
   z-index: $body;
   .section-heading {
-    padding: 10px 0;
+    padding: 5px 0;
     background-color: $gray-13;
     text-transform: uppercase;
     position: relative;
@@ -26,7 +26,8 @@ section {
     height: 30px;
     position: relative;
     .button-group {
-      position: absolute;;
+      position: absolute;
+      ;
       top: 50%;
       right: 0;
       transform: translateY(-50%);
@@ -36,11 +37,11 @@ section {
     padding: 3rem 0;
   }
   &.pinned {
-    padding-top: 50px;
+    padding-top: 40px;
     .section-heading {
       margin: 0;
       position: fixed;
-      top: 70px;
+      top: 50px;
       width: 100%;
     }
   }
@@ -58,16 +59,24 @@ hr {
 ------------------------------------------------- */
 
 @media (min-width: $screen-sm) {
+  section {
+    .section-heading {
+      padding: 10px 0;
+    }
+    &.pinned {
+      padding-top: 50px;
+      .section-heading {
+        top: 70px;
+      }
+    }
+  }
 }
 
-@media (min-width: $screen-md) {
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-}
+@media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-xl) {
-}
+@media (min-width: $screen-xl) {}
 
 
 /* animations
