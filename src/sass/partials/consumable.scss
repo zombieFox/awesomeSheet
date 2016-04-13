@@ -26,7 +26,7 @@
     .consumable-bar-percentage {
       background-color: $secondary-color-alpha-07;
       border: 0 solid transparent;
-      border-right: 1px solid $gray-alpha-12;
+      border-right: 1px solid $dark-alpha-12;
       width: 100%;
       height: 100%;
       position: relative;
@@ -37,7 +37,7 @@
         position: absolute;
         bottom: -1.5rem;
         right: -20px;
-        color: $gray-alpha-08;
+        color: $dark-alpha-08;
         font-size: $small-text;
         height: 1.5rem;
         width: 40px;

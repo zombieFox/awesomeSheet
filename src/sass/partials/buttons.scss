@@ -116,16 +116,16 @@ button {
   &.button-dark {
     color: $gray-10;
     background-color: transparent;
-    border-color: $gray-alpha-10;
+    border-color: $dark-alpha-10;
     &:link,
     &:visited {
       color: $gray-10;
       background-color: transparent;
-      border-color: $gray-alpha-10;
+      border-color: $dark-alpha-10;
     }
     &:focus {
       color: $gray-10;
-      background-color: $gray-alpha-08;
+      background-color: $dark-alpha-08;
       outline: 0;
       text-decoration: none;
     }

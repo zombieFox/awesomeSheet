@@ -1730,7 +1730,7 @@ table {
     padding: 0;
     display: block;
     position: absolute;
-    color: rgba(59, 102, 136, 0.7);
+    color: rgba(0, 0, 0, 0.23);
     top: 0;
     left: 10px;
     font-size: 0.9rem;

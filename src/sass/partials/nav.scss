@@ -129,7 +129,7 @@
         text-align: left;
         &.divide {
           margin: 10px 0;
-          background-color: $gray-alpha-12;
+          background-color: $dark-alpha-12;
           height: 1px;
         }
         ul {
@@ -205,12 +205,12 @@
           }
           &:hover {
             color: $primary-color-07;
-            background-color: $gray-alpha-12;
+            background-color: $dark-alpha-12;
             text-decoration: none;
             border-color: $primary-color-07;
           }
           &:focus {
-            background-color: $gray-alpha-12;
+            background-color: $dark-alpha-12;
             text-decoration: none;
             outline: 0;
           }

@@ -6,7 +6,7 @@
     max-width: 100%;
   }
   &.prompt-shade {
-    background-color: $gray-alpha-04;
+    background-color: $dark-alpha-04;
     position: fixed;
     top: 0;
     left: 0;
@@ -43,7 +43,7 @@
       }
     }
     .prompt-code {
-      background-color: $gray-alpha-02;
+      background-color: $dark-alpha-02;
       max-height: 300px;
       overflow-y: scroll;
       margin: 0;

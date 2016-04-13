@@ -133,7 +133,7 @@
     .spell-level {
       .spells-known {
         .button-primary {
-          background-color: $gray-alpha-07;
+          background-color: $dark-alpha-07;
           border-color: transparent;
           &:link,
           &:visited {
@@ -143,13 +143,13 @@
             text-decoration: none;
           }
           &:hover {
-            background-color: $gray-alpha-06;
+            background-color: $dark-alpha-06;
             outline: 0;
             text-decoration: none;
           }
           &:active,
           &.active {
-            background-color: $gray-alpha-05;
+            background-color: $dark-alpha-05;
           }
         }
       }
