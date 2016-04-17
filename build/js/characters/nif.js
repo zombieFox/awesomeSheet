@@ -8,14 +8,14 @@ var nif = (function() {
       level: "6",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "25,664",
+      xp: "30,214",
       height: "6'0",
       weight: "136 lbs",
       age: "120 years",
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "3",
-      hero_points: "2",
+      hero_points: "",
       luck_points: ""
     },
     statistics: {
@@ -26,7 +26,7 @@ var nif = (function() {
         },
         dex: {
           score: "17",
-          temp: ""
+          temp: "15"
         },
         con: {
           score: "14",
@@ -51,8 +51,8 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse",
-      magic_gear: "Pearl of Power (1st Level), Potion of CLW x1, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit x1, Scroll of Summon Monster III x5, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x4, Scroll of Stinking Cloud x2, Scroll of Grease x2, Scroll of Mirror Image x3, Scroll of Spiked Pit x3 Scroll of Fly x2",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap x15",
+      magic_gear: "Pearl of Power (1st Level), Potion of CLW x1, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit x1, Scroll of Summon Monster III x6, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x4, Scroll of Stinking Cloud x2, Scroll of Grease (0), Scroll of Mirror Image x3, Scroll of Spiked Pit x2 Scroll of Fly x3",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -82,13 +82,9 @@ var nif = (function() {
         copper: ""
       },
       consumable: [{
-        item: "Wand of Infernal Healing",
-        total: "50",
-        used: "48"
-      }, {
         item: "Wand of Lightning Bolt",
         total: "50",
-        used: "38"
+        used: "43"
       }, {
         item: "Shift",
         total: "9",
@@ -149,7 +145,7 @@ var nif = (function() {
     offense: {
       base_attack: "3",
       special_size_bonus: "",
-      concentration: "11",
+      concentration: "12",
       cmb: {
         misc: "",
         temp: ""
@@ -482,7 +478,7 @@ var nif = (function() {
           { name: "Mount", prepared: 0, active: false, cast: 0 },
           { name: "Obscuring Mist", prepared: 1, active: false, cast: 0 },
           { name: "Protection from Chaos", prepared: 0, active: false, cast: 0 },
-          { name: "Protection from Evil", prepared: 2, active: false, cast: 0 },
+          { name: "Protection from Evil", prepared: 2, active: false, cast: 1 },
           { name: "Shield", prepared: 0, active: false, cast: 0 },
           { name: "Summon Monster I", prepared: 0, active: false, cast: 0 },
           { name: "Unseen Servant", prepared: 0, active: false, cast: 0 }
@@ -492,22 +488,22 @@ var nif = (function() {
           { name: "Blur", prepared: 0, active: false, cast: 0 },
           { name: "Create Pit", prepared: 0, active: false, cast: 0 },
           { name: "Flaming Sphere", prepared: 0, active: false, cast: 0 },
-          { name: "Glitterdust", prepared: 0, active: false, cast: 0 },
-          { name: "Invisibility", prepared: 2, active: false, cast: 0 },
+          { name: "Glitterdust", prepared: 1, active: false, cast: 0 },
+          { name: "Invisibility", prepared: 1, active: false, cast: 0 },
           { name: "Levitate", prepared: 0, active: false, cast: 0 },
-          { name: "Mirror Image", prepared: 0, active: false, cast: 0 },
+          { name: "Mirror Image", prepared: 1, active: false, cast: 1 },
           { name: "Resist Energy", prepared: 0, active: false, cast: 0 },
           { name: "Stone Call", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster II", prepared: 1, active: false, cast: 0 },
-          { name: "Web", prepared: 1, active: false, cast: 0 }
+          { name: "Summon Monster II", prepared: 0, active: false, cast: 0 },
+          { name: "Web", prepared: 1, active: false, cast: 1 }
         ]
       }, {
         level_3: [
           { name: "Stinking Cloud", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster III", prepared: 1, active: false, cast: 0 },
+          { name: "Summon Monster III", prepared: 1, active: false, cast: 1 },
           { name: "Spiked Pit", prepared: 1, active: false, cast: 0 },
           { name: "Aqueous Orb", prepared: 0, active: false, cast: 0 },
-          { name: "Fly", prepared: 1, active: false, cast: 0 },
+          { name: "Fly", prepared: 1, active: false, cast: 1 },
           { name: "Sleet Storm", prepared: 0, active: false, cast: 0 }
         ]
       }, {
@@ -525,8 +521,8 @@ var nif = (function() {
       }]
     },
     notes: {
-      character: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +2 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.",
-      story: "",
+      character: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.",
+      story: ""
     }
   };
 

@@ -15,7 +15,7 @@
       justify-content: space-between;
       .button {
         padding: 0 10px;
-        margin: 0 0 1% 0;
+        margin: 0 0 5px 0;
         width: 49.5%;
         text-align: left;
         font-size: 0.9rem;
@@ -109,8 +109,7 @@
           background-color: $secondary-color-alpha-18;
           border-color: transparent;
           &:link,
-          &:visited {
-          }
+          &:visited {}
           &:focus {
             outline: 0;
             text-decoration: none;
@@ -136,8 +135,7 @@
           background-color: $dark-alpha-16;
           border-color: transparent;
           &:link,
-          &:visited {
-          }
+          &:visited {}
           &:focus {
             outline: 0;
             text-decoration: none;
@@ -203,16 +201,36 @@
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  #spells {
+    .spell-level {
+      .spells-known {
+        .button {
+          margin: 0 0 7px 0;
+        }
+      }
+    }
+  }
+}
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  #spells {
+    .spell-level {
+      .spells-known {
+        .button {
+          margin: 0 0 6px 0;
+        }
+      }
+    }
+  }
+}
 
 @media (min-width: $screen-xl) {
   #spells {
     .spell-level {
       .spells-known {
         .button {
-          margin: 0 0 0.6666666666% 0;
+          margin: 0 0 5px 0;
           width: 33%;
         }
       }

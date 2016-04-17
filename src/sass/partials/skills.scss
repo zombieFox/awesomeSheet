@@ -126,7 +126,7 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       align-content: space-between;
-      height: 490px;
+      height: 530px;
       &.custom-skills {
         height: 60px;
       }
@@ -173,10 +173,7 @@
   #skills {
     &[data-all-hidden="true"] {
       .skill-list {
-        height: 590px;
-        &.custom-skills {
-          height: 70px;
-        }
+        height: 630px;
       }
     }
   }
@@ -212,7 +209,7 @@
     }
     &[data-all-hidden="true"] {
       .skill-list {
-        height: 670px;
+        height: 740px;
       }
     }
   }
@@ -222,7 +219,7 @@
   #skills {
     &[data-all-hidden="true"] {
       .skill-list {
-        // height: 480px;
+        // height: 740px;
       }
     }
   }
@@ -232,9 +229,9 @@
   #skills {
     &[data-all-hidden="true"] {
       .skill-list {
-        // height: 460px;
+        height: 520px;
         .skill {
-          // width: 30%;
+          width: 30%;
         }
       }
     }

@@ -2102,7 +2102,7 @@ hr {
   -webkit-align-content: space-between;
       -ms-flex-line-pack: justify;
           align-content: space-between;
-  height: 490px; }
+  height: 530px; }
   #skills[data-all-hidden="true"] .skill-list.custom-skills {
     height: 60px; }
   #skills[data-all-hidden="true"] .skill-list .skill {
@@ -2132,9 +2132,7 @@ hr {
 ------------------------------------------------- */
 @media (min-width: 550px) {
   #skills[data-all-hidden="true"] .skill-list {
-    height: 590px; }
-    #skills[data-all-hidden="true"] .skill-list.custom-skills {
-      height: 70px; } }
+    height: 630px; } }
 
 @media (min-width: 700px) {
   #skills .skill-list .skill .name {
@@ -2153,7 +2151,13 @@ hr {
   #skills .skill-list .skill .misc {
     width: 10%; }
   #skills[data-all-hidden="true"] .skill-list {
-    height: 670px; } }
+    height: 740px; } }
+
+@media (min-width: 1300px) {
+  #skills[data-all-hidden="true"] .skill-list {
+    height: 520px; }
+    #skills[data-all-hidden="true"] .skill-list .skill {
+      width: 30%; } }
 
 /* spells
 ------------------------------------------------- */
@@ -2177,7 +2181,7 @@ hr {
             justify-content: space-between; }
     #spells .spell-level .spells-known .button {
       padding: 0 10px;
-      margin: 0 0 1% 0;
+      margin: 0 0 5px 0;
       width: 49.5%;
       text-align: left;
       font-size: 0.9rem;
@@ -2302,7 +2306,15 @@ hr {
 
 /* media queries
 ------------------------------------------------- */
+@media (min-width: 700px) {
+  #spells .spell-level .spells-known .button {
+    margin: 0 0 7px 0; } }
+
+@media (min-width: 900px) {
+  #spells .spell-level .spells-known .button {
+    margin: 0 0 6px 0; } }
+
 @media (min-width: 1300px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0 0.6666666666% 0;
+    margin: 0 0 5px 0;
     width: 33%; } }
