@@ -84,11 +84,11 @@ var ro = (function() {
       consumable: [{
         item: "Arcane Pool",
         total: "4",
-        used: ""
+        used: "2"
       }, {
         item: "Black Blade Arcane Pool",
         total: "1",
-        used: ""
+        used: "1"
       }, {
         item: "Alchemist Fire",
         total: "3",
@@ -96,14 +96,14 @@ var ro = (function() {
       }, {
         item: "Potion of CLW",
         total: "3",
-        used: ""
+        used: "2"
       }]
     },
     defense: {
       hp: {
         total: "20",
         temp: "",
-        damage: "",
+        damage: "9",
         non_lethal_damage: ""
       },
       ac: {
@@ -120,7 +120,7 @@ var ro = (function() {
         misc: "",
         temp: "",
         armor: "3",
-        shield: "",
+        shield: "4",
         deflect: "",
         dodge: "",
         natural: "",
@@ -175,22 +175,22 @@ var ro = (function() {
           weapon: "Rapier",
           attack: "6",
           damage: "1d6+4",
-          critical: "18–20/x2",
+          critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +1",
           attack: "7",
           damage: "1d6+5",
-          critical: "18–20/x2",
+          critical: "18–20/x2"
         }, {
           weapon: "Spell Strike BB Scimitar +1",
           attack: "5/5",
           damage: "1d6+5",
-          critical: "18–20/x2",
+          critical: "18–20/x2"
         }, {
           weapon: "Shortsword +1",
           attack: "7",
           damage: "1d6+2",
-          critical: "18–20/x2",
+          critical: "18–20/x2"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -201,7 +201,7 @@ var ro = (function() {
           ammo: "50"
         }]
       },
-      attack_notes: ""
+      attack_notes: "+1 attack, +2 damage"
     },
     skills: {
       acrobatics: {
@@ -487,11 +487,11 @@ var ro = (function() {
       }, {
         level_1: [
           { name: "Color Spray", prepared: 0, active: false, cast: 0 },
-          { name: "Grease", prepared: 1, active: false, cast: 0 },
-          { name: "Shocking Grasp", prepared: 2, active: false, cast: 0 },
+          { name: "Grease", prepared: 1, active: false, cast: 1 },
+          { name: "Shocking Grasp", prepared: 2, active: false, cast: 2 },
           { name: "True Strike", prepared: 0, active: false, cast: 0 },
           { name: "Magic Missile", prepared: 0, active: false, cast: 0 },
-          { name: "Shield", prepared: 1, active: false, cast: 0 },
+          { name: "Shield", prepared: 1, active: false, cast: 1 },
           { name: "Vanish", prepared: 0, active: false, cast: 0 },
           { name: "Obscuring Mist", prepared: 0, active: false, cast: 0 },
           { name: "Chill Touch", prepared: 0, active: false, cast: 0 },
@@ -523,7 +523,7 @@ var ro = (function() {
     },
     notes: {
       character: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time.<br><br><strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade.<br><br><strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable.",
-      story: "",
+      story: ""
     }
   };
 

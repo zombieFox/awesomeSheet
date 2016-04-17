@@ -15,10 +15,10 @@ var inputBlock = (function() {
     };
     if (inputBlockRoot.querySelector(".input-label")) {
       if (inputField == document.activeElement) {
-        helper.addClass(inputLabel, "input-label-focus");
+        // helper.addClass(inputLabel, "input-label-focus");
         helper.addClass(inputLabel, "input-label-active");
       } else {
-        helper.removeClass(inputLabel, "input-label-focus");
+        // helper.removeClass(inputLabel, "input-label-focus");
         helper.removeClass(inputLabel, "input-label-active");
       };
       if (element.value == "" && inputField != document.activeElement) {

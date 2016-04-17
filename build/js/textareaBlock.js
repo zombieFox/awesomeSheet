@@ -1,5 +1,11 @@
 var textareaBlock = (function() {
 
+  function _store(element) {
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
+    sheet.storeCharacters();
+  };
+
   function focus(element) {
     var textareaBlockRoot = helper.getClosest(element, ".textarea-block");
     var textareaBox = textareaBlockRoot.querySelector(".textarea-box");
@@ -9,10 +15,10 @@ var textareaBlock = (function() {
     };
     if (textareaBlockRoot.querySelector(".textarea-label")) {
       if (textareaBox == document.activeElement) {
-        helper.addClass(textareaLabel, "textarea-label-focus");
+        // helper.addClass(textareaLabel, "textarea-label-focus");
         helper.addClass(textareaLabel, "textarea-label-active");
       } else {
-        helper.removeClass(textareaLabel, "textarea-label-focus");
+        // helper.removeClass(textareaLabel, "textarea-label-focus");
         helper.removeClass(textareaLabel, "textarea-label-active");
       };
       if (element.innerHTML == "" && textareaBox != document.activeElement) {
@@ -68,12 +74,6 @@ var textareaBlock = (function() {
       all_textareaBlock[i].innerHTML = content;
       updateTextareaBlock(all_textareaBlock[i]);
     };
-  };
-
-  function _store(element) {
-    var path = element.dataset.path;
-    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
-    sheet.storeCharacters();
   };
 
   // exposed methods

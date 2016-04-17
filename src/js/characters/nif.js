@@ -8,7 +8,7 @@ var nif = (function() {
       level: "6",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "23,264",
+      xp: "25,664",
       height: "6'0",
       weight: "136 lbs",
       age: "120 years",

@@ -39,7 +39,7 @@
           transition: all $transition-ease-fast;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           &:active {
-            background-color: $secondary-color-alpha-07;
+            background-color: $secondary-color-alpha-16;
           }
         }
       }
@@ -75,27 +75,27 @@
             color: $secondary-color-02;
           }
           &.icon-check-box-checked {
-            color: $primary-color-07;
+            color: $primary-color-10;
           }
         }
         &:hover,
         &:focus {
           .class-skill-icon {
             &.icon-check-box-unchecked {
-              color: $primary-color-07;
+              color: $primary-color-08;
             }
             &.icon-check-box-checked {
-              color: $primary-color-05;
+              color: $primary-color-08;
             }
           }
         }
         &:active {
           .class-skill-icon {
             &.icon-check-box-unchecked {
-              color: $primary-color-02;
+              color: $primary-color-06;
             }
             &.icon-check-box-checked {
-              color: $primary-color-02;
+              color: $primary-color-06;
             }
           }
         }
@@ -121,10 +121,17 @@
   }
   &[data-all-hidden="true"] {
     .skill-list {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: space-between;
+      height: 490px;
+      &.custom-skills {
+        height: 60px;
+      }
       .skill {
-        width: 47%;
-        margin: 0 3% 0 0;
-        float: left;
+        width: 48%;
         .name {
           width: 85%;
           &.with-type {
@@ -132,10 +139,10 @@
           }
           .input-field {
             background-color: transparent;
-            border-color: $gray-13;
+            border-color: $secondary-color-alpha-20;
             padding: 0;
             &:hover {
-              border-color: $primary-color-07;
+              border-color: $primary-color-10;
             }
           }
         }
@@ -143,18 +150,15 @@
           width: 55%;
           .input-field {
             background-color: transparent;
-            border-color: $gray-13;
+            border-color: $secondary-color-alpha-20;
             padding: 0;
             &:hover {
-              border-color: $primary-color-07;
+              border-color: $primary-color-10;
             }
           }
         }
         .total {
           width: 15%;
-        }
-        &:nth-child(odd) {
-          margin: 0 0 0 3%;
         }
       }
     }
@@ -166,6 +170,16 @@
 ------------------------------------------------- */
 
 @media (min-width: $screen-sm) {
+  #skills {
+    &[data-all-hidden="true"] {
+      .skill-list {
+        height: 590px;
+        &.custom-skills {
+          height: 70px;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: $screen-md) {
@@ -196,29 +210,31 @@
         }
       }
     }
+    &[data-all-hidden="true"] {
+      .skill-list {
+        height: 670px;
+      }
+    }
   }
 }
 
 @media (min-width: $screen-lg) {
+  #skills {
+    &[data-all-hidden="true"] {
+      .skill-list {
+        // height: 480px;
+      }
+    }
+  }
 }
 
 @media (min-width: $screen-xl) {
   #skills {
     &[data-all-hidden="true"] {
       .skill-list {
+        // height: 460px;
         .skill {
-          width: 31.3333333333%;
-          margin: 0;
-          float: left;
-          &:nth-child(3n) {
-            margin: 0;
-          }
-          &:nth-child(3n+1) {
-            margin: 0 0 0 2%;
-          }
-          &:nth-child(3n+2) {
-            margin: 0 2% 0 0;
-          }
+          // width: 30%;
         }
       }
     }

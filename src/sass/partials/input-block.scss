@@ -1,5 +1,6 @@
 /* input-block
 ------------------------------------------------- */
+
 .input-block {
   position: relative;
   z-index: 1;
@@ -8,7 +9,7 @@
     padding: 0;
     display: block;
     position: absolute;
-    color: $dark-alpha-10;
+    color: $dark-alpha-14;
     top: 0;
     left: 10px;
     font-size: 0.9rem;
@@ -19,13 +20,13 @@
     cursor: text;
     box-sizing: border-box;
     white-space: nowrap;
-    &.input-label-focus {
-      color: $primary-color-07;
-    }
+    // &.input-label-focus {
+    //   color: $primary-color-07;
+    // }
     &.input-label-active {
       top: -1.5rem;
       left: 0;
-      color: $gray-08;
+      color: $dark-alpha-12;
       font-size: $small-text;
       height: 1.5rem;
       line-height: 1.5rem;
@@ -56,13 +57,15 @@
     z-index: 1;
   }
 }
+
+
 /* media queries
 ------------------------------------------------- */
-@media (min-width: $screen-sm) {
-}
-@media (min-width: $screen-md) {
-}
-@media (min-width: $screen-lg) {
-}
-@media (min-width: $screen-xl) {
-}
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}
