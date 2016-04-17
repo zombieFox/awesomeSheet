@@ -106,7 +106,7 @@
     .spell-level {
       .spells-known {
         .button-tertiary {
-          background-color: $secondary-color-alpha-07;
+          background-color: $secondary-color-alpha-18;
           border-color: transparent;
           &:link,
           &:visited {
@@ -116,13 +116,13 @@
             text-decoration: none;
           }
           &:hover {
-            background-color: $secondary-color-alpha-06;
+            background-color: $secondary-color-alpha-16;
             outline: 0;
             text-decoration: none;
           }
           &:active,
           &.active {
-            background-color: $secondary-color-alpha-05;
+            background-color: $secondary-color-alpha-14;
           }
         }
       }
@@ -133,7 +133,7 @@
     .spell-level {
       .spells-known {
         .button-primary {
-          background-color: $dark-alpha-07;
+          background-color: $dark-alpha-16;
           border-color: transparent;
           &:link,
           &:visited {
@@ -143,13 +143,13 @@
             text-decoration: none;
           }
           &:hover {
-            background-color: $dark-alpha-06;
+            background-color: $dark-alpha-14;
             outline: 0;
             text-decoration: none;
           }
           &:active,
           &.active {
-            background-color: $dark-alpha-05;
+            background-color: $dark-alpha-12;
           }
         }
       }
@@ -159,7 +159,7 @@
     .spell-level {
       .spells-known {
         .button {
-          background-color: $primary-color-alpha-07;
+          background-color: $primary-color-alpha-18;
           color: $primary-color-07;
           border-color: transparent;
           &:link,
@@ -171,13 +171,13 @@
             text-decoration: none;
           }
           &:hover {
-            background-color: $primary-color-alpha-06;
+            background-color: $primary-color-alpha-16;
             outline: 0;
             text-decoration: none;
           }
           &:active,
           &.active {
-            background-color: $primary-color-alpha-05;
+            background-color: $primary-color-alpha-14;
           }
           .spell-marks {
             display: none;

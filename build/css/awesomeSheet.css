@@ -1802,8 +1802,8 @@ table {
 
 .clone-block.delete-state .clone-target input[type="email"], .clone-block.delete-state .clone-target input[type="number"], .clone-block.delete-state .clone-target input[type="search"], .clone-block.delete-state .clone-target input[type="text"], .clone-block.delete-state .clone-target input[type="tel"], .clone-block.delete-state .clone-target input[type="password"] {
   background-color: transparent;
-  border-color: rgba(252, 0, 66, 0.7);
-  color: #b0002e;
+  border-color: rgba(252, 0, 66, 0.55);
+  color: #7d0021;
   margin: 0; }
 
 .clone-block.delete-state .clone-target label {
@@ -1811,7 +1811,7 @@ table {
   visibility: hidden; }
 
 .clone-block.delete-state .clone-target .clone {
-  background-color: rgba(252, 0, 66, 0.7);
+  background-color: rgba(252, 0, 66, 0.15);
   margin: 0 0 1rem 0;
   padding: 5px 10px 0 10px;
   border-radius: 3px; }
@@ -2250,33 +2250,33 @@ hr {
         line-height: 2.5rem; }
 
 #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary {
-  background-color: rgba(50, 136, 201, 0.7);
+  background-color: rgba(50, 136, 201, 0.15);
   border-color: transparent; }
   #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary:focus, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary:focus {
     outline: 0;
     text-decoration: none; }
   #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary:hover, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary:hover {
-    background-color: rgba(50, 136, 201, 0.75);
+    background-color: rgba(50, 136, 201, 0.25);
     outline: 0;
     text-decoration: none; }
   #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary:active, #spells[data-spell-state="prepare"] .spell-level .spells-known .button-tertiary.active, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary:active, #spells[data-spell-state="unprepare"] .spell-level .spells-known .button-tertiary.active {
-    background-color: rgba(50, 136, 201, 0.8); }
+    background-color: rgba(50, 136, 201, 0.35); }
 
 #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.25);
   border-color: transparent; }
   #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary:focus, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary:focus {
     outline: 0;
     text-decoration: none; }
   #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary:hover, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary:hover {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.35);
     outline: 0;
     text-decoration: none; }
   #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary:active, #spells[data-spell-state="cast"] .spell-level .spells-known .button-primary.active, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary:active, #spells[data-spell-state="active"] .spell-level .spells-known .button-primary.active {
-    background-color: rgba(0, 0, 0, 0.8); }
+    background-color: rgba(0, 0, 0, 0.45); }
 
 #spells[data-spell-state="remove"] .spell-level .spells-known .button {
-  background-color: rgba(252, 0, 66, 0.7);
+  background-color: rgba(252, 0, 66, 0.15);
   color: #b0002e;
   border-color: transparent; }
   #spells[data-spell-state="remove"] .spell-level .spells-known .button:link, #spells[data-spell-state="remove"] .spell-level .spells-known .button:visited {
@@ -2285,11 +2285,11 @@ hr {
     outline: 0;
     text-decoration: none; }
   #spells[data-spell-state="remove"] .spell-level .spells-known .button:hover {
-    background-color: rgba(252, 0, 66, 0.75);
+    background-color: rgba(252, 0, 66, 0.25);
     outline: 0;
     text-decoration: none; }
   #spells[data-spell-state="remove"] .spell-level .spells-known .button:active, #spells[data-spell-state="remove"] .spell-level .spells-known .button.active {
-    background-color: rgba(252, 0, 66, 0.8); }
+    background-color: rgba(252, 0, 66, 0.35); }
   #spells[data-spell-state="remove"] .spell-level .spells-known .button .spell-marks {
     display: none;
     visibility: hidden; }
