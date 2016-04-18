@@ -1,6 +1,6 @@
 # awesomeSheet - Pathfinder Character Sheet
 
-A dynamic character sheet which auto calculates many scores and bonuses. Try the [demo to see it in action] (http://zombiefox.github.io/awesomeSheet/build/)
+A dynamic character sheet which auto calculates many scores and bonuses. Try the [demo to see it in action] (http://zombiefox.github.io/awesomeSheet/)
 
 ## Features
 - Edit stats and abilities will auto update.
