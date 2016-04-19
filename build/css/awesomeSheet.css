@@ -874,6 +874,32 @@ button {
     button.button-tertiary.active {
       background-color: rgba(0, 0, 0, 0.05);
       border-color: #cccccc; }
+  .button.button-quaternary,
+  button.button-quaternary {
+    color: rgba(255, 255, 255, 0.95);
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.15); }
+    .button.button-quaternary:link, .button.button-quaternary:visited,
+    button.button-quaternary:link,
+    button.button-quaternary:visited {
+      color: rgba(255, 255, 255, 0.95);
+      background-color: transparent;
+      border-color: rgba(0, 0, 0, 0.15); }
+    .button.button-quaternary:focus,
+    button.button-quaternary:focus {
+      background-color: rgba(0, 0, 0, 0.1);
+      outline: 0;
+      text-decoration: none; }
+    .button.button-quaternary:hover,
+    button.button-quaternary:hover {
+      color: rgba(255, 255, 255, 0.75);
+      outline: 0;
+      text-decoration: none; }
+    .button.button-quaternary:active, .button.button-quaternary.active,
+    button.button-quaternary:active,
+    button.button-quaternary.active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25); }
   .button.button-small,
   button.button-small {
     padding: 0 8px;
@@ -1333,7 +1359,7 @@ table {
           color: #52a1dc;
           outline: 0; }
         #quick-nav .quick-nav-list > li .quick-link:active {
-          color: #fc0042; }
+          color: #a0d0f3; }
         #quick-nav .quick-nav-list > li .quick-link.active {
           color: #ffffff; }
       #quick-nav .quick-nav-list > li .nav-toggle {
@@ -1877,26 +1903,44 @@ body {
 section {
   z-index: 1000; }
   section .section-heading {
-    background-color: #fbfdff;
+    background-color: #2e6b9a;
     padding: 5px 0;
     text-transform: uppercase;
     position: relative;
     z-index: 3000;
     height: 30px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1); }
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2); }
     section .section-heading h1 {
+      color: #ffffff;
       margin: 0;
+      font-size: 1rem;
       line-height: 30px; }
   section .section-controls {
     height: 30px;
     position: relative; }
     section .section-controls .button-group {
-      position: absolute;
+      position: relative;
       top: 50%;
-      right: 0;
+      left: 1px;
       -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
-              transform: translateY(-50%); }
+              transform: translateY(-50%);
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+              flex-wrap: nowrap;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+      section .section-controls .button-group .button {
+        -webkit-flex: 0 0 auto;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto; }
   section .section-wrapper {
     padding: 3rem 0; }
   section.pinned {
@@ -1918,6 +1962,8 @@ hr {
 @media (min-width: 550px) {
   section .section-heading {
     padding: 10px 0; }
+    section .section-heading h1 {
+      font-size: 1.4rem; }
   section.pinned {
     padding-top: 50px; }
     section.pinned .section-heading {
@@ -2181,7 +2227,7 @@ hr {
             justify-content: space-between; }
     #spells .spell-level .spells-known .button {
       padding: 0 10px;
-      margin: 0 0 5px 0;
+      margin: 0 0 3px 0;
       width: 49.5%;
       text-align: left;
       font-size: 0.9rem;
@@ -2308,7 +2354,7 @@ hr {
 ------------------------------------------------- */
 @media (min-width: 700px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0 7px 0; } }
+    margin: 0 0 4px 0; } }
 
 @media (min-width: 900px) {
   #spells .spell-level .spells-known .button {
@@ -2316,5 +2362,4 @@ hr {
 
 @media (min-width: 1300px) {
   #spells .spell-level .spells-known .button {
-    margin: 0 0 5px 0;
-    width: 33%; } }
+    margin: 0 0 8px 0; } }
