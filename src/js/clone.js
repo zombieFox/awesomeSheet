@@ -320,7 +320,7 @@ var clone = (function() {
       helper.removeClass(cloneBlock, "delete-state");
       helper.removeClass(cloneRemoveButton, "active");
       helper.removeClass(cloneRemoveButton, "button-primary");
-      helper.addClass(cloneRemoveButton, "button-tertiary");
+      helper.addClass(cloneRemoveButton, "button-quaternary");
     };
   };
 
@@ -434,7 +434,7 @@ var clone = (function() {
     // change clone remove button
     helper.toggleClass(cloneRemoveButton, "active");
     helper.toggleClass(cloneRemoveButton, "button-primary");
-    helper.toggleClass(cloneRemoveButton, "button-tertiary");
+    helper.toggleClass(cloneRemoveButton, "button-quaternary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       helper.removeClass(cloneBlock, "delete-state");
@@ -449,7 +449,7 @@ var clone = (function() {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneRemoveButton, "active");
       helper.removeClass(cloneRemoveButton, "button-primary");
-      helper.addClass(cloneRemoveButton, "button-tertiary");
+      helper.addClass(cloneRemoveButton, "button-quaternary");
     };
   };
 
