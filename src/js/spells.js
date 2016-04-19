@@ -145,19 +145,19 @@ var spells = (function() {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         helper.removeClass(all_spellStateControls[i], "active");
         helper.removeClass(all_spellStateControls[i], "button-primary");
-        helper.addClass(all_spellStateControls[i], "button-tertiary");
+        helper.addClass(all_spellStateControls[i], "button-quaternary");
       };
       helper.addClass(element, "active");
       if (element == removeStateButton) {
         helper.addClass(element, "button-primary");
-        helper.removeClass(element, "button-tertiary");
+        helper.removeClass(element, "button-quaternary");
       };
     } else {
       spellRoot.dataset.spellState = "false";
       helper.removeClass(element, "active");
       if (element == removeStateButton) {
         helper.removeClass(element, "button-primary");
-        helper.addClass(element, "button-tertiary");
+        helper.addClass(element, "button-quaternary");
       };
     };
   };
@@ -201,7 +201,7 @@ var spells = (function() {
       };
       spellRoot.dataset.spellState = "false";
       helper.removeClass(removeStateButton, "button-primary");
-      helper.addClass(removeStateButton, "button-tertiary");
+      helper.addClass(removeStateButton, "button-quaternary");
     };
   };
 

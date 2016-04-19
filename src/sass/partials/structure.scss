@@ -9,16 +9,19 @@ body {
 section {
   z-index: $body;
   .section-heading {
-    background-color: $secondary-color-20;
+    // background-color: $secondary-color-20;
+    background-color: $secondary-color-08;
     padding: 5px 0;
     text-transform: uppercase;
     position: relative;
     z-index: $section-heading;
     height: 30px;
-    box-shadow: $shadow-small;
+    box-shadow: $shadow-medium;
     // transition: all $transition-ease-fast;
     h1 {
+      color: $white;
       margin: 0;
+      font-size: 1rem;
       line-height: 30px;
     }
   }
@@ -26,11 +29,17 @@ section {
     height: 30px;
     position: relative;
     .button-group {
-      position: absolute;
-      ;
+      position: relative;
       top: 50%;
-      right: 0;
+      left: 1px;
       transform: translateY(-50%);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      .button {
+        flex: 0 0 auto;
+      }
     }
   }
   .section-wrapper {
@@ -62,6 +71,9 @@ hr {
   section {
     .section-heading {
       padding: 10px 0;
+      h1 {
+        font-size: 1.4rem;
+      }
     }
     &.pinned {
       padding-top: 50px;

@@ -115,6 +115,32 @@ button {
       border-color: $gray-16;
     }
   }
+  &.button-quaternary {
+    color: $light-alpha-02;
+    background-color: transparent;
+    border-color: $dark-alpha-18;
+    &:link,
+    &:visited {
+      color: $light-alpha-02;
+      background-color: transparent;
+      border-color: $dark-alpha-18;
+    }
+    &:focus {
+      background-color: $dark-alpha-19;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $light-alpha-06;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      background-color: $light-alpha-18;
+      border-color: $light-alpha-16;
+    }
+  }
   &.button-small {
     padding: 0 8px;
     height: 22px;
