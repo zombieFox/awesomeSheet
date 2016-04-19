@@ -12,10 +12,11 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
+      // justify-content: space-between;
+      justify-content: flex-start;
       .button {
         padding: 0 10px;
-        margin: 0 0 5px 0;
+        margin: 0 0.5% 3px 0;
         width: 49.5%;
         text-align: left;
         font-size: 0.9rem;
@@ -25,6 +26,9 @@
         white-space: normal;
         line-height: 2rem;
         height: auto;
+        &:nth-child(even) {
+          margin-right: 0;
+        }
         .spell-active,
         .spell-name {
           float: left;
@@ -201,37 +205,22 @@
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin: 0 0 7px 0;
-        }
-      }
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin: 0 0 6px 0;
-        }
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {
   #spells {
     .spell-level {
       .spells-known {
         .button {
-          margin: 0 0 5px 0;
           width: 33%;
+          &:nth-child(even) {
+            margin-right: 0.5%;
+          }
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
         }
       }
     }
