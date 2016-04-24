@@ -15,16 +15,19 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.dev %>/',
         expand: true
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.build %>/',
         expand: true
       },
+      webapp: {
+        expand: true, src: ['manifest.json'], dest: '<%= folders.build %>/', filter: 'isFile'
+      }
     },
 
     clean: {
@@ -266,6 +269,7 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:build',
     'copy:build',
+    'copy:webapp',
     'sass:build',
     'autoprefixer:build',
     'cssmin:build',
