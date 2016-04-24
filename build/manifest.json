@@ -1,37 +1,14 @@
-// {
-//   "name": "Awesome Sheet",
-//   "short_name": "AS",
-//   "description": "A dynamic character sheet which auto calculates many scores and bonuses.",
-//   "version": "1.0.0",
-//   "background_color": "#3B6688",
-//   "theme_color": "#3B6688",
-//   "start_url": "/index.html",
-//   "launch_path": "/index.html",
-//   "display": "standalone",
-//   "orientation": "portrait",
-//   "icons": [{
-//     "src": "images/icon-128.png",
-//     "sizes": "128x128",
-//     "type": "image/png"
-//   }, {
-//     "src": "images/icon-512.png",
-//     "sizes": "512x512",
-//     "type": "image/png"
-//   }]
-// }
-
-
 {
-  "name": "Progressive Web App",
-  "short_name": "PWA",
+  "name": "Awesome Sheet",
+  "short_name": "AS",
+  "description": "A dynamic character sheet which auto calculates many scores and bonuses.",
   "version": "1.0.0",
-  "description": "A simple demo for progressive web app with push notification",
+  "background_color": "#224159",
+  "theme_color": "#224159",
   "start_url": "/index.html",
   "launch_path": "/index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#f5f5f5",
-  "theme_color": "#212225",
   "icons": [{
     "src": "images/icon-128.png",
     "sizes": "128x128",
