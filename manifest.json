@@ -1,6 +1,13 @@
 {
   "short_name": "Awesome Sheet",
-  "name": "Awesome Sheet",
+  "name": "AS",
+  "description": "A dynamic character sheet which auto calculates many scores and bonuses.",
+  "version": "1.0.0",
+  "background_color": "#3B6688",
+  "theme_color": "#3B6688",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
   "icons": [{
     "src": "images/icon-128.png",
     "sizes": "128x128",
@@ -9,9 +16,5 @@
     "src": "images/icon-512.png",
     "sizes": "512x512",
     "type": "image/png"
-  }],
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "portrait",
-  "theme_color": "#3B6688"
+  }]
 }
