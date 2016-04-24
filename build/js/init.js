@@ -7,7 +7,6 @@
   inputBlock.bind();
   textareaBlock.bind();
   checkBlock.bind();
-  skills.bind();
   stats.bind();
   sheet.render();
 

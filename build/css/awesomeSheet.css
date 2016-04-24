@@ -163,8 +163,8 @@
 
 .no-gutter {
   margin: 0; }
-  .no-gutter [class^="col-"],
-  .no-gutter [class*=" col-"] {
+  .no-gutter > [class^="col-"],
+  .no-gutter > [class*=" col-"] {
     padding: 0; }
 
 /* media queries
@@ -1117,6 +1117,54 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
     border-color: #fc0042;
     outline: 0; }
 
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; }
+  input[type="checkbox"]:checked + label {
+    cursor: pointer; }
+    input[type="checkbox"]:checked + label:before {
+      content: "\e25c";
+      color: #3288c9; }
+
+input + label {
+  line-height: 2.5rem;
+  display: inline-block;
+  width: 100%; }
+  input + label:before {
+    font-family: "Material Design Icons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    content: "\e25d";
+    display: block;
+    float: left;
+    margin-right: 5px;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    color: #1c3445;
+    transition: all 0.1s ease-in-out; }
+
+input:hover:checked + label:before {
+  color: #264f6e; }
+
+input:hover + label:before {
+  color: #264f6e; }
+
+input:active:checked + label:before {
+  color: #fc0042; }
+
+input:active + label:before {
+  color: #fc0042; }
+
+.check-block {
+  position: relative; }
+
 table {
   border: 0;
   margin: 0 0 20px 0;
@@ -2056,6 +2104,7 @@ hr {
   #skills .skill-list .skill .total,
   #skills .skill-list .skill .ranks,
   #skills .skill-list .skill .misc,
+  #skills .skill-list .skill .skill-bonus,
   #skills .skill-list .skill .class-skill {
     float: left;
     display: block;
@@ -2066,6 +2115,8 @@ hr {
     width: 35%; }
     #skills .skill-list .skill .name.with-type {
       width: 15%; }
+    #skills .skill-list .skill .name.custom-name {
+      width: 55%; }
   #skills .skill-list .skill .type {
     width: 20%; }
   #skills .skill-list .skill .stat {
@@ -2084,39 +2135,13 @@ hr {
   #skills .skill-list .skill .class-skill {
     width: 10%;
     height: 2.5rem;
-    text-align: center;
-    position: relative;
     box-sizing: border-box; }
-    #skills .skill-list .skill .class-skill .input-check {
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-      cursor: pointer;
+    #skills .skill-list .skill .class-skill input[type="checkbox"] + label:before {
       width: 100%;
-      height: 100%;
-      line-height: 100%;
-      -webkit-tap-highlight-color: transparent; }
-    #skills .skill-list .skill .class-skill .class-skill-icon {
-      font-size: 1.5rem;
-      line-height: 2.5rem;
-      height: 2.5rem;
-      display: block; }
-      #skills .skill-list .skill .class-skill .class-skill-icon.icon-check-box-unchecked {
-        color: #0f1820; }
-      #skills .skill-list .skill .class-skill .class-skill-icon.icon-check-box-checked {
-        color: #fc0042; }
-    #skills .skill-list .skill .class-skill:hover .class-skill-icon.icon-check-box-unchecked, #skills .skill-list .skill .class-skill:focus .class-skill-icon.icon-check-box-unchecked {
-      color: #ca0035; }
-    #skills .skill-list .skill .class-skill:hover .class-skill-icon.icon-check-box-checked, #skills .skill-list .skill .class-skill:focus .class-skill-icon.icon-check-box-checked {
-      color: #ca0035; }
-    #skills .skill-list .skill .class-skill:active .class-skill-icon.icon-check-box-unchecked {
-      color: #970027; }
-    #skills .skill-list .skill .class-skill:active .class-skill-icon.icon-check-box-checked {
-      color: #970027; }
+      margin: 0;
+      text-align: center; }
+  #skills .skill-list .skill .skill-bonus {
+    width: 12.5%; }
   #skills .skill-list .skill .ranks,
   #skills .skill-list .skill .misc {
     width: 10%;

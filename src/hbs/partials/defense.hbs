@@ -102,28 +102,62 @@
             </div>
           </div>
         </div>
-        <div class="total-block" data-dex-bonus="true" data-plus-ten-bonus="true" data-ac-armor="true" data-ac-shield="true" data-ac-deflect="true" data-ac-dodge="true" data-ac-natural="true" data-size-bonus="true">
+        <div class="total-block" data-plus-ten-bonus="true" data-ac-armor="true" data-ac-shield="true" data-ac-deflect="true" data-ac-dodge="true" data-ac-natural="true" data-size-bonus="true">
           <div class="col-xs-4 col-md-3">
             <h2 class="inline-with-input margin-with-input">AC <span class="total"></span></h2>
           </div>
           <div class="col-xs-8 col-md-9 hidable">
             <div class="row no-gutter">
-              <div class="col-xs-3">
+              <div class="col-xs-6">
                 <div class="input-block">
                   <label class="input-label" for="defense-ac-misc">Misc</label>
-                  <input class="input-field" id="defense-ac-misc" data-total="addition" data-path="defense.ac.misc" type="number" tabindex="3">
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class="input-block">
-                  <label class="input-label" for="defense-ac-temp">Temp</label>
-                  <input class="input-field" id="defense-ac-temp" data-total="addition" data-path="defense.ac.temp" type="number" tabindex="3">
+                  <input class="input-field no-margin" id="defense-ac-misc" data-total="addition" data-path="defense.ac.misc" type="number" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="input-block">
-                  <label class="input-label" for="defense-ac-notes">Notes</label>
-                  <input class="input-field" id="defense-ac-notes" data-path="defense.ac.notes" type="text" tabindex="3">
+                  <label class="input-label" for="defense-ac-temp">Temp</label>
+                  <input class="input-field no-margin" id="defense-ac-temp" data-total="addition" data-path="defense.ac.temp" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="row no-gutter">
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-str-bonus" data-bonus-type="str-bonus" data-path="defense.ac.str_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-str-bonus">Str</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-dex-bonus" data-bonus-type="dex-bonus" data-path="defense.ac.dex_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-dex-bonus">Dex</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-con-bonus" data-bonus-type="con-bonus" data-path="defense.ac.con_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-con-bonus">Con</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-int-bonus" data-bonus-type="int-bonus" data-path="defense.ac.int_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-int-bonus">Int</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-wis-bonus" data-bonus-type="wis-bonus" data-path="defense.ac.wis_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-wis-bonus">Wis</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-cha-bonus" data-bonus-type="cha-bonus" data-path="defense.ac.cha_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-cha-bonus">Cha</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -135,52 +169,128 @@
           </div>
           <div class="col-xs-8 col-md-9 hidable">
             <div class="row no-gutter">
-              <div class="col-xs-3">
+              <div class="col-xs-6">
                 <div class="input-block">
-                  <label class="input-label" for="defense-ac-flat-footed-misc">Misc</label>
-                  <input class="input-field" id="defense-ac-flat-footed-misc" data-total="addition" data-path="defense.ac.flat_footed.misc" type="number" tabindex="3">
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class="input-block">
-                  <label class="input-label" for="defense-ac-flat-footed-temp">Temp</label>
-                  <input class="input-field" id="defense-ac-flat-footed-temp" data-total="addition" data-path="defense.ac.flat_footed.temp" type="number" tabindex="3">
+                  <label class="input-label" for="defense-flat-footed-misc">Misc</label>
+                  <input class="input-field no-margin" id="defense-flat-footed-misc" data-total="addition" data-path="defense.flat_footed.misc" type="number" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="input-block">
-                  <label class="input-label" for="defense-ac-flat-footed-notes">Notes</label>
-                  <input class="input-field" id="defense-ac-flat-footed-notes" data-path="defense.ac.flat_footed.notes" type="text" tabindex="3">
+                  <label class="input-label" for="defense-flat-footed-temp">Temp</label>
+                  <input class="input-field no-margin" id="defense-flat-footed-temp" data-total="addition" data-path="defense.flat_footed.temp" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="row no-gutter">
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-str-bonus" data-bonus-type="str-bonus" data-path="defense.flat_footed.str_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-str-bonus">Str</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-dex-bonus" data-bonus-type="dex-bonus" data-path="defense.flat_footed.dex_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-dex-bonus">Dex</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-con-bonus" data-bonus-type="con-bonus" data-path="defense.flat_footed.con_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-con-bonus">Con</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-int-bonus" data-bonus-type="int-bonus" data-path="defense.flat_footed.int_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-int-bonus">Int</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-wis-bonus" data-bonus-type="wis-bonus" data-path="defense.flat_footed.wis_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-wis-bonus">Wis</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-cha-bonus" data-bonus-type="cha-bonus" data-path="defense.flat_footed.cha_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-cha-bonus">Cha</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="total-block" data-dex-bonus="true" data-plus-ten-bonus="true" data-ac-deflect="true" data-ac-dodge="true" data-size-bonus="true">
+        <div class="total-block" data-plus-ten-bonus="true" data-ac-deflect="true" data-ac-dodge="true" data-size-bonus="true">
           <div class="col-xs-4 col-md-3">
             <h2 class="inline-with-input margin-with-input"><span class="hidden-xs">Touch</span><span class="visible-xs-inline">T AC</span> <span class="total"></span></h2>
           </div>
           <div class="col-xs-8 col-md-9 hidable">
             <div class="row no-gutter">
-              <div class="col-xs-3">
+              <div class="col-xs-6">
                 <div class="input-block">
-                  <label class="input-label" for="defense-ac-touch-misc">Misc</label>
-                  <input class="input-field" id="defense-ac-touch-misc" data-total="addition" data-path="defense.ac.touch.misc" type="number" tabindex="3">
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class="input-block">
-                  <label class="input-label" for="defense-ac-touch-temp">Temp</label>
-                  <input class="input-field" id="defense-ac-touch-temp" data-total="addition" data-path="defense.ac.touch.temp" type="number" tabindex="3">
+                  <label class="input-label" for="defense-touch-misc">Misc</label>
+                  <input class="input-field no-margin" id="defense-touch-misc" data-total="addition" data-path="defense.touch.misc" type="number" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="input-block">
-                  <label class="input-label" for="defense-ac-touch-notes">Notes</label>
-                  <input class="input-field" id="defense-ac-touch-notes" data-path="defense.ac.touch.notes" type="text" tabindex="3">
+                  <label class="input-label" for="defense-touch-temp">Temp</label>
+                  <input class="input-field no-margin" id="defense-touch-temp" data-total="addition" data-path="defense.touch.temp" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="row no-gutter">
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-str-bonus" data-bonus-type="str-bonus" data-path="defense.touch.str_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-str-bonus">Str</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-dex-bonus" data-bonus-type="dex-bonus" data-path="defense.touch.dex_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-dex-bonus">Dex</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-con-bonus" data-bonus-type="con-bonus" data-path="defense.touch.con_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-con-bonus">Con</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-int-bonus" data-bonus-type="int-bonus" data-path="defense.touch.int_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-int-bonus">Int</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-wis-bonus" data-bonus-type="wis-bonus" data-path="defense.touch.wis_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-wis-bonus">Wis</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-2">
+                    <div class="check-block inline-with-input margin-with-input">
+                      <input class="input-check" id="defense-ac-cha-bonus" data-bonus-type="cha-bonus" data-path="defense.touch.cha_bonus" data-total="addition" type="checkbox" tabindex="3">
+                      <label class="input-label" for="defense-ac-cha-bonus">Cha</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="textarea-block">
+            <label class="textarea-label" for="defense-ac-notes">Notes</label>
+            <div class="textarea-box tall" id="defense-ac-notes" data-path="defense.ac_notes" contentEditable="true" tabindex="3"></div>
           </div>
         </div>
       </div>
@@ -307,8 +417,8 @@
       <div class="row">
         <div class="col-xs-12 col-lg-9 col-lg-offset-3">
           <div class="textarea-block">
-            <label class="textarea-label" for="defense-defense-notes">Notes</label>
-            <div class="textarea-box tall" id="defense-defense-notes" data-path="defense.defense_notes" contentEditable="true" tabindex="3"></div>
+            <label class="textarea-label" for="defense-save-notes">Notes</label>
+            <div class="textarea-box tall" id="defense-save-notes" data-path="defense.save_notes" contentEditable="true" tabindex="3"></div>
           </div>
         </div>
       </div>

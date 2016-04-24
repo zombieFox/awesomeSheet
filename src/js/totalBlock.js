@@ -127,13 +127,13 @@ var totalBlock = (function() {
       if (all_inputTotalBlock[i].dataset.acNatural == "true") {
         acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
       };
-      // 10
-      if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
-        plusTenBonus = 10;
-      };
       // class skill
       if (all_inputTotalBlock[i].dataset.classSkill == "true") {
         classSkill = 3;
+      };
+      // 10
+      if (all_inputTotalBlock[i].dataset.plusTenBonus == "true") {
+        plusTenBonus = 10;
       };
       // check if any bonus is NaN
       if (isNaN(levelBonus)) {

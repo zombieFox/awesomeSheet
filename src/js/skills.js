@@ -1,12 +1,14 @@
 var skills = (function() {
 
   function _store(element) {
+    console.log("skill trigger");
     var path = element.dataset.path;
     helper.updateObject(sheet.getCharacter(), path, element.textContent);
     sheet.storeCharacters();
   };
 
   function toggle(element) {
+    console.log("skill trigger");
     var totalBlock = helper.getClosest(element, ".total-block");
     var stats = ["Str", "Dex", "Con", "Int", "Wis", "Cha", "Level", "Half Level", "Bab", " - "];
     var statIndex = stats.indexOf(element.textContent);
@@ -23,6 +25,7 @@ var skills = (function() {
   };
 
   function bind() {
+    console.log("skill trigger");
     var all_statSelect = helper.eA(".stat-select");
     for (var i = 0; i < all_statSelect.length; i++) {
       all_statSelect[i].addEventListener("click", function() {
@@ -34,6 +37,7 @@ var skills = (function() {
   };
 
   function render() {
+    console.log("skill trigger");
     var all_statSelect = helper.eA(".stat-select");
     for (var i = 0; i < all_statSelect.length; i++) {
       var totalBlock = helper.getClosest(all_statSelect[i], ".total-block");

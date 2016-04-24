@@ -195,8 +195,8 @@
 
 .no-gutter {
   margin: 0;
-  [class^="col-"],
-  [class*=" col-"] {
+  > [class^="col-"],
+  > [class*=" col-"] {
     padding: 0;
   }
 }

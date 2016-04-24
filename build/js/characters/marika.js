@@ -95,16 +95,6 @@ var marika = (function() {
         non_lethal_damage: ""
       },
       ac: {
-        flat_footed: {
-          misc: "",
-          temp: "",
-          notes: ""
-        },
-        touch: {
-          misc: "",
-          temp: "",
-          notes: ""
-        },
         misc: "",
         temp: "",
         armor: "4",
@@ -113,8 +103,34 @@ var marika = (function() {
         dodge: "",
         natural: "",
         size_bonus: "",
-        notes: "+3 dodge bonus to AC against attacks made by traps."
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
+      flat_footed: {
+        misc: "",
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
+      },
+      touch: {
+        misc: "",
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
+      },
+      ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
         base: "3",
         racial: "",
@@ -136,7 +152,7 @@ var marika = (function() {
         misc: "",
         temp: ""
       },
-      defense_notes: "+3 bonus on Reflex saves made to avoid traps."
+      save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
       base_attack: "6 / 1",
@@ -397,29 +413,61 @@ var marika = (function() {
         stat: "Dex",
         name: "Disable Device Trap",
         ranks: "9",
-        misc: "9",
-        class_skill: true
+        misc: "4",
+        class_skill: true,
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: true
       },
       custom_2: {
         stat: "Wis",
         name: "Perception Trap",
         ranks: "9",
-        misc: "9",
-        class_skill: true
+        misc: "5",
+        class_skill: true,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false,
+        level: false,
+        half_level: true
       },
       custom_3: {
         stat: "",
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
       },
       custom_4: {
         stat: "",
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
       }
     },
     spells: {

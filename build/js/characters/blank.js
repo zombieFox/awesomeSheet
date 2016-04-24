@@ -91,16 +91,6 @@ var blank = (function() {
         non_lethal_damage: ""
       },
       ac: {
-        flat_footed: {
-          misc: "",
-          temp: "",
-          notes: ""
-        },
-        touch: {
-          misc: "",
-          temp: "",
-          notes: ""
-        },
         misc: "",
         temp: "",
         armor: "",
@@ -109,8 +99,34 @@ var blank = (function() {
         dodge: "",
         natural: "",
         size_bonus: "",
-        notes: ""
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
+      flat_footed: {
+        misc: "",
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
+      },
+      touch: {
+        misc: "",
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
+      },
+      ac_notes: "",
       fortitude: {
         base: "",
         racial: "",
@@ -132,7 +148,7 @@ var blank = (function() {
         misc: "",
         temp: ""
       },
-      defense_notes: ""
+      save_notes: ""
     },
     offense: {
       base_attack: "",
@@ -362,28 +378,60 @@ var blank = (function() {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
       },
       custom_2: {
         stat: "",
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
       },
       custom_3: {
         stat: "",
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
       },
       custom_4: {
         stat: "",
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
       }
     },
     spells: {

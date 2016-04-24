@@ -126,7 +126,6 @@ var sheet = (function() {
     var all_checkBlock = helper.eA(".check-block");
     var all_cloneTarget = helper.eA(".clone-target");
     var all_spellsKnown = helper.eA(".spells-known");
-    var all_statSelect = helper.eA(".stat-select");
     for (var i = 0; i < all_inputBlock.length; i++) {
       var input = all_inputBlock[i].querySelector(".input-field");
       helper.e("#" + input.id).value = "";
@@ -136,14 +135,7 @@ var sheet = (function() {
       var icon = all_checkBlock[i].querySelector(".class-skill-icon");
       all_checkBlock[i].dataset.classSkill = "false";
       checkbox.checked = false;
-      helper.addClass(icon, "icon-check-box-unchecked");
-      helper.removeClass(icon, "icon-check-box-checked");
-    };
-    for (var i = 0; i < all_statSelect.length; i++) {
-      var inputTotalBlock = helper.getClosest(all_statSelect[i], ".total-block");
-      var stat = all_statSelect[i].textContent;
-      inputTotalBlock.removeAttribute("data-" + stat.replace(/\s+/g, "-").toLowerCase() + "-bonus");
-      all_statSelect[i].textContent = " - ";
+      checkBlock.destroy(checkbox);
     };
     for (var i = 0; i < all_textareaBlock.length; i++) {
       helper.e("#" + all_textareaBlock[i].id).innerHTML = "";
@@ -171,7 +163,6 @@ var sheet = (function() {
     textareaBlock.render();
     checkBlock.render();
     stats.render();
-    skills.render();
     totalBlock.render();
     clone.render();
     consumable.render();
