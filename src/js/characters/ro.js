@@ -172,11 +172,27 @@ var ro = (function() {
       concentration: "8",
       cmb: {
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: true,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        bab: true
       },
       cmd: {
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: true,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        bab: true
       },
       melee_attack: {
         misc: "",

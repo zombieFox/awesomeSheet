@@ -156,11 +156,27 @@ var blank = (function() {
       concentration: "",
       cmb: {
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        bab: false
       },
       cmd: {
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        bab: false
       },
       melee_attack: {
         misc: "",
