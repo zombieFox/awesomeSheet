@@ -1,23 +1,27 @@
-/* imports
-------------------------------------------------- */
+@charset "utf-8";
 
 @import "partials/variables";
-@import "partials/grid.scss";
-@import "partials/fonts";
-@import "partials/icons";
-@import "partials/buttons";
-@import "partials/typography";
-@import "partials/utilities";
-@import "partials/nav";
-@import "partials/prompt";
-@import "partials/snacks";
-@import "partials/input-block";
-@import "partials/textarea-block";
-@import "partials/clone";
-@import "partials/consumable";
-@import "partials/structure";
-@import "partials/basics";
-@import "partials/defense";
-@import "partials/statistics";
-@import "partials/skills";
-@import "partials/spells";
+
+@import "base/grid.scss";
+@import "base/fonts";
+@import "base/typography";
+@import "base/buttons";
+@import "base/icons";
+@import "base/utilities";
+
+@import "layouts/style-guide";
+@import "layouts/structure";
+
+@import "modules/style-guide";
+@import "modules/basics";
+@import "modules/clone";
+@import "modules/consumable";
+@import "modules/defense";
+@import "modules/input-block";
+@import "modules/nav";
+@import "modules/prompt";
+@import "modules/skills";
+@import "modules/snacks";
+@import "modules/spells";
+@import "modules/statistics";
+@import "modules/textarea-block";
