@@ -2,7 +2,6 @@
 button {
   padding: 0 10px;
   margin-bottom: 10px;
-  color: $gray-02;
   text-align: center;
   font-size: 1rem;
   font-family: $open-sans-semi-bold;
@@ -11,7 +10,7 @@ button {
   text-decoration: none;
   white-space: nowrap;
   background-color: $white;
-  border: 1px solid $gray-03;
+  border: 1px solid $gray-12;
   cursor: pointer;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
@@ -23,17 +22,15 @@ button {
     text-decoration: none;
   }
   &:hover {
-    color: $white;
-    background-color: $gray-02;
-    border-color: $gray-02;
+    background-color: $gray-16;
+    border-color: $gray-10;
     outline: 0;
     text-decoration: none;
   }
   &:active,
   &.active {
-    color: $white;
-    background-color: $gray-04;
-    border-color: $gray-04;
+    background-color: $gray-14;
+    border-color: $gray-08;
     outline: 0;
     text-decoration: none;
   }
@@ -51,18 +48,19 @@ button {
 }
 
 .button-primary {
-  color: $white;
   background-color: $primary-color-10;
   border-color: $primary-color-08;
+  color: $white;
   &:link,
   &:visited {
-    color: $white;
     background-color: $primary-color-10;
     border-color: $primary-color-08;
+    color: $white;
   }
   &:focus,
   &:hover {
     background-color: $primary-color-08;
+    border-color: $primary-color-06;
   }
   &:active,
   &.active {
@@ -72,18 +70,19 @@ button {
 }
 
 .button-secondary {
-  color: $white;
   background-color: $secondary-color-10;
   border-color: $secondary-color-08;
+  color: $white;
   &:link,
   &:visited {
-    color: $white;
     background-color: $secondary-color-10;
     border-color: $secondary-color-08;
+    color: $white;
   }
   &:focus,
   &:hover {
     background-color: $secondary-color-08;
+    border-color: $secondary-color-06;
   }
   &:active,
   &.active {
@@ -93,50 +92,24 @@ button {
 }
 
 .button-tertiary {
-  color: $gray-02;
   background-color: transparent;
-  border-color: $gray-18;
+  border-color: $dark-alpha-14;
+  color: $white;
   &:link,
   &:visited {
-    color: $gray-02;
     background-color: transparent;
-    border-color: $gray-18;
+    border-color: $dark-alpha-14;
+    color: $white;
   }
-  &:focus {
-    background-color: $gray-19;
-  }
+  &:focus,
   &:hover {
-    color: $gray-06;
+    background-color: $dark-alpha-14;
+    border-color: $dark-alpha-12;
   }
   &:active,
   &.active {
-    background-color: $dark-alpha-20;
-    border-color: $gray-16;
-  }
-}
-
-.button-quaternary {
-  color: $light-alpha-02;
-  background-color: transparent;
-  border-color: $dark-alpha-18;
-  &:link,
-  &:visited {
-    color: $light-alpha-02;
-    background-color: transparent;
-    border-color: $dark-alpha-18;
-  }
-  &:focus {
-    background-color: $dark-alpha-19;
-  }
-  &:hover {
-    color: $light-alpha-06;
-    outline: 0;
-    text-decoration: none;
-  }
-  &:active,
-  &.active {
-    background-color: $light-alpha-18;
-    border-color: $light-alpha-16;
+    background-color: $dark-alpha-10;
+    border-color: transparent;
   }
 }
 
@@ -178,14 +151,16 @@ button {
 }
 
 .button-group {
+  display: flex;
+  flex-flow: row nowrap;
   .button,
   button {
     margin-right: 0;
     margin-left: -1px;
     border-radius: 0;
-    float: left;
     z-index: 1;
     position: relative;
+    flex: 1 0 auto;
     &:first-child {
       border-top-left-radius: $border-radius-medium;
       border-bottom-left-radius: $border-radius-medium;
@@ -194,7 +169,8 @@ button {
       border-top-right-radius: $border-radius-medium;
       border-bottom-right-radius: $border-radius-medium;
     }
-    &:focus {
+    &:focus,
+    &:hover {
       z-index: 2;
     }
     &.active,
@@ -250,24 +226,7 @@ label {
 
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .button,
-  button {
-    &.button-small {
-      padding: 0 10px;
-      height: 26px;
-      line-height: 24px;
-      [class^="icon-"],
-      [class*=" icon-"] {
-        line-height: 24px;
-        height: 24px;
-      }
-    }
-    &.button-icon {
-      padding: 0 12px 0 8px;
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 
