@@ -1,0 +1,33 @@
+// base
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+html {
+  font-size: 62.5%; // so 1rem = 10px
+}
+
+body {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: normal;
+  font-family: $base-font;
+  color: $base-color;
+}
+
+
+/* media queries
+------------------------------------------------- */
+
+@media (min-width: $screen-sm) {
+  html {
+    // font-size: 75.0%; // so 1rem = 12px
+  }
+}
+
+@media (min-width: $screen-md) {
+  html {
+    // font-size: 87.5%; // so 1rem = 14px
+  }
+}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

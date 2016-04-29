@@ -1,48 +1,53 @@
 .button,
 button {
-  padding: 0 10px;
+  background-color: $white;
+  border-color: $gray-18;
+  color: $base-color;
+  border-width: 1px;
+  border-style: solid;
+  padding: 4px 12px;
   margin-bottom: 10px;
   text-align: center;
   font-size: 1rem;
   font-family: $open-sans-semi-bold;
-  height: 28px;
-  line-height: 26px;
   text-decoration: none;
   white-space: nowrap;
-  background-color: $white;
-  border: 1px solid $gray-12;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
   cursor: pointer;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
   transition: all $transition-ease-fast;
-  text-decoration: none;
   display: inline-block;
-  &:focus {
-    outline: 0;
-    text-decoration: none;
+  text-transform: uppercase;
+  &:link,
+  &:visited {
+    background-color: $white;
+    border-color: $gray-18;
+    color: $base-color;
   }
+  &:focus,
   &:hover {
-    background-color: $gray-16;
-    border-color: $gray-10;
+    background-color: $gray-18;
+    border-color: $gray-14;
+    color: $base-color;
     outline: 0;
     text-decoration: none;
   }
   &:active,
   &.active {
-    background-color: $gray-14;
-    border-color: $gray-08;
+    background-color: $gray-17;
+    border-color: $gray-13;
+    color: $base-color;
     outline: 0;
     text-decoration: none;
   }
-  &.button-icon {
-    padding: 0 10px 0 6px;
-  }
   [class^="icon-"],
   [class*=" icon-"] {
-    margin: 0 5px 0 0;
-    font-size: 1rem;
-    height: 26px;
-    line-height: 26px;
+    margin-right: 2px;
+    font-size: 1.4em;
+    vertical-align: text-bottom;
+    line-height: 1em;
     display: inline-block;
   }
 }
@@ -61,11 +66,12 @@ button {
   &:hover {
     background-color: $primary-color-08;
     border-color: $primary-color-06;
+    color: $white;
   }
   &:active,
   &.active {
     background-color: $primary-color-06;
-    border-color: $primary-color-06;
+    border-color: $primary-color-04;
   }
 }
 
@@ -83,11 +89,12 @@ button {
   &:hover {
     background-color: $secondary-color-08;
     border-color: $secondary-color-06;
+    color: $white;
   }
   &:active,
   &.active {
     background-color: $secondary-color-06;
-    border-color: $secondary-color-06;
+    border-color: $secondary-color-04;
   }
 }
 
@@ -105,6 +112,7 @@ button {
   &:hover {
     background-color: $dark-alpha-14;
     border-color: $dark-alpha-12;
+    color: $white;
   }
   &:active,
   &.active {
@@ -114,33 +122,15 @@ button {
 }
 
 .button-large {
-  padding: 0 15px;
-  height: 42px;
-  line-height: 40px;
-  font-size: $large-text;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    margin: 0 2px 0 0;
-    line-height: 40px;
-    height: 40px;
-    font-size: $small-text;
-    display: inline-block;
-  }
+  padding: 4px 20px;
+  font-size: $font-size-large;
+  line-height: $line-height-large;
 }
 
 .button-small {
-  padding: 0 8px;
-  height: 22px;
-  line-height: 20px;
-  font-size: $small-text;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    margin: 0 2px 0 0;
-    line-height: 20px;
-    height: 20px;
-    font-size: $small-text;
-    display: inline-block;
-  }
+  padding: 2px 10px;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
 }
 
 .button-block {
@@ -151,8 +141,6 @@ button {
 }
 
 .button-group {
-  display: flex;
-  flex-flow: row nowrap;
   .button,
   button {
     margin-right: 0;
@@ -160,7 +148,7 @@ button {
     border-radius: 0;
     z-index: 1;
     position: relative;
-    flex: 1 0 auto;
+    float: left;
     &:first-child {
       border-top-left-radius: $border-radius-medium;
       border-bottom-left-radius: $border-radius-medium;
@@ -180,36 +168,67 @@ button {
   }
 }
 
+.button-group-strech {
+  display: flex;
+  flex-flow: row nowrap;
+  .button,
+  button {
+    float: none;
+    flex: 1 0 auto;
+  }
+}
+
 input {
   &[type="submit"],
   &[type="reset"],
   &[type="button"] {
-    display: inline-block;
-    height: 2rem;
-    padding: 0 10px;
-    color: $gray-01;
+    padding: 6px 12px;
+    margin-bottom: 10px;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-family: $open-sans-semi-bold;
-    line-height: 2rem;
     text-decoration: none;
     white-space: nowrap;
-    background-color: $gray-04;
-    border: 1px solid $gray-03;
+    border: 1px solid;
+    line-height: $line-height-base;
+    background-color: $white;
+    border-color: $gray-18;
+    color: $base-color;
     cursor: pointer;
     box-sizing: border-box;
     border-radius: $border-radius-medium;
-    &:hover,
-    &:focus {
-      color: $white;
-      background-color: $gray-02;
-      border-color: $gray-02;
-      outline: 0;
+    transition: all $transition-ease-fast;
+    display: inline-block;
+    text-transform: uppercase;
+    &:link,
+    &:visited {
+      background-color: $white;
+      border-color: $gray-18;
+      color: $base-color;
     }
-    &:active {
-      color: $white;
-      background-color: $gray-04;
-      border-color: $gray-04;
+    &:focus,
+    &:hover {
+      background-color: $gray-18;
+      border-color: $gray-14;
+      color: $base-color;
+      outline: 0;
+      text-decoration: none;
+    }
+    &:active,
+    &.active {
+      background-color: $gray-17;
+      border-color: $gray-13;
+      color: $base-color;
+      outline: 0;
+      text-decoration: none;
+    }
+    [class^="icon-"],
+    [class*=" icon-"] {
+      margin-right: 2px;
+      font-size: 1.4em;
+      vertical-align: text-bottom;
+      line-height: 1em;
+      display: inline-block;
     }
   }
 }
