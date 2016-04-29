@@ -1,0 +1,159 @@
+.textarea,
+textarea {
+  background-color: $secondary-color-alpha-20;
+  font-family: $open-sans-regular;
+  font-size: $font-size-base;
+  line-height: $line-height-large;
+  padding: 0.6rem 10px;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  border: 0;
+  border-bottom: $border;
+  box-sizing: border-box;
+  transition: all $transition-ease-medium;
+  resize: vertical;
+  &:hover {
+    border-color: $primary-color-10;
+  }
+  &:focus {
+    border-color: $secondary-color-10;
+    outline: 0;
+  }
+}
+
+.textarea-large {
+  min-height: 70px;
+}
+
+input {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    background-color: $secondary-color-alpha-20;
+    font-family: $open-sans-regular;
+    font-size: $font-size-base;
+    height: $font-size-extra-large;
+    line-height: $font-size-extra-large;
+    padding: 0 10px;
+    margin: 0 0 2rem 0;
+    border: 0;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: $border;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all $transition-ease-medium;
+    &:hover {
+      border-color: $primary-color-10;
+    }
+    &:focus {
+      border-color: $secondary-color-10;
+      outline: 0;
+    }
+  }
+}
+
+label {
+  line-height: $font-size-extra-large;
+  display: inline-block;
+}
+
+input {
+  &[type="radio"],
+  &[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    & + label {
+      line-height: $font-size-extra-large;
+      display: inline-block;
+      width: 100%;
+      &:before {
+        font-family: "Material Design Icons";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        display: block;
+        float: left;
+        margin-right: 5px;
+        font-size: $font-size-large;
+        line-height: $font-size-extra-large;
+        color: $secondary-color-04;
+        vertical-align: text-bottom;
+        transition: all $transition-ease-fast;
+      }
+    }
+    &:checked {
+      & + label {
+        cursor: pointer;
+        &:before {
+          color: $secondary-color-10;
+        }
+      }
+    }
+  }
+  &[type="radio"] {
+    & + label {
+      &:before {
+        content: "\e25e";
+      }
+    }
+    &:checked {
+      & + label {
+        &:before {
+          content: "\e25f";
+        }
+      }
+    }
+  }
+  &[type="checkbox"] {
+    & + label {
+      &:before {
+        content: "\e25d";
+      }
+    }
+    &:checked {
+      & + label {
+        &:before {
+          content: "\e25c";
+        }
+      }
+    }
+  }
+  &:hover {
+    &:checked {
+      & + label {
+        &:before {
+          color: $secondary-color-06;
+        }
+      }
+    }
+    & + label {
+      &:before {
+        color: $secondary-color-06;
+      }
+    }
+  }
+  &:active {
+    &:checked {
+      & + label {
+        &:before {
+          color: $primary-color-10;
+        }
+      }
+    }
+    & + label {
+      &:before {
+        color: $primary-color-10;
+      }
+    }
+  }
+}

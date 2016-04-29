@@ -1,6 +1,3 @@
-// ------------------------------------------------- //
-// typography
-// ------------------------------------------------- //
 h1,
 h2,
 h3,
@@ -59,145 +56,21 @@ strong {
 }
 
 a {
-  color: $primary-color-07;
+  color: $primary-color-10;
   text-decoration: none;
+  &:link,
   &:visited {
-    color: $primary-color-07;
+    color: $primary-color-10;
   }
-  &:hover,
-  &:focus {
-    color: $primary-color-alpha-01;
+  &:focus,
+  &:hover {
+    color: $primary-color-08;
     text-decoration: underline;
   }
-  &:active {
-    color: $primary-color-alpha-07;
+  &:active,
+  &.active {
+    color: $primary-color-06;
   }
-}
-
-.textarea-box,
-textarea {
-  background-color: $secondary-color-alpha-20;
-  padding: 0.5rem 10px;
-  margin: 0 0 2rem 0;
-  width: 100%;
-  border: 0;
-  border-bottom: $border;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  box-sizing: border-box;
-  transition: all $transition-ease-medium;
-  resize: vertical;
-  &:hover {
-    border-color: $primary-color-10;
-  }
-  &:focus {
-    border-color: $primary-color-10;
-    outline: 0;
-  }
-}
-
-input {
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="text"],
-  &[type="tel"],
-  &[type="password"] {
-    background-color: $secondary-color-alpha-20;
-    font-family: $open-sans-regular;
-    font-size: 1rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    padding: 0 10px;
-    margin: 0 0 2rem 0;
-    border: 0;
-    width: 100%;
-    border-radius: 0;
-    border-bottom: $border;
-    box-shadow: none;
-    box-sizing: border-box;
-    transition: all $transition-ease-medium;
-    &:hover {
-      border-color: $primary-color-10;
-    }
-    &:focus {
-      border-color: $primary-color-10;
-      outline: 0;
-    }
-  }
-}
-
-input {
-  &[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    &:checked {
-      & + label {
-        cursor: pointer;
-        &:before {
-          content: "\e25c";
-          color: $secondary-color-10;
-        }
-      }
-    }
-  }
-  & + label {
-    line-height: 2.5rem;
-    display: inline-block;
-    width: 100%;
-    &:before {
-      font-family: "Material Design Icons";
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      content: "\e25d";
-      display: block;
-      float: left;
-      margin-right: 5px;
-      font-size: 1.3rem;
-      line-height: 2.5rem;
-      color: $secondary-color-04;
-      transition: all $transition-ease-fast;
-    }
-  }
-  &:hover {
-    &:checked {
-      & + label {
-        &:before {
-          color: $secondary-color-06;
-        }
-      }
-    }
-    & + label {
-      &:before {
-        color: $secondary-color-06;
-      }
-    }
-  }
-  &:active {
-    &:checked {
-      & + label {
-        &:before {
-          color: $primary-color-10;
-        }
-      }
-    }
-    & + label {
-      &:before {
-        color: $primary-color-10;
-      }
-    }
-  }
-}
-
-.check-block {
-  position: relative;
 }
 
 table {
@@ -264,81 +137,55 @@ table {
   }
 }
 
-.text-center {
-  text-align: center;
-}
+// .text-center {
+//   text-align: center;
+// }
 
-.text-right {
-  text-align: right;
-}
+// .text-right {
+//   text-align: right;
+// }
 
-.small-text {
-  color: $base-color;
-  font-size: $font-size-small;
-}
+// .small-text {
+//   color: $base-color;
+//   font-size: $font-size-small;
+// }
 
-.right {
-  float: right;
-}
+// .right {
+//   float: right;
+// }
 
-.inline-with-input {
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  box-sizing: border-box;
-}
+// .inline-with-input {
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   height: 2.5rem;
+//   line-height: 2.5rem;
+//   box-sizing: border-box;
+// }
 
-.margin-with-input {
-  margin: 0 0 2rem 0;
-}
+// .margin-with-input {
+//   margin: 0 0 2rem 0;
+// }
 
-.underline-with-input {
-  border-bottom: $border;
-  border-color: $secondary-color-alpha-20;
-}
+// .underline-with-input {
+//   border-bottom: $border;
+//   border-color: $secondary-color-alpha-20;
+// }
 
-.no-margin {
-  margin: 0;
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="text"],
-  &[type="tel"],
-  &[type="password"] {
-    margin: 0;
-  }
-}
+// .no-margin {
+//   margin: 0;
+//   &[type="email"],
+//   &[type="number"],
+//   &[type="search"],
+//   &[type="text"],
+//   &[type="tel"],
+//   &[type="password"] {
+//     margin: 0;
+//   }
+// }
 
 
 /* vendor
 ------------------------------------------------- */
-
-::-webkit-input-placeholder {
-  color: $dark-alpha-14;
-}
-
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: $dark-alpha-14;
-}
-
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: $dark-alpha-14;
-}
-
-::selection {
-  background-color: $secondary-color-08;
-  color: $white;
-}
-
-::-webkit-full-screen {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: auto;
-}
 
 
 /* media queries
