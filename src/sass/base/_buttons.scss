@@ -100,23 +100,23 @@ button {
 
 .button-tertiary {
   background-color: transparent;
-  border-color: $dark-alpha-14;
-  color: $white;
+  border-color: $light-alpha-14;
+  color: $light-alpha-04;
   &:link,
   &:visited {
     background-color: transparent;
-    border-color: $dark-alpha-14;
-    color: $white;
+    border-color: $light-alpha-14;
+    color: $light-alpha-04;
   }
   &:focus,
   &:hover {
-    background-color: $dark-alpha-14;
-    border-color: $dark-alpha-12;
+    background-color: $light-alpha-14;
+    border-color: $light-alpha-12;
     color: $white;
   }
   &:active,
   &.active {
-    background-color: $dark-alpha-10;
+    background-color: $light-alpha-10;
     border-color: transparent;
   }
 }
