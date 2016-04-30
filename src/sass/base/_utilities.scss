@@ -1,6 +1,11 @@
 /* utilities
 ------------------------------------------------- */
 
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .hide {
   transform: scale(0) !important;
   opacity: 0 !important;
@@ -44,6 +49,7 @@
 .visible-lg-inline-block {
   display: none !important;
 }
+
 
 /* media queries
 ------------------------------------------------- */
