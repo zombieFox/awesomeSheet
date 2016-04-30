@@ -4,7 +4,7 @@ textarea {
   font-family: $open-sans-regular;
   font-size: $font-size-small;
   line-height: $line-height-large;
-  padding: 0.6rem 10px;
+  padding: 0.6rem 10px 0.4rem 10px;
   margin: 0 0 2rem 0;
   border: 0;
   border-bottom: $border;
@@ -20,7 +20,7 @@ textarea {
 }
 
 .textarea-large {
-  min-height: 70px;
+  min-height: 80px;
 }
 
 select {
@@ -29,6 +29,7 @@ select {
   color: $base-color;
   border-width: 1px;
   border-style: solid;
+  margin: 0 0 2rem 0;
   font-family: $open-sans-regular;
   font-size: $font-size-small;
   color: $base-color;
@@ -92,6 +93,7 @@ input {
       line-height: $root-line-height-extra-large;
       display: inline-block;
       cursor: pointer;
+      transition: color $transition-ease-fast;
       &:before {
         font-family: "Material Design Icons";
         speak: none;
@@ -111,6 +113,7 @@ input {
     }
     &:hover {
       & + label {
+        color: $primary-color-10;
         &:before {
           color: $primary-color-10;
         }
@@ -118,6 +121,7 @@ input {
     }
     &:focus {
       & + label {
+        color: $secondary-color-10;
         &:before {
           color: $secondary-color-10;
         }
@@ -126,6 +130,7 @@ input {
     &:checked {
       &:hover {
         & + label {
+          color: $primary-color-10;
           &:before {
             color: $primary-color-10;
           }
@@ -133,6 +138,7 @@ input {
       }
       &:focus {
         & + label {
+          color: $secondary-color-10;
           &:before {
             color: $secondary-color-10;
           }
@@ -140,6 +146,7 @@ input {
       }
       & + label {
         cursor: pointer;
+        color: $base-color;
         &:before {
           color: $base-color;
         }
