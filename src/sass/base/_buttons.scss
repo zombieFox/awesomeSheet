@@ -8,12 +8,11 @@ button {
   padding: 4px 12px;
   margin-bottom: 10px;
   text-align: center;
-  font-size: 1rem;
   font-family: $open-sans-semi-bold;
   text-decoration: none;
   white-space: nowrap;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  font-size: $root-font-size-medium;
+  line-height: $root-line-height-medium;
   cursor: pointer;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
@@ -123,14 +122,14 @@ button {
 
 .button-large {
   padding: 4px 20px;
-  font-size: $font-size-large;
-  line-height: $line-height-large;
+  font-size: $root-font-size-large;
+  line-height: $root-line-height-large;
 }
 
 .button-small {
   padding: 2px 10px;
-  font-size: $font-size-small;
-  line-height: $line-height-small;
+  font-size: $root-font-size-small;
+  line-height: $root-line-height-small;
 }
 
 .button-block {
@@ -190,7 +189,7 @@ input {
     text-decoration: none;
     white-space: nowrap;
     border: 1px solid;
-    line-height: $line-height-base;
+    line-height: $root-line-height-small;
     background-color: $white;
     border-color: $gray-18;
     color: $base-color;

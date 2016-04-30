@@ -3,10 +3,10 @@ html {
 }
 
 body {
-  font-size: $font-size-base;
-  line-height: $line-height-base;
   font-weight: normal;
   font-family: $base-font;
+  font-size: $root-font-size-small;
+  line-height: $root-line-height-small;
   color: $base-color;
 }
 
@@ -15,14 +15,16 @@ body {
 ------------------------------------------------- */
 
 @media (min-width: $screen-sm) {
-  html {
-    // font-size: 75.0%; // so 1rem = 12px
+  body {
+    font-size: $root-font-size-medium;
+    line-height: $root-line-height-medium;
   }
 }
 
 @media (min-width: $screen-md) {
-  html {
-    // font-size: 87.5%; // so 1rem = 14px
+  body {
+    font-size: $root-font-size-large;
+    line-height: $root-line-height-large;
   }
 }
 

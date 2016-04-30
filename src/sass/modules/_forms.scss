@@ -2,13 +2,13 @@
 textarea {
   background-color: $secondary-color-alpha-20;
   font-family: $open-sans-regular;
-  font-size: $font-size-base;
+  font-size: $font-size-small;
   line-height: $line-height-large;
   padding: 0.6rem 10px;
   margin: 0 0 2rem 0;
   border: 0;
   border-bottom: $border;
-  transition: all $transition-ease-medium;
+  transition: border-color $transition-ease-medium, padding $transition-ease-medium;
   resize: vertical;
   &:hover {
     border-color: $primary-color-10;
@@ -30,13 +30,17 @@ select {
   border-width: 1px;
   border-style: solid;
   font-family: $open-sans-regular;
-  font-size: $font-size-base;
+  font-size: $font-size-small;
   color: $base-color;
-  height: $line-height-extra-large;
-  line-height: $line-height-extra-large;
+  height: $root-line-height-extra-large;
+  line-height: $root-line-height-extra-large;
+  transition: border-color $transition-ease-medium;
+  &:hover {
+    border-color: $primary-color-10;
+  }
   &:focus {
+    border-color: $secondary-color-10;
     outline: 0;
-    border-color: $primary-color-08;
   }
 }
 
@@ -49,16 +53,16 @@ input {
   &[type="password"] {
     background-color: $secondary-color-alpha-20;
     font-family: $open-sans-regular;
-    font-size: $font-size-base;
-    height: $line-height-extra-large;
-    line-height: $line-height-extra-large;
+    font-size: $font-size-small;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
     padding: 0 10px;
     margin: 0 0 2rem 0;
     border: 0;
     border-radius: 0;
     border-bottom: $border;
     box-shadow: none;
-    transition: all $transition-ease-medium;
+    transition: border-color $transition-ease-medium;
     &:hover {
       border-color: $primary-color-10;
     }
@@ -70,7 +74,7 @@ input {
 }
 
 label {
-  line-height: $line-height-extra-large;
+  line-height: $root-line-height-extra-large;
   display: inline-block;
 }
 
@@ -82,18 +86,11 @@ input {
     transform: translateX(-50%);
     opacity: 0;
     display: block;
-    height: $line-height-extra-large;
-    &:focus {
-      & + label {
-        &:before {
-          color: $primary-color-08;
-        }
-      }
-    }
+    height: $root-line-height-extra-large;
+    cursor: pointer;
     & + label {
-      line-height: $line-height-extra-large;
+      line-height: $root-line-height-extra-large;
       display: inline-block;
-      width: 100%;
       cursor: pointer;
       &:before {
         font-family: "Material Design Icons";
@@ -106,24 +103,45 @@ input {
         float: left;
         margin-right: 5px;
         font-size: $font-size-large;
-        line-height: $line-height-extra-large;
+        line-height: $root-line-height-extra-large;
         color: $secondary-color-04;
         vertical-align: text-bottom;
-        transition: all $transition-ease-fast;
+        transition: color $transition-ease-fast;
+      }
+    }
+    &:hover {
+      & + label {
+        &:before {
+          color: $primary-color-10;
+        }
+      }
+    }
+    &:focus {
+      & + label {
+        &:before {
+          color: $secondary-color-10;
+        }
       }
     }
     &:checked {
+      &:hover {
+        & + label {
+          &:before {
+            color: $primary-color-10;
+          }
+        }
+      }
       &:focus {
         & + label {
           &:before {
-            color: $primary-color-08;
+            color: $secondary-color-10;
           }
         }
       }
       & + label {
         cursor: pointer;
         &:before {
-          color: $secondary-color-10;
+          color: $base-color;
         }
       }
     }
@@ -156,32 +174,32 @@ input {
       }
     }
   }
-  &:hover {
-    &:checked {
-      & + label {
-        &:before {
-          color: $secondary-color-06;
-        }
-      }
-    }
-    & + label {
-      &:before {
-        color: $secondary-color-06;
-      }
-    }
-  }
-  &:active {
-    &:checked {
-      & + label {
-        &:before {
-          color: $primary-color-10;
-        }
-      }
-    }
-    & + label {
-      &:before {
-        color: $primary-color-10;
-      }
-    }
-  }
+  // &:hover {
+  //   &:checked {
+  //     & + label {
+  //       &:before {
+  //         color: $secondary-color-06;
+  //       }
+  //     }
+  //   }
+  //   & + label {
+  //     &:before {
+  //       color: $secondary-color-06;
+  //     }
+  //   }
+  // }
+  // &:active {
+  //   &:checked {
+  //     & + label {
+  //       &:before {
+  //         color: $primary-color-10;
+  //       }
+  //     }
+  //   }
+  //   & + label {
+  //     &:before {
+  //       color: $primary-color-10;
+  //     }
+  //   }
+  // }
 }

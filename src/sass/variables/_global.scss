@@ -109,7 +109,7 @@ $gray-16:                             lighten($gray-01, 80);
 $gray-17:                             lighten($gray-01, 85);
 $gray-18:                             lighten($gray-01, 90);
 $gray-19:                             lighten($gray-01, 95);
-$gray-20:                             lighten($gray-01, 100);
+$gray-20:                             lighten($gray-01, 98);
 
 $dark-alpha-01:                       rgba(0, 0, 0, 1);
 $dark-alpha-02:                       rgba($dark-alpha-01, 0.95);
@@ -199,14 +199,23 @@ $open-sans-condensed-light:           "Open Sans Condensed Light", Helvetica, Ar
 $base-color:                          $gray-04;
 $base-font:                           $open-sans-regular;
 
-$line-height-extra-large:             3rem;
-$line-height-large:                   1.8;
-$line-height-base:                    1.6;
-$line-height-small:                   1.4;
+$root-font-size-large:                1.4rem;
+$root-font-size-medium:               1.2rem;
+$root-font-size-small:                1rem;
 
-$font-size-large:                     1.6rem;
-$font-size-base:                      1.2rem;
-$font-size-small:                     1rem;
+$font-size-large:                     1.4em;
+$font-size-medium:                    1.2em;
+$font-size-small:                     1em;
+
+$root-line-height-extra-large:        4rem;
+$root-line-height-large:              2rem;
+$root-line-height-medium:             1.8rem;
+$root-line-height-small:              1.6rem;
+
+$line-height-large:                   2em;
+$line-height-medium:                  1.8em;
+$line-height-small:                   1.6em;
+
 
 $border:                              2px solid transparent;
 

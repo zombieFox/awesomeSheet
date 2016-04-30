@@ -6,6 +6,54 @@
   box-sizing: border-box;
 }
 
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.small-text {
+  color: $base-color;
+  font-size: $font-size-small;
+}
+
+.right {
+  float: right;
+}
+
+.inline-with-input {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  box-sizing: border-box;
+}
+
+.margin-with-input {
+  margin: 0 0 2rem 0;
+}
+
+.underline-with-input {
+  border-bottom: $border;
+  border-color: $secondary-color-alpha-20;
+}
+
+.no-margin {
+  margin: 0;
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    margin: 0;
+  }
+}
+
+
 .hide {
   transform: scale(0) !important;
   opacity: 0 !important;

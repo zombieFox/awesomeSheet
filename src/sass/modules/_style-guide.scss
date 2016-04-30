@@ -1,7 +1,7 @@
 .style-guide-column {
   background-color: $secondary-color-19;
   padding: 5px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
   font-size: $font-size-small;
   text-align: center;
 }
@@ -9,5 +9,435 @@
 .style-guide-dark {
   background-color: $secondary-color-08;
   padding: 20px;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
+}
+
+.style-guide-color-group {
+  margin-bottom: 2em;
+}
+
+.style-guide-color {
+  float: left;
+  width: 5%;
+  height: 50px;
+  &.style-guide-primary-color-01 {
+    background-color: $primary-color-01;
+  }
+  &.style-guide-primary-color-02 {
+    background-color: $primary-color-02;
+  }
+  &.style-guide-primary-color-03 {
+    background-color: $primary-color-03;
+  }
+  &.style-guide-primary-color-04 {
+    background-color: $primary-color-04;
+  }
+  &.style-guide-primary-color-05 {
+    background-color: $primary-color-05;
+  }
+  &.style-guide-primary-color-06 {
+    background-color: $primary-color-06;
+  }
+  &.style-guide-primary-color-07 {
+    background-color: $primary-color-07;
+  }
+  &.style-guide-primary-color-08 {
+    background-color: $primary-color-08;
+  }
+  &.style-guide-primary-color-09 {
+    background-color: $primary-color-09;
+  }
+  &.style-guide-primary-color-10 {
+    background-color: $primary-color-10;
+  }
+  &.style-guide-primary-color-11 {
+    background-color: $primary-color-11;
+  }
+  &.style-guide-primary-color-12 {
+    background-color: $primary-color-12;
+  }
+  &.style-guide-primary-color-13 {
+    background-color: $primary-color-13;
+  }
+  &.style-guide-primary-color-14 {
+    background-color: $primary-color-14;
+  }
+  &.style-guide-primary-color-15 {
+    background-color: $primary-color-15;
+  }
+  &.style-guide-primary-color-16 {
+    background-color: $primary-color-16;
+  }
+  &.style-guide-primary-color-17 {
+    background-color: $primary-color-17;
+  }
+  &.style-guide-primary-color-18 {
+    background-color: $primary-color-18;
+  }
+  &.style-guide-primary-color-19 {
+    background-color: $primary-color-19;
+  }
+  &.style-guide-primary-color-20 {
+    background-color: $primary-color-20;
+  }
+  &.style-guide-primary-color-alpha-01 {
+    background-color: $primary-color-alpha-01;
+  }
+  &.style-guide-primary-color-alpha-02 {
+    background-color: $primary-color-alpha-02;
+  }
+  &.style-guide-primary-color-alpha-03 {
+    background-color: $primary-color-alpha-03;
+  }
+  &.style-guide-primary-color-alpha-04 {
+    background-color: $primary-color-alpha-04;
+  }
+  &.style-guide-primary-color-alpha-05 {
+    background-color: $primary-color-alpha-05;
+  }
+  &.style-guide-primary-color-alpha-06 {
+    background-color: $primary-color-alpha-06;
+  }
+  &.style-guide-primary-color-alpha-07 {
+    background-color: $primary-color-alpha-07;
+  }
+  &.style-guide-primary-color-alpha-08 {
+    background-color: $primary-color-alpha-08;
+  }
+  &.style-guide-primary-color-alpha-09 {
+    background-color: $primary-color-alpha-09;
+  }
+  &.style-guide-primary-color-alpha-10 {
+    background-color: $primary-color-alpha-10;
+  }
+  &.style-guide-primary-color-alpha-11 {
+    background-color: $primary-color-alpha-11;
+  }
+  &.style-guide-primary-color-alpha-12 {
+    background-color: $primary-color-alpha-12;
+  }
+  &.style-guide-primary-color-alpha-13 {
+    background-color: $primary-color-alpha-13;
+  }
+  &.style-guide-primary-color-alpha-14 {
+    background-color: $primary-color-alpha-14;
+  }
+  &.style-guide-primary-color-alpha-15 {
+    background-color: $primary-color-alpha-15;
+  }
+  &.style-guide-primary-color-alpha-16 {
+    background-color: $primary-color-alpha-16;
+  }
+  &.style-guide-primary-color-alpha-17 {
+    background-color: $primary-color-alpha-17;
+  }
+  &.style-guide-primary-color-alpha-18 {
+    background-color: $primary-color-alpha-18;
+  }
+  &.style-guide-primary-color-alpha-19 {
+    background-color: $primary-color-alpha-19;
+  }
+  &.style-guide-primary-color-alpha-20 {
+    background-color: $primary-color-alpha-20;
+  }
+  &.style-guide-secondary-color-01 {
+    background-color: $secondary-color-01;
+  }
+  &.style-guide-secondary-color-02 {
+    background-color: $secondary-color-02;
+  }
+  &.style-guide-secondary-color-03 {
+    background-color: $secondary-color-03;
+  }
+  &.style-guide-secondary-color-04 {
+    background-color: $secondary-color-04;
+  }
+  &.style-guide-secondary-color-05 {
+    background-color: $secondary-color-05;
+  }
+  &.style-guide-secondary-color-06 {
+    background-color: $secondary-color-06;
+  }
+  &.style-guide-secondary-color-07 {
+    background-color: $secondary-color-07;
+  }
+  &.style-guide-secondary-color-08 {
+    background-color: $secondary-color-08;
+  }
+  &.style-guide-secondary-color-09 {
+    background-color: $secondary-color-09;
+  }
+  &.style-guide-secondary-color-10 {
+    background-color: $secondary-color-10;
+  }
+  &.style-guide-secondary-color-11 {
+    background-color: $secondary-color-11;
+  }
+  &.style-guide-secondary-color-12 {
+    background-color: $secondary-color-12;
+  }
+  &.style-guide-secondary-color-13 {
+    background-color: $secondary-color-13;
+  }
+  &.style-guide-secondary-color-14 {
+    background-color: $secondary-color-14;
+  }
+  &.style-guide-secondary-color-15 {
+    background-color: $secondary-color-15;
+  }
+  &.style-guide-secondary-color-16 {
+    background-color: $secondary-color-16;
+  }
+  &.style-guide-secondary-color-17 {
+    background-color: $secondary-color-17;
+  }
+  &.style-guide-secondary-color-18 {
+    background-color: $secondary-color-18;
+  }
+  &.style-guide-secondary-color-19 {
+    background-color: $secondary-color-19;
+  }
+  &.style-guide-secondary-color-20 {
+    background-color: $secondary-color-20;
+  }
+  &.style-guide-secondary-color-alpha-01 {
+    background-color: $secondary-color-alpha-01;
+  }
+  &.style-guide-secondary-color-alpha-02 {
+    background-color: $secondary-color-alpha-02;
+  }
+  &.style-guide-secondary-color-alpha-03 {
+    background-color: $secondary-color-alpha-03;
+  }
+  &.style-guide-secondary-color-alpha-04 {
+    background-color: $secondary-color-alpha-04;
+  }
+  &.style-guide-secondary-color-alpha-05 {
+    background-color: $secondary-color-alpha-05;
+  }
+  &.style-guide-secondary-color-alpha-06 {
+    background-color: $secondary-color-alpha-06;
+  }
+  &.style-guide-secondary-color-alpha-07 {
+    background-color: $secondary-color-alpha-07;
+  }
+  &.style-guide-secondary-color-alpha-08 {
+    background-color: $secondary-color-alpha-08;
+  }
+  &.style-guide-secondary-color-alpha-09 {
+    background-color: $secondary-color-alpha-09;
+  }
+  &.style-guide-secondary-color-alpha-10 {
+    background-color: $secondary-color-alpha-10;
+  }
+  &.style-guide-secondary-color-alpha-11 {
+    background-color: $secondary-color-alpha-11;
+  }
+  &.style-guide-secondary-color-alpha-12 {
+    background-color: $secondary-color-alpha-12;
+  }
+  &.style-guide-secondary-color-alpha-13 {
+    background-color: $secondary-color-alpha-13;
+  }
+  &.style-guide-secondary-color-alpha-14 {
+    background-color: $secondary-color-alpha-14;
+  }
+  &.style-guide-secondary-color-alpha-15 {
+    background-color: $secondary-color-alpha-15;
+  }
+  &.style-guide-secondary-color-alpha-16 {
+    background-color: $secondary-color-alpha-16;
+  }
+  &.style-guide-secondary-color-alpha-17 {
+    background-color: $secondary-color-alpha-17;
+  }
+  &.style-guide-secondary-color-alpha-18 {
+    background-color: $secondary-color-alpha-18;
+  }
+  &.style-guide-secondary-color-alpha-19 {
+    background-color: $secondary-color-alpha-19;
+  }
+  &.style-guide-secondary-color-alpha-20 {
+    background-color: $secondary-color-alpha-20;
+  }
+  &.style-guide-gray-01 {
+    background-color: $gray-01;
+  }
+  &.style-guide-gray-02 {
+    background-color: $gray-02;
+  }
+  &.style-guide-gray-03 {
+    background-color: $gray-03;
+  }
+  &.style-guide-gray-04 {
+    background-color: $gray-04;
+  }
+  &.style-guide-gray-05 {
+    background-color: $gray-05;
+  }
+  &.style-guide-gray-06 {
+    background-color: $gray-06;
+  }
+  &.style-guide-gray-07 {
+    background-color: $gray-07;
+  }
+  &.style-guide-gray-08 {
+    background-color: $gray-08;
+  }
+  &.style-guide-gray-09 {
+    background-color: $gray-09;
+  }
+  &.style-guide-gray-10 {
+    background-color: $gray-10;
+  }
+  &.style-guide-gray-11 {
+    background-color: $gray-11;
+  }
+  &.style-guide-gray-12 {
+    background-color: $gray-12;
+  }
+  &.style-guide-gray-13 {
+    background-color: $gray-13;
+  }
+  &.style-guide-gray-14 {
+    background-color: $gray-14;
+  }
+  &.style-guide-gray-15 {
+    background-color: $gray-15;
+  }
+  &.style-guide-gray-16 {
+    background-color: $gray-16;
+  }
+  &.style-guide-gray-17 {
+    background-color: $gray-17;
+  }
+  &.style-guide-gray-18 {
+    background-color: $gray-18;
+  }
+  &.style-guide-gray-19 {
+    background-color: $gray-19;
+  }
+  &.style-guide-gray-20 {
+    background-color: $gray-20;
+  }
+  &.style-guide-dark-alpha-01 {
+    background-color: $dark-alpha-01;
+  }
+  &.style-guide-dark-alpha-02 {
+    background-color: $dark-alpha-02;
+  }
+  &.style-guide-dark-alpha-03 {
+    background-color: $dark-alpha-03;
+  }
+  &.style-guide-dark-alpha-04 {
+    background-color: $dark-alpha-04;
+  }
+  &.style-guide-dark-alpha-05 {
+    background-color: $dark-alpha-05;
+  }
+  &.style-guide-dark-alpha-06 {
+    background-color: $dark-alpha-06;
+  }
+  &.style-guide-dark-alpha-07 {
+    background-color: $dark-alpha-07;
+  }
+  &.style-guide-dark-alpha-08 {
+    background-color: $dark-alpha-08;
+  }
+  &.style-guide-dark-alpha-09 {
+    background-color: $dark-alpha-09;
+  }
+  &.style-guide-dark-alpha-10 {
+    background-color: $dark-alpha-10;
+  }
+  &.style-guide-dark-alpha-11 {
+    background-color: $dark-alpha-11;
+  }
+  &.style-guide-dark-alpha-12 {
+    background-color: $dark-alpha-12;
+  }
+  &.style-guide-dark-alpha-13 {
+    background-color: $dark-alpha-13;
+  }
+  &.style-guide-dark-alpha-14 {
+    background-color: $dark-alpha-14;
+  }
+  &.style-guide-dark-alpha-15 {
+    background-color: $dark-alpha-15;
+  }
+  &.style-guide-dark-alpha-16 {
+    background-color: $dark-alpha-16;
+  }
+  &.style-guide-dark-alpha-17 {
+    background-color: $dark-alpha-17;
+  }
+  &.style-guide-dark-alpha-18 {
+    background-color: $dark-alpha-18;
+  }
+  &.style-guide-dark-alpha-19 {
+    background-color: $dark-alpha-19;
+  }
+  &.style-guide-dark-alpha-20 {
+    background-color: $dark-alpha-20;
+  }
+  &.style-guide-light-alpha-01 {
+    background-color: $light-alpha-01;
+  }
+  &.style-guide-light-alpha-02 {
+    background-color: $light-alpha-02;
+  }
+  &.style-guide-light-alpha-03 {
+    background-color: $light-alpha-03;
+  }
+  &.style-guide-light-alpha-04 {
+    background-color: $light-alpha-04;
+  }
+  &.style-guide-light-alpha-05 {
+    background-color: $light-alpha-05;
+  }
+  &.style-guide-light-alpha-06 {
+    background-color: $light-alpha-06;
+  }
+  &.style-guide-light-alpha-07 {
+    background-color: $light-alpha-07;
+  }
+  &.style-guide-light-alpha-08 {
+    background-color: $light-alpha-08;
+  }
+  &.style-guide-light-alpha-09 {
+    background-color: $light-alpha-09;
+  }
+  &.style-guide-light-alpha-10 {
+    background-color: $light-alpha-10;
+  }
+  &.style-guide-light-alpha-11 {
+    background-color: $light-alpha-11;
+  }
+  &.style-guide-light-alpha-12 {
+    background-color: $light-alpha-12;
+  }
+  &.style-guide-light-alpha-13 {
+    background-color: $light-alpha-13;
+  }
+  &.style-guide-light-alpha-14 {
+    background-color: $light-alpha-14;
+  }
+  &.style-guide-light-alpha-15 {
+    background-color: $light-alpha-15;
+  }
+  &.style-guide-light-alpha-16 {
+    background-color: $light-alpha-16;
+  }
+  &.style-guide-light-alpha-17 {
+    background-color: $light-alpha-17;
+  }
+  &.style-guide-light-alpha-18 {
+    background-color: $light-alpha-18;
+  }
+  &.style-guide-light-alpha-19 {
+    background-color: $light-alpha-19;
+  }
+  &.style-guide-light-alpha-20 {
+    background-color: $light-alpha-20;
+  }
 }
