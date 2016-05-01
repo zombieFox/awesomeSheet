@@ -1,6 +1,6 @@
-/* utilities
-------------------------------------------------- */
-
+// --------------------------------------------------
+// utilities
+// --------------------------------------------------
 .u-full-width {
   width: 100%;
   box-sizing: border-box;
@@ -96,9 +96,16 @@
   display: none !important;
 }
 
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
 
-/* media queries
-------------------------------------------------- */
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}
 
 // xs
 @media (max-width: $screen-xs-max) {

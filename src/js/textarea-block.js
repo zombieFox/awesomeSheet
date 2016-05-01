@@ -11,7 +11,7 @@ var textareaBlock = (function() {
     var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
     var textareaBlockLabel;
     if (textareaBlock.querySelector(".js-textarea-block-label")) {
-      var textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
+      textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
     };
     if (textareaBlock.querySelector(".js-textarea-block-label")) {
       if (textareaBlockField == document.activeElement) {
@@ -23,6 +23,18 @@ var textareaBlock = (function() {
         helper.removeClass(textareaBlockLabel, "is-active");
       } else {
         helper.addClass(textareaBlockLabel, "is-active");
+      };
+    };
+  };
+
+  function clear() {
+    var all_textareaBlock = helper.eA(".js-textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      all_textareaBlock[i].querySelector(".js-textarea-block-field").innerHTML = "";
+      var textareaBlockLabel;
+      if (all_textareaBlock[i].querySelector(".js-textarea-block-label")) {
+        textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
+        helper.removeClass(textareaBlockLabel, "is-active");
       };
     };
   };
@@ -79,6 +91,7 @@ var textareaBlock = (function() {
     update: updateTextareaBlock,
     focus: focus,
     render: render,
+    clear: clear,
     bind: bind
   };
 

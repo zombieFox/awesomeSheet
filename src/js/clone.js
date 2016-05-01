@@ -139,7 +139,7 @@ var clone = (function() {
     };
   };
 
-  var _bind_cloneControls = (function() {
+  function bindControls() {
     var consumableCloneAdd = helper.e(".consumable .clone-add");
     var consumableCloneRemove = helper.e(".consumable .clone-remove");
     var attackCloneAddMelee = helper.e(".attack .clone-add-melee");
@@ -181,9 +181,10 @@ var clone = (function() {
       _updateCloneAttackRanged();
       sheet.storeCharacters();
     }, false);
-  })();
+  };
 
   function _render_clone(numberOfClones, cloneType) {
+    console.log(numberOfClones, cloneType);
     var cloneBlock;
     var cloneTarget;
     if (cloneType == "attack-melee") {
@@ -245,19 +246,19 @@ var clone = (function() {
     var cloneTarget;
     var all_clone;
     if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
-      all_clone = cloneTarget.querySelectorAll(".clone");
+      cloneBlock = helper.e("js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-melee-target");
+      all_clone = cloneTarget.querySelectorAll(".js-clone");
     };
     if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
-      all_clone = cloneTarget.querySelectorAll(".clone");
+      cloneBlock = helper.e("js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-ranged-target");
+      all_clone = cloneTarget.querySelectorAll(".js-clone");
     };
     if (cloneType == "consumable") {
-      cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target");
-      all_clone = cloneTarget.querySelectorAll(".clone");
+      cloneBlock = helper.e("js-clone-block-consumable");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-consumable-target");
+      all_clone = cloneTarget.querySelectorAll(".js-clone");
     };
     for (var i = 0; i < array.length; i++) {
       for (var j in array[i]) {
@@ -549,6 +550,7 @@ var clone = (function() {
 
   // exposed methods
   return {
+    bind: bindControls,
     render: render
   };
 

@@ -90,7 +90,7 @@ input {
 
 label {
   line-height: $root-line-height-extra-large;
-  color: $gray-10;
+  color: $gray-16;
   display: inline-block;
 }
 
@@ -112,6 +112,7 @@ input {
       line-height: $root-line-height-extra-large;
       display: inline-block;
       cursor: pointer;
+      color: $base-color;
       transition: color $transition-ease-fast;
       &:before {
         font-family: "Material Design Icons";
@@ -201,3 +202,14 @@ input {
     }
   }
 }
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

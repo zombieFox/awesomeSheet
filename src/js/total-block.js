@@ -1,7 +1,7 @@
 var totalBlock = (function() {
 
   function render() {
-    var all_inputTotalBlock = helper.eA(".total-block");
+    var all_inputTotalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
       var statsStrModifier = helper.e(".js-stats-str-modifier");
       var statsDexModifier = helper.e(".js-stats-dex-modifier");
@@ -190,17 +190,17 @@ var totalBlock = (function() {
       if (isNaN(classSkill)) {
         classSkill = 0;
       };
-      var total = all_inputTotalBlock[i].querySelector(".total");
-      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+      var total = all_inputTotalBlock[i].querySelector(".js-total-block-total");
+      var all_inputBlockField = all_inputTotalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
       var modifiers_total = 0;
-      for (var q = 0; q < all_inputField.length; q++) {
-        if (all_inputField.length > 0) {
-          if (all_inputField[q].dataset.total == "addition") {
-            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+      for (var q = 0; q < all_inputBlockField.length; q++) {
+        if (all_inputBlockField.length > 0) {
+          if (all_inputBlockField[q].dataset.total == "addition") {
+            modifiers.push(parseInt(all_inputBlockField[q].value, 10) || 0);
           };
-          if (all_inputField[q].dataset.total == "subtract") {
-            modifiers.push(-parseInt(all_inputField[q].value, 10) || 0);
+          if (all_inputBlockField[q].dataset.total == "subtract") {
+            modifiers.push(-parseInt(all_inputBlockField[q].value, 10) || 0);
           };
         };
       };

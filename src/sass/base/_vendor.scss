@@ -1,15 +1,15 @@
 ::-webkit-input-placeholder {
-  color: $dark-alpha-14;
+  color: $gray-16;
 }
 
 // Firefox 18
 :-moz-placeholder {
-  color: $dark-alpha-14;
+  color: $gray-16;
 }
 
 // Firefox 19
 ::-moz-placeholder {
-  color: $dark-alpha-14;
+  color: $gray-16;
 }
 
 ::selection {
@@ -23,3 +23,14 @@
   box-sizing: border-box;
   overflow: auto;
 }
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

@@ -11,7 +11,7 @@ var inputBlock = (function() {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var inputBlockLabel;
     if (inputBlock.querySelector(".js-input-block-label")) {
-      var inputBlockLabel = inputBlock.querySelector(".js-input-block-label");
+      inputBlockLabel = inputBlock.querySelector(".js-input-block-label");
     };
     if (inputBlock.querySelector(".js-input-block-label")) {
       if (inputBlockField == document.activeElement) {
@@ -23,6 +23,18 @@ var inputBlock = (function() {
         helper.removeClass(inputBlockLabel, "is-active");
       } else {
         helper.addClass(inputBlockLabel, "is-active");
+      };
+    };
+  };
+
+  function clear() {
+    var all_inputBlock = helper.eA(".js-input-block");
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      all_inputBlock[i].querySelector(".js-input-block-field").value = "";
+      var inputBlockLabel;
+      if (all_inputBlock[i].querySelector(".js-input-block-label")) {
+        inputBlockLabel = all_inputBlock[i].querySelector(".js-input-block-label");
+        helper.removeClass(inputBlockLabel, "is-active");
       };
     };
   };
@@ -146,6 +158,7 @@ var inputBlock = (function() {
     update: updateInputBlock,
     focus: focus,
     render: render,
+    clear: clear,
     bind: bind
   };
 

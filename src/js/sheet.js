@@ -121,33 +121,18 @@ var sheet = (function() {
   };
 
   function clear() {
-    var all_inputBlock = helper.eA(".input-block");
-    var all_textareaBlock = helper.eA(".textarea-box");
-    var all_checkBlock = helper.eA(".check-block");
-    var all_cloneTarget = helper.eA(".clone-target");
-    var all_spellsKnown = helper.eA(".spells-known");
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var input = all_inputBlock[i].querySelector(".input-field");
-      helper.e("#" + input.id).value = "";
-    };
-    for (var i = 0; i < all_checkBlock.length; i++) {
-      var checkbox = all_checkBlock[i].querySelector(".input-check");
-      var icon = all_checkBlock[i].querySelector(".class-skill-icon");
-      all_checkBlock[i].dataset.classSkill = "false";
-      checkbox.checked = false;
-      checkBlock.destroy(checkbox);
-    };
-    for (var i = 0; i < all_textareaBlock.length; i++) {
-      helper.e("#" + all_textareaBlock[i].id).innerHTML = "";
-    };
-    for (var i = 0; i < all_cloneTarget.length; i++) {
-      all_cloneTarget[i].innerHTML = "";
-    };
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      all_spellsKnown[i].innerHTML = "";
-    };
+    inputBlock.clear();
+    textareaBlock.clear();
     stats.render();
     totalBlock.render();
+    // var all_cloneTarget = helper.eA(".clone-target");
+    // var all_spellsKnown = helper.eA(".spells-known");
+    // for (var i = 0; i < all_cloneTarget.length; i++) {
+    //   all_cloneTarget[i].innerHTML = "";
+    // };
+    // for (var i = 0; i < all_spellsKnown.length; i++) {
+    //   all_spellsKnown[i].innerHTML = "";
+    // };
   };
 
   function printCharacterObject(index) {
@@ -162,8 +147,9 @@ var sheet = (function() {
     nav.bind();
     inputBlock.bind();
     textareaBlock.bind();
-    // checkBlock.bind();
     stats.bind();
+    // checkBlock.bind();
+    // clone.bind();
   };
 
   function render() {

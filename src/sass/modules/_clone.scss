@@ -1,6 +1,3 @@
-/* clone
-------------------------------------------------- */
-
 .clone-block {
   .clone {
     padding: 0;
@@ -58,17 +55,13 @@
   }
 }
 
-/* media queries
-------------------------------------------------- */
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-sm) {
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-md) {
-}
+@media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-lg) {
-}
-
-@media (min-width: $screen-xl) {
-}
+@media (min-width: $screen-xl) {}

@@ -12,10 +12,9 @@ body {
   color: $base-color;
 }
 
-
-/* media queries
-------------------------------------------------- */
-
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
 @media (min-width: $screen-sm) {
   body {
     font-size: $root-font-size-medium;

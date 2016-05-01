@@ -1,7 +1,10 @@
+// --------------------------------------------------
+// awesome sheet
+// --------------------------------------------------
 @charset "utf-8";
-
+// --------------------------------------------------
 @import "variables/global";
-
+// --------------------------------------------------
 @import "base/vendor";
 @import "base/base.scss";
 @import "base/grid.scss";
@@ -11,15 +14,14 @@
 @import "base/buttons";
 @import "base/icons";
 @import "base/utilities";
-
+// --------------------------------------------------
 @import "layouts/style-guide";
 @import "layouts/structure";
-
+// --------------------------------------------------
 @import "modules/style-guide";
 @import "modules/section";
 @import "modules/clone";
 @import "modules/consumable";
-@import "modules/defense";
 @import "modules/input-block";
 @import "modules/quick-nav";
 @import "modules/nav";
