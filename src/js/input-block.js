@@ -93,10 +93,9 @@ var inputBlock = (function() {
   };
 
   function _bind_awesomeName() {
-    var input = helper.e(".js-character-name");
+    var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
       nav.update(this);
-      _maxLengthWarning(this);
     }, false);
     input.addEventListener("focus", function() {
       nav.update(this);
@@ -107,7 +106,7 @@ var inputBlock = (function() {
   };
 
   function _bind_class() {
-    var input = helper.e("#basics-class");
+    var input = helper.e(".js-basics-class");
     input.addEventListener("input", function() {
       nav.update(this);
     }, false);
@@ -120,7 +119,7 @@ var inputBlock = (function() {
   };
 
   function _bind_level() {
-    var input = helper.e("#basics-level");
+    var input = helper.e(".js-basics-level");
     input.addEventListener("input", function() {
       nav.update(this);
     }, false);
@@ -130,12 +129,6 @@ var inputBlock = (function() {
     input.addEventListener("blur", function() {
       nav.update(this);
     }, false);
-  };
-
-  function _maxLengthWarning(input) {
-    if (input.value.length >= 150) {
-      snack.render("Character name is too long.", false, false);
-    };
   };
 
   function render() {

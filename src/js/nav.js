@@ -1,7 +1,7 @@
 var nav = (function() {
 
   function _fullscreen() {
-    var fullscreen = helper.e(".fullscreen");
+    var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
     var icon = fullscreen.querySelector("span");
     var rootElement = root.documentElement;
@@ -9,12 +9,12 @@ var nav = (function() {
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
-      helper.toggleClass(fullscreen, "active");
+      helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     } else {
       cancelFullScreen.call(root);
-      helper.toggleClass(fullscreen, "active");
+      helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     }
@@ -35,8 +35,7 @@ var nav = (function() {
     var uniqueId = helper.randomId(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character");
-    // navCharacter.setAttribute("class", "character-index-" + characterIndex);
+    navCharacter.setAttribute("class", "m-nav-character js-nav-character character-index-" + characterIndex);
     navCharacter.setAttribute("data-character-index", characterIndex);
 
     var input = document.createElement("input");
@@ -51,15 +50,15 @@ var nav = (function() {
     label.setAttribute("class", "u-full-width");
 
     var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-nav-characters-name");
+    nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
     nameSpan.textContent = helper.truncate(characterName, 30, true);
 
     var classSpan = document.createElement("span");
-    classSpan.setAttribute("class", "m-nav-characters-class");
+    classSpan.setAttribute("class", "m-nav-characters-class js-nav-characters-class");
     classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
 
     var levelSpan = document.createElement("span");
-    levelSpan.setAttribute("class", "m-nav-characters-level");
+    levelSpan.setAttribute("class", "m-nav-characters-level js-nav-characters-level");
     levelSpan.textContent = helper.truncate(characterLevel, 10);
 
     // build module
@@ -86,18 +85,10 @@ var nav = (function() {
 
   function _switch_character(characterLink) {
     var newIndex = characterLink.dataset.characterIndex;
-    var allCharacterAnchor = helper.eA(".character-toggle");
     sheet.setIndex(newIndex);
-    for (var i = 0; i < allCharacterAnchor.length; i++) {
-      var icon = allCharacterAnchor[i].querySelector(".icon");
-      helper.removeClass(icon, "icon-check-box-checked");
-      helper.addClass(icon, "icon-check-box-unchecked");
-      helper.removeClass(allCharacterAnchor[i], "active");
-    };
-    var icon = characterLink.querySelector(".icon");
-    helper.removeClass(icon, "icon-check-box-unchecked");
-    helper.addClass(icon, "icon-check-box-checked");
-    helper.addClass(characterLink, "active");
+    sheet.clear();
+    sheet.render();
+    characterLink.querySelector("input").checked = true;
     var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
       name = "New character";
@@ -112,35 +103,33 @@ var nav = (function() {
       if (typeof inputValue == "undefined" || inputValue == "") {
         inputValue = "New character";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".name").textContent = helper.truncate(inputValue, 30, true);
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-name").textContent = helper.truncate(inputValue, 30, true);
     } else if (inputType == "class") {
       if (typeof inputValue == "undefined" || inputValue == "") {
         inputValue = "No class";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".class").textContent = helper.truncate(inputValue, 20, true) + " ";
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-class").textContent = helper.truncate(inputValue, 20, true) + " ";
     } else if (inputType == "level") {
       if (typeof inputValue == "undefined" || inputValue == "") {
         inputValue = "0";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 10, false);
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-level").textContent = helper.truncate(inputValue, 10, false);
     };
   };
 
   function clear() {
-    var navCharacters = helper.e(".m-nav-characters");
+    var navCharacters = helper.e(".js-nav-characters");
     navCharacters.innerHTML = "";
   };
 
   function render(array) {
-    var navCharacters = helper.e(".m-nav-characters");
+    var navCharacters = helper.e(".js-nav-characters");
     for (var i in array) {
       var characterAnchor = _render_navCharacters(array[i].basics.name, array[i].basics.class, array[i].basics.level, i);
       navCharacters.appendChild(characterAnchor);
-      if (i == sheet.getIndex()) {
-        var input = navCharacters.querySelector(".js-nav-character-select");
-        input.checked = true;
-      };
     };
+    var all_navCharacterSelect = helper.eA(".js-nav-character-select");
+    all_navCharacterSelect[sheet.getIndex()].checked = true;
     render_quickNav();
   };
 
@@ -207,7 +196,7 @@ var nav = (function() {
 
   function resize() {
     var nav = helper.e(".js-nav");
-    var height = window.innerHeight - 130;
+    var height = window.innerHeight - 120;
     nav.style.maxHeight = height + "px";
   };
 
@@ -241,7 +230,7 @@ var nav = (function() {
       remove();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != nav && helper.getClosest(event.target, ".js-nav") != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
+      if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
         navClose();
       };
     }, false);

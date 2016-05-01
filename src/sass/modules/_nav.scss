@@ -55,10 +55,10 @@
   margin: 0;
   padding: 10px 0;
   position: absolute;
-  top: 70px;
+  top: 80px;
   right: -440px;
   width: 250px;
-  transition: right $transition-bounce-slow;
+  transition: right $transition-bounce-medium;
   overflow-y: auto;
   > li {
     margin-bottom: 0;
@@ -111,8 +111,9 @@
     background-color: $dark-alpha-20;
     text-decoration: none;
   }
+  &.is-active,
   &:active {
-    background-color: $primary-color-06;
+    background-color: $primary-color-10;
     color: $white;
     [class^="icon-"],
     [class*=" icon-"] {
@@ -142,6 +143,9 @@
           line-height: $line-height-large;
           width: 20%;
           margin: 0;
+          font-size: 1em;
+          height: 50px;
+          line-height: 50px;
           text-align: center;
           transition: none;
         }
@@ -150,12 +154,16 @@
         .m-nav-characters-level {
           display: inline-block;
         }
-        .m-nav-characters-class {
-          margin-right: 5px;
-        }
         .m-nav-characters-class,
         .m-nav-characters-level {
           color: $secondary-color-03;
+        }
+        .m-nav-characters-class {
+          margin-right: 5px;
+          margin-bottom: 0.5rem;
+        }
+        .m-nav-characters-level {
+          margin-bottom: 0.5rem;
         }
         .m-nav-characters-name {
           color: $primary-color-10;
@@ -196,20 +204,25 @@
         }
       }
       &:checked {
-        &:hover {
-          & + label {
-            background-color: $dark-alpha-20;
-            color: $secondary-color-03;
-            &:before {
-              color: $secondary-color-03;
-            }
+        & + label {
+          background-color: $primary-color-10;
+          color: $white;
+          &:before {
+            color: $white;
+          }
+          .m-nav-characters-name,
+          .m-nav-characters-class,
+          .m-nav-characters-level {
+            color: $white;
           }
         }
-        &:focus {
+        &:focus,
+        &:hover {
           & + label {
-            background-color: $dark-alpha-20;
+            background-color: $primary-color-08;
+            color: $white;
             &:before {
-              color: $secondary-color-03;
+              color: $white;
             }
           }
         }
@@ -238,7 +251,6 @@
 
 @media (min-width: $screen-sm) {
   .m-nav {
-    top: 90px;
     width: 340px;
   }
 }

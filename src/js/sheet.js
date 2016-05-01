@@ -168,7 +168,6 @@ var sheet = (function() {
 
   function render() {
     nav.resize();
-    nav.render(getAllCharacters());
     inputBlock.render();
     textareaBlock.render();
     // checkBlock.render();

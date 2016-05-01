@@ -45,7 +45,7 @@ var helper = (function() {
     } else {
       dotDotDot = "";
     };
-    if (string.length >= length) {
+    if (string.length > length) {
       var newString = string.substring(0, length) + dotDotDot;
       return newString;
     };
