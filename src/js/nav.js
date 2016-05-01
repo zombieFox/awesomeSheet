@@ -30,55 +30,60 @@ var nav = (function() {
     if (typeof characterLevel == "undefined" || characterLevel == "") {
       characterLevel = "0";
     };
-    
-    var navLi = document.createElement("li");
-    var icon = document.createElement("span");
-    icon.setAttribute("class", "icon icon-check-box-unchecked");
-    var character = document.createElement("div");
-    character.setAttribute("class", "character");
-    var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "name");
-    var classSpan = document.createElement("span");
-    classSpan.setAttribute("class", "class");
-    var levelSpan = document.createElement("span");
-    levelSpan.setAttribute("class", "level");
-    nameSpan.textContent = helper.truncate(characterName, 30, true);
-    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
-    levelSpan.textContent = helper.truncate(characterLevel, 10);
-    var navAnchor = document.createElement("a");
-    navAnchor.setAttribute("href", "javascript:void(0)");
-    navAnchor.setAttribute("data-character-index", characterIndex);
-    navAnchor.setAttribute("class", "clearfix character-toggle character-index-" + characterIndex);
-    navAnchor.setAttribute("tabindex", 10);
-    navAnchor.appendChild(icon);
-    character.appendChild(nameSpan);
-    character.appendChild(classSpan);
-    character.appendChild(levelSpan);
-    navAnchor.appendChild(character);
-    navLi.appendChild(navAnchor);
-    _bind_characterOption(navAnchor, characterIndex);
-    return navLi;
-  };
 
-  function updateNavCharacters(input) {
-    var inputType = input.dataset.characterNav;
-    var inputValue = input.value;
-    if (inputType == "name") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "New character";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".name").textContent = helper.truncate(inputValue, 30, true);
-    } else if (inputType == "class") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "No class";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".class").textContent = helper.truncate(inputValue, 20, true) + " ";
-    } else if (inputType == "level") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "0";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 10, false);
-    };
+    // <li class="m-nav-character">
+      
+    //   <input id="name1" name="test" type="radio" tabindex="10">
+    //   <label for="name1" class="u-full-width">
+    //     <span class="m-nav-characters-name">Character Name</span>
+    //     <span class="m-nav-characters-class">Class</span>
+    //     <span class="m-nav-characters-level">10</span>
+    //   </label>
+
+    // </li>
+
+    // define elements
+    var uniqueId = helper.randomId(10);
+    console.log(uniqueId);
+
+    var navCharacter = document.createElement("li");
+    navCharacter.setAttribute("class", "m-nav-character");
+    // navCharacter.setAttribute("class", "character-index-" + characterIndex);
+    navCharacter.setAttribute("data-character-index", characterIndex);
+
+    var input = document.createElement("input");
+    input.setAttribute("id", characterName + "-" + uniqueId);
+    input.setAttribute("name", "js-nav-all-characters");
+    input.setAttribute("class", "js-nav-character-select");
+    input.setAttribute("type", "radio");
+    input.setAttribute("tabindex", 10);
+
+    var label = document.createElement("label");
+    label.setAttribute("for", characterName + "-" + uniqueId);
+    label.setAttribute("class", "u-full-width");
+
+    var nameSpan = document.createElement("span");
+    nameSpan.setAttribute("class", "m-nav-characters-name");
+    nameSpan.textContent = helper.truncate(characterName, 30, true);
+
+    var classSpan = document.createElement("span");
+    classSpan.setAttribute("class", "m-nav-characters-class");
+    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
+
+    var levelSpan = document.createElement("span");
+    levelSpan.setAttribute("class", "m-nav-characters-level");
+    levelSpan.textContent = helper.truncate(characterLevel, 10);
+    
+    // build module
+    label.appendChild(nameSpan);
+    label.appendChild(classSpan);
+    label.appendChild(levelSpan);
+    navCharacter.appendChild(input);
+    navCharacter.appendChild(label);
+
+    // bind
+    _bind_characterOption(navCharacter, characterIndex);
+    return navCharacter;
   };
 
   function _bind_characterOption(characterLink, newIndex) {
@@ -112,6 +117,27 @@ var nav = (function() {
     snack.render(helper.truncate(name, 50, true) + " now active.", false, false);
   };
 
+  function updateNavCharacters(input) {
+    var inputType = input.dataset.characterNav;
+    var inputValue = input.value;
+    if (inputType == "name") {
+      if (typeof inputValue == "undefined" || inputValue == "") {
+        inputValue = "New character";
+      };
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".name").textContent = helper.truncate(inputValue, 30, true);
+    } else if (inputType == "class") {
+      if (typeof inputValue == "undefined" || inputValue == "") {
+        inputValue = "No class";
+      };
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".class").textContent = helper.truncate(inputValue, 20, true) + " ";
+    } else if (inputType == "level") {
+      if (typeof inputValue == "undefined" || inputValue == "") {
+        inputValue = "0";
+      };
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 10, false);
+    };
+  };
+
   function clear() {
     var navCharacters = helper.e(".m-nav-characters");
     navCharacters.innerHTML = "";
@@ -121,14 +147,10 @@ var nav = (function() {
     var navCharacters = helper.e(".m-nav-characters");
     for (var i in array) {
       var characterAnchor = _render_navCharacters(array[i].basics.name, array[i].basics.class, array[i].basics.level, i);
-      // navCharacters.appendChild(characterAnchor);
+      navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
-        var icon = characterAnchor.querySelector(".icon");
-        var anchor = characterAnchor.querySelector("a");
-        helper.removeClass(icon, "icon-check-box-unchecked");
-        helper.addClass(icon, "icon-check-box-checked");
-        helper.addClass(icon, "icon-check-box-checked");
-        helper.addClass(anchor, "active");
+        var input = navCharacters.querySelector(".js-nav-character-select");
+        input.checked = true;
       };
     };
     render_quickNav();
