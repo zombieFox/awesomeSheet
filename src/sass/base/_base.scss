@@ -1,8 +1,10 @@
 html {
-  font-size: 62.5%; // so 1rem = 10px
+  font-size: 62.5%; // 1rem = 10px
 }
 
 body {
+  background: $white;
+  padding: 0 0 300px 0;
   font-weight: normal;
   font-family: $base-font;
   font-size: $root-font-size-small;

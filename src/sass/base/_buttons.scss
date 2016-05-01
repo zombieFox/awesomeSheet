@@ -127,6 +127,7 @@ input {
   &.active {
     background-color: $primary-color-06;
     border-color: $primary-color-04;
+    color: $white;
   }
 }
 
@@ -150,6 +151,7 @@ input {
   &.active {
     background-color: $secondary-color-06;
     border-color: $secondary-color-04;
+    color: $white;
   }
 }
 
@@ -173,6 +175,7 @@ input {
   &.active {
     background-color: $light-alpha-12;
     border-color: $light-alpha-10;
+    color: $white;
   }
 }
 

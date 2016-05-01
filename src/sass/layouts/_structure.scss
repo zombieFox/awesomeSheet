@@ -1,16 +1,18 @@
-/* structure
-------------------------------------------------- */
+.l-section {
+  z-index: $body;
+}
 
-body {
-  background: $white;
-  // background: $secondary-color-07;
-  padding: 0 0 300px 0;
+.l-section-dark {
+  background-color: $secondary-color-07;
+  padding: 4rem 0;
+}
+
+.l-nav-padding {
+  padding-top: 14rem;
 }
 
 section {
-  z-index: $body;
   .section-heading {
-    // background-color: $secondary-color-20;
     background-color: $secondary-color-08;
     padding: 5px 0;
     text-transform: uppercase;
@@ -18,12 +20,9 @@ section {
     z-index: $section-heading;
     height: 30px;
     box-shadow: $shadow-medium;
-    // transition: all $transition-ease-fast;
     h1 {
       color: $white;
       margin: 0;
-      font-size: 1rem;
-      line-height: 30px;
     }
   }
   .section-controls {
@@ -46,7 +45,7 @@ section {
   .section-wrapper {
     padding: 3rem 0;
   }
-  &.pinned {
+  &.is-pinned {
     padding-top: 40px;
     .section-heading {
       margin: 0;
@@ -55,13 +54,6 @@ section {
       width: 100%;
     }
   }
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid $secondary-color-alpha-18;
-  margin: 0 0 2rem 0;
-  clear: both;
 }
 
 
@@ -73,10 +65,9 @@ hr {
     .section-heading {
       padding: 10px 0;
       h1 {
-        font-size: 1.4rem;
       }
     }
-    &.pinned {
+    &.is-pinned {
       padding-top: 50px;
       .section-heading {
         top: 70px;
@@ -90,16 +81,3 @@ hr {
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
-
-
-/* animations
-------------------------------------------------- */
-
-@keyframes header-flash {
-  0% {
-    background-color: $secondary-color-07;
-  }
-  100% {
-    background-color: $secondary-color-04;
-  }
-}

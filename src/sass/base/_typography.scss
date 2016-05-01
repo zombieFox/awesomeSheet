@@ -50,6 +50,13 @@ p {
   margin: 0 0 1em 0;
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid $secondary-color-alpha-18;
+  margin: 0 0 2rem 0;
+  clear: both;
+}
+
 b,
 strong {
   font-family: $open-sans-semi-bold;
@@ -62,13 +69,17 @@ a {
   &:visited {
     color: $primary-color-10;
   }
-  &:focus,
+  &:focus {
+    background-color: $secondary-color-alpha-18;
+    text-decoration: none;
+    outline: 0;
+  }
   &:hover {
+    background-color: transparent;
     color: $primary-color-08;
     text-decoration: underline;
   }
-  &:active,
-  &.active {
+  &:active {
     color: $primary-color-06;
   }
 }

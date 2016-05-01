@@ -30,6 +30,7 @@ var nav = (function() {
     if (typeof characterLevel == "undefined" || characterLevel == "") {
       characterLevel = "0";
     };
+    
     var navLi = document.createElement("li");
     var icon = document.createElement("span");
     icon.setAttribute("class", "icon icon-check-box-unchecked");
@@ -112,15 +113,15 @@ var nav = (function() {
   };
 
   function clear() {
-    var navCharacters = helper.e(".nav-characters");
+    var navCharacters = helper.e(".m-nav-characters");
     navCharacters.innerHTML = "";
   };
 
   function render(array) {
-    var navCharacters = helper.e(".nav-characters");
+    var navCharacters = helper.e(".m-nav-characters");
     for (var i in array) {
       var characterAnchor = _render_navCharacters(array[i].basics.name, array[i].basics.class, array[i].basics.level, i);
-      navCharacters.appendChild(characterAnchor);
+      // navCharacters.appendChild(characterAnchor);
       if (i == sheet.getIndex()) {
         var icon = characterAnchor.querySelector(".icon");
         var anchor = characterAnchor.querySelector("a");
@@ -135,8 +136,8 @@ var nav = (function() {
 
   function render_quickNav() {
     window.onscroll = function() {
-      var quickNav = helper.e("#quick-nav");
-      var quickNavLinks = helper.eA(".quick-link");
+      var quickNav = helper.e(".js-quick-nav");
+      var quickNavLinks = helper.eA(".js-quick-nav-link");
       var sections = helper.eA("section");
       var menu;
       if (window.innerWidth < 550) {
@@ -147,36 +148,36 @@ var nav = (function() {
       for (var i = 0; i < sections.length; i++) {
         // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
         if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {
-          helper.addClass(quickNavLinks[i], "active");
-          helper.addClass(sections[i], "pinned");
+          helper.addClass(quickNavLinks[i], "is-active");
+          helper.addClass(sections[i], "is-pinned");
         } else {
-          helper.removeClass(quickNavLinks[i], "active");
-          helper.removeClass(sections[i], "pinned");
+          helper.removeClass(quickNavLinks[i], "is-active");
+          helper.removeClass(sections[i], "is-pinned");
         };
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        var lastQuickLink = helper.e(".quick-link.notes");
+        var lastQuickLink = helper.e(".js-quick-nav-last-link");
         for (var i = 0; i < quickNavLinks.length; i++) {
-          helper.removeClass(quickNavLinks[i], "active");
+          helper.removeClass(quickNavLinks[i], "is-active");
         };
-        helper.addClass(lastQuickLink, "active");
+        helper.addClass(lastQuickLink, "is-active");
       };
     };
   };
 
   function navClose() {
-    helper.removeClass(helper.e(".nav-list"), "open");
-    helper.removeClass(helper.e(".nav-toggle"), "open");
+    helper.removeClass(helper.e(".js-nav"), "is-open");
+    helper.removeClass(helper.e(".js-nav-toggle"), "is-open");
   };
 
   function navOpen() {
-    helper.addClass(helper.e(".nav-list"), "open");
-    helper.addClass(helper.e(".nav-toggle"), "open");
+    helper.addClass(helper.e(".js-nav"), "is-open");
+    helper.addClass(helper.e(".js-nav-toggle"), "is-open");
   };
 
   function navToggle() {
-    helper.toggleClass(helper.e(".nav-list"), "open");
-    helper.toggleClass(helper.e(".nav-toggle"), "open");
+    helper.toggleClass(helper.e(".js-nav"), "is-open");
+    helper.toggleClass(helper.e(".js-nav-toggle"), "is-open");
   };
 
   function remove() {
@@ -190,19 +191,19 @@ var nav = (function() {
   };
 
   function resize() {
-    var navList = helper.e(".nav-list");
+    var nav = helper.e(".js-nav");
     var height = window.innerHeight - 130;
-    navList.style.maxHeight = height + "px";
+    nav.style.maxHeight = height + "px";
   };
 
   function bind() {
-    var navList = helper.e(".nav-list");
-    var navToggleElement = helper.e(".nav-toggle");
-    var fullscreen = helper.e(".fullscreen");
-    var clearAll = helper.e(".clear-all");
-    var characterAdd = helper.e(".character-add");
-    var characterRemove = helper.e(".character-remove");
-    var characterExport = helper.e(".character-export");
+    var nav = helper.e(".js-nav");
+    var navToggleElement = helper.e(".js-nav-toggle");
+    var fullscreen = helper.e(".js-fullscreen");
+    var clearAll = helper.e(".js-clear-all");
+    var characterAdd = helper.e(".js-character-add");
+    var characterRemove = helper.e(".js-character-remove");
+    var characterExport = helper.e(".js-character-export");
     navToggleElement.addEventListener("click", function() {
       navToggle();
     }, false);
@@ -225,7 +226,7 @@ var nav = (function() {
       remove();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != navList && helper.getClosest(event.target, ".nav-list") != navList && event.target != navToggleElement && helper.getClosest(event.target, ".nav-toggle") != navToggleElement) {
+      if (event.target != nav && helper.getClosest(event.target, ".js-nav") != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
         navClose();
       };
     }, false);

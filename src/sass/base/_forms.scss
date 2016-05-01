@@ -8,7 +8,7 @@ textarea {
   margin: 0 0 2rem 0;
   border: 0;
   border-bottom: $border;
-  transition: border-color $transition-ease-medium, padding $transition-ease-medium;
+  transition: border-color $transition-ease-fast, padding $transition-ease-fast;
   resize: vertical;
   &:hover {
     border-color: $primary-color-10;
@@ -35,7 +35,7 @@ select {
   color: $base-color;
   height: $root-line-height-extra-large;
   line-height: $root-line-height-extra-large;
-  transition: border-color $transition-ease-medium;
+  transition: border-color $transition-ease-fast;
   &:hover {
     border-color: $primary-color-10;
   }
@@ -53,7 +53,6 @@ input {
   &[type="tel"],
   &[type="password"] {
     background-color: $secondary-color-alpha-20;
-    font-family: $open-sans-regular;
     font-size: $font-size-small;
     height: $root-line-height-extra-large;
     line-height: $root-line-height-extra-large;
@@ -63,7 +62,7 @@ input {
     border-radius: 0;
     border-bottom: $border;
     box-shadow: none;
-    transition: border-color $transition-ease-medium;
+    transition: border-color $transition-ease-fast;
     &:hover {
       border-color: $primary-color-10;
     }
@@ -74,9 +73,29 @@ input {
   }
 }
 
+.input-dark {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    background-color: $dark-alpha-19;
+    color: $white;
+    &:focus {
+      border-color: $secondary-color-15;
+    }
+  }
+}
+
 label {
   line-height: $root-line-height-extra-large;
+  color: $gray-10;
   display: inline-block;
+}
+
+.label-dark {
+  color: $dark-alpha-10;
 }
 
 input {

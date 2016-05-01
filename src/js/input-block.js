@@ -7,24 +7,24 @@ var inputBlock = (function() {
   };
 
   function focus(element) {
-    var inputBlockRoot = helper.getClosest(element, ".input-block");
-    var inputField = inputBlockRoot.querySelector(".input-field");
-    var inputLabel;
-    if (inputBlockRoot.querySelector(".input-label")) {
-      var inputLabel = inputBlockRoot.querySelector(".input-label");
+    var inputBlockRoot = helper.getClosest(element, ".js-input-block");
+    var inputField = inputBlockRoot.querySelector(".js-input-field");
+    var inputBlockLabel;
+    if (inputBlockRoot.querySelector(".js-input-block-label")) {
+      var inputBlockLabel = inputBlockRoot.querySelector(".js-input-block-label");
     };
-    if (inputBlockRoot.querySelector(".input-label")) {
+    if (inputBlockRoot.querySelector(".js-input-block-label")) {
       if (inputField == document.activeElement) {
-        // helper.addClass(inputLabel, "input-label-focus");
-        helper.addClass(inputLabel, "input-label-active");
+        // helper.addClass(inputBlockLabel, "is-focus");
+        helper.addClass(inputBlockLabel, "is-active");
       } else {
-        // helper.removeClass(inputLabel, "input-label-focus");
-        helper.removeClass(inputLabel, "input-label-active");
+        // helper.removeClass(inputBlockLabel, "is-focus");
+        helper.removeClass(inputBlockLabel, "is-active");
       };
       if (element.value == "" && inputField != document.activeElement) {
-        helper.removeClass(inputLabel, "input-label-active");
+        helper.removeClass(inputBlockLabel, "is-active");
       } else {
-        helper.addClass(inputLabel, "input-label-active");
+        helper.addClass(inputBlockLabel, "is-active");
       };
     };
   };
@@ -42,7 +42,7 @@ var inputBlock = (function() {
   };
 
   function _bind_inputControls() {
-    var all_inputControls = helper.eA(".input-controls");
+    var all_inputControls = helper.eA(".js-input-controls");
     for (var i = 0; i < all_inputControls.length; i++) {
       var add = all_inputControls[i].querySelector(".add");
       var minus = all_inputControls[i].querySelector(".minus");
@@ -71,9 +71,9 @@ var inputBlock = (function() {
   };
 
   function _bind_inputBlock() {
-    var all_inputBlock = helper.eA(".input-block");
+    var all_inputBlock = helper.eA(".js-input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
-      var input = all_inputBlock[i].querySelector(".input-field");
+      var input = all_inputBlock[i].querySelector(".js-input-field");
       if (input) {
         input.addEventListener("input", function() {
           _store(this);
@@ -95,7 +95,7 @@ var inputBlock = (function() {
   };
 
   function _bind_awesomeName() {
-    var input = helper.e(".awesome-name input");
+    var input = helper.e(".js-character-name");
     input.addEventListener("input", function() {
       nav.update(this);
       _maxLengthWarning(this);
@@ -141,7 +141,7 @@ var inputBlock = (function() {
   };
 
   function render() {
-    var all_inputField = helper.eA(".input-field");
+    var all_inputField = helper.eA(".js-input-field");
     for (var i = 0; i < all_inputField.length; i++) {
       var path = all_inputField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);

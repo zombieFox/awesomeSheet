@@ -1,5 +1,6 @@
-/* basic colors
-------------------------------------------------- */
+//-------------------------------------------------
+// basic colors
+//-------------------------------------------------
 
 $black:                               #000000;
 $white:                               #ffffff;
@@ -156,8 +157,9 @@ $light-alpha-20:                      rgba($light-alpha-01, 0.05);
 $critical-20:                         #33c3f0;
 $critical-1:                          #990000;
 
-/* grid
-------------------------------------------------- */
+//-------------------------------------------------
+// grid
+//-------------------------------------------------
 
 $screen-xs:                           400px;
 $screen-xs-min:                       $screen-xs;
@@ -181,8 +183,9 @@ $screen-lg-max:                       ($screen-xl-min - 1);
 
 $gutter:                              14px;
 
-/* typography
-------------------------------------------------- */
+//-------------------------------------------------
+// typography
+//-------------------------------------------------
 
 $open-sans-bold:                      "Open Sans Bold", Helvetica, Arial, sans-serif;
 $open-sans-regular:                   "Open Sans Regular", Helvetica, Arial, sans-serif;
@@ -212,25 +215,32 @@ $root-line-height-large:              2rem;
 $root-line-height-medium:             1.8rem;
 $root-line-height-small:              1.6rem;
 
-$line-height-large:                   2em;
-$line-height-medium:                  1.8em;
-$line-height-small:                   1.6em;
+$line-height-large:                   2.6em;
+$line-height-medium:                  1.2em;
+$line-height-small:                   1.8em;
 
 
 $border:                              2px solid transparent;
 
-/* transitions
-------------------------------------------------- */
+//-------------------------------------------------
+// transitions
+//-------------------------------------------------
 
-$transition-bounce-slow:             0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6);
-$transition-bounce-medium:           0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6);
-$transition-bounce-fast:             0.1s cubic-bezier(0.7, -0.6, 0.3, 1.6);
-$transition-ease-slow:               0.5s ease-in-out;
-$transition-ease-medium:             0.3s ease-in-out;
-$transition-ease-fast:               0.1s ease-in-out;
+$transition-bounce-extra-fast:       0.1s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-bounce-fast:             0.3s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-bounce-medium:           0.5s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-bounce-slow:             0.7s cubic-bezier(0.7, -0.6, 0.3, 1.6);
+$transition-bounce-extra-slow:       0.9s cubic-bezier(0.7, -0.6, 0.3, 1.6);
 
-/* z-index
-------------------------------------------------- */
+$transition-ease-extra-fast:         0.1s ease-in-out;
+$transition-ease-fast:               0.3s ease-in-out;
+$transition-ease-medium:             0.5s ease-in-out;
+$transition-ease-slow:               0.7s ease-in-out;
+$transition-ease-extra-slow:         0.9s ease-in-out;
+
+//-------------------------------------------------
+// z-index
+//-------------------------------------------------
 
 $body:                               1000;
 $results:                            2000;
@@ -240,8 +250,9 @@ $snacks:                             5000;
 $nav:                                6000;
 $prompt:                             7000;
 
-/* drop shadows
-------------------------------------------------- */
+//-------------------------------------------------
+// drop shadows
+//-------------------------------------------------
 
 $shadow-small:                      0 1px 1px rgba(0, 0, 0, 0.1),
                                     0 1px 10px rgba(0, 0, 0, 0.1);
@@ -261,8 +272,9 @@ $shadow-medium-inset:               inset 0 1px 2px rgba(0, 0, 0, 0.2),
 $shadow-large-inset:                inset 0 1px 3px rgba(0, 0, 0, 0.3),
                                     inset 0 1px 30px rgba(0, 0, 0, 0.3);
 
-/* radius
-------------------------------------------------- */
+//-------------------------------------------------
+// radius
+//-------------------------------------------------
 
 $border-radius-small:               2px;
 $border-radius-medium:              3px;

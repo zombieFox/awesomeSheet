@@ -158,7 +158,17 @@ var sheet = (function() {
     };
   };
 
+  function bind() {
+    nav.bind();
+    inputBlock.bind();
+    textareaBlock.bind();
+    checkBlock.bind();
+    stats.bind();
+  };
+
   function render() {
+    nav.resize();
+    nav.render(getAllCharacters());
     inputBlock.render();
     textareaBlock.render();
     checkBlock.render();
@@ -184,7 +194,8 @@ var sheet = (function() {
     read: read,
     clear: clear,
     print: printCharacterObject,
-    render: render
+    render: render,
+    bind: bind
   };
 
 })();

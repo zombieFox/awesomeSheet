@@ -1,66 +1,57 @@
-/* input-block
-------------------------------------------------- */
-
-.input-block {
+.m-input-block {
   position: relative;
   z-index: 1;
-  .input-label {
-    margin: 0;
-    padding: 0;
-    display: block;
-    position: absolute;
-    color: $dark-alpha-14;
-    top: 0;
-    left: 10px;
-    font-size: 0.9rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    z-index: 2;
-    transition: all $transition-ease-fast;
-    cursor: text;
-    box-sizing: border-box;
-    white-space: nowrap;
-    // &.input-label-focus {
-    //   color: $primary-color-07;
-    // }
-    &.input-label-active {
-      top: -1.5rem;
-      left: 0;
-      color: $dark-alpha-12;
-      font-size: $font-size-small;
-      height: 1.5rem;
-      line-height: 1.5rem;
-    }
-  }
-  .input-controls {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    .button {
-      border: 0;
-      height: 2.5rem;
-      line-height: 2.5rem;
-      margin: 0;
-      padding: 0 15px;
-      float: left;
-      [class*=" icon-"],
-      [class^="icon-"] {
-        margin: 0;
-        height: 2.5rem;
-        line-height: 2.5rem;
-      }
-    }
-  }
-  .input-field {
-    position: relative;
-    z-index: 1;
+}
+
+.m-input-block-label {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: $root-line-height-extra-large;
+  line-height: $root-line-height-extra-large;
+  z-index: 2;
+  transition: all $transition-ease-fast;
+  cursor: text;
+  box-sizing: border-box;
+  white-space: nowrap;
+  &.is-active {
+    top: -1.5em;
+    left: 0;
+    color: $dark-alpha-12;
+    font-size: 0.8em;
+    height: 1.5em;
+    line-height: 1.5em;
   }
 }
 
+.m-input-block-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  .button {
+    border: 0;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    margin: 0;
+    padding: 0 15px;
+    float: left;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      margin: 0;
+      height: $root-line-height-extra-large;
+      line-height: $root-line-height-extra-large;
+    }
+  }
+}
 
-/* media queries
-------------------------------------------------- */
+.m-input-block-field {
+  position: relative;
+  z-index: 1;
+}
 
 @media (min-width: $screen-sm) {}
 
