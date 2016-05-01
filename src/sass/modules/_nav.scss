@@ -64,67 +64,6 @@
     margin-bottom: 0;
     text-align: left;
     list-style-type: none;
-    // .xa {
-    //   padding: 0;
-    //   margin: 0;
-    //   font-size: $font-size-small;
-    //   line-height: $line-height-large;
-    //   display: block;
-    //   font-family: $open-sans-semi-bold;
-    //   clear: both;
-    //   transition: all $transition-ease-medium;
-    //   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    //   // &.character-toggle {
-    //   //   padding: 0.5rem 0;
-    //   //   .character {
-    //   //     width: 80%;
-    //   //     display: block;
-    //   //     float: left;
-    //   //     .name,
-    //   //     .class,
-    //   //     .level {
-    //   //       line-height: 1.5rem;
-    //   //       font-size: 1rem;
-    //   //     }
-    //   //     .name {
-    //   //       font-family: $open-sans-bold;
-    //   //       width: 100%;
-    //   //       display: block;
-    //   //     }
-    //   //     .class,
-    //   //     .level {
-    //   //       font-family: $open-sans-semi-bold;
-    //   //       color: $gray-14;
-    //   //     }
-    //   //   }
-    //   // }
-    //   // &.active,
-    //   // &:active {
-    //   //   color: $white;
-    //   //   transition: all $transition-ease-fast;
-    //   //   .icon {
-    //   //     color: $white;
-    //   //     transition: all $transition-ease-fast;
-    //   //   }
-    //   //   &.character-toggle {
-    //   //     .class,
-    //   //     .level {
-    //   //       color: $primary-color-05;
-    //   //     }
-    //   //   }
-    //   // }
-    //   // &:active {
-    //   //   background-color: $primary-color-10;
-    //   // }
-    //   // &.active {
-    //   //   background-color: $primary-color-08;
-    //   // }
-    //   // &.active {
-    //   //   &:active {
-    //   //     background-color: $primary-color-10;
-    //   //   }
-    //   // }
-    // }
   }
   .m-nav-divide {
     margin: 10px 0;
@@ -150,7 +89,6 @@
 
 .m-nav-link {
   font-family: $open-sans-semi-bold;
-  // font-size: $font-size-medium;
   line-height: $line-height-large;
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -170,7 +108,7 @@
   }
   &:focus,
   &:hover {
-    background-color: $dark-alpha-19;
+    background-color: $dark-alpha-20;
     text-decoration: none;
   }
   &:active {
@@ -228,7 +166,7 @@
       }
       &:hover {
         & + label {
-          background-color: $dark-alpha-19;
+          background-color: $dark-alpha-20;
           color: $secondary-color-03;
           &:before {
             color: $secondary-color-03;
@@ -237,7 +175,7 @@
       }
       &:focus {
         & + label {
-          background-color: $dark-alpha-19;
+          background-color: $dark-alpha-20;
           &:before {
             color: $secondary-color-03;
           }
@@ -260,7 +198,7 @@
       &:checked {
         &:hover {
           & + label {
-            background-color: $dark-alpha-19;
+            background-color: $dark-alpha-20;
             color: $secondary-color-03;
             &:before {
               color: $secondary-color-03;
@@ -269,7 +207,7 @@
         }
         &:focus {
           & + label {
-            background-color: $dark-alpha-19;
+            background-color: $dark-alpha-20;
             &:before {
               color: $secondary-color-03;
             }

@@ -7,21 +7,19 @@ var inputBlock = (function() {
   };
 
   function focus(element) {
-    var inputBlockRoot = helper.getClosest(element, ".js-input-block");
-    var inputField = inputBlockRoot.querySelector(".js-input-field");
+    var inputBlock = helper.getClosest(element, ".js-input-block");
+    var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var inputBlockLabel;
-    if (inputBlockRoot.querySelector(".js-input-block-label")) {
-      var inputBlockLabel = inputBlockRoot.querySelector(".js-input-block-label");
+    if (inputBlock.querySelector(".js-input-block-label")) {
+      var inputBlockLabel = inputBlock.querySelector(".js-input-block-label");
     };
-    if (inputBlockRoot.querySelector(".js-input-block-label")) {
-      if (inputField == document.activeElement) {
-        // helper.addClass(inputBlockLabel, "is-focus");
+    if (inputBlock.querySelector(".js-input-block-label")) {
+      if (inputBlockField == document.activeElement) {
         helper.addClass(inputBlockLabel, "is-active");
       } else {
-        // helper.removeClass(inputBlockLabel, "is-focus");
         helper.removeClass(inputBlockLabel, "is-active");
       };
-      if (element.value == "" && inputField != document.activeElement) {
+      if (element.value == "" && inputBlockField != document.activeElement) {
         helper.removeClass(inputBlockLabel, "is-active");
       } else {
         helper.addClass(inputBlockLabel, "is-active");
@@ -73,7 +71,7 @@ var inputBlock = (function() {
   function _bind_inputBlock() {
     var all_inputBlock = helper.eA(".js-input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
-      var input = all_inputBlock[i].querySelector(".js-input-field");
+      var input = all_inputBlock[i].querySelector(".js-input-block-field");
       if (input) {
         input.addEventListener("input", function() {
           _store(this);
@@ -141,12 +139,12 @@ var inputBlock = (function() {
   };
 
   function render() {
-    var all_inputField = helper.eA(".js-input-field");
-    for (var i = 0; i < all_inputField.length; i++) {
-      var path = all_inputField[i].dataset.path;
+    var all_inputBlockField = helper.eA(".js-input-block-field");
+    for (var i = 0; i < all_inputBlockField.length; i++) {
+      var path = all_inputBlockField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
-      all_inputField[i].value = content;
-      updateInputBlock(all_inputField[i]);
+      all_inputBlockField[i].value = content;
+      updateInputBlock(all_inputBlockField[i]);
     };
   };
 

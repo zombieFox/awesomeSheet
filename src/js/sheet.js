@@ -162,7 +162,7 @@ var sheet = (function() {
     nav.bind();
     inputBlock.bind();
     textareaBlock.bind();
-    checkBlock.bind();
+    // checkBlock.bind();
     stats.bind();
   };
 
@@ -171,12 +171,12 @@ var sheet = (function() {
     nav.render(getAllCharacters());
     inputBlock.render();
     textareaBlock.render();
-    checkBlock.render();
+    // checkBlock.render();
     stats.render();
     totalBlock.render();
-    clone.render();
-    consumable.render();
-    spells.render();
+    // clone.render();
+    // consumable.render();
+    // spells.render();
   };
 
   // exposed methods

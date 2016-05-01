@@ -30,21 +30,9 @@ var nav = (function() {
     if (typeof characterLevel == "undefined" || characterLevel == "") {
       characterLevel = "0";
     };
-
-    // <li class="m-nav-character">
-      
-    //   <input id="name1" name="test" type="radio" tabindex="10">
-    //   <label for="name1" class="u-full-width">
-    //     <span class="m-nav-characters-name">Character Name</span>
-    //     <span class="m-nav-characters-class">Class</span>
-    //     <span class="m-nav-characters-level">10</span>
-    //   </label>
-
-    // </li>
-
+    
     // define elements
     var uniqueId = helper.randomId(10);
-    console.log(uniqueId);
 
     var navCharacter = document.createElement("li");
     navCharacter.setAttribute("class", "m-nav-character");
@@ -52,14 +40,14 @@ var nav = (function() {
     navCharacter.setAttribute("data-character-index", characterIndex);
 
     var input = document.createElement("input");
-    input.setAttribute("id", characterName + "-" + uniqueId);
+    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     input.setAttribute("name", "js-nav-all-characters");
     input.setAttribute("class", "js-nav-character-select");
     input.setAttribute("type", "radio");
     input.setAttribute("tabindex", 10);
 
     var label = document.createElement("label");
-    label.setAttribute("for", characterName + "-" + uniqueId);
+    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     label.setAttribute("class", "u-full-width");
 
     var nameSpan = document.createElement("span");

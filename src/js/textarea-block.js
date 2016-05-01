@@ -7,24 +7,22 @@ var textareaBlock = (function() {
   };
 
   function focus(element) {
-    var textareaBlockRoot = helper.getClosest(element, ".textarea-block");
-    var textareaBox = textareaBlockRoot.querySelector(".textarea-box");
-    var textareaLabel;
-    if (textareaBlockRoot.querySelector(".textarea-label")) {
-      var textareaLabel = textareaBlockRoot.querySelector(".textarea-label");
+    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel;
+    if (textareaBlock.querySelector(".js-textarea-block-label")) {
+      var textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
     };
-    if (textareaBlockRoot.querySelector(".textarea-label")) {
-      if (textareaBox == document.activeElement) {
-        // helper.addClass(textareaLabel, "textarea-label-focus");
-        helper.addClass(textareaLabel, "textarea-label-active");
+    if (textareaBlock.querySelector(".js-textarea-block-label")) {
+      if (textareaBlockField == document.activeElement) {
+        helper.addClass(textareaBlockLabel, "is-active");
       } else {
-        // helper.removeClass(textareaLabel, "textarea-label-focus");
-        helper.removeClass(textareaLabel, "textarea-label-active");
+        helper.removeClass(textareaBlockLabel, "is-active");
       };
-      if (element.innerHTML == "" && textareaBox != document.activeElement) {
-        helper.removeClass(textareaLabel, "textarea-label-active");
+      if (element.innerHTML == "" && textareaBlockField != document.activeElement) {
+        helper.removeClass(textareaBlockLabel, "is-active");
       } else {
-        helper.addClass(textareaLabel, "textarea-label-active");
+        helper.addClass(textareaBlockLabel, "is-active");
       };
     };
   };
@@ -34,26 +32,26 @@ var textareaBlock = (function() {
   };
 
   function bind() {
-    var all_textareaBlock = helper.eA(".textarea-block");
+    var all_textareaBlock = helper.eA(".js-textarea-block");
     for (var i = 0; i < all_textareaBlock.length; i++) {
-      var textareaBox = all_textareaBlock[i].querySelector(".textarea-box");
-      var textareaLabel = all_textareaBlock[i].querySelector(".textarea-label");
-      if (textareaBox) {
-        textareaBox.addEventListener("input", function() {
+      var textareaBlockField = all_textareaBlock[i].querySelector(".js-textarea-block-field");
+      var textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
+      if (textareaBlockField) {
+        textareaBlockField.addEventListener("input", function() {
           _store(this);
           focus(this);
         }, false);
-        textareaBox.addEventListener("focus", function() {
+        textareaBlockField.addEventListener("focus", function() {
           _store(this);
           focus(this);
         }, false);
-        textareaBox.addEventListener("blur", function() {
+        textareaBlockField.addEventListener("blur", function() {
           _store(this);
           focus(this);
         }, false);
       };
-      if (textareaLabel) {
-        textareaLabel.addEventListener("click", function() {
+      if (textareaBlockLabel) {
+        textareaBlockLabel.addEventListener("click", function() {
           _textareaLabelshiftFocus(this);
         }, false);
       };
@@ -61,18 +59,18 @@ var textareaBlock = (function() {
   };
 
   function _textareaLabelshiftFocus(element) {
-    var textareaBlockRoot = helper.getClosest(element, ".textarea-block");
-    var textareaBox = textareaBlockRoot.querySelector(".textarea-box");
-    textareaBox.focus();
+    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    textareaBlockField.focus();
   };
 
   function render() {
-    var all_textareaBlock = helper.eA(".textarea-box");
-    for (var i = 0; i < all_textareaBlock.length; i++) {
-      var path = all_textareaBlock[i].dataset.path;
+    var all_textareaBlockField = helper.eA(".js-textarea-block-field");
+    for (var i = 0; i < all_textareaBlockField.length; i++) {
+      var path = all_textareaBlockField[i].dataset.path;
       var content = helper.getObject(sheet.getCharacter(), path);
-      all_textareaBlock[i].innerHTML = content;
-      updateTextareaBlock(all_textareaBlock[i]);
+      all_textareaBlockField[i].innerHTML = content;
+      updateTextareaBlock(all_textareaBlockField[i]);
     };
   };
 

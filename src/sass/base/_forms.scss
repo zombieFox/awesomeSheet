@@ -3,8 +3,8 @@ textarea {
   background-color: $secondary-color-alpha-20;
   font-family: $open-sans-regular;
   font-size: $font-size-small;
-  line-height: $line-height-large;
-  padding: 0.6rem 10px 0.4rem 10px;
+  line-height: $line-height-small;
+  padding: 0.65rem 10px;
   margin: 0 0 2rem 0;
   border: 0;
   border-bottom: $border;
@@ -200,32 +200,4 @@ input {
       }
     }
   }
-  // &:hover {
-  //   &:checked {
-  //     & + label {
-  //       &:before {
-  //         color: $secondary-color-06;
-  //       }
-  //     }
-  //   }
-  //   & + label {
-  //     &:before {
-  //       color: $secondary-color-06;
-  //     }
-  //   }
-  // }
-  // &:active {
-  //   &:checked {
-  //     & + label {
-  //       &:before {
-  //         color: $primary-color-10;
-  //       }
-  //     }
-  //   }
-  //   & + label {
-  //     &:before {
-  //       color: $primary-color-10;
-  //     }
-  //   }
-  // }
 }

@@ -1,45 +1,36 @@
-/* textarea-block
-------------------------------------------------- */
-
-.textarea-block {
+.m-textarea-block {
   position: relative;
   z-index: 1;
-  .textarea-label {
-    margin: 0;
-    padding: 0;
-    display: block;
-    position: absolute;
-    color: $dark-alpha-14;
-    top: 0;
-    left: 10px;
-    font-size: 1rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    z-index: 2;
-    transition: all $transition-ease-fast;
-    cursor: text;
-    box-sizing: border-box;
-    // &.textarea-label-focus {
-    //   color: $primary-color-07;
-    // }
-    &.textarea-label-active {
-      top: -1.5rem;
-      left: 0;
-      color: $dark-alpha-12;
-      font-size: $font-size-small;
-      height: 1.5rem;
-      line-height: 1.5rem;
-    }
-  }
-  .textarea-box {
-    position: relative;
-    z-index: 1;
+}
+
+.m-textarea-block-label {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: $root-line-height-extra-large;
+  line-height: $root-line-height-extra-large;
+  z-index: 2;
+  transition: all $transition-ease-extra-fast;
+  cursor: text;
+  box-sizing: border-box;
+  white-space: nowrap;
+  &.is-active {
+    top: -1.5em;
+    left: 0;
+    color: $dark-alpha-12;
+    font-size: 0.8em;
+    height: 1.5em;
+    line-height: 1.5em;
   }
 }
 
-
-/* media queries
-------------------------------------------------- */
+.m-textarea-block-field {
+  position: relative;
+  z-index: 1;
+}
 
 @media (min-width: $screen-sm) {}
 
