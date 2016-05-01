@@ -1,80 +1,23 @@
 .l-section {
   z-index: $body;
+  &.is-pinned {
+    padding-top: 50px;
+  }
 }
 
 .l-section-dark {
   background-color: $secondary-color-07;
-  padding: 4rem 0;
 }
 
 .l-nav-padding {
-  padding-top: 14rem;
-}
-
-section {
-  .section-heading {
-    background-color: $secondary-color-08;
-    padding: 5px 0;
-    text-transform: uppercase;
-    position: relative;
-    z-index: $section-heading;
-    height: 30px;
-    box-shadow: $shadow-medium;
-    h1 {
-      color: $white;
-      margin: 0;
-    }
-  }
-  .section-controls {
-    height: 30px;
-    position: relative;
-    .button-group {
-      position: relative;
-      top: 50%;
-      left: 1px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      .button {
-        flex: 0 0 auto;
-      }
-    }
-  }
-  .section-wrapper {
-    padding: 3rem 0;
-  }
-  &.is-pinned {
-    padding-top: 40px;
-    .section-heading {
-      margin: 0;
-      position: fixed;
-      top: 50px;
-      width: 100%;
-    }
-  }
+  padding-top: 8rem;
 }
 
 
 /* media queries
 ------------------------------------------------- */
 
-@media (min-width: $screen-sm) {
-  section {
-    .section-heading {
-      padding: 10px 0;
-      h1 {
-      }
-    }
-    &.is-pinned {
-      padding-top: 50px;
-      .section-heading {
-        top: 70px;
-      }
-    }
-  }
-}
+@media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {}
 

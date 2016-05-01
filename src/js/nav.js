@@ -30,7 +30,7 @@ var nav = (function() {
     if (typeof characterLevel == "undefined" || characterLevel == "") {
       characterLevel = "0";
     };
-    
+
     // define elements
     var uniqueId = helper.randomId(10);
 
@@ -61,7 +61,7 @@ var nav = (function() {
     var levelSpan = document.createElement("span");
     levelSpan.setAttribute("class", "m-nav-characters-level");
     levelSpan.textContent = helper.truncate(characterLevel, 10);
-    
+
     // build module
     label.appendChild(nameSpan);
     label.appendChild(classSpan);
@@ -148,21 +148,26 @@ var nav = (function() {
     window.onscroll = function() {
       var quickNav = helper.e(".js-quick-nav");
       var quickNavLinks = helper.eA(".js-quick-nav-link");
-      var sections = helper.eA("section");
-      var menu;
-      if (window.innerWidth < 550) {
-        menu = 50;
-      } else {
-        menu = 70;
-      };
-      for (var i = 0; i < sections.length; i++) {
-        // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
-        if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {
+      var all_section = helper.eA(".js-section");
+      var menu = 60;
+      for (var i = 0; i < all_section.length; i++) {
+        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
+        var sectionHeading = all_section[i].querySelector(".js-section-heading");
+        if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
+          for (var j = 0; j < quickNavLinks.length; j++) {
+            helper.removeClass(quickNavLinks[j], "is-active");
+          };
           helper.addClass(quickNavLinks[i], "is-active");
-          helper.addClass(sections[i], "is-pinned");
+          if (sectionHeading) {
+            helper.addClass(all_section[i], "is-pinned");
+            helper.addClass(sectionHeading, "is-pinned");
+          };
         } else {
           helper.removeClass(quickNavLinks[i], "is-active");
-          helper.removeClass(sections[i], "is-pinned");
+          if (sectionHeading) {
+            helper.removeClass(all_section[i], "is-pinned");
+            helper.removeClass(sectionHeading, "is-pinned");
+          };
         };
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
