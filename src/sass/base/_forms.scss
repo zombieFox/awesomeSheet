@@ -108,6 +108,7 @@ input {
     display: block;
     height: $root-line-height-extra-large;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
       line-height: $root-line-height-extra-large;
       display: inline-block;

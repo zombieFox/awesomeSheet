@@ -134,6 +134,7 @@ var sheet = (function() {
     textareaBlock.bind();
     stats.bind();
     clone.bind();
+    totalBlock.bind();
     // checkBlock.bind();
   };
 
