@@ -4,7 +4,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   .m-nav-toggle-line {
     display: block;
-    height: 2px;
+    height: 3px;
     width: 24px;
     left: 50%;
     position: absolute;
@@ -79,7 +79,6 @@
   margin-bottom: 0;
   margin-left: 20%;
   font-family: $open-sans-bold;
-  font-size: $font-size-medium;
   line-height: $line-height-large;
   width: 80%;
   display: block;
@@ -249,19 +248,17 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
+  .m-nav-toggle {
+    .m-nav-toggle-line {
+      width: 30px;
+    }
+  }
   .m-nav {
     width: 340px;
   }
 }
 
-@media (min-width: $screen-md) {
-  .m-nav-toggle {
-    .m-nav-toggle-line {
-      height: 3px;
-      width: 30px;
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

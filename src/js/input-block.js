@@ -147,9 +147,11 @@ var inputBlock = (function() {
     var all_inputBlockField = helper.eA(".js-input-block-field");
     for (var i = 0; i < all_inputBlockField.length; i++) {
       var path = all_inputBlockField[i].dataset.path;
-      var content = helper.getObject(sheet.getCharacter(), path);
-      all_inputBlockField[i].value = content;
-      updateInputBlock(all_inputBlockField[i]);
+      if (path) {
+        var content = helper.getObject(sheet.getCharacter(), path);
+        all_inputBlockField[i].value = content;
+        updateInputBlock(all_inputBlockField[i]);
+      };
     };
   };
 

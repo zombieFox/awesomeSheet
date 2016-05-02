@@ -80,9 +80,11 @@ var textareaBlock = (function() {
     var all_textareaBlockField = helper.eA(".js-textarea-block-field");
     for (var i = 0; i < all_textareaBlockField.length; i++) {
       var path = all_textareaBlockField[i].dataset.path;
-      var content = helper.getObject(sheet.getCharacter(), path);
-      all_textareaBlockField[i].innerHTML = content;
-      updateTextareaBlock(all_textareaBlockField[i]);
+      if (path) {
+        var content = helper.getObject(sheet.getCharacter(), path);
+        all_textareaBlockField[i].innerHTML = content;
+        updateTextareaBlock(all_textareaBlockField[i]);
+      };
     };
   };
 

@@ -120,21 +120,6 @@ var sheet = (function() {
     // snack.render("All characters removed.", false, false);
   };
 
-  function clear() {
-    inputBlock.clear();
-    textareaBlock.clear();
-    stats.render();
-    totalBlock.render();
-    // var all_cloneTarget = helper.eA(".clone-target");
-    // var all_spellsKnown = helper.eA(".spells-known");
-    // for (var i = 0; i < all_cloneTarget.length; i++) {
-    //   all_cloneTarget[i].innerHTML = "";
-    // };
-    // for (var i = 0; i < all_spellsKnown.length; i++) {
-    //   all_spellsKnown[i].innerHTML = "";
-    // };
-  };
-
   function printCharacterObject(index) {
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
     prompt.render("download", "Character JSON data:", exportData, "download");
@@ -150,6 +135,21 @@ var sheet = (function() {
     stats.bind();
     clone.bind();
     // checkBlock.bind();
+  };
+
+  function clear() {
+    inputBlock.clear();
+    textareaBlock.clear();
+    stats.render();
+    totalBlock.render();
+    clone.clear();
+    // var all_spellsKnown = helper.eA(".spells-known");
+    // for (var i = 0; i < all_cloneTarget.length; i++) {
+    //   all_cloneTarget[i].innerHTML = "";
+    // };
+    // for (var i = 0; i < all_spellsKnown.length; i++) {
+    //   all_spellsKnown[i].innerHTML = "";
+    // };
   };
 
   function render() {

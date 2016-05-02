@@ -25,7 +25,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
       '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -47,7 +47,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-2 col-md-2">' +
       '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Attack</label>' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '<input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
@@ -65,7 +65,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
       '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -79,37 +79,37 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6 col-md-4">' +
+      '<div class="col-xs-6 col-xl-4">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Ranged Weapon</label>' +
       '<input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-2">' +
+      '<div class="col-xs-3 col-xl-2">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
       '<input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-2">' +
+      '<div class="col-xs-3 col-xl-2">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
       '<input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-xs-offset-3 col-md-2 col-md-offset-0">' +
+      '<div class="col-xs-3 col-xs-offset-3 col-xl-2 col-xl-offset-0">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
       '<input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-1">' +
+      '<div class="col-xs-3 col-xl-1">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
       '<input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-1">' +
+      '<div class="col-xs-3 col-xl-1">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
       '<input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
@@ -117,7 +117,7 @@ var clone = (function() {
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
       '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
@@ -185,15 +185,15 @@ var clone = (function() {
     var cloneTarget;
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-melee-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
       cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-ranged-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-consumable-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
     for (var i = 0; i < numberOfClones; i++) {
       var cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
@@ -242,15 +242,15 @@ var clone = (function() {
     var cloneTarget;
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-melee-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
       cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-ranged-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-consumable-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
     for (var i = 0; i < array.length; i++) {
       for (var j in array[i]) {
@@ -276,17 +276,17 @@ var clone = (function() {
     var cloneCount;
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-melee-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
       cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
       cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-ranged-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
       cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-consumable-target");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
       cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     return cloneCount;
@@ -297,15 +297,15 @@ var clone = (function() {
     var cloneTarget;
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-melee-target")
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
       cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-attack-ranged-target")
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target")
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
     var cloneCount = cloneBlock.querySelectorAll(".js-clone").length;
     var cloneControls = cloneBlock.querySelector(".clone-controls");
@@ -482,7 +482,7 @@ var clone = (function() {
   };
 
   function _updateCloneAttackMelee() {
-    var cloneTarget = helper.e(".js-clone-block-attack-melee-target");
+    var cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
     for (var i = 0; i < all_clone.length; i++) {
@@ -497,7 +497,7 @@ var clone = (function() {
   };
 
   function _updateCloneAttackRanged() {
-    var cloneTarget = helper.e(".js-clone-block-attack-ranged-target");
+    var cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
     for (var i = 0; i < all_clone.length; i++) {
@@ -514,7 +514,7 @@ var clone = (function() {
   };
 
   function _updateCloneConsumable() {
-    var cloneTarget = helper.e(".js-clone-block-consumable-target");
+    var cloneTarget = helper.e(".js-clone-block-target-consumable");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneConsumable = [];
     for (var i = 0; i < all_clone.length; i++) {
@@ -539,9 +539,22 @@ var clone = (function() {
     _render_cloneInput(all_consumable, "consumable");
   };
 
+  function clear() {
+    console.log("--- clone clear fired ---");
+    var all_cloneTarget = helper.eA(".js-clone-block-target");
+    for (var i = 0; i < all_cloneTarget.length; i++) {
+      // console.log("\t for running on " + all_cloneTarget[i].classList[2]);
+      while (all_cloneTarget[i].lastChild) {
+        console.log("white running");
+        all_cloneTarget[i].removeChild(all_cloneTarget[i].lastChild);
+      };
+    };
+  };
+
   // exposed methods
   return {
     bind: bindControls,
+    clear: clear,
     render: render
   };
 

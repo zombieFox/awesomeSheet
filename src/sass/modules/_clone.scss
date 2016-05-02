@@ -1,29 +1,10 @@
 .m-clone-block {
-  .m-clone {
-    padding: 0;
-    border: 0 solid transparent;
-    border-radius: 0;
-    transition: all $transition-ease-medium;
-    .clone-delete-controls {
-      height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all $transition-ease-medium;
-      text-align: right;
-      .button {
-        margin: 0;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        [class^="icon-"],
-        [class*=" icon-"] {
-          margin: 0;
-        }
-      }
-    }
-  }
-  &.is-delete-state {
-    .m-clone-block-target {
+  .m-clone-block-target {
+    .m-clone {
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      transition: all $transition-ease-extra-fast;
       input {
         &[type="email"],
         &[type="number"],
@@ -31,24 +12,56 @@
         &[type="text"],
         &[type="tel"],
         &[type="password"] {
-          background-color: transparent;
-          border-color: $primary-color-alpha-10;
-          color: $primary-color-05;
-          margin: 0;
+          transition: all $transition-ease-extra-fast;
         }
       }
       label {
-        color: transparent;
-        visibility: hidden;
+        transition: all $transition-ease-extra-fast;
       }
+      .m-clone-block-delete-controls {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all $transition-ease-extra-fast;
+        .button {
+          margin: 0;
+          transform: scale(0.8);
+          transition: all $transition-ease-extra-fast;
+        }
+      }
+    }
+  }
+  &.is-delete-state {
+    .m-clone-block-target {
       .m-clone {
-        background-color: $primary-color-alpha-18;
+        input {
+          &[type="email"],
+          &[type="number"],
+          &[type="search"],
+          &[type="text"],
+          &[type="tel"],
+          &[type="password"] {
+            background-color: transparent;
+            border-color: $primary-color-alpha-18;
+            margin: 0 0 1rem 0;
+          }
+        }
+        label {
+          color: transparent;
+          visibility: hidden;
+        }
+        background-color: $primary-color-19;
         margin: 0 0 1rem 0;
-        padding: 5px 10px 0 10px;
+        padding: 1rem;
         border-radius: $border-radius-medium;
-        .clone-delete-controls {
-          height: 40px;
+        .m-clone-block-delete-controls {
+          transition: all $transition-bounce-extra-slow;
+          max-height: 200px;
           opacity: 1;
+          .button {
+            transform: scale(1);
+            transition: all $transition-bounce-extra-slow;
+          }
         }
       }
     }

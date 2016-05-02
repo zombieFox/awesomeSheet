@@ -69,17 +69,14 @@ var nav = (function() {
     navCharacter.appendChild(label);
 
     // bind
-    _bind_characterOption(navCharacter, characterIndex);
+    _bind_characterOption(navCharacter);
     return navCharacter;
   };
 
-  function _bind_characterOption(characterLink, newIndex) {
+  function _bind_characterOption(characterLink) {
     characterLink.addEventListener("click", function() {
       _switch_character(this);
       sheet.storeCharacters();
-      sheet.setIndex(newIndex);
-      sheet.clear();
-      sheet.render();
     }, false);
   };
 
