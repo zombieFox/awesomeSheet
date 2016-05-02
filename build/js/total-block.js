@@ -1,20 +1,20 @@
 var totalBlock = (function() {
 
   function render() {
-    var all_inputTotalBlock = helper.eA(".total-block");
+    var all_inputTotalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_inputTotalBlock.length; i++) {
-      var stats_strMod = helper.e(".stats.str .modifier");
-      var stats_dexMod = helper.e(".stats.dex .modifier");
-      var stats_conMod = helper.e(".stats.con .modifier");
-      var stats_intMod = helper.e(".stats.int .modifier");
-      var stats_wisMod = helper.e(".stats.wis .modifier");
-      var stats_chaMod = helper.e(".stats.cha .modifier");
-      var stats_strModTemp = helper.e(".stats.str .modifier-temp");
-      var stats_dexModTemp = helper.e(".stats.dex .modifier-temp");
-      var stats_conModTemp = helper.e(".stats.con .modifier-temp");
-      var stats_intModTemp = helper.e(".stats.int .modifier-temp");
-      var stats_wisModTemp = helper.e(".stats.wis .modifier-temp");
-      var stats_chaModTemp = helper.e(".stats.cha .modifier-temp");
+      var statsStrModifier = helper.e(".js-stats-str-modifier");
+      var statsDexModifier = helper.e(".js-stats-dex-modifier");
+      var statsConModifier = helper.e(".js-stats-con-modifier");
+      var statsIntModifier = helper.e(".js-stats-int-modifier");
+      var statsWisModifier = helper.e(".js-stats-wis-modifier");
+      var statsChaModifier = helper.e(".js-stats-cha-modifier");
+      var statsStrModifierTemp = helper.e(".js-stats-str-modifier-temp");
+      var statsDexModifierTemp = helper.e(".js-stats-dex-modifier-temp");
+      var statsConModifierTemp = helper.e(".js-stats-con-modifier-temp");
+      var statsIntModifierTemp = helper.e(".js-stats-int-modifier-temp");
+      var statsWisModifierTemp = helper.e(".js-stats-wis-modifier-temp");
+      var statsChaModifierTemp = helper.e(".js-stats-cha-modifier-temp");
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -36,55 +36,55 @@ var totalBlock = (function() {
       // str
       if (all_inputTotalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
-        if (stats_strModTemp.textContent == "") {
-          strBonus = parseInt(stats_strMod.textContent, 10 || 0);
+        if (statsStrModifierTemp.textContent == "") {
+          strBonus = parseInt(statsStrModifier.textContent, 10 || 0);
         } else {
-          strBonus = parseInt(stats_strModTemp.textContent, 10 || 0);
+          strBonus = parseInt(statsStrModifierTemp.textContent, 10 || 0);
         };
       };
       // dex
       if (all_inputTotalBlock[i].dataset.dexBonus == "true") {
         // if ability temp mod is empty
-        if (stats_dexModTemp.textContent == "") {
-          dexBonus = parseInt(stats_dexMod.textContent, 10 || 0);
+        if (statsDexModifierTemp.textContent == "") {
+          dexBonus = parseInt(statsDexModifier.textContent, 10 || 0);
         } else {
-          dexBonus = parseInt(stats_dexModTemp.textContent, 10 || 0);
+          dexBonus = parseInt(statsDexModifierTemp.textContent, 10 || 0);
         };
       };
       // con
       if (all_inputTotalBlock[i].dataset.conBonus == "true") {
         // if ability temp mod is empty
-        if (stats_conModTemp.textContent == "") {
-          conBonus = parseInt(stats_conMod.textContent, 10 || 0);
+        if (statsConModifierTemp.textContent == "") {
+          conBonus = parseInt(statsConModifier.textContent, 10 || 0);
         } else {
-          conBonus = parseInt(stats_conModTemp.textContent, 10 || 0);
+          conBonus = parseInt(statsConModifierTemp.textContent, 10 || 0);
         };
       };
       // int
       if (all_inputTotalBlock[i].dataset.intBonus == "true") {
         // if ability temp mod is empty
-        if (stats_intModTemp.textContent == "") {
-          intBonus = parseInt(stats_intMod.textContent, 10 || 0);
+        if (statsIntModifierTemp.textContent == "") {
+          intBonus = parseInt(statsIntModifier.textContent, 10 || 0);
         } else {
-          intBonus = parseInt(stats_intModTemp.textContent, 10 || 0);
+          intBonus = parseInt(statsIntModifierTemp.textContent, 10 || 0);
         };
       };
       // wis
       if (all_inputTotalBlock[i].dataset.wisBonus == "true") {
         // if ability temp mod is empty
-        if (stats_wisModTemp.textContent == "") {
-          wisBonus = parseInt(stats_wisMod.textContent, 10 || 0);
+        if (statsWisModifierTemp.textContent == "") {
+          wisBonus = parseInt(statsWisModifier.textContent, 10 || 0);
         } else {
-          wisBonus = parseInt(stats_wisModTemp.textContent, 10 || 0);
+          wisBonus = parseInt(statsWisModifierTemp.textContent, 10 || 0);
         };
       };
       // cha
       if (all_inputTotalBlock[i].dataset.chaBonus == "true") {
         // if ability temp mod is empty
-        if (stats_chaModTemp.textContent == "") {
-          chaBonus = parseInt(stats_chaMod.textContent, 10 || 0);
+        if (statsChaModifierTemp.textContent == "") {
+          chaBonus = parseInt(statsChaModifier.textContent, 10 || 0);
         } else {
-          chaBonus = parseInt(stats_chaModTemp.textContent, 10 || 0);
+          chaBonus = parseInt(statsChaModifierTemp.textContent, 10 || 0);
         };
       };
       // bab
@@ -190,17 +190,17 @@ var totalBlock = (function() {
       if (isNaN(classSkill)) {
         classSkill = 0;
       };
-      var total = all_inputTotalBlock[i].querySelector(".total");
-      var all_inputField = all_inputTotalBlock[i].querySelectorAll(".input-field");
+      var total = all_inputTotalBlock[i].querySelector(".js-total-block-total");
+      var all_inputBlockField = all_inputTotalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
       var modifiers_total = 0;
-      for (var q = 0; q < all_inputField.length; q++) {
-        if (all_inputField.length > 0) {
-          if (all_inputField[q].dataset.total == "addition") {
-            modifiers.push(parseInt(all_inputField[q].value, 10) || 0);
+      for (var q = 0; q < all_inputBlockField.length; q++) {
+        if (all_inputBlockField.length > 0) {
+          if (all_inputBlockField[q].dataset.total == "addition") {
+            modifiers.push(parseInt(all_inputBlockField[q].value, 10) || 0);
           };
-          if (all_inputField[q].dataset.total == "subtract") {
-            modifiers.push(-parseInt(all_inputField[q].value, 10) || 0);
+          if (all_inputBlockField[q].dataset.total == "subtract") {
+            modifiers.push(-parseInt(all_inputBlockField[q].value, 10) || 0);
           };
         };
       };

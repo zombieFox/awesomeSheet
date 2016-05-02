@@ -5,34 +5,29 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
-      '<div class="col-xs-12">' +
-      '<div class="consumable-bar">' +
-      '<div class="consumable-bar-percentage"><span class="percentage-total">100%</span></div>' +
-      '</div>' +
-      '</div>' +
       '<div class="col-xs-8">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="consumable-item-' + index + '">Item</label>' +
-      '<input class="input-field consumable-item" id="consumable-item-' + index + '" type="text" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
+      '<input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="consumable-total-' + index + '">Total</label>' +
-      '<input class="input-field consumable-total" id="consumable-total-' + index + '" type="number" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Total</label>' +
+      '<input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="consumable-used-' + index + '">Used</label>' +
-      '<input class="input-field consumable-used" id="consumable-used-' + index + '" type="number" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
+      '<input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
-      '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -45,34 +40,34 @@ var clone = (function() {
       '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
       '<div class="col-xs-5 col-md-4">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-melee-weapon-' + index + '">Melee Weapon</label>' +
-      '<input class="input-field attack-melee-weapon" id="attack-melee-weapon-' + index + '" type="text" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Melee Weapon</label>' +
+      '<input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2 col-md-2">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-melee-attack-' + index + '">Attack</label>' +
-      '<input class="input-field attack-melee-attack" id="attack-melee-attack-' + index + '" type="text" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
+      '<input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-3 col-md-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-melee-damage-' + index + '">Damage</label>' +
-      '<input class="input-field attack-melee-damage" id="attack-melee-damage-' + index + '" type="text" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
+      '<input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2 col-md-3">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-melee-critical-' + index + '">Critical</label>' +
-      '<input class="input-field attack-melee-critical" id="attack-melee-critical-' + index + '" type="text" tabindex="3">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Damage</label>' +
+      '<input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
-      '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -84,47 +79,47 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="row no-gutter">' +
-      '<div class="col-xs-6 col-md-4">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-weapon-' + index + '">Ranged Weapon</label>' +
-      '<input class="input-field attack-ranged-weapon" id="attack-ranged-weapon-' + index + '" type="text" tabindex="3">' +
+      '<div class="col-xs-6 col-xl-4">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Ranged Weapon</label>' +
+      '<input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-2">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
-      '<input class="input-field attack-ranged-attack" id="attack-ranged-attack-' + index + '" type="text" tabindex="3">' +
+      '<div class="col-xs-3 col-xl-2">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
+      '<input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-2">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
-      '<input class="input-field attack-ranged-damage" id="attack-ranged-damage-' + index + '" type="text" tabindex="3">' +
+      '<div class="col-xs-3 col-xl-2">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
+      '<input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-xs-offset-3 col-md-2 col-md-offset-0">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
-      '<input class="input-field attack-ranged-critical" id="attack-ranged-critical-' + index + '" type="text" tabindex="3">' +
+      '<div class="col-xs-3 col-xs-offset-3 col-xl-2 col-xl-offset-0">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
+      '<input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-1">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-range-' + index + '">Range</label>' +
-      '<input class="input-field attack-ranged-range" id="attack-ranged-range-' + index + '" type="text" tabindex="3">' +
+      '<div class="col-xs-3 col-xl-1">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
+      '<input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-3 col-md-1">' +
-      '<div class="input-block">' +
-      '<label class="input-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
-      '<input class="input-field attack-ranged-ammo" id="attack-ranged-ammo-' + index + '" type="text" tabindex="3">' +
+      '<div class="col-xs-3 col-xl-1">' +
+      '<div class="m-input-block js-input-block">' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
+      '<input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '</div>' +
       '</div>' +
-      '<div class="col-xs-4 col-xs-offset-4">' +
-      '<div class="clone-delete-controls">' +
-      '<button class="button button-primary button-block button-icon" tabindex="3"><span class="icon-close"></span></button>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -139,12 +134,14 @@ var clone = (function() {
     };
   };
 
-  var _bind_cloneControls = (function() {
-    var consumableCloneAdd = helper.e(".consumable .clone-add");
-    var consumableCloneRemove = helper.e(".consumable .clone-remove");
-    var attackCloneAddMelee = helper.e(".attack .clone-add-melee");
-    var attackCloneAddRanged = helper.e(".attack .clone-add-ranged");
-    var attackCloneRemove = helper.e(".attack .clone-remove");
+  function bindControls() {
+    var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
+    var cloneBlockAttack = helper.e(".js-clone-block-attack");
+    var consumableCloneAdd = cloneBlockConsumable.querySelector(".js-clone-add");
+    var consumableCloneRemove = cloneBlockConsumable.querySelector(".js-clone-remove");
+    var attackCloneAddMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
+    var attackCloneAddRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
+    var attackCloneRemove = cloneBlockAttack.querySelector(".js-clone-remove");
     consumableCloneAdd.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
@@ -181,30 +178,30 @@ var clone = (function() {
       _updateCloneAttackRanged();
       sheet.storeCharacters();
     }, false);
-  })();
+  };
 
   function _render_clone(numberOfClones, cloneType) {
     var cloneBlock;
     var cloneTarget;
     if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
+      cloneBlock = helper.e(".js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
+      cloneBlock = helper.e(".js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
-      cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target")
+      cloneBlock = helper.e(".js-clone-block-consumable");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
     for (var i = 0; i < numberOfClones; i++) {
-      var cloneCount = cloneTarget.querySelectorAll(".clone").length;
+      var cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
       var cloneString;
       var index = i;
       // make new clone node
       var newNode = document.createElement("div");
-      newNode.setAttribute("class", "clone");
+      newNode.setAttribute("class", "m-clone js-clone");
       // newNode.setAttribute("data-attack-type", cloneType);
       // check if adding new node or adding to clone target with already existing clones
       if (index < cloneCount) {
@@ -235,7 +232,7 @@ var clone = (function() {
         if (cloneType == "attack-ranged") {
           _bind_cloneAttackRangedInput(newNode.querySelectorAll(".input-block"));
         };
-        _bind_cloneRemoveButton(newNode.querySelector(".clone-delete-controls button"), cloneType);
+        _bind_cloneRemoveButton(newNode.querySelector(".js-clone-block-delete"), cloneType);
       };
     };
   };
@@ -243,21 +240,17 @@ var clone = (function() {
   function _render_cloneInput(array, cloneType) {
     var cloneBlock;
     var cloneTarget;
-    var all_clone;
     if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
-      all_clone = cloneTarget.querySelectorAll(".clone");
+      cloneBlock = helper.e(".js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
-      all_clone = cloneTarget.querySelectorAll(".clone");
+      cloneBlock = helper.e(".js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
-      cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target");
-      all_clone = cloneTarget.querySelectorAll(".clone");
+      cloneBlock = helper.e(".js-clone-block-consumable");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
     for (var i = 0; i < array.length; i++) {
       for (var j in array[i]) {
@@ -278,21 +271,23 @@ var clone = (function() {
   };
 
   function _getCloneCount(cloneType) {
+    var cloneBlock;
+    var cloneTarget;
     var cloneCount;
     if (cloneType == "attack-melee") {
-      var cloneBlock = helper.e(".attack");
-      var cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
-      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+      cloneBlock = helper.e(".js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
+      cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
-      var cloneBlock = helper.e(".attack");
-      var cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
-      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+      cloneBlock = helper.e(".js-clone-block-attack");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
+      cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     if (cloneType == "consumable") {
-      var cloneBlock = helper.e(".consumable");
-      var cloneTarget = cloneBlock.querySelector(".clone-target")
-      cloneCount = cloneTarget.querySelectorAll(".clone").length;
+      cloneBlock = helper.e(".js-clone-block-consumable");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+      cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     return cloneCount;
   };
@@ -302,22 +297,22 @@ var clone = (function() {
     var cloneTarget;
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee")
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
       cloneBlock = helper.e(".attack");
-      cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged")
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".consumable");
-      cloneTarget = cloneBlock.querySelector(".clone-target")
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
-    var cloneCount = cloneBlock.querySelectorAll(".clone").length;
+    var cloneCount = cloneBlock.querySelectorAll(".js-clone").length;
     var cloneControls = cloneBlock.querySelector(".clone-controls");
     var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
-      helper.removeClass(cloneBlock, "delete-state");
+      helper.removeClass(cloneBlock, "is-delete-state");
       helper.removeClass(cloneRemoveButton, "active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-quaternary");
@@ -427,34 +422,34 @@ var clone = (function() {
   };
 
   function _changeCloneState(cloneType) {
-    var cloneBlock = helper.e(".clone-block." + cloneType);
-    var cloneControls = cloneBlock.querySelector(".clone-controls");
-    var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
-    var cloneCount = cloneBlock.querySelectorAll(".clone").length;
+    var cloneBlock = helper.e(".js-clone-block-" + cloneType);
+    var cloneControls = cloneBlock.querySelector(".js-clone-controls");
+    var cloneRemoveButton = cloneControls.querySelector(".js-clone-remove");
+    var cloneCount = cloneBlock.querySelectorAll(".js-clone").length;
     // change clone remove button
-    helper.toggleClass(cloneRemoveButton, "active");
+    helper.toggleClass(cloneRemoveButton, "is-active");
     helper.toggleClass(cloneRemoveButton, "button-primary");
     helper.toggleClass(cloneRemoveButton, "button-quaternary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
-      helper.removeClass(cloneBlock, "delete-state");
+      helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
     } else if (cloneBlock.dataset.deleteCloneState == "false") {
-      helper.addClass(cloneBlock, "delete-state");
+      helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
     };
     // if clone count us 0 remove restore all classes to normal
     if (cloneCount == 0) {
-      helper.removeClass(cloneBlock, "delete-state");
+      helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
-      helper.removeClass(cloneRemoveButton, "active");
+      helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-quaternary");
     };
   };
 
   function _destroy_clone(element) {
-    var cloneToRemove = helper.getClosest(element, ".clone");
+    var cloneToRemove = helper.getClosest(element, ".js-clone");
     cloneToRemove.remove();
   };
 
@@ -487,15 +482,14 @@ var clone = (function() {
   };
 
   function _updateCloneAttackMelee() {
-    var cloneBlock = helper.e(".clone-block.attack");
-    var cloneTarget = cloneBlock.querySelector(".clone-target.attack-melee");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var cloneTarget = helper.e(".js-clone-block-target-attack-melee");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
     for (var i = 0; i < all_clone.length; i++) {
-      var weapon = all_clone[i].querySelector(".attack-melee-weapon").value || "";
-      var attack = all_clone[i].querySelector(".attack-melee-attack").value || "";
-      var damage = all_clone[i].querySelector(".attack-melee-damage").value || "";
-      var critical = all_clone[i].querySelector(".attack-melee-critical").value || "";
+      var weapon = all_clone[i].querySelector(".js-clone-attack-melee-weapon").value || "";
+      var attack = all_clone[i].querySelector(".js-clone-attack-melee-attack").value || "";
+      var damage = all_clone[i].querySelector(".js-clone-attack-melee-damage").value || "";
+      var critical = all_clone[i].querySelector(".js-clone-attack-melee-critical").value || "";
       var newAttackMelee = new _createAttackMeleeObject(weapon, attack, damage, critical);
       cloneAttack.push(newAttackMelee);
     };
@@ -503,17 +497,16 @@ var clone = (function() {
   };
 
   function _updateCloneAttackRanged() {
-    var cloneBlock = helper.e(".clone-block.attack");
-    var cloneTarget = cloneBlock.querySelector(".clone-target.attack-ranged");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
     for (var i = 0; i < all_clone.length; i++) {
-      var weapon = all_clone[i].querySelector(".attack-ranged-weapon").value || "";
-      var attack = all_clone[i].querySelector(".attack-ranged-attack").value || "";
-      var damage = all_clone[i].querySelector(".attack-ranged-damage").value || "";
-      var critical = all_clone[i].querySelector(".attack-ranged-critical").value || "";
-      var range = all_clone[i].querySelector(".attack-ranged-range").value || "";
-      var ammo = all_clone[i].querySelector(".attack-ranged-ammo").value || "";
+      var weapon = all_clone[i].querySelector(".js-clone-attack-ranged-weapon").value || "";
+      var attack = all_clone[i].querySelector(".js-clone-attack-ranged-attack").value || "";
+      var damage = all_clone[i].querySelector(".js-clone-attack-ranged-damage").value || "";
+      var critical = all_clone[i].querySelector(".js-clone-attack-ranged-critical").value || "";
+      var range = all_clone[i].querySelector(".js-clone-attack-ranged-range").value || "";
+      var ammo = all_clone[i].querySelector(".js-clone-attack-ranged-ammo").value || "";
       var newAttackRanged = new _createAttackRangedObject(weapon, attack, damage, critical, range, ammo);
       cloneAttack.push(newAttackRanged);
     };
@@ -521,14 +514,13 @@ var clone = (function() {
   };
 
   function _updateCloneConsumable() {
-    var cloneBlock = helper.e(".clone-block.consumable");
-    var cloneTarget = cloneBlock.querySelector(".clone-target");
-    var all_clone = cloneTarget.querySelectorAll(".clone");
+    var cloneTarget = helper.e(".js-clone-block-target-consumable");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneConsumable = [];
     for (var i = 0; i < all_clone.length; i++) {
-      var item = all_clone[i].querySelector(".consumable-item").value || "";
-      var total = all_clone[i].querySelector(".consumable-total").value || "";
-      var used = all_clone[i].querySelector(".consumable-used").value || "";
+      var item = all_clone[i].querySelector(".js-clone-consumable-item").value || "";
+      var total = all_clone[i].querySelector(".js-clone-consumable-total").value || "";
+      var used = all_clone[i].querySelector(".js-clone-consumable-used").value || "";
       var newConsumable = new _createConsumableObject(item, total, used);
       cloneConsumable.push(newConsumable);
     };
@@ -547,8 +539,23 @@ var clone = (function() {
     _render_cloneInput(all_consumable, "consumable");
   };
 
+  function clear() {
+    console.log("--- clone clear fired ---");
+    // not sure why clear is firing twice on character change, must investigate 
+    var all_cloneTarget = helper.eA(".js-clone-block-target");
+    for (var i = 0; i < all_cloneTarget.length; i++) {
+      // console.log("\t for running on " + all_cloneTarget[i].classList[2]);
+      while (all_cloneTarget[i].lastChild) {
+        console.log("white running");
+        all_cloneTarget[i].removeChild(all_cloneTarget[i].lastChild);
+      };
+    };
+  };
+
   // exposed methods
   return {
+    bind: bindControls,
+    clear: clear,
     render: render
   };
 

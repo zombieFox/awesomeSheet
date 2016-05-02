@@ -541,6 +541,7 @@ var clone = (function() {
 
   function clear() {
     console.log("--- clone clear fired ---");
+    // not sure why clear is firing twice on character change, must investigate 
     var all_cloneTarget = helper.eA(".js-clone-block-target");
     for (var i = 0; i < all_cloneTarget.length; i++) {
       // console.log("\t for running on " + all_cloneTarget[i].classList[2]);
