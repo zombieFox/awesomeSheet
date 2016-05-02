@@ -34,7 +34,7 @@ button {
     text-decoration: none;
   }
   &:active,
-  &.active {
+  &.is-active {
     background-color: $gray-17;
     border-color: $gray-13;
     color: $base-color;
@@ -89,7 +89,7 @@ input {
       text-decoration: none;
     }
     &:active,
-    &.active {
+    &.is-active {
       background-color: $gray-17;
       border-color: $gray-13;
       color: $base-color;
@@ -124,7 +124,7 @@ input {
     color: $white;
   }
   &:active,
-  &.active {
+  &.is-active {
     background-color: $primary-color-06;
     border-color: $primary-color-04;
     color: $white;
@@ -148,7 +148,7 @@ input {
     color: $white;
   }
   &:active,
-  &.active {
+  &.is-active {
     background-color: $secondary-color-06;
     border-color: $secondary-color-04;
     color: $white;
@@ -172,7 +172,7 @@ input {
     color: $white;
   }
   &:active,
-  &.active {
+  &.is-active {
     background-color: $light-alpha-12;
     border-color: $light-alpha-10;
     color: $white;
@@ -219,7 +219,7 @@ input {
     &:hover {
       z-index: 2;
     }
-    &.active,
+    &.is-active,
     &:active {
       z-index: 2;
     }

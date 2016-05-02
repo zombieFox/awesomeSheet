@@ -148,8 +148,8 @@ var sheet = (function() {
     inputBlock.bind();
     textareaBlock.bind();
     stats.bind();
+    clone.bind();
     // checkBlock.bind();
-    // clone.bind();
   };
 
   function render() {
@@ -159,7 +159,7 @@ var sheet = (function() {
     // checkBlock.render();
     stats.render();
     totalBlock.render();
-    // clone.render();
+    clone.render();
     // consumable.render();
     // spells.render();
   };
