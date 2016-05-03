@@ -39,7 +39,7 @@ var inputBlock = (function() {
     };
   };
 
-  function updateInputBlock(element) {
+  function update(element) {
     focus(element);
   };
 
@@ -76,7 +76,7 @@ var inputBlock = (function() {
       target.value = (parseInt(target.value, 10) || 0) - 1;
     };
     _store(target);
-    updateInputBlock(target);
+    update(target);
     totalBlock.update();
   };
 
@@ -150,14 +150,14 @@ var inputBlock = (function() {
       if (path) {
         var content = helper.getObject(sheet.getCharacter(), path);
         all_inputBlockField[i].value = content;
-        updateInputBlock(all_inputBlockField[i]);
+        update(all_inputBlockField[i]);
       };
     };
   };
 
   // exposed methods
   return {
-    update: updateInputBlock,
+    update: update,
     focus: focus,
     render: render,
     clear: clear,

@@ -1,193 +1,177 @@
-#spells {
-  .spell-level {
-    margin: 0 0 2rem;
-    h2,
-    input {
-      margin: 0 0 0.5rem;
+.m-spells {
+  &.is-state-prepare,
+  &.is-state-unprepare {
+    .m-spell-book-known {
+      .m-spell {
+        background-color: $secondary-color-alpha-18;
+        color: $base-color;
+        border-color: transparent;
+        &:link,
+        &:visited {}
+        &:focus {
+          outline: 0;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: $secondary-color-alpha-16;
+          outline: 0;
+          text-decoration: none;
+        }
+        &:active,
+        &.is-active {
+          background-color: $secondary-color-alpha-14;
+        }
+      }
     }
-    .spells-known {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .button {
-        padding: 0 10px;
-        margin: 0 0 3px 0;
-        width: 49.5%;
-        text-align: left;
-        font-size: 0.9rem;
-        overflow: hidden;
-        position: relative;
-        font-family: $open-sans-regular;
-        white-space: normal;
-        line-height: 2rem;
-        height: auto;
-        .spell-active,
-        .spell-name {
-          float: left;
-          margin: 0 5px 0 0;
-          display: block;
+  }
+  &.is-state-cast,
+  &.is-state-active {
+    .m-spell-book-known {
+      .m-spell {
+        background-color: $dark-alpha-16;
+        color: $base-color;
+        border-color: transparent;
+        &:link,
+        &:visited {}
+        &:focus {
+          outline: 0;
+          text-decoration: none;
         }
-        .spell-active {
-          visibility: visible;
-          [class*=" icon-"],
-          [class^="icon-"] {
-            float: left;
-            margin: 0;
-            line-height: 2rem;
-            height: auto;
-          }
+        &:hover {
+          background-color: $dark-alpha-14;
+          outline: 0;
+          text-decoration: none;
         }
-        .spell-name {
-          white-space: nowrap;
-          overflow: hidden;
+        &:active,
+        &.is-active {
+          background-color: $dark-alpha-12;
         }
-        .spell-marks {
-          float: right;
-          margin: 0 0 0 5px;
-          display: block;
-          visibility: visible;
-          [class*=" icon-"],
-          [class^="icon-"] {
-            float: right;
-            margin: 0 0 0 1px;
-            line-height: 2rem;
-            height: auto;
-          }
+      }
+    }
+  }
+  &.is-state-remove {
+    .m-spell-book-known {
+      .m-spell {
+        background-color: $primary-color-alpha-18;
+        color: $primary-color-07;
+        border-color: transparent;
+        &:link,
+        &:visited {
+          color: $gray-10;
         }
-        .spell-remove {
-          float: right;
-          margin: 0 0 0 5px;
+        &:focus {
+          outline: 0;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: $primary-color-alpha-16;
+          outline: 0;
+          text-decoration: none;
+        }
+        &:active,
+        &.is-active {
+          background-color: $primary-color-alpha-14;
+        }
+        .m-spell-marks {
           display: none;
           visibility: hidden;
-          [class*=" icon-"],
-          [class^="icon-"] {
-            float: right;
-            margin: 0 0 0 1px;
-            line-height: 2rem;
-            height: auto;
-          }
+        }
+        .m-spell-active {
+          display: none;
+          visibility: hidden;
+        }
+        .m-spell-remove {
+          display: block;
+          visibility: visible;
         }
       }
     }
   }
-  .new-spell {
-    position: relative;
-    z-index: 1;
-    .spell-name {
-      padding-right: 40px;
-    }
-    .new-spell-controls {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 2;
-      .button {
-        border: 0;
-        height: 2.5rem;
-        line-height: 2.5rem;
-        margin: 0;
-        padding: 0 15px;
-        float: left;
-        [class*=" icon-"],
-        [class^="icon-"] {
-          margin: 0;
-          height: 2.5rem;
-          line-height: 2.5rem;
-        }
-      }
+}
+
+.m-spell-book {
+  .m-spell-book-known {
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.m-spell {
+  margin: 0 0 3px 0;
+  width: 49.5%;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  white-space: normal;
+  .m-spell-active,
+  .m-spell-name {
+    float: left;
+    margin: 0 5px 0 0;
+    display: block;
+    text-transform: none;
+  }
+  .m-spell-active {
+    visibility: visible;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: left;
+      margin: 0;
+      line-height: 2rem;
+      height: auto;
     }
   }
-  &[data-spell-state="prepare"],
-  &[data-spell-state="unprepare"] {
-    .spell-level {
-      .spells-known {
-        .button-tertiary {
-          background-color: $secondary-color-alpha-18;
-          border-color: transparent;
-          &:link,
-          &:visited {}
-          &:focus {
-            outline: 0;
-            text-decoration: none;
-          }
-          &:hover {
-            background-color: $secondary-color-alpha-16;
-            outline: 0;
-            text-decoration: none;
-          }
-          &:active,
-          &.active {
-            background-color: $secondary-color-alpha-14;
-          }
-        }
-      }
+  .m-spell-name {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .m-spell-marks {
+    float: right;
+    margin: 0 0 0 5px;
+    display: block;
+    visibility: visible;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: right;
+      margin: 0 0 0 1px;
+      line-height: 2rem;
+      height: auto;
     }
   }
-  &[data-spell-state="cast"],
-  &[data-spell-state="active"] {
-    .spell-level {
-      .spells-known {
-        .button-primary {
-          background-color: $dark-alpha-16;
-          border-color: transparent;
-          &:link,
-          &:visited {}
-          &:focus {
-            outline: 0;
-            text-decoration: none;
-          }
-          &:hover {
-            background-color: $dark-alpha-14;
-            outline: 0;
-            text-decoration: none;
-          }
-          &:active,
-          &.active {
-            background-color: $dark-alpha-12;
-          }
-        }
-      }
+  .m-spell-remove {
+    float: right;
+    margin: 0 0 0 5px;
+    display: none;
+    visibility: hidden;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: right;
+      margin: 0 0 0 1px;
+      line-height: 2rem;
+      height: auto;
     }
   }
-  &[data-spell-state="remove"] {
-    .spell-level {
-      .spells-known {
-        .button {
-          background-color: $primary-color-alpha-18;
-          color: $primary-color-07;
-          border-color: transparent;
-          &:link,
-          &:visited {
-            color: $gray-10;
-          }
-          &:focus {
-            outline: 0;
-            text-decoration: none;
-          }
-          &:hover {
-            background-color: $primary-color-alpha-16;
-            outline: 0;
-            text-decoration: none;
-          }
-          &:active,
-          &.active {
-            background-color: $primary-color-alpha-14;
-          }
-          .spell-marks {
-            display: none;
-            visibility: hidden;
-          }
-          .spell-active {
-            display: none;
-            visibility: hidden;
-          }
-          .spell-remove {
-            display: block;
-            visibility: visible;
-          }
-        }
-      }
+}
+
+.m-new-spell {
+  position: relative;
+  z-index: 1;
+  .m-new-spell-field {
+    padding-right: 40px;
+  }
+  .m-new-spell-add {
+    margin-bottom: 0;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      margin: 0;
     }
   }
 }
@@ -197,38 +181,8 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin: 0 0 4px 0;
-        }
-      }
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin: 0 0 6px 0;
-        }
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-xl) {
-  #spells {
-    .spell-level {
-      .spells-known {
-        .button {
-          margin: 0 0 8px 0;
-        }
-      }
-    }
-  }
-}
+@media (min-width: $screen-xl) {}

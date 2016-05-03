@@ -278,13 +278,13 @@ var ro = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       diplomacy: {
         ranks: "",
@@ -390,25 +390,25 @@ var ro = (function() {
         ranks: "2",
         misc: "",
         class_skill: false,
-        type: "Dance"
+        variant_name: "Dance"
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       ride: {
         ranks: "2",

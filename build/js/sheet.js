@@ -135,13 +135,14 @@ var sheet = (function() {
     stats.bind();
     clone.bind();
     totalBlock.bind();
-    // checkBlock.bind();
+    spells.bind();
   };
 
   function clear() {
     inputBlock.clear();
     textareaBlock.clear();
     stats.render();
+    totalBlock.clear();
     totalBlock.update();
     clone.clear();
     // var all_spellsKnown = helper.eA(".spells-known");
@@ -157,13 +158,12 @@ var sheet = (function() {
     nav.resize();
     inputBlock.render();
     textareaBlock.render();
-    // checkBlock.render();
     stats.render();
     totalBlock.render();
     totalBlock.update();
     clone.render();
+    spells.render();
     // consumable.render();
-    // spells.render();
   };
 
   // exposed methods

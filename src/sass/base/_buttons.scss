@@ -16,7 +16,7 @@ button {
   cursor: pointer;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
-  transition: all $transition-ease-fast;
+  transition: all $transition-ease-extra-fast;
   display: inline-block;
   text-transform: uppercase;
   &:link,
@@ -71,7 +71,7 @@ input {
     cursor: pointer;
     box-sizing: border-box;
     border-radius: $border-radius-medium;
-    transition: all $transition-ease-fast;
+    transition: all $transition-ease-extra-fast;
     display: inline-block;
     text-transform: uppercase;
     &:link,
@@ -176,6 +176,30 @@ input {
     background-color: $light-alpha-12;
     border-color: $light-alpha-10;
     color: $white;
+  }
+}
+
+.button-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: $base-color;
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: transparent;
+    color: $base-color;
+  }
+  &:focus,
+  &:hover {
+    background-color: $dark-alpha-20;
+    border-color: transparent;
+    color: $primary-color-08;
+  }
+  &:active,
+  &.is-active {
+    background-color: $dark-alpha-18;
+    border-color: transparent;
+    color: $primary-color-06;
   }
 }
 
