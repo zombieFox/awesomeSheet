@@ -271,13 +271,13 @@ var marika = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       diplomacy: {
         ranks: "",
@@ -383,25 +383,25 @@ var marika = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       ride: {
         ranks: "",
