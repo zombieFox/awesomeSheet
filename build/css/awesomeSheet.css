@@ -722,7 +722,8 @@ input[type="radio"], input[type="checkbox"] {
   opacity: 0;
   display: block;
   height: 4rem;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
   input[type="radio"] + label, input[type="checkbox"] + label {
     line-height: 4rem;
     display: inline-block;

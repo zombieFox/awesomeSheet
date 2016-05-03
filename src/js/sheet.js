@@ -142,7 +142,7 @@ var sheet = (function() {
     inputBlock.clear();
     textareaBlock.clear();
     stats.render();
-    totalBlock.render();
+    totalBlock.update();
     clone.clear();
     // var all_spellsKnown = helper.eA(".spells-known");
     // for (var i = 0; i < all_cloneTarget.length; i++) {
@@ -160,6 +160,7 @@ var sheet = (function() {
     // checkBlock.render();
     stats.render();
     totalBlock.render();
+    totalBlock.update();
     clone.render();
     // consumable.render();
     // spells.render();

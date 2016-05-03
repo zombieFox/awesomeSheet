@@ -140,21 +140,39 @@ var nif = (function() {
         racial: "",
         resistance: "2",
         misc: "3",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "2",
         racial: "",
         resistance: "2",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "5",
         racial: "",
         resistance: "2",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
     },

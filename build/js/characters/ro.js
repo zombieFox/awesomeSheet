@@ -148,21 +148,39 @@ var ro = (function() {
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "1",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "3",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather"
     },

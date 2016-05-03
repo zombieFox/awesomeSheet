@@ -77,7 +77,7 @@ var inputBlock = (function() {
     };
     _store(target);
     updateInputBlock(target);
-    totalBlock.render();
+    totalBlock.update();
   };
 
   function _bind_inputBlock() {
@@ -88,17 +88,17 @@ var inputBlock = (function() {
         input.addEventListener("input", function() {
           _store(this);
           focus(this);
-          totalBlock.render();
+          totalBlock.update();
         }, false);
         input.addEventListener("focus", function() {
           _store(this);
           focus(this);
-          totalBlock.render();
+          totalBlock.update();
         }, false);
         input.addEventListener("blur", function() {
           _store(this);
           focus(this);
-          totalBlock.render();
+          totalBlock.update();
         }, false);
       };
     };

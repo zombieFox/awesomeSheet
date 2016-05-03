@@ -100,7 +100,7 @@ var blank = (function() {
         natural: "",
         size_bonus: "",
         str_bonus: false,
-        dex_bonus: false,
+        dex_bonus: true,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
@@ -120,7 +120,7 @@ var blank = (function() {
         misc: "",
         temp: "",
         str_bonus: false,
-        dex_bonus: false,
+        dex_bonus: true,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
@@ -132,21 +132,39 @@ var blank = (function() {
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: ""
     },
@@ -157,7 +175,7 @@ var blank = (function() {
       cmb: {
         misc: "",
         temp: "",
-        str_bonus: false,
+        str_bonus: true,
         dex_bonus: false,
         con_bonus: false,
         int_bonus: false,
@@ -169,8 +187,8 @@ var blank = (function() {
       cmd: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
+        str_bonus: true,
+        dex_bonus: true,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,

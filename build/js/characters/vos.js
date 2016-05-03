@@ -144,21 +144,39 @@ var vos = (function() {
         racial: "",
         resistance: "1",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "4",
         racial: "",
         resistance: "1",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "4",
         racial: "",
         resistance: "1",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: "+2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
     },

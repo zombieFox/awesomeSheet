@@ -1,11 +1,7 @@
 var totalBlock = (function() {
 
-  function render() {
-    _toggleChecks();
-    _totalBlocks();
-  };
 
-  function _toggleChecks() {
+  function render() {
     var all_totalBlockToggle = helper.eA(".js-total-block-toggle");
     for (var i = 0; i < all_totalBlockToggle.length; i++) {
       var check = all_totalBlockToggle[i].querySelector(".js-total-block-toggle-check");
@@ -73,7 +69,7 @@ var totalBlock = (function() {
     };
   };
 
-  function _totalBlocks() {
+  function update() {
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
       var statsStrModifier = helper.e(".js-stats-str-modifier");
@@ -289,14 +285,21 @@ var totalBlock = (function() {
     };
   };
 
+  function _store(element) {
+    var totalBlock = helper.getClosest(element, ".js-total-block");
+    var path = element.dataset.path;
+    helper.updateObject(sheet.getCharacter(), path, element.checked);
+    sheet.storeCharacters();
+  };
+
   function bind() {
     var all_totalBlockToggle = helper.eA(".js-total-block-toggle");
     for (var i = 0; i < all_totalBlockToggle.length; i++) {
       var check = all_totalBlockToggle[i].querySelector(".js-total-block-toggle-check");
       check.addEventListener("click", function() {
         _addRemoveBonus(this);
-        // _store(this);
-        totalBlock.render();
+        _store(this);
+        update();
       }, false);
     };
   };
@@ -420,6 +423,7 @@ var totalBlock = (function() {
   // exposed methods
   return {
     bind: bind,
+    update: update,
     render: render
   };
 

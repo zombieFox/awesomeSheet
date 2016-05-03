@@ -37,13 +37,13 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         render();
-        totalBlock.render();
+        totalBlock.update();
       }, false);
     };
     for (var i = 0; i < scoreTemp.length; i++) {
       scoreTemp[i].addEventListener("input", function() {
         render();
-        totalBlock.render();
+        totalBlock.update();
       }, false);
     };
   };
