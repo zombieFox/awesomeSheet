@@ -1,0 +1,46 @@
+.l-snacks {
+  height: 100px;
+ 
+  background-color: $primary-color-alpha-20;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  z-index: $snacks;
+  box-sizing: border-box;
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .l-snacks {
+    max-width: 92%;
+    width: 92%;
+    margin: 4%;
+  }
+}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {
+  .l-snacks {
+    max-width: 60%;
+    width: 60%;
+    margin: 2%;
+  }
+}
+
+@media (min-width: $screen-xl) {
+  .l-snacks {
+    max-width: 50%;
+    width: 50%;
+    margin: 2%;
+  }
+}

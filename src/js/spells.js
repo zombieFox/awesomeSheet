@@ -336,8 +336,18 @@ var spells = (function() {
     return spellButton;
   };
 
+  function clear() {
+    var all_spellBookKnown = helper.eA(".js-spell-book-known");
+    for (var i = 0; i < all_spellBookKnown.length; i++) {
+      while (all_spellBookKnown[i].lastChild) {
+        all_spellBookKnown[i].removeChild(all_spellBookKnown[i].lastChild);
+      };
+    };
+  };
+
   // exposed methods
   return {
+    clear: clear,
     bind: bind,
     render: render
   };
