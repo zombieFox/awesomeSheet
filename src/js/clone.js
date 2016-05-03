@@ -546,7 +546,6 @@ var clone = (function() {
     for (var i = 0; i < all_cloneTarget.length; i++) {
       // console.log("\t for running on " + all_cloneTarget[i].classList[2]);
       while (all_cloneTarget[i].lastChild) {
-        console.log("white running");
         all_cloneTarget[i].removeChild(all_cloneTarget[i].lastChild);
       };
     };
