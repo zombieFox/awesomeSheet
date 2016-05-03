@@ -1,6 +1,79 @@
 var totalBlock = (function() {
 
   function render() {
+    _toggleChecks();
+    _totalBlocks();
+  };
+
+  function _toggleChecks() {
+    var all_totalBlockToggle = helper.eA(".js-total-block-toggle");
+    for (var i = 0; i < all_totalBlockToggle.length; i++) {
+      var check = all_totalBlockToggle[i].querySelector(".js-total-block-toggle-check");
+      var path = check.dataset.path;
+      var bonusType = check.dataset.bonusType;
+      var state = helper.getObject(sheet.getCharacter(), path);
+      var totalBlock = helper.getClosest(check, ".js-total-block");
+      check.checked = state;
+      if (state) {
+        if (bonusType == "str-bonus") {
+          totalBlock.dataset.strBonus = "true";
+        };
+        if (bonusType == "dex-bonus") {
+          totalBlock.dataset.dexBonus = "true";
+        };
+        if (bonusType == "con-bonus") {
+          totalBlock.dataset.conBonus = "true";
+        };
+        if (bonusType == "int-bonus") {
+          totalBlock.dataset.intBonus = "true";
+        };
+        if (bonusType == "wis-bonus") {
+          totalBlock.dataset.wisBonus = "true";
+        };
+        if (bonusType == "cha-bonus") {
+          totalBlock.dataset.chaBonus = "true";
+        };
+        if (bonusType == "bab") {
+          totalBlock.dataset.babBonus = "true";
+        };
+        if (bonusType == "size") {
+          totalBlock.dataset.sizeBonus = "true";
+        };
+        if (bonusType == "special-size") {
+          totalBlock.dataset.specialSizeBonus = "true";
+        };
+        if (bonusType == "level") {
+          totalBlock.dataset.levelBonus = "true";
+        };
+        if (bonusType == "half-level") {
+          totalBlock.dataset.halfLevelBonus = "true";
+        };
+        if (bonusType == "plus-ten") {
+          totalBlock.dataset.plusTenBonus = "true";
+        };
+        if (bonusType == "ac-armor") {
+          totalBlock.dataset.acArmor = "true";
+        };
+        if (bonusType == "ac-shield") {
+          totalBlock.dataset.acShield = "true";
+        };
+        if (bonusType == "ac-deflect") {
+          totalBlock.dataset.acDeflect = "true";
+        };
+        if (bonusType == "ac-dodge") {
+          totalBlock.dataset.acDodge = "true";
+        };
+        if (bonusType == "ac-natural") {
+          totalBlock.dataset.acNatural = "true";
+        };
+        if (bonusType == "class-skill") {
+          totalBlock.dataset.classSkill = "true";
+        };
+      };
+    };
+  };
+
+  function _totalBlocks() {
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
       var statsStrModifier = helper.e(".js-stats-str-modifier");
