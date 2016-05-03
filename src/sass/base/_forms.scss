@@ -93,13 +93,11 @@ input {
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
-      height: $root-line-height-extra-large;
       line-height: $root-line-height-extra-large;
       display: inline-block;
       cursor: pointer;
       color: $base-color;
       transition: color $transition-ease-fast;
-      float: left;
       &:before {
         font-family: "Material Design Icons";
         speak: none;

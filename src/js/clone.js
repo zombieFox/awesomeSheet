@@ -146,7 +146,7 @@ var clone = (function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
       sheet.storeCharacters();
-      consumable.render();
+      // consumable.render();
       if (_getCloneCount("consumable") <= 99) {
         snack.render("Consumable added.", false, false);
       };
@@ -296,26 +296,24 @@ var clone = (function() {
     var cloneBlock;
     var cloneTarget;
     if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".attack");
+      cloneBlock = helper.e(".js-clone-block-attack");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
     };
     if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".attack");
+      cloneBlock = helper.e(".js-clone-block-attack");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
-      cloneBlock = helper.e(".consumable");
+      cloneBlock = helper.e(".js-clone-block-consumable");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
     };
-    var cloneCount = cloneBlock.querySelectorAll(".js-clone").length;
-    var cloneControls = cloneBlock.querySelector(".clone-controls");
-    var cloneRemoveButton = cloneControls.querySelector(".clone-remove");
-    if (cloneCount == 0) {
+    var cloneCount = cloneBlock.querySelectorAll(".js-clone");
+    var cloneControls = cloneBlock.querySelector(".js-clone-controls");
+    var cloneRemoveButton = cloneControls.querySelector(".js-clone-remove");
+    if (cloneCount.length == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
-      helper.removeClass(cloneRemoveButton, "active");
-      helper.removeClass(cloneRemoveButton, "button-primary");
-      helper.addClass(cloneRemoveButton, "button-quaternary");
+      helper.removeClass(cloneRemoveButton, "is-active");
     };
   };
 
@@ -399,21 +397,21 @@ var clone = (function() {
       };
       input.addEventListener("input", function() {
         _updateCloneConsumable();
-        consumable.render();
+        // consumable.render();
         consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneConsumable();
-        consumable.render();
+        // consumable.render();
         consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneConsumable();
-        consumable.render();
+        // consumable.render();
         consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
@@ -428,8 +426,6 @@ var clone = (function() {
     var cloneCount = cloneBlock.querySelectorAll(".js-clone").length;
     // change clone remove button
     helper.toggleClass(cloneRemoveButton, "is-active");
-    helper.toggleClass(cloneRemoveButton, "button-primary");
-    helper.toggleClass(cloneRemoveButton, "button-quaternary");
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "true") {
       helper.removeClass(cloneBlock, "is-delete-state");
@@ -443,8 +439,6 @@ var clone = (function() {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneRemoveButton, "is-active");
-      helper.removeClass(cloneRemoveButton, "button-primary");
-      helper.addClass(cloneRemoveButton, "button-quaternary");
     };
   };
 
