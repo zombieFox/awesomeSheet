@@ -39,13 +39,13 @@
   border-color: $secondary-color-alpha-20;
 }
 
-.text-right {
-  text-align: right;
+.u-small-text {
+  color: $gray-12;
+  font-size: $font-size-extra-small;
 }
 
-.small-text {
-  color: $base-color;
-  font-size: $font-size-small;
+.text-right {
+  text-align: right;
 }
 
 .right {

@@ -20,10 +20,17 @@
   &.is-active {
     top: -1.5em;
     left: 0;
-    color: $dark-alpha-12;
+    color: $gray-12;
     font-size: 0.8em;
     height: 1.5em;
     line-height: 1.5em;
+  }
+}
+
+.m-input-block-label-dark {
+  color: $dark-alpha-16;
+  &.is-active {
+    color: $dark-alpha-12;
   }
 }
 
@@ -51,6 +58,21 @@
 .m-input-block-field {
   position: relative;
   z-index: 1;
+}
+
+.m-input-block-field-dark {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    background-color: $dark-alpha-19;
+    color: $white;
+    &:focus {
+      border-color: $secondary-color-15;
+    }
+  }
 }
 
 // --------------------------------------------------

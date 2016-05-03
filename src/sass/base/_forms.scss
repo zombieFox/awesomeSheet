@@ -73,29 +73,10 @@ input {
   }
 }
 
-.input-dark {
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="text"],
-  &[type="tel"],
-  &[type="password"] {
-    background-color: $dark-alpha-19;
-    color: $white;
-    &:focus {
-      border-color: $secondary-color-15;
-    }
-  }
-}
-
 label {
   line-height: $root-line-height-extra-large;
   color: $gray-16;
   display: inline-block;
-}
-
-.label-dark {
-  color: $dark-alpha-10;
 }
 
 input {
@@ -107,14 +88,18 @@ input {
     opacity: 0;
     display: block;
     height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
     cursor: pointer;
+    box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
+      height: $root-line-height-extra-large;
       line-height: $root-line-height-extra-large;
       display: inline-block;
       cursor: pointer;
       color: $base-color;
       transition: color $transition-ease-fast;
+      float: left;
       &:before {
         font-family: "Material Design Icons";
         speak: none;
@@ -126,6 +111,7 @@ input {
         float: left;
         margin-right: 5px;
         font-size: $font-size-large;
+        height: $root-line-height-extra-large;
         line-height: $root-line-height-extra-large;
         color: $secondary-color-04;
         vertical-align: text-bottom;

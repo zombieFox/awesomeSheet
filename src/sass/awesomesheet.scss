@@ -19,15 +19,15 @@
 @import "layouts/structure";
 // --------------------------------------------------
 @import "modules/style-guide";
+@import "modules/nav";
 @import "modules/section";
 @import "modules/clone";
-@import "modules/consumable";
+// @import "modules/consumable";
 @import "modules/input-block";
-@import "modules/quick-nav";
-@import "modules/nav";
-@import "modules/prompt";
-@import "modules/skills";
-@import "modules/snacks";
-@import "modules/spells";
-@import "modules/statistics";
 @import "modules/textarea-block";
+@import "modules/statistics";
+@import "modules/quick-nav";
+@import "modules/skills";
+@import "modules/spells";
+@import "modules/prompt";
+@import "modules/snacks";
