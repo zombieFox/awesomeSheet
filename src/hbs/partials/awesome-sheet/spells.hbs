@@ -1,57 +1,55 @@
-<section id="spells" data-spell-state="false">
-  <div class="section-heading">
+<section id="spells" class="l-section m-clone-block js-section js-clone-block-consumable" data-spell-state="false">
+  <div class="m-section-heading js-section-heading">
     <div class="container">
       <div class="row">
         <div class="col-xs-2">
           <h1>Spells</h1>
         </div>
         <div class="col-xs-10">
-          <div class="section-controls">
-            <div class="button-group clearfix">
-              <button class="spell-state-control prepare-spell button button-tertiary button-icon button-small" data-state="prepare"><span class="icon icon-radio-button-checked"></span>Prepare</button>
-              <button class="spell-state-control unprepare-spell button button-tertiary button-icon button-small" data-state="unprepare"><span class="icon icon-refresh"></span>Unprepare</button>
-              <button class="spell-state-control cast-spell button button-tertiary button-icon button-small" data-state="cast"><span class="icon icon-radio-button-unchecked"></span>Cast</button>
-              <button class="spell-state-control active-spell button button-tertiary button-icon button-small" data-state="active"><span class="icon icon-play-arrow"></span>Active</button>
-              <button class="spell-state-control remove-spell button button-tertiary button-icon button-small" data-state="remove"><span class="icon icon-close"></span>Remove</button>
+          <div class="m-section-controls">
+            <div class="button-group js-spell-controls">
+              <button class="js-spell-prepare button button-tertiary button-small" data-state="prepare"><span class="icon icon-radio-button-checked"></span>Prepare</button>
+              <button class="js-spell-unprepare button button-tertiary button-small" data-state="unprepare"><span class="icon icon-refresh"></span>Unprepare</button>
+              <button class="js-spell-cast button button-tertiary button-small" data-state="cast"><span class="icon icon-radio-button-unchecked"></span>Cast</button>
+              <button class="js-spell-active button button-tertiary button-small" data-state="active"><span class="icon icon-play-arrow"></span>Active</button>
+              <button class="js-spell-remove button button-tertiary button-small" data-state="remove"><span class="icon icon-close"></span>Remove</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="section-wrapper">
+  <div class="m-section-wrapper">
     <div class="container">
       <div class="row">
         <div class="clearfix spell-level" data-spell-level="0">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 0</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 0</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-0">Known</label>
-                  <input class="input-field" id="spells-known-level-0" data-path="spells.known.level_0" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-0">Known</label>
+                  <input id="spells-known-level-0" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_0" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-0">Daily</label>
-                  <input class="input-field" id="spells-daily-level-0" data-path="spells.per_day.level_0" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-0">Daily</label>
+                  <input id="spells-daily-level-0" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_0" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-0">DC</label>
-                  <input class="input-field" id="spells-dc-level-0" data-path="spells.dc.level_0" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-0">DC</label>
+                  <input id="spells-dc-level-0" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_0" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -64,34 +62,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="1">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 1</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 1</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-1">Known</label>
-                  <input class="input-field" id="spells-known-level-1" data-path="spells.known.level_1" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-1">Known</label>
+                  <input id="spells-known-level-1" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_1" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-1">Daily</label>
-                  <input class="input-field" id="spells-daily-level-1" data-path="spells.per_day.level_1" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-1">Daily</label>
+                  <input id="spells-daily-level-1" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_1" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-1">DC</label>
-                  <input class="input-field" id="spells-dc-level-1" data-path="spells.dc.level_1" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-1">DC</label>
+                  <input id="spells-dc-level-1" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_1" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -104,34 +100,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="2">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 2</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 2</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-2">Known</label>
-                  <input class="input-field" id="spells-known-level-2" data-path="spells.known.level_2" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-2">Known</label>
+                  <input id="spells-known-level-2" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_2" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-2">Daily</label>
-                  <input class="input-field" id="spells-daily-level-2" data-path="spells.per_day.level_2" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-2">Daily</label>
+                  <input id="spells-daily-level-2" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_2" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-2">DC</label>
-                  <input class="input-field" id="spells-dc-level-2" data-path="spells.dc.level_2" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-2">DC</label>
+                  <input id="spells-dc-level-2" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_2" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -144,34 +138,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="3">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 3</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 3</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-3">Known</label>
-                  <input class="input-field" id="spells-known-level-3" data-path="spells.known.level_3" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-3">Known</label>
+                  <input id="spells-known-level-3" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_3" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-3">Daily</label>
-                  <input class="input-field" id="spells-daily-level-3" data-path="spells.per_day.level_3" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-3">Daily</label>
+                  <input id="spells-daily-level-3" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_3" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-3">DC</label>
-                  <input class="input-field" id="spells-dc-level-3" data-path="spells.dc.level_3" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-3">DC</label>
+                  <input id="spells-dc-level-3" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_3" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -184,34 +176,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="4">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 4</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 4</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-4">Known</label>
-                  <input class="input-field" id="spells-known-level-4" data-path="spells.known.level_4" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-4">Known</label>
+                  <input id="spells-known-level-4" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_4" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-4">Daily</label>
-                  <input class="input-field" id="spells-daily-level-4" data-path="spells.per_day.level_4" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-4">Daily</label>
+                  <input id="spells-daily-level-4" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_4" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-4">DC</label>
-                  <input class="input-field" id="spells-dc-level-4" data-path="spells.dc.level_4" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-4">DC</label>
+                  <input id="spells-dc-level-4" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_4" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -224,34 +214,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="5">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 5</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 5</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-5">Known</label>
-                  <input class="input-field" id="spells-known-level-5" data-path="spells.known.level_5" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-5">Known</label>
+                  <input id="spells-known-level-5" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_5" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-5">Daily</label>
-                  <input class="input-field" id="spells-daily-level-5" data-path="spells.per_day.level_5" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-5">Daily</label>
+                  <input id="spells-daily-level-5" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_5" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-5">DC</label>
-                  <input class="input-field" id="spells-dc-level-5" data-path="spells.dc.level_5" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-5">DC</label>
+                  <input id="spells-dc-level-5" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_5" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -264,34 +252,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="6">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 6</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 6</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-6">Known</label>
-                  <input class="input-field" id="spells-known-level-6" data-path="spells.known.level_6" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-6">Known</label>
+                  <input id="spells-known-level-6" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_6" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-6">Daily</label>
-                  <input class="input-field" id="spells-daily-level-6" data-path="spells.per_day.level_6" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-6">Daily</label>
+                  <input id="spells-daily-level-6" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_6" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-6">DC</label>
-                  <input class="input-field" id="spells-dc-level-6" data-path="spells.dc.level_6" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-6">DC</label>
+                  <input id="spells-dc-level-6" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_6" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -304,34 +290,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="7">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 7</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 7</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-7">Known</label>
-                  <input class="input-field" id="spells-known-level-7" data-path="spells.known.level_7" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-7">Known</label>
+                  <input id="spells-known-level-7" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_7" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-7">Daily</label>
-                  <input class="input-field" id="spells-daily-level-7" data-path="spells.per_day.level_7" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-7">Daily</label>
+                  <input id="spells-daily-level-7" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_7" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-7">DC</label>
-                  <input class="input-field" id="spells-dc-level-7" data-path="spells.dc.level_7" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-7">DC</label>
+                  <input id="spells-dc-level-7" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_7" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -344,34 +328,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="8">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 8</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 8</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-8">Known</label>
-                  <input class="input-field" id="spells-known-level-8" data-path="spells.known.level_8" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-8">Known</label>
+                  <input id="spells-known-level-8" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_8" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-8">Daily</label>
-                  <input class="input-field" id="spells-daily-level-8" data-path="spells.per_day.level_8" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-8">Daily</label>
+                  <input id="spells-daily-level-8" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_8" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-8">DC</label>
-                  <input class="input-field" id="spells-dc-level-8" data-path="spells.dc.level_8" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-8">DC</label>
+                  <input id="spells-dc-level-8" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_8" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -384,34 +366,32 @@
         </div>
         <div class="clearfix spell-level" data-spell-level="9">
           <div class="col-xs-12 col-sm-12 col-lg-3">
-            <h2 class="inline-with-input">Level 9</h2>
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Level 9</h2>
           </div>
           <div class="col-xs-12 col-sm-12 col-lg-9">
             <div class="row no-gutter">
               <div class="col-xs-6">
-                <div class="new-spell">
-                  <input type="text" class="spell-name" placeholder="Add Spell" tabindex="3">
-                  <div class="new-spell-controls">
-                    <button class="button button-tertiary button-small add-spell"><span class="icon-add"></span></button>
-                  </div>
+                <div class="m-new-spell js-new-spell">
+                  <input class="m-new-spell-field u-full-width js-new-spell-field" placeholder="Add Spell" type="text" tabindex="3">
+                  <button class="m-new-spell-add button button-secondary button-small js-new-spell-add"><span class="icon-add"></span></button>
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-known-level-9">Known</label>
-                  <input class="input-field" id="spells-known-level-9" data-path="spells.known.level_9" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-known-level-9">Known</label>
+                  <input id="spells-known-level-9" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.known.level_9" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-daily-level-9">Daily</label>
-                  <input class="input-field" id="spells-daily-level-9" data-path="spells.per_day.level_9" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-daily-level-9">Daily</label>
+                  <input id="spells-daily-level-9" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.per_day.level_9" type="text" tabindex="3">
                 </div>
               </div>
               <div class="col-xs-2">
-                <div class="input-block">
-                  <label class="input-label" for="spells-dc-level-9">DC</label>
-                  <input class="input-field" id="spells-dc-level-9" data-path="spells.dc.level_9" type="text" tabindex="3">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-dc-level-9">DC</label>
+                  <input id="spells-dc-level-9" class="m-input-block-field u-full-width js-input-block-field" data-path="spells.dc.level_9" type="text" tabindex="3">
                 </div>
               </div>
             </div>

@@ -1,37 +1,42 @@
 var spells = (function() {
 
-  var _bind_spellControls = (function() {
-    var all_addSpell = helper.eA(".add-spell");
-    for (var i = 0; i < all_addSpell.length; i++) {
-      all_addSpell[i].addEventListener("click", function() {
+  function bind() {
+    var spellPrepareButton = helper.e(".js-spell-prepare");
+    var spellUnprepareButton = helper.e(".js-spell-unprepare");
+    var spellCastButton = helper.e(".js-spell-cast");
+    var spellActiveButton = helper.e(".js-spell-active");
+    var spellRemoveButton = helper.e(".js-spell-remove");
+    var all_newSpellAdd = helper.eA(".js-new-spell-add");
+    for (var i = 0; i < all_newSpellAdd.length; i++) {
+      all_newSpellAdd[i].addEventListener("click", function() {
         _addNewSpell(helper.getClosest(this, ".new-spell").querySelector(".spell-name"));
         _updateSpells(true);
         sheet.storeCharacters();
       }, false);
     };
-    for (var i = 0; i < all_addSpell.length; i++) {
-      var newSpellRoot = helper.getClosest(all_addSpell[i], ".new-spell");
-      var all_addSpell_input = newSpellRoot.querySelector("input");
-      all_addSpell_input.addEventListener("keypress", function() {
+    for (var i = 0; i < all_newSpellAdd.length; i++) {
+      var newSpell = helper.getClosest(all_newSpellAdd[i], ".js-new-spell");
+      var newSpellField = newSpell.querySelector(".js-new-spell-field");
+      newSpellField.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
       }, false);
     };
-    helper.e("#spells .prepare-spell").addEventListener("click", function() {
+    spellPrepareButton.addEventListener("click", function() {
       _changeSpellState(this);
     }, false);
-    helper.e("#spells .unprepare-spell").addEventListener("click", function() {
+    spellUnprepareButton.addEventListener("click", function() {
       _changeSpellState(this);
     }, false);
-    helper.e("#spells .cast-spell").addEventListener("click", function() {
+    spellCastButton.addEventListener("click", function() {
       _changeSpellState(this);
     }, false);
-    helper.e("#spells .active-spell").addEventListener("click", function() {
+    spellActiveButton.addEventListener("click", function() {
       _changeSpellState(this);
     }, false);
-    helper.e("#spells .remove-spell").addEventListener("click", function() {
+    spellRemoveButton.addEventListener("click", function() {
       _changeSpellState(this);
     }, false);
-  })();
+  };
 
   function _addNewSpellOnEnter(element) {
     var keystroke = event.keyCode || event.which;
@@ -272,6 +277,7 @@ var spells = (function() {
     // build an array of spell objects
     var spellsToRender;
     // iterate over all objects keys to find spells then push those values to spellsToRender
+    console.log(sheet.getCharacter().spells.book);
     if (sheet.getCharacter().spells.book) {
       for (var i in sheet.getCharacter().spells.book) {
         for (var j in sheet.getCharacter().spells.book[i]) {
@@ -337,6 +343,7 @@ var spells = (function() {
 
   // exposed methods
   return {
+    bind: bind,
     render: render
   };
 

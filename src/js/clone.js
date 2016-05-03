@@ -137,12 +137,12 @@ var clone = (function() {
   function bindControls() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
-    var consumableCloneAdd = cloneBlockConsumable.querySelector(".js-clone-add");
-    var consumableCloneRemove = cloneBlockConsumable.querySelector(".js-clone-remove");
+    var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
+    var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove-consumable");
     var attackCloneAddMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
     var attackCloneAddRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
     var attackCloneRemove = cloneBlockAttack.querySelector(".js-clone-remove");
-    consumableCloneAdd.addEventListener("click", function() {
+    cloneAddConsumable.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
       sheet.storeCharacters();
@@ -151,7 +151,7 @@ var clone = (function() {
         snack.render("Consumable added.", false, false);
       };
     }, false);
-    consumableCloneRemove.addEventListener("click", function() {
+    cloneRemoveConsumable.addEventListener("click", function() {
       _changeCloneState("consumable");
       _updateCloneConsumable();
       sheet.storeCharacters();

@@ -135,6 +135,7 @@ var sheet = (function() {
     stats.bind();
     clone.bind();
     totalBlock.bind();
+    spells.bind();
   };
 
   function clear() {
@@ -161,8 +162,8 @@ var sheet = (function() {
     totalBlock.render();
     totalBlock.update();
     clone.render();
+    spells.render();
     // consumable.render();
-    // spells.render();
   };
 
   // exposed methods
