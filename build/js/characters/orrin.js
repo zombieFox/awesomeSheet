@@ -206,14 +206,21 @@ var orrin = (function() {
       },
       attack: {
         melee: [{
-          weapon: "",
-          attack: "",
-          damage: "",
-          critical: ""
+          weapon: "Rapier (MW)",
+          attack: "6",
+          damage: "1d6+1",
+          critical: "18–20/×2"
         }],
-        ranged: []
+        ranged: [{
+          weapon: "Shortbow (MW)",
+          attack: "6",
+          damage: "1d6",
+          critical: "x3",
+          range: "60 ft",
+          ammo: "50"
+        }]
       },
-      attack_notes: "+2 to overcome spell resistance"
+      attack_notes: "+1d6 Sneak attack, +2 to overcome spell resistance"
     },
     skills: {
       acrobatics: {

@@ -59,7 +59,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-2 col-md-3">' +
       '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Damage</label>' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
       '<input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
@@ -224,13 +224,13 @@ var clone = (function() {
         cloneTarget.appendChild(newNode);
         // bind listeners
         if (cloneType == "consumable") {
-          _bind_cloneConsumableInput(newNode.querySelectorAll(".input-block"));
+          _bind_cloneConsumableInput(newNode.querySelectorAll(".js-input-block"));
         };
         if (cloneType == "attack-melee") {
-          _bind_cloneAttackMeleeInput(newNode.querySelectorAll(".input-block"));
+          _bind_cloneAttackMeleeInput(newNode.querySelectorAll(".js-input-block"));
         };
         if (cloneType == "attack-ranged") {
-          _bind_cloneAttackRangedInput(newNode.querySelectorAll(".input-block"));
+          _bind_cloneAttackRangedInput(newNode.querySelectorAll(".js-input-block"));
         };
         _bind_cloneRemoveButton(newNode.querySelector(".js-clone-block-delete"), cloneType);
       };
@@ -341,7 +341,7 @@ var clone = (function() {
 
   function _bind_cloneAttackMeleeInput(array) {
     for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".input-field");
+      var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
         _updateCloneAttackMelee();
         sheet.storeCharacters();
@@ -362,7 +362,7 @@ var clone = (function() {
 
   function _bind_cloneAttackRangedInput(array) {
     for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".input-field");
+      var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
         _updateCloneAttackRanged();
         sheet.storeCharacters();
@@ -383,7 +383,7 @@ var clone = (function() {
 
   function _bind_cloneConsumableInput(array) {
     for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".input-field");
+      var input = array[i].querySelector(".js-input-block-field");
       if (input.classList.contains("consumable-used") || input.classList.contains("consumable-total")) {
         input.addEventListener("input", function() {
           _minMaxCountLimit(this);
@@ -398,21 +398,21 @@ var clone = (function() {
       input.addEventListener("input", function() {
         _updateCloneConsumable();
         // consumable.render();
-        consumable.update();
+        // consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneConsumable();
         // consumable.render();
-        consumable.update();
+        // consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneConsumable();
         // consumable.render();
-        consumable.update();
+        // consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);

@@ -451,7 +451,6 @@ var ro = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -466,7 +465,6 @@ var ro = (function() {
         half_level: false
       },
       custom_2: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -481,7 +479,6 @@ var ro = (function() {
         half_level: false
       },
       custom_3: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -496,7 +493,6 @@ var ro = (function() {
         half_level: false
       },
       custom_4: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
