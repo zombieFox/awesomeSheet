@@ -444,7 +444,6 @@ var marika = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "Dex",
         name: "Disable Device Trap",
         ranks: "9",
         misc: "4",
@@ -459,7 +458,6 @@ var marika = (function() {
         half_level: true
       },
       custom_2: {
-        stat: "Wis",
         name: "Perception Trap",
         ranks: "9",
         misc: "5",
@@ -474,7 +472,6 @@ var marika = (function() {
         half_level: true
       },
       custom_3: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -489,7 +486,6 @@ var marika = (function() {
         half_level: false
       },
       custom_4: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
