@@ -1,30 +1,31 @@
 .m-snack-bar {
-  background-color: $gray-01;
-  padding: 5px 20px;
+  background-color: $gray-02;
+  padding: 10px 20px;
   margin: 0;
   width: 100%;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   overflow: hidden;
-  box-sizing: border-box;
-  transition: all $transition-ease-medium;
-  transform: translateY(100px);
+  transition: all $transition-ease-fast;
   opacity: 0;
+  z-index: $snacks;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translatey(100%);
+  .m-snack-bar-button {
+    margin: 0 0 0 20px;
+  }
   .m-snack-bar-message {
     margin: 0;
     color: $white;
-    height: 30px;
-    line-height: 30px;
-    font-size: 1rem;
+    font-size: 1em;
     font-family: $open-sans-semi-bold;
-    white-space: nowrap;
-    overflow: hidden;
   }
   &.is-reveal {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translatey(0);
   }
 }
 
@@ -33,18 +34,31 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-snack-bar {
+    padding: 15px 20px;
+    width: 80%;
+    margin-bottom: 0;
+    margin-left: 20px;
     border-radius: $border-radius-medium;
     box-shadow: $shadow-medium;
     box-sizing: border-box;
-    .m-snack-bar-message {
-      height: 35px;
-      line-height: 35px;
-    }
+    transform: translatey(100%);
+    transition: all $transition-bounce-fast;
+  }
+  &.is-reveal {
+    margin-bottom: 20px;
   }
 }
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  .m-snack-bar {
+    width: 70%;
+  }
+}
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-snack-bar {
+    width: 60%;
+  }
+}
 
 @media (min-width: $screen-xl) {}
