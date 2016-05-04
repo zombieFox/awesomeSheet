@@ -121,8 +121,14 @@ var sheet = (function() {
   };
 
   function printCharacterObject(index) {
+    var name;
+    if (getCharacter().basics.name) {
+      name = getCharacter().basics.name;
+    } else {
+      name = "New character";
+    };
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("download", "Character JSON data:", exportData, "download");
+    prompt.render("Download " + name, false, "Download", "download");
     if (helper.e(".prompt pre")) {
       helper.selectText(".prompt pre");
     };

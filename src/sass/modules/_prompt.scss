@@ -1,93 +1,84 @@
-.prompt {
-  .container {
-    max-width: 100%;
-  }
-  &.prompt-shade {
-    background-color: $dark-alpha-10;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: $prompt;
-    opacity: 0;
-    transition: all $transition-ease-medium;
-  }
-  &.prompt-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: $prompt;
-    width: 80%;
-    max-height: 80%;
-    min-width: 300px;
-    box-sizing: border-box;
-    border-radius: $border-radius-small;
-    transform: translate(-50%, -50%);
-    box-shadow: $shadow-large;
-    opacity: 0;
-    transition: all $transition-ease-medium;
-    .prompt-message {
-      background-color: $white;
-      border-radius: $border-radius-small $border-radius-small 0 0;
-      padding: 40px 0;
-      .prompt-heading {
-        border-left: 40px solid $primary-color-10;
-        padding: 0 60px 0 20px;
-      }
-      .prompt-text {
-        margin: 0 60px;
+.m-prompt-shade {
+  background-color: $dark-alpha-10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $prompt;
+  opacity: 0;
+  transition: all $transition-ease-fast;
+}
+
+.m-prompt {
+  background-color: $white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: $prompt;
+  width: 80%;
+  max-height: 80%;
+  min-width: 300px;
+  box-sizing: border-box;
+  border-radius: $border-radius-small;
+  transform: translate(-50%, -50%);
+  box-shadow: $shadow-large;
+  opacity: 0;
+  transition: all $transition-ease-fast;
+  .m-prompt-message {
+    background-color: $white;
+    border-radius: $border-radius-small $border-radius-small 0 0;
+    padding: 40px 0;
+    .m-prompt-heading {
+      border-left: 40px solid $primary-color-10;
+      padding: 0 60px 0 20px;
+      font-size: 1.5em;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
-    .prompt-code {
-      background-color: $dark-alpha-06;
-      max-height: 300px;
-      overflow-y: scroll;
+    .m-prompt-text {
+      margin-right: 60px;
+      margin-left: 60px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .m-prompt-controls {
+    background-color: $white;
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    .button {
+      padding: 0;
       margin: 0;
-      padding: 20px 60px;
-      color: $white;
-      box-sizing: border-box;
-      box-shadow: $shadow-large-inset;
-      white-space: pre-wrap;
-    }
-    .prompt-controls {
-      background-color: $white;
-      border-radius: 0 0 $border-radius-small $border-radius-small;
-      .button {
-        margin: 0;
-        width: 50%;
-        height: 50px;
-        line-height: 48px;
-        &.button-primary,
-        &.button-tertiary {
-          border-right: 0;
-          border-bottom: 0;
-          border-left: 0;
-        }
-        &:first-child {
-          border-radius: 0 0 0 $border-radius-small;
-        }
-        &:last-child {
-          border-radius: 0 0 $border-radius-small 0;
-        }
+      width: 50%;
+      height: 6rem;
+      line-height: 6rem;
+      &.button {
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
       }
-    }
-    &.confirm {
-      .prompt-message {
-        .prompt-heading {
-          margin: 0 0 20px 0;
-        }
+      &:first-child {
+        border-radius: 0 0 0 $border-radius-small;
       }
-    }
-    &.download {
-      .prompt-message {
-        .prompt-heading {
-          margin: 0;
-        }
+      &:last-child {
+        border-radius: 0 0 $border-radius-small 0;
       }
     }
   }
-  &.reveal {
+  .m-prompt-code {
+    background-color: $dark-alpha-06;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 20px 60px;
+    color: $white;
+    box-sizing: border-box;
+    box-shadow: $shadow-large-inset;
+    white-space: pre-wrap;
+  }
+  &.is-reveal {
     opacity: 1;
   }
 }
@@ -98,25 +89,19 @@
 @media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {
-  .prompt {
-    &.prompt-modal {
-      width: 80%;
-    }
+  &.m-prompt {
+    width: 80%;
   }
 }
 
 @media (min-width: $screen-lg) {
-  .prompt {
-    &.prompt-modal {
-      width: 55%;
-    }
+  &.m-prompt {
+    width: 55%;
   }
 }
 
 @media (min-width: $screen-xl) {
-  .prompt {
-    &.prompt-modal {
-      width: 40%;
-    }
+  &.m-prompt {
+    width: 40%;
   }
 }

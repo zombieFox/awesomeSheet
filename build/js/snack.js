@@ -1,127 +1,70 @@
 var snack = (function() {
 
-  function render(message, close) {
-    var element_snackBars = helper.e(".snacks .snack-bars");
-    // make snack bar elements
-    var snackBar = document.createElement("div");
-    snackBar.setAttribute("class", "snack-bar");
-    var row = document.createElement("div");
-    row.setAttribute("class", "row");
-    var col1 = document.createElement("div");
-    col1.setAttribute("class", "col-xs-12");
-    var col2 = document.createElement("div");
-    col2.setAttribute("class", "col-xs-5");
-    var snackClose = document.createElement("button");
-    snackClose.setAttribute("class", "button button-dark button-small snack-clear");
-    // var snackUndo = document.createElement("button");
-    // snackUndo.setAttribute("class", "button button-dark button-small snack-undo");
-    // snackUndo.textContent = "Undo";
-    var iconClose = document.createElement("span");
-    iconClose.setAttribute("class", "icon-close");
-    var snackMessage = document.createElement("p");
-    snackMessage.setAttribute("class", "snack-message");
-    snackMessage.textContent = message;
-    snackClose.appendChild(iconClose);
-    // connect elements
-    if (close) {
-      col2.appendChild(snackClose);
-    };
-    // if (undo) {
-    //   col2.appendChild(snackUndo);
-    // };
-    col1.appendChild(snackMessage);
-    row.appendChild(col1);
-    // row.appendChild(col2);
-    // container.appendChild(row);
-    snackBar.appendChild(row);
-    // mark current snack bars for removal
-    var allSnackBars = element_snackBars.querySelectorAll(".snack-bar");
-    for (var i = 0; i < allSnackBars.length; i++) {
-      var snackBarToRemove = allSnackBars[i];
+  var previousSnackBar = null;
 
-      var _removeReveal = function() {
-        helper.removeClass(snackBarToRemove, "reveal");
-      };
-      helper.delayFunction(_removeReveal, 100);
-
-      var _deleteSnackBar = function() {
-        snackBarToRemove.remove();
-      };
-      helper.delayFunction(_deleteSnackBar, 400);
-    };
-    // append snack bar
-    element_snackBars.appendChild(snackBar);
-    // add listners
-    _bind(snackBar);
-    // reveal snack bar
-    var _revealSnackBar = function() {
-      helper.addClass(snackBar, "reveal");
-    };
-    var currentSnackBars = element_snackBars.querySelectorAll(".snack-bar");
-    if (currentSnackBars.length > 1) {
-      helper.delayFunction(_revealSnackBar, 300);
-    } else {
-      helper.delayFunction(_revealSnackBar, 10);
-    };
-    // auto clear snack bar
-    var _delay_destroy = function() {
-      // if the snack bar hasn't been dismised or undone
-      if (snackBar) {
-        destroy(snackBar);
-      };
-    };
-    helper.delayFunction(_delay_destroy, 5000);
-  };
-
-  // add listeners to snack bar buttons
-  function _bind(element) {
-    var snack = helper.getClosest(element, ".snack-bar");
-    var clear = snack.querySelector(".snack-clear");
-    // var undo = snack.querySelector(".snack-undo");
-    // add listner to clear
-    if (clear) {
-      clear.addEventListener("click", function() {
-        destroy(this);
-      }, false);
-    };
-    // add listner to undo
-    // if (undo) {
-    //   undo.addEventListener("click", function() {
-    //     undoSnackBar(this);
-    //     checkListListState();
-    //   }, false);
-    // };
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
-  // snack bar clear
-  function destroy(element) {
-    if (element) {
-      var snackBar = helper.getClosest(element, ".snack-bar");
-    } else {
-      var snackBar = helper.e(".snack-bar");
-    };
+  function destroy() {
+    var snackBar = helper.e(".js-snack-bar");
     if (snackBar) {
-      var _removeReveal = function() {
-        helper.removeClass(snackBar, "reveal");
-      };
-      helper.delayFunction(_removeReveal, 10);
-
-      var _deleteSnackBar = function() {
-        snackBar.remove();
-      };
-      helper.delayFunction(_deleteSnackBar, 500);
+      getComputedStyle(snackBar).opacity;
+      snackBar.style.opacity = 0;
     };
+  };
+
+  function render(message, actionText) {
+
+    if (previousSnackBar) {
+      previousSnackBar.destroy();
+    };
+
+    var snackBar = document.createElement("aside");
+    snackBar.setAttribute("class", "m-snack-bar js-snack-bar");
+    snackBar.destroy = function() {
+      this.style.opacity = 0;
+    };
+
+    snackBar.addEventListener("transitionend", function(event, elapsed) {
+      if (event.propertyName === "opacity" && this.style.opacity == 0) {
+        this.parentElement.removeChild(this);
+        if (previousSnackBar === this) {
+          previousSnackBar = null;
+        };
+      };
+    }.bind(snackBar), false);
+
+    var text = document.createElement("p");
+    text.className = "m-snack-bar-message";
+    text.textContent = (message);
+    snackBar.appendChild(text);
+
+    if (actionText) {
+      var action = snackBar.destroy.bind(snackBar);
+      var actionButton = document.createElement("a");
+      actionButton.className = "button button-tertiary m-snack-bar-button";
+      actionButton.textContent = actionText;
+      actionButton.addEventListener("click", action);
+      snackBar.appendChild(actionButton);
+    };
+
+    setTimeout(function() {
+      if (previousSnackBar === this) {
+        previousSnackBar.destroy();
+      };
+    }.bind(snackBar), 5000);
+
+    previousSnackBar = snackBar;
+
+    document.body.appendChild(snackBar);
+    // In order for the animations to trigger, I have to force the original style to be computed, and then change it.
+    getComputedStyle(snackBar).opacity;
+    snackBar.style.opacity = 1;
+    helper.addClass(snackBar, "is-reveal");
+
   };
 
   // exposed methods
   return {
-    render: render,
-    destroy: destroy
+    destroy: destroy,
+    render: render
   }
 
 })();

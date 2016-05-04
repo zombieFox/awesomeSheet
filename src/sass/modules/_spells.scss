@@ -28,7 +28,7 @@
   &.is-state-active {
     .m-spell-book-known {
       .m-spell {
-        background-color: $dark-alpha-16;
+        background-color: transparent;
         color: $base-color;
         border-color: transparent;
         &:link,
@@ -36,15 +36,40 @@
         &:focus {
           outline: 0;
           text-decoration: none;
+          border-color: transparent;
         }
         &:hover {
-          background-color: $dark-alpha-14;
+          background-color: transparent;
           outline: 0;
           text-decoration: none;
+          border-color: transparent;
         }
         &:active,
         &.is-active {
-          background-color: $dark-alpha-12;
+          background-color: transparent;
+          border-color: transparent;
+        }
+      }
+      .button-primary {
+        &.m-spell {
+          background-color: $gray-19;
+          color: $base-color;
+          border-color: transparent;
+          &:link,
+          &:visited {}
+          &:focus {
+            outline: 0;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: $dark-alpha-17;
+            outline: 0;
+            text-decoration: none;
+          }
+          &:active,
+          &.is-active {
+            background-color: $dark-alpha-15;
+          }
         }
       }
     }
@@ -52,8 +77,8 @@
   &.is-state-remove {
     .m-spell-book-known {
       .m-spell {
-        background-color: $primary-color-alpha-18;
-        color: $primary-color-07;
+        background-color: $primary-color-19;
+        color: $base-color;
         border-color: transparent;
         &:link,
         &:visited {
@@ -119,7 +144,7 @@
     [class^="icon-"] {
       float: left;
       margin: 0;
-      line-height: 2rem;
+      line-height: 1em;
       height: auto;
     }
   }
@@ -136,7 +161,7 @@
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 2rem;
+      line-height: 1em;
       height: auto;
     }
   }
@@ -149,7 +174,7 @@
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 2rem;
+      line-height: 1em;
       height: auto;
     }
   }

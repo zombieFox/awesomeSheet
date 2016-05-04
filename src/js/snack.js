@@ -29,7 +29,7 @@ var snack = (function() {
           previousSnackBar = null;
         };
       };
-    }.bind(snackBar));
+    }.bind(snackBar), false);
 
     var text = document.createElement("p");
     text.className = "m-snack-bar-message";
@@ -49,7 +49,7 @@ var snack = (function() {
       if (previousSnackBar === this) {
         previousSnackBar.destroy();
       };
-    }.bind(snackBar), 9995000);
+    }.bind(snackBar), 5000);
 
     previousSnackBar = snackBar;
 
@@ -66,6 +66,5 @@ var snack = (function() {
     destroy: destroy,
     render: render
   }
-
 
 })();

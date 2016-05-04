@@ -43,9 +43,9 @@
     box-sizing: border-box;
     transform: translatey(100%);
     transition: all $transition-bounce-fast;
-  }
-  &.is-reveal {
-    margin-bottom: 20px;
+    &.is-reveal {
+      margin-bottom: 20px;
+    }
   }
 }
 

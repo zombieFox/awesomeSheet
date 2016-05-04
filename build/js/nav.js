@@ -25,10 +25,10 @@ var nav = (function() {
       characterName = "New character";
     };
     if (typeof characterClass == "undefined" || characterClass == "") {
-      characterClass = "No class";
+      characterClass = "Class";
     };
     if (typeof characterLevel == "undefined" || characterLevel == "") {
-      characterLevel = "0";
+      characterLevel = "Level";
     };
 
     // define elements
@@ -103,26 +103,31 @@ var nav = (function() {
       helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-name").textContent = helper.truncate(inputValue, 30, true);
     } else if (inputType == "class") {
       if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "No class";
+        inputValue = "Class";
       };
       helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-class").textContent = helper.truncate(inputValue, 20, true) + " ";
     } else if (inputType == "level") {
       if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "0";
+        inputValue = "Level";
       };
       helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-level").textContent = helper.truncate(inputValue, 10, false);
     };
   };
 
   function clear() {
-    var navCharacters = helper.e(".js-nav-characters");
-    navCharacters.innerHTML = "";
+    var all_navCharacters = helper.eA(".js-nav-characters");
+    for (var i = 0; i < all_navCharacters.length; i++) {
+      while (all_navCharacters[i].lastChild) {
+        all_navCharacters[i].removeChild(all_navCharacters[i].lastChild);
+      };
+    };
   };
 
-  function render(array) {
+  function render() {
+    var characters = sheet.getAllCharacters();
     var navCharacters = helper.e(".js-nav-characters");
-    for (var i in array) {
-      var characterAnchor = _render_navCharacters(array[i].basics.name, array[i].basics.class, array[i].basics.level, i);
+    for (var i in characters) {
+      var characterAnchor = _render_navCharacters(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
       navCharacters.appendChild(characterAnchor);
     };
     var all_navCharacterSelect = helper.eA(".js-nav-character-select");
@@ -188,7 +193,7 @@ var nav = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
+    prompt.render("Remove " + name + "?", "This character will be removed. This can not be undone.", "Confirm", sheet.removeCharacter);
   };
 
   function resize() {
@@ -212,7 +217,7 @@ var nav = (function() {
       _fullscreen();
     }, false);
     clearAll.addEventListener("click", function() {
-      prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
       navClose();
     }, false);
     characterExport.addEventListener("click", function() {
@@ -225,6 +230,7 @@ var nav = (function() {
     }, false);
     characterRemove.addEventListener("click", function() {
       remove();
+      navClose();
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
@@ -233,7 +239,7 @@ var nav = (function() {
     }, false);
     window.addEventListener("keydown", function(event) {
       if (event.which == 8 && event.ctrlKey) {
-        prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+        prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
         navClose();
       };
     }, false);
@@ -260,8 +266,8 @@ var nav = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     resize: resize,
+    bind: bind,
     clear: clear,
     render: render,
     update: updateNavCharacters,

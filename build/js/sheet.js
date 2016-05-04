@@ -121,8 +121,14 @@ var sheet = (function() {
   };
 
   function printCharacterObject(index) {
+    var name;
+    if (getCharacter().basics.name) {
+      name = getCharacter().basics.name;
+    } else {
+      name = "New character";
+    };
     var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("download", "Character JSON data:", exportData, "download");
+    prompt.render("Download " + name, false, "Download", "download");
     if (helper.e(".prompt pre")) {
       helper.selectText(".prompt pre");
     };
@@ -138,23 +144,8 @@ var sheet = (function() {
     spells.bind();
   };
 
-  function clear() {
-    inputBlock.clear();
-    textareaBlock.clear();
-    stats.render();
-    totalBlock.clear();
-    totalBlock.update();
-    clone.clear();
-    // var all_spellsKnown = helper.eA(".spells-known");
-    // for (var i = 0; i < all_cloneTarget.length; i++) {
-    //   all_cloneTarget[i].innerHTML = "";
-    // };
-    // for (var i = 0; i < all_spellsKnown.length; i++) {
-    //   all_spellsKnown[i].innerHTML = "";
-    // };
-  };
-
   function render() {
+    nav.render();
     nav.resize();
     inputBlock.render();
     textareaBlock.render();
@@ -163,7 +154,17 @@ var sheet = (function() {
     totalBlock.update();
     clone.render();
     spells.render();
-    // consumable.render();
+  };
+
+  function clear() {
+    nav.clear();
+    inputBlock.clear();
+    textareaBlock.clear();
+    stats.render();
+    totalBlock.clear();
+    totalBlock.update();
+    clone.clear();
+    spells.clear();
   };
 
   // exposed methods

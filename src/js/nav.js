@@ -193,7 +193,7 @@ var nav = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
+    prompt.render("Remove " + name + "?", "This character will be removed. This can not be undone.", "Confirm", sheet.removeCharacter);
   };
 
   function resize() {
@@ -217,7 +217,7 @@ var nav = (function() {
       _fullscreen();
     }, false);
     clearAll.addEventListener("click", function() {
-      prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
       navClose();
     }, false);
     characterExport.addEventListener("click", function() {
@@ -230,6 +230,7 @@ var nav = (function() {
     }, false);
     characterRemove.addEventListener("click", function() {
       remove();
+      navClose();
     }, false);
     window.addEventListener('click', function(event) {
       if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
@@ -238,7 +239,7 @@ var nav = (function() {
     }, false);
     window.addEventListener("keydown", function(event) {
       if (event.which == 8 && event.ctrlKey) {
-        prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+        prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
         navClose();
       };
     }, false);

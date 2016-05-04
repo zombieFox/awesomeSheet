@@ -230,7 +230,7 @@ var spells = (function() {
         for (var j = 0; j < all_spellKnownItems.length; j++) {
           var name = all_spellKnownItems[j].textContent;
           var prepared = all_spellKnownItems[j].querySelector(".js-spell-marks").children.length;
-          var cast = all_spellKnownItems[j].querySelector(".js-spell-marks").querySelectorAll(".js-spell-mark-checked").length;
+          var cast = all_spellKnownItems[j].querySelector(".js-spell-marks").querySelectorAll(".js-spell-mark-unchecked").length;
           var active = all_spellKnownItems[j].querySelector(".js-spell-active").children.length;
           if (active > 0) {
             active = true;
@@ -336,8 +336,18 @@ var spells = (function() {
     return spellButton;
   };
 
+  function clear() {
+    var all_spellBookKnown = helper.eA(".js-spell-book-known");
+    for (var i = 0; i < all_spellBookKnown.length; i++) {
+      while (all_spellBookKnown[i].lastChild) {
+        all_spellBookKnown[i].removeChild(all_spellBookKnown[i].lastChild);
+      };
+    };
+  };
+
   // exposed methods
   return {
+    clear: clear,
     bind: bind,
     render: render
   };

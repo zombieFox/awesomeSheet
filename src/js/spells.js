@@ -230,7 +230,7 @@ var spells = (function() {
         for (var j = 0; j < all_spellKnownItems.length; j++) {
           var name = all_spellKnownItems[j].textContent;
           var prepared = all_spellKnownItems[j].querySelector(".js-spell-marks").children.length;
-          var cast = all_spellKnownItems[j].querySelector(".js-spell-marks").querySelectorAll(".js-spell-mark-checked").length;
+          var cast = all_spellKnownItems[j].querySelector(".js-spell-marks").querySelectorAll(".js-spell-mark-unchecked").length;
           var active = all_spellKnownItems[j].querySelector(".js-spell-active").children.length;
           if (active > 0) {
             active = true;
