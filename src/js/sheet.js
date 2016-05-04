@@ -154,6 +154,7 @@ var sheet = (function() {
     totalBlock.update();
     clone.render();
     spells.render();
+    display.render();
   };
 
   function clear() {

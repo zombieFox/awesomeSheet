@@ -1,0 +1,22 @@
+.m-display-block {
+  margin: 0 0 50px 0;
+  p {
+    margin-bottom: 5px;
+  }
+  [class^="icon-"],
+  [class*=" icon-"] {
+    font-size: 2em;
+    color: $primary-color-alpha-04;
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

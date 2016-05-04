@@ -10,7 +10,7 @@ var orrin = (function() {
       alignment: "Lawful Neutral",
       xp: "1,300",
       height: "6'0",
-      weight: "136 lbs",
+      weight: "206 lbs",
       age: "26 years",
       gender: "Male",
       speed: "30 ft, 6 sq",

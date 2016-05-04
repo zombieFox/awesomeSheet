@@ -11,7 +11,7 @@ var vos = (function() {
       xp: "9,812",
       height: "5'0",
       weight: "190 lbs",
-      age: "40 years",
+      age: "40",
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "2",
