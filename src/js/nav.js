@@ -90,7 +90,7 @@ var nav = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render(helper.truncate(name, 50, true) + " now active.", false, false);
+    snack.render(helper.truncate(name, 50, true) + " now in the game.", false, false);
   };
 
   function updateNavCharacters(input) {

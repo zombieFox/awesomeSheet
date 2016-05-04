@@ -2355,7 +2355,8 @@ label {
     .m-prompt .m-prompt-message .m-prompt-heading {
       border-left: 40px solid #fc0042;
       padding: 0 60px 0 20px;
-      font-size: 1.5em; }
+      font-size: 1.5em;
+      font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
       .m-prompt .m-prompt-message .m-prompt-heading:last-child {
         margin-bottom: 0; }
     .m-prompt .m-prompt-message .m-prompt-text {

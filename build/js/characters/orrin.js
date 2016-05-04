@@ -1,20 +1,20 @@
-var nif = (function() {
+var orrin = (function() {
 
   var data = {
     basics: {
-      name: "Nif Amakir",
+      name: "Orrin Alareth",
       race: "Elf",
       class: "Wizard",
-      level: "6",
+      level: "2",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "30,214",
+      xp: "",
       height: "6'0",
       weight: "136 lbs",
-      age: "120 years",
+      age: "110 years",
       gender: "Male",
       speed: "30 ft, 6 sq",
-      initiative: "3",
+      initiative: "2",
       hero_points: "",
       luck_points: ""
     },
@@ -25,34 +25,34 @@ var nif = (function() {
           temp: ""
         },
         dex: {
-          score: "17",
-          temp: "15"
-        },
-        con: {
           score: "14",
           temp: ""
         },
+        con: {
+          score: "12",
+          temp: ""
+        },
         int: {
-          score: "21",
-          temp: "23"
+          score: "18",
+          temp: ""
         },
         wis: {
           score: "12",
           temp: ""
         },
         cha: {
-          score: "10",
+          score: "8",
           temp: ""
         }
       },
-      feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)",
-      traits: "Resilient",
-      languages: "Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan, Undercommon",
-      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
+      feats: "Scribe Scroll, Augment Summoning",
+      traits: "",
+      languages: "",
+      special_abilities: "Familiar, Rat, Arcane schools, Opposition arcane school, Summoner's Charm (Su), Shift (Su), Cantrips"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15)",
-      magic_gear: "Pearl of Power (1st Level), Potion of CLW (1), Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit (1), Scroll of Summon Monster III (6), Scroll of Invisibility (2), Scroll of Create Pit (1), Scroll of Web (4), Scroll of Stinking Cloud (2), Scroll of Grease (0), Scroll of Mirror Image (3), Scroll of Spiked Pit (2) Scroll of Fly (3)",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls",
+      magic_gear: "Scroll of Summon Monster I (3), Scroll of Grease (3)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -67,33 +67,29 @@ var nif = (function() {
         feet: "",
         hands: "",
         head: "",
-        headband: "Headband of Vast Intelligence +2",
-        neck: "Amulet of Natural Armor +1",
-        ring_left_hand: "Ring of Sustenance",
+        headband: "",
+        neck: "",
+        ring_left_hand: "",
         ring_right_hand: "",
         shield: "",
-        shoulders: "Cloak of Resistance +2",
+        shoulders: "",
         wrist: ""
       },
       wealth: {
         platinum: "",
-        gold: "1,090",
+        gold: "250",
         silver: "",
         copper: ""
       },
       consumable: [{
-        item: "Wand of Lightning Bolt",
+        item: "Wand of Magic Missile",
         total: "50",
-        used: "43"
-      }, {
-        item: "Shift",
-        total: "9",
         used: ""
       }]
     },
     defense: {
       hp: {
-        total: "42",
+        total: "16",
         temp: "",
         damage: "",
         non_lethal_damage: ""
@@ -105,7 +101,7 @@ var nif = (function() {
         shield: "",
         deflect: "",
         dodge: "",
-        natural: "1",
+        natural: "",
         size_bonus: "",
         str_bonus: false,
         dex_bonus: true,
@@ -136,10 +132,10 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "2",
+        base: "",
         racial: "",
-        resistance: "2",
-        misc: "3",
+        resistance: "",
+        misc: "2",
         temp: "",
         str_bonus: false,
         dex_bonus: false,
@@ -149,9 +145,9 @@ var nif = (function() {
         cha_bonus: false
       },
       reflex: {
-        base: "2",
+        base: "",
         racial: "",
-        resistance: "2",
+        resistance: "",
         misc: "",
         temp: "",
         str_bonus: false,
@@ -162,9 +158,9 @@ var nif = (function() {
         cha_bonus: false
       },
       will: {
-        base: "5",
+        base: "3",
         racial: "",
-        resistance: "2",
+        resistance: "",
         misc: "",
         temp: "",
         str_bonus: false,
@@ -174,12 +170,12 @@ var nif = (function() {
         wis_bonus: true,
         cha_bonus: false
       },
-      save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
+      save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects."
     },
     offense: {
-      base_attack: "3",
+      base_attack: "1",
       special_size_bonus: "",
-      concentration: "12",
+      concentration: "6",
       cmb: {
         misc: "",
         temp: "",
@@ -190,7 +186,7 @@ var nif = (function() {
         wis_bonus: false,
         cha_bonus: false,
         level: false,
-        bab: true
+        bab: false
       },
       cmd: {
         misc: "",
@@ -202,7 +198,7 @@ var nif = (function() {
         wis_bonus: false,
         cha_bonus: false,
         level: false,
-        bab: true
+        bab: false
       },
       melee_attack: {
         misc: "",
@@ -213,20 +209,8 @@ var nif = (function() {
         temp: ""
       },
       attack: {
-        melee: [{
-          weapon: "Dagger (Master Work)",
-          attack: "3",
-          damage: "1d6+1",
-          critical: "19–20/x2"
-        }],
-        ranged: [{
-          weapon: "Shortbow",
-          attack: "6",
-          damage: "1d6",
-          critical: "x3",
-          range: "60 ft",
-          ammo: "50"
-        }]
+        melee: [],
+        ranged: []
       },
       attack_notes: ""
     },
@@ -237,9 +221,9 @@ var nif = (function() {
         class_skill: false
       },
       appraise: {
-        ranks: "2",
+        ranks: "",
         misc: "",
-        class_skill: true
+        class_skill: false
       },
       bluff: {
         ranks: "",
@@ -284,9 +268,9 @@ var nif = (function() {
         class_skill: false
       },
       fly: {
-        ranks: "2",
+        ranks: "",
         misc: "",
-        class_skill: true
+        class_skill: false
       },
       handle_animal: {
         ranks: "",
@@ -304,12 +288,12 @@ var nif = (function() {
         class_skill: false
       },
       knowledge_arcana: {
-        ranks: "3",
+        ranks: "1",
         misc: "",
         class_skill: true
       },
       knowledge_dungeoneering: {
-        ranks: "2",
+        ranks: "1",
         misc: "",
         class_skill: true
       },
@@ -344,23 +328,23 @@ var nif = (function() {
         class_skill: true
       },
       knowledge_planes: {
-        ranks: "3",
+        ranks: "1",
         misc: "",
         class_skill: true
       },
       knowledge_religion: {
-        ranks: "3",
+        ranks: "1",
         misc: "",
         class_skill: true
       },
       linguistics: {
-        ranks: "3",
+        ranks: "1",
         misc: "",
         class_skill: true
       },
       perception: {
-        ranks: "6",
-        misc: "4",
+        ranks: "",
+        misc: "",
         class_skill: false
       },
       perform_1: {
@@ -403,7 +387,7 @@ var nif = (function() {
         class_skill: false
       },
       spellcraft: {
-        ranks: "6",
+        ranks: "1",
         misc: "",
         class_skill: true
       },
@@ -423,7 +407,7 @@ var nif = (function() {
         class_skill: false
       },
       use_magic_device: {
-        ranks: "6",
+        ranks: "",
         misc: "",
         class_skill: false
       },
@@ -491,9 +475,9 @@ var nif = (function() {
     spells: {
       per_day: {
         level_0: "4",
-        level_1: "5",
-        level_2: "4",
-        level_3: "3",
+        level_1: "3",
+        level_2: "",
+        level_3: "",
         level_4: "",
         level_5: "",
         level_6: "",
@@ -502,10 +486,10 @@ var nif = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "16",
-        level_1: "17",
-        level_2: "18",
-        level_3: "19",
+        level_0: "14",
+        level_1: "15",
+        level_2: "",
+        level_3: "",
         level_4: "",
         level_5: "",
         level_6: "",
@@ -558,36 +542,17 @@ var nif = (function() {
           { name: "Grease", prepared: 2, active: false, cast: 0 },
           { name: "Mage Armor", prepared: 0, active: false, cast: 0 },
           { name: "Mount", prepared: 0, active: false, cast: 0 },
-          { name: "Obscuring Mist", prepared: 1, active: false, cast: 0 },
+          { name: "Obscuring Mist", prepared: 0, active: false, cast: 0 },
           { name: "Protection from Chaos", prepared: 0, active: false, cast: 0 },
-          { name: "Protection from Evil", prepared: 2, active: false, cast: 1 },
+          { name: "Protection from Evil", prepared: 0, active: false, cast: 0 },
           { name: "Shield", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster I", prepared: 0, active: false, cast: 0 },
+          { name: "Summon Monster I", prepared: 1, active: false, cast: 0 },
           { name: "Unseen Servant", prepared: 0, active: false, cast: 0 }
         ]
       }, {
-        level_2: [
-          { name: "Blur", prepared: 0, active: false, cast: 0 },
-          { name: "Create Pit", prepared: 0, active: false, cast: 0 },
-          { name: "Flaming Sphere", prepared: 0, active: false, cast: 0 },
-          { name: "Glitterdust", prepared: 1, active: false, cast: 0 },
-          { name: "Invisibility", prepared: 1, active: false, cast: 0 },
-          { name: "Levitate", prepared: 0, active: false, cast: 0 },
-          { name: "Mirror Image", prepared: 1, active: false, cast: 1 },
-          { name: "Resist Energy", prepared: 0, active: false, cast: 0 },
-          { name: "Stone Call", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster II", prepared: 0, active: false, cast: 0 },
-          { name: "Web", prepared: 1, active: false, cast: 1 }
-        ]
+        level_2: []
       }, {
-        level_3: [
-          { name: "Stinking Cloud", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster III", prepared: 1, active: false, cast: 1 },
-          { name: "Spiked Pit", prepared: 1, active: false, cast: 0 },
-          { name: "Aqueous Orb", prepared: 0, active: false, cast: 0 },
-          { name: "Fly", prepared: 1, active: false, cast: 1 },
-          { name: "Sleet Storm", prepared: 0, active: false, cast: 0 }
-        ]
+        level_3: []
       }, {
         level_4: []
       }, {
@@ -603,8 +568,8 @@ var nif = (function() {
       }]
     },
     notes: {
-      character: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><br><strong>Bonus feats</strong>,<br><br><strong>Cantrips</strong>,<br><br><strong>Arcane schools</strong> Conjuration,<br><br><strong>Teleportation sub school</strong>,<br><br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.",
-      story: ""
+      character: "<strong>Familiar, Rat</strong> Master gains a +2 bonus on Fortitude saves.<br><strong>Arcane schools</strong> Conjuration, Teleportation sub school,<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Summoner's Charm (Su)</strong> Whenever you cast a conjuration (summoning) spell, increase the duration by a number of rounds equal to 1/2 your wizard level (minimum 1). This increase is not doubled by Extend Spell. At 20th level, you can change the duration of all summon monster spells to permanent. You can have no more than one summon monster spell made permanent in this way at one time. If you designate another summon monster spell as permanent, the previous spell immediately ends.<br><strong>Shift (Su)</strong> At 1st level, you can teleport to a nearby space as a swift action as if using dimension door. This movement does not provoke an attack of opportunity. You must be able to see the space that you are moving into. You cannot take other creatures with you when you use this ability (except for familiars). You can move 5 feet for every two wizard levels you possess (minimum 5 feet). You can use this ability a number of times per day equal to 3 + your Intelligence modifier.<br><strong>Cantrips</strong> Wizards can prepare a number of cantrips, or 0-level spells, each day, as noted on Table: Wizard under \"Spells per Day.\" These spells are cast like any other spell, but they are not expended when cast and may be used again. A wizard can prepare a cantrip from a prohibited school, but it uses up two of his available slots.<br><strong>Scribe Scroll</strong> At 1st level, a wizard gains Scribe Scroll as a bonus feat. <strong>Augment Summoning</strong> Each creature you conjure with any summon spell gains a +4 enhancement bonus to Strength and Constitution for the duration of the spell that summoned it.",
+      story: "",
     }
   };
 

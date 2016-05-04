@@ -111,6 +111,12 @@ var prompt = (function() {
     helper.addClass(prompt, "is-reveal");
     helper.addClass(promptShade, "is-reveal");
 
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+
   };
 
   // exposed methods

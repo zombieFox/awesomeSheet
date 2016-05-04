@@ -51,8 +51,8 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap x15",
-      magic_gear: "Pearl of Power (1st Level), Potion of CLW x1, Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit x1, Scroll of Summon Monster III x6, Scroll of Invisibility x2, Scroll of Create Pit x1, Scroll of Web x4, Scroll of Stinking Cloud x2, Scroll of Grease (0), Scroll of Mirror Image x3, Scroll of Spiked Pit x2 Scroll of Fly x3",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15)",
+      magic_gear: "Pearl of Power (1st Level), Potion of CLW (1), Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit (1), Scroll of Summon Monster III (6), Scroll of Invisibility (2), Scroll of Create Pit (1), Scroll of Web (4), Scroll of Stinking Cloud (2), Scroll of Grease (0), Scroll of Mirror Image (3), Scroll of Spiked Pit (2) Scroll of Fly (3)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",

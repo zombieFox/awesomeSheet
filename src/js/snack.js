@@ -59,6 +59,12 @@ var snack = (function() {
     snackBar.style.opacity = 1;
     helper.addClass(snackBar, "is-reveal");
 
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+
   };
 
   // exposed methods
