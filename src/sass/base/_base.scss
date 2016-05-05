@@ -1,0 +1,34 @@
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  background: $white;
+  padding: 0 0 300px 0;
+  font-weight: normal;
+  font-family: $base-font;
+  font-size: $root-font-size-small;
+  line-height: $root-line-height-small;
+  color: $base-color;
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  body {
+    font-size: $root-font-size-medium;
+    line-height: $root-line-height-medium;
+  }
+}
+
+@media (min-width: $screen-md) {
+  body {
+    font-size: $root-font-size-large;
+    line-height: $root-line-height-large;
+  }
+}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

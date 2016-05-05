@@ -136,21 +136,39 @@ var marika = (function() {
         racial: "",
         resistance: "3",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "6",
         racial: "",
         resistance: "3",
         misc: "1",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "3",
         racial: "",
         resistance: "3",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
@@ -253,13 +271,13 @@ var marika = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       diplomacy: {
         ranks: "",
@@ -365,25 +383,25 @@ var marika = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       ride: {
         ranks: "",
@@ -426,7 +444,6 @@ var marika = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "Dex",
         name: "Disable Device Trap",
         ranks: "9",
         misc: "4",
@@ -441,7 +458,6 @@ var marika = (function() {
         half_level: true
       },
       custom_2: {
-        stat: "Wis",
         name: "Perception Trap",
         ranks: "9",
         misc: "5",
@@ -456,7 +472,6 @@ var marika = (function() {
         half_level: true
       },
       custom_3: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -471,7 +486,6 @@ var marika = (function() {
         half_level: false
       },
       custom_4: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",

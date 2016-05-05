@@ -1,0 +1,253 @@
+<section id="offense" class="l-section m-clone-block js-section js-clone-block-attack" data-delete-clone-state="false">
+  <div class="m-section-heading js-section-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-2">
+          <h1>Offense</h1>
+        </div>
+        <div class="col-xs-10">
+          <div class="m-section-controls">
+            <div class="button-group js-clone-controls">
+              <button class="js-clone-add-melee button button-tertiary button-small" tabindex="3"><span class="icon-add"></span>Melee</button>
+              <button class="js-clone-add-ranged button button-tertiary button-small" tabindex="3"><span class="icon-add"></span>Ranged</button>
+              <button class="js-clone-remove button button-tertiary button-small" tabindex="3"><span class="icon-close"></span>Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-section-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4 col-sm-3 col-sm-offset-3">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-base-attack">Base Attack</label>
+            <input id="offense-base-attack" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.base_attack" type="text" tabindex="3">
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-3">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-special-size-bonus">Size</label>
+            <input id="offense-special-size-bonus" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.special_size_bonus" type="text" tabindex="3">
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-3">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-concentration">Concentration</label>
+            <input id="offense-concentration" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.concentration" type="text" tabindex="3">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="js-total-block" data-special-size-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">CMB <span class="js-total-block-total js-display-offense-cmb-total"></span></h2>
+          </div>
+          <div class="col-xs-9">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
+                  <input id="offense-cmb-misc" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-path="offense.cmb.misc" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
+                  <input id="offense-cmb-temp" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-path="offense.cmb.temp" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="row no-gutter">
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-str-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="str-bonus" data-path="offense.cmb.str_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-str-bonus" class="u-full-width">Str</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-dex-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="dex-bonus" data-path="offense.cmb.dex_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-dex-bonus" class="u-full-width">Dex</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-con-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="con-bonus" data-path="offense.cmb.con_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-con-bonus" class="u-full-width">Con</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-int-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="int-bonus" data-path="offense.cmb.int_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-int-bonus" class="u-full-width">Int</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-wis-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="wis-bonus" data-path="offense.cmb.wis_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-wis-bonus" class="u-full-width">Wis</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-cha-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="cha-bonus" data-path="offense.cmb.cha_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-cha-bonus" class="u-full-width">Cha</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-bab" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="bab" data-path="offense.cmb.bab" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-bab" class="u-full-width">BAB</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmb-level" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="level" data-path="offense.cmb.level" type="checkbox" tabindex="3">
+                      <label for="offense-cmb-level" class="u-full-width">Level</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="js-total-block" data-special-size-bonus="true" data-plus-ten-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">CMD <span class="js-total-block-total js-display-offense-cmd-total"></span></h2>
+          </div>
+          <div class="col-xs-9">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
+                  <input id="offense-cmd-misc" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-path="offense.cmd.misc" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
+                  <input id="offense-cmd-temp" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-path="offense.cmd.temp" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="row no-gutter">
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-str-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="str-bonus" data-path="offense.cmd.str_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-str-bonus" class="u-full-width">Str</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-dex-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="dex-bonus" data-path="offense.cmd.dex_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-dex-bonus" class="u-full-width">Dex</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-con-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="con-bonus" data-path="offense.cmd.con_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-con-bonus" class="u-full-width">Con</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-int-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="int-bonus" data-path="offense.cmd.int_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-int-bonus" class="u-full-width">Int</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-wis-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="wis-bonus" data-path="offense.cmd.wis_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-wis-bonus" class="u-full-width">Wis</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-cha-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="cha-bonus" data-path="offense.cmd.cha_bonus" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-cha-bonus" class="u-full-width">Cha</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-bab" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="bab" data-path="offense.cmd.bab" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-bab" class="u-full-width">BAB</label>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2">
+                    <div class="m-total-block-toggle js-total-block-toggle">
+                      <input id="offense-cmd-level" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="level" data-path="offense.cmd.level" type="checkbox" tabindex="3">
+                      <label for="offense-cmd-level" class="u-full-width">Level</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="js-total-block" data-str-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Melee <span class="js-total-block-total js-display-offense-melee-attack-total"></span></h2>
+          </div>
+          <div class="col-xs-9">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-misc">Misc</label>
+                  <input id="offense-melee-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.misc" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-temp">Temp</label>
+                  <input id="offense-melee-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="js-total-block" data-dex-bonus="true" data-bab-bonus="true" data-special-size-bonus="true">
+          <div class="col-xs-3">
+            <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Ranged <span class="js-total-block-total js-display-offense-ranged-attack-total"></span></h2>
+          </div>
+          <div class="col-xs-9">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-misc">Misc</label>
+                  <input id="offense-ranged-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.misc" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-temp">Temp</label>
+                  <input id="offense-ranged-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input">Attacks</h2>
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-melee"></div>
+          <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-ranged"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+          <div class="m-textarea-block js-textarea-block">
+            <label class="m-textarea-block-label js-textarea-block-label" for="offense-attack-notes">Notes</label>
+            <div id="offense-attack-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="offense.attack_notes" contentEditable="true" tabindex="3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+.m-skill {
+  .m-skill-name,
+  .m-skill-stat,
+  .m-skill-total,
+  .m-skill-ranks,
+  .m-skill-misc,
+  .m-skill-bonus,
+  .m-skill-class-skill,
+  .m-skill-variant-name {
+    float: left;
+    display: block;
+    margin: 0;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .m-skill-name {
+    width: 45%;
+  }
+  .m-skill-stat {
+    width: 10%;
+    text-align: center;
+  }
+  .m-skill-total {
+    width: 15%;
+    font-family: $open-sans-semi-bold;
+    text-align: center;
+  }
+  .m-skill-bonus {
+    width: 25%;
+  }
+  .m-skill-ranks,
+  .m-skill-misc {
+    width: 10%;
+    text-align: center;
+    input {
+      &[type="email"],
+      &[type="number"],
+      &[type="search"],
+      &[type="text"],
+      &[type="tel"],
+      &[type="url"],
+      &[type="password"] {
+        text-align: center;
+        padding: 0;
+      }
+    }
+  }
+  .m-skill-class-skill {
+    width: 10%;
+    label {
+      &:before {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+      }
+    }
+  }
+  &.m-skill-variant {
+    .m-skill-name {
+      width: 20%;
+    }
+    .m-skill-variant-name {
+      width: 25%;
+    }
+  }
+  &.m-skill-custom {
+    .m-skill-name {
+      width: 55%;
+    }
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

@@ -48,11 +48,11 @@ var sheet = (function() {
     clear();
     render();
     nav.clear();
-    nav.render(getAllCharacters());
+    nav.render();
   };
 
   function removeCharacter() {
-    var name = allCharacters[currentCharacterIndex].basics.name || "New character";
+    var name = allCharacters[getIndex()].basics.name || "New character";
     allCharacters.splice(getIndex(), 1);
     var lastCharacterRemoved = false;
     if (allCharacters.length == 0) {
@@ -64,7 +64,7 @@ var sheet = (function() {
     render();
     storeCharacters();
     nav.clear();
-    nav.render(getAllCharacters());
+    nav.render();
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
@@ -97,76 +97,50 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     document.location.reload(true);
-    // destroy and reset without reload
-    // localStorage.clear();
-    // prompt.destroy();
-    // snack.destroy();
-    // allCharacters = [{
-    //     clone: {},
-    //     input: {},
-    //     textarea: {},
-    //     spells: []
-    //   }];
-    // if (typeof hardCodedCharacters !== "undefined") {
-    //   allCharacters = hardCodedCharacters.load;
-    // };
-    // currentCharacterIndex = 0;
-    // storeCharacters();
-    // setIndex(currentCharacterIndex);
-    // clear();
-    // render();
-    // nav.clear();
-    // nav.render(sheet.getAllCharacters());
-    // snack.render("All characters removed.", false, false);
-  };
-
-  function clear() {
-    var all_inputBlock = helper.eA(".input-block");
-    var all_textareaBlock = helper.eA(".textarea-box");
-    var all_checkBlock = helper.eA(".check-block");
-    var all_cloneTarget = helper.eA(".clone-target");
-    var all_spellsKnown = helper.eA(".spells-known");
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var input = all_inputBlock[i].querySelector(".input-field");
-      helper.e("#" + input.id).value = "";
-    };
-    for (var i = 0; i < all_checkBlock.length; i++) {
-      var checkbox = all_checkBlock[i].querySelector(".input-check");
-      var icon = all_checkBlock[i].querySelector(".class-skill-icon");
-      all_checkBlock[i].dataset.classSkill = "false";
-      checkbox.checked = false;
-      checkBlock.destroy(checkbox);
-    };
-    for (var i = 0; i < all_textareaBlock.length; i++) {
-      helper.e("#" + all_textareaBlock[i].id).innerHTML = "";
-    };
-    for (var i = 0; i < all_cloneTarget.length; i++) {
-      all_cloneTarget[i].innerHTML = "";
-    };
-    for (var i = 0; i < all_spellsKnown.length; i++) {
-      all_spellsKnown[i].innerHTML = "";
-    };
-    stats.render();
-    totalBlock.render();
   };
 
   function printCharacterObject(index) {
-    var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
-    prompt.render("download", "Character JSON data:", exportData, "download");
+    var name;
+    if (getCharacter().basics.name) {
+      name = getCharacter().basics.name;
+    } else {
+      name = "New character";
+    };
+    var exportData = JSON.stringify(getCharacter(), null, " ");
+    prompt.render("Download " + name, false, "Download", "download");
     if (helper.e(".prompt pre")) {
       helper.selectText(".prompt pre");
     };
   };
 
+  function bind() {
+    inputBlock.bind();
+    textareaBlock.bind();
+    stats.bind();
+    clone.bind();
+    totalBlock.bind();
+    spells.bind();
+  };
+
   function render() {
     inputBlock.render();
     textareaBlock.render();
-    checkBlock.render();
     stats.render();
     totalBlock.render();
+    totalBlock.update();
     clone.render();
-    consumable.render();
     spells.render();
+    display.render();
+  };
+
+  function clear() {
+    inputBlock.clear();
+    textareaBlock.clear();
+    stats.render();
+    totalBlock.clear();
+    totalBlock.update();
+    clone.clear();
+    spells.clear();
   };
 
   // exposed methods
@@ -184,7 +158,8 @@ var sheet = (function() {
     read: read,
     clear: clear,
     print: printCharacterObject,
-    render: render
+    render: render,
+    bind: bind
   };
 
 })();

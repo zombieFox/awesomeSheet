@@ -1,0 +1,36 @@
+::-webkit-input-placeholder {
+  color: $gray-16;
+}
+
+// Firefox 18
+:-moz-placeholder {
+  color: $gray-16;
+}
+
+// Firefox 19
+::-moz-placeholder {
+  color: $gray-16;
+}
+
+::selection {
+  background-color: $secondary-color-14;
+  color: $white;
+}
+
+::-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

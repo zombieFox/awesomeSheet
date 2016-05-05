@@ -1,0 +1,264 @@
+.m-nav-toggle {
+  position: relative;
+  transition: all $transition-ease-fast;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  .m-nav-toggle-line {
+    display: block;
+    height: 3px;
+    width: 24px;
+    left: 50%;
+    position: absolute;
+    background-color: $primary-color-10;
+    border-radius: $border-radius-small;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    opacity: 1;
+    transition: all $transition-bounce-medium;
+    &.m-nav-toggle-line-top {
+      top: 38%;
+      // transition-delay: 0.1s;
+    }
+    &.m-nav-toggle-line-middle {
+      top: 50%;
+      // transition-delay: 0.2s;
+    }
+    &.m-nav-toggle-line-bottom {
+      top: 62%;
+      // transition-delay: 0.1s;
+    }
+  }
+  &.is-open {
+    .m-nav-toggle-line {
+      background-color: $white;
+      &.m-nav-toggle-line-top {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        // transition-delay: 0.3s;
+      }
+      &.m-nav-toggle-line-middle {
+        opacity: 0;
+        // transition-delay: 0s;
+      }
+      &.m-nav-toggle-line-bottom {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        // transition-delay: 0.3s;
+      }
+    }
+  }
+}
+
+.m-nav {
+  background-color: $white;
+  box-shadow: $shadow-medium;
+  border-radius: $border-radius-small;
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  top: 80px;
+  right: -440px;
+  width: 250px;
+  transition: right $transition-bounce-medium;
+  overflow-y: auto;
+  > li {
+    margin-bottom: 0;
+    text-align: left;
+    list-style-type: none;
+  }
+  .m-nav-divide {
+    margin: 10px 0;
+    background-color: $dark-alpha-19;
+    height: 1px;
+  }
+  &.is-open {
+    right: 20px;
+  }
+}
+
+.m-nav-title {
+  margin-bottom: 0;
+  margin-left: 20%;
+  font-family: $open-sans-bold;
+  line-height: $line-height-large;
+  width: 80%;
+  display: block;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.m-nav-link {
+  font-family: $open-sans-semi-bold;
+  line-height: $line-height-large;
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  .m-nav-link-name {
+    line-height: $line-height-large;
+    display: inline-block;
+  }
+  [class^="icon-"],
+  [class*=" icon-"] {
+    color: $secondary-color-03;
+    width: 20%;
+    font-size: $font-size-medium;
+    text-align: center;
+    vertical-align: text-bottom;
+    line-height: 1em;
+    display: inline-block;
+  }
+  &:focus,
+  &:hover {
+    background-color: $dark-alpha-20;
+    text-decoration: none;
+  }
+  &.is-active,
+  &:active {
+    background-color: $primary-color-10;
+    color: $white;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: $white;
+    }
+  }
+}
+
+.m-nav-characters {
+  margin: 0;
+  padding: 0;
+}
+
+.m-nav-character {
+  margin-bottom: 0;
+  line-height: $line-height-medium;
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  input {
+    &[type="radio"],
+    &[type="checkbox"] {
+      & + label {
+        line-height: $root-line-height-large;
+        transition: none;
+        &:before {
+          color: $secondary-color-03;
+          width: 20%;
+          margin: 0;
+          font-size: 1em;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          transition: none;
+        }
+        .m-nav-characters-name,
+        .m-nav-characters-class,
+        .m-nav-characters-level {
+          display: inline-block;
+        }
+        .m-nav-characters-class,
+        .m-nav-characters-level {
+          color: $secondary-color-03;
+        }
+        .m-nav-characters-class {
+          margin-right: 5px;
+          margin-bottom: 0.5rem;
+        }
+        .m-nav-characters-level {
+          margin-bottom: 0.5rem;
+        }
+        .m-nav-characters-name {
+          color: $primary-color-10;
+          font-family: $open-sans-semi-bold;
+          width: 80%;
+          margin-top: 0.5rem;
+        }
+      }
+      &:hover {
+        & + label {
+          background-color: $dark-alpha-20;
+          color: $secondary-color-03;
+          &:before {
+            color: $secondary-color-03;
+          }
+        }
+      }
+      &:focus {
+        & + label {
+          background-color: $dark-alpha-20;
+          &:before {
+            color: $secondary-color-03;
+          }
+        }
+      }
+      &:active {
+        & + label {
+          background-color: $primary-color-06;
+          color: $white;
+          &:before {
+            color: $white;
+          }
+          .m-nav-characters-name,
+          .m-nav-characters-class,
+          .m-nav-characters-level {
+            color: $white;
+          }
+        }
+      }
+      &:checked {
+        & + label {
+          background-color: $primary-color-10;
+          color: $white;
+          &:before {
+            color: $white;
+          }
+          .m-nav-characters-name,
+          .m-nav-characters-class,
+          .m-nav-characters-level {
+            color: $white;
+          }
+        }
+        &:focus,
+        &:hover {
+          & + label {
+            background-color: $primary-color-08;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+          }
+        }
+        &:active {
+          & + label {
+            background-color: $primary-color-06;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-nav-characters-name,
+            .m-nav-characters-class,
+            .m-nav-characters-level {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .m-nav-toggle {
+    .m-nav-toggle-line {
+      width: 30px;
+    }
+  }
+  .m-nav {
+    width: 340px;
+  }
+}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

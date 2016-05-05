@@ -45,7 +45,7 @@ var helper = (function() {
     } else {
       dotDotDot = "";
     };
-    if (string.length >= length) {
+    if (string.length > length) {
       var newString = string.substring(0, length) + dotDotDot;
       return newString;
     };
@@ -98,6 +98,14 @@ var helper = (function() {
     return false;
   };
 
+  function randomId(stringLength) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < stringLength; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
+  };
+
   // exposed methods
   return {
     e: e,
@@ -110,7 +118,8 @@ var helper = (function() {
     delayFunction: delayFunction,
     updateObject: updateObject,
     getObject: getObject,
-    truncate: truncateString
+    truncate: truncateString,
+    randomId: randomId
   };
 
 })();

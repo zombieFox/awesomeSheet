@@ -1,7 +1,7 @@
 var nav = (function() {
 
   function _fullscreen() {
-    var fullscreen = helper.e(".fullscreen");
+    var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
     var icon = fullscreen.querySelector("span");
     var rootElement = root.documentElement;
@@ -9,12 +9,12 @@ var nav = (function() {
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
-      helper.toggleClass(fullscreen, "active");
+      helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     } else {
       cancelFullScreen.call(root);
-      helper.toggleClass(fullscreen, "active");
+      helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     }
@@ -25,38 +25,73 @@ var nav = (function() {
       characterName = "New character";
     };
     if (typeof characterClass == "undefined" || characterClass == "") {
-      characterClass = "No class";
+      characterClass = "Class";
     };
     if (typeof characterLevel == "undefined" || characterLevel == "") {
-      characterLevel = "0";
+      characterLevel = "Level";
     };
-    var navLi = document.createElement("li");
-    var icon = document.createElement("span");
-    icon.setAttribute("class", "icon icon-check-box-unchecked");
-    var character = document.createElement("div");
-    character.setAttribute("class", "character");
+
+    // define elements
+    var uniqueId = helper.randomId(10);
+
+    var navCharacter = document.createElement("li");
+    navCharacter.setAttribute("class", "m-nav-character");
+
+    var input = document.createElement("input");
+    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
+    input.setAttribute("name", "js-nav-all-characters");
+    input.setAttribute("class", "js-nav-character-input");
+    input.setAttribute("type", "radio");
+    input.setAttribute("tabindex", 10);
+
+    var label = document.createElement("label");
+    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
+    label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
+    label.setAttribute("data-character-index", characterIndex);
+
     var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "name");
-    var classSpan = document.createElement("span");
-    classSpan.setAttribute("class", "class");
-    var levelSpan = document.createElement("span");
-    levelSpan.setAttribute("class", "level");
+    nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
     nameSpan.textContent = helper.truncate(characterName, 30, true);
+
+    var classSpan = document.createElement("span");
+    classSpan.setAttribute("class", "m-nav-characters-class js-nav-characters-class");
     classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
+
+    var levelSpan = document.createElement("span");
+    levelSpan.setAttribute("class", "m-nav-characters-level js-nav-characters-level");
     levelSpan.textContent = helper.truncate(characterLevel, 10);
-    var navAnchor = document.createElement("a");
-    navAnchor.setAttribute("href", "javascript:void(0)");
-    navAnchor.setAttribute("data-character-index", characterIndex);
-    navAnchor.setAttribute("class", "clearfix character-toggle character-index-" + characterIndex);
-    navAnchor.setAttribute("tabindex", 10);
-    navAnchor.appendChild(icon);
-    character.appendChild(nameSpan);
-    character.appendChild(classSpan);
-    character.appendChild(levelSpan);
-    navAnchor.appendChild(character);
-    navLi.appendChild(navAnchor);
-    _bind_characterOption(navAnchor, characterIndex);
-    return navLi;
+
+    // build module
+    label.appendChild(nameSpan);
+    label.appendChild(classSpan);
+    label.appendChild(levelSpan);
+    navCharacter.appendChild(input);
+    navCharacter.appendChild(label);
+
+    // bind
+    _bind_characterOption(navCharacter);
+    return navCharacter;
+  };
+
+  function _bind_characterOption(characterLink) {
+    var label = characterLink.querySelector(".js-nav-character-label");
+    var input = characterLink.querySelector(".js-nav-character-input");
+    input.addEventListener("change", function() {
+      _switch_character(label);
+      sheet.storeCharacters();
+    }, false);
+  };
+
+  function _switch_character(characterLink) {
+    var newIndex = characterLink.dataset.characterIndex;
+    sheet.setIndex(newIndex);
+    sheet.clear();
+    sheet.render();
+    var name = sheet.getCharacter().basics.name;
+    if (typeof name == "undefined" || name == "") {
+      name = "New character";
+    };
+    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
   };
 
   function updateNavCharacters(input) {
@@ -66,117 +101,90 @@ var nav = (function() {
       if (typeof inputValue == "undefined" || inputValue == "") {
         inputValue = "New character";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".name").textContent = helper.truncate(inputValue, 30, true);
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-name").textContent = helper.truncate(inputValue, 30, true);
     } else if (inputType == "class") {
       if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "No class";
+        inputValue = "Class";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".class").textContent = helper.truncate(inputValue, 20, true) + " ";
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-class").textContent = helper.truncate(inputValue, 20, true) + " ";
     } else if (inputType == "level") {
       if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "0";
+        inputValue = "Level";
       };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".level").textContent = helper.truncate(inputValue, 10, false);
+      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-level").textContent = helper.truncate(inputValue, 10, false);
     };
-  };
-
-  function _bind_characterOption(characterLink, newIndex) {
-    characterLink.addEventListener("click", function() {
-      _switch_character(this);
-      sheet.storeCharacters();
-      sheet.setIndex(newIndex);
-      sheet.clear();
-      sheet.render();
-    }, false);
-  };
-
-  function _switch_character(characterLink) {
-    var newIndex = characterLink.dataset.characterIndex;
-    var allCharacterAnchor = helper.eA(".character-toggle");
-    sheet.setIndex(newIndex);
-    for (var i = 0; i < allCharacterAnchor.length; i++) {
-      var icon = allCharacterAnchor[i].querySelector(".icon");
-      helper.removeClass(icon, "icon-check-box-checked");
-      helper.addClass(icon, "icon-check-box-unchecked");
-      helper.removeClass(allCharacterAnchor[i], "active");
-    };
-    var icon = characterLink.querySelector(".icon");
-    helper.removeClass(icon, "icon-check-box-unchecked");
-    helper.addClass(icon, "icon-check-box-checked");
-    helper.addClass(characterLink, "active");
-    var name = sheet.getCharacter().basics.name;
-    if (typeof name == "undefined" || name == "") {
-      name = "New character";
-    };
-    snack.render(helper.truncate(name, 50, true) + " now active.", false, false);
   };
 
   function clear() {
-    var navCharacters = helper.e(".nav-characters");
-    navCharacters.innerHTML = "";
-  };
-
-  function render(array) {
-    var navCharacters = helper.e(".nav-characters");
-    for (var i in array) {
-      var characterAnchor = _render_navCharacters(array[i].basics.name, array[i].basics.class, array[i].basics.level, i);
-      navCharacters.appendChild(characterAnchor);
-      if (i == sheet.getIndex()) {
-        var icon = characterAnchor.querySelector(".icon");
-        var anchor = characterAnchor.querySelector("a");
-        helper.removeClass(icon, "icon-check-box-unchecked");
-        helper.addClass(icon, "icon-check-box-checked");
-        helper.addClass(icon, "icon-check-box-checked");
-        helper.addClass(anchor, "active");
+    var all_navCharacters = helper.eA(".js-nav-characters");
+    for (var i = 0; i < all_navCharacters.length; i++) {
+      while (all_navCharacters[i].lastChild) {
+        all_navCharacters[i].removeChild(all_navCharacters[i].lastChild);
       };
     };
-    render_quickNav();
   };
 
-  function render_quickNav() {
+  function render() {
+    var characters = sheet.getAllCharacters();
+    var navCharacters = helper.e(".js-nav-characters");
+    for (var i in characters) {
+      var characterAnchor = _render_navCharacters(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
+      navCharacters.appendChild(characterAnchor);
+    };
+    var all_navCharacterSelect = helper.eA(".js-nav-character-input");
+    all_navCharacterSelect[sheet.getIndex()].checked = true;
+    _render_quickNav();
+  };
+
+  function _render_quickNav() {
     window.onscroll = function() {
-      var quickNav = helper.e("#quick-nav");
-      var quickNavLinks = helper.eA(".quick-link");
-      var sections = helper.eA("section");
-      var menu;
-      if (window.innerWidth < 550) {
-        menu = 50;
-      } else {
-        menu = 70;
-      };
-      for (var i = 0; i < sections.length; i++) {
-        // console.log(sections[i].id + " top = " + sections[i].getBoundingClientRect().top + " | bottom = " + sections[i].getBoundingClientRect().bottom);
-        if (sections[i].getBoundingClientRect().top <= menu && sections[i].getBoundingClientRect().bottom > menu) {
-          helper.addClass(quickNavLinks[i], "active");
-          helper.addClass(sections[i], "pinned");
+      var quickNav = helper.e(".js-quick-nav");
+      var quickNavLinks = helper.eA(".js-quick-nav-link");
+      var all_section = helper.eA(".js-section");
+      var menu = 60;
+      for (var i = 0; i < all_section.length; i++) {
+        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
+        var sectionHeading = all_section[i].querySelector(".js-section-heading");
+        if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
+          for (var j = 0; j < quickNavLinks.length; j++) {
+            helper.removeClass(quickNavLinks[j], "is-active");
+          };
+          helper.addClass(quickNavLinks[i], "is-active");
+          if (sectionHeading) {
+            helper.addClass(all_section[i], "is-pinned");
+            helper.addClass(sectionHeading, "is-pinned");
+          };
         } else {
-          helper.removeClass(quickNavLinks[i], "active");
-          helper.removeClass(sections[i], "pinned");
+          helper.removeClass(quickNavLinks[i], "is-active");
+          if (sectionHeading) {
+            helper.removeClass(all_section[i], "is-pinned");
+            helper.removeClass(sectionHeading, "is-pinned");
+          };
         };
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        var lastQuickLink = helper.e(".quick-link.notes");
+        var lastQuickLink = helper.e(".js-quick-nav-last-link");
         for (var i = 0; i < quickNavLinks.length; i++) {
-          helper.removeClass(quickNavLinks[i], "active");
+          helper.removeClass(quickNavLinks[i], "is-active");
         };
-        helper.addClass(lastQuickLink, "active");
+        helper.addClass(lastQuickLink, "is-active");
       };
     };
   };
 
   function navClose() {
-    helper.removeClass(helper.e(".nav-list"), "open");
-    helper.removeClass(helper.e(".nav-toggle"), "open");
+    helper.removeClass(helper.e(".js-nav"), "is-open");
+    helper.removeClass(helper.e(".js-nav-toggle"), "is-open");
   };
 
   function navOpen() {
-    helper.addClass(helper.e(".nav-list"), "open");
-    helper.addClass(helper.e(".nav-toggle"), "open");
+    helper.addClass(helper.e(".js-nav"), "is-open");
+    helper.addClass(helper.e(".js-nav-toggle"), "is-open");
   };
 
   function navToggle() {
-    helper.toggleClass(helper.e(".nav-list"), "open");
-    helper.toggleClass(helper.e(".nav-toggle"), "open");
+    helper.toggleClass(helper.e(".js-nav"), "is-open");
+    helper.toggleClass(helper.e(".js-nav-toggle"), "is-open");
   };
 
   function remove() {
@@ -186,31 +194,40 @@ var nav = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("confirm", "Remove " + name + "?", "This character will be removed. This can not be undone.", "clear character");
+    prompt.render("Remove " + name + "?", "This character will be removed. This can not be undone.", "Confirm", sheet.removeCharacter);
   };
 
   function resize() {
-    var navList = helper.e(".nav-list");
-    var height = window.innerHeight - 130;
-    navList.style.maxHeight = height + "px";
+    var nav = helper.e(".js-nav");
+    var height = window.innerHeight - 120;
+    nav.style.maxHeight = height + "px";
   };
 
   function bind() {
-    var navList = helper.e(".nav-list");
-    var navToggleElement = helper.e(".nav-toggle");
-    var fullscreen = helper.e(".fullscreen");
-    var clearAll = helper.e(".clear-all");
-    var characterAdd = helper.e(".character-add");
-    var characterRemove = helper.e(".character-remove");
-    var characterExport = helper.e(".character-export");
+    var nav = helper.e(".js-nav");
+    var navToggleElement = helper.e(".js-nav-toggle");
+    var fullscreen = helper.e(".js-fullscreen");
+    var display = helper.e(".js-display");
+    var clearAll = helper.e(".js-clear-all");
+    var characterAdd = helper.e(".js-character-add");
+    var characterRemove = helper.e(".js-character-remove");
+    var characterExport = helper.e(".js-character-export");
     navToggleElement.addEventListener("click", function() {
       navToggle();
     }, false);
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
+
+    display.addEventListener("click", function() {
+      for (var i = 0; i < helper.eA(".js-section").length; i++) {
+        helper.toggleClass(helper.eA(".js-section")[i], "is-hidden");
+      };
+      helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
+    }, false);
+
     clearAll.addEventListener("click", function() {
-      prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
       navClose();
     }, false);
     characterExport.addEventListener("click", function() {
@@ -219,19 +236,20 @@ var nav = (function() {
     }, false);
     characterAdd.addEventListener("click", function() {
       sheet.addCharacter();
-      snack.render("New character added.", false, false);
+      snack.render("New character added.", false);
     }, false);
     characterRemove.addEventListener("click", function() {
       remove();
+      navClose();
     }, false);
     window.addEventListener('click', function(event) {
-      if (event.target != navList && helper.getClosest(event.target, ".nav-list") != navList && event.target != navToggleElement && helper.getClosest(event.target, ".nav-toggle") != navToggleElement) {
+      if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
         navClose();
       };
     }, false);
     window.addEventListener("keydown", function(event) {
       if (event.which == 8 && event.ctrlKey) {
-        prompt.render("confirm", "Are you sure?", "All characters will be removed. This can not be undone.", "clear all");
+        prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
         navClose();
       };
     }, false);
@@ -258,8 +276,8 @@ var nav = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     resize: resize,
+    bind: bind,
     clear: clear,
     render: render,
     update: updateNavCharacters,

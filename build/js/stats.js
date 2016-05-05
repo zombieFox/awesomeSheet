@@ -12,12 +12,12 @@ var stats = (function() {
   };
 
   function render() {
-    var stats = helper.eA(".stats");
+    var stats = helper.eA(".js-stats");
     for (var i = 0; i < stats.length; i++) {
-      var score = stats[i].querySelector(".score");
-      var modifier = stats[i].querySelector(".modifier");
-      var scoreTemp = stats[i].querySelector(".score-temp");
-      var Modtempifier = stats[i].querySelector(".modifier-temp");
+      var score = stats[i].querySelector(".js-stats-score");
+      var modifier = stats[i].querySelector(".js-stats-modifier");
+      var scoreTemp = stats[i].querySelector(".js-stats-score-temp");
+      var Modtempifier = stats[i].querySelector(".js-stats-modifier-temp");
       if (score.value !== "") {
         _changeModifer(score, modifier);
       } else {
@@ -32,18 +32,18 @@ var stats = (function() {
   };
 
   function bind() {
-    var score = helper.eA(".stats .score");
-    var scoreTemp = helper.eA(".stats .score-temp");
+    var score = helper.eA(".js-stats-score");
+    var scoreTemp = helper.eA(".js-stats-score-temp");
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         render();
-        totalBlock.render();
+        totalBlock.update();
       }, false);
     };
     for (var i = 0; i < scoreTemp.length; i++) {
       scoreTemp[i].addEventListener("input", function() {
         render();
-        totalBlock.render();
+        totalBlock.update();
       }, false);
     };
   };

@@ -1,0 +1,87 @@
+.m-input-block {
+  position: relative;
+  z-index: 1;
+}
+
+.m-input-block-label {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: $root-line-height-extra-large;
+  line-height: $root-line-height-extra-large;
+  z-index: 2;
+  transition: all $transition-ease-extra-fast;
+  cursor: text;
+  box-sizing: border-box;
+  white-space: nowrap;
+  &.is-active {
+    top: -1.5em;
+    left: 0;
+    color: $gray-12;
+    font-size: 0.8em;
+    height: 1.5em;
+    line-height: 1.5em;
+  }
+}
+
+.m-input-block-label-dark {
+  color: $dark-alpha-16;
+  &.is-active {
+    color: $dark-alpha-12;
+  }
+}
+
+.m-input-block-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  .button {
+    border: 0;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    margin: 0;
+    padding: 0 15px;
+    float: left;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      margin: 0;
+      height: $root-line-height-extra-large;
+      line-height: $root-line-height-extra-large;
+    }
+  }
+}
+
+.m-input-block-field {
+  position: relative;
+  z-index: 1;
+}
+
+.m-input-block-field-dark {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    background-color: $dark-alpha-19;
+    color: $white;
+    &:focus {
+      border-color: $secondary-color-15;
+    }
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

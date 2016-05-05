@@ -1,0 +1,44 @@
+.m-textarea-block {
+  position: relative;
+  z-index: 1;
+}
+
+.m-textarea-block-label {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: $root-line-height-extra-large;
+  line-height: $root-line-height-extra-large;
+  z-index: 2;
+  transition: all $transition-ease-extra-fast;
+  cursor: text;
+  box-sizing: border-box;
+  white-space: nowrap;
+  &.is-active {
+    top: -1.5em;
+    left: 0;
+    color: $gray-12;
+    font-size: 0.8em;
+    height: 1.5em;
+    line-height: 1.5em;
+  }
+}
+
+.m-textarea-block-field {
+  position: relative;
+  z-index: 1;
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

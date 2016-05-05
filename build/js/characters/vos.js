@@ -11,7 +11,7 @@ var vos = (function() {
       xp: "9,812",
       height: "5'0",
       weight: "190 lbs",
-      age: "40 years",
+      age: "40",
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "2",
@@ -144,21 +144,39 @@ var vos = (function() {
         racial: "",
         resistance: "1",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "4",
         racial: "",
         resistance: "1",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "4",
         racial: "",
         resistance: "1",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: "+2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
     },
@@ -256,13 +274,13 @@ var vos = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       diplomacy: {
         ranks: "",
@@ -368,25 +386,25 @@ var vos = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       ride: {
         ranks: "",
@@ -429,7 +447,6 @@ var vos = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -444,7 +461,6 @@ var vos = (function() {
         half_level: false
       },
       custom_2: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -459,7 +475,6 @@ var vos = (function() {
         half_level: false
       },
       custom_3: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -474,7 +489,6 @@ var vos = (function() {
         half_level: false
       },
       custom_4: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",

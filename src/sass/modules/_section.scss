@@ -1,0 +1,56 @@
+.m-section-controls {
+  height: 30px;
+  position: relative;
+  .button-group {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    .button {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.m-section-heading {
+  background-color: $secondary-color-08;
+  padding: 10px 0;
+  text-transform: uppercase;
+  position: relative;
+  z-index: $section-heading;
+  height: 30px;
+  box-shadow: $shadow-medium;
+  h1 {
+    color: $white;
+    margin: 0;
+    font-family: $open-sans-semi-bold;
+    font-size: 1.2em;
+    line-height: 3rem;
+  }
+  &.is-pinned {
+    margin: 0;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+  }
+}
+
+.m-section-heading-sub {
+  font-family: $open-sans-semi-bold;
+  font-size: 1.1em;
+}
+
+.m-section-wrapper {
+  padding: 5rem 0;
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

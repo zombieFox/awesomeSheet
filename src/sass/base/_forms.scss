@@ -1,0 +1,200 @@
+.textarea,
+textarea {
+  background-color: $secondary-color-alpha-20;
+  font-family: $open-sans-regular;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  padding: 0.65rem 10px;
+  margin: 0 0 2rem 0;
+  border: 0;
+  border-bottom: $border;
+  transition: border-color $transition-ease-fast, padding $transition-ease-fast;
+  resize: vertical;
+  &:hover {
+    border-color: $primary-color-10;
+  }
+  &:focus {
+    border-color: $secondary-color-10;
+    outline: 0;
+  }
+}
+
+.textarea-large {
+  min-height: 80px;
+}
+
+select {
+  background-color: $white;
+  border-color: $gray-18;
+  color: $base-color;
+  border-width: 1px;
+  border-style: solid;
+  margin: 0 0 2rem 0;
+  font-family: $open-sans-regular;
+  font-size: $font-size-small;
+  color: $base-color;
+  height: $root-line-height-extra-large;
+  line-height: $root-line-height-extra-large;
+  transition: border-color $transition-ease-fast;
+  &:hover {
+    border-color: $primary-color-10;
+  }
+  &:focus {
+    border-color: $secondary-color-10;
+    outline: 0;
+  }
+}
+
+input {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    background-color: $secondary-color-alpha-20;
+    font-size: $font-size-small;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    padding: 0 10px;
+    margin: 0 0 2rem 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: $border;
+    box-shadow: none;
+    transition: border-color $transition-ease-fast;
+    &:hover {
+      border-color: $primary-color-10;
+    }
+    &:focus {
+      border-color: $secondary-color-10;
+      outline: 0;
+    }
+  }
+}
+
+label {
+  line-height: $root-line-height-extra-large;
+  color: $gray-16;
+  display: inline-block;
+}
+
+input {
+  &[type="radio"],
+  &[type="checkbox"] {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: block;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    & + label {
+      line-height: $root-line-height-extra-large;
+      display: inline-block;
+      cursor: pointer;
+      color: $base-color;
+      transition: color $transition-ease-fast;
+      &:before {
+        font-family: "Material Design Icons";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        display: block;
+        float: left;
+        margin-right: 5px;
+        font-size: $font-size-large;
+        height: $root-line-height-extra-large;
+        line-height: $root-line-height-extra-large;
+        color: $secondary-color-04;
+        vertical-align: text-bottom;
+        transition: color $transition-ease-fast;
+      }
+    }
+    &:hover {
+      & + label {
+        color: $primary-color-10;
+        &:before {
+          color: $primary-color-10;
+        }
+      }
+    }
+    &:focus {
+      & + label {
+        color: $secondary-color-10;
+        &:before {
+          color: $secondary-color-10;
+        }
+      }
+    }
+    &:checked {
+      &:hover {
+        & + label {
+          color: $primary-color-10;
+          &:before {
+            color: $primary-color-10;
+          }
+        }
+      }
+      &:focus {
+        & + label {
+          color: $secondary-color-10;
+          &:before {
+            color: $secondary-color-10;
+          }
+        }
+      }
+      & + label {
+        cursor: pointer;
+        color: $base-color;
+        &:before {
+          color: $base-color;
+        }
+      }
+    }
+  }
+  &[type="radio"] {
+    & + label {
+      &:before {
+        content: "\e25e";
+      }
+    }
+    &:checked {
+      & + label {
+        &:before {
+          content: "\e25f";
+        }
+      }
+    }
+  }
+  &[type="checkbox"] {
+    & + label {
+      &:before {
+        content: "\e25d";
+      }
+    }
+    &:checked {
+      & + label {
+        &:before {
+          content: "\e25c";
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

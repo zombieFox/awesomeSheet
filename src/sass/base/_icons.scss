@@ -1,0 +1,180 @@
+// --------------------------------------------------
+// material icons
+// --------------------------------------------------
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("../fonts/material-design-icons/material-design-icons.eot?ju29xy");
+  src: url("../fonts/material-design-icons/material-design-icons.eot?#iefixju29xy") format("embedded-opentype"), url("../fonts/material-design-icons/material-design-icons.ttf?ju29xy") format("truetype"), url("../fonts/material-design-icons/material-design-icons.woff?ju29xy") format("woff"), url("../fonts/material-design-icons/material-design-icons.svg?ju29xy#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "Material Design Icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+  content: "\e000";
+}
+
+.icon-error-outline:before {
+  content: "\e001";
+}
+
+.icon-playlist-add:before {
+  content: "\e01e";
+}
+
+.icon-clear-all:before {
+  content: "\e047";
+}
+
+.icon-add:before {
+  content: "\e069";
+}
+
+.icon-add-circle:before {
+  content: "\e06b";
+}
+
+.icon-add-circle-outline:before {
+  content: "\e06c";
+}
+
+.icon-remove:before {
+  content: "\e07f";
+}
+
+.icon-remove-circle:before {
+  content: "\e080";
+}
+
+.icon-remove-circle-outline:before {
+  content: "\e081";
+}
+
+.icon-cancel:before {
+  content: "\e205";
+}
+
+.icon-chevron-left:before {
+  content: "\e207";
+}
+
+.icon-chevron-right:before {
+  content: "\e208";
+}
+
+.icon-close:before {
+  content: "\e209";
+}
+
+.icon-expand-less:before {
+  content: "\e20a";
+}
+
+.icon-expand-more:before {
+  content: "\e20b";
+}
+
+.icon-fullscreen:before {
+  content: "\e20c";
+}
+
+.icon-fullscreen-exit:before {
+  content: "\e20d";
+}
+
+.icon-unfold-less:before {
+  content: "\e212";
+}
+
+.icon-unfold-more:before {
+  content: "\e213";
+}
+
+.icon-check-box-checked:before {
+  content: "\e25c";
+}
+
+.icon-check-box-unchecked:before {
+  content: "\e25d";
+}
+
+.icon-radio-button-unchecked:before {
+  content: "\e25e";
+}
+
+.icon-radio-button-checked:before {
+  content: "\e25f";
+}
+
+.icon-bookmark:before {
+  content: "\e27b";
+}
+
+.icon-bookmark-outline:before {
+  content: "\e27c";
+}
+
+.icon-refresh:before {
+  content: "\e900";
+}
+
+.icon-delete:before {
+  content: "\e901";
+}
+
+.icon-play-arrow:before {
+  content: "\e902";
+}
+
+.icon-file-download:before {
+  content: "\e903";
+}
+
+.icon-file-upload:before {
+  content: "\e904";
+}
+
+.icon-account-circle:before {
+  content: "\e905";
+}
+
+.icon-apps:before {
+  content: "\e906";
+}
+
+.icon-bottle:before {
+  content: "\e907";
+}
+
+.icon-shield:before {
+  content: "\e908";
+}
+
+.icon-list:before {
+  content: "\e909";
+}
+
+.icon-combat:before {
+  content: "\e90a";
+}
+
+.icon-whatshot:before {
+  content: "\e90b";
+}
+
+.icon-edit:before {
+  content: "\e90c";
+}

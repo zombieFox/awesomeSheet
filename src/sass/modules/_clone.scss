@@ -1,0 +1,80 @@
+.m-clone-block {
+  .m-clone-block-target {
+    .m-clone {
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      transition: all $transition-ease-extra-fast;
+      input {
+        &[type="email"],
+        &[type="number"],
+        &[type="search"],
+        &[type="text"],
+        &[type="tel"],
+        &[type="password"] {
+          transition: all $transition-ease-extra-fast;
+        }
+      }
+      label {
+        transition: all $transition-ease-extra-fast;
+      }
+      .m-clone-block-delete-controls {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all $transition-ease-extra-fast;
+        .button {
+          margin: 0;
+          transform: scale(0.8);
+          transition: all $transition-ease-extra-fast;
+        }
+      }
+    }
+  }
+  &.is-delete-state {
+    .m-clone-block-target {
+      .m-clone {
+        input {
+          &[type="email"],
+          &[type="number"],
+          &[type="search"],
+          &[type="text"],
+          &[type="tel"],
+          &[type="password"] {
+            background-color: transparent;
+            border-color: $primary-color-alpha-18;
+            margin: 0 0 1rem 0;
+          }
+        }
+        label {
+          color: transparent;
+          visibility: hidden;
+        }
+        background-color: $primary-color-19;
+        margin: 0 0 1rem 0;
+        padding: 1rem;
+        border-radius: $border-radius-medium;
+        .m-clone-block-delete-controls {
+          transition: all $transition-bounce-extra-slow;
+          max-height: 200px;
+          opacity: 1;
+          .button {
+            transform: scale(1);
+            transition: all $transition-bounce-extra-slow;
+          }
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

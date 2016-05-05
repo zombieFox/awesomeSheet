@@ -1,0 +1,25 @@
+.l-section {
+  z-index: $body;
+  &.is-pinned {
+    padding-top: 50px;
+  }
+}
+
+.l-section-dark {
+  background-color: $secondary-color-07;
+}
+
+.l-nav-padding {
+  padding-top: 8rem;
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

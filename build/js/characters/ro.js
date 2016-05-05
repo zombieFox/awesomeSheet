@@ -11,7 +11,7 @@ var ro = (function() {
       xp: "3,891",
       height: "6'0",
       weight: "",
-      age: "120 years",
+      age: "120",
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "4",
@@ -110,7 +110,7 @@ var ro = (function() {
         misc: "",
         temp: "",
         armor: "3",
-        shield: "4",
+        shield: "",
         deflect: "",
         dodge: "",
         natural: "",
@@ -148,21 +148,39 @@ var ro = (function() {
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "1",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "3",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather"
     },
@@ -260,13 +278,13 @@ var ro = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       diplomacy: {
         ranks: "",
@@ -372,25 +390,25 @@ var ro = (function() {
         ranks: "2",
         misc: "",
         class_skill: false,
-        type: "Dance"
+        variant_name: "Dance"
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       ride: {
         ranks: "2",
@@ -433,7 +451,6 @@ var ro = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -448,7 +465,6 @@ var ro = (function() {
         half_level: false
       },
       custom_2: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -463,7 +479,6 @@ var ro = (function() {
         half_level: false
       },
       custom_3: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -478,7 +493,6 @@ var ro = (function() {
         half_level: false
       },
       custom_4: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -551,11 +565,11 @@ var ro = (function() {
       }, {
         level_1: [
           { name: "Color Spray", prepared: 0, active: false, cast: 0 },
-          { name: "Grease", prepared: 1, active: false, cast: 1 },
-          { name: "Shocking Grasp", prepared: 2, active: false, cast: 2 },
+          { name: "Grease", prepared: 1, active: false, cast: 0 },
+          { name: "Shocking Grasp", prepared: 2, active: false, cast: 0 },
           { name: "True Strike", prepared: 0, active: false, cast: 0 },
           { name: "Magic Missile", prepared: 0, active: false, cast: 0 },
-          { name: "Shield", prepared: 1, active: false, cast: 1 },
+          { name: "Shield", prepared: 1, active: false, cast: 0 },
           { name: "Vanish", prepared: 0, active: false, cast: 0 },
           { name: "Obscuring Mist", prepared: 0, active: false, cast: 0 },
           { name: "Chill Touch", prepared: 0, active: false, cast: 0 },

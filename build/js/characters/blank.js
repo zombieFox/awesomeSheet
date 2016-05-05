@@ -100,7 +100,7 @@ var blank = (function() {
         natural: "",
         size_bonus: "",
         str_bonus: false,
-        dex_bonus: false,
+        dex_bonus: true,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
@@ -120,7 +120,7 @@ var blank = (function() {
         misc: "",
         temp: "",
         str_bonus: false,
-        dex_bonus: false,
+        dex_bonus: true,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
@@ -132,21 +132,39 @@ var blank = (function() {
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: true,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       reflex: {
         base: "",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false
       },
       will: {
         base: "",
         racial: "",
         resistance: "",
         misc: "",
-        temp: ""
+        temp: "",
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: true,
+        cha_bonus: false
       },
       save_notes: ""
     },
@@ -157,7 +175,7 @@ var blank = (function() {
       cmb: {
         misc: "",
         temp: "",
-        str_bonus: false,
+        str_bonus: true,
         dex_bonus: false,
         con_bonus: false,
         int_bonus: false,
@@ -169,8 +187,8 @@ var blank = (function() {
       cmd: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
+        str_bonus: true,
+        dex_bonus: true,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
@@ -217,13 +235,13 @@ var blank = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       diplomacy: {
         ranks: "",
@@ -329,25 +347,25 @@ var blank = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
-        type: ""
+        variant_name: ""
       },
       ride: {
         ranks: "",
@@ -390,7 +408,6 @@ var blank = (function() {
         class_skill: false
       },
       custom_1: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -405,7 +422,6 @@ var blank = (function() {
         half_level: false
       },
       custom_2: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -420,7 +436,6 @@ var blank = (function() {
         half_level: false
       },
       custom_3: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",
@@ -435,7 +450,6 @@ var blank = (function() {
         half_level: false
       },
       custom_4: {
-        stat: "",
         name: "",
         ranks: "",
         misc: "",

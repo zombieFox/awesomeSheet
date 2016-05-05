@@ -1,0 +1,21 @@
+.m-display-block {
+  margin: 0 0 20px 0;
+  .m-display-block-icon {
+    font-size: 2em;
+    color: $primary-color-alpha-04;
+  }
+  .js-display-innter-html {
+    margin: 0 0 1em 0;
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

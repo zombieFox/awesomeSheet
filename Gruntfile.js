@@ -210,7 +210,7 @@ module.exports = function(grunt) {
         flatten: false,
         layout: '<%= folders.src %>/hbs/layouts/default.hbs',
         layoutdir: '<%= folders.src %>/hbs/layouts',
-        partials: '<%= folders.src %>/hbs/partials/*.hbs'
+        partials: '<%= folders.src %>/hbs/partials/**/*.hbs'
       },
       dev: {
         options: {

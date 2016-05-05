@@ -1,0 +1,213 @@
+.m-spells {
+  &.is-state-prepare,
+  &.is-state-unprepare {
+    .m-spell-book-known {
+      .m-spell {
+        background-color: $secondary-color-alpha-18;
+        color: $base-color;
+        border-color: transparent;
+        &:link,
+        &:visited {}
+        &:focus {
+          outline: 0;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: $secondary-color-alpha-16;
+          outline: 0;
+          text-decoration: none;
+        }
+        &:active,
+        &.is-active {
+          background-color: $secondary-color-alpha-14;
+        }
+      }
+    }
+  }
+  &.is-state-cast,
+  &.is-state-active {
+    .m-spell-book-known {
+      .m-spell {
+        background-color: transparent;
+        color: $base-color;
+        border-color: transparent;
+        &:link,
+        &:visited {}
+        &:focus {
+          outline: 0;
+          text-decoration: none;
+          border-color: transparent;
+        }
+        &:hover {
+          background-color: transparent;
+          outline: 0;
+          text-decoration: none;
+          border-color: transparent;
+        }
+        &:active,
+        &.is-active {
+          background-color: transparent;
+          border-color: transparent;
+        }
+      }
+      .button-primary {
+        &.m-spell {
+          background-color: $gray-19;
+          color: $base-color;
+          border-color: transparent;
+          &:link,
+          &:visited {}
+          &:focus {
+            outline: 0;
+            text-decoration: none;
+          }
+          &:hover {
+            background-color: $dark-alpha-17;
+            outline: 0;
+            text-decoration: none;
+          }
+          &:active,
+          &.is-active {
+            background-color: $dark-alpha-15;
+          }
+        }
+      }
+    }
+  }
+  &.is-state-remove {
+    .m-spell-book-known {
+      .m-spell {
+        background-color: $primary-color-19;
+        color: $base-color;
+        border-color: transparent;
+        &:link,
+        &:visited {
+          color: $gray-10;
+        }
+        &:focus {
+          outline: 0;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: $primary-color-alpha-16;
+          outline: 0;
+          text-decoration: none;
+        }
+        &:active,
+        &.is-active {
+          background-color: $primary-color-alpha-14;
+        }
+        .m-spell-marks {
+          display: none;
+          visibility: hidden;
+        }
+        .m-spell-active {
+          display: none;
+          visibility: hidden;
+        }
+        .m-spell-remove {
+          display: block;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+.m-spell-book {
+  .m-spell-book-known {
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.m-spell {
+  margin: 0 0 3px 0;
+  width: 49.5%;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  white-space: normal;
+  .m-spell-active,
+  .m-spell-name {
+    float: left;
+    margin: 0 5px 0 0;
+    display: block;
+    text-transform: none;
+  }
+  .m-spell-active {
+    visibility: visible;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: left;
+      margin: 0;
+      line-height: 1em;
+      height: auto;
+    }
+  }
+  .m-spell-name {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .m-spell-marks {
+    float: right;
+    margin: 0 0 0 5px;
+    display: block;
+    visibility: visible;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: right;
+      margin: 0 0 0 1px;
+      line-height: 1em;
+      height: auto;
+    }
+  }
+  .m-spell-remove {
+    float: right;
+    margin: 0 0 0 5px;
+    display: none;
+    visibility: hidden;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: right;
+      margin: 0 0 0 1px;
+      line-height: 1em;
+      height: auto;
+    }
+  }
+}
+
+.m-new-spell {
+  position: relative;
+  z-index: 1;
+  .m-new-spell-field {
+    padding-right: 40px;
+  }
+  .m-new-spell-add {
+    margin-bottom: 0;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      margin: 0;
+    }
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}
