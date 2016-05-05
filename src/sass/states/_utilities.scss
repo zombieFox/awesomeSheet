@@ -9,3 +9,11 @@
 .is-visable-block {
   display: block !important;
 }
+
+.is-transparent {
+  opacity: 0 !important;
+}
+
+.is-opaque {
+  opacity: 1 !important;
+}

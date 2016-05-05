@@ -8,7 +8,7 @@
   bottom: 0;
   left: 0;
   overflow: hidden;
-  transition: all $transition-ease-fast;
+  transition: all $transition-ease-slow;
   opacity: 0;
   z-index: $snacks;
   display: flex;
@@ -42,7 +42,7 @@
     box-shadow: $shadow-medium;
     box-sizing: border-box;
     transform: translatey(100%);
-    transition: all $transition-bounce-fast;
+    transition: all $transition-bounce-slow;
     &.is-reveal {
       margin-bottom: 20px;
     }
