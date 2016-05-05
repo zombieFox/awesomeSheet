@@ -11,7 +11,7 @@ var nif = (function() {
       xp: "30,214",
       height: "6'0",
       weight: "136 lbs",
-      age: "120 years",
+      age: "120",
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "3",
