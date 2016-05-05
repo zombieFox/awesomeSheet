@@ -35,19 +35,19 @@ var nav = (function() {
     var uniqueId = helper.randomId(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character js-nav-character character-index-" + characterIndex);
-    navCharacter.setAttribute("data-character-index", characterIndex);
+    navCharacter.setAttribute("class", "m-nav-character");
 
     var input = document.createElement("input");
     input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     input.setAttribute("name", "js-nav-all-characters");
-    input.setAttribute("class", "js-nav-character-select");
+    input.setAttribute("class", "js-nav-character-input");
     input.setAttribute("type", "radio");
     input.setAttribute("tabindex", 10);
 
     var label = document.createElement("label");
     label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width");
+    label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
+    label.setAttribute("data-character-index", characterIndex);
 
     var nameSpan = document.createElement("span");
     nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
@@ -74,8 +74,10 @@ var nav = (function() {
   };
 
   function _bind_characterOption(characterLink) {
-    characterLink.addEventListener("click", function() {
-      _switch_character(this);
+    var label = characterLink.querySelector(".js-nav-character-label");
+    var input = characterLink.querySelector(".js-nav-character-input");
+    input.addEventListener("change", function() {
+      _switch_character(label);
       sheet.storeCharacters();
     }, false);
   };
@@ -85,12 +87,11 @@ var nav = (function() {
     sheet.setIndex(newIndex);
     sheet.clear();
     sheet.render();
-    characterLink.querySelector("input").checked = true;
     var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render(helper.truncate(name, 50, true) + " now in the game.", false, false);
+    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
   };
 
   function updateNavCharacters(input) {
@@ -130,12 +131,12 @@ var nav = (function() {
       var characterAnchor = _render_navCharacters(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
       navCharacters.appendChild(characterAnchor);
     };
-    var all_navCharacterSelect = helper.eA(".js-nav-character-select");
+    var all_navCharacterSelect = helper.eA(".js-nav-character-input");
     all_navCharacterSelect[sheet.getIndex()].checked = true;
-    render_quickNav();
+    _render_quickNav();
   };
 
-  function render_quickNav() {
+  function _render_quickNav() {
     window.onscroll = function() {
       var quickNav = helper.e(".js-quick-nav");
       var quickNavLinks = helper.eA(".js-quick-nav-link");
@@ -206,6 +207,7 @@ var nav = (function() {
     var nav = helper.e(".js-nav");
     var navToggleElement = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
+    var display = helper.e(".js-display");
     var clearAll = helper.e(".js-clear-all");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
@@ -216,6 +218,14 @@ var nav = (function() {
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
+
+    display.addEventListener("click", function() {
+      for (var i = 0; i < helper.eA(".js-section").length; i++) {
+        helper.toggleClass(helper.eA(".js-section")[i], "is-hidden");
+      };
+      helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
+    }, false);
+
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
       navClose();
@@ -226,7 +236,7 @@ var nav = (function() {
     }, false);
     characterAdd.addEventListener("click", function() {
       sheet.addCharacter();
-      snack.render("New character added.", false, false);
+      snack.render("New character added.", false);
     }, false);
     characterRemove.addEventListener("click", function() {
       remove();

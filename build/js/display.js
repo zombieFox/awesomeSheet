@@ -1,37 +1,10 @@
 var display = (function() {
 
-  function update(element) {
-    // var display = helper.e(".display-" + element.id);
-    // var content = element.textContent || element.value;
-    // if (typeof content == "undefined" || content == "") {
-    //   content = " - "
-    // };
-    // if (display) {
-    //   display.textContent = content;
-    // };
+  function update() {
   };
 
   function destroy() {
-    // var all_displayItem = helper.eA(".display-item");
-    // for (var i = 0; i < all_displayItem.length; i++) {
-    //   all_displayItem[i].textContent = "";
-    // };
   };
-
-  // function render() {
-  //   var all_displayItem = helper.eA(".display-item");
-  //   for (var i = 0; i < all_displayItem.length; i++) {
-  //     if (typeof content == "undefined" || content == "") {
-  //       console.log("found undefined");
-  //     };
-  //     var source = all_displayItem[i].dataset.source;
-  //     var content = helper.e("#" + source).textContent || helper.e("#" + source).value;
-  //     if (typeof content == "undefined" || content == "") {
-  //       content = "-"
-  //     };
-  //     all_displayItem[i].textContent = content;
-  //   };
-  // };
 
   function render() {
 
@@ -47,6 +20,22 @@ var display = (function() {
         } else {
           target.textContent = "";
           helper.addClass(all_displayItem[i], "is-hidden");
+        };
+      };
+    };
+
+    var all_displayInnerHtml = helper.eA(".js-display-innter-html");
+    for (var i = 0; i < all_displayInnerHtml.length; i++) {
+      var path = all_displayInnerHtml[i].dataset.path;
+      var target = all_displayInnerHtml[i].querySelector(".js-display-target");
+      if (path) {
+        var content = helper.getObject(sheet.getCharacter(), path);
+        if (typeof content != "undefined" && content != "") {
+          target.innerHTML = content;
+          helper.removeClass(all_displayInnerHtml[i], "is-hidden");
+        } else {
+          target.innerHTML = "";
+          helper.addClass(all_displayInnerHtml[i], "is-hidden");
         };
       };
     };
@@ -67,18 +56,7 @@ var display = (function() {
       };
     };
 
-
   };
-
-  // if (typeof content == "undefined" || content == "") {
-  //   console.log("found undefined");
-  // };
-  // var source = all_displayBlock[i].dataset.source;
-  // var content = helper.e("#" + source).textContent || helper.e("#" + source).value;
-  // if (typeof content == "undefined" || content == "") {
-  //   content = "-"
-  // };
-  // all_displayBlock[i].textContent = content;
 
   // exposed methods
   return {

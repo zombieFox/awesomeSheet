@@ -48,11 +48,11 @@ var sheet = (function() {
     clear();
     render();
     nav.clear();
-    nav.render(getAllCharacters());
+    nav.render();
   };
 
   function removeCharacter() {
-    var name = allCharacters[currentCharacterIndex].basics.name || "New character";
+    var name = allCharacters[getIndex()].basics.name || "New character";
     allCharacters.splice(getIndex(), 1);
     var lastCharacterRemoved = false;
     if (allCharacters.length == 0) {
@@ -64,7 +64,7 @@ var sheet = (function() {
     render();
     storeCharacters();
     nav.clear();
-    nav.render(getAllCharacters());
+    nav.render();
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
@@ -97,27 +97,6 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     document.location.reload(true);
-    // destroy and reset without reload
-    // localStorage.clear();
-    // prompt.destroy();
-    // snack.destroy();
-    // allCharacters = [{
-    //     clone: {},
-    //     input: {},
-    //     textarea: {},
-    //     spells: []
-    //   }];
-    // if (typeof hardCodedCharacters !== "undefined") {
-    //   allCharacters = hardCodedCharacters.load;
-    // };
-    // currentCharacterIndex = 0;
-    // storeCharacters();
-    // setIndex(currentCharacterIndex);
-    // clear();
-    // render();
-    // nav.clear();
-    // nav.render(sheet.getAllCharacters());
-    // snack.render("All characters removed.", false, false);
   };
 
   function printCharacterObject(index) {
@@ -127,7 +106,7 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    var exportData = JSON.stringify(allCharacters[currentCharacterIndex], null, " ");
+    var exportData = JSON.stringify(getCharacter(), null, " ");
     prompt.render("Download " + name, false, "Download", "download");
     if (helper.e(".prompt pre")) {
       helper.selectText(".prompt pre");
@@ -135,7 +114,6 @@ var sheet = (function() {
   };
 
   function bind() {
-    nav.bind();
     inputBlock.bind();
     textareaBlock.bind();
     stats.bind();
@@ -145,8 +123,6 @@ var sheet = (function() {
   };
 
   function render() {
-    nav.render();
-    nav.resize();
     inputBlock.render();
     textareaBlock.render();
     stats.render();
@@ -158,7 +134,6 @@ var sheet = (function() {
   };
 
   function clear() {
-    nav.clear();
     inputBlock.clear();
     textareaBlock.clear();
     stats.render();
