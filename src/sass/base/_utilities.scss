@@ -44,6 +44,19 @@
   font-size: $font-size-extra-small;
 }
 
+.u-list-unstyled {
+  padding-left: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+.u-list-inline {
+  li {
+    display: inline-block;
+  }
+}
+
 .text-right {
   text-align: right;
 }
