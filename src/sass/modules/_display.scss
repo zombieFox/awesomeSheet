@@ -1,10 +1,6 @@
 .m-display-block {
-  margin: 0 0 50px 0;
-  p {
-
-  }
-  [class^="icon-"],
-  [class*=" icon-"] {
+  margin: 0 0 20px 0;
+  .m-display-block-icon {
     font-size: 2em;
     color: $primary-color-alpha-04;
   }

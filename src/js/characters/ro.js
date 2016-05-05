@@ -110,7 +110,7 @@ var ro = (function() {
         misc: "",
         temp: "",
         armor: "3",
-        shield: "4",
+        shield: "",
         deflect: "",
         dodge: "",
         natural: "",
@@ -565,11 +565,11 @@ var ro = (function() {
       }, {
         level_1: [
           { name: "Color Spray", prepared: 0, active: false, cast: 0 },
-          { name: "Grease", prepared: 1, active: false, cast: 1 },
-          { name: "Shocking Grasp", prepared: 2, active: false, cast: 2 },
+          { name: "Grease", prepared: 1, active: false, cast: 0 },
+          { name: "Shocking Grasp", prepared: 2, active: false, cast: 0 },
           { name: "True Strike", prepared: 0, active: false, cast: 0 },
           { name: "Magic Missile", prepared: 0, active: false, cast: 0 },
-          { name: "Shield", prepared: 1, active: false, cast: 1 },
+          { name: "Shield", prepared: 1, active: false, cast: 0 },
           { name: "Vanish", prepared: 0, active: false, cast: 0 },
           { name: "Obscuring Mist", prepared: 0, active: false, cast: 0 },
           { name: "Chill Touch", prepared: 0, active: false, cast: 0 },

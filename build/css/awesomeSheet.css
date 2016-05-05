@@ -2478,9 +2478,8 @@ label {
     width: 60%; } }
 
 .m-display-block {
-  margin: 0 0 50px 0; }
-  .m-display-block [class^="icon-"],
-  .m-display-block [class*=" icon-"] {
+  margin: 0 0 20px 0; }
+  .m-display-block .m-display-block-icon {
     font-size: 2em;
     color: rgba(252, 0, 66, 0.85); }
 

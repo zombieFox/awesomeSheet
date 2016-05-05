@@ -220,7 +220,7 @@ var orrin = (function() {
           ammo: "50"
         }]
       },
-      attack_notes: "+1d6 Sneak attack, +2 to overcome spell resistance"
+      attack_notes: "+1d6 Sneak attack"
     },
     skills: {
       acrobatics: {
