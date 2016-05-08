@@ -8,7 +8,7 @@ var vos = (function() {
       level: "4",
       size: "Medium",
       alignment: "Chaotic Neutral",
-      xp: "12,452",
+      xp: "13,732",
       height: "5'0",
       weight: "190 lbs",
       age: "40",
@@ -77,7 +77,7 @@ var vos = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "1,218",
+        gold: "1,328",
         silver: "5",
         copper: ""
       },

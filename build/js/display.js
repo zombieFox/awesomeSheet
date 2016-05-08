@@ -3,163 +3,171 @@ var display = (function() {
   function update() {};
 
   function clear() {
-    var all_displayItems = helper.eA(".js-display-item");
+    var all_displayItem = helper.eA(".js-display-item");
     var displaySpell = helper.e(".js-display-spell");
-    for (var i = 0; i < all_displayItems.length; i++) {
-      while (all_displayItems[i].lastChild) {
-        all_displayItems[i].removeChild(all_displayItems[i].lastChild);
+    var displayAttack = helper.e(".js-display-attack");
+    for (var i = 0; i < all_displayItem.length; i++) {
+      while (all_displayItem[i].lastChild) {
+        all_displayItem[i].removeChild(all_displayItem[i].lastChild);
       };
     };
     while (displaySpell.lastChild) {
       displaySpell.removeChild(displaySpell.lastChild);
     };
+    while (displayAttack.lastChild) {
+      displayAttack.removeChild(displayAttack.lastChild);
+    };
   };
 
   function render() {
 
-    var all_displayItems = helper.eA(".js-display-item");
-    for (var i = 0; i < all_displayItems.length; i++) {
-      if (all_displayItems[i].dataset.display) {
-        var itemsToDisplay = all_displayItems[i].dataset.display.split(',');
-      };
-      for (var j = 0; j < itemsToDisplay.length; j++) {
-        var path = itemsToDisplay[j];
-        var data = helper.getObject(sheet.getCharacter(), path);
-
-        var makeDisplayItem = function(addressToCompare, beforeString, afterString) {
-          if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
-            return data = beforeString + data + afterString;
-          } else {
-            return data;
-          };
+    function _displayItem() {
+      var all_displayItem = helper.eA(".js-display-item");
+      for (var i = 0; i < all_displayItem.length; i++) {
+        if (all_displayItem[i].dataset.display) {
+          var itemsToDisplay = all_displayItem[i].dataset.display.split(',');
         };
+        for (var j = 0; j < itemsToDisplay.length; j++) {
+          var path = itemsToDisplay[j];
+          var data = helper.getObject(sheet.getCharacter(), path);
 
-        makeDisplayItem("basics.xp", "", " xp");
-        makeDisplayItem("basics.age", "", " years old");
-        makeDisplayItem("basics.hero_points", "", " hero point");
-        makeDisplayItem("basics.luck_points", "", " luck point");
+          var makeDisplayItem = function(addressToCompare, beforeString, afterString) {
+            if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
+              return data = beforeString + data + afterString;
+            } else {
+              return data;
+            };
+          };
 
-        makeDisplayItem("statistics.stats.str.score", "<strong>Str</strong> ", "");
-        makeDisplayItem("statistics.stats.str.temp", "<strong>Str temp</strong> ", "");
-        makeDisplayItem("statistics.stats.dex.score", "<strong>Dex</strong> ", "");
-        makeDisplayItem("statistics.stats.dex.temp", "<strong>Dex temp</strong> ", "");
-        makeDisplayItem("statistics.stats.con.score", "<strong>Con</strong> ", "");
-        makeDisplayItem("statistics.stats.con.temp", "<strong>Con temp</strong> ", "");
-        makeDisplayItem("statistics.stats.int.score", "<strong>Int</strong> ", "");
-        makeDisplayItem("statistics.stats.int.temp", "<strong>Int temp</strong> ", "");
-        makeDisplayItem("statistics.stats.wis.score", "<strong>Wis</strong> ", "");
-        makeDisplayItem("statistics.stats.wis.temp", "<strong>Wis temp</strong> ", "");
-        makeDisplayItem("statistics.stats.cha.score", "<strong>Cha</strong> ", "");
-        makeDisplayItem("statistics.stats.cha.temp", "<strong>Cha temp</strong> ", "");
-        makeDisplayItem("statistics.feats", "<strong>Feats</strong> ", "");
-        makeDisplayItem("statistics.traits", "<strong>Traits</strong> ", "");
-        makeDisplayItem("statistics.special_abilities", "<strong>Special Abilities</strong> ", "");
-        makeDisplayItem("statistics.languages", "<strong>Languages</strong> ", "");
+          makeDisplayItem("basics.speed", "Speed ", "");
+          makeDisplayItem("basics.initiative", "Initiative ", "");
+          makeDisplayItem("basics.xp", "", " xp");
+          makeDisplayItem("basics.age", "", " years old");
+          makeDisplayItem("basics.hero_points", "", " hero point");
+          makeDisplayItem("basics.luck_points", "", " luck point");
 
-        makeDisplayItem("equipment.gear", "<strong>Gear</strong> ", "");
-        makeDisplayItem("equipment.magic_gear", "<strong>Magic Gear</strong> ", "");
-        makeDisplayItem("equipment.body_slots.armor", "<strong>Armor</strong> ", "");
-        makeDisplayItem("equipment.body_slots.belts", "<strong>Belts</strong> ", "");
-        makeDisplayItem("equipment.body_slots.body", "<strong>Body</strong> ", "");
-        makeDisplayItem("equipment.body_slots.chest", "<strong>Chest</strong> ", "");
-        makeDisplayItem("equipment.body_slots.eyes", "<strong>Eyes</strong> ", "");
-        makeDisplayItem("equipment.body_slots.feet", "<strong>Feet</strong> ", "");
-        makeDisplayItem("equipment.body_slots.hands", "<strong>Hands</strong> ", "");
-        makeDisplayItem("equipment.body_slots.head", "<strong>Head</strong> ", "");
-        makeDisplayItem("equipment.body_slots.headband", "<strong>Headband</strong> ", "");
-        makeDisplayItem("equipment.body_slots.neck", "<strong>Neck</strong> ", "");
-        makeDisplayItem("equipment.body_slots.ring_left_hand", "<strong>Ring (Left Hand)</strong> ", "");
-        makeDisplayItem("equipment.body_slots.ring_right_hand", "<strong>Ring (Right Hand)</strong> ", "");
-        makeDisplayItem("equipment.body_slots.shield", "<strong>Shield</strong> ", "");
-        makeDisplayItem("equipment.body_slots.shoulders", "<strong>Shoulders</strong> ", "");
-        makeDisplayItem("equipment.body_slots.wrist", "<strong>Wrist</strong> ", "");
-        makeDisplayItem("equipment.wealth.platinum", "<strong>PP</strong> ", "");
-        makeDisplayItem("equipment.wealth.gold", "<strong>GP</strong> ", "");
-        makeDisplayItem("equipment.wealth.silver", "<strong>SP</strong> ", "");
-        makeDisplayItem("equipment.wealth.copper", "<strong>CP</strong> ", "");
+          makeDisplayItem("statistics.stats.str.score", "<strong>Str</strong> ", "");
+          makeDisplayItem("statistics.stats.str.temp", "<strong>Str temp</strong> ", "");
+          makeDisplayItem("statistics.stats.dex.score", "<strong>Dex</strong> ", "");
+          makeDisplayItem("statistics.stats.dex.temp", "<strong>Dex temp</strong> ", "");
+          makeDisplayItem("statistics.stats.con.score", "<strong>Con</strong> ", "");
+          makeDisplayItem("statistics.stats.con.temp", "<strong>Con temp</strong> ", "");
+          makeDisplayItem("statistics.stats.int.score", "<strong>Int</strong> ", "");
+          makeDisplayItem("statistics.stats.int.temp", "<strong>Int temp</strong> ", "");
+          makeDisplayItem("statistics.stats.wis.score", "<strong>Wis</strong> ", "");
+          makeDisplayItem("statistics.stats.wis.temp", "<strong>Wis temp</strong> ", "");
+          makeDisplayItem("statistics.stats.cha.score", "<strong>Cha</strong> ", "");
+          makeDisplayItem("statistics.stats.cha.temp", "<strong>Cha temp</strong> ", "");
+          makeDisplayItem("statistics.feats", "<strong>Feats</strong> ", "");
+          makeDisplayItem("statistics.traits", "<strong>Traits</strong> ", "");
+          makeDisplayItem("statistics.special_abilities", "<strong>Special Abilities</strong> ", "");
+          makeDisplayItem("statistics.languages", "<strong>Languages</strong> ", "");
 
-        makeDisplayItem("defense.hp.current", "<strong>HP</strong> ", "");
-        makeDisplayItem("defense.hp.total", "<strong>Total HP</strong> ", "");
-        makeDisplayItem("defense.hp.non_lethal_damage", "<strong>Nonlethal Damage</strong> ", "");
-        makeDisplayItem("defense.ac.current", "<strong>AC</strong> ", "");
-        makeDisplayItem("defense.flat_footed.current", "<strong>Flat Footed</strong> ", "");
-        makeDisplayItem("defense.touch.current", "<strong>Touch</strong> ", "");
-        makeDisplayItem("defense.fortitude.current", "<strong>Fortitude</strong> ", "");
-        makeDisplayItem("defense.reflex.current", "<strong>Reflex</strong> ", "");
-        makeDisplayItem("defense.will.current", "<strong>Will</strong> ", "");
+          makeDisplayItem("equipment.gear", "<strong>Gear</strong> ", "");
+          makeDisplayItem("equipment.magic_gear", "<strong>Magic Gear</strong> ", "");
+          makeDisplayItem("equipment.body_slots.armor", "<strong>Armor</strong> ", "");
+          makeDisplayItem("equipment.body_slots.belts", "<strong>Belts</strong> ", "");
+          makeDisplayItem("equipment.body_slots.body", "<strong>Body</strong> ", "");
+          makeDisplayItem("equipment.body_slots.chest", "<strong>Chest</strong> ", "");
+          makeDisplayItem("equipment.body_slots.eyes", "<strong>Eyes</strong> ", "");
+          makeDisplayItem("equipment.body_slots.feet", "<strong>Feet</strong> ", "");
+          makeDisplayItem("equipment.body_slots.hands", "<strong>Hands</strong> ", "");
+          makeDisplayItem("equipment.body_slots.head", "<strong>Head</strong> ", "");
+          makeDisplayItem("equipment.body_slots.headband", "<strong>Headband</strong> ", "");
+          makeDisplayItem("equipment.body_slots.neck", "<strong>Neck</strong> ", "");
+          makeDisplayItem("equipment.body_slots.ring_left_hand", "<strong>Ring (Left Hand)</strong> ", "");
+          makeDisplayItem("equipment.body_slots.ring_right_hand", "<strong>Ring (Right Hand)</strong> ", "");
+          makeDisplayItem("equipment.body_slots.shield", "<strong>Shield</strong> ", "");
+          makeDisplayItem("equipment.body_slots.shoulders", "<strong>Shoulders</strong> ", "");
+          makeDisplayItem("equipment.body_slots.wrist", "<strong>Wrist</strong> ", "");
+          makeDisplayItem("equipment.wealth.platinum", "<strong>PP</strong> ", "");
+          makeDisplayItem("equipment.wealth.gold", "<strong>GP</strong> ", "");
+          makeDisplayItem("equipment.wealth.silver", "<strong>SP</strong> ", "");
+          makeDisplayItem("equipment.wealth.copper", "<strong>CP</strong> ", "");
 
-        makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
-        makeDisplayItem("offense.concentration", "<strong>Concentration</strong> ", "");
-        makeDisplayItem("offense.cmb.current", "<strong>CMB</strong> ", "");
-        makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
-        makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
-        makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
+          makeDisplayItem("defense.hp.current", "<strong>HP</strong> ", "");
+          makeDisplayItem("defense.hp.total", "<strong>Total HP</strong> ", "");
+          makeDisplayItem("defense.hp.non_lethal_damage", "<strong>Nonlethal Damage</strong> ", "");
+          makeDisplayItem("defense.ac.current", "<strong>AC</strong> ", "");
+          makeDisplayItem("defense.flat_footed.current", "<strong>Flat Footed</strong> ", "");
+          makeDisplayItem("defense.touch.current", "<strong>Touch</strong> ", "");
+          makeDisplayItem("defense.fortitude.current", "<strong>Fortitude</strong> ", "");
+          makeDisplayItem("defense.reflex.current", "<strong>Reflex</strong> ", "");
+          makeDisplayItem("defense.will.current", "<strong>Will</strong> ", "");
 
-        makeDisplayItem("skills.acrobatics.current", "<strong>Acrobatics</strong> ", "");
-        makeDisplayItem("skills.appraise.current", "<strong>Appraise</strong> ", "");
-        makeDisplayItem("skills.bluff.current", "<strong>Bluff</strong> ", "");
-        makeDisplayItem("skills.climb.current", "<strong>Climb</strong> ", "");
-        makeDisplayItem("skills.craft_1.current", "<strong>Craft</strong> ", "");
-        makeDisplayItem("skills.craft_2.current", "<strong>Craft</strong> ", "");
-        makeDisplayItem("skills.diplomacy.current", "<strong>Diplomacy</strong> ", "");
-        makeDisplayItem("skills.disable_device.current", "<strong>Disable Device</strong> ", "");
-        makeDisplayItem("skills.disguise.current", "<strong>Disguise</strong> ", "");
-        makeDisplayItem("skills.escape_artist.current", "<strong>Escape Artist</strong> ", "");
-        makeDisplayItem("skills.fly.current", "<strong>Fly</strong> ", "");
-        makeDisplayItem("skills.handle_animal.current", "<strong>Handle Animal</strong> ", "");
-        makeDisplayItem("skills.heal.current", "<strong>Heal</strong> ", "");
-        makeDisplayItem("skills.intimidate.current", "<strong>Intimidate</strong> ", "");
-        makeDisplayItem("skills.knowledge_arcana.current", "<strong>Knowledge (Arcana)</strong> ", "");
-        makeDisplayItem("skills.knowledge_dungeoneering.current", "<strong>Knowledge (Dungeoneering)</strong> ", "");
-        makeDisplayItem("skills.knowledge_engineering.current", "<strong>Knowledge (Engineering)</strong> ", "");
-        makeDisplayItem("skills.knowledge_geography.current", "<strong>Knowledge (Geography)</strong> ", "");
-        makeDisplayItem("skills.knowledge_history.current", "<strong>Knowledge (History)</strong> ", "");
-        makeDisplayItem("skills.knowledge_local.current", "<strong>Knowledge (Local)</strong> ", "");
-        makeDisplayItem("skills.knowledge_nature.current", "<strong>Knowledge (Nature)</strong> ", "");
-        makeDisplayItem("skills.knowledge_nobility.current", "<strong>Knowledge (Nobility)</strong> ", "");
-        makeDisplayItem("skills.knowledge_planes.current", "<strong>Knowledge (Planes)</strong> ", "");
-        makeDisplayItem("skills.knowledge_religion.current", "<strong>Knowledge (Religion)</strong> ", "");
-        makeDisplayItem("skills.linguistics.current", "<strong>Linguistics</strong> ", "");
-        makeDisplayItem("skills.perception.current", "<strong>Perception</strong> ", "");
-        makeDisplayItem("skills.perform_1.current", "<strong>Perform</strong> ", "");
-        makeDisplayItem("skills.perform_2.current", "<strong>Perform</strong> ", "");
-        makeDisplayItem("skills.profession_1.current", "<strong>Profession</strong> ", "");
-        makeDisplayItem("skills.profession_2.current", "<strong>Profession</strong> ", "");
-        makeDisplayItem("skills.ride.current", "<strong>Ride</strong> ", "");
-        makeDisplayItem("skills.sense_motive.current", "<strong>Sense Motive</strong> ", "");
-        makeDisplayItem("skills.sleight_of_hand.current", "<strong>Sleight Of Hand</strong> ", "");
-        makeDisplayItem("skills.spellcraft.current", "<strong>Spellcraft</strong> ", "");
-        makeDisplayItem("skills.stealth.current", "<strong>Stealth</strong> ", "");
-        makeDisplayItem("skills.survival.current", "<strong>Survival</strong> ", "");
-        makeDisplayItem("skills.swim.current", "<strong>Swim</strong> ", "");
-        makeDisplayItem("skills.use_magic_device.current", "<strong>Use Magic Device</strong> ", "");
-        makeDisplayItem("skills.custom_1.current", "<strong>Custom</strong> ", "");
-        makeDisplayItem("skills.custom_2.current", "<strong>Custom</strong> ", "");
-        makeDisplayItem("skills.custom_3.current", "<strong>Custom</strong> ", "");
-        makeDisplayItem("skills.custom_4.current", "<strong>Custom</strong> ", "");
+          makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
+          makeDisplayItem("offense.concentration", "<strong>Concentration</strong> ", "");
+          makeDisplayItem("offense.cmb.current", "<strong>CMB</strong> ", "");
+          makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
+          makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
+          makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
 
-        makeDisplayItem("notes.character", "<strong>Character Notes</strong><br> ", "");
-        makeDisplayItem("notes.story", "<strong>Story Notes</strong><br> ", "")
+          makeDisplayItem("skills.acrobatics.current", "Acrobatics <strong>", "</strong>");
+          makeDisplayItem("skills.appraise.current", "Appraise <strong>", "</strong>");
+          makeDisplayItem("skills.bluff.current", "Bluff <strong>", "</strong>");
+          makeDisplayItem("skills.climb.current", "Climb <strong>", "</strong>");
+          makeDisplayItem("skills.craft_1.current", "Craft <strong>", "</strong>");
+          makeDisplayItem("skills.craft_2.current", "Craft <strong>", "</strong>");
+          makeDisplayItem("skills.diplomacy.current", "Diplomacy <strong>", "</strong>");
+          makeDisplayItem("skills.disable_device.current", "Disable Device <strong>", "</strong>");
+          makeDisplayItem("skills.disguise.current", "Disguise <strong>", "</strong>");
+          makeDisplayItem("skills.escape_artist.current", "Escape Artist <strong>", "</strong>");
+          makeDisplayItem("skills.fly.current", "Fly <strong>", "</strong>");
+          makeDisplayItem("skills.handle_animal.current", "Handle Animal <strong>", "</strong>");
+          makeDisplayItem("skills.heal.current", "Heal <strong>", "</strong>");
+          makeDisplayItem("skills.intimidate.current", "Intimidate <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_arcana.current", "Knowledge (Arcana) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_dungeoneering.current", "Knowledge (Dungeoneering) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_engineering.current", "Knowledge (Engineering) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_geography.current", "Knowledge (Geography) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_history.current", "Knowledge (History) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_local.current", "Knowledge (Local) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_nature.current", "Knowledge (Nature) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_nobility.current", "Knowledge (Nobility) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_planes.current", "Knowledge (Planes) <strong>", "</strong>");
+          makeDisplayItem("skills.knowledge_religion.current", "Knowledge (Religion) <strong>", "</strong>");
+          makeDisplayItem("skills.linguistics.current", "Linguistics <strong>", "</strong>");
+          makeDisplayItem("skills.perception.current", "Perception <strong>", "</strong>");
+          makeDisplayItem("skills.perform_1.current", "Perform <strong>", "</strong>");
+          makeDisplayItem("skills.perform_2.current", "Perform <strong>", "</strong>");
+          makeDisplayItem("skills.profession_1.current", "Profession <strong>", "</strong>");
+          makeDisplayItem("skills.profession_2.current", "Profession <strong>", "</strong>");
+          makeDisplayItem("skills.ride.current", "Ride <strong>", "</strong>");
+          makeDisplayItem("skills.sense_motive.current", "Sense Motive <strong>", "</strong>");
+          makeDisplayItem("skills.sleight_of_hand.current", "Sleight Of Hand <strong>", "</strong>");
+          makeDisplayItem("skills.spellcraft.current", "Spellcraft <strong>", "</strong>");
+          makeDisplayItem("skills.stealth.current", "Stealth <strong>", "</strong>");
+          makeDisplayItem("skills.survival.current", "Survival <strong>", "</strong>");
+          makeDisplayItem("skills.swim.current", "Swim <strong>", "</strong>");
+          makeDisplayItem("skills.use_magic_device.current", "Use Magic Device <strong>", "</strong>");
+          makeDisplayItem("skills.custom_1.current", "Custom <strong>", "</strong>");
+          makeDisplayItem("skills.custom_2.current", "Custom <strong>", "</strong>");
+          makeDisplayItem("skills.custom_3.current", "Custom <strong>", "</strong>");
+          makeDisplayItem("skills.custom_4.current", "Custom <strong>", "</strong>");
 
-        if (typeof data != "undefined" && data != "") {
-          var text = document.createElement("span");
-          text.className = "m-display-item";
-          text.innerHTML = data;
-          all_displayItems[i].appendChild(text);
+          makeDisplayItem("notes.character", "<strong>Character Notes</strong><br> ", "");
+          makeDisplayItem("notes.story", "<strong>Story Notes</strong><br> ", "")
+
+          if (typeof data != "undefined" && data != "") {
+            var text = document.createElement("span");
+            text.className = "m-display-item";
+            text.innerHTML = data;
+            all_displayItem[i].appendChild(text);
+          };
         };
       };
     };
 
-    function _allSpellLevels() {
+    function _displaySpell() {
       // build an array of spell objects
       var spellsToRender;
-      // iterate over all objects keys to find spells then push those values to spellsToRender
+      // iterate over all objects keys to find spells
       if (sheet.getCharacter().spells.book) {
         for (var i in sheet.getCharacter().spells.book) {
           for (var j in sheet.getCharacter().spells.book[i]) {
             spellsToRender = sheet.getCharacter().spells.book[i][j];
+            _render_displaySpell(spellsToRender, i);
           };
-          _render_displaySpell(spellsToRender, i);
         };
       };
     };
@@ -176,11 +184,11 @@ var display = (function() {
         } else {
           knownListToSaveTo = document.createElement("p");
           knownListToSaveTo.className = "js-display-spell-level-" + level;
-          var listNameP = document.createElement("p");
-          var listNameStrong = document.createElement("strong");
-          listNameStrong.innerHTML = "Level " + level;
-          listNameP.appendChild(listNameStrong);
-          displaySpell.appendChild(listNameP);
+          var para = document.createElement("p");
+          var strong = document.createElement("strong");
+          strong.innerHTML = "Level " + level;
+          para.appendChild(strong);
+          displaySpell.appendChild(para);
           displaySpell.appendChild(knownListToSaveTo);
         };
         // make spell
@@ -238,7 +246,57 @@ var display = (function() {
       };
     };
 
-    _allSpellLevels();
+    function _displayAttackMelee() {
+      var attacksToRender;
+      if (sheet.getCharacter().offense.attack.melee) {
+        for (var i in sheet.getCharacter().offense.attack.melee) {
+          _render_displayAttack(sheet.getCharacter().offense.attack.melee[i]);
+        };
+      };
+    };
+
+    function _displayAttackRanged() {
+      var attacksToRender;
+      if (sheet.getCharacter().offense.attack.ranged) {
+        for (var i in sheet.getCharacter().offense.attack.ranged) {
+          _render_displayAttack(sheet.getCharacter().offense.attack.ranged[i]);
+        };
+      };
+    };
+
+    function _render_displayAttack(object) {
+      var displayAttack = helper.e(".js-display-attack");
+      var para = document.createElement("p");
+      for (var i in object) {
+        var data = object[i];
+
+        var makeDisplayItem = function(addressToCompare, beforeString, afterString) {
+          if (typeof data != "undefined" && data != "" && i == addressToCompare) {
+            return data = beforeString + data + afterString;
+          } else {
+            return data;
+          };
+        };
+
+        makeDisplayItem("weapon", "<strong>", "</strong>");
+        makeDisplayItem("attack", "<strong>", "</strong>");
+        makeDisplayItem("damage", "(", ")");
+        makeDisplayItem("critical", "Critical ", "");
+        makeDisplayItem("range", "Range ", "");
+        makeDisplayItem("ammo", "Ammo ", "");
+
+        var span = document.createElement("span");
+        span.className = "m-display-attack";
+        span.innerHTML = data;
+        para.appendChild(span);
+      };
+      displayAttack.appendChild(para);
+    };
+
+    _displayItem();
+    _displaySpell();
+    _displayAttackMelee();
+    _displayAttackRanged();
 
   };
 

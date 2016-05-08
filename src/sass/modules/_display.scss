@@ -10,7 +10,9 @@
   .js-display-innter-html {
     margin: 0 0 1em 0;
   }
-  .m-display-item {
+  .m-display-item,
+  .m-display-spell,
+  .m-display-attack {
     margin-right: 10px;
     padding-right: 10px;
     border-right: 1px solid $secondary-color-18;
@@ -22,15 +24,6 @@
     }
   }
   .m-display-spell {
-    margin-right: 10px;
-    padding-right: 10px;
-    border-right: 1px solid $secondary-color-18;
-    display: inline-block;
-    &:last-child {
-      margin-right: 0;
-      padding-right: 0;
-      border-right: 0;
-    }
     .m-display-spell-name {}
     .m-display-spell-active {
       margin-right: 5px;

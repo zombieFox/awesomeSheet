@@ -1401,11 +1401,7 @@ label {
 
 .l-section-display {
   background-color: #ffffff;
-  position: absolute;
-  margin: 0;
-  padding: 80px 0;
-  top: 60px;
-  left: 0;
+  margin: 150px 0 0 0;
   z-index: 4000;
   width: 100%; }
 
@@ -2124,7 +2120,8 @@ label {
   transition: all 0.3s ease-in-out; }
 
 .m-quick-nav-display {
-  background-color: rgba(0, 0, 0, 0.1); }
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); }
 
 .m-quick-nav-list {
   margin: 0;
@@ -2446,8 +2443,6 @@ label {
     box-sizing: border-box;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 30px rgba(0, 0, 0, 0.3);
     white-space: pre-wrap; }
-  .m-prompt.is-reveal {
-    opacity: 1; }
 
 @media (min-width: 700px) {
   .m-prompt {
@@ -2532,30 +2527,25 @@ label {
     color: rgba(252, 0, 66, 0.85); }
   .m-display-block .js-display-innter-html {
     margin: 0 0 1em 0; }
-  .m-display-block .m-display-item {
+  .m-display-block .m-display-item,
+  .m-display-block .m-display-spell,
+  .m-display-block .m-display-attack {
     margin-right: 10px;
     padding-right: 10px;
     border-right: 1px solid #cce7fa;
     display: inline-block; }
-    .m-display-block .m-display-item:last-child {
+    .m-display-block .m-display-item:last-child,
+    .m-display-block .m-display-spell:last-child,
+    .m-display-block .m-display-attack:last-child {
       margin-right: 0;
       padding-right: 0;
       border-right: 0; }
-  .m-display-block .m-display-spell {
-    margin-right: 10px;
-    padding-right: 10px;
-    border-right: 1px solid #cce7fa;
-    display: inline-block; }
-    .m-display-block .m-display-spell:last-child {
-      margin-right: 0;
-      padding-right: 0;
-      border-right: 0; }
-    .m-display-block .m-display-spell .m-display-spell-active {
-      margin-right: 5px;
-      font-size: 0.8em; }
-    .m-display-block .m-display-spell .m-display-spell-marks {
-      margin-left: 8px;
-      font-size: 0.8em; }
+  .m-display-block .m-display-spell .m-display-spell-active {
+    margin-right: 5px;
+    font-size: 0.8em; }
+  .m-display-block .m-display-spell .m-display-spell-marks {
+    margin-left: 8px;
+    font-size: 0.8em; }
 
 .is-hidden {
   display: none !important; }

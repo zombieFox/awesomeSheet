@@ -254,8 +254,8 @@ var spells = (function() {
       for (var i in sheet.getCharacter().spells.book) {
         for (var j in sheet.getCharacter().spells.book[i]) {
           spellsToRender = sheet.getCharacter().spells.book[i][j];
+          _render_spell(spellsToRender, i);
         };
-        _render_spell(spellsToRender, i);
       };
     };
   };
