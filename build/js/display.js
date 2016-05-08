@@ -176,8 +176,8 @@ var display = (function() {
         } else {
           knownListToSaveTo = document.createElement("p");
           knownListToSaveTo.className = "js-display-spell-level-" + level;
-          listNameP = document.createElement("p");
-          listNameStrong = document.createElement("strong");
+          var listNameP = document.createElement("p");
+          var listNameStrong = document.createElement("strong");
           listNameStrong.innerHTML = "Level " + level;
           listNameP.appendChild(listNameStrong);
           displaySpell.appendChild(listNameP);
