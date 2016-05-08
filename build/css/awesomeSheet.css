@@ -2541,6 +2541,21 @@ label {
       margin-right: 0;
       padding-right: 0;
       border-right: 0; }
+  .m-display-block .m-display-spell {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #cce7fa;
+    display: inline-block; }
+    .m-display-block .m-display-spell:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: 0; }
+    .m-display-block .m-display-spell .m-display-spell-active {
+      margin-right: 5px;
+      font-size: 0.8em; }
+    .m-display-block .m-display-spell .m-display-spell-marks {
+      margin-left: 8px;
+      font-size: 0.8em; }
 
 .is-hidden {
   display: none !important; }

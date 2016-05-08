@@ -1,6 +1,6 @@
 var hardCodedCharacters = (function() {
 
-  var load = [vos.data, orrin.data, nif.data, ro.data, marika.data];
+  var load = [nif.data, vos.data, orrin.data, ro.data, marika.data];
 
   // exposed methods
   return {

@@ -21,6 +21,26 @@
       border-right: 0;
     }
   }
+  .m-display-spell {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid $secondary-color-18;
+    display: inline-block;
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: 0;
+    }
+    .m-display-spell-name {}
+    .m-display-spell-active {
+      margin-right: 5px;
+      font-size: 0.8em;
+    }
+    .m-display-spell-marks {
+      margin-left: 8px;
+      font-size: 0.8em;
+    }
+  }
 }
 
 // --------------------------------------------------
