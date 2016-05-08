@@ -2,50 +2,6 @@
   position: relative;
   transition: all $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  .m-nav-toggle-line {
-    display: block;
-    height: 3px;
-    width: 24px;
-    left: 50%;
-    position: absolute;
-    background-color: $primary-color-10;
-    border-radius: $border-radius-small;
-    transform: translate(-50%, -50%);
-    transform-origin: center;
-    opacity: 1;
-    transition: all $transition-bounce-medium;
-    &.m-nav-toggle-line-top {
-      top: 38%;
-      // transition-delay: 0.1s;
-    }
-    &.m-nav-toggle-line-middle {
-      top: 50%;
-      // transition-delay: 0.2s;
-    }
-    &.m-nav-toggle-line-bottom {
-      top: 62%;
-      // transition-delay: 0.1s;
-    }
-  }
-  &.is-open {
-    .m-nav-toggle-line {
-      background-color: $white;
-      &.m-nav-toggle-line-top {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-        // transition-delay: 0.3s;
-      }
-      &.m-nav-toggle-line-middle {
-        opacity: 0;
-        // transition-delay: 0s;
-      }
-      &.m-nav-toggle-line-bottom {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(-45deg);
-        // transition-delay: 0.3s;
-      }
-    }
-  }
 }
 
 .m-nav {
@@ -247,11 +203,6 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-nav-toggle {
-    .m-nav-toggle-line {
-      width: 30px;
-    }
-  }
   .m-nav {
     width: 340px;
   }

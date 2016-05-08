@@ -174,17 +174,17 @@ var nav = (function() {
 
   function navClose() {
     helper.removeClass(helper.e(".js-nav"), "is-open");
-    helper.removeClass(helper.e(".js-nav-toggle"), "is-open");
+    helper.removeClass(helper.e(".js-hamburger"), "is-open");
   };
 
   function navOpen() {
     helper.addClass(helper.e(".js-nav"), "is-open");
-    helper.addClass(helper.e(".js-nav-toggle"), "is-open");
+    helper.addClass(helper.e(".js-hamburger"), "is-open");
   };
 
   function navToggle() {
     helper.toggleClass(helper.e(".js-nav"), "is-open");
-    helper.toggleClass(helper.e(".js-nav-toggle"), "is-open");
+    helper.toggleClass(helper.e(".js-hamburger"), "is-open");
   };
 
   function remove() {
