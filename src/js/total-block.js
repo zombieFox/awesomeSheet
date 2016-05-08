@@ -260,6 +260,7 @@ var totalBlock = (function() {
         classSkill = 0;
       };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
+      var path = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
       var modifiers_total = 0;
@@ -281,7 +282,11 @@ var totalBlock = (function() {
       };
       // grand total
       var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
+      // update total
       total.textContent = grandTotal;
+      // store current to character object
+      helper.updateObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10));
+      sheet.storeCharacters();
     };
   };
 

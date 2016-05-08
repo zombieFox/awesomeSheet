@@ -88,7 +88,8 @@ var orrin = (function() {
         total: "17",
         temp: "",
         damage: "",
-        non_lethal_damage: ""
+        non_lethal_damage: "",
+        current: ""
       },
       ac: {
         misc: "",
@@ -104,7 +105,8 @@ var orrin = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       flat_footed: {
         misc: "",
@@ -114,7 +116,8 @@ var orrin = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       touch: {
         misc: "",
@@ -124,7 +127,8 @@ var orrin = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       ac_notes: "",
       fortitude: {
@@ -138,7 +142,8 @@ var orrin = (function() {
         con_bonus: true,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       reflex: {
         base: "3",
@@ -151,7 +156,8 @@ var orrin = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       will: {
         base: "0",
@@ -164,7 +170,8 @@ var orrin = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: true,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       save_notes: ""
     },
@@ -182,7 +189,8 @@ var orrin = (function() {
         wis_bonus: false,
         cha_bonus: false,
         level: false,
-        bab: false
+        bab: false,
+        current: ""
       },
       cmd: {
         misc: "",
@@ -194,15 +202,18 @@ var orrin = (function() {
         wis_bonus: false,
         cha_bonus: false,
         level: false,
-        bab: false
+        bab: false,
+        current: ""
       },
       melee_attack: {
         misc: "",
-        temp: ""
+        temp: "",
+        current: ""
       },
       ranged_attack: {
         misc: "",
-        temp: ""
+        temp: "",
+        current: ""
       },
       attack: {
         melee: [{
@@ -226,204 +237,243 @@ var orrin = (function() {
       acrobatics: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       appraise: {
         ranks: "1",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       bluff: {
         ranks: "1",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       climb: {
         ranks: "1",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       craft_1: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       diplomacy: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       disable_device: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       disguise: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       escape_artist: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       fly: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       handle_animal: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       heal: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       intimidate: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_arcana: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_dungeoneering: {
         ranks: "1",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       knowledge_engineering: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_geography: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_history: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_local: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_nature: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_nobility: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_planes: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_religion: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       linguistics: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       perception: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       perform_1: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       ride: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       sense_motive: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       sleight_of_hand: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       spellcraft: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       stealth: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       survival: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       swim: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       use_magic_device: {
         ranks: "2",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       custom_1: {
         name: "Perception (Traps)",
         ranks: "2",
         misc: "",
         class_skill: true,
+        current: "",
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,
@@ -438,6 +488,7 @@ var orrin = (function() {
         ranks: "2",
         misc: "",
         class_skill: true,
+        current: "",
         str_bonus: false,
         dex_bonus: true,
         con_bonus: false,
@@ -452,6 +503,7 @@ var orrin = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,
@@ -466,6 +518,7 @@ var orrin = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,

@@ -1,51 +1,33 @@
-<section id="display" class="l-section l-section-display js-section-display is-hidden">
+<!-- <section id="display" class="l-section l-section-display js-section-display is-hidden"> -->
+<section id="display" class="l-section l-section-display js-section-display">
   <div class="container">
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
           <span class="m-display-block-icon icon-account-circle"></span>
         </div>
         <div class="col-xs-10">
-          <h1 class="js-display-item" data-path="basics.name"><span class="js-display-target"></span></h1>
-          <p>
-            <strong class="js-display-item" data-path="basics.race"><span class="js-display-target"></span> </strong><strong class="js-display-item" data-path="basics.class"><span class="js-display-target"></span> </strong><strong class="js-display-item" data-path="basics.level"><span class="js-display-target"></span></strong>
-          </p>
-          <p>
-            <span class="js-display-item" data-path="basics.xp"><span class="js-display-target"></span> xp</span><span class="js-display-item" data-path="basics.height">, <span class="js-display-target"></span> tall</span><span class="js-display-item" data-path="basics.weight">, <span class="js-display-target"></span></span><span class="js-display-item" data-path="basics.age">, <span class="js-display-target"></span> years old</span><span class="js-display-item" data-path="basics.gender">, <span class="js-display-target"></span></span><span class="js-display-item" data-path="basics.hero_points">, <span class="js-display-target"></span> hero points</span><span class="js-display-item" data-path="basics.luck_points">, <span class="js-display-target"></span> luck points</span>
-          </p>
+          <h1 class="js-display-items" data-display="basics.name"></h1>
+          <p class="js-display-items" data-display="basics.race,basics.class,basics.level"></p>
+          <p class="js-display-items" data-display="basics.xp,basics.height,basics.weight,basics.age,basics.gender,basics.hero_points,basics.luck_points"></p>
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
           <span class="m-display-block-icon icon-apps"></span>
         </div>
         <div class="col-xs-10">
-          <p>
-            <span class="js-display-item" data-path="statistics.stats.str.score"><strong>Str</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.str.temp">, <strong>Str Temp</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.dex.score">, <strong>Dex</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.dex.temp">, <strong>Dex Temp</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.con.score">, <strong>Con</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.con.temp">, <strong>Con Temp</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.int.score">, <strong>Int</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.int.temp">, <strong>Int Temp</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.wis.score">, <strong>Wis</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.wis.temp">, <strong>Wis Temp</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.cha.score">, <strong>Cha</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="statistics.stats.cha.temp">, <strong>Cha Temp</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="js-display-item" data-path="statistics.feats"><strong>Feats</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="js-display-item" data-path="statistics.traits"><strong>Traits</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="js-display-item" data-path="statistics.special_abilities"><strong>Special Abilities</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="js-display-item" data-path="statistics.languages"><strong>Languages</strong> <span class="js-display-target"></span></span>
-          </p>
+          <p class="js-display-items" data-display="statistics.stats.str.score,statistics.stats.dex.score,statistics.stats.con.score,statistics.stats.int.score,statistics.stats.wis.score,statistics.stats.cha.score"></p>
+          <p class="js-display-items" data-display="statistics.stats.str.temp,statistics.stats.dex.temp,statistics.stats.con.temp,statistics.stats.int.temp,statistics.stats.wis.temp,statistics.stats.cha.temp"></p>
+          <p class="js-display-items" data-display="statistics.feats"></p>
+          <p class="js-display-items" data-display="statistics.traits"></p>
+          <p class="js-display-items" data-display="statistics.special_abilities"></p>
+          <p class="js-display-items" data-display="statistics.languages"></p>
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
@@ -53,25 +35,37 @@
         </div>
         <div class="col-xs-10">
           <p>
-            <span class="js-display-item" data-path="equipment.gear"><strong>Gear</strong> <span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.gear"><strong>Gear</strong> <span class="js-display-target"></span></span>
           </p>
           <p>
-            <span class="js-display-item" data-path="equipment.magic_gear"><strong>Magic Gear</strong> <span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.magic_gear"><strong>Magic Gear</strong> <span class="js-display-target"></span></span>
           </p>
           <p>
-            <span class="js-display-item" data-path="equipment.body_slots.armor"><strong>Armor</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.belts"><strong>Belts</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.body"><strong>Body</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.chest"><strong>Chest</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.eyes"><strong>Eyes</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.feet"><strong>Feet</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.hands"><strong>Hands</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.head"><strong>Head</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.headband"><strong>Headband</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.neck"><strong>Neck</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.ring_left_hand"><strong>Ring (Left Hand)</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.ring_right_hand"><strong>Ring (Right Hand)</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.shield"><strong>Shield</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.shoulders"><strong>Shoulders</strong> <span class="js-display-target"></span> </span><span class="js-display-item" data-path="equipment.body_slots.wrist"><strong>Wrist</strong> <span class="js-display-target"></span> </span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.armor"><strong>Armor</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.belts"><strong>Belts</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.body"><strong>Body</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.chest"><strong>Chest</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.eyes"><strong>Eyes</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.feet"><strong>Feet</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.hands"><strong>Hands</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.head"><strong>Head</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.headband"><strong>Headband</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.neck"><strong>Neck</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.ring_left_hand"><strong>Ring (Left Hand)</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.ring_right_hand"><strong>Ring (Right Hand)</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.shield"><strong>Shield</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.shoulders"><strong>Shoulders</strong><span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.body_slots.wrist"><strong>Wrist</strong><span class="js-display-target"></span></span>
           </p>
           <p>
-            <span class="js-display-item" data-path="equipment.encumbrance.light"><strong>Light Load</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="equipment.encumbrance.medium"> <strong>Medium Load</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="equipment.encumbrance.heavy"> <strong>Heavy Load</strong> <span class="js-display-target"></span></span>
+            <span class="m-display-item js-display-item" data-path="equipment.encumbrance.light"><strong>Light Load</strong> <span class="js-display-target"></span></span><span class="m-display-item js-display-item" data-path="equipment.encumbrance.medium"> <strong>Medium Load</strong> <span class="js-display-target"></span></span><span class="m-display-item js-display-item" data-path="equipment.encumbrance.heavy"> <strong>Heavy Load</strong> <span class="js-display-target"></span></span>
           </p>
           <p>
-            <span class="js-display-item" data-path="equipment.wealth.platinum"> <span class="js-display-target"></span> <strong>PP</strong></span><span class="js-display-item" data-path="equipment.wealth.gold"> <span class="js-display-target"></span> <strong>GP</strong></span><span class="js-display-item" data-path="equipment.wealth.silver"> <span class="js-display-target"></span> <strong>SP</strong></span><span class="js-display-item" data-path="equipment.wealth.copper"> <span class="js-display-target"></span> <strong>CP</strong></span>
+            <span class="m-display-item js-display-item" data-path="equipment.wealth.platinum"> <span class="js-display-target"></span> <strong>PP</strong></span><span class="m-display-item js-display-item" data-path="equipment.wealth.gold"> <span class="js-display-target"></span> <strong>GP</strong></span><span class="m-display-item js-display-item" data-path="equipment.wealth.silver"> <span class="js-display-target"></span> <strong>SP</strong></span><span class="m-display-item js-display-item" data-path="equipment.wealth.copper"> <span class="js-display-target"></span> <strong>CP</strong></span>
           </p>
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
@@ -90,8 +84,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
@@ -104,63 +96,59 @@
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
           <span class="m-display-block-icon icon-list"></span>
         </div>
         <div class="col-xs-10">
-        <ul class="u-list-unstyled u-list-inline">
-          <li class="js-display-total" data-source="js-display-skills-acrobatics-total"><strong>Acrobatics</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-appraise-total"><strong>Appraise</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-bluff-total"><strong>Bluff</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-climb-total"><strong>Climb</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-craft-1-total"><strong>Craft</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-craft-2-total"><strong>Craft</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-diplomacy-total"><strong>Diplomacy</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-disable-device-total"><strong>Disable Device</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-disguise-total"><strong>Disguise</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-escape-artist-total"><strong>Escape Artist</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-fly-total"><strong>Fly</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-handle-animal-total"><strong>Handle Animal</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-heal-total"><strong>Heal</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-intimidate-total"><strong>Intimidate</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-arcana-total"><strong>Knowledge (Arcana)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-dungeoneering-total"><strong>Knowledge (Dungeoneering)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-engineering-total"><strong>Knowledge (Engineering)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-geography-total"><strong>Knowledge (Geography)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-history-total"><strong>Knowledge (History)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-local-total"><strong>Knowledge (Local)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-nature-total"><strong>Knowledge (Nature)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-nobility-total"><strong>Knowledge (Nobility)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-planes-total"><strong>Knowledge (Planes)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-knowledge-religion-total"><strong>Knowledge (Religion)</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-linguistics-total"><strong>Linguistics</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-perception-total"><strong>Perception</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-perform-1-total"><strong>Perform</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-perform-2-total"><strong>Perform</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-profession-1-total"><strong>Profession</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-profession-2-total"><strong>Profession</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-ride-total"><strong>Ride</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-sense-motive-total"><strong>Sense Motive</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-sleight-of-hand-total"><strong>Sleight Of Hand</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-spellcraft-total"><strong>Spellcraft</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-stealth-total"><strong>Stealth</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-survival-total"><strong>Survival</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-swim-total"><strong>Swim</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-use-magic-device-total"><strong>Use Magic Device</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-custom-1-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-custom-2-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-custom-3-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-          <li class="js-display-total" data-source="js-display-skills-custom-4-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-        </ul>
+          <ul class="u-list-unstyled u-list-inline">
+            <li class="js-display-total" data-source="js-display-skills-acrobatics-total"><strong>Acrobatics</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-appraise-total"><strong>Appraise</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-bluff-total"><strong>Bluff</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-climb-total"><strong>Climb</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-craft-1-total"><strong>Craft</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-craft-2-total"><strong>Craft</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-diplomacy-total"><strong>Diplomacy</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-disable-device-total"><strong>Disable Device</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-disguise-total"><strong>Disguise</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-escape-artist-total"><strong>Escape Artist</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-fly-total"><strong>Fly</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-handle-animal-total"><strong>Handle Animal</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-heal-total"><strong>Heal</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-intimidate-total"><strong>Intimidate</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-arcana-total"><strong>Knowledge (Arcana)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-dungeoneering-total"><strong>Knowledge (Dungeoneering)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-engineering-total"><strong>Knowledge (Engineering)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-geography-total"><strong>Knowledge (Geography)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-history-total"><strong>Knowledge (History)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-local-total"><strong>Knowledge (Local)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-nature-total"><strong>Knowledge (Nature)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-nobility-total"><strong>Knowledge (Nobility)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-planes-total"><strong>Knowledge (Planes)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-knowledge-religion-total"><strong>Knowledge (Religion)</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-linguistics-total"><strong>Linguistics</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-perception-total"><strong>Perception</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-perform-1-total"><strong>Perform</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-perform-2-total"><strong>Perform</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-profession-1-total"><strong>Profession</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-profession-2-total"><strong>Profession</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-ride-total"><strong>Ride</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-sense-motive-total"><strong>Sense Motive</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-sleight-of-hand-total"><strong>Sleight Of Hand</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-spellcraft-total"><strong>Spellcraft</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-stealth-total"><strong>Stealth</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-survival-total"><strong>Survival</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-swim-total"><strong>Swim</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-use-magic-device-total"><strong>Use Magic Device</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-custom-1-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-custom-2-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-custom-3-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
+            <li class="js-display-total" data-source="js-display-skills-custom-4-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
+          </ul>
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
@@ -170,8 +158,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="m-display-block">
       <div class="row">
         <div class="col-xs-2">
@@ -189,7 +175,5 @@
         </div>
       </div>
     </div>
-      
-
-    </div>
+  </div>
 </section>

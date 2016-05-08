@@ -48,7 +48,7 @@ var snack = (function() {
       if (previousSnackBar === this) {
         previousSnackBar.destroy();
       };
-    }.bind(snackBar), 111114000);
+    }.bind(snackBar), 4000);
 
     body.appendChild(snackBar);
     getComputedStyle(snackBar).opacity;

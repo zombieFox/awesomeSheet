@@ -92,7 +92,8 @@ var marika = (function() {
         total: "53",
         temp: "",
         damage: "",
-        non_lethal_damage: ""
+        non_lethal_damage: "",
+        current: ""
       },
       ac: {
         misc: "",
@@ -108,7 +109,8 @@ var marika = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       flat_footed: {
         misc: "",
@@ -118,7 +120,8 @@ var marika = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       touch: {
         misc: "",
@@ -128,7 +131,8 @@ var marika = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
@@ -142,7 +146,8 @@ var marika = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       reflex: {
         base: "6",
@@ -155,7 +160,8 @@ var marika = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       will: {
         base: "3",
@@ -168,7 +174,8 @@ var marika = (function() {
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
-        cha_bonus: false
+        cha_bonus: false,
+        current: ""
       },
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
@@ -186,7 +193,8 @@ var marika = (function() {
         wis_bonus: false,
         cha_bonus: false,
         level: false,
-        bab: true
+        bab: true,
+        current: ""
       },
       cmd: {
         misc: "",
@@ -198,15 +206,18 @@ var marika = (function() {
         wis_bonus: false,
         cha_bonus: false,
         level: false,
-        bab: true
+        bab: true,
+        current: ""
       },
       melee_attack: {
         misc: "",
-        temp: ""
+        temp: "",
+        current: ""
       },
       ranged_attack: {
         misc: "",
-        temp: ""
+        temp: "",
+        current: ""
       },
       attack: {
         melee: [{
@@ -250,204 +261,243 @@ var marika = (function() {
       acrobatics: {
         ranks: "9",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       appraise: {
         ranks: "9",
         misc: "4",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       bluff: {
         ranks: "9",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       climb: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       craft_1: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       craft_2: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       diplomacy: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       disable_device: {
         ranks: "9",
         misc: "4",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       disguise: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       escape_artist: {
         ranks: "9",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       fly: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       handle_animal: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       heal: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       intimidate: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_arcana: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_dungeoneering: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_engineering: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_geography: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_history: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_local: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_nature: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_nobility: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_planes: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       knowledge_religion: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       linguistics: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       perception: {
         ranks: "9",
         misc: "5",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       perform_1: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       perform_2: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       profession_1: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       profession_2: {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         variant_name: ""
       },
       ride: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       sense_motive: {
         ranks: "9",
         misc: "",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       sleight_of_hand: {
         ranks: "9",
         misc: "3",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       spellcraft: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       stealth: {
         ranks: "9",
         misc: "5",
-        class_skill: true
+        class_skill: true,
+        current: "",
       },
       survival: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       swim: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       use_magic_device: {
         ranks: "",
         misc: "",
-        class_skill: false
+        class_skill: false,
+        current: "",
       },
       custom_1: {
         name: "Disable Device Trap",
         ranks: "9",
         misc: "4",
         class_skill: true,
+        current: "",
         str_bonus: false,
         dex_bonus: true,
         con_bonus: false,
@@ -462,6 +512,7 @@ var marika = (function() {
         ranks: "9",
         misc: "5",
         class_skill: true,
+        current: "",
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,
@@ -476,6 +527,7 @@ var marika = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,
@@ -490,6 +542,7 @@ var marika = (function() {
         ranks: "",
         misc: "",
         class_skill: false,
+        current: "",
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,

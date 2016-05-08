@@ -7,6 +7,16 @@
   .js-display-innter-html {
     margin: 0 0 1em 0;
   }
+  .m-display-item {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid $secondary-color-18;
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
 }
 
 // --------------------------------------------------

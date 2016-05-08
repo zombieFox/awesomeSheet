@@ -2516,6 +2516,14 @@ label {
     color: rgba(252, 0, 66, 0.85); }
   .m-display-block .js-display-innter-html {
     margin: 0 0 1em 0; }
+  .m-display-block .m-display-item {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #cce7fa; }
+    .m-display-block .m-display-item:first-child {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0; }
 
 .is-hidden {
   display: none !important; }
