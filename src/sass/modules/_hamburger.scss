@@ -57,6 +57,24 @@
   }
 }
 
+.m-hamburger-dark {
+  .m-hamburger-inner {
+    background-color: $base-color;
+    &:before,
+    &:after {
+      background-color: $base-color;
+    }
+  }
+  &.is-open {
+    .m-hamburger-inner {
+      background-color: $primary-color-10;
+      &:after {
+        background-color: $primary-color-10;
+      }
+    }
+  }
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

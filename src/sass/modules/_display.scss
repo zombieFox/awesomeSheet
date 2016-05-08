@@ -1,5 +1,8 @@
 .m-display-block {
   margin: 0 0 20px 0;
+  .m-display-name {
+    margin-top: -10px;
+  }
   .m-display-block-icon {
     font-size: 2em;
     color: $primary-color-alpha-04;
@@ -8,14 +11,14 @@
     margin: 0 0 1em 0;
   }
   .m-display-item {
-    margin-left: 10px;
-    padding-left: 10px;
-    border-left: 1px solid $secondary-color-18;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid $secondary-color-18;
     display: inline-block;
-    &:first-child {
-      margin-left: 0;
-      padding-left: 0;
-      border-left: 0;
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: 0;
     }
   }
 }

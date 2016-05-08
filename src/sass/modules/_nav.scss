@@ -44,11 +44,11 @@
 
 .m-nav-link {
   font-family: $open-sans-semi-bold;
-  line-height: $line-height-large;
+  line-height: $root-line-height-extra-large;
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   .m-nav-link-name {
-    line-height: $line-height-large;
+    line-height: $root-line-height-extra-large;
     display: inline-block;
   }
   [class^="icon-"],

@@ -1,9 +1,26 @@
 var nav = (function() {
 
+  function _display() {
+    var display = helper.e(".js-display");
+    var all_quickNavLink = helper.eA(".js-quick-nav-link");
+    var all_section = helper.eA(".js-section");
+    var icon = display.querySelector(".icon");
+    helper.toggleClass(display, "is-active");
+    for (var i = 0; i < all_section.length; i++) {
+      helper.toggleClass(all_section[i], "is-hidden");
+    };
+    for (var i = 0; i < all_quickNavLink.length; i++) {
+      helper.toggleClass(all_quickNavLink[i], "is-invisible");
+    };
+    helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
+    helper.toggleClass(helper.e(".js-quick-nav"), "m-quick-nav-display");
+    helper.toggleClass(helper.e(".js-hamburger"), "m-hamburger-dark");
+  };
+
   function _fullscreen() {
     var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
-    var icon = fullscreen.querySelector("span");
+    var icon = fullscreen.querySelector(".icon");
     var rootElement = root.documentElement;
     var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
@@ -17,7 +34,7 @@ var nav = (function() {
       helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
-    }
+    };
   };
 
   function _render_navCharacters(characterName, characterClass, characterLevel, characterIndex) {
@@ -218,14 +235,9 @@ var nav = (function() {
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
-
     display.addEventListener("click", function() {
-      for (var i = 0; i < helper.eA(".js-section").length; i++) {
-        helper.toggleClass(helper.eA(".js-section")[i], "is-hidden");
-      };
-      helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
+      _display();
     }, false);
-
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Confirm", sheet.destroy);
       navClose();

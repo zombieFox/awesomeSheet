@@ -5,6 +5,11 @@
   left: 0;
   width: 100%;
   z-index: $quick-nav;
+  transition: all $transition-ease-fast;
+}
+
+.m-quick-nav-display {
+  background-color: $dark-alpha-19;
 }
 
 .m-quick-nav-list {
@@ -30,7 +35,7 @@
   color: $secondary-color-04;
   transform: scale(1);
   display: block;
-  transition: all $transition-ease-fast;
+  transition: color $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:link,
   &:visited {

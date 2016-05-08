@@ -30,7 +30,7 @@ var vos = (function() {
         },
         con: {
           score: "12",
-          temp: ""
+          temp: "11"
         },
         int: {
           score: "10",
@@ -52,7 +52,7 @@ var vos = (function() {
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger, Lavendar soap, Soap bar",
-      magic_gear: "Good Berries (5), Potion of Stabilise, Potion of Cure Moderate Wounds (1), Potion of Unknow (1)",
+      magic_gear: "Good Berries (5), Potion of Stabilise, Potion of Cure Light Wounds (1), Potion of Cure Moderate Wounds (2)",
       encumbrance: {
         light: "76 lbs or less",
         medium: "77–153 lbs",
@@ -98,7 +98,7 @@ var vos = (function() {
     defense: {
       hp: {
         total: "33",
-        temp: "",
+        temp: "-4",
         damage: "",
         non_lethal_damage: "",
         current: ""

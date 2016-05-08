@@ -2,7 +2,14 @@ var display = (function() {
 
   function update() {};
 
-  function destroy() {};
+  function clear() {
+    var all_displayItems = helper.eA(".js-display-items");
+    for (var i = 0; i < all_displayItems.length; i++) {
+      while (all_displayItems[i].lastChild) {
+        all_displayItems[i].removeChild(all_displayItems[i].lastChild);
+      };
+    };
+  };
 
   function render() {
 
@@ -23,8 +30,8 @@ var display = (function() {
 
         makeDisplayItem("basics.xp", "", " xp");
         makeDisplayItem("basics.age", "", " years old");
-        makeDisplayItem("basics.hero_points", "", " hero points");
-        makeDisplayItem("basics.luck_points", "", " luck points");
+        makeDisplayItem("basics.hero_points", "", " hero point");
+        makeDisplayItem("basics.luck_points", "", " luck point");
 
         makeDisplayItem("statistics.stats.str.score", "<strong>Str</strong> ", "");
         makeDisplayItem("statistics.stats.str.temp", "<strong>Str temp</strong> ", "");
@@ -245,7 +252,7 @@ var display = (function() {
   return {
     render: render,
     update: update,
-    destroy: destroy
+    clear: clear
   };
 
 })();

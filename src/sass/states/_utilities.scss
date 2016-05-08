@@ -2,11 +2,11 @@
   display: none !important;
 }
 
-.is-visable-inline {
+.is-block-inline {
   display: inline-block !important;
 }
 
-.is-visable-block {
+.is-block {
   display: block !important;
 }
 
@@ -16,4 +16,12 @@
 
 .is-opaque {
   opacity: 1 !important;
+}
+
+.is-invisible {
+  visibility: hidden !important;
+}
+
+.is-visible {
+  visibility: visible !important;
 }

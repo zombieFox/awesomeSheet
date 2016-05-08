@@ -141,6 +141,7 @@ var sheet = (function() {
     totalBlock.update();
     clone.clear();
     spells.clear();
+    display.clear();
   };
 
   // exposed methods
