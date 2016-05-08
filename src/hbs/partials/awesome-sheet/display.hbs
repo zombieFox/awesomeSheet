@@ -1,5 +1,4 @@
-<!-- <section id="display" class="l-section l-section-display js-section-display is-hidden"> -->
-<section id="display" class="l-section l-section-display js-section-display">
+<section id="display" class="l-section l-section-display js-section-display is-hidden">
   <div class="container">
     <div class="m-display-block">
       <div class="row">
@@ -34,35 +33,10 @@
           <span class="m-display-block-icon icon-bottle"></span>
         </div>
         <div class="col-xs-10">
-          <p>
-            <span class="m-display-item js-display-item" data-path="equipment.gear"><strong>Gear</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="m-display-item js-display-item" data-path="equipment.magic_gear"><strong>Magic Gear</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.armor"><strong>Armor</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.belts"><strong>Belts</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.body"><strong>Body</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.chest"><strong>Chest</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.eyes"><strong>Eyes</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.feet"><strong>Feet</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.hands"><strong>Hands</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.head"><strong>Head</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.headband"><strong>Headband</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.neck"><strong>Neck</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.ring_left_hand"><strong>Ring (Left Hand)</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.ring_right_hand"><strong>Ring (Right Hand)</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.shield"><strong>Shield</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.shoulders"><strong>Shoulders</strong><span class="js-display-target"></span></span>
-            <span class="m-display-item js-display-item" data-path="equipment.body_slots.wrist"><strong>Wrist</strong><span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="m-display-item js-display-item" data-path="equipment.encumbrance.light"><strong>Light Load</strong> <span class="js-display-target"></span></span><span class="m-display-item js-display-item" data-path="equipment.encumbrance.medium"> <strong>Medium Load</strong> <span class="js-display-target"></span></span><span class="m-display-item js-display-item" data-path="equipment.encumbrance.heavy"> <strong>Heavy Load</strong> <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="m-display-item js-display-item" data-path="equipment.wealth.platinum"> <span class="js-display-target"></span> <strong>PP</strong></span><span class="m-display-item js-display-item" data-path="equipment.wealth.gold"> <span class="js-display-target"></span> <strong>GP</strong></span><span class="m-display-item js-display-item" data-path="equipment.wealth.silver"> <span class="js-display-target"></span> <strong>SP</strong></span><span class="m-display-item js-display-item" data-path="equipment.wealth.copper"> <span class="js-display-target"></span> <strong>CP</strong></span>
-          </p>
+          <p class="js-display-items" data-display="equipment.gear"></p>
+          <p class="js-display-items" data-display="equipment.magic_gear"></p>
+          <p class="js-display-items" data-display="equipment.body_slots.armor,equipment.body_slots.belts,equipment.body_slots.body,equipment.body_slots.chest,equipment.body_slots.eyes,equipment.body_slots.feet,equipment.body_slots.hands,equipment.body_slots.head,equipment.body_slots.headband,equipment.body_slots.neck,equipment.body_slots.ring_left_hand,equipment.body_slots.ring_right_hand,equipment.body_slots.shield,equipment.body_slots.shoulders,equipment.body_slots.wrist"></p>
+          <p class="js-display-items" data-display="equipment.wealth.platinum,equipment.wealth.gold,equipment.wealth.silver,equipment.wealth.copper"></p>
         </div>
       </div>
     </div>
@@ -72,15 +46,9 @@
           <span class="m-display-block-icon icon-shield"></span>
         </div>
         <div class="col-xs-10">
-          <p>
-            <span class="js-display-total" data-source="js-display-defense-hp-total"><strong>HP</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="defense.hp.total"> (Total <span class="js-display-target"></span>)</span><span class="js-display-item" data-path="defense.hp.non_lethal_damage">, Nonlethal Damage <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="js-display-total" data-source="js-display-defense-ac-total"><strong>AC</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-defense-flat-footed-total"> <strong>Flat footed</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-defense-touch-total"> <strong>Touch</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="defense.ac_notes">, <span class="js-display-target"></span></span>
-          </p>
-          <p>
-            <span class="js-display-total" data-source="js-display-fortitude-total"> <strong>Fortitude</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-reflex-total"> <strong>Reflex</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-will-total"> <strong>Will</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="defense.save_notes">, <span class="js-display-target"></span></span>
-          </p>
+          <p class="js-display-items" data-display="defense.hp.current,defense.hp.total,defense.hp.non_lethal_damage"></p>
+          <p class="js-display-items" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current"></p>
+          <p class="js-display-items" data-display="defense.fortitude.current,defense.reflex.current,defense.will.current,defense.save_notes"></p>
         </div>
       </div>
     </div>
@@ -90,9 +58,7 @@
           <span class="m-display-block-icon icon-combat"></span>
         </div>
         <div class="col-xs-10">
-          <p>
-            <span class="js-display-item" data-path="offense.base_attack"> <strong>BAB</strong> <span class="js-display-target"></span>, </span><span class="js-display-item" data-path="offense.concentration"> <strong>Concentration</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-offense-cmb-total"> <strong>CMB</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-offense-cmb-total"> <strong>CMD</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-offense-melee-attack-total"> <strong>Melee</strong> <span class="js-display-target"></span>, </span><span class="js-display-total" data-source="js-display-offense-ranged-attack-total"> <strong>Ranged</strong> <span class="js-display-target"></span></span><span class="js-display-item" data-path="offense.attack_notes">, <span class="js-display-target"></span></span>
-          </p>
+          <p class="js-display-items" data-display="offense.base_attack,offense.concentration,offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current,offense.attack_notes"></p>
         </div>
       </div>
     </div>
@@ -102,50 +68,7 @@
           <span class="m-display-block-icon icon-list"></span>
         </div>
         <div class="col-xs-10">
-          <ul class="u-list-unstyled u-list-inline">
-            <li class="js-display-total" data-source="js-display-skills-acrobatics-total"><strong>Acrobatics</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-appraise-total"><strong>Appraise</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-bluff-total"><strong>Bluff</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-climb-total"><strong>Climb</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-craft-1-total"><strong>Craft</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-craft-2-total"><strong>Craft</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-diplomacy-total"><strong>Diplomacy</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-disable-device-total"><strong>Disable Device</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-disguise-total"><strong>Disguise</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-escape-artist-total"><strong>Escape Artist</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-fly-total"><strong>Fly</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-handle-animal-total"><strong>Handle Animal</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-heal-total"><strong>Heal</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-intimidate-total"><strong>Intimidate</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-arcana-total"><strong>Knowledge (Arcana)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-dungeoneering-total"><strong>Knowledge (Dungeoneering)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-engineering-total"><strong>Knowledge (Engineering)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-geography-total"><strong>Knowledge (Geography)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-history-total"><strong>Knowledge (History)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-local-total"><strong>Knowledge (Local)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-nature-total"><strong>Knowledge (Nature)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-nobility-total"><strong>Knowledge (Nobility)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-planes-total"><strong>Knowledge (Planes)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-knowledge-religion-total"><strong>Knowledge (Religion)</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-linguistics-total"><strong>Linguistics</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-perception-total"><strong>Perception</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-perform-1-total"><strong>Perform</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-perform-2-total"><strong>Perform</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-profession-1-total"><strong>Profession</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-profession-2-total"><strong>Profession</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-ride-total"><strong>Ride</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-sense-motive-total"><strong>Sense Motive</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-sleight-of-hand-total"><strong>Sleight Of Hand</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-spellcraft-total"><strong>Spellcraft</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-stealth-total"><strong>Stealth</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-survival-total"><strong>Survival</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-swim-total"><strong>Swim</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-use-magic-device-total"><strong>Use Magic Device</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-custom-1-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-custom-2-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-custom-3-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-            <li class="js-display-total" data-source="js-display-skills-custom-4-total"><strong>Custom</strong> <span class="js-display-target"></span></li>
-          </ul>
+          <p class="js-display-items" data-display="skills.acrobatics.current,skills.appraise.current,skills.bluff.current,skills.climb.current,skills.craft_1.current,skills.craft_2.current,skills.diplomacy.current,skills.disable_device.current,skills.disguise.current,skills.escape_artist.current,skills.fly.current,skills.handle_animal.current,skills.heal.current,skills.intimidate.current,skills.knowledge_arcana.current,skills.knowledge_dungeoneering.current,skills.knowledge_engineering.current,skills.knowledge_geography.current,skills.knowledge_history.current,skills.knowledge_local.current,skills.knowledge_nature.current,skills.knowledge_nobility.current,skills.knowledge_planes.current,skills.knowledge_religion.current,skills.linguistics.current,skills.perception.current,skills.perform_1.current,skills.perform_2.current,skills.profession_1.current,skills.profession_2.current,skills.ride.current,skills.sense_motive.current,skills.sleight_of_hand.current,skills.spellcraft.current,skills.stealth.current,skills.survival.current,skills.swim.current,skills.use_magic_device.current,skills.custom_1.current,skills.custom_2.current,skills.custom_3.current,skills.custom_4.current"></p>
         </div>
       </div>
     </div>
@@ -155,6 +78,16 @@
           <span class="m-display-block-icon icon-whatshot"></span>
         </div>
         <div class="col-xs-10">
+          <p class="js-display-items" data-display="spell[0]"></p>
+          <p class="js-display-items" data-display="spell[1]"></p>
+          <p class="js-display-items" data-display="spell[2]"></p>
+          <p class="js-display-items" data-display="spell[3]"></p>
+          <p class="js-display-items" data-display="spell[4]"></p>
+          <p class="js-display-items" data-display="spell[5]"></p>
+          <p class="js-display-items" data-display="spell[6]"></p>
+          <p class="js-display-items" data-display="spell[7]"></p>
+          <p class="js-display-items" data-display="spell[8]"></p>
+          <p class="js-display-items" data-display="spell[9]"></p>
         </div>
       </div>
     </div>
@@ -164,14 +97,8 @@
           <span class="m-display-block-icon icon-edit"></span>
         </div>
         <div class="col-xs-10">
-          <div class="js-display-innter-html" data-path="notes.character">
-            <strong>Character Notes</strong>
-            <div class="js-display-target"></div>
-          </div>
-          <div class="js-display-innter-html" data-path="notes.story">
-            <strong>Story Notes</strong>
-            <div class="js-display-target"></div>
-          </div>
+          <p class="js-display-items" data-display="notes.character"></p>
+          <p class="js-display-items" data-display="notes.story"></p>
         </div>
       </div>
     </div>

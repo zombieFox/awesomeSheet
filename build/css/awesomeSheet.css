@@ -2519,7 +2519,8 @@ label {
   .m-display-block .m-display-item {
     margin-left: 10px;
     padding-left: 10px;
-    border-left: 1px solid #cce7fa; }
+    border-left: 1px solid #cce7fa;
+    display: inline-block; }
     .m-display-block .m-display-item:first-child {
       margin-left: 0;
       padding-left: 0;
