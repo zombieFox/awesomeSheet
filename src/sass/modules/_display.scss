@@ -1,10 +1,15 @@
 .m-display-section {
   margin: 0 0 30px 0;
-}
-
-.m-display-section-icon {
-  font-size: 1.8em;
-  color: $primary-color-alpha-04;
+  .m-display-section-icon {
+    font-size: 1.8em;
+    color: $secondary-color-alpha-04;
+    transition: all $transition-ease-fast;
+  }
+  &:hover {
+    .m-display-section-icon {
+      color: $primary-color-alpha-04;
+    }
+  }
 }
 
 .m-display-name {
@@ -19,14 +24,28 @@
 .m-display-item,
 .m-display-spell,
 .m-display-attack {
-  margin-right: 10px;
-  // padding-right: 10px;
-  // border-right: 1px solid $secondary-color-19;
+  margin-right: 20px;
+  position: relative;
   display: inline-block;
+  &:after {
+    background: $secondary-color-18;
+    content: "";
+    width: 3px;
+    height: 3px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    border-radius: $border-radius-medium;
+    transform: translate(50%, -50%);
+  }
   &:last-child {
     margin-right: 0;
     padding-right: 0;
     border-right: 0;
+    &:after {
+      display: none;
+    }
   }
 }
 
