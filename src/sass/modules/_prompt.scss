@@ -25,60 +25,65 @@
   box-shadow: $shadow-large;
   opacity: 0;
   transition: all $transition-ease-fast;
-  .m-prompt-message {
-    background-color: $white;
-    border-radius: $border-radius-small $border-radius-small 0 0;
-    padding: 40px 0;
-    .m-prompt-heading {
-      border-left: 40px solid $primary-color-10;
-      padding: 0 60px 0 20px;
-      font-size: 1.5em;
-      font-family: $open-sans-semi-bold;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    .m-prompt-text {
-      margin-right: 60px;
-      margin-left: 60px;
-      &:last-child {
-        margin-bottom: 0;
-      }
+}
+
+.m-prompt-message {
+  background-color: $white;
+  border-radius: $border-radius-small $border-radius-small 0 0;
+  padding: 40px 0;
+  .m-prompt-heading {
+    border-left: 40px solid $primary-color-10;
+    padding: 0 60px 0 20px;
+    font-size: $font-size-extra-large;
+    font-family: $open-sans-semi-bold;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
-  .m-prompt-controls {
-    background-color: $white;
-    border-radius: 0 0 $border-radius-small $border-radius-small;
-    .button {
-      padding: 0;
-      margin: 0;
-      width: 50%;
-      height: 6rem;
-      line-height: 6rem;
-      &.button {
-        border-right: 0;
-        border-bottom: 0;
-        border-left: 0;
-      }
-      &:first-child {
-        border-radius: 0 0 0 $border-radius-small;
-      }
-      &:last-child {
-        border-radius: 0 0 $border-radius-small 0;
-      }
+  .m-prompt-text {
+    margin-right: 60px;
+    margin-left: 60px;
+    font-size: $font-size-medium;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
-  .m-prompt-code {
-    background-color: $dark-alpha-06;
-    max-height: 300px;
-    overflow-y: scroll;
+}
+
+.m-prompt-controls {
+  background-color: $white;
+  border-radius: 0 0 $border-radius-small $border-radius-small;
+  .button {
+    padding: 0;
     margin: 0;
-    padding: 20px 60px;
-    color: $white;
-    box-sizing: border-box;
-    box-shadow: $shadow-large-inset;
-    white-space: pre-wrap;
+    width: 50%;
+    font-size: $font-size-medium;
+    height: 4rem;
+    line-height: 4rem;
+    &.button {
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+    }
+    &:first-child {
+      border-radius: 0 0 0 $border-radius-small;
+    }
+    &:last-child {
+      border-radius: 0 0 $border-radius-small 0;
+    }
   }
+}
+
+.m-prompt-code {
+  background-color: $dark-alpha-06;
+  max-height: 300px;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 20px 60px;
+  color: $white;
+  box-sizing: border-box;
+  box-shadow: $shadow-large-inset;
+  white-space: pre-wrap;
 }
 
 // --------------------------------------------------
@@ -87,19 +92,25 @@
 @media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {
-  &.m-prompt {
+  .m-prompt {
     width: 80%;
   }
 }
 
 @media (min-width: $screen-lg) {
-  &.m-prompt {
+  .m-prompt {
     width: 55%;
+  }
+  .m-prompt-controls {
+    .button {
+      height: 6rem;
+      line-height: 6rem;
+    }
   }
 }
 
 @media (min-width: $screen-xl) {
-  &.m-prompt {
+  .m-prompt {
     width: 40%;
   }
 }

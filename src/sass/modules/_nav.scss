@@ -13,7 +13,7 @@
   position: absolute;
   top: 80px;
   right: -440px;
-  width: 250px;
+  width: 300px;
   transition: right $transition-bounce-medium;
   overflow-y: auto;
   > li {
@@ -34,8 +34,9 @@
 .m-nav-title {
   margin-bottom: 0;
   margin-left: 20%;
+  font-size: $font-size-large;
   font-family: $open-sans-bold;
-  line-height: $line-height-large;
+  line-height: $root-line-height-extra-large;
   width: 80%;
   display: block;
   text-transform: uppercase;
@@ -43,6 +44,7 @@
 }
 
 .m-nav-link {
+  font-size: $font-size-large;
   font-family: $open-sans-semi-bold;
   line-height: $root-line-height-extra-large;
   display: block;
@@ -55,11 +57,12 @@
   [class*=" icon-"] {
     color: $secondary-color-03;
     width: 20%;
-    font-size: $font-size-medium;
+    font-size: $font-size-large;
     text-align: center;
     vertical-align: text-bottom;
-    line-height: 1em;
-    display: inline-block;
+    line-height: $root-line-height-extra-large;
+    display: block;
+    float: left;
   }
   &:focus,
   &:hover {
@@ -84,12 +87,16 @@
 
 .m-nav-character {
   margin-bottom: 0;
+  position: relative;
   line-height: $line-height-medium;
   display: block;
+  font-size: $font-size-large;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   input {
     &[type="radio"],
     &[type="checkbox"] {
+      top: 50%;
+      transform: translate(-50%, -50%);
       & + label {
         line-height: $root-line-height-large;
         transition: none;
@@ -204,11 +211,21 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
-    width: 340px;
+    width: 360px;
   }
 }
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  .m-nav-title {
+    font-size: $font-size-small;
+  }
+  .m-nav-link {
+    font-size: $font-size-small;
+  }
+  .m-nav-character {
+    font-size: $font-size-small;
+  }
+}
 
 @media (min-width: $screen-lg) {}
 
