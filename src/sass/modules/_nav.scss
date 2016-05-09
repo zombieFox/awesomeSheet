@@ -14,7 +14,7 @@
   top: 80px;
   right: -440px;
   width: 300px;
-  transition: right $transition-bounce-medium;
+  transition: right $transition-ease-extra-fast;
   overflow-y: auto;
   > li {
     margin-bottom: 0;
@@ -28,13 +28,14 @@
   }
   &.is-open {
     right: 20px;
+    transition: right $transition-bounce-medium;
   }
 }
 
 .m-nav-title {
   margin-bottom: 0;
   margin-left: 20%;
-  font-size: $font-size-large;
+  font-size: $font-size-medium;
   font-family: $open-sans-bold;
   line-height: $root-line-height-extra-large;
   width: 80%;
@@ -44,7 +45,7 @@
 }
 
 .m-nav-link {
-  font-size: $font-size-large;
+  font-size: $font-size-medium;
   font-family: $open-sans-semi-bold;
   line-height: $root-line-height-extra-large;
   display: block;
@@ -57,7 +58,7 @@
   [class*=" icon-"] {
     color: $secondary-color-03;
     width: 20%;
-    font-size: $font-size-large;
+    font-size: $font-size-medium;
     text-align: center;
     vertical-align: text-bottom;
     line-height: $root-line-height-extra-large;
@@ -90,7 +91,7 @@
   position: relative;
   line-height: $line-height-medium;
   display: block;
-  font-size: $font-size-large;
+  font-size: $font-size-medium;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   input {
     &[type="radio"],

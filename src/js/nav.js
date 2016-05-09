@@ -272,13 +272,18 @@ var nav = (function() {
       };
     }, false);
     window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
+      if (event.keyCode == 27 && event.ctrlKey) {
         navClose();
       };
     }, false);
     window.addEventListener("keydown", function(event) {
       if (event.keyCode == 77 && event.ctrlKey) {
         navToggle();
+      };
+    }, false);
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 68 && event.ctrlKey) {
+        _display();
       };
     }, false);
     window.addEventListener("resize", function(event) {

@@ -6,7 +6,6 @@
   width: 100%;
   height: 100%;
   z-index: $prompt;
-  opacity: 0;
   transition: all $transition-ease-fast;
 }
 
@@ -43,7 +42,6 @@
   .m-prompt-text {
     margin-right: 60px;
     margin-left: 60px;
-    font-size: $font-size-medium;
     &:last-child {
       margin-bottom: 0;
     }
@@ -57,7 +55,6 @@
     padding: 0;
     margin: 0;
     width: 50%;
-    font-size: $font-size-medium;
     height: 4rem;
     line-height: 4rem;
     &.button {
@@ -95,17 +92,17 @@
   .m-prompt {
     width: 80%;
   }
-}
-
-@media (min-width: $screen-lg) {
-  .m-prompt {
-    width: 55%;
-  }
   .m-prompt-controls {
     .button {
       height: 6rem;
       line-height: 6rem;
     }
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .m-prompt {
+    width: 55%;
   }
 }
 

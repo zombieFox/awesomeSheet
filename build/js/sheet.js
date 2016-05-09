@@ -114,6 +114,8 @@ var sheet = (function() {
   };
 
   function bind() {
+    prompt.bind();
+    snack.bind();
     inputBlock.bind();
     textareaBlock.bind();
     stats.bind();

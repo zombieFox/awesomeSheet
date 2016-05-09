@@ -58,8 +58,17 @@ var snack = (function() {
 
   };
 
+  function bind() {
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+  };
+
   // exposed methods
   return {
+    bind: bind,
     destroy: destroy,
     render: render
   }
