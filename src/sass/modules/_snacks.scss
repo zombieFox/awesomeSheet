@@ -1,6 +1,6 @@
 .m-snack-bar {
   background-color: $gray-02;
-  padding: 10px 20px;
+  padding: 15px 20px;
   margin: 0;
   width: 100%;
   box-sizing: border-box;
@@ -35,7 +35,6 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-snack-bar {
-    padding: 15px 20px;
     width: 80%;
     margin-bottom: 0;
     margin-left: 20px;
@@ -58,8 +57,12 @@
 
 @media (min-width: $screen-lg) {
   .m-snack-bar {
-    width: 60%;
+    width: 50%;
   }
 }
 
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  .m-snack-bar {
+    width: 40%;
+  }
+}

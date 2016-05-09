@@ -34,24 +34,14 @@
   }
 }
 
-.m-input-block-controls {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  .button {
-    border: 0;
-    height: $root-line-height-extra-large;
-    line-height: $root-line-height-extra-large;
-    margin: 0;
-    padding: 0 15px;
-    float: left;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      margin: 0;
-      height: $root-line-height-extra-large;
-      line-height: $root-line-height-extra-large;
-    }
+.m-input-block-label-large {
+  font-size: 2em;
+  height: 2.5em;
+  line-height: 2.5em;
+  &.is-active {
+    font-size: 0.8em;
+    height: 1.5em;
+    line-height: 1.5em;
   }
 }
 
@@ -71,6 +61,40 @@
     color: $white;
     &:focus {
       border-color: $secondary-color-15;
+    }
+  }
+}
+
+.m-input-block-field-large {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    font-size: 2em;
+    height: 2.5em;
+    line-height: 2.5em;
+  }
+}
+
+.m-input-block-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  .button {
+    border: 0;
+    height: $root-line-height-extra-large;
+    line-height: $root-line-height-extra-large;
+    margin: 0;
+    padding: 0 15px;
+    float: left;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      margin: 0;
+      height: $root-line-height-extra-large;
+      line-height: $root-line-height-extra-large;
     }
   }
 }
