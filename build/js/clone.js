@@ -4,23 +4,28 @@ var clone = (function() {
     var cloneString =
       '<div class="row">' +
       '<div class="col-xs-12">' +
+      '<div class="js-total-block">' +
       '<div class="row no-gutter">' +
-      '<div class="col-xs-8">' +
+      '<div class="col-xs-6">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
       '<input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2">' +
+      '<p class="u-text-center u-no-margin u-inline-with-input u-underline-with-input js-total-block-total js-clone-consumable-current">0</p>' +
+      '</div>' +
+      '<div class="col-xs-2">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Total</label>' +
-      '<input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" type="text" tabindex="3">' +
+      '<input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
       '<div class="col-xs-2">' +
       '<div class="m-input-block js-input-block">' +
       '<label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
-      '<input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" type="text" tabindex="3">' +
+      '<input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
+      '</div>' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -264,8 +269,10 @@ var clone = (function() {
         if (cloneType == "attack-ranged") {
           input = cloneTarget.querySelector("#attack-ranged-" + j.replace(/_/g, "-") + "-" + i);
         };
-        input.value = array[i][j];
-        inputBlock.update(input);
+        if (input) {
+          input.value = array[i][j];
+          inputBlock.update(input);
+        };
       };
     };
   };
@@ -401,6 +408,7 @@ var clone = (function() {
         // consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
+        totalBlock.update();
       }, false);
       input.addEventListener("focus", function() {
         _updateCloneConsumable();
@@ -408,6 +416,7 @@ var clone = (function() {
         // consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
+        totalBlock.update();
       }, false);
       input.addEventListener("blur", function() {
         _updateCloneConsumable();
@@ -415,6 +424,7 @@ var clone = (function() {
         // consumable.update();
         sheet.storeCharacters();
         inputBlock.focus(this);
+        totalBlock.update();
       }, false);
     };
   };
@@ -467,9 +477,10 @@ var clone = (function() {
     };
   };
 
-  function _createConsumableObject(item, total, used) {
+  function _createConsumableObject(item, v, total, used) {
     return {
       item: this.item = item,
+      current: this.current = current,
       total: this.total = total,
       used: this.used = used
     };
@@ -513,9 +524,11 @@ var clone = (function() {
     var cloneConsumable = [];
     for (var i = 0; i < all_clone.length; i++) {
       var item = all_clone[i].querySelector(".js-clone-consumable-item").value || "";
+      var current = all_clone[i].querySelector(".js-clone-consumable-current").innerHTML || "";
       var total = all_clone[i].querySelector(".js-clone-consumable-total").value || "";
       var used = all_clone[i].querySelector(".js-clone-consumable-used").value || "";
-      var newConsumable = new _createConsumableObject(item, total, used);
+      var newConsumable = new _createConsumableObject(item, current, total, used);
+      console.log(newConsumable);
       cloneConsumable.push(newConsumable);
     };
     sheet.getCharacter().equipment.consumable = cloneConsumable;

@@ -47,7 +47,7 @@ var prompt = (function() {
     promptControls.setAttribute("class", "m-prompt-controls");
 
     var actionButton = document.createElement("a");
-    actionButton.className = "button button-primary button-block js-prompt-action";
+    actionButton.setAttribute("class", "button button-primary button-block js-prompt-action");
     actionButton.textContent = actionText;
 
     var cancelButton = document.createElement("a");

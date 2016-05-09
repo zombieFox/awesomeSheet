@@ -3,29 +3,33 @@ var display = (function() {
   function update() {};
 
   function clear() {
-    var all_displayItem = helper.eA(".js-display-item");
-    var displaySpell = helper.e(".js-display-spell");
-    var displayAttack = helper.e(".js-display-attack");
-    for (var i = 0; i < all_displayItem.length; i++) {
-      while (all_displayItem[i].lastChild) {
-        all_displayItem[i].removeChild(all_displayItem[i].lastChild);
+    var all_displayItem = helper.eA(".js-display-block");
+    var displaySpell = helper.e(".js-display-block-spell");
+    var displayAttack = helper.e(".js-display-block-attack");
+    var displayConsumable = helper.e(".js-display-block-consumable");
+
+    var removeAllChildren = function(parent) {
+      while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
       };
     };
-    while (displaySpell.lastChild) {
-      displaySpell.removeChild(displaySpell.lastChild);
+
+    for (var i = 0; i < all_displayItem.length; i++) {
+      removeAllChildren(all_displayItem[i]);
     };
-    while (displayAttack.lastChild) {
-      displayAttack.removeChild(displayAttack.lastChild);
-    };
+
+    removeAllChildren(displaySpell);
+    removeAllChildren(displayAttack);
+    removeAllChildren(displayConsumable);
   };
 
   function render() {
 
     function _displayItem() {
-      var all_displayItem = helper.eA(".js-display-item");
-      for (var i = 0; i < all_displayItem.length; i++) {
-        if (all_displayItem[i].dataset.display) {
-          var itemsToDisplay = all_displayItem[i].dataset.display.split(',');
+      var all_displayBlock = helper.eA(".js-display-block");
+      for (var i = 0; i < all_displayBlock.length; i++) {
+        if (all_displayBlock[i].dataset.display) {
+          var itemsToDisplay = all_displayBlock[i].dataset.display.split(',');
         };
         for (var j = 0; j < itemsToDisplay.length; j++) {
           var path = itemsToDisplay[j];
@@ -150,9 +154,9 @@ var display = (function() {
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");
-            text.className = "m-display-item";
+            text.setAttribute("class", "m-display-item");
             text.innerHTML = data;
-            all_displayItem[i].appendChild(text);
+            all_displayBlock[i].appendChild(text);
           };
         };
       };
@@ -172,8 +176,35 @@ var display = (function() {
       };
     };
 
+    function _displayAttackMelee() {
+      var attacksToRender;
+      if (sheet.getCharacter().offense.attack.melee) {
+        for (var i in sheet.getCharacter().offense.attack.melee) {
+          _render_displayClone(sheet.getCharacter().offense.attack.melee[i], helper.e(".js-display-block-attack"));
+        };
+      };
+    };
+
+    function _displayAttackRanged() {
+      var attacksToRender;
+      if (sheet.getCharacter().offense.attack.ranged) {
+        for (var i in sheet.getCharacter().offense.attack.ranged) {
+          _render_displayClone(sheet.getCharacter().offense.attack.ranged[i], helper.e(".js-display-block-attack"));
+        };
+      };
+    };
+
+    function _displayConsumable() {
+      var attacksToRender;
+      if (sheet.getCharacter().equipment.consumable) {
+        for (var i in sheet.getCharacter().equipment.consumable) {
+          _render_displayClone(sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable"));
+        };
+      };
+    };
+
     function _render_displaySpell(array, level) {
-      var displaySpell = helper.e(".js-display-spell");
+      var displaySpell = helper.e(".js-display-block-spell");
       // read spells and add them to spell lists
       for (var i = 0; i < array.length; i++) {
         var spellObject = array[i];
@@ -183,8 +214,9 @@ var display = (function() {
           knownListToSaveTo = helper.e(".js-display-spell-level-" + level);
         } else {
           knownListToSaveTo = document.createElement("p");
-          knownListToSaveTo.className = "js-display-spell-level-" + level;
+          knownListToSaveTo.setAttribute("class", "m-display-block js-display-spell-level-" + level);
           var para = document.createElement("p");
+          para.setAttribute("class", "m-display-block");
           var strong = document.createElement("strong");
           strong.innerHTML = "Level " + level;
           para.appendChild(strong);
@@ -193,15 +225,15 @@ var display = (function() {
         };
         // make spell
         var spell = document.createElement("span");
-        spell.className = "m-display-spell";
+        spell.setAttribute("class", "m-display-spell");
         var name = document.createElement("span");
-        name.className = "m-display-spell-name";
+        name.setAttribute("class", "m-display-spell-name");
         name.innerHTML = spellObject.name;
         spell.appendChild(name);
         // add spell marks
         if (spellObject.prepared > 0) {
           var marks = document.createElement("span");
-          marks.className = "m-display-spell-marks js-display-spell-marks";
+          marks.setAttribute("class", "m-display-spell-marks js-display-spell-marks");
           spell.appendChild(marks);
           var spellMarks = spell.querySelector(".js-display-spell-marks");
           for (var j = 0; j < spellObject.prepared; j++) {
@@ -228,8 +260,7 @@ var display = (function() {
         // if spell is active
         if (spellObject.active) {
           var active = document.createElement("span");
-          active.className = "m-display-spell-active js-display-spell-active";
-          // spell.appendChild(active);
+          active.setAttribute("class", "m-display-spell-active js-display-spell-active");
           spell.insertBefore(active, spell.firstChild);
           var spellActive = spell.querySelector(".js-display-spell-active");
           var activeIcon = document.createElement("span");
@@ -246,27 +277,10 @@ var display = (function() {
       };
     };
 
-    function _displayAttackMelee() {
-      var attacksToRender;
-      if (sheet.getCharacter().offense.attack.melee) {
-        for (var i in sheet.getCharacter().offense.attack.melee) {
-          _render_displayAttack(sheet.getCharacter().offense.attack.melee[i]);
-        };
-      };
-    };
-
-    function _displayAttackRanged() {
-      var attacksToRender;
-      if (sheet.getCharacter().offense.attack.ranged) {
-        for (var i in sheet.getCharacter().offense.attack.ranged) {
-          _render_displayAttack(sheet.getCharacter().offense.attack.ranged[i]);
-        };
-      };
-    };
-
-    function _render_displayAttack(object) {
+    function _render_displayClone(object, displayTarget) {
       var displayAttack = helper.e(".js-display-attack");
       var para = document.createElement("p");
+      para.setAttribute("class", "m-display-block");
       for (var i in object) {
         var data = object[i];
 
@@ -280,23 +294,32 @@ var display = (function() {
 
         makeDisplayItem("weapon", "<strong>", "</strong>");
         makeDisplayItem("attack", "<strong>", "</strong>");
-        makeDisplayItem("damage", "(", ")");
+        makeDisplayItem("damage", "", "");
         makeDisplayItem("critical", "Critical ", "");
         makeDisplayItem("range", "Range ", "");
         makeDisplayItem("ammo", "Ammo ", "");
+        makeDisplayItem("item", "<strong>", "</strong>");
+        makeDisplayItem("current", "<strong>", "</strong>");
+        makeDisplayItem("used", "Used ", "");
+        makeDisplayItem("total", "Total ", "");
 
         var span = document.createElement("span");
-        span.className = "m-display-attack";
+        span.setAttribute("class", "m-display-item");
         span.innerHTML = data;
-        para.appendChild(span);
+
+        if (typeof data != "undefined" && data != "") {
+          para.appendChild(span);
+        };
+
       };
-      displayAttack.appendChild(para);
+      displayTarget.appendChild(para);
     };
 
     _displayItem();
     _displaySpell();
     _displayAttackMelee();
     _displayAttackRanged();
+    _displayConsumable();
 
   };
 

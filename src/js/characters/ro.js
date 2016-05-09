@@ -83,20 +83,24 @@ var ro = (function() {
       },
       consumable: [{
         item: "Arcane Pool",
+        current: "4",
         total: "4",
-        used: "2"
+        used: ""
       }, {
         item: "Black Blade Arcane Pool",
+        current: "1",
         total: "1",
-        used: "1"
+        used: ""
       }, {
         item: "Alchemist Fire",
+        current: "3",
         total: "3",
-        used: "2"
+        used: ""
       }, {
         item: "Potion of CLW",
+        current: "3",
         total: "3",
-        used: "2"
+        used: ""
       }]
     },
     defense: {

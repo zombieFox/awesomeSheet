@@ -1,38 +1,53 @@
+.m-display-section {
+  margin: 0 0 30px 0;
+}
+
+.m-display-section-icon {
+  font-size: 1.8em;
+  color: $primary-color-alpha-04;
+}
+
+.m-display-name {
+  margin-top: -10px;
+}
+
 .m-display-block {
-  margin: 0 0 20px 0;
-  .m-display-name {
-    margin-top: -10px;
+  line-height: 2em;
+  margin-bottom: 5px;
+}
+
+.m-display-item,
+.m-display-spell,
+.m-display-attack {
+  margin-right: 10px;
+  // padding-right: 10px;
+  // border-right: 1px solid $secondary-color-19;
+  display: inline-block;
+  &:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
   }
-  .m-display-block-icon {
-    font-size: 2em;
-    color: $primary-color-alpha-04;
+}
+
+.m-display-spell {
+  .m-display-spell-name {}
+  .m-display-spell-active {
+    margin-right: 5px;
+    font-size: 0.8em;
   }
-  .js-display-innter-html {
-    margin: 0 0 1em 0;
+  .m-display-spell-marks {
+    margin-left: 8px;
+    font-size: 0.8em;
   }
-  .m-display-item,
-  .m-display-spell,
-  .m-display-attack {
-    margin-right: 10px;
-    padding-right: 10px;
-    border-right: 1px solid $secondary-color-18;
-    display: inline-block;
-    &:last-child {
-      margin-right: 0;
-      padding-right: 0;
-      border-right: 0;
-    }
-  }
-  .m-display-spell {
-    .m-display-spell-name {}
-    .m-display-spell-active {
-      margin-right: 5px;
-      font-size: 0.8em;
-    }
-    .m-display-spell-marks {
-      margin-left: 8px;
-      font-size: 0.8em;
-    }
+}
+
+.m-display-block-list {
+  height: 250px;
+  display: flex;
+  flex-flow: column wrap;
+  .m-display-item {
+    flex: none;
   }
 }
 

@@ -19,14 +19,14 @@ var snack = (function() {
       helper.addClass(snackBar, "is-transparent");
     };
     var text = document.createElement("p");
-    text.className = "m-snack-bar-message";
+    text.setAttribute("class", "m-snack-bar-message");
     text.textContent = (message);
     snackBar.appendChild(text);
 
     if (actionText) {
       var action = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("a");
-      actionButton.className = "button button-tertiary m-snack-bar-button";
+      actionButton.setAttribute("class", "button button-tertiary m-snack-bar-button");
       actionButton.textContent = actionText;
       actionButton.addEventListener("click", action);
       snackBar.appendChild(actionButton);

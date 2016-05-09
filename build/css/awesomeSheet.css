@@ -2543,34 +2543,52 @@ label {
   .m-snack-bar {
     width: 40%; } }
 
+.m-display-section {
+  margin: 0 0 30px 0; }
+
+.m-display-section-icon {
+  font-size: 1.8em;
+  color: rgba(253, 0, 66, 0.85); }
+
+.m-display-name {
+  margin-top: -10px; }
+
 .m-display-block {
-  margin: 0 0 20px 0; }
-  .m-display-block .m-display-name {
-    margin-top: -10px; }
-  .m-display-block .m-display-block-icon {
-    font-size: 2em;
-    color: rgba(253, 0, 66, 0.85); }
-  .m-display-block .js-display-innter-html {
-    margin: 0 0 1em 0; }
-  .m-display-block .m-display-item,
-  .m-display-block .m-display-spell,
-  .m-display-block .m-display-attack {
-    margin-right: 10px;
-    padding-right: 10px;
-    border-right: 1px solid #cce7fa;
-    display: inline-block; }
-    .m-display-block .m-display-item:last-child,
-    .m-display-block .m-display-spell:last-child,
-    .m-display-block .m-display-attack:last-child {
-      margin-right: 0;
-      padding-right: 0;
-      border-right: 0; }
-  .m-display-block .m-display-spell .m-display-spell-active {
-    margin-right: 5px;
-    font-size: 0.8em; }
-  .m-display-block .m-display-spell .m-display-spell-marks {
-    margin-left: 8px;
-    font-size: 0.8em; }
+  line-height: 2em;
+  margin-bottom: 5px; }
+
+.m-display-item,
+.m-display-spell,
+.m-display-attack {
+  margin-right: 10px;
+  display: inline-block; }
+  .m-display-item:last-child,
+  .m-display-spell:last-child,
+  .m-display-attack:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0; }
+
+.m-display-spell .m-display-spell-active {
+  margin-right: 5px;
+  font-size: 0.8em; }
+
+.m-display-spell .m-display-spell-marks {
+  margin-left: 8px;
+  font-size: 0.8em; }
+
+.m-display-block-list {
+  height: 250px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap; }
+  .m-display-block-list .m-display-item {
+    -webkit-flex: none;
+        -ms-flex: none;
+            flex: none; }
 
 .is-hidden {
   display: none !important; }

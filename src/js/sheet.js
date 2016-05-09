@@ -126,9 +126,9 @@ var sheet = (function() {
     inputBlock.render();
     textareaBlock.render();
     stats.render();
+    clone.render();
     totalBlock.render();
     totalBlock.update();
-    clone.render();
     spells.render();
     display.render();
   };
@@ -137,9 +137,9 @@ var sheet = (function() {
     inputBlock.clear();
     textareaBlock.clear();
     stats.render();
+    clone.clear();
     totalBlock.clear();
     totalBlock.update();
-    clone.clear();
     spells.clear();
     display.clear();
   };

@@ -83,10 +83,12 @@ var nif = (function() {
       },
       consumable: [{
         item: "Wand of Lightning Bolt",
+        current: "7",
         total: "50",
         used: "43"
       }, {
         item: "Shift",
+        current: "9",
         total: "9",
         used: ""
       }]

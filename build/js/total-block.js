@@ -285,7 +285,9 @@ var totalBlock = (function() {
       // update total
       total.textContent = grandTotal;
       // store current to character object
-      helper.updateObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10));
+      if (path) {
+        helper.updateObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10));
+      };
       sheet.storeCharacters();
     };
   };
