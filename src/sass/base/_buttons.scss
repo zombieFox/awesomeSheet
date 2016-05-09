@@ -155,30 +155,6 @@ input {
   }
 }
 
-.button-tertiary {
-  background-color: transparent;
-  border-color: $light-alpha-14;
-  color: $light-alpha-04;
-  &:link,
-  &:visited {
-    background-color: transparent;
-    border-color: $light-alpha-14;
-    color: $light-alpha-04;
-  }
-  &:focus,
-  &:hover {
-    background-color: $light-alpha-14;
-    border-color: $light-alpha-12;
-    color: $white;
-  }
-  &:active,
-  &.is-active {
-    background-color: $light-alpha-12;
-    border-color: $light-alpha-10;
-    color: $white;
-  }
-}
-
 .button-link {
   background-color: transparent;
   border-color: transparent;
@@ -200,6 +176,54 @@ input {
     background-color: $dark-alpha-18;
     border-color: transparent;
     color: $primary-color-06;
+  }
+}
+
+.button-tertiary {
+  background-color: transparent;
+  border-color: $light-alpha-14;
+  color: $light-alpha-04;
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: $light-alpha-14;
+    color: $light-alpha-04;
+  }
+  &:focus,
+  &:hover {
+    background-color: $light-alpha-14;
+    border-color: $light-alpha-12;
+    color: $white;
+  }
+  &:active,
+  &.is-active {
+    background-color: $dark-alpha-12;
+    border-color: $dark-alpha-10;
+    color: $white;
+  }
+}
+
+.button-tertiary-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: $light-alpha-04;
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: transparent;
+    color: $light-alpha-04;
+  }
+  &:focus,
+  &:hover {
+    background-color: $light-alpha-18;
+    border-color: transparent;
+    color: $white;
+  }
+  &:active,
+  &.is-active {
+    background-color: $dark-alpha-12;
+    border-color: transparent;
+    color: $white;
   }
 }
 

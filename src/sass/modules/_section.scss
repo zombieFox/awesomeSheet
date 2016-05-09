@@ -1,31 +1,39 @@
 .m-section-controls {
-  height: 30px;
   position: relative;
-  .button-group {
+  .button-group,
+  .button-group-strech {
     position: absolute;
-    top: 50%;
     right: 0;
-    transform: translateY(-50%);
     .button {
-      margin-bottom: 0;
+      padding: 0 5px;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      height: $root-line-height-extra-large;
+      line-height: $root-line-height-extra-large;
+    }
+  }
+  .button-group-strech {
+    width: 100%;
+    .button {
+      padding: 0;
     }
   }
 }
 
 .m-section-heading {
   background-color: $secondary-color-08;
-  padding: 10px 0;
+  padding: 0;
   text-transform: uppercase;
   position: relative;
   z-index: $section-heading;
-  height: 30px;
   box-shadow: $shadow-medium;
   h1 {
     color: $white;
     margin: 0;
     font-family: $open-sans-semi-bold;
     font-size: 1.2em;
-    line-height: 3rem;
+    line-height: $root-line-height-extra-large;
   }
   &.is-pinned {
     margin: 0;
@@ -49,7 +57,18 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {
+  .m-section-controls {
+    .button-group,
+    .button-group-strech {
+      .button {
+        padding: 0 10px;
+      }
+    }
+  }
+}
 
 @media (min-width: $screen-lg) {}
 
