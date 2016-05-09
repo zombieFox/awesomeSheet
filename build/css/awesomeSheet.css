@@ -1398,8 +1398,7 @@ label {
 .l-section-display {
   background-color: #ffffff;
   margin: 150px 0 0 0;
-  z-index: 4000;
-  width: 100%; }
+  z-index: 4000; }
 
 .style-guide-column {
   background-color: #e3f2fd;
@@ -1908,7 +1907,9 @@ label {
 @media (min-width: 700px) {
   .m-section-controls .button-group .button,
   .m-section-controls .button-group-strech .button {
-    padding: 0 10px; } }
+    padding: 0 10px; }
+  .m-section-controls .button-group-strech {
+    width: inherit; } }
 
 .m-clone-block .m-clone-block-target .m-clone {
   margin: 0;
@@ -2574,7 +2575,7 @@ label {
 .is-hidden {
   display: none !important; }
 
-.is-block-inline {
+.is-inline-block {
   display: inline-block !important; }
 
 .is-block {
