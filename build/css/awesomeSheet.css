@@ -2623,7 +2623,9 @@ label {
 .m-fab {
   position: fixed;
   bottom: 3rem;
-  right: 3rem;
+  right: 3rem; }
+
+.m-fab-button {
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -2635,20 +2637,20 @@ label {
   transition: all 0.5s ease-in-out;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   z-index: 9000; }
-  .m-fab [class^="icon-"],
-  .m-fab [class*=" icon-"] {
+  .m-fab-button [class^="icon-"],
+  .m-fab-button [class*=" icon-"] {
     margin: 0;
     font-size: 2rem;
     transition: all 0.5s ease-in-out; }
-  .m-fab:focus, .m-fab:hover {
+  .m-fab-button:focus, .m-fab-button:hover {
     background-color: #fc0042;
     transition: all 0.2s ease-in-out; }
-    .m-fab:focus [class^="icon-"],
-    .m-fab:focus [class*=" icon-"], .m-fab:hover [class^="icon-"],
-    .m-fab:hover [class*=" icon-"] {
+    .m-fab-button:focus [class^="icon-"],
+    .m-fab-button:focus [class*=" icon-"], .m-fab-button:hover [class^="icon-"],
+    .m-fab-button:hover [class*=" icon-"] {
       color: #ffffff;
       transition: all 0.2s ease-in-out; }
-  .m-fab:focus {
+  .m-fab-button:focus {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2); }
 
 .is-hidden {
