@@ -477,7 +477,7 @@ var clone = (function() {
     };
   };
 
-  function _createConsumableObject(item, v, total, used) {
+  function _createConsumableObject(item, current, total, used) {
     return {
       item: this.item = item,
       current: this.current = current,
@@ -528,7 +528,6 @@ var clone = (function() {
       var total = all_clone[i].querySelector(".js-clone-consumable-total").value || "";
       var used = all_clone[i].querySelector(".js-clone-consumable-used").value || "";
       var newConsumable = new _createConsumableObject(item, current, total, used);
-      console.log(newConsumable);
       cloneConsumable.push(newConsumable);
     };
     sheet.getCharacter().equipment.consumable = cloneConsumable;

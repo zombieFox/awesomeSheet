@@ -29,6 +29,9 @@
           transition: all $transition-ease-extra-fast;
         }
       }
+      .u-underline-with-input {
+        transition: border-color $transition-ease-extra-fast;
+      }
     }
   }
   &.is-delete-state {
@@ -54,6 +57,9 @@
         margin: 0 0 1rem 0;
         padding: 1rem;
         border-radius: $border-radius-medium;
+        .u-underline-with-input {
+          border-color: $primary-color-alpha-18;
+        }
         .m-clone-block-delete-controls {
           transition: all $transition-bounce-extra-slow;
           max-height: 200px;

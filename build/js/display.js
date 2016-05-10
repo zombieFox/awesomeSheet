@@ -1,7 +1,5 @@
 var display = (function() {
 
-  function update() {};
-
   function clear() {
     var all_displayItem = helper.eA(".js-display-block");
     var displaySpell = helper.e(".js-display-block-spell");
@@ -326,7 +324,6 @@ var display = (function() {
   // exposed methods
   return {
     render: render,
-    update: update,
     clear: clear
   };
 

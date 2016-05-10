@@ -132,6 +132,7 @@ var sheet = (function() {
     totalBlock.render();
     totalBlock.update();
     spells.render();
+    display.render();
   };
 
   function clear() {
