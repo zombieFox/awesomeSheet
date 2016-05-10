@@ -43,10 +43,10 @@ button {
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    margin-right: 2px;
-    font-size: 1.4em;
-    vertical-align: text-bottom;
+    font-size: 1.1em;
     line-height: 1em;
+    margin: -2px 5px 0 0;
+    vertical-align: middle;
     display: inline-block;
   }
 }
@@ -98,10 +98,10 @@ input {
     }
     [class^="icon-"],
     [class*=" icon-"] {
-      margin-right: 2px;
-      font-size: 1.4em;
-      vertical-align: text-bottom;
+      font-size: 1.1em;
       line-height: 1em;
+      margin: -2px 5px 0 0;
+      vertical-align: middle;
       display: inline-block;
     }
   }
@@ -186,19 +186,19 @@ input {
   &:link,
   &:visited {
     background-color: transparent;
-    border-color: $light-alpha-14;
+    border-color: $dark-alpha-18;
     color: $light-alpha-04;
   }
   &:focus,
   &:hover {
-    background-color: $light-alpha-14;
-    border-color: $light-alpha-12;
+    background-color: $dark-alpha-18;
+    border-color: $dark-alpha-16;
     color: $white;
   }
   &:active,
   &.is-active {
-    background-color: $dark-alpha-12;
-    border-color: $dark-alpha-10;
+    background-color: $light-alpha-14;
+    border-color: $light-alpha-12;
     color: $white;
   }
 }
@@ -215,28 +215,28 @@ input {
   }
   &:focus,
   &:hover {
-    background-color: $light-alpha-18;
+    background-color: $dark-alpha-18;
     border-color: transparent;
     color: $white;
   }
   &:active,
   &.is-active {
-    background-color: $dark-alpha-12;
+    background-color: $light-alpha-14;
     border-color: transparent;
     color: $white;
   }
 }
 
-.button-large {
-  padding: 4px 20px;
-  font-size: $root-font-size-large;
-  line-height: $root-line-height-large;
+.button-small {
+  padding: 0 6px;
+  font-size: $root-font-size-small;
+  // line-height: $root-line-height-small;
 }
 
-.button-small {
-  padding: 2px 10px;
-  font-size: $root-font-size-small;
-  line-height: $root-line-height-small;
+.button-large {
+  padding: 10px 20px;
+  font-size: $root-font-size-large;
+  // line-height: $root-line-height-large;
 }
 
 .button-block {
