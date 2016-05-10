@@ -35,6 +35,9 @@
     padding: 0 60px 0 20px;
     font-size: $font-size-extra-large;
     font-family: $open-sans-semi-bold;
+    &:focus {
+      outline: 0;
+    }
     &:last-child {
       margin-bottom: 0;
     }

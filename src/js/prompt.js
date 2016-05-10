@@ -42,6 +42,7 @@ var prompt = (function() {
     promptMessage.setAttribute("class", "m-prompt-message");
 
     var promptHeading = document.createElement("h1");
+    promptHeading.setAttribute("tabindex", "3");
     promptHeading.setAttribute("class", "m-prompt-heading");
     promptHeading.textContent = heading;
 
@@ -52,11 +53,13 @@ var prompt = (function() {
     var promptControls = document.createElement("div");
     promptControls.setAttribute("class", "m-prompt-controls");
 
-    var actionButton = document.createElement("a");
+    var actionButton = document.createElement("button");
+    actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block js-prompt-action");
     actionButton.textContent = actionText;
 
-    var cancelButton = document.createElement("a");
+    var cancelButton = document.createElement("button");
+    cancelButton.setAttribute("tabindex", "3");
     cancelButton.setAttribute("class", "button button-block");
     cancelButton.textContent = "Cancel";
 
@@ -115,6 +118,7 @@ var prompt = (function() {
     helper.addClass(prompt, "is-opaque");
     helper.removeClass(promptShade, "is-transparent");
     helper.addClass(promptShade, "is-opaque");
+    promptHeading.focus(this);
 
   };
 

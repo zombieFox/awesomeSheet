@@ -2449,6 +2449,8 @@ label {
     padding: 0 60px 0 20px;
     font-size: 1.6em;
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+    .m-prompt-message .m-prompt-heading:focus {
+      outline: 0; }
     .m-prompt-message .m-prompt-heading:last-child {
       margin-bottom: 0; }
   .m-prompt-message .m-prompt-text {
@@ -2569,18 +2571,17 @@ label {
 .m-display-section {
   margin: 0 0 30px 0; }
   .m-display-section .m-display-section-icon {
-    font-size: 1.8em;
+    font-size: 2em;
     color: #2e6b9a;
     transition: all 0.3s ease-in-out; }
-  .m-display-section:hover .m-display-section-icon {
-    color: #fc0042; }
 
 .m-display-name {
   margin-top: -10px; }
 
 .m-display-block {
   line-height: 2em;
-  margin-bottom: 5px; }
+  margin-bottom: 0.5em;
+  font-size: 1.2em; }
 
 .m-display-item,
 .m-display-spell,

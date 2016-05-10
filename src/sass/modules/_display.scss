@@ -1,14 +1,9 @@
 .m-display-section {
   margin: 0 0 30px 0;
   .m-display-section-icon {
-    font-size: 1.8em;
+    font-size: 2em;
     color: $secondary-color-08;
     transition: all $transition-ease-fast;
-  }
-  &:hover {
-    .m-display-section-icon {
-      color: $primary-color-10;
-    }
   }
 }
 
@@ -18,7 +13,8 @@
 
 .m-display-block {
   line-height: 2em;
-  margin-bottom: 5px;
+  margin-bottom: 0.5em;
+  font-size: $font-size-medium;
 }
 
 .m-display-item,

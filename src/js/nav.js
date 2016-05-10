@@ -1,11 +1,11 @@
 var nav = (function() {
 
   function _display() {
-    var display = helper.e(".js-display");
+    var displayNavItem = helper.e(".js-display");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
     var all_section = helper.eA(".js-section");
-    var icon = display.querySelector(".icon");
-    helper.toggleClass(display, "is-active");
+    var icon = displayNavItem.querySelector(".icon");
+    helper.toggleClass(displayNavItem, "is-active");
     for (var i = 0; i < all_section.length; i++) {
       helper.toggleClass(all_section[i], "is-hidden");
     };
@@ -15,6 +15,8 @@ var nav = (function() {
     helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
     helper.toggleClass(helper.e(".js-quick-nav"), "m-quick-nav-display");
     helper.toggleClass(helper.e(".js-hamburger"), "m-hamburger-dark");
+    display.clear();
+    display.render();
   };
 
   function _fullscreen() {
