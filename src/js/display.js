@@ -1,5 +1,26 @@
 var display = (function() {
 
+  function bind() {
+    var fab = helper.e(".js-fab");
+    fab.addEventListener("click", toggle, false);
+  };
+
+  function toggle() {
+    var all_quickNavLink = helper.eA(".js-quick-nav-link");
+    var all_section = helper.eA(".js-section");
+    for (var i = 0; i < all_section.length; i++) {
+      helper.toggleClass(all_section[i], "is-hidden");
+    };
+    for (var i = 0; i < all_quickNavLink.length; i++) {
+      helper.toggleClass(all_quickNavLink[i], "is-invisible");
+    };
+    helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
+    helper.toggleClass(helper.e(".js-quick-nav"), "m-quick-nav-display");
+    helper.toggleClass(helper.e(".js-hamburger"), "m-hamburger-dark");
+    display.clear();
+    display.render();
+  };
+
   function clear() {
     var all_displayItem = helper.eA(".js-display-block");
     var displaySpell = helper.e(".js-display-block-spell");
@@ -323,6 +344,8 @@ var display = (function() {
 
   // exposed methods
   return {
+    toggle: toggle,
+    bind: bind,
     render: render,
     clear: clear
   };

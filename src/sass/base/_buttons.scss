@@ -1,5 +1,8 @@
 .button,
-button {
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
   background-color: $white;
   border-color: $gray-18;
   color: $base-color;
@@ -35,8 +38,8 @@ button {
   }
   &:active,
   &.is-active {
-    background-color: $gray-17;
-    border-color: $gray-13;
+    background-color: $gray-16;
+    border-color: $gray-12;
     color: $base-color;
     outline: 0;
     text-decoration: none;
@@ -48,62 +51,6 @@ button {
     margin: -2px 5px 0 0;
     vertical-align: middle;
     display: inline-block;
-  }
-}
-
-input {
-  &[type="submit"],
-  &[type="reset"],
-  &[type="button"] {
-    background-color: $white;
-    border-color: $gray-18;
-    color: $base-color;
-    border-width: 1px;
-    border-style: solid;
-    padding: 4px 12px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: $open-sans-semi-bold;
-    text-decoration: none;
-    white-space: nowrap;
-    font-size: $root-font-size-medium;
-    line-height: $root-line-height-medium;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-radius: $border-radius-medium;
-    transition: all $transition-ease-extra-fast;
-    display: inline-block;
-    text-transform: uppercase;
-    &:link,
-    &:visited {
-      background-color: $white;
-      border-color: $gray-18;
-      color: $base-color;
-    }
-    &:focus,
-    &:hover {
-      background-color: $gray-18;
-      border-color: $gray-14;
-      color: $base-color;
-      outline: 0;
-      text-decoration: none;
-    }
-    &:active,
-    &.is-active {
-      background-color: $gray-17;
-      border-color: $gray-13;
-      color: $base-color;
-      outline: 0;
-      text-decoration: none;
-    }
-    [class^="icon-"],
-    [class*=" icon-"] {
-      font-size: 1.1em;
-      line-height: 1em;
-      margin: -2px 5px 0 0;
-      vertical-align: middle;
-      display: inline-block;
-    }
   }
 }
 
@@ -230,13 +177,11 @@ input {
 .button-small {
   padding: 0 6px;
   font-size: $root-font-size-small;
-  // line-height: $root-line-height-small;
 }
 
 .button-large {
   padding: 10px 20px;
   font-size: $root-font-size-large;
-  // line-height: $root-line-height-large;
 }
 
 .button-block {

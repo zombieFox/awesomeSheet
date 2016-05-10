@@ -122,6 +122,7 @@ var sheet = (function() {
     clone.bind();
     totalBlock.bind();
     spells.bind();
+    display.bind();
   };
 
   function render() {

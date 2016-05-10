@@ -1,0 +1,35 @@
+.m-fab {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  border-radius: 50%;
+  transition: all $transition-ease-slow;
+  box-shadow: $shadow-small;
+  z-index: $fab;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    margin: 0;
+    font-size: 2rem;
+    transition: all $transition-ease-slow;
+  }
+  &:focus,
+  &:hover {
+    background-color: $primary-color-10;
+    transition: all $transition-ease-extra-fast;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: $white;
+      transition: all $transition-ease-extra-fast;
+    }
+  }
+  &:focus {
+    box-shadow: $shadow-medium;
+  }
+}

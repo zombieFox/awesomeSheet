@@ -1,23 +1,10 @@
 var nav = (function() {
 
-  function _display() {
-    var displayNavItem = helper.e(".js-display");
-    var all_quickNavLink = helper.eA(".js-quick-nav-link");
-    var all_section = helper.eA(".js-section");
-    var icon = displayNavItem.querySelector(".icon");
-    helper.toggleClass(displayNavItem, "is-active");
-    for (var i = 0; i < all_section.length; i++) {
-      helper.toggleClass(all_section[i], "is-hidden");
-    };
-    for (var i = 0; i < all_quickNavLink.length; i++) {
-      helper.toggleClass(all_quickNavLink[i], "is-invisible");
-    };
-    helper.toggleClass(helper.e(".js-section-display"), "is-hidden");
-    helper.toggleClass(helper.e(".js-quick-nav"), "m-quick-nav-display");
-    helper.toggleClass(helper.e(".js-hamburger"), "m-hamburger-dark");
-    display.clear();
-    display.render();
-  };
+  // function _display() {
+  //   var displayNavItem = helper.e(".js-display");
+  //   helper.toggleClass(displayNavItem, "is-active");
+  //   display.toggle();
+  // };
 
   function _fullscreen() {
     var fullscreen = helper.e(".js-fullscreen");
@@ -226,7 +213,7 @@ var nav = (function() {
     var nav = helper.e(".js-nav");
     var navToggleElement = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
-    var display = helper.e(".js-display");
+    // var display = helper.e(".js-display");
     var clearAll = helper.e(".js-clear-all");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
@@ -237,9 +224,9 @@ var nav = (function() {
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
-    display.addEventListener("click", function() {
-      _display();
-    }, false);
+    // display.addEventListener("click", function() {
+    //   _display();
+    // }, false);
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
@@ -285,7 +272,7 @@ var nav = (function() {
     }, false);
     window.addEventListener("keydown", function(event) {
       if (event.keyCode == 68 && event.ctrlKey) {
-        _display();
+        display.toggle();
       };
     }, false);
     window.addEventListener("resize", function(event) {
