@@ -2,6 +2,14 @@
   position: fixed;
   bottom: 3rem;
   right: 3rem;
+  z-index: $fab;
+  transition: all $transition-ease-fast;
+}
+
+.is-onscreen-snack {
+  .m-fab {
+    bottom: 6rem;
+  }
 }
 
 .m-fab-button {
@@ -15,7 +23,6 @@
   border-radius: 50%;
   transition: all $transition-ease-slow;
   box-shadow: $shadow-small;
-  z-index: $fab;
   [class^="icon-"],
   [class*=" icon-"] {
     margin: 0;
@@ -36,3 +43,20 @@
     box-shadow: $shadow-medium;
   }
 }
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .is-onscreen-snack {
+    .m-fab {
+      bottom: 8rem;
+    }
+  }
+}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

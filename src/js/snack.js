@@ -35,6 +35,7 @@ var snack = (function() {
     snackBar.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && this.style.opacity == 0) {
         this.parentElement.removeChild(this);
+        checkBodyForSnack();
       };
     }.bind(snackBar), false);
 
@@ -55,6 +56,7 @@ var snack = (function() {
     getComputedStyle(snackBar).transform;
     getComputedStyle(snackBar).margin;
     helper.addClass(snackBar, "is-reveal");
+    checkBodyForSnack();
 
   };
 
@@ -64,6 +66,16 @@ var snack = (function() {
         destroy();
       };
     }, false);
+  };
+
+  function checkBodyForSnack() {
+    var body = helper.e("body");
+    var snackBar = helper.e(".js-snack-bar");
+    if (snackBar) {
+      helper.addClass(body, "is-onscreen-snack");
+    } else {
+      helper.removeClass(body, "is-onscreen-snack");
+    };
   };
 
   // exposed methods
