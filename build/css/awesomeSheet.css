@@ -1688,14 +1688,9 @@ label {
   .style-guide-color.style-guide-light-alpha-20 {
     background-color: rgba(255, 255, 255, 0.05); }
 
-.m-nav-toggle {
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  -webkit-tap-highlight-color: transparent; }
-
 .m-nav {
   background-color: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 15px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   margin: 0;
   padding: 10px 0;
@@ -1891,7 +1886,7 @@ label {
   text-transform: uppercase;
   position: relative;
   z-index: 3000;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.2); }
   .m-section-heading h1 {
     color: #ffffff;
     margin: 0;
@@ -1971,44 +1966,52 @@ label {
   .m-hamburger .m-hamburger-inner {
     background-color: #ffffff;
     position: absolute;
-    width: 24px;
+    width: 100%;
     height: 2px;
-    left: 50%;
     top: 50%;
     border-radius: 3px;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    -webkit-transform: translatey(-50%) rotate(0deg);
+        -ms-transform: translatey(-50%) rotate(0deg);
+            transform: translatey(-50%) rotate(0deg);
     display: block;
-    transition: all 0.2s ease-in-out; }
+    transition: background-color 0.3s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+    transition: background-color 0.3s ease-in-out 0s, transform 0.2s ease-in-out 0s; }
     .m-hamburger .m-hamburger-inner:before, .m-hamburger .m-hamburger-inner:after {
       background-color: #ffffff;
       opacity: 1;
       content: "";
       position: absolute;
-      width: 24px;
+      width: 100%;
       height: 2px;
-      transition: all 0.2s ease-in-out;
+      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0.2s, -webkit-transform 0.2s ease-in-out;
+      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out;
       border-radius: 3px;
       display: block; }
     .m-hamburger .m-hamburger-inner:before {
       top: -6px; }
     .m-hamburger .m-hamburger-inner:after {
-      top: 6px; }
+      top: 6px;
+      -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+              transform: rotate(0deg); }
   .m-hamburger:hover .m-hamburger-inner {
     background-color: #fc0042; }
     .m-hamburger:hover .m-hamburger-inner:before, .m-hamburger:hover .m-hamburger-inner:after {
       background-color: #fc0042; }
   .m-hamburger.is-open .m-hamburger-inner {
     background-color: #ffffff;
-    -webkit-transform: translate(-50%, -50%) rotate(225deg);
-        -ms-transform: translate(-50%, -50%) rotate(225deg);
-            transform: translate(-50%, -50%) rotate(225deg); }
-    .m-hamburger.is-open .m-hamburger-inner:before {
-      top: 0;
-      opacity: 0; }
-    .m-hamburger.is-open .m-hamburger-inner:after {
+    -webkit-transform: translatey(-50%) rotate(-135deg);
+        -ms-transform: translatey(-50%) rotate(-135deg);
+            transform: translatey(-50%) rotate(-135deg);
+    transition: background-color 0.3s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0.2s;
+    transition: background-color 0.3s ease-in-out 0s, transform 0.2s ease-in-out 0.2s; }
+    .m-hamburger.is-open .m-hamburger-inner:before, .m-hamburger.is-open .m-hamburger-inner:after {
       background-color: #ffffff;
+      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0.2s;
+      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0.2s; }
+    .m-hamburger.is-open .m-hamburger-inner:before {
+      top: 0; }
+    .m-hamburger.is-open .m-hamburger-inner:after {
       top: 0;
       -webkit-transform: rotate(-90deg);
           -ms-transform: rotate(-90deg);
@@ -2026,10 +2029,8 @@ label {
 
 @media (min-width: 700px) {
   .m-hamburger .m-hamburger-inner {
-    width: 28px;
     height: 3px; }
     .m-hamburger .m-hamburger-inner:before, .m-hamburger .m-hamburger-inner:after {
-      width: 28px;
       height: 3px; }
     .m-hamburger .m-hamburger-inner:before {
       top: -7px; }
@@ -2153,7 +2154,7 @@ label {
 
 .m-quick-nav-display {
   background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.2); }
 
 .m-quick-nav-list {
   margin: 0;
@@ -2161,6 +2162,7 @@ label {
   .m-quick-nav-list > li {
     margin: 0;
     padding: 0;
+    height: 60px;
     width: 11.1111111111%;
     display: block;
     float: left;
@@ -2193,6 +2195,29 @@ label {
     color: #a0d0f3; }
   .m-quick-nav-link.is-active {
     color: #ffffff; }
+
+.m-nav-toggle {
+  padding: 0 20%;
+  position: relative;
+  width: 60%;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  -webkit-tap-highlight-color: transparent; }
+
+@media (min-width: 550px) {
+  .m-nav-toggle {
+    padding: 0 25%;
+    width: 50%; } }
+
+@media (min-width: 700px) {
+  .m-nav-toggle {
+    padding: 0 30%;
+    width: 40%; } }
+
+@media (min-width: 900px) {
+  .m-nav-toggle {
+    padding: 0 35%;
+    width: 30%; } }
 
 .m-skill .m-skill-name,
 .m-skill .m-skill-stat,
@@ -2430,7 +2455,7 @@ label {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 6px 30px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transition: all 0.3s ease-in-out; }
 
@@ -2542,7 +2567,7 @@ label {
     margin-bottom: 0;
     margin-left: 20px;
     border-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 15px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     -webkit-transform: translatey(100%);
         -ms-transform: translatey(100%);
@@ -2642,30 +2667,31 @@ label {
   bottom: 6rem; }
 
 .m-fab-button {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   font-size: 2rem;
-  line-height: 50px;
+  line-height: 55px;
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 50%;
   transition: all 0.5s ease-in-out;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 2px 10px rgba(0, 0, 0, 0.2); }
   .m-fab-button [class^="icon-"],
   .m-fab-button [class*=" icon-"] {
     margin: 0;
-    left: 1px;
-    top: 2px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    line-height: 55px;
     transition: all 0.5s ease-in-out; }
   .m-fab-button:focus, .m-fab-button:hover {
-    transition: all 0.2s ease-in-out; }
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 15px rgba(0, 0, 0, 0.2); }
     .m-fab-button:focus [class^="icon-"],
     .m-fab-button:focus [class*=" icon-"], .m-fab-button:hover [class^="icon-"],
     .m-fab-button:hover [class*=" icon-"] {
       transition: all 0.2s ease-in-out; }
-  .m-fab-button:focus {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 20px rgba(0, 0, 0, 0.2); }
 
 @media (min-width: 550px) {
   .is-onscreen-snack .m-fab {

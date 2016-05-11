@@ -1,11 +1,5 @@
 var nav = (function() {
 
-  // function _display() {
-  //   var displayNavItem = helper.e(".js-display");
-  //   helper.toggleClass(displayNavItem, "is-active");
-  //   display.toggle();
-  // };
-
   function _fullscreen() {
     var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
