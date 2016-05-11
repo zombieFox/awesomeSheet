@@ -1,13 +1,12 @@
 .m-nav {
   background-color: $white;
-  box-shadow: $shadow-medium;
-  border-radius: $border-radius-small;
+  border-bottom: 2px solid $gray-18;
   margin: 0;
   padding: 10px 0;
   position: absolute;
-  top: 80px;
-  right: -440px;
-  width: 300px;
+  top: 60px;
+  right: -100%;
+  width: 100%;
   transition: right $transition-ease-extra-fast;
   overflow-y: auto;
   > li {
@@ -21,8 +20,8 @@
     height: 1px;
   }
   &.is-open {
-    right: 20px;
-    transition: right $transition-bounce-medium;
+    right: 0;
+    transition: right $transition-ease-extra-fast;
   }
 }
 
@@ -206,7 +205,16 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
+    top: 80px;
+    right: -400px;
     width: 360px;
+    border-radius: $border-radius-small;
+    box-shadow: $shadow-small;
+    transition: right $transition-ease-extra-fast;
+    &.is-open {
+      right: 20px;
+      transition: right $transition-bounce-medium;
+    }
   }
 }
 
