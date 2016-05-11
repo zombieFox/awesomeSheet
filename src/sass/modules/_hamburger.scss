@@ -73,6 +73,7 @@
   &.is-open {
     .m-hamburger-inner {
       background-color: $primary-color-10;
+      &:before,
       &:after {
         background-color: $primary-color-10;
       }

@@ -2024,7 +2024,7 @@ label {
 
 .m-hamburger-dark.is-open .m-hamburger-inner {
   background-color: #fc0042; }
-  .m-hamburger-dark.is-open .m-hamburger-inner:after {
+  .m-hamburger-dark.is-open .m-hamburger-inner:before, .m-hamburger-dark.is-open .m-hamburger-inner:after {
     background-color: #fc0042; }
 
 @media (min-width: 700px) {
@@ -2373,7 +2373,17 @@ label {
   overflow: hidden;
   position: relative;
   white-space: normal;
-  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
+  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+  line-height: 1.5rem; }
+  .m-spell .m-spell-active [class*=" icon-"],
+  .m-spell .m-spell-active [class^="icon-"],
+  .m-spell .m-spell-name [class*=" icon-"],
+  .m-spell .m-spell-name [class^="icon-"],
+  .m-spell .m-spell-marks [class*=" icon-"],
+  .m-spell .m-spell-marks [class^="icon-"],
+  .m-spell .m-spell-remove [class*=" icon-"],
+  .m-spell .m-spell-remove [class^="icon-"] {
+    top: 0; }
   .m-spell .m-spell-active,
   .m-spell .m-spell-name {
     float: left;
@@ -2386,21 +2396,20 @@ label {
     .m-spell .m-spell-active [class^="icon-"] {
       float: left;
       margin: 0;
-      line-height: 1em;
+      line-height: 1.5rem;
       height: auto; }
   .m-spell .m-spell-name {
     white-space: nowrap;
     overflow: hidden; }
   .m-spell .m-spell-marks {
     float: right;
-    margin: 0 0 0 5px;
     display: block;
     visibility: visible; }
     .m-spell .m-spell-marks [class*=" icon-"],
     .m-spell .m-spell-marks [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 1em;
+      line-height: 1.5rem;
       height: auto; }
   .m-spell .m-spell-remove {
     float: right;
@@ -2411,7 +2420,7 @@ label {
     .m-spell .m-spell-remove [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 1em;
+      line-height: 1.5rem;
       height: auto; }
 
 .m-new-spell {
@@ -2430,6 +2439,10 @@ label {
     .m-new-spell .m-new-spell-add [class*=" icon-"],
     .m-new-spell .m-new-spell-add [class^="icon-"] {
       margin: 0; }
+
+@media (min-width: 900px) {
+  .m-spell {
+    margin: 0 0 6px 0; } }
 
 .m-prompt-shade {
   background-color: rgba(0, 0, 0, 0.55);

@@ -207,7 +207,6 @@ var nav = (function() {
     var nav = helper.e(".js-nav");
     var navToggleElement = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
-    // var display = helper.e(".js-display");
     var clearAll = helper.e(".js-clear-all");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
@@ -218,9 +217,6 @@ var nav = (function() {
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
-    // display.addEventListener("click", function() {
-    //   _display();
-    // }, false);
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();

@@ -132,6 +132,16 @@
   position: relative;
   white-space: normal;
   font-family: $open-sans-regular;
+  line-height: 1.5rem;
+  .m-spell-active,
+  .m-spell-name,
+  .m-spell-marks,
+  .m-spell-remove {
+    [class*=" icon-"],
+    [class^="icon-"] {
+      top: 0;
+    }
+  }
   .m-spell-active,
   .m-spell-name {
     float: left;
@@ -145,7 +155,7 @@
     [class^="icon-"] {
       float: left;
       margin: 0;
-      line-height: 1em;
+      line-height: 1.5rem;
       height: auto;
     }
   }
@@ -155,14 +165,13 @@
   }
   .m-spell-marks {
     float: right;
-    margin: 0 0 0 5px;
     display: block;
     visibility: visible;
     [class*=" icon-"],
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 1em;
+      line-height: 1.5rem;
       height: auto;
     }
   }
@@ -175,7 +184,7 @@
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 1em;
+      line-height: 1.5rem;
       height: auto;
     }
   }
@@ -209,6 +218,10 @@
 
 @media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-spell {
+    margin: 0 0 6px 0;
+  }
+}
 
 @media (min-width: $screen-xl) {}

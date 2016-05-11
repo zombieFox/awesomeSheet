@@ -174,7 +174,7 @@ var display = (function() {
           makeDisplayItem("skills.custom_4.current", "Custom <strong>", "</strong>");
 
           makeDisplayItem("notes.character", "<strong>Character Notes</strong><br> ", "");
-          makeDisplayItem("notes.story", "<strong>Story Notes</strong><br> ", "")
+          makeDisplayItem("notes.story", "<strong>Story Notes</strong><br> ", "");
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");
