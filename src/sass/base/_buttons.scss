@@ -46,10 +46,11 @@ input[type="button"] {
   }
   [class^="icon-"],
   [class*=" icon-"] {
+    position: relative;
+    top: 1px;
     font-size: 1.1em;
     line-height: 1em;
-    margin: -2px 5px 0 0;
-    vertical-align: middle;
+    margin-right: 5px;
     display: inline-block;
   }
 }

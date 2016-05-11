@@ -99,7 +99,7 @@ input {
       color: $base-color;
       transition: color $transition-ease-fast;
       &:before {
-        font-family: "Material Design Icons";
+        font-family: "Icons" !important;
         speak: none;
         font-style: normal;
         font-weight: normal;

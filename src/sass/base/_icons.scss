@@ -2,16 +2,16 @@
 // material icons
 // --------------------------------------------------
 @font-face {
-  font-family: "Material Design Icons";
-  src: url("../fonts/material-design-icons/material-design-icons.eot?ju29xy");
-  src: url("../fonts/material-design-icons/material-design-icons.eot?#iefixju29xy") format("embedded-opentype"), url("../fonts/material-design-icons/material-design-icons.ttf?ju29xy") format("truetype"), url("../fonts/material-design-icons/material-design-icons.woff?ju29xy") format("woff"), url("../fonts/material-design-icons/material-design-icons.svg?ju29xy#icomoon") format("svg");
+  font-family: "Icons";
+  src: url("../fonts/icons/icons.eot?tvx3e0");
+  src: url("../fonts/icons/icons.eot?tvx3e0#iefix") format("embedded-opentype"), url("../fonts/icons/icons.ttf?tvx3e0") format("truetype"), url("../fonts/icons/icons.woff?tvx3e0") format("woff"), url("../fonts/icons/icons.svg?tvx3e0#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="icon-"],
 [class*=" icon-"] {
-  font-family: "Material Design Icons";
+  font-family: "Icons" !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -103,11 +103,11 @@
   content: "\e213";
 }
 
-.icon-check-box-checked:before {
+.icon-check-box:before {
   content: "\e25c";
 }
 
-.icon-check-box-unchecked:before {
+.icon-check-box-outline-blank:before {
   content: "\e25d";
 }
 
@@ -177,4 +177,16 @@
 
 .icon-edit:before {
   content: "\e90c";
+}
+
+.icon-file:before {
+  content: "\e90d";
+}
+
+.icon-file-blank:before {
+  content: "\e90e";
+}
+
+.icon-reader-mode:before {
+  content: "\e90f";
 }

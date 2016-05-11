@@ -1,11 +1,13 @@
 var display = (function() {
 
   function bind() {
-    var fab = helper.e(".js-fab");
-    fab.addEventListener("click", toggle, false);
+    var fabButton = helper.e(".js-fab-button");
+    fabButton.addEventListener("click", toggle, false);
   };
 
   function toggle() {
+    var fabIcon = helper.e(".js-fab-icon");
+    var editWrapper = helper.e(".edit-wrapper");
     var editWrapper = helper.e(".edit-wrapper");
     var displayWrapper = helper.e(".display-wrapper");
     var quickNavLink = helper.e(".js-quick-nav");
@@ -18,6 +20,8 @@ var display = (function() {
     helper.toggleClass(displayWrapper, "is-hidden");
     helper.toggleClass(quickNavLink, "m-quick-nav-display");
     helper.toggleClass(hamburger, "m-hamburger-dark");
+    helper.toggleClass(fabIcon, "icon-edit");
+    helper.toggleClass(fabIcon, "icon-reader-mode");
     display.clear();
     display.render();
   };

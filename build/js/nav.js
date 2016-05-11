@@ -205,7 +205,7 @@ var nav = (function() {
 
   function resize() {
     var nav = helper.e(".js-nav");
-    var height = window.innerHeight - 120;
+    var height = window.innerHeight - 240;
     nav.style.maxHeight = height + "px";
   };
 
