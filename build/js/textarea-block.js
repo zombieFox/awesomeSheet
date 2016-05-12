@@ -2,8 +2,16 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
+    console.log(path + " stored");
     helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
     sheet.storeCharacters();
+  };
+
+  var storeInputTimer = null;
+  var storeBlurTimer = null;
+
+  function delayUpdate(element) {
+    _store(element);
   };
 
   function focus(element) {
@@ -50,15 +58,15 @@ var textareaBlock = (function() {
       var textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
       if (textareaBlockField) {
         textareaBlockField.addEventListener("input", function() {
-          _store(this);
-          focus(this);
+          clearTimeout(storeBlurTimer);
+          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
         }, false);
         textareaBlockField.addEventListener("focus", function() {
-          _store(this);
           focus(this);
         }, false);
         textareaBlockField.addEventListener("blur", function() {
-          _store(this);
+          clearTimeout(storeBlurTimer);
+          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
           focus(this);
         }, false);
       };

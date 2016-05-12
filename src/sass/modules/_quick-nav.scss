@@ -10,7 +10,7 @@
 
 .m-quick-nav-display {
   background-color: $light-alpha-04;
-  box-shadow: $shadow-small;
+  border-bottom: 2px solid $gray-18;
 }
 
 .m-quick-nav-list {
@@ -73,6 +73,9 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
+  .m-quick-nav-display {
+    box-shadow: $shadow-small;
+  }
   .m-nav-toggle {
     padding: 0 25%;
     width: 50%;

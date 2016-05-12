@@ -6,20 +6,27 @@ var inputBlock = (function() {
     sheet.storeCharacters();
   };
 
+  var storeInputTimer = null;
+  var storeBlurTimer = null;
+
+  function delayUpdate(element) {
+    _store(element);
+    totalBlock.update();
+  };
+
   function focus(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
-    var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var inputBlockLabel;
     if (inputBlock.querySelector(".js-input-block-label")) {
       inputBlockLabel = inputBlock.querySelector(".js-input-block-label");
     };
     if (inputBlock.querySelector(".js-input-block-label")) {
-      if (inputBlockField == document.activeElement) {
+      if (element == document.activeElement) {
         helper.addClass(inputBlockLabel, "is-active");
       } else {
         helper.removeClass(inputBlockLabel, "is-active");
       };
-      if (element.value == "" && inputBlockField != document.activeElement) {
+      if (element.value == "" && element != document.activeElement) {
         helper.removeClass(inputBlockLabel, "is-active");
       } else {
         helper.addClass(inputBlockLabel, "is-active");
@@ -48,7 +55,7 @@ var inputBlock = (function() {
     _bind_awesomeName();
     _bind_class();
     _bind_level();
-    _bind_inputControls();
+    // _bind_inputControls();
   };
 
   function _bind_inputControls() {
@@ -86,19 +93,16 @@ var inputBlock = (function() {
       var input = all_inputBlock[i].querySelector(".js-input-block-field");
       if (input) {
         input.addEventListener("input", function() {
-          _store(this);
-          focus(this);
-          totalBlock.update();
+          clearTimeout(storeInputTimer);
+          storeInputTimer = setTimeout(delayUpdate, 1000, this);
         }, false);
         input.addEventListener("focus", function() {
-          _store(this);
           focus(this);
-          totalBlock.update();
         }, false);
         input.addEventListener("blur", function() {
-          _store(this);
+          clearTimeout(storeBlurTimer);
+          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
           focus(this);
-          totalBlock.update();
         }, false);
       };
     };
@@ -107,39 +111,24 @@ var inputBlock = (function() {
   function _bind_awesomeName() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
-      nav.update(this);
-    }, false);
-    input.addEventListener("focus", function() {
-      nav.update(this);
-    }, false);
-    input.addEventListener("blur", function() {
-      nav.update(this);
+      clearTimeout(storeInputTimer);
+      storeInputTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
   function _bind_class() {
     var input = helper.e(".js-basics-class");
     input.addEventListener("input", function() {
-      nav.update(this);
-    }, false);
-    input.addEventListener("focus", function() {
-      nav.update(this);
-    }, false);
-    input.addEventListener("blur", function() {
-      nav.update(this);
+      clearTimeout(storeInputTimer);
+      storeInputTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
   function _bind_level() {
     var input = helper.e(".js-basics-level");
     input.addEventListener("input", function() {
-      nav.update(this);
-    }, false);
-    input.addEventListener("focus", function() {
-      nav.update(this);
-    }, false);
-    input.addEventListener("blur", function() {
-      nav.update(this);
+      clearTimeout(storeInputTimer);
+      storeInputTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 

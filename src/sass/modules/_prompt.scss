@@ -21,7 +21,7 @@
   box-sizing: border-box;
   border-radius: $border-radius-small;
   transform: translate(-50%, -50%);
-  box-shadow: $shadow-large;
+  // box-shadow: $shadow-large;
   opacity: 0;
   transition: all $transition-ease-fast;
 }

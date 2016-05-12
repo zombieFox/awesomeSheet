@@ -49,8 +49,9 @@ var spells = (function() {
 
   function _bind_spellKnownItem(element) {
     element.addEventListener("click", function() {
+      clearTimeout(storeSpellTimer);
+      storeSpellTimer = setTimeout(delayUpdate, 1000, this);
       _changeSpell(this);
-      sheet.storeCharacters();
       _checkSpellState();
     }, false);
   };
@@ -213,6 +214,16 @@ var spells = (function() {
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
       cast: this.cast = spellCast || 0
+    };
+  };
+
+  var storeSpellTimer = null;
+
+  function delayUpdate() {
+    var spellRoot = helper.e(".js-spells");
+    var spellState = spellRoot.dataset.spellState;
+    if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
+      sheet.storeCharacters();
     };
   };
 
