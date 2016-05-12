@@ -346,22 +346,36 @@ var clone = (function() {
     }, false);
   };
 
+  var storeInputTimer = null;
+  var storeBlurTimer = null;
+
+  function delayUpdate(type) {
+    if (type == "attack-melee") {
+      _updateCloneAttackMelee();
+    };
+    if (type == "attack-ranged") {
+      _updateCloneAttackRanged();
+    };
+    if (type == "consumable") {
+      _updateCloneConsumable();
+    };
+    totalBlock.update();
+    sheet.storeCharacters();
+  };
+
   function _bind_cloneAttackMeleeInput(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
-        _updateCloneAttackMelee();
-        sheet.storeCharacters();
-        inputBlock.focus(this);
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "attack-melee");
       }, false);
       input.addEventListener("focus", function() {
-        _updateCloneAttackMelee();
-        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
-        _updateCloneAttackMelee();
-        sheet.storeCharacters();
+        clearTimeout(storeInputTimer);
+        storeBlurTimer = setTimeout(delayUpdate, 1000, "attack-melee");
         inputBlock.focus(this);
       }, false);
     };
@@ -371,18 +385,15 @@ var clone = (function() {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
-        _updateCloneAttackRanged();
-        sheet.storeCharacters();
-        inputBlock.focus(this);
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "attack-ranged");
       }, false);
       input.addEventListener("focus", function() {
-        _updateCloneAttackRanged();
-        sheet.storeCharacters();
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
-        _updateCloneAttackRanged();
-        sheet.storeCharacters();
+        clearTimeout(storeInputTimer);
+        storeBlurTimer = setTimeout(delayUpdate, 1000, "attack-ranged");
         inputBlock.focus(this);
       }, false);
     };
@@ -395,36 +406,18 @@ var clone = (function() {
         input.addEventListener("input", function() {
           _minMaxCountLimit(this);
         }, false);
-        input.addEventListener("focus", function() {
-          _minMaxCountLimit(this);
-        }, false);
-        input.addEventListener("blur", function() {
-          _minMaxCountLimit(this);
-        }, false);
       };
       input.addEventListener("input", function() {
-        _updateCloneConsumable();
-        // consumable.render();
-        // consumable.update();
-        sheet.storeCharacters();
-        inputBlock.focus(this);
-        totalBlock.update();
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
       }, false);
       input.addEventListener("focus", function() {
-        _updateCloneConsumable();
-        // consumable.render();
-        // consumable.update();
-        sheet.storeCharacters();
         inputBlock.focus(this);
-        totalBlock.update();
       }, false);
       input.addEventListener("blur", function() {
-        _updateCloneConsumable();
-        // consumable.render();
-        // consumable.update();
-        sheet.storeCharacters();
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
         inputBlock.focus(this);
-        totalBlock.update();
       }, false);
     };
   };
@@ -487,6 +480,7 @@ var clone = (function() {
   };
 
   function _updateCloneAttackMelee() {
+    console.log("delayed fire");
     var cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
@@ -502,6 +496,7 @@ var clone = (function() {
   };
 
   function _updateCloneAttackRanged() {
+    console.log("delayed fire");
     var cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
@@ -519,6 +514,7 @@ var clone = (function() {
   };
 
   function _updateCloneConsumable() {
+    console.log("delayed fire");
     var cloneTarget = helper.e(".js-clone-block-target-consumable");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneConsumable = [];

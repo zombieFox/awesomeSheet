@@ -6,6 +6,13 @@ var stats = (function() {
     field.textContent = modifier;
   };
 
+  var changeModiferTimer = null;
+
+  function delayUpdate(element) {
+    render();
+    totalBlock.update();
+  };
+
   function _calculateModifer(element) {
     var modifier = Math.floor((element.value - 10) / 2);
     return modifier;
@@ -36,14 +43,14 @@ var stats = (function() {
     var scoreTemp = helper.eA(".js-stats-score-temp");
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
-        render();
-        totalBlock.update();
+        clearTimeout(changeModiferTimer);
+        changeModiferTimer = setTimeout(delayUpdate, 1000);
       }, false);
     };
     for (var i = 0; i < scoreTemp.length; i++) {
       scoreTemp[i].addEventListener("input", function() {
-        render();
-        totalBlock.update();
+        clearTimeout(changeModiferTimer);
+        changeModiferTimer = setTimeout(delayUpdate, 1000);
       }, false);
     };
   };

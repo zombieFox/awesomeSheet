@@ -209,9 +209,9 @@
     right: -400px;
     width: 360px;
     border-radius: $border-radius-small;
-    box-shadow: $shadow-small;
     transition: right $transition-ease-extra-fast;
     &.is-open {
+      box-shadow: $shadow-small;
       right: 20px;
       transition: right $transition-bounce-medium;
     }

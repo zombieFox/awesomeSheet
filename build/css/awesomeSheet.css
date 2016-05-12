@@ -1854,9 +1854,9 @@ label {
     right: -400px;
     width: 360px;
     border-radius: 2px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
     transition: right 0.2s ease-in-out; }
     .m-nav.is-open {
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
       right: 20px;
       transition: right 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); } }
 
@@ -2161,7 +2161,7 @@ label {
 
 .m-quick-nav-display {
   background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15); }
+  border-bottom: 2px solid #e6e6e6; }
 
 .m-quick-nav-list {
   margin: 0;
@@ -2212,6 +2212,8 @@ label {
   -webkit-tap-highlight-color: transparent; }
 
 @media (min-width: 550px) {
+  .m-quick-nav-display {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15); }
   .m-nav-toggle {
     padding: 0 25%;
     width: 50%; } }
@@ -2475,7 +2477,6 @@ label {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 6px 30px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transition: all 0.3s ease-in-out; }
 
