@@ -48,7 +48,7 @@ var inputBlock = (function() {
     _bind_awesomeName();
     _bind_class();
     _bind_level();
-    _bind_inputControls();
+    // _bind_inputControls();
   };
 
   function _bind_inputControls() {
@@ -80,25 +80,40 @@ var inputBlock = (function() {
     totalBlock.update();
   };
 
+  var timer = 0;
+  var currentInput = null;
+
+  function _delayed_inputUpdate() {
+    // console.log(currentInput);
+    _store(currentInput);
+    totalBlock.update();
+  };
+
+
   function _bind_inputBlock() {
     var all_inputBlock = helper.eA(".js-input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
       var input = all_inputBlock[i].querySelector(".js-input-block-field");
       if (input) {
         input.addEventListener("input", function() {
-          _store(this);
-          focus(this);
-          totalBlock.update();
+          if (timer) {
+            clearTimeout(timer);
+          };
+          currentInput = this;
+          timer = setTimeout(_delayed_inputUpdate, 1000);
+          // _store(this);
+          // focus(this);
+          // totalBlock.update();
         }, false);
         input.addEventListener("focus", function() {
-          _store(this);
+          // _store(this);
           focus(this);
-          totalBlock.update();
+          // totalBlock.update();
         }, false);
         input.addEventListener("blur", function() {
-          _store(this);
+          // _store(this);
           focus(this);
-          totalBlock.update();
+          // totalBlock.update();
         }, false);
       };
     };
