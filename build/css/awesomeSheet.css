@@ -2454,12 +2454,13 @@ label {
     margin: 0 0 6px 0; } }
 
 .m-prompt-shade {
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(0, 0, 0, 0.75);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
   z-index: 9000;
   transition: all 0.3s ease-in-out; }
 
@@ -2484,7 +2485,8 @@ label {
   background-color: #ffffff;
   border-radius: 2px 2px 0 0;
   padding: 30px 0;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  min-height: 60px; }
   .m-prompt-message .m-prompt-heading {
     border-left: 40px solid #fc0042;
     padding: 0 60px 0 20px;
@@ -2496,7 +2498,8 @@ label {
       margin-bottom: 0; }
   .m-prompt-message .m-prompt-text {
     margin-right: 60px;
-    margin-left: 60px; }
+    margin-left: 60px;
+    font-size: 1.1em; }
     .m-prompt-message .m-prompt-text:last-child {
       margin-bottom: 0; }
 
