@@ -10,7 +10,7 @@
 }
 
 .l-nav-padding {
-  padding-top: 8rem;
+  padding-top: 6rem;
 }
 
 // --------------------------------------------------
@@ -18,7 +18,11 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  .l-nav-padding {
+    padding-top: 8rem;
+  }
+}
 
 @media (min-width: $screen-lg) {}
 
