@@ -1,28 +1,37 @@
 .m-nav {
   background-color: $white;
-  border-bottom: 2px solid $gray-18;
-  margin: 0;
-  padding: 10px 0;
-  position: absolute;
-  top: 62px;
-  right: -100%;
+  padding: 60px 0;
+  position: fixed;
+  top: -100%;
+  left: 0;
   width: 100%;
-  transition: right $transition-ease-extra-fast;
+  height: 100%;
   overflow-y: auto;
-  > li {
-    margin-bottom: 0;
-    text-align: left;
-    list-style-type: none;
-  }
-  .m-nav-divide {
-    margin: 10px 0;
-    background-color: $dark-alpha-19;
-    height: 1px;
+  box-sizing: border-box;
+  z-index: $nav;
+  border-bottom: 2px solid $gray-18;
+  transition: top $transition-ease-extra-fast;
+  .m-nav-list {
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    overflow-y: auto;
+    > li {
+      margin-bottom: 0;
+      text-align: left;
+      list-style-type: none;
+    }
   }
   &.is-open {
-    right: 0;
-    transition: right $transition-ease-extra-fast;
+    top: 0;
+    transition: top $transition-ease-medium;
   }
+}
+
+.m-nav-divide {
+  margin: 10px 0;
+  background-color: $dark-alpha-19;
+  height: 1px;
 }
 
 .m-nav-title {
@@ -99,8 +108,8 @@
           width: 20%;
           margin: 0;
           font-size: 1em;
-          height: 50px;
-          line-height: 50px;
+          height: 54px;
+          line-height: 54px;
           text-align: center;
           transition: none;
         }
@@ -205,13 +214,17 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
+    padding: 0;
     top: 80px;
+    left: inherit;
     right: -400px;
     width: 360px;
-    border-radius: $border-radius-small;
+    height: auto;
+    border-radius: $border-radius-medium;
     transition: right $transition-ease-extra-fast;
     &.is-open {
       box-shadow: $shadow-small;
+      top: 80px;
       right: 20px;
       transition: right $transition-bounce-medium;
     }

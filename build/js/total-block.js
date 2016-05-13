@@ -288,8 +288,8 @@ var totalBlock = (function() {
       if (path) {
         helper.updateObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10));
       };
-      sheet.storeCharacters();
     };
+    sheet.storeCharacters();
   };
 
   function _store(element) {
