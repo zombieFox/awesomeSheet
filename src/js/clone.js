@@ -144,9 +144,9 @@ var clone = (function() {
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
-    var attackCloneAddMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
-    var attackCloneAddRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
-    var attackCloneRemove = cloneBlockAttack.querySelector(".js-clone-remove");
+    var cloneAddAttackMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
+    var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
+    var cloneRemoveAttack = cloneBlockAttack.querySelector(".js-clone-remove");
     cloneAddConsumable.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
@@ -158,10 +158,8 @@ var clone = (function() {
     }, false);
     cloneRemoveConsumable.addEventListener("click", function() {
       _changeCloneState("consumable");
-      _updateCloneConsumable();
-      sheet.storeCharacters();
     }, false);
-    attackCloneAddMelee.addEventListener("click", function() {
+    cloneAddAttackMelee.addEventListener("click", function() {
       _render_clone(1, "attack-melee");
       _updateCloneAttackMelee();
       sheet.storeCharacters();
@@ -169,7 +167,7 @@ var clone = (function() {
         snack.render("Melee attack added.", false, false);
       };
     }, false);
-    attackCloneAddRanged.addEventListener("click", function() {
+    cloneAddAttackRanged.addEventListener("click", function() {
       _render_clone(1, "attack-ranged");
       _updateCloneAttackRanged();
       sheet.storeCharacters();
@@ -177,11 +175,8 @@ var clone = (function() {
         snack.render("Ranged attack added.", false, false);
       };
     }, false);
-    attackCloneRemove.addEventListener("click", function() {
+    cloneRemoveAttack.addEventListener("click", function() {
       _changeCloneState("attack");
-      _updateCloneAttackMelee();
-      _updateCloneAttackRanged();
-      sheet.storeCharacters();
     }, false);
   };
 
@@ -480,7 +475,6 @@ var clone = (function() {
   };
 
   function _updateCloneAttackMelee() {
-    console.log("delayed fire");
     var cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
@@ -496,7 +490,6 @@ var clone = (function() {
   };
 
   function _updateCloneAttackRanged() {
-    console.log("delayed fire");
     var cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneAttack = [];
@@ -514,7 +507,6 @@ var clone = (function() {
   };
 
   function _updateCloneConsumable() {
-    console.log("delayed fire");
     var cloneTarget = helper.e(".js-clone-block-target-consumable");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
     var cloneConsumable = [];

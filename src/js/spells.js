@@ -134,6 +134,8 @@ var spells = (function() {
   };
 
   function _changeSpellState(element) {
+    var all_spellLevels = helper.eA(".js-spell-book-known");
+    var spellsFound = false;
     var spellRoot = helper.e(".js-spells");
     var spellPrepareButton = helper.e(".js-spell-prepare");
     var spellUnprepareButton = helper.e(".js-spell-unprepare");
@@ -142,20 +144,35 @@ var spells = (function() {
     var spellRemoveButton = helper.e(".js-spell-remove");
     var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
     var all_spellBookItem = helper.eA(".js-spell");
-    // if this button is active
-    if (spellRoot.dataset.spellState != element.dataset.state) {
-      helper.removeClass(element, "is-active");
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
-      helper.removeClass(spellRoot, "is-state-remove");
-      helper.addClass(spellRoot, "is-state-" + element.dataset.state);
-      spellRoot.dataset.spellState = element.dataset.state;
-      for (var i = 0; i < all_spellStateControls.length; i++) {
-        helper.removeClass(all_spellStateControls[i], "is-active");
+    for (var i = 0; i < all_spellLevels.length; i++) {
+      if (all_spellLevels[i].children.length > 0) {
+        spellsFound = true;
       };
-      helper.addClass(element, "is-active");
+    };
+    if (spellsFound) {
+      // if this button is active
+      if (spellRoot.dataset.spellState != element.dataset.state) {
+        helper.removeClass(element, "is-active");
+        helper.removeClass(spellRoot, "is-state-prepare");
+        helper.removeClass(spellRoot, "is-state-unprepare");
+        helper.removeClass(spellRoot, "is-state-cast");
+        helper.removeClass(spellRoot, "is-state-active");
+        helper.removeClass(spellRoot, "is-state-remove");
+        helper.addClass(spellRoot, "is-state-" + element.dataset.state);
+        spellRoot.dataset.spellState = element.dataset.state;
+        for (var i = 0; i < all_spellStateControls.length; i++) {
+          helper.removeClass(all_spellStateControls[i], "is-active");
+        };
+        helper.addClass(element, "is-active");
+      } else {
+        spellRoot.dataset.spellState = "false";
+        helper.removeClass(element, "is-active");
+        helper.removeClass(spellRoot, "is-state-prepare");
+        helper.removeClass(spellRoot, "is-state-unprepare");
+        helper.removeClass(spellRoot, "is-state-cast");
+        helper.removeClass(spellRoot, "is-state-active");
+        helper.removeClass(spellRoot, "is-state-remove");
+      };
     } else {
       spellRoot.dataset.spellState = "false";
       helper.removeClass(element, "is-active");
