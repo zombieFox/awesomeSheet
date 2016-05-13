@@ -172,19 +172,39 @@ var nav = (function() {
     };
   };
 
+  function checkBodyForOpenNav() {
+    var body = helper.e("body");
+    var nav = helper.e(".js-is-open");
+    if (window.innerWidth < 550) {
+      if (nav) {
+        helper.addClass(body, "is-onscreen-nav");
+      } else {
+        helper.removeClass(body, "is-onscreen-nav");
+      };
+    } else {
+      helper.removeClass(body, "is-onscreen-nav");
+    };
+  };
+
   function navClose() {
     helper.removeClass(helper.e(".js-nav"), "is-open");
+    helper.removeClass(helper.e(".js-nav"), "js-is-open");
     helper.removeClass(helper.e(".js-hamburger"), "is-open");
+    checkBodyForOpenNav();
   };
 
   function navOpen() {
     helper.addClass(helper.e(".js-nav"), "is-open");
+    helper.addClass(helper.e(".js-nav"), "js-is-open");
     helper.addClass(helper.e(".js-hamburger"), "is-open");
+    checkBodyForOpenNav();
   };
 
   function navToggle() {
     helper.toggleClass(helper.e(".js-nav"), "is-open");
+    helper.toggleClass(helper.e(".js-nav"), "js-is-open");
     helper.toggleClass(helper.e(".js-hamburger"), "is-open");
+    checkBodyForOpenNav();
   };
 
   function remove() {
@@ -198,9 +218,14 @@ var nav = (function() {
   };
 
   function resize() {
+    var body = helper.e("body");
     var nav = helper.e(".js-nav");
-    var height = window.innerHeight - 240;
-    nav.style.maxHeight = height + "px";
+    if (window.innerWidth >= 550) {
+      var height = window.innerHeight - 100;
+      nav.style.maxHeight = height + "px";
+    } else {
+      nav.removeAttribute("style");
+    };
   };
 
   function bind() {
