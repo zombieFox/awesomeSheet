@@ -13,25 +13,24 @@
   transition: top $transition-ease-extra-fast;
   .m-nav-list {
     margin: 0;
-    padding: 10px 0;
+    padding: $font-size-medium 0;
     width: 100%;
     overflow-y: auto;
     > li {
       margin-bottom: 0;
       text-align: left;
       list-style-type: none;
+      &.m-nav-divide {
+        margin: $font-size-medium 0;
+        background-color: $gray-19;
+        height: 1px;
+      }
     }
   }
   &.is-open {
     top: 0;
     transition: top $transition-ease-medium;
   }
-}
-
-.m-nav-divide {
-  margin: 10px 0;
-  background-color: $dark-alpha-19;
-  height: 1px;
 }
 
 .m-nav-title {
@@ -48,7 +47,7 @@
 
 .m-nav-link {
   font-size: $font-size-medium;
-  font-family: $open-sans-semi-bold;
+  font-family: $open-sans-bold;
   line-height: $root-line-height-extra-large;
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -58,11 +57,9 @@
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    color: $secondary-color-03;
     width: 20%;
-    font-size: $font-size-medium;
+    color: $secondary-color-03;
     text-align: center;
-    vertical-align: text-bottom;
     line-height: $root-line-height-extra-large;
     display: block;
     float: left;
@@ -91,9 +88,10 @@
 .m-nav-character {
   margin-bottom: 0;
   position: relative;
+  font-size: $font-size-medium;
+  font-family: $open-sans-bold;
   line-height: $line-height-medium;
   display: block;
-  font-size: $font-size-medium;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   input {
     &[type="radio"],
@@ -101,15 +99,15 @@
       top: 50%;
       transform: translate(-50%, -50%);
       & + label {
-        line-height: $root-line-height-large;
+        line-height: $root-line-height-medium;
         transition: none;
         &:before {
           color: $secondary-color-03;
           width: 20%;
           margin: 0;
-          font-size: 1em;
-          height: 54px;
-          line-height: 54px;
+          // font-size: 1em;
+          height: 50px;
+          line-height: 50px;
           text-align: center;
           transition: none;
         }

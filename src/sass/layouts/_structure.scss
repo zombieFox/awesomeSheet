@@ -10,7 +10,7 @@
 }
 
 .l-nav-padding {
-  padding-top: 5em;
+  padding-top: $font-size-6;
 }
 
 // --------------------------------------------------
@@ -18,11 +18,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .l-nav-padding {
-    padding-top: 6em;
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

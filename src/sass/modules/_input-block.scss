@@ -3,6 +3,11 @@
   z-index: 1;
 }
 
+.m-input-block-field {
+  position: relative;
+  z-index: 1;
+}
+
 .m-input-block-label {
   margin: 0;
   padding: 0;
@@ -10,8 +15,6 @@
   position: absolute;
   top: 0;
   left: 10px;
-  height: $root-line-height-extra-large;
-  line-height: $root-line-height-extra-large;
   z-index: 2;
   transition: all $transition-ease-extra-fast;
   cursor: text;
@@ -22,8 +25,8 @@
     left: 0;
     color: $gray-12;
     font-size: 0.8em;
-    height: 1.5em;
-    line-height: 1.5em;
+    height: $line-height-1-5;
+    line-height: $line-height-1-5;
   }
 }
 
@@ -34,21 +37,16 @@
   }
 }
 
-.m-input-block-label-large {
-  font-size: 2em;
-  height: 2.5em;
-  line-height: 2.5em;
-  &.is-active {
-    font-size: 0.8em;
-    height: 1.5em;
-    line-height: 1.5em;
-  }
-}
-
-.m-input-block-field {
-  position: relative;
-  z-index: 1;
-}
+// .m-input-block-label-large {
+//   font-size: 2em;
+//   height: 2.5em;
+//   line-height: 2.5em;
+//   &.is-active {
+//     font-size: 0.8em;
+//     height: 1.5em;
+//     line-height: 1.5em;
+//   }
+// }
 
 .m-input-block-field-dark {
   &[type="email"],
@@ -65,18 +63,18 @@
   }
 }
 
-.m-input-block-field-large {
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="text"],
-  &[type="tel"],
-  &[type="password"] {
-    font-size: 2em;
-    height: 2.5em;
-    line-height: 2.5em;
-  }
-}
+// .m-input-block-field-large {
+//   &[type="email"],
+//   &[type="number"],
+//   &[type="search"],
+//   &[type="text"],
+//   &[type="tel"],
+//   &[type="password"] {
+//     font-size: 2em;
+//     height: 2.5em;
+//     line-height: 2.5em;
+//   }
+// }
 
 .m-input-block-controls {
   position: absolute;
