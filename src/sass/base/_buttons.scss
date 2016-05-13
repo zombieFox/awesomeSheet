@@ -204,6 +204,7 @@ input[type="button"] {
     &:first-child {
       border-top-left-radius: $border-radius-medium;
       border-bottom-left-radius: $border-radius-medium;
+      margin-left: 0;
     }
     &:last-child {
       border-top-right-radius: $border-radius-medium;

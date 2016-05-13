@@ -67,6 +67,10 @@
           .button {
             transform: scale(1);
             transition: all $transition-bounce-extra-slow;
+            [class^="icon-"],
+            [class*=" icon-"] {
+              margin: 0;
+            }
           }
         }
       }
