@@ -5,7 +5,7 @@ textarea {
   font-size: $font-size-small;
   line-height: $line-height-small;
   padding: 0.65rem 10px;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2rem 0;
   border: 0;
   border-bottom: $border;
   transition: border-color $transition-ease-fast, padding $transition-ease-fast;
@@ -29,7 +29,7 @@ select {
   color: $base-color;
   border-width: 1px;
   border-style: solid;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2rem 0;
   font-family: $open-sans-regular;
   font-size: $font-size-small;
   color: $base-color;
@@ -57,7 +57,7 @@ input {
     height: $root-line-height-extra-large;
     line-height: $root-line-height-extra-large;
     padding: 0 10px;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 2rem 0;
     border: 0;
     border-radius: 0;
     border-bottom: $border;
