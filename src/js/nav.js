@@ -243,26 +243,21 @@ var nav = (function() {
         prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
-    }, false);
-    window.addEventListener("keydown", function(event) {
       if (event.which == 69 && event.ctrlKey) {
         sheet.print();
         navClose();
       };
-    }, false);
-    window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27 && event.ctrlKey) {
         navClose();
       };
-    }, false);
-    window.addEventListener("keydown", function(event) {
       if (event.keyCode == 77 && event.ctrlKey) {
         navToggle();
       };
-    }, false);
-    window.addEventListener("keydown", function(event) {
       if (event.keyCode == 68 && event.ctrlKey) {
         display.toggle();
+      };
+      if (event.keyCode == 27) {
+        navClose();
       };
     }, false);
     window.addEventListener("resize", function(event) {
