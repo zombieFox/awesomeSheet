@@ -1,10 +1,29 @@
+select {
+  background-color: $white;
+  border-color: $gray-18;
+  color: $base-color;
+  border-width: 1px;
+  border-style: solid;
+  margin: 0 0 2rem 0;
+  font-family: $open-sans-regular;
+  color: $base-color;
+  height: $line-height-2-5;
+  line-height: $line-height-2-5;
+  transition: border-color $transition-ease-fast;
+  &:hover {
+    border-color: $primary-color-10;
+  }
+  &:focus {
+    border-color: $secondary-color-10;
+    outline: 0;
+  }
+}
+
 .textarea,
 textarea {
   background-color: $secondary-color-alpha-20;
   font-family: $open-sans-regular;
-  font-size: $font-size-small;
-  line-height: $line-height-small;
-  padding: 0.65rem 10px;
+  padding: 0.5rem 10px;
   margin: 0 0 2rem 0;
   border: 0;
   border-bottom: $border;
@@ -21,28 +40,6 @@ textarea {
 
 .textarea-large {
   min-height: 80px;
-}
-
-select {
-  background-color: $white;
-  border-color: $gray-18;
-  color: $base-color;
-  border-width: 1px;
-  border-style: solid;
-  margin: 0 0 2rem 0;
-  font-family: $open-sans-regular;
-  font-size: $font-size-small;
-  color: $base-color;
-  height: $root-line-height-extra-large;
-  line-height: $root-line-height-extra-large;
-  transition: border-color $transition-ease-fast;
-  &:hover {
-    border-color: $primary-color-10;
-  }
-  &:focus {
-    border-color: $secondary-color-10;
-    outline: 0;
-  }
 }
 
 input {
@@ -73,8 +70,8 @@ input {
 }
 
 label {
-  line-height: $line-height-2-5;
   color: $gray-16;
+  line-height: $line-height-2-5;
   display: inline-block;
 }
 
@@ -86,13 +83,14 @@ input {
     transform: translateX(-50%);
     opacity: 0;
     display: block;
-    height: $line-height-3;
-    line-height: $line-height-3;
+    height: $line-height-2-5;
+    line-height: $line-height-2-5;
     cursor: pointer;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
-      line-height: $root-line-height-extra-large;
+      height: $line-height-2-5;
+      line-height: $line-height-2-5;
       display: inline-block;
       cursor: pointer;
       color: $base-color;
@@ -107,9 +105,9 @@ input {
         display: block;
         float: left;
         margin-right: 5px;
-        font-size: $root-font-size-large;
-        height: $root-line-height-extra-large;
-        line-height: $root-line-height-extra-large;
+        font-size: $font-size-1;
+        height: $line-height-2-5;
+        line-height: $line-height-2-5;
         color: $secondary-color-04;
         vertical-align: text-bottom;
         transition: color $transition-ease-fast;

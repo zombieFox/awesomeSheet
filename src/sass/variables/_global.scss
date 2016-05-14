@@ -208,11 +208,12 @@ $root-font-size-medium:               0.875rem; // 14px
 $root-font-size-large:                1.000rem; // 16px
 $root-font-size-extra-large:          1.125rem; // 18px
 
-$root-line-height-extra-small:        ($root-font-size-extra-small * 1.5); // 15px
-$root-line-height-small:              ($root-font-size-small * 1.5); // 18px
-$root-line-height-medium:             ($root-font-size-medium * 1.5); // 21px
-$root-line-height-large:              ($root-font-size-large * 1.5); // 24px
-$root-line-height-extra-large:        ($root-font-size-extra-large * 1.5); // 27px
+$root-line-height-extra-small:        1.125rem; // 18px
+$root-line-height-small:              1.250rem; // 20px
+$root-line-height-medium:             1.375rem; // 22px
+$root-line-height-large:              1.500rem; // 24px
+$root-line-height-extra-large:        1.625rem; // 26px
+
 
 
 $font-size-extra-small:               1em;
@@ -226,11 +227,7 @@ $line-height-medium:                  1.2em;
 $line-height-small:                   1.8em;
 
 
-
-
-
-
-
+$font-size-0-5:                       0.5em;
 $font-size-1:                         1em;
 $font-size-1-5:                       1.5em;
 $font-size-2:                         2em;

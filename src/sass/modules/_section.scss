@@ -5,12 +5,11 @@
     position: absolute;
     right: 0;
     .button {
-      padding: 0 5px;
       margin: 0;
       border: 0;
       border-radius: 0;
-      height: $root-line-height-extra-large;
-      line-height: $root-line-height-extra-large;
+      height: 40px;
+      line-height: 40px;
     }
   }
   .button-group-strech {
@@ -27,13 +26,12 @@
   text-transform: uppercase;
   position: relative;
   z-index: $section-heading;
-  box-shadow: $shadow-small;
   h1 {
     color: $white;
     margin: 0;
     font-family: $open-sans-semi-bold;
-    font-size: 1.2em;
-    line-height: $root-line-height-extra-large;
+    font-size: $font-size-1;
+    line-height: 40px;
   }
   &.is-pinned {
     margin: 0;
@@ -45,7 +43,7 @@
 
 .m-section-heading-sub {
   font-family: $open-sans-semi-bold;
-  font-size: 1.1em;
+  font-size: $font-size-1;
 }
 
 .m-section-wrapper {
@@ -65,6 +63,7 @@
     .button-group-strech {
       .button {
         padding: 0 10px;
+        font-size: $root-font-size-small;
       }
     }
     .button-group-strech {
@@ -73,6 +72,15 @@
   }
 }
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-section-controls {
+    .button-group,
+    .button-group-strech {
+      .button {
+        padding: 0 15px;
+      }
+    }
+  }
+}
 
 @media (min-width: $screen-xl) {}
