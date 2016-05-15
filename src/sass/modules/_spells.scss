@@ -193,8 +193,10 @@
   }
   .m-new-spell-add {
     margin-bottom: 0;
-    height: $root-line-height-extra-large;
-    line-height: $root-line-height-extra-large;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: $line-height-2-5;
+    line-height: $line-height-2-5;
     position: absolute;
     top: 0;
     right: 0;

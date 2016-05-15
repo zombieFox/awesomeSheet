@@ -2416,8 +2416,10 @@ label {
     padding-right: 40px; }
   .m-new-spell .m-new-spell-add {
     margin-bottom: 0;
-    height: 1.625rem;
-    line-height: 1.625rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 2.5em;
+    line-height: 2.5em;
     position: absolute;
     top: 0;
     right: 0;
@@ -2738,17 +2740,21 @@ label {
 
 @media (min-width: 550px) {
   .is-onscreen-snack .m-fab {
-    bottom: 2rem; } }
+    bottom: 1.5rem; } }
 
 @media (min-width: 700px) {
   .m-fab {
     bottom: 2rem;
-    right: 2rem; } }
+    right: 2rem; }
+  .is-onscreen-snack .m-fab {
+    bottom: 2rem; } }
 
 @media (min-width: 900px) {
   .m-fab {
     bottom: 3rem;
-    right: 3rem; } }
+    right: 3rem; }
+  .is-onscreen-snack .m-fab {
+    bottom: 3rem; } }
 
 .is-hidden {
   display: none !important; }
