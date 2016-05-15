@@ -29,6 +29,7 @@
   text-transform: uppercase;
   position: relative;
   z-index: $section-heading;
+  transition: background-color $transition-ease-medium;
   h1 {
     color: $white;
     margin: 0;
@@ -42,6 +43,9 @@
     top: 4.5rem;
     width: 100%;
   }
+  // &.is-unpinned {
+  //   background-color: $secondary-color-06;
+  // }
 }
 
 .m-section-heading-sub {

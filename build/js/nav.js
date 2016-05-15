@@ -145,6 +145,21 @@ var nav = (function() {
       for (var i = 0; i < all_section.length; i++) {
         // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
         var sectionHeading = all_section[i].querySelector(".js-section-heading");
+
+        // var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
+        // if (all_section[i].getBoundingClientRect().bottom < sectionHeadingHeight + menu) {
+        //   if (sectionHeading) {
+        //     helper.addClass(sectionHeading, "is-unpinned");
+        //     console.log(getComputedStyle(sectionHeading).top, 10);
+        //     sectionHeading.style.top = sectionHeading.style.top - all_section[i].getBoundingClientRect().bottom;
+        //   };
+        // } else {
+        //   if (sectionHeading) {
+        //     helper.removeClass(sectionHeading, "is-unpinned");
+        //     sectionHeading.removeAttribute("style");
+        //   };
+        // };
+
         if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
           for (var j = 0; j < quickNavLinks.length; j++) {
             helper.removeClass(quickNavLinks[j], "is-active");
@@ -161,6 +176,7 @@ var nav = (function() {
             helper.removeClass(sectionHeading, "is-pinned");
           };
         };
+
       };
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         var lastQuickLink = helper.e(".js-quick-nav-last-link");

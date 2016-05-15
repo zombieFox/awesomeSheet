@@ -1680,8 +1680,7 @@ label {
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
-  z-index: 6000;
-  border-bottom: 2px solid #e6e6e6;
+  z-index: 5000;
   transition: top 0.4s ease-in-out; }
   .m-nav .m-nav-list {
     padding: 1em 0;
@@ -1830,13 +1829,13 @@ label {
 @media (min-width: 550px) {
   .m-nav {
     border: 0;
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
     padding: 0;
     top: 0;
     left: inherit;
     right: -400px;
     width: 360px;
-    transition: right 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 15px rgba(0, 0, 0, 0.2); }
+    transition: right 0.3s ease-in-out; }
     .m-nav .m-nav-list {
       padding: 6rem 0 1em 0; }
     .m-nav.is-open {
@@ -1870,7 +1869,8 @@ label {
   padding: 0;
   text-transform: uppercase;
   position: relative;
-  z-index: 3000; }
+  z-index: 3000;
+  transition: background-color 0.4s ease-in-out; }
   .m-section-heading h1 {
     color: #ffffff;
     margin: 0;
@@ -2690,7 +2690,7 @@ label {
   bottom: 1.5rem;
   right: 1.5rem;
   font-size: 1.125rem;
-  z-index: 5000;
+  z-index: 6000;
   transition: all 0.4s ease-in-out;
   -webkit-transform: rotate(0);
       -ms-transform: rotate(0);
