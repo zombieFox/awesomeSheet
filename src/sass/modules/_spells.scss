@@ -132,7 +132,7 @@
   position: relative;
   white-space: normal;
   font-family: $open-sans-regular;
-  line-height: 1.5rem;
+  line-height: $line-height-1-5;
   .m-spell-active,
   .m-spell-name,
   .m-spell-marks,
@@ -140,6 +140,7 @@
     [class*=" icon-"],
     [class^="icon-"] {
       top: 0;
+      line-height: $line-height-1-5;
     }
   }
   .m-spell-active,
@@ -155,8 +156,6 @@
     [class^="icon-"] {
       float: left;
       margin: 0;
-      line-height: 1.5rem;
-      height: auto;
     }
   }
   .m-spell-name {
@@ -171,8 +170,6 @@
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 1.5rem;
-      height: auto;
     }
   }
   .m-spell-remove {
@@ -184,8 +181,6 @@
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 1px;
-      line-height: 1.5rem;
-      height: auto;
     }
   }
 }

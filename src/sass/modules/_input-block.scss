@@ -37,16 +37,15 @@
   }
 }
 
-// .m-input-block-label-large {
-//   font-size: 2em;
-//   height: 2.5em;
-//   line-height: 2.5em;
-//   &.is-active {
-//     font-size: 0.8em;
-//     height: 1.5em;
-//     line-height: 1.5em;
-//   }
-// }
+.m-input-block-label-large {
+    font-size: $font-size-2;
+    height: $line-height-2;
+    line-height: $line-height-2;
+  &.is-active {
+    height: $line-height-1-5;
+    line-height: $line-height-1-5;
+  }
+}
 
 .m-input-block-field-dark {
   &[type="email"],
@@ -63,18 +62,19 @@
   }
 }
 
-// .m-input-block-field-large {
-//   &[type="email"],
-//   &[type="number"],
-//   &[type="search"],
-//   &[type="text"],
-//   &[type="tel"],
-//   &[type="password"] {
-//     font-size: 2em;
-//     height: 2.5em;
-//     line-height: 2.5em;
-//   }
-// }
+.m-input-block-field-large {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="password"] {
+    font-size: $font-size-2;
+    height: $line-height-2;
+    line-height: $line-height-2;
+    margin: 0 0 1em 0;
+  }
+}
 
 .m-input-block-controls {
   position: absolute;

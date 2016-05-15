@@ -2,6 +2,7 @@
   position: fixed;
   bottom: 3rem;
   right: 3rem;
+  font-size: $root-font-size-extra-large;
   z-index: $fab;
   transition: all $transition-ease-fast;
 }
@@ -12,10 +13,21 @@
   }
 }
 
+.is-onscreen-nav {
+  .m-fab {
+    right: -10rem;
+  }
+  &.is-onscreen-snack {
+    .m-fab {
+      right: -10rem;
+    }
+  }
+}
+
 .m-fab-button {
   width: 55px;
   height: 55px;
-  font-size: 2rem;
+  font-size: $font-size-1-5;
   line-height: 55px;
   margin: 0;
   padding: 0;

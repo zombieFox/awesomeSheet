@@ -29,3 +29,18 @@
 .is-onscreen-nav {
   overflow: hidden;
 }
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .is-onscreen-nav {
+    overflow: auto;
+  }
+}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

@@ -8,12 +8,13 @@
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
+  font-size: $root-font-size-large;
   z-index: $nav;
   border-bottom: 2px solid $gray-18;
   transition: top $transition-ease-extra-fast;
   .m-nav-list {
     margin: 0;
-    padding: $font-size-medium 0;
+    padding: $font-size-1 0;
     width: 100%;
     overflow-y: auto;
     > li {
@@ -21,7 +22,7 @@
       text-align: left;
       list-style-type: none;
       &.m-nav-divide {
-        margin: $font-size-medium 0;
+        margin: $font-size-0-5 0;
         background-color: $gray-19;
         height: 1px;
       }
@@ -36,9 +37,8 @@
 .m-nav-title {
   margin-bottom: 0;
   margin-left: 20%;
-  font-size: $font-size-medium;
   font-family: $open-sans-bold;
-  line-height: $root-line-height-extra-large;
+  line-height: $line-height-3;
   width: 80%;
   display: block;
   text-transform: uppercase;
@@ -46,21 +46,17 @@
 }
 
 .m-nav-link {
-  font-size: $font-size-medium;
-  font-family: $open-sans-bold;
-  line-height: $root-line-height-extra-large;
+  font-family: $open-sans-semi-bold;
+  line-height: $line-height-3;
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  .m-nav-link-name {
-    line-height: $root-line-height-extra-large;
-    display: inline-block;
-  }
+  .m-nav-link-name {}
   [class^="icon-"],
   [class*=" icon-"] {
     width: 20%;
+    font-size: $font-size-1-5;
     color: $secondary-color-03;
     text-align: center;
-    line-height: $root-line-height-extra-large;
     display: block;
     float: left;
   }
@@ -86,12 +82,10 @@
 }
 
 .m-nav-character {
-  margin-bottom: 0;
+  margin: 0;
   position: relative;
-  font-size: $font-size-medium;
-  font-family: $open-sans-bold;
-  line-height: $line-height-medium;
   display: block;
+  height: $line-height-4;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   input {
     &[type="radio"],
@@ -99,39 +93,36 @@
       top: 50%;
       transform: translate(-50%, -50%);
       & + label {
-        line-height: $root-line-height-medium;
+        height: $line-height-4;
+        line-height: $line-height-4;
         transition: none;
         &:before {
           color: $secondary-color-03;
           width: 20%;
           margin: 0;
-          // font-size: 1em;
-          height: 50px;
-          line-height: 50px;
           text-align: center;
           transition: none;
+          float: left;
         }
         .m-nav-characters-name,
         .m-nav-characters-class,
         .m-nav-characters-level {
-          display: inline-block;
+          line-height: $line-height-1-5;
+          display: block;
+          float: left;
         }
         .m-nav-characters-class,
         .m-nav-characters-level {
           color: $secondary-color-03;
         }
-        .m-nav-characters-class {
-          margin-right: 5px;
-          margin-bottom: 0.5rem;
-        }
-        .m-nav-characters-level {
-          margin-bottom: 0.5rem;
-        }
         .m-nav-characters-name {
           color: $primary-color-10;
           font-family: $open-sans-semi-bold;
           width: 80%;
-          margin-top: 0.5rem;
+          margin-top: $font-size-0-5;
+        }
+        .m-nav-characters-class {
+          margin-right: $font-size-0-5;
         }
       }
       &:hover {
@@ -212,6 +203,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
+    border: 2px solid $gray-18;
     padding: 0;
     top: 80px;
     left: inherit;
@@ -221,7 +213,7 @@
     border-radius: $border-radius-medium;
     transition: right $transition-ease-extra-fast;
     &.is-open {
-      box-shadow: $shadow-small;
+      // box-shadow: $shadow-small;
       top: 80px;
       right: 20px;
       transition: right $transition-bounce-medium;
@@ -229,17 +221,7 @@
   }
 }
 
-@media (min-width: $screen-md) {
-  .m-nav-title {
-    font-size: $font-size-small;
-  }
-  .m-nav-link {
-    font-size: $font-size-small;
-  }
-  .m-nav-character {
-    font-size: $font-size-small;
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

@@ -104,10 +104,11 @@ input {
         text-transform: none;
         display: block;
         float: left;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
         margin-right: 5px;
-        font-size: $font-size-1;
-        height: $line-height-2-5;
-        line-height: $line-height-2-5;
+        font-size: 1.3em;
         color: $secondary-color-04;
         vertical-align: text-bottom;
         transition: color $transition-ease-fast;

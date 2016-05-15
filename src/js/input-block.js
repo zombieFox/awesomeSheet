@@ -100,8 +100,7 @@ var inputBlock = (function() {
           focus(this);
         }, false);
         input.addEventListener("blur", function() {
-          clearTimeout(storeBlurTimer);
-          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
+          _store(this);
           focus(this);
         }, false);
       };

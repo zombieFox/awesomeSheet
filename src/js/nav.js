@@ -143,7 +143,7 @@ var nav = (function() {
       var all_section = helper.eA(".js-section");
       var menu = 60;
       for (var i = 0; i < all_section.length; i++) {
-        console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
+        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
         var sectionHeading = all_section[i].querySelector(".js-section-heading");
         if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
           for (var j = 0; j < quickNavLinks.length; j++) {
@@ -175,12 +175,8 @@ var nav = (function() {
   function checkBodyForOpenNav() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
-    if (window.innerWidth < 550) {
-      if (nav) {
-        helper.addClass(body, "is-onscreen-nav");
-      } else {
-        helper.removeClass(body, "is-onscreen-nav");
-      };
+    if (nav) {
+      helper.addClass(body, "is-onscreen-nav");
     } else {
       helper.removeClass(body, "is-onscreen-nav");
     };
@@ -221,7 +217,7 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-nav");
     if (window.innerWidth >= 550) {
-      var height = window.innerHeight - 100;
+      var height = window.innerHeight - 60;
       nav.style.maxHeight = height + "px";
     } else {
       nav.removeAttribute("style");
