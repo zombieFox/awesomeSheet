@@ -217,7 +217,7 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-nav");
     if (window.innerWidth >= 550) {
-      var height = window.innerHeight - 60;
+      var height = window.innerHeight - 150;
       nav.style.maxHeight = height + "px";
     } else {
       nav.removeAttribute("style");

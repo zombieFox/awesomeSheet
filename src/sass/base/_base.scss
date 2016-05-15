@@ -1,31 +1,29 @@
 html {
-  font-size: 100%; // 1rem = 16px
+  font-size: 75%; // 1rem = 12px
 }
 
 body {
   background: $white;
   padding: 0 0 300px 0;
   font-weight: normal;
-  font-family: $base-font;
-  font-size: $root-font-size-small;
-  line-height: $root-line-height-small;
   color: $base-color;
+  font-family: $base-font;
+  font-size: $root-font-size-large;
+  line-height: $line-height-1-5;
 }
 
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  body {
-    font-size: $root-font-size-medium;
-    line-height: $root-line-height-medium;
+  html {
+    font-size: 87.5%; // 1rem = 14px
   }
 }
 
 @media (min-width: $screen-md) {
-  body {
-    font-size: $root-font-size-large;
-    line-height: $root-line-height-large;
+  html {
+    font-size: 100%; // 1rem = 16px
   }
 }
 

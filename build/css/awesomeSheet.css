@@ -22,29 +22,27 @@
   overflow: auto; }
 
 html {
-  font-size: 100%; }
+  font-size: 75%; }
 
 body {
   background: #ffffff;
   padding: 0 0 300px 0;
   font-weight: normal;
+  color: #333333;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  color: #333333; }
+  font-size: 1rem;
+  line-height: 1.5em; }
 
 @media (min-width: 550px) {
-  body {
-    font-size: 0.875rem;
-    line-height: 1.375rem; } }
+  html {
+    font-size: 87.5%; } }
 
 @media (min-width: 700px) {
-  body {
-    font-size: 1rem;
-    line-height: 1.5rem; } }
+  html {
+    font-size: 100%; } }
 
 .container {
-  max-width: 86%;
+  max-width: 80%;
   margin-right: auto;
   margin-left: auto;
   padding-left: 14px;
@@ -847,32 +845,32 @@ h6 {
 
 h1 {
   font-size: 3.5em;
-  line-height: 1.5;
+  line-height: 1.5em;
   font-family: "Open Sans Light", Helvetica, Arial, sans-serif; }
 
 h2 {
   font-size: 3em;
-  line-height: 1.5;
+  line-height: 1.5em;
   font-family: "Open Sans Light", Helvetica, Arial, sans-serif; }
 
 h3 {
   font-size: 2.5em;
-  line-height: 1.5;
+  line-height: 1.5em;
   font-family: "Open Sans Light", Helvetica, Arial, sans-serif; }
 
 h4 {
   font-size: 2em;
-  line-height: 1.5;
+  line-height: 1.5em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 h5 {
   font-size: 1.5em;
-  line-height: 1.5;
+  line-height: 1.5em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 h6 {
   font-size: 1em;
-  line-height: 1.5;
+  line-height: 1.5em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 p {
@@ -947,13 +945,17 @@ input[type="button"] {
   background-color: #ffffff;
   border-color: #e6e6e6;
   color: #333333;
+  padding: 0.5em 1em;
   border-width: 1px;
   border-style: solid;
   margin-bottom: 10px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  border-radius: 3px;
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
@@ -1017,19 +1019,11 @@ input[type="button"] {
 .button-small {
   padding: 0.5em;
   font-size: 0.5em;
-  line-height: 1em;
-  border-radius: 3px; }
-
-.button-medium {
-  padding: 0.5em 1em;
-  font-size: 1em;
-  line-height: 1em;
   border-radius: 3px; }
 
 .button-large {
-  padding: 0.5em 2em;
-  font-size: 1em;
-  line-height: 2em;
+  padding: 1em 2em;
+  line-height: 1.5em;
   border-radius: 3px; }
 
 .button-block {
@@ -1678,7 +1672,7 @@ label {
 
 .m-nav {
   background-color: #ffffff;
-  padding: 60px 0;
+  padding: 4.5rem 0;
   position: fixed;
   top: -100%;
   left: 0;
@@ -1686,10 +1680,9 @@ label {
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
-  font-size: 1rem;
   z-index: 6000;
   border-bottom: 2px solid #e6e6e6;
-  transition: top 0.2s ease-in-out; }
+  transition: top 0.4s ease-in-out; }
   .m-nav .m-nav-list {
     margin: 0;
     padding: 1em 0;
@@ -1838,7 +1831,7 @@ label {
   .m-nav {
     border: 2px solid #e6e6e6;
     padding: 0;
-    top: 80px;
+    top: 6rem;
     left: inherit;
     right: -400px;
     width: 360px;
@@ -1846,7 +1839,7 @@ label {
     border-radius: 3px;
     transition: right 0.2s ease-in-out; }
     .m-nav.is-open {
-      top: 80px;
+      top: 6rem;
       right: 20px;
       transition: right 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); } }
 
@@ -1885,7 +1878,7 @@ label {
   .m-section-heading.is-pinned {
     margin: 0;
     position: fixed;
-    top: 60px;
+    top: 4.5rem;
     width: 100%; }
 
 .m-section-heading-sub {
@@ -2158,7 +2151,7 @@ label {
   .m-quick-nav-list > li {
     margin: 0;
     padding: 0;
-    height: 60px;
+    height: 4.5rem;
     width: 11.1111111111%;
     display: block;
     float: left;
@@ -2167,8 +2160,8 @@ label {
 
 .m-quick-nav-link {
   width: 100%;
-  height: 60px;
-  line-height: 60px;
+  height: 4.5rem;
+  line-height: 4.5rem;
   font-size: 2em;
   text-decoration: none;
   color: #1c3445;
@@ -2456,7 +2449,7 @@ label {
   max-height: 80%;
   min-width: 300px;
   box-sizing: border-box;
-  font-size: 0.875rem;
+  font-size: 1rem;
   border-radius: 3px;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -2612,7 +2605,7 @@ label {
             transform: translateX(-50%); }
 
 .m-display-name {
-  margin-top: -10px; }
+  margin-top: -30px; }
 
 .m-display-item,
 .m-display-spell,
@@ -2691,8 +2684,8 @@ label {
 
 .m-fab {
   position: fixed;
-  bottom: 3rem;
-  right: 3rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   font-size: 1.125rem;
   z-index: 5000;
   transition: all 0.3s ease-in-out; }
@@ -2736,6 +2729,16 @@ label {
 @media (min-width: 550px) {
   .is-onscreen-snack .m-fab {
     bottom: 3rem; } }
+
+@media (min-width: 700px) {
+  .m-fab {
+    bottom: 2rem;
+    right: 2rem; } }
+
+@media (min-width: 900px) {
+  .m-fab {
+    bottom: 3rem;
+    right: 3rem; } }
 
 .is-hidden {
   display: none !important; }

@@ -6,13 +6,17 @@ input[type="button"] {
   background-color: $white;
   border-color: $gray-18;
   color: $base-color;
+  padding: $font-size-0-5 $font-size-1;
   border-width: 1px;
   border-style: solid;
   margin-bottom: 10px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+  font-size: $root-font-size-large;
+  line-height: $line-height-1;
   font-family: $open-sans-semi-bold;
+  border-radius: $border-radius-medium;
   cursor: pointer;
   box-sizing: border-box;
   transition: all $transition-ease-extra-fast;
@@ -52,21 +56,12 @@ input[type="button"] {
 .button-small {
   padding: $font-size-0-5;
   font-size: $font-size-0-5;
-  line-height: $font-size-1;
-  border-radius: $border-radius-medium;
-}
-
-.button-medium {
-  padding: $font-size-0-5 $font-size-1;
-  font-size: $font-size-1;
-  line-height: $font-size-1;
   border-radius: $border-radius-medium;
 }
 
 .button-large {
-  padding: $font-size-0-5 $font-size-2;
-  font-size: $font-size-1;
-  line-height: $font-size-2;
+  padding: $font-size-1 $font-size-2;
+  line-height: $line-height-1-5;
   border-radius: $border-radius-medium;
 }
 
