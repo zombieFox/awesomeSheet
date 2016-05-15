@@ -5,6 +5,7 @@
   font-size: $root-font-size-extra-large;
   z-index: $fab;
   transition: all $transition-ease-medium;
+  transform: rotate(0);
 }
 
 .is-onscreen-snack {

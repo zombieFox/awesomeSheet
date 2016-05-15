@@ -2,7 +2,7 @@
 
   nav.bind();
   nav.render();
-  nav.resize();
+  // nav.resize();
   sheet.bind();
   sheet.render();
 

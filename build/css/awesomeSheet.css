@@ -1684,8 +1684,8 @@ label {
   border-bottom: 2px solid #e6e6e6;
   transition: top 0.4s ease-in-out; }
   .m-nav .m-nav-list {
-    margin: 0;
     padding: 1em 0;
+    margin: 0;
     width: 100%;
     overflow-y: auto; }
     .m-nav .m-nav-list > li {
@@ -1829,19 +1829,20 @@ label {
 
 @media (min-width: 550px) {
   .m-nav {
-    border: 2px solid #e6e6e6;
+    border: 0;
     padding: 0;
-    top: 6rem;
+    top: 0;
     left: inherit;
     right: -400px;
     width: 360px;
-    height: auto;
-    border-radius: 3px;
-    transition: right 0.2s ease-in-out; }
+    transition: right 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 15px rgba(0, 0, 0, 0.2); }
+    .m-nav .m-nav-list {
+      padding: 6rem 0 1em 0; }
     .m-nav.is-open {
-      top: 6rem;
-      right: 20px;
-      transition: right 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); } }
+      top: 0;
+      right: 0;
+      transition: right 0.3s ease-in-out; } }
 
 .m-section-controls {
   position: relative; }
@@ -2688,7 +2689,10 @@ label {
   right: 1.5rem;
   font-size: 1.125rem;
   z-index: 5000;
-  transition: all 0.4s ease-in-out; }
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+          transform: rotate(0); }
 
 .is-onscreen-snack .m-fab {
   bottom: 6rem; }

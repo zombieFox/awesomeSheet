@@ -217,7 +217,7 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-nav");
     if (window.innerWidth >= 550) {
-      var height = window.innerHeight - 150;
+      var height = window.innerHeight - 60;
       nav.style.maxHeight = height + "px";
     } else {
       nav.removeAttribute("style");
@@ -281,9 +281,9 @@ var nav = (function() {
         navClose();
       };
     }, false);
-    window.addEventListener("resize", function(event) {
-      resize();
-    }, false);
+    // window.addEventListener("resize", function(event) {
+    //   resize();
+    // }, false);
   };
 
   // exposed methods
