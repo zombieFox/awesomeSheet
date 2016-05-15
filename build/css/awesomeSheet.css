@@ -1856,6 +1856,7 @@ label {
       padding-bottom: 0;
       border: 0;
       border-radius: 0;
+      font-size: 0.8em;
       height: 40px;
       line-height: 40px; }
   .m-section-controls .button-group-strech {
@@ -2604,9 +2605,6 @@ label {
         -ms-transform: translateX(-50%);
             transform: translateX(-50%); }
 
-.m-display-name {
-  margin-top: -30px; }
-
 .m-display-item,
 .m-display-spell,
 .m-display-attack {
@@ -2676,7 +2674,9 @@ label {
       left: inherit;
       -webkit-transform: none;
           -ms-transform: none;
-              transform: none; } }
+              transform: none; }
+  .m-display-name {
+    margin-top: -30px; } }
 
 @media (min-width: 700px) {
   .m-display-section {
@@ -2688,16 +2688,22 @@ label {
   right: 1.5rem;
   font-size: 1.125rem;
   z-index: 5000;
-  transition: all 0.3s ease-in-out; }
+  transition: all 0.4s ease-in-out; }
 
 .is-onscreen-snack .m-fab {
   bottom: 6rem; }
 
 .is-onscreen-nav .m-fab {
-  right: -10rem; }
+  right: -10rem;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 .is-onscreen-nav.is-onscreen-snack .m-fab {
-  right: -10rem; }
+  right: -10rem;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 .m-fab-button {
   width: 55px;

@@ -33,10 +33,6 @@
   }
 }
 
-.m-display-name {
-  margin-top: -30px;
-}
-
 .m-display-block {
   // line-height: 2em;
   // margin-bottom: 0.5em;
@@ -111,6 +107,9 @@
       left: inherit;
       transform: none;
     }
+  }
+  .m-display-name {
+    margin-top: -30px;
   }
 }
 

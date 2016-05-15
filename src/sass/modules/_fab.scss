@@ -4,7 +4,7 @@
   right: 1.5rem;
   font-size: $root-font-size-extra-large;
   z-index: $fab;
-  transition: all $transition-ease-fast;
+  transition: all $transition-ease-medium;
 }
 
 .is-onscreen-snack {
@@ -16,10 +16,12 @@
 .is-onscreen-nav {
   .m-fab {
     right: -10rem;
+    transform: rotate(180deg);
   }
   &.is-onscreen-snack {
     .m-fab {
       right: -10rem;
+      transform: rotate(180deg);
     }
   }
 }
