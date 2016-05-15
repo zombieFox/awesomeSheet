@@ -32,7 +32,7 @@
   width: 100%;
   height: 60px;
   line-height: 60px;
-  font-size: 1.8em;
+  font-size: 2em;
   text-decoration: none;
   color: $secondary-color-04;
   transform: scale(1);
@@ -73,9 +73,6 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-quick-nav-display {
-    box-shadow: $shadow-small;
-  }
   .m-nav-toggle {
     padding: 0 25%;
     width: 50%;

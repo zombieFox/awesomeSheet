@@ -65,8 +65,7 @@ var textareaBlock = (function() {
           focus(this);
         }, false);
         textareaBlockField.addEventListener("blur", function() {
-          clearTimeout(storeBlurTimer);
-          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
+          _store(this);
           focus(this);
         }, false);
       };

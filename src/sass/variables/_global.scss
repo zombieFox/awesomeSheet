@@ -202,26 +202,35 @@ $open-sans-condensed-light:           "Open Sans Condensed Light", Helvetica, Ar
 $base-color:                          $gray-04;
 $base-font:                           $open-sans-regular;
 
-$root-font-size-extra-large:          1.6rem;
-$root-font-size-large:                1.4rem;
-$root-font-size-medium:               1.2rem;
-$root-font-size-small:                1rem;
+$root-font-size-extra-small:          0.625rem; // 10px
+$root-font-size-small:                0.750rem; // 12px
+$root-font-size-medium:               0.875rem; // 14px
+$root-font-size-large:                1.000rem; // 16px
+$root-font-size-extra-large:          1.125rem; // 18px
 
-$root-line-height-extra-large:        4rem;
-$root-line-height-large:              2.2rem;
-$root-line-height-medium:             2rem;
-$root-line-height-small:              1.8rem;
+$root-line-height-extra-small:        1.125rem; // 18px
+$root-line-height-small:              1.250rem; // 20px
+$root-line-height-medium:             1.375rem; // 22px
+$root-line-height-large:              1.500rem; // 24px
+$root-line-height-extra-large:        1.625rem; // 26px
 
-$font-size-extra-large:               1.6em;
-$font-size-large:                     1.4em;
-$font-size-medium:                    1.2em;
-$font-size-small:                     1em;
-$font-size-extra-small:               0.8em;
+$font-size-0-5:                       0.5em;
+$font-size-1:                         1em;
+$font-size-1-5:                       1.5em;
+$font-size-2:                         2em;
+$font-size-2-5:                       2.5em;
+$font-size-3:                         3em;
+$font-size-3-5:                       3.5em;
+$font-size-4:                         4em;
 
-$line-height-large:                   2.6em;
-$line-height-medium:                  1.2em;
-$line-height-small:                   1.8em;
-
+$line-height-0-5:                     0.5em;
+$line-height-1:                       1em;
+$line-height-1-5:                     1.5em;
+$line-height-2:                       2em;
+$line-height-2-5:                     2.5em;
+$line-height-3:                       3em;
+$line-height-3-5:                     3.5em;
+$line-height-4:                       4em;
 
 $border:                              2px solid transparent;
 

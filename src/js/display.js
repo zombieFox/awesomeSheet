@@ -67,6 +67,22 @@ var display = (function() {
             };
           };
 
+          var customSkillName = function(data) {
+            if (typeof data != "undefined" && data != "") {
+              return data;
+            } else {
+              return "Custom skill";
+            };
+          };
+
+          var skillVariantName = function(data) {
+            if (typeof data != "undefined" && data != "") {
+              return " (" + data + ") ";
+            } else {
+              return "";
+            };
+          };
+
           makeDisplayItem("basics.speed", "Speed ", "");
           makeDisplayItem("basics.initiative", "Initiative ", "");
           makeDisplayItem("basics.xp", "", " xp");
@@ -134,8 +150,8 @@ var display = (function() {
           makeDisplayItem("skills.appraise.current", "Appraise <strong>", "</strong>");
           makeDisplayItem("skills.bluff.current", "Bluff <strong>", "</strong>");
           makeDisplayItem("skills.climb.current", "Climb <strong>", "</strong>");
-          makeDisplayItem("skills.craft_1.current", "Craft <strong>", "</strong>");
-          makeDisplayItem("skills.craft_2.current", "Craft <strong>", "</strong>");
+          makeDisplayItem("skills.craft_1.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_1.variant_name) + "<strong>", "</strong>");
+          makeDisplayItem("skills.craft_2.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_2.variant_name) + "<strong>", "</strong>");
           makeDisplayItem("skills.diplomacy.current", "Diplomacy <strong>", "</strong>");
           makeDisplayItem("skills.disable_device.current", "Disable Device <strong>", "</strong>");
           makeDisplayItem("skills.disguise.current", "Disguise <strong>", "</strong>");
@@ -156,10 +172,10 @@ var display = (function() {
           makeDisplayItem("skills.knowledge_religion.current", "Knowledge (Religion) <strong>", "</strong>");
           makeDisplayItem("skills.linguistics.current", "Linguistics <strong>", "</strong>");
           makeDisplayItem("skills.perception.current", "Perception <strong>", "</strong>");
-          makeDisplayItem("skills.perform_1.current", "Perform <strong>", "</strong>");
-          makeDisplayItem("skills.perform_2.current", "Perform <strong>", "</strong>");
-          makeDisplayItem("skills.profession_1.current", "Profession <strong>", "</strong>");
-          makeDisplayItem("skills.profession_2.current", "Profession <strong>", "</strong>");
+          makeDisplayItem("skills.perform_1.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_1.variant_name) + "<strong>", "</strong>");
+          makeDisplayItem("skills.perform_2.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_2.variant_name) + "<strong>", "</strong>");
+          makeDisplayItem("skills.profession_1.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_1.variant_name) + "<strong>", "</strong>");
+          makeDisplayItem("skills.profession_2.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_2.variant_name) + "<strong>", "</strong>");
           makeDisplayItem("skills.ride.current", "Ride <strong>", "</strong>");
           makeDisplayItem("skills.sense_motive.current", "Sense Motive <strong>", "</strong>");
           makeDisplayItem("skills.sleight_of_hand.current", "Sleight Of Hand <strong>", "</strong>");
@@ -168,10 +184,10 @@ var display = (function() {
           makeDisplayItem("skills.survival.current", "Survival <strong>", "</strong>");
           makeDisplayItem("skills.swim.current", "Swim <strong>", "</strong>");
           makeDisplayItem("skills.use_magic_device.current", "Use Magic Device <strong>", "</strong>");
-          makeDisplayItem("skills.custom_1.current", "Custom <strong>", "</strong>");
-          makeDisplayItem("skills.custom_2.current", "Custom <strong>", "</strong>");
-          makeDisplayItem("skills.custom_3.current", "Custom <strong>", "</strong>");
-          makeDisplayItem("skills.custom_4.current", "Custom <strong>", "</strong>");
+          makeDisplayItem("skills.custom_1.current", customSkillName(sheet.getCharacter().skills.custom_1.name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.custom_2.current", customSkillName(sheet.getCharacter().skills.custom_2.name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.custom_3.current", customSkillName(sheet.getCharacter().skills.custom_3.name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.custom_4.current", customSkillName(sheet.getCharacter().skills.custom_4.name) + " <strong>", "</strong>");
 
           makeDisplayItem("notes.character", "<strong>Character Notes</strong><br> ", "");
           makeDisplayItem("notes.story", "<strong>Story Notes</strong><br> ", "");

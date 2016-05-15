@@ -54,13 +54,15 @@ var prompt = (function() {
     promptControls.setAttribute("class", "m-prompt-controls");
 
     var actionButton = document.createElement("a");
+    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
-    actionButton.setAttribute("class", "button button-primary button-block js-prompt-action");
+    actionButton.setAttribute("class", "button button-primary button-block button-large js-prompt-action");
     actionButton.textContent = actionText;
 
     var cancelButton = document.createElement("a");
+    cancelButton.setAttribute("href", "javascript:void(0)");
     cancelButton.setAttribute("tabindex", "3");
-    cancelButton.setAttribute("class", "button button-block");
+    cancelButton.setAttribute("class", "button button-block button-large");
     cancelButton.textContent = "Cancel";
 
     promptControls.appendChild(cancelButton);

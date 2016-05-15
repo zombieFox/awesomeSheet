@@ -175,12 +175,8 @@ var nav = (function() {
   function checkBodyForOpenNav() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
-    if (window.innerWidth < 550) {
-      if (nav) {
-        helper.addClass(body, "is-onscreen-nav");
-      } else {
-        helper.removeClass(body, "is-onscreen-nav");
-      };
+    if (nav) {
+      helper.addClass(body, "is-onscreen-nav");
     } else {
       helper.removeClass(body, "is-onscreen-nav");
     };
@@ -221,7 +217,7 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-nav");
     if (window.innerWidth >= 550) {
-      var height = window.innerHeight - 100;
+      var height = window.innerHeight - 60;
       nav.style.maxHeight = height + "px";
     } else {
       nav.removeAttribute("style");

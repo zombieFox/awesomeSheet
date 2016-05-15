@@ -107,7 +107,7 @@ var sheet = (function() {
       name = "New character";
     };
     var exportData = JSON.stringify(getCharacter(), null, " ");
-    prompt.render("Download " + name, false, "Download", "download");
+    prompt.render("Download " + name, "Save this character as a JSON file.", "Download", "download");
     if (helper.e(".prompt pre")) {
       helper.selectText(".prompt pre");
     };

@@ -344,7 +344,7 @@ var spells = (function() {
     var spellButton = document.createElement("button");
     spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
-    spellButton.setAttribute("class", "m-spell button js-spell");
+    spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);

@@ -8,17 +8,13 @@ input[type="button"] {
   color: $base-color;
   border-width: 1px;
   border-style: solid;
-  padding: 4px 12px;
   margin-bottom: 10px;
   text-align: center;
-  font-family: $open-sans-semi-bold;
   text-decoration: none;
   white-space: nowrap;
-  font-size: $root-font-size-medium;
-  line-height: $root-line-height-medium;
+  font-family: $open-sans-semi-bold;
   cursor: pointer;
   box-sizing: border-box;
-  border-radius: $border-radius-medium;
   transition: all $transition-ease-extra-fast;
   display: inline-block;
   text-transform: uppercase;
@@ -46,13 +42,39 @@ input[type="button"] {
   }
   [class^="icon-"],
   [class*=" icon-"] {
-    position: relative;
-    top: 1px;
-    font-size: 1.1em;
-    line-height: 1em;
+    font-size: $font-size-1;
+    line-height: $line-height-1;
     margin-right: 5px;
     display: inline-block;
   }
+}
+
+.button-small {
+  padding: $font-size-0-5;
+  font-size: $font-size-0-5;
+  line-height: $font-size-1;
+  border-radius: $border-radius-medium;
+}
+
+.button-medium {
+  padding: $font-size-0-5 $font-size-1;
+  font-size: $font-size-1;
+  line-height: $font-size-1;
+  border-radius: $border-radius-medium;
+}
+
+.button-large {
+  padding: $font-size-0-5 $font-size-2;
+  font-size: $font-size-1;
+  line-height: $font-size-2;
+  border-radius: $border-radius-medium;
+}
+
+.button-block {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  display: inline-block;
 }
 
 .button-primary {
@@ -173,23 +195,6 @@ input[type="button"] {
     border-color: transparent;
     color: $white;
   }
-}
-
-.button-small {
-  padding: 0 6px;
-  font-size: $root-font-size-small;
-}
-
-.button-large {
-  padding: 10px 20px;
-  font-size: $root-font-size-large;
-}
-
-.button-block {
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  display: inline-block;
 }
 
 .button-group {
