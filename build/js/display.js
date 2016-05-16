@@ -22,6 +22,7 @@ var display = (function() {
     helper.toggleClass(hamburger, "m-hamburger-dark");
     helper.toggleClass(fabIcon, "icon-edit");
     helper.toggleClass(fabIcon, "icon-reader-mode");
+    totalBlock.update();
     display.clear();
     display.render();
   };
