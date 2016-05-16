@@ -3,6 +3,14 @@ var prompt = (function() {
   var previousPrompt = null;
   var previouspromptShade = null;
 
+  function bind() {
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+  };
+
   function destroy() {
     var prompt = helper.e(".js-prompt");
     var promptShade = helper.e(".js-prompt-shade");
@@ -122,14 +130,6 @@ var prompt = (function() {
     helper.addClass(promptShade, "is-opaque");
     promptHeading.focus(this);
 
-  };
-
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
   };
 
   // exposed methods
