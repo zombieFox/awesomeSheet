@@ -1882,6 +1882,8 @@ label {
     position: fixed;
     top: 4.5rem;
     width: 100%; }
+  .m-section-heading.is-faded {
+    background-color: #224159; }
 
 .m-section-heading-sub {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;

@@ -43,9 +43,9 @@
     top: 4.5rem;
     width: 100%;
   }
-  // &.is-unpinned {
-  //   background-color: $secondary-color-06;
-  // }
+  &.is-faded {
+    background-color: $secondary-color-05;
+  }
 }
 
 .m-section-heading-sub {

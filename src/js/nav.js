@@ -144,21 +144,21 @@ var nav = (function() {
       var menu = parseInt(getComputedStyle(quickNav).height, 10);
       for (var i = 0; i < all_section.length; i++) {
         // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
-        var sectionHeading = all_section[i].querySelector(".js-section-heading");
 
-        // var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
-        // if (all_section[i].getBoundingClientRect().bottom < sectionHeadingHeight + menu) {
-        //   if (sectionHeading) {
-        //     helper.addClass(sectionHeading, "is-unpinned");
-        //     console.log(getComputedStyle(sectionHeading).top, 10);
-        //     sectionHeading.style.top = sectionHeading.style.top - all_section[i].getBoundingClientRect().bottom;
-        //   };
-        // } else {
-        //   if (sectionHeading) {
-        //     helper.removeClass(sectionHeading, "is-unpinned");
-        //     sectionHeading.removeAttribute("style");
-        //   };
-        // };
+        var sectionHeading = all_section[i].querySelector(".js-section-heading");
+        var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
+
+        if (all_section[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
+          if (sectionHeading) {
+            helper.addClass(sectionHeading, "is-faded");
+            // sectionHeading.setAttribute("style", "top:" + (all_section[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+          };
+        } else {
+          if (sectionHeading) {
+            helper.removeClass(sectionHeading, "is-faded");
+            // sectionHeading.removeAttribute("style");
+          };
+        };
 
         if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
           for (var j = 0; j < quickNavLinks.length; j++) {
