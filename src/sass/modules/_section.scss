@@ -77,6 +77,9 @@
       width: inherit;
     }
   }
+  .m-section-wrapper {
+    padding: $font-size-3 0;
+  }
 }
 
 @media (min-width: $screen-lg) {
