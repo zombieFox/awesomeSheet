@@ -3,12 +3,22 @@ var modal = (function() {
   var previousModal = null;
   var previousModalShade = null;
 
+  function bind() {
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+  };
+
   function destroy() {
     var modal = helper.e(".js-modal");
     var modalShade = helper.e(".js-modal-shade");
+    var modalWrapper = helper.e(".js-modal-wrapper");
     if (modal) {
       getComputedStyle(modal).opacity;
-      helper.removeClass(modal, "is-unrotate");
+      helper.removeClass(modalWrapper, "is-unrotate-in");
+      helper.addClass(modalWrapper, "is-unrotate-out");
       helper.removeClass(modal, "is-opaque");
       helper.addClass(modal, "is-transparent");
     };
@@ -21,6 +31,7 @@ var modal = (function() {
 
   function render(modalBodyContent, action) {
 
+    prompt.destroy();
     var body = helper.e("body");
 
     // make new shade
@@ -31,10 +42,14 @@ var modal = (function() {
       helper.addClass(modalShade, "is-transparent");
     };
 
+    var modalWrapper = document.createElement("div");
+    modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
+
     var modal = document.createElement("div");
     modal.setAttribute("class", "m-modal js-modal");
     modal.destroy = function() {
-      helper.removeClass(modal, "is-unrotate");
+      helper.removeClass(modalWrapper, "is-unrotate-in");
+      helper.addClass(modalWrapper, "is-unrotate-out");
       helper.removeClass(modal, "is-opaque");
       helper.addClass(modal, "is-transparent");
     };
@@ -44,9 +59,6 @@ var modal = (function() {
 
     var modalControls = document.createElement("div");
     modalControls.setAttribute("class", "m-modal-controls");
-
-    var modalWrapper = document.createElement("div");
-    modalWrapper.setAttribute("class", "m-modal-wrapper");
 
     var okButton = document.createElement("a");
     okButton.setAttribute("href", "javascript:void(0)");
@@ -97,13 +109,16 @@ var modal = (function() {
     getComputedStyle(modalShade).opacity;
     helper.removeClass(modal, "is-transparent");
     helper.addClass(modal, "is-opaque");
-    helper.addClass(modal, "is-unrotate");
+    helper.removeClass(modalWrapper, "is-unrotate-out");
+    helper.addClass(modalWrapper, "is-unrotate-in");
     helper.removeClass(modalShade, "is-transparent");
     helper.addClass(modalShade, "is-opaque");
 
   };
 
   return {
+    bind: bind,
+    destroy: destroy,
     render: render
   };
 

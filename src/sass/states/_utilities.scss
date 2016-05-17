@@ -30,6 +30,16 @@
   overflow: hidden;
 }
 
+.is-unrotate-in {
+  transform-origin: center top !important;
+  transform: translate(0, 0) rotateX(0deg) !important;
+}
+
+.is-unrotate-out {
+  transform-origin: center top !important;
+  transform: translate(0, 30%) rotateX(-30deg) !important;
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
