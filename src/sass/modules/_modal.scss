@@ -30,6 +30,12 @@
   font-size: $root-font-size-large;
   border-radius: $border-radius-medium;
   transition: all $transition-bounce-fast;
+  .container {
+    max-width: 100%;
+  }
+  &:focus {
+    outline: 0;
+  }
 }
 
 .m-modal-body {

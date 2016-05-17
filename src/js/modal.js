@@ -29,7 +29,7 @@ var modal = (function() {
     };
   };
 
-  function render(modalBodyContent, action) {
+  function render(modalBodyContent, actionText) {
 
     prompt.destroy();
     var body = helper.e("body");
@@ -43,6 +43,7 @@ var modal = (function() {
     };
 
     var modalWrapper = document.createElement("div");
+    modalWrapper.setAttribute("tabindex", "3");
     modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
 
     var modal = document.createElement("div");
@@ -60,13 +61,13 @@ var modal = (function() {
     var modalControls = document.createElement("div");
     modalControls.setAttribute("class", "m-modal-controls");
 
-    var okButton = document.createElement("a");
-    okButton.setAttribute("href", "javascript:void(0)");
-    okButton.setAttribute("tabindex", "3");
-    okButton.setAttribute("class", "button button-primary button-block button-large");
-    okButton.textContent = "OK";
+    var actionButton = document.createElement("a");
+    actionButton.setAttribute("href", "javascript:void(0)");
+    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("class", "button button-primary button-block button-large");
+    actionButton.textContent = actionText || "Ok";
 
-    modalControls.appendChild(okButton);
+    modalControls.appendChild(actionButton);
 
     if (modalBodyContent) {
       modalBody.appendChild(modalBodyContent);
@@ -88,7 +89,7 @@ var modal = (function() {
       };
     }.bind(modalShade), false);
 
-    okButton.addEventListener("click", destroy, false);
+    actionButton.addEventListener("click", destroy, false);
     modalShade.addEventListener("click", destroy, false);
 
     if (previousModal) {
@@ -113,6 +114,7 @@ var modal = (function() {
     helper.addClass(modalWrapper, "is-unrotate-in");
     helper.removeClass(modalShade, "is-transparent");
     helper.addClass(modalShade, "is-opaque");
+    modalWrapper.focus(this);
 
   };
 

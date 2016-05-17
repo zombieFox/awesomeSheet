@@ -142,7 +142,6 @@ var sheet = (function() {
     textareaBlock.clear();
     stats.render();
     clone.clear();
-    totalBlock.clear();
     totalBlock.update();
     spells.clear();
     display.clear();

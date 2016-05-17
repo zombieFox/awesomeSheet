@@ -100,35 +100,41 @@ var orrin = (function() {
         dodge: "1",
         natural: "",
         size_bonus: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       flat_footed: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       touch: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       ac_notes: "",
       fortitude: {
@@ -137,13 +143,15 @@ var orrin = (function() {
         resistance: "",
         misc: "1",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: true,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: true,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       reflex: {
         base: "3",
@@ -151,13 +159,15 @@ var orrin = (function() {
         resistance: "",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       will: {
         base: "0",
@@ -165,13 +175,15 @@ var orrin = (function() {
         resistance: "",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: true,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false
+        }
       },
       save_notes: ""
     },

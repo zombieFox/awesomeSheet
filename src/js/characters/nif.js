@@ -110,35 +110,41 @@ var nif = (function() {
         dodge: "",
         natural: "1",
         size_bonus: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       flat_footed: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       touch: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       ac_notes: "",
       fortitude: {
@@ -147,13 +153,15 @@ var nif = (function() {
         resistance: "2",
         misc: "3",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: true,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: true,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       reflex: {
         base: "2",
@@ -161,13 +169,15 @@ var nif = (function() {
         resistance: "2",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       will: {
         base: "5",
@@ -175,13 +185,15 @@ var nif = (function() {
         resistance: "2",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: true,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false
+        }
       },
       save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
     },

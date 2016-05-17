@@ -105,35 +105,41 @@ var marika = (function() {
         dodge: "",
         natural: "",
         size_bonus: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       flat_footed: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       touch: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
@@ -142,13 +148,15 @@ var marika = (function() {
         resistance: "3",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       reflex: {
         base: "6",
@@ -156,13 +164,15 @@ var marika = (function() {
         resistance: "3",
         misc: "1",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       will: {
         base: "3",
@@ -170,13 +180,15 @@ var marika = (function() {
         resistance: "3",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
