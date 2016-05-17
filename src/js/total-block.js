@@ -300,6 +300,7 @@ var totalBlock = (function() {
   };
 
   function bind() {
+    var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggle = helper.eA(".js-total-block-toggle");
     for (var i = 0; i < all_totalBlockToggle.length; i++) {
       var check = all_totalBlockToggle[i].querySelector(".js-total-block-toggle-check");
@@ -307,6 +308,45 @@ var totalBlock = (function() {
         _addRemoveBonus(this);
         _store(this);
         update();
+      }, false);
+    };
+    for (var i = 0; i < all_totalBlockBonuses.length; i++) {
+
+      var container = document.createElement("div");
+      container.setAttribute("class", "m-total-block-bonuses");
+
+      var xxx = 
+        '<p>Add bonuses to this total.</p>' +
+        '<div class="m-total-block-toggle js-total-block-toggle">' +
+        '<input id="defense-ac-str-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="str-bonus" data-path="defense.ac.str_bonus" type="checkbox" tabindex="3">' +
+        '<label for="defense-ac-str-bonus" class="u-full-width">Str</label>' +
+        '</div>' +
+        '<div class="m-total-block-toggle js-total-block-toggle">' +
+        '<input id="defense-ac-dex-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="dex-bonus" data-path="defense.ac.dex_bonus" type="checkbox" tabindex="3">' +
+        '<label for="defense-ac-dex-bonus" class="u-full-width">Dex</label>' +
+        '</div>' +
+        '<div class="m-total-block-toggle js-total-block-toggle">' +
+        '<input id="defense-ac-con-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="con-bonus" data-path="defense.ac.con_bonus" type="checkbox" tabindex="3">' +
+        '<label for="defense-ac-con-bonus" class="u-full-width">Con</label>' +
+        '</div>' +
+        '<div class="m-total-block-toggle js-total-block-toggle">' +
+        '<input id="defense-ac-int-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="int-bonus" data-path="defense.ac.int_bonus" type="checkbox" tabindex="3">' +
+        '<label for="defense-ac-int-bonus" class="u-full-width">Int</label>' +
+        '</div>' +
+        '<div class="m-total-block-toggle js-total-block-toggle">' +
+        '<input id="defense-ac-wis-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="wis-bonus" data-path="defense.ac.wis_bonus" type="checkbox" tabindex="3">' +
+        '<label for="defense-ac-wis-bonus" class="u-full-width">Wis</label>' +
+        '</div>' +
+        '<div class="m-total-block-toggle js-total-block-toggle">' +
+        '<input id="defense-ac-cha-bonus" class="m-total-block-toggle-check js-total-block-toggle-check" data-bonus-type="cha-bonus" data-path="defense.ac.cha_bonus" type="checkbox" tabindex="3">' +
+        '<label for="defense-ac-cha-bonus" class="u-full-width">Cha</label>' +
+        '</div>';
+      
+      container.innerHTML = xxx;
+
+      var totalBlock = all_totalBlockBonuses[i].querySelector(".js-total-block");
+      all_totalBlockBonuses[i].addEventListener("click", function() {
+        modal.render(container);
       }, false);
     };
   };

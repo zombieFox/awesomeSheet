@@ -14,27 +14,32 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  perspective: 800px;
-  transform: translate(-50%, -50%) rotateX(-90deg);
-  opacity: 0;
   z-index: $modal;
+  width: 80%;
+  max-height: 80%;
+  min-width: 200px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  perspective: 1000px;
+  transition: all $transition-ease-fast;
+  &.is-unrotate {
+    .m-modal-wrapper {
+      transform: rotateX(0deg);
+    }
+  }
 }
 
 .m-modal-wrapper {
   background-color: $white;
-  // position: fixed;
-  // top: 50%;
-  // left: 50%;
-  // z-index: $modal;
-  width: 80%;
-  max-height: 80%;
-  min-width: 300px;
   box-sizing: border-box;
   font-size: $root-font-size-large;
   border-radius: $border-radius-medium;
-  // transform: translate(-50%, -50%);
-  // opacity: 0;
+  transform: rotateX(30deg);
   transition: all $transition-ease-fast;
+}
+
+.m-modal-body {
+  padding: 2em;
 }
 
 .m-modal-controls {

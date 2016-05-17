@@ -123,7 +123,6 @@ var sheet = (function() {
     totalBlock.bind();
     spells.bind();
     display.bind();
-    modal.bind();
   };
 
   function render() {
