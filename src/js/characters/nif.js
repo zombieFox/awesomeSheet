@@ -204,28 +204,34 @@ var nif = (function() {
       cmb: {
         misc: "",
         temp: "",
-        str_bonus: true,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        bab: true,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          level: false,
+          half_level: false
+        }
       },
       cmd: {
         misc: "",
         temp: "",
-        str_bonus: true,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        bab: true,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          level: false,
+          half_level: false
+        }
       },
       melee_attack: {
         misc: "",

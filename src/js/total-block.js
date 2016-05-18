@@ -335,7 +335,7 @@ var totalBlock = (function() {
     if (bonusType == "level") {
       return "Level";
     };
-    if (bonusType == "half-level") {
+    if (bonusType == "half-level" || bonusType == "half_level") {
       return "Half Level";
     };
     if (bonusType == "plus-ten") {
@@ -377,8 +377,6 @@ var totalBlock = (function() {
 
         var col = document.createElement("div");
         col.setAttribute("class", "col-xs-6 col-xl-4");
-
-        var randomId = helper.randomId(10);
 
         var div = document.createElement("div");
         div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");

@@ -209,28 +209,34 @@ var vos = (function() {
       cmb: {
         misc: "",
         temp: "",
-        str_bonus: true,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: true,
-        bab: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          level: true,
+          half_level: false
+        }
       },
       cmd: {
         misc: "1",
         temp: "",
-        str_bonus: true,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: true,
-        cha_bonus: false,
-        level: false,
-        bab: true,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          bab: true,
+          level: false,
+          half_level: false
+        }
       },
       melee_attack: {
         misc: "",
