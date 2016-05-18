@@ -320,348 +320,348 @@ var ro = (function() {
       acrobatics: {
         ranks: "3",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           dex_bonus: true
         }
       },
       appraise: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       bluff: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       climb: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           str_bonus: true
         }
       },
       craft_1: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
-        variant_name: "",
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       craft_2: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
-        variant_name: "",
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       diplomacy: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       disable_device: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           dex_bonus: true
         }
       },
       disguise: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       escape_artist: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           dex_bonus: true
         }
       },
       fly: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           dex_bonus: true
         }
       },
       handle_animal: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       heal: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           wis_bonus: true
         }
       },
       intimidate: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       knowledge_arcana: {
         ranks: "1",
         misc: "",
-        class_skill: true,
         current: "",
         bonuses: {
+          class_skill: true,
           int_bonus: true
         }
       },
       knowledge_dungeoneering: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_engineering: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_geography: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_history: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_local: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_nature: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_nobility: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_planes: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       knowledge_religion: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       linguistics: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           int_bonus: true
         }
       },
       perception: {
         ranks: "3",
         misc: "2",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           wis_bonus: true
         }
       },
       perform_1: {
+        variant_name: "Dance",
         ranks: "2",
         misc: "",
-        class_skill: false,
-        variant_name: "Dance",
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       perform_2: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
-        variant_name: "",
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
       profession_1: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
-        variant_name: "",
         current: "",
         bonuses: {
+          class_skill: false,
           wis_bonus: true
         }
       },
       profession_2: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
-        variant_name: "",
         current: "",
         bonuses: {
+          class_skill: false,
           wis_bonus: true
         }
       },
       ride: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
         bonuses: {
+          class_skill: true,
           dex_bonus: true
         }
       },
       sense_motive: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           wis_bonus: true
         }
       },
       sleight_of_hand: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           dex_bonus: true
         }
       },
       spellcraft: {
         ranks: "3",
         misc: "",
-        class_skill: true,
         current: "",
         bonuses: {
+          class_skill: true,
           int_bonus: true
         }
       },
       stealth: {
         ranks: "1",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           dex_bonus: true
         }
       },
       survival: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           wis_bonus: true
         }
       },
       swim: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           str_bonus: true
         }
       },
       use_magic_device: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           cha_bonus: true
         }
       },
@@ -669,9 +669,9 @@ var ro = (function() {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -686,9 +686,9 @@ var ro = (function() {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -703,9 +703,9 @@ var ro = (function() {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -720,9 +720,9 @@ var ro = (function() {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
         bonuses: {
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,

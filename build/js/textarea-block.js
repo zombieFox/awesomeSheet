@@ -2,7 +2,6 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    console.log(path + " stored");
     helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
     sheet.storeCharacters();
   };

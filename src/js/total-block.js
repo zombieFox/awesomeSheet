@@ -3,12 +3,10 @@ var totalBlock = (function() {
 
   function render() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
-
+    var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-
       var path = all_totalBlockBonuses[i].dataset.bonusPath;
       var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
-
       if (path) {
         var data = helper.getObject(sheet.getCharacter(), path);
         for (var j in data) {
@@ -68,9 +66,13 @@ var totalBlock = (function() {
               totalBlock.dataset.classSkill = "true";
             };
           };
-
         };
       };
+    };
+    for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
+      var path = all_totalBlockToggleCheck[i].dataset.path;
+      var state = helper.getObject(sheet.getCharacter(), path);
+      all_totalBlockToggleCheck[i].checked = state;
     };
   };
 
@@ -362,7 +364,6 @@ var totalBlock = (function() {
   };
 
   function _totalBlockModalContent(element) {
-
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var path = element.dataset.bonusPath;
 
@@ -383,7 +384,7 @@ var totalBlock = (function() {
 
         var input = document.createElement("input");
         input.setAttribute("id", i.replace(/_+/g, "-"));
-        input.setAttribute("class", "m-total-block-toggle-check js-total-block-toggle-check");
+        input.setAttribute("class", "m-total-block-toggle-check");
         input.setAttribute("data-path", path + "." + i);
         input.setAttribute("data-bonus-type", i.replace(/_+/g, "-"));
         input.setAttribute("type", "checkbox");
@@ -410,6 +411,15 @@ var totalBlock = (function() {
 
   };
 
+  function _bind_classSkillToggle(element) {
+    var totalBlock = helper.getClosest(element, ".js-total-block");
+    element.addEventListener("change", function() {
+      _addRemoveBonus(this, totalBlock);
+      _store(this, totalBlock);
+      update();
+    }, false);
+  };
+
   function _bind_bonusType(element, totalBlock) {
     element.addEventListener("change", function() {
       _addRemoveBonus(this, totalBlock);
@@ -420,10 +430,17 @@ var totalBlock = (function() {
 
   function bind() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
+    var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      var totalBlock = all_totalBlockBonuses[i].querySelector(".js-total-block");
-      all_totalBlockBonuses[i].addEventListener("click", function() {
-        _totalBlockModalContent(this);
+      if (all_totalBlockBonuses[i].nodeName.toLowerCase() == "a") {
+        all_totalBlockBonuses[i].addEventListener("click", function() {
+          _totalBlockModalContent(this);
+        }, false);
+      };
+    };
+    for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
+      all_totalBlockToggleCheck[i].addEventListener("click", function() {
+        _bind_classSkillToggle(this);
       }, false);
     };
   };
