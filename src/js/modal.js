@@ -18,7 +18,7 @@ var modal = (function() {
     if (modal) {
       getComputedStyle(modal).opacity;
       helper.removeClass(modalWrapper, "is-unrotate-in");
-      helper.addClass(modalWrapper, "is-unrotate-out");
+      helper.addClass(modalWrapper, "is-dropped-out");
       helper.removeClass(modal, "is-opaque");
       helper.addClass(modal, "is-transparent");
     };
@@ -43,14 +43,13 @@ var modal = (function() {
     };
 
     var modalWrapper = document.createElement("div");
-    modalWrapper.setAttribute("tabindex", "3");
     modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
 
     var modal = document.createElement("div");
     modal.setAttribute("class", "m-modal js-modal");
     modal.destroy = function() {
       helper.removeClass(modalWrapper, "is-unrotate-in");
-      helper.addClass(modalWrapper, "is-unrotate-out");
+      helper.addClass(modalWrapper, "is-dropped-out");
       helper.removeClass(modal, "is-opaque");
       helper.addClass(modal, "is-transparent");
     };

@@ -3,11 +3,6 @@
   z-index: 1;
 }
 
-.m-input-block-field {
-  position: relative;
-  z-index: 1;
-}
-
 .m-input-block-label {
   margin: 0;
   padding: 0;
@@ -28,6 +23,11 @@
     height: $line-height-1-5;
     line-height: $line-height-1-5;
   }
+}
+
+.m-input-block-field {
+  position: relative;
+  z-index: 1;
 }
 
 .m-input-block-label-dark {

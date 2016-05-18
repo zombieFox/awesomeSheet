@@ -1826,7 +1826,7 @@ label {
 @media (min-width: 550px) {
   .m-nav {
     border: 0;
-    border-left: 2px solid rgba(0, 0, 0, 0.1);
+    border-left: 2px solid rgba(0, 0, 0, 0.05);
     padding: 0;
     top: 0;
     left: inherit;
@@ -2035,10 +2035,6 @@ label {
   position: relative;
   z-index: 1; }
 
-.m-input-block-field {
-  position: relative;
-  z-index: 1; }
-
 .m-input-block-label {
   margin: 0;
   padding: 0;
@@ -2058,6 +2054,10 @@ label {
     font-size: 0.625rem;
     height: 1.5em;
     line-height: 1.5em; }
+
+.m-input-block-field {
+  position: relative;
+  z-index: 1; }
 
 .m-input-block-label-dark {
   color: rgba(0, 0, 0, 0.25); }
@@ -2146,7 +2146,7 @@ label {
 
 .m-quick-nav-display {
   background-color: rgba(255, 255, 255, 0.85);
-  border-bottom: 2px solid #e6e6e6; }
+  border-bottom: 2px solid #fafafa; }
 
 .m-quick-nav-list {
   margin: 0;
@@ -2453,7 +2453,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 9000;
-  transition: all 0.3s ease-in-out; }
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
 
 .m-prompt {
   position: fixed;
@@ -2469,14 +2470,16 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: all 0.3s ease-in-out; }
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
 
 .m-prompt-wrapper {
   background-color: #ffffff;
   box-sizing: border-box;
   font-size: 1rem;
   border-radius: 3px;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out; }
 
 .m-prompt-body {
   padding: 2em;
@@ -2537,7 +2540,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 10000;
-  transition: all 0.3s ease-in-out; }
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
 
 .m-modal {
   position: fixed;
@@ -2553,20 +2557,20 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: all 0.3s ease-in-out; }
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
 
 .m-modal-wrapper {
   background-color: #ffffff;
   box-sizing: border-box;
   font-size: 1rem;
   border-radius: 3px;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out; }
   .m-modal-wrapper .container {
     max-width: 100%;
     padding-right: 0;
     padding-left: 0; }
-  .m-modal-wrapper:focus {
-    outline: 0; }
 
 .m-modal-body {
   padding: 2em;
@@ -2877,8 +2881,15 @@ label {
   -webkit-transform-origin: center top !important;
       -ms-transform-origin: center top !important;
           transform-origin: center top !important;
-  -webkit-transform: translate(0, 30%) rotateX(-30deg) !important;
-          transform: translate(0, 30%) rotateX(-30deg) !important; }
+  -webkit-transform: translate(0, 0) rotateX(-30deg) !important;
+          transform: translate(0, 0) rotateX(-30deg) !important; }
+
+.is-dropped-out {
+  -webkit-transform-origin: center bottom !important;
+      -ms-transform-origin: center bottom !important;
+          transform-origin: center bottom !important;
+  -webkit-transform: translate(0, 0) rotateX(60deg) !important;
+          transform: translate(0, 0) rotateX(60deg) !important; }
 
 @media (min-width: 550px) {
   .is-onscreen-nav {

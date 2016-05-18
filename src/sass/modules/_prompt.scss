@@ -7,7 +7,7 @@
   height: 100%;
   opacity: 0;
   z-index: $prompt;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-medium, transform $transition-ease-medium;
 }
 
 .m-prompt {
@@ -21,7 +21,7 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   perspective: 1000px;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-medium, transform $transition-ease-medium;
 }
 
 .m-prompt-wrapper {
@@ -29,7 +29,7 @@
   box-sizing: border-box;
   font-size: $root-font-size-large;
   border-radius: $border-radius-medium;
-  transition: all $transition-bounce-fast;
+  transition: transform $transition-ease-medium;
 }
 
 .m-prompt-body {

@@ -7,7 +7,7 @@
   height: 100%;
   opacity: 0;
   z-index: $modal;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-medium, transform $transition-ease-medium;
 }
 
 .m-modal {
@@ -21,7 +21,7 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   perspective: 1000px;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-medium, transform $transition-ease-medium;
 }
 
 .m-modal-wrapper {
@@ -29,14 +29,11 @@
   box-sizing: border-box;
   font-size: $root-font-size-large;
   border-radius: $border-radius-medium;
-  transition: all $transition-bounce-fast;
+  transition: transform $transition-ease-medium;
   .container {
     max-width: 100%;
     padding-right: 0;
     padding-left: 0;
-  }
-  &:focus {
-    outline: 0;
   }
 }
 

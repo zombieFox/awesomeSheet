@@ -37,7 +37,12 @@
 
 .is-unrotate-out {
   transform-origin: center top !important;
-  transform: translate(0, 30%) rotateX(-30deg) !important;
+  transform: translate(0, 0) rotateX(-30deg) !important;
+}
+
+.is-dropped-out {
+  transform-origin: center bottom !important;
+  transform: translate(0, 0) rotateX(60deg) !important;
 }
 
 // --------------------------------------------------

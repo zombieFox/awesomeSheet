@@ -1,5 +1,12 @@
 var nav = (function() {
 
+  function _closeNavScrollToTop() {
+    if (window.innerWidth < 550) {
+      navClose();
+      window.scrollTo(0, 0);
+    };
+  };
+
   function _fullscreen() {
     var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
@@ -92,6 +99,7 @@ var nav = (function() {
       name = "New character";
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+    _closeNavScrollToTop();
   };
 
   function updateNavCharacters(input) {
@@ -265,6 +273,7 @@ var nav = (function() {
     characterAdd.addEventListener("click", function() {
       sheet.addCharacter();
       snack.render("New character added.", false);
+      _closeNavScrollToTop();
     }, false);
     characterRemove.addEventListener("click", function() {
       remove();

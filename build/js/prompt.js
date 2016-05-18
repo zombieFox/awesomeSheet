@@ -18,7 +18,7 @@ var prompt = (function() {
     if (prompt) {
       getComputedStyle(prompt).opacity;
       helper.removeClass(promptWrapper, "is-unrotate-in");
-      helper.addClass(promptWrapper, "is-unrotate-out");
+      helper.addClass(promptWrapper, "is-dropped-out");
       helper.removeClass(prompt, "is-opaque");
       helper.addClass(prompt, "is-transparent");
     };
@@ -49,7 +49,7 @@ var prompt = (function() {
     prompt.setAttribute("class", "m-prompt js-prompt");
     prompt.destroy = function() {
       helper.removeClass(promptWrapper, "is-unrotate-in");
-      helper.addClass(promptWrapper, "is-unrotate-out");
+      helper.addClass(promptWrapper, "is-dropped-out");
       helper.removeClass(prompt, "is-opaque");
       helper.addClass(prompt, "is-transparent");
     };
