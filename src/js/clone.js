@@ -139,6 +139,18 @@ var clone = (function() {
     };
   };
 
+  function _smoothScrollToClones(cloneBlock) {
+    var targetTop = helper.e(cloneBlock).getBoundingClientRect().top;
+    var windowBottom = window.innerHeight;
+    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
+    var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
+    if (targetTop > windowBottom) {
+      smoothScroll.animateScroll(null, cloneBlock, options = {
+        offset: quickNavHeight + subHeaderHeight + 10
+      });
+    };
+  };
+
   function bindControls() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
@@ -150,6 +162,7 @@ var clone = (function() {
     cloneAddConsumable.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
+      _smoothScrollToClones("#equipment-consumables");
       sheet.storeCharacters();
       // consumable.render();
       if (_getCloneCount("consumable") <= 99) {
@@ -162,6 +175,7 @@ var clone = (function() {
     cloneAddAttackMelee.addEventListener("click", function() {
       _render_clone(1, "attack-melee");
       _updateCloneAttackMelee();
+      _smoothScrollToClones("#offense-attacks");
       sheet.storeCharacters();
       if (_getCloneCount("attack-melee") <= 99) {
         snack.render("Melee attack added.", false, false);
@@ -170,6 +184,7 @@ var clone = (function() {
     cloneAddAttackRanged.addEventListener("click", function() {
       _render_clone(1, "attack-ranged");
       _updateCloneAttackRanged();
+      _smoothScrollToClones("#offense-attacks");
       sheet.storeCharacters();
       if (_getCloneCount("attack-ranged") <= 99) {
         snack.render("Ranged attack added.", false, false);
