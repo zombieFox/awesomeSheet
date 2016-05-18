@@ -3,11 +3,22 @@ var prompt = (function() {
   var previousPrompt = null;
   var previouspromptShade = null;
 
+  function bind() {
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+  };
+
   function destroy() {
     var prompt = helper.e(".js-prompt");
     var promptShade = helper.e(".js-prompt-shade");
+    var promptWrapper = helper.e(".js-prompt-wrapper");
     if (prompt) {
       getComputedStyle(prompt).opacity;
+      helper.removeClass(promptWrapper, "is-unrotate-in");
+      helper.addClass(promptWrapper, "is-unrotate-out");
       helper.removeClass(prompt, "is-opaque");
       helper.addClass(prompt, "is-transparent");
     };
@@ -20,6 +31,7 @@ var prompt = (function() {
 
   function render(heading, message, actionText, action) {
 
+    modal.destroy();
     var body = helper.e("body");
 
     // make new shade
@@ -28,12 +40,16 @@ var prompt = (function() {
     promptShade.destroy = function() {
       helper.removeClass(promptShade, "is-opaque");
       helper.addClass(promptShade, "is-transparent");
-      // promptShade.style.opacity = 0;
     };
+
+    var promptWrapper = document.createElement("div");
+    promptWrapper.setAttribute("class", "m-prompt-wrapper js-prompt-wrapper is-unrotate-out");
 
     var prompt = document.createElement("div");
     prompt.setAttribute("class", "m-prompt js-prompt");
     prompt.destroy = function() {
+      helper.removeClass(promptWrapper, "is-unrotate-in");
+      helper.addClass(promptWrapper, "is-unrotate-out");
       helper.removeClass(prompt, "is-opaque");
       helper.addClass(prompt, "is-transparent");
     };
@@ -57,7 +73,7 @@ var prompt = (function() {
     actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large js-prompt-action");
-    actionButton.textContent = actionText;
+    actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
     cancelButton.setAttribute("href", "javascript:void(0)");
@@ -71,8 +87,10 @@ var prompt = (function() {
     if (message != false) {
       promptMessage.appendChild(promptText);
     };
-    prompt.appendChild(promptMessage);
-    prompt.appendChild(promptControls);
+    promptWrapper.appendChild(promptMessage);
+    promptWrapper.appendChild(promptControls);
+    
+    prompt.appendChild(promptWrapper);
 
     if (action == "download") {
       actionButton.addEventListener("click", action, false);
@@ -114,22 +132,14 @@ var prompt = (function() {
 
     getComputedStyle(prompt).opacity;
     getComputedStyle(promptShade).opacity;
-    // prompt.style.opacity = 1;
-    // promptShade.style.opacity = 1;
     helper.removeClass(prompt, "is-transparent");
     helper.addClass(prompt, "is-opaque");
+    helper.removeClass(promptWrapper, "is-unrotate-out");
+    helper.addClass(promptWrapper, "is-unrotate-in");
     helper.removeClass(promptShade, "is-transparent");
     helper.addClass(promptShade, "is-opaque");
     promptHeading.focus(this);
 
-  };
-
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
   };
 
   // exposed methods

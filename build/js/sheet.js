@@ -115,6 +115,7 @@ var sheet = (function() {
 
   function bind() {
     prompt.bind();
+    modal.bind();
     snack.bind();
     inputBlock.bind();
     textareaBlock.bind();

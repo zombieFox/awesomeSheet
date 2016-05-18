@@ -100,35 +100,58 @@ var orrin = (function() {
         dodge: "1",
         natural: "",
         size_bonus: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_armor: true,
+          ac_shield: true,
+          ac_deflect: true,
+          ac_dodge: true,
+          ac_natural: true,
+          size: true
+        }
       },
       flat_footed: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_armor: true,
+          ac_shield: true,
+          ac_deflect: true,
+          ac_natural: true,
+          size: true
+        }
       },
       touch: {
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_deflect: true,
+          ac_dodge: true,
+          size: true
+        }
       },
       ac_notes: "",
       fortitude: {
@@ -137,13 +160,15 @@ var orrin = (function() {
         resistance: "",
         misc: "1",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: true,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: true,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       reflex: {
         base: "3",
@@ -151,13 +176,15 @@ var orrin = (function() {
         resistance: "",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
       },
       will: {
         base: "0",
@@ -165,13 +192,15 @@ var orrin = (function() {
         resistance: "",
         misc: "",
         temp: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: true,
-        cha_bonus: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false
+        }
       },
       save_notes: ""
     },
@@ -182,38 +211,58 @@ var orrin = (function() {
       cmb: {
         misc: "",
         temp: "",
-        str_bonus: true,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        bab: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          level: false,
+          half_level: false,
+          special_size: true
+        }
       },
       cmd: {
         misc: "",
         temp: "",
-        str_bonus: true,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        bab: false,
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          level: false,
+          half_level: false,
+          special_size: true,
+          plus_ten: true
+        }
       },
       melee_attack: {
         misc: "",
         temp: "",
-        current: ""
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          bab: true,
+          special_size: true
+
+        }
       },
       ranged_attack: {
         misc: "",
         temp: "",
-        current: ""
+        current: "",
+        bonuses: {
+          dex_bonus: true,
+          bab: true,
+          special_size: true
+        }
       },
       attack: {
         melee: [{
@@ -237,296 +286,418 @@ var orrin = (function() {
       acrobatics: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          dex_bonus: true
+        }
       },
       appraise: {
         ranks: "1",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          int_bonus: true
+        }
       },
       bluff: {
         ranks: "1",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          cha_bonus: true
+        }
       },
       climb: {
         ranks: "1",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: true
+        }
       },
       craft_1: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        variant_name: ""
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       craft_2: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        variant_name: ""
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       diplomacy: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          cha_bonus: true
+        }
       },
       disable_device: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          dex_bonus: true
+        }
       },
       disguise: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          cha_bonus: true
+        }
       },
       escape_artist: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          dex_bonus: true
+        }
       },
       fly: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          dex_bonus: true
+        }
       },
       handle_animal: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          cha_bonus: true
+        }
       },
       heal: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          wis_bonus: true
+        }
       },
       intimidate: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          cha_bonus: true
+        }
       },
       knowledge_arcana: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_dungeoneering: {
         ranks: "1",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          int_bonus: true
+        }
       },
       knowledge_engineering: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_geography: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_history: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_local: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_nature: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_nobility: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_planes: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       knowledge_religion: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       linguistics: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       perception: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          wis_bonus: true
+        }
       },
       perform_1: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        variant_name: ""
+        bonuses: {
+          class_skill: false,
+          cha_bonus: true
+        }
       },
       perform_2: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        variant_name: ""
+        bonuses: {
+          class_skill: false,
+          cha_bonus: true
+        }
       },
       profession_1: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        variant_name: ""
+        bonuses: {
+          class_skill: false,
+          wis_bonus: true
+        }
       },
       profession_2: {
+        variant_name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        variant_name: ""
+        bonuses: {
+          class_skill: false,
+          wis_bonus: true
+        }
       },
       ride: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          dex_bonus: true
+        }
       },
       sense_motive: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          wis_bonus: true
+        }
       },
       sleight_of_hand: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          dex_bonus: true
+        }
       },
       spellcraft: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          int_bonus: true
+        }
       },
       stealth: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          dex_bonus: true
+        }
       },
       survival: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          wis_bonus: true
+        }
       },
       swim: {
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: true
+        }
       },
       use_magic_device: {
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
+        bonuses: {
+          class_skill: true,
+          cha_bonus: true
+        }
       },
       custom_1: {
         name: "Perception (Traps)",
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: true,
-        cha_bonus: false,
-        level: false,
-        half_level: true
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: true
+        }
       },
       custom_2: {
         name: "Disable Device (Traps)",
         ranks: "2",
         misc: "",
-        class_skill: true,
         current: "",
-        str_bonus: false,
-        dex_bonus: true,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: true
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: true
+        }
       },
       custom_3: {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
       },
       custom_4: {
         name: "",
         ranks: "",
         misc: "",
-        class_skill: false,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
       }
     },
     spells: {

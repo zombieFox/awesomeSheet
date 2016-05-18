@@ -1,4 +1,4 @@
-.m-prompt-shade {
+.m-modal-shade {
   background-color: $dark-alpha-06;
   position: fixed;
   top: 0;
@@ -6,11 +6,11 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: $prompt;
+  z-index: $modal;
   transition: all $transition-ease-fast;
 }
 
-.m-prompt {
+.m-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -24,63 +24,34 @@
   transition: all $transition-ease-fast;
 }
 
-.m-prompt-wrapper {
+.m-modal-wrapper {
   background-color: $white;
   box-sizing: border-box;
   font-size: $root-font-size-large;
   border-radius: $border-radius-medium;
   transition: all $transition-bounce-fast;
+  .container {
+    max-width: 100%;
+  }
+  &:focus {
+    outline: 0;
+  }
 }
 
-.m-prompt-message {
+.m-modal-body {
   padding: 2em;
-  min-height: 60px;
-  .m-prompt-heading {
-    font-size: $font-size-1-5;
-    font-family: $open-sans-semi-bold;
-    &:focus {
-      outline: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .m-prompt-text {
-    font-size: 1em;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
-.m-prompt-controls {
+.m-modal-controls {
   .button {
     margin: 0;
-    width: 50%;
     &.button {
       border-right: 0;
       border-bottom: 0;
       border-left: 0;
-    }
-    &:first-child {
-      border-radius: 0 0 0 $border-radius-small;
-    }
-    &:last-child {
-      border-radius: 0 0 $border-radius-small 0;
+      border-radius: 0 0 $border-radius-small $border-radius-small;
     }
   }
-}
-
-.m-prompt-code {
-  background-color: $dark-alpha-06;
-  max-height: 300px;
-  overflow-y: scroll;
-  margin: 0;
-  padding: 20px 60px;
-  color: $white;
-  box-sizing: border-box;
-  box-shadow: $shadow-large-inset;
-  white-space: pre-wrap;
 }
 
 // --------------------------------------------------
@@ -89,22 +60,19 @@
 @media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {
-  .m-prompt {
-    width: 50%;
-  }
-  .m-prompt-controls {
-    .button {}
+  .m-modal {
+    width: 70%;
   }
 }
 
 @media (min-width: $screen-lg) {
-  .m-prompt {
-    width: 40%;
+  .m-modal {
+    width: 60%;
   }
 }
 
 @media (min-width: $screen-xl) {
-  .m-prompt {
-    width: 30%;
+  .m-modal {
+    width: 50%;
   }
 }
