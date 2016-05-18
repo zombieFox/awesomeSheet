@@ -1945,14 +1945,14 @@ label {
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
     border-color: rgba(252, 0, 66, 0.15); }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls {
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     max-height: 200px;
     opacity: 1; }
     .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
       -webkit-transform: scale(1);
           -ms-transform: scale(1);
               transform: scale(1);
-      transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
 
 .m-hamburger {
   position: relative;
@@ -2478,8 +2478,8 @@ label {
   box-sizing: border-box;
   font-size: 1rem;
   border-radius: 3px;
-  transition: -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out; }
+  transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
 
 .m-prompt-body {
   padding: 2em;
@@ -2565,8 +2565,8 @@ label {
   box-sizing: border-box;
   font-size: 1rem;
   border-radius: 3px;
-  transition: -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out; }
+  transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   .m-modal-wrapper .container {
     max-width: 100%;
     padding-right: 0;
@@ -2649,7 +2649,7 @@ label {
     -webkit-transform: translatey(100%);
         -ms-transform: translatey(100%);
             transform: translatey(100%);
-    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
     .m-snack-bar.is-reveal {
       margin-bottom: 20px; } }
 
@@ -2871,25 +2871,27 @@ label {
   overflow: hidden; }
 
 .is-unrotate-in {
-  -webkit-transform-origin: center top !important;
-      -ms-transform-origin: center top !important;
-          transform-origin: center top !important;
-  -webkit-transform: translate(0, 0) rotateX(0deg) !important;
-          transform: translate(0, 0) rotateX(0deg) !important; }
-
-.is-unrotate-out {
-  -webkit-transform-origin: center top !important;
-      -ms-transform-origin: center top !important;
-          transform-origin: center top !important;
-  -webkit-transform: translate(0, 0) rotateX(-30deg) !important;
-          transform: translate(0, 0) rotateX(-30deg) !important; }
-
-.is-dropped-out {
   -webkit-transform-origin: center bottom !important;
       -ms-transform-origin: center bottom !important;
           transform-origin: center bottom !important;
-  -webkit-transform: translate(0, 0) rotateX(60deg) !important;
-          transform: translate(0, 0) rotateX(60deg) !important; }
+  -webkit-transform: translate(0, 0) scale(1) rotateX(0deg) !important;
+          transform: translate(0, 0) scale(1) rotateX(0deg) !important; }
+
+.is-unrotate-out {
+  -webkit-transform-origin: center botoom !important;
+      -ms-transform-origin: center botoom !important;
+          transform-origin: center botoom !important;
+  -webkit-transform: translate(0, 0) scale(0.4) rotateX(90deg) !important;
+          transform: translate(0, 0) scale(0.4) rotateX(90deg) !important; }
+
+.is-dropped-out {
+  -webkit-transform-origin: left bottom !important;
+      -ms-transform-origin: left bottom !important;
+          transform-origin: left bottom !important;
+  -webkit-transform: translate(-10%, 150%) scale(1) rotateZ(60deg) !important;
+          transform: translate(-10%, 150%) scale(1) rotateZ(60deg) !important;
+  transition: -webkit-transform 0.4s ease-in-out !important;
+  transition: transform 0.4s ease-in-out !important; }
 
 @media (min-width: 550px) {
   .is-onscreen-nav {

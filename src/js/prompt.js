@@ -95,7 +95,7 @@ var prompt = (function() {
     prompt.appendChild(promptWrapper);
 
     if (action == "download") {
-      actionButton.addEventListener("click", action, false);
+      // actionButton.addEventListener("click", action, false);
       actionButton.setAttribute("download", sheet.getCharacter().basics.name + ".json");
       actionButton.href = "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sheet.getCharacter()), null, " ");
     } else {
