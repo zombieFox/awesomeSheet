@@ -51,7 +51,7 @@ var orrin = (function() {
       special_abilities: "Sneak Attack (+1d6), Trapfinding, Evasion, Rogue talent (Trap Spotter)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Buckler, Solid gold dagger (2), Dagger (2)",
+      gear: "Fur coat and cold weather outfit, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Buckler, Solid gold dagger (2), Dagger (2)",
       magic_gear: "",
       encumbrance: {
         light: "50 lbs or less",
@@ -293,7 +293,7 @@ var orrin = (function() {
         }
       },
       appraise: {
-        ranks: "1",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -302,7 +302,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: "1",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -760,7 +760,7 @@ var orrin = (function() {
       }]
     },
     notes: {
-      character: "",
+      character: "<strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><br><strong>Sneak Attack</strong> The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC, or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><br><strong>Evasion (Ex)</strong> If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><br><strong>Rogue Talent Trap Spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.",
       story: ""
     }
   };

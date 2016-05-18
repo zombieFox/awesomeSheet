@@ -110,7 +110,7 @@ var totalBlock = (function() {
       var acNatural = 0;
       var classSkill = 0;
       // str
-      if (all_totalBlock[i].dataset.strBonus == "true" || all_totalBlock[i].dataset.strBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
         if (statsStrModifierTemp.textContent == "") {
           strBonus = parseInt(statsStrModifier.textContent, 10 || 0);
@@ -119,7 +119,7 @@ var totalBlock = (function() {
         };
       };
       // dex
-      if (all_totalBlock[i].dataset.dexBonus == "true" || all_totalBlock[i].dataset.dexBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.dexBonus == "true") {
         // if ability temp mod is empty
         if (statsDexModifierTemp.textContent == "") {
           dexBonus = parseInt(statsDexModifier.textContent, 10 || 0);
@@ -128,7 +128,7 @@ var totalBlock = (function() {
         };
       };
       // con
-      if (all_totalBlock[i].dataset.conBonus == "true" || all_totalBlock[i].dataset.conBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.conBonus == "true") {
         // if ability temp mod is empty
         if (statsConModifierTemp.textContent == "") {
           conBonus = parseInt(statsConModifier.textContent, 10 || 0);
@@ -137,7 +137,7 @@ var totalBlock = (function() {
         };
       };
       // int
-      if (all_totalBlock[i].dataset.intBonus == "true" || all_totalBlock[i].dataset.intBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.intBonus == "true") {
         // if ability temp mod is empty
         if (statsIntModifierTemp.textContent == "") {
           intBonus = parseInt(statsIntModifier.textContent, 10 || 0);
@@ -146,7 +146,7 @@ var totalBlock = (function() {
         };
       };
       // wis
-      if (all_totalBlock[i].dataset.wisBonus == "true" || all_totalBlock[i].dataset.wisBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.wisBonus == "true") {
         // if ability temp mod is empty
         if (statsWisModifierTemp.textContent == "") {
           wisBonus = parseInt(statsWisModifier.textContent, 10 || 0);
@@ -155,7 +155,7 @@ var totalBlock = (function() {
         };
       };
       // cha
-      if (all_totalBlock[i].dataset.chaBonus == "true" || all_totalBlock[i].dataset.chaBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.chaBonus == "true") {
         // if ability temp mod is empty
         if (statsChaModifierTemp.textContent == "") {
           chaBonus = parseInt(statsChaModifier.textContent, 10 || 0);
@@ -164,51 +164,51 @@ var totalBlock = (function() {
         };
       };
       // bab
-      if (all_totalBlock[i].dataset.babBonus == "true" || all_totalBlock[i].dataset.babBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.babBonus == "true") {
         babBonus = parseInt(helper.e("#offense-base-attack").value, 10 || 0);
       };
       // size
-      if (all_totalBlock[i].dataset.sizeBonus == "true" || all_totalBlock[i].dataset.sizeBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.sizeBonus == "true") {
         sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
       };
       // special size
-      if (all_totalBlock[i].dataset.specialSizeBonus == "true" || all_totalBlock[i].dataset.specialSizeBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.specialSizeBonus == "true") {
         specialSizeBonus = parseInt(helper.e("#offense-special-size-bonus").value, 10 || 0);
       };
       // level
-      if (all_totalBlock[i].dataset.levelBonus == "true" || all_totalBlock[i].dataset.levelBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.levelBonus == "true") {
         levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
       };
       // half level
-      if (all_totalBlock[i].dataset.halfLevelBonus == "true" || all_totalBlock[i].dataset.halfLevelBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
         halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2);
       };
       // ac armor
-      if (all_totalBlock[i].dataset.acArmor == "true" || all_totalBlock[i].dataset.acArmorDefault == "true") {
+      if (all_totalBlock[i].dataset.acArmor == "true") {
         acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
       };
       // ac shield
-      if (all_totalBlock[i].dataset.acShield == "true" || all_totalBlock[i].dataset.acShieldDefault == "true") {
+      if (all_totalBlock[i].dataset.acShield == "true") {
         acShield = parseInt(helper.e("#defense-ac-shield").value, 10 || 0);
       };
       // ac deflect
-      if (all_totalBlock[i].dataset.acDeflect == "true" || all_totalBlock[i].dataset.acDeflectDefault == "true") {
+      if (all_totalBlock[i].dataset.acDeflect == "true") {
         acDeflect = parseInt(helper.e("#defense-ac-deflect").value, 10 || 0);
       };
       // ac dodge
-      if (all_totalBlock[i].dataset.acDodge == "true" || all_totalBlock[i].dataset.acDodgeDefault == "true") {
+      if (all_totalBlock[i].dataset.acDodge == "true") {
         acDodge = parseInt(helper.e("#defense-ac-dodge").value, 10 || 0);
       };
       // ac natural
-      if (all_totalBlock[i].dataset.acNatural == "true" || all_totalBlock[i].dataset.acNaturalDefault == "true") {
+      if (all_totalBlock[i].dataset.acNatural == "true") {
         acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
       };
       // class skill
-      if (all_totalBlock[i].dataset.classSkill == "true" || all_totalBlock[i].dataset.classSkillDefault == "true") {
+      if (all_totalBlock[i].dataset.classSkill == "true") {
         classSkill = 3;
       };
       // 10
-      if (all_totalBlock[i].dataset.plusTenBonus == "true" || all_totalBlock[i].dataset.plusTenBonusDefault == "true") {
+      if (all_totalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
       // check if any bonus is NaN
@@ -306,7 +306,7 @@ var totalBlock = (function() {
     sheet.storeCharacters();
   };
 
-  function bonusTextLable(bonusType) {
+  function _bonusTextLable(bonusType) {
     if (bonusType == "str-bonus" || bonusType == "str_bonus") {
       return "Str Bonus";
     };
@@ -366,7 +366,7 @@ var totalBlock = (function() {
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var path = element.dataset.bonusPath;
-
+    var heading = element.dataset.modalHeading || "Bonuses to add";
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
@@ -375,40 +375,50 @@ var totalBlock = (function() {
     if (path) {
       var data = helper.getObject(sheet.getCharacter(), path);
       for (var i in data) {
+        // filter out class skill as that has an on page toggle
+        if (i != "class_skill") {
+          var col = document.createElement("div");
+          col.setAttribute("class", "col-xs-6 col-xl-4");
 
-        var col = document.createElement("div");
-        col.setAttribute("class", "col-xs-6 col-xl-4");
+          var div = document.createElement("div");
+          div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");
 
-        var div = document.createElement("div");
-        div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");
+          var input = document.createElement("input");
+          input.setAttribute("id", i.replace(/_+/g, "-"));
+          input.setAttribute("class", "m-total-block-toggle-check");
+          input.setAttribute("data-path", path + "." + i);
+          input.setAttribute("data-bonus-type", i.replace(/_+/g, "-"));
+          input.setAttribute("type", "checkbox");
+          input.setAttribute("tabindex", "3");
+          input.checked = data[i];
 
-        var input = document.createElement("input");
-        input.setAttribute("id", i.replace(/_+/g, "-"));
-        input.setAttribute("class", "m-total-block-toggle-check");
-        input.setAttribute("data-path", path + "." + i);
-        input.setAttribute("data-bonus-type", i.replace(/_+/g, "-"));
-        input.setAttribute("type", "checkbox");
-        input.setAttribute("tabindex", "3");
-        input.checked = data[i];
+          var label = document.createElement("label");
+          label.setAttribute("for", i.replace(/_+/g, "-"));
+          label.setAttribute("class", "u-full-width");
+          label.textContent = _bonusTextLable(i);
 
-        var label = document.createElement("label");
-        label.setAttribute("for", i.replace(/_+/g, "-"));
-        label.setAttribute("class", "u-full-width");
-        label.textContent = bonusTextLable(i);
+          div.appendChild(input);
+          div.appendChild(label);
+          col.appendChild(div);
+          row.appendChild(col);
 
-        div.appendChild(input);
-        div.appendChild(label);
-        col.appendChild(div);
-        row.appendChild(col);
-
-        _bind_bonusType(input, totalBlock);
+          _bind_bonusTypeChecks(input, totalBlock);
+        };
 
       };
     };
 
     container.appendChild(row);
-    modal.render(container, "Done");
+    modal.render(heading, container, "Done");
 
+  };
+
+  function _bind_bonusTypeChecks(element, totalBlock) {
+    element.addEventListener("change", function() {
+      _addRemoveBonus(this, totalBlock);
+      _store(this, totalBlock);
+      update();
+    }, false);
   };
 
   function _bind_classSkillToggle(element) {
@@ -420,28 +430,22 @@ var totalBlock = (function() {
     }, false);
   };
 
-  function _bind_bonusType(element, totalBlock) {
-    element.addEventListener("change", function() {
-      _addRemoveBonus(this, totalBlock);
-      _store(this, totalBlock);
-      update();
-    }, false);
+  function _bind_bonusButtons(element) {
+    if (element.nodeName.toLowerCase() == "a") {
+      element.addEventListener("click", function() {
+        _totalBlockModalContent(this);
+      }, false);
+    };
   };
 
   function bind() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      if (all_totalBlockBonuses[i].nodeName.toLowerCase() == "a") {
-        all_totalBlockBonuses[i].addEventListener("click", function() {
-          _totalBlockModalContent(this);
-        }, false);
-      };
+      _bind_bonusButtons(all_totalBlockBonuses[i]);
     };
     for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
-      all_totalBlockToggleCheck[i].addEventListener("click", function() {
-        _bind_classSkillToggle(this);
-      }, false);
+      _bind_classSkillToggle(all_totalBlockToggleCheck[i]);
     };
   };
 

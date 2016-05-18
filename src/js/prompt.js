@@ -54,8 +54,8 @@ var prompt = (function() {
       helper.addClass(prompt, "is-transparent");
     };
 
-    var promptMessage = document.createElement("div");
-    promptMessage.setAttribute("class", "m-prompt-message");
+    var promptbody = document.createElement("div");
+    promptbody.setAttribute("class", "m-prompt-body");
 
     var promptHeading = document.createElement("h1");
     promptHeading.setAttribute("tabindex", "3");
@@ -83,11 +83,13 @@ var prompt = (function() {
 
     promptControls.appendChild(cancelButton);
     promptControls.appendChild(actionButton);
-    promptMessage.appendChild(promptHeading);
-    if (message != false) {
-      promptMessage.appendChild(promptText);
+    if (heading != false) {
+      promptbody.appendChild(promptHeading);
     };
-    promptWrapper.appendChild(promptMessage);
+    if (message != false) {
+      promptbody.appendChild(promptText);
+    };
+    promptWrapper.appendChild(promptbody);
     promptWrapper.appendChild(promptControls);
     
     prompt.appendChild(promptWrapper);

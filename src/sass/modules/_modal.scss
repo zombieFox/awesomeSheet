@@ -32,6 +32,8 @@
   transition: all $transition-bounce-fast;
   .container {
     max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
   }
   &:focus {
     outline: 0;
@@ -40,6 +42,14 @@
 
 .m-modal-body {
   padding: 2em;
+  min-height: 60px;
+  .m-modal-heading {
+    font-size: $font-size-1-5;
+    font-family: $open-sans-semi-bold;
+    &:focus {
+      outline: 0;
+    }
+  }
 }
 
 .m-modal-controls {

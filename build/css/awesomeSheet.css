@@ -1068,19 +1068,18 @@ input[type="button"] {
 
 .button-link {
   background-color: transparent;
-  border-color: transparent;
-  color: #333333; }
+  border: 0;
+  color: #333333;
+  text-transform: inherit;
+  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
   .button-link:link, .button-link:visited {
     background-color: transparent;
-    border-color: transparent;
     color: #333333; }
   .button-link:focus, .button-link:hover {
     background-color: rgba(0, 0, 0, 0.05);
-    border-color: transparent;
     color: #ca0035; }
   .button-link:active, .button-link.is-active {
     background-color: rgba(0, 0, 0, 0.15);
-    border-color: transparent;
     color: #970027; }
 
 .button-tertiary {
@@ -1102,19 +1101,17 @@ input[type="button"] {
 
 .button-tertiary-link {
   background-color: transparent;
-  border-color: transparent;
-  color: rgba(255, 255, 255, 0.85); }
+  border: 0;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: inherit; }
   .button-tertiary-link:link, .button-tertiary-link:visited {
     background-color: transparent;
-    border-color: transparent;
     color: rgba(255, 255, 255, 0.85); }
   .button-tertiary-link:focus, .button-tertiary-link:hover {
     background-color: rgba(0, 0, 0, 0.15);
-    border-color: transparent;
     color: #ffffff; }
   .button-tertiary-link:active, .button-tertiary-link.is-active {
     background-color: rgba(255, 255, 255, 0.35);
-    border-color: transparent;
     color: #ffffff; }
 
 .button-group .button,
@@ -1927,6 +1924,9 @@ label {
           -ms-transform: scale(0.8);
               transform: scale(0.8);
       transition: all 0.2s ease-in-out; }
+      .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class^="icon-"],
+      .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"] {
+        margin: 0; }
   .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input {
     transition: border-color 0.2s ease-in-out; }
 
@@ -1953,9 +1953,6 @@ label {
           -ms-transform: scale(1);
               transform: scale(1);
       transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-      .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class^="icon-"],
-      .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"] {
-        margin: 0; }
 
 .m-hamburger {
   position: relative;
@@ -2372,13 +2369,16 @@ label {
 
 .m-spell {
   margin: 0 0 3px 0;
-  width: 49.5%;
+  width: 100%;
   text-align: left;
   overflow: hidden;
   position: relative;
   white-space: normal;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  line-height: 1.5em; }
+  line-height: 2em;
+  height: inherit;
+  padding-top: 0;
+  padding-bottom: 0; }
   .m-spell .m-spell-active [class*=" icon-"],
   .m-spell .m-spell-active [class^="icon-"],
   .m-spell .m-spell-name [class*=" icon-"],
@@ -2388,7 +2388,7 @@ label {
   .m-spell .m-spell-remove [class*=" icon-"],
   .m-spell .m-spell-remove [class^="icon-"] {
     top: 0;
-    line-height: 1.5em; }
+    line-height: 2em; }
   .m-spell .m-spell-active,
   .m-spell .m-spell-name {
     float: left;
@@ -2426,13 +2426,8 @@ label {
   position: relative;
   z-index: 1; }
   .m-new-spell .m-new-spell-field {
-    padding-right: 40px; }
+    padding-right: 4em; }
   .m-new-spell .m-new-spell-add {
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 2.5em;
-    line-height: 2.5em;
     position: absolute;
     top: 0;
     right: 0;
@@ -2440,6 +2435,10 @@ label {
     .m-new-spell .m-new-spell-add [class*=" icon-"],
     .m-new-spell .m-new-spell-add [class^="icon-"] {
       margin: 0; }
+
+@media (min-width: 550px) {
+  .m-spell {
+    width: 49.5%; } }
 
 @media (min-width: 900px) {
   .m-spell {
@@ -2479,19 +2478,19 @@ label {
   border-radius: 3px;
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
 
-.m-prompt-message {
+.m-prompt-body {
   padding: 2em;
   min-height: 60px; }
-  .m-prompt-message .m-prompt-heading {
+  .m-prompt-body .m-prompt-heading {
     font-size: 1.5em;
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
-    .m-prompt-message .m-prompt-heading:focus {
+    .m-prompt-body .m-prompt-heading:focus {
       outline: 0; }
-    .m-prompt-message .m-prompt-heading:last-child {
+    .m-prompt-body .m-prompt-heading:last-child {
       margin-bottom: 0; }
-  .m-prompt-message .m-prompt-text {
+  .m-prompt-body .m-prompt-text {
     font-size: 1em; }
-    .m-prompt-message .m-prompt-text:last-child {
+    .m-prompt-body .m-prompt-text:last-child {
       margin-bottom: 0; }
 
 .m-prompt-controls .button {
@@ -2563,12 +2562,20 @@ label {
   border-radius: 3px;
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   .m-modal-wrapper .container {
-    max-width: 100%; }
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0; }
   .m-modal-wrapper:focus {
     outline: 0; }
 
 .m-modal-body {
-  padding: 2em; }
+  padding: 2em;
+  min-height: 60px; }
+  .m-modal-body .m-modal-heading {
+    font-size: 1.5em;
+    font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+    .m-modal-body .m-modal-heading:focus {
+      outline: 0; }
 
 .m-modal-controls .button {
   margin: 0; }

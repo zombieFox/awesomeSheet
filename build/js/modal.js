@@ -29,7 +29,7 @@ var modal = (function() {
     };
   };
 
-  function render(modalBodyContent, actionText) {
+  function render(heading, modalBodyContent, actionText) {
 
     prompt.destroy();
     var body = helper.e("body");
@@ -55,6 +55,11 @@ var modal = (function() {
       helper.addClass(modal, "is-transparent");
     };
 
+    var modalHeading = document.createElement("h1");
+    modalHeading.setAttribute("tabindex", "3");
+    modalHeading.setAttribute("class", "m-modal-heading");
+    modalHeading.textContent = heading;
+
     var modalBody = document.createElement("div");
     modalBody.setAttribute("class", "m-modal-body u-clearfix");
 
@@ -69,11 +74,15 @@ var modal = (function() {
 
     modalControls.appendChild(actionButton);
 
-    if (modalBodyContent) {
-      modalBody.appendChild(modalBodyContent);
-      modalWrapper.appendChild(modalBody);
+    if (heading != false) {
+      modalBody.appendChild(modalHeading);
     };
 
+    if (modalBodyContent) {
+      modalBody.appendChild(modalBodyContent);
+    };
+
+    modalWrapper.appendChild(modalBody);
     modalWrapper.appendChild(modalControls);
     modal.appendChild(modalWrapper);
 
@@ -114,7 +123,7 @@ var modal = (function() {
     helper.addClass(modalWrapper, "is-unrotate-in");
     helper.removeClass(modalShade, "is-transparent");
     helper.addClass(modalShade, "is-opaque");
-    modalWrapper.focus(this);
+    modalHeading.focus(this);
 
   };
 

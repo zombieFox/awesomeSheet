@@ -126,13 +126,16 @@
 
 .m-spell {
   margin: 0 0 3px 0;
-  width: 49.5%;
+  width: 100%;
   text-align: left;
   overflow: hidden;
   position: relative;
   white-space: normal;
   font-family: $open-sans-regular;
-  line-height: $line-height-1-5;
+  line-height: $line-height-2;
+  height: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
   .m-spell-active,
   .m-spell-name,
   .m-spell-marks,
@@ -140,7 +143,7 @@
     [class*=" icon-"],
     [class^="icon-"] {
       top: 0;
-      line-height: $line-height-1-5;
+      line-height: $line-height-2;
     }
   }
   .m-spell-active,
@@ -189,14 +192,9 @@
   position: relative;
   z-index: 1;
   .m-new-spell-field {
-    padding-right: 40px;
+    padding-right: 4em;
   }
   .m-new-spell-add {
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: $line-height-2-5;
-    line-height: $line-height-2-5;
     position: absolute;
     top: 0;
     right: 0;
@@ -211,7 +209,11 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-spell {
+    width: 49.5%;
+  }
+}
 
 @media (min-width: $screen-md) {}
 

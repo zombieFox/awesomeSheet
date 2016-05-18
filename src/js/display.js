@@ -190,8 +190,8 @@ var display = (function() {
           makeDisplayItem("skills.custom_3.current", customSkillName(sheet.getCharacter().skills.custom_3.name) + " <strong>", "</strong>");
           makeDisplayItem("skills.custom_4.current", customSkillName(sheet.getCharacter().skills.custom_4.name) + " <strong>", "</strong>");
 
-          makeDisplayItem("notes.character", "<strong>Character Notes</strong><br> ", "");
-          makeDisplayItem("notes.story", "<strong>Story Notes</strong><br> ", "");
+          makeDisplayItem("notes.character", "", "");
+          makeDisplayItem("notes.story", "", "");
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");

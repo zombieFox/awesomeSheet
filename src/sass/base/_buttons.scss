@@ -122,24 +122,23 @@ input[type="button"] {
 
 .button-link {
   background-color: transparent;
-  border-color: transparent;
+  border: 0;
   color: $base-color;
+  text-transform: inherit;
+  font-family: $open-sans-regular;
   &:link,
   &:visited {
     background-color: transparent;
-    border-color: transparent;
     color: $base-color;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-20;
-    border-color: transparent;
     color: $primary-color-08;
   }
   &:active,
   &.is-active {
     background-color: $dark-alpha-18;
-    border-color: transparent;
     color: $primary-color-06;
   }
 }
@@ -170,24 +169,22 @@ input[type="button"] {
 
 .button-tertiary-link {
   background-color: transparent;
-  border-color: transparent;
+  border: 0;
   color: $light-alpha-04;
+  text-transform: inherit;
   &:link,
   &:visited {
     background-color: transparent;
-    border-color: transparent;
     color: $light-alpha-04;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-18;
-    border-color: transparent;
     color: $white;
   }
   &:active,
   &.is-active {
     background-color: $light-alpha-14;
-    border-color: transparent;
     color: $white;
   }
 }
