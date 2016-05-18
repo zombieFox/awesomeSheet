@@ -527,14 +527,16 @@ var ro = (function() {
         misc: "",
         class_skill: false,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
       },
       custom_2: {
         name: "",
@@ -542,14 +544,16 @@ var ro = (function() {
         misc: "",
         class_skill: false,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
       },
       custom_3: {
         name: "",
@@ -557,14 +561,16 @@ var ro = (function() {
         misc: "",
         class_skill: false,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
       },
       custom_4: {
         name: "",
@@ -572,14 +578,16 @@ var ro = (function() {
         misc: "",
         class_skill: false,
         current: "",
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
       }
     },
     spells: {
