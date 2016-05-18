@@ -80,7 +80,18 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  .m-skill {
+    &.m-skill-custom {
+      .m-skill-name {
+        width: 40%;
+      }
+      .m-skill-stat {
+        width: 15%;
+      }
+    }
+  }
+}
 
 @media (min-width: $screen-lg) {}
 

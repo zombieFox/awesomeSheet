@@ -108,7 +108,7 @@ var totalBlock = (function() {
       var acNatural = 0;
       var classSkill = 0;
       // str
-      if (all_totalBlock[i].dataset.strBonus == "true") {
+      if (all_totalBlock[i].dataset.strBonus == "true" || all_totalBlock[i].dataset.strBonusDefault == "true") {
         // if ability temp mod is empty
         if (statsStrModifierTemp.textContent == "") {
           strBonus = parseInt(statsStrModifier.textContent, 10 || 0);
@@ -117,7 +117,7 @@ var totalBlock = (function() {
         };
       };
       // dex
-      if (all_totalBlock[i].dataset.dexBonus == "true") {
+      if (all_totalBlock[i].dataset.dexBonus == "true" || all_totalBlock[i].dataset.dexBonusDefault == "true") {
         // if ability temp mod is empty
         if (statsDexModifierTemp.textContent == "") {
           dexBonus = parseInt(statsDexModifier.textContent, 10 || 0);
@@ -126,7 +126,7 @@ var totalBlock = (function() {
         };
       };
       // con
-      if (all_totalBlock[i].dataset.conBonus == "true") {
+      if (all_totalBlock[i].dataset.conBonus == "true" || all_totalBlock[i].dataset.conBonusDefault == "true") {
         // if ability temp mod is empty
         if (statsConModifierTemp.textContent == "") {
           conBonus = parseInt(statsConModifier.textContent, 10 || 0);
@@ -135,7 +135,7 @@ var totalBlock = (function() {
         };
       };
       // int
-      if (all_totalBlock[i].dataset.intBonus == "true") {
+      if (all_totalBlock[i].dataset.intBonus == "true" || all_totalBlock[i].dataset.intBonusDefault == "true") {
         // if ability temp mod is empty
         if (statsIntModifierTemp.textContent == "") {
           intBonus = parseInt(statsIntModifier.textContent, 10 || 0);
@@ -144,7 +144,7 @@ var totalBlock = (function() {
         };
       };
       // wis
-      if (all_totalBlock[i].dataset.wisBonus == "true") {
+      if (all_totalBlock[i].dataset.wisBonus == "true" || all_totalBlock[i].dataset.wisBonusDefault == "true") {
         // if ability temp mod is empty
         if (statsWisModifierTemp.textContent == "") {
           wisBonus = parseInt(statsWisModifier.textContent, 10 || 0);
@@ -153,7 +153,7 @@ var totalBlock = (function() {
         };
       };
       // cha
-      if (all_totalBlock[i].dataset.chaBonus == "true") {
+      if (all_totalBlock[i].dataset.chaBonus == "true" || all_totalBlock[i].dataset.chaBonusDefault == "true") {
         // if ability temp mod is empty
         if (statsChaModifierTemp.textContent == "") {
           chaBonus = parseInt(statsChaModifier.textContent, 10 || 0);
@@ -162,51 +162,51 @@ var totalBlock = (function() {
         };
       };
       // bab
-      if (all_totalBlock[i].dataset.babBonus == "true") {
+      if (all_totalBlock[i].dataset.babBonus == "true" || all_totalBlock[i].dataset.babBonusDefault == "true") {
         babBonus = parseInt(helper.e("#offense-base-attack").value, 10 || 0);
       };
       // size
-      if (all_totalBlock[i].dataset.sizeBonus == "true") {
+      if (all_totalBlock[i].dataset.sizeBonus == "true" || all_totalBlock[i].dataset.sizeBonusDefault == "true") {
         sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
       };
       // special size
-      if (all_totalBlock[i].dataset.specialSizeBonus == "true") {
+      if (all_totalBlock[i].dataset.specialSizeBonus == "true" || all_totalBlock[i].dataset.specialSizeBonusDefault == "true") {
         specialSizeBonus = parseInt(helper.e("#offense-special-size-bonus").value, 10 || 0);
       };
       // level
-      if (all_totalBlock[i].dataset.levelBonus == "true") {
+      if (all_totalBlock[i].dataset.levelBonus == "true" || all_totalBlock[i].dataset.levelBonusDefault == "true") {
         levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
       };
       // half level
-      if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
+      if (all_totalBlock[i].dataset.halfLevelBonus == "true" || all_totalBlock[i].dataset.halfLevelBonusDefault == "true") {
         halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2);
       };
       // ac armor
-      if (all_totalBlock[i].dataset.acArmor == "true") {
+      if (all_totalBlock[i].dataset.acArmor == "true" || all_totalBlock[i].dataset.acArmorDefault == "true") {
         acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
       };
       // ac shield
-      if (all_totalBlock[i].dataset.acShield == "true") {
+      if (all_totalBlock[i].dataset.acShield == "true" || all_totalBlock[i].dataset.acShieldDefault == "true") {
         acShield = parseInt(helper.e("#defense-ac-shield").value, 10 || 0);
       };
       // ac deflect
-      if (all_totalBlock[i].dataset.acDeflect == "true") {
+      if (all_totalBlock[i].dataset.acDeflect == "true" || all_totalBlock[i].dataset.acDeflectDefault == "true") {
         acDeflect = parseInt(helper.e("#defense-ac-deflect").value, 10 || 0);
       };
       // ac dodge
-      if (all_totalBlock[i].dataset.acDodge == "true") {
+      if (all_totalBlock[i].dataset.acDodge == "true" || all_totalBlock[i].dataset.acDodgeDefault == "true") {
         acDodge = parseInt(helper.e("#defense-ac-dodge").value, 10 || 0);
       };
       // ac natural
-      if (all_totalBlock[i].dataset.acNatural == "true") {
+      if (all_totalBlock[i].dataset.acNatural == "true" || all_totalBlock[i].dataset.acNaturalDefault == "true") {
         acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
       };
       // class skill
-      if (all_totalBlock[i].dataset.classSkill == "true") {
+      if (all_totalBlock[i].dataset.classSkill == "true" || all_totalBlock[i].dataset.classSkillDefault == "true") {
         classSkill = 3;
       };
       // 10
-      if (all_totalBlock[i].dataset.plusTenBonus == "true") {
+      if (all_totalBlock[i].dataset.plusTenBonus == "true" || all_totalBlock[i].dataset.plusTenBonusDefault == "true") {
         plusTenBonus = 10;
       };
       // check if any bonus is NaN
@@ -329,7 +329,7 @@ var totalBlock = (function() {
     if (bonusType == "size") {
       return "Size Bonus";
     };
-    if (bonusType == "special-size") {
+    if (bonusType == "special-size" || bonusType == "special_size") {
       return "Special Size Bonus";
     };
     if (bonusType == "level") {
@@ -338,22 +338,22 @@ var totalBlock = (function() {
     if (bonusType == "half-level" || bonusType == "half_level") {
       return "Half Level";
     };
-    if (bonusType == "plus-ten") {
+    if (bonusType == "plus-ten" || bonusType == "plus_ten") {
       return "Plus 10";
     };
-    if (bonusType == "ac-armor") {
+    if (bonusType == "ac-armor" || bonusType == "ac_armor") {
       return "Armor";
     };
-    if (bonusType == "ac-shield") {
+    if (bonusType == "ac-shield" || bonusType == "ac_shield") {
       return "Shield";
     };
-    if (bonusType == "ac-deflect") {
+    if (bonusType == "ac-deflect" || bonusType == "ac_deflect") {
       return "Deflect";
     };
-    if (bonusType == "ac-dodge") {
+    if (bonusType == "ac-dodge" || bonusType == "ac_dodge") {
       return "Dodge";
     };
-    if (bonusType == "ac-natural") {
+    if (bonusType == "ac-natural" || bonusType == "ac_natural") {
       return "Natural Armor";
     };
     if (bonusType == "class-skill" || bonusType == "class_skill") {
@@ -544,8 +544,34 @@ var totalBlock = (function() {
     };
   };
 
+
+  function clear() {
+    var all_totalBlock = helper.eA(".js-total-block");
+    for (var i = 0; i < all_totalBlock.length; i++) {
+      delete all_totalBlock[i].dataset.strBonus;
+      delete all_totalBlock[i].dataset.dexBonus;
+      delete all_totalBlock[i].dataset.conBonus;
+      delete all_totalBlock[i].dataset.intBonus;
+      delete all_totalBlock[i].dataset.wisBonus;
+      delete all_totalBlock[i].dataset.chaBonus;
+      delete all_totalBlock[i].dataset.babBonus;
+      delete all_totalBlock[i].dataset.sizeBonus;
+      delete all_totalBlock[i].dataset.specialSizeBonus;
+      delete all_totalBlock[i].dataset.levelBonus;
+      delete all_totalBlock[i].dataset.halfLevelBonus;
+      delete all_totalBlock[i].dataset.plusTenBonus;
+      delete all_totalBlock[i].dataset.acArmor;
+      delete all_totalBlock[i].dataset.acShield;
+      delete all_totalBlock[i].dataset.acDeflect;
+      delete all_totalBlock[i].dataset.acDodge;
+      delete all_totalBlock[i].dataset.acNatural;
+      delete all_totalBlock[i].dataset.classSkill;
+    };
+  };
+
   // exposed methods
   return {
+    clear: clear,
     bind: bind,
     update: update,
     render: render
