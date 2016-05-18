@@ -145,9 +145,10 @@ var clone = (function() {
     var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
     var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
     if (targetTop > windowBottom) {
-      smoothScroll.animateScroll(null, cloneBlock, options = {
+      var options = {
         offset: quickNavHeight + subHeaderHeight + 10
-      });
+      };
+      smoothScroll.animateScroll(null, cloneBlock, options);
     };
   };
 
