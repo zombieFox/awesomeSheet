@@ -2113,8 +2113,6 @@ label {
   position: absolute;
   top: 0;
   left: 10px;
-  height: 1.625rem;
-  line-height: 1.625rem;
   z-index: 2;
   transition: all 0.2s ease-in-out;
   cursor: text;
@@ -2478,8 +2476,8 @@ label {
   box-sizing: border-box;
   font-size: 1rem;
   border-radius: 3px;
-  transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
 
 .m-prompt-body {
   padding: 2em;
@@ -2565,8 +2563,8 @@ label {
   box-sizing: border-box;
   font-size: 1rem;
   border-radius: 3px;
-  transition: -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   .m-modal-wrapper .container {
     max-width: 100%;
     padding-right: 0;
@@ -2881,17 +2879,17 @@ label {
   -webkit-transform-origin: center botoom !important;
       -ms-transform-origin: center botoom !important;
           transform-origin: center botoom !important;
-  -webkit-transform: translate(0, 0) scale(0.4) rotateX(90deg) !important;
-          transform: translate(0, 0) scale(0.4) rotateX(90deg) !important; }
+  -webkit-transform: translate(0, 0) scale(0.9) rotateX(45deg) !important;
+          transform: translate(0, 0) scale(0.9) rotateX(45deg) !important; }
 
 .is-dropped-out {
-  -webkit-transform-origin: left bottom !important;
-      -ms-transform-origin: left bottom !important;
-          transform-origin: left bottom !important;
-  -webkit-transform: translate(-10%, 150%) scale(1) rotateZ(60deg) !important;
-          transform: translate(-10%, 150%) scale(1) rotateZ(60deg) !important;
-  transition: -webkit-transform 0.4s ease-in-out !important;
-  transition: transform 0.4s ease-in-out !important; }
+  -webkit-transform-origin: center bottom !important;
+      -ms-transform-origin: center bottom !important;
+          transform-origin: center bottom !important;
+  -webkit-transform: translate(0, 100%) scale(0.6) rotateZ(20deg) rotateX(-50deg) !important;
+          transform: translate(0, 100%) scale(0.6) rotateZ(20deg) rotateX(-50deg) !important;
+  transition: -webkit-transform 0.5s ease-in-out !important;
+  transition: transform 0.5s ease-in-out !important; }
 
 @media (min-width: 550px) {
   .is-onscreen-nav {

@@ -144,7 +144,7 @@ var clone = (function() {
     var windowBottom = window.innerHeight;
     var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
     var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
-    if (targetTop > windowBottom) {
+    if (targetTop > (windowBottom - (windowBottom / 2))) {
       var options = {
         offset: quickNavHeight + subHeaderHeight + 10
       };

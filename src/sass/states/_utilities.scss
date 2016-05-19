@@ -37,13 +37,13 @@
 
 .is-unrotate-out {
   transform-origin: center botoom !important;
-  transform: translate(0, 0) scale(0.4) rotateX(90deg) !important;
+  transform: translate(0, 0) scale(0.9) rotateX(45deg) !important;
 }
 
 .is-dropped-out {
-  transform-origin: left bottom !important;
-  transform: translate(-10%, 150%) scale(1) rotateZ(60deg) !important;
-  transition: transform $transition-ease-medium !important;
+  transform-origin: center bottom !important;
+  transform: translate(0, 100%) scale(0.6) rotateZ(20deg) rotateX(-50deg) !important;
+  transition: transform $transition-ease-slow !important;
 }
 
 // --------------------------------------------------
