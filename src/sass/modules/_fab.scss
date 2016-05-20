@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  font-size: $root-font-size-extra-large;
+  font-size: $font-size-root-100;
   z-index: $fab;
   transition: all $transition-ease-medium;
   transform: rotate(0);
@@ -30,7 +30,7 @@
 .m-fab-button {
   width: 55px;
   height: 55px;
-  font-size: $font-size-1-5;
+  font-size: $font-size-150;
   line-height: 55px;
   margin: 0;
   padding: 0;

@@ -32,7 +32,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -72,7 +72,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -124,7 +124,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -146,7 +146,7 @@ var clone = (function() {
     var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
     if (targetTop > (windowBottom - (windowBottom / 2))) {
       var options = {
-        offset: quickNavHeight + subHeaderHeight + 10
+        offset: quickNavHeight + subHeaderHeight + 30
       };
       smoothScroll.animateScroll(null, cloneBlock, options);
     };

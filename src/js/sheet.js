@@ -96,7 +96,9 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    document.location.reload(true);
+    helper.delayFunction(function() {
+      document.location.reload(true);
+    }, 200);
   };
 
   function printCharacterObject(index) {

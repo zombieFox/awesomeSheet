@@ -3,8 +3,8 @@
 }
 
 .m-display-section-icon {
-  margin-bottom: 2em;
-  font-size: 2em;
+  margin-bottom: $font-size-200;
+  font-size: $font-size-200;
   color: $gray-14;
   transition: all $transition-ease-fast;
   width: 100%;
@@ -34,8 +34,8 @@
 }
 
 .m-display-block {
-  // line-height: 2em;
-  // margin-bottom: 0.5em;
+  // line-height: $font-size-200;
+  // margin-bottom: $font-size-050;
 }
 
 .m-display-item,
@@ -70,11 +70,11 @@
   .m-display-spell-name {}
   .m-display-spell-active {
     margin-right: 5px;
-    font-size: 0.8em;
+    font-size: $font-size-075;
   }
   .m-display-spell-marks {
     margin-left: 8px;
-    font-size: 0.8em;
+    font-size: $font-size-075;
   }
 }
 

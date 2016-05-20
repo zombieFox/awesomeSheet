@@ -5054,7 +5054,9 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    document.location.reload(true);
+    helper.delayFunction(function() {
+      document.location.reload(true);
+    }, 200);
   };
 
   function printCharacterObject(index) {
@@ -5280,7 +5282,7 @@ var nav = (function() {
       var all_section = helper.eA(".js-section");
       var menu = parseInt(getComputedStyle(quickNav).height, 10);
       for (var i = 0; i < all_section.length; i++) {
-        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
+        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_section[i].getBoundingClientRect().bottom);
 
         var sectionHeading = all_section[i].querySelector(".js-section-heading");
         var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
@@ -5868,7 +5870,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -5908,7 +5910,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -5960,7 +5962,7 @@ var clone = (function() {
       '</div>' +
       '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>' +
       '</div>' +
       '</div>';
@@ -5982,7 +5984,7 @@ var clone = (function() {
     var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
     if (targetTop > (windowBottom - (windowBottom / 2))) {
       var options = {
-        offset: quickNavHeight + subHeaderHeight + 10
+        offset: quickNavHeight + subHeaderHeight + 30
       };
       smoothScroll.animateScroll(null, cloneBlock, options);
     };
