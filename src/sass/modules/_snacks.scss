@@ -11,6 +11,7 @@
   transition: all $transition-ease-slow;
   opacity: 1;
   z-index: $snacks;
+  font-size: $font-size-root-100;
   display: flex;
   justify-content: space-between;
   align-items: center;

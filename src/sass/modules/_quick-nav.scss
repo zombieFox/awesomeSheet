@@ -64,36 +64,22 @@
 }
 
 .m-nav-toggle {
-  padding: 0 20%;
   position: relative;
-  width: 60%;
-  display: inline-block;
-  transition: all $transition-ease-fast;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-nav-toggle {
-    padding: 0 25%;
-    width: 50%;
-  }
-}
+@media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .m-nav-toggle {
-    padding: 0 30%;
-    width: 40%;
-  }
-}
+@media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  .m-nav-toggle {
-    padding: 0 35%;
-    width: 30%;
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
