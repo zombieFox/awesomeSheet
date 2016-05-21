@@ -151,7 +151,7 @@ var nav = (function() {
       var all_section = helper.eA(".js-section");
       var menu = parseInt(getComputedStyle(quickNav).height, 10);
       for (var i = 0; i < all_section.length; i++) {
-        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + " | bottom = " + all_section[i].getBoundingClientRect().bottom);
+        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_section[i].getBoundingClientRect().bottom);
 
         var sectionHeading = all_section[i].querySelector(".js-section-heading");
         var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);

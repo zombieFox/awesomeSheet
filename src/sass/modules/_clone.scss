@@ -59,7 +59,7 @@
         }
         background-color: $primary-color-19;
         margin: 0 0 1rem 0;
-        padding: 1rem;
+        padding: $font-size-100;
         border-radius: $border-radius-medium;
         .u-underline-with-input {
           border-color: $primary-color-alpha-18;
@@ -70,7 +70,13 @@
           opacity: 1;
           .button {
             transform: scale(1);
+            line-height: $line-height-100;
             transition: all $transition-bounce-extra-slow;
+            [class^="icon-"],
+            [class*=" icon-"] {
+              font-size: $font-size-200;
+              line-height: $line-height-100;
+            }
           }
         }
       }

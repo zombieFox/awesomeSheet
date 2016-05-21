@@ -125,17 +125,17 @@
 }
 
 .m-spell {
+  padding-top: 0;
+  padding-bottom: 0;
   margin: 0 0 3px 0;
   width: 100%;
   text-align: left;
   overflow: hidden;
   position: relative;
   white-space: normal;
+  font-size: $font-size-root-100;
+  line-height: $line-height-160;
   font-family: $open-sans-regular;
-  line-height: $line-height-2;
-  height: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
   .m-spell-active,
   .m-spell-name,
   .m-spell-marks,
@@ -143,7 +143,6 @@
     [class*=" icon-"],
     [class^="icon-"] {
       top: 0;
-      line-height: $line-height-2;
     }
   }
   .m-spell-active,

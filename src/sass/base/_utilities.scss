@@ -22,8 +22,8 @@
 .u-inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  height: $line-height-2-5;
-  line-height: $line-height-2-5;
+  height: $line-height-root-250;
+  line-height: $line-height-root-250;
   box-sizing: border-box;
 }
 
@@ -38,7 +38,7 @@
 
 .u-small-text {
   color: $gray-12;
-  font-size: $root-font-size-extra-small;
+  font-size: $font-size-075;
 }
 
 .u-list-unstyled {

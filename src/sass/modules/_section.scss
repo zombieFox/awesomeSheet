@@ -10,16 +10,12 @@
       padding-bottom: 0;
       border: 0;
       border-radius: 0;
-      font-size: 0.8em;
       height: 40px;
       line-height: 40px;
     }
   }
   .button-group-strech {
     width: 100%;
-    .button {
-      padding: 0;
-    }
   }
 }
 
@@ -34,13 +30,13 @@
     color: $white;
     margin: 0;
     font-family: $open-sans-semi-bold;
-    font-size: $font-size-1;
+    font-size: $font-size-100;
     line-height: 40px;
   }
   &.is-pinned {
     margin: 0;
     position: fixed;
-    top: 4.5rem;
+    top: $font-size-450;
     width: 100%;
   }
   &.is-faded {
@@ -50,11 +46,11 @@
 
 .m-section-heading-sub {
   font-family: $open-sans-semi-bold;
-  font-size: $font-size-1;
+  font-size: $font-size-100;
 }
 
 .m-section-wrapper {
-  padding: $font-size-2 0;
+  padding: $font-size-200 0;
 }
 
 // --------------------------------------------------
@@ -66,31 +62,15 @@
 
 @media (min-width: $screen-md) {
   .m-section-controls {
-    .button-group,
-    .button-group-strech {
-      .button {
-        padding: 0 10px;
-        font-size: $root-font-size-small;
-      }
-    }
     .button-group-strech {
       width: inherit;
     }
   }
   .m-section-wrapper {
-    padding: $font-size-3 0;
+    padding: $font-size-300 0;
   }
 }
 
-@media (min-width: $screen-lg) {
-  .m-section-controls {
-    .button-group,
-    .button-group-strech {
-      .button {
-        padding: 0 15px;
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}

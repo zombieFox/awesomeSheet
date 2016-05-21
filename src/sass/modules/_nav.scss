@@ -1,6 +1,6 @@
 .m-nav {
   background-color: $white;
-  padding: 4.5rem 0;
+  padding: $font-size-450 0;
   position: fixed;
   top: -100%;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: $nav;
   transition: top $transition-ease-medium;
   .m-nav-list {
-    padding: $font-size-1 0;
+    padding: $font-size-100 0;
     margin: 0;
     width: 100%;
     overflow-y: auto;
@@ -20,7 +20,7 @@
       text-align: left;
       list-style-type: none;
       &.m-nav-divide {
-        margin: $font-size-0-5 0;
+        margin: $font-size-100 0;
         background-color: $gray-19;
         height: 1px;
       }
@@ -36,7 +36,7 @@
   margin-bottom: 0;
   margin-left: 20%;
   font-family: $open-sans-bold;
-  line-height: $line-height-3;
+  line-height: $line-height-300;
   width: 80%;
   display: block;
   text-transform: uppercase;
@@ -45,14 +45,14 @@
 
 .m-nav-link {
   font-family: $open-sans-semi-bold;
-  line-height: $line-height-3;
+  line-height: $line-height-300;
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   .m-nav-link-name {}
   [class^="icon-"],
   [class*=" icon-"] {
     width: 20%;
-    font-size: $font-size-1-5;
+    font-size: $font-size-125;
     color: $secondary-color-03;
     text-align: center;
     display: block;
@@ -82,8 +82,9 @@
 .m-nav-character {
   margin: 0;
   position: relative;
+  height: $line-height-400;
+  line-height: $line-height-400;
   display: block;
-  height: $line-height-4;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   input {
     &[type="radio"],
@@ -91,8 +92,8 @@
       top: 50%;
       transform: translate(-50%, -50%);
       & + label {
-        height: $line-height-4;
-        line-height: $line-height-4;
+        height: $line-height-400;
+        line-height: $line-height-400;
         transition: none;
         &:before {
           color: $secondary-color-03;
@@ -105,9 +106,9 @@
         .m-nav-characters-name,
         .m-nav-characters-class,
         .m-nav-characters-level {
-          line-height: $line-height-1-5;
           display: block;
           float: left;
+          line-height: $line-height-160;
         }
         .m-nav-characters-class,
         .m-nav-characters-level {
@@ -117,10 +118,10 @@
           color: $primary-color-10;
           font-family: $open-sans-semi-bold;
           width: 80%;
-          margin-top: $font-size-0-5;
+          margin-top: 5px;
         }
         .m-nav-characters-class {
-          margin-right: $font-size-0-5;
+          margin-right: $font-size-050;
         }
       }
       &:hover {
@@ -202,46 +203,19 @@
 @media (min-width: $screen-sm) {
   .m-nav {
     border: 0;
-    border-left: 2px solid $dark-alpha-20;
-    padding: 0;
+    border-left: 2px solid $gray-20;
+    padding: $font-size-450 0;
     top: 0;
     left: inherit;
     right: -400px;
     width: 360px;
     transition: right $transition-ease-fast;
-    .m-nav-list {
-      padding: 6rem 0 $font-size-1 0;
-    }
     &.is-open {
       top: 0;
       right: 0;
       transition: right $transition-ease-fast;
     }
   }
-  // .m-nav-title {
-  //   margin-left: 20%;
-  // }
-  // .m-nav-link {
-  //   [class^="icon-"],
-  //   [class*=" icon-"] {
-  //     width: 20%;
-  //   }
-  // }
-  // .m-nav-character {
-  //   input {
-  //     &[type="radio"],
-  //     &[type="checkbox"] {
-  //       & + label {
-  //         &:before {
-  //           width: 20%;
-  //         }
-  //         .m-nav-characters-name {
-  //           width: 80%;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 @media (min-width: $screen-md) {}
