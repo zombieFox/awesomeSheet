@@ -6251,7 +6251,7 @@ var clone = (function() {
   function _bind_cloneConsumableInput(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".js-input-block-field");
-      if (input.classList.contains("consumable-used") || input.classList.contains("consumable-total")) {
+      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
         input.addEventListener("input", function() {
           _minMaxCountLimit(this);
         }, false);
