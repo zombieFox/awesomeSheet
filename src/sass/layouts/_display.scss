@@ -1,4 +1,21 @@
 .l-section-display {
-  padding: 150px 0 0 0;
+  padding: 100px 0 300px 0;
   z-index: $display;
 }
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {
+  .l-section-display {
+    padding: 130px 0 300px 0;
+  }
+}
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-xl) {}

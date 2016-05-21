@@ -142,6 +142,13 @@ var nav = (function() {
     var all_navCharacterSelect = helper.eA(".js-nav-character-input");
     all_navCharacterSelect[sheet.getIndex()].checked = true;
     _render_quickNav();
+    _render_lastSectionHeight();
+  };
+
+  function _render_lastSectionHeight() {
+    var all_section = helper.eA(".js-section");
+    var lastSection = all_section[all_section.length -1];
+    lastSection.style.minHeight = window.innerHeight + "px";
   };
 
   function _render_quickNav() {
@@ -186,13 +193,13 @@ var nav = (function() {
         };
 
       };
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        var lastQuickLink = helper.e(".js-quick-nav-last-link");
-        for (var i = 0; i < quickNavLinks.length; i++) {
-          helper.removeClass(quickNavLinks[i], "is-active");
-        };
-        helper.addClass(lastQuickLink, "is-active");
-      };
+      // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
+      //   for (var i = 0; i < quickNavLinks.length; i++) {
+      //     helper.removeClass(quickNavLinks[i], "is-active");
+      //   };
+      //   helper.addClass(lastQuickLink, "is-active");
+      // };
     };
   };
 
