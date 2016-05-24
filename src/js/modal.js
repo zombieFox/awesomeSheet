@@ -126,6 +126,7 @@ var modal = (function() {
 
   };
 
+  // exposed methods
   return {
     bind: bind,
     destroy: destroy,
