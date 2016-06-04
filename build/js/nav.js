@@ -1,5 +1,50 @@
 var nav = (function() {
 
+  var previousNavShade = null;
+
+  function _destroy_navShade() {
+    var navShade = helper.e(".js-nav-shade");
+    if (navShade) {
+      getComputedStyle(navShade).opacity;
+      helper.removeClass(navShade, "is-opaque");
+      helper.addClass(navShade, "is-transparent");
+    };
+  };
+
+  function _render_navShade() {
+
+    var nav = helper.e(".js-nav");
+
+    var navShade = document.createElement("div");
+    navShade.setAttribute("class", "m-nav-shade js-nav-shade");
+    navShade.destroy = function() {
+      helper.removeClass(navShade, "is-opaque");
+      helper.addClass(navShade, "is-transparent");
+    };
+
+    navShade.addEventListener("transitionend", function(event, elapsed) {
+      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
+        this.parentElement.removeChild(this);
+      };
+    }.bind(navShade), false);
+
+    navShade.addEventListener("click", _destroy_navShade, false);
+
+    if (previousNavShade) {
+      previousNavShade.destroy();
+    };
+
+    previousNavShade = navShade;
+
+    body.insertBefore(navShade, nav);
+
+    getComputedStyle(navShade).opacity;
+
+    helper.removeClass(navShade, "is-transparent");
+    helper.addClass(navShade, "is-opaque");
+
+  };
+
   function _closeNavScrollToTop() {
     if (window.innerWidth < 550) {
       navClose();
@@ -147,7 +192,7 @@ var nav = (function() {
 
   function _render_lastSectionHeight() {
     var all_section = helper.eA(".js-section");
-    var lastSection = all_section[all_section.length -1];
+    var lastSection = all_section[all_section.length - 1];
     lastSection.style.minHeight = window.innerHeight + "px";
   };
 
@@ -203,7 +248,7 @@ var nav = (function() {
     };
   };
 
-  function checkBodyForOpenNav() {
+  function _checkBodyForOpenNav() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
     if (nav) {
@@ -217,21 +262,33 @@ var nav = (function() {
     helper.removeClass(helper.e(".js-nav"), "is-open");
     helper.removeClass(helper.e(".js-nav"), "js-is-open");
     helper.removeClass(helper.e(".js-hamburger"), "is-open");
-    checkBodyForOpenNav();
+    _checkBodyForOpenNav();
+    _destroy_navShade();
   };
 
   function navOpen() {
     helper.addClass(helper.e(".js-nav"), "is-open");
     helper.addClass(helper.e(".js-nav"), "js-is-open");
     helper.addClass(helper.e(".js-hamburger"), "is-open");
-    checkBodyForOpenNav();
+    _checkBodyForOpenNav();
+    _render_navShade();
   };
 
   function navToggle() {
-    helper.toggleClass(helper.e(".js-nav"), "is-open");
-    helper.toggleClass(helper.e(".js-nav"), "js-is-open");
-    helper.toggleClass(helper.e(".js-hamburger"), "is-open");
-    checkBodyForOpenNav();
+    var nav = helper.e(".js-nav");
+    if (nav.classList.contains("is-open")) {
+      helper.removeClass(helper.e(".js-nav"), "is-open");
+      helper.removeClass(helper.e(".js-nav"), "js-is-open");
+      helper.removeClass(helper.e(".js-hamburger"), "is-open");
+      _checkBodyForOpenNav();
+      _destroy_navShade();
+    } else {
+      helper.addClass(helper.e(".js-nav"), "is-open");
+      helper.addClass(helper.e(".js-nav"), "js-is-open");
+      helper.addClass(helper.e(".js-hamburger"), "is-open");
+      _checkBodyForOpenNav();
+      _render_navShade();
+    };
   };
 
   function remove() {

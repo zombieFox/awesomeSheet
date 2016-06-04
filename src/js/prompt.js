@@ -1,7 +1,7 @@
 var prompt = (function() {
 
   var previousPrompt = null;
-  var previouspromptShade = null;
+  var previousPromptShade = null;
 
   function bind() {
     window.addEventListener("keydown", function(event) {
@@ -34,7 +34,6 @@ var prompt = (function() {
     modal.destroy();
     var body = helper.e("body");
 
-    // make new shade
     var promptShade = document.createElement("div");
     promptShade.setAttribute("class", "m-prompt-shade js-prompt-shade");
     promptShade.destroy = function() {
@@ -122,12 +121,12 @@ var prompt = (function() {
       previousPrompt.destroy();
     };
 
-    if (previouspromptShade) {
-      previouspromptShade.destroy();
+    if (previousPromptShade) {
+      previousPromptShade.destroy();
     };
 
     previousPrompt = prompt;
-    previouspromptShade = promptShade;
+    previousPromptShade = promptShade;
 
     body.appendChild(promptShade);
     body.appendChild(prompt);

@@ -32,6 +32,18 @@
   }
 }
 
+.m-nav-shade {
+  background-color: $dark-alpha-06;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: $nav;
+  transition: opacity $transition-ease-medium, transform $transition-ease-medium;
+}
+
 .m-nav-title {
   margin-bottom: 0;
   margin-left: 20%;
@@ -203,7 +215,8 @@
 @media (min-width: $screen-sm) {
   .m-nav {
     border: 0;
-    border-left: 2px solid $gray-20;
+    // border-left: 2px solid $gray-20;
+    // box-shadow: $shadow-large;
     padding: $font-size-450 0;
     top: 0;
     left: inherit;

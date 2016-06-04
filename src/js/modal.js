@@ -34,7 +34,6 @@ var modal = (function() {
     prompt.destroy();
     var body = helper.e("body");
 
-    // make new shade
     var modalShade = document.createElement("div");
     modalShade.setAttribute("class", "m-modal-shade js-modal-shade");
     modalShade.destroy = function() {
