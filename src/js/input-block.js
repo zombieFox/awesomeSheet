@@ -7,7 +7,7 @@ var inputBlock = (function() {
   };
 
   var storeInputTimer = null;
-  var storeBlurTimer = null;
+  var updateNavTimer = null;
 
   function delayUpdate(element) {
     _store(element);
@@ -110,24 +110,24 @@ var inputBlock = (function() {
   function _bind_awesomeName() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(nav.update, 1000, this);
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
   function _bind_class() {
     var input = helper.e(".js-basics-class");
     input.addEventListener("input", function() {
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(nav.update, 1000, this);
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
   function _bind_level() {
     var input = helper.e(".js-basics-level");
     input.addEventListener("input", function() {
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(nav.update, 1000, this);
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 

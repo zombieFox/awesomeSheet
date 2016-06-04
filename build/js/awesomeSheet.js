@@ -6480,7 +6480,7 @@ var inputBlock = (function() {
   };
 
   var storeInputTimer = null;
-  var storeBlurTimer = null;
+  var updateNavTimer = null;
 
   function delayUpdate(element) {
     _store(element);
@@ -6583,24 +6583,24 @@ var inputBlock = (function() {
   function _bind_awesomeName() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(nav.update, 1000, this);
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
   function _bind_class() {
     var input = helper.e(".js-basics-class");
     input.addEventListener("input", function() {
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(nav.update, 1000, this);
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
   function _bind_level() {
     var input = helper.e(".js-basics-level");
     input.addEventListener("input", function() {
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(nav.update, 1000, this);
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
   };
 
@@ -7794,17 +7794,17 @@ var display = (function() {
 
   function toggle() {
     var fabIcon = helper.e(".js-fab-icon");
-    var editWrapper = helper.e(".edit-wrapper");
-    var editWrapper = helper.e(".edit-wrapper");
-    var displayWrapper = helper.e(".display-wrapper");
+    var modeWrapperEdit = helper.e(".m-mode-wrapper-edit");
+    var modeWrapperEdit = helper.e(".m-mode-wrapper-edit");
+    var modeWrapperDisplay = helper.e(".m-mode-wrapper-display");
     var quickNavLink = helper.e(".js-quick-nav");
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
     for (var i = 0; i < all_quickNavLink.length; i++) {
       helper.toggleClass(all_quickNavLink[i], "is-invisible");
     };
-    helper.toggleClass(editWrapper, "is-hidden");
-    helper.toggleClass(displayWrapper, "is-hidden");
+    helper.toggleClass(modeWrapperEdit, "is-hidden");
+    helper.toggleClass(modeWrapperDisplay, "is-hidden");
     helper.toggleClass(quickNavLink, "m-quick-nav-display");
     helper.toggleClass(hamburger, "m-hamburger-dark");
     helper.toggleClass(fabIcon, "icon-edit");
