@@ -151,8 +151,8 @@ var display = (function() {
           makeDisplayItem("skills.appraise.current", "Appraise <strong>", "</strong>");
           makeDisplayItem("skills.bluff.current", "Bluff <strong>", "</strong>");
           makeDisplayItem("skills.climb.current", "Climb <strong>", "</strong>");
-          makeDisplayItem("skills.craft_1.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_1.variant_name) + "<strong>", "</strong>");
-          makeDisplayItem("skills.craft_2.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_2.variant_name) + "<strong>", "</strong>");
+          makeDisplayItem("skills.craft_1.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_1.variant_name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.craft_2.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_2.variant_name) + " <strong>", "</strong>");
           makeDisplayItem("skills.diplomacy.current", "Diplomacy <strong>", "</strong>");
           makeDisplayItem("skills.disable_device.current", "Disable Device <strong>", "</strong>");
           makeDisplayItem("skills.disguise.current", "Disguise <strong>", "</strong>");
@@ -173,10 +173,10 @@ var display = (function() {
           makeDisplayItem("skills.knowledge_religion.current", "Knowledge (Religion) <strong>", "</strong>");
           makeDisplayItem("skills.linguistics.current", "Linguistics <strong>", "</strong>");
           makeDisplayItem("skills.perception.current", "Perception <strong>", "</strong>");
-          makeDisplayItem("skills.perform_1.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_1.variant_name) + "<strong>", "</strong>");
-          makeDisplayItem("skills.perform_2.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_2.variant_name) + "<strong>", "</strong>");
-          makeDisplayItem("skills.profession_1.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_1.variant_name) + "<strong>", "</strong>");
-          makeDisplayItem("skills.profession_2.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_2.variant_name) + "<strong>", "</strong>");
+          makeDisplayItem("skills.perform_1.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_1.variant_name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.perform_2.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_2.variant_name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.profession_1.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_1.variant_name) + " <strong>", "</strong>");
+          makeDisplayItem("skills.profession_2.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_2.variant_name) + " <strong>", "</strong>");
           makeDisplayItem("skills.ride.current", "Ride <strong>", "</strong>");
           makeDisplayItem("skills.sense_motive.current", "Sense Motive <strong>", "</strong>");
           makeDisplayItem("skills.sleight_of_hand.current", "Sleight Of Hand <strong>", "</strong>");
