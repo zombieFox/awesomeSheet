@@ -7849,8 +7849,16 @@ var display = (function() {
 
           var makeDisplayItem = function(addressToCompare, beforeString, afterString) {
             if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
-              return data = beforeString + data + afterString;
+              data = beforeString + data + afterString;
+              return data;
             } else {
+              return data;
+            };
+          };
+
+          var hp = function(addressToCompare) {
+            if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
+              data = "<strong>HP " + data + "</strong> / " + helper.getObject(sheet.getCharacter(), "defense.hp.total");
               return data;
             };
           };
@@ -7917,8 +7925,8 @@ var display = (function() {
           makeDisplayItem("equipment.wealth.silver", "<strong>SP</strong> ", "");
           makeDisplayItem("equipment.wealth.copper", "<strong>CP</strong> ", "");
 
-          makeDisplayItem("defense.hp.current", "<strong>HP</strong> ", "");
-          makeDisplayItem("defense.hp.total", "<strong>Total HP</strong> ", "");
+          hp("defense.hp.current");
+          makeDisplayItem("defense.hp.temp", "<strong>Temp HP </strong> ", "");
           makeDisplayItem("defense.hp.non_lethal_damage", "<strong>Nonlethal Damage</strong> ", "");
           makeDisplayItem("defense.ac.current", "<strong>AC</strong> ", "");
           makeDisplayItem("defense.flat_footed.current", "<strong>Flat Footed</strong> ", "");
