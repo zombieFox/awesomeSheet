@@ -77,7 +77,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "800",
+        gold: "6,425",
         silver: "",
         copper: ""
       },

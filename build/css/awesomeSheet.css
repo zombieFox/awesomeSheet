@@ -2645,10 +2645,10 @@ label {
 
 .m-display-section-divider {
   background-color: #e6e6e6;
-  margin: 0 0 2em 0;
+  margin: 0 0 3em 0;
   width: 100%;
   height: 2px;
-  display: relative; }
+  position: relative; }
   .m-display-section-divider .m-display-section-icon {
     background-color: #ffffff;
     position: absolute;
@@ -2674,7 +2674,7 @@ label {
   .m-display-item:after,
   .m-display-spell:after,
   .m-display-attack:after {
-    background: #cce7fa;
+    background: #e6e6e6;
     content: "";
     width: 3px;
     height: 3px;
@@ -2718,7 +2718,7 @@ label {
         -ms-flex: none;
             flex: none; }
 
-@media (min-width: 550px) {
+@media (min-width: 700px) {
   .m-display-section-divider .m-display-section-icon {
     left: 0;
     -webkit-transform: translate(0, -50%);
