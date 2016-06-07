@@ -131,6 +131,7 @@ var nav = (function() {
     input.addEventListener("change", function() {
       _switch_character(label);
       sheet.storeCharacters();
+      smoothScroll.animateScroll(null, "#body");
     }, false);
   };
 
