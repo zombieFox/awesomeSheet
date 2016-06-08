@@ -101,18 +101,43 @@ var sheet = (function() {
     }, 200);
   };
 
-  function printCharacterObject(index) {
-    var name;
-    if (getCharacter().basics.name) {
-      name = getCharacter().basics.name;
-    } else {
-      name = "New character";
+  function importJson() {
+
+    var container = document.createElement("div");
+    container.setAttribute("class", "container");
+
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+
+    var col = document.createElement("div");
+    col.setAttribute("class", "col-xs-12");
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "m-import js-import");
+
+    var message = document.createElement("p");
+    message.setAttribute("tabindex", "3");
+    message.setAttribute("class", "m-import-message");
+    message.textContent = "Import a previously exported character JSON file from another device. You can drag files here.";
+
+    div.appendChild(message);
+    col.appendChild(div);
+    row.appendChild(col);
+
+    container.appendChild(row);
+
+    var importAction = function() {
+      console.log("hit"); 
     };
+
+    modal.render("Import character JSON", container, "Import", importAction);
+
+  };
+
+  function exportJson() {
+    var name = getCharacter().basics.name || "New character";
     var exportData = JSON.stringify(getCharacter(), null, " ");
     prompt.render("Download " + name, "Save this character as a JSON file.", "Download", "download");
-    if (helper.e(".prompt pre")) {
-      helper.selectText(".prompt pre");
-    };
   };
 
   function bind() {
@@ -164,7 +189,8 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
-    print: printCharacterObject,
+    import: importJson,
+    export: exportJson,
     render: render,
     bind: bind
   };
