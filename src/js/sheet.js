@@ -40,8 +40,9 @@ var sheet = (function() {
     store("charactersIndex", currentCharacterIndex);
   };
 
-  function addCharacter() {
-    allCharacters.push(JSON.parse(JSON.stringify(blank.data)));
+  function addCharacter(newCharacter) {
+    var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
+    allCharacters.push(dataToAdd);
     var newIndex = getAllCharacters().length - 1;
     setIndex(newIndex);
     storeCharacters();
@@ -116,21 +117,41 @@ var sheet = (function() {
     div.setAttribute("class", "m-import js-import");
 
     var message = document.createElement("p");
-    message.setAttribute("tabindex", "3");
     message.setAttribute("class", "m-import-message");
     message.textContent = "Import a previously exported character JSON file from another device. You can drag files here.";
 
+    var input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("class", "button button-large button-block js-import-select");
+
     div.appendChild(message);
+    div.appendChild(input);
     col.appendChild(div);
     row.appendChild(col);
 
     container.appendChild(row);
 
     var importAction = function() {
-      console.log("hit"); 
+
+      var files = helper.e(".js-import-select").files;
+      if (files.length <= 0) {
+        return false;
+      };
+      var readFile = new FileReader();
+      readFile.onload = function(event) {
+        var data = JSON.parse(event.target.result);
+        addCharacter(data);
+        console.log(data);
+      };
+
+      readFile.readAsText(files.item(0));
+      // var name = allCharacters[getIndex()].basics.name || "New character";
+      // snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+
     };
 
     modal.render("Import character JSON", container, "Import", importAction);
+
 
   };
 
