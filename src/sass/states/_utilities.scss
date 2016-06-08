@@ -31,19 +31,19 @@
 }
 
 .is-unrotate-in {
-  transform-origin: center bottom !important;
+  transform-origin: center center !important;
   transform: translate(0, 0) scale(1) rotateX(0deg) !important;
 }
 
 .is-unrotate-out {
-  transform-origin: center botoom !important;
-  transform: translate(0, 0) scale(0.9) rotateX(45deg) !important;
+  transform-origin: center center !important;
+  transform: translate(0, -30px) scale(0.9) rotateX(15deg) !important;
 }
 
 .is-dropped-out {
-  transform-origin: center bottom !important;
-  transform: translate(0, 100%) scale(0.6) rotateZ(20deg) rotateX(-50deg) !important;
-  transition: transform $transition-ease-slow !important;
+  transform-origin: center center !important;
+  transform: translate(0, 30px) scale(0.9) rotateX(-15deg) !important;
+  transition: transform $transition-ease-fast !important;
 }
 
 // --------------------------------------------------

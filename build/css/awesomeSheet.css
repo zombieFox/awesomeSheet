@@ -1982,8 +1982,8 @@ label {
         -ms-transform: translatey(-50%) rotate(0deg);
             transform: translatey(-50%) rotate(0deg);
     display: block;
-    transition: background-color 0.3s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0s;
-    transition: background-color 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0s; }
+    transition: background-color 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
+    transition: background-color 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s; }
     .m-hamburger .m-hamburger-inner:before, .m-hamburger .m-hamburger-inner:after {
       background-color: #ffffff;
       opacity: 1;
@@ -1991,8 +1991,8 @@ label {
       position: absolute;
       width: 100%;
       height: 2px;
-      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0.2s, -webkit-transform 0.3s ease-in-out 0s;
-      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0.2s, transform 0.3s ease-in-out 0s;
+      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0.2s, -webkit-transform 0.2s ease-in-out 0s;
+      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
       border-radius: 3px;
       display: block; }
     .m-hamburger .m-hamburger-inner:before {
@@ -2011,12 +2011,12 @@ label {
     -webkit-transform: translatey(-50%) rotate(135deg);
         -ms-transform: translatey(-50%) rotate(135deg);
             transform: translatey(-50%) rotate(135deg);
-    transition: background-color 0.3s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0.2s;
-    transition: background-color 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0.2s; }
+    transition: background-color 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0.2s;
+    transition: background-color 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0.2s; }
     .m-hamburger.is-open .m-hamburger-inner:before, .m-hamburger.is-open .m-hamburger-inner:after {
       background-color: #ffffff;
-      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0.2s;
-      transition: background-color 0.3s ease-in-out 0s, top 0.2s ease-in-out 0s, transform 0.3s ease-in-out 0.2s; }
+      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0.2s;
+      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0.2s; }
     .m-hamburger.is-open .m-hamburger-inner:before {
       top: 0; }
     .m-hamburger.is-open .m-hamburger-inner:after {
@@ -2821,27 +2821,27 @@ label {
   overflow: hidden; }
 
 .is-unrotate-in {
-  -webkit-transform-origin: center bottom !important;
-      -ms-transform-origin: center bottom !important;
-          transform-origin: center bottom !important;
+  -webkit-transform-origin: center center !important;
+      -ms-transform-origin: center center !important;
+          transform-origin: center center !important;
   -webkit-transform: translate(0, 0) scale(1) rotateX(0deg) !important;
           transform: translate(0, 0) scale(1) rotateX(0deg) !important; }
 
 .is-unrotate-out {
-  -webkit-transform-origin: center botoom !important;
-      -ms-transform-origin: center botoom !important;
-          transform-origin: center botoom !important;
-  -webkit-transform: translate(0, 0) scale(0.9) rotateX(45deg) !important;
-          transform: translate(0, 0) scale(0.9) rotateX(45deg) !important; }
+  -webkit-transform-origin: center center !important;
+      -ms-transform-origin: center center !important;
+          transform-origin: center center !important;
+  -webkit-transform: translate(0, -30px) scale(0.9) rotateX(15deg) !important;
+          transform: translate(0, -30px) scale(0.9) rotateX(15deg) !important; }
 
 .is-dropped-out {
-  -webkit-transform-origin: center bottom !important;
-      -ms-transform-origin: center bottom !important;
-          transform-origin: center bottom !important;
-  -webkit-transform: translate(0, 100%) scale(0.6) rotateZ(20deg) rotateX(-50deg) !important;
-          transform: translate(0, 100%) scale(0.6) rotateZ(20deg) rotateX(-50deg) !important;
-  transition: -webkit-transform 0.5s ease-in-out !important;
-  transition: transform 0.5s ease-in-out !important; }
+  -webkit-transform-origin: center center !important;
+      -ms-transform-origin: center center !important;
+          transform-origin: center center !important;
+  -webkit-transform: translate(0, 30px) scale(0.9) rotateX(-15deg) !important;
+          transform: translate(0, 30px) scale(0.9) rotateX(-15deg) !important;
+  transition: -webkit-transform 0.3s ease-in-out !important;
+  transition: transform 0.3s ease-in-out !important; }
 
 @media (min-width: 550px) {
   .is-onscreen-nav {
