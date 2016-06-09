@@ -1,6 +1,7 @@
 var vos = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Vos Thunderstomp",
       race: "Dwarf",

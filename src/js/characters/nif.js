@@ -1,6 +1,7 @@
 var nif = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Nif Amakir",
       race: "Elf",

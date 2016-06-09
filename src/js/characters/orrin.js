@@ -1,6 +1,7 @@
 var orrin = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Orrin Alareth",
       race: "Human",

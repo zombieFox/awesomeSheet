@@ -1,6 +1,7 @@
 var ro = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Ro Flint",
       race: "Elf",

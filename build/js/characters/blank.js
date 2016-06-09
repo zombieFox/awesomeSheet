@@ -1,6 +1,7 @@
 var blank = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "",
       race: "",

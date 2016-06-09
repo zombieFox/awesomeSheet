@@ -1,6 +1,7 @@
 var marika = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Marika Spandrell",
       race: "Human",

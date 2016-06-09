@@ -3,6 +3,7 @@
 var blank = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "",
       race: "",
@@ -764,6 +765,7 @@ var blank = (function() {
 var nif = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Nif Amakir",
       race: "Elf",
@@ -1602,6 +1604,7 @@ var nif = (function() {
 var ro = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Ro Flint",
       race: "Elf",
@@ -2443,6 +2446,7 @@ var ro = (function() {
 var vos = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Vos Thunderstomp",
       race: "Dwarf",
@@ -3246,6 +3250,7 @@ var vos = (function() {
 var marika = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Marika Spandrell",
       race: "Human",
@@ -4048,6 +4053,7 @@ var marika = (function() {
 var orrin = (function() {
 
   var data = {
+    awesomeSheet: true,
     basics: {
       name: "Orrin Alareth",
       race: "Human",
@@ -4966,7 +4972,8 @@ var sheet = (function() {
     if (read("allCharacters")) {
       allCharacters = JSON.parse(read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = hardCodedCharacters.load;
+      allCharacters = hardCodedCharacters.load; // for demo load sample characters
+      // allCharacters = [blank.data]; // for production load blank character
     };
     storeCharacters();
   })();
@@ -5099,32 +5106,38 @@ var sheet = (function() {
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
     var fileList = this.files;
+    // console.log(fileList.item(0));
+    // console.log(fileList.item(0).type);
     importSelectLabel.textContent = fileList[0].name;
   };
 
   var _readJsonFile = function() {
-    var files = helper.e(".js-import-select-input").files;
-    if (files.length <= 0) {
+    var fileList = helper.e(".js-import-select-input").files;
+    if (fileList.length <= 0) {
       return false;
     };
-    if (files.item(0).type == "application/json") {
-      var readFile = new FileReader();
-      readFile.onload = function(event) {
-        var data = JSON.parse(event.target.result);
+    var readFile = new FileReader();
+    readFile.onload = function(event) {
+      var data = JSON.parse(event.target.result);
+      if (data.awesomeSheet) {
         addCharacter(data);
         var name = allCharacters[getIndex()].basics.name || "New character";
         snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+      } else {
+        snack.render("Not a JSON file from awesomeSheet.", false, false);
       };
-      readFile.readAsText(files.item(0));
-    } else {
-      snack.render("Not a valid JSON file.", false, false);
     };
+    readFile.readAsText(fileList.item(0));
   };
 
   function exportJson() {
-    var name = getCharacter().basics.name || "New character";
-    var exportData = JSON.stringify(getCharacter(), null, " ");
-    prompt.render("Download " + name, "Save this character as a JSON file.", "Download", "download");
+    var name;
+    if (getCharacter().basics.name != "") {
+      name = getCharacter().basics.name;
+    } else {
+      name = "New character";
+    };
+    prompt.render("Download " + name, "Save this character as a JSON file.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", name + ".json");
   };
 
   function bind() {
@@ -5622,7 +5635,7 @@ var prompt = (function() {
     };
   };
 
-  function render(heading, message, actionText, action) {
+  function render(heading, message, actionText, action, actionUrl, actionAttributeKey, actionAttributeValue) {
 
     modal.destroy();
     var body = helper.e("body");
@@ -5686,14 +5699,6 @@ var prompt = (function() {
     
     prompt.appendChild(promptWrapper);
 
-    if (action == "download") {
-      // actionButton.addEventListener("click", action, false);
-      actionButton.setAttribute("download", sheet.getCharacter().basics.name + ".json");
-      actionButton.href = "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sheet.getCharacter()), null, " ");
-    } else {
-      actionButton.addEventListener("click", action, false);
-    };
-
     prompt.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
@@ -5706,6 +5711,15 @@ var prompt = (function() {
       };
     }.bind(promptShade), false);
 
+    if (action) {
+      actionButton.addEventListener("click", action, false);
+    };
+    if (actionUrl) {
+      actionButton.href = actionUrl;
+    };
+    if (actionAttributeKey && actionAttributeValue) {
+      actionButton.setAttribute(actionAttributeKey, actionAttributeValue);
+    };
     actionButton.addEventListener("click", destroy, false);
     cancelButton.addEventListener("click", destroy, false);
     promptShade.addEventListener("click", destroy, false);
