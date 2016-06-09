@@ -320,6 +320,7 @@ var nav = (function() {
     var clearAll = helper.e(".js-clear-all");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
+    var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
     navToggleElement.addEventListener("click", function() {
       navToggle();
@@ -331,8 +332,12 @@ var nav = (function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
+    characterImport.addEventListener("click", function() {
+      sheet.import();
+      navClose();
+    }, false);
     characterExport.addEventListener("click", function() {
-      sheet.print();
+      sheet.export();
       navClose();
     }, false);
     characterAdd.addEventListener("click", function() {
@@ -354,8 +359,12 @@ var nav = (function() {
         prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
+      if (event.which == 73 && event.ctrlKey) {
+        sheet.import();
+        navClose();
+      };
       if (event.which == 69 && event.ctrlKey) {
-        sheet.print();
+        sheet.export();
         navClose();
       };
       if (event.keyCode == 27 && event.ctrlKey) {
@@ -371,9 +380,15 @@ var nav = (function() {
         navClose();
       };
     }, false);
+
     // window.addEventListener("resize", function(event) {
     //   resize();
     // }, false);
+
+    // window.addEventListener("keydown", function(event) {
+    //   console.log(event.keyCode);
+    // });
+
   };
 
   // exposed methods

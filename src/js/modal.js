@@ -29,7 +29,7 @@ var modal = (function() {
     };
   };
 
-  function render(heading, modalBodyContent, actionText) {
+  function render(heading, modalBodyContent, actionText, action) {
 
     prompt.destroy();
     var body = helper.e("body");
@@ -96,8 +96,11 @@ var modal = (function() {
       };
     }.bind(modalShade), false);
 
-    actionButton.addEventListener("click", destroy, false);
     modalShade.addEventListener("click", destroy, false);
+    actionButton.addEventListener("click", destroy, false);
+    if (action) {
+      actionButton.addEventListener("click", action, false);
+    };
 
     if (previousModal) {
       previousModal.destroy();

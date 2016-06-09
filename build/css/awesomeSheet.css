@@ -1,11 +1,11 @@
 ::-webkit-input-placeholder {
-  color: #cccccc; }
+  color: gray; }
 
 :-moz-placeholder {
-  color: #cccccc; }
+  color: gray; }
 
 ::-moz-placeholder {
-  color: #cccccc; }
+  color: gray; }
 
 ::-moz-selection {
   background-color: #77b8e9;
@@ -758,7 +758,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
     outline: 0; }
 
 label {
-  color: #cccccc;
+  color: #333333;
   line-height: 2.5rem;
   display: inline-block; }
 
@@ -2059,6 +2059,7 @@ label {
   top: 0;
   left: 10px;
   z-index: 2;
+  color: gray;
   transition: all 0.2s ease-in-out;
   cursor: text;
   box-sizing: border-box;
@@ -2109,6 +2110,7 @@ label {
   top: 0;
   left: 10px;
   z-index: 2;
+  color: gray;
   transition: all 0.2s ease-in-out;
   cursor: text;
   box-sizing: border-box;
@@ -2574,6 +2576,22 @@ label {
 @media (min-width: 1300px) {
   .m-modal {
     width: 50%; } }
+
+.m-import-select {
+  position: relative;
+  cursor: pointer; }
+  .m-import-select .m-import-select-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 1; }
+  .m-import-select .m-import-select-label {
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2; }
 
 .m-snack-bar {
   background-color: #0d0d0d;

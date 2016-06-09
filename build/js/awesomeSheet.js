@@ -4998,8 +4998,9 @@ var sheet = (function() {
     store("charactersIndex", currentCharacterIndex);
   };
 
-  function addCharacter() {
-    allCharacters.push(JSON.parse(JSON.stringify(blank.data)));
+  function addCharacter(newCharacter) {
+    var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
+    allCharacters.push(dataToAdd);
     var newIndex = getAllCharacters().length - 1;
     setIndex(newIndex);
     storeCharacters();
@@ -5007,6 +5008,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    smoothScroll.animateScroll(null, "#body");
   };
 
   function removeCharacter() {
@@ -5059,18 +5061,70 @@ var sheet = (function() {
     }, 200);
   };
 
-  function printCharacterObject(index) {
-    var name;
-    if (getCharacter().basics.name) {
-      name = getCharacter().basics.name;
-    } else {
-      name = "New character";
+  function importJson() {
+    _render_import();
+  };
+
+  function _render_import() {
+    var container = document.createElement("div");
+    container.setAttribute("class", "container");
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    var col = document.createElement("div");
+    col.setAttribute("class", "col-xs-12");
+    var importSelect = document.createElement("div");
+    importSelect.setAttribute("class", "m-import-select");
+    var input = document.createElement("input");
+    input.setAttribute("id", "import-select");
+    input.setAttribute("type", "file");
+    input.setAttribute("class", "m-import-select-input js-import-select-input");
+    var label = document.createElement("label");
+    label.setAttribute("tabindex", "3");
+    label.setAttribute("for", "import-select");
+    label.setAttribute("class", "m-import-select-label button button-large button-block js-import-select-label");
+    label.textContent = "Choose a file";
+    var message = document.createElement("p");
+    message.setAttribute("class", "m-import-select-message");
+    message.textContent = "Import a previously exported character JSON file from another device.";
+    importSelect.appendChild(input);
+    importSelect.appendChild(label);
+    col.appendChild(message);
+    col.appendChild(importSelect);
+    row.appendChild(col);
+    container.appendChild(row);
+    input.addEventListener("change", _handleFiles, false);
+    modal.render("Import character JSON", container, "Import", _readJsonFile);
+  };
+
+  function _handleFiles() {
+    var importSelectLabel = helper.e(".js-import-select-label");
+    var fileList = this.files;
+    importSelectLabel.textContent = fileList[0].name;
+  };
+
+  var _readJsonFile = function() {
+    var files = helper.e(".js-import-select-input").files;
+    if (files.length <= 0) {
+      return false;
     };
+    if (files.item(0).type == "application/json") {
+      var readFile = new FileReader();
+      readFile.onload = function(event) {
+        var data = JSON.parse(event.target.result);
+        addCharacter(data);
+        var name = allCharacters[getIndex()].basics.name || "New character";
+        snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+      };
+      readFile.readAsText(files.item(0));
+    } else {
+      snack.render("Not a valid JSON file.", false, false);
+    };
+  };
+
+  function exportJson() {
+    var name = getCharacter().basics.name || "New character";
     var exportData = JSON.stringify(getCharacter(), null, " ");
     prompt.render("Download " + name, "Save this character as a JSON file.", "Download", "download");
-    if (helper.e(".prompt pre")) {
-      helper.selectText(".prompt pre");
-    };
   };
 
   function bind() {
@@ -5122,7 +5176,8 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
-    print: printCharacterObject,
+    import: importJson,
+    export: exportJson,
     render: render,
     bind: bind
   };
@@ -5451,6 +5506,7 @@ var nav = (function() {
     var clearAll = helper.e(".js-clear-all");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
+    var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
     navToggleElement.addEventListener("click", function() {
       navToggle();
@@ -5462,8 +5518,12 @@ var nav = (function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
+    characterImport.addEventListener("click", function() {
+      sheet.import();
+      navClose();
+    }, false);
     characterExport.addEventListener("click", function() {
-      sheet.print();
+      sheet.export();
       navClose();
     }, false);
     characterAdd.addEventListener("click", function() {
@@ -5485,8 +5545,12 @@ var nav = (function() {
         prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
+      if (event.which == 73 && event.ctrlKey) {
+        sheet.import();
+        navClose();
+      };
       if (event.which == 69 && event.ctrlKey) {
-        sheet.print();
+        sheet.export();
         navClose();
       };
       if (event.keyCode == 27 && event.ctrlKey) {
@@ -5502,9 +5566,15 @@ var nav = (function() {
         navClose();
       };
     }, false);
+
     // window.addEventListener("resize", function(event) {
     //   resize();
     // }, false);
+
+    // window.addEventListener("keydown", function(event) {
+    //   console.log(event.keyCode);
+    // });
+
   };
 
   // exposed methods
@@ -5706,7 +5776,7 @@ var modal = (function() {
     };
   };
 
-  function render(heading, modalBodyContent, actionText) {
+  function render(heading, modalBodyContent, actionText, action) {
 
     prompt.destroy();
     var body = helper.e("body");
@@ -5773,8 +5843,11 @@ var modal = (function() {
       };
     }.bind(modalShade), false);
 
-    actionButton.addEventListener("click", destroy, false);
     modalShade.addEventListener("click", destroy, false);
+    actionButton.addEventListener("click", destroy, false);
+    if (action) {
+      actionButton.addEventListener("click", action, false);
+    };
 
     if (previousModal) {
       previousModal.destroy();
@@ -8174,7 +8247,6 @@ var display = (function() {
 
   nav.bind();
   nav.render();
-  // nav.resize();
   sheet.bind();
   sheet.render();
 
