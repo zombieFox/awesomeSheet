@@ -103,55 +103,62 @@ var sheet = (function() {
   };
 
   function importJson() {
+    _render_import();
+  };
 
+  function _render_import() {
     var container = document.createElement("div");
     container.setAttribute("class", "container");
-
     var row = document.createElement("div");
     row.setAttribute("class", "row");
-
     var col = document.createElement("div");
     col.setAttribute("class", "col-xs-12");
-
     var div = document.createElement("div");
     div.setAttribute("class", "m-import js-import");
-
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-message");
-    message.textContent = "Import a previously exported character JSON file from another device. You can drag files here.";
-
+    message.textContent = "Import a previously exported character JSON file from another device.";
     var input = document.createElement("input");
+    input.setAttribute("id", "import-select");
     input.setAttribute("type", "file");
-    input.setAttribute("class", "button button-large button-block js-import-select");
-
+    input.setAttribute("class", "m-import-select is-transparent js-import-select");
+    var label = document.createElement("label");
+    label.setAttribute("tabindex", "3");
+    label.setAttribute("for", "import-select");
+    label.setAttribute("class", "m-import-select-label button button-large button-block js-import-select-label");
+    label.textContent = "Choose a file";
     div.appendChild(message);
     div.appendChild(input);
+    div.appendChild(label);
     col.appendChild(div);
     row.appendChild(col);
-
     container.appendChild(row);
+    input.addEventListener("change", _handleFiles, false);
+    modal.render("Import character JSON", container, "Import", _readJsonFile);
+  };
 
-    var importAction = function() {
+  function _handleFiles() {
+    var importSelectLabel = helper.e(".js-import-select-label");
+    var fileList = this.files;
+    importSelectLabel.textContent = fileList[0].name;
+  };
 
-      var files = helper.e(".js-import-select").files;
-      if (files.length <= 0) {
-        return false;
-      };
-      var readFile = new FileReader();
-      readFile.onload = function(event) {
-        var data = JSON.parse(event.target.result);
-        addCharacter(data);
-        console.log(data);
-      };
-
-      readFile.readAsText(files.item(0));
-      // var name = allCharacters[getIndex()].basics.name || "New character";
-      // snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
-
+  var _readJsonFile = function() {
+    var files = helper.e(".js-import-select").files;
+    if (files.length <= 0) {
+      return false;
     };
-
-    modal.render("Import character JSON", container, "Import", importAction);
-
+    var readFile = new FileReader();
+    readFile.onload = function(event) {
+      console.log("onload fired and character added")
+      var data = JSON.parse(event.target.result);
+      addCharacter(data);
+    };
+    console.log(files.item[0]);
+    console.log(files.item(0));
+    readFile.readAsText(files.item(0));
+    // var name = allCharacters[getIndex()].basics.name || "New character";
+    // snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
 
   };
 
