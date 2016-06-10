@@ -142,11 +142,30 @@ var sheet = (function() {
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
     var fileList = this.files;
-    // console.log(fileList.item(0));
-    // console.log(fileList.item(0).type);
-    importSelectLabel.textContent = fileList[0].name;
-    if (fileList.item(0).type != "application/json") {
-      importSelectLabel.textContent = "Not a JSON file. Still want to continue?";
+    // console.log(fileList);
+
+    var readFile = new FileReader();
+    readFile.onload = function(event) {
+      if (helper.isJsonString(event.target.result)) {
+        // console.log("JSON true");
+        if (JSON.parse(event.target.result).awesomeSheet) {
+          // console.log("awesome key true");
+          importSelectLabel.textContent = fileList[0].name;
+        } else {
+          // console.log("awesome key false");
+          importSelectLabel.textContent = "JSON file not recognised by awesomeSheet";
+        };
+      } else {
+        // console.log("JSON false");
+        importSelectLabel.textContent = "Not a JSON file. Still want to continue?";
+      };
+    };
+
+    if (fileList.length > 0) {
+      readFile.readAsText(fileList.item(0));
+      // console.log(readFile.result);
+    } else {
+      importSelectLabel.textContent = "Select a file";
     };
   };
 
@@ -155,8 +174,10 @@ var sheet = (function() {
     if (fileList.length <= 0) {
       return false;
     };
+
     var readFile = new FileReader();
     readFile.onload = function(event) {
+
       if (helper.isJsonString(event.target.result)) {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet) {
@@ -169,7 +190,9 @@ var sheet = (function() {
       } else {
         snack.render("Not a JSON file.", false, false);
       };
+
     };
+
     readFile.readAsText(fileList.item(0));
   };
 
