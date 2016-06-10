@@ -25,6 +25,15 @@ var helper = (function() {
     window.setTimeout(functionToDelay, time);
   };
 
+  function isJsonString(string) {
+    try {
+      JSON.parse(string);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
   function selectText(element) {
     var node = helper.e(element);
     if (document.selection) {
@@ -113,6 +122,7 @@ var helper = (function() {
     toggleClass: toggleClass,
     addClass: addClass,
     removeClass: removeClass,
+    isJsonString: isJsonString,
     getClosest: getClosest,
     selectText: selectText,
     delayFunction: delayFunction,

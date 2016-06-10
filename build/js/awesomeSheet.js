@@ -4863,6 +4863,15 @@ var helper = (function() {
     window.setTimeout(functionToDelay, time);
   };
 
+  function isJsonString(string) {
+    try {
+      JSON.parse(string);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
   function selectText(element) {
     var node = helper.e(element);
     if (document.selection) {
@@ -4951,6 +4960,7 @@ var helper = (function() {
     toggleClass: toggleClass,
     addClass: addClass,
     removeClass: removeClass,
+    isJsonString: isJsonString,
     getClosest: getClosest,
     selectText: selectText,
     delayFunction: delayFunction,
@@ -5089,7 +5099,7 @@ var sheet = (function() {
     label.setAttribute("tabindex", "3");
     label.setAttribute("for", "import-select");
     label.setAttribute("class", "m-import-select-label button button-large button-block js-import-select-label");
-    label.textContent = "Choose a file";
+    label.textContent = "Select a file";
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
     message.textContent = "Import a previously exported character JSON file from another device.";
@@ -5109,6 +5119,9 @@ var sheet = (function() {
     // console.log(fileList.item(0));
     // console.log(fileList.item(0).type);
     importSelectLabel.textContent = fileList[0].name;
+    if (fileList.item(0).type != "application/json") {
+      importSelectLabel.textContent = "Not a JSON file. Still want to continue?";
+    };
   };
 
   var _readJsonFile = function() {
@@ -5118,13 +5131,17 @@ var sheet = (function() {
     };
     var readFile = new FileReader();
     readFile.onload = function(event) {
-      var data = JSON.parse(event.target.result);
-      if (data.awesomeSheet) {
-        addCharacter(data);
-        var name = allCharacters[getIndex()].basics.name || "New character";
-        snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+      if (helper.isJsonString(event.target.result)) {
+        var data = JSON.parse(event.target.result);
+        if (data.awesomeSheet) {
+          addCharacter(data);
+          var name = allCharacters[getIndex()].basics.name || "New character";
+          snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+        } else {
+          snack.render("JSON file not recognised by awesomeSheet.", false, false);
+        };
       } else {
-        snack.render("Not a JSON file from awesomeSheet.", false, false);
+        snack.render("Not a JSON file.", false, false);
       };
     };
     readFile.readAsText(fileList.item(0));

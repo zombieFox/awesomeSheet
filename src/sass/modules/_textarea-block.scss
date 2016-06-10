@@ -11,7 +11,7 @@
   top: 0;
   left: 10px;
   z-index: 2;
-  color: $gray-10;
+  color: $gray-12;
   transition: all $transition-ease-extra-fast;
   cursor: text;
   box-sizing: border-box;
@@ -19,7 +19,7 @@
   &.is-active {
     top: -1.5em;
     left: 0;
-    color: $gray-12;
+    color: $gray-16;
     font-size: $font-size-root-075;
     height: $line-height-100;
     line-height: $line-height-100;
