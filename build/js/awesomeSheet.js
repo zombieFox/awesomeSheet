@@ -4061,7 +4061,7 @@ var orrin = (function() {
       level: "2",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "1,850",
+      xp: "3,050",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -4130,7 +4130,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "6,425",
+        gold: "525",
         silver: "",
         copper: ""
       },
@@ -4304,7 +4304,6 @@ var orrin = (function() {
           str_bonus: true,
           bab: true,
           special_size: true
-
         }
       },
       ranged_attack: {
@@ -4319,9 +4318,9 @@ var orrin = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Rapier (MW)",
+          weapon: "Rapier +1",
           attack: "6",
-          damage: "1d6+1",
+          damage: "1d6+2",
           critical: "18–20/×2"
         }],
         ranged: [{
