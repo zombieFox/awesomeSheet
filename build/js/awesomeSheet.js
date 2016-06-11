@@ -4826,7 +4826,13 @@ var orrin = (function() {
 
 var hardCodedCharacters = (function() {
 
-  var load = [nif.data, vos.data, orrin.data, ro.data, marika.data];
+  var load = [
+    nif.data,
+    vos.data,
+    orrin.data
+    // ro.data // kia
+    // marika.data // retired
+  ];
 
   // exposed methods
   return {
@@ -4973,7 +4979,7 @@ var helper = (function() {
 
 var sheet = (function() {
 
-  var allCharacters = blank.data;
+  var allCharacters = JSON.parse(JSON.stringify([blank.data]));
 
   var currentCharacterIndex = 0;
 
@@ -4981,7 +4987,7 @@ var sheet = (function() {
     if (read("allCharacters")) {
       allCharacters = JSON.parse(read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = hardCodedCharacters.load; // for demo load sample characters
+      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.load)); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
     storeCharacters();
@@ -5048,6 +5054,34 @@ var sheet = (function() {
     };
   };
 
+  function restore() {
+    console.log(hardCodedCharacters.load);
+    localStorage.clear();
+    prompt.destroy();
+    snack.destroy();
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.load));
+    setIndex(0);
+    storeCharacters();
+    clear();
+    render();
+    nav.clear();
+    nav.render();
+  };
+
+  function destroy() {
+    localStorage.clear();
+    prompt.destroy();
+    snack.destroy();
+    allCharacters = JSON.parse(JSON.stringify([blank.data]));
+    setIndex(0);
+    storeCharacters();
+    clear();
+    render();
+    nav.clear();
+    nav.render();
+    // document.location.reload(true);
+  };
+
   function store(key, data) {
     if (localStorage.getItem) {
       localStorage.setItem(key, data);
@@ -5066,15 +5100,6 @@ var sheet = (function() {
     } else if (localStorage.getItem(key)) {
       return localStorage.getItem(key);
     };
-  };
-
-  function destroy() {
-    localStorage.clear();
-    prompt.destroy();
-    snack.destroy();
-    helper.delayFunction(function() {
-      document.location.reload(true);
-    }, 200);
   };
 
   function importJson() {
@@ -5228,6 +5253,7 @@ var sheet = (function() {
     remove: remove,
     read: read,
     clear: clear,
+    restore: restore,
     import: importJson,
     export: exportJson,
     render: render,
@@ -5556,37 +5582,51 @@ var nav = (function() {
     var navToggleElement = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
     var clearAll = helper.e(".js-clear-all");
+    var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
+
     navToggleElement.addEventListener("click", function() {
       navToggle();
     }, false);
+
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
+
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
+
+    restoreDemoPcs.addEventListener("click", function() {
+      prompt.render("Are you sure?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      navClose();
+    }, false);
+
     characterImport.addEventListener("click", function() {
       sheet.import();
       navClose();
     }, false);
+
     characterExport.addEventListener("click", function() {
       sheet.export();
       navClose();
     }, false);
+
     characterAdd.addEventListener("click", function() {
       sheet.addCharacter();
       snack.render("New character added.", false);
       _closeNavScrollToTop();
     }, false);
+
     characterRemove.addEventListener("click", function() {
       remove();
       navClose();
     }, false);
+
     window.addEventListener('click', function(event) {
       if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
         navClose();

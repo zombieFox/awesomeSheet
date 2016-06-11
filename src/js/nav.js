@@ -318,37 +318,51 @@ var nav = (function() {
     var navToggleElement = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
     var clearAll = helper.e(".js-clear-all");
+    var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
     var characterAdd = helper.e(".js-character-add");
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
+
     navToggleElement.addEventListener("click", function() {
       navToggle();
     }, false);
+
     fullscreen.addEventListener("click", function() {
       _fullscreen();
     }, false);
+
     clearAll.addEventListener("click", function() {
       prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
+
+    restoreDemoPcs.addEventListener("click", function() {
+      prompt.render("Are you sure?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      navClose();
+    }, false);
+
     characterImport.addEventListener("click", function() {
       sheet.import();
       navClose();
     }, false);
+
     characterExport.addEventListener("click", function() {
       sheet.export();
       navClose();
     }, false);
+
     characterAdd.addEventListener("click", function() {
       sheet.addCharacter();
       snack.render("New character added.", false);
       _closeNavScrollToTop();
     }, false);
+
     characterRemove.addEventListener("click", function() {
       remove();
       navClose();
     }, false);
+
     window.addEventListener('click', function(event) {
       if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
         navClose();
