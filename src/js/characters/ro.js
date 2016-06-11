@@ -227,11 +227,11 @@ var ro = (function() {
     },
     offense: {
       base_attack: "2",
-      special_size_bonus: "",
       concentration: "8",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -242,13 +242,13 @@ var ro = (function() {
           cha_bonus: false,
           bab: true,
           level: false,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -260,28 +260,41 @@ var ro = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {

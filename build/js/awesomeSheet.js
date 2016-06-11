@@ -209,11 +209,11 @@ var blank = (function() {
     },
     offense: {
       base_attack: "",
-      special_size_bonus: "",
       concentration: "",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -224,13 +224,13 @@ var blank = (function() {
           cha_bonus: false,
           bab: true,
           level: false,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -242,28 +242,41 @@ var blank = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
@@ -981,11 +994,11 @@ var nif = (function() {
     },
     offense: {
       base_attack: "3",
-      special_size_bonus: "",
       concentration: "12",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -996,13 +1009,13 @@ var nif = (function() {
           cha_bonus: false,
           bab: true,
           level: false,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -1014,28 +1027,41 @@ var nif = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
@@ -1830,11 +1856,11 @@ var ro = (function() {
     },
     offense: {
       base_attack: "2",
-      special_size_bonus: "",
       concentration: "8",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -1845,13 +1871,13 @@ var ro = (function() {
           cha_bonus: false,
           bab: true,
           level: false,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -1863,28 +1889,41 @@ var ro = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
@@ -2667,11 +2706,11 @@ var vos = (function() {
     },
     offense: {
       base_attack: "3",
-      special_size_bonus: "",
       concentration: "",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -2682,13 +2721,13 @@ var vos = (function() {
           cha_bonus: false,
           bab: true,
           level: true,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "1",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -2700,28 +2739,41 @@ var vos = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
@@ -3461,11 +3513,11 @@ var marika = (function() {
     },
     offense: {
       base_attack: "6 / 1",
-      special_size_bonus: "",
       concentration: "",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -3476,13 +3528,13 @@ var marika = (function() {
           cha_bonus: false,
           bab: true,
           level: false,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -3494,28 +3546,41 @@ var marika = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
@@ -4259,11 +4324,11 @@ var orrin = (function() {
     },
     offense: {
       base_attack: "1",
-      special_size_bonus: "",
       concentration: "6",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -4274,13 +4339,13 @@ var orrin = (function() {
           cha_bonus: false,
           bab: true,
           level: false,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -4292,28 +4357,41 @@ var orrin = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
@@ -7388,9 +7466,6 @@ var totalBlock = (function() {
             if (j == "size") {
               totalBlock.dataset.sizeBonus = "true";
             };
-            if (j == "special_size") {
-              totalBlock.dataset.specialSizeBonus = "true";
-            };
             if (j == "level") {
               totalBlock.dataset.levelBonus = "true";
             };
@@ -7452,7 +7527,6 @@ var totalBlock = (function() {
       var chaBonus = 0;
       var babBonus = 0;
       var sizeBonus = 0;
-      var specialSizeBonus = 0;
       var levelBonus = 0;
       var halfLevelBonus = 0;
       var plusTenBonus = 0;
@@ -7524,17 +7598,13 @@ var totalBlock = (function() {
       if (all_totalBlock[i].dataset.sizeBonus == "true") {
         sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
       };
-      // special size
-      if (all_totalBlock[i].dataset.specialSizeBonus == "true") {
-        specialSizeBonus = parseInt(helper.e("#offense-special-size-bonus").value, 10 || 0);
-      };
       // level
       if (all_totalBlock[i].dataset.levelBonus == "true") {
         levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
       };
       // half level
       if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
-        halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2);
+        halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2) || 0;
       };
       // ac armor
       if (all_totalBlock[i].dataset.acArmor == "true") {
@@ -7592,9 +7662,6 @@ var totalBlock = (function() {
       if (isNaN(sizeBonus)) {
         sizeBonus = 0;
       };
-      if (isNaN(specialSizeBonus)) {
-        specialSizeBonus = 0;
-      };
       if (isNaN(levelBonus)) {
         levelBonus = 0;
       };
@@ -7641,7 +7708,7 @@ var totalBlock = (function() {
         });
       };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + specialSizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
+      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
       // update total
       total.textContent = grandTotal;
       // store current to character object
@@ -7683,9 +7750,6 @@ var totalBlock = (function() {
     };
     if (bonusType == "size") {
       return "Size Bonus";
-    };
-    if (bonusType == "special-size" || bonusType == "special_size") {
-      return "Special Size Bonus";
     };
     if (bonusType == "level") {
       return "Level";
@@ -7830,9 +7894,6 @@ var totalBlock = (function() {
       if (bonusType == "size") {
         totalBlock.dataset.sizeBonus = "true";
       };
-      if (bonusType == "special-size") {
-        totalBlock.dataset.specialSizeBonus = "true";
-      };
       if (bonusType == "level") {
         totalBlock.dataset.levelBonus = "true";
       };
@@ -7885,9 +7946,6 @@ var totalBlock = (function() {
       if (bonusType == "size") {
         totalBlock.dataset.sizeBonus = "false";
       };
-      if (bonusType == "special-size") {
-        totalBlock.dataset.specialSizeBonus = "false";
-      };
       if (bonusType == "level") {
         totalBlock.dataset.levelBonus = "false";
       };
@@ -7930,7 +7988,6 @@ var totalBlock = (function() {
       delete all_totalBlock[i].dataset.chaBonus;
       delete all_totalBlock[i].dataset.babBonus;
       delete all_totalBlock[i].dataset.sizeBonus;
-      delete all_totalBlock[i].dataset.specialSizeBonus;
       delete all_totalBlock[i].dataset.levelBonus;
       delete all_totalBlock[i].dataset.halfLevelBonus;
       delete all_totalBlock[i].dataset.plusTenBonus;

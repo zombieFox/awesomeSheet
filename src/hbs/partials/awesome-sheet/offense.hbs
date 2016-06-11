@@ -20,22 +20,20 @@
   <div class="m-section-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-xs-4 col-sm-3 col-sm-offset-3">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-base-attack">Base Attack</label>
-            <input id="offense-base-attack" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.base_attack" type="text" tabindex="3">
-          </div>
-        </div>
-        <div class="col-xs-4 col-sm-3">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-special-size-bonus">Size</label>
-            <input id="offense-special-size-bonus" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.special_size_bonus" type="text" tabindex="3">
-          </div>
-        </div>
-        <div class="col-xs-4 col-sm-3">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-concentration">Concentration</label>
-            <input id="offense-concentration" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.concentration" type="text" tabindex="3">
+        <div class="col-xs-12 col-md-9 col-md-offset-3">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="m-input-block js-input-block">
+                <label class="m-input-block-label js-input-block-label" for="offense-base-attack">Base Attack</label>
+                <input id="offense-base-attack" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.base_attack" type="text" tabindex="3">
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="m-input-block js-input-block">
+                <label class="m-input-block-label js-input-block-label" for="offense-concentration">Concentration</label>
+                <input id="offense-concentration" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.concentration" type="text" tabindex="3">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47,16 +45,22 @@
           </div>
           <div class="col-xs-8 col-md-6">
             <div class="row no-gutter">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
                   <input id="offense-cmb-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
                   <input id="offense-cmb-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-cmb-size">Size</label>
+                  <input id="offense-cmb-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.size" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -73,16 +77,22 @@
           </div>
           <div class="col-xs-8 col-md-6">
             <div class="row no-gutter">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
                   <input id="offense-cmd-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
                   <input id="offense-cmd-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-cmd-size">Size</label>
+                  <input id="offense-cmd-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.size" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
             </div>
@@ -97,21 +107,30 @@
           <div class="col-xs-12 col-md-3">
             <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input js-total-block-bonuses" data-bonus-path="offense.melee_attack.bonuses">Melee <span class="js-total-block-total" data-path="offense.melee_attack.current"></span></h2>
           </div>
-          <div class="col-xs-12 col-md-9">
+          <div class="col-xs-8 col-md-6">
             <div class="row no-gutter">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-misc">Misc</label>
                   <input id="offense-melee-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.misc" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-temp">Temp</label>
                   <input id="offense-melee-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
+              <div class="col-xs-4">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-size">Size</label>
+                  <input id="offense-melee-attack-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.size" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-xs-4 col-md-3">
+            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonus-path="offense.melee_attack.bonuses" data-modal-heading="Bonuses to add to CMD">Bonuses</a>
           </div>
         </div>
       </div>
@@ -120,21 +139,30 @@
           <div class="col-xs-12 col-md-3">
             <h2 class="m-section-heading-sub u-inline-with-input u-margin-with-input js-total-block-bonuses" data-bonus-path="offense.ranged_attack.bonuses">Ranged <span class="js-total-block-total" data-path="offense.ranged_attack.current"></span></h2>
           </div>
-          <div class="col-xs-12 col-md-9">
+          <div class="col-xs-8 col-md-6">
             <div class="row no-gutter">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-misc">Misc</label>
                   <input id="offense-ranged-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.misc" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-temp">Temp</label>
                   <input id="offense-ranged-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" type="text" tabindex="3">
                 </div>
               </div>
+              <div class="col-xs-4">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-size">Size</label>
+                  <input id="offense-ranged-attack-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.size" data-total="addition" type="text" tabindex="3">
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-xs-4 col-md-3">
+            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonus-path="offense.ranged_attack.bonuses" data-modal-heading="Bonuses to add to CMD">Bonuses</a>
           </div>
         </div>
       </div>

@@ -222,11 +222,11 @@ var vos = (function() {
     },
     offense: {
       base_attack: "3",
-      special_size_bonus: "",
       concentration: "",
       cmb: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -237,13 +237,13 @@ var vos = (function() {
           cha_bonus: false,
           bab: true,
           level: true,
-          half_level: false,
-          special_size: true
+          half_level: false
         }
       },
       cmd: {
         misc: "1",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -255,28 +255,41 @@ var vos = (function() {
           bab: true,
           level: false,
           half_level: false,
-          special_size: true,
           plus_ten: true
         }
       },
       melee_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       ranged_attack: {
         misc: "",
         temp: "",
+        size: "",
         current: "",
         bonuses: {
+          str_bonus: false,
           dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
           bab: true,
-          special_size: true
+          level: false,
+          half_level: false
         }
       },
       attack: {
