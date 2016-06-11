@@ -5065,6 +5065,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    snack.render("Default characters restored.", false, false);
   };
 
   function destroy() {
@@ -5078,6 +5079,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    snack.render("All characters cleared.", false, false);
     // document.location.reload(true);
   };
 
