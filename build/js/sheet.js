@@ -76,7 +76,6 @@ var sheet = (function() {
   };
 
   function restore() {
-    console.log(hardCodedCharacters.load);
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
