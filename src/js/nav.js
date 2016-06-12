@@ -302,16 +302,16 @@ var nav = (function() {
     prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", sheet.removeCharacter);
   };
 
-  function resize() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    if (window.innerWidth >= 550) {
-      var height = window.innerHeight - 60;
-      nav.style.maxHeight = height + "px";
-    } else {
-      nav.removeAttribute("style");
-    };
-  };
+  // function resize() {
+  //   var body = helper.e("body");
+  //   var nav = helper.e(".js-nav");
+  //   if (window.innerWidth >= 550) {
+  //     var height = window.innerHeight - 60;
+  //     nav.style.maxHeight = height + "px";
+  //   } else {
+  //     nav.removeAttribute("style");
+  //   };
+  // };
 
   function bind() {
     var nav = helper.e(".js-nav");
@@ -333,12 +333,12 @@ var nav = (function() {
     }, false);
 
     clearAll.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
+      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
 
     restoreDemoPcs.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
       navClose();
     }, false);
 
@@ -368,31 +368,45 @@ var nav = (function() {
         navClose();
       };
     }, false);
+
     window.addEventListener("keydown", function(event) {
+
       if (event.which == 8 && event.ctrlKey) {
-        prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
+        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
+
+      if (event.keyCode == 82 && event.ctrlKey) {
+        prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+        navClose();
+      };
+
       if (event.which == 73 && event.ctrlKey) {
         sheet.import();
         navClose();
       };
+
       if (event.which == 69 && event.ctrlKey) {
         sheet.export();
         navClose();
       };
+
       if (event.keyCode == 27 && event.ctrlKey) {
         navClose();
       };
+
       if (event.keyCode == 77 && event.ctrlKey) {
         navToggle();
       };
+
       if (event.keyCode == 68 && event.ctrlKey) {
         display.toggle();
       };
+
       if (event.keyCode == 27) {
         navClose();
       };
+
     }, false);
 
     // window.addEventListener("resize", function(event) {
@@ -407,7 +421,7 @@ var nav = (function() {
 
   // exposed methods
   return {
-    resize: resize,
+    // resize: resize,
     bind: bind,
     clear: clear,
     render: render,
