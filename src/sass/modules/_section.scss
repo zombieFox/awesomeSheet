@@ -53,6 +53,10 @@
   padding: $font-size-200 0;
 }
 
+.m-section-wrapper-nav-padding {
+  padding-top: 8em;
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -68,6 +72,9 @@
   }
   .m-section-wrapper {
     padding: $font-size-300 0;
+  }
+  .m-section-wrapper-nav-padding {
+    padding-top: 10em;
   }
 }
 

@@ -15,27 +15,43 @@ var display = (function() {
 
   function _toggleQuickEdit(element) {
     var node = helper.e(".js-" + element.dataset.miniView);
-    helper.toggleClass(node, "is-hidden");
+    helper.toggleClass(node, "is-collapsed");
+    var height = getComputedStyle(node).height;
+    helper.toggleClass(node, "is-collapsed");
+    node.style.height = height + "px";
+    getComputedStyle(node).height;
+    if (node.style.height) {
+      node.removeAttribute("style");
+    } else {
+      node.setAttribute("style", "height:" + height + " !important");
+    };
   };
 
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var sectionEdit = helper.eA(".js-section-edit");
-    var sectionDisplay = helper.eA(".js-section-display");
     var quickNavLink = helper.e(".js-quick-nav");
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
+    var all_sectionEdit = helper.eA(".js-section-edit");
+    var all_sectionDisplay = helper.eA(".js-section-display");
     if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
       body.dataset.awesomeMode = "display";
       for (var i = 0; i < all_quickNavLink.length; i++) {
         helper.addClass(all_quickNavLink[i], "is-invisible");
       };
-      for (var i = 0; i < sectionEdit.length; i++) {
-        helper.addClass(sectionEdit[i], "is-hidden");
+      for (var i = 0; i < all_sectionEdit.length; i++) {
+        all_sectionEdit[i].removeAttribute("style");
+        helper.addClass(all_sectionEdit[i], "is-collapsed");
+        helper.addClass(all_sectionEdit[i], "m-quick-edit");
+        helper.removeClass(all_sectionEdit[i], "is-pinned");
+        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+        if (sectionHeading) {
+          helper.removeClass(sectionHeading, "is-pinned");
+        };
       };
-      for (var i = 0; i < sectionDisplay.length; i++) {
-        helper.removeClass(sectionDisplay[i], "is-hidden");
+      for (var i = 0; i < all_sectionDisplay.length; i++) {
+        helper.removeClass(all_sectionDisplay[i], "is-hidden");
       };
       helper.addClass(quickNavLink, "m-quick-nav-display");
       helper.addClass(hamburger, "m-hamburger-dark");
@@ -46,11 +62,12 @@ var display = (function() {
       for (var i = 0; i < all_quickNavLink.length; i++) {
         helper.removeClass(all_quickNavLink[i], "is-invisible");
       };
-      for (var i = 0; i < sectionEdit.length; i++) {
-        helper.removeClass(sectionEdit[i], "is-hidden");
+      for (var i = 0; i < all_sectionEdit.length; i++) {
+        helper.removeClass(all_sectionEdit[i], "is-collapsed");
+        helper.removeClass(all_sectionEdit[i], "m-quick-edit");
       };
-      for (var i = 0; i < sectionDisplay.length; i++) {
-        helper.addClass(sectionDisplay[i], "is-hidden");
+      for (var i = 0; i < all_sectionDisplay.length; i++) {
+        helper.addClass(all_sectionDisplay[i], "is-hidden");
       };
       helper.removeClass(quickNavLink, "m-quick-nav-display");
       helper.removeClass(hamburger, "m-hamburger-dark");

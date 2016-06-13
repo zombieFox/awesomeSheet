@@ -198,54 +198,57 @@ var nav = (function() {
   };
 
   function _render_quickNav() {
+    var body = helper.e("body");
     window.onscroll = function() {
-      var quickNav = helper.e(".js-quick-nav");
-      var quickNavLinks = helper.eA(".js-quick-nav-link");
-      var all_sectionEdit = helper.eA(".js-section-edit");
-      var menu = parseInt(getComputedStyle(quickNav).height, 10);
-      for (var i = 0; i < all_sectionEdit.length; i++) {
-        // console.log(all_sectionEdit[i].id + " top = " + all_sectionEdit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_sectionEdit[i].getBoundingClientRect().bottom);
+      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+        var quickNav = helper.e(".js-quick-nav");
+        var quickNavLinks = helper.eA(".js-quick-nav-link");
+        var all_sectionEdit = helper.eA(".js-section-edit");
+        var menu = parseInt(getComputedStyle(quickNav).height, 10);
+        for (var i = 0; i < all_sectionEdit.length; i++) {
+          // console.log(all_sectionEdit[i].id + " top = " + all_sectionEdit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_sectionEdit[i].getBoundingClientRect().bottom);
 
-        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
-        var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
+          var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+          var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
 
-        if (all_sectionEdit[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
-          if (sectionHeading) {
-            helper.addClass(sectionHeading, "is-faded");
-            // sectionHeading.setAttribute("style", "top:" + (all_sectionEdit[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+          if (all_sectionEdit[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
+            if (sectionHeading) {
+              helper.addClass(sectionHeading, "is-faded");
+              // sectionHeading.setAttribute("style", "top:" + (all_sectionEdit[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+            };
+          } else {
+            if (sectionHeading) {
+              helper.removeClass(sectionHeading, "is-faded");
+              // sectionHeading.removeAttribute("style");
+            };
           };
-        } else {
-          if (sectionHeading) {
-            helper.removeClass(sectionHeading, "is-faded");
-            // sectionHeading.removeAttribute("style");
+
+          if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
+            for (var j = 0; j < quickNavLinks.length; j++) {
+              helper.removeClass(quickNavLinks[j], "is-active");
+            };
+            helper.addClass(quickNavLinks[i], "is-active");
+            if (sectionHeading) {
+              helper.addClass(all_sectionEdit[i], "is-pinned");
+              helper.addClass(sectionHeading, "is-pinned");
+            };
+          } else {
+            helper.removeClass(quickNavLinks[i], "is-active");
+            if (sectionHeading) {
+              helper.removeClass(all_sectionEdit[i], "is-pinned");
+              helper.removeClass(sectionHeading, "is-pinned");
+            };
           };
+
         };
-
-        if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
-          for (var j = 0; j < quickNavLinks.length; j++) {
-            helper.removeClass(quickNavLinks[j], "is-active");
-          };
-          helper.addClass(quickNavLinks[i], "is-active");
-          if (sectionHeading) {
-            helper.addClass(all_sectionEdit[i], "is-pinned");
-            helper.addClass(sectionHeading, "is-pinned");
-          };
-        } else {
-          helper.removeClass(quickNavLinks[i], "is-active");
-          if (sectionHeading) {
-            helper.removeClass(all_sectionEdit[i], "is-pinned");
-            helper.removeClass(sectionHeading, "is-pinned");
-          };
-        };
-
+        // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
+        //   for (var i = 0; i < quickNavLinks.length; i++) {
+        //     helper.removeClass(quickNavLinks[i], "is-active");
+        //   };
+        //   helper.addClass(lastQuickLink, "is-active");
+        // };
       };
-      // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-      //   for (var i = 0; i < quickNavLinks.length; i++) {
-      //     helper.removeClass(quickNavLinks[i], "is-active");
-      //   };
-      //   helper.addClass(lastQuickLink, "is-active");
-      // };
     };
   };
 

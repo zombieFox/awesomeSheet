@@ -1,5 +1,11 @@
-.l-section-display {
-  z-index: $display;
+.m-quick-edit {
+  width: 90%;
+  margin-left: 5%;
+  border-radius: $border-radius-large;
+  overflow: hidden;
+  box-shadow: $shadow-large;
+  .m-section-wrapper {
+  }
 }
 
 // --------------------------------------------------
