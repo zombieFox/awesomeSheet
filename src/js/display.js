@@ -7,17 +7,23 @@ var display = (function() {
 
   function toggle() {
     var fabIcon = helper.e(".js-fab-icon");
-    var modeWrapperEdit = helper.e(".m-mode-wrapper-edit");
-    var modeWrapperEdit = helper.e(".m-mode-wrapper-edit");
-    var modeWrapperDisplay = helper.e(".m-mode-wrapper-display");
+    var sectionEdit = helper.eA(".js-section-edit");
+    var sectionDisplay = helper.eA(".js-section-display");
+    // var modeWrapperDisplay = helper.e(".m-mode-wrapper-display");
     var quickNavLink = helper.e(".js-quick-nav");
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
     for (var i = 0; i < all_quickNavLink.length; i++) {
       helper.toggleClass(all_quickNavLink[i], "is-invisible");
     };
-    helper.toggleClass(modeWrapperEdit, "is-hidden");
-    helper.toggleClass(modeWrapperDisplay, "is-hidden");
+    for (var i = 0; i < sectionEdit.length; i++) {
+      helper.toggleClass(sectionEdit[i], "is-hidden");
+    };
+    for (var i = 0; i < sectionDisplay.length; i++) {
+      helper.toggleClass(sectionDisplay[i], "is-hidden");
+    };
+    // helper.toggleClass(modeWrapperEdit, "is-hidden");
+    // helper.toggleClass(modeWrapperDisplay, "is-hidden");
     helper.toggleClass(quickNavLink, "m-quick-nav-display");
     helper.toggleClass(hamburger, "m-hamburger-dark");
     helper.toggleClass(fabIcon, "icon-edit");

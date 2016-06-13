@@ -192,8 +192,8 @@ var nav = (function() {
   };
 
   function _render_lastSectionHeight() {
-    var all_section = helper.eA(".js-section");
-    var lastSection = all_section[all_section.length - 1];
+    var all_sectionEdit = helper.eA(".js-section-edit");
+    var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
     lastSection.style.minHeight = window.innerHeight + "px";
   };
 
@@ -201,18 +201,18 @@ var nav = (function() {
     window.onscroll = function() {
       var quickNav = helper.e(".js-quick-nav");
       var quickNavLinks = helper.eA(".js-quick-nav-link");
-      var all_section = helper.eA(".js-section");
+      var all_sectionEdit = helper.eA(".js-section-edit");
       var menu = parseInt(getComputedStyle(quickNav).height, 10);
-      for (var i = 0; i < all_section.length; i++) {
-        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_section[i].getBoundingClientRect().bottom);
+      for (var i = 0; i < all_sectionEdit.length; i++) {
+        // console.log(all_sectionEdit[i].id + " top = " + all_sectionEdit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_sectionEdit[i].getBoundingClientRect().bottom);
 
-        var sectionHeading = all_section[i].querySelector(".js-section-heading");
+        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
         var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
 
-        if (all_section[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
+        if (all_sectionEdit[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
           if (sectionHeading) {
             helper.addClass(sectionHeading, "is-faded");
-            // sectionHeading.setAttribute("style", "top:" + (all_section[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+            // sectionHeading.setAttribute("style", "top:" + (all_sectionEdit[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
           };
         } else {
           if (sectionHeading) {
@@ -221,19 +221,19 @@ var nav = (function() {
           };
         };
 
-        if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
+        if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
           for (var j = 0; j < quickNavLinks.length; j++) {
             helper.removeClass(quickNavLinks[j], "is-active");
           };
           helper.addClass(quickNavLinks[i], "is-active");
           if (sectionHeading) {
-            helper.addClass(all_section[i], "is-pinned");
+            helper.addClass(all_sectionEdit[i], "is-pinned");
             helper.addClass(sectionHeading, "is-pinned");
           };
         } else {
           helper.removeClass(quickNavLinks[i], "is-active");
           if (sectionHeading) {
-            helper.removeClass(all_section[i], "is-pinned");
+            helper.removeClass(all_sectionEdit[i], "is-pinned");
             helper.removeClass(sectionHeading, "is-pinned");
           };
         };

@@ -73,6 +73,15 @@
       background-color: $base-color;
     }
   }
+  &:hover {
+    .m-hamburger-inner {
+      background-color: $primary-color-12;
+      &:before,
+      &:after {
+        background-color: $primary-color-12;
+      }
+    }
+  }
   &.is-open {
     .m-hamburger-inner {
       background-color: $primary-color-10;

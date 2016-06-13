@@ -1,6 +1,9 @@
 .l-section-display {
-  padding: 100px 0 300px 0;
   z-index: $display;
+  transition: all $transition-ease-extra-slow;
+  // overflow-y: hidden;
+  // max-height: 0;
+  // max-height: 1000px;
 }
 
 // --------------------------------------------------
@@ -8,13 +11,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-sm) {}
-
-@media (min-width: $screen-md) {
-  .l-section-display {
-    padding: 130px 0 300px 0;
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 
