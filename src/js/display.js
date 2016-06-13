@@ -2,32 +2,62 @@ var display = (function() {
 
   function bind() {
     var fabButton = helper.e(".js-fab-button");
+    var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
     fabButton.addEventListener("click", toggle, false);
+    for (var i = 0; i < displayBlockQuickEdit.length; i++) {
+      displayBlockQuickEdit[i].addEventListener("click", function(event) {
+        _toggleQuickEdit(this);
+        event.stopPropagation();
+        event.preventDefault()
+      }, false);
+    };
+  };
+
+  function _toggleQuickEdit(element) {
+    var node = helper.e(".js-" + element.dataset.miniView);
+    helper.toggleClass(node, "is-hidden");
   };
 
   function toggle() {
+    var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
     var sectionEdit = helper.eA(".js-section-edit");
     var sectionDisplay = helper.eA(".js-section-display");
-    // var modeWrapperDisplay = helper.e(".m-mode-wrapper-display");
     var quickNavLink = helper.e(".js-quick-nav");
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
-    for (var i = 0; i < all_quickNavLink.length; i++) {
-      helper.toggleClass(all_quickNavLink[i], "is-invisible");
+    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      body.dataset.awesomeMode = "display";
+      for (var i = 0; i < all_quickNavLink.length; i++) {
+        helper.addClass(all_quickNavLink[i], "is-invisible");
+      };
+      for (var i = 0; i < sectionEdit.length; i++) {
+        helper.addClass(sectionEdit[i], "is-hidden");
+      };
+      for (var i = 0; i < sectionDisplay.length; i++) {
+        helper.removeClass(sectionDisplay[i], "is-hidden");
+      };
+      helper.addClass(quickNavLink, "m-quick-nav-display");
+      helper.addClass(hamburger, "m-hamburger-dark");
+      helper.addClass(fabIcon, "icon-edit");
+      helper.removeClass(fabIcon, "icon-reader-mode");
+    } else if (body.dataset.awesomeMode == "display" || typeof body.dataset.awesomeMode == "undefined") {
+      body.dataset.awesomeMode = "edit";
+      for (var i = 0; i < all_quickNavLink.length; i++) {
+        helper.removeClass(all_quickNavLink[i], "is-invisible");
+      };
+      for (var i = 0; i < sectionEdit.length; i++) {
+        helper.removeClass(sectionEdit[i], "is-hidden");
+      };
+      for (var i = 0; i < sectionDisplay.length; i++) {
+        helper.addClass(sectionDisplay[i], "is-hidden");
+      };
+      helper.removeClass(quickNavLink, "m-quick-nav-display");
+      helper.removeClass(hamburger, "m-hamburger-dark");
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
     };
-    for (var i = 0; i < sectionEdit.length; i++) {
-      helper.toggleClass(sectionEdit[i], "is-hidden");
-    };
-    for (var i = 0; i < sectionDisplay.length; i++) {
-      helper.toggleClass(sectionDisplay[i], "is-hidden");
-    };
-    // helper.toggleClass(modeWrapperEdit, "is-hidden");
-    // helper.toggleClass(modeWrapperDisplay, "is-hidden");
-    helper.toggleClass(quickNavLink, "m-quick-nav-display");
-    helper.toggleClass(hamburger, "m-hamburger-dark");
-    helper.toggleClass(fabIcon, "icon-edit");
-    helper.toggleClass(fabIcon, "icon-reader-mode");
+
     totalBlock.update();
     display.clear();
     display.render();
