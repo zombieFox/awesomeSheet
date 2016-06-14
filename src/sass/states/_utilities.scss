@@ -26,12 +26,6 @@
   visibility: visible !important;
 }
 
-.is-collapsed {
-  height: 0 !important;
-  overflow-y: hidden !important;
-  transition: height $transition-ease-medium, height $transition-ease-medium !important;
-}
-
 .is-onscreen-nav {
   overflow: hidden !important;
 }

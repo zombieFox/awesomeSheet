@@ -7,6 +7,9 @@ var display = (function() {
     for (var i = 0; i < displayBlockQuickEdit.length; i++) {
       displayBlockQuickEdit[i].addEventListener("click", function(event) {
         _toggleQuickEdit(this);
+        totalBlock.update();
+        clear();
+        render();
         event.stopPropagation();
         event.preventDefault()
       }, false);
@@ -15,16 +18,17 @@ var display = (function() {
 
   function _toggleQuickEdit(element) {
     var node = helper.e(".js-" + element.dataset.miniView);
-    helper.toggleClass(node, "is-collapsed");
-    var height = getComputedStyle(node).height;
-    helper.toggleClass(node, "is-collapsed");
-    node.style.height = height + "px";
-    getComputedStyle(node).height;
-    if (node.style.height) {
-      node.removeAttribute("style");
-    } else {
-      node.setAttribute("style", "height:" + height + " !important");
-    };
+    // helper.toggleClass(node, "is-collapsed");
+    // var height = getComputedStyle(node).height;
+    // helper.toggleClass(node, "is-collapsed");
+    // node.style.height = height + "px";
+    // getComputedStyle(node).height;
+    // if (node.style.height) {
+    //   node.removeAttribute("style");
+    // } else {
+    //   node.setAttribute("style", "height:" + height + " !important");
+    // };
+    helper.toggleClass(node, "is-expanded");
   };
 
   function toggle() {
@@ -41,7 +45,6 @@ var display = (function() {
         helper.addClass(all_quickNavLink[i], "is-invisible");
       };
       for (var i = 0; i < all_sectionEdit.length; i++) {
-        all_sectionEdit[i].removeAttribute("style");
         helper.addClass(all_sectionEdit[i], "is-collapsed");
         helper.addClass(all_sectionEdit[i], "m-quick-edit");
         helper.removeClass(all_sectionEdit[i], "is-pinned");
@@ -74,10 +77,9 @@ var display = (function() {
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
     };
-
     totalBlock.update();
-    display.clear();
-    display.render();
+    clear();
+    render();
   };
 
   function clear() {

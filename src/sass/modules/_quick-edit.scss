@@ -1,10 +1,23 @@
 .m-quick-edit {
-  width: 90%;
-  margin-left: 5%;
+  width: 80%;
+  margin-left: 10%;
   border-radius: $border-radius-large;
+  box-sizing: border-box;
   overflow: hidden;
-  box-shadow: $shadow-large;
-  .m-section-wrapper {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 0;
+  transition: all $transition-ease-medium;
+  &.is-collapsed {
+    height: 0;
+    overflow-y: hidden;
+  }
+  &.is-expanded {
+    height: 300px;
+    overflow-y: scroll;
+    border-color: $dark-alpha-19;
+    padding: 10px;
   }
 }
 
