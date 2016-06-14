@@ -86,14 +86,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .m-display-section-divider {
-    .m-display-section-icon {
-      left: 0;
-      transform: translate(0, -50%);
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

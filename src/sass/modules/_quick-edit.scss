@@ -14,7 +14,7 @@
     }
   }
   .m-section-wrapper {
-    padding: $font-size-100;
+    padding: $font-size-200 0;
   }
   &.is-collapsed {
     height: 0;
@@ -23,6 +23,7 @@
   &.is-expanded {
     height: 300px;
     overflow-y: scroll;
+    margin-bottom: $font-size-500;
     // border-color: $dark-alpha-19;
     // padding: 10px;
   }
