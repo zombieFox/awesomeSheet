@@ -17,6 +17,7 @@ var display = (function() {
   };
 
   function _toggleQuickEdit(element) {
+    var body = helper.e("body");
     var node = helper.e(".js-" + element.dataset.miniView);
     // helper.toggleClass(node, "is-collapsed");
     // var height = getComputedStyle(node).height;
@@ -29,6 +30,7 @@ var display = (function() {
     //   node.setAttribute("style", "height:" + height + " !important");
     // };
     helper.toggleClass(node, "is-expanded");
+    helper.toggleClass(body, "is-quikc-edit-open");
   };
 
   function toggle() {
@@ -52,6 +54,18 @@ var display = (function() {
         var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
         if (sectionHeading) {
           helper.removeClass(sectionHeading, "is-pinned");
+          var sectionHeadingTitle = sectionHeading.querySelector(".js-section-title");
+          var sectionHeadingControls = sectionHeading.querySelector(".js-section-controls");
+          if (!sectionHeadingControls) {
+            helper.toggleClass(sectionHeading, "is-hidden");
+          };
+          if (sectionHeadingTitle) {
+            helper.toggleClass(sectionHeadingTitle.parentNode, "is-hidden");
+          };
+          if (sectionHeadingControls) {
+            helper.toggleClass(sectionHeadingControls.parentNode, "col-xs-10");
+            helper.toggleClass(sectionHeadingControls.parentNode, "col-xs-12");
+          };
         };
       };
       for (var i = 0; i < all_sectionDisplay.length; i++) {

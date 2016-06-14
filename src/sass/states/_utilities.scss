@@ -30,6 +30,10 @@
   overflow: hidden !important;
 }
 
+.is-quikc-edit-open {
+  background-color: $gray-18 !important;
+}
+
 .is-unrotate-in {
   transform-origin: center center !important;
   transform: translate(0, 0) scale(1) rotateX(0deg) !important;
