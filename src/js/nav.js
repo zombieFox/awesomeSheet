@@ -379,10 +379,10 @@ var nav = (function() {
         navClose();
       };
 
-      if (event.keyCode == 82 && event.ctrlKey) {
-        prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-        navClose();
-      };
+      // if (event.keyCode == 82 && event.ctrlKey) {
+      //   prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      //   navClose();
+      // };
 
       if (event.which == 73 && event.ctrlKey) {
         sheet.import();

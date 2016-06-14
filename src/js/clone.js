@@ -372,6 +372,10 @@ var clone = (function() {
     };
     totalBlock.update();
     sheet.storeCharacters();
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function _bind_cloneAttackMeleeInput(array) {

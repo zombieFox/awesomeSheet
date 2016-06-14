@@ -4,9 +4,9 @@
   border-radius: $border-radius-large;
   box-sizing: border-box;
   overflow: hidden;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
+  // border-width: 1px;
+  // border-style: solid;
+  // border-color: transparent;
   padding: 0;
   transition: all $transition-ease-medium;
   &.is-collapsed {
@@ -16,8 +16,8 @@
   &.is-expanded {
     height: 300px;
     overflow-y: scroll;
-    border-color: $dark-alpha-19;
-    padding: 10px;
+    // border-color: $dark-alpha-19;
+    // padding: 10px;
   }
 }
 
