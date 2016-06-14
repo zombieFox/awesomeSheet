@@ -156,7 +156,7 @@ var sheet = (function() {
     row.appendChild(col);
     container.appendChild(row);
     input.addEventListener("change", _handleFiles, false);
-    modal.render("Import character JSON", container, "Import", _readJsonFile);
+    modal.render("Import character", container, "Import", _readJsonFile);
   };
 
   function _handleFiles() {
@@ -223,7 +223,7 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Download " + name, "Save this character as a JSON file.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", name + ".json");
+    prompt.render("Export " + name, "Download " + name + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", name + ".json");
   };
 
   function bind() {

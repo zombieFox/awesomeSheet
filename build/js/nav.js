@@ -188,64 +188,67 @@ var nav = (function() {
     var all_navCharacterSelect = helper.eA(".js-nav-character-input");
     all_navCharacterSelect[sheet.getIndex()].checked = true;
     _render_quickNav();
-    _render_lastSectionHeight();
+    lastSectionHeight();
   };
 
-  function _render_lastSectionHeight() {
-    var all_section = helper.eA(".js-section");
-    var lastSection = all_section[all_section.length - 1];
+  function lastSectionHeight() {
+    var all_sectionEdit = helper.eA(".js-section-edit");
+    var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
     lastSection.style.minHeight = window.innerHeight + "px";
   };
 
   function _render_quickNav() {
+    var body = helper.e("body");
     window.onscroll = function() {
-      var quickNav = helper.e(".js-quick-nav");
-      var quickNavLinks = helper.eA(".js-quick-nav-link");
-      var all_section = helper.eA(".js-section");
-      var menu = parseInt(getComputedStyle(quickNav).height, 10);
-      for (var i = 0; i < all_section.length; i++) {
-        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_section[i].getBoundingClientRect().bottom);
+      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+        var quickNav = helper.e(".js-quick-nav");
+        var quickNavLinks = helper.eA(".js-quick-nav-link");
+        var all_sectionEdit = helper.eA(".js-section-edit");
+        var menu = parseInt(getComputedStyle(quickNav).height, 10);
+        for (var i = 0; i < all_sectionEdit.length; i++) {
+          // console.log(all_sectionEdit[i].id + " top = " + all_sectionEdit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_sectionEdit[i].getBoundingClientRect().bottom);
 
-        var sectionHeading = all_section[i].querySelector(".js-section-heading");
-        var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
+          var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+          var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
 
-        if (all_section[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
-          if (sectionHeading) {
-            helper.addClass(sectionHeading, "is-faded");
-            // sectionHeading.setAttribute("style", "top:" + (all_section[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+          if (all_sectionEdit[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
+            if (sectionHeading) {
+              helper.addClass(sectionHeading, "is-faded");
+              // sectionHeading.setAttribute("style", "top:" + (all_sectionEdit[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+            };
+          } else {
+            if (sectionHeading) {
+              helper.removeClass(sectionHeading, "is-faded");
+              // sectionHeading.removeAttribute("style");
+            };
           };
-        } else {
-          if (sectionHeading) {
-            helper.removeClass(sectionHeading, "is-faded");
-            // sectionHeading.removeAttribute("style");
+
+          if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
+            for (var j = 0; j < quickNavLinks.length; j++) {
+              helper.removeClass(quickNavLinks[j], "is-active");
+            };
+            helper.addClass(quickNavLinks[i], "is-active");
+            if (sectionHeading) {
+              helper.addClass(all_sectionEdit[i], "is-pinned");
+              helper.addClass(sectionHeading, "is-pinned");
+            };
+          } else {
+            helper.removeClass(quickNavLinks[i], "is-active");
+            if (sectionHeading) {
+              helper.removeClass(all_sectionEdit[i], "is-pinned");
+              helper.removeClass(sectionHeading, "is-pinned");
+            };
           };
+
         };
-
-        if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
-          for (var j = 0; j < quickNavLinks.length; j++) {
-            helper.removeClass(quickNavLinks[j], "is-active");
-          };
-          helper.addClass(quickNavLinks[i], "is-active");
-          if (sectionHeading) {
-            helper.addClass(all_section[i], "is-pinned");
-            helper.addClass(sectionHeading, "is-pinned");
-          };
-        } else {
-          helper.removeClass(quickNavLinks[i], "is-active");
-          if (sectionHeading) {
-            helper.removeClass(all_section[i], "is-pinned");
-            helper.removeClass(sectionHeading, "is-pinned");
-          };
-        };
-
+        // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
+        //   for (var i = 0; i < quickNavLinks.length; i++) {
+        //     helper.removeClass(quickNavLinks[i], "is-active");
+        //   };
+        //   helper.addClass(lastQuickLink, "is-active");
+        // };
       };
-      // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-      //   for (var i = 0; i < quickNavLinks.length; i++) {
-      //     helper.removeClass(quickNavLinks[i], "is-active");
-      //   };
-      //   helper.addClass(lastQuickLink, "is-active");
-      // };
     };
   };
 
@@ -302,16 +305,16 @@ var nav = (function() {
     prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", sheet.removeCharacter);
   };
 
-  function resize() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    if (window.innerWidth >= 550) {
-      var height = window.innerHeight - 60;
-      nav.style.maxHeight = height + "px";
-    } else {
-      nav.removeAttribute("style");
-    };
-  };
+  // function resize() {
+  //   var body = helper.e("body");
+  //   var nav = helper.e(".js-nav");
+  //   if (window.innerWidth >= 550) {
+  //     var height = window.innerHeight - 60;
+  //     nav.style.maxHeight = height + "px";
+  //   } else {
+  //     nav.removeAttribute("style");
+  //   };
+  // };
 
   function bind() {
     var nav = helper.e(".js-nav");
@@ -333,12 +336,12 @@ var nav = (function() {
     }, false);
 
     clearAll.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
+      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
 
     restoreDemoPcs.addEventListener("click", function() {
-      prompt.render("Are you sure?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
       navClose();
     }, false);
 
@@ -368,31 +371,45 @@ var nav = (function() {
         navClose();
       };
     }, false);
+
     window.addEventListener("keydown", function(event) {
+
       if (event.which == 8 && event.ctrlKey) {
-        prompt.render("Are you sure?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
+        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
+
+      if (event.keyCode == 82 && event.ctrlKey) {
+        prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+        navClose();
+      };
+
       if (event.which == 73 && event.ctrlKey) {
         sheet.import();
         navClose();
       };
+
       if (event.which == 69 && event.ctrlKey) {
         sheet.export();
         navClose();
       };
+
       if (event.keyCode == 27 && event.ctrlKey) {
         navClose();
       };
+
       if (event.keyCode == 77 && event.ctrlKey) {
         navToggle();
       };
+
       if (event.keyCode == 68 && event.ctrlKey) {
         display.toggle();
       };
+
       if (event.keyCode == 27) {
         navClose();
       };
+
     }, false);
 
     // window.addEventListener("resize", function(event) {
@@ -407,7 +424,8 @@ var nav = (function() {
 
   // exposed methods
   return {
-    resize: resize,
+    // resize: resize,
+    lastSectionHeight: lastSectionHeight,
     bind: bind,
     clear: clear,
     render: render,

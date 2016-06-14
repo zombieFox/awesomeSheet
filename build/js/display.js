@@ -2,29 +2,86 @@ var display = (function() {
 
   function bind() {
     var fabButton = helper.e(".js-fab-button");
+    var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
     fabButton.addEventListener("click", toggle, false);
+    for (var i = 0; i < displayBlockQuickEdit.length; i++) {
+      displayBlockQuickEdit[i].addEventListener("click", function(event) {
+        _toggleQuickEdit(this);
+        totalBlock.update();
+        clear();
+        render();
+        event.stopPropagation();
+        event.preventDefault()
+      }, false);
+    };
+  };
+
+  function _toggleQuickEdit(element) {
+    var node = helper.e(".js-" + element.dataset.miniView);
+    // helper.toggleClass(node, "is-collapsed");
+    // var height = getComputedStyle(node).height;
+    // helper.toggleClass(node, "is-collapsed");
+    // node.style.height = height + "px";
+    // getComputedStyle(node).height;
+    // if (node.style.height) {
+    //   node.removeAttribute("style");
+    // } else {
+    //   node.setAttribute("style", "height:" + height + " !important");
+    // };
+    helper.toggleClass(node, "is-expanded");
   };
 
   function toggle() {
+    var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var modeWrapperEdit = helper.e(".m-mode-wrapper-edit");
-    var modeWrapperEdit = helper.e(".m-mode-wrapper-edit");
-    var modeWrapperDisplay = helper.e(".m-mode-wrapper-display");
     var quickNavLink = helper.e(".js-quick-nav");
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
-    for (var i = 0; i < all_quickNavLink.length; i++) {
-      helper.toggleClass(all_quickNavLink[i], "is-invisible");
+    var all_sectionEdit = helper.eA(".js-section-edit");
+    var all_sectionDisplay = helper.eA(".js-section-display");
+    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      body.dataset.awesomeMode = "display";
+      for (var i = 0; i < all_quickNavLink.length; i++) {
+        helper.addClass(all_quickNavLink[i], "is-invisible");
+      };
+      for (var i = 0; i < all_sectionEdit.length; i++) {
+        all_sectionEdit[i].removeAttribute("style");
+        helper.addClass(all_sectionEdit[i], "is-collapsed");
+        helper.addClass(all_sectionEdit[i], "m-quick-edit");
+        helper.removeClass(all_sectionEdit[i], "is-pinned");
+        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+        if (sectionHeading) {
+          helper.removeClass(sectionHeading, "is-pinned");
+        };
+      };
+      for (var i = 0; i < all_sectionDisplay.length; i++) {
+        helper.removeClass(all_sectionDisplay[i], "is-hidden");
+      };
+      helper.addClass(quickNavLink, "m-quick-nav-display");
+      helper.addClass(hamburger, "m-hamburger-dark");
+      helper.addClass(fabIcon, "icon-edit");
+      helper.removeClass(fabIcon, "icon-reader-mode");
+    } else if (body.dataset.awesomeMode == "display" || typeof body.dataset.awesomeMode == "undefined") {
+      body.dataset.awesomeMode = "edit";
+      for (var i = 0; i < all_quickNavLink.length; i++) {
+        helper.removeClass(all_quickNavLink[i], "is-invisible");
+      };
+      for (var i = 0; i < all_sectionEdit.length; i++) {
+        helper.removeClass(all_sectionEdit[i], "is-collapsed");
+        helper.removeClass(all_sectionEdit[i], "m-quick-edit");
+      };
+      for (var i = 0; i < all_sectionDisplay.length; i++) {
+        helper.addClass(all_sectionDisplay[i], "is-hidden");
+      };
+      helper.removeClass(quickNavLink, "m-quick-nav-display");
+      helper.removeClass(hamburger, "m-hamburger-dark");
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
+      nav.lastSectionHeight();
     };
-    helper.toggleClass(modeWrapperEdit, "is-hidden");
-    helper.toggleClass(modeWrapperDisplay, "is-hidden");
-    helper.toggleClass(quickNavLink, "m-quick-nav-display");
-    helper.toggleClass(hamburger, "m-hamburger-dark");
-    helper.toggleClass(fabIcon, "icon-edit");
-    helper.toggleClass(fabIcon, "icon-reader-mode");
     totalBlock.update();
-    display.clear();
-    display.render();
+    clear();
+    render();
   };
 
   function clear() {

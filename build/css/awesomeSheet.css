@@ -1358,6 +1358,7 @@ label {
   margin: 50px 0; }
 
 .l-section {
+  position: relative;
   z-index: 1000; }
   .l-section.is-pinned {
     padding-top: 40px; }
@@ -1365,16 +1366,8 @@ label {
 .l-section-dark {
   background-color: #2a5d84; }
 
-.l-nav-padding {
-  padding-top: 6em; }
-
 .l-section-display {
-  padding: 100px 0 300px 0;
   z-index: 4000; }
-
-@media (min-width: 700px) {
-  .l-section-display {
-    padding: 130px 0 300px 0; } }
 
 .style-guide-column {
   background-color: #e3f2fd;
@@ -1904,11 +1897,16 @@ label {
 .m-section-wrapper {
   padding: 2em 0; }
 
+.m-section-wrapper-nav-padding {
+  padding-top: 8em; }
+
 @media (min-width: 700px) {
   .m-section-controls .button-group-strech {
     width: inherit; }
   .m-section-wrapper {
-    padding: 3em 0; } }
+    padding: 3em 0; }
+  .m-section-wrapper-nav-padding {
+    padding-top: 10em; } }
 
 .m-clone-block .m-clone-block-target .m-clone {
   margin: 0;
@@ -2032,6 +2030,11 @@ label {
   background-color: #333333; }
   .m-hamburger-dark .m-hamburger-inner:before, .m-hamburger-dark .m-hamburger-inner:after {
     background-color: #333333; }
+
+.m-hamburger-dark:hover .m-hamburger-inner {
+  background-color: #ff3166; }
+  .m-hamburger-dark:hover .m-hamburger-inner:before, .m-hamburger-dark:hover .m-hamburger-inner:after {
+    background-color: #ff3166; }
 
 .m-hamburger-dark.is-open .m-hamburger-inner {
   background-color: #fc0042; }
@@ -2661,6 +2664,12 @@ label {
   .m-snack-bar {
     width: 40%; } }
 
+.m-display-wrapper {
+  padding: 3em 0 0 0; }
+
+.m-display-wrapper-nav-padding {
+  padding-top: 8em; }
+
 .m-display-section {
   margin: 0 0 2em 0; }
 
@@ -2745,6 +2754,26 @@ label {
     -webkit-transform: translate(0, -50%);
         -ms-transform: translate(0, -50%);
             transform: translate(0, -50%); } }
+
+.m-quick-edit {
+  width: 80%;
+  margin-left: 10%;
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 0;
+  transition: all 0.4s ease-in-out; }
+  .m-quick-edit.is-collapsed {
+    height: 0;
+    overflow-y: hidden; }
+  .m-quick-edit.is-expanded {
+    height: 300px;
+    overflow-y: scroll;
+    border-color: rgba(0, 0, 0, 0.1);
+    padding: 10px; }
 
 .m-fab {
   position: fixed;
@@ -2839,7 +2868,7 @@ label {
   visibility: visible !important; }
 
 .is-onscreen-nav {
-  overflow: hidden; }
+  overflow: hidden !important; }
 
 .is-unrotate-in {
   -webkit-transform-origin: center center !important;
@@ -2866,4 +2895,4 @@ label {
 
 @media (min-width: 550px) {
   .is-onscreen-nav {
-    overflow: auto; } }
+    overflow: auto !important; } }
