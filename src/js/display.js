@@ -45,6 +45,7 @@ var display = (function() {
         helper.addClass(all_quickNavLink[i], "is-invisible");
       };
       for (var i = 0; i < all_sectionEdit.length; i++) {
+        all_sectionEdit[i].removeAttribute("style");
         helper.addClass(all_sectionEdit[i], "is-collapsed");
         helper.addClass(all_sectionEdit[i], "m-quick-edit");
         helper.removeClass(all_sectionEdit[i], "is-pinned");
@@ -76,6 +77,7 @@ var display = (function() {
       helper.removeClass(hamburger, "m-hamburger-dark");
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
+      nav.lastSectionHeight();
     };
     totalBlock.update();
     clear();

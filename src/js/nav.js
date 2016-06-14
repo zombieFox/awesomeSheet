@@ -188,10 +188,10 @@ var nav = (function() {
     var all_navCharacterSelect = helper.eA(".js-nav-character-input");
     all_navCharacterSelect[sheet.getIndex()].checked = true;
     _render_quickNav();
-    _render_lastSectionHeight();
+    lastSectionHeight();
   };
 
-  function _render_lastSectionHeight() {
+  function lastSectionHeight() {
     var all_sectionEdit = helper.eA(".js-section-edit");
     var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
     lastSection.style.minHeight = window.innerHeight + "px";
@@ -425,6 +425,7 @@ var nav = (function() {
   // exposed methods
   return {
     // resize: resize,
+    lastSectionHeight: lastSectionHeight,
     bind: bind,
     clear: clear,
     render: render,
