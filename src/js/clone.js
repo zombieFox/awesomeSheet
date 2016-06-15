@@ -148,7 +148,9 @@ var clone = (function() {
       var options = {
         offset: quickNavHeight + subHeaderHeight + 30
       };
-      smoothScroll.animateScroll(null, cloneBlock, options);
+      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+        smoothScroll.animateScroll(null, cloneBlock, options);
+      };
     };
   };
 

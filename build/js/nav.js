@@ -194,7 +194,9 @@ var nav = (function() {
   function lastSectionHeight() {
     var all_sectionEdit = helper.eA(".js-section-edit");
     var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
-    lastSection.style.minHeight = window.innerHeight + "px";
+    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      lastSection.style.minHeight = window.innerHeight + "px";
+    };
   };
 
   function _render_quickNav() {
@@ -379,11 +381,6 @@ var nav = (function() {
         navClose();
       };
 
-      if (event.keyCode == 82 && event.ctrlKey) {
-        prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-        navClose();
-      };
-
       if (event.which == 73 && event.ctrlKey) {
         sheet.import();
         navClose();
@@ -411,10 +408,6 @@ var nav = (function() {
       };
 
     }, false);
-
-    // window.addEventListener("resize", function(event) {
-    //   resize();
-    // }, false);
 
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);

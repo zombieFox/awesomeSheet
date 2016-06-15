@@ -2,11 +2,15 @@
   background-color: $white;
   box-sizing: border-box;
   overflow: hidden;
-  // border-width: 1px;
-  // border-style: solid;
-  // border-color: transparent;
+  max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
   padding: 0;
-  transition: all $transition-ease-medium;
+  transition: height $transition-ease-fast;
+  border-radius: $border-radius-large;
+  .container {
+    max-width: 90%;
+  }
   .m-section-controls {
     .button-group,
     .button-group-strech {
@@ -24,8 +28,6 @@
     height: 300px;
     overflow-y: scroll;
     margin-bottom: $font-size-500;
-    // border-color: $dark-alpha-19;
-    // padding: 10px;
   }
 }
 
@@ -36,6 +38,14 @@
 
 @media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-quick-edit {
+    max-width: 70%;
+  }
+}
 
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  .m-quick-edit {
+    max-width: 60%;
+  }
+}

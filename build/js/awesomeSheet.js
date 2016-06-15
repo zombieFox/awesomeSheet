@@ -5537,7 +5537,9 @@ var nav = (function() {
   function lastSectionHeight() {
     var all_sectionEdit = helper.eA(".js-section-edit");
     var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
-    lastSection.style.minHeight = window.innerHeight + "px";
+    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      lastSection.style.minHeight = window.innerHeight + "px";
+    };
   };
 
   function _render_quickNav() {
@@ -5722,11 +5724,6 @@ var nav = (function() {
         navClose();
       };
 
-      if (event.keyCode == 82 && event.ctrlKey) {
-        prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-        navClose();
-      };
-
       if (event.which == 73 && event.ctrlKey) {
         sheet.import();
         navClose();
@@ -5754,10 +5751,6 @@ var nav = (function() {
       };
 
     }, false);
-
-    // window.addEventListener("resize", function(event) {
-    //   resize();
-    // }, false);
 
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
@@ -6313,7 +6306,9 @@ var clone = (function() {
       var options = {
         offset: quickNavHeight + subHeaderHeight + 30
       };
-      smoothScroll.animateScroll(null, cloneBlock, options);
+      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+        smoothScroll.animateScroll(null, cloneBlock, options);
+      };
     };
   };
 
@@ -6537,6 +6532,10 @@ var clone = (function() {
     };
     totalBlock.update();
     sheet.storeCharacters();
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function _bind_cloneAttackMeleeInput(array) {
@@ -6749,6 +6748,10 @@ var inputBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     totalBlock.update();
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function focus(element) {
@@ -6904,6 +6907,10 @@ var textareaBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function focus(element) {
@@ -7242,6 +7249,10 @@ var spells = (function() {
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
       sheet.storeCharacters();
     };
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function _updateSpells(force) {
@@ -7395,6 +7406,10 @@ var stats = (function() {
   function delayUpdate(element) {
     render();
     totalBlock.update();
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function _calculateModifer(element) {
@@ -8047,66 +8062,183 @@ var display = (function() {
   };
 
   function _toggleQuickEdit(element) {
+    var body = helper.e("body");
     var node = helper.e(".js-" + element.dataset.miniView);
-    // helper.toggleClass(node, "is-collapsed");
-    // var height = getComputedStyle(node).height;
-    // helper.toggleClass(node, "is-collapsed");
-    // node.style.height = height + "px";
-    // getComputedStyle(node).height;
-    // if (node.style.height) {
-    //   node.removeAttribute("style");
-    // } else {
-    //   node.setAttribute("style", "height:" + height + " !important");
-    // };
+    var all_sectionEdit = helper.eA(".js-section-edit");
+    helper.toggleClass(node, "is-collapsed");
     helper.toggleClass(node, "is-expanded");
+    helper.toggleClass(node, "js-is-expanded");
+    helper.removeClass(body, "is-quikc-edit-open");
+    for (var i = 0; i < all_sectionEdit.length; i++) {
+      if (all_sectionEdit[i].classList.contains("js-is-expanded")) {
+        helper.addClass(body, "is-quikc-edit-open");
+      };
+    };
   };
 
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var quickNavLink = helper.e(".js-quick-nav");
+    var quickNav = helper.e(".js-quick-nav");
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
     var all_sectionEdit = helper.eA(".js-section-edit");
     var all_sectionDisplay = helper.eA(".js-section-display");
+    // if body is in edit state
     if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      // set it to display state
       body.dataset.awesomeMode = "display";
+      helper.addClass(body, "l-quick-edit");
+      // iterate over all quick nav links and hide
       for (var i = 0; i < all_quickNavLink.length; i++) {
         helper.addClass(all_quickNavLink[i], "is-invisible");
       };
+      // iterate over all edit secrions
       for (var i = 0; i < all_sectionEdit.length; i++) {
+        // if edit section is basics
+        if (all_sectionEdit[i].classList.contains("js-basics")) {
+          // remove dark class
+          helper.removeClass(all_sectionEdit[i], "l-section-dark");
+          // find all input blocks
+          var all_inputBlock = all_sectionEdit[i].querySelectorAll(".js-input-block");
+          // iterate over all input blocks
+          for (var j = 0; j < all_inputBlock.length; j++) {
+            // fine label and input for this input block
+            var label = all_inputBlock[j].querySelector(".js-input-block-label");
+            var input = all_inputBlock[j].querySelector(".js-input-block-field");
+            // remove dark class
+            helper.removeClass(label, "m-input-block-label-dark");
+            helper.removeClass(input, "m-input-block-field-dark");
+          };
+        };
+        // remove any inline styles
         all_sectionEdit[i].removeAttribute("style");
+        // collapse section
         helper.addClass(all_sectionEdit[i], "is-collapsed");
+        // add edit class to section
         helper.addClass(all_sectionEdit[i], "m-quick-edit");
+        // remove any pinned header classes
         helper.removeClass(all_sectionEdit[i], "is-pinned");
+        // remove any previously expanded section classes
+        helper.removeClass(all_sectionEdit[i], "is-expanded");
+        helper.removeClass(all_sectionEdit[i], "js-is-expanded");
+        // find all section headings
         var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+        // if section heading found
         if (sectionHeading) {
+          // remove any pinned header classes
           helper.removeClass(sectionHeading, "is-pinned");
+          helper.removeClass(sectionHeading, "is-faded");
+          // find section heading title
+          var sectionHeadingTitle = sectionHeading.querySelector(".js-section-title");
+          // find section controls
+          var sectionHeadingControls = sectionHeading.querySelector(".js-section-controls");
+          // if section controls not found
+          if (!sectionHeadingControls) {
+            // hide section heading
+            helper.addClass(sectionHeading, "is-hidden");
+          };
+          // if section controls found
+          if (sectionHeadingControls) {
+            // make it full width
+            helper.removeClass(sectionHeadingControls.parentNode, "col-xs-10");
+            helper.addClass(sectionHeadingControls.parentNode, "col-xs-12");
+          };
+          // if section heading title found
+          if (sectionHeadingTitle) {
+            // hide section heading
+            helper.addClass(sectionHeadingTitle.parentNode, "is-hidden");
+          };
         };
       };
+      // iterate over all display sections
       for (var i = 0; i < all_sectionDisplay.length; i++) {
+        // make them visable
         helper.removeClass(all_sectionDisplay[i], "is-hidden");
       };
-      helper.addClass(quickNavLink, "m-quick-nav-display");
+      // make quick nav light
+      helper.addClass(quickNav, "m-quick-nav-display");
+      // make hamburger dark
       helper.addClass(hamburger, "m-hamburger-dark");
+      // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
+    // if body is in display state
     } else if (body.dataset.awesomeMode == "display" || typeof body.dataset.awesomeMode == "undefined") {
+      // set it to edit state
       body.dataset.awesomeMode = "edit";
+      helper.removeClass(body, "l-quick-edit");
+      // remove quick edit open state from body
+      helper.removeClass(body, "is-quikc-edit-open");
+      // iterate over quick nav links
       for (var i = 0; i < all_quickNavLink.length; i++) {
+        // make visable
         helper.removeClass(all_quickNavLink[i], "is-invisible");
       };
+      // iterate over all edit secrions
       for (var i = 0; i < all_sectionEdit.length; i++) {
+        // if edit section is basics
+        if (all_sectionEdit[i].classList.contains("js-basics")) {
+          // remove dark class
+          helper.addClass(all_sectionEdit[i], "l-section-dark");
+          // find all input blocks
+          var all_inputBlock = all_sectionEdit[i].querySelectorAll(".js-input-block");
+          // iterate over all input blocks
+          for (var j = 0; j < all_inputBlock.length; j++) {
+            // fine label and input for this input block
+            var label = all_inputBlock[j].querySelector(".js-input-block-label");
+            var input = all_inputBlock[j].querySelector(".js-input-block-field");
+            // remove dark class
+            helper.addClass(label, "m-input-block-label-dark");
+            helper.addClass(input, "m-input-block-field-dark");
+          };
+        };
+        // expand section
         helper.removeClass(all_sectionEdit[i], "is-collapsed");
+        // remove edit class to section
         helper.removeClass(all_sectionEdit[i], "m-quick-edit");
+        // remove any previously expanded section classes
+        helper.removeClass(all_sectionEdit[i], "is-expanded");
+        helper.removeClass(all_sectionEdit[i], "js-is-expanded");
+        // find all section headings
+        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+        // if section heading found
+        if (sectionHeading) {
+          // find section heading title
+          var sectionHeadingTitle = sectionHeading.querySelector(".js-section-title");
+          // find section controls
+          var sectionHeadingControls = sectionHeading.querySelector(".js-section-controls");
+          // section heading controls not found
+          if (!sectionHeadingControls) {
+            // unhide section heading
+            helper.removeClass(sectionHeading, "is-hidden");
+          };
+          // if section heading controls found
+          if (sectionHeadingControls) {
+            // make 10 cols
+            helper.addClass(sectionHeadingControls.parentNode, "col-xs-10");
+            helper.removeClass(sectionHeadingControls.parentNode, "col-xs-12");
+          };
+          // if section heading title found
+          if (sectionHeadingTitle) {
+            // iunhide it
+            helper.removeClass(sectionHeadingTitle.parentNode, "is-hidden");
+          };
+        };
       };
+      // iterate over all display sections
       for (var i = 0; i < all_sectionDisplay.length; i++) {
+        // hide display section
         helper.addClass(all_sectionDisplay[i], "is-hidden");
       };
-      helper.removeClass(quickNavLink, "m-quick-nav-display");
+      // make quick nav dark
+      helper.removeClass(quickNav, "m-quick-nav-display");
+      // make hamburger light
       helper.removeClass(hamburger, "m-hamburger-dark");
+      // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
+      // resize last section
       nav.lastSectionHeight();
     };
     totalBlock.update();

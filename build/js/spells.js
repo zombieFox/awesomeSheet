@@ -242,6 +242,10 @@ var spells = (function() {
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
       sheet.storeCharacters();
     };
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function _updateSpells(force) {

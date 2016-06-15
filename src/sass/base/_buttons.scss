@@ -48,7 +48,6 @@ input[type="button"] {
   [class*=" icon-"] {
     font-size: $font-size-100;
     line-height: $line-height-160;
-    margin-right: 5px;
     display: inline-block;
   }
 }
@@ -57,18 +56,30 @@ input[type="button"] {
   padding: $font-size-025 $font-size-050;
   font-size: $font-size-075;
   border-radius: $border-radius-medium;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    margin-right: 2px;
+  }
 }
 
 .button-medium {
   padding: $font-size-025 $font-size-075;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    margin-right: 5px;
+  }
 }
 
 .button-large {
   padding: $font-size-100 $font-size-200;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    margin-right: 8px;
+  }
 }
 
 .button-block {
