@@ -2719,12 +2719,14 @@ label {
 
 .m-display-item,
 .m-display-spell,
+.m-display-skills,
 .m-display-attack {
   margin-right: 20px;
   position: relative;
   display: inline-block; }
   .m-display-item:after,
   .m-display-spell:after,
+  .m-display-skills:after,
   .m-display-attack:after {
     background: #e6e6e6;
     content: "";
@@ -2740,12 +2742,14 @@ label {
             transform: translate(50%, -50%); }
   .m-display-item:last-child,
   .m-display-spell:last-child,
+  .m-display-skills:last-child,
   .m-display-attack:last-child {
     margin-right: 0;
     padding-right: 0;
     border-right: 0; }
     .m-display-item:last-child:after,
     .m-display-spell:last-child:after,
+    .m-display-skills:last-child:after,
     .m-display-attack:last-child:after {
       display: none; }
 

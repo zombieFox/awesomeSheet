@@ -8254,6 +8254,7 @@ var display = (function() {
   function clear() {
     var all_displayItem = helper.eA(".js-display-block");
     var displaySpell = helper.e(".js-display-block-spell");
+    var displaySkills = helper.e(".js-display-block-skills");
     var displayAttack = helper.e(".js-display-block-attack");
     var displayConsumable = helper.e(".js-display-block-consumable");
 
@@ -8268,6 +8269,7 @@ var display = (function() {
     };
 
     removeAllChildren(displaySpell);
+    removeAllChildren(displaySkills);
     removeAllChildren(displayAttack);
     removeAllChildren(displayConsumable);
   };
@@ -8379,49 +8381,6 @@ var display = (function() {
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
           makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
 
-          makeDisplayItem("skills.acrobatics.current", "Acrobatics <strong>", "</strong>");
-          makeDisplayItem("skills.appraise.current", "Appraise <strong>", "</strong>");
-          makeDisplayItem("skills.bluff.current", "Bluff <strong>", "</strong>");
-          makeDisplayItem("skills.climb.current", "Climb <strong>", "</strong>");
-          makeDisplayItem("skills.craft_1.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_1.variant_name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.craft_2.current", "Craft" + skillVariantName(sheet.getCharacter().skills.craft_2.variant_name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.diplomacy.current", "Diplomacy <strong>", "</strong>");
-          makeDisplayItem("skills.disable_device.current", "Disable Device <strong>", "</strong>");
-          makeDisplayItem("skills.disguise.current", "Disguise <strong>", "</strong>");
-          makeDisplayItem("skills.escape_artist.current", "Escape Artist <strong>", "</strong>");
-          makeDisplayItem("skills.fly.current", "Fly <strong>", "</strong>");
-          makeDisplayItem("skills.handle_animal.current", "Handle Animal <strong>", "</strong>");
-          makeDisplayItem("skills.heal.current", "Heal <strong>", "</strong>");
-          makeDisplayItem("skills.intimidate.current", "Intimidate <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_arcana.current", "Knowledge (Arcana) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_dungeoneering.current", "Knowledge (Dungeoneering) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_engineering.current", "Knowledge (Engineering) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_geography.current", "Knowledge (Geography) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_history.current", "Knowledge (History) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_local.current", "Knowledge (Local) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_nature.current", "Knowledge (Nature) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_nobility.current", "Knowledge (Nobility) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_planes.current", "Knowledge (Planes) <strong>", "</strong>");
-          makeDisplayItem("skills.knowledge_religion.current", "Knowledge (Religion) <strong>", "</strong>");
-          makeDisplayItem("skills.linguistics.current", "Linguistics <strong>", "</strong>");
-          makeDisplayItem("skills.perception.current", "Perception <strong>", "</strong>");
-          makeDisplayItem("skills.perform_1.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_1.variant_name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.perform_2.current", "Perform" + skillVariantName(sheet.getCharacter().skills.perform_2.variant_name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.profession_1.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_1.variant_name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.profession_2.current", "Profession" + skillVariantName(sheet.getCharacter().skills.profession_2.variant_name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.ride.current", "Ride <strong>", "</strong>");
-          makeDisplayItem("skills.sense_motive.current", "Sense Motive <strong>", "</strong>");
-          makeDisplayItem("skills.sleight_of_hand.current", "Sleight Of Hand <strong>", "</strong>");
-          makeDisplayItem("skills.spellcraft.current", "Spellcraft <strong>", "</strong>");
-          makeDisplayItem("skills.stealth.current", "Stealth <strong>", "</strong>");
-          makeDisplayItem("skills.survival.current", "Survival <strong>", "</strong>");
-          makeDisplayItem("skills.swim.current", "Swim <strong>", "</strong>");
-          makeDisplayItem("skills.use_magic_device.current", "Use Magic Device <strong>", "</strong>");
-          makeDisplayItem("skills.custom_1.current", customSkillName(sheet.getCharacter().skills.custom_1.name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.custom_2.current", customSkillName(sheet.getCharacter().skills.custom_2.name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.custom_3.current", customSkillName(sheet.getCharacter().skills.custom_3.name) + " <strong>", "</strong>");
-          makeDisplayItem("skills.custom_4.current", customSkillName(sheet.getCharacter().skills.custom_4.name) + " <strong>", "</strong>");
-
           makeDisplayItem("notes.character", "", "");
           makeDisplayItem("notes.story", "", "");
 
@@ -8433,6 +8392,144 @@ var display = (function() {
           };
         };
       };
+    };
+
+    function _displaySkills() {
+      var displayBlockSkills = helper.e(".js-display-block-skills");
+      var para = document.createElement("p");
+      para.setAttribute("class", "m-display-block");
+      for (var i in sheet.getCharacter().skills) {
+        var _makeSkillName = function(key) {
+          if (key == "acrobatics") {
+            return "Acrobatics";
+          };
+          if (key == "appraise") {
+            return "Appraise";
+          };
+          if (key == "bluff") {
+            return "Bluff";
+          };
+          if (key == "climb") {
+            return "Climb";
+          };
+          if (key == "craft_1" || key == "craft_2") {
+            return "Craft";
+          };
+          if (key == "diplomacy") {
+            return "Diplomacy";
+          };
+          if (key == "disable_device") {
+            return "Disable Device";
+          };
+          if (key == "disguise") {
+            return "Disguise";
+          };
+          if (key == "escape_artist") {
+            return "Escape Artist";
+          };
+          if (key == "fly") {
+            return "Fly";
+          };
+          if (key == "handle_animal") {
+            return "Handle Animal";
+          };
+          if (key == "heal") {
+            return "Heal";
+          };
+          if (key == "intimidate") {
+            return "Intimidate";
+          };
+          if (key == "knowledge_arcana") {
+            return "Knowledge Arcana";
+          };
+          if (key == "knowledge_dungeoneering") {
+            return "Knowledge (Dungeoneering)";
+          };
+          if (key == "knowledge_engineering") {
+            return "Knowledge (Engineering)";
+          };
+          if (key == "knowledge_geography") {
+            return "Knowledge (Geography)";
+          };
+          if (key == "knowledge_history") {
+            return "Knowledge (History)";
+          };
+          if (key == "knowledge_local") {
+            return "Knowledge (Local)";
+          };
+          if (key == "knowledge_nature") {
+            return "Knowledge (Nature)";
+          };
+          if (key == "knowledge_nobility") {
+            return "Knowledge (Nobility)";
+          };
+          if (key == "knowledge_planes") {
+            return "Knowledge (Planes)";
+          };
+          if (key == "knowledge_religion") {
+            return "Knowledge (Religion)";
+          };
+          if (key == "linguistics") {
+            return "Linguistics";
+          };
+          if (key == "perception") {
+            return "Perception";
+          };
+          if (key == "perform_1" || key == "perform_2") {
+            return "Perform";
+          };
+          if (key == "profession_1" || key == "profession_2") {
+            return "Profession";
+          };
+          if (key == "ride") {
+            return "Ride";
+          };
+          if (key == "sense_motive") {
+            return "Sense Motive";
+          };
+          if (key == "sleight_of_hand") {
+            return "Sleight Of Hand";
+          };
+          if (key == "spellcraft") {
+            return "Spellcraft";
+          };
+          if (key == "stealth") {
+            return "Stealth";
+          };
+          if (key == "survival") {
+            return "Survival";
+          };
+          if (key == "swim") {
+            return "Swim";
+          };
+          if (key == "use_magic_device") {
+            return "Use Magic Device";
+          };
+          if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4") {
+            return "Custom Skill";
+          };
+        };
+        var _render_skill = function(data) {
+          var span = document.createElement("span");
+          span.setAttribute("class", "m-display-skills js-display-skills");
+          span.innerHTML = data;
+          para.appendChild(span);
+        };
+        var data;
+        if (sheet.getCharacter().skills[i].ranks != "") {
+          if (sheet.getCharacter().skills[i].name) {
+            data = sheet.getCharacter().skills[i].name + " <strong>" + sheet.getCharacter().skills[i].current + "</strong>";
+            _render_skill(data);
+          } else if (sheet.getCharacter().skills[i].variant_name) {
+            data = _makeSkillName(i) + " (" + sheet.getCharacter().skills[i].variant_name + ") <strong>" + sheet.getCharacter().skills[i].current + "</strong>";
+            _render_skill(data);
+          } else if (!sheet.getCharacter().skills[i].name || sheet.getCharacter().skills[i].variant_name) {
+            data = _makeSkillName(i) + " <strong>" + sheet.getCharacter().skills[i].current + "</strong>";
+            _render_skill(data);
+          };
+        };
+      };
+      displayBlockSkills.appendChild(para);
     };
 
     function _displaySpell() {
@@ -8589,6 +8686,7 @@ var display = (function() {
     };
 
     _displayItem();
+    _displaySkills();
     _displaySpell();
     _displayAttackMelee();
     _displayAttackRanged();
