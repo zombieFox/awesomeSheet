@@ -31,6 +31,9 @@ var display = (function() {
     };
   };
 
+  var scrollTopEdit = 0;
+  var scrollTopDisplay = 0;
+
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
@@ -41,6 +44,8 @@ var display = (function() {
     var all_sectionDisplay = helper.eA(".js-section-display");
     // if body is in edit state
     if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      // record scroll top var
+      scrollTopEdit = window.scrollY;
       // set it to display state
       body.dataset.awesomeMode = "display";
       helper.addClass(body, "l-quick-edit");
@@ -118,8 +123,12 @@ var display = (function() {
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
-    // if body is in display state
+      // scroll to
+      window.scrollTo(0, scrollTopDisplay);
+      // if body is in display state
     } else if (body.dataset.awesomeMode == "display" || typeof body.dataset.awesomeMode == "undefined") {
+      // record scroll top var
+      scrollTopDisplay = window.scrollY;
       // set it to edit state
       body.dataset.awesomeMode = "edit";
       helper.removeClass(body, "l-quick-edit");
@@ -195,6 +204,8 @@ var display = (function() {
       helper.addClass(fabIcon, "icon-reader-mode");
       // resize last section
       nav.lastSectionHeight();
+      // scroll to
+      window.scrollTo(0, scrollTopEdit);
     };
     totalBlock.update();
     clear();
