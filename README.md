@@ -5,7 +5,7 @@
 ## Features
 - Edit stats and abilities will auto update.
 - Dynamically add attack and consumable blocks.
-- Export character as JSON file.
+- Export and Import characters as JSON file.
 - Local store all changes made so changes will persist after reload.
 
 ### Development
