@@ -1,0 +1,51 @@
+.m-quick-edit {
+  background-color: $white;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+  transition: height $transition-ease-fast;
+  border-radius: $border-radius-large;
+  .container {
+    max-width: 90%;
+  }
+  .m-section-controls {
+    .button-group,
+    .button-group-strech {
+      position: relative;
+    }
+  }
+  .m-section-wrapper {
+    padding: $font-size-200 0;
+  }
+  &.is-collapsed {
+    height: 0;
+    overflow-y: hidden;
+  }
+  &.is-expanded {
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: $font-size-500;
+  }
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+
+@media (min-width: $screen-md) {}
+
+@media (min-width: $screen-lg) {
+  .m-quick-edit {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: $screen-xl) {
+  .m-quick-edit {
+    max-width: 60%;
+  }
+}

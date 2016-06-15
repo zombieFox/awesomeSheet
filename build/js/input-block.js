@@ -12,6 +12,10 @@ var inputBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     totalBlock.update();
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function focus(element) {

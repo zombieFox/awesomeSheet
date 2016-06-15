@@ -78,7 +78,7 @@ var vos = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "2,828",
+        gold: "8,971",
         silver: "5",
         copper: ""
       },

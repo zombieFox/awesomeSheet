@@ -188,64 +188,69 @@ var nav = (function() {
     var all_navCharacterSelect = helper.eA(".js-nav-character-input");
     all_navCharacterSelect[sheet.getIndex()].checked = true;
     _render_quickNav();
-    _render_lastSectionHeight();
+    lastSectionHeight();
   };
 
-  function _render_lastSectionHeight() {
-    var all_section = helper.eA(".js-section");
-    var lastSection = all_section[all_section.length - 1];
-    lastSection.style.minHeight = window.innerHeight + "px";
+  function lastSectionHeight() {
+    var all_sectionEdit = helper.eA(".js-section-edit");
+    var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
+    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      lastSection.style.minHeight = window.innerHeight + "px";
+    };
   };
 
   function _render_quickNav() {
+    var body = helper.e("body");
     window.onscroll = function() {
-      var quickNav = helper.e(".js-quick-nav");
-      var quickNavLinks = helper.eA(".js-quick-nav-link");
-      var all_section = helper.eA(".js-section");
-      var menu = parseInt(getComputedStyle(quickNav).height, 10);
-      for (var i = 0; i < all_section.length; i++) {
-        // console.log(all_section[i].id + " top = " + all_section[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_section[i].getBoundingClientRect().bottom);
+      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+        var quickNav = helper.e(".js-quick-nav");
+        var quickNavLinks = helper.eA(".js-quick-nav-link");
+        var all_sectionEdit = helper.eA(".js-section-edit");
+        var menu = parseInt(getComputedStyle(quickNav).height, 10);
+        for (var i = 0; i < all_sectionEdit.length; i++) {
+          // console.log(all_sectionEdit[i].id + " top = " + all_sectionEdit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_sectionEdit[i].getBoundingClientRect().bottom);
 
-        var sectionHeading = all_section[i].querySelector(".js-section-heading");
-        var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
+          var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
+          var sectionHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
 
-        if (all_section[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
-          if (sectionHeading) {
-            helper.addClass(sectionHeading, "is-faded");
-            // sectionHeading.setAttribute("style", "top:" + (all_section[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+          if (all_sectionEdit[i].getBoundingClientRect().bottom < (menu + sectionHeadingHeight)) {
+            if (sectionHeading) {
+              helper.addClass(sectionHeading, "is-faded");
+              // sectionHeading.setAttribute("style", "top:" + (all_sectionEdit[i].getBoundingClientRect().bottom - sectionHeadingHeight) + "px");
+            };
+          } else {
+            if (sectionHeading) {
+              helper.removeClass(sectionHeading, "is-faded");
+              // sectionHeading.removeAttribute("style");
+            };
           };
-        } else {
-          if (sectionHeading) {
-            helper.removeClass(sectionHeading, "is-faded");
-            // sectionHeading.removeAttribute("style");
+
+          if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
+            for (var j = 0; j < quickNavLinks.length; j++) {
+              helper.removeClass(quickNavLinks[j], "is-active");
+            };
+            helper.addClass(quickNavLinks[i], "is-active");
+            if (sectionHeading) {
+              helper.addClass(all_sectionEdit[i], "is-pinned");
+              helper.addClass(sectionHeading, "is-pinned");
+            };
+          } else {
+            helper.removeClass(quickNavLinks[i], "is-active");
+            if (sectionHeading) {
+              helper.removeClass(all_sectionEdit[i], "is-pinned");
+              helper.removeClass(sectionHeading, "is-pinned");
+            };
           };
+
         };
-
-        if (all_section[i].getBoundingClientRect().top <= menu && all_section[i].getBoundingClientRect().bottom > menu) {
-          for (var j = 0; j < quickNavLinks.length; j++) {
-            helper.removeClass(quickNavLinks[j], "is-active");
-          };
-          helper.addClass(quickNavLinks[i], "is-active");
-          if (sectionHeading) {
-            helper.addClass(all_section[i], "is-pinned");
-            helper.addClass(sectionHeading, "is-pinned");
-          };
-        } else {
-          helper.removeClass(quickNavLinks[i], "is-active");
-          if (sectionHeading) {
-            helper.removeClass(all_section[i], "is-pinned");
-            helper.removeClass(sectionHeading, "is-pinned");
-          };
-        };
-
+        // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
+        //   for (var i = 0; i < quickNavLinks.length; i++) {
+        //     helper.removeClass(quickNavLinks[i], "is-active");
+        //   };
+        //   helper.addClass(lastQuickLink, "is-active");
+        // };
       };
-      // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-      //   for (var i = 0; i < quickNavLinks.length; i++) {
-      //     helper.removeClass(quickNavLinks[i], "is-active");
-      //   };
-      //   helper.addClass(lastQuickLink, "is-active");
-      // };
     };
   };
 
@@ -376,11 +381,6 @@ var nav = (function() {
         navClose();
       };
 
-      if (event.keyCode == 82 && event.ctrlKey) {
-        prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-        navClose();
-      };
-
       if (event.which == 73 && event.ctrlKey) {
         sheet.import();
         navClose();
@@ -409,10 +409,6 @@ var nav = (function() {
 
     }, false);
 
-    // window.addEventListener("resize", function(event) {
-    //   resize();
-    // }, false);
-
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
     // });
@@ -422,6 +418,7 @@ var nav = (function() {
   // exposed methods
   return {
     // resize: resize,
+    lastSectionHeight: lastSectionHeight,
     bind: bind,
     clear: clear,
     render: render,

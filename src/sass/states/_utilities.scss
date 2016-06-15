@@ -27,7 +27,11 @@
 }
 
 .is-onscreen-nav {
-  overflow: hidden;
+  overflow: hidden !important;
+}
+
+.is-quikc-edit-open {
+  background-color: $gray-18 !important;
 }
 
 .is-unrotate-in {
@@ -51,7 +55,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .is-onscreen-nav {
-    overflow: auto;
+    overflow: auto !important;
   }
 }
 

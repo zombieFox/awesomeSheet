@@ -1,5 +1,13 @@
-.l-section-display {
-  z-index: $display;
+.l-section {
+  position: relative;
+  z-index: $body;
+  &.is-pinned {
+    padding-top: 40px;
+  }
+}
+
+.l-section-dark {
+  background-color: $secondary-color-07;
 }
 
 // --------------------------------------------------

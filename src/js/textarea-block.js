@@ -11,6 +11,10 @@ var textareaBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function focus(element) {

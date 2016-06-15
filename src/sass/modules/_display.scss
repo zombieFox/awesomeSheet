@@ -1,15 +1,25 @@
+.m-display-wrapper {
+  padding: $font-size-300 0 0 0;
+}
+
+.m-display-wrapper-nav-padding {
+  padding-top: 8em;
+}
+
 .m-display-section {
   margin: 0 0 $font-size-200 0;
 }
 
 .m-display-section-divider {
   background-color: $gray-18;
-  margin: 0 0 $font-size-300 0;
+  margin: 0 0 $font-size-400 0;
   width: 100%;
   height: 2px;
   position: relative;
+  transition: all $transition-ease-medium;
   .m-display-section-icon {
     background-color: $white;
+    border: 2px solid $gray-18;
     position: absolute;
     top: -1px;
     left: 50%;
@@ -17,10 +27,22 @@
     line-height: 2em;
     text-align: center;
     border-radius: 50%;
-    color: $gray-18;
+    color: $gray-16;
     font-size: $font-size-200;
     display: block;
     transform: translate(-50%, -50%);
+    transition: all $transition-ease-medium;
+  }
+}
+
+.is-quikc-edit-open {
+  .m-display-section-divider {
+    background-color: $gray-16;
+    .m-display-section-icon {
+      background-color: $gray-18;
+      border-color: $gray-16;
+      color: $gray-14;
+    }
   }
 }
 
@@ -78,14 +100,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 
-@media (min-width: $screen-md) {
-  .m-display-section-divider {
-    .m-display-section-icon {
-      left: 0;
-      transform: translate(0, -50%);
-    }
-  }
-}
+@media (min-width: $screen-md) {}
 
 @media (min-width: $screen-lg) {}
 

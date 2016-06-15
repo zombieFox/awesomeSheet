@@ -11,6 +11,10 @@ var stats = (function() {
   function delayUpdate(element) {
     render();
     totalBlock.update();
+    if (body.dataset.awesomeMode == "display") {
+      display.clear();
+      display.render();
+    };
   };
 
   function _calculateModifer(element) {

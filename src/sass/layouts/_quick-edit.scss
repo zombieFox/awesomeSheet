@@ -1,16 +1,5 @@
-.l-section {
-  z-index: $body;
-  &.is-pinned {
-    padding-top: 40px;
-  }
-}
-
-.l-section-dark {
-  background-color: $secondary-color-07;
-}
-
-.l-nav-padding {
-  padding-top: 6em;
+.l-quick-edit {
+  margin: 0 0 10em 0;
 }
 
 // --------------------------------------------------
