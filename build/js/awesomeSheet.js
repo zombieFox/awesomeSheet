@@ -7661,7 +7661,12 @@ var totalBlock = (function() {
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
-        classSkill = 3;
+        var ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
+        if (ranks > 0) {
+          classSkill = 3;
+        } else {
+          classSkill = 0;
+        };
       };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
