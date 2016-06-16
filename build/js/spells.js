@@ -86,7 +86,7 @@ var spells = (function() {
     // state cast
     if (spellState == "cast") {
       var all_spellsMarks = spellMarks.children;
-      var all_remainingPreparedSpells = 0;
+      var all_remainingPreparedSpells = spellMarks.querySelectorAll(".js-spell-mark-checked").length;
       for (var i = 0; i < all_spellsMarks.length; i++) {
         if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
           helper.toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
@@ -94,12 +94,6 @@ var spells = (function() {
           helper.toggleClass(all_spellsMarks[i], "js-spell-mark-checked");
           helper.toggleClass(all_spellsMarks[i], "js-spell-mark-unchecked");
           break
-        };
-      };
-      // if no checked icons can be found change the var allSpellCast to true
-      for (var i = 0; i < all_spellsMarks.length; i++) {
-        if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
-          all_remainingPreparedSpells++;
         };
       };
       // if there are no spell marks add cast mark for spontaneous casters
@@ -110,10 +104,19 @@ var spells = (function() {
           spellMarks.appendChild(castIcon);
         };
       };
-      // allSpellCast to true change spell button class
-      if (all_remainingPreparedSpells <= 0) {
-        helper.removeClass(spell, "button-primary");
+      if (spellMarks.children.length > 0) {
+        helper.addClass(spell, "button-primary");
       };
+      // if no checked icons can be found change the var allSpellCast to true
+      for (var i = 0; i < all_spellsMarks.length; i++) {
+        if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
+          all_remainingPreparedSpells--;
+        };
+      };
+      // allSpellCast to true change spell button class
+      // if (all_remainingPreparedSpells <= 0) {
+      //   helper.removeClass(spell, "button-primary");
+      // };
     };
     // state active
     if (spellState == "active") {
@@ -332,9 +335,9 @@ var spells = (function() {
             helper.toggleClass(all_check[j], "js-spell-mark-unchecked");
           };
         };
-        if (spellObject.cast >= spellObject.prepared) {
-          helper.removeClass(spellButton, "button-primary");
-        };
+        // if (spellObject.cast >= spellObject.prepared) {
+        //   helper.removeClass(spellButton, "button-primary");
+        // };
       };
       // if spell is active
       if (spellObject.active) {
