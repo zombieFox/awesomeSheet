@@ -6,6 +6,7 @@ var spells = (function() {
     var spellCastButton = helper.e(".js-spell-cast");
     var spellActiveButton = helper.e(".js-spell-active");
     var spellRemoveButton = helper.e(".js-spell-remove");
+    var spellResetButton = helper.e(".js-spell-reset");
     var all_newSpellAdd = helper.eA(".js-new-spell-add");
     for (var i = 0; i < all_newSpellAdd.length; i++) {
       all_newSpellAdd[i].addEventListener("click", function() {
@@ -36,6 +37,29 @@ var spells = (function() {
     spellRemoveButton.addEventListener("click", function() {
       _changeSpellState(this);
     }, false);
+    spellResetButton.addEventListener("click", function() {
+      _resetAllSpells();
+    }, false);
+  };
+
+  function _resetAllSpells() {
+    var all_spellRoot = helper.eA(".js-spell");
+    for (var i = 0; i < all_spellRoot.length; i++) {
+      if (all_spellRoot[i].classList.contains("button-primary")) {
+        helper.removeClass(all_spellRoot[i], "button-primary");
+      };
+      var spellActive = all_spellRoot[i].querySelector(".js-spell-active");
+      var spellMarks = all_spellRoot[i].querySelector(".js-spell-marks");
+      var removeAllChildren = function(parent) {
+        while (parent.lastChild) {
+          parent.removeChild(parent.lastChild);
+        };
+      };
+      removeAllChildren(spellActive);
+      removeAllChildren(spellMarks);
+    };
+    _updateSpells(true);
+    sheet.storeCharacters();
   };
 
   function _addNewSpellOnEnter(element) {
