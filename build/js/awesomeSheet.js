@@ -7103,9 +7103,9 @@ var spells = (function() {
     // state cast
     if (spellState == "cast") {
       var all_spellsMarks = spellMarks.children;
-      var all_spellsCast = 0;
+      var all_remainingPreparedSpells = 0;
       for (var i = 0; i < all_spellsMarks.length; i++) {
-        if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
+        if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
           helper.toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
           helper.toggleClass(all_spellsMarks[i], "icon-radio-button-unchecked");
           helper.toggleClass(all_spellsMarks[i], "js-spell-mark-checked");
@@ -7115,12 +7115,20 @@ var spells = (function() {
       };
       // if no checked icons can be found change the var allSpellCast to true
       for (var i = 0; i < all_spellsMarks.length; i++) {
-        if (all_spellsMarks[i].classList.contains("icon-radio-button-checked")) {
-          all_spellsCast++;
+        if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
+          all_remainingPreparedSpells++;
+        };
+      };
+      // if there are no spell marks add cast mark for spontaneous casters
+      if (all_remainingPreparedSpells <= 0) {
+        if (spellMarks.children.length <= 15) {
+          var castIcon = document.createElement("span");
+          castIcon.setAttribute("class", "icon icon-radio-button-unchecked js-spell-mark-unchecked");
+          spellMarks.appendChild(castIcon);
         };
       };
       // allSpellCast to true change spell button class
-      if (all_spellsCast <= 0) {
+      if (all_remainingPreparedSpells <= 0) {
         helper.removeClass(spell, "button-primary");
       };
     };
