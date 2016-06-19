@@ -314,7 +314,7 @@ var totalBlock = (function() {
       return "Cha Bonus";
     };
     if (bonusType == "bab") {
-      return "BAB Bonus";
+      return "Base Attack Bonus";
     };
     if (bonusType == "size") {
       return "Size Bonus";
