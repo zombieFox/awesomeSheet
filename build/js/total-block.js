@@ -6,7 +6,6 @@ var totalBlock = (function() {
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
 
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      var bonuses = all_totalBlockBonuses[i].dataset.bonuses.split(",");
       var path = all_totalBlockBonuses[i].dataset.bonusPath;
       var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
       if (path) {
@@ -295,13 +294,6 @@ var totalBlock = (function() {
     sheet.storeCharacters();
   };
 
-  function _store(input, totalBlock) {
-    var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
-    var path = input.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, input.checked);
-    sheet.storeCharacters();
-  };
-
   function _bonusTextLable(bonusType) {
     if (bonusType == "str-bonus" || bonusType == "str_bonus") {
       return "Str Bonus";
@@ -425,6 +417,13 @@ var totalBlock = (function() {
         _totalBlockModalContent(this);
       }, false);
     };
+  };
+
+  function _store(input, totalBlock) {
+    var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
+    var path = input.dataset.path;
+    helper.setObject(sheet.getCharacter(), path, input.checked);
+    sheet.storeCharacters();
   };
 
   function bind() {
