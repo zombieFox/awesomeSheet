@@ -327,7 +327,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -336,7 +343,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -345,7 +359,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -354,7 +375,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -364,7 +392,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -374,7 +409,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -383,7 +425,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -392,7 +441,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -401,7 +457,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -410,7 +473,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -419,7 +489,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -428,7 +505,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -437,7 +521,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -446,7 +537,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -455,7 +553,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -464,7 +569,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -473,7 +585,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -482,7 +601,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -491,7 +617,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -500,7 +633,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -509,7 +649,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -518,7 +665,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -527,7 +681,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -536,7 +697,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -545,7 +713,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -554,7 +729,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -564,7 +746,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -574,7 +763,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -584,7 +780,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -594,7 +797,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -603,7 +813,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -612,7 +829,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -621,7 +845,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -630,7 +861,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -639,7 +877,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -648,7 +893,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -657,7 +909,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -666,7 +925,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -721,6 +987,74 @@ var marika = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
