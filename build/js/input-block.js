@@ -2,7 +2,7 @@ var inputBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.updateObject(sheet.getCharacter(), path, element.value);
+    helper.setObject(sheet.getCharacter(), path, element.value);
     sheet.storeCharacters();
   };
 

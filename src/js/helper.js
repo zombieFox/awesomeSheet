@@ -61,20 +61,38 @@ var helper = (function() {
     return string;
   };
 
-  function updateObject(object, path, newValue) {
-    var address = path.split('.');
+  function setObject(object, path, newValue) {
+    var address = path.split(".");
     while (address.length > 1) {
-      object = object[address.shift()];
+      var currentKey = address.shift();
+      var parentObject = object;
+      object = object[currentKey];
+      if (!object) {
+        object = parentObject;
+        object = object[currentKey] = {};
+      };
     };
     object[address.shift()] = newValue;
   };
 
   function getObject(object, path) {
-    var address = path.split('.');
+    var address = path.split(".");
     while (address.length > 1) {
-      object = object[address.shift()];
+      var currentKey = address.shift();
+      var parentObject = object;
+      object = object[currentKey];
+      if (!object) {
+        object = parentObject;
+        object = object[currentKey] = {};
+      };
     };
-    return object[address.shift()];
+    var finalKey = address.shift();
+    if (finalKey in object) {
+      return object[finalKey];
+    } else {
+      object[finalKey] = "";
+      return object[finalKey];
+    };
   };
 
   function getClosest(element, selector) {
@@ -82,19 +100,19 @@ var helper = (function() {
     // Get closest match
     for (; element && element !== document; element = element.parentNode) {
       // If selector is a class
-      if (firstChar === '.') {
+      if (firstChar === ".") {
         if (element.classList.contains(selector.substr(1))) {
           return element;
         };
       };
       // If selector is an ID
-      if (firstChar === '#') {
+      if (firstChar === "#") {
         if (element.id === selector.substr(1)) {
           return element;
         };
       };
       // If selector is a data attribute
-      if (firstChar === '[') {
+      if (firstChar === "[") {
         if (element.hasAttribute(selector.substr(1, selector.length - 2))) {
           return element;
         };
@@ -126,7 +144,7 @@ var helper = (function() {
     getClosest: getClosest,
     selectText: selectText,
     delayFunction: delayFunction,
-    updateObject: updateObject,
+    setObject: setObject,
     getObject: getObject,
     truncate: truncateString,
     randomId: randomId
