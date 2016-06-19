@@ -292,7 +292,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -301,7 +308,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -310,7 +324,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -319,7 +340,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -329,7 +357,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -339,7 +374,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -348,7 +390,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -357,7 +406,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -366,7 +422,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -375,7 +438,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -384,7 +454,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -393,7 +470,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -402,7 +486,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -411,7 +502,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -420,7 +518,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -429,7 +534,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -438,7 +550,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -447,7 +566,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -456,7 +582,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -465,7 +598,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -474,7 +614,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -483,7 +630,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -492,7 +646,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -501,7 +662,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -510,7 +678,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -519,7 +694,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -529,7 +711,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -539,7 +728,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -549,7 +745,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -559,7 +762,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -568,7 +778,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -577,7 +794,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -586,7 +810,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -595,7 +826,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -604,7 +842,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -613,7 +858,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -622,7 +874,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -631,7 +890,14 @@ var blank = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -686,6 +952,74 @@ var blank = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
@@ -1089,7 +1423,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -1098,7 +1439,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -1107,7 +1455,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -1116,7 +1471,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -1126,7 +1488,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -1136,7 +1505,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -1145,7 +1521,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -1154,7 +1537,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -1163,7 +1553,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -1172,7 +1569,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -1181,7 +1585,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -1190,7 +1601,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -1199,7 +1617,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -1208,7 +1633,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -1217,7 +1649,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -1226,7 +1665,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -1235,7 +1681,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -1244,7 +1697,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -1253,7 +1713,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -1262,7 +1729,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -1271,7 +1745,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -1280,7 +1761,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -1289,7 +1777,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -1298,7 +1793,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -1307,7 +1809,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -1316,7 +1825,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -1326,7 +1842,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -1336,7 +1859,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -1346,7 +1876,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -1356,7 +1893,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -1365,7 +1909,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -1374,7 +1925,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -1383,7 +1941,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -1392,7 +1957,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -1401,7 +1973,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -1410,7 +1989,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -1419,7 +2005,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -1428,7 +2021,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -1483,6 +2083,74 @@ var nif = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
@@ -1966,7 +2634,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -1975,7 +2650,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -1984,7 +2666,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -1993,7 +2682,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -2003,7 +2699,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -2013,7 +2716,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -2022,7 +2732,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -2031,7 +2748,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -2040,7 +2764,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -2049,7 +2780,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -2058,7 +2796,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -2067,7 +2812,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -2076,7 +2828,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -2085,7 +2844,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -2094,7 +2860,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -2103,7 +2876,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -2112,7 +2892,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -2121,7 +2908,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -2130,7 +2924,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -2139,7 +2940,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -2148,7 +2956,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -2157,7 +2972,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -2166,7 +2988,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -2175,7 +3004,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -2184,7 +3020,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -2193,7 +3036,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -2203,7 +3053,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -2213,7 +3070,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -2223,7 +3087,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -2233,7 +3104,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -2242,7 +3120,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -2251,7 +3136,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -2260,7 +3152,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -2269,7 +3168,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -2278,7 +3184,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -2287,7 +3200,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -2296,7 +3216,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -2305,7 +3232,14 @@ var ro = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -2360,6 +3294,74 @@ var ro = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
@@ -2816,7 +3818,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -2825,7 +3834,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -2834,7 +3850,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -2843,7 +3866,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -2853,7 +3883,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -2863,7 +3900,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -2872,7 +3916,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -2881,7 +3932,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -2890,7 +3948,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -2899,7 +3964,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -2908,7 +3980,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -2917,7 +3996,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -2926,7 +4012,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -2935,7 +4028,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -2944,7 +4044,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -2953,7 +4060,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -2962,7 +4076,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -2971,7 +4092,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -2980,7 +4108,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -2989,7 +4124,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -2998,7 +4140,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -3007,7 +4156,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -3016,7 +4172,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -3025,7 +4188,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -3034,7 +4204,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -3043,7 +4220,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -3053,7 +4237,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -3063,7 +4254,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -3073,7 +4271,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -3083,7 +4288,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -3092,7 +4304,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -3101,7 +4320,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -3110,7 +4336,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -3119,7 +4352,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -3128,7 +4368,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -3137,7 +4384,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -3146,7 +4400,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -3155,7 +4416,14 @@ var vos = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -3210,6 +4478,74 @@ var vos = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
@@ -3628,7 +4964,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -3637,7 +4980,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -3646,7 +4996,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -3655,7 +5012,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -3665,7 +5029,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -3675,7 +5046,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -3684,7 +5062,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -3693,7 +5078,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -3702,7 +5094,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -3711,7 +5110,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -3720,7 +5126,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -3729,7 +5142,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -3738,7 +5158,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -3747,7 +5174,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -3756,7 +5190,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -3765,7 +5206,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -3774,7 +5222,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -3783,7 +5238,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -3792,7 +5254,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -3801,7 +5270,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -3810,7 +5286,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -3819,7 +5302,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -3828,7 +5318,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -3837,7 +5334,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -3846,7 +5350,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -3855,7 +5366,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -3865,7 +5383,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -3875,7 +5400,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -3885,7 +5417,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -3895,7 +5434,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -3904,7 +5450,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -3913,7 +5466,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -3922,7 +5482,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -3931,7 +5498,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -3940,7 +5514,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -3949,7 +5530,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -3958,7 +5546,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -3967,7 +5562,14 @@ var marika = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -4022,6 +5624,74 @@ var marika = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
@@ -4429,7 +6099,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       appraise: {
@@ -4438,7 +6115,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       bluff: {
@@ -4447,7 +6131,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       climb: {
@@ -4456,7 +6147,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_1: {
@@ -4466,7 +6164,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       craft_2: {
@@ -4476,7 +6181,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       diplomacy: {
@@ -4485,7 +6197,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       disable_device: {
@@ -4494,7 +6213,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       disguise: {
@@ -4503,7 +6229,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       escape_artist: {
@@ -4512,7 +6245,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       fly: {
@@ -4521,7 +6261,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       handle_animal: {
@@ -4530,7 +6277,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       heal: {
@@ -4539,7 +6293,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       intimidate: {
@@ -4548,7 +6309,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       knowledge_arcana: {
@@ -4557,7 +6325,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_dungeoneering: {
@@ -4566,7 +6341,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_engineering: {
@@ -4575,7 +6357,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_geography: {
@@ -4584,7 +6373,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_history: {
@@ -4593,7 +6389,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_local: {
@@ -4602,7 +6405,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nature: {
@@ -4611,7 +6421,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_nobility: {
@@ -4620,7 +6437,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_planes: {
@@ -4629,7 +6453,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       knowledge_religion: {
@@ -4638,7 +6469,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       linguistics: {
@@ -4647,7 +6485,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perception: {
@@ -4656,7 +6501,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       perform_1: {
@@ -4666,7 +6518,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       perform_2: {
@@ -4676,7 +6535,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       profession_1: {
@@ -4686,7 +6552,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       profession_2: {
@@ -4696,7 +6569,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       ride: {
@@ -4705,7 +6585,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sense_motive: {
@@ -4714,7 +6601,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       sleight_of_hand: {
@@ -4723,7 +6617,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       spellcraft: {
@@ -4732,7 +6633,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          int_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       stealth: {
@@ -4741,7 +6649,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          dex_bonus: true
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       survival: {
@@ -4750,7 +6665,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          wis_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       swim: {
@@ -4759,7 +6681,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: false,
-          str_bonus: true
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       use_magic_device: {
@@ -4768,7 +6697,14 @@ var orrin = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          cha_bonus: true
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false
         }
       },
       custom_1: {
@@ -4823,6 +6759,74 @@ var orrin = (function() {
         }
       },
       custom_4: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_5: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_6: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_7: {
+        name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      custom_8: {
         name: "",
         ranks: "",
         misc: "",
@@ -4992,20 +6996,38 @@ var helper = (function() {
     return string;
   };
 
-  function updateObject(object, path, newValue) {
-    var address = path.split('.');
+  function setObject(object, path, newValue) {
+    var address = path.split(".");
     while (address.length > 1) {
-      object = object[address.shift()];
+      var currentKey = address.shift();
+      var parentObject = object;
+      object = object[currentKey];
+      if (!object) {
+        object = parentObject;
+        object = object[currentKey] = {};
+      };
     };
     object[address.shift()] = newValue;
   };
 
   function getObject(object, path) {
-    var address = path.split('.');
+    var address = path.split(".");
     while (address.length > 1) {
-      object = object[address.shift()];
+      var currentKey = address.shift();
+      var parentObject = object;
+      object = object[currentKey];
+      if (!object) {
+        object = parentObject;
+        object = object[currentKey] = {};
+      };
     };
-    return object[address.shift()];
+    var finalKey = address.shift();
+    if (finalKey in object) {
+      return object[finalKey];
+    } else {
+      object[finalKey] = "";
+      return object[finalKey];
+    };
   };
 
   function getClosest(element, selector) {
@@ -5013,19 +7035,19 @@ var helper = (function() {
     // Get closest match
     for (; element && element !== document; element = element.parentNode) {
       // If selector is a class
-      if (firstChar === '.') {
+      if (firstChar === ".") {
         if (element.classList.contains(selector.substr(1))) {
           return element;
         };
       };
       // If selector is an ID
-      if (firstChar === '#') {
+      if (firstChar === "#") {
         if (element.id === selector.substr(1)) {
           return element;
         };
       };
       // If selector is a data attribute
-      if (firstChar === '[') {
+      if (firstChar === "[") {
         if (element.hasAttribute(selector.substr(1, selector.length - 2))) {
           return element;
         };
@@ -5057,7 +7079,7 @@ var helper = (function() {
     getClosest: getClosest,
     selectText: selectText,
     delayFunction: delayFunction,
-    updateObject: updateObject,
+    setObject: setObject,
     getObject: getObject,
     truncate: truncateString,
     randomId: randomId
@@ -6748,7 +8770,7 @@ var inputBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.updateObject(sheet.getCharacter(), path, element.value);
+    helper.setObject(sheet.getCharacter(), path, element.value);
     sheet.storeCharacters();
   };
 
@@ -6908,7 +8930,7 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.updateObject(sheet.getCharacter(), path, element.innerHTML);
+    helper.setObject(sheet.getCharacter(), path, element.innerHTML);
     sheet.storeCharacters();
   };
 
@@ -7513,62 +9535,64 @@ var totalBlock = (function() {
   function render() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
+
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
+      var bonuses = all_totalBlockBonuses[i].dataset.bonuses.split(",");
       var path = all_totalBlockBonuses[i].dataset.bonusPath;
       var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
       if (path) {
-        var data = helper.getObject(sheet.getCharacter(), path);
-        for (var j in data) {
-          if (data[j]) {
-            if (j == "str_bonus") {
+        var object = helper.getObject(sheet.getCharacter(), path);
+        for (var key in object) {
+          if (object[key]) {
+            if (key == "str_bonus") {
               totalBlock.dataset.strBonus = "true";
             };
-            if (j == "dex_bonus") {
+            if (key == "dex_bonus") {
               totalBlock.dataset.dexBonus = "true";
             };
-            if (j == "con_bonus") {
+            if (key == "con_bonus") {
               totalBlock.dataset.conBonus = "true";
             };
-            if (j == "int_bonus") {
+            if (key == "int_bonus") {
               totalBlock.dataset.intBonus = "true";
             };
-            if (j == "wis_bonus") {
+            if (key == "wis_bonus") {
               totalBlock.dataset.wisBonus = "true";
             };
-            if (j == "cha_bonus") {
+            if (key == "cha_bonus") {
               totalBlock.dataset.chaBonus = "true";
             };
-            if (j == "bab") {
+            if (key == "bab") {
               totalBlock.dataset.babBonus = "true";
             };
-            if (j == "size") {
+            if (key == "size") {
               totalBlock.dataset.sizeBonus = "true";
             };
-            if (j == "level") {
+            if (key == "level") {
               totalBlock.dataset.levelBonus = "true";
             };
-            if (j == "half_level") {
+            if (key == "half_level") {
               totalBlock.dataset.halfLevelBonus = "true";
             };
-            if (j == "plus_ten") {
+            if (key == "plus_ten") {
               totalBlock.dataset.plusTenBonus = "true";
             };
-            if (j == "ac_armor") {
+            if (key == "ac_armor") {
               totalBlock.dataset.acArmor = "true";
             };
-            if (j == "ac_shield") {
+            if (key == "ac_shield") {
               totalBlock.dataset.acShield = "true";
             };
-            if (j == "ac_deflect") {
+            if (key == "ac_deflect") {
               totalBlock.dataset.acDeflect = "true";
             };
-            if (j == "ac_dodge") {
+            if (key == "ac_dodge") {
               totalBlock.dataset.acDodge = "true";
             };
-            if (j == "ac_natural") {
+            if (key == "ac_natural") {
               totalBlock.dataset.acNatural = "true";
             };
-            if (j == "class_skill") {
+            if (key == "class_skill") {
               totalBlock.dataset.classSkill = "true";
             };
           };
@@ -7796,7 +9820,7 @@ var totalBlock = (function() {
       total.textContent = grandTotal;
       // store current to character object
       if (path) {
-        helper.updateObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10));
+        helper.setObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10) || 0);
       };
     };
     sheet.storeCharacters();
@@ -7805,7 +9829,7 @@ var totalBlock = (function() {
   function _store(input, totalBlock) {
     var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
     var path = input.dataset.path;
-    helper.updateObject(sheet.getCharacter(), path, input.checked);
+    helper.setObject(sheet.getCharacter(), path, input.checked);
     sheet.storeCharacters();
   };
 
@@ -7866,51 +9890,47 @@ var totalBlock = (function() {
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var path = element.dataset.bonusPath;
-    var heading = element.dataset.modalHeading || "Bonuses to add";
+    var bonuses = element.dataset.bonuses.split(",");
+    var heading = element.dataset.modalHeading || "Bonuses to add to this ability";
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
     row.setAttribute("class", "row");
 
-    if (path) {
+    if (bonuses) {
       var data = helper.getObject(sheet.getCharacter(), path);
-      for (var i in data) {
-        // filter out class skill as that has an on page toggle
-        if (i != "class_skill") {
-          var col = document.createElement("div");
-          col.setAttribute("class", "col-xs-6 col-xl-4");
+      for (var i = 0; i < bonuses.length; i++) {
+        var col = document.createElement("div");
+        col.setAttribute("class", "col-xs-6 col-xl-4");
 
-          var div = document.createElement("div");
-          div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");
+        var div = document.createElement("div");
+        div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");
 
-          var input = document.createElement("input");
-          input.setAttribute("id", i.replace(/_+/g, "-"));
-          input.setAttribute("class", "m-total-block-toggle-check");
-          input.setAttribute("data-path", path + "." + i);
-          input.setAttribute("data-bonus-type", i.replace(/_+/g, "-"));
-          input.setAttribute("type", "checkbox");
-          input.setAttribute("tabindex", "3");
-          input.checked = data[i];
+        var input = document.createElement("input");
+        input.setAttribute("id", bonuses[i].replace(/_+/g, "-"));
+        input.setAttribute("class", "m-total-block-toggle-check");
+        input.setAttribute("data-path", path + "." + bonuses[i]);
+        input.setAttribute("data-bonus-type", bonuses[i].replace(/_+/g, "-"));
+        input.setAttribute("type", "checkbox");
+        input.setAttribute("tabindex", "3");
+        input.checked = data[bonuses[i]];
 
-          var label = document.createElement("label");
-          label.setAttribute("for", i.replace(/_+/g, "-"));
-          label.setAttribute("class", "u-full-width");
-          label.textContent = _bonusTextLable(i);
+        var label = document.createElement("label");
+        label.setAttribute("for", bonuses[i].replace(/_+/g, "-"));
+        label.setAttribute("class", "u-full-width");
+        label.textContent = _bonusTextLable(bonuses[i]);
 
-          div.appendChild(input);
-          div.appendChild(label);
-          col.appendChild(div);
-          row.appendChild(col);
+        div.appendChild(input);
+        div.appendChild(label);
+        col.appendChild(div);
+        row.appendChild(col);
 
-          _bind_bonusTypeChecks(input, totalBlock);
-        };
+        _bind_bonusTypeChecks(input, totalBlock);
 
       };
     };
-
     container.appendChild(row);
     modal.render(heading, container, "Done");
-
   };
 
   function _bind_bonusTypeChecks(element, totalBlock) {

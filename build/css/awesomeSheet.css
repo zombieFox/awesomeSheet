@@ -2213,11 +2213,10 @@ label {
   -webkit-tap-highlight-color: transparent; }
 
 .m-skill .m-skill-name,
-.m-skill .m-skill-stat,
+.m-skill .m-skill-bonuses,
 .m-skill .m-skill-total,
 .m-skill .m-skill-ranks,
 .m-skill .m-skill-misc,
-.m-skill .m-skill-bonus,
 .m-skill .m-skill-class-skill,
 .m-skill .m-skill-variant-name {
   float: left;
@@ -2228,19 +2227,16 @@ label {
   overflow: hidden; }
 
 .m-skill .m-skill-name {
-  width: 45%; }
+  width: 40%; }
 
-.m-skill .m-skill-stat {
-  width: 10%;
+.m-skill .m-skill-bonuses {
+  width: 15%;
   text-align: center; }
 
 .m-skill .m-skill-total {
   width: 15%;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   text-align: center; }
-
-.m-skill .m-skill-bonus {
-  width: 25%; }
 
 .m-skill .m-skill-ranks,
 .m-skill .m-skill-misc {
@@ -2269,18 +2265,12 @@ label {
   width: 20%; }
 
 .m-skill.m-skill-variant .m-skill-variant-name {
-  width: 25%; }
-
-.m-skill.m-skill-custom .m-skill-name {
-  width: 30%; }
-
-.m-skill.m-skill-custom .m-skill-stat {
-  width: 25%; }
+  width: 20%; }
 
 @media (min-width: 700px) {
   .m-skill.m-skill-custom .m-skill-name {
     width: 40%; }
-  .m-skill.m-skill-custom .m-skill-stat {
+  .m-skill.m-skill-custom .m-skill-bonuses {
     width: 15%; } }
 
 .m-spells.is-state-prepare .m-spell-book-known .m-spell, .m-spells.is-state-unprepare .m-spell-book-known .m-spell {
