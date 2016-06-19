@@ -1,9 +1,11 @@
 .m-spells {
   &.is-state-prepare,
-  &.is-state-unprepare {
+  &.is-state-unprepare,
+  &.is-state-cast,
+  &.is-state-active {
     .m-spell-book-known {
       .m-spell {
-        background-color: $secondary-color-alpha-18;
+        background-color: $secondary-color-alpha-19;
         color: $base-color;
         border-color: transparent;
         &:link,
@@ -20,56 +22,6 @@
         &:active,
         &.is-active {
           background-color: $secondary-color-alpha-14;
-        }
-      }
-    }
-  }
-  &.is-state-cast,
-  &.is-state-active {
-    .m-spell-book-known {
-      .m-spell {
-        background-color: transparent;
-        color: $base-color;
-        border-color: transparent;
-        &:link,
-        &:visited {}
-        &:focus {
-          outline: 0;
-          text-decoration: none;
-          border-color: transparent;
-        }
-        &:hover {
-          background-color: transparent;
-          outline: 0;
-          text-decoration: none;
-          border-color: transparent;
-        }
-        &:active,
-        &.is-active {
-          background-color: transparent;
-          border-color: transparent;
-        }
-      }
-      .button-primary {
-        &.m-spell {
-          background-color: $gray-19;
-          color: $base-color;
-          border-color: transparent;
-          &:link,
-          &:visited {}
-          &:focus {
-            outline: 0;
-            text-decoration: none;
-          }
-          &:hover {
-            background-color: $dark-alpha-17;
-            outline: 0;
-            text-decoration: none;
-          }
-          &:active,
-          &.is-active {
-            background-color: $dark-alpha-15;
-          }
         }
       }
     }

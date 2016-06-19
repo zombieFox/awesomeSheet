@@ -2278,50 +2278,19 @@ label {
   .m-skill.m-skill-custom .m-skill-bonuses {
     width: 15%; } }
 
-.m-spells.is-state-prepare .m-spell-book-known .m-spell, .m-spells.is-state-unprepare .m-spell-book-known .m-spell {
-  background-color: rgba(50, 136, 201, 0.15);
+.m-spells.is-state-prepare .m-spell-book-known .m-spell, .m-spells.is-state-unprepare .m-spell-book-known .m-spell, .m-spells.is-state-cast .m-spell-book-known .m-spell, .m-spells.is-state-active .m-spell-book-known .m-spell {
+  background-color: rgba(50, 136, 201, 0.1);
   color: #333333;
   border-color: transparent; }
-  .m-spells.is-state-prepare .m-spell-book-known .m-spell:focus, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:focus {
+  .m-spells.is-state-prepare .m-spell-book-known .m-spell:focus, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:focus, .m-spells.is-state-cast .m-spell-book-known .m-spell:focus, .m-spells.is-state-active .m-spell-book-known .m-spell:focus {
     outline: 0;
     text-decoration: none; }
-  .m-spells.is-state-prepare .m-spell-book-known .m-spell:hover, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:hover {
+  .m-spells.is-state-prepare .m-spell-book-known .m-spell:hover, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:hover, .m-spells.is-state-cast .m-spell-book-known .m-spell:hover, .m-spells.is-state-active .m-spell-book-known .m-spell:hover {
     background-color: rgba(50, 136, 201, 0.25);
     outline: 0;
     text-decoration: none; }
-  .m-spells.is-state-prepare .m-spell-book-known .m-spell:active, .m-spells.is-state-prepare .m-spell-book-known .m-spell.is-active, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:active, .m-spells.is-state-unprepare .m-spell-book-known .m-spell.is-active {
+  .m-spells.is-state-prepare .m-spell-book-known .m-spell:active, .m-spells.is-state-prepare .m-spell-book-known .m-spell.is-active, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:active, .m-spells.is-state-unprepare .m-spell-book-known .m-spell.is-active, .m-spells.is-state-cast .m-spell-book-known .m-spell:active, .m-spells.is-state-cast .m-spell-book-known .m-spell.is-active, .m-spells.is-state-active .m-spell-book-known .m-spell:active, .m-spells.is-state-active .m-spell-book-known .m-spell.is-active {
     background-color: rgba(50, 136, 201, 0.35); }
-
-.m-spells.is-state-cast .m-spell-book-known .m-spell, .m-spells.is-state-active .m-spell-book-known .m-spell {
-  background-color: transparent;
-  color: #333333;
-  border-color: transparent; }
-  .m-spells.is-state-cast .m-spell-book-known .m-spell:focus, .m-spells.is-state-active .m-spell-book-known .m-spell:focus {
-    outline: 0;
-    text-decoration: none;
-    border-color: transparent; }
-  .m-spells.is-state-cast .m-spell-book-known .m-spell:hover, .m-spells.is-state-active .m-spell-book-known .m-spell:hover {
-    background-color: transparent;
-    outline: 0;
-    text-decoration: none;
-    border-color: transparent; }
-  .m-spells.is-state-cast .m-spell-book-known .m-spell:active, .m-spells.is-state-cast .m-spell-book-known .m-spell.is-active, .m-spells.is-state-active .m-spell-book-known .m-spell:active, .m-spells.is-state-active .m-spell-book-known .m-spell.is-active {
-    background-color: transparent;
-    border-color: transparent; }
-
-.m-spells.is-state-cast .m-spell-book-known .button-primary.m-spell, .m-spells.is-state-active .m-spell-book-known .button-primary.m-spell {
-  background-color: #f2f2f2;
-  color: #333333;
-  border-color: transparent; }
-  .m-spells.is-state-cast .m-spell-book-known .button-primary.m-spell:focus, .m-spells.is-state-active .m-spell-book-known .button-primary.m-spell:focus {
-    outline: 0;
-    text-decoration: none; }
-  .m-spells.is-state-cast .m-spell-book-known .button-primary.m-spell:hover, .m-spells.is-state-active .m-spell-book-known .button-primary.m-spell:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    outline: 0;
-    text-decoration: none; }
-  .m-spells.is-state-cast .m-spell-book-known .button-primary.m-spell:active, .m-spells.is-state-cast .m-spell-book-known .button-primary.m-spell.is-active, .m-spells.is-state-active .m-spell-book-known .button-primary.m-spell:active, .m-spells.is-state-active .m-spell-book-known .button-primary.m-spell.is-active {
-    background-color: rgba(0, 0, 0, 0.3); }
 
 .m-spells.is-state-remove .m-spell-book-known .m-spell {
   background-color: #ffe3ea;

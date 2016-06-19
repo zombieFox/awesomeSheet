@@ -9193,7 +9193,7 @@ var spells = (function() {
     if (spellState == "prepare") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon icon-radio-button-checked js-spell-mark-checked");
-      if (spellMarks.children.length <= 15) {
+      if (spellMarks.children.length <= 30) {
         // spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
         spellMarks.appendChild(preparedIcon);
       };
@@ -9225,7 +9225,7 @@ var spells = (function() {
       };
       // if there are no spell marks add cast mark for spontaneous casters
       if (all_remainingPreparedSpells <= 0) {
-        if (spellMarks.children.length <= 15) {
+        if (spellMarks.children.length <= 30) {
           var castIcon = document.createElement("span");
           castIcon.setAttribute("class", "icon icon-radio-button-unchecked js-spell-mark-unchecked");
           spellMarks.appendChild(castIcon);
@@ -9249,17 +9249,10 @@ var spells = (function() {
     if (spellState == "active") {
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon icon-play-arrow");
-      if (spellMarks.children.length > 0) {
-        if (spellActive.children.length > 0) {
-          spellActive.firstChild.remove();
-        } else {
-          spellActive.appendChild(activeIcon);
-        };
-      };
-      if (spellMarks.children.length <= 0) {
-        if (spellActive.children.length > 0) {
-          spellActive.firstChild.remove();
-        };
+      if (spellActive.children.length > 0) {
+        spellActive.firstChild.remove();
+      } else {
+        spellActive.appendChild(activeIcon);
       };
     };
     // state remove
