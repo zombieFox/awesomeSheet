@@ -14,6 +14,21 @@
     margin-bottom: 0;
     position: relative;
     z-index: 2;
+    .icon {
+      font-size: 1.8em;
+      line-height: 1em;
+      vertical-align: bottom;
+    }
+    &.m-import-select-label-ok {
+      .icon {
+        color: $secondary-color-10;
+      }
+    }
+    &.m-import-select-label-error {
+      .icon {
+        color: $primary-color-10;
+      }
+    }
   }
 }
 

@@ -1318,6 +1318,9 @@ label {
 .icon-renew:before {
   content: "\e910"; }
 
+.icon-check:before {
+  content: "\e911"; }
+
 .u-full-width {
   width: 100%;
   box-sizing: border-box; }
@@ -1710,7 +1713,7 @@ label {
     transition: top 0.4s ease-in-out; }
 
 .m-nav-shade {
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.55);
   position: fixed;
   top: 0;
   left: 0;
@@ -1735,6 +1738,7 @@ label {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   line-height: 3em;
   display: block;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
   .m-nav-link [class^="icon-"],
   .m-nav-link [class*=" icon-"] {
@@ -2210,6 +2214,7 @@ label {
   padding: 0;
   border: 0;
   width: 100%;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
 
 .m-skill .m-skill-name,
@@ -2600,6 +2605,14 @@ label {
     margin-bottom: 0;
     position: relative;
     z-index: 2; }
+    .m-import-select .m-import-select-label .icon {
+      font-size: 1.8em;
+      line-height: 1em;
+      vertical-align: bottom; }
+    .m-import-select .m-import-select-label.m-import-select-label-ok .icon {
+      color: #3288c9; }
+    .m-import-select .m-import-select-label.m-import-select-label-error .icon {
+      color: #fc0042; }
 
 .m-snack-bar {
   background-color: #0d0d0d;

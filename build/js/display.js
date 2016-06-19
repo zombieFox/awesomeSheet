@@ -6,12 +6,12 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
     for (var i = 0; i < displayBlockQuickEdit.length; i++) {
       displayBlockQuickEdit[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
         _toggleQuickEdit(this);
         totalBlock.update();
         clear();
         render();
-        event.stopPropagation();
-        event.preventDefault()
       }, false);
     };
   };

@@ -69,13 +69,11 @@ var prompt = (function() {
     promptControls.setAttribute("class", "m-prompt-controls");
 
     var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large js-prompt-action");
     actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
-    cancelButton.setAttribute("href", "javascript:void(0)");
     cancelButton.setAttribute("tabindex", "3");
     cancelButton.setAttribute("class", "button button-block button-large");
     cancelButton.textContent = "Cancel";
@@ -90,7 +88,7 @@ var prompt = (function() {
     };
     promptWrapper.appendChild(promptbody);
     promptWrapper.appendChild(promptControls);
-    
+
     prompt.appendChild(promptWrapper);
 
     prompt.addEventListener("transitionend", function(event, elapsed) {
@@ -106,7 +104,11 @@ var prompt = (function() {
     }.bind(promptShade), false);
 
     if (action) {
-      actionButton.addEventListener("click", action, false);
+      actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        action();
+      }, false);
     };
     if (actionUrl) {
       actionButton.href = actionUrl;
@@ -115,7 +117,11 @@ var prompt = (function() {
       actionButton.setAttribute(actionAttributeKey, actionAttributeValue);
     };
     actionButton.addEventListener("click", destroy, false);
-    cancelButton.addEventListener("click", destroy, false);
+    cancelButton.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      destroy();
+    }, false);
     promptShade.addEventListener("click", destroy, false);
 
     if (previousPrompt) {

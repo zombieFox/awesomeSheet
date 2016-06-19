@@ -32,7 +32,7 @@ var helper = (function() {
       return false;
     }
     return true;
-  }
+  };
 
   function selectText(element) {
     var node = helper.e(element);

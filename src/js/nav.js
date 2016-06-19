@@ -28,7 +28,10 @@ var nav = (function() {
       };
     }.bind(navShade), false);
 
-    navShade.addEventListener("click", _destroy_navShade, false);
+    navShade.addEventListener("click", function() {
+      navClose();
+      _destroy_navShade();
+    }, false);
 
     if (previousNavShade) {
       previousNavShade.destroy();
@@ -204,7 +207,7 @@ var nav = (function() {
     window.onscroll = function() {
       if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
         var quickNav = helper.e(".js-quick-nav");
-        var quickNavLinks = helper.eA(".js-quick-nav-link");
+        var all_quickNavLinks = helper.eA(".js-quick-nav-link");
         var all_sectionEdit = helper.eA(".js-section-edit");
         var menu = parseInt(getComputedStyle(quickNav).height, 10);
         for (var i = 0; i < all_sectionEdit.length; i++) {
@@ -226,16 +229,16 @@ var nav = (function() {
           };
 
           if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
-            for (var j = 0; j < quickNavLinks.length; j++) {
-              helper.removeClass(quickNavLinks[j], "is-active");
+            for (var j = 0; j < all_quickNavLinks.length; j++) {
+              helper.removeClass(all_quickNavLinks[j], "is-active");
             };
-            helper.addClass(quickNavLinks[i], "is-active");
+            helper.addClass(all_quickNavLinks[i], "is-active");
             if (sectionHeading) {
               helper.addClass(all_sectionEdit[i], "is-pinned");
               helper.addClass(sectionHeading, "is-pinned");
             };
           } else {
-            helper.removeClass(quickNavLinks[i], "is-active");
+            helper.removeClass(all_quickNavLinks[i], "is-active");
             if (sectionHeading) {
               helper.removeClass(all_sectionEdit[i], "is-pinned");
               helper.removeClass(sectionHeading, "is-pinned");
@@ -245,8 +248,8 @@ var nav = (function() {
         };
         // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-        //   for (var i = 0; i < quickNavLinks.length; i++) {
-        //     helper.removeClass(quickNavLinks[i], "is-active");
+        //   for (var i = 0; i < all_quickNavLinks.length; i++) {
+        //     helper.removeClass(all_quickNavLinks[i], "is-active");
         //   };
         //   helper.addClass(lastQuickLink, "is-active");
         // };
@@ -328,51 +331,72 @@ var nav = (function() {
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
+    var all_quickNavLinks = helper.eA(".js-quick-nav-link");
 
-    navToggleElement.addEventListener("click", function() {
+    for (var i = 0; i < all_quickNavLinks.length; i++) {
+      all_quickNavLinks[i].addEventListener("click", navClose, false);
+    };
+
+    navToggleElement.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       navToggle();
     }, false);
 
-    fullscreen.addEventListener("click", function() {
+    fullscreen.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       _fullscreen();
     }, false);
 
-    clearAll.addEventListener("click", function() {
+    clearAll.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
 
-    restoreDemoPcs.addEventListener("click", function() {
+    restoreDemoPcs.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
       navClose();
     }, false);
 
-    characterImport.addEventListener("click", function() {
+    characterImport.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       sheet.import();
       navClose();
     }, false);
 
-    characterExport.addEventListener("click", function() {
+    characterExport.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       sheet.export();
       navClose();
     }, false);
 
-    characterAdd.addEventListener("click", function() {
+    characterAdd.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       sheet.addCharacter();
       snack.render("New character added.", false);
       _closeNavScrollToTop();
     }, false);
 
-    characterRemove.addEventListener("click", function() {
+    characterRemove.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       remove();
       navClose();
     }, false);
 
-    window.addEventListener('click', function(event) {
-      if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
-        navClose();
-      };
-    }, false);
+    // window.addEventListener('click', function(event) {
+    //   if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
+    //     navClose();
+    //   };
+    // }, false);
 
     window.addEventListener("keydown", function(event) {
 

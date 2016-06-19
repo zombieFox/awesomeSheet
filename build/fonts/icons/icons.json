@@ -1097,6 +1097,30 @@
 			"setIdx": 0,
 			"setId": 1,
 			"iconIdx": 42
+		},
+		{
+			"icon": {
+				"paths": [
+					"M384 689.92l-177.92-177.92-60.587 60.16 238.507 238.507 512-512-60.16-60.16z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 24,
+				"tags": [
+					"check"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 57,
+				"id": 656,
+				"prevSize": 24,
+				"code": 59665,
+				"name": "check"
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 43
 		}
 	],
 	"height": 1024,

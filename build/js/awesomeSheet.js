@@ -6967,7 +6967,7 @@ var helper = (function() {
       return false;
     }
     return true;
-  }
+  };
 
   function selectText(element) {
     var node = helper.e(element);
@@ -7234,10 +7234,16 @@ var sheet = (function() {
     label.setAttribute("tabindex", "3");
     label.setAttribute("for", "import-select");
     label.setAttribute("class", "m-import-select-label button button-large button-block js-import-select-label");
-    label.textContent = "Select a file";
+    var labelText = document.createElement("span");
+    labelText.textContent = "Select a file";
+    labelText.setAttribute("class", "js-import-select-label-text");
+    var icon = document.createElement("span");
+    icon.setAttribute("class", "icon icon-file-upload js-import-select-label-icon");
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
     message.textContent = "Import a previously exported character JSON file from another device.";
+    label.appendChild(icon);
+    label.appendChild(labelText);
     importSelect.appendChild(input);
     importSelect.appendChild(label);
     col.appendChild(message);
@@ -7250,7 +7256,14 @@ var sheet = (function() {
 
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
+    var importSelectLabelText = helper.e(".js-import-select-label-text");
+    var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
     var fileList = this.files;
+    helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+    helper.removeClass(importSelectLabel, "m-import-select-label-error");
+    helper.removeClass(importSelectLabelIcon, "icon-check");
+    helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+    helper.addClass(importSelectLabelIcon, "icon-file-upload");
     // console.log(fileList);
 
     var readFile = new FileReader();
@@ -7259,22 +7272,36 @@ var sheet = (function() {
         // console.log("JSON true");
         if (JSON.parse(event.target.result).awesomeSheet) {
           // console.log("awesome key true");
-          importSelectLabel.textContent = fileList[0].name;
+          importSelectLabelText.textContent = fileList[0].name;
+          helper.addClass(importSelectLabel, "m-import-select-label-ok");
+          helper.removeClass(importSelectLabel, "m-import-select-label-error");
+          helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+          helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+          helper.addClass(importSelectLabelIcon, "icon-check");
         } else {
           // console.log("awesome key false");
-          importSelectLabel.textContent = "JSON file not recognised by awesomeSheet";
+          importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
+          helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+          helper.addClass(importSelectLabel, "m-import-select-label-error");
+          helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+          helper.removeClass(importSelectLabelIcon, "icon-check");
+          helper.addClass(importSelectLabelIcon, "icon-error-outline");
         };
       } else {
         // console.log("JSON false");
-        importSelectLabel.textContent = "Not a JSON file. Still want to continue?";
+        importSelectLabelText.textContent = "Not a JSON file";
+        helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+        helper.addClass(importSelectLabel, "m-import-select-label-error");
+        helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+        helper.removeClass(importSelectLabelIcon, "icon-check");
+        helper.addClass(importSelectLabelIcon, "icon-error-outline");
       };
     };
-
     if (fileList.length > 0) {
       readFile.readAsText(fileList.item(0));
       // console.log(readFile.result);
     } else {
-      importSelectLabel.textContent = "Select a file";
+      importSelectLabelText.textContent = "Select a file";
     };
   };
 
@@ -7403,7 +7430,10 @@ var nav = (function() {
       };
     }.bind(navShade), false);
 
-    navShade.addEventListener("click", _destroy_navShade, false);
+    navShade.addEventListener("click", function() {
+      navClose();
+      _destroy_navShade();
+    }, false);
 
     if (previousNavShade) {
       previousNavShade.destroy();
@@ -7579,7 +7609,7 @@ var nav = (function() {
     window.onscroll = function() {
       if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
         var quickNav = helper.e(".js-quick-nav");
-        var quickNavLinks = helper.eA(".js-quick-nav-link");
+        var all_quickNavLinks = helper.eA(".js-quick-nav-link");
         var all_sectionEdit = helper.eA(".js-section-edit");
         var menu = parseInt(getComputedStyle(quickNav).height, 10);
         for (var i = 0; i < all_sectionEdit.length; i++) {
@@ -7601,16 +7631,16 @@ var nav = (function() {
           };
 
           if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
-            for (var j = 0; j < quickNavLinks.length; j++) {
-              helper.removeClass(quickNavLinks[j], "is-active");
+            for (var j = 0; j < all_quickNavLinks.length; j++) {
+              helper.removeClass(all_quickNavLinks[j], "is-active");
             };
-            helper.addClass(quickNavLinks[i], "is-active");
+            helper.addClass(all_quickNavLinks[i], "is-active");
             if (sectionHeading) {
               helper.addClass(all_sectionEdit[i], "is-pinned");
               helper.addClass(sectionHeading, "is-pinned");
             };
           } else {
-            helper.removeClass(quickNavLinks[i], "is-active");
+            helper.removeClass(all_quickNavLinks[i], "is-active");
             if (sectionHeading) {
               helper.removeClass(all_sectionEdit[i], "is-pinned");
               helper.removeClass(sectionHeading, "is-pinned");
@@ -7620,8 +7650,8 @@ var nav = (function() {
         };
         // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-        //   for (var i = 0; i < quickNavLinks.length; i++) {
-        //     helper.removeClass(quickNavLinks[i], "is-active");
+        //   for (var i = 0; i < all_quickNavLinks.length; i++) {
+        //     helper.removeClass(all_quickNavLinks[i], "is-active");
         //   };
         //   helper.addClass(lastQuickLink, "is-active");
         // };
@@ -7703,51 +7733,72 @@ var nav = (function() {
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
+    var all_quickNavLinks = helper.eA(".js-quick-nav-link");
 
-    navToggleElement.addEventListener("click", function() {
+    for (var i = 0; i < all_quickNavLinks.length; i++) {
+      all_quickNavLinks[i].addEventListener("click", navClose, false);
+    };
+
+    navToggleElement.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       navToggle();
     }, false);
 
-    fullscreen.addEventListener("click", function() {
+    fullscreen.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       _fullscreen();
     }, false);
 
-    clearAll.addEventListener("click", function() {
+    clearAll.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
     }, false);
 
-    restoreDemoPcs.addEventListener("click", function() {
+    restoreDemoPcs.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
       navClose();
     }, false);
 
-    characterImport.addEventListener("click", function() {
+    characterImport.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       sheet.import();
       navClose();
     }, false);
 
-    characterExport.addEventListener("click", function() {
+    characterExport.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       sheet.export();
       navClose();
     }, false);
 
-    characterAdd.addEventListener("click", function() {
+    characterAdd.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       sheet.addCharacter();
       snack.render("New character added.", false);
       _closeNavScrollToTop();
     }, false);
 
-    characterRemove.addEventListener("click", function() {
+    characterRemove.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
       remove();
       navClose();
     }, false);
 
-    window.addEventListener('click', function(event) {
-      if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
-        navClose();
-      };
-    }, false);
+    // window.addEventListener('click', function(event) {
+    //   if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
+    //     navClose();
+    //   };
+    // }, false);
 
     window.addEventListener("keydown", function(event) {
 
@@ -7876,13 +7927,11 @@ var prompt = (function() {
     promptControls.setAttribute("class", "m-prompt-controls");
 
     var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large js-prompt-action");
     actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
-    cancelButton.setAttribute("href", "javascript:void(0)");
     cancelButton.setAttribute("tabindex", "3");
     cancelButton.setAttribute("class", "button button-block button-large");
     cancelButton.textContent = "Cancel";
@@ -7897,7 +7946,7 @@ var prompt = (function() {
     };
     promptWrapper.appendChild(promptbody);
     promptWrapper.appendChild(promptControls);
-    
+
     prompt.appendChild(promptWrapper);
 
     prompt.addEventListener("transitionend", function(event, elapsed) {
@@ -7913,7 +7962,11 @@ var prompt = (function() {
     }.bind(promptShade), false);
 
     if (action) {
-      actionButton.addEventListener("click", action, false);
+      actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        action();
+      }, false);
     };
     if (actionUrl) {
       actionButton.href = actionUrl;
@@ -7922,7 +7975,11 @@ var prompt = (function() {
       actionButton.setAttribute(actionAttributeKey, actionAttributeValue);
     };
     actionButton.addEventListener("click", destroy, false);
-    cancelButton.addEventListener("click", destroy, false);
+    cancelButton.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      destroy();
+    }, false);
     promptShade.addEventListener("click", destroy, false);
 
     if (previousPrompt) {
@@ -8027,7 +8084,6 @@ var modal = (function() {
     modalControls.setAttribute("class", "m-modal-controls");
 
     var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
@@ -8059,9 +8115,17 @@ var modal = (function() {
     }.bind(modalShade), false);
 
     modalShade.addEventListener("click", destroy, false);
-    actionButton.addEventListener("click", destroy, false);
+    actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        destroy();
+      }, false);
     if (action) {
-      actionButton.addEventListener("click", action, false);
+      actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        action();
+      }, false);
     };
 
     if (previousModal) {
@@ -9944,7 +10008,9 @@ var totalBlock = (function() {
 
   function _bind_bonusButtons(element) {
     if (element.nodeName.toLowerCase() == "a") {
-      element.addEventListener("click", function() {
+      element.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
         _totalBlockModalContent(this);
       }, false);
     };
@@ -10120,12 +10186,12 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
     for (var i = 0; i < displayBlockQuickEdit.length; i++) {
       displayBlockQuickEdit[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
         _toggleQuickEdit(this);
         totalBlock.update();
         clear();
         render();
-        event.stopPropagation();
-        event.preventDefault()
       }, false);
     };
   };

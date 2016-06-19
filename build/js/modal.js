@@ -65,7 +65,6 @@ var modal = (function() {
     modalControls.setAttribute("class", "m-modal-controls");
 
     var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
@@ -97,9 +96,17 @@ var modal = (function() {
     }.bind(modalShade), false);
 
     modalShade.addEventListener("click", destroy, false);
-    actionButton.addEventListener("click", destroy, false);
+    actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        destroy();
+      }, false);
     if (action) {
-      actionButton.addEventListener("click", action, false);
+      actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        action();
+      }, false);
     };
 
     if (previousModal) {

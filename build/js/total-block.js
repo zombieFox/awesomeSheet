@@ -413,7 +413,9 @@ var totalBlock = (function() {
 
   function _bind_bonusButtons(element) {
     if (element.nodeName.toLowerCase() == "a") {
-      element.addEventListener("click", function() {
+      element.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
         _totalBlockModalContent(this);
       }, false);
     };

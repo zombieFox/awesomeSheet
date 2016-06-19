@@ -33,7 +33,7 @@
 }
 
 .m-nav-shade {
-  background-color: $dark-alpha-14;
+  background-color: $dark-alpha-10;
   position: fixed;
   top: 0;
   left: 0;
@@ -59,6 +59,7 @@
   font-family: $open-sans-semi-bold;
   line-height: $line-height-300;
   display: block;
+  cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   .m-nav-link-name {}
   [class^="icon-"],
