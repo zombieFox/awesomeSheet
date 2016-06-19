@@ -1924,6 +1924,18 @@ label {
   .m-section-wrapper-nav-padding {
     padding-top: 10em; } }
 
+@media (min-width: 900px) {
+  .m-section-controls .button-group .button,
+  .m-section-controls .button-group-strech .button {
+    padding-right: 1em;
+    padding-left: 1em; } }
+
+@media (min-width: 1300px) {
+  .m-section-controls .button-group .button,
+  .m-section-controls .button-group-strech .button {
+    padding-right: 1.5em;
+    padding-left: 1.5em; } }
+
 .m-clone-block .m-clone-block-target .m-clone {
   margin: 0;
   padding: 0;

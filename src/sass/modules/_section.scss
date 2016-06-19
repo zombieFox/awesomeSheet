@@ -78,6 +78,26 @@
   }
 }
 
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-section-controls {
+    .button-group,
+    .button-group-strech {
+      .button {
+        padding-right: $font-size-100;
+        padding-left: $font-size-100;
+      }
+    }
+  }
+}
 
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  .m-section-controls {
+    .button-group,
+    .button-group-strech {
+      .button {
+        padding-right: $font-size-150;
+        padding-left: $font-size-150;
+      }
+    }
+  }
+}
