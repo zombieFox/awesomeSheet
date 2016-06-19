@@ -32,3 +32,9 @@ body {
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
+
+@media print {
+  html {
+    font-size: 10px;
+  }
+}

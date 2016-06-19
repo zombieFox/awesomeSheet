@@ -94,3 +94,9 @@
 }
 
 @media (min-width: $screen-xl) {}
+
+@media print {
+  .m-fab {
+    display: none;
+  }
+}

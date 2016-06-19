@@ -84,3 +84,9 @@
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
+
+@media print {
+  .m-quick-nav {
+    display: none;
+  }
+}

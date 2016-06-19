@@ -35,7 +35,7 @@
   }
 }
 
-.is-quikc-edit-open {
+.is-quick-edit-open {
   .m-display-section-divider {
     background-color: $gray-16;
     .m-display-section-icon {
@@ -106,3 +106,25 @@
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
+
+@media print {
+  .m-display-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+  .m-display-wrapper-nav-padding {
+    padding-top: 0;
+  }
+  .m-display-section {
+    margin: 0;
+  }
+  .m-display-section-divider {
+    display: none;
+  }
+  .m-display-block-quick-edit {
+    display: none;
+  }
+  .m-quick-edit {
+    display: none;
+  }
+}
