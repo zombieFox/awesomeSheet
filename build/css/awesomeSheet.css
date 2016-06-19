@@ -1385,8 +1385,18 @@ label {
 .l-section-dark {
   background-color: #2a5d84; }
 
+@media print {
+  .l-section {
+    display: none !important; } }
+
 .l-section-display {
   z-index: 4000; }
+
+@media print {
+  .l-section-display {
+    display: block !important; }
+    .l-section-display.is-hidden {
+      display: block !important; } }
 
 .style-guide-column {
   background-color: #e3f2fd;

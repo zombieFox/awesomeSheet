@@ -12,3 +12,12 @@
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
+
+@media print {
+  .l-section-display {
+    display: block !important;
+    &.is-hidden {
+      display: block !important;
+    }
+  }
+}

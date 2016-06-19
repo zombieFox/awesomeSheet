@@ -20,3 +20,9 @@
 @media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}
+
+@media print {
+  .l-section {
+    display: none !important;
+  }
+}
