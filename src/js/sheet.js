@@ -263,6 +263,7 @@ var sheet = (function() {
     clone.bind();
     totalBlock.bind();
     spells.bind();
+    skills.bind();
     display.bind();
   };
 
@@ -274,6 +275,7 @@ var sheet = (function() {
     totalBlock.render();
     totalBlock.update();
     spells.render();
+    skills.render();
     display.render();
   };
 

@@ -104,15 +104,27 @@ input {
         font-variant: normal;
         text-transform: none;
         display: block;
-        float: left;
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-        margin-right: 5px;
         font-size: $font-size-125;
         color: $secondary-color-04;
         vertical-align: text-bottom;
         transition: color $transition-ease-fast;
+      }
+      &.label-left {
+        text-align: left;
+        &:before {
+          margin-right: 5px;
+          float: left;
+        }
+      }
+      &.label-right {
+        text-align: right;
+        &:before {
+          margin-left: 5px;
+          float: right;
+        }
       }
     }
     &:hover {

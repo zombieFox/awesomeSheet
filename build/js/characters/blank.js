@@ -284,6 +284,9 @@ var blank = (function() {
       attack_notes: ""
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "",
         misc: "",

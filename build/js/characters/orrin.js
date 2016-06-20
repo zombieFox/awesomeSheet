@@ -306,6 +306,9 @@ var orrin = (function() {
       attack_notes: "+2d6 Sneak attack"
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "2",
         misc: "",

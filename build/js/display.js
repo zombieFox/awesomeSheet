@@ -466,7 +466,7 @@ var display = (function() {
           if (key == "use_magic_device") {
             return "Use Magic Device";
           };
-          if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4") {
+          if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4" || key == "custom_5" || key == "custom_6" || key == "custom_7" || key == "custom_8") {
             return "Custom Skill";
           };
         };

@@ -331,6 +331,9 @@ var ro = (function() {
       attack_notes: "+1 attack, +2 damage"
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "3",
         misc: "",

@@ -326,6 +326,9 @@ var vos = (function() {
       attack_notes: "+1 weapon focus (unarmed strike), +2 grapple, +2 to resist grapple"
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "5",
         misc: "",

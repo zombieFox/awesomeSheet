@@ -795,17 +795,25 @@ input[type="radio"], input[type="checkbox"] {
       font-variant: normal;
       text-transform: none;
       display: block;
-      float: left;
       position: relative;
       top: 50%;
       -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
               transform: translateY(-50%);
-      margin-right: 5px;
       font-size: 1.25em;
       color: #1c3445;
       vertical-align: text-bottom;
       transition: color 0.3s ease-in-out; }
+    input[type="radio"] + label.label-left, input[type="checkbox"] + label.label-left {
+      text-align: left; }
+      input[type="radio"] + label.label-left:before, input[type="checkbox"] + label.label-left:before {
+        margin-right: 5px;
+        float: left; }
+    input[type="radio"] + label.label-right, input[type="checkbox"] + label.label-right {
+      text-align: right; }
+      input[type="radio"] + label.label-right:before, input[type="checkbox"] + label.label-right:before {
+        margin-left: 5px;
+        float: right; }
   input[type="radio"]:hover + label, input[type="checkbox"]:hover + label {
     color: #fc0042; }
     input[type="radio"]:hover + label:before, input[type="checkbox"]:hover + label:before {
@@ -1331,6 +1339,12 @@ label {
 
 .u-text-center {
   text-align: center; }
+
+.u-text-left {
+  text-align: left; }
+
+.u-text-right {
+  text-align: right; }
 
 .u-no-margin {
   margin: 0; }

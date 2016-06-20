@@ -286,6 +286,9 @@ var blank = (function() {
       attack_notes: ""
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "",
         misc: "",
@@ -1417,6 +1420,9 @@ var nif = (function() {
       attack_notes: ""
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "",
         misc: "",
@@ -2628,6 +2634,9 @@ var ro = (function() {
       attack_notes: "+1 attack, +2 damage"
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "3",
         misc: "",
@@ -3812,6 +3821,9 @@ var vos = (function() {
       attack_notes: "+1 weapon focus (unarmed strike), +2 grapple, +2 to resist grapple"
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "5",
         misc: "",
@@ -4958,6 +4970,9 @@ var marika = (function() {
       attack_notes: ""
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "9",
         misc: "",
@@ -6093,6 +6108,9 @@ var orrin = (function() {
       attack_notes: "+2d6 Sneak attack"
     },
     skills: {
+      spent_ranks: {
+        include_custom: false
+      },
       acrobatics: {
         ranks: "2",
         misc: "",
@@ -7352,6 +7370,7 @@ var sheet = (function() {
     clone.bind();
     totalBlock.bind();
     spells.bind();
+    skills.bind();
     display.bind();
   };
 
@@ -7363,6 +7382,7 @@ var sheet = (function() {
     totalBlock.render();
     totalBlock.update();
     spells.render();
+    skills.render();
     display.render();
   };
 
@@ -9517,6 +9537,97 @@ var spells = (function() {
 
 })();
 
+var skills = (function() {
+
+  var renderTimer = null;
+
+  function bind() {
+    var spentSkillRankInput = helper.e(".js-spent-skill-rank-input");
+    var all_rankInput = helper.eA(".js-input-block-field-ranks");
+    var all_customRankInput = helper.eA(".js-input-block-field-custom-ranks");
+    var spentSkillRankTotal = helper.e(".js-spent-skill-rank-total");
+    spentSkillRankInput.addEventListener("change", function() {
+      clearTimeout(renderTimer);
+      renderTimer = setTimeout(function() {
+        _render_rankTotal();
+        _store(spentSkillRankInput, spentSkillRankInput.checked);
+        _store(spentSkillRankTotal, parseInt(spentSkillRankTotal.innerHTML, 10) || 0);
+      }, 200, this);
+    }, false);
+    for (var i = 0; i < all_rankInput.length; i++) {
+      all_rankInput[i].addEventListener("input", function() {
+        clearTimeout(renderTimer);
+        renderTimer = setTimeout(function() {
+          _render_rankTotal();
+          _store(spentSkillRankTotal, parseInt(spentSkillRankTotal.innerHTML, 10) || 0);
+        }, 1000, this);
+      }, false);
+    };
+    for (var i = 0; i < all_customRankInput.length; i++) {
+      all_customRankInput[i].addEventListener("input", function() {
+        clearTimeout(renderTimer);
+        renderTimer = setTimeout(function() {
+          _render_rankTotal();
+          _store(spentSkillRankTotal, parseInt(spentSkillRankTotal.innerHTML, 10) || 0);
+        }, 1000, this);
+      }, false);
+    };
+  };
+
+  function _store(element, value) {
+    var path = element.dataset.path;
+    helper.setObject(sheet.getCharacter(), path, value);
+    sheet.storeCharacters();
+  };
+
+  function render() {
+    _render_includeCustomToggle();
+    _render_rankTotal();
+  };
+
+  function _render_includeCustomToggle(argument) {
+    var spentSkillRankInput = helper.e(".js-spent-skill-rank-input");
+    var path = spentSkillRankInput.dataset.path;
+    var state = helper.getObject(sheet.getCharacter(), path);
+    spentSkillRankInput.checked = state;
+  };
+
+  function _render_rankTotal() {
+    var all_rankInput = helper.eA(".js-input-block-field-ranks");
+    var all_customRankInput = helper.eA(".js-input-block-field-custom-ranks");
+    var spentSkillRankInput = helper.e(".js-spent-skill-rank-input");
+    var spentSkillRankTotal = helper.e(".js-spent-skill-rank-total");
+    var ranks = [];
+    var ranksTotal;
+    var customRanks = [];
+    var customRanksTotal;
+    for (var i = 0; i < all_rankInput.length; i++) {
+      ranks.push(parseInt(all_rankInput[i].value, 10) || 0);
+    };
+    for (var i = 0; i < all_customRankInput.length; i++) {
+      customRanks.push(parseInt(all_customRankInput[i].value, 10) || 0);
+    };
+    ranksTotal = ranks.reduce(function(a, b) {
+      return a + b;
+    });
+    customRanksTotal = customRanks.reduce(function(a, b) {
+      return a + b;
+    });
+    if (spentSkillRankInput.checked) {
+      spentSkillRankTotal.textContent = ranksTotal + customRanksTotal;
+    } else {
+      spentSkillRankTotal.textContent = ranksTotal;
+    };
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render
+  }
+
+})();
+
 var stats = (function() {
 
   function _changeModifer(element, field) {
@@ -9786,7 +9897,12 @@ var totalBlock = (function() {
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
-        var ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
+        var ranks;
+        if (all_totalBlock[i].querySelector(".js-input-block-field-ranks")) {
+          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
+        } else if (all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks")) {
+          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks").value, 10) || 0;
+        };
         if (ranks > 0) {
           classSkill = 3;
         } else {
@@ -10639,7 +10755,7 @@ var display = (function() {
           if (key == "use_magic_device") {
             return "Use Magic Device";
           };
-          if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4") {
+          if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4" || key == "custom_5" || key == "custom_6" || key == "custom_7" || key == "custom_8") {
             return "Custom Skill";
           };
         };

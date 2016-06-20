@@ -198,7 +198,12 @@ var totalBlock = (function() {
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
-        var ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
+        var ranks;
+        if (all_totalBlock[i].querySelector(".js-input-block-field-ranks")) {
+          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
+        } else if (all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks")) {
+          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks").value, 10) || 0;
+        };
         if (ranks > 0) {
           classSkill = 3;
         } else {
