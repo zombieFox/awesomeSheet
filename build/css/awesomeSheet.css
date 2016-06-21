@@ -1025,6 +1025,22 @@ input[type="button"] {
     line-height: 1.6666666667em;
     display: inline-block; }
 
+.button-normal {
+  background: transparent;
+  border-radius: inherit;
+  text-transform: none;
+  white-space: normal;
+  border: 0; }
+  .button-normal:link, .button-normal:visited {
+    background-color: transparent;
+    border-color: transparent; }
+  .button-normal:focus, .button-normal:hover {
+    background-color: transparent;
+    border-color: transparent; }
+  .button-normal:active, .button-normal.is-active {
+    background-color: transparent;
+    border-color: transparent; }
+
 .button-small {
   padding: 0.25em 0.5em;
   font-size: 0.75em;
@@ -2228,9 +2244,6 @@ label {
   line-height: 4.5em;
   text-decoration: none;
   color: #1c3445;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
   display: block;
   transition: color 0.3s ease-in-out;
   -webkit-tap-highlight-color: transparent; }
@@ -2465,8 +2478,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 9000;
-  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
 
 .m-prompt {
   position: fixed;
@@ -2483,8 +2496,8 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
 
 .m-prompt-wrapper {
   background-color: #ffffff;
@@ -2547,8 +2560,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 10000;
-  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
 
 .m-modal {
   position: fixed;
@@ -2565,8 +2578,8 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
 
 .m-modal-wrapper {
   background-color: #ffffff;
@@ -2948,22 +2961,24 @@ label {
   -webkit-transform-origin: center center !important;
       -ms-transform-origin: center center !important;
           transform-origin: center center !important;
-  -webkit-transform: translate(0, 0) scale(1) rotateX(0deg) !important;
-          transform: translate(0, 0) scale(1) rotateX(0deg) !important; }
+  -webkit-transform: translate(0, 0) scale(1) !important;
+      -ms-transform: translate(0, 0) scale(1) !important;
+          transform: translate(0, 0) scale(1) !important; }
 
 .is-unrotate-out {
   -webkit-transform-origin: center center !important;
       -ms-transform-origin: center center !important;
           transform-origin: center center !important;
-  -webkit-transform: translate(0, -30px) scale(0.9) rotateX(15deg) !important;
-          transform: translate(0, -30px) scale(0.9) rotateX(15deg) !important; }
+  -webkit-transform: translate(0, 30px) scale(0.9) !important;
+      -ms-transform: translate(0, 30px) scale(0.9) !important;
+          transform: translate(0, 30px) scale(0.9) !important; }
 
 .is-dropped-out {
   -webkit-transform-origin: center center !important;
       -ms-transform-origin: center center !important;
           transform-origin: center center !important;
-  -webkit-transform: translate(0, 30px) scale(0.9) rotateX(-15deg) !important;
-          transform: translate(0, 30px) scale(0.9) rotateX(-15deg) !important;
+  -webkit-transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
+          transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
   transition: -webkit-transform 0.3s ease-in-out !important;
   transition: transform 0.3s ease-in-out !important; }
 

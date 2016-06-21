@@ -124,11 +124,7 @@ var sheet = (function() {
     };
   };
 
-  function importJson() {
-    _render_import();
-  };
-
-  function _render_import() {
+  function _createImport() {
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
@@ -162,7 +158,7 @@ var sheet = (function() {
     row.appendChild(col);
     container.appendChild(row);
     input.addEventListener("change", _handleFiles, false);
-    modal.render("Import character", container, "Import", _readJsonFile);
+    return container;
   };
 
   function _handleFiles() {
@@ -241,6 +237,10 @@ var sheet = (function() {
     };
 
     readFile.readAsText(fileList.item(0));
+  };
+
+  function importJson() {
+    modal.render("Import character", _createImport(), "Import", _readJsonFile);
   };
 
   function exportJson() {

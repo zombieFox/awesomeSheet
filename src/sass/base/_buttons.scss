@@ -52,6 +52,29 @@ input[type="button"] {
   }
 }
 
+.button-normal {
+  background: transparent;
+  border-radius: inherit;
+  text-transform: none;
+  white-space: normal;
+  border: 0;
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &:focus,
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &:active,
+  &.is-active {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
 .button-small {
   padding: $font-size-025 $font-size-050;
   font-size: $font-size-075;

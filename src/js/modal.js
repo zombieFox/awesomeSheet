@@ -65,6 +65,7 @@ var modal = (function() {
     modalControls.setAttribute("class", "m-modal-controls");
 
     var actionButton = document.createElement("a");
+    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
