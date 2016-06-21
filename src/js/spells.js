@@ -38,6 +38,7 @@ var spells = (function() {
       _changeSpellState(this);
     }, false);
     spellResetButton.addEventListener("click", function() {
+      _changeSpellState(this);
       _resetAllSpells();
     }, false);
   };
@@ -191,7 +192,9 @@ var spells = (function() {
         for (var i = 0; i < all_spellStateControls.length; i++) {
           helper.removeClass(all_spellStateControls[i], "is-active");
         };
-        helper.addClass(element, "is-active");
+        if (!element.classList.contains("js-spell-reset")) {
+          helper.addClass(element, "is-active");
+        };
       } else {
         spellRoot.dataset.spellState = "false";
         helper.removeClass(element, "is-active");

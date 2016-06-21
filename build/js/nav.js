@@ -400,33 +400,35 @@ var nav = (function() {
 
     window.addEventListener("keydown", function(event) {
 
-      if (event.which == 8 && event.ctrlKey) {
+      // ctrl+alt+delete
+      if (event.which == 8 && event.ctrlKey && event.altKey) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
 
-      if (event.which == 73 && event.ctrlKey) {
+      // ctrl+alt+i
+      if (event.which == 73 && event.ctrlKey && event.altKey) {
         sheet.import();
         navClose();
       };
 
-      if (event.which == 69 && event.ctrlKey) {
+      // ctrl+alt+e
+      if (event.which == 69 && event.ctrlKey && event.altKey) {
         sheet.export();
         navClose();
       };
 
-      if (event.keyCode == 27 && event.ctrlKey) {
-        navClose();
-      };
-
-      if (event.keyCode == 77 && event.ctrlKey) {
+      // ctrl+alt+m
+      if (event.keyCode == 77 && event.ctrlKey && event.altKey) {
         navToggle();
       };
 
-      if (event.keyCode == 68 && event.ctrlKey) {
+      // ctrl+alt+d
+      if (event.keyCode == 68 && event.ctrlKey && event.altKey) {
         display.toggle();
       };
 
+      // esc
       if (event.keyCode == 27) {
         navClose();
       };

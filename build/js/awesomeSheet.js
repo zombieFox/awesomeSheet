@@ -7231,11 +7231,7 @@ var sheet = (function() {
     };
   };
 
-  function importJson() {
-    _render_import();
-  };
-
-  function _render_import() {
+  function _createImport() {
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
@@ -7269,7 +7265,7 @@ var sheet = (function() {
     row.appendChild(col);
     container.appendChild(row);
     input.addEventListener("change", _handleFiles, false);
-    modal.render("Import character", container, "Import", _readJsonFile);
+    return container;
   };
 
   function _handleFiles() {
@@ -7348,6 +7344,10 @@ var sheet = (function() {
     };
 
     readFile.readAsText(fileList.item(0));
+  };
+
+  function importJson() {
+    modal.render("Import character", _createImport(), "Import", _readJsonFile);
   };
 
   function exportJson() {
@@ -7822,33 +7822,35 @@ var nav = (function() {
 
     window.addEventListener("keydown", function(event) {
 
-      if (event.which == 8 && event.ctrlKey) {
+      // ctrl+alt+delete
+      if (event.which == 8 && event.ctrlKey && event.altKey) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
 
-      if (event.which == 73 && event.ctrlKey) {
+      // ctrl+alt+i
+      if (event.which == 73 && event.ctrlKey && event.altKey) {
         sheet.import();
         navClose();
       };
 
-      if (event.which == 69 && event.ctrlKey) {
+      // ctrl+alt+e
+      if (event.which == 69 && event.ctrlKey && event.altKey) {
         sheet.export();
         navClose();
       };
 
-      if (event.keyCode == 27 && event.ctrlKey) {
-        navClose();
-      };
-
-      if (event.keyCode == 77 && event.ctrlKey) {
+      // ctrl+alt+m
+      if (event.keyCode == 77 && event.ctrlKey && event.altKey) {
         navToggle();
       };
 
-      if (event.keyCode == 68 && event.ctrlKey) {
+      // ctrl+alt+d
+      if (event.keyCode == 68 && event.ctrlKey && event.altKey) {
         display.toggle();
       };
 
+      // esc
       if (event.keyCode == 27) {
         navClose();
       };
@@ -7947,11 +7949,13 @@ var prompt = (function() {
     promptControls.setAttribute("class", "m-prompt-controls");
 
     var actionButton = document.createElement("a");
+    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large js-prompt-action");
     actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
+    cancelButton.setAttribute("href", "javascript:void(0)");
     cancelButton.setAttribute("tabindex", "3");
     cancelButton.setAttribute("class", "button button-block button-large");
     cancelButton.textContent = "Cancel";
@@ -8104,6 +8108,7 @@ var modal = (function() {
     modalControls.setAttribute("class", "m-modal-controls");
 
     var actionButton = document.createElement("a");
+    actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
@@ -9161,6 +9166,7 @@ var spells = (function() {
       _changeSpellState(this);
     }, false);
     spellResetButton.addEventListener("click", function() {
+      _changeSpellState(this);
       _resetAllSpells();
     }, false);
   };
@@ -9314,7 +9320,9 @@ var spells = (function() {
         for (var i = 0; i < all_spellStateControls.length; i++) {
           helper.removeClass(all_spellStateControls[i], "is-active");
         };
-        helper.addClass(element, "is-active");
+        if (!element.classList.contains("js-spell-reset")) {
+          helper.addClass(element, "is-active");
+        };
       } else {
         spellRoot.dataset.spellState = "false";
         helper.removeClass(element, "is-active");
@@ -9500,6 +9508,8 @@ var spells = (function() {
     spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
+    spellButton.setAttribute("type", "button");
+    spellButton.setAttribute("tabindex", "3");
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);

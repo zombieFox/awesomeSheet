@@ -38,6 +38,7 @@ var spells = (function() {
       _changeSpellState(this);
     }, false);
     spellResetButton.addEventListener("click", function() {
+      _changeSpellState(this);
       _resetAllSpells();
     }, false);
   };
@@ -191,7 +192,9 @@ var spells = (function() {
         for (var i = 0; i < all_spellStateControls.length; i++) {
           helper.removeClass(all_spellStateControls[i], "is-active");
         };
-        helper.addClass(element, "is-active");
+        if (!element.classList.contains("js-spell-reset")) {
+          helper.addClass(element, "is-active");
+        };
       } else {
         spellRoot.dataset.spellState = "false";
         helper.removeClass(element, "is-active");
@@ -377,6 +380,8 @@ var spells = (function() {
     spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
+    spellButton.setAttribute("type", "button");
+    spellButton.setAttribute("tabindex", "3");
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);
