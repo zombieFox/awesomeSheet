@@ -10082,7 +10082,7 @@ var totalBlock = (function() {
 
         var label = document.createElement("label");
         label.setAttribute("for", bonuses[i].replace(/_+/g, "-"));
-        label.setAttribute("class", "u-full-width");
+        label.setAttribute("class", "label-left u-full-width");
         label.textContent = _bonusTextLable(bonuses[i]);
 
         div.appendChild(input);
