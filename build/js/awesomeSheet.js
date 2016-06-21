@@ -10951,138 +10951,144 @@ var display = (function() {
       };
     };
 
+    function _makeSkillName(key) {
+      if (key == "acrobatics") {
+        return "Acrobatics";
+      };
+      if (key == "appraise") {
+        return "Appraise";
+      };
+      if (key == "bluff") {
+        return "Bluff";
+      };
+      if (key == "climb") {
+        return "Climb";
+      };
+      if (key == "craft_1" || key == "craft_2") {
+        return "Craft";
+      };
+      if (key == "diplomacy") {
+        return "Diplomacy";
+      };
+      if (key == "disable_device") {
+        return "Disable Device";
+      };
+      if (key == "disguise") {
+        return "Disguise";
+      };
+      if (key == "escape_artist") {
+        return "Escape Artist";
+      };
+      if (key == "fly") {
+        return "Fly";
+      };
+      if (key == "handle_animal") {
+        return "Handle Animal";
+      };
+      if (key == "heal") {
+        return "Heal";
+      };
+      if (key == "intimidate") {
+        return "Intimidate";
+      };
+      if (key == "knowledge_arcana") {
+        return "Knowledge Arcana";
+      };
+      if (key == "knowledge_dungeoneering") {
+        return "Knowledge (Dungeoneering)";
+      };
+      if (key == "knowledge_engineering") {
+        return "Knowledge (Engineering)";
+      };
+      if (key == "knowledge_geography") {
+        return "Knowledge (Geography)";
+      };
+      if (key == "knowledge_history") {
+        return "Knowledge (History)";
+      };
+      if (key == "knowledge_local") {
+        return "Knowledge (Local)";
+      };
+      if (key == "knowledge_nature") {
+        return "Knowledge (Nature)";
+      };
+      if (key == "knowledge_nobility") {
+        return "Knowledge (Nobility)";
+      };
+      if (key == "knowledge_planes") {
+        return "Knowledge (Planes)";
+      };
+      if (key == "knowledge_religion") {
+        return "Knowledge (Religion)";
+      };
+      if (key == "linguistics") {
+        return "Linguistics";
+      };
+      if (key == "perception") {
+        return "Perception";
+      };
+      if (key == "perform_1" || key == "perform_2") {
+        return "Perform";
+      };
+      if (key == "profession_1" || key == "profession_2") {
+        return "Profession";
+      };
+      if (key == "ride") {
+        return "Ride";
+      };
+      if (key == "sense_motive") {
+        return "Sense Motive";
+      };
+      if (key == "sleight_of_hand") {
+        return "Sleight Of Hand";
+      };
+      if (key == "spellcraft") {
+        return "Spellcraft";
+      };
+      if (key == "stealth") {
+        return "Stealth";
+      };
+      if (key == "survival") {
+        return "Survival";
+      };
+      if (key == "swim") {
+        return "Swim";
+      };
+      if (key == "use_magic_device") {
+        return "Use Magic Device";
+      };
+      if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4" || key == "custom_5" || key == "custom_6" || key == "custom_7" || key == "custom_8") {
+        return "Custom Skill";
+      };
+    };
+
+    function _createSkillSpan(data) {
+      var span = document.createElement("span");
+      span.setAttribute("class", "m-display-skills js-display-skills");
+      span.innerHTML = data;
+      return span;
+    };
+
     function _displaySkills() {
       var displayBlockSkills = helper.e(".js-display-block-skills");
       var para = document.createElement("p");
       para.setAttribute("class", "m-display-block");
-      for (var i in sheet.getCharacter().skills) {
-        var _makeSkillName = function(key) {
-          if (key == "acrobatics") {
-            return "Acrobatics";
-          };
-          if (key == "appraise") {
-            return "Appraise";
-          };
-          if (key == "bluff") {
-            return "Bluff";
-          };
-          if (key == "climb") {
-            return "Climb";
-          };
-          if (key == "craft_1" || key == "craft_2") {
-            return "Craft";
-          };
-          if (key == "diplomacy") {
-            return "Diplomacy";
-          };
-          if (key == "disable_device") {
-            return "Disable Device";
-          };
-          if (key == "disguise") {
-            return "Disguise";
-          };
-          if (key == "escape_artist") {
-            return "Escape Artist";
-          };
-          if (key == "fly") {
-            return "Fly";
-          };
-          if (key == "handle_animal") {
-            return "Handle Animal";
-          };
-          if (key == "heal") {
-            return "Heal";
-          };
-          if (key == "intimidate") {
-            return "Intimidate";
-          };
-          if (key == "knowledge_arcana") {
-            return "Knowledge Arcana";
-          };
-          if (key == "knowledge_dungeoneering") {
-            return "Knowledge (Dungeoneering)";
-          };
-          if (key == "knowledge_engineering") {
-            return "Knowledge (Engineering)";
-          };
-          if (key == "knowledge_geography") {
-            return "Knowledge (Geography)";
-          };
-          if (key == "knowledge_history") {
-            return "Knowledge (History)";
-          };
-          if (key == "knowledge_local") {
-            return "Knowledge (Local)";
-          };
-          if (key == "knowledge_nature") {
-            return "Knowledge (Nature)";
-          };
-          if (key == "knowledge_nobility") {
-            return "Knowledge (Nobility)";
-          };
-          if (key == "knowledge_planes") {
-            return "Knowledge (Planes)";
-          };
-          if (key == "knowledge_religion") {
-            return "Knowledge (Religion)";
-          };
-          if (key == "linguistics") {
-            return "Linguistics";
-          };
-          if (key == "perception") {
-            return "Perception";
-          };
-          if (key == "perform_1" || key == "perform_2") {
-            return "Perform";
-          };
-          if (key == "profession_1" || key == "profession_2") {
-            return "Profession";
-          };
-          if (key == "ride") {
-            return "Ride";
-          };
-          if (key == "sense_motive") {
-            return "Sense Motive";
-          };
-          if (key == "sleight_of_hand") {
-            return "Sleight Of Hand";
-          };
-          if (key == "spellcraft") {
-            return "Spellcraft";
-          };
-          if (key == "stealth") {
-            return "Stealth";
-          };
-          if (key == "survival") {
-            return "Survival";
-          };
-          if (key == "swim") {
-            return "Swim";
-          };
-          if (key == "use_magic_device") {
-            return "Use Magic Device";
-          };
-          if (key == "custom_1" || key == "custom_2" || key == "custom_3" || key == "custom_4" || key == "custom_5" || key == "custom_6" || key == "custom_7" || key == "custom_8") {
-            return "Custom Skill";
-          };
-        };
-        var _render_skill = function(data) {
-          var span = document.createElement("span");
-          span.setAttribute("class", "m-display-skills js-display-skills");
-          span.innerHTML = data;
-          para.appendChild(span);
-        };
-        var data;
-        if (sheet.getCharacter().skills[i].ranks != "") {
-          if (sheet.getCharacter().skills[i].name) {
-            data = sheet.getCharacter().skills[i].name + " <strong>" + sheet.getCharacter().skills[i].current + "</strong>";
-            _render_skill(data);
-          } else if (sheet.getCharacter().skills[i].variant_name) {
-            data = _makeSkillName(i) + " (" + sheet.getCharacter().skills[i].variant_name + ") <strong>" + sheet.getCharacter().skills[i].current + "</strong>";
-            _render_skill(data);
-          } else if (!sheet.getCharacter().skills[i].name || sheet.getCharacter().skills[i].variant_name) {
-            data = _makeSkillName(i) + " <strong>" + sheet.getCharacter().skills[i].current + "</strong>";
-            _render_skill(data);
+      var all_skills = sheet.getCharacter().skills;
+      for (var key in all_skills) {
+        // filter out keys which are not a skill
+        if (key != "spent_ranks") {
+          var data;
+          if (all_skills[key].ranks != "") {
+            if (all_skills[key].name) {
+              data = all_skills[key].name + " <strong>" + all_skills[key].current + "</strong>";
+              para.appendChild(_createSkillSpan(data));
+            } else if (all_skills[key].variant_name) {
+              data = _makeSkillName(key) + " (" + all_skills[key].variant_name + ") <strong>" + all_skills[key].current + "</strong>";
+              para.appendChild(_createSkillSpan(data));
+            } else if (!all_skills[key].name || all_skills[key].variant_name) {
+              data = _makeSkillName(key) + " <strong>" + all_skills[key].current + "</strong>";
+              para.appendChild(_createSkillSpan(data));
+            };
           };
         };
       };
