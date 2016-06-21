@@ -302,7 +302,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -318,7 +319,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -334,7 +336,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -350,7 +353,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -367,7 +371,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -384,7 +389,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -400,7 +406,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -416,7 +423,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -432,7 +440,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -448,7 +457,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -464,7 +474,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -480,7 +491,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -496,7 +508,8 @@ var blank = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -512,7 +525,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -528,7 +542,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -544,7 +559,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -560,7 +576,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -576,7 +593,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -592,7 +610,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -608,7 +627,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -624,7 +644,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -640,7 +661,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -656,7 +678,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -672,7 +695,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -688,7 +712,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -704,7 +729,8 @@ var blank = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -721,7 +747,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -738,7 +765,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -755,7 +783,8 @@ var blank = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -772,7 +801,8 @@ var blank = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -788,7 +818,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -804,7 +835,8 @@ var blank = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -820,7 +852,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -836,7 +869,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -852,7 +886,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -868,7 +903,8 @@ var blank = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -884,7 +920,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -900,7 +937,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -917,7 +955,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -934,7 +973,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -951,7 +991,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -968,7 +1009,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -985,7 +1027,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -1002,7 +1045,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -1019,7 +1063,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -1036,7 +1081,8 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },
@@ -1436,7 +1482,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -1452,7 +1499,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -1468,7 +1516,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -1484,7 +1533,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -1501,7 +1551,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -1518,7 +1569,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -1534,7 +1586,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -1550,7 +1603,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -1566,7 +1620,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -1582,7 +1637,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -1598,7 +1654,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -1614,7 +1671,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -1630,7 +1688,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -1646,7 +1705,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -1662,7 +1722,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -1678,7 +1739,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -1694,7 +1756,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -1710,7 +1773,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -1726,7 +1790,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -1742,7 +1807,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -1758,7 +1824,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -1774,7 +1841,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -1790,7 +1858,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -1806,7 +1875,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -1822,7 +1892,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -1838,7 +1909,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -1855,7 +1927,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -1872,7 +1945,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -1889,7 +1963,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -1906,7 +1981,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -1922,7 +1998,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -1938,7 +2015,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -1954,7 +2032,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -1970,7 +2049,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -1986,7 +2066,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -2002,7 +2083,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -2018,7 +2100,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -2034,7 +2117,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -2051,7 +2135,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -2068,7 +2153,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -2085,7 +2171,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -2102,7 +2189,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -2119,7 +2207,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -2136,7 +2225,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -2153,7 +2243,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -2170,7 +2261,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },
@@ -2650,7 +2742,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -2666,7 +2759,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -2682,7 +2776,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -2698,7 +2793,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -2715,7 +2811,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -2732,7 +2829,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -2748,7 +2846,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -2764,7 +2863,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -2780,7 +2880,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -2796,7 +2897,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -2812,7 +2914,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -2828,7 +2931,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -2844,7 +2948,8 @@ var ro = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -2860,7 +2965,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -2876,7 +2982,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -2892,7 +2999,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -2908,7 +3016,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -2924,7 +3033,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -2940,7 +3050,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -2956,7 +3067,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -2972,7 +3084,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -2988,7 +3101,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -3004,7 +3118,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -3020,7 +3135,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -3036,7 +3152,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -3052,7 +3169,8 @@ var ro = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -3069,7 +3187,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -3086,7 +3205,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -3103,7 +3223,8 @@ var ro = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -3120,7 +3241,8 @@ var ro = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -3136,7 +3258,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -3152,7 +3275,8 @@ var ro = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -3168,7 +3292,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -3184,7 +3309,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -3200,7 +3326,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -3216,7 +3343,8 @@ var ro = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -3232,7 +3360,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -3248,7 +3377,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -3265,7 +3395,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -3282,7 +3413,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -3299,7 +3431,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -3316,7 +3449,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -3333,7 +3467,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -3350,7 +3485,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -3367,7 +3503,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -3384,7 +3521,8 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },
@@ -3837,7 +3975,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -3853,7 +3992,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -3869,7 +4009,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -3885,7 +4026,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -3902,7 +4044,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -3919,7 +4062,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -3935,7 +4079,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -3951,7 +4096,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -3967,7 +4113,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -3983,7 +4130,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -3999,7 +4147,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -4015,7 +4164,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -4031,7 +4181,8 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -4047,7 +4198,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -4063,7 +4215,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -4079,7 +4232,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -4095,7 +4249,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -4111,7 +4266,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -4127,7 +4283,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -4143,7 +4300,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -4159,7 +4317,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -4175,7 +4334,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -4191,7 +4351,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -4207,7 +4368,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -4223,7 +4385,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -4239,7 +4402,8 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -4256,7 +4420,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -4273,7 +4438,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -4290,7 +4456,8 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -4307,7 +4474,8 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -4323,7 +4491,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -4339,7 +4508,8 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -4355,7 +4525,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -4371,7 +4542,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -4387,7 +4559,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -4403,7 +4576,8 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -4419,7 +4593,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -4435,7 +4610,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -4452,7 +4628,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: true,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -4469,7 +4646,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -4486,7 +4664,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -4503,7 +4682,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -4520,7 +4700,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -4537,7 +4718,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -4554,7 +4736,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -4571,7 +4754,8 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },
@@ -4986,7 +5170,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -5002,7 +5187,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -5018,7 +5204,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -5034,7 +5221,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -5051,7 +5239,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -5068,7 +5257,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -5084,7 +5274,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -5100,7 +5291,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -5116,7 +5308,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -5132,7 +5325,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -5148,7 +5342,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -5164,7 +5359,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -5180,7 +5376,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -5196,7 +5393,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -5212,7 +5410,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -5228,7 +5427,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -5244,7 +5444,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -5260,7 +5461,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -5276,7 +5478,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -5292,7 +5495,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -5308,7 +5512,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -5324,7 +5529,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -5340,7 +5546,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -5356,7 +5563,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -5372,7 +5580,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -5388,7 +5597,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -5405,7 +5615,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -5422,7 +5633,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -5439,7 +5651,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -5456,7 +5669,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -5472,7 +5686,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -5488,7 +5703,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -5504,7 +5720,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -5520,7 +5737,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -5536,7 +5754,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -5552,7 +5771,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -5568,7 +5788,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -5584,7 +5805,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -5601,7 +5823,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: true
+          half_level: true,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -5618,7 +5841,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: true
+          half_level: true,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -5635,7 +5859,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -5652,7 +5877,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -5669,7 +5895,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -5686,7 +5913,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -5703,7 +5931,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -5720,7 +5949,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },
@@ -6124,7 +6354,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -6140,7 +6371,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -6156,7 +6388,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -6172,7 +6405,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -6189,7 +6423,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -6206,7 +6441,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -6222,7 +6458,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -6238,7 +6475,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -6254,7 +6492,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -6270,7 +6509,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -6286,7 +6526,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -6302,7 +6543,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -6318,7 +6560,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -6334,7 +6577,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -6350,7 +6594,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -6366,7 +6611,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -6382,7 +6628,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -6398,7 +6645,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -6414,7 +6662,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -6430,7 +6679,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -6446,7 +6696,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -6462,7 +6713,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -6478,7 +6730,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -6494,7 +6747,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -6510,7 +6764,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -6526,7 +6781,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -6543,7 +6799,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -6560,7 +6817,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -6577,7 +6835,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -6594,7 +6853,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -6610,7 +6870,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -6626,7 +6887,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -6642,7 +6904,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -6658,7 +6921,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -6674,7 +6938,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -6690,7 +6955,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -6706,7 +6972,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -6722,7 +6989,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -6739,7 +7007,8 @@ var orrin = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: true
+          half_level: true,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -6756,7 +7025,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: true
+          half_level: true,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -6773,7 +7043,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -6790,7 +7061,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -6807,7 +7079,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -6824,7 +7097,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -6841,7 +7115,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -6858,7 +7133,8 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },
@@ -9772,6 +10048,9 @@ var totalBlock = (function() {
             if (key == "class_skill") {
               totalBlock.dataset.classSkill = "true";
             };
+            if (key == "check_penalty") {
+              totalBlock.dataset.checkPenalty = "true";
+            };
           };
         };
       };
@@ -9815,6 +10094,7 @@ var totalBlock = (function() {
       var acDodge = 0;
       var acNatural = 0;
       var classSkill = 0;
+      var checkPenalty = 0;
       // str
       if (all_totalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
@@ -9919,6 +10199,10 @@ var totalBlock = (function() {
           classSkill = 0;
         };
       };
+      // armor check penalty
+      if (all_totalBlock[i].dataset.checkPenalty == "true") {
+        checkPenalty = parseInt(helper.e("#defense-ac-check-penalty").value, 10 || 0);
+      };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
@@ -9975,6 +10259,9 @@ var totalBlock = (function() {
       if (isNaN(classSkill)) {
         classSkill = 0;
       };
+      if (isNaN(checkPenalty)) {
+        checkPenalty = 0;
+      };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
       var path = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
@@ -9997,7 +10284,7 @@ var totalBlock = (function() {
         });
       };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
+      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill + checkPenalty;
       // update total
       total.textContent = grandTotal;
       // store current to character object
@@ -10059,6 +10346,9 @@ var totalBlock = (function() {
     };
     if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
+    };
+    if (bonusType == "check-penalty" || bonusType == "check_penalty") {
+      return "Check Penalty";
     };
   };
 
@@ -10208,6 +10498,9 @@ var totalBlock = (function() {
       if (bonusType == "class-skill") {
         totalBlock.dataset.classSkill = "true";
       };
+      if (bonusType == "check-penalty") {
+        totalBlock.dataset.checkPenalty = "true";
+      };
     } else {
       if (bonusType == "str-bonus") {
         totalBlock.dataset.strBonus = "false";
@@ -10260,6 +10553,9 @@ var totalBlock = (function() {
       if (bonusType == "class-skill") {
         totalBlock.dataset.classSkill = "false";
       };
+      if (bonusType == "check-penalty") {
+        totalBlock.dataset.checkPenalty = "false";
+      };
     };
   };
 
@@ -10284,6 +10580,7 @@ var totalBlock = (function() {
       delete all_totalBlock[i].dataset.acDodge;
       delete all_totalBlock[i].dataset.acNatural;
       delete all_totalBlock[i].dataset.classSkill;
+      delete all_totalBlock[i].dataset.checkPenalty;
     };
   };
 

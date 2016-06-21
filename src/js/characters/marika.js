@@ -337,7 +337,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -353,7 +354,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -369,7 +371,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -385,7 +388,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -402,7 +406,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -419,7 +424,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -435,7 +441,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -451,7 +458,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -467,7 +475,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -483,7 +492,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -499,7 +509,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -515,7 +526,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -531,7 +543,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -547,7 +560,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -563,7 +577,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -579,7 +594,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -595,7 +611,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -611,7 +628,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -627,7 +645,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -643,7 +662,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -659,7 +679,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -675,7 +696,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -691,7 +713,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -707,7 +730,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -723,7 +747,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -739,7 +764,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -756,7 +782,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -773,7 +800,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -790,7 +818,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -807,7 +836,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -823,7 +853,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -839,7 +870,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -855,7 +887,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -871,7 +904,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -887,7 +921,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -903,7 +938,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -919,7 +955,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -935,7 +972,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -952,7 +990,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: true
+          half_level: true,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -969,7 +1008,8 @@ var marika = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: true
+          half_level: true,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -986,7 +1026,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -1003,7 +1044,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -1020,7 +1062,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -1037,7 +1080,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -1054,7 +1098,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -1071,7 +1116,8 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },

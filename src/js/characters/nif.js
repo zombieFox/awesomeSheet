@@ -322,7 +322,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       appraise: {
@@ -338,7 +339,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       bluff: {
@@ -354,7 +356,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       climb: {
@@ -370,7 +373,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       craft_1: {
@@ -387,7 +391,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       craft_2: {
@@ -404,7 +409,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       diplomacy: {
@@ -420,7 +426,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       disable_device: {
@@ -436,7 +443,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       disguise: {
@@ -452,7 +460,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       escape_artist: {
@@ -468,7 +477,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       fly: {
@@ -484,7 +494,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       handle_animal: {
@@ -500,7 +511,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       heal: {
@@ -516,7 +528,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       intimidate: {
@@ -532,7 +545,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_arcana: {
@@ -548,7 +562,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_dungeoneering: {
@@ -564,7 +579,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_engineering: {
@@ -580,7 +596,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_geography: {
@@ -596,7 +613,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_history: {
@@ -612,7 +630,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_local: {
@@ -628,7 +647,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nature: {
@@ -644,7 +664,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_nobility: {
@@ -660,7 +681,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_planes: {
@@ -676,7 +698,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       knowledge_religion: {
@@ -692,7 +715,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       linguistics: {
@@ -708,7 +732,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perception: {
@@ -724,7 +749,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_1: {
@@ -741,7 +767,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       perform_2: {
@@ -758,7 +785,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_1: {
@@ -775,7 +803,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       profession_2: {
@@ -792,7 +821,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       ride: {
@@ -808,7 +838,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       sense_motive: {
@@ -824,7 +855,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       sleight_of_hand: {
@@ -840,7 +872,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       spellcraft: {
@@ -856,7 +889,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       stealth: {
@@ -872,7 +906,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       survival: {
@@ -888,7 +923,8 @@ var nif = (function() {
           wis_bonus: true,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       swim: {
@@ -904,7 +940,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: true
         }
       },
       use_magic_device: {
@@ -920,7 +957,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: true,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_1: {
@@ -937,7 +975,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_2: {
@@ -954,7 +993,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_3: {
@@ -971,7 +1011,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_4: {
@@ -988,7 +1029,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_5: {
@@ -1005,7 +1047,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_6: {
@@ -1022,7 +1065,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_7: {
@@ -1039,7 +1083,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       },
       custom_8: {
@@ -1056,7 +1101,8 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           level: false,
-          half_level: false
+          half_level: false,
+          check_penalty: false
         }
       }
     },

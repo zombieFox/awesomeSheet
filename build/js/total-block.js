@@ -63,6 +63,9 @@ var totalBlock = (function() {
             if (key == "class_skill") {
               totalBlock.dataset.classSkill = "true";
             };
+            if (key == "check_penalty") {
+              totalBlock.dataset.checkPenalty = "true";
+            };
           };
         };
       };
@@ -106,6 +109,7 @@ var totalBlock = (function() {
       var acDodge = 0;
       var acNatural = 0;
       var classSkill = 0;
+      var checkPenalty = 0;
       // str
       if (all_totalBlock[i].dataset.strBonus == "true") {
         // if ability temp mod is empty
@@ -210,6 +214,10 @@ var totalBlock = (function() {
           classSkill = 0;
         };
       };
+      // armor check penalty
+      if (all_totalBlock[i].dataset.checkPenalty == "true") {
+        checkPenalty = parseInt(helper.e("#defense-ac-check-penalty").value, 10 || 0);
+      };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
@@ -266,6 +274,9 @@ var totalBlock = (function() {
       if (isNaN(classSkill)) {
         classSkill = 0;
       };
+      if (isNaN(checkPenalty)) {
+        checkPenalty = 0;
+      };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
       var path = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
@@ -288,7 +299,7 @@ var totalBlock = (function() {
         });
       };
       // grand total
-      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill;
+      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill + checkPenalty;
       // update total
       total.textContent = grandTotal;
       // store current to character object
@@ -350,6 +361,9 @@ var totalBlock = (function() {
     };
     if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
+    };
+    if (bonusType == "check-penalty" || bonusType == "check_penalty") {
+      return "Check Penalty";
     };
   };
 
@@ -499,6 +513,9 @@ var totalBlock = (function() {
       if (bonusType == "class-skill") {
         totalBlock.dataset.classSkill = "true";
       };
+      if (bonusType == "check-penalty") {
+        totalBlock.dataset.checkPenalty = "true";
+      };
     } else {
       if (bonusType == "str-bonus") {
         totalBlock.dataset.strBonus = "false";
@@ -551,6 +568,9 @@ var totalBlock = (function() {
       if (bonusType == "class-skill") {
         totalBlock.dataset.classSkill = "false";
       };
+      if (bonusType == "check-penalty") {
+        totalBlock.dataset.checkPenalty = "false";
+      };
     };
   };
 
@@ -575,6 +595,7 @@ var totalBlock = (function() {
       delete all_totalBlock[i].dataset.acDodge;
       delete all_totalBlock[i].dataset.acNatural;
       delete all_totalBlock[i].dataset.classSkill;
+      delete all_totalBlock[i].dataset.checkPenalty;
     };
   };
 
