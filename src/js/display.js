@@ -46,7 +46,7 @@ var display = (function() {
     function _displayOn() {
       // record scroll top var
       scrollTopEdit = window.scrollY;
-      helper.addClass(body, "l-quick-edit");
+      helper.addClass(body, "is-display-mode");
       // iterate over all quick nav links and hide
       for (var i = 0; i < all_quickNavLink.length; i++) {
         helper.addClass(all_quickNavLink[i], "is-invisible");
@@ -114,10 +114,6 @@ var display = (function() {
         // make them visable
         helper.removeClass(all_sectionDisplay[i], "is-hidden");
       };
-      // make quick nav light
-      helper.addClass(quickNav, "m-quick-nav-display");
-      // make hamburger dark
-      helper.addClass(hamburger, "m-hamburger-dark");
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
@@ -129,7 +125,7 @@ var display = (function() {
     function _displayOff() {
       // record scroll top var
       scrollTopDisplay = window.scrollY;
-      helper.removeClass(body, "l-quick-edit");
+      helper.removeClass(body, "is-display-mode");
       // remove quick edit open state from body
       helper.removeClass(body, "is-quick-edit-open");
       // iterate over quick nav links
@@ -193,10 +189,6 @@ var display = (function() {
         // hide display section
         helper.addClass(all_sectionDisplay[i], "is-hidden");
       };
-      // make quick nav dark
-      helper.removeClass(quickNav, "m-quick-nav-display");
-      // make hamburger light
-      helper.removeClass(hamburger, "m-hamburger-dark");
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");

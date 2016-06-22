@@ -26,16 +26,8 @@
   visibility: visible !important;
 }
 
-.is-onscreen-nav {
+.is-nav-open {
   overflow: hidden !important;
-}
-
-.is-quick-edit-open {
-  background-color: $gray-18 !important;
-}
-
-.is-night-mode {
-  background-color: $gray-03 !important;
 }
 
 .is-unrotate-in {
@@ -54,11 +46,17 @@
   transition: transform $transition-ease-fast !important;
 }
 
+.is-night-mode {
+  p {
+    color: $white;
+  }
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .is-onscreen-nav {
+  .is-nav-open {
     overflow: auto !important;
   }
 }

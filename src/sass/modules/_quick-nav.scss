@@ -8,11 +8,6 @@
   transition: background-color $transition-ease-medium;
 }
 
-.m-quick-nav-display {
-  background-color: $light-alpha-04;
-  border-bottom: 2px solid $gray-20;
-}
-
 .m-quick-nav-list {
   margin: 0;
   padding: 0;
@@ -73,9 +68,20 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.is-display-mode {
+  .m-quick-nav {
+    background-color: $dark-alpha-20;
+  }
+}
+
 .is-night-mode {
   .m-quick-nav {
     background-color: $secondary-color-05;
+  }
+  &.is-display-mode {
+    .m-quick-nav {
+      background-color: $dark-alpha-16;
+    }
   }
   .m-quick-nav-link {
     color: $secondary-color-03;

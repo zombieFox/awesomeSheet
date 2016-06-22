@@ -55,36 +55,38 @@ var nav = (function() {
     };
   };
 
-  function _toggle_fullscreen(elements) {
+  function _toggle_fullscreen() {
+    var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
-    var icon = elements.querySelector(".icon");
+    var icon = fullscreen.querySelector(".icon");
     var rootElement = root.documentElement;
     var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
-      helper.toggleClass(elements, "is-active");
+      helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     } else {
       cancelFullScreen.call(root);
-      helper.toggleClass(elements, "is-active");
+      helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     };
   };
 
-  function _toggle_nightMode(elements) {
+  function _toggle_nightMode() {
     var body = helper.e("body");
+    var nightMode = helper.e(".js-night-mode");
 
     function _nightModeOn() {
       helper.addClass(body, "is-night-mode");
-      helper.addClass(elements, "is-active");
+      helper.addClass(nightMode, "is-active");
     };
 
     function _nightModeOff() {
       helper.removeClass(body, "is-night-mode");
-      helper.removeClass(elements, "is-active");
+      helper.removeClass(nightMode, "is-active");
     };
 
     if (body.dataset.nightMode == "true") {
@@ -282,9 +284,9 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
     if (nav) {
-      helper.addClass(body, "is-onscreen-nav");
+      helper.addClass(body, "is-nav-open");
     } else {
-      helper.removeClass(body, "is-onscreen-nav");
+      helper.removeClass(body, "is-nav-open");
     };
   };
 
@@ -368,13 +370,13 @@ var nav = (function() {
     fullscreen.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _toggle_fullscreen(this);
+      _toggle_fullscreen();
     }, false);
 
     nightMode.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _toggle_nightMode(this);
+      _toggle_nightMode();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
@@ -429,31 +431,36 @@ var nav = (function() {
     window.addEventListener("keydown", function(event) {
 
       // ctrl+alt+delete
-      if (event.which == 8 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
 
       // ctrl+alt+i
-      if (event.which == 73 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
         navClose();
       };
 
       // ctrl+alt+e
-      if (event.which == 69 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
         navClose();
       };
 
       // ctrl+alt+m
-      if (event.keyCode == 77 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
         toggle_nav();
       };
 
       // ctrl+alt+d
-      if (event.keyCode == 68 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
         display.toggle();
+      };
+
+      // ctrl+alt+n
+      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
+        _toggle_nightMode();
       };
 
       // esc

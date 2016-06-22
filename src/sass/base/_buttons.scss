@@ -22,6 +22,7 @@ input[type="button"] {
   transition: all $transition-ease-extra-fast;
   display: inline-block;
   text-transform: uppercase;
+  transition: background-color $transition-ease-medium, border-color $transition-ease-medium, color $transition-ease-medium;
   &:link,
   &:visited {
     background-color: $white;
@@ -272,6 +273,148 @@ input[type="button"] {
 button,
 label {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.is-night-mode {
+  .button,
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    background-color: $gray-04;
+    border-color: $gray-05;
+    color: $white;
+    &:link,
+    &:visited {
+      background-color: $gray-04;
+      border-color: $gray-05;
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-05;
+      border-color: $gray-14;
+      color: $white;
+    }
+    &:active,
+    &.is-active {
+      background-color: $gray-16;
+      border-color: $gray-12;
+      color: $white;
+    }
+  }
+  .button-primary {
+    background-color: $primary-color-10;
+    border-color: $primary-color-08;
+    color: $white;
+    &:link,
+    &:visited {
+      background-color: $primary-color-10;
+      border-color: $primary-color-08;
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $primary-color-08;
+      border-color: $primary-color-06;
+      color: $white;
+    }
+    &:active,
+    &.is-active {
+      background-color: $primary-color-06;
+      border-color: $primary-color-04;
+      color: $white;
+    }
+  }
+  .button-secondary {
+    background-color: $secondary-color-10;
+    border-color: $secondary-color-08;
+    color: $white;
+    &:link,
+    &:visited {
+      background-color: $secondary-color-10;
+      border-color: $secondary-color-08;
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $secondary-color-08;
+      border-color: $secondary-color-06;
+      color: $white;
+    }
+    &:active,
+    &.is-active {
+      background-color: $secondary-color-06;
+      border-color: $secondary-color-04;
+      color: $white;
+    }
+  }
+  .button-link {
+    background-color: transparent;
+    border: 0;
+    color: $white;
+    text-transform: inherit;
+    font-family: $open-sans-regular;
+    &:link,
+    &:visited {
+      background-color: transparent;
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $dark-alpha-20;
+      color: $primary-color-08;
+    }
+    &:active,
+    &.is-active {
+      background-color: $dark-alpha-18;
+      color: $primary-color-06;
+    }
+  }
+  .button-tertiary {
+    background-color: transparent;
+    border-color: $light-alpha-14;
+    color: $light-alpha-04;
+    &:link,
+    &:visited {
+      background-color: transparent;
+      border-color: $dark-alpha-18;
+      color: $light-alpha-04;
+    }
+    &:focus,
+    &:hover {
+      background-color: $dark-alpha-18;
+      border-color: $dark-alpha-16;
+      color: $white;
+    }
+    &:active,
+    &.is-active {
+      background-color: $light-alpha-14;
+      border-color: $light-alpha-12;
+      color: $white;
+    }
+  }
+  .button-tertiary-link {
+    background-color: transparent;
+    border: 0;
+    color: $light-alpha-04;
+    text-transform: inherit;
+    &:link,
+    &:visited {
+      background-color: transparent;
+      color: $light-alpha-04;
+    }
+    &:focus,
+    &:hover {
+      background-color: $dark-alpha-18;
+      color: $white;
+    }
+    &:active,
+    &.is-active {
+      background-color: $light-alpha-14;
+      color: $white;
+    }
+  }
 }
 
 // --------------------------------------------------

@@ -1,15 +1,15 @@
 select {
   background-color: $white;
-  border-color: $gray-18;
   color: $base-color;
   border-width: 1px;
   border-style: solid;
+  border-color: $gray-18;
   margin: 0 0 $font-size-200 0;
   font-family: $open-sans-regular;
   color: $base-color;
   height: $line-height-root-250;
   line-height: $line-height-root-250;
-  transition: border-color $transition-ease-fast;
+  transition: background-color $transition-ease-medium, border-color $transition-ease-medium;
   &:hover {
     border-color: $primary-color-10;
   }
@@ -28,7 +28,7 @@ textarea {
   border: 0;
   min-height: $font-size-250;
   border-bottom: $border;
-  transition: border-color $transition-ease-fast, padding $transition-ease-fast;
+  transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
   resize: vertical;
   &:hover {
     border-color: $primary-color-10;
@@ -59,7 +59,7 @@ input {
     border-radius: 0;
     border-bottom: $border;
     box-shadow: none;
-    transition: border-color $transition-ease-fast;
+    transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
       border-color: $primary-color-10;
     }
@@ -162,10 +162,7 @@ input {
       }
       & + label {
         cursor: pointer;
-        color: $base-color;
-        &:before {
-          color: $base-color;
-        }
+        &:before {}
       }
     }
   }
@@ -193,6 +190,80 @@ input {
       & + label {
         &:before {
           content: "\e25c";
+        }
+      }
+    }
+  }
+}
+
+.is-night-mode {
+  select {
+    background-color: $secondary-color-06;
+    border-color: $secondary-color-04;
+  }
+  label {
+    color: $secondary-color-10;
+  }
+  .textarea,
+  textarea {
+    background-color: $secondary-color-alpha-19;
+  }
+  input {
+    &[type="email"],
+    &[type="number"],
+    &[type="search"],
+    &[type="text"],
+    &[type="tel"],
+    &[type="password"] {
+      background-color: $secondary-color-alpha-19;
+    }
+  }
+  input {
+    &[type="radio"],
+    &[type="checkbox"] {
+      & + label {
+        color: $white;
+        &:before {
+          color: $secondary-color-10;
+        }
+      }
+      &:hover {
+        & + label {
+          color: $primary-color-10;
+          &:before {
+            color: $primary-color-10;
+          }
+        }
+      }
+      &:focus {
+        & + label {
+          color: $secondary-color-10;
+          &:before {
+            color: $secondary-color-10;
+          }
+        }
+      }
+      &:checked {
+        &:hover {
+          & + label {
+            color: $primary-color-10;
+            &:before {
+              color: $primary-color-10;
+            }
+          }
+        }
+        &:focus {
+          & + label {
+            color: $secondary-color-10;
+            &:before {
+              color: $secondary-color-10;
+            }
+          }
+        }
+        & + label {
+          &:before {
+            color: $secondary-color-10;
+          }
         }
       }
     }

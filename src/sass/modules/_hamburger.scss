@@ -65,29 +65,31 @@
   }
 }
 
-.m-hamburger-dark {
-  .m-hamburger-inner {
-    background-color: $base-color;
-    &:before,
-    &:after {
-      background-color: $base-color;
-    }
-  }
-  &:hover {
+.is-display-mode {
+  .m-hamburger {
     .m-hamburger-inner {
-      background-color: $primary-color-12;
+      background-color: $gray-10;
       &:before,
       &:after {
-        background-color: $primary-color-12;
+        background-color: $gray-10;
       }
     }
-  }
-  &.is-open {
-    .m-hamburger-inner {
-      background-color: $primary-color-10;
-      &:before,
-      &:after {
+    &:hover {
+      .m-hamburger-inner {
+        background-color: $primary-color-12;
+        &:before,
+        &:after {
+          background-color: $primary-color-12;
+        }
+      }
+    }
+    &.is-open {
+      .m-hamburger-inner {
         background-color: $primary-color-10;
+        &:before,
+        &:after {
+          background-color: $primary-color-10;
+        }
       }
     }
   }
