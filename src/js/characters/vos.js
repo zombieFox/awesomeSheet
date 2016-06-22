@@ -116,6 +116,7 @@ var vos = (function() {
         dodge: "1",
         natural: "",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -327,7 +328,8 @@ var vos = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "5",

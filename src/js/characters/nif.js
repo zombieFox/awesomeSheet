@@ -111,6 +111,7 @@ var nif = (function() {
         dodge: "",
         natural: "1",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -307,7 +308,8 @@ var nif = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "",
