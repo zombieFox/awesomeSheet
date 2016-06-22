@@ -19,11 +19,8 @@ body {
     padding-bottom: 10em;
   }
   &.is-night-mode {
-    background-color: $gray-03;
+    background-color: $gray-02;
     color: $white;
-    &.is-quick-edit-open {
-      background-color: $gray-02;
-    }
   }
 }
 

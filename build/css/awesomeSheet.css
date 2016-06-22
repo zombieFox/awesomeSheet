@@ -39,10 +39,8 @@ body {
   body.is-display-mode {
     padding-bottom: 10em; }
   body.is-night-mode {
-    background-color: #262626;
+    background-color: #0d0d0d;
     color: #ffffff; }
-    body.is-night-mode.is-quick-edit-open {
-      background-color: #0d0d0d; }
 
 @media (min-width: 550px) {
   html {
@@ -3087,20 +3085,17 @@ label {
     color: #b3b3b3; }
 
 .is-night-mode .m-display-section-divider {
-  background-color: #404040; }
+  background-color: #333333; }
   .is-night-mode .m-display-section-divider .m-display-section-icon {
-    background-color: #262626;
-    border-color: #404040;
-    color: #595959; }
+    background-color: #0d0d0d;
+    border-color: #333333;
+    color: gray; }
 
 .is-night-mode .m-display-item:after,
 .is-night-mode .m-display-spell:after,
 .is-night-mode .m-display-skills:after,
 .is-night-mode .m-display-attack:after {
   background-color: #404040; }
-
-.is-night-mode.is-quick-edit-open .m-display-section-divider .m-display-section-icon {
-  background-color: #0d0d0d; }
 
 @media print {
   .m-display-wrapper {
