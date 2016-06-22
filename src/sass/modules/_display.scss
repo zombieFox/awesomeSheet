@@ -116,11 +116,8 @@
   }
   &.is-quick-edit-open {
     .m-display-section-divider {
-      background-color: $gray-07;
       .m-display-section-icon {
-        background-color: $gray-05;
-        border-color: $gray-07;
-        color: $gray-09;
+        background-color: $gray-02;
       }
     }
   }

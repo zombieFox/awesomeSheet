@@ -42,7 +42,7 @@ body {
     background-color: #262626;
     color: #ffffff; }
     body.is-night-mode.is-quick-edit-open {
-      background-color: #404040; }
+      background-color: #0d0d0d; }
 
 @media (min-width: 550px) {
   html {
@@ -3099,12 +3099,8 @@ label {
 .is-night-mode .m-display-attack:after {
   background-color: #404040; }
 
-.is-night-mode.is-quick-edit-open .m-display-section-divider {
-  background-color: #595959; }
-  .is-night-mode.is-quick-edit-open .m-display-section-divider .m-display-section-icon {
-    background-color: #404040;
-    border-color: #595959;
-    color: #737373; }
+.is-night-mode.is-quick-edit-open .m-display-section-divider .m-display-section-icon {
+  background-color: #0d0d0d; }
 
 @media print {
   .m-display-wrapper {
