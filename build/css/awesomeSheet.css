@@ -2512,7 +2512,7 @@ label {
   background-color: #224159; }
 
 .is-night-mode.is-display-mode .m-quick-nav {
-  background-color: rgba(0, 0, 0, 0.25); }
+  background-color: #1c3445; }
 
 .is-night-mode .m-quick-nav-link {
   color: #162632; }
@@ -2959,7 +2959,7 @@ label {
     transition: all 0.3s ease-in-out; }
 
 .is-night-mode .m-snack-bar {
-  background-color: #162632; }
+  background-color: #1c3445; }
 
 @media (min-width: 550px) {
   .m-snack-bar {
