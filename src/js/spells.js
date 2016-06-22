@@ -273,7 +273,7 @@ var spells = (function() {
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
       sheet.storeCharacters();
     };
-    if (body.dataset.awesomeMode == "display") {
+    if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };

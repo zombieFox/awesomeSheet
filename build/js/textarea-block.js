@@ -11,7 +11,7 @@ var textareaBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    if (body.dataset.awesomeMode == "display") {
+    if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };

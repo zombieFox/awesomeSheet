@@ -11,7 +11,7 @@ var stats = (function() {
   function delayUpdate(element) {
     render();
     totalBlock.update();
-    if (body.dataset.awesomeMode == "display") {
+    if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };

@@ -148,7 +148,7 @@ var clone = (function() {
       var options = {
         offset: quickNavHeight + subHeaderHeight + 30
       };
-      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
         smoothScroll.animateScroll(null, cloneBlock, options);
       };
     };
@@ -374,7 +374,7 @@ var clone = (function() {
     };
     totalBlock.update();
     sheet.storeCharacters();
-    if (body.dataset.awesomeMode == "display") {
+    if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };

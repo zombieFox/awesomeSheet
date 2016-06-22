@@ -220,7 +220,7 @@ var nav = (function() {
   function lastSectionHeight() {
     var all_sectionEdit = helper.eA(".js-section-edit");
     var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
-    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+    if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
       lastSection.style.minHeight = window.innerHeight + "px";
     };
   };
@@ -228,7 +228,7 @@ var nav = (function() {
   function _render_quickNav() {
     var body = helper.e("body");
     window.onscroll = function() {
-      if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
         var quickNav = helper.e(".js-quick-nav");
         var all_quickNavLinks = helper.eA(".js-quick-nav-link");
         var all_sectionEdit = helper.eA(".js-section-edit");
