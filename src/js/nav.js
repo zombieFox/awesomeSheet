@@ -55,7 +55,7 @@ var nav = (function() {
     };
   };
 
-  function _fullscreen() {
+  function _toggle_fullscreen() {
     var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
     var icon = fullscreen.querySelector(".icon");
@@ -72,6 +72,29 @@ var nav = (function() {
       helper.toggleClass(fullscreen, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
+    };
+  };
+
+  function _toggle_nightMode() {
+    var body = helper.e("body");
+    var nightMode = helper.e(".js-night-mode");
+
+    function _nightModeOn() {
+      helper.addClass(body, "is-night-mode");
+      helper.addClass(nightMode, "is-active");
+    };
+
+    function _nightModeOff() {
+      helper.removeClass(body, "is-night-mode");
+      helper.removeClass(nightMode, "is-active");
+    };
+
+    if (body.dataset.nightMode == "true") {
+      body.dataset.nightMode = "false";
+      _nightModeOff();
+    } else if (body.dataset.nightMode == "false" || !body.dataset.nightMode) {
+      body.dataset.nightMode = "true";
+      _nightModeOn();
     };
   };
 
@@ -261,9 +284,9 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
     if (nav) {
-      helper.addClass(body, "is-onscreen-nav");
+      helper.addClass(body, "is-nav-open");
     } else {
-      helper.removeClass(body, "is-onscreen-nav");
+      helper.removeClass(body, "is-nav-open");
     };
   };
 
@@ -283,7 +306,7 @@ var nav = (function() {
     _render_navShade();
   };
 
-  function navToggle() {
+  function toggle_nav() {
     var nav = helper.e(".js-nav");
     if (nav.classList.contains("is-open")) {
       helper.removeClass(helper.e(".js-nav"), "is-open");
@@ -323,8 +346,9 @@ var nav = (function() {
 
   function bind() {
     var nav = helper.e(".js-nav");
-    var navToggleElement = helper.e(".js-nav-toggle");
+    var navToggle = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
+    var nightMode = helper.e(".js-night-mode");
     var clearAll = helper.e(".js-clear-all");
     var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
     var characterAdd = helper.e(".js-character-add");
@@ -337,16 +361,22 @@ var nav = (function() {
       all_quickNavLinks[i].addEventListener("click", navClose, false);
     };
 
-    navToggleElement.addEventListener("click", function(event) {
+    navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      navToggle();
+      toggle_nav();
     }, false);
 
     fullscreen.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _fullscreen();
+      _toggle_fullscreen();
+    }, false);
+
+    nightMode.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      _toggle_nightMode();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
@@ -393,7 +423,7 @@ var nav = (function() {
     }, false);
 
     // window.addEventListener('click', function(event) {
-    //   if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
+    //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
     //     navClose();
     //   };
     // }, false);
@@ -401,31 +431,36 @@ var nav = (function() {
     window.addEventListener("keydown", function(event) {
 
       // ctrl+alt+delete
-      if (event.which == 8 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
 
       // ctrl+alt+i
-      if (event.which == 73 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
         navClose();
       };
 
       // ctrl+alt+e
-      if (event.which == 69 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
         navClose();
       };
 
       // ctrl+alt+m
-      if (event.keyCode == 77 && event.ctrlKey && event.altKey) {
-        navToggle();
+      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
+        toggle_nav();
       };
 
       // ctrl+alt+d
-      if (event.keyCode == 68 && event.ctrlKey && event.altKey) {
+      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
         display.toggle();
+      };
+
+      // ctrl+alt+n
+      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
+        _toggle_nightMode();
       };
 
       // esc
@@ -435,8 +470,11 @@ var nav = (function() {
 
     }, false);
 
+    // key debugging
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
+    //   console.log(event.metaKey);
+    //   console.log(event);
     // });
 
   };
@@ -451,7 +489,7 @@ var nav = (function() {
     update: updateNavCharacters,
     open: navOpen,
     close: navClose,
-    toggle: navToggle
+    toggle: toggle_nav
   }
 
 })();

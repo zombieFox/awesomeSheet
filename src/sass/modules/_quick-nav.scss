@@ -5,12 +5,7 @@
   left: 0;
   width: 100%;
   z-index: $quick-nav;
-  transition: all $transition-ease-fast;
-}
-
-.m-quick-nav-display {
-  background-color: $light-alpha-04;
-  border-bottom: 2px solid $gray-20;
+  transition: background-color $transition-ease-medium;
 }
 
 .m-quick-nav-list {
@@ -71,6 +66,42 @@
   width: 100%;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.is-display-mode {
+  .m-quick-nav {
+    background-color: $dark-alpha-20;
+  }
+}
+
+.is-night-mode {
+  .m-quick-nav {
+    background-color: $secondary-color-05;
+  }
+  &.is-display-mode {
+    .m-quick-nav {
+      background-color: $dark-alpha-16;
+    }
+  }
+  .m-quick-nav-link {
+    color: $secondary-color-03;
+    &:link,
+    &:visited {
+      color: $secondary-color-03;
+    }
+    &:focus {
+      color: $secondary-color-10;
+    }
+    &:hover {
+      color: $secondary-color-10;
+    }
+    &:active {
+      color: $secondary-color-14;
+    }
+    &.is-active {
+      color: $white;
+    }
+  }
 }
 
 // --------------------------------------------------

@@ -4,7 +4,7 @@
       margin: 0;
       padding: 0;
       border-radius: 0;
-      transition: all $transition-ease-extra-fast;
+      transition: all $transition-ease-extra-fast, background-color $transition-ease-medium;
       input {
         &[type="email"],
         &[type="number"],
@@ -12,7 +12,7 @@
         &[type="text"],
         &[type="tel"],
         &[type="password"] {
-          transition: all $transition-ease-extra-fast;
+          transition: all $transition-ease-extra-fast, border-color $transition-ease-medium;
         }
       }
       label {
@@ -77,6 +77,31 @@
               font-size: $font-size-200;
               line-height: $line-height-100;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+.is-night-mode {
+  .m-clone-block {
+    &.is-delete-state {
+      .m-clone-block-target {
+        .m-clone {
+          input {
+            &[type="email"],
+            &[type="number"],
+            &[type="search"],
+            &[type="text"],
+            &[type="tel"],
+            &[type="password"] {
+              border-color: $primary-color-04;
+            }
+          }
+          background-color: $primary-color-06;
+          .u-underline-with-input {
+            border-color: $primary-color-04;
           }
         }
       }

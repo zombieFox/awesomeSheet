@@ -25,7 +25,7 @@
   text-transform: uppercase;
   position: relative;
   z-index: $section-heading;
-  transition: background-color $transition-ease-extra-fast;
+  transition: background-color $transition-ease-medium;
   h1 {
     color: $white;
     margin: 0;
@@ -55,6 +55,12 @@
 
 .m-section-wrapper-nav-padding {
   padding-top: 8em;
+}
+
+.is-night-mode {
+  .m-section-heading {
+    background-color: $secondary-color-04;
+  }
 }
 
 // --------------------------------------------------

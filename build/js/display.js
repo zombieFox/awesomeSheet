@@ -8,7 +8,7 @@ var display = (function() {
       displayBlockQuickEdit[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _toggleQuickEdit(this);
+        _toggle_quickEdit(this);
         totalBlock.update();
         clear();
         render();
@@ -16,7 +16,7 @@ var display = (function() {
     };
   };
 
-  function _toggleQuickEdit(element) {
+  function _toggle_quickEdit(element) {
     var body = helper.e("body");
     var node = helper.e(".js-" + element.dataset.miniView);
     var all_sectionEdit = helper.eA(".js-section-edit");
@@ -42,13 +42,11 @@ var display = (function() {
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
     var all_sectionEdit = helper.eA(".js-section-edit");
     var all_sectionDisplay = helper.eA(".js-section-display");
-    // if body is in edit state
-    if (body.dataset.awesomeMode == "edit" || typeof body.dataset.awesomeMode == "undefined" || body.dataset.awesomeMode == "") {
+
+    function _displayOn() {
       // record scroll top var
       scrollTopEdit = window.scrollY;
-      // set it to display state
-      body.dataset.awesomeMode = "display";
-      helper.addClass(body, "l-quick-edit");
+      helper.addClass(body, "is-display-mode");
       // iterate over all quick nav links and hide
       for (var i = 0; i < all_quickNavLink.length; i++) {
         helper.addClass(all_quickNavLink[i], "is-invisible");
@@ -116,22 +114,18 @@ var display = (function() {
         // make them visable
         helper.removeClass(all_sectionDisplay[i], "is-hidden");
       };
-      // make quick nav light
-      helper.addClass(quickNav, "m-quick-nav-display");
-      // make hamburger dark
-      helper.addClass(hamburger, "m-hamburger-dark");
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
       // scroll to
       window.scrollTo(0, scrollTopDisplay);
       // if body is in display state
-    } else if (body.dataset.awesomeMode == "display" || typeof body.dataset.awesomeMode == "undefined") {
+    };
+
+    function _displayOff() {
       // record scroll top var
       scrollTopDisplay = window.scrollY;
-      // set it to edit state
-      body.dataset.awesomeMode = "edit";
-      helper.removeClass(body, "l-quick-edit");
+      helper.removeClass(body, "is-display-mode");
       // remove quick edit open state from body
       helper.removeClass(body, "is-quick-edit-open");
       // iterate over quick nav links
@@ -195,10 +189,6 @@ var display = (function() {
         // hide display section
         helper.addClass(all_sectionDisplay[i], "is-hidden");
       };
-      // make quick nav dark
-      helper.removeClass(quickNav, "m-quick-nav-display");
-      // make hamburger light
-      helper.removeClass(hamburger, "m-hamburger-dark");
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
@@ -207,6 +197,15 @@ var display = (function() {
       // scroll to
       window.scrollTo(0, scrollTopEdit);
     };
+
+    if (body.dataset.displayMode == "true") {
+      body.dataset.displayMode = "false";
+      _displayOff();
+    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+      body.dataset.displayMode = "true";
+      _displayOn();
+    };
+
     totalBlock.update();
     clear();
     render();
@@ -219,20 +218,20 @@ var display = (function() {
     var displayAttack = helper.e(".js-display-block-attack");
     var displayConsumable = helper.e(".js-display-block-consumable");
 
-    var removeAllChildren = function(parent) {
+    function _removeAllChildren(parent) {
       while (parent.lastChild) {
         parent.removeChild(parent.lastChild);
       };
     };
 
     for (var i = 0; i < all_displayItem.length; i++) {
-      removeAllChildren(all_displayItem[i]);
+      _removeAllChildren(all_displayItem[i]);
     };
 
-    removeAllChildren(displaySpell);
-    removeAllChildren(displaySkills);
-    removeAllChildren(displayAttack);
-    removeAllChildren(displayConsumable);
+    _removeAllChildren(displaySpell);
+    _removeAllChildren(displaySkills);
+    _removeAllChildren(displayAttack);
+    _removeAllChildren(displayConsumable);
   };
 
   function render() {

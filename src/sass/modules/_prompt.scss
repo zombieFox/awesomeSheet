@@ -29,7 +29,7 @@
   background-color: $white;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
-  transition: transform $transition-bounce-slow;
+  transition: transform $transition-bounce-slow, background-color $transition-ease-medium;
 }
 
 .m-prompt-body {
@@ -76,6 +76,14 @@
   box-sizing: border-box;
   box-shadow: $shadow-large-inset;
   white-space: pre-wrap;
+}
+
+.is-night-mode {
+  .m-prompt {
+    .m-prompt-wrapper {
+      background-color: $gray-03;
+    }
+  }
 }
 
 // --------------------------------------------------

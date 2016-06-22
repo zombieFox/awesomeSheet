@@ -9,7 +9,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $nav;
-  transition: top $transition-ease-medium;
+  transition: top $transition-ease-medium, background-color $transition-ease-medium;
   .m-nav-list {
     padding: $font-size-100 0;
     margin: 0;
@@ -23,12 +23,13 @@
         margin: $font-size-100 0;
         background-color: $gray-19;
         height: 1px;
+        transition: background-color $transition-ease-medium;
       }
     }
   }
   &.is-open {
     top: 0;
-    transition: top $transition-ease-medium;
+    transition: top $transition-ease-medium, background-color $transition-ease-medium;
   }
 }
 
@@ -53,6 +54,7 @@
   display: block;
   text-transform: uppercase;
   text-align: left;
+  transition: color $transition-ease-medium;
 }
 
 .m-nav-link {
@@ -70,6 +72,7 @@
     text-align: center;
     display: block;
     float: left;
+    transition: color $transition-ease-medium;
   }
   &:focus,
   &:hover {
@@ -83,6 +86,12 @@
     [class^="icon-"],
     [class*=" icon-"] {
       color: $white;
+    }
+  }
+  &.is-active {
+    &:focus,
+    &:hover {
+      background-color: $primary-color-08;
     }
   }
 }
@@ -108,6 +117,7 @@
         height: $line-height-400;
         line-height: $line-height-400;
         transition: none;
+        transition: color $transition-ease-medium;
         &:before {
           color: $secondary-color-03;
           width: 20%;
@@ -115,6 +125,7 @@
           text-align: center;
           transition: none;
           float: left;
+          transition: color $transition-ease-medium;
         }
         .m-nav-characters-name,
         .m-nav-characters-class,
@@ -122,6 +133,7 @@
           display: block;
           float: left;
           line-height: $line-height-160;
+          transition: color $transition-ease-medium;
         }
         .m-nav-characters-class,
         .m-nav-characters-level {
@@ -210,24 +222,80 @@
   }
 }
 
+.is-night-mode {
+  .m-nav {
+    background-color: $secondary-color-03;
+    .m-nav-list {
+      > li {
+        &.m-nav-divide {
+          background-color: $secondary-color-05;
+        }
+      }
+    }
+  }
+  .m-nav-link {
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $secondary-color-04;
+    }
+    &.is-active {
+      &:focus,
+      &:hover {
+        background-color: $primary-color-08;
+      }
+    }
+  }
+  .m-nav-character {
+    input {
+      &[type="radio"],
+      &[type="checkbox"] {
+        & + label {
+          &:before {
+            color: $white;
+          }
+          .m-nav-characters-class,
+          .m-nav-characters-level {
+            color: $white;
+          }
+        }
+        &:hover {
+          & + label {
+            background-color: $secondary-color-04;
+          }
+        }
+        &:checked {
+          &:focus,
+          &:hover {
+            & + label {
+              background-color: $primary-color-08;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
     border: 0;
-    // border-left: 2px solid $gray-20;
-    // box-shadow: $shadow-large;
     padding: $font-size-450 0;
     top: 0;
     left: inherit;
     right: -400px;
     width: 360px;
-    transition: right $transition-ease-fast;
+    transition: right $transition-ease-fast, background-color $transition-ease-medium;
     &.is-open {
       top: 0;
       right: 0;
-      transition: right $transition-ease-fast;
+      transition: right $transition-ease-fast, background-color $transition-ease-medium;
     }
   }
 }

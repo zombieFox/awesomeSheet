@@ -157,6 +157,44 @@
   }
 }
 
+.is-night-mode {
+  .m-spells {
+    &.is-state-prepare,
+    &.is-state-unprepare,
+    &.is-state-cast,
+    &.is-state-active {
+      .m-spell-book-known {
+        .m-spell {
+          background-color: $secondary-color-06;
+          color: $white;
+          &:hover {
+            background-color: $secondary-color-04;
+          }
+          &:active,
+          &.is-active {
+            background-color: $secondary-color-02;
+          }
+        }
+      }
+    }
+    &.is-state-remove {
+      .m-spell-book-known {
+        .m-spell {
+          background-color: $primary-color-06;
+          color: $white;
+          &:hover {
+            background-color: $primary-color-04;
+          }
+          &:active,
+          &.is-active {
+            background-color: $primary-color-02;
+          }
+        }
+      }
+    }
+  }
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

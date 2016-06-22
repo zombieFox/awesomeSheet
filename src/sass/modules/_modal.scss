@@ -29,7 +29,7 @@
   background-color: $white;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
-  transition: transform $transition-bounce-slow;
+  transition: transform $transition-bounce-slow, background-color $transition-ease-medium;
   .container {
     max-width: 100%;
     padding-right: 0;
@@ -56,6 +56,14 @@
       border-bottom: 0;
       border-left: 0;
       border-radius: 0 0 $border-radius-small $border-radius-small;
+    }
+  }
+}
+
+.is-night-mode {
+  .m-modal {
+    .m-modal-wrapper {
+      background-color: $gray-03;
     }
   }
 }

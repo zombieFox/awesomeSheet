@@ -6,7 +6,7 @@
   margin-right: auto;
   margin-left: auto;
   padding: 0;
-  transition: height $transition-ease-fast;
+  transition: height $transition-ease-fast, background-color $transition-ease-medium;
   border-radius: $border-radius-large;
   .container {
     max-width: 90%;
@@ -28,6 +28,12 @@
     height: 300px;
     overflow-y: scroll;
     margin-bottom: $font-size-500;
+  }
+}
+
+.is-night-mode {
+  .m-quick-edit {
+    background-color: $gray-03;
   }
 }
 
