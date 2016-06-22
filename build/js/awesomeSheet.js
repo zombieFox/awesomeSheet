@@ -103,6 +103,7 @@ var blank = (function() {
         dodge: "",
         natural: "",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -287,7 +288,8 @@ var blank = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "",
@@ -1271,6 +1273,7 @@ var nif = (function() {
         dodge: "",
         natural: "1",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -1467,7 +1470,8 @@ var nif = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "",
@@ -2516,6 +2520,7 @@ var ro = (function() {
         dodge: "",
         natural: "",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -2727,7 +2732,8 @@ var ro = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "3",
@@ -3749,6 +3755,7 @@ var vos = (function() {
         dodge: "1",
         natural: "",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -3960,7 +3967,8 @@ var vos = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "5",
@@ -4939,6 +4947,7 @@ var marika = (function() {
         dodge: "",
         natural: "",
         size_bonus: "",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -5155,7 +5164,8 @@ var marika = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
         ranks: "9",
@@ -6084,7 +6094,7 @@ var orrin = (function() {
       special_abilities: "Sneak Attack (+2d6), Trapfinding, Evasion, Rogue talent (Trap Spotter), Trap Sense"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Buckler, Dagger (2), Hide armor",
+      gear: "Fur coat and cold weather outfit, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
       magic_gear: "",
       encumbrance: {
         light: "50 lbs or less",
@@ -6110,7 +6120,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "325",
+        gold: "335",
         silver: "",
         copper: ""
       },
@@ -6118,7 +6128,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: "17",
+        total: "24",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -6128,11 +6138,12 @@ var orrin = (function() {
         misc: "",
         temp: "",
         armor: "4",
-        shield: "1",
+        shield: "",
         deflect: "",
         dodge: "1",
         natural: "",
         size_bonus: "",
+        check_penalty: "-1",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -6148,7 +6159,7 @@ var orrin = (function() {
           ac_dodge: true,
           ac_natural: true,
           size: true
-        }
+        },
       },
       flat_footed: {
         misc: "",
@@ -6339,10 +6350,11 @@ var orrin = (function() {
     },
     skills: {
       spent_ranks: {
-        include_custom: false
+        include_custom: false,
+        current: ""
       },
       acrobatics: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6463,7 +6475,7 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6497,7 +6509,7 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6769,7 +6781,7 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6892,7 +6904,7 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6926,7 +6938,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6977,7 +6989,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6995,7 +7007,7 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -7013,7 +7025,7 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
