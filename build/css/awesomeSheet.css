@@ -2512,7 +2512,7 @@ label {
   background-color: #224159; }
 
 .is-night-mode.is-display-mode .m-quick-nav {
-  background-color: #1c3445; }
+  background-color: rgba(50, 136, 201, 0.2); }
 
 .is-night-mode .m-quick-nav-link {
   color: #162632; }
