@@ -55,23 +55,44 @@ var nav = (function() {
     };
   };
 
-  function _fullscreen() {
-    var fullscreen = helper.e(".js-fullscreen");
+  function _toggle_fullscreen(elements) {
     var root = window.document;
-    var icon = fullscreen.querySelector(".icon");
+    var icon = elements.querySelector(".icon");
     var rootElement = root.documentElement;
     var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
-      helper.toggleClass(fullscreen, "is-active");
+      helper.toggleClass(elements, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
     } else {
       cancelFullScreen.call(root);
-      helper.toggleClass(fullscreen, "is-active");
+      helper.toggleClass(elements, "is-active");
       helper.toggleClass(icon, "icon-fullscreen-exit");
       helper.toggleClass(icon, "icon-fullscreen");
+    };
+  };
+
+  function _toggle_nightMode(elements) {
+    var body = helper.e("body");
+
+    function _nightModeOn() {
+      helper.addClass(body, "is-night-mode");
+      helper.addClass(elements, "is-active");
+    };
+
+    function _nightModeOff() {
+      helper.removeClass(body, "is-night-mode");
+      helper.removeClass(elements, "is-active");
+    };
+
+    if (body.dataset.nightMode == "true") {
+      body.dataset.nightMode = "false";
+      _nightModeOff();
+    } else if (body.dataset.nightMode == "false" || !body.dataset.nightMode) {
+      body.dataset.nightMode = "true";
+      _nightModeOn();
     };
   };
 
@@ -283,7 +304,7 @@ var nav = (function() {
     _render_navShade();
   };
 
-  function navToggle() {
+  function toggle_nav() {
     var nav = helper.e(".js-nav");
     if (nav.classList.contains("is-open")) {
       helper.removeClass(helper.e(".js-nav"), "is-open");
@@ -323,8 +344,9 @@ var nav = (function() {
 
   function bind() {
     var nav = helper.e(".js-nav");
-    var navToggleElement = helper.e(".js-nav-toggle");
+    var navToggle = helper.e(".js-nav-toggle");
     var fullscreen = helper.e(".js-fullscreen");
+    var nightMode = helper.e(".js-night-mode");
     var clearAll = helper.e(".js-clear-all");
     var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
     var characterAdd = helper.e(".js-character-add");
@@ -337,16 +359,22 @@ var nav = (function() {
       all_quickNavLinks[i].addEventListener("click", navClose, false);
     };
 
-    navToggleElement.addEventListener("click", function(event) {
+    navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      navToggle();
+      toggle_nav();
     }, false);
 
     fullscreen.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _fullscreen();
+      _toggle_fullscreen(this);
+    }, false);
+
+    nightMode.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      _toggle_nightMode(this);
     }, false);
 
     clearAll.addEventListener("click", function(event) {
@@ -393,7 +421,7 @@ var nav = (function() {
     }, false);
 
     // window.addEventListener('click', function(event) {
-    //   if (event.target != nav && event.target != navToggleElement && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggleElement) {
+    //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
     //     navClose();
     //   };
     // }, false);
@@ -420,7 +448,7 @@ var nav = (function() {
 
       // ctrl+alt+m
       if (event.keyCode == 77 && event.ctrlKey && event.altKey) {
-        navToggle();
+        toggle_nav();
       };
 
       // ctrl+alt+d
@@ -435,8 +463,11 @@ var nav = (function() {
 
     }, false);
 
+    // key debugging
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
+    //   console.log(event.metaKey);
+    //   console.log(event);
     // });
 
   };
@@ -451,7 +482,7 @@ var nav = (function() {
     update: updateNavCharacters,
     open: navOpen,
     close: navClose,
-    toggle: navToggle
+    toggle: toggle_nav
   }
 
 })();

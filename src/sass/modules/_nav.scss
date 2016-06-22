@@ -9,7 +9,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $nav;
-  transition: top $transition-ease-medium;
+  transition: top $transition-ease-medium, background-color $transition-ease-medium;
   .m-nav-list {
     padding: $font-size-100 0;
     margin: 0;
@@ -28,7 +28,7 @@
   }
   &.is-open {
     top: 0;
-    transition: top $transition-ease-medium;
+    transition: top $transition-ease-medium, background-color $transition-ease-medium;
   }
 }
 
@@ -210,6 +210,12 @@
   }
 }
 
+.is-night-mode {
+  .m-nav {
+    background-color: $secondary-color-03;
+  }
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -223,11 +229,11 @@
     left: inherit;
     right: -400px;
     width: 360px;
-    transition: right $transition-ease-fast;
+    transition: right $transition-ease-fast, background-color $transition-ease-medium;;
     &.is-open {
       top: 0;
       right: 0;
-      transition: right $transition-ease-fast;
+      transition: right $transition-ease-fast, background-color $transition-ease-medium;
     }
   }
 }

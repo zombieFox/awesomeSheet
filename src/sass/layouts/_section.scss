@@ -1,6 +1,7 @@
 .l-section {
   position: relative;
   z-index: $body;
+  transition: background-color $transition-ease-medium;
   &.is-pinned {
     padding-top: 40px;
   }
@@ -8,6 +9,12 @@
 
 .l-section-dark {
   background-color: $secondary-color-07;
+}
+
+.is-night-mode {
+  .l-section-dark {
+    background-color: $secondary-color-03;
+  }
 }
 
 // --------------------------------------------------
