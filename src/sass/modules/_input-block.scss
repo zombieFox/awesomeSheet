@@ -74,26 +74,14 @@
   }
 }
 
-// .m-input-block-controls {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   z-index: 2;
-//   .button {
-//     border: 0;
-//     height: $line-height-root-250;
-//     line-height: $line-height-root-250;
-//     margin: 0;
-//     padding: 0 15px;
-//     float: left;
-//     [class*=" icon-"],
-//     [class^="icon-"] {
-//       margin: 0;
-//       height: $line-height-root-250;
-//       line-height: $line-height-root-250;
-//     }
-//   }
-// }
+.is-night-mode {
+  .m-input-block-label {
+    &.is-active {
+      color: $secondary-color-06;
+    }
+  }
+}
+
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

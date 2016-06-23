@@ -6048,10 +6048,10 @@ var orrin = (function() {
       name: "Orrin Alareth",
       race: "Human",
       class: "Rogue",
-      level: "3",
+      level: "4",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "4,800",
+      xp: "6,240",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -6068,7 +6068,7 @@ var orrin = (function() {
           temp: ""
         },
         dex: {
-          score: "18",
+          score: "19",
           temp: ""
         },
         con: {
@@ -6091,10 +6091,10 @@ var orrin = (function() {
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting",
       traits: "Reactionary, Resilient",
       languages: "Common, Elven",
-      special_abilities: "Sneak Attack (+2d6), Trapfinding, Evasion, Rogue talent (Trap Spotter), Trap Sense"
+      special_abilities: "Sneak Attack (+2d6), Trapfinding, Evasion, Rogue talent (Trap Spotter), Trap Sense, Rogue talent (Crippling strike), Uncanny dodge"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale,, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
       magic_gear: "",
       encumbrance: {
         light: "50 lbs or less",
@@ -6111,7 +6111,7 @@ var orrin = (function() {
         hands: "",
         head: "",
         headband: "",
-        neck: "",
+        neck: "Cloak of Resistance +1",
         ring_left_hand: "",
         ring_right_hand: "",
         shield: "",
@@ -6120,15 +6120,20 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "335",
-        silver: "",
+        gold: "872",
+        silver: "5",
         copper: ""
       },
-      consumable: []
+      consumable: [{
+        item: "Potion of Cure Light Wounds",
+        current: "",
+        total: "3",
+        used: "1"
+      }]
     },
     defense: {
       hp: {
-        total: "24",
+        total: "31",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -6159,7 +6164,7 @@ var orrin = (function() {
           ac_dodge: true,
           ac_natural: true,
           size: true
-        },
+        }
       },
       flat_footed: {
         misc: "",
@@ -6201,7 +6206,7 @@ var orrin = (function() {
       fortitude: {
         base: "1",
         racial: "",
-        resistance: "",
+        resistance: "1",
         misc: "1",
         temp: "",
         current: "",
@@ -6215,9 +6220,9 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: "3",
+        base: "4",
         racial: "",
-        resistance: "",
+        resistance: "1",
         misc: "",
         temp: "",
         current: "",
@@ -6233,7 +6238,7 @@ var orrin = (function() {
       will: {
         base: "1",
         racial: "",
-        resistance: "",
+        resistance: "1",
         misc: "",
         temp: "",
         current: "",
@@ -6249,8 +6254,8 @@ var orrin = (function() {
       save_notes: "+1 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "2",
-      concentration: "6",
+      base_attack: "3",
+      concentration: "",
       cmb: {
         misc: "",
         temp: "",
@@ -6323,27 +6328,27 @@ var orrin = (function() {
       attack: {
         melee: [{
           weapon: "Rapier +1",
-          attack: "7",
+          attack: "8",
           damage: "1d6+2",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword MW",
-          attack: "7",
+          attack: "8",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
           weapon: "Rapier +1, Short sword MW",
-          attack: "5 / 5",
+          attack: "6/6",
           damage: "1d6+2, 1d6+1",
           critical: "18–20/×2, 19–20/×2"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "7",
+          attack: "8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "49"
         }]
       },
       attack_notes: "+2d6 Sneak attack"
@@ -6354,7 +6359,7 @@ var orrin = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "3",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -6371,8 +6376,8 @@ var orrin = (function() {
         }
       },
       appraise: {
-        ranks: "2",
-        misc: "",
+        ranks: "3",
+        misc: "2",
         current: "",
         bonuses: {
           class_skill: true,
@@ -6388,7 +6393,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -6405,8 +6410,8 @@ var orrin = (function() {
         }
       },
       climb: {
-        ranks: "1",
-        misc: "",
+        ranks: "3",
+        misc: "2",
         current: "",
         bonuses: {
           class_skill: true,
@@ -6475,8 +6480,8 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: "3",
-        misc: "",
+        ranks: "4",
+        misc: "2",
         current: "",
         bonuses: {
           class_skill: true,
@@ -6679,11 +6684,11 @@ var orrin = (function() {
         }
       },
       knowledge_local: {
-        ranks: "",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -6768,7 +6773,7 @@ var orrin = (function() {
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -6781,7 +6786,7 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: "3",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -6887,11 +6892,11 @@ var orrin = (function() {
         }
       },
       sense_motive: {
-        ranks: "",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -6904,7 +6909,7 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "3",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -6938,7 +6943,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: "3",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -7007,7 +7012,7 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: "3",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -7025,8 +7030,8 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: "3",
-        misc: "",
+        ranks: "4",
+        misc: "2",
         current: "",
         bonuses: {
           class_skill: true,
@@ -7210,7 +7215,7 @@ var orrin = (function() {
       }]
     },
     notes: {
-      character: "<strong>+2 to One Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).<br><br><strong>Sneak Attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br><br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br><br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.<br><br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><br><strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><br><strong>Rogue Talents Trap Spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.<br><br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><br><strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><br><strong>Trap Sense (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br/><br/><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.",
+      character: "<strong>+2 to One Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).<br><br><strong>Sneak Attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br><br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br><br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.<br><br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><br><strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><br><strong>Rogue Talents Trap Spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.<br><br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><br><strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><br><strong>Trap Sense (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><br><strong>Rogue talent Crippling Strike (Ex) </strong>A rogue with this ability can sneak attack opponents with such precision that her blows weaken and hamper them. An opponent damaged by one of her sneak attacks also takes 2 points of Strength damage.<br><br><strong>Uncanny Dodge (Ex)</strong> Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her.",
       story: ""
     }
   };

@@ -2413,6 +2413,9 @@ label {
   line-height: 2em;
   margin: 0 0 1em 0; }
 
+.is-night-mode .m-input-block-label.is-active {
+  color: #264f6e; }
+
 .m-textarea-block {
   position: relative;
   z-index: 1; }
@@ -2441,6 +2444,9 @@ label {
 .m-textarea-block-field {
   position: relative;
   z-index: 1; }
+
+.is-night-mode .m-textarea-block-label.is-active {
+  color: #264f6e; }
 
 .m-stat-block {
   margin-bottom: 2rem; }
