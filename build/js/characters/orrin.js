@@ -472,7 +472,7 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: "3",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -867,7 +867,7 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "2",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -952,7 +952,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: "3",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
