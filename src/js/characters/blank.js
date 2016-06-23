@@ -1146,24 +1146,8 @@ var blank = (function() {
       }]
     },
     notes: {
-      character: [{
-        note: "1"
-      }, {
-        note: "2"
-      }, {
-        note: "3"
-      }, {
-        note: "4"
-      }],
-      story: [{
-        note: "1"
-      }, {
-        note: "2"
-      }, {
-        note: "3"
-      }, {
-        note: "4"
-      }]
+      character: [],
+      story: []
     }
   };
 
