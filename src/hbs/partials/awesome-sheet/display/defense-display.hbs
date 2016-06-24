@@ -9,9 +9,41 @@
             </div>
           </div>
           <div class="col-xs-12">
-            <p class="m-display-block js-display-block" data-display="defense.hp.current,defense.hp.temp,defense.hp.non_lethal_damage"></p>
-            <p class="m-display-block js-display-block" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current,defense.ac_notes"></p>
-            <p class="m-display-block js-display-block" data-display="defense.fortitude.current,defense.reflex.current,defense.will.current,defense.save_notes"></p>
+            <p class="m-display-block js-display-block" data-display="defense.hp.current,defense.hp.non_lethal_damage">
+              <span class="js-display-block-target"></span>
+            </p>
+            <p class="m-display-block js-display-block" data-display="defense.hp.damage">
+              <strong>Damage</strong>
+              <span class="m-display-block-target-spacer js-display-block-target"></span>
+              <span class="m-display-block-quick-control button-group">
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="subtract-5" data-edit-target="defense-hp-damage"><span class="icon-remove"></span> 5</a>
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="subtract" data-edit-target="defense-hp-damage"><span class="icon-remove"></span> 1</a>
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="addition" data-edit-target="defense-hp-damage"><span class="icon-add"></span> 1</a>
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="addition-5" data-edit-target="defense-hp-damage"><span class="icon-add"></span> 5</a>
+              </span>
+            </p>
+            <p class="m-display-block js-display-block" data-display="defense.hp.temp">
+              <strong>Temporary HP</strong>
+              <span class="m-display-block-target-spacer js-display-block-target"></span>
+              <span class="m-display-block-quick-control button-group">
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="subtract-5" data-edit-target="defense-hp-temp"><span class="icon-remove"></span> 5</a>
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="subtract" data-edit-target="defense-hp-temp"><span class="icon-remove"></span> 1</a>
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="addition" data-edit-target="defense-hp-temp"><span class="icon-add"></span> 1</a>
+                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="addition-5" data-edit-target="defense-hp-temp"><span class="icon-add"></span> 5</a>
+              </span>
+            </p>
+            <p class="m-display-block js-display-block" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current">
+              <span class="js-display-block-target"></span>
+            </p>
+            <p class="m-display-block m-display-block-tab m-display-block-sub js-display-block" data-display="defense.ac_notes">
+              <span class="js-display-block-target"></span>
+            </p>
+            <p class="m-display-block js-display-block" data-display="defense.fortitude.current,defense.reflex.current,defense.will.current">
+              <span class="js-display-block-target"></span>
+            </p>
+            <p class="m-display-block m-display-block-tab m-display-block-sub js-display-block" data-display="defense.save_notes">
+              <span class="js-display-block-target"></span>
+            </p>
             <a href="#" data-mini-view="defense" class="button button-small m-display-block-quick-edit js-display-block-quick-edit"><span class="icon-edit"></span> Quick Edit</a>
           </div>
         </div>

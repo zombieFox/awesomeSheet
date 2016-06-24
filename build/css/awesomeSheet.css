@@ -3070,6 +3070,12 @@ label {
   margin-left: 8px;
   font-size: 0.75em; }
 
+.m-display-block-tab {
+  margin-left: 1em; }
+
+.m-display-block-sub {
+  color: rgba(0, 0, 0, 0.55); }
+
 .m-display-block-list {
   height: 250px;
   display: -webkit-flex;
@@ -3089,6 +3095,25 @@ label {
     background-color: #e6e6e6;
     border-color: #cccccc;
     color: #b3b3b3; }
+
+.m-display-block-target-spacer {
+  min-width: 2em;
+  display: inline-block; }
+
+.m-display-block-quick-control {
+  display: inline-block;
+  vertical-align: bottom; }
+  .m-display-block-quick-control .m-display-block-quick-control-item {
+    padding-right: 1em;
+    padding-left: 1em;
+    margin-bottom: 0;
+    min-width: 3em; }
+    .m-display-block-quick-control .m-display-block-quick-control-item [class^="icon-"],
+    .m-display-block-quick-control .m-display-block-quick-control-item [class*=" icon-"] {
+      margin-right: 0; }
+
+.is-night-mode .m-display-block-sub {
+  color: rgba(255, 255, 255, 0.55); }
 
 .is-night-mode .m-display-section-divider {
   background-color: #333333; }
@@ -3111,10 +3136,9 @@ label {
     padding-top: 0; }
   .m-display-section {
     margin: 0; }
-  .m-display-section-divider {
-    display: none; }
-  .m-display-block-quick-edit {
-    display: none; }
+  .m-display-section-divider,
+  .m-display-block-quick-edit,
+  .m-display-block-quick-control,
   .m-quick-edit {
     display: none; } }
 

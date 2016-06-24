@@ -1,9 +1,18 @@
 var display = (function() {
 
   function bind() {
+    _bind_fab();
+    _bind_quickEdit();
+    _bind_quickControl();
+  };
+
+  function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
-    var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
     fabButton.addEventListener("click", toggle, false);
+  };
+
+  function _bind_quickEdit() {
+    var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
     for (var i = 0; i < displayBlockQuickEdit.length; i++) {
       displayBlockQuickEdit[i].addEventListener("click", function(event) {
         event.stopPropagation();
@@ -14,6 +23,59 @@ var display = (function() {
         render();
       }, false);
     };
+  };
+
+  function _bind_quickControl() {
+    var displayBlockQuickControlItem = helper.eA(".js-display-block-quick-control-item");
+    for (var i = 0; i < displayBlockQuickControlItem.length; i++) {
+      displayBlockQuickControlItem[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _quickConctrolAction(this);
+        totalBlock.update();
+        clear();
+        render();
+      }, false);
+    };
+  };
+
+  function _quickConctrolAction(element) {
+    var controlAction = element.dataset.displayControl;
+    var path = element.dataset.path;
+    var target = helper.e("#" + element.dataset.editTarget);
+    var content = parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0;
+    // console.log("content is:", content, "object is:", sheet.getCharacter().defense.hp);
+    // if (path == "defense.hp.damage") {
+    //   if (helper.getObject(sheet.getCharacter(), "defense.hp.temp")) {
+    //     console.log("temp hp found");
+    //   };
+    // };
+    if (controlAction == "addition") {
+      content = content + 1;
+    };
+    if (controlAction == "subtract") {
+      content = content - 1;
+    };
+    if (controlAction == "addition-5") {
+      content = content + 5;
+    };
+    if (controlAction == "subtract-5") {
+      content = content - 5;
+    };
+    if (content == "0") {
+      target.value = "";
+      _store(element, "");
+    } else {
+      target.value = content;
+      _store(element, content);
+    };
+    inputBlock.update(target);
+  };
+
+  function _store(element, value) {
+    var path = element.dataset.path;
+    helper.setObject(sheet.getCharacter(), path, value);
+    sheet.storeCharacters();
   };
 
   function _toggle_quickEdit(element) {
@@ -213,10 +275,10 @@ var display = (function() {
 
   function clear() {
     var all_displayItem = helper.eA(".js-display-block");
-    var displaySpell = helper.e(".js-display-block-spell");
-    var displaySkills = helper.e(".js-display-block-skills");
-    var displayAttack = helper.e(".js-display-block-attack");
-    var displayConsumable = helper.e(".js-display-block-consumable");
+    var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
+    var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
+    var displayAttack = helper.e(".js-display-block-attack").querySelector(".js-display-block-target");
+    var displayConsumable = helper.e(".js-display-block-consumable").querySelector(".js-display-block-target");
 
     function _removeAllChildren(parent) {
       while (parent.lastChild) {
@@ -225,7 +287,8 @@ var display = (function() {
     };
 
     for (var i = 0; i < all_displayItem.length; i++) {
-      _removeAllChildren(all_displayItem[i]);
+      var target = all_displayItem[i].querySelector(".js-display-block-target");
+      _removeAllChildren(target);
     };
 
     _removeAllChildren(displaySpell);
@@ -239,6 +302,7 @@ var display = (function() {
     function _displayItem() {
       var all_displayBlock = helper.eA(".js-display-block");
       for (var i = 0; i < all_displayBlock.length; i++) {
+        var target = all_displayBlock[i].querySelector(".js-display-block-target");
         if (all_displayBlock[i].dataset.display) {
           var itemsToDisplay = all_displayBlock[i].dataset.display.split(',');
         };
@@ -256,7 +320,7 @@ var display = (function() {
           };
 
           var hp = function(addressToCompare) {
-            if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
+            if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare || data == 0 && itemsToDisplay[j] == addressToCompare) {
               data = "<strong>HP " + data + "</strong> / " + helper.getObject(sheet.getCharacter(), "defense.hp.total");
               return data;
             };
@@ -325,14 +389,16 @@ var display = (function() {
           makeDisplayItem("equipment.wealth.copper", "<strong>CP</strong> ", "");
 
           hp("defense.hp.current");
-          makeDisplayItem("defense.hp.temp", "<strong>Temp HP </strong> ", "");
+          makeDisplayItem("defense.hp.temp", "", "");
           makeDisplayItem("defense.hp.non_lethal_damage", "<strong>Nonlethal Damage</strong> ", "");
           makeDisplayItem("defense.ac.current", "<strong>AC</strong> ", "");
+          makeDisplayItem("defense.ac_notes", "<strong>Notes</strong> ", "");
           makeDisplayItem("defense.flat_footed.current", "<strong>Flat Footed</strong> ", "");
           makeDisplayItem("defense.touch.current", "<strong>Touch</strong> ", "");
           makeDisplayItem("defense.fortitude.current", "<strong>Fortitude</strong> ", "");
           makeDisplayItem("defense.reflex.current", "<strong>Reflex</strong> ", "");
           makeDisplayItem("defense.will.current", "<strong>Will</strong> ", "");
+          makeDisplayItem("defense.save_notes", "<strong>Notes</strong> ", "");
 
           makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
           makeDisplayItem("offense.concentration", "<strong>Concentration</strong> ", "");
@@ -340,6 +406,7 @@ var display = (function() {
           makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
           makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
+          makeDisplayItem("offense.attack_notes", "<strong>Notes</strong> ", "");
 
           makeDisplayItem("notes.character", "", "");
           makeDisplayItem("notes.story", "", "");
@@ -348,7 +415,7 @@ var display = (function() {
             var text = document.createElement("span");
             text.setAttribute("class", "m-display-item");
             text.innerHTML = data;
-            all_displayBlock[i].appendChild(text);
+            target.appendChild(text);
           };
         };
       };
@@ -473,7 +540,7 @@ var display = (function() {
     };
 
     function _displaySkills() {
-      var displayBlockSkills = helper.e(".js-display-block-skills");
+      var displayBlockSkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
       var para = document.createElement("p");
       para.setAttribute("class", "m-display-block");
       var all_skills = sheet.getCharacter().skills;
@@ -516,7 +583,7 @@ var display = (function() {
       var attacksToRender;
       if (sheet.getCharacter().offense.attack.melee) {
         for (var i in sheet.getCharacter().offense.attack.melee) {
-          _render_displayClone(sheet.getCharacter().offense.attack.melee[i], helper.e(".js-display-block-attack"));
+          _render_displayClone("attack-melee", sheet.getCharacter().offense.attack.melee[i], helper.e(".js-display-block-attack").querySelector(".js-display-block-target"));
         };
       };
     };
@@ -525,7 +592,7 @@ var display = (function() {
       var attacksToRender;
       if (sheet.getCharacter().offense.attack.ranged) {
         for (var i in sheet.getCharacter().offense.attack.ranged) {
-          _render_displayClone(sheet.getCharacter().offense.attack.ranged[i], helper.e(".js-display-block-attack"));
+          _render_displayClone("attack-ranged", sheet.getCharacter().offense.attack.ranged[i], helper.e(".js-display-block-attack").querySelector(".js-display-block-target"));
         };
       };
     };
@@ -534,13 +601,13 @@ var display = (function() {
       var attacksToRender;
       if (sheet.getCharacter().equipment.consumable) {
         for (var i in sheet.getCharacter().equipment.consumable) {
-          _render_displayClone(sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable"));
+          _render_displayClone("consumable", sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable").querySelector(".js-display-block-target"));
         };
       };
     };
 
     function _render_displaySpell(array, level) {
-      var displaySpell = helper.e(".js-display-block-spell");
+      var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
       // read spells and add them to spell lists
       for (var i = 0; i < array.length; i++) {
         var spellObject = array[i];
@@ -613,38 +680,41 @@ var display = (function() {
       };
     };
 
-    function _render_displayClone(object, displayTarget) {
-      var displayAttack = helper.e(".js-display-attack");
+    function _render_displayClone(cloneType, object, displayTarget) {
       var para = document.createElement("p");
       para.setAttribute("class", "m-display-block");
       for (var i in object) {
-        var data = object[i];
 
-        var makeDisplayItem = function(addressToCompare, beforeString, afterString) {
-          if (typeof data != "undefined" && data != "" && i == addressToCompare) {
-            return data = beforeString + data + afterString;
-          } else {
-            return data;
+        // filter the object keys
+        if (i != "used" && i != "total") {
+          var data = object[i];
+
+          var makeDisplayItem = function(addressToCompare, beforeString, afterString) {
+            if (typeof data != "undefined" && data != "" && i == addressToCompare) {
+              return data = beforeString + data + afterString;
+            } else {
+              return data;
+            };
           };
-        };
 
-        makeDisplayItem("weapon", "<strong>", "</strong>");
-        makeDisplayItem("attack", "<strong>", "</strong>");
-        makeDisplayItem("damage", "", "");
-        makeDisplayItem("critical", "Critical ", "");
-        makeDisplayItem("range", "Range ", "");
-        makeDisplayItem("ammo", "Ammo ", "");
-        makeDisplayItem("item", "<strong>", "</strong>");
-        makeDisplayItem("current", "<strong>", "</strong>");
-        makeDisplayItem("used", "Used ", "");
-        makeDisplayItem("total", "Total ", "");
+          makeDisplayItem("weapon", "<strong>", "</strong>");
+          makeDisplayItem("attack", "<strong>", "</strong>");
+          makeDisplayItem("damage", "", "");
+          makeDisplayItem("critical", "Critical ", "");
+          makeDisplayItem("range", "Range ", "");
+          makeDisplayItem("ammo", "Ammo ", "");
+          makeDisplayItem("item", "<strong>", "</strong>");
+          makeDisplayItem("current", "<strong>", "</strong>");
+          makeDisplayItem("used", "Used ", "");
+          makeDisplayItem("total", "Total ", "");
 
-        var span = document.createElement("span");
-        span.setAttribute("class", "m-display-item");
-        span.innerHTML = data;
+          var span = document.createElement("span");
+          span.setAttribute("class", "m-display-item");
+          span.innerHTML = data;
 
-        if (typeof data != "undefined" && data != "") {
-          para.appendChild(span);
+          if (typeof data != "undefined" && data != "") {
+            para.appendChild(span);
+          };
         };
 
       };

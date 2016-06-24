@@ -1,5 +1,20 @@
 var clone = (function() {
 
+  function render() {
+    var all_attackMelee = sheet.getCharacter().offense.attack.melee;
+    var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
+    var all_consumable = sheet.getCharacter().equipment.consumable;
+    _render_clone(all_attackMelee.length, "attack-melee");
+    _render_clone(all_attackRanged.length, "attack-ranged");
+    _render_clone(all_consumable.length, "consumable");
+    _update_cloneInput(all_attackMelee, "attack-melee");
+    _update_cloneInput(all_attackRanged, "attack-ranged");
+    _update_cloneInput(all_consumable, "consumable");
+    _updateCloneAttackMelee();
+    _updateCloneAttackRanged();
+    _updateCloneConsumable();
+  };
+
   function _newConsumable(index) {
     var cloneString =
       '<div class="row">' +
@@ -154,7 +169,7 @@ var clone = (function() {
     };
   };
 
-  function bindControls() {
+  function bind() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
@@ -255,7 +270,7 @@ var clone = (function() {
     };
   };
 
-  function _render_cloneInput(array, cloneType) {
+  function _update_cloneInput(array, cloneType) {
     var cloneBlock;
     var cloneTarget;
     if (cloneType == "attack-melee") {
@@ -287,6 +302,7 @@ var clone = (function() {
           inputBlock.update(input);
         };
       };
+      totalBlock.update();
     };
   };
 
@@ -543,18 +559,6 @@ var clone = (function() {
     sheet.getCharacter().equipment.consumable = cloneConsumable;
   };
 
-  function render() {
-    var all_attackMelee = sheet.getCharacter().offense.attack.melee;
-    var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
-    var all_consumable = sheet.getCharacter().equipment.consumable;
-    _render_clone(all_attackMelee.length, "attack-melee");
-    _render_clone(all_attackRanged.length, "attack-ranged");
-    _render_clone(all_consumable.length, "consumable");
-    _render_cloneInput(all_attackMelee, "attack-melee");
-    _render_cloneInput(all_attackRanged, "attack-ranged");
-    _render_cloneInput(all_consumable, "consumable");
-  };
-
   function clear() {
     // console.log("--- clone clear fired ---");
     // not sure why clear is firing twice on character change, must investigate 
@@ -569,7 +573,7 @@ var clone = (function() {
 
   // exposed methods
   return {
-    bind: bindControls,
+    bind: bind,
     clear: clear,
     render: render
   };
