@@ -77,6 +77,14 @@
   }
 }
 
+.m-display-block-tab {
+  margin-left: $font-size-100;
+}
+
+.m-display-block-sub {
+  color: $dark-alpha-10;
+}
+
 .m-display-block-list {
   height: 250px;
   display: flex;
@@ -118,6 +126,9 @@
 }
 
 .is-night-mode {
+  .m-display-block-sub {
+    color: $light-alpha-10;
+  }
   .m-display-section-divider {
     background-color: $gray-04;
     .m-display-section-icon {

@@ -3070,6 +3070,12 @@ label {
   margin-left: 8px;
   font-size: 0.75em; }
 
+.m-display-block-tab {
+  margin-left: 1em; }
+
+.m-display-block-sub {
+  color: rgba(0, 0, 0, 0.55); }
+
 .m-display-block-list {
   height: 250px;
   display: -webkit-flex;
@@ -3098,13 +3104,16 @@ label {
   display: inline-block;
   vertical-align: bottom; }
   .m-display-block-quick-control .m-display-block-quick-control-item {
-    padding-right: 2em;
-    padding-left: 2em;
+    padding-right: 1em;
+    padding-left: 1em;
     margin-bottom: 0;
     min-width: 3em; }
     .m-display-block-quick-control .m-display-block-quick-control-item [class^="icon-"],
     .m-display-block-quick-control .m-display-block-quick-control-item [class*=" icon-"] {
       margin-right: 0; }
+
+.is-night-mode .m-display-block-sub {
+  color: rgba(255, 255, 255, 0.55); }
 
 .is-night-mode .m-display-section-divider {
   background-color: #333333; }
