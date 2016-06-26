@@ -7657,7 +7657,7 @@ var sheet = (function() {
       fileName = fileName + ", " + characterClass;
     };
     if (characterLevel != "") {
-      fileName = fileName + ", level " + characterLevel;
+      fileName = fileName + ", " + characterLevel;
     };
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };
