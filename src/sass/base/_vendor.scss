@@ -1,15 +1,18 @@
 ::-webkit-input-placeholder {
   color: $gray-10;
+  transition: color $transition-ease-medium;
 }
 
 // Firefox 18
 :-moz-placeholder {
   color: $gray-10;
+  transition: color $transition-ease-medium;
 }
 
 // Firefox 19
 ::-moz-placeholder {
   color: $gray-10;
+  transition: color $transition-ease-medium;
 }
 
 ::selection {
@@ -22,6 +25,20 @@
   height: 100%;
   box-sizing: border-box;
   overflow: auto;
+}
+
+.is-night-mode {
+  ::-webkit-input-placeholder {
+    color: $secondary-color-10;
+  }
+  // Firefox 18
+  :-moz-placeholder {
+    color: $secondary-color-10;
+  }
+  // Firefox 19
+  ::-moz-placeholder {
+    color: $secondary-color-10;
+  }
 }
 
 // --------------------------------------------------

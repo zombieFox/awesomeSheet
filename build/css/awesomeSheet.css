@@ -1,11 +1,14 @@
 ::-webkit-input-placeholder {
-  color: gray; }
+  color: gray;
+  transition: color 0.4s ease-in-out; }
 
 :-moz-placeholder {
-  color: gray; }
+  color: gray;
+  transition: color 0.4s ease-in-out; }
 
 ::-moz-placeholder {
-  color: gray; }
+  color: gray;
+  transition: color 0.4s ease-in-out; }
 
 ::-moz-selection {
   background-color: #77b8e9;
@@ -20,6 +23,15 @@
   height: 100%;
   box-sizing: border-box;
   overflow: auto; }
+
+.is-night-mode ::-webkit-input-placeholder {
+  color: #3288c9; }
+
+.is-night-mode :-moz-placeholder {
+  color: #3288c9; }
+
+.is-night-mode ::-moz-placeholder {
+  color: #3288c9; }
 
 html {
   font-size: 75%; }
