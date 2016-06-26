@@ -76,7 +76,7 @@ var nav = (function() {
   };
 
   function _render_nightMode() {
-    if (helper.read("nightMode")) {
+    if (helper.read("nightMode") == "true") {
       _toggle_nightMode();
     };
   };
