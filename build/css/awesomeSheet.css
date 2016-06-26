@@ -2710,6 +2710,8 @@ label {
   .m-new-spell .m-new-spell-field {
     padding-right: 4em; }
   .m-new-spell .m-new-spell-add {
+    padding-left: 1em;
+    padding-right: 1em;
     position: absolute;
     top: 0;
     right: 0;
