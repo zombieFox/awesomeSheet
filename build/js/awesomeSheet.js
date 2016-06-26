@@ -7379,8 +7379,31 @@ var helper = (function() {
     return text;
   };
 
+  function store(key, data) {
+    if (localStorage.getItem) {
+      localStorage.setItem(key, data);
+    };
+  };
+
+  function remove(key) {
+    if (localStorage.getItem) {
+      localStorage.removeItem(key);
+    };
+  };
+
+  function read(key) {
+    if (localStorage.getItem(key) == "") {
+      localStorage.removeItem(key);
+    } else if (localStorage.getItem(key)) {
+      return localStorage.getItem(key);
+    };
+  };
+
   // exposed methods
   return {
+    store: store,
+    remove: remove,
+    read: read,
     e: e,
     eA: eA,
     toggleClass: toggleClass,
@@ -7405,8 +7428,8 @@ var sheet = (function() {
   var currentCharacterIndex = 0;
 
   var saveHardCodedCharacters = (function() {
-    if (read("allCharacters")) {
-      allCharacters = JSON.parse(read("allCharacters"));
+    if (helper.read("allCharacters")) {
+      allCharacters = JSON.parse(helper.read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
       allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.load)); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
@@ -7415,13 +7438,13 @@ var sheet = (function() {
   })();
 
   var setCurrentCharacterIndex = (function() {
-    if (read("charactersIndex")) {
-      currentCharacterIndex = read("charactersIndex");
+    if (helper.read("charactersIndex")) {
+      currentCharacterIndex = helper.read("charactersIndex");
     };
   })();
 
   function storeCharacters() {
-    store("allCharacters", JSON.stringify(allCharacters));
+    helper.store("allCharacters", JSON.stringify(allCharacters));
   };
 
   function getAllCharacters() {
@@ -7438,7 +7461,7 @@ var sheet = (function() {
 
   function setIndex(index) {
     currentCharacterIndex = index;
-    store("charactersIndex", currentCharacterIndex);
+    helper.store("charactersIndex", currentCharacterIndex);
   };
 
   function addCharacter(newCharacter) {
@@ -7502,26 +7525,6 @@ var sheet = (function() {
     nav.render();
     snack.render("All characters cleared.", false, false);
     // document.location.reload(true);
-  };
-
-  function store(key, data) {
-    if (localStorage.getItem) {
-      localStorage.setItem(key, data);
-    };
-  };
-
-  function remove(key) {
-    if (localStorage.getItem) {
-      localStorage.removeItem(key);
-    };
-  };
-
-  function read(key) {
-    if (localStorage.getItem(key) == "") {
-      localStorage.removeItem(key);
-    } else if (localStorage.getItem(key)) {
-      return localStorage.getItem(key);
-    };
   };
 
   function _createImport() {
@@ -7709,9 +7712,6 @@ var sheet = (function() {
     setIndex: setIndex,
     storeCharacters: storeCharacters,
     destroy: destroy,
-    store: store,
-    remove: remove,
-    read: read,
     clear: clear,
     restore: restore,
     import: importJson,
@@ -7799,6 +7799,12 @@ var nav = (function() {
     };
   };
 
+  function _render_nightMode() {
+    if (helper.read("nightMode")) {
+      _toggle_nightMode();
+    };
+  };
+
   function _toggle_nightMode() {
     var body = helper.e("body");
     var nightMode = helper.e(".js-night-mode");
@@ -7816,63 +7822,14 @@ var nav = (function() {
     if (body.dataset.nightMode == "true") {
       body.dataset.nightMode = "false";
       _nightModeOff();
+      helper.store("nightMode", false);
+      sheet.storeCharacters();
     } else if (body.dataset.nightMode == "false" || !body.dataset.nightMode) {
       body.dataset.nightMode = "true";
       _nightModeOn();
+      helper.store("nightMode", true);
+      sheet.storeCharacters();
     };
-  };
-
-  function _render_navCharacters(characterName, characterClass, characterLevel, characterIndex) {
-    if (typeof characterName == "undefined" || characterName == "") {
-      characterName = "New character";
-    };
-    if (typeof characterClass == "undefined" || characterClass == "") {
-      characterClass = "Class";
-    };
-    if (typeof characterLevel == "undefined" || characterLevel == "") {
-      characterLevel = "Level";
-    };
-
-    // define elements
-    var uniqueId = helper.randomId(10);
-
-    var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character");
-
-    var input = document.createElement("input");
-    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    input.setAttribute("name", "js-nav-all-characters");
-    input.setAttribute("class", "js-nav-character-input");
-    input.setAttribute("type", "radio");
-    input.setAttribute("tabindex", 10);
-
-    var label = document.createElement("label");
-    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
-    label.setAttribute("data-character-index", characterIndex);
-
-    var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
-    nameSpan.textContent = helper.truncate(characterName, 30, true);
-
-    var classSpan = document.createElement("span");
-    classSpan.setAttribute("class", "m-nav-characters-class js-nav-characters-class");
-    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
-
-    var levelSpan = document.createElement("span");
-    levelSpan.setAttribute("class", "m-nav-characters-level js-nav-characters-level");
-    levelSpan.textContent = helper.truncate(characterLevel, 10);
-
-    // build module
-    label.appendChild(nameSpan);
-    label.appendChild(classSpan);
-    label.appendChild(levelSpan);
-    navCharacter.appendChild(input);
-    navCharacter.appendChild(label);
-
-    // bind
-    _bind_characterOption(navCharacter);
-    return navCharacter;
   };
 
   function _bind_characterOption(characterLink) {
@@ -7929,16 +7886,10 @@ var nav = (function() {
   };
 
   function render() {
-    var characters = sheet.getAllCharacters();
-    var navCharacters = helper.e(".js-nav-characters");
-    for (var i in characters) {
-      var characterAnchor = _render_navCharacters(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
-      navCharacters.appendChild(characterAnchor);
-    };
-    var all_navCharacterSelect = helper.eA(".js-nav-character-input");
-    all_navCharacterSelect[sheet.getIndex()].checked = true;
+    _createAllCharacter();
     _render_quickNav();
     lastSectionHeight();
+    _render_nightMode();
   };
 
   function lastSectionHeight() {
@@ -8002,6 +7953,70 @@ var nav = (function() {
         // };
       };
     };
+  };
+
+  function _createAllCharacter() {
+    var characters = sheet.getAllCharacters();
+    var navCharacters = helper.e(".js-nav-characters");
+    for (var i in characters) {
+      var characterAnchor = _createNavCharacterItem(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
+      navCharacters.appendChild(characterAnchor);
+    };
+    var all_navCharacterSelect = helper.eA(".js-nav-character-input");
+    all_navCharacterSelect[sheet.getIndex()].checked = true;
+  };
+
+  function _createNavCharacterItem(characterName, characterClass, characterLevel, characterIndex) {
+    if (typeof characterName == "undefined" || characterName == "") {
+      characterName = "New character";
+    };
+    if (typeof characterClass == "undefined" || characterClass == "") {
+      characterClass = "Class";
+    };
+    if (typeof characterLevel == "undefined" || characterLevel == "") {
+      characterLevel = "Level";
+    };
+
+    // define elements
+    var uniqueId = helper.randomId(10);
+
+    var navCharacter = document.createElement("li");
+    navCharacter.setAttribute("class", "m-nav-character");
+
+    var input = document.createElement("input");
+    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
+    input.setAttribute("name", "js-nav-all-characters");
+    input.setAttribute("class", "js-nav-character-input");
+    input.setAttribute("type", "radio");
+    input.setAttribute("tabindex", 10);
+
+    var label = document.createElement("label");
+    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
+    label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
+    label.setAttribute("data-character-index", characterIndex);
+
+    var nameSpan = document.createElement("span");
+    nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
+    nameSpan.textContent = helper.truncate(characterName, 30, true);
+
+    var classSpan = document.createElement("span");
+    classSpan.setAttribute("class", "m-nav-characters-class js-nav-characters-class");
+    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
+
+    var levelSpan = document.createElement("span");
+    levelSpan.setAttribute("class", "m-nav-characters-level js-nav-characters-level");
+    levelSpan.textContent = helper.truncate(characterLevel, 10);
+
+    // build module
+    label.appendChild(nameSpan);
+    label.appendChild(classSpan);
+    label.appendChild(levelSpan);
+    navCharacter.appendChild(input);
+    navCharacter.appendChild(label);
+
+    // bind
+    _bind_characterOption(navCharacter);
+    return navCharacter;
   };
 
   function _checkBodyForOpenNav() {

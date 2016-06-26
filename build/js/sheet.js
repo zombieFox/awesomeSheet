@@ -5,8 +5,8 @@ var sheet = (function() {
   var currentCharacterIndex = 0;
 
   var saveHardCodedCharacters = (function() {
-    if (read("allCharacters")) {
-      allCharacters = JSON.parse(read("allCharacters"));
+    if (helper.read("allCharacters")) {
+      allCharacters = JSON.parse(helper.read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
       allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.load)); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
@@ -15,13 +15,13 @@ var sheet = (function() {
   })();
 
   var setCurrentCharacterIndex = (function() {
-    if (read("charactersIndex")) {
-      currentCharacterIndex = read("charactersIndex");
+    if (helper.read("charactersIndex")) {
+      currentCharacterIndex = helper.read("charactersIndex");
     };
   })();
 
   function storeCharacters() {
-    store("allCharacters", JSON.stringify(allCharacters));
+    helper.store("allCharacters", JSON.stringify(allCharacters));
   };
 
   function getAllCharacters() {
@@ -38,7 +38,7 @@ var sheet = (function() {
 
   function setIndex(index) {
     currentCharacterIndex = index;
-    store("charactersIndex", currentCharacterIndex);
+    helper.store("charactersIndex", currentCharacterIndex);
   };
 
   function addCharacter(newCharacter) {
@@ -102,26 +102,6 @@ var sheet = (function() {
     nav.render();
     snack.render("All characters cleared.", false, false);
     // document.location.reload(true);
-  };
-
-  function store(key, data) {
-    if (localStorage.getItem) {
-      localStorage.setItem(key, data);
-    };
-  };
-
-  function remove(key) {
-    if (localStorage.getItem) {
-      localStorage.removeItem(key);
-    };
-  };
-
-  function read(key) {
-    if (localStorage.getItem(key) == "") {
-      localStorage.removeItem(key);
-    } else if (localStorage.getItem(key)) {
-      return localStorage.getItem(key);
-    };
   };
 
   function _createImport() {
@@ -309,9 +289,6 @@ var sheet = (function() {
     setIndex: setIndex,
     storeCharacters: storeCharacters,
     destroy: destroy,
-    store: store,
-    remove: remove,
-    read: read,
     clear: clear,
     restore: restore,
     import: importJson,

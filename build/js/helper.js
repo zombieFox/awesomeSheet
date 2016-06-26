@@ -133,8 +133,31 @@ var helper = (function() {
     return text;
   };
 
+  function store(key, data) {
+    if (localStorage.getItem) {
+      localStorage.setItem(key, data);
+    };
+  };
+
+  function remove(key) {
+    if (localStorage.getItem) {
+      localStorage.removeItem(key);
+    };
+  };
+
+  function read(key) {
+    if (localStorage.getItem(key) == "") {
+      localStorage.removeItem(key);
+    } else if (localStorage.getItem(key)) {
+      return localStorage.getItem(key);
+    };
+  };
+
   // exposed methods
   return {
+    store: store,
+    remove: remove,
+    read: read,
     e: e,
     eA: eA,
     toggleClass: toggleClass,
