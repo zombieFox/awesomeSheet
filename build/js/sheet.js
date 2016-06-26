@@ -244,13 +244,22 @@ var sheet = (function() {
   };
 
   function exportJson() {
-    var name;
-    if (getCharacter().basics.name != "") {
-      name = getCharacter().basics.name;
+    var fileName;
+    var characterName = getCharacter().basics.name;
+    var characterClass = getCharacter().basics.class;
+    var characterLevel = getCharacter().basics.level;
+    if (characterName != "") {
+      fileName = characterName;
     } else {
-      name = "New character";
+      fileName = "New character";
     };
-    prompt.render("Export " + name, "Download " + name + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", name + ".json");
+    if (characterClass != "") {
+      fileName = fileName + ", " + characterClass;
+    };
+    if (characterLevel != "") {
+      fileName = fileName + ", level " + characterLevel;
+    };
+    prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };
 
   function bind() {
