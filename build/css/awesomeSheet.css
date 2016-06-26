@@ -1024,8 +1024,7 @@ input[type="button"] {
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
   display: inline-block;
-  text-transform: uppercase;
-  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, color 0.4s ease-in-out; }
+  text-transform: uppercase; }
   .button:link, .button:visited,
   button:link,
   button:visited,
@@ -1258,8 +1257,8 @@ label {
 .is-night-mode input[type="submit"],
 .is-night-mode input[type="reset"],
 .is-night-mode input[type="button"] {
-  background-color: #333333;
-  border-color: #404040;
+  background-color: #1c3445;
+  border-color: #224159;
   color: #ffffff; }
   .is-night-mode .button:link, .is-night-mode .button:visited,
   .is-night-mode button:link,
@@ -1270,8 +1269,8 @@ label {
   .is-night-mode input[type="reset"]:visited,
   .is-night-mode input[type="button"]:link,
   .is-night-mode input[type="button"]:visited {
-    background-color: #333333;
-    border-color: #404040;
+    background-color: #1c3445;
+    border-color: #224159;
     color: #ffffff; }
   .is-night-mode .button:focus, .is-night-mode .button:hover,
   .is-night-mode button:focus,
@@ -1282,8 +1281,8 @@ label {
   .is-night-mode input[type="reset"]:hover,
   .is-night-mode input[type="button"]:focus,
   .is-night-mode input[type="button"]:hover {
-    background-color: #404040;
-    border-color: #b3b3b3;
+    background-color: #224159;
+    border-color: #77b8e9;
     color: #ffffff; }
   .is-night-mode .button:active, .is-night-mode .button.is-active,
   .is-night-mode button:active,
@@ -1294,8 +1293,8 @@ label {
   .is-night-mode input[type="reset"].is-active,
   .is-night-mode input[type="button"]:active,
   .is-night-mode input[type="button"].is-active {
-    background-color: #cccccc;
-    border-color: #999999;
+    background-color: #a0d0f3;
+    border-color: #52a1dc;
     color: #ffffff; }
 
 .is-night-mode .button-primary {
@@ -2815,7 +2814,7 @@ label {
   white-space: pre-wrap; }
 
 .is-night-mode .m-prompt .m-prompt-wrapper {
-  background-color: #262626; }
+  background-color: #1c3445; }
 
 @media (min-width: 700px) {
   .m-prompt {

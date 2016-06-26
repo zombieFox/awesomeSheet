@@ -22,7 +22,7 @@ input[type="button"] {
   transition: all $transition-ease-extra-fast;
   display: inline-block;
   text-transform: uppercase;
-  transition: background-color $transition-ease-medium, border-color $transition-ease-medium, color $transition-ease-medium;
+  // transition: background-color $transition-ease-medium, border-color $transition-ease-medium, color $transition-ease-medium;
   &:link,
   &:visited {
     background-color: $white;
@@ -281,25 +281,25 @@ label {
   input[type="submit"],
   input[type="reset"],
   input[type="button"] {
-    background-color: $gray-04;
-    border-color: $gray-05;
+    background-color: $secondary-color-04;
+    border-color: $secondary-color-05;
     color: $white;
     &:link,
     &:visited {
-      background-color: $gray-04;
-      border-color: $gray-05;
+      background-color: $secondary-color-04;
+      border-color: $secondary-color-05;
       color: $white;
     }
     &:focus,
     &:hover {
-      background-color: $gray-05;
-      border-color: $gray-14;
+      background-color: $secondary-color-05;
+      border-color: $secondary-color-14;
       color: $white;
     }
     &:active,
     &.is-active {
-      background-color: $gray-16;
-      border-color: $gray-12;
+      background-color: $secondary-color-16;
+      border-color: $secondary-color-12;
       color: $white;
     }
   }
