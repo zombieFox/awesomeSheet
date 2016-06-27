@@ -1976,6 +1976,8 @@ label {
   text-transform: uppercase;
   text-align: left;
   transition: color 0.4s ease-in-out; }
+  .m-nav-title:focus {
+    outline: 0; }
 
 .m-nav-link {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
@@ -2031,7 +2033,6 @@ label {
         width: 20%;
         margin: 0;
         text-align: center;
-        transition: none;
         float: left;
         transition: color 0.4s ease-in-out; }
       .m-nav-character input[type="radio"] + label .m-nav-characters-name,
@@ -2041,8 +2042,7 @@ label {
       .m-nav-character input[type="checkbox"] + label .m-nav-characters-level {
         display: block;
         float: left;
-        line-height: 1.6666666667em;
-        transition: color 0.4s ease-in-out; }
+        line-height: 1.6666666667em; }
       .m-nav-character input[type="radio"] + label .m-nav-characters-class,
       .m-nav-character input[type="radio"] + label .m-nav-characters-level, .m-nav-character input[type="checkbox"] + label .m-nav-characters-class,
       .m-nav-character input[type="checkbox"] + label .m-nav-characters-level {

@@ -55,6 +55,9 @@
   text-transform: uppercase;
   text-align: left;
   transition: color $transition-ease-medium;
+  &:focus {
+    outline: 0;
+  }
 }
 
 .m-nav-link {
@@ -123,8 +126,8 @@
           width: 20%;
           margin: 0;
           text-align: center;
-          transition: none;
           float: left;
+          // transition: none;
           transition: color $transition-ease-medium;
         }
         .m-nav-characters-name,
@@ -133,7 +136,6 @@
           display: block;
           float: left;
           line-height: $line-height-160;
-          transition: color $transition-ease-medium;
         }
         .m-nav-characters-class,
         .m-nav-characters-level {

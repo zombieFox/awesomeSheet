@@ -8190,6 +8190,7 @@ var nav = (function() {
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
         toggle_nav();
+        helper.e(".js-nav-title").focus(this);
       };
 
       // ctrl+alt+d
