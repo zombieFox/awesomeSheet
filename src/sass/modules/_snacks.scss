@@ -33,7 +33,7 @@
 
 .is-night-mode {
   .m-snack-bar {
-    background-color: $secondary-color-04;
+    background-color: $secondary-color-06;
   }
 }
 
@@ -46,7 +46,6 @@
     margin-bottom: 0;
     margin-left: 20px;
     border-radius: $border-radius-medium;
-    // box-shadow: $shadow-medium;
     box-sizing: border-box;
     transform: translatey(100%);
     transition: all $transition-bounce-slow;

@@ -67,6 +67,11 @@
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   .m-nav-link-name {}
+  .m-nav-link-shortcut {
+    margin-right: 20px;
+    float: right;
+    font-family: $open-sans-light;
+  }
   [class^="icon-"],
   [class*=" icon-"] {
     width: 20%;
