@@ -10742,6 +10742,9 @@ var display = (function() {
     if (controlAction == "subtract-5") {
       content = content - 5;
     };
+    if (controlAction == "clear") {
+      content = "";
+    };
     if (content == "0") {
       target.value = "";
       _store(element, "");
