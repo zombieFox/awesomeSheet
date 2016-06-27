@@ -2936,13 +2936,16 @@ label {
     margin-bottom: 0;
     position: relative;
     z-index: 2; }
-    .m-import-select .m-import-select-label .icon {
+    .m-import-select .m-import-select-label [class^="icon-"],
+    .m-import-select .m-import-select-label [class*=" icon-"] {
       font-size: 1.8em;
       line-height: 1em;
       vertical-align: bottom; }
-    .m-import-select .m-import-select-label.m-import-select-label-ok .icon {
+    .m-import-select .m-import-select-label.m-import-select-label-ok [class^="icon-"],
+    .m-import-select .m-import-select-label.m-import-select-label-ok [class*=" icon-"] {
       color: #3288c9; }
-    .m-import-select .m-import-select-label.m-import-select-label-error .icon {
+    .m-import-select .m-import-select-label.m-import-select-label-error [class^="icon-"],
+    .m-import-select .m-import-select-label.m-import-select-label-error [class*=" icon-"] {
       color: #fc0042; }
 
 .m-snack-bar {

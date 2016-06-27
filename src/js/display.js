@@ -641,7 +641,7 @@ var display = (function() {
           var spellMarks = spell.querySelector(".js-display-spell-marks");
           for (var j = 0; j < spellObject.prepared; j++) {
             var preparedIcon = document.createElement("span");
-            preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
+            preparedIcon.setAttribute("class", "icon-radio-button-checked");
             spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
           };
         };
@@ -667,7 +667,7 @@ var display = (function() {
           spell.insertBefore(active, spell.firstChild);
           var spellActive = spell.querySelector(".js-display-spell-active");
           var activeIcon = document.createElement("span");
-          activeIcon.setAttribute("class", "icon icon-play-arrow");
+          activeIcon.setAttribute("class", "icon-play-arrow");
           if (spellObject.prepared > 0) {
             if (spellActive.children.length > 0) {
               spellActive.firstChild.remove();

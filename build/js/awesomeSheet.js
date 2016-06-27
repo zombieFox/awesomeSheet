@@ -7548,7 +7548,7 @@ var sheet = (function() {
     labelText.textContent = "Select a file";
     labelText.setAttribute("class", "js-import-select-label-text");
     var icon = document.createElement("span");
-    icon.setAttribute("class", "icon icon-file-upload js-import-select-label-icon");
+    icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
     message.textContent = "Import a previously exported character JSON file from another device.";
@@ -7663,7 +7663,7 @@ var sheet = (function() {
       fileName = fileName + ", " + characterLevel;
     };
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
-  };
+  }; 
 
   function bind() {
     prompt.bind();
@@ -9577,7 +9577,7 @@ var spells = (function() {
     // state prepare
     if (spellState == "prepare") {
       var preparedIcon = document.createElement("span");
-      preparedIcon.setAttribute("class", "icon icon-radio-button-checked js-spell-mark-checked");
+      preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
       if (spellMarks.children.length <= 30) {
         // spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
         spellMarks.appendChild(preparedIcon);
@@ -9612,7 +9612,7 @@ var spells = (function() {
       if (all_remainingPreparedSpells <= 0) {
         if (spellMarks.children.length <= 30) {
           var castIcon = document.createElement("span");
-          castIcon.setAttribute("class", "icon icon-radio-button-unchecked js-spell-mark-unchecked");
+          castIcon.setAttribute("class", "icon-radio-button-unchecked js-spell-mark-unchecked");
           spellMarks.appendChild(castIcon);
         };
       };
@@ -9633,7 +9633,7 @@ var spells = (function() {
     // state active
     if (spellState == "active") {
       var activeIcon = document.createElement("span");
-      activeIcon.setAttribute("class", "icon icon-play-arrow");
+      activeIcon.setAttribute("class", "icon-play-arrow");
       if (spellActive.children.length > 0) {
         spellActive.firstChild.remove();
       } else {
@@ -9827,7 +9827,7 @@ var spells = (function() {
         helper.addClass(spellButton, "button-primary");
         for (var j = 0; j < spellObject.prepared; j++) {
           var preparedIcon = document.createElement("span");
-          preparedIcon.setAttribute("class", "icon icon-radio-button-checked js-spell-mark-checked");
+          preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
           spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
         };
       };
@@ -9849,7 +9849,7 @@ var spells = (function() {
       // if spell is active
       if (spellObject.active) {
         var activeIcon = document.createElement("span");
-        activeIcon.setAttribute("class", "icon icon-play-arrow");
+        activeIcon.setAttribute("class", "icon-play-arrow");
         if (spellObject.prepared > 0) {
           if (spellActive.children.length > 0) {
             spellActive.firstChild.remove();
@@ -11320,7 +11320,7 @@ var display = (function() {
           var spellMarks = spell.querySelector(".js-display-spell-marks");
           for (var j = 0; j < spellObject.prepared; j++) {
             var preparedIcon = document.createElement("span");
-            preparedIcon.setAttribute("class", "icon icon-radio-button-checked");
+            preparedIcon.setAttribute("class", "icon-radio-button-checked");
             spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
           };
         };
@@ -11346,7 +11346,7 @@ var display = (function() {
           spell.insertBefore(active, spell.firstChild);
           var spellActive = spell.querySelector(".js-display-spell-active");
           var activeIcon = document.createElement("span");
-          activeIcon.setAttribute("class", "icon icon-play-arrow");
+          activeIcon.setAttribute("class", "icon-play-arrow");
           if (spellObject.prepared > 0) {
             if (spellActive.children.length > 0) {
               spellActive.firstChild.remove();

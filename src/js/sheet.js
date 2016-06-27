@@ -125,7 +125,7 @@ var sheet = (function() {
     labelText.textContent = "Select a file";
     labelText.setAttribute("class", "js-import-select-label-text");
     var icon = document.createElement("span");
-    icon.setAttribute("class", "icon icon-file-upload js-import-select-label-icon");
+    icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
     message.textContent = "Import a previously exported character JSON file from another device.";
@@ -240,7 +240,7 @@ var sheet = (function() {
       fileName = fileName + ", " + characterLevel;
     };
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
-  };
+  }; 
 
   function bind() {
     prompt.bind();
