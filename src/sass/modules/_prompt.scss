@@ -79,6 +79,9 @@
 }
 
 .is-night-mode {
+  .m-prompt-shade {
+    background-color: $dark-alpha-08;
+  }
   .m-prompt {
     .m-prompt-wrapper {
       background-color: $secondary-color-04;

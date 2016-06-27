@@ -2102,6 +2102,9 @@ label {
       .m-nav-character input[type="checkbox"]:checked:active + label .m-nav-characters-level {
         color: #ffffff; }
 
+.is-night-mode .m-nav-shade {
+  background-color: rgba(0, 0, 0, 0.65); }
+
 .is-night-mode .m-nav {
   background-color: #162632; }
   .is-night-mode .m-nav .m-nav-list > li.m-nav-divide {
@@ -2825,6 +2828,9 @@ label {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 30px rgba(0, 0, 0, 0.3);
   white-space: pre-wrap; }
 
+.is-night-mode .m-prompt-shade {
+  background-color: rgba(0, 0, 0, 0.65); }
+
 .is-night-mode .m-prompt .m-prompt-wrapper {
   background-color: #1c3445; }
 
@@ -2896,6 +2902,9 @@ label {
     border-bottom: 0;
     border-left: 0;
     border-radius: 0 0 2px 2px; }
+
+.is-night-mode .m-modal-shade {
+  background-color: rgba(0, 0, 0, 0.65); }
 
 .is-night-mode .m-modal .m-modal-wrapper {
   background-color: #1c3445; }

@@ -223,6 +223,9 @@
 }
 
 .is-night-mode {
+  .m-nav-shade {
+    background-color: $dark-alpha-08;
+  }
   .m-nav {
     background-color: $secondary-color-03;
     .m-nav-list {
