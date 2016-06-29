@@ -27,6 +27,12 @@ module.exports = function(grunt) {
       },
       webapp: {
         expand: true, src: ['manifest.json'], dest: '<%= folders.build %>/', filter: 'isFile'
+      },
+      serviceWorkerDev: {
+        expand: true, src: ['service-worker.js'], dest: '<%= folders.dev %>/', filter: 'isFile'
+      },
+      serviceWorkerBuild: {
+        expand: true, src: ['service-worker.js'], dest: '<%= folders.build %>/', filter: 'isFile'
       }
     },
 
@@ -258,6 +264,7 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:dev',
     'copy:dev',
+    'copy:serviceWorkerDev',
     'sass:dev',
     'autoprefixer:dev',
     'connect',
@@ -270,6 +277,7 @@ module.exports = function(grunt) {
     'assemble:build',
     'copy:build',
     'copy:webapp',
+    'copy:serviceWorkerBuild',
     'sass:build',
     'autoprefixer:build',
     'cssmin:build',
