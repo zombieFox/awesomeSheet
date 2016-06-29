@@ -8994,20 +8994,20 @@ var nav = (function() {
   function _toggle_fullscreen() {
     var fullscreen = helper.e(".js-fullscreen");
     var root = window.document;
-    var icon = fullscreen.querySelector(".icon");
+    var iconFullscreen = fullscreen.querySelector(".js-icon-fullscreen");
     var rootElement = root.documentElement;
     var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
       helper.toggleClass(fullscreen, "is-active");
-      helper.toggleClass(icon, "icon-fullscreen-exit");
-      helper.toggleClass(icon, "icon-fullscreen");
+      helper.toggleClass(iconFullscreen, "icon-fullscreen-exit");
+      helper.toggleClass(iconFullscreen, "icon-fullscreen");
     } else {
       cancelFullScreen.call(root);
       helper.toggleClass(fullscreen, "is-active");
-      helper.toggleClass(icon, "icon-fullscreen-exit");
-      helper.toggleClass(icon, "icon-fullscreen");
+      helper.toggleClass(iconFullscreen, "icon-fullscreen-exit");
+      helper.toggleClass(iconFullscreen, "icon-fullscreen");
     };
   };
 
