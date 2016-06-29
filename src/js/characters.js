@@ -1,16 +1,23 @@
 var hardCodedCharacters = (function() {
 
-  var load = [
+  var demo = [
+    nif.data,
+    vos.data
+  ];
+
+  var all = [
     nif.data,
     vos.data,
-    orrin.data
-    // ro.data // kia
-    // marika.data // retired
+    orrin.data,
+    nefi.data,
+    ro.data, // kia
+    marika.data // retired
   ];
 
   // exposed methods
   return {
-    load: load
+    demo: demo,
+    all: all
   };
 
 })();

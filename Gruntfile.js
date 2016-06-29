@@ -61,6 +61,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/characters/vos.js',
           '<%= folders.build %>/js/characters/marika.js',
           '<%= folders.build %>/js/characters/orrin.js',
+          '<%= folders.build %>/js/characters/nefi.js',
           '<%= folders.build %>/js/characters.js',
           '<%= folders.build %>/js/helper.js',
           '<%= folders.build %>/js/sheet.js',
