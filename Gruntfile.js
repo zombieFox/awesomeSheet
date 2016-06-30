@@ -25,7 +25,10 @@ module.exports = function(grunt) {
         dest: '<%= folders.build %>/',
         expand: true
       },
-      webapp: {
+      manifestDev: {
+        expand: true, src: ['manifest.json'], dest: '<%= folders.dev %>/', filter: 'isFile'
+      },
+      manifestBuild: {
         expand: true, src: ['manifest.json'], dest: '<%= folders.build %>/', filter: 'isFile'
       },
       serviceWorkerDev: {
@@ -182,6 +185,13 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         }
+      },
+      serviceWorkerDev: {
+        files: 'service-worker.js',
+        tasks: ['copy:serviceWorkerDev'],
+        options: {
+          livereload: true
+        }
       }
     },
 
@@ -264,6 +274,7 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:dev',
     'copy:dev',
+    'copy:manifestDev',
     'copy:serviceWorkerDev',
     'sass:dev',
     'autoprefixer:dev',
@@ -276,7 +287,7 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:build',
     'copy:build',
-    'copy:webapp',
+    'copy:manifestBuild',
     'copy:serviceWorkerBuild',
     'sass:build',
     'autoprefixer:build',

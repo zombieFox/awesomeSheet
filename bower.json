@@ -15,7 +15,8 @@
   ],
   "dependencies": {
     "Skeleton-Sass": "skeleton-scss#*",
-    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.1.1"
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.1.1",
+    "sw-toolbox": "^3.2.1"
   },
   "devDependencies": {}
 }
