@@ -12660,15 +12660,6 @@ var offline = (function() {
 
 (function() {
 
-  nav.bind();
-  nav.render();
-  sheet.bind();
-  sheet.render();
-  offline.render();
-
-})();
-(function() {
-
   if (document.querySelector(".js-quick-nav")) {
     var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
   };
@@ -12677,5 +12668,15 @@ var offline = (function() {
     speed: 600,
     offset: quickNavHeight
   });
+
+})();
+
+(function() {
+
+  nav.bind();
+  nav.render();
+  sheet.bind();
+  sheet.render();
+  offline.render();
 
 })();

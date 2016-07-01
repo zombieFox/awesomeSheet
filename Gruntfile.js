@@ -100,8 +100,8 @@ module.exports = function(grunt) {
           '<%= folders.dev %>/js/total-block.js',
           '<%= folders.dev %>/js/display.js',
           '<%= folders.dev %>/js/offline.js',
-          '<%= folders.dev %>/js/init.js',
-          '<%= folders.dev %>/js/vendor-options.js'
+          '<%= folders.dev %>/js/vendor-options.js',
+          '<%= folders.dev %>/js/init.js'
         ],
         dest: '<%= folders.dev %>/js/awesomeSheet.js'
       },
@@ -138,8 +138,8 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/display.js',
           '<%= folders.build %>/js/offline.js',
-          '<%= folders.build %>/js/init.js',
-          '<%= folders.build %>/js/vendor-options.js'
+          '<%= folders.build %>/js/vendor-options.js',
+          '<%= folders.build %>/js/init.js'
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
