@@ -4,17 +4,8 @@ toolbox.options.debug = true;
 toolbox.precache([
   '/',
   '/index.html',
-  '/css/awesomeSheet.css',
   '/css/awesomeSheet.min.css',
-  '/css/vendor.css',
   '/css/vendor.min.css',
-
-  '/js/characters/blank.js',
-  '/js/characters/marika.js',
-  '/js/characters/nif.js',
-  '/js/characters/orrin.js',
-  '/js/characters/ro.js',
-  '/js/characters/vos.js',
   '/js/awesomeSheet.min.js',
   '/js/vendor.min.js',
 
@@ -79,13 +70,6 @@ toolbox.router.get([
   '/index.html',
   '/css/awesomeSheet.min.css',
   '/css/vendor.min.css',
-
-  '/js/characters/blank.js',
-  '/js/characters/marika.js',
-  '/js/characters/nif.js',
-  '/js/characters/orrin.js',
-  '/js/characters/ro.js',
-  '/js/characters/vos.js',
   '/js/awesomeSheet.min.js',
   '/js/vendor.min.js',
 

@@ -75,7 +75,44 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      awesomeSheet: {
+      awesomeSheetDev: {
+        src: [
+          '<%= folders.dev %>/js/strict.js',
+          '<%= folders.dev %>/js/characters/blank.js',
+          '<%= folders.dev %>/js/characters/nif.js',
+          '<%= folders.dev %>/js/characters/ro.js',
+          '<%= folders.dev %>/js/characters/vos.js',
+          '<%= folders.dev %>/js/characters/marika.js',
+          '<%= folders.dev %>/js/characters/orrin.js',
+          '<%= folders.dev %>/js/characters.js',
+          '<%= folders.dev %>/js/helper.js',
+          '<%= folders.dev %>/js/sheet.js',
+          '<%= folders.dev %>/js/nav.js',
+          '<%= folders.dev %>/js/prompt.js',
+          '<%= folders.dev %>/js/modal.js',
+          '<%= folders.dev %>/js/snack.js',
+          '<%= folders.dev %>/js/clone.js',
+          '<%= folders.dev %>/js/input-block.js',
+          '<%= folders.dev %>/js/textarea-block.js',
+          '<%= folders.dev %>/js/spells.js',
+          '<%= folders.dev %>/js/skills.js',
+          '<%= folders.dev %>/js/stats.js',
+          '<%= folders.dev %>/js/total-block.js',
+          '<%= folders.dev %>/js/display.js',
+          '<%= folders.dev %>/js/offline.js',
+          '<%= folders.dev %>/js/init.js',
+          '<%= folders.dev %>/js/vendor-options.js'
+        ],
+        dest: '<%= folders.dev %>/js/awesomeSheet.js'
+      },
+      vendorDev: {
+        src: [
+          '<%= folders.dev %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
+          '<%= folders.dev %>/bower_components/sw-toolbox/sw-toolbox.js'
+        ],
+        dest: '<%= folders.dev %>/js/vendor.min.js'
+      },
+      awesomeSheetBuild: {
         src: [
           '<%= folders.build %>/js/strict.js',
           '<%= folders.build %>/js/characters/blank.js',
@@ -105,7 +142,7 @@ module.exports = function(grunt) {
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
-      vendor: {
+      vendorBuild: {
         src: [
           '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
           '<%= folders.build %>/bower_components/sw-toolbox/sw-toolbox.js'
@@ -115,6 +152,10 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      dev: {
+        src: '<%= folders.dev %>/js/awesomeSheet.js',
+        dest: '<%= folders.dev %>/js/awesomeSheet.min.js'
+      },
       build: {
         src: '<%= folders.build %>/js/awesomeSheet.js',
         dest: '<%= folders.build %>/js/awesomeSheet.min.js'
@@ -308,6 +349,9 @@ module.exports = function(grunt) {
     'sass:dev',
     'cssmin:dev',
     'autoprefixer:dev',
+    'concat:awesomeSheetDev',
+    'concat:vendorDev',
+    'uglify:dev',
     'connect',
     'watch'
   ]);
@@ -323,7 +367,8 @@ module.exports = function(grunt) {
     'autoprefixer:build',
     'cssmin:build',
     'useminPrepare',
-    'concat',
+    'concat:awesomeSheetBuild',
+    'concat:vendorBuild',
     'uglify:build',
     'usemin',
     'clean:buildCleanBower',
