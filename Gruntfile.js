@@ -310,7 +310,7 @@ module.exports = function(grunt) {
     'cssmin:build',
     'useminPrepare',
     'concat',
-    'uglify',
+    'uglify:build',
     'usemin',
     'clean:buildCleanBower',
     'htmlmin'
