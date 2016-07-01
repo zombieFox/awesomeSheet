@@ -1,6 +1,6 @@
-console.log("sw fire");
-importScripts('bower_components/sw-toolbox/sw-toolbox.js');
-toolbox.options.debug = true;
+// console.log("sw fire");
+// importScripts('bower_components/sw-toolbox/sw-toolbox.js');
+// toolbox.options.debug = true;
 toolbox.precache([
   '/',
   '/index.html',
