@@ -1,5 +1,5 @@
 // console.log("sw fire");
-// importScripts('bower_components/sw-toolbox/sw-toolbox.js');
+importScripts('js/vendor.min.js');
 // toolbox.options.debug = true;
 toolbox.precache([
   '/',
