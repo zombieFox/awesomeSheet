@@ -8,7 +8,7 @@ var sheet = (function() {
     if (helper.read("allCharacters")) {
       allCharacters = JSON.parse(helper.read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.load)); // for demo load sample characters
+      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo)); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
     storeCharacters();
@@ -75,11 +75,25 @@ var sheet = (function() {
     };
   };
 
+  function all() {
+    localStorage.clear();
+    prompt.destroy();
+    snack.destroy();
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all));
+    setIndex(0);
+    storeCharacters();
+    clear();
+    render();
+    nav.clear();
+    nav.render();
+    snack.render("All characters restored.", false, false);
+  };
+
   function restore() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.load));
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo));
     setIndex(0);
     storeCharacters();
     clear();
@@ -290,6 +304,7 @@ var sheet = (function() {
     storeCharacters: storeCharacters,
     destroy: destroy,
     clear: clear,
+    all: all,
     restore: restore,
     import: importJson,
     export: exportJson,
