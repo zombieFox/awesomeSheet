@@ -25,8 +25,31 @@ module.exports = function(grunt) {
         dest: '<%= folders.build %>/',
         expand: true
       },
-      webapp: {
-        expand: true, src: ['manifest.json'], dest: '<%= folders.build %>/', filter: 'isFile'
+      manifestDev: {
+        expand: true,
+        src: ['manifest.json'],
+        dest: '<%= folders.dev %>/',
+        filter: 'isFile'
+      },
+      manifestBuild: {
+        expand: true,
+        src: ['manifest.json'],
+        dest: '<%= folders.build %>/',
+        filter: 'isFile'
+      },
+      serviceWorkerDev: {
+        expand: true,
+        flatten: true,
+        src: ['<%= folders.src %>/service-worker.js'],
+        dest: '<%= folders.dev %>/',
+        filter: 'isFile'
+      },
+      serviceWorkerBuild: {
+        expand: true,
+        flatten: true,
+        src: ['<%= folders.src %>/service-worker.js'],
+        dest: '<%= folders.build %>/',
+        filter: 'isFile'
       }
     },
 
@@ -52,7 +75,44 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      awesomeSheet: {
+      awesomeSheetDev: {
+        src: [
+          '<%= folders.dev %>/js/strict.js',
+          '<%= folders.dev %>/js/characters/blank.js',
+          '<%= folders.dev %>/js/characters/nif.js',
+          '<%= folders.dev %>/js/characters/ro.js',
+          '<%= folders.dev %>/js/characters/vos.js',
+          '<%= folders.dev %>/js/characters/marika.js',
+          '<%= folders.dev %>/js/characters/orrin.js',
+          '<%= folders.dev %>/js/characters.js',
+          '<%= folders.dev %>/js/helper.js',
+          '<%= folders.dev %>/js/sheet.js',
+          '<%= folders.dev %>/js/nav.js',
+          '<%= folders.dev %>/js/prompt.js',
+          '<%= folders.dev %>/js/modal.js',
+          '<%= folders.dev %>/js/snack.js',
+          '<%= folders.dev %>/js/clone.js',
+          '<%= folders.dev %>/js/input-block.js',
+          '<%= folders.dev %>/js/textarea-block.js',
+          '<%= folders.dev %>/js/spells.js',
+          '<%= folders.dev %>/js/skills.js',
+          '<%= folders.dev %>/js/stats.js',
+          '<%= folders.dev %>/js/total-block.js',
+          '<%= folders.dev %>/js/display.js',
+          '<%= folders.dev %>/js/offline.js',
+          '<%= folders.dev %>/js/init.js',
+          '<%= folders.dev %>/js/vendor-options.js'
+        ],
+        dest: '<%= folders.dev %>/js/awesomeSheet.js'
+      },
+      vendorDev: {
+        src: [
+          '<%= folders.dev %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
+          '<%= folders.dev %>/bower_components/sw-toolbox/sw-toolbox.js'
+        ],
+        dest: '<%= folders.dev %>/js/vendor.min.js'
+      },
+      awesomeSheetBuild: {
         src: [
           '<%= folders.build %>/js/strict.js',
           '<%= folders.build %>/js/characters/blank.js',
@@ -77,19 +137,26 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/stats.js',
           '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/display.js',
-          '<%= folders.build %>/js/init.js'
+          '<%= folders.build %>/js/offline.js',
+          '<%= folders.build %>/js/init.js',
+          '<%= folders.build %>/js/vendor-options.js'
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
-      vendor: {
+      vendorBuild: {
         src: [
-          '<%= folders.build %>/bower_components/smooth-scroll/src/js/smooth-scroll.js'
+          '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
+          '<%= folders.build %>/bower_components/sw-toolbox/sw-toolbox.js'
         ],
-        dest: '<%= folders.build %>/js/vendor.js'
+        dest: '<%= folders.build %>/js/vendor.min.js'
       }
     },
 
     uglify: {
+      dev: {
+        src: '<%= folders.dev %>/js/awesomeSheet.js',
+        dest: '<%= folders.dev %>/js/awesomeSheet.min.js'
+      },
       build: {
         src: '<%= folders.build %>/js/awesomeSheet.js',
         dest: '<%= folders.build %>/js/awesomeSheet.min.js'
@@ -142,6 +209,18 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      dev: {
+        options: {
+          sourceMap: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= folders.dev %>/',
+          src: ['css/**/*.css'],
+          dest: '<%= folders.dev %>/',
+          ext: '.min.css'
+        }]
+      },
       build: {
         options: {
           sourceMap: true
@@ -174,6 +253,13 @@ module.exports = function(grunt) {
       assets: {
         files: '<%= folders.src %>/{images,fonts,js}/**/*',
         tasks: ['copy:dev'],
+        options: {
+          livereload: true
+        }
+      },
+      serviceWorkerDev: {
+        files: '<%= folders.src %>/service-worker.js',
+        tasks: ['copy:serviceWorkerDev'],
         options: {
           livereload: true
         }
@@ -259,8 +345,14 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:dev',
     'copy:dev',
+    'copy:manifestDev',
+    'copy:serviceWorkerDev',
     'sass:dev',
+    'cssmin:dev',
     'autoprefixer:dev',
+    'concat:awesomeSheetDev',
+    'concat:vendorDev',
+    'uglify:dev',
     'connect',
     'watch'
   ]);
@@ -270,13 +362,15 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:build',
     'copy:build',
-    'copy:webapp',
+    'copy:manifestBuild',
+    'copy:serviceWorkerBuild',
     'sass:build',
     'autoprefixer:build',
     'cssmin:build',
     'useminPrepare',
-    'concat',
-    'uglify',
+    'concat:awesomeSheetBuild',
+    'concat:vendorBuild',
+    'uglify:build',
     'usemin',
     'clean:buildCleanBower',
     'htmlmin'
