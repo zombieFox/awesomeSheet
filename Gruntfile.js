@@ -85,15 +85,18 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/stats.js',
           '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/display.js',
-          '<%= folders.build %>/js/init.js'
+          '<%= folders.build %>/js/offline.js',
+          '<%= folders.build %>/js/init.js',
+          '<%= folders.build %>/js/vendor-options.js'
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
       vendor: {
         src: [
-          '<%= folders.build %>/bower_components/smooth-scroll/src/js/smooth-scroll.js'
+          '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
+          '<%= folders.build %>/bower_components/sw-toolbox/sw-toolbox.js'
         ],
-        dest: '<%= folders.build %>/js/vendor.js'
+        dest: '<%= folders.build %>/js/vendor.min.js'
       }
     },
 
@@ -150,6 +153,18 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      dev: {
+        options: {
+          sourceMap: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= folders.dev %>/',
+          src: ['css/**/*.css'],
+          dest: '<%= folders.dev %>/',
+          ext: '.min.css'
+        }]
+      },
       build: {
         options: {
           sourceMap: true
@@ -277,6 +292,7 @@ module.exports = function(grunt) {
     'copy:manifestDev',
     'copy:serviceWorkerDev',
     'sass:dev',
+    'cssmin:dev',
     'autoprefixer:dev',
     'connect',
     'watch'

@@ -4,7 +4,9 @@ toolbox.options.debug = true;
 toolbox.precache([
   '/',
   '/index.html',
+  '/css/awesomeSheet.css',
   '/css/awesomeSheet.min.css',
+  '/css/vendor.css',
   '/css/vendor.min.css',
 
   '/js/characters/blank.js',
