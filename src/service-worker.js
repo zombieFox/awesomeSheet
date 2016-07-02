@@ -1,4 +1,4 @@
-importScripts('sw-toolbox.js');
+importScripts('awesomeSheet/sw-toolbox.js');
 console.log("sw fire");
 // toolbox.options.debug = true;
 toolbox.precache([
