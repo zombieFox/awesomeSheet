@@ -11063,12 +11063,10 @@ var spells = (function() {
       if (spellObject.active) {
         var activeIcon = document.createElement("span");
         activeIcon.setAttribute("class", "icon-play-arrow");
-        if (spellObject.prepared > 0) {
-          if (spellActive.children.length > 0) {
-            spellActive.firstChild.remove();
-          } else {
-            spellActive.appendChild(activeIcon);
-          };
+        if (spellActive.children.length > 0) {
+          spellActive.firstChild.remove();
+        } else {
+          spellActive.appendChild(activeIcon);
         };
       };
       _bind_spellKnownItem(spellButton);
