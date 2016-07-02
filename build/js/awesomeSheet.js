@@ -12634,10 +12634,10 @@ var display = (function() {
 })();
 
 var offline = (function() {
-
   function render() {
+    console.log("offline fire");
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
+      navigator.serviceWorker.register('service-worker.js')
         .then(function(registration) {
           // Registration was successful
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -12675,6 +12675,6 @@ var offline = (function() {
   nav.render();
   sheet.bind();
   sheet.render();
-  // offline.render();
+  offline.render();
 
 })();
