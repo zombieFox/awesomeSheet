@@ -40,14 +40,14 @@ module.exports = function(grunt) {
       serviceWorkerDev: {
         expand: true,
         flatten: true,
-        src: ['<%= folders.src %>/service-worker.js'],
+        src: ['<%= folders.src %>/service-worker.js', '<%= folders.src %>/bower_components/sw-toolbox/sw-toolbox.js'],
         dest: '<%= folders.dev %>/',
         filter: 'isFile'
       },
       serviceWorkerBuild: {
         expand: true,
         flatten: true,
-        src: ['<%= folders.src %>/service-worker.js'],
+        src: ['<%= folders.src %>/service-worker.js', '<%= folders.src %>/bower_components/sw-toolbox/sw-toolbox.js'],
         dest: '<%= folders.build %>/',
         filter: 'isFile'
       }
@@ -84,6 +84,7 @@ module.exports = function(grunt) {
           '<%= folders.dev %>/js/characters/vos.js',
           '<%= folders.dev %>/js/characters/marika.js',
           '<%= folders.dev %>/js/characters/orrin.js',
+          '<%= folders.dev %>/js/characters/nefi.js',
           '<%= folders.dev %>/js/characters.js',
           '<%= folders.dev %>/js/helper.js',
           '<%= folders.dev %>/js/sheet.js',
@@ -107,8 +108,7 @@ module.exports = function(grunt) {
       },
       vendorDev: {
         src: [
-          '<%= folders.dev %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
-          '<%= folders.dev %>/bower_components/sw-toolbox/sw-toolbox.js'
+          '<%= folders.dev %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js'
         ],
         dest: '<%= folders.dev %>/js/vendor.min.js'
       },
@@ -145,8 +145,7 @@ module.exports = function(grunt) {
       },
       vendorBuild: {
         src: [
-          '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js',
-          '<%= folders.build %>/bower_components/sw-toolbox/sw-toolbox.js'
+          '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js'
         ],
         dest: '<%= folders.build %>/js/vendor.min.js'
       }
