@@ -5,7 +5,7 @@
   };
 
   smoothScroll.init({
-    speed: 600,
+    speed: 300,
     offset: quickNavHeight
   });
 

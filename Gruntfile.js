@@ -25,29 +25,9 @@ module.exports = function(grunt) {
         dest: '<%= folders.build %>/',
         expand: true
       },
-      manifestDev: {
+      webapp: {
         expand: true,
         src: ['manifest.json'],
-        dest: '<%= folders.dev %>/',
-        filter: 'isFile'
-      },
-      manifestBuild: {
-        expand: true,
-        src: ['manifest.json'],
-        dest: '<%= folders.build %>/',
-        filter: 'isFile'
-      },
-      serviceWorkerDev: {
-        expand: true,
-        flatten: true,
-        src: ['<%= folders.src %>/service-worker.js', '<%= folders.src %>/bower_components/sw-toolbox/sw-toolbox.js'],
-        dest: '<%= folders.dev %>/',
-        filter: 'isFile'
-      },
-      serviceWorkerBuild: {
-        expand: true,
-        flatten: true,
-        src: ['<%= folders.src %>/service-worker.js', '<%= folders.src %>/bower_components/sw-toolbox/sw-toolbox.js'],
         dest: '<%= folders.build %>/',
         filter: 'isFile'
       }
@@ -75,87 +55,47 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      awesomeSheetDev: {
-        src: [
-          '<%= folders.dev %>/js/strict.js',
-          '<%= folders.dev %>/js/characters/blank.js',
-          '<%= folders.dev %>/js/characters/nif.js',
-          '<%= folders.dev %>/js/characters/ro.js',
-          '<%= folders.dev %>/js/characters/vos.js',
-          '<%= folders.dev %>/js/characters/marika.js',
-          '<%= folders.dev %>/js/characters/orrin.js',
-          '<%= folders.dev %>/js/characters/nefi.js',
-          '<%= folders.dev %>/js/characters.js',
-          '<%= folders.dev %>/js/helper.js',
-          '<%= folders.dev %>/js/sheet.js',
-          '<%= folders.dev %>/js/nav.js',
-          '<%= folders.dev %>/js/prompt.js',
-          '<%= folders.dev %>/js/modal.js',
-          '<%= folders.dev %>/js/snack.js',
-          '<%= folders.dev %>/js/clone.js',
-          '<%= folders.dev %>/js/input-block.js',
-          '<%= folders.dev %>/js/textarea-block.js',
-          '<%= folders.dev %>/js/spells.js',
-          '<%= folders.dev %>/js/skills.js',
-          '<%= folders.dev %>/js/stats.js',
-          '<%= folders.dev %>/js/total-block.js',
-          '<%= folders.dev %>/js/display.js',
-          '<%= folders.dev %>/js/offline.js',
-          '<%= folders.dev %>/js/vendor-options.js',
-          '<%= folders.dev %>/js/init.js'
-        ],
-        dest: '<%= folders.dev %>/js/awesomeSheet.js'
-      },
-      vendorDev: {
-        src: [
-          '<%= folders.dev %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js'
-        ],
-        dest: '<%= folders.dev %>/js/vendor.min.js'
-      },
-      awesomeSheetBuild: {
+      awesomeSheet: {
         src: [
           '<%= folders.build %>/js/strict.js',
+          '<%= folders.build %>/js/helper.js', // helper functions
           '<%= folders.build %>/js/characters/blank.js',
+          '<%= folders.build %>/js/characters/marika.js',
+          '<%= folders.build %>/js/characters/nefi.js',
           '<%= folders.build %>/js/characters/nif.js',
+          '<%= folders.build %>/js/characters/orrin.js',
           '<%= folders.build %>/js/characters/ro.js',
           '<%= folders.build %>/js/characters/vos.js',
-          '<%= folders.build %>/js/characters/marika.js',
-          '<%= folders.build %>/js/characters/orrin.js',
-          '<%= folders.build %>/js/characters/nefi.js',
           '<%= folders.build %>/js/characters.js',
-          '<%= folders.build %>/js/helper.js',
-          '<%= folders.build %>/js/sheet.js',
-          '<%= folders.build %>/js/nav.js',
-          '<%= folders.build %>/js/prompt.js',
-          '<%= folders.build %>/js/modal.js',
-          '<%= folders.build %>/js/snack.js',
           '<%= folders.build %>/js/clone.js',
-          '<%= folders.build %>/js/input-block.js',
-          '<%= folders.build %>/js/textarea-block.js',
-          '<%= folders.build %>/js/spells.js',
-          '<%= folders.build %>/js/skills.js',
-          '<%= folders.build %>/js/stats.js',
-          '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/display.js',
-          '<%= folders.build %>/js/offline.js',
+          '<%= folders.build %>/js/hidable-block.js',
+          '<%= folders.build %>/js/input-block.js',
+          '<%= folders.build %>/js/modal.js',
+          '<%= folders.build %>/js/nav.js',
+          '<%= folders.build %>/js/night.js',
+          '<%= folders.build %>/js/prompt.js',
+          '<%= folders.build %>/js/sheet.js',
+          '<%= folders.build %>/js/skills.js',
+          '<%= folders.build %>/js/snack.js',
+          '<%= folders.build %>/js/spells.js',
+          '<%= folders.build %>/js/stats.js',
+          '<%= folders.build %>/js/textarea-block.js',
+          '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/vendor-options.js',
-          '<%= folders.build %>/js/init.js'
+          '<%= folders.build %>/js/init.js' // invoke calls
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
-      vendorBuild: {
+      vendor: {
         src: [
           '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js'
         ],
-        dest: '<%= folders.build %>/js/vendor.min.js'
+        dest: '<%= folders.build %>/js/vendor.js'
       }
     },
 
     uglify: {
-      dev: {
-        src: '<%= folders.dev %>/js/awesomeSheet.js',
-        dest: '<%= folders.dev %>/js/awesomeSheet.min.js'
-      },
       build: {
         src: '<%= folders.build %>/js/awesomeSheet.js',
         dest: '<%= folders.build %>/js/awesomeSheet.min.js'
@@ -208,18 +148,6 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
-      dev: {
-        options: {
-          sourceMap: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= folders.dev %>/',
-          src: ['css/**/*.css'],
-          dest: '<%= folders.dev %>/',
-          ext: '.min.css'
-        }]
-      },
       build: {
         options: {
           sourceMap: true
@@ -252,13 +180,6 @@ module.exports = function(grunt) {
       assets: {
         files: '<%= folders.src %>/{images,fonts,js}/**/*',
         tasks: ['copy:dev'],
-        options: {
-          livereload: true
-        }
-      },
-      serviceWorkerDev: {
-        files: '<%= folders.src %>/service-worker.js',
-        tasks: ['copy:serviceWorkerDev'],
         options: {
           livereload: true
         }
@@ -344,14 +265,8 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:dev',
     'copy:dev',
-    'copy:manifestDev',
-    'copy:serviceWorkerDev',
     'sass:dev',
-    'cssmin:dev',
     'autoprefixer:dev',
-    'concat:awesomeSheetDev',
-    'concat:vendorDev',
-    'uglify:dev',
     'connect',
     'watch'
   ]);
@@ -361,14 +276,12 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:build',
     'copy:build',
-    'copy:manifestBuild',
-    'copy:serviceWorkerBuild',
+    'copy:webapp',
     'sass:build',
     'autoprefixer:build',
     'cssmin:build',
     'useminPrepare',
-    'concat:awesomeSheetBuild',
-    'concat:vendorBuild',
+    'concat',
     'uglify:build',
     'usemin',
     'clean:buildCleanBower',

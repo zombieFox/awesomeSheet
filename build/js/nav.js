@@ -75,39 +75,6 @@ var nav = (function() {
     };
   };
 
-  function _render_nightMode() {
-    if (helper.read("nightMode") == "true") {
-      _toggle_nightMode();
-    };
-  };
-
-  function _toggle_nightMode() {
-    var body = helper.e("body");
-    var nightMode = helper.e(".js-night-mode");
-
-    function _nightModeOn() {
-      helper.addClass(body, "is-night-mode");
-      helper.addClass(nightMode, "is-active");
-    };
-
-    function _nightModeOff() {
-      helper.removeClass(body, "is-night-mode");
-      helper.removeClass(nightMode, "is-active");
-    };
-
-    if (body.dataset.nightMode == "true") {
-      body.dataset.nightMode = "false";
-      _nightModeOff();
-      helper.store("nightMode", false);
-      sheet.storeCharacters();
-    } else if (body.dataset.nightMode == "false" || !body.dataset.nightMode) {
-      body.dataset.nightMode = "true";
-      _nightModeOn();
-      helper.store("nightMode", true);
-      sheet.storeCharacters();
-    };
-  };
-
   function _bind_characterOption(characterLink) {
     var label = characterLink.querySelector(".js-nav-character-label");
     var input = characterLink.querySelector(".js-nav-character-input");
@@ -165,7 +132,6 @@ var nav = (function() {
     _createAllCharacter();
     _render_quickNav();
     lastSectionHeight();
-    _render_nightMode();
   };
 
   function lastSectionHeight() {
@@ -391,7 +357,7 @@ var nav = (function() {
     nightMode.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _toggle_nightMode();
+      night.toggle();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
@@ -476,7 +442,7 @@ var nav = (function() {
 
       // ctrl+alt+n
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {
-        _toggle_nightMode();
+        night.toggle();
       };
 
       // esc

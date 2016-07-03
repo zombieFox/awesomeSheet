@@ -118,7 +118,7 @@ var sheet = (function() {
     // document.location.reload(true);
   };
 
-  function _createImport() {
+  function _createImportModal() {
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
@@ -234,7 +234,7 @@ var sheet = (function() {
   };
 
   function importJson() {
-    modal.render("Import character", _createImport(), "Import", _readJsonFile);
+    modal.render("Import character", _createImportModal(), "Import", _readJsonFile);
   };
 
   function exportJson() {
