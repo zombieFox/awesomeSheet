@@ -55,26 +55,6 @@ var nav = (function() {
     };
   };
 
-  function _toggle_fullscreen() {
-    var fullscreen = helper.e(".js-fullscreen");
-    var root = window.document;
-    var iconFullscreen = fullscreen.querySelector(".js-icon-fullscreen");
-    var rootElement = root.documentElement;
-    var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
-    var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
-    if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
-      requestFullScreen.call(rootElement);
-      helper.toggleClass(fullscreen, "is-active");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen-exit");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen");
-    } else {
-      cancelFullScreen.call(root);
-      helper.toggleClass(fullscreen, "is-active");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen-exit");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen");
-    };
-  };
-
   function _bind_characterOption(characterLink) {
     var label = characterLink.querySelector(".js-nav-character-label");
     var input = characterLink.querySelector(".js-nav-character-input");
@@ -304,16 +284,6 @@ var nav = (function() {
     };
   };
 
-  function remove() {
-    var name;
-    if (sheet.getCharacter().basics.name) {
-      name = sheet.getCharacter().basics.name;
-    } else {
-      name = "New character";
-    };
-    prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", sheet.removeCharacter);
-  };
-
   // function resize() {
   //   var body = helper.e("body");
   //   var nav = helper.e(".js-nav");
@@ -328,8 +298,8 @@ var nav = (function() {
   function bind() {
     var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
-    var fullscreen = helper.e(".js-fullscreen");
-    var nightMode = helper.e(".js-night-mode");
+    var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
+    var nightModeToggle = helper.e(".js-night-mode");
     var clearAll = helper.e(".js-clear-all");
     var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
     var characterAdd = helper.e(".js-character-add");
@@ -348,13 +318,13 @@ var nav = (function() {
       toggle_nav();
     }, false);
 
-    fullscreen.addEventListener("click", function(event) {
+    fullscreenModeToggle.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _toggle_fullscreen();
+      fullscreen.toggle();
     }, false);
 
-    nightMode.addEventListener("click", function(event) {
+    nightModeToggle.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       night.toggle();
@@ -399,7 +369,7 @@ var nav = (function() {
     characterRemove.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      remove();
+      sheet.removeCharacter();
       navClose();
     }, false);
 

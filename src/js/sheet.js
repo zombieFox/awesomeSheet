@@ -55,6 +55,16 @@ var sheet = (function() {
   };
 
   function removeCharacter() {
+    var name;
+    if (sheet.getCharacter().basics.name) {
+      name = sheet.getCharacter().basics.name;
+    } else {
+      name = "New character";
+    };
+    prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", destroyCharacter);
+  };
+
+  function destroyCharacter() {
     var name = allCharacters[getIndex()].basics.name || "New character";
     allCharacters.splice(getIndex(), 1);
     var lastCharacterRemoved = false;
