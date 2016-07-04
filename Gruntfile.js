@@ -92,7 +92,7 @@ module.exports = function(grunt) {
         src: [
           '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js'
         ],
-        dest: '<%= folders.build %>/js/vendor.js'
+        dest: '<%= folders.build %>/js/vendor.min.js'
       }
     },
 
