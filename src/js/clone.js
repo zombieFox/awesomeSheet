@@ -146,6 +146,42 @@ var clone = (function() {
     return cloneString;
   };
 
+  function _newNoteCharacter(index) {
+    var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
+      '<div class="m-textarea-block js-textarea-block">' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Character Notes</label>' +
+      '<div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    return cloneString;
+  };
+
+  function _newNoteStory(index) {
+    var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
+      '<div class="m-textarea-block js-textarea-block">' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Story Notes</label>' +
+      '<div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    return cloneString;
+  };
+
   function _minMaxCountLimit(input) {
     if (input.value <= 0) {
       input.value = "";
@@ -172,11 +208,19 @@ var clone = (function() {
   function bind() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
+    var cloneBlockNote = helper.e(".js-clone-block-note");
+
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
+
     var cloneAddAttackMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
     var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
     var cloneRemoveAttack = cloneBlockAttack.querySelector(".js-clone-remove");
+
+    var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
+    var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
+    var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
+
     cloneAddConsumable.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
@@ -190,6 +234,7 @@ var clone = (function() {
     cloneRemoveConsumable.addEventListener("click", function() {
       _changeCloneState("consumable");
     }, false);
+
     cloneAddAttackMelee.addEventListener("click", function() {
       _render_clone(1, "attack-melee");
       _updateCloneAttackMelee();
@@ -211,6 +256,29 @@ var clone = (function() {
     cloneRemoveAttack.addEventListener("click", function() {
       _changeCloneState("attack");
     }, false);
+
+    cloneAddCharacterNote.addEventListener("click", function() {
+      _render_clone(1, "note-character");
+      // _updateCloneAttackMelee();
+      // _smoothScrollToClones("#notes-character-story");
+      // sheet.storeCharacters();
+      // if (_getCloneCount("attack-melee") <= 99) {
+      //   snack.render("Melee attack added.", false, false);
+      // };
+    }, false);
+    cloneAddStoryNote.addEventListener("click", function() {
+      _render_clone(1, "note-story");
+      // _updateCloneAttackRanged();
+      // _smoothScrollToClones("#notes-character-story");
+      // sheet.storeCharacters();
+      // if (_getCloneCount("attack-ranged") <= 99) {
+      //   snack.render("Ranged attack added.", false, false);
+      // };
+    }, false);
+    cloneRemoveNote.addEventListener("click", function() {
+      _changeCloneState("note");
+    }, false);
+
   };
 
   function _render_clone(numberOfClones, cloneType) {
@@ -227,6 +295,14 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-story");
     };
     for (var i = 0; i < numberOfClones; i++) {
       var cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
@@ -249,6 +325,12 @@ var clone = (function() {
       if (cloneType == "attack-ranged") {
         cloneString = _newAttackRanged(index);
       };
+      if (cloneType == "note-character") {
+        cloneString = _newNoteCharacter(index);
+      };
+      if (cloneType == "note-story") {
+        cloneString = _newNoteStory(index);
+      };
       // add content
       newNode.innerHTML = cloneString;
       // max of 100 clones
@@ -264,6 +346,12 @@ var clone = (function() {
         };
         if (cloneType == "attack-ranged") {
           _bind_cloneAttackRangedInput(newNode.querySelectorAll(".js-input-block"));
+        };
+        if (cloneType == "note-character") {
+          _bind_cloneNoteCharacterTextarea(newNode.querySelector(".js-textarea-block"));
+        };
+        if (cloneType == "note-story") {
+          _bind_cloneNoteStoryTextarea(newNode.querySelector(".js-textarea-block"));
         };
         _bind_cloneRemoveButton(newNode.querySelector(".js-clone-block-delete"), cloneType);
       };
@@ -331,6 +419,10 @@ var clone = (function() {
   function _checkCloneState(cloneType) {
     var cloneBlock;
     var cloneTarget;
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".js-clone-block-consumable");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+    };
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
@@ -339,9 +431,13 @@ var clone = (function() {
       cloneBlock = helper.e(".js-clone-block-attack");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
-    if (cloneType == "consumable") {
-      cloneBlock = helper.e(".js-clone-block-consumable");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-story");
     };
     var cloneCount = cloneBlock.querySelectorAll(".js-clone");
     var cloneControls = cloneBlock.querySelector(".js-clone-controls");
@@ -372,6 +468,14 @@ var clone = (function() {
         _checkCloneState("attack-ranged");
         snack.render("Ranged attack removed.", false, false);
       };
+      if (cloneType == "note-character") {
+        _checkCloneState("note-character");
+        snack.render("Character note removed.", false, false);
+      };
+      if (cloneType == "note-story") {
+        _checkCloneState("note-story");
+        snack.render("Story note removed.", false, false);
+      };
     }, false);
   };
 
@@ -388,11 +492,42 @@ var clone = (function() {
     if (type == "consumable") {
       _updateCloneConsumable();
     };
+    if (type == "note-character") {
+      console.log("note update fire");
+      _updateCloneNoteCharacter();
+    };
+    if (type == "note-story") {
+      console.log("note update fire");
+      _updateCloneNoteStory();
+    };
     totalBlock.update();
     sheet.storeCharacters();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
+    };
+  };
+
+  function _bind_cloneConsumableInput(array) {
+    for (var i = 0; i < array.length; i++) {
+      var input = array[i].querySelector(".js-input-block-field");
+      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
+        input.addEventListener("input", function() {
+          _minMaxCountLimit(this);
+        }, false);
+      };
+      input.addEventListener("input", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
+      }, false);
+      input.addEventListener("focus", function() {
+        inputBlock.focus(this);
+      }, false);
+      input.addEventListener("blur", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
+        inputBlock.focus(this);
+      }, false);
     };
   };
 
@@ -432,25 +567,52 @@ var clone = (function() {
     };
   };
 
-  function _bind_cloneConsumableInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
-        input.addEventListener("input", function() {
-          _minMaxCountLimit(this);
-        }, false);
-      };
-      input.addEventListener("input", function() {
+  function _bind_cloneNoteCharacterTextarea(textareaBlock) {
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
+    console.log(textareaBlockField);
+    console.log(textareaBlockLabel);
+    if (textareaBlockField) {
+      textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character");
       }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
+      textareaBlockField.addEventListener("focus", function() {
+        textareaBlock.focus(this);
       }, false);
-      input.addEventListener("blur", function() {
+      textareaBlockField.addEventListener("blur", function() {
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character");
+        textareaBlock.focus(this);
+      }, false);
+    };
+    if (textareaBlockLabel) {
+      textareaBlockLabel.addEventListener("click", function() {
+        _textareaLabelshiftFocus(this);
+      }, false);
+    };
+  };
+
+  function _bind_cloneNoteStoryTextarea(textareaBlock) {
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
+    console.log(textareaBlockField);
+    console.log(textareaBlockLabel);
+    if (textareaBlockField) {
+      textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
-        inputBlock.focus(this);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story");
+      }, false);
+      textareaBlockField.addEventListener("focus", function() {
+        textareaBlock.focus(this);
+      }, false);
+      textareaBlockField.addEventListener("blur", function() {
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story");
+        textareaBlock.focus(this);
+      }, false);
+    };
+    if (textareaBlockLabel) {
+      textareaBlockLabel.addEventListener("click", function() {
+        _textareaLabelshiftFocus(this);
       }, false);
     };
   };
@@ -512,6 +674,18 @@ var clone = (function() {
     };
   };
 
+  function _createNoteCharacter(data) {
+    return {
+      note: this.data = data
+    };
+  };
+
+  function _createNoteStory(data) {
+    return {
+      note: this.data = data
+    };
+  };
+
   function _updateCloneAttackMelee() {
     var cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     var all_clone = cloneTarget.querySelectorAll(".js-clone");
@@ -557,6 +731,30 @@ var clone = (function() {
       cloneConsumable.push(newConsumable);
     };
     sheet.getCharacter().equipment.consumable = cloneConsumable;
+  };
+
+  function _updateCloneNoteCharacter() {
+    var cloneTarget = helper.e(".js-clone-block-target-note-character");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
+    var cloneNote = [];
+    for (var i = 0; i < all_clone.length; i++) {
+      var textarea = all_clone[i].querySelector(".js-textarea-block-field").innerHTML || "";
+      var newNote = new _createNoteCharacter(textarea);
+      cloneNote.push(newNote);
+    };
+    sheet.getCharacter().notes.character = cloneNote;
+  };
+
+  function _updateCloneNoteStory() {
+    var cloneTarget = helper.e(".js-clone-block-target-note-story");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
+    var cloneNote = [];
+    for (var i = 0; i < all_clone.length; i++) {
+      var textarea = all_clone[i].querySelector(".js-textarea-block-field").innerHTML || "";
+      var newNote = new _createNoteStory(textarea);
+      cloneNote.push(newNote);
+    };
+    sheet.getCharacter().notes.story = cloneNote;
   };
 
   function clear() {

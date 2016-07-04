@@ -50,7 +50,7 @@ var textareaBlock = (function() {
     };
   };
 
-  function updateTextareaBlock(element) {
+  function update(element) {
     focus(element);
   };
 
@@ -93,14 +93,14 @@ var textareaBlock = (function() {
       if (path) {
         var content = helper.getObject(sheet.getCharacter(), path);
         all_textareaBlockField[i].innerHTML = content;
-        updateTextareaBlock(all_textareaBlockField[i]);
+        update(all_textareaBlockField[i]);
       };
     };
   };
 
   // exposed methods
   return {
-    update: updateTextareaBlock,
+    update: update,
     focus: focus,
     render: render,
     clear: clear,
