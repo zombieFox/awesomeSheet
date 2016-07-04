@@ -60,6 +60,9 @@
 .is-night-mode {
   .m-section-heading {
     background-color: $secondary-color-04;
+    &.is-faded {
+      background-color: $secondary-color-03;
+    }
   }
 }
 

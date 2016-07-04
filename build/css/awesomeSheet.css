@@ -2207,6 +2207,8 @@ label {
 
 .is-night-mode .m-section-heading {
   background-color: #1c3445; }
+  .is-night-mode .m-section-heading.is-faded {
+    background-color: #162632; }
 
 @media (min-width: 700px) {
   .m-section-controls .button-group-strech {
