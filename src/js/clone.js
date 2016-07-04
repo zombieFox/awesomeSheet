@@ -160,7 +160,7 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="m-textarea-block js-textarea-block">' +
-      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Character Notes</label>' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Character Note</label>' +
       '<div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '</div>' +
       '</div>' +
@@ -178,7 +178,7 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="m-textarea-block js-textarea-block">' +
-      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Story Notes</label>' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Story Note</label>' +
       '<div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '</div>' +
       '</div>' +

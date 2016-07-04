@@ -95,6 +95,10 @@
     &.is-delete-state {
       .m-clone-block-target {
         .m-clone {
+          textarea,
+          .textarea {
+            border-color: $primary-color-04;
+          }
           input {
             &[type="email"],
             &[type="number"],

@@ -50,7 +50,7 @@ var textareaBlock = (function() {
     };
   };
 
-  function updateTextareaBlock(element) {
+  function update(element) {
     focus(element);
   };
 
@@ -74,13 +74,13 @@ var textareaBlock = (function() {
       };
       if (textareaBlockLabel) {
         textareaBlockLabel.addEventListener("click", function() {
-          _textareaLabelshiftFocus(this);
+          focusLabel(this);
         }, false);
       };
     };
   };
 
-  function _textareaLabelshiftFocus(element) {
+  function focusLabel(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
     var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
     textareaBlockField.focus();
@@ -93,15 +93,16 @@ var textareaBlock = (function() {
       if (path) {
         var content = helper.getObject(sheet.getCharacter(), path);
         all_textareaBlockField[i].innerHTML = content;
-        updateTextareaBlock(all_textareaBlockField[i]);
+        update(all_textareaBlockField[i]);
       };
     };
   };
 
   // exposed methods
   return {
-    update: updateTextareaBlock,
+    update: update,
     focus: focus,
+    focusLabel: focusLabel,
     render: render,
     clear: clear,
     bind: bind

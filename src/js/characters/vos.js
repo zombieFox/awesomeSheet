@@ -1249,15 +1249,7 @@ var vos = (function() {
       }, {
         note: "<strong>Extra Ki</strong> You can use your ki pool more times per day than most."
       }],
-      story: [{
-        note: "1"
-      }, {
-        note: "2"
-      }, {
-        note: "3"
-      }, {
-        note: "4"
-      }]
+      story: []
     }
   };
 

@@ -1325,8 +1325,8 @@ var blank = (function() {
       }]
     },
     notes: {
-      character: "",
-      story: "",
+      character: [],
+      story: []
     }
   };
 
@@ -2526,8 +2526,40 @@ var marika = (function() {
       }]
     },
     notes: {
-      character: "<strong>Deft Hands</strong> +2 bonus on Disable Device and Sleight of Hand skill checks<br><br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls.<br><br><strong>Two Weapon Fighting</strong> Penalties on attack rolls for fighting with two weapons are reduced.<br><br><strong>Improved Two Weapon Fighting</strong> In addition to the standard single extra attack you get with an off-hand weapon, get a second attack with it, albeit at a –5 penalty.<br><br><strong>Double Slice</strong> Add your Strength bonus to damage rolls made with your off-hand weapon.<br><br><strong>Extra Rogue Talent</strong> Gain one additional rogue talent<br><br><strong>Sneak attack</strong> Attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (+5d6).<br><br><strong>Evasion (Ex)</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks.<br><br><strong>Rogue talent</strong> Minor Magic (Sp) Mage Hand, 3/day.<br><br><strong>Rogue talent</strong> Major Magic (Sp) Unseen Servant, 2/day.<br><br><strong>Rogue talent</strong> Fast Fingers (Ex) Roll two dice while making a Sleight of Hand check and take the better result, 1/day.<br><br><strong>Rogue talent</strong> Fast Stealth (Ex) Move at full speed using the Stealth skill without penalty.<br><br><strong>Rogue talent</strong> During a full attack action you may take a –2 penalty on all attack rolls until the start of her next turn. If an attack during this time is a sneak attack, treats all 1s on the sneak attack damage dice as 2s.<br><br><strong>Trap sense (Ex)</strong> +3 bonus on Reflex saves made to avoid traps and a +3 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level.<br><br><strong>Uncanny Dodge (Ex)</strong> cannot be caught flat-footed, nor lose Dex bonus to AC if the attacker is invisible. Still loses Dexterity bonus to AC if immobilized.<br><br><strong>Improved Uncanny Dodge (Ex)</strong> A rogue of 8th level or higher can no longer be flanked.",
-      story: "",
+      character: [{
+        note: "<strong>Deft Hands</strong> +2 bonus on Disable Device and Sleight of Hand skill checks"
+      }, {
+        note: "<strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls."
+      }, {
+        note: "<strong>Two Weapon Fighting</strong> Penalties on attack rolls for fighting with two weapons are reduced."
+      }, {
+        note: "<strong>Improved Two Weapon Fighting</strong> In addition to the standard single extra attack you get with an off-hand weapon, get a second attack with it, albeit at a –5 penalty."
+      }, {
+        note: "<strong>Double Slice</strong> Add your Strength bonus to damage rolls made with your off-hand weapon."
+      }, {
+        note: "<strong>Extra Rogue Talent</strong> Gain one additional rogue talent"
+      }, {
+        note: "<strong>Sneak attack</strong> Attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (+5d6)."
+      }, {
+        note: "<strong>Evasion (Ex)</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks."
+      }, {
+        note: "<strong>Rogue talent</strong> Minor Magic (Sp) Mage Hand, 3/day."
+      }, {
+        note: "<strong>Rogue talent</strong> Major Magic (Sp) Unseen Servant, 2/day."
+      }, {
+        note: "<strong>Rogue talent</strong> Fast Fingers (Ex) Roll two dice while making a Sleight of Hand check and take the better result, 1/day."
+      }, {
+        note: "<strong>Rogue talent</strong> Fast Stealth (Ex) Move at full speed using the Stealth skill without penalty."
+      }, {
+        note: "<strong>Rogue talent</strong> During a full attack action you may take a –2 penalty on all attack rolls until the start of her next turn. If an attack during this time is a sneak attack, treats all 1s on the sneak attack damage dice as 2s."
+      }, {
+        note: "<strong>Trap sense (Ex)</strong> +3 bonus on Reflex saves made to avoid traps and a +3 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level."
+      }, {
+        note: "<strong>Uncanny Dodge (Ex)</strong> cannot be caught flat-footed, nor lose Dex bonus to AC if the attacker is invisible. Still loses Dexterity bonus to AC if immobilized."
+      }, {
+        note: "<strong>Improved Uncanny Dodge (Ex)</strong> A rogue of 8th level or higher can no longer be flanked."
+      }],
+      story: []
     }
   };
 
@@ -3716,8 +3748,44 @@ var nefi = (function() {
       }]
     },
     notes: {
-      character: "<strong>Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).<br><br><strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws.<br><br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed.<br><br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage.<br><br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn.<br><br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity.<br><br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you.<br><br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent.<br><br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus.<br><br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><br><strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.",
-      story: ""
+      character: [{
+        note: "<strong>Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature."
+      }, {
+        note: "<strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size."
+      }, {
+        note: "<strong>Normal Speed</strong> Humans have a base speed of 30 feet."
+      }, {
+        note: "<strong>Bonus Feat</strong> Humans select one extra feat at 1st level."
+      }, {
+        note: "<strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level."
+      }, {
+        note: "<strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
+      }, {
+        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon."
+      }, {
+        note: "<strong>Iron Will</strong> You get a +2 bonus on all Will saving throws."
+      }, {
+        note: "<strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed."
+      }, {
+        note: "<strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat."
+      }, {
+        note: "<strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage."
+      }, {
+        note: "<strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn."
+      }, {
+        note: "<strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity."
+      }, {
+        note: "<strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you."
+      }, {
+        note: "<strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent."
+      }, {
+        note: "<strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus."
+      }, {
+        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves."
+      }, {
+        note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks."
+      }],
+      story: []
     }
   };
 
@@ -4953,8 +5021,10 @@ var nif = (function() {
       }]
     },
     notes: {
-      character: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration,<br><strong>Teleportation sub school</strong>,<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.",
-      story: ""
+      character: [{
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration,<br><strong>Teleportation sub school</strong>,<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+      }],
+      story: []
     }
   };
 
@@ -6140,8 +6210,50 @@ var orrin = (function() {
       }]
     },
     notes: {
-      character: "<strong>+2 to One Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).<br><br><strong>Sneak Attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br><br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br><br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.<br><br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><br><strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><br><strong>Rogue Talents Trap Spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.<br><br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><br><strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><br><strong>Trap Sense (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><br><strong>Rogue talent Crippling Strike (Ex) </strong>A rogue with this ability can sneak attack opponents with such precision that her blows weaken and hamper them. An opponent damaged by one of her sneak attacks also takes 2 points of Strength damage.<br><br><strong>Uncanny Dodge (Ex)</strong> Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her.",
-      story: ""
+      character: [{
+        note: "<strong>+2 to One Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature."
+      }, {
+        note: "<strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size."
+      }, {
+        note: "<strong>Normal Speed</strong> Humans have a base speed of 30 feet."
+      }, {
+        note: "<strong>Bonus Feat</strong> Humans select one extra feat at 1st level."
+      }, {
+        note: "<strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level."
+      }, {
+        note: "<strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
+      }, {
+        note: "<strong>Sneak Attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage."
+      }, {
+        note: "The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet."
+      }, {
+        note: "With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty."
+      }, {
+        note: "The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment."
+      }, {
+        note: "<strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps."
+      }, {
+        note: "<strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion."
+      }, {
+        note: "<strong>Rogue Talents Trap Spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM."
+      }, {
+        note: "<strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls."
+      }, {
+        note: "<strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat."
+      }, {
+        note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks."
+      }, {
+        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves."
+      }, {
+        note: "<strong>Trap Sense (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level."
+      }, {
+        note: "<strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat."
+      }, {
+        note: "<strong>Rogue talent Crippling Strike (Ex) </strong>A rogue with this ability can sneak attack opponents with such precision that her blows weaken and hamper them. An opponent damaged by one of her sneak attacks also takes 2 points of Strength damage."
+      }, {
+        note: "<strong>Uncanny Dodge (Ex)</strong> Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her."
+      }],
+      story: []
     }
   };
 
@@ -7380,8 +7492,26 @@ var ro = (function() {
       }]
     },
     notes: {
-      character: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects,<br><br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon),<br><br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><br><strong>Arcane Pool</strong> 4,<br><br><strong>Cantrips</strong> <strong>Spell Combat (EX)</strong> cast spells and wield his weapons at the same time.<br><br><strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade.<br><br><strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable.",
-      story: ""
+      character: [{
+        note: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination."
+      }, {
+        note: "<strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects."
+      }, {
+        note: "<strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items."
+      }, {
+        note: "<strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon)."
+      }, {
+        note: "<strong>Keen Senses (Ex)</strong> +2 Perception checks."
+      }, {
+        note: "<strong>Arcane Pool</strong> 4."
+      }, {
+        note: "<strong>Cantrips</strong> <strong>Spell Combat (Ex)</strong> cast spells and wield his weapons at the same time."
+      }, {
+        note: "<strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade."
+      }, {
+        note: "<strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable."
+      }],
+      story: []
     }
   };
 
@@ -8582,8 +8712,68 @@ var vos = (function() {
       }]
     },
     notes: {
-      character: "<strong>+2 Constitution, +2 Wisdom, –2 Charisma</strong> Dwarves are both tough and wise, but also a bit gruff.<br><br><strong>Medium</strong> Dwarves are Medium creatures and have no bonuses or penalties due to their size.<br><br><strong>Slow and Steady</strong> Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance.<br><br><strong>Darkvision</strong> Dwarves can see in the dark up to 60 feet.<br><br><strong>Defensive Training</strong> Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype.<br><br><strong>Greed</strong> Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><br><strong>Hatred</strong> Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes due to special training against these hated foes.<br><br><strong>Hardy</strong> Dwarves receive a +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><br><strong>Stability</strong> Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><br><strong>Stonecunning</strong> Dwarves receive a +2 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, whether or not they are actively looking.<br><br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><br><strong>Languages</strong> Dwarves begin play speaking Common and Dwarven. Dwarves with high Intelligence scores can choose from the following Giant, Gnome, Goblin, Orc, Terran, and Undercommon.<br><br><strong>Weapon and Armor Proficiency</strong> Monks are proficient with the club, crossbow (light or heavy), dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, and spear.<br><br>Monks are not proficient with any armor or shields.<br><br>When wearing armor, using a shield, or carrying a medium or heavy load, a monk loses his AC bonus, as well as his fast movement and flurry of blows abilities.<br><br><strong>AC Bonus (Ex)</strong> When unarmored and unencumbered, the monk adds his Wisdom bonus (if any) to his AC and his CMD. In addition, a monk gains a +1 bonus to AC and CMD at 4th level. This bonus increases by 1 for every four monk levels thereafter, up to a maximum of +5 at 20th level.<br><br>These bonuses to AC apply even against touch attacks or when the monk is flat-footed. He loses these bonuses when he is immobilized or helpless, when he wears any armor, when he carries a shield, or when he carries a medium or heavy load.<br><br><strong>Flurry of Blows (Ex)</strong> Starting at 1st level, a monk can make a flurry of blows as a full-attack action. When doing so, he may make on additional attack, taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat. These attacks can be any combination of unarmed strikes and attacks with a monk special weapon (he does not need to use two weapons to use this ability). For the purpose of these attacks, the monk's base attack bonus from his monk class levels is equal to his monk level. For all other purposes, such as qualifying for a feat or a prestige class, the monk uses his normal base attack bonus.<br><br>At 8th level, the monk can make two additional attacks when he uses flurry of blows, as if using Improved Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br><br>At 15th level, the monk can make three additional attacks using flurry of blows, as if using Greater Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br><br>A monk applies his full Strength bonus to his damage rolls for all successful attacks made with flurry of blows, whether the attacks are made with an off-hand or with a weapon wielded in both hands. A monk may substitute disarm, sunder, and trip combat maneuvers for unarmed attacks as part of a flurry of blows. A monk cannot use any weapon other than an unarmed strike or a special monk weapon as part of a flurry of blows. A monk with natural weapons cannot use such weapons as part of a flurry of blows, nor can he make natural attacks in addition to his flurry of blows attacks.<br><br><strong>Unarmed Strike</strong> At 1st level, a monk gains Improved Unarmed Strike as a bonus feat. A monk's attacks may be with fist, elbows, knees, and feet. This means that a monk may make unarmed strikes with his hands full. There is no such thing as an off-hand attack for a monk striking unarmed. A monk may thus apply his full Strength bonus on damage rolls for all his unarmed strikes.<br><br>Usually a monk's unarmed strikes deal lethal damage, but he can choose to deal nonlethal damage instead with no penalty on his attack roll. He has the same choice to deal lethal or nonlethal damage while grappling.<br><br>A monk's unarmed strike is treated as both a manufactured weapon and a natural weapon for the purpose of spells and effects that enhance or improve either manufactured weapons or natural weapons.<br><br>A monk also deals more damage with his unarmed strikes than a normal person would, as shown above on Table: Monk. The unarmed damage values listed on Table: Monk is for Medium monks. A Small monk deals less damage than the amount given there with his unarmed attacks, while a Large monk deals more damage; see Small or Large Monk Unarmed Damage on the table given below.<br><br><strong>Bonus Feat</strong> At 1st level, 2nd level, and every 4 levels thereafter, a monk may select a bonus feat. These feats must be taken from the following list: Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, and Throw Anything. At 6th level, the following feats are added to the list: Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, and Mobility. At 10th level, the following feats are added to the list: Improved Critical, Medusa's Wrath, Snatch Arrows, and Spring Attack. A monk need not have any of the prerequisites normally required for these feats to select them.<br><br><strong>Stunning Fist (Ex)</strong> At 1st level, the monk gains Stunning Fist as a bonus feat, even if he does not meet the prerequisites. At 4th level, and every 4 levels thereafter, the monk gains the ability to apply a new condition to the target of his Stunning Fist. This condition replaces stunning the target for 1 round, and a successful saving throw still negates the effect. At 4th level, he can choose to make the target fatigued. At 8th level, he can make the target sickened for 1 minute. At 12th level, he can make the target staggered for 1d6+1 rounds. At 16th level, he can permanently blind or deafen the target. At 20th level, he can paralyze the target for 1d6+1 rounds. The monk must choose which condition will apply before the attack roll is made. These effects do not stack with themselves (a creature sickened by Stunning Fist cannot become nauseated if hit by Stunning Fist again), but additional hits do increase the duration.<br><br><strong>Evasion (Ex)</strong> At 2nd level or higher, a monk can avoid damage from many area-effect attacks. If a monk makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, he instead takes no damage. Evasion can be used only if a monk is wearing light armor or no armor. A helpless monk does not gain the benefit of evasion.<br><br><strong>Fast Movement (Ex)</strong> At 3rd level, a monk gains an enhancement bonus to his land speed, as shown on Table: Monk. A monk in armor or carrying a medium or heavy load loses this extra speed.<br><br><strong>Maneuver Training (Ex)</strong> At 3rd level, a monk uses his monk level in place of his base attack bonus when calculating his Combat Maneuver Bonus. Base attack bonuses granted from other classes are unaffected and are added normally.<br><br><strong>Still Mind (Ex)</strong> A monk of 3rd level or higher gains a +2 bonus on saving throws against enchantment spells and effects.<br><br><strong>Ki Pool (Su)</strong> At 4th level, a monk gains a pool of ki points, supernatural energy he can use to accomplish amazing feats. The number of points in a monk's ki pool is equal to 1/2 his monk level + his Wisdom modifier. As long as he has at least 1 point in his ki pool, he can make a ki strike. At 4th level, ki strike allows his unarmed attacks to be treated as magic weapons for the purpose of overcoming damage reduction. At 7th level, his unarmed attacks are also treated as cold iron and silver for the purpose of overcoming damage reduction. At 10th level, his unarmed attacks are also treated as lawful weapons for the purpose of overcoming damage reduction. At 16th level, his unarmed attacks are treated as adamantine weapons for the purpose of overcoming damage reduction and bypassing hardness.<br><br>By spending 1 point from his ki pool, a monk can make one additional attack at his highest attack bonus when making a flurry of blows attack. In addition, he can spend 1 point to increase his speed by 20 feet for 1 round. Finally, a monk can spend 1 point from his ki pool to give himself a +4 dodge bonus to AC for 1 round. Each of these powers is activated as a swift action. A monk gains additional powers that consume points from his ki pool as he gains levels.<br><br>The ki pool is replenished each morning after 8 hours of rest or meditation; these hours do not need to be consecutive.<br><br><strong>Slow Fall (Ex)</strong> At 4th level or higher, a monk within arm's reach of a wall can use it to slow his descent. When first gaining this ability, he takes damage as if the fall were 20 feet shorter than it actually is. The monk's ability to slow his fall (that is, to reduce the effective distance of the fall when next to a wall) improves with his monk level until at 20th level he can use a nearby wall to slow his descent and fall any distance without harm.<br><br><strong>High Jump (Ex)</strong> At 5th level, a monk adds his level to all Acrobatics checks made to jump, both for vertical jumps and horizontal jumps. In addition, he always counts as having a running start when making jump checks using Acrobatics. By spending 1 point from his ki pool as a swift action, a monk gains a +20 bonus on Acrobatics checks made to jump for 1 round.<br><br><strong>Purity of Body (Ex)</strong> At 5th level, a monk gains immunity to all diseases, including supernatural and magical diseases.<br><br><strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. In addition, you receive a +2 bonus on checks made to grapple a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to grapple you.<br><br><strong>Weapon Focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><br><strong>Extra Ki</strong> You can use your ki pool more times per day than most.",
-      story: ""
+      character: [{
+        note: "<strong>+2 Constitution, +2 Wisdom, –2 Charisma</strong> Dwarves are both tough and wise, but also a bit gruff."
+      }, {
+        note: "<strong>Medium</strong> Dwarves are Medium creatures and have no bonuses or penalties due to their size."
+      }, {
+        note: "<strong>Slow and Steady</strong> Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance."
+      }, {
+        note: "<strong>Darkvision</strong> Dwarves can see in the dark up to 60 feet."
+      }, {
+        note: "<strong>Defensive Training</strong> Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype."
+      }, {
+        note: "<strong>Greed</strong> Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones."
+      }, {
+        note: "<strong>Hatred</strong> Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes due to special training against these hated foes."
+      }, {
+        note: "<strong>Hardy</strong> Dwarves receive a +2 racial bonus on saving throws against poison, spells, and spell-like abilities."
+      }, {
+        note: "<strong>Stability</strong> Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground."
+      }, {
+        note: "<strong>Stonecunning</strong> Dwarves receive a +2 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, whether or not they are actively looking."
+      }, {
+        note: "<strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon."
+      }, {
+        note: "<strong>Languages</strong> Dwarves begin play speaking Common and Dwarven. Dwarves with high Intelligence scores can choose from the following Giant, Gnome, Goblin, Orc, Terran, and Undercommon."
+      }, {
+        note: "<strong>Weapon and Armor Proficiency</strong> Monks are proficient with the club, crossbow (light or heavy), dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, and spear.<br><br>Monks are not proficient with any armor or shields.<br><br>When wearing armor, using a shield, or carrying a medium or heavy load, a monk loses his AC bonus, as well as his fast movement and flurry of blows abilities."
+      }, {
+        note: "<strong>AC Bonus (Ex)</strong> When unarmored and unencumbered, the monk adds his Wisdom bonus (if any) to his AC and his CMD. In addition, a monk gains a +1 bonus to AC and CMD at 4th level. This bonus increases by 1 for every four monk levels thereafter, up to a maximum of +5 at 20th level.<br><br>These bonuses to AC apply even against touch attacks or when the monk is flat-footed. He loses these bonuses when he is immobilized or helpless, when he wears any armor, when he carries a shield, or when he carries a medium or heavy load."
+      }, {
+        note: "<strong>Flurry of Blows (Ex)</strong> Starting at 1st level, a monk can make a flurry of blows as a full-attack action. When doing so, he may make on additional attack, taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat. These attacks can be any combination of unarmed strikes and attacks with a monk special weapon (he does not need to use two weapons to use this ability). For the purpose of these attacks, the monk's base attack bonus from his monk class levels is equal to his monk level. For all other purposes, such as qualifying for a feat or a prestige class, the monk uses his normal base attack bonus.<br><br>At 8th level, the monk can make two additional attacks when he uses flurry of blows, as if using Improved Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br><br>At 15th level, the monk can make three additional attacks using flurry of blows, as if using Greater Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br><br>A monk applies his full Strength bonus to his damage rolls for all successful attacks made with flurry of blows, whether the attacks are made with an off-hand or with a weapon wielded in both hands. A monk may substitute disarm, sunder, and trip combat maneuvers for unarmed attacks as part of a flurry of blows. A monk cannot use any weapon other than an unarmed strike or a special monk weapon as part of a flurry of blows. A monk with natural weapons cannot use such weapons as part of a flurry of blows, nor can he make natural attacks in addition to his flurry of blows attacks."
+      }, {
+        note: "<strong>Unarmed Strike</strong> At 1st level, a monk gains Improved Unarmed Strike as a bonus feat. A monk's attacks may be with fist, elbows, knees, and feet. This means that a monk may make unarmed strikes with his hands full. There is no such thing as an off-hand attack for a monk striking unarmed. A monk may thus apply his full Strength bonus on damage rolls for all his unarmed strikes.<br><br>Usually a monk's unarmed strikes deal lethal damage, but he can choose to deal nonlethal damage instead with no penalty on his attack roll. He has the same choice to deal lethal or nonlethal damage while grappling.<br><br>A monk's unarmed strike is treated as both a manufactured weapon and a natural weapon for the purpose of spells and effects that enhance or improve either manufactured weapons or natural weapons.<br><br>A monk also deals more damage with his unarmed strikes than a normal person would, as shown above on Table: Monk. The unarmed damage values listed on Table: Monk is for Medium monks. A Small monk deals less damage than the amount given there with his unarmed attacks, while a Large monk deals more damage; see Small or Large Monk Unarmed Damage on the table given below."
+      }, {
+        note: "<strong>Bonus Feat</strong> At 1st level, 2nd level, and every 4 levels thereafter, a monk may select a bonus feat. These feats must be taken from the following list: Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, and Throw Anything. At 6th level, the following feats are added to the list: Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, and Mobility. At 10th level, the following feats are added to the list: Improved Critical, Medusa's Wrath, Snatch Arrows, and Spring Attack. A monk need not have any of the prerequisites normally required for these feats to select them."
+      }, {
+        note: "<strong>Stunning Fist (Ex)</strong> At 1st level, the monk gains Stunning Fist as a bonus feat, even if he does not meet the prerequisites. At 4th level, and every 4 levels thereafter, the monk gains the ability to apply a new condition to the target of his Stunning Fist. This condition replaces stunning the target for 1 round, and a successful saving throw still negates the effect. At 4th level, he can choose to make the target fatigued. At 8th level, he can make the target sickened for 1 minute. At 12th level, he can make the target staggered for 1d6+1 rounds. At 16th level, he can permanently blind or deafen the target. At 20th level, he can paralyze the target for 1d6+1 rounds. The monk must choose which condition will apply before the attack roll is made. These effects do not stack with themselves (a creature sickened by Stunning Fist cannot become nauseated if hit by Stunning Fist again), but additional hits do increase the duration."
+      }, {
+        note: "<strong>Evasion (Ex)</strong> At 2nd level or higher, a monk can avoid damage from many area-effect attacks. If a monk makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, he instead takes no damage. Evasion can be used only if a monk is wearing light armor or no armor. A helpless monk does not gain the benefit of evasion."
+      }, {
+        note: "<strong>Fast Movement (Ex)</strong> At 3rd level, a monk gains an enhancement bonus to his land speed, as shown on Table: Monk. A monk in armor or carrying a medium or heavy load loses this extra speed."
+      }, {
+        note: "<strong>Maneuver Training (Ex)</strong> At 3rd level, a monk uses his monk level in place of his base attack bonus when calculating his Combat Maneuver Bonus. Base attack bonuses granted from other classes are unaffected and are added normally."
+      }, {
+        note: "<strong>Still Mind (Ex)</strong> A monk of 3rd level or higher gains a +2 bonus on saving throws against enchantment spells and effects."
+      }, {
+        note: "<strong>Ki Pool (Su)</strong> At 4th level, a monk gains a pool of ki points, supernatural energy he can use to accomplish amazing feats. The number of points in a monk's ki pool is equal to 1/2 his monk level + his Wisdom modifier. As long as he has at least 1 point in his ki pool, he can make a ki strike. At 4th level, ki strike allows his unarmed attacks to be treated as magic weapons for the purpose of overcoming damage reduction. At 7th level, his unarmed attacks are also treated as cold iron and silver for the purpose of overcoming damage reduction. At 10th level, his unarmed attacks are also treated as lawful weapons for the purpose of overcoming damage reduction. At 16th level, his unarmed attacks are treated as adamantine weapons for the purpose of overcoming damage reduction and bypassing hardness.<br><br>By spending 1 point from his ki pool, a monk can make one additional attack at his highest attack bonus when making a flurry of blows attack. In addition, he can spend 1 point to increase his speed by 20 feet for 1 round. Finally, a monk can spend 1 point from his ki pool to give himself a +4 dodge bonus to AC for 1 round. Each of these powers is activated as a swift action. A monk gains additional powers that consume points from his ki pool as he gains levels.<br><br>The ki pool is replenished each morning after 8 hours of rest or meditation; these hours do not need to be consecutive."
+      }, {
+        note: "<strong>Slow Fall (Ex)</strong> At 4th level or higher, a monk within arm's reach of a wall can use it to slow his descent. When first gaining this ability, he takes damage as if the fall were 20 feet shorter than it actually is. The monk's ability to slow his fall (that is, to reduce the effective distance of the fall when next to a wall) improves with his monk level until at 20th level he can use a nearby wall to slow his descent and fall any distance without harm."
+      }, {
+        note: "<strong>High Jump (Ex)</strong> At 5th level, a monk adds his level to all Acrobatics checks made to jump, both for vertical jumps and horizontal jumps. In addition, he always counts as having a running start when making jump checks using Acrobatics. By spending 1 point from his ki pool as a swift action, a monk gains a +20 bonus on Acrobatics checks made to jump for 1 round."
+      }, {
+        note: "<strong>Purity of Body (Ex)</strong> At 5th level, a monk gains immunity to all diseases, including supernatural and magical diseases."
+      }, {
+        note: "<strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. In addition, you receive a +2 bonus on checks made to grapple a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to grapple you."
+      }, {
+        note: "<strong>Weapon Focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon."
+      }, {
+        note: "<strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat."
+      }, {
+        note: "<strong>Extra Ki</strong> You can use your ki pool more times per day than most."
+      }],
+      story: []
     }
   };
 
@@ -8624,12 +8814,21 @@ var clone = (function() {
     var all_attackMelee = sheet.getCharacter().offense.attack.melee;
     var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
     var all_consumable = sheet.getCharacter().equipment.consumable;
+    var all_noteCharacter = sheet.getCharacter().notes.character;
+    var all_noteStory = sheet.getCharacter().notes.story;
+
     _render_clone(all_attackMelee.length, "attack-melee");
     _render_clone(all_attackRanged.length, "attack-ranged");
     _render_clone(all_consumable.length, "consumable");
+    _render_clone(all_noteCharacter.length, "note-character");
+    _render_clone(all_noteStory.length, "note-story");
+
     _update_cloneInput(all_attackMelee, "attack-melee");
     _update_cloneInput(all_attackRanged, "attack-ranged");
     _update_cloneInput(all_consumable, "consumable");
+    _update_cloneTextarea(all_noteCharacter, "note-character");
+    _update_cloneTextarea(all_noteStory, "note-story");
+
     _updateCloneAttackMelee();
     _updateCloneAttackRanged();
     _updateCloneConsumable();
@@ -8766,6 +8965,42 @@ var clone = (function() {
     return cloneString;
   };
 
+  function _newNoteCharacter(index) {
+    var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
+      '<div class="m-textarea-block js-textarea-block">' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Character Note</label>' +
+      '<div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    return cloneString;
+  };
+
+  function _newNoteStory(index) {
+    var cloneString =
+      '<div class="row">' +
+      '<div class="col-xs-12">' +
+      '<div class="m-textarea-block js-textarea-block">' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Story Note</label>' +
+      '<div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="col-xs-3 col-xs-offset-9">' +
+      '<div class="m-clone-block-delete-controls">' +
+      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    return cloneString;
+  };
+
   function _minMaxCountLimit(input) {
     if (input.value <= 0) {
       input.value = "";
@@ -8792,24 +9027,35 @@ var clone = (function() {
   function bind() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
+    var cloneBlockNote = helper.e(".js-clone-block-note");
+
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
+
     var cloneAddAttackMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
     var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
     var cloneRemoveAttack = cloneBlockAttack.querySelector(".js-clone-remove");
+
+    var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
+    var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
+    var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
+
     cloneAddConsumable.addEventListener("click", function() {
       _render_clone(1, "consumable");
       _updateCloneConsumable();
       _smoothScrollToClones("#equipment-consumables");
       sheet.storeCharacters();
-      // consumable.render();
       if (_getCloneCount("consumable") <= 99) {
         snack.render("Consumable added.", false, false);
+      } else {
+        snack.render("Too many consumables, (max 100)", false, false);
       };
     }, false);
+
     cloneRemoveConsumable.addEventListener("click", function() {
       _changeCloneState("consumable");
     }, false);
+
     cloneAddAttackMelee.addEventListener("click", function() {
       _render_clone(1, "attack-melee");
       _updateCloneAttackMelee();
@@ -8817,8 +9063,11 @@ var clone = (function() {
       sheet.storeCharacters();
       if (_getCloneCount("attack-melee") <= 99) {
         snack.render("Melee attack added.", false, false);
+      } else {
+        snack.render("Too many melee attacks, (max 100)", false, false);
       };
     }, false);
+
     cloneAddAttackRanged.addEventListener("click", function() {
       _render_clone(1, "attack-ranged");
       _updateCloneAttackRanged();
@@ -8826,11 +9075,43 @@ var clone = (function() {
       sheet.storeCharacters();
       if (_getCloneCount("attack-ranged") <= 99) {
         snack.render("Ranged attack added.", false, false);
+      } else {
+        snack.render("Too many ranged attacks, (max 100)", false, false);
       };
     }, false);
+
     cloneRemoveAttack.addEventListener("click", function() {
       _changeCloneState("attack");
     }, false);
+
+    cloneAddCharacterNote.addEventListener("click", function() {
+      _render_clone(1, "note-character");
+      _updateCloneNoteCharacter();
+      _smoothScrollToClones("#notes-character-story");
+      sheet.storeCharacters();
+      if (_getCloneCount("note-character") <= 99) {
+        snack.render("Character note added.", false, false);
+      } else {
+        snack.render("Too many character notes, (max 100)", false, false);
+      };
+    }, false);
+
+    cloneAddStoryNote.addEventListener("click", function() {
+      _render_clone(1, "note-story");
+      _updateCloneNoteStory();
+      _smoothScrollToClones("#notes-character-story");
+      sheet.storeCharacters();
+      if (_getCloneCount("note-story") <= 99) {
+        snack.render("Story note added.", false, false);
+      } else {
+        snack.render("Too many story notes, (max 100)", false, false);
+      };
+    }, false);
+
+    cloneRemoveNote.addEventListener("click", function() {
+      _changeCloneState("note");
+    }, false);
+
   };
 
   function _render_clone(numberOfClones, cloneType) {
@@ -8847,6 +9128,14 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-story");
     };
     for (var i = 0; i < numberOfClones; i++) {
       var cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
@@ -8869,6 +9158,12 @@ var clone = (function() {
       if (cloneType == "attack-ranged") {
         cloneString = _newAttackRanged(index);
       };
+      if (cloneType == "note-character") {
+        cloneString = _newNoteCharacter(index);
+      };
+      if (cloneType == "note-story") {
+        cloneString = _newNoteStory(index);
+      };
       // add content
       newNode.innerHTML = cloneString;
       // max of 100 clones
@@ -8884,6 +9179,12 @@ var clone = (function() {
         };
         if (cloneType == "attack-ranged") {
           _bind_cloneAttackRangedInput(newNode.querySelectorAll(".js-input-block"));
+        };
+        if (cloneType == "note-character") {
+          _bind_cloneNoteCharacterTextarea(newNode.querySelector(".js-textarea-block"));
+        };
+        if (cloneType == "note-story") {
+          _bind_cloneNoteStoryTextarea(newNode.querySelector(".js-textarea-block"));
         };
         _bind_cloneRemoveButton(newNode.querySelector(".js-clone-block-delete"), cloneType);
       };
@@ -8926,23 +9227,56 @@ var clone = (function() {
     };
   };
 
-  function _getCloneCount(cloneType) {
+  function _update_cloneTextarea(array, cloneType) {
     var cloneBlock;
+    var cloneTarget;
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-story");
+    };
+    for (var i = 0; i < array.length; i++) {
+      for (var j in array[i]) {
+        var textarea;
+        if (cloneType == "note-character") {
+          textarea = cloneTarget.querySelector("#note-character-" + i);
+        };
+        if (cloneType == "note-story") {
+          textarea = cloneTarget.querySelector("#note-story-" + i);
+        };
+        if (textarea) {
+          textarea.innerHTML = array[i][j];
+          textareaBlock.update(textarea);
+        };
+      };
+      totalBlock.update();
+    };
+  };
+
+  function _getCloneCount(cloneType) {
     var cloneTarget;
     var cloneCount;
     if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
+      cloneTarget = helper.e(".js-clone-block-target-attack-melee");
       cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
-    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".js-clone-block-attack");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
+    if (cloneType == "attack-ranged") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
       cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     if (cloneType == "consumable") {
-      cloneBlock = helper.e(".js-clone-block-consumable");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+      cloneTarget = helper.e(".js-clone-block-target-consumable");
+      cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
+    };
+    if (cloneType == "note-character") {
+      cloneTarget = helper.e(".js-clone-block-target-note-character");
+      cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
+    };
+    if (cloneType == "note-story") {
+      cloneTarget = helper.e(".js-clone-block-target-note-story");
       cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
     };
     return cloneCount;
@@ -8951,6 +9285,10 @@ var clone = (function() {
   function _checkCloneState(cloneType) {
     var cloneBlock;
     var cloneTarget;
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".js-clone-block-consumable");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+    };
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-melee");
@@ -8959,9 +9297,13 @@ var clone = (function() {
       cloneBlock = helper.e(".js-clone-block-attack");
       cloneTarget = cloneBlock.querySelector(".js-clone-block-target-attack-ranged");
     };
-    if (cloneType == "consumable") {
-      cloneBlock = helper.e(".js-clone-block-consumable");
-      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-consumable");
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+      cloneTarget = cloneBlock.querySelector(".js-clone-block-target-note-story");
     };
     var cloneCount = cloneBlock.querySelectorAll(".js-clone");
     var cloneControls = cloneBlock.querySelector(".js-clone-controls");
@@ -8976,22 +9318,32 @@ var clone = (function() {
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       _destroy_clone(this, cloneType);
-      _updateCloneAttackMelee();
-      _updateCloneAttackRanged();
-      _updateCloneConsumable();
-      sheet.storeCharacters();
       if (cloneType == "consumable") {
+        _updateCloneConsumable();
         _checkCloneState("consumable");
         snack.render("Consumable removed.", false, false);
       };
       if (cloneType == "attack-melee") {
+        _updateCloneAttackMelee();
         _checkCloneState("attack-melee");
         snack.render("Melee attack removed.", false, false);
       };
       if (cloneType == "attack-ranged") {
+        _updateCloneAttackRanged();
         _checkCloneState("attack-ranged");
         snack.render("Ranged attack removed.", false, false);
       };
+      if (cloneType == "note-character") {
+        _checkCloneState("note-character");
+        _updateCloneNoteCharacter();
+        snack.render("Character note removed.", false, false);
+      };
+      if (cloneType == "note-story") {
+        _checkCloneState("note-story");
+        _updateCloneNoteStory();
+        snack.render("Story note removed.", false, false);
+      };
+      sheet.storeCharacters();
     }, false);
   };
 
@@ -9008,11 +9360,40 @@ var clone = (function() {
     if (type == "consumable") {
       _updateCloneConsumable();
     };
+    if (type == "note-character") {
+      _updateCloneNoteCharacter();
+    };
+    if (type == "note-story") {
+      _updateCloneNoteStory();
+    };
     totalBlock.update();
     sheet.storeCharacters();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
+    };
+  };
+
+  function _bind_cloneConsumableInput(array) {
+    for (var i = 0; i < array.length; i++) {
+      var input = array[i].querySelector(".js-input-block-field");
+      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
+        input.addEventListener("input", function() {
+          _minMaxCountLimit(this);
+        }, false);
+      };
+      input.addEventListener("input", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
+      }, false);
+      input.addEventListener("focus", function() {
+        inputBlock.focus(this);
+      }, false);
+      input.addEventListener("blur", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
+        inputBlock.focus(this);
+      }, false);
     };
   };
 
@@ -9052,25 +9433,48 @@ var clone = (function() {
     };
   };
 
-  function _bind_cloneConsumableInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
-        input.addEventListener("input", function() {
-          _minMaxCountLimit(this);
-        }, false);
-      };
-      input.addEventListener("input", function() {
+  function _bind_cloneNoteCharacterTextarea(element) {
+    var textareaBlockField = element.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
+    if (textareaBlockField) {
+      textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character");
       }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
+      textareaBlockField.addEventListener("focus", function() {
+        textareaBlock.focus(this);
       }, false);
-      input.addEventListener("blur", function() {
+      textareaBlockField.addEventListener("blur", function() {
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character");
+        textareaBlock.focus(this);
+      }, false);
+    };
+    if (textareaBlockLabel) {
+      textareaBlockLabel.addEventListener("click", function() {
+        textareaBlock.focusLabel(this);
+      }, false);
+    };
+  };
+
+  function _bind_cloneNoteStoryTextarea(element) {
+    var textareaBlockField = element.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
+    if (textareaBlockField) {
+      textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable");
-        inputBlock.focus(this);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story");
+      }, false);
+      textareaBlockField.addEventListener("focus", function() {
+        textareaBlock.focus(this);
+      }, false);
+      textareaBlockField.addEventListener("blur", function() {
+        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story");
+        textareaBlock.focus(this);
+      }, false);
+    };
+    if (textareaBlockLabel) {
+      textareaBlockLabel.addEventListener("click", function() {
+        textareaBlock.focusLabel(this);
       }, false);
     };
   };
@@ -9083,12 +9487,12 @@ var clone = (function() {
     // change clone remove button
     helper.toggleClass(cloneRemoveButton, "is-active");
     // change clone block state
-    if (cloneBlock.dataset.deleteCloneState == "true") {
-      helper.removeClass(cloneBlock, "is-delete-state");
-      cloneBlock.dataset.deleteCloneState = "false";
-    } else if (cloneBlock.dataset.deleteCloneState == "false") {
+    if (cloneBlock.dataset.deleteCloneState == "false" || !cloneBlock.dataset.deleteCloneState) {
       helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
+    } else {
+      helper.removeClass(cloneBlock, "is-delete-state");
+      cloneBlock.dataset.deleteCloneState = "false";
     };
     // if clone count us 0 remove restore all classes to normal
     if (cloneCount == 0) {
@@ -9129,6 +9533,18 @@ var clone = (function() {
       current: this.current = current,
       total: this.total = total,
       used: this.used = used
+    };
+  };
+
+  function _createNoteCharacter(data) {
+    return {
+      note: this.data = data
+    };
+  };
+
+  function _createNoteStory(data) {
+    return {
+      note: this.data = data
     };
   };
 
@@ -9179,6 +9595,30 @@ var clone = (function() {
     sheet.getCharacter().equipment.consumable = cloneConsumable;
   };
 
+  function _updateCloneNoteCharacter() {
+    var cloneTarget = helper.e(".js-clone-block-target-note-character");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
+    var cloneNote = [];
+    for (var i = 0; i < all_clone.length; i++) {
+      var textarea = all_clone[i].querySelector(".js-textarea-block-field").innerHTML || "";
+      var newNote = new _createNoteCharacter(textarea);
+      cloneNote.push(newNote);
+    };
+    sheet.getCharacter().notes.character = cloneNote;
+  };
+
+  function _updateCloneNoteStory() {
+    var cloneTarget = helper.e(".js-clone-block-target-note-story");
+    var all_clone = cloneTarget.querySelectorAll(".js-clone");
+    var cloneNote = [];
+    for (var i = 0; i < all_clone.length; i++) {
+      var textarea = all_clone[i].querySelector(".js-textarea-block-field").innerHTML || "";
+      var newNote = new _createNoteStory(textarea);
+      cloneNote.push(newNote);
+    };
+    sheet.getCharacter().notes.story = cloneNote;
+  };
+
   function clear() {
     // console.log("--- clone clear fired ---");
     // not sure why clear is firing twice on character change, must investigate 
@@ -9221,8 +9661,10 @@ var display = (function() {
         event.preventDefault();
         _toggle_quickEdit(this);
         totalBlock.update();
-        clear();
-        render();
+        if (body.dataset.displayMode == "true") {
+          clear();
+          render();
+        };
       }, false);
     };
   };
@@ -9483,6 +9925,7 @@ var display = (function() {
     var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
     var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
     var displayAttack = helper.e(".js-display-block-attack").querySelector(".js-display-block-target");
+    var displayNote = helper.e(".js-display-block-note").querySelector(".js-display-block-target");
     var displayConsumable = helper.e(".js-display-block-consumable").querySelector(".js-display-block-target");
 
     function _removeAllChildren(parent) {
@@ -9499,6 +9942,7 @@ var display = (function() {
     _removeAllChildren(displaySpell);
     _removeAllChildren(displaySkills);
     _removeAllChildren(displayAttack);
+    _removeAllChildren(displayNote);
     _removeAllChildren(displayConsumable);
   };
 
@@ -9612,9 +10056,6 @@ var display = (function() {
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
           makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
           makeDisplayItem("offense.attack_notes", "<strong>Notes</strong> ", "");
-
-          makeDisplayItem("notes.character", "", "");
-          makeDisplayItem("notes.story", "", "");
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");
@@ -9785,7 +10226,6 @@ var display = (function() {
     };
 
     function _displayAttackMelee() {
-      var attacksToRender;
       if (sheet.getCharacter().offense.attack.melee) {
         for (var i in sheet.getCharacter().offense.attack.melee) {
           _render_displayClone("attack-melee", sheet.getCharacter().offense.attack.melee[i], helper.e(".js-display-block-attack").querySelector(".js-display-block-target"));
@@ -9794,7 +10234,6 @@ var display = (function() {
     };
 
     function _displayAttackRanged() {
-      var attacksToRender;
       if (sheet.getCharacter().offense.attack.ranged) {
         for (var i in sheet.getCharacter().offense.attack.ranged) {
           _render_displayClone("attack-ranged", sheet.getCharacter().offense.attack.ranged[i], helper.e(".js-display-block-attack").querySelector(".js-display-block-target"));
@@ -9803,10 +10242,25 @@ var display = (function() {
     };
 
     function _displayConsumable() {
-      var attacksToRender;
       if (sheet.getCharacter().equipment.consumable) {
         for (var i in sheet.getCharacter().equipment.consumable) {
           _render_displayClone("consumable", sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable").querySelector(".js-display-block-target"));
+        };
+      };
+    };
+
+    function _displayNoteCharacter() {
+      if (sheet.getCharacter().notes.character) {
+        for (var i in sheet.getCharacter().notes.character) {
+          _render_displayClone("note-character", sheet.getCharacter().notes.character[i], helper.e(".js-display-block-note").querySelector(".js-display-block-target"));
+        };
+      };
+    };
+
+    function _displayNoteStory() {
+      if (sheet.getCharacter().notes.story) {
+        for (var i in sheet.getCharacter().notes.story) {
+          _render_displayClone("note-story", sheet.getCharacter().notes.story[i], helper.e(".js-display-block-note").querySelector(".js-display-block-target"));
         };
       };
     };
@@ -9886,10 +10340,12 @@ var display = (function() {
     };
 
     function _render_displayClone(cloneType, object, displayTarget) {
+      // console.log(cloneType);
+      // console.log(object);
+      // console.log(displayTarget);
       var para = document.createElement("p");
       para.setAttribute("class", "m-display-block");
       for (var i in object) {
-
         // filter the object keys
         if (i != "used" && i != "total") {
           var data = object[i];
@@ -9932,6 +10388,8 @@ var display = (function() {
     _displayAttackMelee();
     _displayAttackRanged();
     _displayConsumable();
+    _displayNoteCharacter();
+    _displayNoteStory();
 
   };
 
@@ -12050,7 +12508,7 @@ var textareaBlock = (function() {
     };
   };
 
-  function updateTextareaBlock(element) {
+  function update(element) {
     focus(element);
   };
 
@@ -12074,13 +12532,13 @@ var textareaBlock = (function() {
       };
       if (textareaBlockLabel) {
         textareaBlockLabel.addEventListener("click", function() {
-          _textareaLabelshiftFocus(this);
+          focusLabel(this);
         }, false);
       };
     };
   };
 
-  function _textareaLabelshiftFocus(element) {
+  function focusLabel(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
     var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
     textareaBlockField.focus();
@@ -12093,15 +12551,16 @@ var textareaBlock = (function() {
       if (path) {
         var content = helper.getObject(sheet.getCharacter(), path);
         all_textareaBlockField[i].innerHTML = content;
-        updateTextareaBlock(all_textareaBlockField[i]);
+        update(all_textareaBlockField[i]);
       };
     };
   };
 
   // exposed methods
   return {
-    update: updateTextareaBlock,
+    update: update,
     focus: focus,
+    focusLabel: focusLabel,
     render: render,
     clear: clear,
     bind: bind
@@ -12727,7 +13186,7 @@ var totalBlock = (function() {
   };
 
   smoothScroll.init({
-    speed: 300,
+    speed: 500,
     offset: quickNavHeight
   });
 
