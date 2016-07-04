@@ -19,8 +19,10 @@ var display = (function() {
         event.preventDefault();
         _toggle_quickEdit(this);
         totalBlock.update();
-        clear();
-        render();
+        if (body.dataset.displayMode == "true") {
+          clear();
+          render();
+        };
       }, false);
     };
   };
@@ -281,6 +283,7 @@ var display = (function() {
     var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
     var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
     var displayAttack = helper.e(".js-display-block-attack").querySelector(".js-display-block-target");
+    var displayNote = helper.e(".js-display-block-note").querySelector(".js-display-block-target");
     var displayConsumable = helper.e(".js-display-block-consumable").querySelector(".js-display-block-target");
 
     function _removeAllChildren(parent) {
@@ -297,6 +300,7 @@ var display = (function() {
     _removeAllChildren(displaySpell);
     _removeAllChildren(displaySkills);
     _removeAllChildren(displayAttack);
+    _removeAllChildren(displayNote);
     _removeAllChildren(displayConsumable);
   };
 
@@ -410,9 +414,6 @@ var display = (function() {
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
           makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
           makeDisplayItem("offense.attack_notes", "<strong>Notes</strong> ", "");
-
-          makeDisplayItem("notes.character", "", "");
-          makeDisplayItem("notes.story", "", "");
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");
@@ -583,7 +584,6 @@ var display = (function() {
     };
 
     function _displayAttackMelee() {
-      var attacksToRender;
       if (sheet.getCharacter().offense.attack.melee) {
         for (var i in sheet.getCharacter().offense.attack.melee) {
           _render_displayClone("attack-melee", sheet.getCharacter().offense.attack.melee[i], helper.e(".js-display-block-attack").querySelector(".js-display-block-target"));
@@ -592,7 +592,6 @@ var display = (function() {
     };
 
     function _displayAttackRanged() {
-      var attacksToRender;
       if (sheet.getCharacter().offense.attack.ranged) {
         for (var i in sheet.getCharacter().offense.attack.ranged) {
           _render_displayClone("attack-ranged", sheet.getCharacter().offense.attack.ranged[i], helper.e(".js-display-block-attack").querySelector(".js-display-block-target"));
@@ -601,10 +600,25 @@ var display = (function() {
     };
 
     function _displayConsumable() {
-      var attacksToRender;
       if (sheet.getCharacter().equipment.consumable) {
         for (var i in sheet.getCharacter().equipment.consumable) {
           _render_displayClone("consumable", sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable").querySelector(".js-display-block-target"));
+        };
+      };
+    };
+
+    function _displayNoteCharacter() {
+      if (sheet.getCharacter().notes.character) {
+        for (var i in sheet.getCharacter().notes.character) {
+          _render_displayClone("note-character", sheet.getCharacter().notes.character[i], helper.e(".js-display-block-note").querySelector(".js-display-block-target"));
+        };
+      };
+    };
+
+    function _displayNoteStory() {
+      if (sheet.getCharacter().notes.story) {
+        for (var i in sheet.getCharacter().notes.story) {
+          _render_displayClone("note-story", sheet.getCharacter().notes.story[i], helper.e(".js-display-block-note").querySelector(".js-display-block-target"));
         };
       };
     };
@@ -684,10 +698,12 @@ var display = (function() {
     };
 
     function _render_displayClone(cloneType, object, displayTarget) {
+      // console.log(cloneType);
+      // console.log(object);
+      // console.log(displayTarget);
       var para = document.createElement("p");
       para.setAttribute("class", "m-display-block");
       for (var i in object) {
-
         // filter the object keys
         if (i != "used" && i != "total") {
           var data = object[i];
@@ -730,6 +746,8 @@ var display = (function() {
     _displayAttackMelee();
     _displayAttackRanged();
     _displayConsumable();
+    _displayNoteCharacter();
+    _displayNoteStory();
 
   };
 

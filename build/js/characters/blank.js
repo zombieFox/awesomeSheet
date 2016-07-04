@@ -1146,8 +1146,8 @@ var blank = (function() {
       }]
     },
     notes: {
-      character: "",
-      story: "",
+      character: [],
+      story: []
     }
   };
 

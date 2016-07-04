@@ -2259,6 +2259,11 @@ label {
   margin: 0 0 1rem 0;
   padding: 1em;
   border-radius: 3px; }
+  .m-clone-block.is-delete-state .m-clone-block-target .m-clone textarea,
+  .m-clone-block.is-delete-state .m-clone-block-target .m-clone .textarea {
+    background-color: transparent;
+    border-color: rgba(252, 0, 66, 0.15);
+    margin: 0 0 1rem 0; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="email"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="number"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="search"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="text"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="tel"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="password"] {
     background-color: transparent;
     border-color: rgba(252, 0, 66, 0.15);
@@ -2285,6 +2290,9 @@ label {
 
 .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   background-color: #970027; }
+  .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone textarea,
+  .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .textarea {
+    border-color: #63001a; }
   .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="email"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="number"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="search"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="text"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="tel"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="password"] {
     border-color: #63001a; }
   .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
