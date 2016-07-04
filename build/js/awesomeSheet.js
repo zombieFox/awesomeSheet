@@ -5046,7 +5046,7 @@ var orrin = (function() {
       level: "4",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "6,240",
+      xp: "8,640",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -5090,7 +5090,7 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale,, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
-      magic_gear: "",
+      magic_gear: "Potion of Cure Light Wounds (3), Potion of Sheild of Faith (1), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -5336,6 +5336,11 @@ var orrin = (function() {
           attack: "6/6",
           damage: "1d6+2, 1d6+1",
           critical: "18–20/×2, 19–20/×2"
+        }, {
+          weapon: "Silver Dagger",
+          attack: "7",
+          damage: "1d6+1",
+          critical: "19–20/×2"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
