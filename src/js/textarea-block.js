@@ -74,13 +74,13 @@ var textareaBlock = (function() {
       };
       if (textareaBlockLabel) {
         textareaBlockLabel.addEventListener("click", function() {
-          _textareaLabelshiftFocus(this);
+          focusLabel(this);
         }, false);
       };
     };
   };
 
-  function _textareaLabelshiftFocus(element) {
+  function focusLabel(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
     var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
     textareaBlockField.focus();
@@ -102,6 +102,7 @@ var textareaBlock = (function() {
   return {
     update: update,
     focus: focus,
+    focusLabel: focusLabel,
     render: render,
     clear: clear,
     bind: bind

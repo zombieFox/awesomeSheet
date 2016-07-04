@@ -567,11 +567,9 @@ var clone = (function() {
     };
   };
 
-  function _bind_cloneNoteCharacterTextarea(textareaBlock) {
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
-    console.log(textareaBlockField);
-    console.log(textareaBlockLabel);
+  function _bind_cloneNoteCharacterTextarea(element) {
+    var textareaBlockField = element.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
     if (textareaBlockField) {
       textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
@@ -587,16 +585,14 @@ var clone = (function() {
     };
     if (textareaBlockLabel) {
       textareaBlockLabel.addEventListener("click", function() {
-        _textareaLabelshiftFocus(this);
+        textareaBlock.focusLabel(this);
       }, false);
     };
   };
 
-  function _bind_cloneNoteStoryTextarea(textareaBlock) {
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
-    console.log(textareaBlockField);
-    console.log(textareaBlockLabel);
+  function _bind_cloneNoteStoryTextarea(element) {
+    var textareaBlockField = element.querySelector(".js-textarea-block-field");
+    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
     if (textareaBlockField) {
       textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
@@ -612,7 +608,7 @@ var clone = (function() {
     };
     if (textareaBlockLabel) {
       textareaBlockLabel.addEventListener("click", function() {
-        _textareaLabelshiftFocus(this);
+        textareaBlock.focusLabel(this);
       }, false);
     };
   };
