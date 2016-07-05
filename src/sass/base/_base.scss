@@ -6,6 +6,7 @@ body {
   background: $white;
   margin: 0;
   padding: 0;
+  padding-bottom: 20em;
   font-weight: normal;
   color: $base-color;
   font-family: $base-font;
@@ -14,9 +15,6 @@ body {
   transition: background-color $transition-ease-medium;
   &.is-quick-edit-open {
     background-color: $gray-18;
-  }
-  &.is-display-mode {
-    padding-bottom: 10em;
   }
   &.is-night-mode {
     background-color: $gray-02;

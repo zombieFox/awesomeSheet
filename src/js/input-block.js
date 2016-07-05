@@ -123,6 +123,7 @@ var inputBlock = (function() {
         if (input.value == "restore all") {
           sheet.all();
         };
+        focus(this);
       };
     }, false);
   };
