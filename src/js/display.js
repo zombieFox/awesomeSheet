@@ -626,22 +626,57 @@ var display = (function() {
     function _render_displaySpell(array, level) {
       var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
       // read spells and add them to spell lists
+      var spellDc = sheet.getCharacter().spells.dc["level_" + level];
+      var perDay = sheet.getCharacter().spells.per_day["level_" + level];
+      var known = sheet.getCharacter().spells.known["level_" + level];
       for (var i = 0; i < array.length; i++) {
         var spellObject = array[i];
         // find spell list to add too
-        var knownListToSaveTo;
+        var spellPara;
         if (helper.e(".js-display-spell-level-" + level)) {
-          knownListToSaveTo = helper.e(".js-display-spell-level-" + level);
+          spellPara = helper.e(".js-display-spell-level-" + level);
         } else {
-          knownListToSaveTo = document.createElement("p");
-          knownListToSaveTo.setAttribute("class", "m-display-block js-display-spell-level-" + level);
-          var para = document.createElement("p");
-          para.setAttribute("class", "m-display-block");
-          var strong = document.createElement("strong");
-          strong.innerHTML = "Level " + level;
-          para.appendChild(strong);
-          displaySpell.appendChild(para);
-          displaySpell.appendChild(knownListToSaveTo);
+          spellPara = document.createElement("p");
+          spellPara.setAttribute("class", "m-display-block m-display-block-tab js-display-spell-level-" + level);
+          var spellLevelPara = document.createElement("p");
+          spellLevelPara.setAttribute("class", "m-display-block");
+          var spellLevelParaStrong = document.createElement("strong");
+          spellLevelParaStrong.innerHTML = "Level " + level;
+          spellLevelPara.appendChild(spellLevelParaStrong);
+          displaySpell.appendChild(spellLevelPara);
+          if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
+            var spellKnownDailyDcPara = document.createElement("p");
+            spellKnownDailyDcPara.setAttribute("class", "m-display-block m-display-block-tab m-display-block-sub");
+            if (known != "" || known == "undefined") {
+              var span1 = document.createElement("span");
+              if (spellKnownDailyDcPara.children.length > 0) {
+                span1.innerHTML = ", Known " + known + " ";
+              } else {
+                span1.innerHTML = "Known " + known;
+              };
+              spellKnownDailyDcPara.appendChild(span1);
+            };
+            if (perDay != "" || perDay == "undefined") {
+              var span2 = document.createElement("span");
+              if (spellKnownDailyDcPara.children.length > 0) {
+                span2.innerHTML = ", Per day " + perDay + " ";
+              } else {
+                span2.innerHTML = "Per day " + perDay;
+              };
+              spellKnownDailyDcPara.appendChild(span2);
+            };
+            if (spellDc != "" || spellDc == "undefined") {
+              var span3 = document.createElement("span");
+              if (spellKnownDailyDcPara.children.length > 0) {
+                span3.innerHTML = ", DC " + spellDc + " ";
+              } else {
+                span3.innerHTML = "DC " + spellDc;
+              };
+              spellKnownDailyDcPara.appendChild(span3);
+            };
+          };
+          displaySpell.appendChild(spellKnownDailyDcPara);
+          displaySpell.appendChild(spellPara);
         };
         // make spell
         var spell = document.createElement("span");
@@ -693,7 +728,7 @@ var display = (function() {
             };
           };
         };
-        knownListToSaveTo.appendChild(spell);
+        spellPara.appendChild(spell);
       };
     };
 

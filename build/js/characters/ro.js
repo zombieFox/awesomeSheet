@@ -1227,23 +1227,9 @@ var ro = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination."
+        note: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon).<br><strong>Keen Senses (Ex)</strong> +2 Perception checks."
       }, {
-        note: "<strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects."
-      }, {
-        note: "<strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items."
-      }, {
-        note: "<strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon)."
-      }, {
-        note: "<strong>Keen Senses (Ex)</strong> +2 Perception checks."
-      }, {
-        note: "<strong>Arcane Pool</strong> 4."
-      }, {
-        note: "<strong>Cantrips</strong> <strong>Spell Combat (Ex)</strong> cast spells and wield his weapons at the same time."
-      }, {
-        note: "<strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade."
-      }, {
-        note: "<strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable."
+        note: "<strong>Arcane Pool</strong> 4.<br><strong>Cantrips</strong> <strong>Spell Combat (Ex)</strong> cast spells and wield his weapons at the same time.<br><strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade.<br><strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable."
       }],
       story: []
     }
