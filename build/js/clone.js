@@ -70,7 +70,7 @@ var clone = (function() {
       '<div class="row no-gutter">' +
       '<div class="col-xs-5 col-md-4">' +
       '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Melee Weapon</label>' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
       '<input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
@@ -110,7 +110,7 @@ var clone = (function() {
       '<div class="row no-gutter">' +
       '<div class="col-xs-6 col-xl-4">' +
       '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Ranged Weapon</label>' +
+      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
       '<input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
       '</div>' +
       '</div>' +
@@ -160,7 +160,7 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="m-textarea-block js-textarea-block">' +
-      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Character Note</label>' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
       '<div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '</div>' +
       '</div>' +
@@ -178,7 +178,7 @@ var clone = (function() {
       '<div class="row">' +
       '<div class="col-xs-12">' +
       '<div class="m-textarea-block js-textarea-block">' +
-      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Story Note</label>' +
+      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
       '<div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '</div>' +
       '</div>' +
@@ -277,7 +277,7 @@ var clone = (function() {
     cloneAddCharacterNote.addEventListener("click", function() {
       _render_clone(1, "note-character");
       _updateCloneNoteCharacter();
-      _smoothScrollToClones("#notes-character-story");
+      _smoothScrollToClones("#notes-character");
       sheet.storeCharacters();
       if (_getCloneCount("note-character") <= 99) {
         snack.render("Character note added.", false, false);
@@ -289,7 +289,7 @@ var clone = (function() {
     cloneAddStoryNote.addEventListener("click", function() {
       _render_clone(1, "note-story");
       _updateCloneNoteStory();
-      _smoothScrollToClones("#notes-character-story");
+      _smoothScrollToClones("#notes-character");
       sheet.storeCharacters();
       if (_getCloneCount("note-story") <= 99) {
         snack.render("Story note added.", false, false);
