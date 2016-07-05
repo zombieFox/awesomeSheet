@@ -10625,6 +10625,14 @@ var inputBlock = (function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(nav.update, 1000, this);
     }, false);
+    input.addEventListener("keydown", function(event) {
+      // enter
+      if (event.keyCode == 13) {
+        if (input.value == "restore all") {
+          sheet.all();
+        };
+      };
+    }, false);
   };
 
   function _bind_class() {
