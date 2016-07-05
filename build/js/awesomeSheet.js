@@ -10157,8 +10157,10 @@ var display = (function() {
               };
               spellKnownDailyDcPara.appendChild(span3);
             };
+            if (spellKnownDailyDcPara) {
+              displaySpell.appendChild(spellKnownDailyDcPara);
+            };
           };
-          displaySpell.appendChild(spellKnownDailyDcPara);
           displaySpell.appendChild(spellPara);
         };
         // make spell
