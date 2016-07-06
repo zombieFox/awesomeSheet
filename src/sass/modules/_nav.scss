@@ -144,10 +144,10 @@
         }
         .m-nav-characters-class,
         .m-nav-characters-level {
-          color: $secondary-color-03;
+          color: $primary-color-10;
         }
         .m-nav-characters-name {
-          color: $primary-color-10;
+          color: $secondary-color-03;
           font-family: $open-sans-semi-bold;
           width: 80%;
           margin-top: 5px;
@@ -267,8 +267,7 @@
           &:before {
             color: $white;
           }
-          .m-nav-characters-class,
-          .m-nav-characters-level {
+          .m-nav-characters-name {
             color: $white;
           }
         }
@@ -278,6 +277,13 @@
           }
         }
         &:checked {
+          & + label {
+            .m-nav-characters-name,
+            .m-nav-characters-class,
+            .m-nav-characters-level {
+              color: $white;
+            }
+          }
           &:focus,
           &:hover {
             & + label {
