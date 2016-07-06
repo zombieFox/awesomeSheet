@@ -47,10 +47,8 @@ body {
   font-size: 1rem;
   line-height: 1.6666666667em;
   transition: background-color 0.4s ease-in-out; }
-  body.is-quick-edit-open {
-    background-color: #e6e6e6; }
   body.is-night-mode {
-    background-color: #0d0d0d;
+    background-color: #262626;
     color: #ffffff; }
 
 @media (min-width: 550px) {
@@ -3142,13 +3140,6 @@ label {
         -ms-flex: none;
             flex: none; }
 
-.is-quick-edit-open .m-display-section-divider {
-  background-color: #cccccc; }
-  .is-quick-edit-open .m-display-section-divider .m-display-section-icon {
-    background-color: #e6e6e6;
-    border-color: #cccccc;
-    color: #b3b3b3; }
-
 .m-display-block-target-spacer {
   min-width: 3em;
   display: inline-block; }
@@ -3169,10 +3160,10 @@ label {
   color: rgba(255, 255, 255, 0.55); }
 
 .is-night-mode .m-display-section-divider {
-  background-color: #333333; }
+  background-color: #404040; }
   .is-night-mode .m-display-section-divider .m-display-section-icon {
-    background-color: #0d0d0d;
-    border-color: #333333;
+    background-color: #262626;
+    border-color: #404040;
     color: gray; }
 
 .is-night-mode .m-display-item:after,
@@ -3196,7 +3187,7 @@ label {
     display: none; } }
 
 .m-quick-edit {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
   box-sizing: border-box;
   overflow: hidden;
   max-width: 80%;
@@ -3212,6 +3203,11 @@ label {
     position: relative; }
   .m-quick-edit .m-section-wrapper {
     padding: 2em 0; }
+  .m-quick-edit .textarea,
+  .m-quick-edit textarea {
+    background-color: rgba(255, 255, 255, 0.75); }
+  .m-quick-edit input[type="email"], .m-quick-edit input[type="number"], .m-quick-edit input[type="search"], .m-quick-edit input[type="text"], .m-quick-edit input[type="tel"], .m-quick-edit input[type="password"] {
+    background-color: rgba(255, 255, 255, 0.75); }
   .m-quick-edit.is-collapsed {
     height: 0;
     overflow-y: hidden; }
@@ -3221,7 +3217,12 @@ label {
     margin-bottom: 5em; }
 
 .is-night-mode .m-quick-edit {
-  background-color: #262626; }
+  background-color: #0d0d0d; }
+  .is-night-mode .m-quick-edit .textarea,
+  .is-night-mode .m-quick-edit textarea {
+    background-color: #0f1820; }
+  .is-night-mode .m-quick-edit input[type="email"], .is-night-mode .m-quick-edit input[type="number"], .is-night-mode .m-quick-edit input[type="search"], .is-night-mode .m-quick-edit input[type="text"], .is-night-mode .m-quick-edit input[type="tel"], .is-night-mode .m-quick-edit input[type="password"] {
+    background-color: #0f1820; }
 
 @media (min-width: 900px) {
   .m-quick-edit {

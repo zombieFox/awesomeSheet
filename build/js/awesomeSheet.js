@@ -9573,12 +9573,6 @@ var display = (function() {
     helper.toggleClass(node, "is-collapsed");
     helper.toggleClass(node, "is-expanded");
     helper.toggleClass(node, "js-is-expanded");
-    helper.removeClass(body, "is-quick-edit-open");
-    for (var i = 0; i < all_sectionEdit.length; i++) {
-      if (all_sectionEdit[i].classList.contains("js-is-expanded")) {
-        helper.addClass(body, "is-quick-edit-open");
-      };
-    };
   };
 
   var scrollTopEdit = 0;
@@ -9676,8 +9670,6 @@ var display = (function() {
       // record scroll top var
       scrollTopDisplay = window.scrollY;
       helper.removeClass(body, "is-display-mode");
-      // remove quick edit open state from body
-      helper.removeClass(body, "is-quick-edit-open");
       // iterate over quick nav links
       for (var i = 0; i < all_quickNavLink.length; i++) {
         // make visable

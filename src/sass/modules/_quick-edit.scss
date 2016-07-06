@@ -1,5 +1,5 @@
 .m-quick-edit {
-  background-color: $white;
+  background-color: $gray-19;
   box-sizing: border-box;
   overflow: hidden;
   max-width: 80%;
@@ -20,6 +20,20 @@
   .m-section-wrapper {
     padding: $font-size-200 0;
   }
+  .textarea,
+  textarea {
+    background-color: $light-alpha-06;
+  }
+  input {
+    &[type="email"],
+    &[type="number"],
+    &[type="search"],
+    &[type="text"],
+    &[type="tel"],
+    &[type="password"] {
+      background-color: $light-alpha-06;
+    }
+  }
   &.is-collapsed {
     height: 0;
     overflow-y: hidden;
@@ -33,7 +47,21 @@
 
 .is-night-mode {
   .m-quick-edit {
-    background-color: $gray-03;
+    background-color: $gray-02;
+    .textarea,
+    textarea {
+      background-color: $secondary-color-02;
+    }
+    input {
+      &[type="email"],
+      &[type="number"],
+      &[type="search"],
+      &[type="text"],
+      &[type="tel"],
+      &[type="password"] {
+        background-color: $secondary-color-02;
+      }
+    }
   }
 }
 

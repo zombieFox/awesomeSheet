@@ -13,11 +13,8 @@ body {
   font-size: $font-size-root-100;
   line-height: $line-height-160;
   transition: background-color $transition-ease-medium;
-  &.is-quick-edit-open {
-    background-color: $gray-18;
-  }
   &.is-night-mode {
-    background-color: $gray-02;
+    background-color: $gray-03;
     color: $white;
   }
 }
