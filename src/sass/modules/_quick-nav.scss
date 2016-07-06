@@ -70,7 +70,7 @@
 
 .is-display-mode {
   .m-quick-nav {
-    background-color: $dark-alpha-20;
+    background-color: transparent;
   }
 }
 
@@ -80,7 +80,7 @@
   }
   &.is-display-mode {
     .m-quick-nav {
-      background-color: $secondary-color-alpha-17;
+      background-color: transparent;
     }
   }
   .m-quick-nav-link {

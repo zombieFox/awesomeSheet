@@ -2363,9 +2363,9 @@ label {
               transform: rotate(90deg); }
 
 .is-display-mode .m-hamburger .m-hamburger-inner {
-  background-color: gray; }
+  background-color: #4d4d4d; }
   .is-display-mode .m-hamburger .m-hamburger-inner:before, .is-display-mode .m-hamburger .m-hamburger-inner:after {
-    background-color: gray; }
+    background-color: #4d4d4d; }
 
 .is-display-mode .m-hamburger:hover .m-hamburger-inner {
   background-color: #ff3166; }
@@ -2375,6 +2375,21 @@ label {
 .is-display-mode .m-hamburger.is-open .m-hamburger-inner {
   background-color: #fc0042; }
   .is-display-mode .m-hamburger.is-open .m-hamburger-inner:before, .is-display-mode .m-hamburger.is-open .m-hamburger-inner:after {
+    background-color: #fc0042; }
+
+.is-night-mode .m-hamburger .m-hamburger-inner {
+  background-color: #ffffff; }
+  .is-night-mode .m-hamburger .m-hamburger-inner:before, .is-night-mode .m-hamburger .m-hamburger-inner:after {
+    background-color: #ffffff; }
+
+.is-night-mode .m-hamburger:hover .m-hamburger-inner {
+  background-color: #ff3166; }
+  .is-night-mode .m-hamburger:hover .m-hamburger-inner:before, .is-night-mode .m-hamburger:hover .m-hamburger-inner:after {
+    background-color: #ff3166; }
+
+.is-night-mode .m-hamburger.is-open .m-hamburger-inner {
+  background-color: #fc0042; }
+  .is-night-mode .m-hamburger.is-open .m-hamburger-inner:before, .is-night-mode .m-hamburger.is-open .m-hamburger-inner:after {
     background-color: #fc0042; }
 
 @media (min-width: 700px) {
@@ -2537,13 +2552,13 @@ label {
   -webkit-tap-highlight-color: transparent; }
 
 .is-display-mode .m-quick-nav {
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: transparent; }
 
 .is-night-mode .m-quick-nav {
   background-color: #224159; }
 
 .is-night-mode.is-display-mode .m-quick-nav {
-  background-color: rgba(50, 136, 201, 0.2); }
+  background-color: transparent; }
 
 .is-night-mode .m-quick-nav-link {
   color: #162632; }
@@ -3033,7 +3048,7 @@ label {
   padding: 3em 0 0 0; }
 
 .m-display-wrapper-nav-padding {
-  padding-top: 8em; }
+  padding-top: 4.5em; }
 
 .m-display-section {
   margin: 0 0 2em 0; }
