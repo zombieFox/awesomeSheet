@@ -2834,6 +2834,11 @@ var nefi = (function() {
           damage: "2d4+21",
           critical: "x3"
         }, {
+          weapon: "Guisarme +1 Trip",
+          attack: "22",
+          damage: "2d4+12",
+          critical: "x3"
+        }, {
           weapon: "Greatsword MW",
           attack: "15/10",
           damage: "1d10+6",
@@ -2843,18 +2848,15 @@ var nefi = (function() {
           attack: "16/11",
           damage: "1d8+7",
           critical: "x3"
-        }, {
+        }],
+        ranged: [{
           weapon: "Composite Longbow MW",
           attack: "10/5",
           damage: "1d8+6",
-          critical: "x3"
-        }, {
-          weapon: "Guisarme +1 Trip",
-          attack: "22",
-          damage: "2d4+12",
-          critical: "x3"
-        }],
-        ranged: []
+          critical: "x3",
+          range: "100 ft",
+          ammo: "50"
+        }]
       },
       attack_notes: ""
     },
