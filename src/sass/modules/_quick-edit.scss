@@ -11,6 +11,9 @@
   .container {
     max-width: 90%;
   }
+  .m-section-heading {
+    background-color: $gray-10;
+  }
   .m-section-controls {
     .button-group,
     .button-group-strech {
@@ -22,7 +25,7 @@
   }
   .textarea,
   textarea {
-    background-color: $light-alpha-06;
+    background-color: $light-alpha-03;
   }
   input {
     &[type="email"],
@@ -31,7 +34,7 @@
     &[type="text"],
     &[type="tel"],
     &[type="password"] {
-      background-color: $light-alpha-06;
+      background-color: $light-alpha-03;
     }
   }
   &.is-collapsed {
@@ -47,10 +50,13 @@
 
 .is-night-mode {
   .m-quick-edit {
-    background-color: $gray-02;
+    background-color: $gray-03;
+    .m-section-heading {
+      background-color: $gray-04;
+    }
     .textarea,
     textarea {
-      background-color: $secondary-color-02;
+      background-color: $secondary-color-alpha-19;
     }
     input {
       &[type="email"],
@@ -59,7 +65,7 @@
       &[type="text"],
       &[type="tel"],
       &[type="password"] {
-        background-color: $secondary-color-02;
+        background-color: $secondary-color-alpha-19;
       }
     }
   }

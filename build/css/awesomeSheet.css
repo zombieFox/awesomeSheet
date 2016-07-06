@@ -48,7 +48,7 @@ body {
   line-height: 1.6666666667em;
   transition: background-color 0.4s ease-in-out; }
   body.is-night-mode {
-    background-color: #262626;
+    background-color: #0d0d0d;
     color: #ffffff; }
 
 @media (min-width: 550px) {
@@ -3068,7 +3068,7 @@ label {
     line-height: 2em;
     text-align: center;
     border-radius: 50%;
-    color: #cccccc;
+    color: #404040;
     font-size: 2em;
     display: block;
     -webkit-transform: translate(-50%, -50%);
@@ -3162,9 +3162,9 @@ label {
 .is-night-mode .m-display-section-divider {
   background-color: #404040; }
   .is-night-mode .m-display-section-divider .m-display-section-icon {
-    background-color: #262626;
+    background-color: #0d0d0d;
     border-color: #404040;
-    color: gray; }
+    color: #e6e6e6; }
 
 .is-night-mode .m-display-item:after,
 .is-night-mode .m-display-spell:after,
@@ -3198,6 +3198,8 @@ label {
   border-radius: 4px; }
   .m-quick-edit .container {
     max-width: 90%; }
+  .m-quick-edit .m-section-heading {
+    background-color: gray; }
   .m-quick-edit .m-section-controls .button-group,
   .m-quick-edit .m-section-controls .button-group-strech {
     position: relative; }
@@ -3205,9 +3207,9 @@ label {
     padding: 2em 0; }
   .m-quick-edit .textarea,
   .m-quick-edit textarea {
-    background-color: rgba(255, 255, 255, 0.75); }
+    background-color: rgba(255, 255, 255, 0.9); }
   .m-quick-edit input[type="email"], .m-quick-edit input[type="number"], .m-quick-edit input[type="search"], .m-quick-edit input[type="text"], .m-quick-edit input[type="tel"], .m-quick-edit input[type="password"] {
-    background-color: rgba(255, 255, 255, 0.75); }
+    background-color: rgba(255, 255, 255, 0.9); }
   .m-quick-edit.is-collapsed {
     height: 0;
     overflow-y: hidden; }
@@ -3217,12 +3219,14 @@ label {
     margin-bottom: 5em; }
 
 .is-night-mode .m-quick-edit {
-  background-color: #0d0d0d; }
+  background-color: #262626; }
+  .is-night-mode .m-quick-edit .m-section-heading {
+    background-color: #333333; }
   .is-night-mode .m-quick-edit .textarea,
   .is-night-mode .m-quick-edit textarea {
-    background-color: #0f1820; }
+    background-color: rgba(50, 136, 201, 0.1); }
   .is-night-mode .m-quick-edit input[type="email"], .is-night-mode .m-quick-edit input[type="number"], .is-night-mode .m-quick-edit input[type="search"], .is-night-mode .m-quick-edit input[type="text"], .is-night-mode .m-quick-edit input[type="tel"], .is-night-mode .m-quick-edit input[type="password"] {
-    background-color: #0f1820; }
+    background-color: rgba(50, 136, 201, 0.1); }
 
 @media (min-width: 900px) {
   .m-quick-edit {
