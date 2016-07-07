@@ -2,8 +2,10 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, element.innerHTML);
-    sheet.storeCharacters();
+    if (path) {
+      helper.setObject(sheet.getCharacter(), path, element.innerHTML);
+      sheet.storeCharacters();
+    };
   };
 
   var storeInputTimer = null;

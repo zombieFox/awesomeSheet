@@ -10377,8 +10377,10 @@ var inputBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, element.value);
-    sheet.storeCharacters();
+    if (path) {
+      helper.setObject(sheet.getCharacter(), path, element.value);
+      sheet.storeCharacters();
+    };
   };
 
   var storeInputTimer = null;
@@ -11950,15 +11952,6 @@ var spells = (function() {
     sheet.storeCharacters();
   };
 
-  function _addNewSpellOnEnter(element) {
-    var keystroke = event.keyCode || event.which;
-    if (keystroke == 13) {
-      _addNewSpell(element);
-      _updateSpells(true);
-      sheet.storeCharacters();
-    };
-  };
-
   function _bind_spellKnownItem(element) {
     element.addEventListener("click", function() {
       clearTimeout(storeSpellTimer);
@@ -12140,6 +12133,16 @@ var spells = (function() {
         // error if the name starts with a number
         snack.render("Name can't start with a space or number.", false, false);
       };
+    };
+    inputBlock.focus(element);
+  };
+
+  function _addNewSpellOnEnter(element) {
+    var keystroke = event.keyCode || event.which;
+    if (keystroke == 13) {
+      _addNewSpell(element);
+      _updateSpells(true);
+      sheet.storeCharacters();
     };
   };
 
@@ -12377,8 +12380,10 @@ var textareaBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, element.innerHTML);
-    sheet.storeCharacters();
+    if (path) {
+      helper.setObject(sheet.getCharacter(), path, element.innerHTML);
+      sheet.storeCharacters();
+    };
   };
 
   var storeInputTimer = null;

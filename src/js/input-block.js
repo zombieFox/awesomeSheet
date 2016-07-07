@@ -2,8 +2,10 @@ var inputBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, element.value);
-    sheet.storeCharacters();
+    if (path) {
+      helper.setObject(sheet.getCharacter(), path, element.value);
+      sheet.storeCharacters();
+    };
   };
 
   var storeInputTimer = null;

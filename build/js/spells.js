@@ -63,15 +63,6 @@ var spells = (function() {
     sheet.storeCharacters();
   };
 
-  function _addNewSpellOnEnter(element) {
-    var keystroke = event.keyCode || event.which;
-    if (keystroke == 13) {
-      _addNewSpell(element);
-      _updateSpells(true);
-      sheet.storeCharacters();
-    };
-  };
-
   function _bind_spellKnownItem(element) {
     element.addEventListener("click", function() {
       clearTimeout(storeSpellTimer);
@@ -253,6 +244,16 @@ var spells = (function() {
         // error if the name starts with a number
         snack.render("Name can't start with a space or number.", false, false);
       };
+    };
+    inputBlock.focus(element);
+  };
+
+  function _addNewSpellOnEnter(element) {
+    var keystroke = event.keyCode || event.which;
+    if (keystroke == 13) {
+      _addNewSpell(element);
+      _updateSpells(true);
+      sheet.storeCharacters();
     };
   };
 
