@@ -1,10 +1,12 @@
 .m-clone-block {
   .m-clone-block-target {
     .m-clone {
-      margin: 0;
-      padding: 0;
-      border-radius: 0;
-      transition: all $transition-ease-extra-fast, background-color $transition-ease-medium;
+      transition: all $transition-ease-medium;
+      position: relative;
+      textarea,
+      .textarea {
+        transition: background-color $transition-ease-medium, border $transition-ease-medium, margin $transition-ease-medium;
+      }
       input {
         &[type="email"],
         &[type="number"],
@@ -12,40 +14,56 @@
         &[type="text"],
         &[type="tel"],
         &[type="password"] {
-          transition: all $transition-ease-extra-fast, border-color $transition-ease-medium;
+          transition: background-color $transition-ease-medium, border $transition-ease-medium, margin $transition-ease-medium;
         }
       }
       label {
-        transition: all $transition-ease-extra-fast;
+        transition: visibility $transition-ease-medium, color $transition-ease-medium;
+      }
+      .m-clone-block-content {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        position: relative;
+        z-index: 1;
+        transition: all $transition-ease-medium;
       }
       .m-clone-block-delete-controls {
-        max-height: 0;
-        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform-origin: top right;
+        transform: scale(0);
+        visibility: hidden;
+        z-index: 2;
         overflow: hidden;
-        transition: all $transition-ease-extra-fast;
+        transition: all $transition-ease-medium;
         .button {
+          padding-top: 0;
+          padding-bottom: 0;
           margin: 0;
-          transform: scale(0.8);
-          transition: all $transition-ease-extra-fast;
+          font-size: $font-size-150;
+          border-radius: 0 $border-radius-medium 0 $border-radius-medium;
           [class^="icon-"],
           [class*=" icon-"] {
-            margin: 0;
+            margin-right: 0;
           }
         }
       }
       .u-underline-with-input {
-        transition: border-color $transition-ease-extra-fast;
+        transition: border-color $transition-ease-medium;
       }
     }
   }
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
+        margin: 0 0 $font-size-100 0;
         textarea,
         .textarea {
           background-color: transparent;
           border-color: $primary-color-alpha-18;
-          margin: 0 0 1rem 0;
+          margin: 0 0 $font-size-100 0;
         }
         input {
           &[type="email"],
@@ -56,34 +74,25 @@
           &[type="password"] {
             background-color: transparent;
             border-color: $primary-color-alpha-18;
-            margin: 0 0 1rem 0;
+            margin: 0 0 $font-size-100 0;
           }
         }
         label {
           color: transparent;
           visibility: hidden;
         }
-        background-color: $primary-color-19;
-        margin: 0 0 1rem 0;
-        padding: $font-size-100;
-        border-radius: $border-radius-medium;
+        .m-clone-block-content {
+          background-color: $primary-color-19;
+          padding: $font-size-100 $font-size-500 0 $font-size-100;
+          border-radius: $border-radius-medium;
+        }
         .u-underline-with-input {
           border-color: $primary-color-alpha-18;
         }
         .m-clone-block-delete-controls {
-          transition: all $transition-bounce-extra-slow;
-          max-height: 200px;
-          opacity: 1;
-          .button {
-            transform: scale(1);
-            line-height: $line-height-100;
-            transition: all $transition-bounce-extra-slow;
-            [class^="icon-"],
-            [class*=" icon-"] {
-              font-size: $font-size-200;
-              line-height: $line-height-100;
-            }
-          }
+          visibility: visible;
+          transform: scale(1);
+          transition: all $transition-ease-medium;
         }
       }
     }
@@ -95,6 +104,9 @@
     &.is-delete-state {
       .m-clone-block-target {
         .m-clone {
+          .m-clone-block-content {
+            background-color: $primary-color-06;
+          }
           textarea,
           .textarea {
             border-color: $primary-color-04;
@@ -109,7 +121,6 @@
               border-color: $primary-color-04;
             }
           }
-          background-color: $primary-color-06;
           .u-underline-with-input {
             border-color: $primary-color-04;
           }
