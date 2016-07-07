@@ -58,7 +58,7 @@ var clone = (function() {
       '  </div>' +
       '</div>' +
       '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
@@ -98,7 +98,7 @@ var clone = (function() {
       '  </div>' +
       '</div>' +
       '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
@@ -150,7 +150,7 @@ var clone = (function() {
       '  </div>' +
       '</div>' +
       '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
@@ -168,7 +168,7 @@ var clone = (function() {
       '  </div>' +
       '</div>' +
       '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
@@ -186,7 +186,7 @@ var clone = (function() {
       '  </div>' +
       '</div>' +
       '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span> Remove</button>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };

@@ -2233,74 +2233,87 @@ label {
     padding-left: 1.5em; } }
 
 .m-clone-block .m-clone-block-target .m-clone {
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  transition: all 0.2s ease-in-out, background-color 0.4s ease-in-out; }
+  transition: all 0.4s ease-in-out;
+  position: relative; }
+  .m-clone-block .m-clone-block-target .m-clone textarea,
+  .m-clone-block .m-clone-block-target .m-clone .textarea {
+    transition: background-color 0.4s ease-in-out, border 0.4s ease-in-out, margin 0.4s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone input[type="email"], .m-clone-block .m-clone-block-target .m-clone input[type="number"], .m-clone-block .m-clone-block-target .m-clone input[type="search"], .m-clone-block .m-clone-block-target .m-clone input[type="text"], .m-clone-block .m-clone-block-target .m-clone input[type="tel"], .m-clone-block .m-clone-block-target .m-clone input[type="password"] {
-    transition: all 0.2s ease-in-out, border-color 0.4s ease-in-out; }
+    transition: background-color 0.4s ease-in-out, border 0.4s ease-in-out, margin 0.4s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone label {
-    transition: all 0.2s ease-in-out; }
+    transition: visibility 0.4s ease-in-out, color 0.4s ease-in-out; }
+  .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls {
-    max-height: 0;
-    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transform-origin: top right;
+        -ms-transform-origin: top right;
+            transform-origin: top right;
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+    visibility: hidden;
+    z-index: 2;
     overflow: hidden;
-    transition: all 0.2s ease-in-out; }
+    transition: all 0.4s ease-in-out; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
+      padding-top: 0;
+      padding-bottom: 0;
       margin: 0;
-      -webkit-transform: scale(0.8);
-          -ms-transform: scale(0.8);
-              transform: scale(0.8);
-      transition: all 0.2s ease-in-out; }
+      font-size: 1.5em;
+      border-radius: 0 3px 0 3px; }
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class^="icon-"],
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"] {
-        margin: 0; }
+        margin-right: 0; }
   .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input {
-    transition: border-color 0.2s ease-in-out; }
+    transition: border-color 0.4s ease-in-out; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
-  background-color: #ffe3ea;
-  margin: 0 0 1rem 0;
-  padding: 1em;
-  border-radius: 3px; }
+  margin: 0 0 1em 0; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone textarea,
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .textarea {
     background-color: transparent;
     border-color: rgba(252, 0, 66, 0.15);
-    margin: 0 0 1rem 0; }
+    margin: 0 0 1em 0; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="email"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="number"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="search"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="text"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="tel"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="password"] {
     background-color: transparent;
     border-color: rgba(252, 0, 66, 0.15);
-    margin: 0 0 1rem 0; }
+    margin: 0 0 1em 0; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone label {
     color: transparent;
     visibility: hidden; }
+  .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
+    background-color: #ffe3ea;
+    padding: 1em 5em 0 1em;
+    border-radius: 3px; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
     border-color: rgba(252, 0, 66, 0.15); }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls {
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    max-height: 200px;
-    opacity: 1; }
-    .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
-      -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-              transform: scale(1);
-      line-height: 1em;
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-      .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class^="icon-"],
-      .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"] {
-        font-size: 2em;
-        line-height: 1em; }
+    visibility: visible;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    transition: all 0.4s ease-in-out; }
 
-.is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
+.is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
   background-color: #970027; }
-  .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone textarea,
-  .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .textarea {
-    border-color: #63001a; }
-  .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="email"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="number"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="search"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="text"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="tel"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="password"] {
-    border-color: #63001a; }
-  .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
-    border-color: #63001a; }
+
+.is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone textarea,
+.is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .textarea {
+  border-color: #63001a; }
+
+.is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="email"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="number"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="search"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="text"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="tel"], .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="password"] {
+  border-color: #63001a; }
+
+.is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
+  border-color: #63001a; }
 
 .m-hamburger {
   position: relative;

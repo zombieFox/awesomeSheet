@@ -26,167 +26,167 @@ var clone = (function() {
 
   function _newConsumable(index) {
     var cloneString =
-      '<div class="row">' +
-      '<div class="col-xs-12">' +
-      '<div class="js-total-block">' +
-      '<div class="row no-gutter">' +
-      '<div class="col-xs-6">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
-      '<input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
+      '<div class="m-clone-block-content">' +
+      '  <div class="row">' +
+      '    <div class="col-xs-12">' +
+      '      <div class="js-total-block">' +
+      '        <div class="row no-gutter">' +
+      '          <div class="col-xs-6">' +
+      '            <div class="m-input-block js-input-block">' +
+      '              <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
+      '              <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
+      '            </div>' +
+      '          </div>' +
+      '          <div class="col-xs-2">' +
+      '            <p class="u-text-center u-no-margin u-inline-with-input u-underline-with-input js-total-block-total js-clone-consumable-current">0</p>' +
+      '          </div>' +
+      '          <div class="col-xs-2">' +
+      '            <div class="m-input-block js-input-block">' +
+      '              <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Total</label>' +
+      '              <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
+      '            </div>' +
+      '          </div>' +
+      '          <div class="col-xs-2">' +
+      '            <div class="m-input-block js-input-block">' +
+      '              <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
+      '              <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
+      '            </div>' +
+      '          </div>' +
+      '        </div>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
       '</div>' +
-      '</div>' +
-      '<div class="col-xs-2">' +
-      '<p class="u-text-center u-no-margin u-inline-with-input u-underline-with-input js-total-block-total js-clone-consumable-current">0</p>' +
-      '</div>' +
-      '<div class="col-xs-2">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Total</label>' +
-      '<input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-2">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
-      '<input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '</div>' +
-      '</div>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
 
   function _newAttackMelee(index) {
     var cloneString =
-      '<div class="row">' +
-      '<div class="col-xs-12">' +
-      '<div class="row no-gutter">' +
-      '<div class="col-xs-5 col-md-4">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
-      '<input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
+      '<div class="m-clone-block-content">' +
+      '  <div class="row">' +
+      '    <div class="col-xs-12">' +
+      '      <div class="row no-gutter">' +
+      '        <div class="col-xs-5 col-md-4">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
+      '            <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-2 col-md-2">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
+      '            <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-3 col-md-3">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
+      '            <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-2 col-md-3">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
+      '            <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
       '</div>' +
-      '</div>' +
-      '<div class="col-xs-2 col-md-2">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
-      '<input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-md-3">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
-      '<input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-2 col-md-3">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
-      '<input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '</div>' +
-      '</div>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
 
   function _newAttackRanged(index) {
     var cloneString =
-      '<div class="row">' +
-      '<div class="col-xs-12">' +
-      '<div class="row no-gutter">' +
-      '<div class="col-xs-6 col-xl-4">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
-      '<input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
+      '<div class="m-clone-block-content">' +
+      '  <div class="row">' +
+      '    <div class="col-xs-12">' +
+      '      <div class="row no-gutter">' +
+      '        <div class="col-xs-6 col-xl-4">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
+      '            <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-3 col-xl-2">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
+      '            <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-3 col-xl-2">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
+      '            <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-3 col-xs-offset-3 col-xl-2 col-xl-offset-0">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
+      '            <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-3 col-xl-1">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
+      '            <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="col-xs-3 col-xl-1">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
+      '            <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
       '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xl-2">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
-      '<input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xl-2">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
-      '<input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xs-offset-3 col-xl-2 col-xl-offset-0">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
-      '<input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xl-1">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
-      '<input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xl-1">' +
-      '<div class="m-input-block js-input-block">' +
-      '<label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
-      '<input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '</div>' +
-      '</div>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
 
   function _newNoteCharacter(index) {
     var cloneString =
-      '<div class="row">' +
-      '<div class="col-xs-12">' +
-      '<div class="m-textarea-block js-textarea-block">' +
-      '<label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
-      '<div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '<div class="m-clone-block-content">' +
+      '  <div class="row">' +
+      '    <div class="col-xs-12">' +
+      '      <div class="m-textarea-block js-textarea-block">' +
+      '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
+      '        <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
       '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '</div>' +
-      '</div>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
 
   function _newNoteStory(index) {
     var cloneString =
-      '<div class="row">' +
-      '<div class="col-xs-12">' +
-      '<div class="m-textarea-block js-textarea-block">' +
-      '<label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
-      '<div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '<div class="m-clone-block-content">' +
+      '  <div class="row">' +
+      '    <div class="col-xs-12">' +
+      '      <div class="m-textarea-block js-textarea-block">' +
+      '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
+      '        <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
       '</div>' +
-      '</div>' +
-      '<div class="col-xs-3 col-xs-offset-9">' +
       '<div class="m-clone-block-delete-controls">' +
-      '<button class="button button-small button-primary button-block js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '</div>' +
-      '</div>' +
+      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '</div>';
     return cloneString;
   };
