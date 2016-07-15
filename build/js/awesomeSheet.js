@@ -10743,6 +10743,7 @@ var nav = (function() {
   function _render_navShade() {
 
     var nav = helper.e(".js-nav");
+    var body = helper.e("body");
 
     var navShade = document.createElement("div");
     navShade.setAttribute("class", "m-nav-shade js-nav-shade");
