@@ -228,7 +228,6 @@ var ro = (function() {
     },
     offense: {
       base_attack: "2",
-      concentration: "8",
       cmb: {
         misc: "",
         temp: "",
@@ -1134,6 +1133,20 @@ var ro = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "2",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true
+        }
+      },
       per_day: {
         level_0: "4",
         level_1: "4",

@@ -387,7 +387,6 @@ var blank = (function() {
     },
     offense: {
       base_attack: "",
-      concentration: "",
       cmb: {
         misc: "",
         temp: "",
@@ -1266,6 +1265,20 @@ var blank = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -1551,8 +1564,7 @@ var marika = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "6 / 1",
-      concentration: "",
+      base_attack: "6/1",
       cmb: {
         misc: "",
         temp: "",
@@ -2463,6 +2475,20 @@ var marika = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -2752,7 +2778,6 @@ var nefi = (function() {
     },
     offense: {
       base_attack: "8/3",
-      concentration: "",
       cmb: {
         misc: "",
         temp: "",
@@ -3663,6 +3688,20 @@ var nefi = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -3958,7 +3997,6 @@ var nif = (function() {
     },
     offense: {
       base_attack: "3",
-      concentration: "12",
       cmb: {
         misc: "",
         temp: "",
@@ -4849,6 +4887,20 @@ var nif = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true
+        }
+      },
       per_day: {
         level_0: "4",
         level_1: "5",
@@ -5192,7 +5244,6 @@ var orrin = (function() {
     },
     offense: {
       base_attack: "3",
-      concentration: "",
       cmb: {
         misc: "",
         temp: "",
@@ -6098,6 +6149,20 @@ var orrin = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -6405,7 +6470,6 @@ var ro = (function() {
     },
     offense: {
       base_attack: "2",
-      concentration: "8",
       cmb: {
         misc: "",
         temp: "",
@@ -7311,6 +7375,20 @@ var ro = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "2",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true
+        }
+      },
       per_day: {
         level_0: "4",
         level_1: "4",
@@ -7644,7 +7722,6 @@ var vos = (function() {
     },
     offense: {
       base_attack: "3",
-      concentration: "",
       cmb: {
         misc: "",
         temp: "",
@@ -8550,6 +8627,20 @@ var vos = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -9885,7 +9976,7 @@ var display = (function() {
           makeDisplayItem("defense.save_notes", "<strong>Notes</strong> ", "");
 
           makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
-          makeDisplayItem("offense.concentration", "<strong>Concentration</strong> ", "");
+          makeDisplayItem("spells.concentration.current", "<strong>Concentration</strong> ", "");
           makeDisplayItem("offense.cmb.current", "<strong>CMB</strong> ", "");
           makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");

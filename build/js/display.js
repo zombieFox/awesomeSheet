@@ -400,7 +400,7 @@ var display = (function() {
           makeDisplayItem("defense.save_notes", "<strong>Notes</strong> ", "");
 
           makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
-          makeDisplayItem("offense.concentration", "<strong>Concentration</strong> ", "");
+          makeDisplayItem("spells.concentration.current", "<strong>Concentration</strong> ", "");
           makeDisplayItem("offense.cmb.current", "<strong>CMB</strong> ", "");
           makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");

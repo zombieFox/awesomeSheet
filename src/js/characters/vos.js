@@ -223,7 +223,6 @@ var vos = (function() {
     },
     offense: {
       base_attack: "3",
-      concentration: "",
       cmb: {
         misc: "",
         temp: "",
@@ -1129,6 +1128,20 @@ var vos = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",

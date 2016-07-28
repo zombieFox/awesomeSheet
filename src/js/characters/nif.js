@@ -218,7 +218,6 @@ var nif = (function() {
     },
     offense: {
       base_attack: "3",
-      concentration: "12",
       cmb: {
         misc: "",
         temp: "",
@@ -1109,6 +1108,20 @@ var nif = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true
+        }
+      },
       per_day: {
         level_0: "4",
         level_1: "5",

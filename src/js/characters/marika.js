@@ -212,8 +212,7 @@ var marika = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "6 / 1",
-      concentration: "",
+      base_attack: "6/1",
       cmb: {
         misc: "",
         temp: "",
@@ -1124,6 +1123,20 @@ var marika = (function() {
       }
     },
     spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",

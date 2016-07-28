@@ -24,6 +24,32 @@
   </div>
   <div class="m-section-wrapper">
     <div class="container">
+      <div class="js-total-block">
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <h2 class="m-section-heading-sub u-inline-with-input"><span class="hidden-xs hidden-sm hidden-lg hidden-xl">Concent</span><span class="hidden-md">Concentration</span> <span class="js-total-block-total" data-path="spells.concentration.current"></span></h2>
+          </div>
+          <div class="col-xs-8 col-md-6">
+            <div class="row no-gutter">
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-concentration-misc">Misc</label>
+                  <input id="spells-concentration-misc" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-path="spells.concentration.misc" type="number" tabindex="3">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="m-input-block js-input-block">
+                  <label class="m-input-block-label js-input-block-label" for="spells-concentration-temp">Temp</label>
+                  <input id="spells-concentration-temp" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-path="spells.concentration.temp" type="number" tabindex="3">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 col-md-3">
+            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level" data-bonus-path="spells.concentration.bonuses" data-modal-heading="Concentration bonuses" tabindex="3">Bonuses</a>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="m-spell-book js-spell-book" data-spell-level="0">
           <div class="col-xs-12 col-sm-3">
