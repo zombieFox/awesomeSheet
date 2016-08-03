@@ -6,10 +6,10 @@ var orrin = (function() {
       name: "Orrin Alareth",
       race: "Human",
       class: "Rogue",
-      level: "5",
+      level: "6",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "11,120",
+      xp: "15,260",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -52,7 +52,7 @@ var orrin = (function() {
       special_abilities: "Sneak Attack (+3d6), Trapfinding, Evasion, Rogue Talent (Trap Spotter), Trap Sense, Rogue Talents (Finesse Rogue), Uncanny dodge"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale,, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
       magic_gear: "Potion of Cure Light Wounds (3), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
       encumbrance: {
         light: "50 lbs or less",
@@ -69,7 +69,7 @@ var orrin = (function() {
         hands: "",
         head: "",
         headband: "",
-        neck: "Cloak of Resistance +1",
+        neck: "Cloak of Resistance +2",
         ring_left_hand: "",
         ring_right_hand: "",
         shield: "",
@@ -91,7 +91,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: "41",
+        total: "50",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -160,11 +160,11 @@ var orrin = (function() {
           size: true
         }
       },
-      ac_notes: "+1 dodge bonus to AC against attacks made by traps.",
+      ac_notes: "+2 dodge bonus to AC against attacks made by traps.",
       fortitude: {
-        base: "1",
+        base: "2",
         racial: "",
-        resistance: "1",
+        resistance: "2",
         misc: "1",
         temp: "",
         current: "",
@@ -178,9 +178,9 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: "4",
+        base: "5",
         racial: "",
-        resistance: "1",
+        resistance: "2",
         misc: "",
         temp: "",
         current: "",
@@ -194,9 +194,9 @@ var orrin = (function() {
         }
       },
       will: {
-        base: "1",
+        base: "2",
         racial: "",
-        resistance: "1",
+        resistance: "2",
         misc: "",
         temp: "",
         current: "",
@@ -209,10 +209,10 @@ var orrin = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "+1 bonus on Reflex saves made to avoid traps."
+      save_notes: "+2 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "3",
+      base_attack: "4",
       cmb: {
         misc: "",
         temp: "",
@@ -285,28 +285,28 @@ var orrin = (function() {
       attack: {
         melee: [{
           weapon: "Rapier +1",
-          attack: "8",
+          attack: "9",
           damage: "1d6+2",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword MW",
-          attack: "8",
+          attack: "9",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
           weapon: "Rapier +1, Short sword MW",
-          attack: "6/6",
+          attack: "7/7",
           damage: "1d6+2, 1d6+1",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
-          attack: "7",
+          attack: "8",
           damage: "1d6+1",
           critical: "19–20/×2"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "8",
+          attack: "9",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -321,7 +321,7 @@ var orrin = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -355,7 +355,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -442,7 +442,7 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: "5",
+        ranks: "6",
         misc: "4",
         current: "",
         bonuses: {
@@ -476,7 +476,7 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -735,7 +735,7 @@ var orrin = (function() {
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -748,7 +748,7 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -837,7 +837,7 @@ var orrin = (function() {
         }
       },
       ride: {
-        ranks: "",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -871,7 +871,7 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "5",
+        ranks: "6",
         misc: "2",
         current: "",
         bonuses: {
@@ -905,7 +905,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -956,7 +956,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -974,7 +974,7 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: "5",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -992,7 +992,7 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: "5",
+        ranks: "6",
         misc: "4",
         current: "",
         bonuses: {
@@ -1005,7 +1005,7 @@ var orrin = (function() {
           cha_bonus: false,
           level: false,
           half_level: true,
-          check_penalty: false
+          check_penalty: true
         }
       },
       custom_3: {
