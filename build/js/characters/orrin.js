@@ -9,7 +9,7 @@ var orrin = (function() {
       level: "6",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "15,260",
+      xp: "21,390",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -27,7 +27,7 @@ var orrin = (function() {
         },
         dex: {
           score: "19",
-          temp: ""
+          temp: "21"
         },
         con: {
           score: "12",
@@ -60,32 +60,32 @@ var orrin = (function() {
         heavy: "101–150 lbs"
       },
       body_slots: {
-        armor: "",
-        belts: "",
-        body: "Chainshirt MW",
+        armor: "Mithral Chain Shirt",
+        belts: "Belt of Dexterity +2",
+        body: "",
         chest: "",
         eyes: "",
         feet: "",
         hands: "",
         head: "",
         headband: "",
-        neck: "Cloak of Resistance +2",
-        ring_left_hand: "",
-        ring_right_hand: "",
+        neck: "Amulet of a Natural Armor +1",
+        ring_left_hand: "Ring of Force Shield",
+        ring_right_hand: "Ring of Protection +1",
         shield: "",
-        shoulders: "",
+        shoulders: "Cloak of Resistance +2",
         wrist: ""
       },
       wealth: {
         platinum: "",
-        gold: "872",
+        gold: "4,292",
         silver: "5",
         copper: ""
       },
       consumable: [{
         item: "Potion of Cure Light Wounds",
         current: "",
-        total: "3",
+        total: "4",
         used: "1"
       }]
     },
@@ -101,12 +101,12 @@ var orrin = (function() {
         misc: "",
         temp: "",
         armor: "4",
-        shield: "",
-        deflect: "",
+        shield: "2",
+        deflect: "1",
         dodge: "1",
-        natural: "",
+        natural: "1",
         size_bonus: "",
-        check_penalty: "-1",
+        check_penalty: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -160,7 +160,7 @@ var orrin = (function() {
           size: true
         }
       },
-      ac_notes: "+2 dodge bonus to AC against attacks made by traps.",
+      ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
         base: "2",
         racial: "",
@@ -289,20 +289,35 @@ var orrin = (function() {
           damage: "1d6+2",
           critical: "18–20/×2"
         }, {
-          weapon: "Short sword MW",
+          weapon: "Short sword +1",
           attack: "9",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
-          weapon: "Rapier +1, Short sword MW",
+          weapon: "Rapier +1, Short sword +1",
           attack: "7/7",
-          damage: "1d6+2, 1d6+1",
+          damage: "1d6+2, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
           attack: "8",
           damage: "1d6+1",
           critical: "19–20/×2"
+        }, {
+          weapon: "Sap",
+          attack: "8",
+          damage: "1d6+1",
+          critical: "x2"
+        }, {
+          weapon: "Punching Dagger +2 Shocking",
+          attack: "10",
+          damage: "1d4+3 + 1d6 Electrical",
+          critical: "x3"
+        }, {
+          weapon: "Rapier +1, Punching Dagger +2 Shocking",
+          attack: "7/8",
+          damage: "1d6+2, 1d4+3 + 1d6 Electrical",
+          critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
@@ -310,7 +325,7 @@ var orrin = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "49"
+          ammo: "50"
         }]
       },
       attack_notes: "+3d6 Sneak attack"
