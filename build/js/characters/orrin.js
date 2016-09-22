@@ -52,8 +52,8 @@ var orrin = (function() {
       special_abilities: "Sneak attack (+3d6), Trapfinding, Evasion, Rogue talent (Trap spotter), Trap Sense +2, Rogue talent (Finesse Rogue), Uncanny dodge, Rogue talent (Fast stealth)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor",
-      magic_gear: "Potion of Cure Light Wounds (3), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces",
+      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (6), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -64,9 +64,9 @@ var orrin = (function() {
         belts: "Belt of Dexterity +2",
         body: "",
         chest: "",
-        eyes: "",
+        eyes: "Eyes of the Eagle",
         feet: "",
-        hands: "",
+        hands: "Gloves of Reconnaissance",
         head: "",
         headband: "",
         neck: "Amulet of a Natural Armor +1",
@@ -77,15 +77,25 @@ var orrin = (function() {
         wrist: ""
       },
       wealth: {
-        platinum: "",
-        gold: "4,292",
+        platinum: "3",
+        gold: "2,042",
         silver: "5",
         copper: ""
       },
       consumable: [{
         item: "Potion of Cure Light Wounds",
         current: "",
-        total: "4",
+        total: "6",
+        used: ""
+      }, {
+        item: "Gloves of Reconnaissance",
+        current: "",
+        total: "10",
+        used: "2"
+      }, {
+        item: "Bread rolls",
+        current: "",
+        total: "50",
         used: "1"
       }]
     },
@@ -764,7 +774,7 @@ var orrin = (function() {
       },
       perception: {
         ranks: "6",
-        misc: "",
+        misc: "5",
         current: "",
         bonuses: {
           class_skill: true,
@@ -990,7 +1000,7 @@ var orrin = (function() {
       custom_1: {
         name: "Perception (Traps)",
         ranks: "6",
-        misc: "",
+        misc: "5",
         current: "",
         bonuses: {
           class_skill: true,
