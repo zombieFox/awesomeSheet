@@ -9,7 +9,7 @@ var nif = (function() {
       level: "6",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "30,214",
+      xp: "32,449",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -53,7 +53,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15)",
-      magic_gear: "Pearl of Power (1st Level), Potion of CLW (1), Potion of Aid, Vile of Antitoxin, Vile of Holy Water, Scroll of Acid Pit (1), Scroll of Summon Monster III (6), Scroll of Invisibility (2), Scroll of Create Pit (1), Scroll of Web (4), Scroll of Stinking Cloud (2), Scroll of Grease (0), Scroll of Mirror Image (3), Scroll of Spiked Pit (2) Scroll of Fly (3)",
+      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (4), Invisibility (2), Create Pit (1), Web (4), Stinking Cloud (2), Grease (0), Mirror Image (3), Spiked Pit (3), Fly (5), Interposing Hand (1), Elemental Form 2 (1), Wall of Fire (1)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -84,14 +84,29 @@ var nif = (function() {
       },
       consumable: [{
         item: "Wand of Lightning Bolt",
-        current: "7",
+        current: "",
         total: "50",
-        used: "43"
+        used: "46"
+      }, {
+        item: "Wand of Scorching Hands",
+        current: "",
+        total: "50",
+        used: "35"
+      }, {
+        item: "Wand of Swift Girding",
+        current: "",
+        total: "50",
+        used: "30"
+      }, {
+        item: "Wand of Carry Companion",
+        current: "",
+        total: "50",
+        used: "40"
       }, {
         item: "Shift",
-        current: "9",
+        current: "",
         total: "9",
-        used: ""
+        used: "6"
       }]
     },
     defense: {
@@ -1159,68 +1174,268 @@ var nif = (function() {
         level_9: ""
       },
       book: [{
-        level_0: [
-          { name: "Bleed", prepared: 0, active: false, cast: 0 },
-          { name: "Erase", prepared: 0, active: false, cast: 0 },
-          { name: "Daze", prepared: 0, active: false, cast: 0 },
-          { name: "Disrupt Undead", prepared: 0, active: false, cast: 0 },
-          { name: "Touch of Fatigue", prepared: 0, active: false, cast: 0 },
-          { name: "Prestidigitation", prepared: 0, active: false, cast: 0 },
-          { name: "Light", prepared: 0, active: false, cast: 0 },
-          { name: "Ghost Sound", prepared: 0, active: false, cast: 0 },
-          { name: "Spark", prepared: 0, active: false, cast: 0 },
-          { name: "Acid Splash", prepared: 0, active: false, cast: 0 },
-          { name: "Mage Hand", prepared: 0, active: false, cast: 0 },
-          { name: "Flare", prepared: 0, active: false, cast: 0 },
-          { name: "Detect Magic", prepared: 1, active: false, cast: 0 },
-          { name: "Detect Poison", prepared: 0, active: false, cast: 0 },
-          { name: "Dancing Lights", prepared: 1, active: false, cast: 0 },
-          { name: "Mending", prepared: 0, active: false, cast: 0 },
-          { name: "Arcane Mark", prepared: 0, active: false, cast: 0 },
-          { name: "Message", prepared: 1, active: false, cast: 0 },
-          { name: "Ray of Frost", prepared: 0, active: false, cast: 0 },
-          { name: "Read Magic", prepared: 1, active: false, cast: 0 },
-          { name: "Open Close", prepared: 0, active: false, cast: 0 },
-          { name: "Resistance", prepared: 0, active: false, cast: 0 }
-        ]
+        level_0: [{
+          name: "Bleed",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Erase",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Daze",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Disrupt Undead",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Touch of Fatigue",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Prestidigitation",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Light",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Ghost Sound",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Spark",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Acid Splash",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Mage Hand",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Flare",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Detect Magic",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Detect Poison",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Dancing Lights",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Mending",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Arcane Mark",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Message",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Ray of Frost",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Read Magic",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Open Close",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Resistance",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
-        level_1: [
-          { name: "Comprehend Languages", prepared: 0, active: false, cast: 0 },
-          { name: "Enlarge Person", prepared: 0, active: false, cast: 0 },
-          { name: "Feather Fall", prepared: 0, active: false, cast: 0 },
-          { name: "Grease", prepared: 2, active: false, cast: 0 },
-          { name: "Mage Armor", prepared: 0, active: false, cast: 0 },
-          { name: "Mount", prepared: 0, active: false, cast: 0 },
-          { name: "Obscuring Mist", prepared: 1, active: false, cast: 0 },
-          { name: "Protection from Chaos", prepared: 0, active: false, cast: 0 },
-          { name: "Protection from Evil", prepared: 2, active: false, cast: 1 },
-          { name: "Shield", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster I", prepared: 0, active: false, cast: 0 },
-          { name: "Unseen Servant", prepared: 0, active: false, cast: 0 }
-        ]
+        level_1: [{
+          name: "Comprehend Languages",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Enlarge Person",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Feather Fall",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Grease",
+          prepared: 2,
+          active: false,
+          cast: 1
+        }, {
+          name: "Mage Armor",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Mount",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Obscuring Mist",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Protection from Chaos",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Protection from Evil",
+          prepared: 2,
+          active: false,
+          cast: 0
+        }, {
+          name: "Shield",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Summon Monster I",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Unseen Servant",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
-        level_2: [
-          { name: "Blur", prepared: 0, active: false, cast: 0 },
-          { name: "Create Pit", prepared: 0, active: false, cast: 0 },
-          { name: "Flaming Sphere", prepared: 0, active: false, cast: 0 },
-          { name: "Glitterdust", prepared: 1, active: false, cast: 0 },
-          { name: "Invisibility", prepared: 1, active: false, cast: 0 },
-          { name: "Levitate", prepared: 0, active: false, cast: 0 },
-          { name: "Mirror Image", prepared: 1, active: false, cast: 1 },
-          { name: "Resist Energy", prepared: 0, active: false, cast: 0 },
-          { name: "Stone Call", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster II", prepared: 0, active: false, cast: 0 },
-          { name: "Web", prepared: 1, active: false, cast: 1 }
-        ]
+        level_2: [{
+          name: "Blur",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Create Pit",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Flaming Sphere",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Glitterdust",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Invisibility",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Levitate",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Mirror Image",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Resist Energy",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Stone Call",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Summon Monster II",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Web",
+          prepared: 1,
+          active: false,
+          cast: 1
+        }]
       }, {
-        level_3: [
-          { name: "Stinking Cloud", prepared: 0, active: false, cast: 0 },
-          { name: "Summon Monster III", prepared: 1, active: false, cast: 1 },
-          { name: "Spiked Pit", prepared: 1, active: false, cast: 0 },
-          { name: "Aqueous Orb", prepared: 0, active: false, cast: 0 },
-          { name: "Fly", prepared: 1, active: false, cast: 1 },
-          { name: "Sleet Storm", prepared: 0, active: false, cast: 0 }
-        ]
+        level_3: [{
+          name: "Stinking Cloud",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Summon Monster III",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Spiked Pit",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Aqueous Orb",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Fly",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Sleet Storm",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
         level_4: []
       }, {
@@ -1239,7 +1454,9 @@ var nif = (function() {
       character: [{
         note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration,<br><strong>Teleportation sub school</strong>,<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
       }],
-      story: []
+      story: [{
+        note: "Baron Turbine Blackshield, lord of Thornkeep Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"
+      }]
     }
   };
 
