@@ -45,8 +45,7 @@ body {
   color: #333333;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  line-height: 1.6666666667em;
-  transition: background-color 0.4s ease-in-out; }
+  line-height: 1.6666666667em; }
   body.is-night-mode {
     background-color: #0d0d0d;
     color: #ffffff; }
@@ -1925,14 +1924,18 @@ label {
   background-color: #ffffff;
   padding: 4.5em 0;
   position: fixed;
-  top: -100%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
   z-index: 5000;
-  transition: top 0.4s ease-in-out, background-color 0.4s ease-in-out; }
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  -webkit-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+          transform: translate(0, -100%); }
   .m-nav .m-nav-list {
     padding: 1em 0;
     margin: 0;
@@ -1945,11 +1948,11 @@ label {
       .m-nav .m-nav-list > li.m-nav-divide {
         margin: 1em 0;
         background-color: #f2f2f2;
-        height: 1px;
-        transition: background-color 0.4s ease-in-out; }
+        height: 1px; }
   .m-nav.is-open {
-    top: 0;
-    transition: top 0.4s ease-in-out, background-color 0.4s ease-in-out; }
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0); }
 
 .m-nav-shade {
   background-color: rgba(0, 0, 0, 0.55);
@@ -1972,7 +1975,7 @@ label {
   display: block;
   text-transform: uppercase;
   text-align: left;
-  transition: color 0.4s ease-in-out; }
+  transition: none; }
   .m-nav-title:focus {
     outline: 0; }
 
@@ -1993,8 +1996,7 @@ label {
     color: #162632;
     text-align: center;
     display: block;
-    float: left;
-    transition: color 0.4s ease-in-out; }
+    float: left; }
   .m-nav-link:focus, .m-nav-link:hover {
     background-color: rgba(0, 0, 0, 0.05);
     text-decoration: none; }
@@ -2027,15 +2029,14 @@ label {
     .m-nav-character input[type="radio"] + label, .m-nav-character input[type="checkbox"] + label {
       height: 4em;
       line-height: 4em;
-      transition: none;
-      transition: color 0.4s ease-in-out; }
+      transition: none; }
       .m-nav-character input[type="radio"] + label:before, .m-nav-character input[type="checkbox"] + label:before {
         color: #162632;
         width: 20%;
         margin: 0;
         text-align: center;
         float: left;
-        transition: color 0.4s ease-in-out; }
+        transition: none; }
       .m-nav-character input[type="radio"] + label .m-nav-characters-name,
       .m-nav-character input[type="radio"] + label .m-nav-characters-class,
       .m-nav-character input[type="radio"] + label .m-nav-characters-level, .m-nav-character input[type="checkbox"] + label .m-nav-characters-name,
@@ -2144,15 +2145,16 @@ label {
   .m-nav {
     border: 0;
     padding: 4.5em 0;
-    top: 0;
-    left: inherit;
-    right: -400px;
+    left: initial;
+    right: 0;
     width: 360px;
-    transition: right 0.3s ease-in-out, background-color 0.4s ease-in-out; }
+    -webkit-transform: translate(360px, 0);
+        -ms-transform: translate(360px, 0);
+            transform: translate(360px, 0); }
     .m-nav.is-open {
-      top: 0;
-      right: 0;
-      transition: right 0.3s ease-in-out, background-color 0.4s ease-in-out; } }
+      -webkit-transform: translate(0, 0);
+          -ms-transform: translate(0, 0);
+              transform: translate(0, 0); } }
 
 @media print {
   .m-nav {
@@ -2241,7 +2243,7 @@ label {
   .m-clone-block .m-clone-block-target .m-clone input[type="email"], .m-clone-block .m-clone-block-target .m-clone input[type="number"], .m-clone-block .m-clone-block-target .m-clone input[type="search"], .m-clone-block .m-clone-block-target .m-clone input[type="text"], .m-clone-block .m-clone-block-target .m-clone input[type="tel"], .m-clone-block .m-clone-block-target .m-clone input[type="password"] {
     transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone label {
-    transition: visibility 0.2s ease-in-out, color 0.2s ease-in-out; }
+    transition: all 0.2s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content {
     margin: 0;
     padding: 0;
@@ -2517,8 +2519,7 @@ label {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 8000;
-  transition: background-color 0.4s ease-in-out; }
+  z-index: 8000; }
 
 .m-quick-nav-list {
   margin: 0;

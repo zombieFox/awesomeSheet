@@ -18,7 +18,7 @@
         }
       }
       label {
-        transition: visibility $transition-ease-extra-fast, color $transition-ease-extra-fast;
+        transition: all $transition-ease-extra-fast;
       }
       .m-clone-block-content {
         margin: 0;

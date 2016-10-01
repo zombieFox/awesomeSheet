@@ -12,7 +12,7 @@ body {
   font-family: $base-font;
   font-size: $font-size-root-100;
   line-height: $line-height-160;
-  transition: background-color $transition-ease-medium;
+  // transition: background-color $transition-ease-medium;
   &.is-night-mode {
     background-color: $gray-02;
     color: $white;

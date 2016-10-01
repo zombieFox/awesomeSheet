@@ -2,14 +2,15 @@
   background-color: $white;
   padding: $font-size-450 0;
   position: fixed;
-  top: -100%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $nav;
-  transition: top $transition-ease-medium, background-color $transition-ease-medium;
+  transition: transform $transition-ease-fast;
+  transform: translate(0, -100%);
   .m-nav-list {
     padding: $font-size-100 0;
     margin: 0;
@@ -23,13 +24,12 @@
         margin: $font-size-100 0;
         background-color: $gray-19;
         height: 1px;
-        transition: background-color $transition-ease-medium;
+        // transition: background-color $transition-ease-medium;
       }
     }
   }
   &.is-open {
-    top: 0;
-    transition: top $transition-ease-medium, background-color $transition-ease-medium;
+    transform: translate(0, 0);
   }
 }
 
@@ -54,7 +54,7 @@
   display: block;
   text-transform: uppercase;
   text-align: left;
-  transition: color $transition-ease-medium;
+  transition: none;
   &:focus {
     outline: 0;
   }
@@ -80,7 +80,7 @@
     text-align: center;
     display: block;
     float: left;
-    transition: color $transition-ease-medium;
+    // transition: color $transition-ease-medium;
   }
   &:focus,
   &:hover {
@@ -125,15 +125,15 @@
         height: $line-height-400;
         line-height: $line-height-400;
         transition: none;
-        transition: color $transition-ease-medium;
+        // transition: color $transition-ease-medium;
         &:before {
           color: $secondary-color-03;
           width: 20%;
           margin: 0;
           text-align: center;
           float: left;
-          // transition: none;
-          transition: color $transition-ease-medium;
+          transition: none;
+          // transition: color $transition-ease-medium;
         }
         .m-nav-characters-name,
         .m-nav-characters-class,
@@ -303,15 +303,12 @@
   .m-nav {
     border: 0;
     padding: $font-size-450 0;
-    top: 0;
-    left: inherit;
-    right: -400px;
+    left: initial;
+    right: 0;
     width: 360px;
-    transition: right $transition-ease-fast, background-color $transition-ease-medium;
+    transform: translate(360px, 0);
     &.is-open {
-      top: 0;
-      right: 0;
-      transition: right $transition-ease-fast, background-color $transition-ease-medium;
+      transform: translate(0, 0);
     }
   }
 }
