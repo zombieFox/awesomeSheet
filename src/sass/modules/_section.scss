@@ -11,11 +11,7 @@
       border: 0;
       border-radius: 0;
       height: 40px;
-      line-height: 40px;
     }
-  }
-  .button-group-strech {
-    width: 100%;
   }
 }
 
@@ -74,11 +70,6 @@
 @media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {
-  .m-section-controls {
-    .button-group-strech {
-      width: inherit;
-    }
-  }
   .m-section-wrapper {
     padding: $font-size-300 0;
   }
@@ -87,26 +78,6 @@
   }
 }
 
-@media (min-width: $screen-lg) {
-  .m-section-controls {
-    .button-group,
-    .button-group-strech {
-      .button {
-        padding-right: $font-size-100;
-        padding-left: $font-size-100;
-      }
-    }
-  }
-}
+@media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-xl) {
-  .m-section-controls {
-    .button-group,
-    .button-group-strech {
-      .button {
-        padding-right: $font-size-150;
-        padding-left: $font-size-150;
-      }
-    }
-  }
-}
+@media (min-width: $screen-xl) {}

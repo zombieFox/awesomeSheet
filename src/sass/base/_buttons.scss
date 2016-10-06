@@ -6,7 +6,7 @@ input[type="button"] {
   background-color: $white;
   border-color: $gray-18;
   color: $base-color;
-  padding: $font-size-025 $font-size-075;
+  padding: $font-size-025 $font-size-100;
   border-width: 1px;
   border-style: solid;
   margin-bottom: $font-size-100;
@@ -45,18 +45,30 @@ input[type="button"] {
     outline: 0;
     text-decoration: none;
   }
+}
+
+.button-icon {
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  justify-content: center;
+  line-height: initial;
+  align-items: center;
+  span {
+    flex: 0 0 auto;
+    line-height: initial;
+    height: initial;
+  }
   [class^="icon-"],
   [class*=" icon-"] {
-    font-size: $font-size-100;
-    line-height: $line-height-160;
+    font-size: $font-size-150;
     display: inline-block;
+    margin-right: 0.3em;
   }
 }
 
 .button-normal {
   background: transparent;
-  border-radius: inherit;
-  text-transform: none;
+  border-radius: initial;
   white-space: normal;
   border: 0;
   &:link,
@@ -77,33 +89,21 @@ input[type="button"] {
 }
 
 .button-small {
-  padding: $font-size-025 $font-size-050;
+  padding: $font-size-025 $font-size-100;
   font-size: $font-size-075;
   border-radius: $border-radius-medium;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    margin-right: 2px;
-  }
 }
 
 .button-medium {
-  padding: $font-size-025 $font-size-075;
+  padding: $font-size-025 $font-size-150;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    margin-right: 5px;
-  }
 }
 
 .button-large {
   padding: $font-size-100 $font-size-200;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    margin-right: 8px;
-  }
 }
 
 .button-block {
@@ -165,7 +165,7 @@ input[type="button"] {
   background-color: transparent;
   border: 0;
   color: $base-color;
-  text-transform: inherit;
+  text-transform: initial;
   font-family: $open-sans-regular;
   &:link,
   &:visited {
@@ -212,7 +212,6 @@ input[type="button"] {
   background-color: transparent;
   border: 0;
   color: $light-alpha-04;
-  text-transform: inherit;
   &:link,
   &:visited {
     background-color: transparent;
@@ -262,10 +261,13 @@ input[type="button"] {
 .button-group-strech {
   display: flex;
   flex-flow: row nowrap;
+  width: 100%;
   .button,
   button {
     float: none;
-    flex: 1 0 auto;
+    flex: 1 1 auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -353,7 +355,7 @@ label {
     background-color: transparent;
     border: 0;
     color: $white;
-    text-transform: inherit;
+    text-transform: initial;
     font-family: $open-sans-regular;
     &:link,
     &:visited {
@@ -398,7 +400,7 @@ label {
     background-color: transparent;
     border: 0;
     color: $light-alpha-04;
-    text-transform: inherit;
+    text-transform: initial;
     &:link,
     &:visited {
       background-color: transparent;
