@@ -28,6 +28,7 @@ input[type="button"] {
     background-color: $white;
     border-color: $gray-18;
     color: $base-color;
+    beans: fox;
   }
   &:focus,
   &:hover {
@@ -170,19 +171,20 @@ input[type="button"] {
   &:link,
   &:visited {
     background-color: transparent;
+    border-color: transparent;
     color: $base-color;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-20;
-    color: $primary-color-08;
     border-color: transparent;
+    color: $primary-color-08;
   }
   &:active,
   &.is-active {
     background-color: $dark-alpha-18;
-    color: $primary-color-06;
     border-color: transparent;
+    color: $primary-color-06;
   }
 }
 

@@ -1044,7 +1044,8 @@ input[type="button"] {
   input[type="button"]:visited {
     background-color: #ffffff;
     border-color: #e6e6e6;
-    color: #333333; }
+    color: #333333;
+    beans: fox; }
   .button:focus, .button:hover,
   button:focus,
   button:hover,
@@ -1176,15 +1177,16 @@ input[type="button"] {
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
   .button-link:link, .button-link:visited {
     background-color: transparent;
+    border-color: transparent;
     color: #333333; }
   .button-link:focus, .button-link:hover {
     background-color: rgba(0, 0, 0, 0.05);
-    color: #ca0035;
-    border-color: transparent; }
+    border-color: transparent;
+    color: #ca0035; }
   .button-link:active, .button-link.is-active {
     background-color: rgba(0, 0, 0, 0.15);
-    color: #970027;
-    border-color: transparent; }
+    border-color: transparent;
+    color: #970027; }
 
 .button-tertiary {
   background-color: transparent;
