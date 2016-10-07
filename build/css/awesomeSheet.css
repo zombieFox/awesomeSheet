@@ -1074,30 +1074,6 @@ input[type="button"] {
     outline: 0;
     text-decoration: none; }
 
-.button-icon {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  line-height: initial;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .button-icon span {
-    -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto;
-    line-height: initial;
-    height: initial; }
-  .button-icon [class^="icon-"],
-  .button-icon [class*=" icon-"] {
-    font-size: 1.5em;
-    display: inline-block;
-    margin-right: 0.3em; }
-
 .button-normal {
   background: transparent;
   border-radius: initial;
@@ -1133,6 +1109,30 @@ input[type="button"] {
   padding-left: 0;
   padding-right: 0;
   display: inline-block; }
+
+.button-icon {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: initial;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .button-icon span {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    line-height: initial;
+    height: initial; }
+  .button-icon [class^="icon-"],
+  .button-icon [class*=" icon-"] {
+    font-size: 1.5em;
+    display: inline-block;
+    margin-right: 0.3em; }
 
 .button-primary {
   background-color: #fd0042;
@@ -1170,7 +1170,7 @@ input[type="button"] {
 
 .button-link {
   background-color: transparent;
-  border: 0;
+  border-color: transparent;
   color: #333333;
   text-transform: initial;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
@@ -1179,10 +1179,12 @@ input[type="button"] {
     color: #333333; }
   .button-link:focus, .button-link:hover {
     background-color: rgba(0, 0, 0, 0.05);
-    color: #ca0035; }
+    color: #ca0035;
+    border-color: transparent; }
   .button-link:active, .button-link.is-active {
     background-color: rgba(0, 0, 0, 0.15);
-    color: #970027; }
+    color: #970027;
+    border-color: transparent; }
 
 .button-tertiary {
   background-color: transparent;
@@ -2969,11 +2971,6 @@ label {
     margin-bottom: 0;
     position: relative;
     z-index: 2; }
-    .m-import-select .m-import-select-label [class^="icon-"],
-    .m-import-select .m-import-select-label [class*=" icon-"] {
-      font-size: 1.8em;
-      line-height: 1em;
-      vertical-align: bottom; }
     .m-import-select .m-import-select-label.m-import-select-label-ok [class^="icon-"],
     .m-import-select .m-import-select-label.m-import-select-label-ok [class*=" icon-"] {
       color: #3288c9; }

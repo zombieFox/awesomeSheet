@@ -14,12 +14,6 @@
     margin-bottom: 0;
     position: relative;
     z-index: 2;
-    [class^="icon-"],
-    [class*=" icon-"] {
-      font-size: 1.8em;
-      line-height: 1em;
-      vertical-align: bottom;
-    }
     &.m-import-select-label-ok {
       [class^="icon-"],
       [class*=" icon-"] {

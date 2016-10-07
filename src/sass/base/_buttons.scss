@@ -47,25 +47,6 @@ input[type="button"] {
   }
 }
 
-.button-icon {
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-  justify-content: center;
-  line-height: initial;
-  align-items: center;
-  span {
-    flex: 0 0 auto;
-    line-height: initial;
-    height: initial;
-  }
-  [class^="icon-"],
-  [class*=" icon-"] {
-    font-size: $font-size-150;
-    display: inline-block;
-    margin-right: 0.3em;
-  }
-}
-
 .button-normal {
   background: transparent;
   border-radius: initial;
@@ -111,6 +92,25 @@ input[type="button"] {
   padding-left: 0;
   padding-right: 0;
   display: inline-block;
+}
+
+.button-icon {
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  justify-content: center;
+  line-height: initial;
+  align-items: center;
+  span {
+    flex: 0 0 auto;
+    line-height: initial;
+    height: initial;
+  }
+  [class^="icon-"],
+  [class*=" icon-"] {
+    font-size: $font-size-150;
+    display: inline-block;
+    margin-right: 0.3em;
+  }
 }
 
 .button-primary {
@@ -163,7 +163,7 @@ input[type="button"] {
 
 .button-link {
   background-color: transparent;
-  border: 0;
+  border-color: transparent;
   color: $base-color;
   text-transform: initial;
   font-family: $open-sans-regular;
@@ -176,11 +176,13 @@ input[type="button"] {
   &:hover {
     background-color: $dark-alpha-20;
     color: $primary-color-08;
+    border-color: transparent;
   }
   &:active,
   &.is-active {
     background-color: $dark-alpha-18;
     color: $primary-color-06;
+    border-color: transparent;
   }
 }
 
