@@ -1044,8 +1044,7 @@ input[type="button"] {
   input[type="button"]:visited {
     background-color: #ffffff;
     border-color: #e6e6e6;
-    color: #333333;
-    beans: fox; }
+    color: #333333; }
   .button:focus, .button:hover,
   button:focus,
   button:hover,
