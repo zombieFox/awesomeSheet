@@ -6490,10 +6490,10 @@ var ro = (function() {
       name: "Ro Flint",
       race: "Elf",
       class: "Magus Bladebound",
-      level: "3",
+      level: "6",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "3,891",
+      xp: "",
       height: "6'0",
       weight: "",
       age: "120",
@@ -6510,8 +6510,8 @@ var ro = (function() {
           temp: ""
         },
         dex: {
-          score: "18",
-          temp: ""
+          score: "19",
+          temp: "21"
         },
         con: {
           score: "10",
@@ -6519,7 +6519,7 @@ var ro = (function() {
         },
         int: {
           score: "16",
-          temp: ""
+          temp: "18"
         },
         wis: {
           score: "10",
@@ -6530,76 +6530,76 @@ var ro = (function() {
           temp: ""
         }
       },
-      feats: "Weapon Finesse, Dervish Dance, Alertness",
+      feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade)",
       traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex)"
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy)"
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
-      magic_gear: "Short Sword +1, Black Blade Scimitar +1",
+      magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       encumbrance: {
         light: "43 lbs or less",
         medium: "44–86 lbs",
         heavy: "87–130 lbs"
       },
       body_slots: {
-        armor: "Studded leather",
-        belts: "",
+        armor: "Mithral Chain Shirt +1",
+        belts: "Belt of Incredible Dexterity +2",
         body: "",
         chest: "",
         eyes: "",
         feet: "",
         hands: "",
-        head: "",
+        head: "Headband of Vast Intelligence +2",
         headband: "",
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "",
         shield: "",
-        shoulders: "",
+        shoulders: "Cloak of Resistance  +1",
         wrist: ""
       },
       wealth: {
         platinum: "",
-        gold: "570",
+        gold: "1,570",
         silver: "",
         copper: ""
       },
       consumable: [{
         item: "Arcane Pool",
-        current: "4",
-        total: "4",
+        current: "",
+        total: "8",
         used: ""
       }, {
         item: "Black Blade Arcane Pool",
-        current: "1",
-        total: "1",
+        current: "",
+        total: "2",
         used: ""
       }, {
         item: "Alchemist Fire",
-        current: "3",
+        current: "",
         total: "3",
         used: ""
       }, {
         item: "Potion of CLW",
-        current: "3",
+        current: "",
         total: "3",
         used: ""
       }]
     },
     defense: {
       hp: {
-        total: "20",
+        total: "38",
         temp: "",
-        damage: "9",
+        damage: "",
         non_lethal_damage: "",
         current: ""
       },
       ac: {
         misc: "",
         temp: "",
-        armor: "3",
+        armor: "5",
         shield: "",
         deflect: "",
         dodge: "",
@@ -6661,9 +6661,9 @@ var ro = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "3",
+        base: "5",
         racial: "",
-        resistance: "",
+        resistance: "1",
         misc: "",
         temp: "",
         current: "",
@@ -6677,9 +6677,9 @@ var ro = (function() {
         }
       },
       reflex: {
-        base: "1",
+        base: "2",
         racial: "",
-        resistance: "",
+        resistance: "1",
         misc: "",
         temp: "",
         current: "",
@@ -6693,9 +6693,9 @@ var ro = (function() {
         }
       },
       will: {
-        base: "3",
+        base: "5",
         racial: "",
-        resistance: "",
+        resistance: "1",
         misc: "",
         temp: "",
         current: "",
@@ -6708,10 +6708,10 @@ var ro = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects, +7 against cold weather"
+      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "2",
+      base_attack: "4",
       cmb: {
         misc: "",
         temp: "",
@@ -6783,36 +6783,41 @@ var ro = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Rapier",
-          attack: "6",
-          damage: "1d6+4",
-          critical: "18–20/x2"
-        }, {
-          weapon: "Black Blade Scimitar +1",
-          attack: "7",
-          damage: "1d6+5",
-          critical: "18–20/x2"
-        }, {
-          weapon: "Spell Strike BB Scimitar +1",
-          attack: "5/5",
-          damage: "1d6+5",
-          critical: "18–20/x2"
-        }, {
           weapon: "Shortsword +1",
-          attack: "7",
+          attack: "10",
           damage: "1d6+2",
           critical: "18–20/x2"
+        }, {
+          weapon: "Black Blade Scimitar +2",
+          attack: "12",
+          damage: "1d6+7",
+          critical: "18–20/x2"
+        }, {
+          weapon: "Spellstrike",
+          attack: "12",
+          damage: "1d6+7",
+          critical: "18–20/x2"
+        }, {
+          weapon: "Black Blade Scimitar +2/Spell Strike",
+          attack: "10/10",
+          damage: "1d6+7/Spell Damage",
+          critical: "18–20/x2"
+        }, {
+          weapon: "Black Blade Scimitar +3 Keen",
+          attack: "13",
+          damage: "1d6+8",
+          critical: "15-20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "5",
+          attack: "9",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
           ammo: "50"
         }]
       },
-      attack_notes: "+1 attack, +2 damage"
+      attack_notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen"
     },
     skills: {
       spent_ranks: {
@@ -6820,7 +6825,7 @@ var ro = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "3",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -6871,11 +6876,11 @@ var ro = (function() {
         }
       },
       climb: {
-        ranks: "",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: true,
           dex_bonus: false,
           con_bonus: false,
@@ -6992,11 +6997,11 @@ var ro = (function() {
         }
       },
       fly: {
-        ranks: "",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
@@ -7077,11 +7082,11 @@ var ro = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -7196,11 +7201,11 @@ var ro = (function() {
         }
       },
       knowledge_planes: {
-        ranks: "",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -7247,7 +7252,7 @@ var ro = (function() {
         }
       },
       perception: {
-        ranks: "3",
+        ranks: "6",
         misc: "2",
         current: "",
         bonuses: {
@@ -7336,7 +7341,7 @@ var ro = (function() {
         }
       },
       ride: {
-        ranks: "2",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
@@ -7387,7 +7392,7 @@ var ro = (function() {
         }
       },
       spellcraft: {
-        ranks: "3",
+        ranks: "6",
         misc: "",
         current: "",
         bonuses: {
@@ -7404,7 +7409,7 @@ var ro = (function() {
         }
       },
       stealth: {
-        ranks: "1",
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
@@ -7438,11 +7443,11 @@ var ro = (function() {
         }
       },
       swim: {
-        ranks: "",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: true,
           dex_bonus: false,
           con_bonus: false,
@@ -7459,7 +7464,7 @@ var ro = (function() {
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -7632,9 +7637,9 @@ var ro = (function() {
         }
       },
       per_day: {
-        level_0: "4",
-        level_1: "4",
-        level_2: "",
+        level_0: "6",
+        level_1: "5",
+        level_2: "4",
         level_3: "",
         level_4: "",
         level_5: "",
@@ -7644,9 +7649,9 @@ var ro = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "13",
-        level_1: "14",
-        level_2: "",
+        level_0: "14",
+        level_1: "15",
+        level_2: "15",
         level_3: "",
         level_4: "",
         level_5: "",
@@ -7668,44 +7673,196 @@ var ro = (function() {
         level_9: ""
       },
       book: [{
-        level_0: [
-          { name: "Acid Splash", prepared: 0, active: false, cast: 0 },
-          { name: "Arcane Mark", prepared: 0, active: false, cast: 0 },
-          { name: "Dancing Lights", prepared: 1, active: false, cast: 0 },
-          { name: "Daze", prepared: 0, active: false, cast: 0 },
-          { name: "Detect Magic", prepared: 1, active: false, cast: 0 },
-          { name: "Disrupt Undead", prepared: 0, active: false, cast: 0 },
-          { name: "Flare", prepared: 0, active: false, cast: 0 },
-          { name: "Ghost Sound", prepared: 0, active: false, cast: 0 },
-          { name: "Light", prepared: 0, active: false, cast: 0 },
-          { name: "Mage Hand", prepared: 1, active: false, cast: 0 },
-          { name: "Open Close", prepared: 0, active: false, cast: 0 },
-          { name: "Prestidigitation", prepared: 0, active: false, cast: 0 },
-          { name: "Ray of Frost", prepared: 0, active: false, cast: 0 },
-          { name: "Read Magic", prepared: 0, active: false, cast: 0 },
-          { name: "Spark", prepared: 0, active: false, cast: 0 }
-        ]
+        level_0: [{
+          name: "Acid Splash",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Arcane Mark",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Dancing Lights",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Daze",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Detect Magic",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Disrupt Undead",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Flare",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Ghost Sound",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Light",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Mage Hand",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Open Close",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Prestidigitation",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Ray of Frost",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Read Magic",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Spark",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
-        level_1: [
-          { name: "Color Spray", prepared: 0, active: false, cast: 0 },
-          { name: "Grease", prepared: 1, active: false, cast: 0 },
-          { name: "Shocking Grasp", prepared: 2, active: false, cast: 0 },
-          { name: "True Strike", prepared: 0, active: false, cast: 0 },
-          { name: "Magic Missile", prepared: 0, active: false, cast: 0 },
-          { name: "Shield", prepared: 1, active: false, cast: 0 },
-          { name: "Vanish", prepared: 0, active: false, cast: 0 },
-          { name: "Obscuring Mist", prepared: 0, active: false, cast: 0 },
-          { name: "Chill Touch", prepared: 0, active: false, cast: 0 },
-          { name: "Frostbite", prepared: 0, active: false, cast: 0 },
-          { name: "Infernal Healing", prepared: 0, active: false, cast: 0 },
-          { name: "Windy Escape", prepared: 0, active: false, cast: 0 },
-          { name: "Unerring Weapon", prepared: 0, active: false, cast: 0 },
-          { name: "Ray of Enfeeblement", prepared: 0, active: false, cast: 0 },
-          { name: "Burning Hands", prepared: 0, active: false, cast: 0 },
-          { name: "Expeditious Retreat", prepared: 0, active: false, cast: 0 }
-        ]
+        level_1: [{
+          name: "Color Spray",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Grease",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Shocking Grasp",
+          prepared: 3,
+          active: false,
+          cast: 0
+        }, {
+          name: "True Strike",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Magic Missile",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Shield",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Vanish",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Obscuring Mist",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Chill Touch",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Frostbite",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Infernal Healing",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Windy Escape",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Unerring Weapon",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Ray of Enfeeblement",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Burning Hands",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Expeditious Retreat",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
-        level_2: []
+        level_2: [{
+          name: "Mirror Image",
+          prepared: 2,
+          active: false,
+          cast: 0
+        }, {
+          name: "Frigdig Touch",
+          prepared: 2,
+          active: false,
+          cast: 0
+        }, {
+          name: "Glitter Dust",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Web",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Scorching Ray",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Pyrotechnics",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
         level_3: []
       }, {
@@ -7724,9 +7881,13 @@ var ro = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects, +2 against Enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon).<br><strong>Keen Senses (Ex)</strong> +2 Perception checks."
+        note: "<strong>+2 Dexterity, +2 Intelligence, –2 Constitution</strong> Elves are nimble, both in body and mind, but their form is frail.<br><strong>Medium</strong> Elves are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Elves have a base speed of 30 feet.<br><strong>Low-Light Vision</strong> Elves can see twice as far as humans in conditions of dim light. See Additional Rules.<br><strong>Elven Immunities</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.<br><strong>Elven Magic</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.<br><strong>Keen Senses</strong> Elves receive a +2 racial bonus on Perception skill checks.<br><strong>Weapon Familiarity</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word \"elven\" in its name as a martial weapon.<br><strong>Languages</strong> Elves begin play speaking Common and Elven. Elves with high Intelligence scores can choose from the following: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan."
       }, {
-        note: "<strong>Arcane Pool</strong> 4.<br><strong>Cantrips</strong> <strong>Spell Combat (Ex)</strong> cast spells and wield his weapons at the same time.<br><strong>Black Blade (Ex)</strong> Bladebound magus' gain a powerful sentient weapon called a black blade.<br><strong>Black Blade Scimitar +1</strong><br>Purpose: To protect the Elves.<br>Enhancement Bonus +1, Int 11, Wis/Cha 7, Ego 5,<br>Special: Alertness, black blade strike, telepathy, unbreakable."
+        note: "<strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dervish Dance</strong> When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist’s precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.<br><strong>Extra Arcane Pool</strong> Your arcane pool increases by 2.<br><strong>Weapon Focus (Black Blade)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Magical Lineage (Shocking Grasp)</strong> One of your parents was a gifted spellcaster who not only used metamagic often, but also developed many magical items and perhaps even a new spell or two—and you have inherited a fragment of this greatness. Pick one spell when you choose this trait. When you apply metamagic feats to this spell, treat its actual level as 1 lower for determining the spell's final adjusted level.<br><strong>Focused Mind</strong> Your childhood was either dominated by lessons of some sort (whether musical, academic, or other) or by a horrible home life that encouraged your ability to block out distractions and focus on the immediate task at hand. You gain a +2 trait bonus on concentration checks."
+      }, {
+        note: "<strong>Arcane Pool (Su)</strong> At 1st level, the magus gains a reservoir of mystical arcane energy that he can draw upon to fuel his powers and enhance his weapon. This arcane pool has a number of points equal to 1/2 his magus level (minimum 1) + his Intelligence modifier. The pool refreshes once per day when the magus prepares his spells.<br>At 1st level, a magus can expend 1 point from his arcane pool as a swift action to grant any weapon he is holding a +1 enhancement bonus for 1 minute. For every four levels beyond 1st, the weapon gains another +1 enhancement bonus, to a maximum of +5 at 17th level. These bonuses can be added to the weapon, stacking with existing weapon enhancement to a maximum of +5. Multiple uses of this ability do not stack with themselves.<br>At 5th level, these bonuses can be used to add any of the following weapon properties: dancing, flaming, flaming burst, frost, icy burst, keen, shock, shocking burst, speed, or vorpal. Adding these properties consumes an amount of bonus equal to the property's base price modifier (see the Magic Weapon Special Ability Descriptions). These properties are added to any the weapon already has, but duplicates do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. These bonuses and properties are decided when the arcane pool point is spent and cannot be changed until the next time the magus uses this ability. These bonuses do not function if the weapon is wielded by anyone other than the magus.<br>A magus can only enhance one weapon in this way at one time. If he uses this ability again, the first use immediately ends.<br><strong>Cantrips</strong> A magus can prepare a number of cantrips, or 0-level spells, each day, as noted in the table above under “Spells per Day.” These spells are cast like any other spell, but they are not expended when cast and may be used again.<br><strong>Spell Combat (Ex)</strong> At 1st level, a magus learns to cast spells and wield his weapons at the same time. This functions much like two-weapon fighting, but the off-hand weapon is a spell that is being cast. To use this ability, the magus must have one hand free (even if the spell being cast does not have somatic components), while wielding a light or one-handed melee weapon in the other hand. As a full-round action, he can make all of his attacks with his melee weapon at a –2 penalty and can also cast any spell from the magus spell list with a casting time of 1 standard action (any attack roll made as part of this spell also takes this penalty). If he casts this spell defensively, he can decide to take an additional penalty on his attack rolls, up to his Intelligence bonus, and add the same amount as a circumstance bonus on his concentration check. If the check fails, the spell is wasted, but the attacks still take the penalty. A magus can choose to cast the spell first or make the weapon attacks first, but if he has more than one attack, he cannot cast the spell between weapon attacks.<br><strong>Spellstrike (Su)</strong> At 2nd level, whenever a magus casts a spell with a range of “touch” from the magus spell list, he can deliver the spell through any weapon he is wielding as part of a melee attack. Instead of the free melee touch attack normally allowed to deliver the spell, a magus can make one free melee attack with his weapon (at his highest base attack bonus) as part of casting this spell. If successful, this melee attack deals its normal damage as well as the effects of the spell. If the magus makes this attack in concert with spell combat, this melee attack takes all the penalties accrued by spell combat melee attacks. This attack uses the weapon's critical range (20, 19–20, or 18–20 and modified by the keen weapon property or similar effects), but the spell effect only deals ×2 damage on a successful critical hit, while the weapon damage uses its own critical modifier.<br><strong>Magus Arcana Arcane Accuracy (Su)</strong> The magus can expend 1 point from his arcane pool as a swift action to grant himself an insight bonus equal to his Intelligence bonus on all attack rolls until the end of his turn."
+      }, {
+        note: "<strong>Black Blade (Ex)</strong> At 3rd level, the bladebound magus' gains a powerful sentient weapon called a black blade, whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, and cannot have a familiar of any kind, even from another class.<br>Instead of the normal arcane pool amount, the bladebound magus's arcane pool has a number of points equal to 1/3 his level (minimum 1) plus his Intelligence bonus. This ability changes the Arcane Pool class feature and replaces the magus arcana gained at 3rd level.<br><strong>Black Blade Ability Descriptions</strong> Enhancement Bonus +2, Int 12, Wis 8, Cha 8 Ego 8. Cause: To protect the Evles.<br><strong>Alertness (Ex)</strong> While a magus is wielding his black blade, he gains the Alertness feat.<br><strong>Black Blade Strike (Sp)</strong> As a free action, the magus can spend a point from the black blade's arcane pool to grant the black blade a +1 bonus on damage rolls for 1 minute. For every four levels beyond 1st, this ability gives the black blade another +1 on damage rolls.<br><strong>Telepathy (Su)</strong> While a magus is wielding or carrying his black blade, he can communicate telepathically with the blade in a language that the magus and the black blade share.<br><strong>Unbreakable (Ex)</strong> As long as it has at least 1 point in its arcane pool, a black blade is immune to the broken condition. If broken, the black blade is unconscious and powerless until repaired. If destroyed, the black blade can be reforged 1 week later through a special ritual that costs 200 gp per magus level. The ritual takes 24 hours to complete.<br><strong>Energy Attunement (Su)</strong> At 5th level, as a free action, a magus can spend a point of his black blade's arcane pool to have it deal one of the following types of damage instead of weapon damage: cold, electricity, or fire. He can spend 2 points from the black blade's arcane pool to deal sonic or force damage instead of weapon damage. This effect lasts until the start of the magus's next turn."
       }],
       story: []
     }
