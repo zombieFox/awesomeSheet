@@ -3806,7 +3806,7 @@ var nif = (function() {
         },
         dex: {
           score: "17",
-          temp: "15"
+          temp: ""
         },
         con: {
           score: "14",
@@ -3832,7 +3832,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15)",
-      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (4), Invisibility (2), Create Pit (1), Web (4), Stinking Cloud (2), Grease (0), Mirror Image (3), Spiked Pit (3), Fly (5), Interposing Hand (1), Elemental Form 2 (1), Wall of Fire (1)",
+      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (3), Invisibility (2), Create Pit (1), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Form 2 (1), Wall of Fire (1), Haste (1)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -3857,7 +3857,7 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "1,090",
+        gold: "379",
         silver: "",
         copper: ""
       },
@@ -3865,12 +3865,12 @@ var nif = (function() {
         item: "Wand of Lightning Bolt",
         current: "",
         total: "50",
-        used: "46"
+        used: "47"
       }, {
-        item: "Wand of Scorching Hands",
+        item: "Wand of Scorching Ray",
         current: "",
         total: "50",
-        used: "35"
+        used: "36"
       }, {
         item: "Wand of Swift Girding",
         current: "",
@@ -3885,7 +3885,7 @@ var nif = (function() {
         item: "Shift",
         current: "",
         total: "9",
-        used: "6"
+        used: "2"
       }]
     },
     defense: {
@@ -5077,14 +5077,14 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Feather Fall",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         }, {
           name: "Grease",
           prepared: 2,
           active: false,
-          cast: 1
+          cast: 0
         }, {
           name: "Mage Armor",
           prepared: 0,
@@ -5107,9 +5107,9 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Protection from Evil",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 0
+          cast: 1
         }, {
           name: "Shield",
           prepared: 0,
@@ -5134,7 +5134,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Create Pit",
-          prepared: 0,
+          prepared: 2,
           active: false,
           cast: 0
         }, {
@@ -5144,12 +5144,12 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Glitterdust",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
           name: "Invisibility",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -5181,7 +5181,7 @@ var nif = (function() {
           name: "Web",
           prepared: 1,
           active: false,
-          cast: 1
+          cast: 0
         }]
       }, {
         level_3: [{
@@ -5193,7 +5193,7 @@ var nif = (function() {
           name: "Summon Monster III",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 1
         }, {
           name: "Spiked Pit",
           prepared: 1,
@@ -5232,9 +5232,13 @@ var nif = (function() {
     notes: {
       character: [{
         note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration,<br><strong>Teleportation sub school</strong>,<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+      }, {
+        note: "Create wondrous item, Headband of Vast Intelligence +4 2/16 days (6,000gp allotted)."
+      }, {
+        note: "Mirror Images up 4"
       }],
       story: [{
-        note: "Baron Turbine Blackshield, lord of Thornkeep Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"
+        note: "Baron Turbine Blackshield, lord of Thornkeep <br>Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"
       }]
     }
   };
@@ -5300,8 +5304,8 @@ var orrin = (function() {
       special_abilities: "Sneak attack (+3d6), Trapfinding, Evasion, Rogue talent (Trap spotter), Trap Sense +2, Rogue talent (Finesse Rogue), Uncanny dodge, Rogue talent (Fast stealth)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces",
-      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (6), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6)",
+      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -5339,12 +5343,12 @@ var orrin = (function() {
         item: "Gloves of Reconnaissance",
         current: "",
         total: "10",
-        used: "2"
+        used: "4"
       }, {
         item: "Bread rolls",
         current: "",
         total: "50",
-        used: "1"
+        used: "5"
       }]
     },
     defense: {

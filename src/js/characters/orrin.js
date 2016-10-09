@@ -52,8 +52,8 @@ var orrin = (function() {
       special_abilities: "Sneak attack (+3d6), Trapfinding, Evasion, Rogue talent (Trap spotter), Trap Sense +2, Rogue talent (Finesse Rogue), Uncanny dodge, Rogue talent (Fast stealth)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces",
-      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (6), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6)",
+      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1)",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -91,12 +91,12 @@ var orrin = (function() {
         item: "Gloves of Reconnaissance",
         current: "",
         total: "10",
-        used: "2"
+        used: "4"
       }, {
         item: "Bread rolls",
         current: "",
         total: "50",
-        used: "1"
+        used: "5"
       }]
     },
     defense: {
