@@ -9,7 +9,7 @@ var vos = (function() {
       level: "6",
       size: "Medium",
       alignment: "Chaotic Neutral",
-      xp: "18,752",
+      xp: "24,398",
       height: "5'0",
       weight: "190 lbs",
       age: "40",

@@ -7917,7 +7917,7 @@ var vos = (function() {
       level: "6",
       size: "Medium",
       alignment: "Chaotic Neutral",
-      xp: "18,752",
+      xp: "24,398",
       height: "5'0",
       weight: "190 lbs",
       age: "40",
@@ -9964,7 +9964,7 @@ var clone = (function() {
 
   function clear() {
     // console.log("--- clone clear fired ---");
-    // not sure why clear is firing twice on character change, must investigate 
+    // not sure why clear is firing twice on character change, must investigate
     var all_cloneTarget = helper.eA(".js-clone-block-target");
     for (var i = 0; i < all_cloneTarget.length; i++) {
       // console.log("\t for running on " + all_cloneTarget[i].classList[2]);
@@ -12952,12 +12952,25 @@ var textareaBlock = (function() {
           _store(this);
           focus(this);
         }, false);
+        textareaBlockField.addEventListener("paste", function(event) {
+          _pasteWithoutFormatting(event);
+        });
       };
       if (textareaBlockLabel) {
         textareaBlockLabel.addEventListener("click", function() {
           focusLabel(this);
         }, false);
       };
+    };
+  };
+
+  function _pasteWithoutFormatting(event) {
+    if (event.clipboardData) {
+      event.preventDefault();
+      var text = event.clipboardData.getData("text/plain");
+      document.execCommand("insertText", false, text);
+    } else {
+      return true;
     };
   };
 
