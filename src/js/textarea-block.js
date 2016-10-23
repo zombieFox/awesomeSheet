@@ -73,12 +73,25 @@ var textareaBlock = (function() {
           _store(this);
           focus(this);
         }, false);
+        textareaBlockField.addEventListener("paste", function(event) {
+          _pasteWithoutFormatting(event);
+        });
       };
       if (textareaBlockLabel) {
         textareaBlockLabel.addEventListener("click", function() {
           focusLabel(this);
         }, false);
       };
+    };
+  };
+
+  function _pasteWithoutFormatting(event) {
+    if (event.clipboardData) {
+      event.preventDefault();
+      var text = event.clipboardData.getData("text/plain");
+      document.execCommand("insertText", false, text);
+    } else {
+      return true;
     };
   };
 
