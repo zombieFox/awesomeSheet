@@ -320,12 +320,12 @@ var orrin = (function() {
           critical: "x2"
         }, {
           weapon: "Punching Dagger +2 Shocking",
-          attack: "11",
+          attack: "12",
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
           weapon: "Rapier +1, Punching Dagger +2 Shocking",
-          attack: "10/9",
+          attack: "10/10",
           damage: "1d6+2, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
