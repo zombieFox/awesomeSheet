@@ -8,7 +8,7 @@ var orrin = (function() {
       class: "Rogue",
       level: "8",
       size: "Medium",
-      alignment: "Lawful Neutral",
+      alignment: "Lawful Evil",
       xp: "34,231",
       height: "6'0",
       weight: "206 lbs",
