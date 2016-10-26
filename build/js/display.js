@@ -391,13 +391,13 @@ var display = (function() {
           makeDisplayItem("defense.hp.temp", "", "");
           makeDisplayItem("defense.hp.non_lethal_damage", "<strong>Nonlethal Damage</strong> ", "");
           makeDisplayItem("defense.ac.current", "<strong>AC</strong> ", "");
-          makeDisplayItem("defense.ac_notes", "<strong>Notes</strong> ", "");
+          makeDisplayItem("defense.ac_notes", "<strong>Notes</strong><br> ", "");
           makeDisplayItem("defense.flat_footed.current", "<strong>Flat Footed</strong> ", "");
           makeDisplayItem("defense.touch.current", "<strong>Touch</strong> ", "");
           makeDisplayItem("defense.fortitude.current", "<strong>Fortitude</strong> ", "");
           makeDisplayItem("defense.reflex.current", "<strong>Reflex</strong> ", "");
           makeDisplayItem("defense.will.current", "<strong>Will</strong> ", "");
-          makeDisplayItem("defense.save_notes", "<strong>Notes</strong> ", "");
+          makeDisplayItem("defense.save_notes", "<strong>Notes</strong><br> ", "");
 
           makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
           makeDisplayItem("spells.concentration.current", "<strong>Concentration</strong> ", "");
@@ -405,7 +405,7 @@ var display = (function() {
           makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
           makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
-          makeDisplayItem("offense.attack_notes", "<strong>Notes</strong> ", "");
+          makeDisplayItem("offense.attack_notes", "<strong>Notes</strong><br> ", "");
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");

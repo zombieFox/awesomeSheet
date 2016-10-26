@@ -638,6 +638,9 @@ var clone = (function() {
         storeInputTimer = setTimeout(delayUpdate, 1000, "note-character");
         textareaBlock.focus(this);
       }, false);
+      textareaBlockField.addEventListener("paste", function(event) {
+        textareaBlock.pasteStrip(event);
+      });
     };
     if (textareaBlockLabel) {
       textareaBlockLabel.addEventListener("click", function() {
@@ -661,6 +664,9 @@ var clone = (function() {
         storeInputTimer = setTimeout(delayUpdate, 1000, "note-story");
         textareaBlock.focus(this);
       }, false);
+      textareaBlockField.addEventListener("paste", function(event) {
+        textareaBlock.pasteStrip(event);
+      });
     };
     if (textareaBlockLabel) {
       textareaBlockLabel.addEventListener("click", function() {

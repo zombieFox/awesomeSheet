@@ -74,7 +74,7 @@ var textareaBlock = (function() {
           focus(this);
         }, false);
         textareaBlockField.addEventListener("paste", function(event) {
-          _pasteWithoutFormatting(event);
+          pasteStrip(event);
         });
       };
       if (textareaBlockLabel) {
@@ -85,7 +85,7 @@ var textareaBlock = (function() {
     };
   };
 
-  function _pasteWithoutFormatting(event) {
+  function pasteStrip(event) {
     if (event.clipboardData) {
       event.preventDefault();
       var text = event.clipboardData.getData("text/plain");
@@ -120,7 +120,8 @@ var textareaBlock = (function() {
     focusLabel: focusLabel,
     render: render,
     clear: clear,
-    bind: bind
+    bind: bind,
+    pasteStrip: pasteStrip
   };
 
 })();

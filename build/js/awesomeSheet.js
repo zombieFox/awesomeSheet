@@ -5258,10 +5258,10 @@ var orrin = (function() {
       name: "Orrin Alareth",
       race: "Human",
       class: "Rogue",
-      level: "7",
+      level: "8",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "21,390",
+      xp: "34,231",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -5278,8 +5278,8 @@ var orrin = (function() {
           temp: ""
         },
         dex: {
-          score: "19",
-          temp: "21"
+          score: "20",
+          temp: "22"
         },
         con: {
           score: "12",
@@ -5301,7 +5301,7 @@ var orrin = (function() {
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude",
       traits: "Reactionary, Resilient",
       languages: "Common, Elven",
-      special_abilities: "Sneak attack (+4d6), Trapfinding, Evasion, Rogue talent (Trap spotter), Trap Sense +2, Rogue talent (Finesse Rogue), Uncanny dodge, Rogue talent (Fast stealth)"
+      special_abilities: "Sneak attack (+4d6), Trapfinding, Evasion, Rogue talent (Trap spotter), Trap Sense +2, Rogue talent (Finesse Rogue), Uncanny dodge, Rogue talent (Fast stealth), Improved Uncanny Dodge, Rogue talent (Combat Trick - Improved Two-Weapon Fighting)"
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6)",
@@ -5440,7 +5440,7 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: "5",
+        base: "6",
         racial: "",
         resistance: "2",
         misc: "",
@@ -5474,7 +5474,7 @@ var orrin = (function() {
       save_notes: "+2 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "5",
+      base_attack: "6/1",
       cmb: {
         misc: "",
         temp: "",
@@ -5547,43 +5547,43 @@ var orrin = (function() {
       attack: {
         melee: [{
           weapon: "Rapier +1",
-          attack: "12",
+          attack: "14",
           damage: "1d6+2",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
-          attack: "10",
+          attack: "13",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
           weapon: "Rapier +1, Short sword +1",
-          attack: "10/8",
+          attack: "12/12/6/6",
           damage: "1d6+2, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
-          attack: "9",
+          attack: "12",
           damage: "1d6+1",
           critical: "19–20/×2"
         }, {
           weapon: "Sap",
-          attack: "9",
+          attack: "12",
           damage: "1d6+1",
           critical: "x2"
         }, {
           weapon: "Punching Dagger +2 Shocking",
-          attack: "12",
+          attack: "14",
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
           weapon: "Rapier +1, Punching Dagger +2 Shocking",
-          attack: "10/10",
-          damage: "1d6+2, 1d4+3 + 1d6 Electrical",
-          critical: "18–20/×2, x3"
+          attack: "12/12/7/7",
+          damage: "1d6+2, 1d6+2, 1d4+3 + 1d6 Electrical, 1d4+3 + 1d6 Electrical",
+          critical: "18–20/×2, 18–20/×2, x3, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "10",
+          attack: "12",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -5598,7 +5598,7 @@ var orrin = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "7",
+        ranks: "8",
         misc: "",
         current: "",
         bonuses: {
@@ -5632,7 +5632,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: "7",
+        ranks: "8",
         misc: "",
         current: "",
         bonuses: {
@@ -5719,7 +5719,7 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: "7",
+        ranks: "8",
         misc: "4",
         current: "",
         bonuses: {
@@ -5753,7 +5753,7 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: "7",
+        ranks: "8",
         misc: "",
         current: "",
         bonuses: {
@@ -6025,7 +6025,7 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: "7",
+        ranks: "8",
         misc: "5",
         current: "",
         bonuses: {
@@ -6131,7 +6131,7 @@ var orrin = (function() {
         }
       },
       sense_motive: {
-        ranks: "3",
+        ranks: "5",
         misc: "",
         current: "",
         bonuses: {
@@ -6148,7 +6148,7 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "7",
+        ranks: "8",
         misc: "2",
         current: "",
         bonuses: {
@@ -6182,7 +6182,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: "7",
+        ranks: "8",
         misc: "",
         current: "",
         bonuses: {
@@ -6233,7 +6233,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: "7",
+        ranks: "8",
         misc: "",
         current: "",
         bonuses: {
@@ -6251,7 +6251,7 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: "7",
+        ranks: "8",
         misc: "5",
         current: "",
         bonuses: {
@@ -6269,7 +6269,7 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: "7",
+        ranks: "8",
         misc: "4",
         current: "",
         bonuses: {
@@ -6471,7 +6471,7 @@ var orrin = (function() {
       character: [{
         note: "<strong>+2 to One Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
       }, {
-        note: "<strong>Sneak attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.<br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><strong>Rogue talent Trap spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.<br><strong>Trap Sense +2 (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><strong>Rogue talent Finesse Rogue (Ex)</strong> A rogue that selects this talent gains Weapon Finesse as a bonus feat.<br><strong>Uncanny Dodge (Ex)</strong> Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her.<br><strong>Rogue talent Fast Stealth (Ex)</strong> This ability allows a rogue to move at full speed using the Stealth skill without penalty."
+        note: "<strong>Sneak attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.<br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><strong>Rogue talent Trap spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.<br><strong>Trap Sense +2 (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><strong>Rogue talent Finesse Rogue (Ex)</strong> A rogue that selects this talent gains Weapon Finesse as a bonus feat.<br><strong>Uncanny Dodge (Ex)</strong> Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her.<br><strong>Rogue talent Fast Stealth (Ex)</strong> This ability allows a rogue to move at full speed using the Stealth skill without penalty.<br><strong>Improved Uncanny Dodge (Ex)</strong> A rogue of 8th level or higher can no longer be flanked.<bt>This defense denies another rogue the ability to sneak attack the character by flanking her, unless the attacker has at least four more rogue levels than the target does.<bt>If a character already has uncanny dodge (see above) from another class, the levels from the classes that grant uncanny dodge stack to determine the minimum rogue level required to flank the character.<br><strong>Rogue talent Combat Trick - Improved Two-Weapon Fighting</strong> In addition to the standard single extra attack you get with an off-hand weapon, you get a second attack with it, albeit at a –5 penalty."
       }, {
         note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><strong>Weapon focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Deft hands</strong> You get a +2 bonus on Disable Device and Sleight of Hand skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws."
       }],
@@ -6494,10 +6494,10 @@ var ro = (function() {
       name: "Ro Flint",
       race: "Elf",
       class: "Magus Bladebound",
-      level: "6",
+      level: "7",
       size: "Medium",
-      alignment: "Lawful Neutral",
-      xp: "",
+      alignment: "Lawful Evil",
+      xp: "29,090",
       height: "6'0",
       weight: "",
       age: "120",
@@ -6534,10 +6534,10 @@ var ro = (function() {
           temp: ""
         }
       },
-      feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade)",
+      feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
       traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy)"
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy), Knowledge Pool (Su), Medium Armor (Ex)"
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
@@ -6665,7 +6665,7 @@ var ro = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "5",
+        base: "6",
         racial: "",
         resistance: "1",
         misc: "",
@@ -6697,7 +6697,7 @@ var ro = (function() {
         }
       },
       will: {
-        base: "5",
+        base: "6",
         racial: "",
         resistance: "1",
         misc: "",
@@ -6715,7 +6715,7 @@ var ro = (function() {
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "4",
+      base_attack: "5",
       cmb: {
         misc: "",
         temp: "",
@@ -6788,43 +6788,43 @@ var ro = (function() {
       attack: {
         melee: [{
           weapon: "Shortsword +1",
-          attack: "10",
+          attack: "11",
           damage: "1d6+2",
           critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +2",
-          attack: "12",
+          attack: "13",
           damage: "1d6+7",
           critical: "18–20/x2"
         }, {
           weapon: "Spellstrike",
-          attack: "12",
+          attack: "13",
           damage: "1d6+7",
           critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +2/Spell Strike",
-          attack: "10/10",
+          attack: "11/11",
           damage: "1d6+7/Spell Effect",
           critical: "18–20/x2, 18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +3 Keen",
-          attack: "13",
+          attack: "14",
           damage: "1d6+8",
           critical: "15-20x2"
         }, {
           weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
-          attack: "11/11",
+          attack: "12/12",
           damage: "1d6+8/Spell Effect",
           critical: "15-20x2,  15-20x2"
         }, {
           weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
-          attack: "15/15",
+          attack: "16/16",
           damage: "1d6+8/Spell Effect",
           critical: "15-20x2,  15-20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "9",
+          attack: "10",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -6839,7 +6839,7 @@ var ro = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "2",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -7011,7 +7011,7 @@ var ro = (function() {
         }
       },
       fly: {
-        ranks: "6",
+        ranks: "7",
         misc: "",
         current: "",
         bonuses: {
@@ -7266,7 +7266,7 @@ var ro = (function() {
         }
       },
       perception: {
-        ranks: "6",
+        ranks: "7",
         misc: "2",
         current: "",
         bonuses: {
@@ -7406,7 +7406,7 @@ var ro = (function() {
         }
       },
       spellcraft: {
-        ranks: "6",
+        ranks: "7",
         misc: "",
         current: "",
         bonuses: {
@@ -7474,7 +7474,7 @@ var ro = (function() {
         }
       },
       use_magic_device: {
-        ranks: "6",
+        ranks: "7",
         misc: "",
         current: "",
         bonuses: {
@@ -7654,7 +7654,7 @@ var ro = (function() {
         level_0: "6",
         level_1: "5",
         level_2: "4",
-        level_3: "",
+        level_3: "2",
         level_4: "",
         level_5: "",
         level_6: "",
@@ -7666,7 +7666,7 @@ var ro = (function() {
         level_0: "14",
         level_1: "15",
         level_2: "16",
-        level_3: "",
+        level_3: "17",
         level_4: "",
         level_5: "",
         level_6: "",
@@ -7776,7 +7776,7 @@ var ro = (function() {
           cast: 0
         }, {
           name: "Shocking Grasp",
-          prepared: 3,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -7844,6 +7844,16 @@ var ro = (function() {
           prepared: 0,
           active: false,
           cast: 0
+        }, {
+          name: "Shocking Grasp Intensified",
+          prepared: 3,
+          active: false,
+          cast: 0
+        }, {
+          name: "Reduce Person",
+          prepared: 0,
+          active: false,
+          cast: 0
         }]
       }, {
         level_2: [{
@@ -7876,9 +7886,49 @@ var ro = (function() {
           prepared: 0,
           active: false,
           cast: 0
+        }, {
+          name: "Web",
+          prepared: 0,
+          active: false,
+          cast: 0
         }]
       }, {
-        level_3: []
+        level_3: [{
+          name: "Fly",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Haste",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Force Hook Charge",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Ray of Exhaustion",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Vampiric Touch",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Stinking Cloud",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Slow",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }]
       }, {
         level_4: []
       }, {
@@ -7897,9 +7947,9 @@ var ro = (function() {
       character: [{
         note: "<strong>+2 Dexterity, +2 Intelligence, –2 Constitution</strong> Elves are nimble, both in body and mind, but their form is frail.<br><strong>Medium</strong> Elves are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Elves have a base speed of 30 feet.<br><strong>Low-Light Vision</strong> Elves can see twice as far as humans in conditions of dim light. See Additional Rules.<br><strong>Elven Immunities</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.<br><strong>Elven Magic</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.<br><strong>Keen Senses</strong> Elves receive a +2 racial bonus on Perception skill checks.<br><strong>Weapon Familiarity</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word \"elven\" in its name as a martial weapon.<br><strong>Languages</strong> Elves begin play speaking Common and Elven. Elves with high Intelligence scores can choose from the following: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan."
       }, {
-        note: "<strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dervish Dance</strong> When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist’s precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.<br><strong>Extra Arcane Pool</strong> Your arcane pool increases by 2.<br><strong>Weapon Focus (Black Blade)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Magical Lineage (Shocking Grasp)</strong> One of your parents was a gifted spellcaster who not only used metamagic often, but also developed many magical items and perhaps even a new spell or two—and you have inherited a fragment of this greatness. Pick one spell when you choose this trait. When you apply metamagic feats to this spell, treat its actual level as 1 lower for determining the spell's final adjusted level.<br><strong>Focused Mind</strong> Your childhood was either dominated by lessons of some sort (whether musical, academic, or other) or by a horrible home life that encouraged your ability to block out distractions and focus on the immediate task at hand. You gain a +2 trait bonus on concentration checks."
+        note: "<strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dervish Dance</strong> When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist’s precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.<br><strong>Extra Arcane Pool</strong> Your arcane pool increases by 2.<br><strong>Weapon Focus (Black Blade)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Intensified Spell</strong> An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat. An intensified spell uses up a spell slot one level higher than the spell's actual level.<br><strong>Magical Lineage (Shocking Grasp)</strong> One of your parents was a gifted spellcaster who not only used metamagic often, but also developed many magical items and perhaps even a new spell or two—and you have inherited a fragment of this greatness. Pick one spell when you choose this trait. When you apply metamagic feats to this spell, treat its actual level as 1 lower for determining the spell's final adjusted level.<br><strong>Focused Mind</strong> Your childhood was either dominated by lessons of some sort (whether musical, academic, or other) or by a horrible home life that encouraged your ability to block out distractions and focus on the immediate task at hand. You gain a +2 trait bonus on concentration checks."
       }, {
-        note: "<strong>Arcane Pool (Su)</strong> At 1st level, the magus gains a reservoir of mystical arcane energy that he can draw upon to fuel his powers and enhance his weapon. This arcane pool has a number of points equal to 1/2 his magus level (minimum 1) + his Intelligence modifier. The pool refreshes once per day when the magus prepares his spells.<br>At 1st level, a magus can expend 1 point from his arcane pool as a swift action to grant any weapon he is holding a +1 enhancement bonus for 1 minute. For every four levels beyond 1st, the weapon gains another +1 enhancement bonus, to a maximum of +5 at 17th level. These bonuses can be added to the weapon, stacking with existing weapon enhancement to a maximum of +5. Multiple uses of this ability do not stack with themselves.<br>At 5th level, these bonuses can be used to add any of the following weapon properties: dancing, flaming, flaming burst, frost, icy burst, keen, shock, shocking burst, speed, or vorpal. Adding these properties consumes an amount of bonus equal to the property's base price modifier (see the Magic Weapon Special Ability Descriptions). These properties are added to any the weapon already has, but duplicates do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. These bonuses and properties are decided when the arcane pool point is spent and cannot be changed until the next time the magus uses this ability. These bonuses do not function if the weapon is wielded by anyone other than the magus.<br>A magus can only enhance one weapon in this way at one time. If he uses this ability again, the first use immediately ends.<br><strong>Cantrips</strong> A magus can prepare a number of cantrips, or 0-level spells, each day, as noted in the table above under “Spells per Day.” These spells are cast like any other spell, but they are not expended when cast and may be used again.<br><strong>Spell Combat (Ex)</strong> At 1st level, a magus learns to cast spells and wield his weapons at the same time. This functions much like two-weapon fighting, but the off-hand weapon is a spell that is being cast. To use this ability, the magus must have one hand free (even if the spell being cast does not have somatic components), while wielding a light or one-handed melee weapon in the other hand. As a full-round action, he can make all of his attacks with his melee weapon at a –2 penalty and can also cast any spell from the magus spell list with a casting time of 1 standard action (any attack roll made as part of this spell also takes this penalty). If he casts this spell defensively, he can decide to take an additional penalty on his attack rolls, up to his Intelligence bonus, and add the same amount as a circumstance bonus on his concentration check. If the check fails, the spell is wasted, but the attacks still take the penalty. A magus can choose to cast the spell first or make the weapon attacks first, but if he has more than one attack, he cannot cast the spell between weapon attacks.<br><strong>Spellstrike (Su)</strong> At 2nd level, whenever a magus casts a spell with a range of “touch” from the magus spell list, he can deliver the spell through any weapon he is wielding as part of a melee attack. Instead of the free melee touch attack normally allowed to deliver the spell, a magus can make one free melee attack with his weapon (at his highest base attack bonus) as part of casting this spell. If successful, this melee attack deals its normal damage as well as the effects of the spell. If the magus makes this attack in concert with spell combat, this melee attack takes all the penalties accrued by spell combat melee attacks. This attack uses the weapon's critical range (20, 19–20, or 18–20 and modified by the keen weapon property or similar effects), but the spell effect only deals ×2 damage on a successful critical hit, while the weapon damage uses its own critical modifier.<br><strong>Magus Arcana Arcane Accuracy (Su)</strong> The magus can expend 1 point from his arcane pool as a swift action to grant himself an insight bonus equal to his Intelligence bonus on all attack rolls until the end of his turn."
+        note: "<strong>Arcane Pool (Su)</strong> At 1st level, the magus gains a reservoir of mystical arcane energy that he can draw upon to fuel his powers and enhance his weapon. This arcane pool has a number of points equal to 1/2 his magus level (minimum 1) + his Intelligence modifier. The pool refreshes once per day when the magus prepares his spells.<br>At 1st level, a magus can expend 1 point from his arcane pool as a swift action to grant any weapon he is holding a +1 enhancement bonus for 1 minute. For every four levels beyond 1st, the weapon gains another +1 enhancement bonus, to a maximum of +5 at 17th level. These bonuses can be added to the weapon, stacking with existing weapon enhancement to a maximum of +5. Multiple uses of this ability do not stack with themselves.<br>At 5th level, these bonuses can be used to add any of the following weapon properties: dancing, flaming, flaming burst, frost, icy burst, keen, shock, shocking burst, speed, or vorpal. Adding these properties consumes an amount of bonus equal to the property's base price modifier (see the Magic Weapon Special Ability Descriptions). These properties are added to any the weapon already has, but duplicates do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. These bonuses and properties are decided when the arcane pool point is spent and cannot be changed until the next time the magus uses this ability. These bonuses do not function if the weapon is wielded by anyone other than the magus.<br>A magus can only enhance one weapon in this way at one time. If he uses this ability again, the first use immediately ends.<br><strong>Cantrips</strong> A magus can prepare a number of cantrips, or 0-level spells, each day, as noted in the table above under “Spells per Day.” These spells are cast like any other spell, but they are not expended when cast and may be used again.<br><strong>Spell Combat (Ex)</strong> At 1st level, a magus learns to cast spells and wield his weapons at the same time. This functions much like two-weapon fighting, but the off-hand weapon is a spell that is being cast. To use this ability, the magus must have one hand free (even if the spell being cast does not have somatic components), while wielding a light or one-handed melee weapon in the other hand. As a full-round action, he can make all of his attacks with his melee weapon at a –2 penalty and can also cast any spell from the magus spell list with a casting time of 1 standard action (any attack roll made as part of this spell also takes this penalty). If he casts this spell defensively, he can decide to take an additional penalty on his attack rolls, up to his Intelligence bonus, and add the same amount as a circumstance bonus on his concentration check. If the check fails, the spell is wasted, but the attacks still take the penalty. A magus can choose to cast the spell first or make the weapon attacks first, but if he has more than one attack, he cannot cast the spell between weapon attacks.<br><strong>Spellstrike (Su)</strong> At 2nd level, whenever a magus casts a spell with a range of “touch” from the magus spell list, he can deliver the spell through any weapon he is wielding as part of a melee attack. Instead of the free melee touch attack normally allowed to deliver the spell, a magus can make one free melee attack with his weapon (at his highest base attack bonus) as part of casting this spell. If successful, this melee attack deals its normal damage as well as the effects of the spell. If the magus makes this attack in concert with spell combat, this melee attack takes all the penalties accrued by spell combat melee attacks. This attack uses the weapon's critical range (20, 19–20, or 18–20 and modified by the keen weapon property or similar effects), but the spell effect only deals ×2 damage on a successful critical hit, while the weapon damage uses its own critical modifier.<br><strong>Magus Arcana Arcane Accuracy (Su)</strong> The magus can expend 1 point from his arcane pool as a swift action to grant himself an insight bonus equal to his Intelligence bonus on all attack rolls until the end of his turn.<br><strong>Knowledge Pool (Su)</strong>At 7th level, when a magus prepares his magus spells, he can decide to expend 1 or more points from his arcane pool, up to his Intelligence bonus. For each point he expends, he can treat any one spell from the magus spell list as if it were in his spellbook and can prepare that spell as normal that day. If he does not cast spells prepared in this way before the next time he prepares spells, he loses those spells. He can also cast spells added in this way using his spell recall ability, but only until he prepares spells again.<br><strong>Medium Armor (Ex)</strong> At 7th level, a magus gains proficiency with medium armor. A magus can cast magus spells while wearing medium armor without incurring the normal arcane spell failure chance. Like any other arcane spellcaster, a magus wearing heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component."
       }, {
         note: "<strong>Black Blade (Ex)</strong> At 3rd level, the bladebound magus' gains a powerful sentient weapon called a black blade, whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, and cannot have a familiar of any kind, even from another class.<br>Instead of the normal arcane pool amount, the bladebound magus's arcane pool has a number of points equal to 1/3 his level (minimum 1) plus his Intelligence bonus. This ability changes the Arcane Pool class feature and replaces the magus arcana gained at 3rd level.<br><strong>Black Blade Ability Descriptions</strong> Enhancement Bonus +2, Int 12, Wis 8, Cha 8 Ego 8. Cause: To protect the Evles.<br><strong>Alertness (Ex)</strong> While a magus is wielding his black blade, he gains the Alertness feat.<br><strong>Black Blade Strike (Sp)</strong> As a free action, the magus can spend a point from the black blade's arcane pool to grant the black blade a +1 bonus on damage rolls for 1 minute. For every four levels beyond 1st, this ability gives the black blade another +1 on damage rolls.<br><strong>Telepathy (Su)</strong> While a magus is wielding or carrying his black blade, he can communicate telepathically with the blade in a language that the magus and the black blade share.<br><strong>Unbreakable (Ex)</strong> As long as it has at least 1 point in its arcane pool, a black blade is immune to the broken condition. If broken, the black blade is unconscious and powerless until repaired. If destroyed, the black blade can be reforged 1 week later through a special ritual that costs 200 gp per magus level. The ritual takes 24 hours to complete.<br><strong>Energy Attunement (Su)</strong> At 5th level, as a free action, a magus can spend a point of his black blade's arcane pool to have it deal one of the following types of damage instead of weapon damage: cold, electricity, or fire. He can spend 2 points from the black blade's arcane pool to deal sonic or force damage instead of weapon damage. This effect lasts until the start of the magus's next turn."
       }, {
@@ -9801,6 +9851,9 @@ var clone = (function() {
         storeInputTimer = setTimeout(delayUpdate, 1000, "note-character");
         textareaBlock.focus(this);
       }, false);
+      textareaBlockField.addEventListener("paste", function(event) {
+        textareaBlock.pasteStrip(event);
+      });
     };
     if (textareaBlockLabel) {
       textareaBlockLabel.addEventListener("click", function() {
@@ -9824,6 +9877,9 @@ var clone = (function() {
         storeInputTimer = setTimeout(delayUpdate, 1000, "note-story");
         textareaBlock.focus(this);
       }, false);
+      textareaBlockField.addEventListener("paste", function(event) {
+        textareaBlock.pasteStrip(event);
+      });
     };
     if (textareaBlockLabel) {
       textareaBlockLabel.addEventListener("click", function() {
@@ -10386,13 +10442,13 @@ var display = (function() {
           makeDisplayItem("defense.hp.temp", "", "");
           makeDisplayItem("defense.hp.non_lethal_damage", "<strong>Nonlethal Damage</strong> ", "");
           makeDisplayItem("defense.ac.current", "<strong>AC</strong> ", "");
-          makeDisplayItem("defense.ac_notes", "<strong>Notes</strong> ", "");
+          makeDisplayItem("defense.ac_notes", "<strong>Notes</strong><br> ", "");
           makeDisplayItem("defense.flat_footed.current", "<strong>Flat Footed</strong> ", "");
           makeDisplayItem("defense.touch.current", "<strong>Touch</strong> ", "");
           makeDisplayItem("defense.fortitude.current", "<strong>Fortitude</strong> ", "");
           makeDisplayItem("defense.reflex.current", "<strong>Reflex</strong> ", "");
           makeDisplayItem("defense.will.current", "<strong>Will</strong> ", "");
-          makeDisplayItem("defense.save_notes", "<strong>Notes</strong> ", "");
+          makeDisplayItem("defense.save_notes", "<strong>Notes</strong><br> ", "");
 
           makeDisplayItem("offense.base_attack", "<strong>BAB</strong> ", "");
           makeDisplayItem("spells.concentration.current", "<strong>Concentration</strong> ", "");
@@ -10400,7 +10456,7 @@ var display = (function() {
           makeDisplayItem("offense.cmd.current", "<strong>CMD</strong> ", "");
           makeDisplayItem("offense.melee_attack.current", "<strong>Melee</strong> ", "");
           makeDisplayItem("offense.ranged_attack.current", "<strong>Ranged</strong> ", "");
-          makeDisplayItem("offense.attack_notes", "<strong>Notes</strong> ", "");
+          makeDisplayItem("offense.attack_notes", "<strong>Notes</strong><br> ", "");
 
           if (typeof data != "undefined" && data != "") {
             var text = document.createElement("span");
@@ -12963,7 +13019,7 @@ var textareaBlock = (function() {
           focus(this);
         }, false);
         textareaBlockField.addEventListener("paste", function(event) {
-          _pasteWithoutFormatting(event);
+          pasteStrip(event);
         });
       };
       if (textareaBlockLabel) {
@@ -12974,7 +13030,7 @@ var textareaBlock = (function() {
     };
   };
 
-  function _pasteWithoutFormatting(event) {
+  function pasteStrip(event) {
     if (event.clipboardData) {
       event.preventDefault();
       var text = event.clipboardData.getData("text/plain");
@@ -13009,7 +13065,8 @@ var textareaBlock = (function() {
     focusLabel: focusLabel,
     render: render,
     clear: clear,
-    bind: bind
+    bind: bind,
+    pasteStrip: pasteStrip
   };
 
 })();
