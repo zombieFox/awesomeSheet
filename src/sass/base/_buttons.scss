@@ -96,7 +96,7 @@ input[type="button"] {
 
 .button-icon {
   display: flex;
-  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
   justify-content: center;
   line-height: initial;
   align-items: center;

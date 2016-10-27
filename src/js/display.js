@@ -530,7 +530,7 @@ var display = (function() {
 
     function _createSkillSpan(data) {
       var span = document.createElement("span");
-      span.setAttribute("class", "m-display-skills js-display-skills");
+      span.setAttribute("class", "m-display-skills");
       span.innerHTML = data;
       return span;
     };

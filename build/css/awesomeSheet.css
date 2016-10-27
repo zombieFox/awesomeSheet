@@ -1115,6 +1115,8 @@ input[type="button"] {
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
