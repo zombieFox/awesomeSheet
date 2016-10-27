@@ -39,7 +39,7 @@ var spells = (function() {
     }, false);
     spellResetButton.addEventListener("click", function() {
       _changeSpellState(this);
-      _resetAllSpells();
+      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetAllSpells, false, false, false);
     }, false);
   };
 
