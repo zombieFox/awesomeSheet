@@ -153,6 +153,21 @@ var helper = (function() {
     };
   };
 
+  function getRadioValue(form, radioGroupName) {
+    var selectedDice;
+    // get list of radio buttons with specified name
+    var radios = form[radioGroupName];
+    // radios can also be expressed with
+    // console.log(e(".dice-form")["dice-select"]);
+    // loop through list of radio buttons
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // radio checked?
+        selectedDice = radios[i]; // if so, hold its value in selectedDice
+      };
+    };
+    return selectedDice;
+  };
+
   // exposed methods
   return {
     store: store,
@@ -170,7 +185,8 @@ var helper = (function() {
     setObject: setObject,
     getObject: getObject,
     truncate: truncateString,
-    randomId: randomId
+    randomId: randomId,
+    getRadioValue: getRadioValue
   };
 
 })();

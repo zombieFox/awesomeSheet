@@ -1586,7 +1586,8 @@ label {
   font-size: 0.75em; }
 
 .u-list-unstyled {
-  padding-left: 0; }
+  padding-left: 0;
+  margin-bottom: 0; }
   .u-list-unstyled li {
     list-style-type: none; }
 
