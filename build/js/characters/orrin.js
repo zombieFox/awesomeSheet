@@ -93,12 +93,12 @@ var orrin = (function() {
         total: "10",
         used: "4"
       }, {
-        item: "Wand of Magic Missle",
+        item: "Wand of Magic Missile",
         current: "",
         total: "50",
         used: "49"
       }, {
-        item: "Wand of Magic Missle",
+        item: "Wand of Magic Missile (CL5)",
         current: "",
         total: "50",
         used: ""
