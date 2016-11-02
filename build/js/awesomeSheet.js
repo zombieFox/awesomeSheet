@@ -5346,7 +5346,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "3",
-        gold: "2,042",
+        gold: "13,419",
         silver: "5",
         copper: ""
       },
