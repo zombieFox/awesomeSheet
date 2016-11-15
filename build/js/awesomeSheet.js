@@ -3801,10 +3801,10 @@ var nif = (function() {
       name: "Nif Amakir",
       race: "Elf",
       class: "Wizard",
-      level: "6",
+      level: "7",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "32,449",
+      xp: "35,589",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -3841,14 +3841,14 @@ var nif = (function() {
           temp: ""
         }
       },
-      feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration)",
+      feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
       languages: "Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan, Undercommon",
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15)",
-      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (3), Invisibility (2), Create Pit (1), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Form 2 (1), Wall of Fire (1), Haste (1)",
+      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (2), Invisibility (2), Create Pit (1), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (0), Enlarge Person (2)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -3873,7 +3873,7 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "379",
+        gold: "329",
         silver: "",
         copper: ""
       },
@@ -3886,7 +3886,7 @@ var nif = (function() {
         item: "Wand of Scorching Ray",
         current: "",
         total: "50",
-        used: "36"
+        used: "37"
       }, {
         item: "Wand of Swift Girding",
         current: "",
@@ -3901,12 +3901,12 @@ var nif = (function() {
         item: "Shift",
         current: "",
         total: "9",
-        used: "2"
+        used: ""
       }]
     },
     defense: {
       hp: {
-        total: "42",
+        total: "48",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -4293,7 +4293,7 @@ var nif = (function() {
         }
       },
       fly: {
-        ranks: "2",
+        ranks: "4",
         misc: "",
         current: "",
         bonuses: {
@@ -4378,7 +4378,7 @@ var nif = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "2",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -4395,7 +4395,7 @@ var nif = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "1",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -4412,7 +4412,7 @@ var nif = (function() {
         }
       },
       knowledge_geography: {
-        ranks: "1",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -4429,7 +4429,7 @@ var nif = (function() {
         }
       },
       knowledge_history: {
-        ranks: "1",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -4446,7 +4446,7 @@ var nif = (function() {
         }
       },
       knowledge_local: {
-        ranks: "1",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -4463,7 +4463,7 @@ var nif = (function() {
         }
       },
       knowledge_nature: {
-        ranks: "1",
+        ranks: "2",
         misc: "",
         current: "",
         bonuses: {
@@ -4480,7 +4480,7 @@ var nif = (function() {
         }
       },
       knowledge_nobility: {
-        ranks: "1",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -4548,7 +4548,7 @@ var nif = (function() {
         }
       },
       perception: {
-        ranks: "6",
+        ranks: "7",
         misc: "4",
         current: "",
         bonuses: {
@@ -4688,7 +4688,7 @@ var nif = (function() {
         }
       },
       spellcraft: {
-        ranks: "6",
+        ranks: "7",
         misc: "",
         current: "",
         bonuses: {
@@ -4756,7 +4756,7 @@ var nif = (function() {
         }
       },
       use_magic_device: {
-        ranks: "6",
+        ranks: "7",
         misc: "",
         current: "",
         bonuses: {
@@ -4920,7 +4920,7 @@ var nif = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: "",
+        misc: "4",
         temp: "",
         bonuses: {
           str_bonus: false,
@@ -4934,10 +4934,10 @@ var nif = (function() {
       },
       per_day: {
         level_0: "4",
-        level_1: "5",
+        level_1: "6",
         level_2: "4",
         level_3: "3",
-        level_4: "",
+        level_4: "2",
         level_5: "",
         level_6: "",
         level_7: "",
@@ -4949,7 +4949,7 @@ var nif = (function() {
         level_1: "17",
         level_2: "18",
         level_3: "19",
-        level_4: "",
+        level_4: "20",
         level_5: "",
         level_6: "",
         level_7: "",
@@ -5066,7 +5066,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Read Magic",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -5076,7 +5076,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Resistance",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         }]
@@ -5088,22 +5088,22 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Enlarge Person",
-          prepared: 0,
-          active: false,
-          cast: 0
-        }, {
-          name: "Feather Fall",
           prepared: 1,
           active: false,
           cast: 0
         }, {
+          name: "Feather Fall",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
           name: "Grease",
-          prepared: 2,
+          prepared: 3,
           active: false,
           cast: 0
         }, {
           name: "Mage Armor",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         }, {
@@ -5113,7 +5113,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Obscuring Mist",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -5123,12 +5123,12 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Protection from Evil",
-          prepared: 1,
+          prepared: 0,
           active: false,
-          cast: 1
+          cast: 0
         }, {
           name: "Shield",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         }, {
@@ -5150,7 +5150,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Create Pit",
-          prepared: 2,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -5165,7 +5165,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Invisibility",
-          prepared: 0,
+          prepared: 2,
           active: false,
           cast: 0
         }, {
@@ -5175,7 +5175,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Mirror Image",
-          prepared: 1,
+          prepared: 2,
           active: false,
           cast: 0
         }, {
@@ -5195,7 +5195,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Web",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }]
@@ -5209,10 +5209,10 @@ var nif = (function() {
           name: "Summon Monster III",
           prepared: 1,
           active: false,
-          cast: 1
+          cast: 0
         }, {
           name: "Spiked Pit",
-          prepared: 1,
+          prepared: 2,
           active: false,
           cast: 0
         }, {
@@ -5222,7 +5222,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Fly",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -5230,9 +5230,24 @@ var nif = (function() {
           prepared: 0,
           active: false,
           cast: 0
+        }, {
+          name: "Haste",
+          prepared: 0,
+          active: false,
+          cast: 0
         }]
       }, {
-        level_4: []
+        level_4: [{
+          name: "Black Tentacles",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }, {
+          name: "Wall of Fire",
+          prepared: 1,
+          active: false,
+          cast: 0
+        }]
       }, {
         level_5: []
       }, {
@@ -5251,7 +5266,7 @@ var nif = (function() {
       }, {
         note: "Create wondrous item, Headband of Vast Intelligence +4 2/16 days (6,000gp allotted)."
       }, {
-        note: "Mirror Images up 4"
+        note: "Mirror Images up 2"
       }],
       story: [{
         note: "Baron Turbine Blackshield, lord of Thornkeep <br>Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"
