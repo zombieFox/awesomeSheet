@@ -2656,7 +2656,7 @@ var nefi = (function() {
         head: "Red Mantis Mask",
         headband: "",
         neck: "Amulet of Natural Armor +1",
-        ring_left_hand: "Ring of Deflection +1",
+        ring_left_hand: "Ring of Protection +1",
         ring_right_hand: "",
         shield: "",
         shoulders: "Cloak of Resistance +1",
