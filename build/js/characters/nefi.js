@@ -6,10 +6,10 @@ var nefi = (function() {
       name: "Nefi Fefi",
       race: "Human",
       class: "Fighter",
-      level: "8",
+      level: "9",
       size: "Medium",
       alignment: "Neutral",
-      xp: "69,080",
+      xp: "75,000",
       height: "6'2",
       weight: "202 lbs",
       age: "28",
@@ -22,8 +22,8 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: "20",
-          temp: "22"
+          score: "22",
+          temp: ""
         },
         dex: {
           score: "12",
@@ -46,10 +46,10 @@ var nefi = (function() {
           temp: ""
         }
       },
-      feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme)",
+      feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Great Fortitude",
       traits: "Resilient, Reactionary",
       languages: "Common, Draconic",
-      special_abilities: "Bonus feat (5), Bravery +2, Weapon training 1,  Armor training 2"
+      special_abilities: "Bonus feat (5), Bravery +2, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 2"
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi)",
@@ -86,7 +86,7 @@ var nefi = (function() {
     },
     defense: {
       hp: {
-        total: "70",
+        total: "80",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -160,7 +160,7 @@ var nefi = (function() {
         base: "6",
         racial: "",
         resistance: "1",
-        misc: "1",
+        misc: "3",
         temp: "",
         current: "",
         bonuses: {
@@ -173,7 +173,7 @@ var nefi = (function() {
         }
       },
       reflex: {
-        base: "2",
+        base: "3",
         racial: "",
         resistance: "1",
         misc: "",
@@ -204,10 +204,10 @@ var nefi = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "+2 bonus on Will saves against fear. +2 bonus to CMD <span style=\"line-height: 26.6667px;\">against</span> trip."
+      save_notes: "+2 bonus on Will saves against fear. +2 bonus to CMD against trip."
     },
     offense: {
-      base_attack: "8/3",
+      base_attack: "9/4",
       cmb: {
         misc: "",
         temp: "",
@@ -280,33 +280,43 @@ var nefi = (function() {
       attack: {
         melee: [{
           weapon: "Guisarme +1",
-          attack: "18/13",
+          attack: "20/15",
           damage: "2d4+12",
           critical: "x3"
         }, {
-          weapon: "Guisarme +1 Power Attack",
-          attack: "15/10",
+          weapon: "Guisarme +1 (Power Attack)",
+          attack: "17/12",
           damage: "2d4+21",
           critical: "x3"
         }, {
           weapon: "Guisarme +1 Trip",
-          attack: "22",
-          damage: "2d4+12",
-          critical: "x3"
+          attack: "24",
+          damage: "",
+          critical: ""
         }, {
           weapon: "Greatsword MW",
-          attack: "15/10",
-          damage: "1d10+6",
+          attack: "17/12",
+          damage: "1d10+10",
           critical: "19–20/x2"
         }, {
-          weapon: "Lance MW",
-          attack: "16/11",
-          damage: "1d8+7",
+          weapon: "Greatsword MW (Power Attack)",
+          attack: "14/9",
+          damage: "1d10+19",
+          critical: "19–20/x2"
+        }, {
+          weapon: "Halberd MW",
+          attack: "18/13",
+          damage: "1d8+11",
+          critical: "x3"
+        }, {
+          weapon: "Halberd MW (Power Attack)",
+          attack: "15/10",
+          damage: "1d8+20",
           critical: "x3"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
-          attack: "10/5",
+          attack: "11/6",
           damage: "1d8+6",
           critical: "x3",
           range: "100 ft",
@@ -561,7 +571,7 @@ var nefi = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: "1",
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
@@ -595,11 +605,11 @@ var nefi = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -748,7 +758,7 @@ var nefi = (function() {
         }
       },
       perception: {
-        ranks: "8",
+        ranks: "9",
         misc: "",
         current: "",
         bonuses: {
@@ -922,11 +932,11 @@ var nefi = (function() {
         }
       },
       survival: {
-        ranks: "",
+        ranks: "1",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -939,7 +949,7 @@ var nefi = (function() {
         }
       },
       swim: {
-        ranks: "1",
+        ranks: "3",
         misc: "",
         current: "",
         bonuses: {
@@ -1194,7 +1204,11 @@ var nefi = (function() {
       character: [{
         note: "<strong>Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
       }, {
-        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat<br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage<br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn<br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity<br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you<br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent<br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus<br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<br><strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks."
+        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat<br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage<br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn<br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity<br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you<br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent<br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus"
+      }, {
+        note: "<strong>Bonus feat (5)</strong> At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\" </span>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.<br><strong>Bravery (Ex)</strong> Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.<br><strong>Weapon training 2 (Pole Arms +2, Blades, Heavy +1)</strong> Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls. </span>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups. </span>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.<br><strong>Armor Training (Ex)</strong> Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed. In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor."
+      }, {
+        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks."
       }],
       story: []
     }

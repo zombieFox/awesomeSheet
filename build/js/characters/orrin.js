@@ -9,7 +9,7 @@ var orrin = (function() {
       level: "8",
       size: "Medium",
       alignment: "Lawful Evil",
-      xp: "34,231",
+      xp: "38,811",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -26,8 +26,8 @@ var orrin = (function() {
           temp: ""
         },
         dex: {
-          score: "20",
-          temp: "22"
+          score: "24",
+          temp: ""
         },
         con: {
           score: "12",
@@ -61,7 +61,7 @@ var orrin = (function() {
       },
       body_slots: {
         armor: "Mithral Chain Shirt",
-        belts: "Belt of Dexterity +2",
+        belts: "Belt of Dexterity +4",
         body: "",
         chest: "",
         eyes: "Eyes of the Eagle",
@@ -78,7 +78,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "3",
-        gold: "13,419",
+        gold: "1,419",
         silver: "5",
         copper: ""
       },
@@ -93,20 +93,15 @@ var orrin = (function() {
         total: "10",
         used: "4"
       }, {
-        item: "Wand of Magic Missile",
-        current: "",
-        total: "50",
-        used: "49"
-      }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
         total: "50",
-        used: ""
+        used: "4"
       }, {
         item: "Bread rolls",
         current: "",
         total: "50",
-        used: ""
+        used: "5"
       }]
     },
     defense: {
@@ -305,43 +300,43 @@ var orrin = (function() {
       attack: {
         melee: [{
           weapon: "Rapier +1",
-          attack: "14",
+          attack: "15",
           damage: "1d6+2",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
-          attack: "13",
+          attack: "14",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
           weapon: "Rapier +1, Short sword +1",
-          attack: "12/12/6/6",
+          attack: "13/13/7/7",
           damage: "1d6+2, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
-          attack: "12",
+          attack: "13",
           damage: "1d6+1",
           critical: "19–20/×2"
         }, {
           weapon: "Sap",
-          attack: "12",
+          attack: "13",
           damage: "1d6+1",
           critical: "x2"
         }, {
           weapon: "Punching Dagger +2 Shocking",
-          attack: "14",
+          attack: "15",
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
           weapon: "Rapier +1, Punching Dagger +2 Shocking",
-          attack: "12/12/7/7",
+          attack: "13/13/8/8",
           damage: "1d6+2, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "12",
+          attack: "13",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
