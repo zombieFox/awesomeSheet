@@ -8,7 +8,7 @@ var sheet = (function() {
     if (helper.read("allCharacters")) {
       allCharacters = JSON.parse(helper.read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo)); // for demo load sample characters
+      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
     storeCharacters();
@@ -89,7 +89,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all));
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     setIndex(0);
     storeCharacters();
     clear();
@@ -103,7 +103,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo));
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     setIndex(0);
     storeCharacters();
     clear();
@@ -303,6 +303,21 @@ var sheet = (function() {
     display.clear();
   };
 
+  function switchCharacter(index) {
+    if (index >= 0 && index <= getAllCharacters().length) {
+      setIndex(index);
+      clear();
+      render();
+      nav.clear();
+      nav.render();
+      var name = sheet.getCharacter().basics.name;
+      snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+      nav.close();
+    } else {
+      snack.render("No character with that index.", false);
+    };
+  };
+
   // exposed methods
   return {
     getAllCharacters: getAllCharacters,
@@ -319,7 +334,8 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
-    bind: bind
+    bind: bind,
+    switch: switchCharacter
   };
 
 })();
