@@ -83,6 +83,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/stats.js',
           '<%= folders.build %>/js/textarea-block.js',
           '<%= folders.build %>/js/total-block.js',
+          '<%= folders.build %>/js/check-url.js',
           '<%= folders.build %>/js/vendor-options.js',
           '<%= folders.build %>/js/init.js' // invoke calls
         ],
