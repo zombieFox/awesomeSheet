@@ -168,6 +168,13 @@ var helper = (function() {
     return selectedDice;
   };
 
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
   // exposed methods
   return {
     store: store,
@@ -186,7 +193,8 @@ var helper = (function() {
     getObject: getObject,
     truncate: truncateString,
     randomId: randomId,
-    getRadioValue: getRadioValue
+    getRadioValue: getRadioValue,
+    getUrlParameter: getUrlParameter
   };
 
 })();

@@ -5,5 +5,6 @@
   sheet.bind();
   sheet.render();
   night.update();
+  checkUrl.render();
 
 })();

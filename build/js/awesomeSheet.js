@@ -170,6 +170,13 @@ var helper = (function() {
     return selectedDice;
   };
 
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
   // exposed methods
   return {
     store: store,
@@ -188,7 +195,8 @@ var helper = (function() {
     getObject: getObject,
     truncate: truncateString,
     randomId: randomId,
-    getRadioValue: getRadioValue
+    getRadioValue: getRadioValue,
+    getUrlParameter: getUrlParameter
   };
 
 })();
@@ -9239,24 +9247,46 @@ var vos = (function() {
 
 var hardCodedCharacters = (function() {
 
-  var demo = [
+  var demoCharacters = [
     nif.data,
     vos.data
   ];
 
-  var all = [
+  var allCharacters = [
     nif.data,
     vos.data,
     orrin.data,
     nefi.data,
-    ro.data, // kia
-    marika.data // retired
+    ro.data,
+    marika.data
   ];
+
+  var singleCharacters = {
+    nif: nif.data,
+    vos: vos.data,
+    orrin: orrin.data,
+    nefi: nefi.data,
+    ro: ro.data,
+    marika: marika.data
+  }
+
+  function all() {
+    return allCharacters
+  };
+
+  function demo() {
+    return demoCharacters
+  };
+
+  function single() {
+    return singleCharacters
+  };
 
   // exposed methods
   return {
     demo: demo,
-    all: all
+    all: all,
+    single: single
   };
 
 })();
@@ -12008,7 +12038,7 @@ var sheet = (function() {
     if (helper.read("allCharacters")) {
       allCharacters = JSON.parse(helper.read("allCharacters"));
     } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo)); // for demo load sample characters
+      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
     storeCharacters();
@@ -12089,7 +12119,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all));
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     setIndex(0);
     storeCharacters();
     clear();
@@ -12103,7 +12133,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo));
+    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     setIndex(0);
     storeCharacters();
     clear();
@@ -12303,6 +12333,21 @@ var sheet = (function() {
     display.clear();
   };
 
+  function switchCharacter(index) {
+    if (index >= 0 && index <= getAllCharacters().length) {
+      setIndex(index);
+      clear();
+      render();
+      nav.clear();
+      nav.render();
+      var name = sheet.getCharacter().basics.name;
+      snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+      nav.close();
+    } else {
+      snack.render("No character with that index.", false);
+    };
+  };
+
   // exposed methods
   return {
     getAllCharacters: getAllCharacters,
@@ -12319,7 +12364,8 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
-    bind: bind
+    bind: bind,
+    switch: switchCharacter
   };
 
 })();
@@ -13752,5 +13798,6 @@ var totalBlock = (function() {
   sheet.bind();
   sheet.render();
   night.update();
+  checkUrl.render();
 
 })();
