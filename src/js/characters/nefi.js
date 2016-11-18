@@ -15,18 +15,18 @@ var nefi = (function() {
       age: "28",
       gender: "Male",
       speed: "30 ft, 6 sq",
-      initiative: "3",
+      initiative: "5",
       hero_points: "",
       luck_points: ""
     },
     statistics: {
       stats: {
         str: {
-          score: "22",
+          score: "21",
           temp: ""
         },
         dex: {
-          score: "12",
+          score: "14",
           temp: ""
         },
         con: {
@@ -47,21 +47,21 @@ var nefi = (function() {
         }
       },
       feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Great Fortitude",
-      traits: "Resilient, Reactionary",
-      languages: "Common, Draconic",
+      traits: "Resilient, Adopted (Elven Reflexes)",
+      languages: "Common, Elven, Draconic",
       special_abilities: "Bonus feat (5), Bravery +2, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 2"
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi)",
-      magic_gear: "Figurine of Power Elephant, Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
+      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
         heavy: "347–520 lbs"
       },
       body_slots: {
-        armor: "Full Plate MW",
-        belts: "Belt of Giant's Strength +2",
+        armor: "Full Plate +2",
+        belts: "Belt of Giant's Strength +4",
         body: "",
         chest: "",
         eyes: "",
@@ -95,7 +95,7 @@ var nefi = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "10",
+        armor: "11",
         shield: "",
         deflect: "1",
         dodge: "1",
@@ -204,7 +204,7 @@ var nefi = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "+2 bonus on Will saves against fear. +2 bonus to CMD against trip."
+      save_notes: "+2 bonus on Will saves against fear."
     },
     offense: {
       base_attack: "9/4",
@@ -279,51 +279,51 @@ var nefi = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Guisarme +1",
-          attack: "20/15",
-          damage: "2d4+12",
-          critical: "x3"
+          weapon: "Guisarme +1 Keen",
+          attack: "19/14",
+          damage: "2d4+9",
+          critical: "19-20/x3"
         }, {
-          weapon: "Guisarme +1 (Power Attack)",
-          attack: "17/12",
-          damage: "2d4+21",
-          critical: "x3"
+          weapon: "Guisarme +1 Keen Power Attack",
+          attack: "16/11",
+          damage: "2d4+15",
+          critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
-          attack: "24",
+          attack: "22",
           damage: "",
           critical: ""
         }, {
           weapon: "Greatsword MW",
-          attack: "17/12",
-          damage: "1d10+10",
+          attack: "16/11",
+          damage: "1d10+7",
           critical: "19–20/x2"
         }, {
-          weapon: "Greatsword MW (Power Attack)",
-          attack: "14/9",
-          damage: "1d10+19",
+          weapon: "Greatsword MW Power Attack",
+          attack: "13/8",
+          damage: "1d10+13",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
-          attack: "18/13",
-          damage: "1d8+11",
+          attack: "17/12",
+          damage: "1d8+9",
           critical: "x3"
         }, {
-          weapon: "Halberd MW (Power Attack)",
-          attack: "15/10",
-          damage: "1d8+20",
+          weapon: "Halberd MW Power Attack",
+          attack: "14/8",
+          damage: "1d8+15",
           critical: "x3"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
           attack: "11/6",
-          damage: "1d8+6",
+          damage: "1d8+5",
           critical: "x3",
           range: "100 ft",
           ammo: "50"
         }]
       },
-      attack_notes: ""
+      attack_notes: "+2 bonus to CMD against trip."
     },
     skills: {
       spent_ranks: {
@@ -1208,7 +1208,7 @@ var nefi = (function() {
       }, {
         note: "<strong>Bonus feat (5)</strong> At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\" </span>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.<br><strong>Bravery (Ex)</strong> Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.<br><strong>Weapon training 2 (Pole Arms +2, Blades, Heavy +1)</strong> Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls. </span>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups. </span>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.<br><strong>Armor Training (Ex)</strong> Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed. In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor."
       }, {
-        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks."
+        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<br><strong>Adopted (Elven Reflexes)</strong> You were adopted and raised by someone not of your actual race, and raised in a society not your own. As a result, you picked up a race trait from your adoptive parents and society, and may immediately select a race trait from your adoptive parents' race.<br>One of your parents was a member of a wild elven tribe, and you've inherited a portion of your elven parent's quick reflexes. You gain a +2 trait bonus on Initiative checks."
       }],
       story: []
     }
