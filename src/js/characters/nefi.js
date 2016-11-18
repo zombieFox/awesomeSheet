@@ -22,7 +22,7 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: "19",
+          score: "21",
           temp: ""
         },
         dex: {
@@ -48,7 +48,7 @@ var nefi = (function() {
       },
       feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Great Fortitude",
       traits: "Resilient, Adopted (Elven Reflexes)",
-      languages: "Common, Draconic",
+      languages: "Common, Elven, Draconic",
       special_abilities: "Bonus feat (5), Bravery +2, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 2"
     },
     equipment: {
@@ -60,8 +60,8 @@ var nefi = (function() {
         heavy: "347–520 lbs"
       },
       body_slots: {
-        armor: "Full Plate MW",
-        belts: "Belt of Giant's Strength +2",
+        armor: "Full Plate +2",
+        belts: "Belt of Giant's Strength +4",
         body: "",
         chest: "",
         eyes: "",
@@ -95,7 +95,7 @@ var nefi = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "10",
+        armor: "11",
         shield: "",
         deflect: "1",
         dodge: "1",
@@ -204,7 +204,7 @@ var nefi = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "+2 bonus on Will saves against fear. +2 bonus to CMD against trip."
+      save_notes: "+2 bonus on Will saves against fear."
     },
     offense: {
       base_attack: "9/4",
@@ -279,51 +279,51 @@ var nefi = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Guisarme +1",
-          attack: "18/13",
+          weapon: "Guisarme +1 Keen",
+          attack: "19/14",
           damage: "2d4+9",
-          critical: "x3"
+          critical: "19-20/x3"
         }, {
-          weapon: "Guisarme +1 Power Attack",
-          attack: "15/10",
+          weapon: "Guisarme +1 Keen Power Attack",
+          attack: "16/11",
           damage: "2d4+15",
-          critical: "x3"
+          critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
-          attack: "21",
+          attack: "22",
           damage: "",
           critical: ""
         }, {
           weapon: "Greatsword MW",
-          attack: "15/10",
+          attack: "16/11",
           damage: "1d10+7",
           critical: "19–20/x2"
         }, {
           weapon: "Greatsword MW Power Attack",
-          attack: "12/7",
+          attack: "13/8",
           damage: "1d10+13",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
-          attack: "16/11",
+          attack: "17/12",
           damage: "1d8+9",
           critical: "x3"
         }, {
           weapon: "Halberd MW Power Attack",
-          attack: "13/7",
+          attack: "14/8",
           damage: "1d8+15",
           critical: "x3"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
           attack: "11/6",
-          damage: "1d8+6",
+          damage: "1d8+5",
           critical: "x3",
           range: "100 ft",
           ammo: "50"
         }]
       },
-      attack_notes: ""
+      attack_notes: "+2 bonus to CMD against trip."
     },
     skills: {
       spent_ranks: {
