@@ -80,8 +80,8 @@ var totalBlock = (function() {
   function update() {
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
-      var statsStrModifier = helper.e(".js-stats-str-modifier");
-      var statsDexModifier = helper.e(".js-stats-dex-modifier");
+      // var statsStrModifier = helper.e(".js-stats-str-modifier");
+      // var statsDexModifier = helper.e(".js-stats-dex-modifier");
       var statsConModifier = helper.e(".js-stats-con-modifier");
       var statsIntModifier = helper.e(".js-stats-int-modifier");
       var statsWisModifier = helper.e(".js-stats-wis-modifier");
@@ -92,6 +92,7 @@ var totalBlock = (function() {
       var statsIntModifierTemp = helper.e(".js-stats-int-modifier-temp");
       var statsWisModifierTemp = helper.e(".js-stats-wis-modifier-temp");
       var statsChaModifierTemp = helper.e(".js-stats-cha-modifier-temp");
+      var possibleBonuses
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -110,95 +111,111 @@ var totalBlock = (function() {
       var acNatural = 0;
       var classSkill = 0;
       var checkPenalty = 0;
-      // str
+      // if str data attribute is true
       if (all_totalBlock[i].dataset.strBonus == "true") {
-        // if ability temp mod is empty
-        if (statsStrModifierTemp.textContent == "") {
-          strBonus = parseInt(statsStrModifier.textContent, 10 || 0);
+        // if temp str modifier is empty
+        if (sheet.getCharacter().statistics.stats.str.temp_modifier == "") {
+          // use str modifier
+          strBonus = sheet.getCharacter().statistics.stats.str.modifier;
         } else {
-          strBonus = parseInt(statsStrModifierTemp.textContent, 10 || 0);
+          // use str temp modifier
+          strBonus = sheet.getCharacter().statistics.stats.str.temp_modifier;
         };
       };
-      // dex
+      // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        // if ability temp mod is empty
-        if (statsDexModifierTemp.textContent == "") {
-          dexBonus = parseInt(statsDexModifier.textContent, 10 || 0);
+        // if temp dex modifier is empty
+        if (sheet.getCharacter().statistics.stats.dex.temp_modifier == "") {
+          // use dex modifier
+          dexBonus = sheet.getCharacter().statistics.stats.dex.modifier;
         } else {
-          dexBonus = parseInt(statsDexModifierTemp.textContent, 10 || 0);
+          // use dex temp modifier
+          dexBonus = sheet.getCharacter().statistics.stats.dex.temp_modifier;
         };
       };
-      // con
+      // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
-        // if ability temp mod is empty
-        if (statsConModifierTemp.textContent == "") {
-          conBonus = parseInt(statsConModifier.textContent, 10 || 0);
+        // if temp con modifier is empty
+        if (sheet.getCharacter().statistics.stats.con.temp_modifier == "") {
+          // use con modifier
+          conBonus = sheet.getCharacter().statistics.stats.con.modifier;
         } else {
-          conBonus = parseInt(statsConModifierTemp.textContent, 10 || 0);
+          // use con temp modifier
+          conBonus = sheet.getCharacter().statistics.stats.con.temp_modifier;
         };
       };
-      // int
+      // if int data attribute is true
       if (all_totalBlock[i].dataset.intBonus == "true") {
-        // if ability temp mod is empty
-        if (statsIntModifierTemp.textContent == "") {
-          intBonus = parseInt(statsIntModifier.textContent, 10 || 0);
+        // if temp int modifier is empty
+        if (sheet.getCharacter().statistics.stats.int.temp_modifier == "") {
+          // use int modifier
+          intBonus = sheet.getCharacter().statistics.stats.int.modifier;
         } else {
-          intBonus = parseInt(statsIntModifierTemp.textContent, 10 || 0);
+          // use int temp modifier
+          intBonus = sheet.getCharacter().statistics.stats.int.temp_modifier;
         };
       };
-      // wis
+      // if wis data attribute is true
       if (all_totalBlock[i].dataset.wisBonus == "true") {
-        // if ability temp mod is empty
-        if (statsWisModifierTemp.textContent == "") {
-          wisBonus = parseInt(statsWisModifier.textContent, 10 || 0);
+        // if temp wis modifier is empty
+        if (sheet.getCharacter().statistics.stats.wis.temp_modifier == "") {
+          // use wis modifier
+          wisBonus = sheet.getCharacter().statistics.stats.wis.modifier;
         } else {
-          wisBonus = parseInt(statsWisModifierTemp.textContent, 10 || 0);
+          // use wis temp modifier
+          wisBonus = sheet.getCharacter().statistics.stats.wis.temp_modifier;
         };
       };
-      // cha
+      // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
-        // if ability temp mod is empty
-        if (statsChaModifierTemp.textContent == "") {
-          chaBonus = parseInt(statsChaModifier.textContent, 10 || 0);
+        // if temp cha modifier is empty
+        if (sheet.getCharacter().statistics.stats.cha.temp_modifier == "") {
+          // use cha modifier
+          chaBonus = sheet.getCharacter().statistics.stats.cha.modifier;
         } else {
-          chaBonus = parseInt(statsChaModifierTemp.textContent, 10 || 0);
+          // use cha temp modifier
+          chaBonus = sheet.getCharacter().statistics.stats.cha.temp_modifier;
         };
       };
-      // bab
+      // if bab data attribute is true
       if (all_totalBlock[i].dataset.babBonus == "true") {
-        babBonus = parseInt(helper.e("#offense-base-attack").value, 10 || 0);
+        babBonus = parseInt(sheet.getCharacter().offense.base_attack, 10) || 0;
       };
       // size
       if (all_totalBlock[i].dataset.sizeBonus == "true") {
-        sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
+        sizeBonus = parseInt(sheet.getCharacter().defense.ac.size_bonus, 10 || 0);
       };
       // level
       if (all_totalBlock[i].dataset.levelBonus == "true") {
-        levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
+        levelBonus = parseInt(sheet.getCharacter().basics.level, 10 || 0);
       };
       // half level
       if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
-        halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2) || 0;
+        halfLevelBonus = Math.floor(parseInt(sheet.getCharacter().basics.level, 10 || 0) / 2) || 0;
       };
       // ac armor
       if (all_totalBlock[i].dataset.acArmor == "true") {
-        acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
+        acArmor = parseInt(sheet.getCharacter().defense.ac.armor, 10 || 0);
       };
       // ac shield
       if (all_totalBlock[i].dataset.acShield == "true") {
-        acShield = parseInt(helper.e("#defense-ac-shield").value, 10 || 0);
+        acShield = parseInt(sheet.getCharacter().defense.ac.shield, 10 || 0);
       };
       // ac deflect
       if (all_totalBlock[i].dataset.acDeflect == "true") {
-        acDeflect = parseInt(helper.e("#defense-ac-deflect").value, 10 || 0);
+        acDeflect = parseInt(sheet.getCharacter().defense.ac.deflect, 10 || 0);
       };
       // ac dodge
       if (all_totalBlock[i].dataset.acDodge == "true") {
-        acDodge = parseInt(helper.e("#defense-ac-dodge").value, 10 || 0);
+        acDodge = parseInt(sheet.getCharacter().defense.ac.dodge, 10 || 0);
       };
       // ac natural
       if (all_totalBlock[i].dataset.acNatural == "true") {
-        acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
+        acNatural = parseInt(sheet.getCharacter().defense.ac.natural, 10 || 0);
+      };
+      // armor check penalty
+      if (all_totalBlock[i].dataset.checkPenalty == "true") {
+        checkPenalty = parseInt(sheet.getCharacter().defense.ac.check_penalty, 10 || 0);
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
@@ -213,10 +230,6 @@ var totalBlock = (function() {
         } else {
           classSkill = 0;
         };
-      };
-      // armor check penalty
-      if (all_totalBlock[i].dataset.checkPenalty == "true") {
-        checkPenalty = parseInt(helper.e("#defense-ac-check-penalty").value, 10 || 0);
       };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
