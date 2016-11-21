@@ -1,6 +1,5 @@
 (function() {
 
-  stats.update();
   nav.bind();
   nav.render();
   sheet.bind();
