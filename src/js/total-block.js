@@ -287,6 +287,25 @@ var totalBlock = (function() {
       if (isNaN(checkPenalty)) {
         checkPenalty = 0;
       };
+      // var total = all_totalBlock[i].querySelector(".js-total-block-total");
+      // var path = total.dataset.path;
+      // var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
+      // var modifiers = [];
+      // var modifiers_total = 0;
+      // for (var q = 0; q < all_inputBlockField.length; q++) {
+      //   if (all_inputBlockField.length > 0) {
+      //     var path = all_inputBlockField[q].dataset.path;
+      //     if (path) {
+      //       var value = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      //       if (all_inputBlockField[q].dataset.total == "addition") {
+      //         modifiers.push(value);
+      //       };
+      //       if (all_inputBlockField[q].dataset.total == "subtract") {
+      //         modifiers.push(-value);
+      //       };
+      //     };
+      //   };
+      // };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
       var path = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
