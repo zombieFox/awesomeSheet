@@ -281,12 +281,12 @@ var nefi = (function() {
         melee: [{
           weapon: "Guisarme +1 Keen",
           attack: "19/14",
-          damage: "2d4+9",
+          damage: "2d4+10",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
           attack: "16/11",
-          damage: "2d4+15",
+          damage: "2d4+16",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
@@ -296,22 +296,22 @@ var nefi = (function() {
         }, {
           weapon: "Greatsword MW",
           attack: "16/11",
-          damage: "1d10+7",
+          damage: "1d10+8",
           critical: "19–20/x2"
         }, {
           weapon: "Greatsword MW Power Attack",
           attack: "13/8",
-          damage: "1d10+13",
+          damage: "1d10+14",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
           attack: "17/12",
-          damage: "1d8+9",
+          damage: "1d8+10",
           critical: "x3"
         }, {
           weapon: "Halberd MW Power Attack",
           attack: "14/8",
-          damage: "1d8+15",
+          damage: "1d8+16",
           critical: "x3"
         }],
         ranged: [{

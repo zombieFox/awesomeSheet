@@ -62,17 +62,17 @@ var helper = (function() {
   };
 
   function setObject(object, path, newValue) {
-    var address = path.split(".");
-    while (address.length > 1) {
-      var currentKey = address.shift();
-      var parentObject = object;
-      object = object[currentKey];
-      if (!object) {
-        object = parentObject;
-        object = object[currentKey] = {};
-      };
-    };
-    object[address.shift()] = newValue;
+    // var address = path.split(".");
+    // while (address.length > 1) {
+    //   var currentKey = address.shift();
+    //   var parentObject = object;
+    //   object = object[currentKey];
+    //   if (!object) {
+    //     object = parentObject;
+    //     object = object[currentKey] = {};
+    //   };
+    // };
+    // object[address.shift()] = newValue;
   };
 
   function getObject(object, path) {

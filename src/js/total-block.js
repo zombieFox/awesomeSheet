@@ -574,7 +574,6 @@ var totalBlock = (function() {
     };
   };
 
-
   function clear() {
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {

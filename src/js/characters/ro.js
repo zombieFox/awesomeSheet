@@ -26,8 +26,8 @@ var ro = (function() {
           temp: ""
         },
         dex: {
-          score: "19",
-          temp: "21"
+          score: "21",
+          temp: ""
         },
         con: {
           score: "10",
