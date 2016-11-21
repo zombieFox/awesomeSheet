@@ -219,12 +219,9 @@ var totalBlock = (function() {
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
-        var ranks;
-        if (all_totalBlock[i].querySelector(".js-input-block-field-ranks")) {
-          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
-        } else if (all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks")) {
-          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks").value, 10) || 0;
-        };
+        var input = all_totalBlock[i].querySelector(".js-input-block-field-ranks") || all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks");
+        var path = input.dataset.path;
+        var ranks = helper.getObject(sheet.getCharacter(), path);
         if (ranks > 0) {
           classSkill = 3;
         } else {
