@@ -1,5 +1,17 @@
 var stats = (function() {
 
+  function render() {
+    var stats = helper.eA(".js-stats");
+    for (var i = 0; i < stats.length; i++) {
+      var score = stats[i].querySelector(".js-stats-score");
+      var modifier = stats[i].querySelector(".js-stats-modifier");
+      var tempScore = stats[i].querySelector(".js-stats-temp-score");
+      var tempModifier = stats[i].querySelector(".js-stats-temp-modifier");
+      _changeModifer(score, modifier);
+      _changeModifer(tempScore, tempModifier);
+    };
+  };
+
   function _changeModifer(element, field) {
     var stat = element.value;
     var modifier = _calculateModifer(stat);
@@ -17,10 +29,6 @@ var stats = (function() {
     return modifier;
   };
 
-  function update() {
-
-  };
-
   var changeModiferTimer = null;
 
   function delayUpdate(element) {
@@ -29,28 +37,6 @@ var stats = (function() {
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
-    };
-  };
-
-  function render() {
-    var stats = helper.eA(".js-stats");
-    for (var i = 0; i < stats.length; i++) {
-      var score = stats[i].querySelector(".js-stats-score");
-      var modifier = stats[i].querySelector(".js-stats-modifier");
-      var tempScore = stats[i].querySelector(".js-stats-temp-score");
-      var tempModifier = stats[i].querySelector(".js-stats-temp-modifier");
-      _changeModifer(score, modifier);
-      _changeModifer(tempScore, tempModifier);
-      // if (score.value !== "") {
-      //   _changeModifer(score, modifier);
-      // } else {
-      //   modifier.textContent = "";
-      // };
-      // if (tempScore.value !== "") {
-      //   _changeModifer(tempScore, tempModifier);
-      // } else {
-      //   tempModifier.textContent = "";
-      // };
     };
   };
 
@@ -73,7 +59,6 @@ var stats = (function() {
 
   // exposed methods
   return {
-    update: update,
     render: render,
     bind: bind
   };

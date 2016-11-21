@@ -40,10 +40,10 @@ var nif = (function() {
           temp_modifier: ""
         },
         int: {
-          score: 21,
+          score: 23,
           modifier: "",
-          temp: "23_score",
-          temp: "23_modifier"
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
           score: 12,
