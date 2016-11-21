@@ -123,7 +123,7 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: "48",
+        total: 48,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -136,7 +136,7 @@ var nif = (function() {
         shield: "",
         deflect: "",
         dodge: "",
-        natural: "1",
+        natural: 1,
         size_bonus: "",
         check_penalty: "",
         current: "",
@@ -194,10 +194,10 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
-        misc: "3",
+        resistance: 2,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -210,9 +210,9 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -226,9 +226,9 @@ var nif = (function() {
         }
       },
       will: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -355,7 +355,7 @@ var nif = (function() {
         }
       },
       appraise: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -510,7 +510,7 @@ var nif = (function() {
         }
       },
       fly: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -578,7 +578,7 @@ var nif = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -595,7 +595,7 @@ var nif = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -612,7 +612,7 @@ var nif = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -629,7 +629,7 @@ var nif = (function() {
         }
       },
       knowledge_geography: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -646,7 +646,7 @@ var nif = (function() {
         }
       },
       knowledge_history: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -663,7 +663,7 @@ var nif = (function() {
         }
       },
       knowledge_local: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -680,7 +680,7 @@ var nif = (function() {
         }
       },
       knowledge_nature: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -697,7 +697,7 @@ var nif = (function() {
         }
       },
       knowledge_nobility: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -714,7 +714,7 @@ var nif = (function() {
         }
       },
       knowledge_planes: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -731,7 +731,7 @@ var nif = (function() {
         }
       },
       knowledge_religion: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -748,7 +748,7 @@ var nif = (function() {
         }
       },
       linguistics: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -765,8 +765,8 @@ var nif = (function() {
         }
       },
       perception: {
-        ranks: "7",
-        misc: "4",
+        ranks: 7,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: false,
@@ -905,7 +905,7 @@ var nif = (function() {
         }
       },
       spellcraft: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -973,7 +973,7 @@ var nif = (function() {
         }
       },
       use_magic_device: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {

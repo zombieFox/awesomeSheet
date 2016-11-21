@@ -287,37 +287,34 @@ var totalBlock = (function() {
       if (isNaN(checkPenalty)) {
         checkPenalty = 0;
       };
-      // var total = all_totalBlock[i].querySelector(".js-total-block-total");
-      // var path = total.dataset.path;
-      // var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
-      // var modifiers = [];
-      // var modifiers_total = 0;
-      // for (var q = 0; q < all_inputBlockField.length; q++) {
-      //   if (all_inputBlockField.length > 0) {
-      //     var path = all_inputBlockField[q].dataset.path;
-      //     if (path) {
-      //       var value = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
-      //       if (all_inputBlockField[q].dataset.total == "addition") {
-      //         modifiers.push(value);
-      //       };
-      //       if (all_inputBlockField[q].dataset.total == "subtract") {
-      //         modifiers.push(-value);
-      //       };
-      //     };
-      //   };
-      // };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
-      var path = total.dataset.path;
+      var totalPath = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
       var modifiers_total = 0;
-      for (var q = 0; q < all_inputBlockField.length; q++) {
-        if (all_inputBlockField.length > 0) {
-          if (all_inputBlockField[q].dataset.total == "addition") {
-            modifiers.push(parseInt(all_inputBlockField[q].value, 10) || 0);
-          };
-          if (all_inputBlockField[q].dataset.total == "subtract") {
-            modifiers.push(-parseInt(all_inputBlockField[q].value, 10) || 0);
+      // if there are any input fields in total block
+      if (all_inputBlockField.length > 0) {
+        // iterate over all input fields
+        for (var q = 0; q < all_inputBlockField.length; q++) {
+          // find the path for input field
+          var inputPath = all_inputBlockField[q].dataset.path;
+          // if path is found
+          if (inputPath) {
+            // get the value of path from character
+            var value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
+            // if the valye is not a NaN
+            if (!isNaN(value)) {
+              // check if the inpuy is to add or subtract
+              if (all_inputBlockField[q].dataset.total == "addition") {
+                // push to array
+                modifiers.push(value);
+              };
+              // check if the inpuy is to add or subtract
+              if (all_inputBlockField[q].dataset.total == "subtract") {
+                // push to array
+                modifiers.push(-value);
+              };
+            };
           };
         };
       };
@@ -332,8 +329,8 @@ var totalBlock = (function() {
       // update total
       total.textContent = grandTotal;
       // store current to character object
-      if (path) {
-        helper.setObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10) || 0);
+      if (totalPath) {
+        helper.setObject(sheet.getCharacter(), totalPath, parseInt(total.innerHTML, 10) || 0);
       };
     };
     sheet.storeCharacters();
