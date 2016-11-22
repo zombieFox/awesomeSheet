@@ -77,32 +77,42 @@ var totalBlock = (function() {
     };
   };
 
-  function _checkValue(data) {
-    var value;
-    if (typeof data == "number") {
-      value = data;
-    } else if (typeof data == "string") {
-      value = parseInt(data, 10) || 0;
-    };
-    if (isNaN(value)) {
-      value = 0;
-    };
-    return value;
-  };
-
-  function _checkForTempScore(score, tempScore) {
-    if (tempScore == "") {
-      return _checkValue(score);
-    } else {
-      return _checkValue(tempScore);
-    };
-  };
-
-  function _temp(argument) {
-    console.log(argument);
-  };
-
   function update() {
+
+    function _checkValue(data) {
+      var value;
+      if (typeof data == "number") {
+        value = data;
+      } else if (typeof data == "string") {
+        value = parseInt(data, 10) || 0;
+      };
+      if (isNaN(value)) {
+        value = 0;
+      };
+      return value;
+    };
+
+    function _checkForTempScore(score, tempScore) {
+      if (tempScore == "") {
+        return _checkValue(score);
+      } else {
+        return _checkValue(tempScore);
+      };
+    };
+
+    function _checkClassSkill(totalBlock) {
+      var input = totalBlock.querySelector(".js-input-block-field-ranks") || totalBlock.querySelector(".js-input-block-field-custom-ranks");
+      var path = input.dataset.path;
+      var ranks = helper.getObject(sheet.getCharacter(), path);
+      var value;
+      if (ranks > 0) {
+        classSkill = 3;
+      } else {
+        classSkill = 0;
+      };
+      return value;
+    };
+
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
       var strBonus = 0;
@@ -189,15 +199,7 @@ var totalBlock = (function() {
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
-        var input = all_totalBlock[i].querySelector(".js-input-block-field-ranks") || all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks");
-        var path = input.dataset.path;
-        var ranks = helper.getObject(sheet.getCharacter(), path);
-        if (ranks > 0) {
-          classSkill = 3;
-        } else {
-          classSkill = 0;
-        };
-        _temp(all_totalBlock[i]);
+        _checkClassSkill(all_totalBlock[i]);
       };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
