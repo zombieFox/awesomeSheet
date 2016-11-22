@@ -77,22 +77,34 @@ var totalBlock = (function() {
     };
   };
 
+  function _checkValue(data) {
+    var value;
+    if (typeof data == "number") {
+      value = data;
+    } else if (typeof data == "string") {
+      value = parseInt(data, 10) || 0;
+    };
+    if (isNaN(value)) {
+      value = 0;
+    };
+    return value;
+  };
+
+  function _checkForTempScore(score, tempScore) {
+    if (tempScore == "") {
+      return _checkValue(score);
+    } else {
+      return _checkValue(tempScore);
+    };
+  };
+
+  function _temp(argument) {
+    console.log(argument);
+  };
+
   function update() {
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
-      // var statsStrModifier = helper.e(".js-stats-str-modifier");
-      // var statsDexModifier = helper.e(".js-stats-dex-modifier");
-      var statsConModifier = helper.e(".js-stats-con-modifier");
-      var statsIntModifier = helper.e(".js-stats-int-modifier");
-      var statsWisModifier = helper.e(".js-stats-wis-modifier");
-      var statsChaModifier = helper.e(".js-stats-cha-modifier");
-      var statsStrModifierTemp = helper.e(".js-stats-str-modifier-temp");
-      var statsDexModifierTemp = helper.e(".js-stats-dex-modifier-temp");
-      var statsConModifierTemp = helper.e(".js-stats-con-modifier-temp");
-      var statsIntModifierTemp = helper.e(".js-stats-int-modifier-temp");
-      var statsWisModifierTemp = helper.e(".js-stats-wis-modifier-temp");
-      var statsChaModifierTemp = helper.e(".js-stats-cha-modifier-temp");
-      var possibleBonuses
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -113,109 +125,67 @@ var totalBlock = (function() {
       var checkPenalty = 0;
       // if str data attribute is true
       if (all_totalBlock[i].dataset.strBonus == "true") {
-        // if temp str modifier is empty
-        if (sheet.getCharacter().statistics.stats.str.temp_modifier == "") {
-          // use str modifier
-          strBonus = sheet.getCharacter().statistics.stats.str.modifier;
-        } else {
-          // use str temp modifier
-          strBonus = sheet.getCharacter().statistics.stats.str.temp_modifier;
-        };
+        strBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        // if temp dex modifier is empty
-        if (sheet.getCharacter().statistics.stats.dex.temp_modifier == "") {
-          // use dex modifier
-          dexBonus = sheet.getCharacter().statistics.stats.dex.modifier;
-        } else {
-          // use dex temp modifier
-          dexBonus = sheet.getCharacter().statistics.stats.dex.temp_modifier;
-        };
+        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
-        // if temp con modifier is empty
-        if (sheet.getCharacter().statistics.stats.con.temp_modifier == "") {
-          // use con modifier
-          conBonus = sheet.getCharacter().statistics.stats.con.modifier;
-        } else {
-          // use con temp modifier
-          conBonus = sheet.getCharacter().statistics.stats.con.temp_modifier;
-        };
+        conBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
       };
       // if int data attribute is true
       if (all_totalBlock[i].dataset.intBonus == "true") {
-        // if temp int modifier is empty
-        if (sheet.getCharacter().statistics.stats.int.temp_modifier == "") {
-          // use int modifier
-          intBonus = sheet.getCharacter().statistics.stats.int.modifier;
-        } else {
-          // use int temp modifier
-          intBonus = sheet.getCharacter().statistics.stats.int.temp_modifier;
-        };
+        intBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
       };
       // if wis data attribute is true
       if (all_totalBlock[i].dataset.wisBonus == "true") {
-        // if temp wis modifier is empty
-        if (sheet.getCharacter().statistics.stats.wis.temp_modifier == "") {
-          // use wis modifier
-          wisBonus = sheet.getCharacter().statistics.stats.wis.modifier;
-        } else {
-          // use wis temp modifier
-          wisBonus = sheet.getCharacter().statistics.stats.wis.temp_modifier;
-        };
+        wisBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
       };
       // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
-        // if temp cha modifier is empty
-        if (sheet.getCharacter().statistics.stats.cha.temp_modifier == "") {
-          // use cha modifier
-          chaBonus = sheet.getCharacter().statistics.stats.cha.modifier;
-        } else {
-          // use cha temp modifier
-          chaBonus = sheet.getCharacter().statistics.stats.cha.temp_modifier;
-        };
+        chaBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
       };
       // if bab data attribute is true
       if (all_totalBlock[i].dataset.babBonus == "true") {
-        babBonus = parseInt(sheet.getCharacter().offense.base_attack, 10) || 0;
+        babBonus = _checkValue(sheet.getCharacter().offense.base_attack);
       };
       // size
       if (all_totalBlock[i].dataset.sizeBonus == "true") {
-        sizeBonus = parseInt(sheet.getCharacter().defense.ac.size_bonus, 10 || 0);
+        sizeBonus = _checkValue(sheet.getCharacter().defense.ac.size_bonus);
       };
       // level
       if (all_totalBlock[i].dataset.levelBonus == "true") {
-        levelBonus = parseInt(sheet.getCharacter().basics.level, 10 || 0);
+        levelBonus = _checkValue(sheet.getCharacter().basics.level);
       };
       // half level
       if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
-        halfLevelBonus = Math.floor(parseInt(sheet.getCharacter().basics.level, 10 || 0) / 2) || 0;
+        halfLevelBonus = Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2);
       };
       // ac armor
       if (all_totalBlock[i].dataset.acArmor == "true") {
-        acArmor = parseInt(sheet.getCharacter().defense.ac.armor, 10 || 0);
+        acArmor = _checkValue(sheet.getCharacter().defense.ac.armor);
       };
       // ac shield
       if (all_totalBlock[i].dataset.acShield == "true") {
-        acShield = parseInt(sheet.getCharacter().defense.ac.shield, 10 || 0);
+        acShield = _checkValue(sheet.getCharacter().defense.ac.shield);
       };
       // ac deflect
       if (all_totalBlock[i].dataset.acDeflect == "true") {
-        acDeflect = parseInt(sheet.getCharacter().defense.ac.deflect, 10 || 0);
+        acDeflect = _checkValue(sheet.getCharacter().defense.ac.deflect);
       };
       // ac dodge
       if (all_totalBlock[i].dataset.acDodge == "true") {
-        acDodge = parseInt(sheet.getCharacter().defense.ac.dodge, 10 || 0);
+        acDodge = _checkValue(sheet.getCharacter().defense.ac.dodge);
       };
       // ac natural
       if (all_totalBlock[i].dataset.acNatural == "true") {
-        acNatural = parseInt(sheet.getCharacter().defense.ac.natural, 10 || 0);
+        acNatural = _checkValue(sheet.getCharacter().defense.ac.natural);
       };
       // armor check penalty
       if (all_totalBlock[i].dataset.checkPenalty == "true") {
-        checkPenalty = parseInt(sheet.getCharacter().defense.ac.check_penalty, 10 || 0);
+        checkPenalty = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
       };
       // class skill
       if (all_totalBlock[i].dataset.classSkill == "true") {
@@ -227,65 +197,11 @@ var totalBlock = (function() {
         } else {
           classSkill = 0;
         };
+        _temp(all_totalBlock[i]);
       };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
-      };
-      // check if any bonus is NaN
-      if (isNaN(levelBonus)) {
-        levelBonus = 0;
-      };
-      if (isNaN(strBonus)) {
-        strBonus = 0;
-      };
-      if (isNaN(dexBonus)) {
-        dexBonus = 0;
-      };
-      if (isNaN(conBonus)) {
-        conBonus = 0;
-      };
-      if (isNaN(intBonus)) {
-        intBonus = 0;
-      };
-      if (isNaN(wisBonus)) {
-        wisBonus = 0;
-      };
-      if (isNaN(chaBonus)) {
-        chaBonus = 0;
-      };
-      if (isNaN(babBonus)) {
-        babBonus = 0;
-      };
-      if (isNaN(sizeBonus)) {
-        sizeBonus = 0;
-      };
-      if (isNaN(levelBonus)) {
-        levelBonus = 0;
-      };
-      if (isNaN(plusTenBonus)) {
-        plusTenBonus = 0;
-      };
-      if (isNaN(acArmor)) {
-        acArmor = 0;
-      };
-      if (isNaN(acShield)) {
-        acShield = 0;
-      };
-      if (isNaN(acDeflect)) {
-        acDeflect = 0;
-      };
-      if (isNaN(acDodge)) {
-        acDodge = 0;
-      };
-      if (isNaN(acNatural)) {
-        acNatural = 0;
-      };
-      if (isNaN(classSkill)) {
-        classSkill = 0;
-      };
-      if (isNaN(checkPenalty)) {
-        checkPenalty = 0;
       };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
       var totalPath = total.dataset.path;
