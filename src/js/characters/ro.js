@@ -22,28 +22,40 @@ var ro = (function() {
     statistics: {
       stats: {
         str: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "19",
-          temp: "21"
+          score: 21,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "16",
-          temp: "18"
+          score: 18,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "7",
-          temp: ""
+          score: 7,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
@@ -106,7 +118,7 @@ var ro = (function() {
     },
     defense: {
       hp: {
-        total: "38",
+        total: 38,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -115,7 +127,7 @@ var ro = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "5",
+        armor: 5,
         shield: "",
         deflect: "",
         dodge: "",
@@ -177,9 +189,9 @@ var ro = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -193,9 +205,9 @@ var ro = (function() {
         }
       },
       reflex: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -209,9 +221,9 @@ var ro = (function() {
         }
       },
       will: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -351,7 +363,7 @@ var ro = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -402,7 +414,7 @@ var ro = (function() {
         }
       },
       climb: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -523,7 +535,7 @@ var ro = (function() {
         }
       },
       fly: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -591,7 +603,7 @@ var ro = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -608,7 +620,7 @@ var ro = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -727,7 +739,7 @@ var ro = (function() {
         }
       },
       knowledge_planes: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -778,8 +790,8 @@ var ro = (function() {
         }
       },
       perception: {
-        ranks: "7",
-        misc: "2",
+        ranks: 7,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: false,
@@ -796,7 +808,7 @@ var ro = (function() {
       },
       perform_1: {
         variant_name: "Dance",
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -867,7 +879,7 @@ var ro = (function() {
         }
       },
       ride: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -918,7 +930,7 @@ var ro = (function() {
         }
       },
       spellcraft: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -969,7 +981,7 @@ var ro = (function() {
         }
       },
       swim: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -986,7 +998,7 @@ var ro = (function() {
         }
       },
       use_magic_device: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -1150,7 +1162,7 @@ var ro = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: "2",
+        misc: 2,
         temp: "",
         bonuses: {
           str_bonus: false,
@@ -1163,10 +1175,10 @@ var ro = (function() {
         }
       },
       per_day: {
-        level_0: "6",
-        level_1: "5",
-        level_2: "4",
-        level_3: "2",
+        level_0: 6,
+        level_1: 5,
+        level_2: 4,
+        level_3: 2,
         level_4: "",
         level_5: "",
         level_6: "",
@@ -1175,10 +1187,10 @@ var ro = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "14",
-        level_1: "15",
-        level_2: "16",
-        level_3: "17",
+        level_0: 14,
+        level_1: 15,
+        level_2: 16,
+        level_3: 17,
         level_4: "",
         level_5: "",
         level_6: "",

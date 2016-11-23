@@ -22,28 +22,40 @@ var nif = (function() {
     statistics: {
       stats: {
         str: {
-          score: "8",
-          temp: ""
+          score: 8,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "17",
-          temp: ""
+          score: 17,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "21",
-          temp: "23"
+          score: 23,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
@@ -111,7 +123,7 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: "48",
+        total: 48,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -124,7 +136,7 @@ var nif = (function() {
         shield: "",
         deflect: "",
         dodge: "",
-        natural: "1",
+        natural: 1,
         size_bonus: "",
         check_penalty: "",
         current: "",
@@ -182,10 +194,10 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
-        misc: "3",
+        resistance: 2,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -198,9 +210,9 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -214,9 +226,9 @@ var nif = (function() {
         }
       },
       will: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -343,7 +355,7 @@ var nif = (function() {
         }
       },
       appraise: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -498,7 +510,7 @@ var nif = (function() {
         }
       },
       fly: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -566,7 +578,7 @@ var nif = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -583,7 +595,7 @@ var nif = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -600,7 +612,7 @@ var nif = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -617,7 +629,7 @@ var nif = (function() {
         }
       },
       knowledge_geography: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -634,7 +646,7 @@ var nif = (function() {
         }
       },
       knowledge_history: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -651,7 +663,7 @@ var nif = (function() {
         }
       },
       knowledge_local: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -668,7 +680,7 @@ var nif = (function() {
         }
       },
       knowledge_nature: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -685,7 +697,7 @@ var nif = (function() {
         }
       },
       knowledge_nobility: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -702,7 +714,7 @@ var nif = (function() {
         }
       },
       knowledge_planes: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -719,7 +731,7 @@ var nif = (function() {
         }
       },
       knowledge_religion: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -736,7 +748,7 @@ var nif = (function() {
         }
       },
       linguistics: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -753,8 +765,8 @@ var nif = (function() {
         }
       },
       perception: {
-        ranks: "7",
-        misc: "4",
+        ranks: 7,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: false,
@@ -893,7 +905,7 @@ var nif = (function() {
         }
       },
       spellcraft: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -961,7 +973,7 @@ var nif = (function() {
         }
       },
       use_magic_device: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -1125,7 +1137,7 @@ var nif = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: "4",
+        misc: 4,
         temp: "",
         bonuses: {
           str_bonus: false,
@@ -1138,11 +1150,11 @@ var nif = (function() {
         }
       },
       per_day: {
-        level_0: "4",
-        level_1: "6",
-        level_2: "4",
-        level_3: "3",
-        level_4: "2",
+        level_0: 4,
+        level_1: 6,
+        level_2: 4,
+        level_3: 3,
+        level_4: 2,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -1150,11 +1162,11 @@ var nif = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "16",
-        level_1: "17",
-        level_2: "18",
-        level_3: "19",
-        level_4: "20",
+        level_0: 16,
+        level_1: 17,
+        level_2: 18,
+        level_3: 19,
+        level_4: 20,
         level_5: "",
         level_6: "",
         level_7: "",
