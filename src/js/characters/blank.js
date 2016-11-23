@@ -23,27 +23,39 @@ var blank = (function() {
       stats: {
         str: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "",

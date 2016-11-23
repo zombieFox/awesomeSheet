@@ -22,28 +22,40 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: "21",
-          temp: ""
+          score: 21,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "13",
-          temp: ""
+          score: 13,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "8",
-          temp: ""
+          score: 8,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Great Fortitude",
@@ -86,7 +98,7 @@ var nefi = (function() {
     },
     defense: {
       hp: {
-        total: "80",
+        total: 80,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -95,13 +107,13 @@ var nefi = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "11",
+        armor: 11,
         shield: "",
-        deflect: "1",
-        dodge: "1",
+        deflect: 1,
+        dodge: 1,
         natural: "",
         size_bonus: "",
-        check_penalty: "-3",
+        check_penalty: -3,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -157,10 +169,10 @@ var nefi = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "1",
-        misc: "3",
+        resistance: 1,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -173,9 +185,9 @@ var nefi = (function() {
         }
       },
       reflex: {
-        base: "3",
+        base: 3,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -189,10 +201,10 @@ var nefi = (function() {
         }
       },
       will: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "1",
-        misc: "2",
+        resistance: 1,
+        misc: 2,
         temp: "",
         current: "",
         bonuses: {
@@ -382,7 +394,7 @@ var nefi = (function() {
         }
       },
       climb: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -520,7 +532,7 @@ var nefi = (function() {
         }
       },
       handle_animal: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -554,7 +566,7 @@ var nefi = (function() {
         }
       },
       intimidate: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -588,7 +600,7 @@ var nefi = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -605,7 +617,7 @@ var nefi = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -741,7 +753,7 @@ var nefi = (function() {
         }
       },
       linguistics: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -758,7 +770,7 @@ var nefi = (function() {
         }
       },
       perception: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -847,7 +859,7 @@ var nefi = (function() {
         }
       },
       ride: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -932,7 +944,7 @@ var nefi = (function() {
         }
       },
       survival: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -949,7 +961,7 @@ var nefi = (function() {
         }
       },
       swim: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {

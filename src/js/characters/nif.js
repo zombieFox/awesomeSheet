@@ -1137,7 +1137,7 @@ var nif = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: "4",
+        misc: 4,
         temp: "",
         bonuses: {
           str_bonus: false,
@@ -1150,11 +1150,11 @@ var nif = (function() {
         }
       },
       per_day: {
-        level_0: "4",
-        level_1: "6",
-        level_2: "4",
-        level_3: "3",
-        level_4: "2",
+        level_0: 4,
+        level_1: 6,
+        level_2: 4,
+        level_3: 3,
+        level_4: 2,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -1162,11 +1162,11 @@ var nif = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "16",
-        level_1: "17",
-        level_2: "18",
-        level_3: "19",
-        level_4: "20",
+        level_0: 16,
+        level_1: 17,
+        level_2: 18,
+        level_3: 19,
+        level_4: 20,
         level_5: "",
         level_6: "",
         level_7: "",

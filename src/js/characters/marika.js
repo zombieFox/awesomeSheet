@@ -22,28 +22,40 @@ var marika = (function() {
     statistics: {
       stats: {
         str: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "22",
-          temp: "26"
+          score: 26,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "9",
-          temp: ""
+          score: 9,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",
@@ -91,7 +103,7 @@ var marika = (function() {
     },
     defense: {
       hp: {
-        total: "53",
+        total: 53,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -100,9 +112,9 @@ var marika = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "4",
+        armor: 4,
         shield: "",
-        deflect: "2",
+        deflect: 2,
         dodge: "",
         natural: "",
         size_bonus: "",
@@ -162,9 +174,9 @@ var marika = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
-        base: "3",
+        base: 3,
         racial: "",
-        resistance: "3",
+        resistance: 3,
         misc: "",
         temp: "",
         current: "",
@@ -178,10 +190,10 @@ var marika = (function() {
         }
       },
       reflex: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "3",
-        misc: "1",
+        resistance: 3,
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -194,9 +206,9 @@ var marika = (function() {
         }
       },
       will: {
-        base: "3",
+        base: 3,
         racial: "",
-        resistance: "3",
+        resistance: 3,
         misc: "",
         temp: "",
         current: "",
@@ -326,7 +338,7 @@ var marika = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -343,8 +355,8 @@ var marika = (function() {
         }
       },
       appraise: {
-        ranks: "9",
-        misc: "4",
+        ranks: 9,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -360,7 +372,7 @@ var marika = (function() {
         }
       },
       bluff: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -447,8 +459,8 @@ var marika = (function() {
         }
       },
       disable_device: {
-        ranks: "9",
-        misc: "4",
+        ranks: 9,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -481,7 +493,7 @@ var marika = (function() {
         }
       },
       escape_artist: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -753,8 +765,8 @@ var marika = (function() {
         }
       },
       perception: {
-        ranks: "9",
-        misc: "5",
+        ranks: 9,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -859,7 +871,7 @@ var marika = (function() {
         }
       },
       sense_motive: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -876,8 +888,8 @@ var marika = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "9",
-        misc: "3",
+        ranks: 9,
+        misc: 3,
         current: "",
         bonuses: {
           class_skill: true,
@@ -910,8 +922,8 @@ var marika = (function() {
         }
       },
       stealth: {
-        ranks: "9",
-        misc: "5",
+        ranks: 9,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -979,8 +991,8 @@ var marika = (function() {
       },
       custom_1: {
         name: "Disable Device Trap",
-        ranks: "9",
-        misc: "4",
+        ranks: 9,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -997,8 +1009,8 @@ var marika = (function() {
       },
       custom_2: {
         name: "Perception Trap",
-        ranks: "9",
-        misc: "5",
+        ranks: 9,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,

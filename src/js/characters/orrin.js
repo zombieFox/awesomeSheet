@@ -22,28 +22,40 @@ var orrin = (function() {
     statistics: {
       stats: {
         str: {
-          score: "13",
-          temp: ""
+          score: 13,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "24",
-          temp: ""
+          score: 24,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "7",
-          temp: ""
+          score: 7,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude",
@@ -106,7 +118,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: "68",
+        total: 68,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -115,11 +127,11 @@ var orrin = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "4",
-        shield: "2",
-        deflect: "1",
-        dodge: "1",
-        natural: "1",
+        armor: 4,
+        shield: 2,
+        deflect: 1,
+        dodge: 1,
+        natural: 1,
         size_bonus: "",
         check_penalty: "",
         current: "",
@@ -177,10 +189,10 @@ var orrin = (function() {
       },
       ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
-        misc: "3",
+        resistance: 2,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -193,9 +205,9 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -209,9 +221,9 @@ var orrin = (function() {
         }
       },
       will: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -351,7 +363,7 @@ var orrin = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -368,8 +380,8 @@ var orrin = (function() {
         }
       },
       appraise: {
-        ranks: "4",
-        misc: "2",
+        ranks: 4,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: true,
@@ -385,7 +397,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -402,8 +414,8 @@ var orrin = (function() {
         }
       },
       climb: {
-        ranks: "3",
-        misc: "2",
+        ranks: 3,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: true,
@@ -472,8 +484,8 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: "8",
-        misc: "4",
+        ranks: 8,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -506,7 +518,7 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -608,7 +620,7 @@ var orrin = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -676,7 +688,7 @@ var orrin = (function() {
         }
       },
       knowledge_local: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -778,8 +790,8 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: "8",
-        misc: "5",
+        ranks: 8,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -867,7 +879,7 @@ var orrin = (function() {
         }
       },
       ride: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -884,7 +896,7 @@ var orrin = (function() {
         }
       },
       sense_motive: {
-        ranks: "5",
+        ranks: 5,
         misc: "",
         current: "",
         bonuses: {
@@ -901,8 +913,8 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "8",
-        misc: "2",
+        ranks: 8,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: true,
@@ -935,7 +947,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -986,7 +998,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -1004,8 +1016,8 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: "8",
-        misc: "5",
+        ranks: 8,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -1022,8 +1034,8 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: "8",
-        misc: "4",
+        ranks: 8,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
