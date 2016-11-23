@@ -22,28 +22,40 @@ var vos = (function() {
     statistics: {
       stats: {
         str: {
-          score: "17",
-          temp: ""
+          score: 17,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "7",
-          temp: ""
+          score: 7,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Focus (Unarmed Strike), Improved Grapple (Bonus Feat), Dodge (Bonus Feat), Extra Ki, Improved Disarm (Bonus Feat), Extra Ki",
@@ -101,19 +113,19 @@ var vos = (function() {
     },
     defense: {
       hp: {
-        total: "47",
+        total: 47,
         temp: "",
         damage: "",
         non_lethal_damage: "",
         current: ""
       },
       ac: {
-        misc: "1",
+        misc: 1,
         temp: "",
-        armor: "1",
+        armor: 1,
         shield: "",
-        deflect: "1",
-        dodge: "1",
+        deflect: 1,
+        dodge: 1,
         natural: "",
         size_bonus: "",
         check_penalty: "",
@@ -135,7 +147,7 @@ var vos = (function() {
         }
       },
       flat_footed: {
-        misc: "1",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -154,7 +166,7 @@ var vos = (function() {
         }
       },
       touch: {
-        misc: "1",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -172,9 +184,9 @@ var vos = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -188,9 +200,9 @@ var vos = (function() {
         }
       },
       reflex: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -204,9 +216,9 @@ var vos = (function() {
         }
       },
       will: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -241,7 +253,7 @@ var vos = (function() {
         }
       },
       cmd: {
-        misc: "1",
+        misc: 1,
         temp: "",
         size: "",
         current: "",
@@ -331,7 +343,7 @@ var vos = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -349,7 +361,7 @@ var vos = (function() {
       },
       appraise: {
         ranks: "",
-        misc: "2",
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: false,
@@ -382,7 +394,7 @@ var vos = (function() {
         }
       },
       climb: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -758,7 +770,7 @@ var vos = (function() {
         }
       },
       perception: {
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -915,7 +927,7 @@ var vos = (function() {
         }
       },
       stealth: {
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -949,7 +961,7 @@ var vos = (function() {
         }
       },
       swim: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -984,7 +996,7 @@ var vos = (function() {
       },
       custom_1: {
         name: "Acrobatics (Jump)",
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {

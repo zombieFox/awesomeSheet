@@ -2,8 +2,18 @@ var inputBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
+    var type = element.dataset.type;
+    var data;
+    if (type == "number") {
+      data = parseInt(element.value, 10 || 0);
+      if (isNaN(data) && type == "number") {
+        data = "";
+      };
+    } else {
+      data = element.value;
+    };
     if (path) {
-      helper.setObject(sheet.getCharacter(), path, element.value);
+      helper.setObject(sheet.getCharacter(), path, data);
       sheet.storeCharacters();
     };
   };

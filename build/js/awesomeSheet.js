@@ -226,27 +226,39 @@ var blank = (function() {
       stats: {
         str: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
           score: "",
-          temp: ""
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "",
@@ -1398,28 +1410,40 @@ var marika = (function() {
     statistics: {
       stats: {
         str: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "22",
-          temp: "26"
+          score: 26,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "9",
-          temp: ""
+          score: 9,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",
@@ -1467,7 +1491,7 @@ var marika = (function() {
     },
     defense: {
       hp: {
-        total: "53",
+        total: 53,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -1476,9 +1500,9 @@ var marika = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "4",
+        armor: 4,
         shield: "",
-        deflect: "2",
+        deflect: 2,
         dodge: "",
         natural: "",
         size_bonus: "",
@@ -1538,9 +1562,9 @@ var marika = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
-        base: "3",
+        base: 3,
         racial: "",
-        resistance: "3",
+        resistance: 3,
         misc: "",
         temp: "",
         current: "",
@@ -1554,10 +1578,10 @@ var marika = (function() {
         }
       },
       reflex: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "3",
-        misc: "1",
+        resistance: 3,
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -1570,9 +1594,9 @@ var marika = (function() {
         }
       },
       will: {
-        base: "3",
+        base: 3,
         racial: "",
-        resistance: "3",
+        resistance: 3,
         misc: "",
         temp: "",
         current: "",
@@ -1702,7 +1726,7 @@ var marika = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -1719,8 +1743,8 @@ var marika = (function() {
         }
       },
       appraise: {
-        ranks: "9",
-        misc: "4",
+        ranks: 9,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -1736,7 +1760,7 @@ var marika = (function() {
         }
       },
       bluff: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -1823,8 +1847,8 @@ var marika = (function() {
         }
       },
       disable_device: {
-        ranks: "9",
-        misc: "4",
+        ranks: 9,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -1857,7 +1881,7 @@ var marika = (function() {
         }
       },
       escape_artist: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -2129,8 +2153,8 @@ var marika = (function() {
         }
       },
       perception: {
-        ranks: "9",
-        misc: "5",
+        ranks: 9,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -2235,7 +2259,7 @@ var marika = (function() {
         }
       },
       sense_motive: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -2252,8 +2276,8 @@ var marika = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "9",
-        misc: "3",
+        ranks: 9,
+        misc: 3,
         current: "",
         bonuses: {
           class_skill: true,
@@ -2286,8 +2310,8 @@ var marika = (function() {
         }
       },
       stealth: {
-        ranks: "9",
-        misc: "5",
+        ranks: 9,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -2355,8 +2379,8 @@ var marika = (function() {
       },
       custom_1: {
         name: "Disable Device Trap",
-        ranks: "9",
-        misc: "4",
+        ranks: 9,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -2373,8 +2397,8 @@ var marika = (function() {
       },
       custom_2: {
         name: "Perception Trap",
-        ranks: "9",
-        misc: "5",
+        ranks: 9,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -2616,28 +2640,40 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: "21",
-          temp: ""
+          score: 21,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "13",
-          temp: ""
+          score: 13,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "8",
-          temp: ""
+          score: 8,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Great Fortitude",
@@ -2680,7 +2716,7 @@ var nefi = (function() {
     },
     defense: {
       hp: {
-        total: "80",
+        total: 80,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -2689,13 +2725,13 @@ var nefi = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "11",
+        armor: 11,
         shield: "",
-        deflect: "1",
-        dodge: "1",
+        deflect: 1,
+        dodge: 1,
         natural: "",
         size_bonus: "",
-        check_penalty: "-3",
+        check_penalty: -3,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -2751,10 +2787,10 @@ var nefi = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "1",
-        misc: "3",
+        resistance: 1,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -2767,9 +2803,9 @@ var nefi = (function() {
         }
       },
       reflex: {
-        base: "3",
+        base: 3,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -2783,10 +2819,10 @@ var nefi = (function() {
         }
       },
       will: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "1",
-        misc: "2",
+        resistance: 1,
+        misc: 2,
         temp: "",
         current: "",
         bonuses: {
@@ -2875,12 +2911,12 @@ var nefi = (function() {
         melee: [{
           weapon: "Guisarme +1 Keen",
           attack: "19/14",
-          damage: "2d4+9",
+          damage: "2d4+10",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
           attack: "16/11",
-          damage: "2d4+15",
+          damage: "2d4+16",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
@@ -2890,22 +2926,22 @@ var nefi = (function() {
         }, {
           weapon: "Greatsword MW",
           attack: "16/11",
-          damage: "1d10+7",
+          damage: "1d10+8",
           critical: "19–20/x2"
         }, {
           weapon: "Greatsword MW Power Attack",
           attack: "13/8",
-          damage: "1d10+13",
+          damage: "1d10+14",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
           attack: "17/12",
-          damage: "1d8+9",
+          damage: "1d8+10",
           critical: "x3"
         }, {
           weapon: "Halberd MW Power Attack",
           attack: "14/8",
-          damage: "1d8+15",
+          damage: "1d8+16",
           critical: "x3"
         }],
         ranged: [{
@@ -2976,7 +3012,7 @@ var nefi = (function() {
         }
       },
       climb: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -3114,7 +3150,7 @@ var nefi = (function() {
         }
       },
       handle_animal: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -3148,7 +3184,7 @@ var nefi = (function() {
         }
       },
       intimidate: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -3182,7 +3218,7 @@ var nefi = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -3199,7 +3235,7 @@ var nefi = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -3335,7 +3371,7 @@ var nefi = (function() {
         }
       },
       linguistics: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -3352,7 +3388,7 @@ var nefi = (function() {
         }
       },
       perception: {
-        ranks: "9",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -3441,7 +3477,7 @@ var nefi = (function() {
         }
       },
       ride: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -3526,7 +3562,7 @@ var nefi = (function() {
         }
       },
       survival: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -3543,7 +3579,7 @@ var nefi = (function() {
         }
       },
       swim: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -3839,28 +3875,40 @@ var nif = (function() {
     statistics: {
       stats: {
         str: {
-          score: "8",
-          temp: ""
+          score: 8,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "17",
-          temp: ""
+          score: 17,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "21",
-          temp: "23"
+          score: 23,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
@@ -3928,7 +3976,7 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: "48",
+        total: 48,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -3941,7 +3989,7 @@ var nif = (function() {
         shield: "",
         deflect: "",
         dodge: "",
-        natural: "1",
+        natural: 1,
         size_bonus: "",
         check_penalty: "",
         current: "",
@@ -3999,10 +4047,10 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
-        misc: "3",
+        resistance: 2,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -4015,9 +4063,9 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -4031,9 +4079,9 @@ var nif = (function() {
         }
       },
       will: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -4160,7 +4208,7 @@ var nif = (function() {
         }
       },
       appraise: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -4315,7 +4363,7 @@ var nif = (function() {
         }
       },
       fly: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -4383,7 +4431,7 @@ var nif = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4400,7 +4448,7 @@ var nif = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4417,7 +4465,7 @@ var nif = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -4434,7 +4482,7 @@ var nif = (function() {
         }
       },
       knowledge_geography: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -4451,7 +4499,7 @@ var nif = (function() {
         }
       },
       knowledge_history: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -4468,7 +4516,7 @@ var nif = (function() {
         }
       },
       knowledge_local: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4485,7 +4533,7 @@ var nif = (function() {
         }
       },
       knowledge_nature: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -4502,7 +4550,7 @@ var nif = (function() {
         }
       },
       knowledge_nobility: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4519,7 +4567,7 @@ var nif = (function() {
         }
       },
       knowledge_planes: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4536,7 +4584,7 @@ var nif = (function() {
         }
       },
       knowledge_religion: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4553,7 +4601,7 @@ var nif = (function() {
         }
       },
       linguistics: {
-        ranks: "3",
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -4570,8 +4618,8 @@ var nif = (function() {
         }
       },
       perception: {
-        ranks: "7",
-        misc: "4",
+        ranks: 7,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: false,
@@ -4710,7 +4758,7 @@ var nif = (function() {
         }
       },
       spellcraft: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -4778,7 +4826,7 @@ var nif = (function() {
         }
       },
       use_magic_device: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -4942,7 +4990,7 @@ var nif = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: "4",
+        misc: 4,
         temp: "",
         bonuses: {
           str_bonus: false,
@@ -4955,11 +5003,11 @@ var nif = (function() {
         }
       },
       per_day: {
-        level_0: "4",
-        level_1: "6",
-        level_2: "4",
-        level_3: "3",
-        level_4: "2",
+        level_0: 4,
+        level_1: 6,
+        level_2: 4,
+        level_3: 3,
+        level_4: 2,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -4967,11 +5015,11 @@ var nif = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "16",
-        level_1: "17",
-        level_2: "18",
-        level_3: "19",
-        level_4: "20",
+        level_0: 16,
+        level_1: 17,
+        level_2: 18,
+        level_3: 19,
+        level_4: 20,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -5327,28 +5375,40 @@ var orrin = (function() {
     statistics: {
       stats: {
         str: {
-          score: "13",
-          temp: ""
+          score: 13,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "24",
-          temp: ""
+          score: 24,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "7",
-          temp: ""
+          score: 7,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude",
@@ -5411,7 +5471,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: "68",
+        total: 68,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -5420,11 +5480,11 @@ var orrin = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "4",
-        shield: "2",
-        deflect: "1",
-        dodge: "1",
-        natural: "1",
+        armor: 4,
+        shield: 2,
+        deflect: 1,
+        dodge: 1,
+        natural: 1,
         size_bonus: "",
         check_penalty: "",
         current: "",
@@ -5482,10 +5542,10 @@ var orrin = (function() {
       },
       ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
-        misc: "3",
+        resistance: 2,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -5498,9 +5558,9 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -5514,9 +5574,9 @@ var orrin = (function() {
         }
       },
       will: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "2",
+        resistance: 2,
         misc: "",
         temp: "",
         current: "",
@@ -5656,7 +5716,7 @@ var orrin = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -5673,8 +5733,8 @@ var orrin = (function() {
         }
       },
       appraise: {
-        ranks: "4",
-        misc: "2",
+        ranks: 4,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: true,
@@ -5690,7 +5750,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -5707,8 +5767,8 @@ var orrin = (function() {
         }
       },
       climb: {
-        ranks: "3",
-        misc: "2",
+        ranks: 3,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: true,
@@ -5777,8 +5837,8 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: "8",
-        misc: "4",
+        ranks: 8,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -5811,7 +5871,7 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -5913,7 +5973,7 @@ var orrin = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -5981,7 +6041,7 @@ var orrin = (function() {
         }
       },
       knowledge_local: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -6083,8 +6143,8 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: "8",
-        misc: "5",
+        ranks: 8,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6172,7 +6232,7 @@ var orrin = (function() {
         }
       },
       ride: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -6189,7 +6249,7 @@ var orrin = (function() {
         }
       },
       sense_motive: {
-        ranks: "5",
+        ranks: 5,
         misc: "",
         current: "",
         bonuses: {
@@ -6206,8 +6266,8 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "8",
-        misc: "2",
+        ranks: 8,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6240,7 +6300,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -6291,7 +6351,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: "8",
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -6309,8 +6369,8 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: "8",
-        misc: "5",
+        ranks: 8,
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6327,8 +6387,8 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: "8",
-        misc: "4",
+        ranks: 8,
+        misc: 4,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6568,28 +6628,40 @@ var ro = (function() {
     statistics: {
       stats: {
         str: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "19",
-          temp: "21"
+          score: 21,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "16",
-          temp: "18"
+          score: 18,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "7",
-          temp: ""
+          score: 7,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
@@ -6652,7 +6724,7 @@ var ro = (function() {
     },
     defense: {
       hp: {
-        total: "38",
+        total: 38,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -6661,7 +6733,7 @@ var ro = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "5",
+        armor: 5,
         shield: "",
         deflect: "",
         dodge: "",
@@ -6723,9 +6795,9 @@ var ro = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -6739,9 +6811,9 @@ var ro = (function() {
         }
       },
       reflex: {
-        base: "2",
+        base: 2,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -6755,9 +6827,9 @@ var ro = (function() {
         }
       },
       will: {
-        base: "6",
+        base: 6,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -6897,7 +6969,7 @@ var ro = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -6948,7 +7020,7 @@ var ro = (function() {
         }
       },
       climb: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -7069,7 +7141,7 @@ var ro = (function() {
         }
       },
       fly: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -7137,7 +7209,7 @@ var ro = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -7154,7 +7226,7 @@ var ro = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -7273,7 +7345,7 @@ var ro = (function() {
         }
       },
       knowledge_planes: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -7324,8 +7396,8 @@ var ro = (function() {
         }
       },
       perception: {
-        ranks: "7",
-        misc: "2",
+        ranks: 7,
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: false,
@@ -7342,7 +7414,7 @@ var ro = (function() {
       },
       perform_1: {
         variant_name: "Dance",
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -7413,7 +7485,7 @@ var ro = (function() {
         }
       },
       ride: {
-        ranks: "1",
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -7464,7 +7536,7 @@ var ro = (function() {
         }
       },
       spellcraft: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -7515,7 +7587,7 @@ var ro = (function() {
         }
       },
       swim: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -7532,7 +7604,7 @@ var ro = (function() {
         }
       },
       use_magic_device: {
-        ranks: "7",
+        ranks: 7,
         misc: "",
         current: "",
         bonuses: {
@@ -7696,7 +7768,7 @@ var ro = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: "2",
+        misc: 2,
         temp: "",
         bonuses: {
           str_bonus: false,
@@ -7709,10 +7781,10 @@ var ro = (function() {
         }
       },
       per_day: {
-        level_0: "6",
-        level_1: "5",
-        level_2: "4",
-        level_3: "2",
+        level_0: 6,
+        level_1: 5,
+        level_2: 4,
+        level_3: 2,
         level_4: "",
         level_5: "",
         level_6: "",
@@ -7721,10 +7793,10 @@ var ro = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "14",
-        level_1: "15",
-        level_2: "16",
-        level_3: "17",
+        level_0: 14,
+        level_1: 15,
+        level_2: 16,
+        level_3: 17,
         level_4: "",
         level_5: "",
         level_6: "",
@@ -8048,28 +8120,40 @@ var vos = (function() {
     statistics: {
       stats: {
         str: {
-          score: "17",
-          temp: ""
+          score: 17,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         dex: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         con: {
-          score: "12",
-          temp: ""
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         int: {
-          score: "10",
-          temp: ""
+          score: 10,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         wis: {
-          score: "14",
-          temp: ""
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         },
         cha: {
-          score: "7",
-          temp: ""
+          score: 7,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
         }
       },
       feats: "Weapon Focus (Unarmed Strike), Improved Grapple (Bonus Feat), Dodge (Bonus Feat), Extra Ki, Improved Disarm (Bonus Feat), Extra Ki",
@@ -8127,19 +8211,19 @@ var vos = (function() {
     },
     defense: {
       hp: {
-        total: "47",
+        total: 47,
         temp: "",
         damage: "",
         non_lethal_damage: "",
         current: ""
       },
       ac: {
-        misc: "1",
+        misc: 1,
         temp: "",
-        armor: "1",
+        armor: 1,
         shield: "",
-        deflect: "1",
-        dodge: "1",
+        deflect: 1,
+        dodge: 1,
         natural: "",
         size_bonus: "",
         check_penalty: "",
@@ -8161,7 +8245,7 @@ var vos = (function() {
         }
       },
       flat_footed: {
-        misc: "1",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -8180,7 +8264,7 @@ var vos = (function() {
         }
       },
       touch: {
-        misc: "1",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -8198,9 +8282,9 @@ var vos = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -8214,9 +8298,9 @@ var vos = (function() {
         }
       },
       reflex: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -8230,9 +8314,9 @@ var vos = (function() {
         }
       },
       will: {
-        base: "5",
+        base: 5,
         racial: "",
-        resistance: "1",
+        resistance: 1,
         misc: "",
         temp: "",
         current: "",
@@ -8267,7 +8351,7 @@ var vos = (function() {
         }
       },
       cmd: {
-        misc: "1",
+        misc: 1,
         temp: "",
         size: "",
         current: "",
@@ -8357,7 +8441,7 @@ var vos = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -8375,7 +8459,7 @@ var vos = (function() {
       },
       appraise: {
         ranks: "",
-        misc: "2",
+        misc: 2,
         current: "",
         bonuses: {
           class_skill: false,
@@ -8408,7 +8492,7 @@ var vos = (function() {
         }
       },
       climb: {
-        ranks: "4",
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -8784,7 +8868,7 @@ var vos = (function() {
         }
       },
       perception: {
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -8941,7 +9025,7 @@ var vos = (function() {
         }
       },
       stealth: {
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -8975,7 +9059,7 @@ var vos = (function() {
         }
       },
       swim: {
-        ranks: "2",
+        ranks: 2,
         misc: "",
         current: "",
         bonuses: {
@@ -9010,7 +9094,7 @@ var vos = (function() {
       },
       custom_1: {
         name: "Acrobatics (Jump)",
-        ranks: "6",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
@@ -11023,8 +11107,18 @@ var inputBlock = (function() {
 
   function _store(element) {
     var path = element.dataset.path;
+    var type = element.dataset.type;
+    var data;
+    if (type == "number") {
+      data = parseInt(element.value, 10 || 0);
+      if (isNaN(data) && type == "number") {
+        data = "";
+      };
+    } else {
+      data = element.value;
+    };
     if (path) {
-      helper.setObject(sheet.getCharacter(), path, element.value);
+      helper.setObject(sheet.getCharacter(), path, data);
       sheet.storeCharacters();
     };
   };
@@ -12972,10 +13066,33 @@ var spells = (function() {
 
 var stats = (function() {
 
+  function render() {
+    var stats = helper.eA(".js-stats");
+    for (var i = 0; i < stats.length; i++) {
+      var score = stats[i].querySelector(".js-stats-score");
+      var modifier = stats[i].querySelector(".js-stats-modifier");
+      var tempScore = stats[i].querySelector(".js-stats-temp-score");
+      var tempModifier = stats[i].querySelector(".js-stats-temp-modifier");
+      _changeModifer(score, modifier);
+      _changeModifer(tempScore, tempModifier);
+    };
+  };
+
   function _changeModifer(element, field) {
-    var stat = parseInt(element.value, 10) || 0;
-    var modifier = _calculateModifer(element);
+    var stat = element.value;
+    var modifier = _calculateModifer(stat);
+    var modifierPath = element.dataset.modifierPath;
+    var type = element.dataset.type;
+    helper.setObject(sheet.getCharacter(), modifierPath, modifier);
     field.textContent = modifier;
+  };
+
+  function _calculateModifer(value) {
+    var modifier = Math.floor((parseInt(value, 10) - 10) / 2);
+    if (isNaN(modifier)) {
+      modifier = "";
+    };
+    return modifier;
   };
 
   var changeModiferTimer = null;
@@ -12989,42 +13106,17 @@ var stats = (function() {
     };
   };
 
-  function _calculateModifer(element) {
-    var modifier = Math.floor((element.value - 10) / 2);
-    return modifier;
-  };
-
-  function render() {
-    var stats = helper.eA(".js-stats");
-    for (var i = 0; i < stats.length; i++) {
-      var score = stats[i].querySelector(".js-stats-score");
-      var modifier = stats[i].querySelector(".js-stats-modifier");
-      var scoreTemp = stats[i].querySelector(".js-stats-score-temp");
-      var Modtempifier = stats[i].querySelector(".js-stats-modifier-temp");
-      if (score.value !== "") {
-        _changeModifer(score, modifier);
-      } else {
-        modifier.textContent = "";
-      };
-      if (scoreTemp.value !== "") {
-        _changeModifer(scoreTemp, Modtempifier);
-      } else {
-        Modtempifier.textContent = "";
-      };
-    };
-  };
-
   function bind() {
     var score = helper.eA(".js-stats-score");
-    var scoreTemp = helper.eA(".js-stats-score-temp");
+    var tempScore = helper.eA(".js-stats-temp-score");
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
         changeModiferTimer = setTimeout(delayUpdate, 1000);
       }, false);
     };
-    for (var i = 0; i < scoreTemp.length; i++) {
-      scoreTemp[i].addEventListener("input", function() {
+    for (var i = 0; i < tempScore.length; i++) {
+      tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
         changeModiferTimer = setTimeout(delayUpdate, 1000);
       }, false);
@@ -13247,20 +13339,43 @@ var totalBlock = (function() {
   };
 
   function update() {
+
+    function _checkValue(data) {
+      var value;
+      if (typeof data == "number") {
+        value = data;
+      } else if (typeof data == "string") {
+        value = parseInt(data, 10) || 0;
+      };
+      if (isNaN(value)) {
+        value = 0;
+      };
+      return value;
+    };
+
+    function _checkForTempScore(score, tempScore) {
+      if (tempScore == "") {
+        return _checkValue(score);
+      } else {
+        return _checkValue(tempScore);
+      };
+    };
+
+    function _checkClassSkill(totalBlock) {
+      var input = totalBlock.querySelector(".js-input-block-field-ranks") || totalBlock.querySelector(".js-input-block-field-custom-ranks");
+      var path = input.dataset.path;
+      var ranks = helper.getObject(sheet.getCharacter(), path);
+      var value;
+      if (ranks > 0) {
+        classSkill = 3;
+      } else {
+        classSkill = 0;
+      };
+      return value;
+    };
+
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
-      var statsStrModifier = helper.e(".js-stats-str-modifier");
-      var statsDexModifier = helper.e(".js-stats-dex-modifier");
-      var statsConModifier = helper.e(".js-stats-con-modifier");
-      var statsIntModifier = helper.e(".js-stats-int-modifier");
-      var statsWisModifier = helper.e(".js-stats-wis-modifier");
-      var statsChaModifier = helper.e(".js-stats-cha-modifier");
-      var statsStrModifierTemp = helper.e(".js-stats-str-modifier-temp");
-      var statsDexModifierTemp = helper.e(".js-stats-dex-modifier-temp");
-      var statsConModifierTemp = helper.e(".js-stats-con-modifier-temp");
-      var statsIntModifierTemp = helper.e(".js-stats-int-modifier-temp");
-      var statsWisModifierTemp = helper.e(".js-stats-wis-modifier-temp");
-      var statsChaModifierTemp = helper.e(".js-stats-cha-modifier-temp");
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -13279,185 +13394,106 @@ var totalBlock = (function() {
       var acNatural = 0;
       var classSkill = 0;
       var checkPenalty = 0;
-      // str
+      // if str data attribute is true
       if (all_totalBlock[i].dataset.strBonus == "true") {
-        // if ability temp mod is empty
-        if (statsStrModifierTemp.textContent == "") {
-          strBonus = parseInt(statsStrModifier.textContent, 10 || 0);
-        } else {
-          strBonus = parseInt(statsStrModifierTemp.textContent, 10 || 0);
-        };
+        strBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
       };
-      // dex
+      // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        // if ability temp mod is empty
-        if (statsDexModifierTemp.textContent == "") {
-          dexBonus = parseInt(statsDexModifier.textContent, 10 || 0);
-        } else {
-          dexBonus = parseInt(statsDexModifierTemp.textContent, 10 || 0);
-        };
+        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
-      // con
+      // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
-        // if ability temp mod is empty
-        if (statsConModifierTemp.textContent == "") {
-          conBonus = parseInt(statsConModifier.textContent, 10 || 0);
-        } else {
-          conBonus = parseInt(statsConModifierTemp.textContent, 10 || 0);
-        };
+        conBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
       };
-      // int
+      // if int data attribute is true
       if (all_totalBlock[i].dataset.intBonus == "true") {
-        // if ability temp mod is empty
-        if (statsIntModifierTemp.textContent == "") {
-          intBonus = parseInt(statsIntModifier.textContent, 10 || 0);
-        } else {
-          intBonus = parseInt(statsIntModifierTemp.textContent, 10 || 0);
-        };
+        intBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
       };
-      // wis
+      // if wis data attribute is true
       if (all_totalBlock[i].dataset.wisBonus == "true") {
-        // if ability temp mod is empty
-        if (statsWisModifierTemp.textContent == "") {
-          wisBonus = parseInt(statsWisModifier.textContent, 10 || 0);
-        } else {
-          wisBonus = parseInt(statsWisModifierTemp.textContent, 10 || 0);
-        };
+        wisBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
       };
-      // cha
+      // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
-        // if ability temp mod is empty
-        if (statsChaModifierTemp.textContent == "") {
-          chaBonus = parseInt(statsChaModifier.textContent, 10 || 0);
-        } else {
-          chaBonus = parseInt(statsChaModifierTemp.textContent, 10 || 0);
-        };
+        chaBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
       };
-      // bab
+      // if bab data attribute is true
       if (all_totalBlock[i].dataset.babBonus == "true") {
-        babBonus = parseInt(helper.e("#offense-base-attack").value, 10 || 0);
+        babBonus = _checkValue(sheet.getCharacter().offense.base_attack);
       };
       // size
       if (all_totalBlock[i].dataset.sizeBonus == "true") {
-        sizeBonus = parseInt(helper.e("#defense-ac-size-bonus").value, 10 || 0);
+        sizeBonus = _checkValue(sheet.getCharacter().defense.ac.size_bonus);
       };
       // level
       if (all_totalBlock[i].dataset.levelBonus == "true") {
-        levelBonus = parseInt(helper.e("#basics-level").value, 10 || 0);
+        levelBonus = _checkValue(sheet.getCharacter().basics.level);
       };
       // half level
       if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
-        halfLevelBonus = Math.floor(parseInt(helper.e("#basics-level").value, 10 || 0) / 2) || 0;
+        halfLevelBonus = Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2);
       };
       // ac armor
       if (all_totalBlock[i].dataset.acArmor == "true") {
-        acArmor = parseInt(helper.e("#defense-ac-armor").value, 10 || 0);
+        acArmor = _checkValue(sheet.getCharacter().defense.ac.armor);
       };
       // ac shield
       if (all_totalBlock[i].dataset.acShield == "true") {
-        acShield = parseInt(helper.e("#defense-ac-shield").value, 10 || 0);
+        acShield = _checkValue(sheet.getCharacter().defense.ac.shield);
       };
       // ac deflect
       if (all_totalBlock[i].dataset.acDeflect == "true") {
-        acDeflect = parseInt(helper.e("#defense-ac-deflect").value, 10 || 0);
+        acDeflect = _checkValue(sheet.getCharacter().defense.ac.deflect);
       };
       // ac dodge
       if (all_totalBlock[i].dataset.acDodge == "true") {
-        acDodge = parseInt(helper.e("#defense-ac-dodge").value, 10 || 0);
+        acDodge = _checkValue(sheet.getCharacter().defense.ac.dodge);
       };
       // ac natural
       if (all_totalBlock[i].dataset.acNatural == "true") {
-        acNatural = parseInt(helper.e("#defense-ac-natural").value, 10 || 0);
-      };
-      // class skill
-      if (all_totalBlock[i].dataset.classSkill == "true") {
-        var ranks;
-        if (all_totalBlock[i].querySelector(".js-input-block-field-ranks")) {
-          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-ranks").value, 10) || 0;
-        } else if (all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks")) {
-          ranks = parseInt(all_totalBlock[i].querySelector(".js-input-block-field-custom-ranks").value, 10) || 0;
-        };
-        if (ranks > 0) {
-          classSkill = 3;
-        } else {
-          classSkill = 0;
-        };
+        acNatural = _checkValue(sheet.getCharacter().defense.ac.natural);
       };
       // armor check penalty
       if (all_totalBlock[i].dataset.checkPenalty == "true") {
-        checkPenalty = parseInt(helper.e("#defense-ac-check-penalty").value, 10 || 0);
+        checkPenalty = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
+      };
+      // class skill
+      if (all_totalBlock[i].dataset.classSkill == "true") {
+        _checkClassSkill(all_totalBlock[i]);
       };
       // 10
       if (all_totalBlock[i].dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
-      // check if any bonus is NaN
-      if (isNaN(levelBonus)) {
-        levelBonus = 0;
-      };
-      if (isNaN(strBonus)) {
-        strBonus = 0;
-      };
-      if (isNaN(dexBonus)) {
-        dexBonus = 0;
-      };
-      if (isNaN(conBonus)) {
-        conBonus = 0;
-      };
-      if (isNaN(intBonus)) {
-        intBonus = 0;
-      };
-      if (isNaN(wisBonus)) {
-        wisBonus = 0;
-      };
-      if (isNaN(chaBonus)) {
-        chaBonus = 0;
-      };
-      if (isNaN(babBonus)) {
-        babBonus = 0;
-      };
-      if (isNaN(sizeBonus)) {
-        sizeBonus = 0;
-      };
-      if (isNaN(levelBonus)) {
-        levelBonus = 0;
-      };
-      if (isNaN(plusTenBonus)) {
-        plusTenBonus = 0;
-      };
-      if (isNaN(acArmor)) {
-        acArmor = 0;
-      };
-      if (isNaN(acShield)) {
-        acShield = 0;
-      };
-      if (isNaN(acDeflect)) {
-        acDeflect = 0;
-      };
-      if (isNaN(acDodge)) {
-        acDodge = 0;
-      };
-      if (isNaN(acNatural)) {
-        acNatural = 0;
-      };
-      if (isNaN(classSkill)) {
-        classSkill = 0;
-      };
-      if (isNaN(checkPenalty)) {
-        checkPenalty = 0;
-      };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
-      var path = total.dataset.path;
+      var totalPath = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
       var modifiers_total = 0;
-      for (var q = 0; q < all_inputBlockField.length; q++) {
-        if (all_inputBlockField.length > 0) {
-          if (all_inputBlockField[q].dataset.total == "addition") {
-            modifiers.push(parseInt(all_inputBlockField[q].value, 10) || 0);
-          };
-          if (all_inputBlockField[q].dataset.total == "subtract") {
-            modifiers.push(-parseInt(all_inputBlockField[q].value, 10) || 0);
+      // if there are any input fields in total block
+      if (all_inputBlockField.length > 0) {
+        // iterate over all input fields
+        for (var q = 0; q < all_inputBlockField.length; q++) {
+          // find the path for input field
+          var inputPath = all_inputBlockField[q].dataset.path;
+          // if path is found
+          if (inputPath) {
+            // get the value of path from character
+            var value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
+            // if the valye is not a NaN
+            if (!isNaN(value)) {
+              // check if the inpuy is to add or subtract
+              if (all_inputBlockField[q].dataset.total == "addition") {
+                // push to array
+                modifiers.push(value);
+              };
+              // check if the inpuy is to add or subtract
+              if (all_inputBlockField[q].dataset.total == "subtract") {
+                // push to array
+                modifiers.push(-value);
+              };
+            };
           };
         };
       };
@@ -13472,8 +13508,8 @@ var totalBlock = (function() {
       // update total
       total.textContent = grandTotal;
       // store current to character object
-      if (path) {
-        helper.setObject(sheet.getCharacter(), path, parseInt(total.innerHTML, 10) || 0);
+      if (totalPath) {
+        helper.setObject(sheet.getCharacter(), totalPath, parseInt(total.innerHTML, 10) || 0);
       };
     };
     sheet.storeCharacters();
@@ -13742,7 +13778,6 @@ var totalBlock = (function() {
       };
     };
   };
-
 
   function clear() {
     var all_totalBlock = helper.eA(".js-total-block");
