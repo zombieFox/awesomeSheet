@@ -7,8 +7,16 @@
 ## Features
 - Edit stats and abilities will auto update.
 - Dynamically add attack and consumable blocks.
+- Add multiple characters
 - Export and Import characters as JSON file.
 - Local store all changes made so changes will persist after reload.
+
+## JS/UI modular features
+- Snack bars
+- Slide nav
+- Modal promots
+- Night mode
+- Input blocks
 
 ### Development
 
