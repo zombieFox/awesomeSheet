@@ -139,7 +139,15 @@ var totalBlock = (function() {
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        if (all_totalBlock[i].dataset.maxDex == "true") {
+          if (sheet.getCharacter().defense.ac.max_dex <= _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier)) {
+          dexBonus = _checkValue(sheet.getCharacter().defense.ac.max_dex);
+          };
+        } else {
+          dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        };
+        console.log(dexBonus);
+        // dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {

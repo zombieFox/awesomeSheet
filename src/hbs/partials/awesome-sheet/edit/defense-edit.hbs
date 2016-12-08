@@ -57,41 +57,37 @@
       <div class="row">
         <div class="col-xs-12 col-md-9 col-md-offset-3">
           <div class="row no-gutter">
-            <div class="col-xs-3">
+            <div class="col-xs-6 col-md-4">
               <div class="m-input-block js-input-block">
                 <label class="m-input-block-label js-input-block-label" for="defense-ac-armor">Armor</label>
                 <input id="defense-ac-armor" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.armor" data-type="number" type="text" tabindex="3">
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-6 col-md-4">
               <div class="m-input-block js-input-block">
                 <label class="m-input-block-label js-input-block-label" for="defense-ac-shield">Shield</label>
                 <input id="defense-ac-shield" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.shield" data-type="number" type="text" tabindex="3">
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-6 col-md-4">
               <div class="m-input-block js-input-block">
                 <label class="m-input-block-label js-input-block-label" for="defense-ac-deflect">Deflect</label>
                 <input id="defense-ac-deflect" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.deflect" data-type="number" type="text" tabindex="3">
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-6 col-md-4">
               <div class="m-input-block js-input-block">
                 <label class="m-input-block-label js-input-block-label" for="defense-ac-dodge">Dodge</label>
                 <input id="defense-ac-dodge" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.dodge" data-type="number" type="text" tabindex="3">
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-9 col-md-offset-3">
-          <div class="row no-gutter">
-            <div class="col-xs-3">
+            <div class="col-xs-6 col-md-4">
               <div class="m-input-block js-input-block">
                 <label class="m-input-block-label js-input-block-label" for="defense-ac-natural">Natural</label>
                 <input id="defense-ac-natural" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.natural" data-type="number" type="text" tabindex="3">
               </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-6 col-md-4">
               <div class="m-input-block js-input-block">
                 <label class="m-input-block-label js-input-block-label" for="defense-ac-size-bonus">Size</label>
                 <input id="defense-ac-size-bonus" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.size_bonus" data-type="number" type="text" tabindex="3">
@@ -103,10 +99,16 @@
                 <input id="defense-ac-check-penalty" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.check_penalty" data-type="number" type="text" tabindex="3">
               </div>
             </div>
+            <div class="col-xs-6">
+              <div class="m-input-block js-input-block">
+                <label class="m-input-block-label js-input-block-label" for="defense-ac-max-dex">Max Dex</label>
+                <input id="defense-ac-max-dex" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.max_dex" data-type="number" type="text" tabindex="3">
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="js-total-block">
+      <div class="js-total-block" data-max-dex="true">
         <div class="row">
           <div class="col-xs-12 col-md-3">
             <h2 class="m-section-heading-sub u-inline-with-input">AC <span class="js-total-block-total" data-path="defense.ac.current"></span></h2>
@@ -132,7 +134,7 @@
           </div>
         </div>
       </div>
-      <div class="js-total-block">
+      <div class="js-total-block" data-max-dex="true">
         <div class="row">
           <div class="col-xs-12 col-md-3">
             <h2 class="m-section-heading-sub u-inline-with-input">Flat Footed AC <span class="js-total-block-total" data-path="defense.flat_footed.current"></span></h2>
@@ -158,7 +160,7 @@
           </div>
         </div>
       </div>
-      <div class="js-total-block">
+      <div class="js-total-block" data-max-dex="true">
         <div class="row">
           <div class="col-xs-12 col-md-3">
             <h2 class="m-section-heading-sub u-inline-with-input">Touch AC <span class="js-total-block-total" data-path="defense.touch.current"></span></h2>
