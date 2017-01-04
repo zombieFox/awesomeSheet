@@ -4,6 +4,8 @@ var totalBlock = (function() {
   function render() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
+      // console.log(all_totalBlockBonuses);
+      // console.log(all_totalBlockToggleCheck);
 
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
       var path = all_totalBlockBonuses[i].dataset.bonusPath;
@@ -65,6 +67,9 @@ var totalBlock = (function() {
             };
             if (key == "check_penalty") {
               totalBlock.dataset.checkPenalty = "true";
+            };
+            if (key == "max_dex") {
+              totalBlock.dataset.maxDex = "true";
             };
           };
         };
@@ -139,15 +144,19 @@ var totalBlock = (function() {
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        if (all_totalBlock[i].dataset.maxDex == "true") {
-          if (sheet.getCharacter().defense.ac.max_dex <= _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier)) {
-          dexBonus = _checkValue(sheet.getCharacter().defense.ac.max_dex);
-          };
-        } else {
-          dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+      };
+      // if dex data attribute is true
+      if (all_totalBlock[i].dataset.dexBonus == "true") {
+        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+      };
+      // if max dex data attribute is true
+      if (all_totalBlock[i].dataset.maxDex == "true") {
+        // if max dex is less than dex bonus
+        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+          // set dex bonuse to mac dex
+          dexBonus = sheet.getCharacter().defense.ac.max_dex;
         };
-        console.log(dexBonus);
-        // dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
@@ -317,6 +326,9 @@ var totalBlock = (function() {
     if (bonusType == "check-penalty" || bonusType == "check_penalty") {
       return "Check Penalty";
     };
+    if (bonusType == "max-dex" || bonusType == "max_dex") {
+      return "Max Dex";
+    };
   };
 
   function _totalBlockModalContent(element) {
@@ -468,6 +480,9 @@ var totalBlock = (function() {
       if (bonusType == "check-penalty") {
         totalBlock.dataset.checkPenalty = "true";
       };
+      if (bonusType == "max-dex") {
+        totalBlock.dataset.maxDex = "true";
+      };
     } else {
       if (bonusType == "str-bonus") {
         totalBlock.dataset.strBonus = "false";
@@ -523,6 +538,9 @@ var totalBlock = (function() {
       if (bonusType == "check-penalty") {
         totalBlock.dataset.checkPenalty = "false";
       };
+      if (bonusType == "max-dex") {
+        totalBlock.dataset.maxDex = "false";
+      };
     };
   };
 
@@ -547,6 +565,7 @@ var totalBlock = (function() {
       delete all_totalBlock[i].dataset.acNatural;
       delete all_totalBlock[i].dataset.classSkill;
       delete all_totalBlock[i].dataset.checkPenalty;
+      delete all_totalBlock[i].dataset.maxDex;
     };
   };
 
