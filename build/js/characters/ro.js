@@ -135,6 +135,7 @@ var ro = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -148,7 +149,8 @@ var ro = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -167,7 +169,8 @@ var ro = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -184,7 +187,8 @@ var ro = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",

@@ -4,9 +4,6 @@ var totalBlock = (function() {
   function render() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
-      // console.log(all_totalBlockBonuses);
-      // console.log(all_totalBlockToggleCheck);
-
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
       var path = all_totalBlockBonuses[i].dataset.bonusPath;
       var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
@@ -327,7 +324,7 @@ var totalBlock = (function() {
       return "Check Penalty";
     };
     if (bonusType == "max-dex" || bonusType == "max_dex") {
-      return "Max Dex";
+      return "Max Dex Bonus";
     };
   };
 

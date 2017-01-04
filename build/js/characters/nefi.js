@@ -115,6 +115,7 @@ var nefi = (function() {
         size_bonus: "",
         check_penalty: -3,
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -128,7 +129,8 @@ var nefi = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -147,7 +149,8 @@ var nefi = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -164,7 +167,8 @@ var nefi = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",
