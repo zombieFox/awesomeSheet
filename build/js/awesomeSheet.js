@@ -318,6 +318,7 @@ var blank = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -331,7 +332,8 @@ var blank = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -350,7 +352,8 @@ var blank = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -367,7 +370,8 @@ var blank = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",
@@ -1508,6 +1512,7 @@ var marika = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -1521,7 +1526,8 @@ var marika = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -1540,7 +1546,8 @@ var marika = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -1557,7 +1564,8 @@ var marika = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
@@ -2733,6 +2741,7 @@ var nefi = (function() {
         size_bonus: "",
         check_penalty: -3,
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -2746,7 +2755,8 @@ var nefi = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -2765,7 +2775,8 @@ var nefi = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -2782,7 +2793,8 @@ var nefi = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",
@@ -3993,6 +4005,7 @@ var nif = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -4006,7 +4019,8 @@ var nif = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -4025,7 +4039,8 @@ var nif = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -4042,7 +4057,8 @@ var nif = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",
@@ -5488,6 +5504,7 @@ var orrin = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -5501,7 +5518,8 @@ var orrin = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -5520,7 +5538,8 @@ var orrin = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -5537,7 +5556,8 @@ var orrin = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
@@ -6741,6 +6761,7 @@ var ro = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -6754,7 +6775,8 @@ var ro = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -6773,7 +6795,8 @@ var ro = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -6790,7 +6813,8 @@ var ro = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",
@@ -8228,6 +8252,7 @@ var vos = (function() {
         size_bonus: "",
         check_penalty: "",
         current: "",
+        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -8241,7 +8266,8 @@ var vos = (function() {
           ac_deflect: true,
           ac_dodge: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: true
         }
       },
       flat_footed: {
@@ -8260,7 +8286,8 @@ var vos = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       touch: {
@@ -8277,7 +8304,8 @@ var vos = (function() {
           plus_ten: true,
           ac_deflect: true,
           ac_dodge: true,
-          size: true
+          size: true,
+          max_dex: false
         }
       },
       ac_notes: "",
@@ -13265,7 +13293,6 @@ var totalBlock = (function() {
   function render() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
-
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
       var path = all_totalBlockBonuses[i].dataset.bonusPath;
       var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
@@ -13326,6 +13353,9 @@ var totalBlock = (function() {
             };
             if (key == "check_penalty") {
               totalBlock.dataset.checkPenalty = "true";
+            };
+            if (key == "max_dex") {
+              totalBlock.dataset.maxDex = "true";
             };
           };
         };
@@ -13401,6 +13431,18 @@ var totalBlock = (function() {
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
         dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+      };
+      // if dex data attribute is true
+      if (all_totalBlock[i].dataset.dexBonus == "true") {
+        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+      };
+      // if max dex data attribute is true
+      if (all_totalBlock[i].dataset.maxDex == "true") {
+        // if max dex is less than dex bonus
+        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+          // set dex bonuse to mac dex
+          dexBonus = sheet.getCharacter().defense.ac.max_dex;
+        };
       };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
@@ -13570,6 +13612,9 @@ var totalBlock = (function() {
     if (bonusType == "check-penalty" || bonusType == "check_penalty") {
       return "Check Penalty";
     };
+    if (bonusType == "max-dex" || bonusType == "max_dex") {
+      return "Max Dex Bonus";
+    };
   };
 
   function _totalBlockModalContent(element) {
@@ -13721,6 +13766,9 @@ var totalBlock = (function() {
       if (bonusType == "check-penalty") {
         totalBlock.dataset.checkPenalty = "true";
       };
+      if (bonusType == "max-dex") {
+        totalBlock.dataset.maxDex = "true";
+      };
     } else {
       if (bonusType == "str-bonus") {
         totalBlock.dataset.strBonus = "false";
@@ -13776,6 +13824,9 @@ var totalBlock = (function() {
       if (bonusType == "check-penalty") {
         totalBlock.dataset.checkPenalty = "false";
       };
+      if (bonusType == "max-dex") {
+        totalBlock.dataset.maxDex = "false";
+      };
     };
   };
 
@@ -13800,6 +13851,7 @@ var totalBlock = (function() {
       delete all_totalBlock[i].dataset.acNatural;
       delete all_totalBlock[i].dataset.classSkill;
       delete all_totalBlock[i].dataset.checkPenalty;
+      delete all_totalBlock[i].dataset.maxDex;
     };
   };
 
