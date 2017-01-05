@@ -352,8 +352,7 @@ var blank = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -371,7 +370,7 @@ var blank = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "",
@@ -1546,8 +1545,7 @@ var marika = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -1565,7 +1563,7 @@ var marika = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
@@ -2775,8 +2773,7 @@ var nefi = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -2794,7 +2791,7 @@ var nefi = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "",
@@ -4041,8 +4038,7 @@ var nif = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -4060,7 +4056,7 @@ var nif = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "",
@@ -5540,8 +5536,7 @@ var orrin = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -5559,7 +5554,7 @@ var orrin = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
@@ -6797,8 +6792,7 @@ var ro = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -6816,7 +6810,7 @@ var ro = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "",
@@ -8288,8 +8282,7 @@ var vos = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -8307,7 +8300,7 @@ var vos = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "",

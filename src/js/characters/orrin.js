@@ -169,8 +169,7 @@ var orrin = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -188,7 +187,7 @@ var orrin = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",

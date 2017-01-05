@@ -174,8 +174,7 @@ var nif = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true,
-          max_dex: false
+          size: true
         }
       },
       touch: {
@@ -193,7 +192,7 @@ var nif = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: false
+          max_dex: true
         }
       },
       ac_notes: "",
