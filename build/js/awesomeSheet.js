@@ -1488,8 +1488,8 @@ var marika = (function() {
       },
       consumable: [{
         item: "Slippers of Spider Climbing",
-        current: "10",
-        total: "10",
+        current: 10,
+        total: 10,
         used: ""
       }]
     },
@@ -2642,7 +2642,7 @@ var nefi = (function() {
       gender: "Male",
       speed: "30 ft, 6 sq",
       initiative: "5",
-      hero_points: "",
+      hero_points: "1",
       luck_points: ""
     },
     statistics: {
@@ -2690,7 +2690,7 @@ var nefi = (function() {
       special_abilities: "Bonus feat (5), Bravery +2, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 2"
     },
     equipment: {
-      gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi)",
+      gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet",
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
       encumbrance: {
         light: "173 lbs or less",
@@ -3851,6 +3851,8 @@ var nefi = (function() {
         note: "<strong>Bonus feat (5)</strong> At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\" </span>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.<br><strong>Bravery (Ex)</strong> Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.<br><strong>Weapon training 2 (Pole Arms +2, Blades, Heavy +1)</strong> Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls. </span>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups. </span>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.<br><strong>Armor Training (Ex)</strong> Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed. In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor."
       }, {
         note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<br><strong>Adopted (Elven Reflexes)</strong> You were adopted and raised by someone not of your actual race, and raised in a society not your own. As a result, you picked up a race trait from your adoptive parents and society, and may immediately select a race trait from your adoptive parents' race.<br>One of your parents was a member of a wild elven tribe, and you've inherited a portion of your elven parent's quick reflexes. You gain a +2 trait bonus on Initiative checks."
+      }, {
+        note: "Harrow point = +5 on all damage rolls for one combat"
       }],
       story: []
     }
@@ -3962,27 +3964,27 @@ var nif = (function() {
       consumable: [{
         item: "Wand of Lightning Bolt",
         current: "",
-        total: "50",
-        used: "47"
+        total: 50,
+        used: 47
       }, {
         item: "Wand of Scorching Ray",
         current: "",
-        total: "50",
-        used: "37"
+        total: 50,
+        used: 37
       }, {
         item: "Wand of Swift Girding",
         current: "",
-        total: "50",
-        used: "30"
+        total: 50,
+        used: 30
       }, {
         item: "Wand of Carry Companion",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Shift",
         current: "",
-        total: "9",
+        total: 9,
         used: ""
       }]
     },
@@ -5466,23 +5468,23 @@ var orrin = (function() {
       consumable: [{
         item: "Potion of Cure Light Wounds",
         current: "",
-        total: "6",
+        total: 6,
         used: ""
       }, {
         item: "Gloves of Reconnaissance",
         current: "",
-        total: "10",
-        used: "4"
+        total: 10,
+        used: 4
       }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
-        total: "50",
-        used: "4"
+        total: 50,
+        used: 4
       }, {
         item: "Bread rolls",
         current: "",
-        total: "50",
-        used: "5"
+        total: 50,
+        used: 5
       }]
     },
     defense: {
@@ -6723,22 +6725,22 @@ var ro = (function() {
       consumable: [{
         item: "Arcane Pool",
         current: "",
-        total: "8",
+        total: 8,
         used: ""
       }, {
         item: "Black Blade Arcane Pool",
         current: "",
-        total: "2",
+        total: 2,
         used: ""
       }, {
         item: "Alchemist Fire",
         current: "",
-        total: "3",
+        total: 3,
         used: ""
       }, {
         item: "Potion of CLW",
         current: "",
-        total: "3",
+        total: 3,
         used: ""
       }]
     },
@@ -8219,17 +8221,17 @@ var vos = (function() {
       consumable: [{
         item: "Ki Pool",
         current: "",
-        total: "9",
+        total: 9,
         used: ""
       }, {
         item: "Scented Oils",
         current: "",
-        total: "5",
-        used: "1"
+        total: 5,
+        used: 1
       }, {
         item: "Stunning Fist",
         current: "",
-        total: "6",
+        total: 6,
         used: ""
       }]
     },
@@ -13517,24 +13519,29 @@ var totalBlock = (function() {
       if (all_inputBlockField.length > 0) {
         // iterate over all input fields
         for (var q = 0; q < all_inputBlockField.length; q++) {
+          var value;
           // find the path for input field
           var inputPath = all_inputBlockField[q].dataset.path;
           // if path is found
           if (inputPath) {
             // get the value of path from character
-            var value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
-            // if the valye is not a NaN
-            if (!isNaN(value)) {
-              // check if the inpuy is to add or subtract
-              if (all_inputBlockField[q].dataset.total == "addition") {
-                // push to array
-                modifiers.push(value);
-              };
-              // check if the inpuy is to add or subtract
-              if (all_inputBlockField[q].dataset.total == "subtract") {
-                // push to array
-                modifiers.push(-value);
-              };
+            value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
+          } else {            
+            // get the value from input
+            // needed because clone consumable total blocks dont have data paths
+            value = parseInt(all_inputBlockField[q].value, 10) || 0;
+          };
+          // if the value is not a NaN
+          if (!isNaN(value)) {
+            // check if the inpuy is to add or subtract
+            if (all_inputBlockField[q].dataset.total == "addition") {
+              // push to array
+              modifiers.push(value);
+            };
+            // check if the inpuy is to add or subtract
+            if (all_inputBlockField[q].dataset.total == "subtract") {
+              // push to array
+              modifiers.push(-value);
             };
           };
         };

@@ -97,27 +97,27 @@ var nif = (function() {
       consumable: [{
         item: "Wand of Lightning Bolt",
         current: "",
-        total: "50",
-        used: "47"
+        total: 50,
+        used: 47
       }, {
         item: "Wand of Scorching Ray",
         current: "",
-        total: "50",
-        used: "37"
+        total: 50,
+        used: 37
       }, {
         item: "Wand of Swift Girding",
         current: "",
-        total: "50",
-        used: "30"
+        total: 50,
+        used: 30
       }, {
         item: "Wand of Carry Companion",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Shift",
         current: "",
-        total: "9",
+        total: 9,
         used: ""
       }]
     },

@@ -97,17 +97,17 @@ var vos = (function() {
       consumable: [{
         item: "Ki Pool",
         current: "",
-        total: "9",
+        total: 9,
         used: ""
       }, {
         item: "Scented Oils",
         current: "",
-        total: "5",
-        used: "1"
+        total: 5,
+        used: 1
       }, {
         item: "Stunning Fist",
         current: "",
-        total: "6",
+        total: 6,
         used: ""
       }]
     },

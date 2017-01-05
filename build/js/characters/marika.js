@@ -96,8 +96,8 @@ var marika = (function() {
       },
       consumable: [{
         item: "Slippers of Spider Climbing",
-        current: "10",
-        total: "10",
+        current: 10,
+        total: 10,
         used: ""
       }]
     },

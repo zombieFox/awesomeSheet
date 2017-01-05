@@ -228,24 +228,29 @@ var totalBlock = (function() {
       if (all_inputBlockField.length > 0) {
         // iterate over all input fields
         for (var q = 0; q < all_inputBlockField.length; q++) {
+          var value;
           // find the path for input field
           var inputPath = all_inputBlockField[q].dataset.path;
           // if path is found
           if (inputPath) {
             // get the value of path from character
-            var value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
-            // if the valye is not a NaN
-            if (!isNaN(value)) {
-              // check if the inpuy is to add or subtract
-              if (all_inputBlockField[q].dataset.total == "addition") {
-                // push to array
-                modifiers.push(value);
-              };
-              // check if the inpuy is to add or subtract
-              if (all_inputBlockField[q].dataset.total == "subtract") {
-                // push to array
-                modifiers.push(-value);
-              };
+            value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
+          } else {            
+            // get the value from input
+            // needed because clone consumable total blocks dont have data paths
+            value = parseInt(all_inputBlockField[q].value, 10) || 0;
+          };
+          // if the value is not a NaN
+          if (!isNaN(value)) {
+            // check if the inpuy is to add or subtract
+            if (all_inputBlockField[q].dataset.total == "addition") {
+              // push to array
+              modifiers.push(value);
+            };
+            // check if the inpuy is to add or subtract
+            if (all_inputBlockField[q].dataset.total == "subtract") {
+              // push to array
+              modifiers.push(-value);
             };
           };
         };

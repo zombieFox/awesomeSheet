@@ -97,22 +97,22 @@ var ro = (function() {
       consumable: [{
         item: "Arcane Pool",
         current: "",
-        total: "8",
+        total: 8,
         used: ""
       }, {
         item: "Black Blade Arcane Pool",
         current: "",
-        total: "2",
+        total: 2,
         used: ""
       }, {
         item: "Alchemist Fire",
         current: "",
-        total: "3",
+        total: 3,
         used: ""
       }, {
         item: "Potion of CLW",
         current: "",
-        total: "3",
+        total: 3,
         used: ""
       }]
     },

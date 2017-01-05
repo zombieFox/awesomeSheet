@@ -97,23 +97,23 @@ var orrin = (function() {
       consumable: [{
         item: "Potion of Cure Light Wounds",
         current: "",
-        total: "6",
+        total: 6,
         used: ""
       }, {
         item: "Gloves of Reconnaissance",
         current: "",
-        total: "10",
-        used: "4"
+        total: 10,
+        used: 4
       }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
-        total: "50",
-        used: "4"
+        total: 50,
+        used: 4
       }, {
         item: "Bread rolls",
         current: "",
-        total: "50",
-        used: "5"
+        total: 50,
+        used: 5
       }]
     },
     defense: {
