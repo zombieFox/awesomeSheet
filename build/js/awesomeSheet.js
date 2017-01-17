@@ -13099,22 +13099,20 @@ var stats = (function() {
   function render() {
     var stats = helper.eA(".js-stats");
     for (var i = 0; i < stats.length; i++) {
-      var score = stats[i].querySelector(".js-stats-score");
-      var modifier = stats[i].querySelector(".js-stats-modifier");
-      var tempScore = stats[i].querySelector(".js-stats-temp-score");
-      var tempModifier = stats[i].querySelector(".js-stats-temp-modifier");
-      _changeModifer(score, modifier);
-      _changeModifer(tempScore, tempModifier);
+      var statsScore = stats[i].querySelector(".js-stats-score");
+      var statsModifier = stats[i].querySelector(".js-stats-modifier");
+      var statsTempScore = stats[i].querySelector(".js-stats-temp-score");
+      var statsTempModifier = stats[i].querySelector(".js-stats-temp-modifier");
+      _changeModifer(statsScore, statsModifier);
+      _changeModifer(statsTempScore, statsTempModifier);
     };
   };
 
-  function _changeModifer(element, field) {
-    var stat = element.value;
-    var modifier = _calculateModifer(stat);
-    var modifierPath = element.dataset.modifierPath;
-    var type = element.dataset.type;
-    helper.setObject(sheet.getCharacter(), modifierPath, modifier);
-    field.textContent = modifier;
+  function _changeModifer(scoreElement, totalElement) {
+    var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), scoreElement.dataset.path));
+    var path = totalElement.dataset.path;
+    helper.setObject(sheet.getCharacter(), path, modifier);
+    totalElement.textContent = modifier;
   };
 
   function _calculateModifer(value) {
