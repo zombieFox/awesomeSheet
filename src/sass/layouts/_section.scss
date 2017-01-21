@@ -1,7 +1,6 @@
 .l-section {
   position: relative;
   z-index: $body;
-  transition: background-color $transition-ease-medium;
   &.is-pinned {
     padding-top: 40px;
   }

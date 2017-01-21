@@ -2,15 +2,11 @@
   background-color: $gray-19;
   box-sizing: border-box;
   overflow: hidden;
-  max-width: 80%;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding: 0;
   transition: height $transition-ease-fast, background-color $transition-ease-medium;
-  border-radius: $border-radius-large;
-  .container {
-    max-width: 90%;
-  }
   .m-section-heading {
     background-color: $gray-10;
   }
@@ -78,14 +74,6 @@
 
 @media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  .m-quick-edit {
-    max-width: 70%;
-  }
-}
+@media (min-width: $screen-lg) {}
 
-@media (min-width: $screen-xl) {
-  .m-quick-edit {
-    max-width: 60%;
-  }
-}
+@media (min-width: $screen-xl) {}

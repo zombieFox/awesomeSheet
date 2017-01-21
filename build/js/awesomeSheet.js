@@ -10291,12 +10291,6 @@ var display = (function() {
     var path = element.dataset.path;
     var target = helper.e("#" + element.dataset.editTarget);
     var content = parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0;
-    // console.log("content is:", content, "object is:", sheet.getCharacter().defense.hp);
-    // if (path == "defense.hp.damage") {
-    //   if (helper.getObject(sheet.getCharacter(), "defense.hp.temp")) {
-    //     console.log("temp hp found");
-    //   };
-    // };
     if (controlAction == "addition") {
       content = content + 1;
     };
@@ -10334,7 +10328,6 @@ var display = (function() {
     var all_sectionEdit = helper.eA(".js-section-edit");
     helper.toggleClass(node, "is-collapsed");
     helper.toggleClass(node, "is-expanded");
-    helper.toggleClass(node, "js-is-expanded");
   };
 
   var scrollTopEdit = 0;
@@ -10385,7 +10378,6 @@ var display = (function() {
         helper.removeClass(all_sectionEdit[i], "is-pinned");
         // remove any previously expanded section classes
         helper.removeClass(all_sectionEdit[i], "is-expanded");
-        helper.removeClass(all_sectionEdit[i], "js-is-expanded");
         // find all section headings
         var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
         // if section heading found
@@ -10461,7 +10453,6 @@ var display = (function() {
         helper.removeClass(all_sectionEdit[i], "m-quick-edit");
         // remove any previously expanded section classes
         helper.removeClass(all_sectionEdit[i], "is-expanded");
-        helper.removeClass(all_sectionEdit[i], "js-is-expanded");
         // find all section headings
         var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
         // if section heading found
