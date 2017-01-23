@@ -1936,18 +1936,17 @@ label {
   background-color: #ffffff;
   padding: 4.5em 0;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 80%;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
   z-index: 5000;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
-  -webkit-transform: translate(0, -100%);
-      -ms-transform: translate(0, -100%);
-          transform: translate(0, -100%); }
+  -webkit-transform: translate(100%, 0);
+      -ms-transform: translate(100%, 0);
+          transform: translate(100%, 0); }
   .m-nav .m-nav-list {
     padding: 1em 0;
     margin: 0;
@@ -2157,12 +2156,11 @@ label {
   .m-nav {
     border: 0;
     padding: 4.5em 0;
-    left: initial;
     right: 0;
-    width: 360px;
-    -webkit-transform: translate(360px, 0);
-        -ms-transform: translate(360px, 0);
-            transform: translate(360px, 0); }
+    width: 400px;
+    -webkit-transform: translate(400px, 0);
+        -ms-transform: translate(400px, 0);
+            transform: translate(400px, 0); }
     .m-nav.is-open {
       -webkit-transform: translate(0, 0);
           -ms-transform: translate(0, 0);
@@ -2192,7 +2190,8 @@ label {
   padding: 0;
   text-transform: uppercase;
   position: relative;
-  z-index: 3000; }
+  z-index: 3000;
+  transition: background-color 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   .m-section-heading h1 {
     color: #ffffff;
     margin: 0;
