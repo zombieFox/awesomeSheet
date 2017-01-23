@@ -2,15 +2,14 @@
   background-color: $white;
   padding: $font-size-450 0;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 80%;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $nav;
   transition: transform $transition-ease-fast;
-  transform: translate(0, -100%);
+  transform: translate(100%, 0);
   .m-nav-list {
     padding: $font-size-100 0;
     margin: 0;
@@ -303,10 +302,9 @@
   .m-nav {
     border: 0;
     padding: $font-size-450 0;
-    left: initial;
     right: 0;
-    width: 360px;
-    transform: translate(360px, 0);
+    width: 400px;
+    transform: translate(400px, 0);
     &.is-open {
       transform: translate(0, 0);
     }

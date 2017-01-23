@@ -21,6 +21,7 @@
   text-transform: uppercase;
   position: relative;
   z-index: $section-heading;
+  transition: background-color $transition-bounce-medium;
   h1 {
     color: $white;
     margin: 0;
