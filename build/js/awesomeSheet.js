@@ -3873,7 +3873,7 @@ var nif = (function() {
       level: "7",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "35,589",
+      xp: "38,214",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -3928,8 +3928,8 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15)",
-      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (2), Invisibility (2), Create Pit (1), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (0), Enlarge Person (2)",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
+      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (0), Enlarge Person (2)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -3954,34 +3954,34 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "329",
+        gold: "1,404",
         silver: "",
         copper: ""
       },
       consumable: [{
         item: "Wand of Lightning Bolt",
         current: "",
-        total: 50,
-        used: 47
+        total: "50",
+        used: "47"
       }, {
         item: "Wand of Scorching Ray",
         current: "",
-        total: 50,
-        used: 37
+        total: "50",
+        used: "38"
       }, {
         item: "Wand of Swift Girding",
         current: "",
-        total: 50,
-        used: 30
+        total: "50",
+        used: "30"
       }, {
         item: "Wand of Carry Companion",
         current: "",
-        total: 50,
-        used: 40
+        total: "50",
+        used: "40"
       }, {
         item: "Shift",
         current: "",
-        total: 9,
+        total: "9",
         used: ""
       }]
     },
@@ -5130,7 +5130,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Mending",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         }, {
@@ -5160,7 +5160,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Resistance",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }]
@@ -5251,7 +5251,7 @@ var nif = (function() {
           name: "Invisibility",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 1
         }, {
           name: "Levitate",
           prepared: 0,
@@ -5261,7 +5261,7 @@ var nif = (function() {
           name: "Mirror Image",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 1
         }, {
           name: "Resist Energy",
           prepared: 0,
@@ -5291,7 +5291,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Summon Monster III",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0
         }, {
@@ -5316,7 +5316,7 @@ var nif = (function() {
           cast: 0
         }, {
           name: "Haste",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0
         }]
@@ -5329,6 +5329,16 @@ var nif = (function() {
         }, {
           name: "Wall of Fire",
           prepared: 1,
+          active: false,
+          cast: 1
+        }, {
+          name: "Secure Shelter",
+          prepared: 0,
+          active: false,
+          cast: 0
+        }, {
+          name: "Summon Monster IV",
+          prepared: 0,
           active: false,
           cast: 0
         }]
@@ -5348,12 +5358,14 @@ var nif = (function() {
       character: [{
         note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration (Teleportation),<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
       }, {
-        note: "Create wondrous item, Headband of Vast Intelligence +4 2/16 days (6,000gp allotted)."
-      }, {
-        note: "Mirror Images up 2"
+        note: "Create wondrous item, Headband of Vast Intelligence +4 7/12 days (6,000gp allotted)."
       }],
       story: [{
         note: "Baron Turbine Blackshield, lord of Thornkeep <br>Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"
+      }, {
+        note: "Andorak (Lich shade), wizard's apprentice, locked in tomb"
+      }, {
+        note: "Jonas the mail man, messenger of Thornkeep"
       }]
     }
   };
