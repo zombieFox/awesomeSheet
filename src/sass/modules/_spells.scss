@@ -78,7 +78,7 @@
 
 .m-spell {
   padding: 0 0.5em;
-  margin: 0 0 3px 0;
+  margin: 0 0 0.3em 0;
   width: 100%;
   text-align: left;
   overflow: hidden;
@@ -87,6 +87,7 @@
   font-size: $font-size-root-100;
   line-height: $line-height-160;
   font-family: $open-sans-regular;
+  display: block;
   .m-spell-active,
   .m-spell-name,
   .m-spell-marks,
@@ -199,18 +200,10 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-spell {
-    width: 49.5%;
-  }
-}
+@media (min-width: $screen-sm) {}
 
 @media (min-width: $screen-md) {}
 
-@media (min-width: $screen-lg) {
-  .m-spell {
-    margin: 0 0 6px 0;
-  }
-}
+@media (min-width: $screen-lg) {}
 
 @media (min-width: $screen-xl) {}

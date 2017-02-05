@@ -2706,7 +2706,7 @@ label {
 
 .m-spell {
   padding: 0 0.5em;
-  margin: 0 0 3px 0;
+  margin: 0 0 0.3em 0;
   width: 100%;
   text-align: left;
   overflow: hidden;
@@ -2714,7 +2714,8 @@ label {
   white-space: normal;
   font-size: 1rem;
   line-height: 1.6666666667em;
-  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
+  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+  display: block; }
   .m-spell .m-spell-active [class*=" icon-"],
   .m-spell .m-spell-active [class^="icon-"],
   .m-spell .m-spell-name [class*=" icon-"],
@@ -2788,14 +2789,6 @@ label {
     background-color: #63001a; }
   .is-night-mode .m-spells.is-state-remove .m-spell-book-known .m-spell:active, .is-night-mode .m-spells.is-state-remove .m-spell-book-known .m-spell.is-active {
     background-color: #31000d; }
-
-@media (min-width: 550px) {
-  .m-spell {
-    width: 49.5%; } }
-
-@media (min-width: 900px) {
-  .m-spell {
-    margin: 0 0 6px 0; } }
 
 .m-prompt-shade {
   background-color: rgba(0, 0, 0, 0.55);

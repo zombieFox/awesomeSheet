@@ -78,6 +78,7 @@ var spells = (function() {
     var spellMarks = spell.querySelector(".js-spell-marks");
     var spellActive = spell.querySelector(".js-spell-active");
     var spellState = spellRoot.dataset.spellState;
+    var spellCol = helper.getClosest(spell, ".js-spell-col");
     // state prepare
     if (spellState == "prepare") {
       var preparedIcon = document.createElement("span");
@@ -147,7 +148,7 @@ var spells = (function() {
     // state remove
     if (spellState == "remove") {
       var spellName = spell.textContent;
-      spell.remove();
+      spellCol.remove();
       snack.render(helper.truncate(spellName, 40, true) + " removed.", false, false);
     };
     _updateSpells();
@@ -331,11 +332,12 @@ var spells = (function() {
       // find spell list to add too
       var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
       // append new spell to spell list
-      var spellButton = _createSpellButton(spellObject.name);
-      knownListToSaveTo.appendChild(spellButton);
+      var spellButtonCol = _createSpellButtonCol(spellObject.name);
+      var spellButton = spellButtonCol.querySelector(".js-spell");
+      knownListToSaveTo.appendChild(spellButtonCol);
       // find spell mark parent
-      var spellMarks = spellButton.querySelector(".js-spell-marks");
-      var spellActive = spellButton.querySelector(".js-spell-active");
+      var spellMarks = spellButtonCol.querySelector(".js-spell-marks");
+      var spellActive = spellButtonCol.querySelector(".js-spell-active");
       // add spell marks
       if (spellObject.prepared > 0) {
         helper.addClass(spellButton, "button-primary");
@@ -357,7 +359,7 @@ var spells = (function() {
           };
         };
         // if (spellObject.cast >= spellObject.prepared) {
-        //   helper.removeClass(spellButton, "button-primary");
+        //   helper.removeClass(spellButtonCol, "button-primary");
         // };
       };
       // if spell is active
@@ -374,7 +376,9 @@ var spells = (function() {
     };
   };
 
-  function _createSpellButton(spellName) {
+  function _createSpellButtonCol(spellName) {
+    var col = document.createElement("div");
+    col.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
     var spellButton = document.createElement("button");
     spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
@@ -397,7 +401,8 @@ var spells = (function() {
     var spellRemoveIcon = document.createElement("span");
     spellRemoveIcon.setAttribute("class", "icon-close");
     spellRemove.appendChild(spellRemoveIcon);
-    return spellButton;
+    col.appendChild(spellButton);
+    return col;
   };
 
   function clear() {

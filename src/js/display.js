@@ -340,17 +340,17 @@ var display = (function() {
           makeDisplayItem("basics.luck_points", "", " luck point");
 
           makeDisplayItem("statistics.stats.str.score", "<strong>Str</strong> ", "");
-          makeDisplayItem("statistics.stats.str.temp", "<strong>Str temp</strong> ", "");
+          makeDisplayItem("statistics.stats.str.temp_score", "<strong>Str temp</strong> ", "");
           makeDisplayItem("statistics.stats.dex.score", "<strong>Dex</strong> ", "");
-          makeDisplayItem("statistics.stats.dex.temp", "<strong>Dex temp</strong> ", "");
+          makeDisplayItem("statistics.stats.dex.temp_score", "<strong>Dex temp</strong> ", "");
           makeDisplayItem("statistics.stats.con.score", "<strong>Con</strong> ", "");
-          makeDisplayItem("statistics.stats.con.temp", "<strong>Con temp</strong> ", "");
+          makeDisplayItem("statistics.stats.con.temp_score", "<strong>Con temp</strong> ", "");
           makeDisplayItem("statistics.stats.int.score", "<strong>Int</strong> ", "");
-          makeDisplayItem("statistics.stats.int.temp", "<strong>Int temp</strong> ", "");
+          makeDisplayItem("statistics.stats.int.temp_score", "<strong>Int temp</strong> ", "");
           makeDisplayItem("statistics.stats.wis.score", "<strong>Wis</strong> ", "");
-          makeDisplayItem("statistics.stats.wis.temp", "<strong>Wis temp</strong> ", "");
+          makeDisplayItem("statistics.stats.wis.temp_score", "<strong>Wis temp</strong> ", "");
           makeDisplayItem("statistics.stats.cha.score", "<strong>Cha</strong> ", "");
-          makeDisplayItem("statistics.stats.cha.temp", "<strong>Cha temp</strong> ", "");
+          makeDisplayItem("statistics.stats.cha.temp_score", "<strong>Cha temp</strong> ", "");
           makeDisplayItem("statistics.feats", "<strong>Feats</strong> ", "");
           makeDisplayItem("statistics.traits", "<strong>Traits</strong> ", "");
           makeDisplayItem("statistics.special_abilities", "<strong>Special Abilities</strong> ", "");
