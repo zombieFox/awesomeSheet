@@ -2689,7 +2689,7 @@ var nefi = (function() {
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet",
-      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
+      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Cloak of Resistance +1",
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -2709,7 +2709,7 @@ var nefi = (function() {
         ring_left_hand: "Ring of Protection +1",
         ring_right_hand: "",
         shield: "",
-        shoulders: "Cloak of Resistance +1",
+        shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
       wealth: {
@@ -2735,7 +2735,7 @@ var nefi = (function() {
         shield: "",
         deflect: 1,
         dodge: 1,
-        natural: "",
+        natural: 4,
         size_bonus: "",
         check_penalty: -3,
         current: "",
@@ -2798,7 +2798,7 @@ var nefi = (function() {
       fortitude: {
         base: 6,
         racial: "",
-        resistance: 1,
+        resistance: 3,
         misc: 3,
         temp: "",
         current: "",
@@ -2814,7 +2814,7 @@ var nefi = (function() {
       reflex: {
         base: 3,
         racial: "",
-        resistance: 1,
+        resistance: 3,
         misc: "",
         temp: "",
         current: "",
@@ -2830,7 +2830,7 @@ var nefi = (function() {
       will: {
         base: 2,
         racial: "",
-        resistance: 1,
+        resistance: 3,
         misc: 2,
         temp: "",
         current: "",
@@ -2951,6 +2951,11 @@ var nefi = (function() {
           weapon: "Halberd MW Power Attack",
           attack: "15/9",
           damage: "1d8+16",
+          critical: "x3"
+        }, {
+          weapon: "Earthbreaker +1 Frost",
+          attack: "16/11",
+          damage: "2d6+8 1d6 (cold)",
           critical: "x3"
         }],
         ranged: [{
