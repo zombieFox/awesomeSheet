@@ -5,9 +5,17 @@ h4,
 h5,
 h6 {
   margin: 0;
-  margin-bottom: 20px;
   font-weight: normal;
   line-height: $line-height-160;
+}
+
+h1:not(:only-child):not(:last-child),
+h2:not(:only-child):not(:last-child),
+h3:not(:only-child):not(:last-child),
+h4:not(:only-child):not(:last-child),
+h5:not(:only-child):not(:last-child),
+h6:not(:only-child):not(:last-child) {
+  margin: 0 0 1em 0;
 }
 
 h1 {
@@ -42,7 +50,11 @@ h6 {
 
 p {
   color: $gray-03;
-  margin: 0 0 $font-size-100 0;
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin: 0 0 1em 0;
 }
 
 hr {
@@ -81,14 +93,27 @@ a {
 
 ul,
 ol {
-  margin: 0 0 $font-size-100 0;
+  margin: 0;
   padding: 0 0 0 $font-size-300;
 }
 
+ul:not(:last-child),
+ol:not(:last-child) {
+  margin: 0 0 $font-size-100 0;
+}
+
 li {
-  margin: 0 0 $font-size-050 0;
+  margin: 0;
   > ul,
   > ol {
+    margin: 0;
+  }
+}
+
+li:not(:last-child) {
+  margin: 0 0 $font-size-050 0;
+  > ul:not(:last-child),
+  > ol:not(:last-child) {
     margin: 0 0 $font-size-050 0;
   }
 }

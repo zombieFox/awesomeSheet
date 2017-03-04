@@ -9,7 +9,7 @@ input[type="button"] {
   padding: $font-size-025 $font-size-100;
   border-width: 1px;
   border-style: solid;
-  margin-bottom: $font-size-100;
+  margin: 0;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -45,6 +45,10 @@ input[type="button"] {
     outline: 0;
     text-decoration: none;
   }
+}
+
+button:not(:last-child) {
+  margin-bottom: $font-size-100;
 }
 
 .button-normal {
@@ -233,10 +237,19 @@ input[type="button"] {
 }
 
 .button-group {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
   .button,
   button {
     margin-right: 0;
     margin-left: -1px;
+    margin-bottom: 0;
     border-radius: 0;
     z-index: 1;
     position: relative;
@@ -259,6 +272,10 @@ input[type="button"] {
       z-index: 2;
     }
   }
+}
+
+.button-group:not(:last-child) {
+  margin-bottom: $font-size-100;
 }
 
 .button-group-strech {
