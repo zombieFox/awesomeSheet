@@ -77,7 +77,16 @@ var modal = (function() {
     };
 
     if (modalBodyContent) {
-      modalBody.appendChild(modalBodyContent);
+      if (typeof modalBodyContent == "string") {
+        var container = document.createElement("div");
+        container.setAttribute("class", "container");
+        var para = document.createElement("p");
+        para.textContent = modalBodyContent;
+        container.appendChild(para);
+        modalBody.appendChild(container);
+      } else {
+        modalBody.appendChild(modalBodyContent);
+      };
     };
 
     modalWrapper.appendChild(modalBody);

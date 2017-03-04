@@ -11401,7 +11401,16 @@ var modal = (function() {
     };
 
     if (modalBodyContent) {
-      modalBody.appendChild(modalBodyContent);
+      if (typeof modalBodyContent == "string") {
+        var container = document.createElement("div");
+        container.setAttribute("class", "container");
+        var para = document.createElement("p");
+        para.textContent = modalBodyContent;
+        container.appendChild(para);
+        modalBody.appendChild(container);
+      } else {
+        modalBody.appendChild(modalBodyContent);
+      };
     };
 
     modalWrapper.appendChild(modalBody);
@@ -12081,10 +12090,10 @@ var prompt = (function() {
 
     promptControls.appendChild(cancelButton);
     promptControls.appendChild(actionButton);
-    if (heading != false) {
+    if (heading) {
       promptbody.appendChild(promptHeading);
     };
-    if (message != false) {
+    if (message) {
       promptbody.appendChild(promptText);
     };
     promptWrapper.appendChild(promptbody);

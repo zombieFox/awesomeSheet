@@ -82,10 +82,10 @@ var prompt = (function() {
 
     promptControls.appendChild(cancelButton);
     promptControls.appendChild(actionButton);
-    if (heading != false) {
+    if (heading) {
       promptbody.appendChild(promptHeading);
     };
-    if (message != false) {
+    if (message) {
       promptbody.appendChild(promptText);
     };
     promptWrapper.appendChild(promptbody);
