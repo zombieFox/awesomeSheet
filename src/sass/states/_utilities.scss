@@ -43,7 +43,7 @@
 .is-dropped-out {
   transform-origin: center center !important;
   transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
-  transition: transform $transition-ease-fast !important;
+  transition: transform $transition-ease-slow !important;
 }
 
 .is-night-mode {

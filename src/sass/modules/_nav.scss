@@ -8,7 +8,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $nav;
-  transition: transform $transition-ease-fast;
+  transition: transform $transition-ease-medium;
   transform: translate(100%, 0);
   .m-nav-list {
     padding: $font-size-100 0;

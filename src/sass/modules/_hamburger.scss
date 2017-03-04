@@ -14,7 +14,7 @@
     border-radius: $border-radius-medium;
     transform: translatey(-50%) rotate(0deg);
     display: block;
-    transition: background-color $transition-ease-extra-fast 0s, transform $transition-ease-extra-fast 0s;
+    transition: background-color $transition-ease-medium 0s, transform $transition-ease-medium 0s;
     &:before,
     &:after {
       background-color: $white;
@@ -23,7 +23,7 @@
       position: absolute;
       width: 100%;
       height: 2px;
-      transition: background-color $transition-ease-extra-fast 0s, top $transition-ease-extra-fast 0.2s, transform $transition-ease-extra-fast 0s;
+      transition: background-color $transition-ease-medium 0s, top $transition-ease-medium 0.2s, transform $transition-ease-medium 0s;
       border-radius: $border-radius-medium;
       display: block;
     }
@@ -48,11 +48,11 @@
     .m-hamburger-inner {
       background-color: $white;
       transform: translatey(-50%) rotate(135deg);
-      transition: background-color $transition-ease-extra-fast 0s, transform $transition-ease-extra-fast 0.2s;
+      transition: background-color $transition-ease-medium 0s, transform $transition-ease-medium 0.2s;
       &:before,
       &:after {
         background-color: $white;
-        transition: background-color $transition-ease-extra-fast 0s, top $transition-ease-extra-fast 0s, transform $transition-ease-extra-fast 0.2s;
+        transition: background-color $transition-ease-medium 0s, top $transition-ease-medium 0s, transform $transition-ease-medium 0.2s;
       }
       &:before {
         top: 0;
