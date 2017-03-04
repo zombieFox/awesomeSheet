@@ -1,14 +1,14 @@
 ::-webkit-input-placeholder {
   color: gray;
-  transition: color 0.4s ease-in-out; }
+  transition: color 0.3s ease-in-out; }
 
 :-moz-placeholder {
   color: gray;
-  transition: color 0.4s ease-in-out; }
+  transition: color 0.3s ease-in-out; }
 
 ::-moz-placeholder {
   color: gray;
-  transition: color 0.4s ease-in-out; }
+  transition: color 0.3s ease-in-out; }
 
 ::-moz-selection {
   background-color: #77b8e9;
@@ -731,7 +731,7 @@ select {
   color: #333333;
   height: 2.5rem;
   line-height: 2.5rem;
-  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out; }
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out; }
   select:hover {
     border-color: #fc0042; }
   select:focus {
@@ -747,7 +747,7 @@ textarea {
   border: 0;
   min-height: 2.5em;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  transition: border-color 0.2s ease-in-out, padding 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   resize: vertical; }
   .textarea:hover,
   textarea:hover {
@@ -770,7 +770,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   border-radius: 0;
   border-bottom: 2px solid transparent;
   box-shadow: none;
-  transition: border-color 0.3s ease-in-out, background-color 0.4s ease-in-out, color 0.4s ease-in-out; }
+  transition: border-color 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
   input[type="email"]:hover, input[type="number"]:hover, input[type="search"]:hover, input[type="text"]:hover, input[type="tel"]:hover, input[type="password"]:hover {
     border-color: #fc0042; }
   input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
@@ -801,7 +801,7 @@ input[type="radio"], input[type="checkbox"] {
     display: inline-block;
     cursor: pointer;
     color: #333333;
-    transition: color 0.3s ease-in-out; }
+    transition: color 0.2s ease-in-out; }
     input[type="radio"] + label:before, input[type="checkbox"] + label:before {
       font-family: "Icons" !important;
       speak: none;
@@ -818,7 +818,7 @@ input[type="radio"], input[type="checkbox"] {
       font-size: 1.25em;
       color: #1c3445;
       vertical-align: text-bottom;
-      transition: color 0.3s ease-in-out; }
+      transition: color 0.2s ease-in-out; }
     input[type="radio"] + label.label-left, input[type="checkbox"] + label.label-left {
       text-align: left; }
       input[type="radio"] + label.label-left:before, input[type="checkbox"] + label.label-left:before {
@@ -909,9 +909,16 @@ h4,
 h5,
 h6 {
   margin: 0;
-  margin-bottom: 20px;
   font-weight: normal;
   line-height: 1.6666666667em; }
+
+h1:not(:only-child):not(:last-child),
+h2:not(:only-child):not(:last-child),
+h3:not(:only-child):not(:last-child),
+h4:not(:only-child):not(:last-child),
+h5:not(:only-child):not(:last-child),
+h6:not(:only-child):not(:last-child) {
+  margin: 0 0 1em 0; }
 
 h1 {
   font-size: 2.5em;
@@ -939,6 +946,9 @@ h6 {
 
 p {
   color: #262626;
+  margin: 0; }
+
+p:not(:last-child) {
   margin: 0 0 1em 0; }
 
 hr {
@@ -969,13 +979,23 @@ a {
 
 ul,
 ol {
-  margin: 0 0 1em 0;
+  margin: 0;
   padding: 0 0 0 3em; }
 
+ul:not(:last-child),
+ol:not(:last-child) {
+  margin: 0 0 1em 0; }
+
 li {
-  margin: 0 0 0.5em 0; }
+  margin: 0; }
   li > ul,
   li > ol {
+    margin: 0; }
+
+li:not(:last-child) {
+  margin: 0 0 0.5em 0; }
+  li:not(:last-child) > ul:not(:last-child),
+  li:not(:last-child) > ol:not(:last-child) {
     margin: 0 0 0.5em 0; }
 
 table {
@@ -1018,7 +1038,7 @@ input[type="button"] {
   padding: 0.25em 1em;
   border-width: 1px;
   border-style: solid;
-  margin-bottom: 1em;
+  margin: 0;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -1028,7 +1048,7 @@ input[type="button"] {
   border-radius: 3px;
   cursor: pointer;
   box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   display: inline-block;
   text-transform: uppercase; }
   .button:link, .button:visited,
@@ -1071,6 +1091,9 @@ input[type="button"] {
     color: #333333;
     outline: 0;
     text-decoration: none; }
+
+button:not(:last-child) {
+  margin-bottom: 1em; }
 
 .button-normal {
   background: transparent;
@@ -1218,10 +1241,18 @@ input[type="button"] {
     background-color: rgba(255, 255, 255, 0.35);
     color: #ffffff; }
 
+.button-group:before, .button-group:after {
+  content: " ";
+  display: table; }
+
+.button-group:after {
+  clear: both; }
+
 .button-group .button,
 .button-group button {
   margin-right: 0;
   margin-left: -1px;
+  margin-bottom: 0;
   border-radius: 0;
   z-index: 1;
   position: relative;
@@ -1243,6 +1274,9 @@ input[type="button"] {
   .button-group button.is-active,
   .button-group button:active {
     z-index: 2; }
+
+.button-group:not(:last-child) {
+  margin-bottom: 1em; }
 
 .button-group-strech {
   display: -webkit-flex;
@@ -1974,8 +2008,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 5000;
-  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
 
 .m-nav-title {
   margin-bottom: 0;
@@ -2228,22 +2262,22 @@ label {
     padding-top: 10em; } }
 
 .m-clone-block .m-clone-block-target .m-clone {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   position: relative; }
   .m-clone-block .m-clone-block-target .m-clone textarea,
   .m-clone-block .m-clone-block-target .m-clone .textarea {
-    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
+    transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out, margin 0.1s ease-in-out, padding 0.1s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone input[type="email"], .m-clone-block .m-clone-block-target .m-clone input[type="number"], .m-clone-block .m-clone-block-target .m-clone input[type="search"], .m-clone-block .m-clone-block-target .m-clone input[type="text"], .m-clone-block .m-clone-block-target .m-clone input[type="tel"], .m-clone-block .m-clone-block-target .m-clone input[type="password"] {
-    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
+    transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out, margin 0.1s ease-in-out, padding 0.1s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone label {
-    transition: all 0.2s ease-in-out; }
+    transition: all 0.1s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content {
     margin: 0;
     padding: 0;
     border-radius: 0;
     position: relative;
     z-index: 1;
-    transition: all 0.2s ease-in-out; }
+    transition: all 0.1s ease-in-out; }
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls {
     position: absolute;
     top: 0;
@@ -2257,7 +2291,7 @@ label {
     visibility: hidden;
     z-index: 2;
     overflow: hidden;
-    transition: all 0.2s ease-in-out 0s; }
+    transition: all 0.1s ease-in-out 0s; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
       padding-top: 0;
       padding-bottom: 0;
@@ -2268,7 +2302,7 @@ label {
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"] {
         margin-right: 0; }
   .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input {
-    transition: border-color 0.2s ease-in-out; }
+    transition: border-color 0.1s ease-in-out; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 1em 0; }
@@ -2297,7 +2331,7 @@ label {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);
-    transition: all 0.2s ease-in-out 0.2s; }
+    transition: all 0.1s ease-in-out 0.2s; }
 
 .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
   background-color: #970027; }
@@ -2332,8 +2366,8 @@ label {
         -ms-transform: translatey(-50%) rotate(0deg);
             transform: translatey(-50%) rotate(0deg);
     display: block;
-    transition: background-color 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
-    transition: background-color 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s; }
+    transition: background-color 0.3s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0s;
+    transition: background-color 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0s; }
     .m-hamburger .m-hamburger-inner:before, .m-hamburger .m-hamburger-inner:after {
       background-color: #ffffff;
       opacity: 1;
@@ -2341,8 +2375,8 @@ label {
       position: absolute;
       width: 100%;
       height: 2px;
-      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0.2s, -webkit-transform 0.2s ease-in-out 0s;
-      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
+      transition: background-color 0.3s ease-in-out 0s, top 0.3s ease-in-out 0.2s, -webkit-transform 0.3s ease-in-out 0s;
+      transition: background-color 0.3s ease-in-out 0s, top 0.3s ease-in-out 0.2s, transform 0.3s ease-in-out 0s;
       border-radius: 3px;
       display: block; }
     .m-hamburger .m-hamburger-inner:before {
@@ -2361,12 +2395,12 @@ label {
     -webkit-transform: translatey(-50%) rotate(135deg);
         -ms-transform: translatey(-50%) rotate(135deg);
             transform: translatey(-50%) rotate(135deg);
-    transition: background-color 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0.2s;
-    transition: background-color 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0.2s; }
+    transition: background-color 0.3s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0.2s;
+    transition: background-color 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0.2s; }
     .m-hamburger.is-open .m-hamburger-inner:before, .m-hamburger.is-open .m-hamburger-inner:after {
       background-color: #ffffff;
-      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0.2s;
-      transition: background-color 0.2s ease-in-out 0s, top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0.2s; }
+      transition: background-color 0.3s ease-in-out 0s, top 0.3s ease-in-out 0s, -webkit-transform 0.3s ease-in-out 0.2s;
+      transition: background-color 0.3s ease-in-out 0s, top 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0.2s; }
     .m-hamburger.is-open .m-hamburger-inner:before {
       top: 0; }
     .m-hamburger.is-open .m-hamburger-inner:after {
@@ -2430,7 +2464,7 @@ label {
   left: 10px;
   z-index: 2;
   color: #999999;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   cursor: text;
   box-sizing: border-box;
   white-space: nowrap; }
@@ -2484,7 +2518,7 @@ label {
   left: 10px;
   z-index: 2;
   color: #999999;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   cursor: text;
   box-sizing: border-box;
   white-space: nowrap; }
@@ -2534,7 +2568,7 @@ label {
   text-decoration: none;
   color: #1c3445;
   display: block;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.2s ease-in-out;
   -webkit-tap-highlight-color: transparent; }
   .m-quick-nav-link [class^="icon-"],
   .m-quick-nav-link [class*=" icon-"] {
@@ -2799,8 +2833,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 9000;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
 
 .m-prompt {
   position: fixed;
@@ -2817,15 +2851,15 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
 
 .m-prompt-wrapper {
   background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 3px;
-  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.4s ease-in-out;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.4s ease-in-out; }
+  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out; }
 
 .m-prompt-body {
   padding: 2em; }
@@ -2887,8 +2921,8 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 10000;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
 
 .m-modal {
   position: fixed;
@@ -2905,15 +2939,15 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
 
 .m-modal-wrapper {
   background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 3px;
-  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.4s ease-in-out;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.4s ease-in-out; }
+  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out; }
   .m-modal-wrapper .container {
     max-width: 100%;
     padding-right: 0;
@@ -2985,7 +3019,7 @@ label {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  transition: all 0.5s ease-in-out, background-color 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out, background-color 0.3s ease-in-out;
   opacity: 1;
   z-index: 7000;
   font-size: 1rem;
@@ -3012,7 +3046,7 @@ label {
     -webkit-transform: translatey(0);
         -ms-transform: translatey(0);
             transform: translatey(0);
-    transition: all 0.3s ease-in-out; }
+    transition: all 0.2s ease-in-out; }
 
 .is-night-mode .m-snack-bar {
   background-color: #264f6e; }
@@ -3141,6 +3175,9 @@ label {
   min-width: 3em;
   display: inline-block; }
 
+.m-display-block-quick-edit {
+  margin-top: 1em; }
+
 .m-display-block-quick-control {
   display: inline-block;
   vertical-align: bottom; }
@@ -3191,7 +3228,7 @@ label {
   margin-right: auto;
   margin-left: auto;
   padding: 0;
-  transition: height 0.3s ease-in-out, background-color 0.4s ease-in-out; }
+  transition: height 0.2s ease-in-out, background-color 0.3s ease-in-out; }
   .m-quick-edit .m-section-heading {
     background-color: gray; }
   .m-quick-edit .m-section-controls .button-group,
@@ -3228,36 +3265,36 @@ label {
   right: 1.5rem;
   font-size: 1rem;
   z-index: 6000;
-  transition: all 0.4s ease-in-out;
-  -webkit-transform: rotate(0);
-      -ms-transform: rotate(0);
-          transform: rotate(0); }
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1); }
 
 .is-onscreen-snack .m-fab {
   bottom: 6rem; }
 
 .is-nav-open .m-fab {
-  right: -10rem;
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg); }
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  transition: all 0.2s ease-in-out; }
 
 .is-nav-open.is-onscreen-snack .m-fab {
-  right: -10rem;
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg); }
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  transition: all 0.2s ease-in-out; }
 
 .m-fab-button {
   width: 55px;
   height: 55px;
-  font-size: 1.5em;
+  font-size: 2em;
   line-height: 55px;
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15); }
   .m-fab-button [class^="icon-"],
   .m-fab-button [class*=" icon-"] {
@@ -3266,14 +3303,19 @@ label {
     top: 0;
     width: 100%;
     line-height: 55px;
-    transition: all 0.5s ease-in-out; }
+    transition: all 0.4s ease-in-out; }
   .m-fab-button:focus, .m-fab-button:hover {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 15px rgba(0, 0, 0, 0.2); }
     .m-fab-button:focus [class^="icon-"],
     .m-fab-button:focus [class*=" icon-"], .m-fab-button:hover [class^="icon-"],
     .m-fab-button:hover [class*=" icon-"] {
-      transition: all 0.2s ease-in-out; }
+      transition: all 0.1s ease-in-out; }
+  .m-fab-button:active {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
 
 @media (min-width: 550px) {
   .is-onscreen-snack .m-fab {
@@ -3283,6 +3325,8 @@ label {
   .m-fab {
     bottom: 2rem;
     right: 2rem; }
+  .m-fab-button {
+    font-size: 1.5em; }
   .is-onscreen-snack .m-fab {
     bottom: 2rem; } }
 
@@ -3343,8 +3387,8 @@ label {
           transform-origin: center center !important;
   -webkit-transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
           transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
-  transition: -webkit-transform 0.3s ease-in-out !important;
-  transition: transform 0.3s ease-in-out !important; }
+  transition: -webkit-transform 0.4s ease-in-out !important;
+  transition: transform 0.4s ease-in-out !important; }
 
 .is-night-mode p {
   color: #ffffff; }
