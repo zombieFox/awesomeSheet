@@ -4,8 +4,8 @@
   right: 1.5rem;
   font-size: $font-size-root-100;
   z-index: $fab;
-  transition: all $transition-ease-medium;
-  transform: rotate(0);
+  transition: all $transition-ease-fast;
+  transform: scale(1);
 }
 
 .is-onscreen-snack {
@@ -16,13 +16,13 @@
 
 .is-nav-open {
   .m-fab {
-    right: -10rem;
-    transform: rotate(180deg);
+    transform: scale(0);
+    transition: all $transition-ease-fast;
   }
   &.is-onscreen-snack {
     .m-fab {
-      right: -10rem;
-      transform: rotate(180deg);
+      transform: scale(0);
+      transition: all $transition-ease-fast;
     }
   }
 }
@@ -30,7 +30,7 @@
 .m-fab-button {
   width: 55px;
   height: 55px;
-  font-size: $font-size-150;
+  font-size: $font-size-200;
   line-height: 55px;
   margin: 0;
   padding: 0;
@@ -56,6 +56,10 @@
       transition: all $transition-ease-extra-fast;
     }
   }
+  &:active {
+    transform: scale(1.1);
+    transition: all $transition-bounce-extra-fast;
+  }
 }
 
 // --------------------------------------------------
@@ -73,6 +77,9 @@
   .m-fab {
     bottom: 2rem;
     right: 2rem;
+  }
+  .m-fab-button {
+    font-size: $font-size-150;
   }
   .is-onscreen-snack {
     .m-fab {
