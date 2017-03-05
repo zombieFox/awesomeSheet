@@ -218,13 +218,16 @@ var sheet = (function() {
 
   var _readJsonFile = function() {
     var fileList = helper.e(".js-import-select-input").files;
+
+    // if no JSON file is selected
     if (fileList.length <= 0) {
+      snack.render("No file selected.", false, false);
       return false;
     };
 
     var readFile = new FileReader();
     readFile.onload = function(event) {
-
+      // console.log(event);
       if (helper.isJsonString(event.target.result)) {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet) {
@@ -264,7 +267,7 @@ var sheet = (function() {
       fileName = fileName + ", " + characterLevel;
     };
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
-  }; 
+  };
 
   function bind() {
     prompt.bind();
