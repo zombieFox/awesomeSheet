@@ -2836,8 +2836,7 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 9000;
-  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
 
 .m-prompt {
   position: fixed;
@@ -2854,15 +2853,13 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
 
 .m-prompt-wrapper {
   background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 3px;
-  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
 
 .m-prompt-body {
   padding: 2em; }
@@ -2924,8 +2921,7 @@ label {
   height: 100%;
   opacity: 0;
   z-index: 10000;
-  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
 
 .m-modal {
   position: fixed;
@@ -2942,15 +2938,13 @@ label {
   opacity: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
 
 .m-modal-wrapper {
   background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 3px;
-  transition: -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease-in-out; }
+  transition: all 0.2s ease-in-out; }
   .m-modal-wrapper .container {
     max-width: 100%;
     padding-right: 0;
@@ -3368,30 +3362,26 @@ label {
 .is-nav-open {
   overflow: hidden !important; }
 
-.is-unrotate-in {
-  -webkit-transform-origin: center center !important;
-      -ms-transform-origin: center center !important;
-          transform-origin: center center !important;
-  -webkit-transform: translate(0, 0) scale(1) !important;
-      -ms-transform: translate(0, 0) scale(1) !important;
-          transform: translate(0, 0) scale(1) !important; }
-
 .is-unrotate-out {
-  -webkit-transform-origin: center center !important;
-      -ms-transform-origin: center center !important;
-          transform-origin: center center !important;
-  -webkit-transform: translate(0, 30px) scale(0.9) !important;
-      -ms-transform: translate(0, 30px) scale(0.9) !important;
-          transform: translate(0, 30px) scale(0.9) !important; }
+  -webkit-transform-origin: bottom center !important;
+      -ms-transform-origin: bottom center !important;
+          transform-origin: bottom center !important;
+  -webkit-transform: translate(0, 10px) scale(1.05) rotateX(-15deg) !important;
+          transform: translate(0, 10px) scale(1.05) rotateX(-15deg) !important; }
+
+.is-unrotate-in {
+  -webkit-transform-origin: bottom center !important;
+      -ms-transform-origin: bottom center !important;
+          transform-origin: bottom center !important;
+  -webkit-transform: translate(0, 0) scale(1) rotateX(0deg) !important;
+          transform: translate(0, 0) scale(1) rotateX(0deg) !important; }
 
 .is-dropped-out {
-  -webkit-transform-origin: center center !important;
-      -ms-transform-origin: center center !important;
-          transform-origin: center center !important;
-  -webkit-transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
-          transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
-  transition: -webkit-transform 0.4s ease-in-out !important;
-  transition: transform 0.4s ease-in-out !important; }
+  -webkit-transform-origin: bottom center !important;
+      -ms-transform-origin: bottom center !important;
+          transform-origin: bottom center !important;
+  -webkit-transform: translate(0, 10px) scale(0.95) rotateX(15deg) !important;
+          transform: translate(0, 10px) scale(0.95) rotateX(15deg) !important; }
 
 .is-night-mode p {
   color: #ffffff; }

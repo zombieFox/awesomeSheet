@@ -30,20 +30,19 @@
   overflow: hidden !important;
 }
 
-.is-unrotate-in {
-  transform-origin: center center !important;
-  transform: translate(0, 0) scale(1) !important;
+.is-unrotate-out {
+  transform-origin: bottom center !important;
+  transform: translate(0, 10px) scale(1.05) rotateX(-15deg) !important;
 }
 
-.is-unrotate-out {
-  transform-origin: center center !important;
-  transform: translate(0, 30px) scale(0.9) !important;
+.is-unrotate-in {
+  transform-origin: bottom center !important;
+  transform: translate(0, 0) scale(1) rotateX(0deg) !important;
 }
 
 .is-dropped-out {
-  transform-origin: center center !important;
-  transform: translate(0, 60px) scale(0.9) rotateX(-15deg) !important;
-  transition: transform $transition-ease-slow !important;
+  transform-origin: bottom center !important;
+  transform: translate(0, 10px) scale(0.95) rotateX(15deg) !important;
 }
 
 .is-night-mode {

@@ -7,7 +7,7 @@
   height: 100%;
   opacity: 0;
   z-index: $modal;
-  transition: opacity $transition-ease-fast, transform $transition-ease-fast;
+  transition: all $transition-ease-fast;
 }
 
 .m-modal {
@@ -22,14 +22,14 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   perspective: 1000px;
-  transition: opacity $transition-ease-fast, transform $transition-ease-fast;
+  transition: all $transition-ease-fast;
 }
 
 .m-modal-wrapper {
   background-color: $white;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
-  transition: transform $transition-bounce-slow, background-color $transition-ease-medium;
+  transition: all $transition-ease-fast;
   .container {
     max-width: 100%;
     padding-right: 0;
