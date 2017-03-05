@@ -2149,6 +2149,9 @@ label {
       .m-nav-character input[type="checkbox"]:checked:active + label .m-nav-characters-level {
         color: #ffffff; }
 
+.m-nav-character:not(:last-child) {
+  margin: 0; }
+
 .is-night-mode .m-nav-shade {
   background-color: rgba(0, 0, 0, 0.65); }
 

@@ -228,6 +228,10 @@
   }
 }
 
+.m-nav-character:not(:last-child) {
+  margin: 0;
+}
+
 .is-night-mode {
   .m-nav-shade {
     background-color: $dark-alpha-08;
