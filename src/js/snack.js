@@ -9,7 +9,7 @@ var snack = (function() {
     };
   };
 
-  function render(message, actionText) {
+  function render(message, actionText, action) {
 
     var body = helper.e("body");
 
@@ -24,12 +24,26 @@ var snack = (function() {
     snackBar.appendChild(text);
 
     if (actionText) {
-      var action = snackBar.destroy.bind(snackBar);
+      var destroyAction = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("a");
-      actionButton.setAttribute("class", "button button-tertiary m-snack-bar-button");
-      actionButton.textContent = actionText;
-      actionButton.addEventListener("click", action);
+      actionButton.setAttribute("class", "button button-tertiary-link m-snack-bar-button");
+      if (typeof actionText == "boolean") {
+        helper.addClass(actionButton, "button-icon");
+        var icon = document.createElement("span");
+        icon.setAttribute("class", "icon icon-close");
+        actionButton.appendChild(icon);
+      } else if (typeof actionText == "string") {
+        actionButton.textContent = actionText;
+      };
+      actionButton.addEventListener("click", destroyAction);
       snackBar.appendChild(actionButton);
+    };
+    if (action) {
+      actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        action();
+      }, false);
     };
 
     snackBar.addEventListener("transitionend", function(event, elapsed) {

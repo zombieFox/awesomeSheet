@@ -1147,7 +1147,9 @@ button:not(:last-child) {
   .button-icon [class^="icon-"],
   .button-icon [class*=" icon-"] {
     font-size: 1.5em;
-    display: inline-block;
+    display: inline-block; }
+  .button-icon [class^="icon-"]:not(:last-child),
+  .button-icon [class*=" icon-"]:not(:last-child) {
     margin-right: 0.3em; }
 
 .button-primary {
