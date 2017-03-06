@@ -37,7 +37,8 @@
 
 .is-unrotate-in {
   transform-origin: bottom center !important;
-  transform: translate(0, 0) scale(1) rotateX(0deg) !important;
+  // including rotate(0deg) here would cause the element to be blury
+  transform: translate(0, 0) scale(1) !important;
 }
 
 .is-dropped-out {
