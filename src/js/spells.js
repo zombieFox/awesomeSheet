@@ -332,7 +332,7 @@ var spells = (function() {
       // find spell list to add too
       var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
       // append new spell to spell list
-      var spellButtonCol = _createSpellButtonCol(spellObject.name);
+      var spellButtonCol = _createSpellButtonCol(spellObject, level, i);
       var spellButton = spellButtonCol.querySelector(".js-spell");
       knownListToSaveTo.appendChild(spellButtonCol);
       // find spell mark parent
@@ -376,12 +376,15 @@ var spells = (function() {
     };
   };
 
-  function _createSpellButtonCol(spellName) {
+  function _createSpellButtonCol(spellObject, level, index) {
+    console.log(spellObject);
     var col = document.createElement("div");
     col.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
+    col.setAttribute("data-spell-level", level);
+    col.setAttribute("data-spell-index", index);
     var spellButton = document.createElement("button");
-    spellButton.setAttribute("data-spell-name", spellName.replace(/\s+/g, "-").toLowerCase());
-    spellButton.setAttribute("id", spellName.replace(/\s+/g, "-").toLowerCase());
+    spellButton.setAttribute("data-spell-name", spellObject.name.replace(/\s+/g, "-").toLowerCase());
+    spellButton.setAttribute("id", spellObject.name.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
     spellButton.setAttribute("tabindex", "3");
@@ -390,7 +393,7 @@ var spells = (function() {
     spellButton.appendChild(spellActive);
     var spellNameSpan = document.createElement("span");
     spellNameSpan.setAttribute("class", "m-spell-name js-spell-name");
-    spellNameSpan.textContent = spellName;
+    spellNameSpan.textContent = spellObject.name;
     spellButton.appendChild(spellNameSpan);
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "m-spell-marks js-spell-marks");
