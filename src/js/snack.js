@@ -9,7 +9,7 @@ var snack = (function() {
     };
   };
 
-  function render(message, actionText, action) {
+  function render(message, actionText, action, destroyDelay) {
 
     var body = helper.e("body");
 
@@ -63,7 +63,7 @@ var snack = (function() {
       if (previousSnackBar === this) {
         previousSnackBar.destroy();
       };
-    }.bind(snackBar), 4000);
+    }.bind(snackBar), destroyDelay || 4000);
 
     body.appendChild(snackBar);
     getComputedStyle(snackBar).opacity;

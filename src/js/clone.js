@@ -508,57 +508,103 @@ var clone = (function() {
 
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
-      // console.log(sheet.getCharacter().equipment.consumable[helper.getClosest(this, ".js-clone").dataset.cloneCount]);
-      var cloneIndex = parseInt(helper.getClosest(this, ".js-clone").dataset.cloneCount, 10);
-      // console.log(cloneIndex);
-      // _destroy_clone(this, cloneType);
-      if (cloneType == "consumable") {
-        _refreshClones(this, cloneType);
-        // _removeCloneObject(cloneType, cloneIndex);
-        // _destroy_allClones(this, cloneType);
-        // _render_clone(sheet.getCharacter().equipment.consumable.length, "consumable");
-        // // _updateCloneConsumable();
-        // _update_cloneInput(sheet.getCharacter().equipment.consumable, "consumable");
-        // _checkCloneState("consumable");
-        // snack.render("Consumable removed.");
-      };
-      if (cloneType == "attack-melee") {
-        _updateCloneAttackMelee();
-        _checkCloneState("attack-melee");
-        snack.render("Melee attack removed.");
-      };
-      if (cloneType == "attack-ranged") {
-        _updateCloneAttackRanged();
-        _checkCloneState("attack-ranged");
-        snack.render("Ranged attack removed.");
-      };
-      if (cloneType == "note-character") {
-        _checkCloneState("note-character");
-        _updateCloneNoteCharacter();
-        snack.render("Character note removed.");
-      };
-      if (cloneType == "note-story") {
-        _checkCloneState("note-story");
-        _updateCloneNoteStory();
-        snack.render("Story note removed.");
-      };
+      _storeLastRemovedClone(this, cloneType);
+      _update_clones(this, cloneType);
       sheet.storeCharacters();
     }, false);
   };
 
-  function _refreshClones(removeButton, cloneType) {
-    var cloneIndex = parseInt(helper.getClosest(removeButton, ".js-clone").dataset.cloneCount, 10);
-    var cloneTarget = helper.getClosest(removeButton, ".js-clone-block-target");
+  function _update_clones(button, cloneType) {
+    var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
+    var cloneTarget = helper.getClosest(button, ".js-clone-block-target");
+
+    _removeCloneObject(cloneType, cloneIndex);
+    _destroy_allClones(cloneType);
 
     if (cloneType == "consumable") {
-      _removeCloneObject(cloneType, cloneIndex);
-      _destroy_allClones(removeButton, cloneType);
-      _render_clone(sheet.getCharacter().equipment.consumable.length, "consumable");
-      _update_cloneInput(sheet.getCharacter().equipment.consumable, "consumable");
-      _checkCloneState("consumable");
-      snack.render("Consumable removed.");
+      _render_clone(sheet.getCharacter().equipment.consumable.length, cloneType);
+      _update_cloneInput(sheet.getCharacter().equipment.consumable, cloneType);
+      snack.render("Consumable removed.", "Undo", _undo_removeClone, 9996000);
+    };
+    if (cloneType == "attack-melee") {
+      _render_clone(sheet.getCharacter().offense.attack.melee.length, cloneType);
+      _update_cloneInput(sheet.getCharacter().offense.attack.melee, cloneType);
+      snack.render("Melee attack removed.", "Undo", _undo_removeClone, 9996000);
+    };
+    if (cloneType == "attack-ranged") {
+      _render_clone(sheet.getCharacter().offense.attack.ranged.length, cloneType);
+      _update_cloneInput(sheet.getCharacter().offense.attack.ranged, cloneType);
+      snack.render("Ranged attack removed.", "Undo", _undo_removeClone, 9996000);
+    };
+    if (cloneType == "note-character") {
+      _render_clone(sheet.getCharacter().notes.character.length, cloneType);
+      _update_cloneTextarea(sheet.getCharacter().notes.character, cloneType);
+      snack.render("Character note removed.", "Undo", _undo_removeClone, 9996000);
+    };
+    if (cloneType == "note-story") {
+      _render_clone(sheet.getCharacter().notes.story.length, cloneType);
+      _update_cloneTextarea(sheet.getCharacter().notes.story, cloneType);
+      snack.render("Story note removed.", "Undo", _undo_removeClone, 9996000);
     };
 
+    _checkCloneState(cloneType);
+
+  };
+
+  function _undo_removeClone() {
+    var undoData = JSON.parse(helper.read("lastRemovedClone"));
+
+    _restoreCloneObject(undoData.cloneType, undoData.index, undoData.clone);
+    _destroy_allClones(undoData.cloneType);
+
+    if (undoData.cloneType == "consumable") {
+      _render_clone(sheet.getCharacter().equipment.consumable.length, undoData.cloneType);
+      _update_cloneInput(sheet.getCharacter().equipment.consumable, undoData.cloneType);
+    };
+    if (undoData.cloneType == "attack-melee") {
+      _render_clone(sheet.getCharacter().offense.attack.melee.length, undoData.cloneType);
+      _update_cloneInput(sheet.getCharacter().offense.attack.melee, undoData.cloneType);
+    };
+    if (undoData.cloneType == "attack-ranged") {
+      _render_clone(sheet.getCharacter().offense.attack.ranged.length, undoData.cloneType);
+      _update_cloneInput(sheet.getCharacter().offense.attack.ranged, undoData.cloneType);
+    };
+    if (undoData.cloneType == "note-character") {
+      _render_clone(sheet.getCharacter().notes.character.length, undoData.cloneType);
+      _update_cloneTextarea(sheet.getCharacter().notes.character, undoData.cloneType);
+    };
+    if (undoData.cloneType == "note-story") {
+      _render_clone(sheet.getCharacter().notes.story.length, undoData.cloneType);
+      _update_cloneTextarea(sheet.getCharacter().notes.story, undoData.cloneType);
+    };
+
+    _checkCloneState(undoData.cloneType);
+
+  };
+
+  function _storeLastRemovedClone(button, cloneType) {
+    var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
+    var object = {
+      cloneType: cloneType,
+      index: cloneIndex,
+      clone: {}
+    };
+    if (cloneType == "consumable") {
+      object.clone = sheet.getCharacter().equipment.consumable[cloneIndex];
+    };
+    if (cloneType == "attack-melee") {
+      object.clone = sheet.getCharacter().offense.attack.melee[cloneIndex];
+    };
+    if (cloneType == "attack-ranged") {
+      object.clone = sheet.getCharacter().offense.attack.ranged[cloneIndex];
+    };
+    if (cloneType == "note-character") {
+      object.clone = sheet.getCharacter().notes.character[cloneIndex];
+    };
+    if (cloneType == "note-story") {
+      object.clone = sheet.getCharacter().notes.story[cloneIndex];
+    };
+    helper.store("lastRemovedClone", JSON.stringify(object));
   };
 
   function _removeCloneObject(cloneType, index) {
@@ -576,6 +622,24 @@ var clone = (function() {
     };
     if (cloneType == "note-story") {
       sheet.getCharacter().notes.story.splice(index, 1);
+    };
+  };
+
+  function _restoreCloneObject(cloneType, index, clone) {
+    if (cloneType == "consumable") {
+      sheet.getCharacter().equipment.consumable.splice(index, 0, clone);
+    };
+    if (cloneType == "attack-melee") {
+      sheet.getCharacter().offense.attack.melee.splice(index, 0, clone);
+    };
+    if (cloneType == "attack-ranged") {
+      sheet.getCharacter().offense.attack.ranged.splice(index, 0, clone);
+    };
+    if (cloneType == "note-character") {
+      sheet.getCharacter().notes.character.splice(index, 0, clone);
+    };
+    if (cloneType == "note-story") {
+      sheet.getCharacter().notes.story.splice(index, 0, clone);
     };
   };
 
@@ -740,13 +804,23 @@ var clone = (function() {
     };
   };
 
-  function _destroy_clone(element) {
-    var cloneToRemove = helper.getClosest(element, ".js-clone");
-    cloneToRemove.remove();
-  };
-
-  function _destroy_allClones(element) {
-    var cloneTarget = helper.getClosest(element, ".js-clone-block-target-consumable");
+  function _destroy_allClones(cloneType) {
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      cloneTarget = helper.e(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "note-character") {
+      cloneTarget = helper.e(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneTarget = helper.e(".js-clone-block-target-note-story");
+    };
     while (cloneTarget.lastChild) {
       cloneTarget.removeChild(cloneTarget.lastChild);
     };
