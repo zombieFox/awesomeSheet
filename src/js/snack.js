@@ -9,7 +9,7 @@ var snack = (function() {
     };
   };
 
-  function render(message, actionText, action, destroyDelay) {
+  function render(message, actionText, action, destroyDelay, postSnack) {
 
     var body = helper.e("body");
 
@@ -50,6 +50,9 @@ var snack = (function() {
       if (event.propertyName === "opacity" && this.style.opacity == 0) {
         this.parentElement.removeChild(this);
         checkBodyForSnack();
+        if (postSnack) {
+          postSnack();
+        };
       };
     }.bind(snackBar), false);
 
