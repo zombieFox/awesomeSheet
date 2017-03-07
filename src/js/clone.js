@@ -331,15 +331,15 @@ var clone = (function() {
       var cloneCount = cloneTarget.querySelectorAll(".js-clone").length;
       var cloneString;
       var index = i;
+      // check if adding new node or adding to clone target with already existing clones
+      if (index < cloneCount) {
+        index = cloneCount;
+      };
       // make new clone node
       var newNode = document.createElement("div");
       newNode.setAttribute("class", "m-clone js-clone");
       newNode.setAttribute("data-clone-count", index);
       // newNode.setAttribute("data-attack-type", cloneType);
-      // check if adding new node or adding to clone target with already existing clones
-      if (index < cloneCount) {
-        index = cloneCount;
-      };
       if (cloneType == "consumable") {
         cloneString = _newConsumable(index);
       };
