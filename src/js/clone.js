@@ -236,9 +236,9 @@ var clone = (function() {
       _smoothScrollToClones("#equipment-consumables");
       sheet.storeCharacters();
       if (_getCloneCount("consumable") <= 99) {
-        snack.render("Consumable added.", false, false);
+        snack.render("Consumable added.");
       } else {
-        snack.render("Too many consumables, (max 100)", false, false);
+        snack.render("Too many consumables, (max 100)");
       };
     }, false);
 
@@ -252,9 +252,9 @@ var clone = (function() {
       _smoothScrollToClones("#offense-attacks");
       sheet.storeCharacters();
       if (_getCloneCount("attack-melee") <= 99) {
-        snack.render("Melee attack added.", false, false);
+        snack.render("Melee attack added.");
       } else {
-        snack.render("Too many melee attacks, (max 100)", false, false);
+        snack.render("Too many melee attacks, (max 100)");
       };
     }, false);
 
@@ -264,9 +264,9 @@ var clone = (function() {
       _smoothScrollToClones("#offense-attacks");
       sheet.storeCharacters();
       if (_getCloneCount("attack-ranged") <= 99) {
-        snack.render("Ranged attack added.", false, false);
+        snack.render("Ranged attack added.");
       } else {
-        snack.render("Too many ranged attacks, (max 100)", false, false);
+        snack.render("Too many ranged attacks, (max 100)");
       };
     }, false);
 
@@ -280,9 +280,9 @@ var clone = (function() {
       _smoothScrollToClones("#notes-character");
       sheet.storeCharacters();
       if (_getCloneCount("note-character") <= 99) {
-        snack.render("Character note added.", false, false);
+        snack.render("Character note added.");
       } else {
-        snack.render("Too many character notes, (max 100)", false, false);
+        snack.render("Too many character notes, (max 100)");
       };
     }, false);
 
@@ -292,9 +292,9 @@ var clone = (function() {
       _smoothScrollToClones("#notes-character");
       sheet.storeCharacters();
       if (_getCloneCount("note-story") <= 99) {
-        snack.render("Story note added.", false, false);
+        snack.render("Story note added.");
       } else {
-        snack.render("Too many story notes, (max 100)", false, false);
+        snack.render("Too many story notes, (max 100)");
       };
     }, false);
 
@@ -334,6 +334,7 @@ var clone = (function() {
       // make new clone node
       var newNode = document.createElement("div");
       newNode.setAttribute("class", "m-clone js-clone");
+      newNode.setAttribute("data-clone-count", index);
       // newNode.setAttribute("data-attack-type", cloneType);
       // check if adding new node or adding to clone target with already existing clones
       if (index < cloneCount) {
@@ -507,34 +508,63 @@ var clone = (function() {
 
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
-      _destroy_clone(this, cloneType);
+      // console.log(sheet.getCharacter().equipment.consumable[helper.getClosest(this, ".js-clone").dataset.cloneCount]);
+      var index = parseInt(helper.getClosest(this, ".js-clone").dataset.cloneCount, 10);
+      console.log(index);
+      // _destroy_clone(this, cloneType);
       if (cloneType == "consumable") {
-        _updateCloneConsumable();
+        _removeCloneObject(cloneType, index);
+        _destroy_allClones(this, cloneType);
+        _render_clone(sheet.getCharacter().equipment.consumable.length, "consumable");
+        // _updateCloneConsumable();
+        _update_cloneInput(sheet.getCharacter().equipment.consumable, "consumable");
         _checkCloneState("consumable");
-        snack.render("Consumable removed.", false, false);
+        snack.render("Consumable removed.");
       };
       if (cloneType == "attack-melee") {
         _updateCloneAttackMelee();
         _checkCloneState("attack-melee");
-        snack.render("Melee attack removed.", false, false);
+        snack.render("Melee attack removed.");
       };
       if (cloneType == "attack-ranged") {
         _updateCloneAttackRanged();
         _checkCloneState("attack-ranged");
-        snack.render("Ranged attack removed.", false, false);
+        snack.render("Ranged attack removed.");
       };
       if (cloneType == "note-character") {
         _checkCloneState("note-character");
         _updateCloneNoteCharacter();
-        snack.render("Character note removed.", false, false);
+        snack.render("Character note removed.");
       };
       if (cloneType == "note-story") {
         _checkCloneState("note-story");
         _updateCloneNoteStory();
-        snack.render("Story note removed.", false, false);
+        snack.render("Story note removed.");
       };
       sheet.storeCharacters();
     }, false);
+  };
+
+  function _refreshClones(cloneTarget, cloneType) {
+
+  };
+
+  function _removeCloneObject(cloneType, index) {
+    if (cloneType == "consumable") {
+      sheet.getCharacter().equipment.consumable.splice(index, 1);
+    };
+    if (cloneType == "attack-melee") {
+      sheet.getCharacter().offense.attack.melee.splice(index, 1);
+    };
+    if (cloneType == "attack-ranged") {
+      sheet.getCharacter().offense.attack.ranged.splice(index, 1);
+    };
+    if (cloneType == "note-character") {
+      sheet.getCharacter().notes.character.splice(index, 1);
+    };
+    if (cloneType == "note-story") {
+      sheet.getCharacter().notes.story.splice(index, 1);
+    };
   };
 
   var storeInputTimer = null;
@@ -703,6 +733,13 @@ var clone = (function() {
     cloneToRemove.remove();
   };
 
+  function _destroy_allClones(element) {
+    var cloneTarget = helper.getClosest(element, ".js-clone-block-target-consumable");
+    while (cloneTarget.lastChild) {
+      cloneTarget.removeChild(cloneTarget.lastChild);
+    };
+  };
+
   function _createAttackMeleeObject(weapon, attack, damage, critical) {
     return {
       weapon: this.weapon = weapon,
@@ -817,7 +854,7 @@ var clone = (function() {
 
   function clear() {
     // console.log("--- clone clear fired ---");
-    // not sure why clear is firing twice on character change, must investigate 
+    // not sure why clear is firing twice on character change, must investigate
     var all_cloneTarget = helper.eA(".js-clone-block-target");
     for (var i = 0; i < all_cloneTarget.length; i++) {
       // console.log("\t for running on " + all_cloneTarget[i].classList[2]);
