@@ -524,27 +524,27 @@ var clone = (function() {
     if (cloneType == "consumable") {
       _render_clone(sheet.getCharacter().equipment.consumable.length, cloneType);
       _update_cloneInput(sheet.getCharacter().equipment.consumable, cloneType);
-      snack.render("Consumable removed.", "Restore", _restoreLastRemovedClone, 6000);
+      snack.render("Consumable removed.", "Undo", _restoreLastRemovedClone, 6000);
     };
     if (cloneType == "attack-melee") {
       _render_clone(sheet.getCharacter().offense.attack.melee.length, cloneType);
       _update_cloneInput(sheet.getCharacter().offense.attack.melee, cloneType);
-      snack.render("Melee attack removed.", "Restore", _restoreLastRemovedClone, 6000);
+      snack.render("Melee attack removed.", "Undo", _restoreLastRemovedClone, 6000);
     };
     if (cloneType == "attack-ranged") {
       _render_clone(sheet.getCharacter().offense.attack.ranged.length, cloneType);
       _update_cloneInput(sheet.getCharacter().offense.attack.ranged, cloneType);
-      snack.render("Ranged attack removed.", "Restore", _restoreLastRemovedClone, 6000);
+      snack.render("Ranged attack removed.", "Undo", _restoreLastRemovedClone, 6000);
     };
     if (cloneType == "note-character") {
       _render_clone(sheet.getCharacter().notes.character.length, cloneType);
       _update_cloneTextarea(sheet.getCharacter().notes.character, cloneType);
-      snack.render("Character note removed.", "Restore", _restoreLastRemovedClone, 6000);
+      snack.render("Character note removed.", "Undo", _restoreLastRemovedClone, 6000);
     };
     if (cloneType == "note-story") {
       _render_clone(sheet.getCharacter().notes.story.length, cloneType);
       _update_cloneTextarea(sheet.getCharacter().notes.story, cloneType);
-      snack.render("Story note removed.", "Restore", _restoreLastRemovedClone, 6000);
+      snack.render("Story note removed.", "Undo", _restoreLastRemovedClone, 6000);
     };
 
     _checkCloneState(cloneType);
