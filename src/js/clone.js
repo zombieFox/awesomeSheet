@@ -509,17 +509,18 @@ var clone = (function() {
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       // console.log(sheet.getCharacter().equipment.consumable[helper.getClosest(this, ".js-clone").dataset.cloneCount]);
-      var index = parseInt(helper.getClosest(this, ".js-clone").dataset.cloneCount, 10);
-      console.log(index);
+      var cloneIndex = parseInt(helper.getClosest(this, ".js-clone").dataset.cloneCount, 10);
+      // console.log(cloneIndex);
       // _destroy_clone(this, cloneType);
       if (cloneType == "consumable") {
-        _removeCloneObject(cloneType, index);
-        _destroy_allClones(this, cloneType);
-        _render_clone(sheet.getCharacter().equipment.consumable.length, "consumable");
-        // _updateCloneConsumable();
-        _update_cloneInput(sheet.getCharacter().equipment.consumable, "consumable");
-        _checkCloneState("consumable");
-        snack.render("Consumable removed.");
+        _refreshClones(this, cloneType);
+        // _removeCloneObject(cloneType, cloneIndex);
+        // _destroy_allClones(this, cloneType);
+        // _render_clone(sheet.getCharacter().equipment.consumable.length, "consumable");
+        // // _updateCloneConsumable();
+        // _update_cloneInput(sheet.getCharacter().equipment.consumable, "consumable");
+        // _checkCloneState("consumable");
+        // snack.render("Consumable removed.");
       };
       if (cloneType == "attack-melee") {
         _updateCloneAttackMelee();
@@ -545,7 +546,18 @@ var clone = (function() {
     }, false);
   };
 
-  function _refreshClones(cloneTarget, cloneType) {
+  function _refreshClones(removeButton, cloneType) {
+    var cloneIndex = parseInt(helper.getClosest(removeButton, ".js-clone").dataset.cloneCount, 10);
+    var cloneTarget = helper.getClosest(removeButton, ".js-clone-block-target");
+
+    if (cloneType == "consumable") {
+      _removeCloneObject(cloneType, cloneIndex);
+      _destroy_allClones(removeButton, cloneType);
+      _render_clone(sheet.getCharacter().equipment.consumable.length, "consumable");
+      _update_cloneInput(sheet.getCharacter().equipment.consumable, "consumable");
+      _checkCloneState("consumable");
+      snack.render("Consumable removed.");
+    };
 
   };
 
