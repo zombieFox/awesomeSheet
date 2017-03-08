@@ -9,17 +9,17 @@ var spells = (function() {
     var spellResetButton = helper.e(".js-spell-reset");
     var all_newSpellAdd = helper.eA(".js-new-spell-add");
     for (var i = 0; i < all_newSpellAdd.length; i++) {
-      all_newSpellAdd[i].addEventListener("click", function() {
-        _addNewSpell(helper.getClosest(this, ".js-new-spell").querySelector(".js-new-spell-field"));
-        _updateSpells(true);
-        sheet.storeCharacters();
-      }, false);
-    };
-    for (var i = 0; i < all_newSpellAdd.length; i++) {
       var newSpell = helper.getClosest(all_newSpellAdd[i], ".js-new-spell");
       var newSpellField = newSpell.querySelector(".js-new-spell-field");
+      all_newSpellAdd[i].addEventListener("click", function() {
+        _addNewSpell(helper.getClosest(this, ".js-new-spell").querySelector(".js-new-spell-field"));
+        _update_spells(true);
+        sheet.storeCharacters();
+      }, false);
       newSpellField.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
+        _update_spells(true);
+        sheet.storeCharacters();
       }, false);
     };
     spellPrepareButton.addEventListener("click", function() {
@@ -43,6 +43,38 @@ var spells = (function() {
     }, false);
   };
 
+  function _addNewSpell(element) {
+    var level = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
+    var spallName = element.value;
+    var newSpell = new _createSpellObject(spallName, 0, false, 0);
+    // if input value is not empty
+    if (spallName !== "") {
+      //  if first character is not a number
+      if (isNaN(spallName.charAt(0))) {
+        // add spell button to spell list
+        // knownListToSaveTo.appendChild(newSpell);
+        _render_spell([newSpell], level);
+        // clear input field
+        element.value = "";
+        // add spell to current character object
+        // sheet.getCharacter().spells.book.push(newSpell);
+        // make a snack bar
+        snack.render(helper.truncate(spallName, 40, true) + " added to spell level " + level + ".");
+      } else {
+        // error if the name starts with a number
+        snack.render("Name can't start with a space or number.");
+      };
+    };
+    inputBlock.focus(element);
+  };
+
+  function _addNewSpellOnEnter(element) {
+    var keystroke = event.keyCode || event.which;
+    if (keystroke == 13) {
+      _addNewSpell(element);
+    };
+  };
+
   function _resetAllSpells() {
     var all_spellRoot = helper.eA(".js-spell");
     for (var i = 0; i < all_spellRoot.length; i++) {
@@ -59,7 +91,7 @@ var spells = (function() {
       removeAllChildren(spellActive);
       removeAllChildren(spellMarks);
     };
-    _updateSpells(true);
+    _update_spells(true);
     sheet.storeCharacters();
   };
 
@@ -74,11 +106,12 @@ var spells = (function() {
 
   function _changeSpell(spell) {
     var spellRoot = helper.getClosest(spell, ".js-spells");
-    var spellLevel = helper.getClosest(spell, ".js-spell-book").dataset.spellLevel;
     var spellMarks = spell.querySelector(".js-spell-marks");
     var spellActive = spell.querySelector(".js-spell-active");
     var spellState = spellRoot.dataset.spellState;
     var spellCol = helper.getClosest(spell, ".js-spell-col");
+    var spellLevel = parseInt(spellCol.dataset.spellLevel, 10);
+    var spellCount = parseInt(spellCol.dataset.spellCount, 10);
     // state prepare
     if (spellState == "prepare") {
       var preparedIcon = document.createElement("span");
@@ -90,6 +123,7 @@ var spells = (function() {
       if (spellMarks.children.length > 0) {
         helper.addClass(spell, "button-primary");
       };
+      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = spellMarks.children.length;
     };
     // state unprepare
     if (spellState == "unprepare") {
@@ -99,11 +133,15 @@ var spells = (function() {
       if (spellMarks.children.length <= 0) {
         helper.removeClass(spell, "button-primary");
       };
+      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = spellMarks.children.length;
+      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast) {
+        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
+      };
     };
     // state cast
     if (spellState == "cast") {
       var all_spellsMarks = spellMarks.children;
-      var all_remainingPreparedSpells = spellMarks.querySelectorAll(".js-spell-mark-checked").length;
+      var all_remainingPrepared = spellMarks.querySelectorAll(".js-spell-mark-checked").length;
       for (var i = 0; i < all_spellsMarks.length; i++) {
         if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
           helper.toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
@@ -114,7 +152,7 @@ var spells = (function() {
         };
       };
       // if there are no spell marks add cast mark for spontaneous casters
-      if (all_remainingPreparedSpells <= 0) {
+      if (all_remainingPrepared <= 0) {
         if (spellMarks.children.length <= 30) {
           var castIcon = document.createElement("span");
           castIcon.setAttribute("class", "icon-radio-button-unchecked js-spell-mark-unchecked");
@@ -127,13 +165,12 @@ var spells = (function() {
       // if no checked icons can be found change the var allSpellCast to true
       for (var i = 0; i < all_spellsMarks.length; i++) {
         if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
-          all_remainingPreparedSpells--;
+          all_remainingPrepared--;
         };
       };
-      // allSpellCast to true change spell button class
-      // if (all_remainingPreparedSpells <= 0) {
-      //   helper.removeClass(spell, "button-primary");
-      // };
+      var all_cast = spellMarks.querySelectorAll(".js-spell-mark-unchecked").length;
+      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = all_cast;
+      console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     };
     // state active
     if (spellState == "active") {
@@ -147,11 +184,16 @@ var spells = (function() {
     };
     // state remove
     if (spellState == "remove") {
-      var spellName = spell.textContent;
-      spellCol.remove();
-      snack.render(helper.truncate(spellName, 40, true) + " removed.", false, false);
+      var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
+      // spellCol.remove();
+      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
+      snack.render(helper.truncate(spellName, 40, true) + " removed.");
+      clear();
+      render();
     };
-    _updateSpells();
+    sheet.storeCharacters();
+    // _update_spells();
+    // console.log(sheet.getCharacter().spells.book[spellCol.dataset.spellLevel]["level_" + spellCol.dataset.spellLevel][spellCol.dataset.spellCount]);
   };
 
   function _changeSpellState(element) {
@@ -209,11 +251,6 @@ var spells = (function() {
 
   function _checkSpellState() {
     var spellRoot = helper.e(".js-spells");
-    var spellPrepareButton = helper.e(".js-spell-prepare");
-    var spellUnprepareButton = helper.e(".js-spell-unprepare");
-    var spellCastButton = helper.e(".js-spell-cast");
-    var spellActiveButton = helper.e(".js-spell-active");
-    var spellRemoveButton = helper.e(".js-spell-remove");
     var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
     var all_spellBookItem = helper.eA(".js-spell");
     if (all_spellBookItem.length == 0) {
@@ -221,40 +258,6 @@ var spells = (function() {
         helper.removeClass(all_spellStateControls[i], "is-active");
       };
       spellRoot.dataset.spellState = "false";
-    };
-  };
-
-  function _addNewSpell(element) {
-    var level = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
-    var spallName = element.value;
-    var newSpell = new _createSpellObject(spallName, 0, false, 0);
-    // if input value is not empty
-    if (spallName !== "") {
-      //  if first character is not a number
-      if (isNaN(spallName.charAt(0))) {
-        // add spell button to spell list
-        // knownListToSaveTo.appendChild(newSpell);
-        _render_spell([newSpell], level);
-        // clear input field
-        element.value = "";
-        // add spell to current character object
-        // sheet.getCharacter().spells.book.push(newSpell);
-        // make a snack bar
-        snack.render(helper.truncate(spallName, 40, true) + " added to spell level " + level + ".", false, false);
-      } else {
-        // error if the name starts with a number
-        snack.render("Name can't start with a space or number.", false, false);
-      };
-    };
-    inputBlock.focus(element);
-  };
-
-  function _addNewSpellOnEnter(element) {
-    var keystroke = event.keyCode || event.which;
-    if (keystroke == 13) {
-      _addNewSpell(element);
-      _updateSpells(true);
-      sheet.storeCharacters();
     };
   };
 
@@ -281,7 +284,7 @@ var spells = (function() {
     };
   };
 
-  function _updateSpells(force) {
+  function _update_spells(force) {
     var spellRoot = helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
     var all_spellLevels = spellRoot.querySelectorAll(".js-spell-book-known");
@@ -377,14 +380,13 @@ var spells = (function() {
   };
 
   function _createSpellButtonCol(spellObject, level, index) {
-    console.log(spellObject);
     var col = document.createElement("div");
     col.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
     col.setAttribute("data-spell-level", level);
-    col.setAttribute("data-spell-index", index);
+    col.setAttribute("data-spell-count", index);
     var spellButton = document.createElement("button");
-    spellButton.setAttribute("data-spell-name", spellObject.name.replace(/\s+/g, "-").toLowerCase());
-    spellButton.setAttribute("id", spellObject.name.replace(/\s+/g, "-").toLowerCase());
+    // spellButton.setAttribute("data-spell-name", spellObject.name.replace(/\s+/g, "-").toLowerCase());
+    // spellButton.setAttribute("id", spellObject.name.replace(/\s+/g, "-").toLowerCase());
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
     spellButton.setAttribute("tabindex", "3");
