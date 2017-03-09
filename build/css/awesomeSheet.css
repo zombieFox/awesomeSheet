@@ -2815,6 +2815,19 @@ label {
     .m-new-spell .m-new-spell-add [class^="icon-"] {
       margin: 0; }
 
+.m-spell-note {
+  margin: 0 -2em -2em -2em; }
+
+.m-spell-note-textarea {
+  margin: 0;
+  padding: 2em;
+  border: 0;
+  min-height: 20vh;
+  max-height: 50vh;
+  resize: none;
+  display: block;
+  overflow-y: auto; }
+
 .is-night-mode .m-spells.is-state-prepare .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-unprepare .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-cast .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-active .m-spell-book-known .m-spell {
   background-color: #264f6e;
   color: #ffffff; }

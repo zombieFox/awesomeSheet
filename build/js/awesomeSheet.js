@@ -177,6 +177,16 @@ var helper = (function() {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   };
 
+  function pasteStrip(event) {
+    if (event.clipboardData) {
+      event.preventDefault();
+      var text = event.clipboardData.getData("text/plain");
+      document.execCommand("insertText", false, text);
+    } else {
+      return true;
+    };
+  };
+
   // exposed methods
   return {
     store: store,
@@ -196,7 +206,8 @@ var helper = (function() {
     truncate: truncateString,
     randomId: randomId,
     getRadioValue: getRadioValue,
-    getUrlParameter: getUrlParameter
+    getUrlParameter: getUrlParameter,
+    pasteStrip: pasteStrip
   };
 
 })();
@@ -2581,11 +2592,11 @@ var marika = (function() {
       },
       book: [{
         level_0: [
-          { name: "Mage Hand", prepared: 3, active: false, cast: 0 }
+          { name: "Mage Hand", prepared: 3, active: false, cast: 0, note: "" }
         ]
       }, {
         level_1: [
-          { name: "Unseen Servant", prepared: 2, active: false, cast: 0 }
+          { name: "Unseen Servant", prepared: 2, active: false, cast: 0, note: "" }
         ]
       }, {
         level_2: []
@@ -5062,290 +5073,346 @@ var nif = (function() {
           name: "Bleed",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Erase",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Daze",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Disrupt Undead",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Touch of Fatigue",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Prestidigitation",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Light",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ghost Sound",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Spark",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Acid Splash",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mage Hand",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Flare",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Detect Magic",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Detect Poison",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Dancing Lights",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mending",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Arcane Mark",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Message",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Frost",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Read Magic",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Open Close",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Resistance",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_1: [{
           name: "Comprehend Languages",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Enlarge Person",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Feather Fall",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Grease",
           prepared: 3,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mage Armor",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mount",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Obscuring Mist",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Protection from Chaos",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Protection from Evil",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shield",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster I",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Unseen Servant",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
           name: "Blur",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Create Pit",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Flaming Sphere",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Glitterdust",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Invisibility",
           prepared: 2,
           active: false,
-          cast: 1
+          cast: 1,
+          note: ""
         }, {
           name: "Levitate",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mirror Image",
           prepared: 2,
           active: false,
-          cast: 1
+          cast: 1,
+          note: ""
         }, {
           name: "Resist Energy",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Stone Call",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster II",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Web",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_3: [{
           name: "Stinking Cloud",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster III",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Spiked Pit",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Aqueous Orb",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Fly",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Sleet Storm",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Haste",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_4: [{
           name: "Black Tentacles",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Wall of Fire",
           prepared: 1,
           active: false,
-          cast: 1
+          cast: 1,
+          note: ""
         }, {
           name: "Secure Shelter",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster IV",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_5: []
@@ -7858,243 +7925,290 @@ var ro = (function() {
           name: "Acid Splash",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Arcane Mark",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Dancing Lights",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Daze",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Detect Magic",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Disrupt Undead",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Flare",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ghost Sound",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Light",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mage Hand",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Open Close",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Prestidigitation",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Frost",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Read Magic",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Spark",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_1: [{
           name: "Color Spray",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Grease",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shocking Grasp",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "True Strike",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Magic Missile",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shield",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Vanish",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Obscuring Mist",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Chill Touch",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Frostbite",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Infernal Healing",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Windy Escape",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Unerring Weapon",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Enfeeblement",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Burning Hands",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Expeditious Retreat",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shocking Grasp Intensified",
           prepared: 3,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Reduce Person",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
           name: "Mirror Image",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
-          name: "Frigdig Touch",
+          name: "Frigid Touch",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Glitter Dust",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Web",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Scorching Ray",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Pyrotechnics",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Web",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_3: [{
           name: "Fly",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Haste",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Force Hook Charge",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Exhaustion",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Vampiric Touch",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Stinking Cloud",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Slow",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_4: []
@@ -12882,22 +12996,20 @@ var spells = (function() {
   };
 
   function _addNewSpell(element) {
-    var level = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
+    var spellLevel = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
     var spellName = element.value;
     var newSpell = new _createSpellObject(spellName, 0, false, 0);
     // if input value is not empty
     if (spellName !== "") {
       //  if first character is not a number
       if (isNaN(spellName.charAt(0))) {
-        // add spell button to spell list
-        // knownListToSaveTo.appendChild(newSpell);
-        _render_spell([newSpell], level);
+        // add spell to current character known spells
+        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
+        _destroy_spellBook(spellLevel);
+        _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
         // clear input field
         element.value = "";
-        // add spell to current character known spells
-        sheet.getCharacter().spells.book[level]["level_" + level].push(newSpell);
-        // make a snack bar
-        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + level + ".");
+        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + spellLevel + ".");
       } else {
         // error if the name starts with a number
         snack.render("Name can't start with a space or number.");
@@ -12952,6 +13064,39 @@ var spells = (function() {
       _update_spellButton(this);
       _checkSpellState();
     }, false);
+  };
+
+  function _spellNoteModalContent(button) {
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var div = document.createElement("div");
+    div.setAttribute("class", "m-spell-note");
+    var textareaBlock = document.createElement("div");
+    textareaBlock.setAttribute("class", "m-spell-note-textarea textarea u-full-width");
+    textareaBlock.setAttribute("contenteditable", "true");
+    textareaBlock.setAttribute("tabindex", "3");
+    textareaBlock.setAttribute("placeholder", "Spell range, casting time or duration? Anything else?");
+    textareaBlock.setAttribute("data-spell-level", spellLevel);
+    textareaBlock.setAttribute("data-spell-count", spellCount);
+    div.appendChild(textareaBlock);
+    if (typeof spellObject.note != "undefined" && spellObject.note != "") {
+      textareaBlock.innerHTML = spellObject.note;
+    };
+    textareaBlock.addEventListener("paste", function(event) {
+      helper.pasteStrip(event);
+    });
+    modal.render(spellObject.name + " Notes", div, "Save", function() {
+      return _storeSpellNote(textareaBlock);
+    });
+  };
+
+  function _storeSpellNote(element) {
+    var spellLevel = parseInt(element.dataset.spellLevel, 10);
+    var spellCount = parseInt(element.dataset.spellCount, 10);
+    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    spellObject.note = element.innerHTML;
+    sheet.storeCharacters();
   };
 
   function _update_spellButton(button) {
@@ -13031,20 +13176,18 @@ var spells = (function() {
     };
   };
 
-  function _update_spellObject(element) {
-    var spellRoot = helper.getClosest(element, ".js-spells");
+  function _update_spellObject(button) {
+    var spellRoot = helper.getClosest(button, ".js-spells");
     var spellState = spellRoot.dataset.spellState;
-    var spellLevel = parseInt(element.dataset.spellLevel, 10);
-    var spellCount = parseInt(element.dataset.spellCount, 10);
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
     // state prepare
     if (spellState == "prepare") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 30) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state unprepare
-    if (spellState == "unprepare") {
+    } else if (spellState == "unprepare") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--
       };
@@ -13052,9 +13195,7 @@ var spells = (function() {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state cast
-    if (spellState == "cast") {
+    } else if (spellState == "cast") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 30) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++
       };
@@ -13062,23 +13203,21 @@ var spells = (function() {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state active
-    if (spellState == "active") {
+    } else if (spellState == "active") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
       } else {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state remove
-    if (spellState == "remove") {
+    } else if (spellState == "remove") {
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
       _storeLastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
       snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restoreLastRemovedSpell, 6000);
+    } else {
+      _spellNoteModalContent(button);
     };
     sheet.storeCharacters();
   };
@@ -13110,7 +13249,7 @@ var spells = (function() {
     sheet.storeCharacters();
   };
 
-  function _changeSpellState(element) {
+  function _changeSpellState(button) {
     var all_spellLevels = helper.eA(".js-spell-book-known");
     var spellsFound = false;
     var spellRoot = helper.e(".js-spells");
@@ -13128,24 +13267,24 @@ var spells = (function() {
     };
     if (spellsFound) {
       // if this button is active
-      if (spellRoot.dataset.spellState != element.dataset.state) {
-        helper.removeClass(element, "is-active");
+      if (spellRoot.dataset.spellState != button.dataset.state) {
+        helper.removeClass(button, "is-active");
         helper.removeClass(spellRoot, "is-state-prepare");
         helper.removeClass(spellRoot, "is-state-unprepare");
         helper.removeClass(spellRoot, "is-state-cast");
         helper.removeClass(spellRoot, "is-state-active");
         helper.removeClass(spellRoot, "is-state-remove");
-        helper.addClass(spellRoot, "is-state-" + element.dataset.state);
-        spellRoot.dataset.spellState = element.dataset.state;
+        helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+        spellRoot.dataset.spellState = button.dataset.state;
         for (var i = 0; i < all_spellStateControls.length; i++) {
           helper.removeClass(all_spellStateControls[i], "is-active");
         };
-        if (!element.classList.contains("js-spell-reset")) {
-          helper.addClass(element, "is-active");
+        if (!button.classList.contains("js-spell-reset")) {
+          helper.addClass(button, "is-active");
         };
       } else {
         spellRoot.dataset.spellState = "false";
-        helper.removeClass(element, "is-active");
+        helper.removeClass(button, "is-active");
         helper.removeClass(spellRoot, "is-state-prepare");
         helper.removeClass(spellRoot, "is-state-unprepare");
         helper.removeClass(spellRoot, "is-state-cast");
@@ -13154,7 +13293,7 @@ var spells = (function() {
       };
     } else {
       spellRoot.dataset.spellState = "false";
-      helper.removeClass(element, "is-active");
+      helper.removeClass(button, "is-active");
       helper.removeClass(spellRoot, "is-state-prepare");
       helper.removeClass(spellRoot, "is-state-unprepare");
       helper.removeClass(spellRoot, "is-state-cast");
@@ -13180,12 +13319,13 @@ var spells = (function() {
     };
   };
 
-  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast) {
+  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
     return {
       name: this.name = spellName,
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
-      cast: this.cast = spellCast || 0
+      cast: this.cast = spellCast || 0,
+      note: this.note = spellNote || ""
     };
   };
 
@@ -13454,7 +13594,7 @@ var textareaBlock = (function() {
           focus(this);
         }, false);
         textareaBlockField.addEventListener("paste", function(event) {
-          pasteStrip(event);
+          helper.pasteStrip(event);
         });
       };
       if (textareaBlockLabel) {
@@ -13462,16 +13602,6 @@ var textareaBlock = (function() {
           focusLabel(this);
         }, false);
       };
-    };
-  };
-
-  function pasteStrip(event) {
-    if (event.clipboardData) {
-      event.preventDefault();
-      var text = event.clipboardData.getData("text/plain");
-      document.execCommand("insertText", false, text);
-    } else {
-      return true;
     };
   };
 
@@ -13500,8 +13630,7 @@ var textareaBlock = (function() {
     focusLabel: focusLabel,
     render: render,
     clear: clear,
-    bind: bind,
-    pasteStrip: pasteStrip
+    bind: bind
   };
 
 })();
