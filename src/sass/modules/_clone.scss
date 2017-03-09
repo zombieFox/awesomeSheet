@@ -58,7 +58,7 @@
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
-        margin: 0 0 $font-size-100 0;
+        margin: 0 0 $font-size-025 0;
         textarea,
         .textarea {
           background-color: transparent;
@@ -95,6 +95,9 @@
           visibility: visible;
           transform: scale(1);
           transition: all $transition-ease-extra-fast 0.2s;
+        }
+        &:last-child {
+          margin: 0 0 $font-size-100 0;
         }
       }
     }

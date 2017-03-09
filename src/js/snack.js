@@ -9,7 +9,7 @@ var snack = (function() {
     };
   };
 
-  function render(message, actionText, action) {
+  function render(message, actionText, action, destroyDelay, postSnack) {
 
     var body = helper.e("body");
 
@@ -26,7 +26,7 @@ var snack = (function() {
     if (actionText) {
       var destroyAction = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("a");
-      actionButton.setAttribute("class", "button button-tertiary-link m-snack-bar-button");
+      actionButton.setAttribute("class", "button button-medium button-tertiary-link m-snack-bar-button");
       if (typeof actionText == "boolean") {
         helper.addClass(actionButton, "button-icon");
         var icon = document.createElement("span");
@@ -49,7 +49,10 @@ var snack = (function() {
     snackBar.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && this.style.opacity == 0) {
         this.parentElement.removeChild(this);
-        checkBodyForSnack();
+        _checkBodyForSnack();
+        if (postSnack) {
+          postSnack();
+        };
       };
     }.bind(snackBar), false);
 
@@ -63,14 +66,14 @@ var snack = (function() {
       if (previousSnackBar === this) {
         previousSnackBar.destroy();
       };
-    }.bind(snackBar), 4000);
+    }.bind(snackBar), destroyDelay || 4000);
 
     body.appendChild(snackBar);
     getComputedStyle(snackBar).opacity;
     getComputedStyle(snackBar).transform;
     getComputedStyle(snackBar).margin;
     helper.addClass(snackBar, "is-reveal");
-    checkBodyForSnack();
+    _checkBodyForSnack();
 
   };
 
@@ -82,7 +85,7 @@ var snack = (function() {
     }, false);
   };
 
-  function checkBodyForSnack() {
+  function _checkBodyForSnack() {
     var body = helper.e("body");
     var snackBar = helper.e(".js-snack-bar");
     if (snackBar) {
