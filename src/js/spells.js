@@ -37,7 +37,7 @@ var spells = (function() {
     }, false);
     spellResetButton.addEventListener("click", function() {
       _changeSpellState(this);
-      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetAllSpells, false, false, false);
+      _resetAllSpells();
     }, false);
   };
 
@@ -74,21 +74,34 @@ var spells = (function() {
   };
 
   function _resetAllSpells() {
-    if (sheet.getCharacter().spells.book) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          for (var k in sheet.getCharacter().spells.book[i][j]) {
-            sheet.getCharacter().spells.book[i][j][k].prepared = 0;
-            sheet.getCharacter().spells.book[i][j][k].cast = 0;
-            sheet.getCharacter().spells.book[i][j][k].active = false;
-            // console.log(sheet.getCharacter().spells.book[i][j][k]);
-          };
-        };
+    var all_spellLevels = helper.eA(".js-spell-book-known");
+    var spellsFound = false;
+    for (var i = 0; i < all_spellLevels.length; i++) {
+      if (all_spellLevels[i].children.length > 0) {
+        spellsFound = true;
       };
     };
-    clear();
-    render();
-    sheet.storeCharacters();
+    if (spellsFound) {
+      var resetSpells = function() {
+        if (sheet.getCharacter().spells.book) {
+          for (var i in sheet.getCharacter().spells.book) {
+            for (var j in sheet.getCharacter().spells.book[i]) {
+              for (var k in sheet.getCharacter().spells.book[i][j]) {
+                sheet.getCharacter().spells.book[i][j][k].prepared = 0;
+                sheet.getCharacter().spells.book[i][j][k].cast = 0;
+                sheet.getCharacter().spells.book[i][j][k].active = false;
+                // console.log(sheet.getCharacter().spells.book[i][j][k]);
+              };
+            };
+          };
+        };
+        clear();
+        render();
+        sheet.storeCharacters();
+        snack.render("All spells reset.");
+      };
+      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", resetSpells, false, false, false);
+    };
   };
 
   function _bind_spellKnownItem(element) {
