@@ -164,14 +164,14 @@
 }
 
 .m-spell-note-textarea {
-  width: 100%;
-  box-sizing: border-box;
-  height: 50vh;
   margin: 0;
   padding: 2em;
   border: 0;
+  min-height: 20vh;
+  max-height: 50vh;
   resize: none;
   display: block;
+  overflow-y: auto;
 }
 
 .is-night-mode {

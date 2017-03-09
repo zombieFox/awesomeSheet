@@ -42,22 +42,20 @@ var spells = (function() {
   };
 
   function _addNewSpell(element) {
-    var level = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
+    var spellLevel = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
     var spellName = element.value;
     var newSpell = new _createSpellObject(spellName, 0, false, 0);
     // if input value is not empty
     if (spellName !== "") {
       //  if first character is not a number
       if (isNaN(spellName.charAt(0))) {
-        // add spell button to spell list
-        // knownListToSaveTo.appendChild(newSpell);
-        _render_spell([newSpell], level);
+        // add spell to current character known spells
+        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
+        _destroy_spellBook(spellLevel);
+        _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
         // clear input field
         element.value = "";
-        // add spell to current character known spells
-        sheet.getCharacter().spells.book[level]["level_" + level].push(newSpell);
-        // make a snack bar
-        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + level + ".");
+        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + spellLevel + ".");
       } else {
         // error if the name starts with a number
         snack.render("Name can't start with a space or number.");
@@ -114,29 +112,36 @@ var spells = (function() {
     }, false);
   };
 
-  function _addSpellNote(button) {
+  function _spellNoteModalContent(button) {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
     var div = document.createElement("div");
     div.setAttribute("class", "m-spell-note");
-    var textarea = document.createElement("textarea");
-    textarea.setAttribute("class", "m-spell-note-textarea");
-    textarea.setAttribute("placeholder", "Spell range or duration?");
-    textarea.setAttribute("data-spell-level", spellLevel);
-    textarea.setAttribute("data-spell-count", spellCount);
-    div.appendChild(textarea);
+    var textareaBlock = document.createElement("div");
+    textareaBlock.setAttribute("class", "m-spell-note-textarea textarea u-full-width");
+    textareaBlock.setAttribute("contenteditable", "true");
+    textareaBlock.setAttribute("tabindex", "3");
+    textareaBlock.setAttribute("placeholder", "Spell range, casting time or duration? Anything else?");
+    textareaBlock.setAttribute("data-spell-level", spellLevel);
+    textareaBlock.setAttribute("data-spell-count", spellCount);
+    div.appendChild(textareaBlock);
     if (typeof spellObject.note != "undefined" && spellObject.note != "") {
-      textarea.value = spellObject.note;
+      textareaBlock.innerHTML = spellObject.note;
     };
-    modal.render(spellObject.name + " Note", div, "Save", function(){return _storeSpellNote(textarea);});
+    textareaBlock.addEventListener("paste", function(event) {
+      helper.pasteStrip(event);
+    });
+    modal.render(spellObject.name + " Notes", div, "Save", function() {
+      return _storeSpellNote(textareaBlock);
+    });
   };
 
   function _storeSpellNote(element) {
     var spellLevel = parseInt(element.dataset.spellLevel, 10);
     var spellCount = parseInt(element.dataset.spellCount, 10);
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-    spellObject.note = element.value;
+    spellObject.note = element.innerHTML;
     sheet.storeCharacters();
   };
 
@@ -258,7 +263,7 @@ var spells = (function() {
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
       snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restoreLastRemovedSpell, 6000);
     } else {
-      _addSpellNote(button);
+      _spellNoteModalContent(button);
     };
     sheet.storeCharacters();
   };
@@ -360,12 +365,13 @@ var spells = (function() {
     };
   };
 
-  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast) {
+  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
     return {
       name: this.name = spellName,
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
-      cast: this.cast = spellCast || 0
+      cast: this.cast = spellCast || 0,
+      note: this.note = spellNote || ""
     };
   };
 

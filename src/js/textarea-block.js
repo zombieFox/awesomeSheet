@@ -74,7 +74,7 @@ var textareaBlock = (function() {
           focus(this);
         }, false);
         textareaBlockField.addEventListener("paste", function(event) {
-          pasteStrip(event);
+          helper.pasteStrip(event);
         });
       };
       if (textareaBlockLabel) {
@@ -82,16 +82,6 @@ var textareaBlock = (function() {
           focusLabel(this);
         }, false);
       };
-    };
-  };
-
-  function pasteStrip(event) {
-    if (event.clipboardData) {
-      event.preventDefault();
-      var text = event.clipboardData.getData("text/plain");
-      document.execCommand("insertText", false, text);
-    } else {
-      return true;
     };
   };
 
@@ -120,8 +110,7 @@ var textareaBlock = (function() {
     focusLabel: focusLabel,
     render: render,
     clear: clear,
-    bind: bind,
-    pasteStrip: pasteStrip
+    bind: bind
   };
 
 })();
