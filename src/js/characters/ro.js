@@ -1389,7 +1389,7 @@ var ro = (function() {
           active: false,
           cast: 0
         }, {
-          name: "Frigdig Touch",
+          name: "Frigid Touch",
           prepared: 2,
           active: false,
           cast: 0

@@ -159,6 +159,21 @@
   }
 }
 
+.m-spell-note {
+  margin: 0 -2em -2em -2em;
+}
+
+.m-spell-note-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 50vh;
+  margin: 0;
+  padding: 2em;
+  border: 0;
+  resize: none;
+  display: block;
+}
+
 .is-night-mode {
   .m-spells {
     &.is-state-prepare,
