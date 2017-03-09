@@ -1218,243 +1218,290 @@ var ro = (function() {
           name: "Acid Splash",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Arcane Mark",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Dancing Lights",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Daze",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Detect Magic",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Disrupt Undead",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Flare",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ghost Sound",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Light",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mage Hand",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Open Close",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Prestidigitation",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Frost",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Read Magic",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Spark",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_1: [{
           name: "Color Spray",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Grease",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shocking Grasp",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "True Strike",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Magic Missile",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shield",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Vanish",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Obscuring Mist",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Chill Touch",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Frostbite",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Infernal Healing",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Windy Escape",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Unerring Weapon",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Enfeeblement",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Burning Hands",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Expeditious Retreat",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shocking Grasp Intensified",
           prepared: 3,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Reduce Person",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
           name: "Mirror Image",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
-          name: "Frigdig Touch",
+          name: "Frigid Touch",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Glitter Dust",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Web",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Scorching Ray",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Pyrotechnics",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Web",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_3: [{
           name: "Fly",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Haste",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Force Hook Charge",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Exhaustion",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Vampiric Touch",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Stinking Cloud",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Slow",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_4: []

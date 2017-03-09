@@ -175,6 +175,16 @@ var helper = (function() {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   };
 
+  function pasteStrip(event) {
+    if (event.clipboardData) {
+      event.preventDefault();
+      var text = event.clipboardData.getData("text/plain");
+      document.execCommand("insertText", false, text);
+    } else {
+      return true;
+    };
+  };
+
   // exposed methods
   return {
     store: store,
@@ -194,7 +204,8 @@ var helper = (function() {
     truncate: truncateString,
     randomId: randomId,
     getRadioValue: getRadioValue,
-    getUrlParameter: getUrlParameter
+    getUrlParameter: getUrlParameter,
+    pasteStrip: pasteStrip
   };
 
 })();

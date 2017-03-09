@@ -159,6 +159,21 @@
   }
 }
 
+.m-spell-note {
+  margin: 0 -2em -2em -2em;
+}
+
+.m-spell-note-textarea {
+  margin: 0;
+  padding: 2em;
+  border: 0;
+  min-height: 20vh;
+  max-height: 50vh;
+  resize: none;
+  display: block;
+  overflow-y: auto;
+}
+
 .is-night-mode {
   .m-spells {
     &.is-state-prepare,

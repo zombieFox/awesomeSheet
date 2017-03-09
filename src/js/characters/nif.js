@@ -1193,290 +1193,346 @@ var nif = (function() {
           name: "Bleed",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Erase",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Daze",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Disrupt Undead",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Touch of Fatigue",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Prestidigitation",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Light",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ghost Sound",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Spark",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Acid Splash",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mage Hand",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Flare",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Detect Magic",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Detect Poison",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Dancing Lights",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mending",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Arcane Mark",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Message",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Ray of Frost",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Read Magic",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Open Close",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Resistance",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_1: [{
           name: "Comprehend Languages",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Enlarge Person",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Feather Fall",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Grease",
           prepared: 3,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mage Armor",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mount",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Obscuring Mist",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Protection from Chaos",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Protection from Evil",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Shield",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster I",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Unseen Servant",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
           name: "Blur",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Create Pit",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Flaming Sphere",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Glitterdust",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Invisibility",
           prepared: 2,
           active: false,
-          cast: 1
+          cast: 1,
+          note: ""
         }, {
           name: "Levitate",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Mirror Image",
           prepared: 2,
           active: false,
-          cast: 1
+          cast: 1,
+          note: ""
         }, {
           name: "Resist Energy",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Stone Call",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster II",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Web",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_3: [{
           name: "Stinking Cloud",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster III",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Spiked Pit",
           prepared: 2,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Aqueous Orb",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Fly",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Sleet Storm",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Haste",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_4: [{
           name: "Black Tentacles",
           prepared: 1,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Wall of Fire",
           prepared: 1,
           active: false,
-          cast: 1
+          cast: 1,
+          note: ""
         }, {
           name: "Secure Shelter",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }, {
           name: "Summon Monster IV",
           prepared: 0,
           active: false,
-          cast: 0
+          cast: 0,
+          note: ""
         }]
       }, {
         level_5: []

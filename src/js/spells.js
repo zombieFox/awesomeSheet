@@ -42,22 +42,20 @@ var spells = (function() {
   };
 
   function _addNewSpell(element) {
-    var level = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
+    var spellLevel = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
     var spellName = element.value;
     var newSpell = new _createSpellObject(spellName, 0, false, 0);
     // if input value is not empty
     if (spellName !== "") {
       //  if first character is not a number
       if (isNaN(spellName.charAt(0))) {
-        // add spell button to spell list
-        // knownListToSaveTo.appendChild(newSpell);
-        _render_spell([newSpell], level);
+        // add spell to current character known spells
+        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
+        _destroy_spellBook(spellLevel);
+        _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
         // clear input field
         element.value = "";
-        // add spell to current character known spells
-        sheet.getCharacter().spells.book[level]["level_" + level].push(newSpell);
-        // make a snack bar
-        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + level + ".");
+        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + spellLevel + ".");
       } else {
         // error if the name starts with a number
         snack.render("Name can't start with a space or number.");
@@ -112,6 +110,39 @@ var spells = (function() {
       _update_spellButton(this);
       _checkSpellState();
     }, false);
+  };
+
+  function _spellNoteModalContent(button) {
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var div = document.createElement("div");
+    div.setAttribute("class", "m-spell-note");
+    var textareaBlock = document.createElement("div");
+    textareaBlock.setAttribute("class", "m-spell-note-textarea textarea u-full-width");
+    textareaBlock.setAttribute("contenteditable", "true");
+    textareaBlock.setAttribute("tabindex", "3");
+    textareaBlock.setAttribute("placeholder", "Spell range, casting time or duration? Anything else?");
+    textareaBlock.setAttribute("data-spell-level", spellLevel);
+    textareaBlock.setAttribute("data-spell-count", spellCount);
+    div.appendChild(textareaBlock);
+    if (typeof spellObject.note != "undefined" && spellObject.note != "") {
+      textareaBlock.innerHTML = spellObject.note;
+    };
+    textareaBlock.addEventListener("paste", function(event) {
+      helper.pasteStrip(event);
+    });
+    modal.render(spellObject.name + " Notes", div, "Save", function() {
+      return _storeSpellNote(textareaBlock);
+    });
+  };
+
+  function _storeSpellNote(element) {
+    var spellLevel = parseInt(element.dataset.spellLevel, 10);
+    var spellCount = parseInt(element.dataset.spellCount, 10);
+    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    spellObject.note = element.innerHTML;
+    sheet.storeCharacters();
   };
 
   function _update_spellButton(button) {
@@ -191,20 +222,18 @@ var spells = (function() {
     };
   };
 
-  function _update_spellObject(element) {
-    var spellRoot = helper.getClosest(element, ".js-spells");
+  function _update_spellObject(button) {
+    var spellRoot = helper.getClosest(button, ".js-spells");
     var spellState = spellRoot.dataset.spellState;
-    var spellLevel = parseInt(element.dataset.spellLevel, 10);
-    var spellCount = parseInt(element.dataset.spellCount, 10);
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
     // state prepare
     if (spellState == "prepare") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 30) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state unprepare
-    if (spellState == "unprepare") {
+    } else if (spellState == "unprepare") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--
       };
@@ -212,9 +241,7 @@ var spells = (function() {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state cast
-    if (spellState == "cast") {
+    } else if (spellState == "cast") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 30) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++
       };
@@ -222,23 +249,21 @@ var spells = (function() {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state active
-    if (spellState == "active") {
+    } else if (spellState == "active") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
       } else {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    };
-    // state remove
-    if (spellState == "remove") {
+    } else if (spellState == "remove") {
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
       _storeLastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
       snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restoreLastRemovedSpell, 6000);
+    } else {
+      _spellNoteModalContent(button);
     };
     sheet.storeCharacters();
   };
@@ -270,7 +295,7 @@ var spells = (function() {
     sheet.storeCharacters();
   };
 
-  function _changeSpellState(element) {
+  function _changeSpellState(button) {
     var all_spellLevels = helper.eA(".js-spell-book-known");
     var spellsFound = false;
     var spellRoot = helper.e(".js-spells");
@@ -288,24 +313,24 @@ var spells = (function() {
     };
     if (spellsFound) {
       // if this button is active
-      if (spellRoot.dataset.spellState != element.dataset.state) {
-        helper.removeClass(element, "is-active");
+      if (spellRoot.dataset.spellState != button.dataset.state) {
+        helper.removeClass(button, "is-active");
         helper.removeClass(spellRoot, "is-state-prepare");
         helper.removeClass(spellRoot, "is-state-unprepare");
         helper.removeClass(spellRoot, "is-state-cast");
         helper.removeClass(spellRoot, "is-state-active");
         helper.removeClass(spellRoot, "is-state-remove");
-        helper.addClass(spellRoot, "is-state-" + element.dataset.state);
-        spellRoot.dataset.spellState = element.dataset.state;
+        helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+        spellRoot.dataset.spellState = button.dataset.state;
         for (var i = 0; i < all_spellStateControls.length; i++) {
           helper.removeClass(all_spellStateControls[i], "is-active");
         };
-        if (!element.classList.contains("js-spell-reset")) {
-          helper.addClass(element, "is-active");
+        if (!button.classList.contains("js-spell-reset")) {
+          helper.addClass(button, "is-active");
         };
       } else {
         spellRoot.dataset.spellState = "false";
-        helper.removeClass(element, "is-active");
+        helper.removeClass(button, "is-active");
         helper.removeClass(spellRoot, "is-state-prepare");
         helper.removeClass(spellRoot, "is-state-unprepare");
         helper.removeClass(spellRoot, "is-state-cast");
@@ -314,7 +339,7 @@ var spells = (function() {
       };
     } else {
       spellRoot.dataset.spellState = "false";
-      helper.removeClass(element, "is-active");
+      helper.removeClass(button, "is-active");
       helper.removeClass(spellRoot, "is-state-prepare");
       helper.removeClass(spellRoot, "is-state-unprepare");
       helper.removeClass(spellRoot, "is-state-cast");
@@ -340,12 +365,13 @@ var spells = (function() {
     };
   };
 
-  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast) {
+  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
     return {
       name: this.name = spellName,
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
-      cast: this.cast = spellCast || 0
+      cast: this.cast = spellCast || 0,
+      note: this.note = spellNote || ""
     };
   };
 

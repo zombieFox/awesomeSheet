@@ -1190,11 +1190,11 @@ var marika = (function() {
       },
       book: [{
         level_0: [
-          { name: "Mage Hand", prepared: 3, active: false, cast: 0 }
+          { name: "Mage Hand", prepared: 3, active: false, cast: 0, note: "" }
         ]
       }, {
         level_1: [
-          { name: "Unseen Servant", prepared: 2, active: false, cast: 0 }
+          { name: "Unseen Servant", prepared: 2, active: false, cast: 0, note: "" }
         ]
       }, {
         level_2: []
