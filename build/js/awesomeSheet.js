@@ -13058,37 +13058,65 @@ var spells = (function() {
 
   function _bind_spellKnownItem(element) {
     element.addEventListener("click", function() {
-      clearTimeout(storeSpellTimer);
-      storeSpellTimer = setTimeout(delayUpdate, 1000, this);
       _update_spellObject(this);
       _update_spellButton(this);
       _checkSpellState();
     }, false);
   };
 
+  // <label class="m-textarea-block-label js-textarea-block-label" for="statistics-feats">Feats</label>
+  // <div id="statistics-feats" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="statistics.feats" contentEditable="true" tabindex="3"></div>
+
   function _spellNoteModalContent(button) {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-    var div = document.createElement("div");
-    div.setAttribute("class", "m-spell-note");
-    var textareaBlock = document.createElement("div");
-    textareaBlock.setAttribute("class", "m-spell-note-textarea textarea u-full-width");
-    textareaBlock.setAttribute("contenteditable", "true");
-    textareaBlock.setAttribute("tabindex", "3");
-    textareaBlock.setAttribute("placeholder", "Spell range, casting time or duration? Anything else?");
-    textareaBlock.setAttribute("data-spell-level", spellLevel);
-    textareaBlock.setAttribute("data-spell-count", spellCount);
-    div.appendChild(textareaBlock);
+
+    var textareaBlockDiv = document.createElement("div");
+    textareaBlockDiv.setAttribute("class", "m-textarea-block m-textarea-block-modal js-textarea-block");
+
+    var textareaBlockLabel = document.createElement("label");
+    textareaBlockLabel.textContent = "Notes and details";
+    textareaBlockLabel.setAttribute("class", "m-textarea-block-label m-textarea-block-label-modal js-textarea-block-label");
+
+    var textareaBlockField = document.createElement("div");
+    textareaBlockField.setAttribute("class", "m-textarea-block-field m-textarea-block-field-modal textarea textarea-large u-full-width js-textarea-block-field");
+    textareaBlockField.setAttribute("contenteditable", "true");
+    textareaBlockField.setAttribute("tabindex", "3");
+    textareaBlockField.setAttribute("data-spell-level", spellLevel);
+    textareaBlockField.setAttribute("data-spell-count", spellCount);
+
+    textareaBlockDiv.appendChild(textareaBlockLabel);
+    textareaBlockDiv.appendChild(textareaBlockField);
+
+    textareaBlock.focus(textareaBlockDiv);
+
     if (typeof spellObject.note != "undefined" && spellObject.note != "") {
-      textareaBlock.innerHTML = spellObject.note;
+      textareaBlockField.innerHTML = spellObject.note;
     };
-    textareaBlock.addEventListener("paste", function(event) {
+
+    textareaBlockField.addEventListener("focus", function() {
+      textareaBlock.focus(this);
+    }, false);
+
+    textareaBlockField.addEventListener("blur", function() {
+      textareaBlock.focus(this);
+    }, false);
+
+    textareaBlockField.addEventListener("paste", function(event) {
       helper.pasteStrip(event);
     });
-    modal.render(spellObject.name + " Notes", div, "Save", function() {
-      return _storeSpellNote(textareaBlock);
+
+    textareaBlockLabel.addEventListener("click", function() {
+      textareaBlock.focusLabel(this);
+    }, false);
+
+    textareaBlock.update(textareaBlockField);
+
+    modal.render(spellObject.name, textareaBlockDiv, "Save", function() {
+      return _storeSpellNote(textareaBlockField);
     });
+
   };
 
   function _storeSpellNote(element) {
@@ -13096,6 +13124,9 @@ var spells = (function() {
     var spellCount = parseInt(element.dataset.spellCount, 10);
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
     spellObject.note = element.innerHTML;
+    if (spellObject.note == " " || spellObject.note == "&nbsp;" || spellObject.note == "<br/>" || spellObject.note == "<br>") {
+      spellObject.note = "";
+    };
     sheet.storeCharacters();
   };
 
@@ -13108,7 +13139,6 @@ var spells = (function() {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-    // state prepare
     if (spellState == "prepare") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
@@ -13118,18 +13148,14 @@ var spells = (function() {
       if (spellMarks.children.length > 0) {
         helper.addClass(button, "button-primary");
       };
-    };
-    // state unprepare
-    if (spellState == "unprepare") {
+    } else if (spellState == "unprepare") {
       if (spellMarks.lastChild) {
         spellMarks.lastChild.remove();
       };
       if (spellMarks.children.length <= 0) {
         helper.removeClass(button, "button-primary");
       };
-    };
-    // state cast
-    if (spellState == "cast") {
+    } else if (spellState == "cast") {
       var all_spellsMarks = spellMarks.children;
       var all_remainingPrepared = spellMarks.querySelectorAll(".js-spell-mark-checked").length;
       for (var i = 0; i < all_spellsMarks.length; i++) {
@@ -13158,9 +13184,7 @@ var spells = (function() {
           all_remainingPrepared--;
         };
       };
-    };
-    // state active
-    if (spellState == "active") {
+    } else if (spellState == "active") {
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon-play-arrow");
       if (spellActive.children.length > 0) {
@@ -13168,11 +13192,11 @@ var spells = (function() {
       } else {
         spellActive.appendChild(activeIcon);
       };
-    };
-    // state remove
-    if (spellState == "remove") {
+    } else if (spellState == "remove") {
       _destroy_spellBook(spellLevel);
       _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+    } else {
+      _spellNoteModalContent(button);
     };
   };
 
@@ -13181,7 +13205,6 @@ var spells = (function() {
     var spellState = spellRoot.dataset.spellState;
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
-    // state prepare
     if (spellState == "prepare") {
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 30) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++
@@ -13216,8 +13239,6 @@ var spells = (function() {
       _storeLastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
       snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restoreLastRemovedSpell, 6000);
-    } else {
-      _spellNoteModalContent(button);
     };
     sheet.storeCharacters();
   };
@@ -13328,8 +13349,6 @@ var spells = (function() {
       note: this.note = spellNote || ""
     };
   };
-
-  var storeSpellTimer = null;
 
   function delayUpdate() {
     var spellRoot = helper.e(".js-spells");

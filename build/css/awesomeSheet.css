@@ -2514,7 +2514,11 @@ label {
 
 .m-textarea-block {
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  font-size: 1rem; }
+
+.m-textarea-block-modal {
+  margin: 0 -2em -2em -2em; }
 
 .m-textarea-block-label {
   margin: 0;
@@ -2533,13 +2537,29 @@ label {
     top: -1.5em;
     left: 0;
     color: #cccccc;
-    font-size: 0.75rem;
+    font-size: 0.75em;
     height: 1em;
     line-height: 1em; }
+
+.m-textarea-block-label-modal {
+  top: 1.6em;
+  left: 2em; }
+  .m-textarea-block-label-modal.is-active {
+    left: 2.75em; }
 
 .m-textarea-block-field {
   position: relative;
   z-index: 1; }
+
+.m-textarea-block-field-modal {
+  margin: 1.5em 0 0 0;
+  padding: 2em;
+  border: 0;
+  min-height: 30vh;
+  max-height: 50vh;
+  resize: none;
+  display: block;
+  overflow-y: auto; }
 
 .is-night-mode .m-textarea-block-label.is-active {
   color: #264f6e; }
@@ -2814,19 +2834,6 @@ label {
     .m-new-spell .m-new-spell-add [class*=" icon-"],
     .m-new-spell .m-new-spell-add [class^="icon-"] {
       margin: 0; }
-
-.m-spell-note {
-  margin: 0 -2em -2em -2em; }
-
-.m-spell-note-textarea {
-  margin: 0;
-  padding: 2em;
-  border: 0;
-  min-height: 20vh;
-  max-height: 50vh;
-  resize: none;
-  display: block;
-  overflow-y: auto; }
 
 .is-night-mode .m-spells.is-state-prepare .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-unprepare .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-cast .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-active .m-spell-book-known .m-spell {
   background-color: #264f6e;
