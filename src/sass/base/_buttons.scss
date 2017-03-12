@@ -113,10 +113,7 @@ button:not(:last-child) {
   [class*=" icon-"] {
     font-size: $font-size-150;
     display: inline-block;
-  }
-  [class^="icon-"]:not(:last-child),
-  [class*=" icon-"]:not(:last-child) {
-    margin-right: 0.3em;
+    margin-right: 0.4em;
   }
 }
 

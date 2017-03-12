@@ -10287,7 +10287,7 @@ var clone = (function() {
         textareaBlock.focus(this);
       }, false);
       textareaBlockField.addEventListener("paste", function(event) {
-        textareaBlock.pasteStrip(event);
+        helper.pasteStrip(event);
       });
     };
     if (textareaBlockLabel) {
@@ -10313,7 +10313,7 @@ var clone = (function() {
         textareaBlock.focus(this);
       }, false);
       textareaBlockField.addEventListener("paste", function(event) {
-        textareaBlock.pasteStrip(event);
+        helper.pasteStrip(event);
       });
     };
     if (textareaBlockLabel) {
