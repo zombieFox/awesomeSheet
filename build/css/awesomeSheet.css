@@ -1647,6 +1647,8 @@ label {
   z-index: 1000; }
   .l-section.is-pinned {
     padding-top: 40px; }
+  .l-section:last-of-type {
+    min-height: 60vh; }
 
 .l-section-dark {
   background-color: #2a5d84; }
@@ -2296,8 +2298,7 @@ label {
     overflow: hidden;
     transition: all 0.1s ease-in-out 0s; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0 0.5em;
       margin: 0;
       font-size: 1.5em;
       border-radius: 0 3px 0 3px; }
@@ -2325,7 +2326,7 @@ label {
     visibility: hidden; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
     background-color: #ffe3ea;
-    padding: 1em 5em 0 1em;
+    padding: 1em 4em 0 1em;
     border-radius: 3px; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
     border-color: rgba(252, 0, 66, 0.15); }
@@ -2334,7 +2335,7 @@ label {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);
-    transition: all 0.1s ease-in-out 0.2s; }
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.2s; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone:last-child {
     margin: 0 0 1em 0; }
 
@@ -2702,6 +2703,9 @@ label {
 
 .m-skill.m-skill-variant .m-skill-variant-name {
   width: 20%; }
+
+.m-skill:last-of-type {
+  margin-bottom: 1.5rem; }
 
 @media (min-width: 700px) {
   .m-skill.m-skill-custom .m-skill-name {

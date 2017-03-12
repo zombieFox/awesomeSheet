@@ -112,15 +112,6 @@ var nav = (function() {
   function render() {
     _createAllCharacter();
     _render_quickNav();
-    lastSectionHeight();
-  };
-
-  function lastSectionHeight() {
-    var all_sectionEdit = helper.eA(".js-section-edit");
-    var lastSection = all_sectionEdit[all_sectionEdit.length - 1];
-    if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-      lastSection.style.minHeight = window.innerHeight + "px";
-    };
   };
 
   function _render_quickNav() {
@@ -285,17 +276,6 @@ var nav = (function() {
     };
   };
 
-  // function resize() {
-  //   var body = helper.e("body");
-  //   var nav = helper.e(".js-nav");
-  //   if (window.innerWidth >= 550) {
-  //     var height = window.innerHeight - 60;
-  //     nav.style.maxHeight = height + "px";
-  //   } else {
-  //     nav.removeAttribute("style");
-  //   };
-  // };
-
   function bind() {
     var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
@@ -434,8 +414,6 @@ var nav = (function() {
 
   // exposed methods
   return {
-    // resize: resize,
-    lastSectionHeight: lastSectionHeight,
     bind: bind,
     clear: clear,
     render: render,
