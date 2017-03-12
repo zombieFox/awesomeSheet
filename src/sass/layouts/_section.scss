@@ -4,6 +4,9 @@
   &.is-pinned {
     padding-top: 40px;
   }
+  &:last-of-type {
+    min-height: 60vh;
+  }
 }
 
 .l-section-dark {

@@ -242,8 +242,6 @@ var display = (function() {
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
-      // resize last section
-      nav.lastSectionHeight();
       // scroll to
       window.scrollTo(0, scrollTopEdit);
     };
