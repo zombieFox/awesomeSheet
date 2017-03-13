@@ -362,7 +362,9 @@ var clone = (function() {
       };
       // add content
       newClone.innerHTML = cloneString;
-      newClone.appendChild(newCloneFlash);
+      if (cloneBlock.dataset.deleteCloneState == "false" || !cloneBlock.dataset.deleteCloneState) {
+        newClone.appendChild(newCloneFlash);
+      };
       // max of 100 clones
       if (cloneCount <= 99) {
         // append new clone
