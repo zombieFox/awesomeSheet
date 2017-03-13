@@ -9874,10 +9874,15 @@ var clone = (function() {
         index = cloneCount;
       };
       // make new clone node
-      var newNode = document.createElement("div");
-      newNode.setAttribute("class", "m-clone js-clone");
-      newNode.setAttribute("data-clone-count", index);
-      // newNode.setAttribute("data-attack-type", cloneType);
+      var newClone = document.createElement("div");
+      newClone.setAttribute("class", "m-clone js-clone");
+      newClone.setAttribute("data-clone-count", index);
+      var newCloneFlash = document.createElement("span");
+      newCloneFlash.setAttribute("class", "m-clone-flash");
+      newCloneFlash.addEventListener("animationend", function(event, elapsed) {
+        this.remove();
+      }.bind(newCloneFlash), false);
+      // newClone.setAttribute("data-attack-type", cloneType);
       if (cloneType == "consumable") {
         cloneString = _newConsumable(index);
       };
@@ -9894,28 +9899,31 @@ var clone = (function() {
         cloneString = _newNoteStory(index);
       };
       // add content
-      newNode.innerHTML = cloneString;
+      newClone.innerHTML = cloneString;
+      if (cloneBlock.dataset.deleteCloneState == "false" || !cloneBlock.dataset.deleteCloneState) {
+        newClone.appendChild(newCloneFlash);
+      };
       // max of 100 clones
       if (cloneCount <= 99) {
         // append new clone
-        cloneTarget.appendChild(newNode);
+        cloneTarget.appendChild(newClone);
         // bind listeners
         if (cloneType == "consumable") {
-          _bind_cloneConsumableInput(newNode.querySelectorAll(".js-input-block"));
+          _bind_cloneConsumableInput(newClone.querySelectorAll(".js-input-block"));
         };
         if (cloneType == "attack-melee") {
-          _bind_cloneAttackMeleeInput(newNode.querySelectorAll(".js-input-block"));
+          _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
         };
         if (cloneType == "attack-ranged") {
-          _bind_cloneAttackRangedInput(newNode.querySelectorAll(".js-input-block"));
+          _bind_cloneAttackRangedInput(newClone.querySelectorAll(".js-input-block"));
         };
         if (cloneType == "note-character") {
-          _bind_cloneNoteCharacterTextarea(newNode.querySelector(".js-textarea-block"));
+          _bind_cloneNoteCharacterTextarea(newClone.querySelector(".js-textarea-block"));
         };
         if (cloneType == "note-story") {
-          _bind_cloneNoteStoryTextarea(newNode.querySelector(".js-textarea-block"));
+          _bind_cloneNoteStoryTextarea(newClone.querySelector(".js-textarea-block"));
         };
-        _bind_cloneRemoveButton(newNode.querySelector(".js-clone-block-delete"), cloneType);
+        _bind_cloneRemoveButton(newClone.querySelector(".js-clone-block-delete"), cloneType);
       };
     };
   };
