@@ -339,7 +339,7 @@ var clone = (function() {
       var newClone = document.createElement("div");
       newClone.setAttribute("class", "m-clone js-clone");
       newClone.setAttribute("data-clone-count", index);
-      var newCloneFlash = document.createElement("div");
+      var newCloneFlash = document.createElement("span");
       newCloneFlash.setAttribute("class", "m-clone-flash");
       newCloneFlash.addEventListener("animationend", function(event, elapsed) {
         this.remove();
