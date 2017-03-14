@@ -21,22 +21,22 @@ var spells = (function() {
       }, false);
     };
     spellPrepareButton.addEventListener("click", function() {
-      _changeSpellState(this);
+      _change_spellState(this);
     }, false);
     spellUnprepareButton.addEventListener("click", function() {
-      _changeSpellState(this);
+      _change_spellState(this);
     }, false);
     spellCastButton.addEventListener("click", function() {
-      _changeSpellState(this);
+      _change_spellState(this);
     }, false);
     spellActiveButton.addEventListener("click", function() {
-      _changeSpellState(this);
+      _change_spellState(this);
     }, false);
     spellRemoveButton.addEventListener("click", function() {
-      _changeSpellState(this);
+      _change_spellState(this);
     }, false);
     spellResetButton.addEventListener("click", function() {
-      _changeSpellState(this);
+      _change_spellState(this);
       _resetAllSpells();
     }, false);
   };
@@ -44,18 +44,17 @@ var spells = (function() {
   function _addNewSpell(element) {
     var spellLevel = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
     var spellName = element.value;
-    var newSpell = new _createSpellObject(spellName, 0, false, 0);
+    var newSpell = new _create_spellObject(spellName, 0, false, 0);
     // if input value is not empty
     if (spellName !== "") {
       //  if first character is not a number
       if (isNaN(spellName.charAt(0))) {
         // add spell to current character known spells
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
-        _destroy_spellBook(spellLevel);
-        _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+        var newSpellIndex = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].length - 1;
+        _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
         // clear input field
         element.value = "";
-        snack.render(helper.truncate(spellName, 40, true) + " added to spell level " + spellLevel + ".");
       } else {
         // error if the name starts with a number
         snack.render("Name can't start with a space or number.");
@@ -109,9 +108,6 @@ var spells = (function() {
       _checkSpellState();
     }, false);
   };
-
-  // <label class="m-textarea-block-label js-textarea-block-label" for="statistics-feats">Feats</label>
-  // <div id="statistics-feats" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="statistics.feats" contentEditable="true" tabindex="3"></div>
 
   function _spellNoteModalContent(button) {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
@@ -240,7 +236,7 @@ var spells = (function() {
       };
     } else if (spellState == "remove") {
       _destroy_spellBook(spellLevel);
-      _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+      _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
     } else {
       _spellNoteModalContent(button);
     };
@@ -312,11 +308,11 @@ var spells = (function() {
   function _restoreSpellObject(spellLevel, spellCount, spell) {
     sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
     _destroy_spellBook(spellLevel);
-    _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+    _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
     sheet.storeCharacters();
   };
 
-  function _changeSpellState(button) {
+  function _change_spellState(button) {
     var all_spellLevels = helper.eA(".js-spell-book-known");
     var spellsFound = false;
     var spellRoot = helper.e(".js-spells");
@@ -386,9 +382,9 @@ var spells = (function() {
     };
   };
 
-  function _createSpellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
+  function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
     return {
-      name: this.name = spellName,
+      name: this.name = spellName || "",
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
       cast: this.cast = spellCast || 0,
@@ -416,13 +412,26 @@ var spells = (function() {
       for (var i in sheet.getCharacter().spells.book) {
         for (var j in sheet.getCharacter().spells.book[i]) {
           spellsToRender = sheet.getCharacter().spells.book[i][j];
-          _render_spell(spellsToRender, i);
+          _render_all_spells(spellsToRender, i);
         };
       };
     };
   };
 
-  function _render_spell(array, level) {
+  function _render_spell(spellObject, level, spellIndex) {
+    // read spell and add them to spell lists
+    var spellButtonCol = document.createElement("div");
+    spellButtonCol.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
+    // find spell list to add too
+    var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
+    // append new spell to spell list
+    var spellButton = _create_spellButton(spellObject, level, spellIndex, true);
+    spellButtonCol.appendChild(spellButton);
+    knownListToSaveTo.appendChild(spellButtonCol);
+    _bind_spellKnownItem(spellButton);
+  };
+
+  function _render_all_spells(array, level) {
     // console.log(array, level);
     // read spells and add them to spell lists
     for (var i = 0; i < array.length; i++) {
@@ -432,14 +441,14 @@ var spells = (function() {
       // find spell list to add too
       var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
       // append new spell to spell list
-      var spellButton = _createSpellButton(spellObject, level, i);
+      var spellButton = _create_spellButton(spellObject, level, i);
       spellButtonCol.appendChild(spellButton);
       knownListToSaveTo.appendChild(spellButtonCol);
       _bind_spellKnownItem(spellButton);
     };
   };
 
-  function _createSpellButton(spellObject, level, index) {
+  function _create_spellButton(spellObject, level, index, newSpell) {
     var spellButton = document.createElement("button");
     spellButton.setAttribute("data-spell-level", level);
     spellButton.setAttribute("data-spell-count", index);
@@ -490,6 +499,14 @@ var spells = (function() {
     var spellRemoveIcon = document.createElement("span");
     spellRemoveIcon.setAttribute("class", "icon-close");
     spellRemove.appendChild(spellRemoveIcon);
+    if (newSpell) {
+      var newSpellFlash = document.createElement("span");
+      newSpellFlash.setAttribute("class", "m-spell-flash");
+      newSpellFlash.addEventListener("animationend", function(event, elapsed) {
+        this.remove();
+      }.bind(newSpellFlash), false);
+      spellButton.appendChild(newSpellFlash);
+    };
     return spellButton;
   };
 

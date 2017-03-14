@@ -1629,6 +1629,29 @@ label {
 .u-clearfix:after {
   clear: both; }
 
+@keyframes new-flash {
+  0% {
+    border-width: 0;
+    transform: translate(-50%, -50%); }
+  25% {
+    width: 0;
+    height: 0;
+    border-color: #970027; }
+  50% {
+    width: 30px;
+    height: 30px;
+    border-width: 10px;
+    border-color: #fd0042; }
+  90% {
+    opacity: 1; }
+  100% {
+    width: 60px;
+    height: 60px;
+    border-width: 0;
+    border-color: transparent;
+    transform: translate(-50%, -50%);
+    opacity: 0; } }
+
 .style-guide {
   margin: 50px 0; }
 
@@ -2303,7 +2326,7 @@ label {
     transition: border-color 0.1s ease-in-out; }
 
 .m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-flash {
-  animation: clone-flash ease-in-out 0.6s; }
+  animation: new-flash ease-in 0.6s; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 0.25em 0; }
@@ -2347,27 +2370,6 @@ label {
 
 .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
   border-color: #64001a; }
-
-@keyframes clone-flash {
-  0% {
-    border-width: 0;
-    transform: translate(-50%, -50%); }
-  25% {
-    width: 0;
-    height: 0;
-    border-width: 20px;
-    border-color: #970027; }
-  50% {
-    width: 10px;
-    height: 10px;
-    border-color: #fd0042; }
-  90% {
-    border-color: transparent; }
-  100% {
-    width: 30px;
-    height: 30px;
-    border-width: 0;
-    transform: translate(-50%, -50%); } }
 
 .m-hamburger {
   position: relative;
@@ -2760,6 +2762,9 @@ label {
     display: block;
     visibility: visible; }
 
+.m-spells:not(.is-state-remove) .m-spell .m-spell-flash {
+  animation: new-flash ease-in 0.6s; }
+
 .m-spell-book .m-spell-book-known {
   margin: 0 0 2rem 0;
   display: -ms-flexbox;
@@ -2776,13 +2781,25 @@ label {
   margin: 0 0 0.3em 0;
   width: 100%;
   text-align: left;
-  overflow: hidden;
   position: relative;
   white-space: normal;
   font-size: 1rem;
   line-height: 1.6666666667;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   display: block; }
+  .m-spell .m-spell-flash {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    border-radius: 100%;
+    z-index: 2; }
   .m-spell .m-spell-active [class*=" icon-"],
   .m-spell .m-spell-active [class^="icon-"],
   .m-spell .m-spell-name [class*=" icon-"],
@@ -2806,7 +2823,8 @@ label {
       margin: 0; }
   .m-spell .m-spell-name {
     white-space: nowrap;
-    overflow: hidden; }
+    overflow: hidden;
+    max-width: 100%; }
   .m-spell .m-spell-marks {
     float: right;
     display: block;
