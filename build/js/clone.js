@@ -300,13 +300,13 @@ var clone = (function() {
 
   function _checkMaxClones(cloneType) {
     if (cloneType == "attack-melee") {
-      snack.render("Max 100, do you need that many consumables?");
-    };
-    if (cloneType == "attack-ranged") {
       snack.render("Max 100, do you need that many melee attacks?");
     };
-    if (cloneType == "consumable") {
+    if (cloneType == "attack-ranged") {
       snack.render("Max 100, do you need that many ranged attacks?");
+    };
+    if (cloneType == "consumable") {
+      snack.render("Max 100, do you need that many consumables?");
     };
     if (cloneType == "note-character") {
       snack.render("Max 100, do you need that many character notes?");
