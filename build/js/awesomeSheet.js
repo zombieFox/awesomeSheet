@@ -9832,11 +9832,11 @@ var clone = (function() {
       _render_clone(cloneType);
       _smoothScrollToClones(cloneType);
     } else {
-      _checkMaxClones(cloneType);
+      _render_tooManyClonesSnack(cloneType);
     };
   };
 
-  function _checkMaxClones(cloneType) {
+  function _render_tooManyClonesSnack(cloneType) {
     if (cloneType == "attack-melee") {
       snack.render("Max 100, do you need that many melee attacks?");
     };
@@ -10419,7 +10419,7 @@ var clone = (function() {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
     };
-    // if clone count us 0 remove restore all classes to normal
+    // if clone count is 0 restore all classes to normal
     if (cloneCount == 0) {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
@@ -13082,24 +13082,16 @@ var spells = (function() {
   };
 
   function _resetAllSpells() {
-    var all_spellLevels = helper.eA(".js-spell-book-known");
-    var spellsFound = false;
-    for (var i = 0; i < all_spellLevels.length; i++) {
-      if (all_spellLevels[i].children.length > 0) {
-        spellsFound = true;
-      };
-    };
-    if (spellsFound) {
-      var resetSpells = function() {
-        if (sheet.getCharacter().spells.book) {
-          for (var i in sheet.getCharacter().spells.book) {
-            for (var j in sheet.getCharacter().spells.book[i]) {
-              for (var k in sheet.getCharacter().spells.book[i][j]) {
-                sheet.getCharacter().spells.book[i][j][k].prepared = 0;
-                sheet.getCharacter().spells.book[i][j][k].cast = 0;
-                sheet.getCharacter().spells.book[i][j][k].active = false;
-                // console.log(sheet.getCharacter().spells.book[i][j][k]);
-              };
+    var all_spells = helper.eA(".js-spell");
+    if (all_spells.length > 0) {
+      var _resetSpells = function() {
+        for (var i in sheet.getCharacter().spells.book) {
+          for (var j in sheet.getCharacter().spells.book[i]) {
+            for (var k in sheet.getCharacter().spells.book[i][j]) {
+              sheet.getCharacter().spells.book[i][j][k].prepared = 0;
+              sheet.getCharacter().spells.book[i][j][k].cast = 0;
+              sheet.getCharacter().spells.book[i][j][k].active = false;
+              // console.log(sheet.getCharacter().spells.book[i][j][k]);
             };
           };
         };
@@ -13108,7 +13100,7 @@ var spells = (function() {
         sheet.storeCharacters();
         snack.render("All spells reset.");
       };
-      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", resetSpells, false, false, false);
+      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetSpells, false, false, false);
     };
   };
 

@@ -71,24 +71,16 @@ var spells = (function() {
   };
 
   function _resetAllSpells() {
-    var all_spellLevels = helper.eA(".js-spell-book-known");
-    var spellsFound = false;
-    for (var i = 0; i < all_spellLevels.length; i++) {
-      if (all_spellLevels[i].children.length > 0) {
-        spellsFound = true;
-      };
-    };
-    if (spellsFound) {
-      var resetSpells = function() {
-        if (sheet.getCharacter().spells.book) {
-          for (var i in sheet.getCharacter().spells.book) {
-            for (var j in sheet.getCharacter().spells.book[i]) {
-              for (var k in sheet.getCharacter().spells.book[i][j]) {
-                sheet.getCharacter().spells.book[i][j][k].prepared = 0;
-                sheet.getCharacter().spells.book[i][j][k].cast = 0;
-                sheet.getCharacter().spells.book[i][j][k].active = false;
-                // console.log(sheet.getCharacter().spells.book[i][j][k]);
-              };
+    var all_spells = helper.eA(".js-spell");
+    if (all_spells.length > 0) {
+      var _resetSpells = function() {
+        for (var i in sheet.getCharacter().spells.book) {
+          for (var j in sheet.getCharacter().spells.book[i]) {
+            for (var k in sheet.getCharacter().spells.book[i][j]) {
+              sheet.getCharacter().spells.book[i][j][k].prepared = 0;
+              sheet.getCharacter().spells.book[i][j][k].cast = 0;
+              sheet.getCharacter().spells.book[i][j][k].active = false;
+              // console.log(sheet.getCharacter().spells.book[i][j][k]);
             };
           };
         };
@@ -97,7 +89,7 @@ var spells = (function() {
         sheet.storeCharacters();
         snack.render("All spells reset.");
       };
-      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", resetSpells, false, false, false);
+      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetSpells, false, false, false);
     };
   };
 
