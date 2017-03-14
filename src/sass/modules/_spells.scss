@@ -67,7 +67,7 @@
   &:not(.is-state-remove) {
     .m-spell {
       .m-spell-flash {
-        animation: new-flash ease-in 0.6s;
+        animation: new-flash ease-in 0.4s 2;
       }
     }
   }
@@ -119,11 +119,11 @@
   .m-spell-active,
   .m-spell-name {
     float: left;
-    margin: 0 5px 0 0;
     display: block;
     text-transform: none;
   }
   .m-spell-active {
+    margin: 0 5px 0 0;
     visibility: visible;
     [class*=" icon-"],
     [class^="icon-"] {
@@ -148,13 +148,12 @@
   }
   .m-spell-remove {
     float: right;
-    margin: 0 0 0 5px;
     display: none;
     visibility: hidden;
     [class*=" icon-"],
     [class^="icon-"] {
       float: right;
-      margin: 0 0 0 1px;
+      margin: 0;
     }
   }
 }
@@ -166,8 +165,8 @@
     padding-right: 4em;
   }
   .m-new-spell-add {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     position: absolute;
     top: 0;
     right: 0;
