@@ -1,0 +1,28 @@
+@keyframes new-flash {
+  0% {
+    border-width: 0;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    width: 0;
+    height: 0;
+    border-color: $primary-color-06;
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+    border-width: 10px;
+    border-color: $primary-color-10;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    border-width: 0;
+    border-color: transparent;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}

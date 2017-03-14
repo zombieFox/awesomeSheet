@@ -64,6 +64,13 @@
       }
     }
   }
+  &:not(.is-state-remove) {
+    .m-spell {
+      .m-spell-flash {
+        animation: new-flash ease-in 0.6s;
+      }
+    }
+  }
 }
 
 .m-spell-book {
@@ -81,13 +88,25 @@
   margin: 0 0 0.3em 0;
   width: 100%;
   text-align: left;
-  overflow: hidden;
   position: relative;
   white-space: normal;
   font-size: $font-size-root-100;
   line-height: $line-height-160;
   font-family: $open-sans-regular;
   display: block;
+  .m-spell-flash {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    z-index: 2;
+  }
   .m-spell-active,
   .m-spell-name,
   .m-spell-marks,
@@ -115,6 +134,7 @@
   .m-spell-name {
     white-space: nowrap;
     overflow: hidden;
+    max-width: 100%;
   }
   .m-spell-marks {
     float: right;
