@@ -294,11 +294,11 @@ var clone = (function() {
       _render_clone(cloneType);
       _smoothScrollToClones(cloneType);
     } else {
-      _checkMaxClones(cloneType);
+      _render_tooManyClonesSnack(cloneType);
     };
   };
 
-  function _checkMaxClones(cloneType) {
+  function _render_tooManyClonesSnack(cloneType) {
     if (cloneType == "attack-melee") {
       snack.render("Max 100, do you need that many melee attacks?");
     };
@@ -881,7 +881,7 @@ var clone = (function() {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
     };
-    // if clone count us 0 remove restore all classes to normal
+    // if clone count is 0 restore all classes to normal
     if (cloneCount == 0) {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
