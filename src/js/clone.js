@@ -38,7 +38,7 @@ var clone = (function() {
 
   function _newConsumable(index) {
     var cloneString =
-      '<div class="m-clone-block-content">' +
+      '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="js-total-block">' +
@@ -77,7 +77,7 @@ var clone = (function() {
 
   function _newAttackMelee(index) {
     var cloneString =
-      '<div class="m-clone-block-content">' +
+      '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
@@ -117,7 +117,7 @@ var clone = (function() {
 
   function _newAttackRanged(index) {
     var cloneString =
-      '<div class="m-clone-block-content">' +
+      '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
@@ -169,7 +169,7 @@ var clone = (function() {
 
   function _newNoteCharacter(index) {
     var cloneString =
-      '<div class="m-clone-block-content">' +
+      '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="m-textarea-block js-textarea-block">' +
@@ -187,7 +187,7 @@ var clone = (function() {
 
   function _newNoteStory(index) {
     var cloneString =
-      '<div class="m-clone-block-content">' +
+      '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="m-textarea-block js-textarea-block">' +
@@ -430,9 +430,13 @@ var clone = (function() {
       this.remove();
     }.bind(newCloneFlash), false);
     var cloneBlockDelete = newClone.querySelector(".js-clone-block-delete");
+    var cloneBlockContent = newClone.querySelector(".js-clone-block-content");
+    helper.addClass(cloneBlockContent, "is-small");
     newClone.appendChild(newCloneFlash);
     // append new clone
     cloneTarget.appendChild(newClone);
+    getComputedStyle(cloneBlockContent).transform;
+    helper.removeClass(cloneBlockContent, "is-small");
     // bind listeners
     _bind_clone(cloneType, newClone);
     _bind_cloneRemoveButton(cloneBlockDelete, cloneType);
