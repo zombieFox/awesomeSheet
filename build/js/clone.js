@@ -225,7 +225,7 @@ var clone = (function() {
     var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
     if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + subHeaderHeight + 20)) {
       var options = {
-        offset: quickNavHeight + subHeaderHeight + 100
+        offset: quickNavHeight + subHeaderHeight + 40
       };
       if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
         smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
