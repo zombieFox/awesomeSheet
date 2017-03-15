@@ -64,7 +64,7 @@ var nefi = (function() {
       special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 2"
     },
     equipment: {
-      gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet",
+      gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Cloak of Resistance +1",
       encumbrance: {
         light: "173 lbs or less",
@@ -111,7 +111,7 @@ var nefi = (function() {
         shield: "",
         deflect: 1,
         dodge: 1,
-        natural: 4,
+        natural: 1,
         size_bonus: "",
         check_penalty: -3,
         current: "",
