@@ -4,8 +4,13 @@
   &.is-pinned {
     padding-top: 40px;
   }
-  &:last-of-type {
-    min-height: 100vh;
+}
+
+body:not(.is-display-mode) {
+  .l-section {
+    &:last-of-type {
+      min-height: 100vh;
+    }
   }
 }
 
