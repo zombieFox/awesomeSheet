@@ -140,7 +140,7 @@ var nav = (function() {
             };
           };
 
-          if (all_sectionEdit[i].getBoundingClientRect().top <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
+          if ((all_sectionEdit[i].getBoundingClientRect().top - 2 ) <= menu && all_sectionEdit[i].getBoundingClientRect().bottom > menu) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
               helper.removeClass(all_quickNavLinks[j], "is-active");
             };
