@@ -9,7 +9,7 @@ var orrin = (function() {
       level: "8",
       size: "Medium",
       alignment: "Lawful Evil",
-      xp: "38,811",
+      xp: "45,051",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
