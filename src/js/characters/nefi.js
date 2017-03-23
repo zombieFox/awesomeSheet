@@ -6,10 +6,10 @@ var nefi = (function() {
       name: "Nefi Fefi",
       race: "Human",
       class: "Fighter",
-      level: "10",
+      level: "11",
       size: "Medium",
       alignment: "Neutral",
-      xp: "105,000",
+      xp: "155,000",
       height: "6'2",
       weight: "202 lbs",
       age: "28",
@@ -28,7 +28,7 @@ var nefi = (function() {
           temp_modifier: ""
         },
         dex: {
-          score: 14,
+          score: 16,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -58,14 +58,14 @@ var nefi = (function() {
           temp_modifier: ""
         }
       },
-      feats: "Weapon Focus (Guisarme), Iron Will, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Great Fortitude, Weapon Specialization (Guisarme)",
+      feats: "Weapon Focus (Guisarme), Iron Will, Great Fortitude, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Weapon Specialization (Guisarme), Furious Focus",
       traits: "Resilient, Adopted (Elven Reflexes)",
       languages: "Common, Elven, Draconic",
-      special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 2"
+      special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 3"
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
-      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Cloak of Resistance +1",
+      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stones (Deep red), Feather Token (Tree)",
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -73,7 +73,7 @@ var nefi = (function() {
       },
       body_slots: {
         armor: "Full Plate +2",
-        belts: "Belt of Giant's Strength +4",
+        belts: "Belt of Physical Might (+4 Str +2 Dex)",
         body: "",
         chest: "",
         eyes: "",
@@ -81,7 +81,7 @@ var nefi = (function() {
         hands: "",
         head: "Red Mantis Mask",
         headband: "",
-        neck: "Amulet of Natural Armor +1",
+        neck: "Amulet of Natural Armor +3",
         ring_left_hand: "Ring of Protection +1",
         ring_right_hand: "",
         shield: "",
@@ -90,7 +90,7 @@ var nefi = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "2,770",
+        gold: "870",
         silver: "",
         copper: ""
       },
@@ -98,20 +98,20 @@ var nefi = (function() {
     },
     defense: {
       hp: {
-        total: 88,
+        total: 96,
         temp: "",
         damage: "",
         non_lethal_damage: "",
         current: ""
       },
       ac: {
-        misc: "",
+        misc: 1,
         temp: "",
         armor: 11,
         shield: "",
         deflect: 1,
         dodge: 1,
-        natural: 1,
+        natural: 3,
         size_bonus: "",
         check_penalty: -3,
         current: "",
@@ -134,7 +134,7 @@ var nefi = (function() {
         }
       },
       flat_footed: {
-        misc: "",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -153,7 +153,7 @@ var nefi = (function() {
         }
       },
       touch: {
-        misc: "",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -295,48 +295,48 @@ var nefi = (function() {
       attack: {
         melee: [{
           weapon: "Guisarme +1 Keen",
-          attack: "20/15",
+          attack: "21/16/11",
           damage: "2d4+12",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
-          attack: "17/12",
+          attack: "18/13/8",
           damage: "2d4+18",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
-          attack: "23",
+          attack: "24",
           damage: "",
           critical: ""
         }, {
           weapon: "Greatsword MW",
-          attack: "17/12",
+          attack: "18/13/8",
           damage: "1d10+8",
           critical: "19–20/x2"
         }, {
           weapon: "Greatsword MW Power Attack",
-          attack: "14/9",
+          attack: "15/10/5",
           damage: "1d10+14",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
-          attack: "18/13",
+          attack: "19/14/9",
           damage: "1d8+10",
           critical: "x3"
         }, {
           weapon: "Halberd MW Power Attack",
-          attack: "15/9",
+          attack: "16/10/5",
           damage: "1d8+16",
           critical: "x3"
         }, {
           weapon: "Earthbreaker +1 Frost",
-          attack: "16/11",
+          attack: "17/12/7",
           damage: "2d6+8 1d6 (cold)",
           critical: "x3"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
-          attack: "12/7",
+          attack: "13/8/3",
           damage: "1d8+5",
           critical: "x3",
           range: "100 ft",
@@ -402,7 +402,7 @@ var nefi = (function() {
         }
       },
       climb: {
-        ranks: 2,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -778,7 +778,7 @@ var nefi = (function() {
         }
       },
       perception: {
-        ranks: 10,
+        ranks: 11,
         misc: "",
         current: "",
         bonuses: {
@@ -867,7 +867,7 @@ var nefi = (function() {
         }
       },
       ride: {
-        ranks: 8,
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -1224,7 +1224,7 @@ var nefi = (function() {
       character: [{
         note: "<strong>Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
       }, {
-        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat<br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage<br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn<br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity<br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you<br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent<br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus.<br><strong>Weapon Specialization</strong> You gain a +2 bonus on all damage rolls you make using the selected weapon."
+        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat<br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage<br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn<br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity<br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you<br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent<br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus.<br><strong>Weapon Specialization</strong> You gain a +2 bonus on all damage rolls you make using the selected weapon.<br><strong>Furious Focus</strong> When you are wielding a two-handed weapon or a one-handed weapon with two hands, and using the Power Attack feat, you do not suffer Power Attack's penalty on melee attack rolls on the first attack you make each turn. You still suffer the penalty on any additional attacks, including attacks of opportunity."
       }, {
         note: "<strong>Bonus feat (5)</strong> At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\" </span>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.<br><strong>Bravery (Ex)</strong> Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.<br><strong>Weapon training 2 (Pole Arms +2, Blades, Heavy +1)</strong> Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls. </span>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups. </span>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.<br><strong>Armor Training (Ex)</strong> Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed. In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor."
       }, {
