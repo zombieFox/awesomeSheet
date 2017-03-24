@@ -126,12 +126,12 @@
 }
 
 .m-clone-placeholder {
-  // background-color: $secondary-color-alpha-20;
   width: 100%;
-  min-height: 6em;
   border: 1px solid $secondary-color-alpha-18;
   border-radius: $border-radius-large;
-  margin: 0 0 2em 0;
+  margin: 0 0 3em 0;
+  padding: 2em 3em;
+  box-sizing: border-box;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;

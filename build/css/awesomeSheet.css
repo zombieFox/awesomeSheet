@@ -2360,10 +2360,11 @@ body:not(.is-display-mode) .l-section:last-of-type {
 
 .m-clone-placeholder {
   width: 100%;
-  min-height: 6em;
   border: 1px solid rgba(50, 136, 201, 0.15);
   border-radius: 4px;
-  margin: 0 0 2em 0;
+  margin: 0 0 3em 0;
+  padding: 2em 3em;
+  box-sizing: border-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column wrap;
