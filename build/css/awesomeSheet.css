@@ -2362,7 +2362,7 @@ body:not(.is-display-mode) .l-section:last-of-type {
   width: 100%;
   border: 1px solid rgba(50, 136, 201, 0.15);
   border-radius: 4px;
-  margin: 0 0 3em 0;
+  margin: 0 0 2em 0;
   padding: 2em 3em;
   box-sizing: border-box;
   display: -ms-flexbox;
