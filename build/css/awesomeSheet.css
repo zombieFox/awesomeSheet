@@ -2326,7 +2326,7 @@ body:not(.is-display-mode) .l-section:last-of-type {
     transition: border-color 0.1s ease-in-out; }
 
 .m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-flash {
-  animation: new-flash ease-in 0.4s 1; }
+  animation: new-flash ease-in 0.4s 2; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 0.25em 0; }
