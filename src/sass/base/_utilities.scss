@@ -49,6 +49,13 @@
   font-size: $font-size-075;
 }
 
+.u-muted-text {
+  color: $gray-12;
+  strong {
+    color: $gray-06;
+  }
+}
+
 .u-list-unstyled {
   padding-left: 0;
   margin-bottom: 0;

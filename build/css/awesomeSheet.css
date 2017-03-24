@@ -1613,6 +1613,11 @@ label {
   color: #999999;
   font-size: 0.75em; }
 
+.u-muted-text {
+  color: #999999; }
+  .u-muted-text strong {
+    color: #4d4d4d; }
+
 .u-list-unstyled {
   padding-left: 0;
   margin-bottom: 0; }
@@ -2321,7 +2326,7 @@ body:not(.is-display-mode) .l-section:last-of-type {
     transition: border-color 0.1s ease-in-out; }
 
 .m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-flash {
-  animation: new-flash ease-in 0.4s 2; }
+  animation: new-flash ease-in 0.4s 1; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 0.25em 0; }
@@ -2352,6 +2357,24 @@ body:not(.is-display-mode) .l-section:last-of-type {
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.2s; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone:last-child {
     margin: 0 0 1em 0; }
+
+.m-clone-placeholder {
+  width: 100%;
+  min-height: 6em;
+  border: 1px solid rgba(50, 136, 201, 0.15);
+  border-radius: 4px;
+  margin: 0 0 2em 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.m-clone-placeholder-description {
+  text-align: center;
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto; }
 
 .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
   background-color: #970027; }

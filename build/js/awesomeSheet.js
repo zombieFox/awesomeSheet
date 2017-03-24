@@ -9556,6 +9556,12 @@ var clone = (function() {
     _update_cloneInput(all_consumable, "consumable");
     _update_cloneTextarea(all_noteCharacter, "note-character");
     _update_cloneTextarea(all_noteStory, "note-story");
+
+    _update_clonePlaceholder("attack-melee");
+    _update_clonePlaceholder("attack-ranged");
+    _update_clonePlaceholder("consumable");
+    _update_clonePlaceholder("note-character");
+    _update_clonePlaceholder("note-story");
   };
 
   function _smoothScrollToClones(cloneType) {
@@ -9835,6 +9841,26 @@ var clone = (function() {
     return cloneCount;
   };
 
+  function _getClonePlaceholder(cloneType) {
+    var clonePlaceholder;
+    if (cloneType == "attack-melee") {
+      clonePlaceholder = helper.e(".js-clone-placeholder-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      clonePlaceholder = helper.e(".js-clone-placeholder-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      clonePlaceholder = helper.e(".js-clone-placeholder-consumable");
+    };
+    if (cloneType == "note-character") {
+      clonePlaceholder = helper.e(".js-clone-placeholder-note-character");
+    };
+    if (cloneType == "note-story") {
+      clonePlaceholder = helper.e(".js-clone-placeholder-note-story");
+    };
+    return clonePlaceholder;
+  };
+
   function _getRemoveCloneSnackMessage(cloneType) {
     var message;
     if (cloneType == "attack-melee") {
@@ -9878,6 +9904,7 @@ var clone = (function() {
       _storeLastRemovedClone(this, cloneType);
       _update_clones(this, cloneType);
       _checkCloneState(cloneType, true);
+      _update_clonePlaceholder(cloneType);
       sheet.storeCharacters();
     }, false);
   };
@@ -9940,6 +9967,7 @@ var clone = (function() {
     if (_getCloneCount(cloneType) <= 99) {
       _add_cloneObject(cloneType);
       _render_clone(cloneType);
+      _update_clonePlaceholder(cloneType);
       _smoothScrollToClones(cloneType);
     } else {
       _render_maxClonesSnack(cloneType);
@@ -10140,6 +10168,7 @@ var clone = (function() {
       _update_cloneTextarea(sheet.getCharacter().notes.story, undoData.cloneType);
     };
 
+    _update_clonePlaceholder(undoData.cloneType);
     _removeLastRemovedClone();
   };
 
@@ -10475,6 +10504,15 @@ var clone = (function() {
       var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
       var newStoryNote = new _create_noteStory(textarea);
       sheet.getCharacter().notes.story[cloneIndex] = newStoryNote;
+    };
+  };
+
+  function _update_clonePlaceholder(cloneType) {
+    var clonePlaceholder = _getClonePlaceholder(cloneType);
+    if (_getCloneCount(cloneType) == 0) {
+      helper.removeClass(clonePlaceholder, "is-hidden");
+    } else {
+      helper.addClass(clonePlaceholder, "is-hidden");
     };
   };
 
