@@ -9551,6 +9551,8 @@ var clone = (function() {
     _render_all_clones(all_noteCharacter.length, "note-character");
     _render_all_clones(all_noteStory.length, "note-story");
 
+    _upddate_consumableTotals();
+
     _update_cloneInput(all_attackMelee, "attack-melee");
     _update_cloneInput(all_attackRanged, "attack-ranged");
     _update_cloneInput(all_consumable, "consumable");
@@ -9562,6 +9564,14 @@ var clone = (function() {
     _update_clonePlaceholder("consumable");
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
+  };
+
+  function _upddate_consumableTotals() {
+    var all_consumable = sheet.getCharacter().equipment.consumable;
+    for (var i = 0; i < all_consumable.length; i++) {
+      var newCurrent = (parseInt(all_consumable[i].total, 10) || 0) - (parseInt(all_consumable[i].used, 10) || 0);
+      sheet.getCharacter().equipment.consumable[i].current = newCurrent;
+    };
   };
 
   function _smoothScrollToClones(cloneType) {
@@ -9981,7 +9991,7 @@ var clone = (function() {
   function _render_clone(cloneType) {
     var cloneTarget = _getCloneTarget(cloneType);
     var cloneLength = _getCloneCount(cloneType);
-    var cloneIndex = cloneLength -1;
+    var cloneIndex = cloneLength - 1;
     var cloneString = _getCloneString(cloneType, cloneIndex);
     // make new clone node
     var newClone = document.createElement("div");
@@ -10493,6 +10503,7 @@ var clone = (function() {
       var total = clone.querySelector(".js-clone-consumable-total").value;
       var used = clone.querySelector(".js-clone-consumable-used").value;
       var newConsumable = new _create_consumableObject(item, current, total, used);
+      console.log(newConsumable);
       sheet.getCharacter().equipment.consumable[cloneIndex] = newConsumable;
     };
     if (cloneType == "note-character") {
