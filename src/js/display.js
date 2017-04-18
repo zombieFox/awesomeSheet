@@ -259,7 +259,7 @@ var display = (function() {
     render();
   };
 
-  function clear() {
+  function clear___xxxx() {
     var all_displayItem = helper.eA(".js-display-block");
     var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
     var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
@@ -285,7 +285,69 @@ var display = (function() {
     _removeAllChildren(displayConsumable);
   };
 
+  function clear() {
+
+  };
+
+  function _render_stats(path, typeOfDisplay) {
+    var data;
+    if (path == "statistics.stats.str.score" && sheet.getCharacter().statistics.stats.str.temp) {
+      data = sheet.getCharacter().statistics.stats.str.temp_score;
+    } else if (path == "statistics.stats.dex.score" && sheet.getCharacter().statistics.stats.dex.temp) {
+      data = sheet.getCharacter().statistics.stats.dex.temp_score;
+    } else if (path == "statistics.stats.con.score" && sheet.getCharacter().statistics.stats.con.temp) {
+      data = sheet.getCharacter().statistics.stats.con.temp_score;
+    } else if (path == "statistics.stats.int.score" && sheet.getCharacter().statistics.stats.int.temp) {
+      data = sheet.getCharacter().statistics.stats.int.temp_score;
+    } else if (path == "statistics.stats.wis.score" && sheet.getCharacter().statistics.stats.wis.temp) {
+      data = sheet.getCharacter().statistics.stats.wis.temp_score;
+    } else if (path == "statistics.stats.cha.score" && sheet.getCharacter().statistics.stats.cha.temp) {
+      data = sheet.getCharacter().statistics.stats.cha.temp_score;
+    } else if (path == "statistics.stats.str.modifier" && sheet.getCharacter().statistics.stats.str.temp) {
+      data = sheet.getCharacter().statistics.stats.str.temp_modifier;
+    } else if (path == "statistics.stats.dex.modifier" && sheet.getCharacter().statistics.stats.dex.temp) {
+      data = sheet.getCharacter().statistics.stats.dex.temp_modifier;
+    } else if (path == "statistics.stats.con.modifier" && sheet.getCharacter().statistics.stats.con.temp) {
+      data = sheet.getCharacter().statistics.stats.con.temp_modifier;
+    } else if (path == "statistics.stats.int.modifier" && sheet.getCharacter().statistics.stats.int.temp) {
+      data = sheet.getCharacter().statistics.stats.int.temp_modifier;
+    } else if (path == "statistics.stats.wis.modifier" && sheet.getCharacter().statistics.stats.wis.temp) {
+      data = sheet.getCharacter().statistics.stats.wis.temp_modifier;
+    } else if (path == "statistics.stats.cha.modifier" && sheet.getCharacter().statistics.stats.cha.temp) {
+      data = sheet.getCharacter().statistics.stats.cha.temp_modifier;
+    } else {
+      data = helper.getObject(sheet.getCharacter(), path);
+    };
+    if (typeof data == "undefined" || data == "") {
+      data = 0;
+    };
+    return data;
+  };
+
   function render() {
+    var all_displayBlock = helper.eA(".js-display-block");
+
+    for (var i = 0; i < all_displayBlock.length; i++) {
+      var target = all_displayBlock[i].querySelector(".js-display-block-target");
+      var itemsToDisplay;
+      if (all_displayBlock[i].dataset.display) {
+        itemsToDisplay = all_displayBlock[i].dataset.display.split(',');
+      };
+      for (var j = 0; j < itemsToDisplay.length; j++) {
+        var path = itemsToDisplay[j];
+        var data = _render_stats(path);
+        // console.log("\t", data);
+        if (typeof data != "undefined" && data != "" || data == 0) {
+          var text = document.createElement("span");
+          text.setAttribute("class", "m-display-item");
+          text.innerHTML = data;
+          target.appendChild(text);
+        };
+      };
+    };
+  };
+
+  function render____xxxx() {
 
     function _displayItem() {
       var all_displayBlock = helper.eA(".js-display-block");

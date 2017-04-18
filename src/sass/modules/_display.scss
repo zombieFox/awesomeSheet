@@ -32,32 +32,24 @@
   }
 }
 
+.m-display-block {
+  // font-size: $font-size-root-100;
+}
+
 .m-display-item,
 .m-display-spell,
 .m-display-skills,
 .m-display-attack {
-  margin-right: 20px;
   position: relative;
   display: inline-block;
-  &:after {
-    background-color: $gray-18;
-    content: "";
-    width: 3px;
-    height: 3px;
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: -10px;
-    border-radius: $border-radius-medium;
-    transform: translate(50%, -50%);
+  &:not(:only-child):not(:last-child) {
+    margin-right: 0.5em;
   }
-  &:last-child {
-    margin-right: 0;
-    padding-right: 0;
-    border-right: 0;
-    &:after {
-      display: none;
-    }
+}
+
+.m-display-block-name {
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
   }
 }
 
