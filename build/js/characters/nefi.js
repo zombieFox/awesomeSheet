@@ -331,7 +331,7 @@ var nefi = (function() {
         }, {
           weapon: "Earthbreaker +1 Frost",
           attack: "17/12/7",
-          damage: "2d6+8 1d6 (cold)",
+          damage: "2d6+8 1d6(cold)",
           critical: "x3"
         }],
         ranged: [{

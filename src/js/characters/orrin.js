@@ -65,7 +65,7 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6), Giant Squid Parts (10)",
-      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1)",
+      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -75,7 +75,7 @@ var orrin = (function() {
         armor: "Mithral Chain Shirt",
         belts: "Belt of Dexterity +4",
         body: "",
-        chest: "",
+        chest: "Vest of Escape",
         eyes: "Eyes of the Eagle",
         feet: "",
         hands: "Gloves of Reconnaissance",
@@ -98,12 +98,12 @@ var orrin = (function() {
         item: "Potion of Cure Light Wounds",
         current: "",
         total: 6,
-        used: ""
+        used: 1
       }, {
         item: "Gloves of Reconnaissance",
         current: "",
         total: 10,
-        used: 4
+        used: 1
       }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
@@ -319,9 +319,9 @@ var orrin = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Rapier +1",
-          attack: "15",
-          damage: "1d6+2",
+          weapon: "Mithral Rapier +2",
+          attack: "16",
+          damage: "1d6+3",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
@@ -329,9 +329,9 @@ var orrin = (function() {
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
-          weapon: "Rapier +1, Short sword +1",
-          attack: "13/13/7/7",
-          damage: "1d6+2, 1d6+2",
+          weapon: "Mithral Rapier +2, Short sword +1",
+          attack: "14/14/7/7",
+          damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
@@ -349,14 +349,14 @@ var orrin = (function() {
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
-          weapon: "Rapier +1, Punching Dagger +2 Shocking",
-          attack: "13/13/8/8",
-          damage: "1d6+2, 1d4+3 + 1d6 Electrical",
+          weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
+          attack: "14/14/8/8",
+          damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "13",
+          attack: "13/8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -493,7 +493,7 @@ var orrin = (function() {
       },
       disable_device: {
         ranks: 9,
-        misc: 4,
+        misc: 8,
         current: "",
         bonuses: {
           class_skill: true,
@@ -527,7 +527,7 @@ var orrin = (function() {
       },
       escape_artist: {
         ranks: 9,
-        misc: "",
+        misc: 6,
         current: "",
         bonuses: {
           class_skill: true,
@@ -1043,7 +1043,7 @@ var orrin = (function() {
       custom_2: {
         name: "Disable Device (Traps)",
         ranks: 9,
-        misc: 4,
+        misc: 8,
         current: "",
         bonuses: {
           class_skill: true,

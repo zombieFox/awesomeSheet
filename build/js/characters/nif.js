@@ -9,7 +9,7 @@ var nif = (function() {
       level: "7",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "38,214",
+      xp: "42,030",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -40,7 +40,7 @@ var nif = (function() {
           temp_modifier: ""
         },
         int: {
-          score: 23,
+          score: 25,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -65,7 +65,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
-      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (0), Enlarge Person (2)",
+      magic_gear: "Pearl of Power (1st Level)<br><strong>Viles</strong> Antitoxin (1), Holy Water (1)<br><strong>Potions</strong> Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br><strong>Scrolls</strong> Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements(2)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -80,7 +80,7 @@ var nif = (function() {
         feet: "",
         hands: "",
         head: "",
-        headband: "Headband of Vast Intelligence +2",
+        headband: "Headband of Vast Intelligence +4",
         neck: "Amulet of Natural Armor +1",
         ring_left_hand: "Ring of Sustenance",
         ring_right_hand: "",
@@ -90,7 +90,7 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "1,404",
+        gold: "1,327",
         silver: "",
         copper: ""
       },
@@ -98,7 +98,7 @@ var nif = (function() {
         item: "Wand of Lightning Bolt",
         current: "",
         total: "50",
-        used: "47"
+        used: "48"
       }, {
         item: "Wand of Scorching Ray",
         current: "",
@@ -1310,7 +1310,7 @@ var nif = (function() {
           cast: 0,
           note: ""
         }, {
-          name: "Open Close",
+          name: "Open/Close",
           prepared: 0,
           active: false,
           cast: 0,
@@ -1331,7 +1331,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Enlarge Person",
-          prepared: 1,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
@@ -1349,7 +1349,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mage Armor",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -1373,13 +1373,13 @@ var nif = (function() {
           note: ""
         }, {
           name: "Protection from Evil",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Shield",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -1395,6 +1395,12 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Endure Elements",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
@@ -1405,9 +1411,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Create Pit",
-          prepared: 0,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Flaming Sphere",
@@ -1423,9 +1429,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Invisibility",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Levitate",
@@ -1435,7 +1441,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mirror Image",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 1,
           note: ""
@@ -1463,6 +1469,12 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Create Treasure Map",
+          prepared: 1,
+          active: false,
+          cast: 1,
+          note: ""
         }]
       }, {
         level_3: [{
@@ -1473,15 +1485,15 @@ var nif = (function() {
           note: ""
         }, {
           name: "Summon Monster III",
-          prepared: 0,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Spiked Pit",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Aqueous Orb",
@@ -1505,6 +1517,24 @@ var nif = (function() {
           name: "Haste",
           prepared: 1,
           active: false,
+          cast: 1,
+          note: ""
+        }, {
+          name: "Lightning Bolt",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Slow",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dispel Magic",
+          prepared: 0,
+          active: false,
           cast: 0,
           note: ""
         }]
@@ -1517,18 +1547,24 @@ var nif = (function() {
           note: ""
         }, {
           name: "Wall of Fire",
-          prepared: 1,
-          active: false,
-          cast: 1,
-          note: ""
-        }, {
-          name: "Secure Shelter",
           prepared: 0,
           active: false,
           cast: 0,
           note: ""
         }, {
+          name: "Secure Shelter",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
           name: "Summon Monster IV",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Heroism",
           prepared: 0,
           active: false,
           cast: 0,

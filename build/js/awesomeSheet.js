@@ -2966,7 +2966,7 @@ var nefi = (function() {
         }, {
           weapon: "Earthbreaker +1 Frost",
           attack: "17/12/7",
-          damage: "2d6+8 1d6 (cold)",
+          damage: "2d6+8 1d6(cold)",
           critical: "x3"
         }],
         ranged: [{
@@ -3889,7 +3889,7 @@ var nif = (function() {
       level: "7",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "38,214",
+      xp: "42,030",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -3920,7 +3920,7 @@ var nif = (function() {
           temp_modifier: ""
         },
         int: {
-          score: 23,
+          score: 25,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -3945,7 +3945,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
-      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (0), Enlarge Person (2)",
+      magic_gear: "Pearl of Power (1st Level)<br><strong>Viles</strong> Antitoxin (1), Holy Water (1)<br><strong>Potions</strong> Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br><strong>Scrolls</strong> Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements(2)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -3960,7 +3960,7 @@ var nif = (function() {
         feet: "",
         hands: "",
         head: "",
-        headband: "Headband of Vast Intelligence +2",
+        headband: "Headband of Vast Intelligence +4",
         neck: "Amulet of Natural Armor +1",
         ring_left_hand: "Ring of Sustenance",
         ring_right_hand: "",
@@ -3970,7 +3970,7 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "1,404",
+        gold: "1,327",
         silver: "",
         copper: ""
       },
@@ -3978,7 +3978,7 @@ var nif = (function() {
         item: "Wand of Lightning Bolt",
         current: "",
         total: "50",
-        used: "47"
+        used: "48"
       }, {
         item: "Wand of Scorching Ray",
         current: "",
@@ -5190,7 +5190,7 @@ var nif = (function() {
           cast: 0,
           note: ""
         }, {
-          name: "Open Close",
+          name: "Open/Close",
           prepared: 0,
           active: false,
           cast: 0,
@@ -5211,7 +5211,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Enlarge Person",
-          prepared: 1,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
@@ -5229,7 +5229,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mage Armor",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -5253,13 +5253,13 @@ var nif = (function() {
           note: ""
         }, {
           name: "Protection from Evil",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Shield",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -5275,6 +5275,12 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Endure Elements",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
@@ -5285,9 +5291,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Create Pit",
-          prepared: 0,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Flaming Sphere",
@@ -5303,9 +5309,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Invisibility",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Levitate",
@@ -5315,7 +5321,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mirror Image",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 1,
           note: ""
@@ -5343,6 +5349,12 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Create Treasure Map",
+          prepared: 1,
+          active: false,
+          cast: 1,
+          note: ""
         }]
       }, {
         level_3: [{
@@ -5353,15 +5365,15 @@ var nif = (function() {
           note: ""
         }, {
           name: "Summon Monster III",
-          prepared: 0,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Spiked Pit",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Aqueous Orb",
@@ -5385,6 +5397,24 @@ var nif = (function() {
           name: "Haste",
           prepared: 1,
           active: false,
+          cast: 1,
+          note: ""
+        }, {
+          name: "Lightning Bolt",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Slow",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dispel Magic",
+          prepared: 0,
+          active: false,
           cast: 0,
           note: ""
         }]
@@ -5397,18 +5427,24 @@ var nif = (function() {
           note: ""
         }, {
           name: "Wall of Fire",
-          prepared: 1,
-          active: false,
-          cast: 1,
-          note: ""
-        }, {
-          name: "Secure Shelter",
           prepared: 0,
           active: false,
           cast: 0,
           note: ""
         }, {
+          name: "Secure Shelter",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
           name: "Summon Monster IV",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Heroism",
           prepared: 0,
           active: false,
           cast: 0,
@@ -5516,7 +5552,7 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6), Giant Squid Parts (10)",
-      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1)",
+      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -5526,7 +5562,7 @@ var orrin = (function() {
         armor: "Mithral Chain Shirt",
         belts: "Belt of Dexterity +4",
         body: "",
-        chest: "",
+        chest: "Vest of Escape",
         eyes: "Eyes of the Eagle",
         feet: "",
         hands: "Gloves of Reconnaissance",
@@ -5549,12 +5585,12 @@ var orrin = (function() {
         item: "Potion of Cure Light Wounds",
         current: "",
         total: 6,
-        used: ""
+        used: 1
       }, {
         item: "Gloves of Reconnaissance",
         current: "",
         total: 10,
-        used: 4
+        used: 1
       }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
@@ -5770,9 +5806,9 @@ var orrin = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Rapier +1",
-          attack: "15",
-          damage: "1d6+2",
+          weapon: "Mithral Rapier +2",
+          attack: "16",
+          damage: "1d6+3",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
@@ -5780,9 +5816,9 @@ var orrin = (function() {
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
-          weapon: "Rapier +1, Short sword +1",
-          attack: "13/13/7/7",
-          damage: "1d6+2, 1d6+2",
+          weapon: "Mithral Rapier +2, Short sword +1",
+          attack: "14/14/7/7",
+          damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
@@ -5800,14 +5836,14 @@ var orrin = (function() {
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
-          weapon: "Rapier +1, Punching Dagger +2 Shocking",
-          attack: "13/13/8/8",
-          damage: "1d6+2, 1d4+3 + 1d6 Electrical",
+          weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
+          attack: "14/14/8/8",
+          damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "13",
+          attack: "13/8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -5944,7 +5980,7 @@ var orrin = (function() {
       },
       disable_device: {
         ranks: 9,
-        misc: 4,
+        misc: 8,
         current: "",
         bonuses: {
           class_skill: true,
@@ -5978,7 +6014,7 @@ var orrin = (function() {
       },
       escape_artist: {
         ranks: 9,
-        misc: "",
+        misc: 6,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6494,7 +6530,7 @@ var orrin = (function() {
       custom_2: {
         name: "Disable Device (Traps)",
         ranks: 9,
-        misc: 4,
+        misc: 8,
         current: "",
         bonuses: {
           class_skill: true,
