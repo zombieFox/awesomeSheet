@@ -2649,7 +2649,7 @@ var nefi = (function() {
       weight: "202 lbs",
       age: "28",
       gender: "Male",
-      speed: "30 ft, 6 sq",
+      speed: "40 ft, 8 sq",
       initiative: "5",
       hero_points: "1",
       luck_points: ""
@@ -2671,7 +2671,7 @@ var nefi = (function() {
         con: {
           score: 12,
           modifier: "",
-          temp_score: "",
+          temp_score: 11,
           temp_modifier: ""
         },
         int: {
@@ -2700,7 +2700,7 @@ var nefi = (function() {
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
-      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stones (Deep red), Feather Token (Tree)",
+      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stones (Deep red), Feather Token (Tree)",
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -2712,7 +2712,7 @@ var nefi = (function() {
         body: "",
         chest: "",
         eyes: "",
-        feet: "",
+        feet: "Boots of Striding and Springing",
         hands: "",
         head: "Red Mantis Mask",
         headband: "",
@@ -2740,7 +2740,7 @@ var nefi = (function() {
         current: ""
       },
       ac: {
-        misc: 1,
+        misc: "",
         temp: "",
         armor: 11,
         shield: "",
@@ -2769,7 +2769,7 @@ var nefi = (function() {
         }
       },
       flat_footed: {
-        misc: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -2788,7 +2788,7 @@ var nefi = (function() {
         }
       },
       touch: {
-        misc: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -2987,7 +2987,7 @@ var nefi = (function() {
       },
       acrobatics: {
         ranks: "",
-        misc: "",
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: false,
@@ -10807,7 +10807,7 @@ var display = (function() {
     render();
   };
 
-  function clear() {
+  function clear___xxxx() {
     var all_displayItem = helper.eA(".js-display-block");
     var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
     var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
@@ -10833,7 +10833,96 @@ var display = (function() {
     _removeAllChildren(displayConsumable);
   };
 
+  function clear() {
+
+  };
+
+  function _get_stat(path) {
+    var data;
+    if (path == "statistics.stats.str.score" && sheet.getCharacter().statistics.stats.str.temp_score) {
+      data = sheet.getCharacter().statistics.stats.str.temp_score;
+    } else if (path == "statistics.stats.dex.score" && sheet.getCharacter().statistics.stats.dex.temp_score) {
+      data = sheet.getCharacter().statistics.stats.dex.temp_score;
+    } else if (path == "statistics.stats.con.score" && sheet.getCharacter().statistics.stats.con.temp_score) {
+      data = sheet.getCharacter().statistics.stats.con.temp_score;
+    } else if (path == "statistics.stats.int.score" && sheet.getCharacter().statistics.stats.int.temp_score) {
+      data = sheet.getCharacter().statistics.stats.int.temp_score;
+    } else if (path == "statistics.stats.wis.score" && sheet.getCharacter().statistics.stats.wis.temp_score) {
+      data = sheet.getCharacter().statistics.stats.wis.temp_score;
+    } else if (path == "statistics.stats.cha.score" && sheet.getCharacter().statistics.stats.cha.temp_score) {
+      data = sheet.getCharacter().statistics.stats.cha.temp_score;
+    } else if (path == "statistics.stats.str.modifier" && sheet.getCharacter().statistics.stats.str.temp_score) {
+      data = sheet.getCharacter().statistics.stats.str.temp_modifier;
+    } else if (path == "statistics.stats.dex.modifier" && sheet.getCharacter().statistics.stats.dex.temp_score) {
+      data = sheet.getCharacter().statistics.stats.dex.temp_modifier;
+    } else if (path == "statistics.stats.con.modifier" && sheet.getCharacter().statistics.stats.con.temp_score) {
+      data = sheet.getCharacter().statistics.stats.con.temp_modifier;
+    } else if (path == "statistics.stats.int.modifier" && sheet.getCharacter().statistics.stats.int.temp_score) {
+      data = sheet.getCharacter().statistics.stats.int.temp_modifier;
+    } else if (path == "statistics.stats.wis.modifier" && sheet.getCharacter().statistics.stats.wis.temp_score) {
+      data = sheet.getCharacter().statistics.stats.wis.temp_modifier;
+    } else if (path == "statistics.stats.cha.modifier" && sheet.getCharacter().statistics.stats.cha.temp_score) {
+      data = sheet.getCharacter().statistics.stats.cha.temp_modifier;
+    } else {
+      data = helper.getObject(sheet.getCharacter(), path);
+    };
+    if (typeof data == "undefined" || data == "") {
+      data = 0;
+    };
+    return data;
+  };
+
+  function _get_text(path) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    if (typeof data == "undefined" || data == "") {
+      data = "";
+    };
+    return data;
+  };
+
+  function _get_characterData(path, displayType) {
+    var data;
+    if (displayType == "stat") {
+      data = _get_stat(path);
+    } else if (displayType == "text") {
+      data = _get_text(path);
+    } else if (displayType == "clone") {
+      data = _get_clone(path);
+    };
+    if (typeof data == "undefined" || data == "") {
+      data = 0;
+    };
+    return data;
+  };
+
   function render() {
+    var all_displayBlock = helper.eA(".js-display-block");
+
+    for (var i = 0; i < all_displayBlock.length; i++) {
+      var target = all_displayBlock[i].querySelector(".js-display-block-target");
+      var itemsToDisplay;
+      var displayType;
+      if (all_displayBlock[i].dataset.display) {
+        itemsToDisplay = all_displayBlock[i].dataset.display.split(',');
+        displayType = all_displayBlock[i].dataset.displayType;
+        // console.log(itemsToDisplay);
+        // console.log(displayType);
+      };
+      for (var j = 0; j < itemsToDisplay.length; j++) {
+        var path = itemsToDisplay[j];
+        var data = _get_characterData(path, displayType);
+        // console.log("\t", data);
+        if (typeof data != "undefined" && data != "" || data == 0) {
+          var text = document.createElement("span");
+          text.setAttribute("class", "m-display-item");
+          text.innerHTML = data;
+          target.appendChild(text);
+        };
+      };
+    };
+  };
+
+  function render____xxxx() {
 
     function _displayItem() {
       var all_displayBlock = helper.eA(".js-display-block");
@@ -13507,13 +13596,26 @@ var stats = (function() {
   function render() {
     var stats = helper.eA(".js-stats");
     for (var i = 0; i < stats.length; i++) {
-      var statsScore = stats[i].querySelector(".js-stats-score");
-      var statsModifier = stats[i].querySelector(".js-stats-modifier");
-      var statsTempScore = stats[i].querySelector(".js-stats-temp-score");
-      var statsTempModifier = stats[i].querySelector(".js-stats-temp-modifier");
-      _changeModifer(statsScore, statsModifier);
-      _changeModifer(statsTempScore, statsTempModifier);
+      _render_stat(stats[i]);
     };
+  };
+
+  function _render_stat(element) {
+    var statsScore = element.querySelector(".js-stats-score");
+    var statsModifier = element.querySelector(".js-stats-modifier");
+    var statsTempScore = element.querySelector(".js-stats-temp-score");
+    var statsTempModifier = element.querySelector(".js-stats-temp-modifier");
+    _changeModifer(statsScore, statsModifier);
+    _changeModifer(statsTempScore, statsTempModifier);
+    // console.log(element.dataset.path);
+    // console.log(statsTempScore.dataset.tempScore);
+    // if (statsTempScore.dataset.path) {
+    //   if (typeof helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "undefined" && helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "") {
+    //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, true);
+    //   } else {
+    //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, false);
+    //   };
+    // };
   };
 
   function _changeModifer(scoreElement, totalElement) {
@@ -13534,7 +13636,7 @@ var stats = (function() {
   var changeModiferTimer = null;
 
   function delayUpdate(element) {
-    render();
+    _render_stat(element);
     totalBlock.update();
     if (body.dataset.displayMode == "true") {
       display.clear();
@@ -13548,13 +13650,13 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 1000);
+        changeModiferTimer = setTimeout(delayUpdate, 1000, helper.getClosest(this, ".js-stats"));
       }, false);
     };
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 1000);
+        changeModiferTimer = setTimeout(delayUpdate, 1000, helper.getClosest(this, ".js-stats"));
       }, false);
     };
   };
@@ -13833,14 +13935,6 @@ var totalBlock = (function() {
       if (all_totalBlock[i].dataset.dexBonus == "true") {
         dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
-      // if max dex data attribute is true
-      if (all_totalBlock[i].dataset.maxDex == "true") {
-        // if max dex is less than dex bonus
-        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
-          // set dex bonuse to mac dex
-          dexBonus = sheet.getCharacter().defense.ac.max_dex;
-        };
-      };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
         conBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
@@ -13856,6 +13950,14 @@ var totalBlock = (function() {
       // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
         chaBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+      };
+      // if max dex data attribute is true
+      if (all_totalBlock[i].dataset.maxDex == "true") {
+        // if max dex is less than dex bonus
+        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+          // set dex bonuse to mac dex
+          dexBonus = sheet.getCharacter().defense.ac.max_dex;
+        };
       };
       // if bab data attribute is true
       if (all_totalBlock[i].dataset.babBonus == "true") {
@@ -13921,7 +14023,7 @@ var totalBlock = (function() {
           if (inputPath) {
             // get the value of path from character
             value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
-          } else {            
+          } else {
             // get the value from input
             // needed because clone consumable total blocks dont have data paths
             value = parseInt(all_inputBlockField[q].value, 10) || 0;

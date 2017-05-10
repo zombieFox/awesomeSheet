@@ -147,14 +147,6 @@ var totalBlock = (function() {
       if (all_totalBlock[i].dataset.dexBonus == "true") {
         dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
-      // if max dex data attribute is true
-      if (all_totalBlock[i].dataset.maxDex == "true") {
-        // if max dex is less than dex bonus
-        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
-          // set dex bonuse to mac dex
-          dexBonus = sheet.getCharacter().defense.ac.max_dex;
-        };
-      };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
         conBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
@@ -170,6 +162,14 @@ var totalBlock = (function() {
       // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
         chaBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+      };
+      // if max dex data attribute is true
+      if (all_totalBlock[i].dataset.maxDex == "true") {
+        // if max dex is less than dex bonus
+        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+          // set dex bonuse to mac dex
+          dexBonus = sheet.getCharacter().defense.ac.max_dex;
+        };
       };
       // if bab data attribute is true
       if (all_totalBlock[i].dataset.babBonus == "true") {
@@ -235,7 +235,7 @@ var totalBlock = (function() {
           if (inputPath) {
             // get the value of path from character
             value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
-          } else {            
+          } else {
             // get the value from input
             // needed because clone consumable total blocks dont have data paths
             value = parseInt(all_inputBlockField[q].value, 10) || 0;
