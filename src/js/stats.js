@@ -14,8 +14,8 @@ var stats = (function() {
     var statsTempModifier = element.querySelector(".js-stats-temp-modifier");
     _changeModifer(statsScore, statsModifier);
     _changeModifer(statsTempScore, statsTempModifier);
-    console.log(element.dataset.path);
-    console.log(statsTempScore.dataset.tempScore);
+    // console.log(element.dataset.path);
+    // console.log(statsTempScore.dataset.tempScore);
     // if (statsTempScore.dataset.path) {
     //   if (typeof helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "undefined" && helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "") {
     //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, true);

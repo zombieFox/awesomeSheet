@@ -1,6 +1,16 @@
 .m-display-wrapper {
-  padding: $font-size-300 0 0 0;
+  padding: $font-size-400 0;
 }
+
+.m-display-head {
+  background-color: $secondary-color-03;
+  
+}
+.m-display-head-name {
+  color: $white;
+  font-size: 1.4
+}
+
 
 .m-display-wrapper-nav-padding {
   padding-top: $font-size-450;
