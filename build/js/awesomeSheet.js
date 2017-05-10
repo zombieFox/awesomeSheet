@@ -2649,7 +2649,7 @@ var nefi = (function() {
       weight: "202 lbs",
       age: "28",
       gender: "Male",
-      speed: "30 ft, 6 sq",
+      speed: "40 ft, 8 sq",
       initiative: "5",
       hero_points: "1",
       luck_points: ""
@@ -2671,7 +2671,7 @@ var nefi = (function() {
         con: {
           score: 12,
           modifier: "",
-          temp_score: "",
+          temp_score: 11,
           temp_modifier: ""
         },
         int: {
@@ -2700,7 +2700,7 @@ var nefi = (function() {
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
-      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (2), Potion of Cure Serious Wounds (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stones (Deep red), Feather Token (Tree)",
+      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stones (Deep red), Feather Token (Tree)",
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -2712,7 +2712,7 @@ var nefi = (function() {
         body: "",
         chest: "",
         eyes: "",
-        feet: "",
+        feet: "Boots of Striding and Springing",
         hands: "",
         head: "Red Mantis Mask",
         headband: "",
@@ -2740,7 +2740,7 @@ var nefi = (function() {
         current: ""
       },
       ac: {
-        misc: 1,
+        misc: "",
         temp: "",
         armor: 11,
         shield: "",
@@ -2769,7 +2769,7 @@ var nefi = (function() {
         }
       },
       flat_footed: {
-        misc: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -2788,7 +2788,7 @@ var nefi = (function() {
         }
       },
       touch: {
-        misc: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -2966,7 +2966,7 @@ var nefi = (function() {
         }, {
           weapon: "Earthbreaker +1 Frost",
           attack: "17/12/7",
-          damage: "2d6+8 1d6(cold)",
+          damage: "2d6+8 1d6 (cold)",
           critical: "x3"
         }],
         ranged: [{
@@ -2987,7 +2987,7 @@ var nefi = (function() {
       },
       acrobatics: {
         ranks: "",
-        misc: "",
+        misc: 5,
         current: "",
         bonuses: {
           class_skill: false,
