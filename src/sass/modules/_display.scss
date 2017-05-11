@@ -1,6 +1,37 @@
+.m-display-head {
+  font-size: $font-size-root-100;
+  margin-bottom: 1em;
+}
+
 .m-display-head-name {
+  font-size: $font-size-150;
   color: $white;
-  font-size: 1.4
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+.m-display-head-details {
+  font-size: $font-size-100;
+  font-family: $open-sans-semi-bold;
+  color: $gray-18;
+}
+.m-display-head-hitpoints {
+  float: right;
+}
+
+.m-display-head-hitpoints-current-and-total {
+  font-size: $font-size-150;
+  color: $white;
+}
+
+.m-display-head-hitpoints-title {
+  font-size: $font-size-100;
+  font-family: $open-sans-semi-bold;
+  color: $gray-18;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 
 
