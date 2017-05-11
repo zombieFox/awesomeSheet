@@ -286,7 +286,16 @@ var display = (function() {
   };
 
   function clear() {
-
+    var all_displayBlockTarget = helper.eA(".js-display-block");
+    var _removeAllChildren = function(parent) {
+      while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+      };
+    };
+    for (var i = 0; i < all_displayBlockTarget.length; i++) {
+      var target = all_displayBlockTarget[i].querySelector(".js-display-block-target");
+      _removeAllChildren(target);
+    };
   };
 
   function _get_stat(path) {
