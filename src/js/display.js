@@ -286,19 +286,90 @@ var display = (function() {
   };
 
   function clear() {
-    var all_displayBlockTarget = helper.eA(".js-display-block");
+    var all_displayBlock = helper.eA(".js-display-block");
     var _removeAllChildren = function(parent) {
       while (parent.lastChild) {
         parent.removeChild(parent.lastChild);
       };
     };
-    for (var i = 0; i < all_displayBlockTarget.length; i++) {
-      var target = all_displayBlockTarget[i].querySelector(".js-display-block-target");
+    for (var i = 0; i < all_displayBlock.length; i++) {
+      var target;
+      var displayType = all_displayBlock[i].dataset.displayType;
+      if (displayType == "stat" || displayType == "modifier" || displayType == "text" || displayType == "clone") {
+         target = all_displayBlock[i].querySelector(".js-display-block-target");
+      } else if (displayType == "list") {
+        target = all_displayBlock[i];
+      };
       _removeAllChildren(target);
     };
   };
 
-  function _get_stat(path) {
+  function _makeDisplayItem(addressToCompare, data) {
+    var paddedData;
+    if (addressToCompare == "basics.xp"){
+      paddedData = data + " xp";
+    };
+    if (addressToCompare == "basics.age"){
+      paddedData = data + " years old";
+    };
+    if (addressToCompare == "basics.height"){
+      paddedData = data + " tall";
+    };
+    if (addressToCompare == "basics.hero_points"){
+      paddedData = data + " hero point";
+    };
+    if (addressToCompare == "basics.luck_points"){
+      paddedData = data + " luck point";
+    };
+    if (addressToCompare == "equipment.body_slots.armor") {
+      paddedData = "<strong class=\"m-display-text-strong\">Armor</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.belts") {
+      paddedData = "<strong class=\"m-display-text-strong\">Belts</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.body") {
+      paddedData = "<strong class=\"m-display-text-strong\">Body</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.chest") {
+      paddedData = "<strong class=\"m-display-text-strong\">Chest</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.eyes") {
+      paddedData = "<strong class=\"m-display-text-strong\">Eyes</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.feet") {
+      paddedData = "<strong class=\"m-display-text-strong\">Feet</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.hands") {
+      paddedData = "<strong class=\"m-display-text-strong\">Hands</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.head") {
+      paddedData = "<strong class=\"m-display-text-strong\">Head</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.headband") {
+      paddedData = "<strong class=\"m-display-text-strong\">Headband</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.neck") {
+      paddedData = "<strong class=\"m-display-text-strong\">Neck</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.ring_left_hand") {
+      paddedData = "<strong class=\"m-display-text-strong\">Ring (Left Hand)</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.ring_right_hand") {
+      paddedData = "<strong class=\"m-display-text-strong\">Ring (Right Hand)</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.shield") {
+      paddedData = "<strong class=\"m-display-text-strong\">Shield</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.shoulders") {
+      paddedData = "<strong class=\"m-display-text-strong\">Shoulders</strong>" + data;
+    };
+    if (addressToCompare == "equipment.body_slots.wrist") {
+      paddedData = "<strong class=\"m-display-text-strong\">Wrist</strong>" + data;
+    };
+    return paddedData;
+  };
+
+  function _get_stat(path, target) {
     var data;
     if (path == "statistics.stats.str.score" && sheet.getCharacter().statistics.stats.str.temp_score) {
       data = sheet.getCharacter().statistics.stats.str.temp_score;
@@ -330,31 +401,133 @@ var display = (function() {
     if (typeof data == "undefined" || data == "") {
       data = 0;
     };
-    return data;
+    var span = document.createElement("span");
+    span.innerHTML = data;
+    target.appendChild(span);
   };
 
-  function _get_text(path) {
-    var data = helper.getObject(sheet.getCharacter(), path);
-    if (typeof data == "undefined" || data == "") {
-      data = "";
-    };
-    return data;
-  };
-
-  function _get_characterData(path, displayType) {
+  function _get_modifier(path, target) {
     var data;
-    if (displayType == "stat") {
-      data = _get_stat(path);
-    } else if (displayType == "text") {
-      data = _get_text(path);
-    } else if (displayType == "clone") {
-      data = _get_clone(path);
+    if (path == "statistics.stats.str.modifier" && sheet.getCharacter().statistics.stats.str.temp_score) {
+      data = sheet.getCharacter().statistics.stats.str.temp_modifier;
+    } else if (path == "statistics.stats.dex.modifier" && sheet.getCharacter().statistics.stats.dex.temp_score) {
+      data = sheet.getCharacter().statistics.stats.dex.temp_modifier;
+    } else if (path == "statistics.stats.con.modifier" && sheet.getCharacter().statistics.stats.con.temp_score) {
+      data = sheet.getCharacter().statistics.stats.con.temp_modifier;
+    } else if (path == "statistics.stats.int.modifier" && sheet.getCharacter().statistics.stats.int.temp_score) {
+      data = sheet.getCharacter().statistics.stats.int.temp_modifier;
+    } else if (path == "statistics.stats.wis.modifier" && sheet.getCharacter().statistics.stats.wis.temp_score) {
+      data = sheet.getCharacter().statistics.stats.wis.temp_modifier;
+    } else if (path == "statistics.stats.cha.modifier" && sheet.getCharacter().statistics.stats.cha.temp_score) {
+      data = sheet.getCharacter().statistics.stats.cha.temp_modifier;
+    } else {
+      data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data == "undefined" || data == "") {
-      data = 0;
+    if (typeof data == "undefined" || data == "" || data == 0) {
+      data = "0";
+    } else if (parseInt(data, 10) > 0) {
+      data = "+" + data;
     };
-    return data;
+    var span = document.createElement("span");
+    span.innerHTML = data;
+    target.appendChild(span);
   };
+
+  function _get_text(path, target, prefix, suffix) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    if (typeof data != "undefined" && data != "") {
+      var span = document.createElement("span");
+      span.setAttribute("class", "m-display-text");
+      var spanData = document.createElement("span");
+      spanData.textContent = data;
+      if (prefix) {
+        var strongPrefix = document.createElement("strong");
+        strongPrefix.setAttribute("class", "m-display-text-strong");
+        strongPrefix.textContent = prefix;
+        span.appendChild(strongPrefix);
+      };
+      span.appendChild(spanData);
+      if (suffix) {
+        var spanSuffix = document.createElement("span");;
+        spanSuffix.textContent = suffix;
+        span.appendChild(spanSuffix);
+      };
+      target.appendChild(span);
+    };
+  };
+
+  function _get_list(path, target, prefix, suffix) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    if (typeof data != "undefined" && data != "") {
+      var li = document.createElement("li");
+      li.setAttribute("class", "m-display-col");
+      var span = document.createElement("span");
+      span.textContent = data;
+      if (prefix) {
+        var strongPrefix = document.createElement("strong");
+        strongPrefix.setAttribute("class", "m-display-text-strong");
+        strongPrefix.textContent = prefix;
+        li.appendChild(strongPrefix);
+      };
+      li.appendChild(span);
+      if (suffix) {
+        var spanSuffix = document.createElement("span");;
+        spanSuffix.textContent = suffix;
+        li.appendChild(spanSuffix);
+      };
+      target.appendChild(li);
+    };
+  };
+
+  function _get_clone(path, target) {
+    console.log(path);
+    console.log(target);
+    // if (sheet.getCharacter().equipment.consumable) {
+    //   for (var i in sheet.getCharacter().equipment.consumable) {
+    //     _render_displayClone("consumable", sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable").querySelector(".js-display-block-target"));
+    //   };
+    // };
+  };
+
+  function _render_stat(itemsToDisplay, target) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var data = _get_stat(path, target);
+    };
+  };
+
+  function _render_modifier(itemsToDisplay, target) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var data = _get_modifier(path, target);
+    };
+  };
+
+  function _render_text(itemsToDisplay, target, displayPrefix, displaySuffix) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var prefix = displayPrefix[i];
+      var suffix = displaySuffix[i];
+      var data = _get_text(path, target, prefix, suffix);
+    };
+  };
+
+  function _render_list(itemsToDisplay, target, displayPrefix, displaySuffix) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var prefix = displayPrefix[i];
+      var suffix = displaySuffix[i];
+      var data = _get_list(path, target, prefix, suffix);
+    };
+  };
+
+  function _render_clone(itemsToDisplay, target) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var data = _get_clone(path, target);
+    };
+  };
+
 
   function render() {
     var all_displayBlock = helper.eA(".js-display-block");
@@ -363,22 +536,96 @@ var display = (function() {
       var target = all_displayBlock[i].querySelector(".js-display-block-target");
       var itemsToDisplay;
       var displayType;
+      var displayPrefix;
+      var displaySuffix;
       if (all_displayBlock[i].dataset.display) {
-        itemsToDisplay = all_displayBlock[i].dataset.display.split(',');
+        itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
         displayType = all_displayBlock[i].dataset.displayType;
+        if (all_displayBlock[i].dataset.displayPrefix) {
+          displayPrefix = all_displayBlock[i].dataset.displayPrefix.split(",");
+        } else {
+          displayPrefix = false;
+        };
+        if (all_displayBlock[i].dataset.displaySuffix) {
+          displaySuffix = all_displayBlock[i].dataset.displaySuffix.split(",");
+        } else {
+          displaySuffix = false;
+        };
         // console.log(itemsToDisplay);
         // console.log(displayType);
+        // console.log(displayPrefix);
+        // console.log(displaySuffix);
+      };
+      if (displayType == "stat") {
+        _render_stat(itemsToDisplay, target);
+      } else if (displayType == "modifier") {
+        _render_modifier(itemsToDisplay, target);
+      } else if (displayType == "text") {
+        _render_text(itemsToDisplay, target, displayPrefix, displaySuffix);
+      } else if (displayType == "list") {
+        _render_list(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
+      } else if (displayType == "clone") {
+        _render_clone(itemsToDisplay, target);
       };
       for (var j = 0; j < itemsToDisplay.length; j++) {
-        var path = itemsToDisplay[j];
-        var data = _get_characterData(path, displayType);
+        // var path = itemsToDisplay[j];
+        // var data = _get_characterData(path, displayType);
+
         // console.log("\t", data);
-        if (typeof data != "undefined" && data != "" || data == 0) {
-          var text = document.createElement("span");
-          text.setAttribute("class", "m-display-item");
-          text.innerHTML = data;
-          target.appendChild(text);
-        };
+
+        // function _makeDisplayItem(addressToCompare, beforeString, afterString) {
+        //   if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
+        //     data = beforeString + data + afterString;
+        //     return data;
+        //   } else {
+        //     return data;
+        //   };
+        // };
+        //
+        // _makeDisplayItem("basics.xp", "", " xp");
+        // _makeDisplayItem("basics.age", "", " years old");
+        // _makeDisplayItem("basics.height", "", " tall");
+        // _makeDisplayItem("basics.hero_points", "", " hero point");
+        // _makeDisplayItem("basics.luck_points", "", " luck point");
+        //
+        // _makeDisplayItem("equipment.body_slots.armor", "<strong class=\"m-display-text-strong\">Armor</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.belts", "<strong class=\"m-display-text-strong\">Belts</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.body", "<strong class=\"m-display-text-strong\">Body</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.chest", "<strong class=\"m-display-text-strong\">Chest</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.eyes", "<strong class=\"m-display-text-strong\">Eyes</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.feet", "<strong class=\"m-display-text-strong\">Feet</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.hands", "<strong class=\"m-display-text-strong\">Hands</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.head", "<strong class=\"m-display-text-strong\">Head</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.headband", "<strong class=\"m-display-text-strong\">Headband</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.neck", "<strong class=\"m-display-text-strong\">Neck</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.ring_left_hand", "<strong class=\"m-display-text-strong\">Ring (Left Hand)</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.ring_right_hand", "<strong class=\"m-display-text-strong\">Ring (Right Hand)</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.shield", "<strong class=\"m-display-text-strong\">Shield</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.shoulders", "<strong class=\"m-display-text-strong\">Shoulders</strong> ", "");
+        // _makeDisplayItem("equipment.body_slots.wrist", "<strong class=\"m-display-text-strong\">Wrist</strong> ", "");
+        // _makeDisplayItem("equipment.wealth.platinum", "<strong class=\"m-display-text-strong\">PP</strong> ", "");
+        // _makeDisplayItem("equipment.wealth.gold", "<strong class=\"m-display-text-strong\">GP</strong> ", "");
+        // _makeDisplayItem("equipment.wealth.silver", "<strong class=\"m-display-text-strong\">SP</strong> ", "");
+        // _makeDisplayItem("equipment.wealth.copper", "<strong class=\"m-display-text-strong\">CP</strong> ", "");
+
+        // if (typeof data != "undefined" && data != "") {
+        //   if (displayType == "text") {
+        //     var text = document.createElement("span");
+        //     text.setAttribute("class", "m-display-text");
+        //     text.innerHTML = data;
+        //     target.appendChild(text);
+        //   } else if (displayType == "list") {
+        //     var text = document.createElement("li");
+        //     text.setAttribute("class", "m-display-col");
+        //     text.innerHTML = data;
+        //     target.appendChild(text);
+        //   } else {
+        //     var text = document.createElement("span");
+        //     text.innerHTML = data;
+        //     target.appendChild(text);
+        //   };
+        // };
+
       };
     };
   };

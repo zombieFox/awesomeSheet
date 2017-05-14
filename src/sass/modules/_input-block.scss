@@ -40,8 +40,7 @@
 
 .m-input-block-label-large {
   font-size: $font-size-200;
-  height: $line-height-200;
-  line-height: $line-height-200;
+  left: 0.5em;
   &.is-active {}
 }
 
@@ -68,9 +67,9 @@
   &[type="tel"],
   &[type="password"] {
     font-size: $font-size-200;
-    height: $line-height-200;
-    line-height: $line-height-200;
-    margin: 0 0 $font-size-100 0;
+    margin: 0 0 1em 0;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
 }
 

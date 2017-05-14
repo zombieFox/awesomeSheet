@@ -3,8 +3,16 @@
 }
 
 .l-section-display-head {
-  padding: $font-size-450 0;
-  background-color: $secondary-color-04;
+  padding: 3em 0;
+  background-color: $gray-19;
+  box-shadow: $shadow-medium;
+}
+
+.l-section-display-body {
+  padding: 3em 0;
+  &:not(:only-child):not(:last-child) {
+    border-bottom: 1px solid $gray-18;
+  }
 }
 
 // --------------------------------------------------

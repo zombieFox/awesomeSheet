@@ -102,11 +102,9 @@ button:not(:last-child) {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  line-height: initial;
   align-items: center;
   span {
     flex: 0 0 auto;
-    line-height: initial;
     height: initial;
   }
   [class^="icon-"],
