@@ -15,6 +15,7 @@
           </div>
 
         </div>
+
         <div class="m-display-head">
 
           <div class="m-display-head-item">
@@ -60,16 +61,12 @@
           </div>
 
         </div>
+
         <div class="m-display-body">
-
-          <div class="m-display-body-item">
-            <p class="js-display-block" data-display-type="text" data-display="basics.xp,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix="xp,, tall,, years old,,">
-              <span class="js-display-block-target"></span>
-            </p>
-          </div>
-
+          <p class="js-display-block" data-display-type="text" data-display="basics.xp,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix="xp,, tall,, years old, hero points, luck points">
+            <span class="js-display-block-target"></span>
+          </p>
         </div>
-
 
       </div>
     </div>
@@ -81,120 +78,132 @@
     <div class="row">
       <div class="col-xs-12">
 
-        <p class="m-display-title">Statistics</p>
+        <div class="m-display-body">
+          <p class="m-display-body-title">Statistics</p>
+          <ul class="m-display-grid-3-col u-list-unstyled">
+            <li class="m-display-col">
+              <div class="m-display-item">
 
-        <div class="m-display-grid">
-          <div class="m-display-col">
+                <div class="m-display-statistics-item">
+                  <p class="m-display-statistics-item-score">
+                    <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.str.score">
+                      <span class="js-display-block-target"></span>
+                    </span>
+                  </p>
+                  <p class="m-display-statistics-item-title"><span class="hidden-xs hidden-md hidden-lg hidden-xl">Str</span><span class="hidden-sm">Strength</span></p>
+                  <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.str.modifier">
+                    <span class="js-display-block-target"></span>
+                  </h3>
+                </div>
 
-            <div class="m-display-statistics-item">
-              <p class="m-display-statistics-item-score">
-                <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.str.score">
-                  <span class="js-display-block-target"></span>
-                </span>
-              </p>
-              <p class="m-display-statistics-item-title">Strength</p>
-              <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.str.modifier">
-                <span class="js-display-block-target"></span>
-              </h3>
-            </div>
+              </div>
+            </li>
+            <li class="m-display-col">
+              <div class="m-display-item">
 
-          </div>
-          <div class="m-display-col">
+                <div class="m-display-statistics-item">
+                  <p class="m-display-statistics-item-score">
+                    <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.dex.score">
+                      <span class="js-display-block-target"></span>
+                    </span>
+                  </p>
+                  <p class="m-display-statistics-item-title"><span class="hidden-xs hidden-md hidden-lg hidden-xl">Dex</span><span class="hidden-sm">Dexterity</span></p>
+                  <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.dex.modifier">
+                    <span class="js-display-block-target"></span>
+                  </h3>
+                </div>
 
-            <div class="m-display-statistics-item">
-              <p class="m-display-statistics-item-score">
-                <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.dex.score">
-                  <span class="js-display-block-target"></span>
-                </span>
-              </p>
-              <p class="m-display-statistics-item-title">Dexterity</p>
-              <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.dex.modifier">
-                <span class="js-display-block-target"></span>
-              </h3>
-            </div>
+              </div>
+            </li>
+            <li class="m-display-col">
+              <div class="m-display-item">
 
-          </div>
-          <div class="m-display-col">
+                <div class="m-display-statistics-item">
+                  <p class="m-display-statistics-item-score">
+                    <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.con.score">
+                      <span class="js-display-block-target"></span>
+                    </span>
+                  </p>
+                  <p class="m-display-statistics-item-title"><span class="hidden-xs hidden-md hidden-lg hidden-xl">Con</span><span class="hidden-sm">Constitution</span></p>
+                  <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.con.modifier">
+                    <span class="js-display-block-target"></span>
+                  </h3>
+                </div>
 
-            <div class="m-display-statistics-item">
-              <p class="m-display-statistics-item-score">
-                <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.con.score">
-                  <span class="js-display-block-target"></span>
-                </span>
-              </p>
-              <p class="m-display-statistics-item-title">Constitution</p>
-              <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.con.modifier">
-                <span class="js-display-block-target"></span>
-              </h3>
-            </div>
+              </div>
+            </li>
+            <li class="m-display-col">
+              <div class="m-display-item">
 
-          </div>
-          <div class="m-display-col">
+                <div class="m-display-statistics-item">
+                  <p class="m-display-statistics-item-score">
+                    <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.int.score">
+                      <span class="js-display-block-target"></span>
+                    </span>
+                  </p>
+                  <p class="m-display-statistics-item-title"><span class="hidden-xs hidden-md hidden-lg hidden-xl">Int</span><span class="hidden-sm">Intelligence</span></p>
+                  <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.int.modifier">
+                    <span class="js-display-block-target"></span>
+                  </h3>
+                </div>
 
-            <div class="m-display-statistics-item">
-              <p class="m-display-statistics-item-score">
-                <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.int.score">
-                  <span class="js-display-block-target"></span>
-                </span>
-              </p>
-              <p class="m-display-statistics-item-title">Intelligence</p>
-              <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.int.modifier">
-                <span class="js-display-block-target"></span>
-              </h3>
-            </div>
+              </div>
+            </li>
+            <li class="m-display-col">
+              <div class="m-display-item">
 
-          </div>
-          <div class="m-display-col">
+                <div class="m-display-statistics-item">
+                  <p class="m-display-statistics-item-score">
+                    <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.wis.score">
+                      <span class="js-display-block-target"></span>
+                    </span>
+                  </p>
+                  <p class="m-display-statistics-item-title"><span class="hidden-xs hidden-md hidden-lg hidden-xl">Wis</span><span class="hidden-sm">Wisdom</span></p>
+                  <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.wis.modifier">
+                    <span class="js-display-block-target"></span>
+                  </h3>
+                </div>
 
-            <div class="m-display-statistics-item">
-              <p class="m-display-statistics-item-score">
-                <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.wis.score">
-                  <span class="js-display-block-target"></span>
-                </span>
-              </p>
-              <p class="m-display-statistics-item-title">Wisdom</p>
-              <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.wis.modifier">
-                <span class="js-display-block-target"></span>
-              </h3>
-            </div>
+              </div>
+            </li>
+            <li class="m-display-col">
+              <div class="m-display-item">
 
-          </div>
-          <div class="m-display-col">
+                <div class="m-display-statistics-item">
+                  <p class="m-display-statistics-item-score">
+                    <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.cha.score">
+                      <span class="js-display-block-target"></span>
+                    </span>
+                  </p>
+                  <p class="m-display-statistics-item-title"><span class="hidden-xs hidden-md hidden-lg hidden-xl">Cha</span><span class="hidden-sm">Charisma</span></p>
+                  <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.cha.modifier">
+                    <span class="js-display-block-target"></span>
+                  </h3>
+                </div>
 
-            <div class="m-display-statistics-item">
-              <p class="m-display-statistics-item-score">
-                <span class="js-display-block" data-display-type="stat" data-display="statistics.stats.cha.score">
-                  <span class="js-display-block-target"></span>
-                </span>
-              </p>
-              <p class="m-display-statistics-item-title">Charisma</p>
-              <h3 class="m-display-statistics-item-value js-display-block" data-display-type="modifier" data-display="statistics.stats.cha.modifier">
-                <span class="js-display-block-target"></span>
-              </h3>
-            </div>
-
-          </div>
+              </div>
+            </li>
+          </ul>
         </div>
 
-        <p class="m-display-title">Feats</p>
-        <p class="js-display-block" data-display-type="text" data-display="statistics.feats">
-          <span class="js-display-block-target"></span>
-        </p>
-
-        <p class="m-display-title">Traits</p>
-        <p class="js-display-block" data-display-type="text" data-display="statistics.traits">
-          <span class="js-display-block-target"></span>
-        </p>
-
-        <p class="m-display-title">Special Abilities</p>
-        <p class="js-display-block" data-display-type="text" data-display="statistics.special_abilities">
-          <span class="js-display-block-target"></span>
-        </p>
-
-        <p class="m-display-title">Languages</p>
-        <p class="js-display-block" data-display-type="text" data-display="statistics.languages">
-          <span class="js-display-block-target"></span>
-        </p>
+        <div class="m-display-body">
+          <p class="m-display-body-title">Feats</p>
+          <p class="js-display-block" data-display-type="text" data-display="statistics.feats">
+            <span class="js-display-block-target"></span>
+          </p>
+          <p class="m-display-body-title">Traits</p>
+          <p class="js-display-block" data-display-type="text" data-display="statistics.traits">
+            <span class="js-display-block-target"></span>
+          </p>
+          <p class="m-display-body-title">Special Abilities</p>
+          <p class="js-display-block" data-display-type="text" data-display="statistics.special_abilities">
+            <span class="js-display-block-target"></span>
+          </p>
+          <p class="m-display-body-title">Languages</p>
+          <p class="js-display-block" data-display-type="text" data-display="statistics.languages">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
 
       </div>
     </div>
@@ -206,28 +215,163 @@
     <div class="row">
       <div class="col-xs-12">
 
-        <p class="m-display-title">Gear</p>
-        <p class="js-display-block" data-display-type="text" data-display="equipment.gear">
-          <span class="js-display-block-target"></span>
-        </p>
+        <div class="m-display-body">
+          <p class="m-display-body-title">Gear</p>
+          <p class="js-display-block" data-display-type="text" data-display="equipment.gear">
+            <span class="js-display-block-target"></span>
+          </p>
+          <p class="m-display-body-title">Magic Gear</p>
+          <p class="js-display-block" data-display-type="text" data-display="equipment.magic_gear">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
 
-        <p class="m-display-title">Magic Gear</p>
-        <p class="js-display-block" data-display-type="text" data-display="equipment.magic_gear">
-          <span class="js-display-block-target"></span>
-        </p>
+        <div class="m-display-body">
+          <p class="m-display-body-title">Body Slots</p>
+          <ul class="m-display-grid-3-col u-list-unstyled js-display-block" data-display-type="list" data-display="equipment.body_slots.armor,equipment.body_slots.belts,equipment.body_slots.body,equipment.body_slots.chest,equipment.body_slots.eyes,equipment.body_slots.feet,equipment.body_slots.hands,equipment.body_slots.head,equipment.body_slots.headband,equipment.body_slots.neck,equipment.body_slots.ring_left_hand,equipment.body_slots.ring_right_hand,equipment.body_slots.shield,equipment.body_slots.shoulders,equipment.body_slots.wrist" data-display-prefix="Armor ,Belts ,Body ,Chest ,Eyes ,Feet ,Hands ,Head ,Headband ,Neck ,Ring (Left Hand) ,Ring (Right Hand) ,Shield ,Shoulders ,Wrist ">
+          </ul>
+        </div>
 
-        <p class="m-display-title">Body Slots</p>
-        <ul class="m-display-grid u-list-unstyled js-display-block" data-display-type="list" data-display="equipment.body_slots.armor,equipment.body_slots.belts,equipment.body_slots.body,equipment.body_slots.chest,equipment.body_slots.eyes,equipment.body_slots.feet,equipment.body_slots.hands,equipment.body_slots.head,equipment.body_slots.headband,equipment.body_slots.neck,equipment.body_slots.ring_left_hand,equipment.body_slots.ring_right_hand,equipment.body_slots.shield,equipment.body_slots.shoulders,equipment.body_slots.wrist" data-display-prefix="Armor,Belts,Body,Chest,Eyes,Feet,Hands,Head,Headband,Neck,Ring (Left Hand),Ring (Right Hand),Shield,Shoulders,Wrist">
+        <div class="m-display-body">
+          <p class="m-display-body-title">Wealth</p>
+          <p class="js-display-block" data-display-type="text" data-display="equipment.wealth.platinum,equipment.wealth.gold,equipment.wealth.silver,equipment.wealth.copper" data-display-suffix=" pp, gp, sp, cp">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Consumables</p>
+          <ul class="m-display-grid-3-col u-list-unstyled js-display-block" data-display-type="clone" data-display="equipment.consumable">
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="l-section l-section-display l-section-display-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Defense</p>
+          <p class="js-display-block" data-display-type="text" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch ">
+            <span class="js-display-block-target"></span>
+          </p>
+          <p class="js-display-block" data-display-type="text" data-display="defense.ac_notes" data-display-title="Notes ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Saves</p>
+          <ul class="m-display-grid-3-col u-list-unstyled">
+            <li class="m-display-col">
+
+              <div class="m-display-save-item">
+                <p class="m-display-save-item-title">Fortitude</p>
+                <h3 class="m-display-save-item-value js-display-block" data-display-type="text" data-display="defense.fortitude.current">
+                  <span class="js-display-block-target"></span>
+                </h3>
+              </div>
+
+            </li>
+            <li class="m-display-col">
+
+              <div class="m-display-save-item">
+                <p class="m-display-save-item-title">Reflex</p>
+                <h3 class="m-display-save-item-value js-display-block" data-display-type="text" data-display="defense.reflex.current">
+                  <span class="js-display-block-target"></span>
+                </h3>
+              </div>
+
+            </li>
+            <li class="m-display-col">
+
+              <div class="m-display-save-item">
+                <p class="m-display-save-item-title">Will</p>
+                <h3 class="m-display-save-item-value js-display-block" data-display-type="text" data-display="defense.will.current">
+                  <span class="js-display-block-target"></span>
+                </h3>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+
+        <div class="m-display-body">
+          <p class="js-display-block" data-display-type="text" data-display="defense.save_notes" data-display-title="Notes ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="l-section l-section-display l-section-display-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Offense</p>
+          <p class="js-display-block" data-display-type="text" data-display="offense.base_attack,offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current" data-display-prefix="BAB ,CMB ,CMD ,Melee ,Ranged ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Melee</p>
+          <ul class="m-display-grid-1-col u-list-unstyled js-display-block" data-display-type="clone" data-display="offense.attack.melee">
+          </ul>
+        </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Ranged</p>
+          <ul class="m-display-grid-1-col u-list-unstyled js-display-block" data-display-type="clone" data-display="offense.attack.ranged">
+          </ul>
+        </div>
+
+        <div class="m-display-body">
+          <p class="js-display-block" data-display-type="text" data-display="offense.attack_notes" data-display-title="Notes ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="l-section l-section-display l-section-display-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <p class="m-display-body-title">Skills</p>
+        <ul class="m-display-grid-3-col u-list-unstyled js-display-block" data-display-type="skill" data-display="skills.acrobatics,skills.appraise,skills.bluff,skills.climb,skills.craft_1,skills.craft_2,skills.diplomacy,skills.disable_device,skills.disguise,skills.escape_artist,skills.fly,skills.handle_animal,skills.heal,skills.intimidate,skills.knowledge_arcana,skills.knowledge_dungeoneering,skills.knowledge_engineering,skills.knowledge_geography,skills.knowledge_history,skills.knowledge_local,skills.knowledge_nature,skills.knowledge_nobility,skills.knowledge_planes,skills.knowledge_religion,skills.linguistics,skills.perception,skills.perform_1,skills.perform_2,skills.profession_1,skills.profession_2,skills.ride,skills.sense_motive,skills.sleight_of_hand,skills.spellcraft,skills.stealth,skills.survival,skills.swim,skills.use_magic_device,skills.custom_1,skills.custom_2,skills.custom_3,skills.custom_4,skills.custom_5,skills.custom_6,skills.custom_7,skills.custom_8" data-display-prefix="Acrobatics ,Appraise ,Bluff ,Climb ,Craft ,Craft ,Diplomacy ,Disable Device ,Disguise ,Escape Artist ,Fly ,Handle Animal ,Heal ,Intimidate ,Knowledge Arcana ,Knowledge Dungeoneering ,Knowledge Engineering ,Knowledge Geography ,Knowledge History ,Knowledge Local ,Knowledge Nature ,Knowledge Nobility ,Knowledge Planes ,Knowledge Religion ,Linguistics ,Perception ,Perform ,Perform ,Profession ,Profession ,Ride ,Sense Motive ,Sleight of Hand ,Spellcraft ,Stealth ,Survival ,Swim ,Use Magic Device ,,,,,,,,">
         </ul>
 
-        <p class="m-display-title">Wealth</p>
-        <p class="js-display-block" data-display-type="text" data-display="equipment.wealth.platinum,equipment.wealth.gold,equipment.wealth.silver,equipment.wealth.copper" data-display-suffix="pp,gp,sp,cp">
-          <span class="js-display-block-target"></span>
-        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p class="m-display-title">Consumables</p>
-        <ul class="u-list-unstyled js-display-block" data-display-type="clone" data-display="sheet.getCharacter().equipment.consumable">
-          <span class="js-display-block-target"></span>
+<section class="l-section l-section-display l-section-display-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <p class="m-display-body-title">Character Notes</p>
+        <ul class="m-display-grid-1-col u-list-unstyled js-display-block" data-display-type="clone" data-display="notes.character">
+        </ul>
+
+        <p class="m-display-body-title">Story Notes</p>
+        <ul class="m-display-grid-1-col u-list-unstyled js-display-block" data-display-type="clone" data-display="notes.story">
         </ul>
 
       </div>

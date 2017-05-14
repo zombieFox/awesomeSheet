@@ -1,3 +1,67 @@
+// --------------------------------------------------
+// display grid
+// --------------------------------------------------
+.m-display-grid-1-col {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  .m-display-col {
+    flex: 1 0 auto;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid $gray-18;
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}
+.m-display-grid-3-col {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  .m-display-col {
+    flex: 1 0 auto;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid $gray-18;
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 0;
+    }
+    .m-display-item {
+      .m-display-item-prefix,
+      .m-display-item-suffix {
+        display: block;
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// display item
+// --------------------------------------------------
+.m-display-item {
+  &:not(:only-child):not(:last-child) {
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+    border-right: 2px solid $gray-18;
+  }
+}
+.m-display-item-title {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-075;
+  line-height: $line-height-150;
+  color: $gray-10;
+  display: block;
+}
+.m-display-item-prefix {
+  font-family: $open-sans-semi-bold;
+}
+.m-display-item-suffix {
+  color: $gray-08;
+}
+.m-display-item-value {}
+// --------------------------------------------------
+// display head
+// --------------------------------------------------
 .m-display-head {
   font-size: $font-size-root-100;
   display: flex;
@@ -82,19 +146,25 @@
   color: $gray-12;
 }
 // --------------------------------------------------
-// display grid
+// display body
 // --------------------------------------------------
-.m-display-grid {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
+.m-display-body {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
   }
 }
-.m-display-col {
-  flex: 1 0 auto;
+.m-display-body-title {
+  color: $primary-color-10;
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-075;
+  line-height: 1;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
+// --------------------------------------------------
+// display statistics
+// --------------------------------------------------
 .m-display-statistics {
   font-size: $font-size-root-100;
   display: flex;
@@ -105,24 +175,24 @@
   }
 }
 .m-display-statistics-item {
-  flex: 1 0 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid $gray-19;
-  padding: 0.5em 0;
 }
 .m-display-statistics-item-score {
-  width: 10%;
+  width: 20%;
 }
 .m-display-statistics-item-title {
-  width: 70%;
+  width: 60%;
   text-align: left;
+  font-family: $open-sans-semi-bold;
 }
 .m-display-statistics-item-value {
   width: 20%;
   text-align: right;
+  font-size: $font-size-150;
+  line-height: 1;
 }
 .m-display-statistics-item-score,
 .m-display-statistics-item-title {
@@ -130,114 +200,214 @@
     margin-bottom: 0;
   }
 }
-.m-display-statistics-item-value {
+// --------------------------------------------------
+// display saves
+// --------------------------------------------------
+.m-display-save-item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.m-display-save-item-title {
+  width: 70%;
+  text-align: left;
+  font-family: $open-sans-semi-bold;
+}
+.m-display-save-item-value {
+  width: 30%;
+  text-align: right;
   font-size: $font-size-150;
   line-height: 1;
 }
-.m-display-title {
-  font-size: $font-size-075;
-  line-height: 1;
-  font-family: $open-sans-semi-bold;
-  color: $primary-color-10;
+.m-display-save-item-score,
+.m-display-save-item-title {
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
   }
 }
-// .m-display-list {
-//   margin-bottom: 1em;
-// }
-.m-display-body {
-  font-size: $font-size-root-100;
+// --------------------------------------------------
+// display skills
+// --------------------------------------------------
+.m-display-skill-item {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 0;
+  }
+  .m-display-skill-item-name {
+    flex: 1 0 80%;
+    font-family: $open-sans-semi-bold;
+  }
+  .m-display-skill-item-value {
+    flex: 0 1 auto;
+    text-align: right;
+    font-family: $open-sans-light;
+    font-size: $font-size-150;
+    line-height: 1;
   }
 }
-.m-display-body-item {
-  box-sizing: border-box;
-  flex: 0 1 auto;
-  &:not(:only-child) {
-    flex: 0 0 46%;
-    margin-bottom: 2em;
+// --------------------------------------------------
+// display attack melee
+// --------------------------------------------------
+.m-display-attack-melee-item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
   }
 }
-.m-display-text {
-  display: inline-block;
+.m-display-attack-melee-item-weapon {
+  flex: 1 0 100%;
+  font-family: $open-sans-semi-bold;
+}
+.m-display-attack-melee-item-attack {
+  flex: 1 0 auto;
+  font-family: $open-sans-light;
+  font-size: $font-size-150;
+  line-height: 1;
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
-    margin-right: 1em;
-    border-right: 2px solid $gray-18;
+    box-sizing: border-box;
   }
 }
-.m-display-text-strong {
-  font-size: $font-size-075;
-  line-height: 1;
+.m-display-attack-melee-item-damage {
+  flex: 0 1 auto;
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    box-sizing: border-box;
+  }
+}
+.m-display-attack-melee-item-critical {
+  flex: 0 1 auto;
+}
+// --------------------------------------------------
+// display attack ranged
+// --------------------------------------------------
+.m-display-attack-ranged-item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-display-attack-ranged-item-weapon {
+  flex: 1 0 100%;
   font-family: $open-sans-semi-bold;
-  display: block;
+}
+.m-display-attack-ranged-item-attack {
+  flex: 1 0 auto;
+  font-family: $open-sans-light;
+  font-size: $font-size-150;
+  line-height: 1;
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    box-sizing: border-box;
+  }
+}
+.m-display-attack-ranged-item-damage {
+  flex: 0 1 auto;
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    box-sizing: border-box;
+  }
+}
+.m-display-attack-ranged-item-critical {
+  flex: 0 1 auto;
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    box-sizing: border-box;
+  }
+}
+.m-display-attack-ranged-item-range {
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    box-sizing: border-box;
+  }
+}
+.m-display-attack-ranged-item-ammo {
+  flex: 0 1 auto;
+}
+// --------------------------------------------------
+// display consumable
+// --------------------------------------------------
+.m-display-consumable-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-display-consumable-item-item {
+  flex: 1 0 70%;
+  font-family: $open-sans-semi-bold;
+}
+.m-display-consumable-item-current {
+  flex: 0 1 auto;
+  font-family: $open-sans-light;
+  font-size: $font-size-150;
+  line-height: 1;
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-display-statistics {
+  .m-display-grid-3-col {
     flex-flow: row wrap;
-  }
-  .m-display-statistics-item {
-    flex: 0 0 46%;
-  }
-  .m-display-body {
-    flex-flow: row wrap;
-  }
-  .m-display-grid {
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-  .m-display-col {
-    flex: 0 0 auto;
-    width: 46%;
-  }
-}
-@media (min-width: $screen-md) {
-  .m-display-head-item-stat {
-    flex-basis: 16.6666666667%;
-  }
-  .m-display-statistics-item-score {
-    width: 15%;
-  }
-  .m-display-statistics-item-title {
-    width: 65%;
-  }
-  .m-display-statistics-item-value {
-    width: 20%;
-  }
-}
-@media (min-width: $screen-lg) {
-  .m-display-statistics {
-    flex-flow: row wrap;
-  }
-  .m-display-statistics-item {
-    flex: 0 0 28%;
-  }
-  .m-display-statistics-item-score {
-    width: 20%;
-  }
-  .m-display-statistics-item-title {
-    width: 60%;
-  }
-  .m-display-statistics-item-value {
-    width: 20%;
-  }
-  .m-display-grid {
     justify-content: flex-start;
-  }
-  .m-display-col {
-    width: 28%;
-    &:nth-child(3n+1),
-    &:nth-child(3n+2) {
-      margin-right: 8%;
+    .m-display-col {
+      flex: 0 0 28%;
+      &:nth-child(3n+1),
+      &:nth-child(3n+2) {
+        margin-right: 8%;
+      }
     }
   }
+  .m-display-attack-melee-item {
+    flex-flow: row nowrap;
+  }
+  .m-display-attack-melee-item-weapon {
+    flex: 0 0 40%;
+  }
+  .m-display-attack-melee-item-attack {
+    flex: 0 1 25%;
+  }
+  .m-display-attack-melee-item-damage {
+    flex: 1 1 auto;
+  }
+  .m-display-attack-melee-item-critical {
+    flex: 0 0 auto;
+  }
+  .m-display-attack-ranged-item {
+    flex-flow: row nowrap;
+  }
+  .m-display-attack-ranged-item-weapon {
+    flex: 0 0 40%;
+  }
+  .m-display-attack-ranged-item-attack {
+    flex: 0 1 25%;
+  }
+  .m-display-attack-ranged-item-damage {
+    flex: 1 1 auto;
+  }
+  .m-display-attack-ranged-item-critical {
+    flex: 1 1 auto;
+  }
+  .m-display-attack-ranged-item-range {
+    flex: 1 1 auto;
+  }
+  .m-display-attack-ranged-item-ammo {
+    flex: 0 0 auto;
+  }
 }
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

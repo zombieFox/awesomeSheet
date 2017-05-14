@@ -295,78 +295,13 @@ var display = (function() {
     for (var i = 0; i < all_displayBlock.length; i++) {
       var target;
       var displayType = all_displayBlock[i].dataset.displayType;
-      if (displayType == "stat" || displayType == "modifier" || displayType == "text" || displayType == "clone") {
+      if (displayType == "stat" || displayType == "modifier" || displayType == "text") {
          target = all_displayBlock[i].querySelector(".js-display-block-target");
-      } else if (displayType == "list") {
+      } else if (displayType == "list" || displayType == "clone" || displayType == "skill") {
         target = all_displayBlock[i];
       };
       _removeAllChildren(target);
     };
-  };
-
-  function _makeDisplayItem(addressToCompare, data) {
-    var paddedData;
-    if (addressToCompare == "basics.xp"){
-      paddedData = data + " xp";
-    };
-    if (addressToCompare == "basics.age"){
-      paddedData = data + " years old";
-    };
-    if (addressToCompare == "basics.height"){
-      paddedData = data + " tall";
-    };
-    if (addressToCompare == "basics.hero_points"){
-      paddedData = data + " hero point";
-    };
-    if (addressToCompare == "basics.luck_points"){
-      paddedData = data + " luck point";
-    };
-    if (addressToCompare == "equipment.body_slots.armor") {
-      paddedData = "<strong class=\"m-display-text-strong\">Armor</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.belts") {
-      paddedData = "<strong class=\"m-display-text-strong\">Belts</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.body") {
-      paddedData = "<strong class=\"m-display-text-strong\">Body</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.chest") {
-      paddedData = "<strong class=\"m-display-text-strong\">Chest</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.eyes") {
-      paddedData = "<strong class=\"m-display-text-strong\">Eyes</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.feet") {
-      paddedData = "<strong class=\"m-display-text-strong\">Feet</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.hands") {
-      paddedData = "<strong class=\"m-display-text-strong\">Hands</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.head") {
-      paddedData = "<strong class=\"m-display-text-strong\">Head</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.headband") {
-      paddedData = "<strong class=\"m-display-text-strong\">Headband</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.neck") {
-      paddedData = "<strong class=\"m-display-text-strong\">Neck</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.ring_left_hand") {
-      paddedData = "<strong class=\"m-display-text-strong\">Ring (Left Hand)</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.ring_right_hand") {
-      paddedData = "<strong class=\"m-display-text-strong\">Ring (Right Hand)</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.shield") {
-      paddedData = "<strong class=\"m-display-text-strong\">Shield</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.shoulders") {
-      paddedData = "<strong class=\"m-display-text-strong\">Shoulders</strong>" + data;
-    };
-    if (addressToCompare == "equipment.body_slots.wrist") {
-      paddedData = "<strong class=\"m-display-text-strong\">Wrist</strong>" + data;
-    };
-    return paddedData;
   };
 
   function _get_stat(path, target) {
@@ -433,26 +368,34 @@ var display = (function() {
     target.appendChild(span);
   };
 
-  function _get_text(path, target, prefix, suffix) {
+  function _get_text(path, target, title, prefix, suffix) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
-      var span = document.createElement("span");
-      span.setAttribute("class", "m-display-text");
+      var displayItem = document.createElement("span");
+      displayItem.setAttribute("class", "m-display-item");
       var spanData = document.createElement("span");
-      spanData.textContent = data;
+      spanData.setAttribute("class", "m-display-item-value");
+      spanData.innerHTML = data;
+      if (title) {
+        var spanTitle = document.createElement("span");
+        spanTitle.setAttribute("class", "m-display-item-title");
+        spanTitle.textContent = title;
+        displayItem.appendChild(spanTitle);
+      };
       if (prefix) {
-        var strongPrefix = document.createElement("strong");
-        strongPrefix.setAttribute("class", "m-display-text-strong");
-        strongPrefix.textContent = prefix;
-        span.appendChild(strongPrefix);
+        var spanPrefix = document.createElement("span");
+        spanPrefix.setAttribute("class", "m-display-item-prefix");
+        spanPrefix.textContent = prefix;
+        displayItem.appendChild(spanPrefix);
       };
-      span.appendChild(spanData);
+      displayItem.appendChild(spanData);
       if (suffix) {
-        var spanSuffix = document.createElement("span");;
+        var spanSuffix = document.createElement("span");
+        spanSuffix.setAttribute("class", "m-display-item-suffix");
         spanSuffix.textContent = suffix;
-        span.appendChild(spanSuffix);
+        displayItem.appendChild(spanSuffix);
       };
-      target.appendChild(span);
+      target.appendChild(displayItem);
     };
   };
 
@@ -461,32 +404,113 @@ var display = (function() {
     if (typeof data != "undefined" && data != "") {
       var li = document.createElement("li");
       li.setAttribute("class", "m-display-col");
-      var span = document.createElement("span");
-      span.textContent = data;
+      var colItem = document.createElement("div");
+      colItem.setAttribute("class", "m-display-item");
+      var spanData = document.createElement("span");
+      spanData.setAttribute("class", "m-display-item-value");
+      spanData.innerHTML = data;
       if (prefix) {
-        var strongPrefix = document.createElement("strong");
-        strongPrefix.setAttribute("class", "m-display-text-strong");
-        strongPrefix.textContent = prefix;
-        li.appendChild(strongPrefix);
+        var spanPrefix = document.createElement("span");
+        spanPrefix.setAttribute("class", "m-display-item-prefix");
+        spanPrefix.textContent = prefix;
+        colItem.appendChild(spanPrefix);
       };
-      li.appendChild(span);
+      colItem.appendChild(spanData);
       if (suffix) {
-        var spanSuffix = document.createElement("span");;
+        var spanSuffix = document.createElement("span");
+        spanSuffix.setAttribute("class", "m-display-item-suffix");
         spanSuffix.textContent = suffix;
-        li.appendChild(spanSuffix);
+        colItem.appendChild(spanSuffix);
       };
+      li.appendChild(colItem);
       target.appendChild(li);
     };
   };
 
+  function _get_skill(path, target, prefix, suffix) {
+    var object = helper.getObject(sheet.getCharacter(), path);
+    if (typeof object != "undefined" && object != "") {
+
+      if (object["ranks"] != "undefined" && object["ranks"] != "") {
+        var li = document.createElement("li");
+        li.setAttribute("class", "m-display-col");
+        var skillDiv = document.createElement("div");
+        skillDiv.setAttribute("class", "m-display-skill-item");
+        var span = document.createElement("span");
+        span.setAttribute("class", "m-display-skill-item-value");
+        span.innerHTML = object["current"];
+        if (prefix || object["name"] || object["variant_name"]) {
+          var spanPrefix = document.createElement("span");
+          spanPrefix.setAttribute("class", "m-display-skill-item-name");
+          if (object["name"]) {
+            spanPrefix.textContent = object["name"] + " ";
+          } else if (object["variant_name"]) {
+            spanPrefix.textContent = object["variant_name"] + " ";
+          } else {
+            spanPrefix.textContent = prefix;
+          };
+          skillDiv.appendChild(spanPrefix);
+        };
+        skillDiv.appendChild(span);
+        if (suffix) {
+          var spanSuffix = document.createElement("span");;
+          spanSuffix.textContent = suffix;
+          skillDiv.appendChild(spanSuffix);
+        };
+        li.appendChild(skillDiv);
+        target.appendChild(li);
+      };
+
+    };
+  };
+
   function _get_clone(path, target) {
-    console.log(path);
-    console.log(target);
-    // if (sheet.getCharacter().equipment.consumable) {
-    //   for (var i in sheet.getCharacter().equipment.consumable) {
-    //     _render_displayClone("consumable", sheet.getCharacter().equipment.consumable[i], helper.e(".js-display-block-consumable").querySelector(".js-display-block-target"));
-    //   };
-    // };
+
+    var _render_displayClone = function(object, target, cloneType) {
+      var li = document.createElement("li");
+      li.setAttribute("class", "m-display-col");
+      var div = document.createElement("div");
+      div.setAttribute("class", "m-display-" + cloneType + "-item");
+      for (var i in object) {
+        // filter the object keys
+        if (i != "used" && i != "total") {
+          var data = object[i];
+          var span = document.createElement("span");
+          span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
+          span.innerHTML = data;
+
+          if (typeof data != "undefined" && data != "") {
+            div.appendChild(span);
+          };
+        };
+
+      };
+      li.appendChild(div);
+      target.appendChild(li);
+    };
+
+    var cloneType;
+    if (path == "equipment.consumable") {
+      cloneType = "consumable";
+    };
+    if (path == "offense.attack.melee") {
+      cloneType = "attack-melee";
+    };
+    if (path == "offense.attack.ranged") {
+      cloneType = "attack-ranged";
+    };
+    if (path == "notes.character") {
+      cloneType = "note-character";
+    };
+    if (path == "notes.story") {
+      cloneType = "note-story";
+    };
+
+    var all_clones = helper.getObject(sheet.getCharacter(), path);
+    for (var i in all_clones) {
+      _render_displayClone(all_clones[i], target, cloneType);
+    };
+
   };
 
   function _render_stat(itemsToDisplay, target) {
@@ -503,12 +527,13 @@ var display = (function() {
     };
   };
 
-  function _render_text(itemsToDisplay, target, displayPrefix, displaySuffix) {
+  function _render_text(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
+      var title = displayTitle[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
-      var data = _get_text(path, target, prefix, suffix);
+      var data = _get_text(path, target, title, prefix, suffix);
     };
   };
 
@@ -518,6 +543,15 @@ var display = (function() {
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
       var data = _get_list(path, target, prefix, suffix);
+    };
+  };
+
+  function _render_skill(itemsToDisplay, target, displayPrefix, displaySuffix) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var prefix = displayPrefix[i];
+      var suffix = displaySuffix[i];
+      var data = _get_skill(path, target, prefix, suffix);
     };
   };
 
@@ -536,11 +570,17 @@ var display = (function() {
       var target = all_displayBlock[i].querySelector(".js-display-block-target");
       var itemsToDisplay;
       var displayType;
+      var displayTitle;
       var displayPrefix;
       var displaySuffix;
       if (all_displayBlock[i].dataset.display) {
         itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
         displayType = all_displayBlock[i].dataset.displayType;
+        if (all_displayBlock[i].dataset.displayTitle) {
+          displayTitle = all_displayBlock[i].dataset.displayTitle.split(",");
+        } else {
+          displayTitle = false;
+        };
         if (all_displayBlock[i].dataset.displayPrefix) {
           displayPrefix = all_displayBlock[i].dataset.displayPrefix.split(",");
         } else {
@@ -561,71 +601,13 @@ var display = (function() {
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
       } else if (displayType == "text") {
-        _render_text(itemsToDisplay, target, displayPrefix, displaySuffix);
+        _render_text(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix);
       } else if (displayType == "list") {
         _render_list(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
+      } else if (displayType == "skill") {
+        _render_skill(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
       } else if (displayType == "clone") {
-        _render_clone(itemsToDisplay, target);
-      };
-      for (var j = 0; j < itemsToDisplay.length; j++) {
-        // var path = itemsToDisplay[j];
-        // var data = _get_characterData(path, displayType);
-
-        // console.log("\t", data);
-
-        // function _makeDisplayItem(addressToCompare, beforeString, afterString) {
-        //   if (typeof data != "undefined" && data != "" && itemsToDisplay[j] == addressToCompare) {
-        //     data = beforeString + data + afterString;
-        //     return data;
-        //   } else {
-        //     return data;
-        //   };
-        // };
-        //
-        // _makeDisplayItem("basics.xp", "", " xp");
-        // _makeDisplayItem("basics.age", "", " years old");
-        // _makeDisplayItem("basics.height", "", " tall");
-        // _makeDisplayItem("basics.hero_points", "", " hero point");
-        // _makeDisplayItem("basics.luck_points", "", " luck point");
-        //
-        // _makeDisplayItem("equipment.body_slots.armor", "<strong class=\"m-display-text-strong\">Armor</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.belts", "<strong class=\"m-display-text-strong\">Belts</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.body", "<strong class=\"m-display-text-strong\">Body</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.chest", "<strong class=\"m-display-text-strong\">Chest</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.eyes", "<strong class=\"m-display-text-strong\">Eyes</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.feet", "<strong class=\"m-display-text-strong\">Feet</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.hands", "<strong class=\"m-display-text-strong\">Hands</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.head", "<strong class=\"m-display-text-strong\">Head</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.headband", "<strong class=\"m-display-text-strong\">Headband</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.neck", "<strong class=\"m-display-text-strong\">Neck</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.ring_left_hand", "<strong class=\"m-display-text-strong\">Ring (Left Hand)</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.ring_right_hand", "<strong class=\"m-display-text-strong\">Ring (Right Hand)</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.shield", "<strong class=\"m-display-text-strong\">Shield</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.shoulders", "<strong class=\"m-display-text-strong\">Shoulders</strong> ", "");
-        // _makeDisplayItem("equipment.body_slots.wrist", "<strong class=\"m-display-text-strong\">Wrist</strong> ", "");
-        // _makeDisplayItem("equipment.wealth.platinum", "<strong class=\"m-display-text-strong\">PP</strong> ", "");
-        // _makeDisplayItem("equipment.wealth.gold", "<strong class=\"m-display-text-strong\">GP</strong> ", "");
-        // _makeDisplayItem("equipment.wealth.silver", "<strong class=\"m-display-text-strong\">SP</strong> ", "");
-        // _makeDisplayItem("equipment.wealth.copper", "<strong class=\"m-display-text-strong\">CP</strong> ", "");
-
-        // if (typeof data != "undefined" && data != "") {
-        //   if (displayType == "text") {
-        //     var text = document.createElement("span");
-        //     text.setAttribute("class", "m-display-text");
-        //     text.innerHTML = data;
-        //     target.appendChild(text);
-        //   } else if (displayType == "list") {
-        //     var text = document.createElement("li");
-        //     text.setAttribute("class", "m-display-col");
-        //     text.innerHTML = data;
-        //     target.appendChild(text);
-        //   } else {
-        //     var text = document.createElement("span");
-        //     text.innerHTML = data;
-        //     target.appendChild(text);
-        //   };
-        // };
-
+        _render_clone(itemsToDisplay, all_displayBlock[i]);
       };
     };
   };
