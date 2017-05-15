@@ -375,9 +375,9 @@ var display = (function() {
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
-      var spanData = document.createElement("span");
-      spanData.setAttribute("class", "m-display-item-value");
-      spanData.innerHTML = data;
+      var value = document.createElement("span");
+      value.setAttribute("class", "m-display-item-value");
+      value.innerHTML = data;
       if (title) {
         var spanTitle = document.createElement("span");
         spanTitle.setAttribute("class", "m-display-item-title");
@@ -390,7 +390,7 @@ var display = (function() {
         spanPrefix.textContent = prefix;
         displayItem.appendChild(spanPrefix);
       };
-      displayItem.appendChild(spanData);
+      displayItem.appendChild(value);
       if (suffix) {
         var spanSuffix = document.createElement("span");
         spanSuffix.setAttribute("class", "m-display-item-suffix");
@@ -484,9 +484,143 @@ var display = (function() {
     };
   };
 
-  function _get_spell(path, target) {
-    var object = helper.getObject(sheet.getCharacter(), path);
-    console.log(object);
+  function _get_spell(target) {
+
+    var _render_displaySpell = function(array, level, target) {
+      // console.log(level, array);
+      // read spells and add them to spell lists
+      var spellDc = sheet.getCharacter().spells.dc["level_" + level];
+      var perDay = sheet.getCharacter().spells.per_day["level_" + level];
+      var known = sheet.getCharacter().spells.known["level_" + level];
+
+      var displayBody = document.createElement("div");
+      displayBody.setAttribute("class", "m-display-body");
+
+      var displayBodyTitle = document.createElement("p");
+      displayBodyTitle.setAttribute("class", "m-display-body-title");
+
+      var spellBook = document.createElement("p");
+
+      for (var i = 0; i < array.length; i++) {
+        var spellObject = array[i];
+        // find spell list to add too
+        console.log(spellObject);
+        var spellPara;
+        if (helper.e(".js-display-spell-level-" + level)) {
+          spellPara = helper.e(".js-display-spell-level-" + level);
+        } else {
+          spellPara = document.createElement("p");
+          spellPara.setAttribute("class", "m-display-block m-display-block-tab js-display-spell-level-" + level);
+          var spellLevelPara = document.createElement("p");
+          spellLevelPara.setAttribute("class", "m-display-block");
+          var spellLevelParaStrong = document.createElement("strong");
+          spellLevelParaStrong.innerHTML = "Level " + level;
+          spellLevelPara.appendChild(spellLevelParaStrong);
+          target.appendChild(spellLevelPara);
+          if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
+            var spellKnownDailyDcPara = document.createElement("p");
+            spellKnownDailyDcPara.setAttribute("class", "m-display-block m-display-block-tab m-display-block-sub");
+            if (known != "" || known == "undefined") {
+              var span1 = document.createElement("span");
+              if (spellKnownDailyDcPara.children.length > 0) {
+                span1.innerHTML = ", Known " + known + " ";
+              } else {
+                span1.innerHTML = "Known " + known;
+              };
+              spellKnownDailyDcPara.appendChild(span1);
+            };
+            if (perDay != "" || perDay == "undefined") {
+              var span2 = document.createElement("span");
+              if (spellKnownDailyDcPara.children.length > 0) {
+                span2.innerHTML = ", Per day " + perDay + " ";
+              } else {
+                span2.innerHTML = "Per day " + perDay;
+              };
+              spellKnownDailyDcPara.appendChild(span2);
+            };
+            if (spellDc != "" || spellDc == "undefined") {
+              var span3 = document.createElement("span");
+              if (spellKnownDailyDcPara.children.length > 0) {
+                span3.innerHTML = ", DC " + spellDc + " ";
+              } else {
+                span3.innerHTML = "DC " + spellDc;
+              };
+              spellKnownDailyDcPara.appendChild(span3);
+            };
+            if (spellKnownDailyDcPara) {
+              target.appendChild(spellKnownDailyDcPara);
+            };
+          };
+          target.appendChild(spellPara);
+        };
+        // make spell
+        var spell = document.createElement("span");
+        spell.setAttribute("class", "m-display-spell");
+        var name = document.createElement("span");
+        name.setAttribute("class", "m-display-spell-name");
+        name.innerHTML = spellObject.name;
+        spell.appendChild(name);
+        // add spell marks
+        if (spellObject.prepared > 0) {
+          var marks = document.createElement("span");
+          marks.setAttribute("class", "m-display-spell-marks js-display-spell-marks");
+          spell.appendChild(marks);
+          var spellMarks = spell.querySelector(".js-display-spell-marks");
+          for (var j = 0; j < spellObject.prepared; j++) {
+            var preparedIcon = document.createElement("span");
+            preparedIcon.setAttribute("class", "icon-radio-button-checked");
+            spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+          };
+        };
+        // cast spells if cast > 0
+        if (spellObject.cast > 0) {
+          var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
+          for (var j = 0; j < spellObject.cast; j++) {
+            if (all_check[j]) {
+              helper.toggleClass(all_check[j], "icon-radio-button-checked");
+              helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
+              helper.toggleClass(all_check[j], "js-display-spell-mark-checked");
+              helper.toggleClass(all_check[j], "js-display-spell-mark-unchecked");
+            };
+          };
+          if (spellObject.cast >= spellObject.prepared) {
+            helper.removeClass(spell, "button-primary");
+          };
+        };
+        // if spell is active
+        if (spellObject.active) {
+          var active = document.createElement("span");
+          active.setAttribute("class", "m-display-spell-active js-display-spell-active");
+          spell.insertBefore(active, spell.firstChild);
+          var spellActive = spell.querySelector(".js-display-spell-active");
+          var activeIcon = document.createElement("span");
+          activeIcon.setAttribute("class", "icon-play-arrow");
+          if (spellObject.prepared > 0) {
+            if (spellActive.children.length > 0) {
+              spellActive.firstChild.remove();
+            } else {
+              spellActive.appendChild(activeIcon);
+            };
+          };
+        };
+        spellPara.appendChild(spell);
+      };
+      target.appendChild(displayBody);
+    };
+
+    // build an array of spell objects
+    var spellsToRender;
+    // iterate over all objects keys to find spells
+    if (sheet.getCharacter().spells.book) {
+      for (var i in sheet.getCharacter().spells.book) {
+        for (var j in sheet.getCharacter().spells.book[i]) {
+          spellsToRender = sheet.getCharacter().spells.book[i][j];
+          // console.log(spellsToRender, i);
+          _render_displaySpell(spellsToRender, i, target);
+        };
+      };
+    };
+
   };
 
   function _get_clone(path, target) {
@@ -591,7 +725,15 @@ var display = (function() {
 
     var all_clones = helper.getObject(sheet.getCharacter(), path);
     for (var i in all_clones) {
-      _render_displayClone(all_clones[i], target, cloneType);
+      var testForValues = false;
+      for (var j in all_clones[i]) {
+        if (typeof all_clones[i][j] != "undefined" && all_clones[i][j] != "") {
+          testForValues = true;
+        };
+      };
+      if (testForValues) {
+        _render_displayClone(all_clones[i], target, cloneType);
+      };
     };
 
   };
@@ -652,27 +794,23 @@ var display = (function() {
     };
   };
 
-  function _render_spell(itemsToDisplay, target) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var data = _get_spell(path, target);
-    };
+  function _render_spell(target) {
+    var data = _get_spell(target);
   };
-
 
   function render() {
     var all_displayBlock = helper.eA(".js-display-block");
-
     for (var i = 0; i < all_displayBlock.length; i++) {
+
       var target = all_displayBlock[i].querySelector(".js-display-block-target");
       var itemsToDisplay;
-      var displayType;
       var displayTitle;
       var displayPrefix;
       var displaySuffix;
+      var displayType = all_displayBlock[i].dataset.displayType;
+
       if (all_displayBlock[i].dataset.display) {
         itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
-        displayType = all_displayBlock[i].dataset.displayType;
         if (all_displayBlock[i].dataset.displayTitle) {
           displayTitle = all_displayBlock[i].dataset.displayTitle.split(",");
         } else {
@@ -688,11 +826,8 @@ var display = (function() {
         } else {
           displaySuffix = false;
         };
-        // console.log(itemsToDisplay);
-        // console.log(displayType);
-        // console.log(displayPrefix);
-        // console.log(displaySuffix);
       };
+
       if (displayType == "stat") {
         _render_stat(itemsToDisplay, target);
       } else if (displayType == "modifier") {
@@ -708,8 +843,9 @@ var display = (function() {
       } else if (displayType == "clone") {
         _render_clone(itemsToDisplay, all_displayBlock[i]);
       } else if (displayType == "spell") {
-        _render_spell(itemsToDisplay, all_displayBlock[i]);
+        _render_spell(target);
       };
+
     };
   };
 
