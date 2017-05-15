@@ -295,8 +295,8 @@ var display = (function() {
     for (var i = 0; i < all_displayBlock.length; i++) {
       var target;
       var displayType = all_displayBlock[i].dataset.displayType;
-      if (displayType == "stat" || displayType == "modifier" || displayType == "text") {
-         target = all_displayBlock[i].querySelector(".js-display-block-target");
+      if (displayType == "stat" || displayType == "modifier" || displayType == "text-snippet" || displayType == "text-block") {
+        target = all_displayBlock[i].querySelector(".js-display-block-target");
       } else if (displayType == "list" || displayType == "clone" || displayType == "skill") {
         target = all_displayBlock[i];
       };
@@ -337,7 +337,8 @@ var display = (function() {
       data = 0;
     };
     var span = document.createElement("span");
-    span.innerHTML = data;
+    span.setAttribute("class", "m-display-item");
+    span.textContent = data;
     target.appendChild(span);
   };
 
@@ -364,15 +365,16 @@ var display = (function() {
       data = "+" + data;
     };
     var span = document.createElement("span");
-    span.innerHTML = data;
+    span.setAttribute("class", "m-display-item");
+    span.textContent = data;
     target.appendChild(span);
   };
 
-  function _get_text(path, target, title, prefix, suffix) {
+  function _get_textSnippet(path, target, title, prefix, suffix) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
-      displayItem.setAttribute("class", "m-display-item");
+      displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
       var spanData = document.createElement("span");
       spanData.setAttribute("class", "m-display-item-value");
       spanData.innerHTML = data;
@@ -399,30 +401,43 @@ var display = (function() {
     };
   };
 
+  function _get_textBlock(path, target) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    if (typeof data != "undefined" && data != "") {
+      var displayItem = document.createElement("span");
+      displayItem.setAttribute("class", "m-display-item m-display-item-block");
+      var value = document.createElement("span");
+      value.setAttribute("class", "m-display-item-value");
+      value.innerHTML = data;
+      displayItem.appendChild(value);
+      target.appendChild(displayItem);
+    };
+  };
+
   function _get_list(path, target, prefix, suffix) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var li = document.createElement("li");
       li.setAttribute("class", "m-display-col");
-      var colItem = document.createElement("div");
-      colItem.setAttribute("class", "m-display-item");
-      var spanData = document.createElement("span");
-      spanData.setAttribute("class", "m-display-item-value");
-      spanData.innerHTML = data;
+      var div = document.createElement("div");
+      div.setAttribute("class", "m-display-item m-display-item-list");
+      var value = document.createElement("span");
+      value.setAttribute("class", "m-display-item-value");
+      value.innerHTML = data;
       if (prefix) {
         var spanPrefix = document.createElement("span");
         spanPrefix.setAttribute("class", "m-display-item-prefix");
         spanPrefix.textContent = prefix;
-        colItem.appendChild(spanPrefix);
+        div.appendChild(spanPrefix);
       };
-      colItem.appendChild(spanData);
+      div.appendChild(value);
       if (suffix) {
         var spanSuffix = document.createElement("span");
         spanSuffix.setAttribute("class", "m-display-item-suffix");
         spanSuffix.textContent = suffix;
-        colItem.appendChild(spanSuffix);
+        div.appendChild(spanSuffix);
       };
-      li.appendChild(colItem);
+      li.appendChild(div);
       target.appendChild(li);
     };
   };
@@ -431,17 +446,19 @@ var display = (function() {
     var object = helper.getObject(sheet.getCharacter(), path);
     if (typeof object != "undefined" && object != "") {
 
-      if (object["ranks"] != "undefined" && object["ranks"] != "") {
+      if (object.ranks != "undefined" && object.ranks != "") {
         var li = document.createElement("li");
         li.setAttribute("class", "m-display-col");
-        var skillDiv = document.createElement("div");
-        skillDiv.setAttribute("class", "m-display-skill-item");
-        var span = document.createElement("span");
-        span.setAttribute("class", "m-display-skill-item-value");
-        span.innerHTML = object["current"];
+        var div = document.createElement("div");
+        div.setAttribute("class", "m-display-item m-display-item-col");
+        var value = document.createElement("span");
+        value.setAttribute("class", "m-display-item-value");
+        value.textContent = object.current;
+
+
         if (prefix || object["name"] || object["variant_name"]) {
           var spanPrefix = document.createElement("span");
-          spanPrefix.setAttribute("class", "m-display-skill-item-name");
+          spanPrefix.setAttribute("class", "m-display-item-prefix");
           if (object["name"]) {
             spanPrefix.textContent = object["name"] + " ";
           } else if (object["variant_name"]) {
@@ -449,19 +466,27 @@ var display = (function() {
           } else {
             spanPrefix.textContent = prefix;
           };
-          skillDiv.appendChild(spanPrefix);
+          div.appendChild(spanPrefix);
         };
-        skillDiv.appendChild(span);
+
+        div.appendChild(value);
+
         if (suffix) {
-          var spanSuffix = document.createElement("span");;
+          var spanSuffix = document.createElement("span");
+          spanSuffix.setAttribute("class", "m-display-item-suffix");
           spanSuffix.textContent = suffix;
-          skillDiv.appendChild(spanSuffix);
+          div.appendChild(spanSuffix);
         };
-        li.appendChild(skillDiv);
+        li.appendChild(div);
         target.appendChild(li);
       };
 
     };
+  };
+
+  function _get_spell(path, target) {
+    var object = helper.getObject(sheet.getCharacter(), path);
+    console.log(object);
   };
 
   function _get_clone(path, target) {
@@ -469,24 +494,82 @@ var display = (function() {
     var _render_displayClone = function(object, target, cloneType) {
       var li = document.createElement("li");
       li.setAttribute("class", "m-display-col");
-      var div = document.createElement("div");
-      div.setAttribute("class", "m-display-" + cloneType + "-item");
-      for (var i in object) {
-        // filter the object keys
-        if (i != "used" && i != "total") {
-          var data = object[i];
-          var span = document.createElement("span");
-          span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
-          span.innerHTML = data;
+      var displayItem = document.createElement("div");
+      if (cloneType == "consumable") {
+        displayItem.setAttribute("class", "m-display-item m-display-item-col");
+      } else if (cloneType == "attack-melee") {
+        displayItem.setAttribute("class", "m-display-item m-display-item-list");
+      } else if (cloneType == "attack-ranged") {
+        displayItem.setAttribute("class", "m-display-item m-display-item-list");
+      } else if (cloneType == "note-character") {
+        displayItem.setAttribute("class", "m-display-item m-display-item-list");
+      } else if (cloneType == "note-story") {
+        displayItem.setAttribute("class", "m-display-item m-display-item-list");
+      };
 
-          if (typeof data != "undefined" && data != "") {
-            div.appendChild(span);
+      if (cloneType == "consumable") {
+        for (var i in object) {
+
+          if (i == "item") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var span = document.createElement("span");
+              span.setAttribute("class", "m-display-item-prefix");
+              span.textContent = data;
+              displayItem.appendChild(span);
+            };
+          } else if (i == "current") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var span = document.createElement("span");
+              span.setAttribute("class", "m-display-item-value");
+              span.textContent = data;
+              displayItem.appendChild(span);
+            };
           };
+
         };
 
+        li.appendChild(displayItem);
+        target.appendChild(li);
       };
-      li.appendChild(div);
-      target.appendChild(li);
+
+      if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+        var div = document.createElement("div");
+        div.setAttribute("class", "m-display-" + cloneType + "-item");
+        for (var i in object) {
+
+          if (i == "weapon" || i == "attack" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var span = document.createElement("span");
+              span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
+              span.textContent = data;
+              div.appendChild(span);
+            };
+          };
+
+        };
+
+        displayItem.appendChild(div);
+        li.appendChild(displayItem);
+        target.appendChild(li);
+      };
+
+      if (cloneType == "note-character" || cloneType == "note-story") {
+        for (var i in object) {
+
+          var data = object[i];
+          if (typeof data != "undefined" && data != "") {
+            displayItem.innerHTML = data;
+          };
+
+        };
+
+        li.appendChild(displayItem);
+        target.appendChild(li);
+      };
+
     };
 
     var cloneType;
@@ -527,13 +610,20 @@ var display = (function() {
     };
   };
 
-  function _render_text(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix) {
+  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var title = displayTitle[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
-      var data = _get_text(path, target, title, prefix, suffix);
+      var data = _get_textSnippet(path, target, title, prefix, suffix);
+    };
+  };
+
+  function _render_textBlock(itemsToDisplay, target) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var data = _get_textBlock(path, target);
     };
   };
 
@@ -559,6 +649,13 @@ var display = (function() {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var data = _get_clone(path, target);
+    };
+  };
+
+  function _render_spell(itemsToDisplay, target) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var data = _get_spell(path, target);
     };
   };
 
@@ -600,14 +697,18 @@ var display = (function() {
         _render_stat(itemsToDisplay, target);
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
-      } else if (displayType == "text") {
-        _render_text(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix);
+      } else if (displayType == "text-snippet") {
+        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix);
+      } else if (displayType == "text-block") {
+        _render_textBlock(itemsToDisplay, target);
       } else if (displayType == "list") {
         _render_list(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
       } else if (displayType == "skill") {
         _render_skill(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
       } else if (displayType == "clone") {
         _render_clone(itemsToDisplay, all_displayBlock[i]);
+      } else if (displayType == "spell") {
+        _render_spell(itemsToDisplay, all_displayBlock[i]);
       };
     };
   };
