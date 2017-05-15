@@ -2,8 +2,8 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    _bind_quickEdit();
-    _bind_quickControl();
+    // _bind_quickEdit();
+    // _bind_quickControl();
   };
 
   function _bind_fab() {
@@ -11,79 +11,79 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
   };
 
-  function _bind_quickEdit() {
-    var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
-    for (var i = 0; i < displayBlockQuickEdit.length; i++) {
-      displayBlockQuickEdit[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _toggle_quickEdit(this);
-        totalBlock.update();
-        if (body.dataset.displayMode == "true") {
-          clear();
-          render();
-        };
-      }, false);
-    };
-  };
+  // function _bind_quickEdit() {
+  //   var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
+  //   for (var i = 0; i < displayBlockQuickEdit.length; i++) {
+  //     displayBlockQuickEdit[i].addEventListener("click", function(event) {
+  //       event.stopPropagation();
+  //       event.preventDefault();
+  //       _toggle_quickEdit(this);
+  //       totalBlock.update();
+  //       if (body.dataset.displayMode == "true") {
+  //         clear();
+  //         render();
+  //       };
+  //     }, false);
+  //   };
+  // };
+  //
+  // function _bind_quickControl() {
+  //   var displayBlockQuickControlItem = helper.eA(".js-display-block-quick-control-item");
+  //   for (var i = 0; i < displayBlockQuickControlItem.length; i++) {
+  //     displayBlockQuickControlItem[i].addEventListener("click", function(event) {
+  //       event.stopPropagation();
+  //       event.preventDefault();
+  //       _quickConctrolAction(this);
+  //       totalBlock.update();
+  //       clear();
+  //       render();
+  //     }, false);
+  //   };
+  // };
 
-  function _bind_quickControl() {
-    var displayBlockQuickControlItem = helper.eA(".js-display-block-quick-control-item");
-    for (var i = 0; i < displayBlockQuickControlItem.length; i++) {
-      displayBlockQuickControlItem[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _quickConctrolAction(this);
-        totalBlock.update();
-        clear();
-        render();
-      }, false);
-    };
-  };
+  // function _quickConctrolAction(element) {
+  //   var controlAction = element.dataset.displayControl;
+  //   var path = element.dataset.path;
+  //   var target = helper.e("#" + element.dataset.editTarget);
+  //   var content = parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0;
+  //   if (controlAction == "addition") {
+  //     content = content + 1;
+  //   };
+  //   if (controlAction == "subtract") {
+  //     content = content - 1;
+  //   };
+  //   if (controlAction == "addition-5") {
+  //     content = content + 5;
+  //   };
+  //   if (controlAction == "subtract-5") {
+  //     content = content - 5;
+  //   };
+  //   if (controlAction == "clear") {
+  //     content = "";
+  //   };
+  //   if (content == "0") {
+  //     target.value = "";
+  //     _store(element, "");
+  //   } else {
+  //     target.value = content;
+  //     _store(element, content);
+  //   };
+  //   inputBlock.update(target);
+  // };
 
-  function _quickConctrolAction(element) {
-    var controlAction = element.dataset.displayControl;
-    var path = element.dataset.path;
-    var target = helper.e("#" + element.dataset.editTarget);
-    var content = parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0;
-    if (controlAction == "addition") {
-      content = content + 1;
-    };
-    if (controlAction == "subtract") {
-      content = content - 1;
-    };
-    if (controlAction == "addition-5") {
-      content = content + 5;
-    };
-    if (controlAction == "subtract-5") {
-      content = content - 5;
-    };
-    if (controlAction == "clear") {
-      content = "";
-    };
-    if (content == "0") {
-      target.value = "";
-      _store(element, "");
-    } else {
-      target.value = content;
-      _store(element, content);
-    };
-    inputBlock.update(target);
-  };
-
-  function _store(element, value) {
-    var path = element.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, value);
-    sheet.storeCharacters();
-  };
-
-  function _toggle_quickEdit(element) {
-    var body = helper.e("body");
-    var node = helper.e(".js-" + element.dataset.miniView);
-    var all_sectionEdit = helper.eA(".js-section-edit");
-    helper.toggleClass(node, "is-collapsed");
-    helper.toggleClass(node, "is-expanded");
-  };
+  // function _store(element, value) {
+  //   var path = element.dataset.path;
+  //   helper.setObject(sheet.getCharacter(), path, value);
+  //   sheet.storeCharacters();
+  // };
+  //
+  // function _toggle_quickEdit(element) {
+  //   var body = helper.e("body");
+  //   var node = helper.e(".js-" + element.dataset.miniView);
+  //   var all_sectionEdit = helper.eA(".js-section-edit");
+  //   helper.toggleClass(node, "is-collapsed");
+  //   helper.toggleClass(node, "is-expanded");
+  // };
 
   var scrollTopEdit = 0;
   var scrollTopDisplay = 0;
@@ -105,62 +105,10 @@ var display = (function() {
       for (var i = 0; i < all_quickNavLink.length; i++) {
         helper.addClass(all_quickNavLink[i], "is-invisible");
       };
-      // iterate over all edit secrions
+      // iterate over all edit sections
       for (var i = 0; i < all_sectionEdit.length; i++) {
-        // if edit section is basics
-        if (all_sectionEdit[i].classList.contains("js-basics")) {
-          // remove dark class
-          helper.removeClass(all_sectionEdit[i], "l-section-dark");
-          // find all input blocks
-          var all_inputBlock = all_sectionEdit[i].querySelectorAll(".js-input-block");
-          // iterate over all input blocks
-          for (var j = 0; j < all_inputBlock.length; j++) {
-            // fine label and input for this input block
-            var label = all_inputBlock[j].querySelector(".js-input-block-label");
-            var input = all_inputBlock[j].querySelector(".js-input-block-field");
-            // remove dark class
-            helper.removeClass(label, "m-input-block-label-dark");
-            helper.removeClass(input, "m-input-block-field-dark");
-          };
-        };
-        // remove any inline styles
-        all_sectionEdit[i].removeAttribute("style");
-        // collapse section
-        helper.addClass(all_sectionEdit[i], "is-collapsed");
-        // add edit class to section
-        helper.addClass(all_sectionEdit[i], "m-quick-edit");
-        // remove any pinned header classes
-        helper.removeClass(all_sectionEdit[i], "is-pinned");
-        // remove any previously expanded section classes
-        helper.removeClass(all_sectionEdit[i], "is-expanded");
-        // find all section headings
-        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
-        // if section heading found
-        if (sectionHeading) {
-          // remove any pinned header classes
-          helper.removeClass(sectionHeading, "is-pinned");
-          helper.removeClass(sectionHeading, "is-faded");
-          // find section heading title
-          var sectionHeadingTitle = sectionHeading.querySelector(".js-section-title");
-          // find section controls
-          var sectionHeadingControls = sectionHeading.querySelector(".js-section-controls");
-          // if section controls not found
-          if (!sectionHeadingControls) {
-            // hide section heading
-            helper.addClass(sectionHeading, "is-hidden");
-          };
-          // if section controls found
-          if (sectionHeadingControls) {
-            // make it full width
-            helper.removeClass(sectionHeadingControls.parentNode, "col-xs-10");
-            helper.addClass(sectionHeadingControls.parentNode, "col-xs-12");
-          };
-          // if section heading title found
-          if (sectionHeadingTitle) {
-            // hide section heading
-            helper.addClass(sectionHeadingTitle.parentNode, "is-hidden");
-          };
-        };
+        // make them visable
+        helper.addClass(all_sectionEdit[i], "is-hidden");
       };
       // iterate over all display sections
       for (var i = 0; i < all_sectionDisplay.length; i++) {
@@ -184,55 +132,10 @@ var display = (function() {
         // make visable
         helper.removeClass(all_quickNavLink[i], "is-invisible");
       };
-      // iterate over all edit secrions
+      // iterate over all edit sections
       for (var i = 0; i < all_sectionEdit.length; i++) {
-        // if edit section is basics
-        if (all_sectionEdit[i].classList.contains("js-basics")) {
-          // remove dark class
-          helper.addClass(all_sectionEdit[i], "l-section-dark");
-          // find all input blocks
-          var all_inputBlock = all_sectionEdit[i].querySelectorAll(".js-input-block");
-          // iterate over all input blocks
-          for (var j = 0; j < all_inputBlock.length; j++) {
-            // fine label and input for this input block
-            var label = all_inputBlock[j].querySelector(".js-input-block-label");
-            var input = all_inputBlock[j].querySelector(".js-input-block-field");
-            // remove dark class
-            helper.addClass(label, "m-input-block-label-dark");
-            helper.addClass(input, "m-input-block-field-dark");
-          };
-        };
-        // expand section
-        helper.removeClass(all_sectionEdit[i], "is-collapsed");
-        // remove edit class to section
-        helper.removeClass(all_sectionEdit[i], "m-quick-edit");
-        // remove any previously expanded section classes
-        helper.removeClass(all_sectionEdit[i], "is-expanded");
-        // find all section headings
-        var sectionHeading = all_sectionEdit[i].querySelector(".js-section-heading");
-        // if section heading found
-        if (sectionHeading) {
-          // find section heading title
-          var sectionHeadingTitle = sectionHeading.querySelector(".js-section-title");
-          // find section controls
-          var sectionHeadingControls = sectionHeading.querySelector(".js-section-controls");
-          // section heading controls not found
-          if (!sectionHeadingControls) {
-            // unhide section heading
-            helper.removeClass(sectionHeading, "is-hidden");
-          };
-          // if section heading controls found
-          if (sectionHeadingControls) {
-            // make 10 cols
-            helper.addClass(sectionHeadingControls.parentNode, "col-xs-10");
-            helper.removeClass(sectionHeadingControls.parentNode, "col-xs-12");
-          };
-          // if section heading title found
-          if (sectionHeadingTitle) {
-            // iunhide it
-            helper.removeClass(sectionHeadingTitle.parentNode, "is-hidden");
-          };
-        };
+        // make them visable
+        helper.removeClass(all_sectionEdit[i], "is-hidden");
       };
       // iterate over all display sections
       for (var i = 0; i < all_sectionDisplay.length; i++) {
