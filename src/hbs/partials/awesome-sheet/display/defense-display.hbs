@@ -1,54 +1,60 @@
-<section class="l-section l-section-display js-section-display is-hidden">
-  <div class="m-display-wrapper">
-    <div class="container">
-      <div class="m-display-section">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="m-display-section-divider">
-              <span class="m-display-section-icon icon-shield"></span>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <p class="m-display-block js-display-block" data-display="defense.hp.current,defense.hp.non_lethal_damage">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="m-display-block js-display-block" data-display="defense.hp.damage">
-              <strong>Damage</strong>
-              <span class="m-display-block-target-spacer js-display-block-target"></span>
-              <span class="m-display-block-quick-control button-group">
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="subtract-5" data-edit-target="defense-hp-damage"><span class="icon-remove"></span> 5</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="subtract" data-edit-target="defense-hp-damage"><span class="icon-remove"></span> 1</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="clear" data-edit-target="defense-hp-damage"><span class="icon-close"></span> Clear</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="addition" data-edit-target="defense-hp-damage"><span class="icon-add"></span> 1</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.damage" data-display-control="addition-5" data-edit-target="defense-hp-damage"><span class="icon-add"></span> 5</a>
-              </span>
-            </p>
-            <p class="m-display-block js-display-block" data-display="defense.hp.temp">
-              <strong>Temporary HP</strong>
-              <span class="m-display-block-target-spacer js-display-block-target"></span>
-              <span class="m-display-block-quick-control button-group">
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="subtract-5" data-edit-target="defense-hp-temp"><span class="icon-remove"></span> 5</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="subtract" data-edit-target="defense-hp-temp"><span class="icon-remove"></span> 1</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="clear" data-edit-target="defense-hp-temp"><span class="icon-close"></span> Clear</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="addition" data-edit-target="defense-hp-temp"><span class="icon-add"></span> 1</a>
-                <a href="#" class="button button-small m-display-block-quick-control-item js-display-block-quick-control-item" data-path="defense.hp.temp" data-display-control="addition-5" data-edit-target="defense-hp-temp"><span class="icon-add"></span> 5</a>
-              </span>
-            </p>
-            <p class="m-display-block js-display-block" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="m-display-block m-display-block-tab m-display-block-sub js-display-block" data-display="defense.ac_notes">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="m-display-block js-display-block" data-display="defense.fortitude.current,defense.reflex.current,defense.will.current">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="m-display-block m-display-block-tab m-display-block-sub js-display-block" data-display="defense.save_notes">
-              <span class="js-display-block-target"></span>
-            </p>
-            <button data-mini-view="defense" class="button button-icon button-small m-display-block-quick-edit js-display-block-quick-edit"><span class="icon-edit"></span> Quick Edit</button>
-          </div>
+<section class="l-section l-section-display l-section-display-body is-hidden js-section-display">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Defense</p>
+          <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch ">
+            <span class="js-display-block-target"></span>
+          </p>
+          <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac_notes" data-display-title="Notes ">
+            <span class="js-display-block-target"></span>
+          </p>
         </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Saves</p>
+          <ul class="m-display-grid-3-col u-list-unstyled">
+            <li class="m-display-col">
+
+              <div class="m-display-item m-display-item-col">
+                <span class="m-display-item-prefix">Fortitude</span>
+                <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.fortitude.current">
+                  <span class="js-display-block-target"></span>
+                </span>
+              </div>
+
+            </li>
+            <li class="m-display-col">
+
+              <div class="m-display-item m-display-item-col">
+                <span class="m-display-item-prefix">Reflex</span>
+                <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.reflex.current">
+                  <span class="js-display-block-target"></span>
+                </span>
+              </div>
+
+            </li>
+            <li class="m-display-col">
+
+              <div class="m-display-item m-display-item-col">
+                <span class="m-display-item-prefix">Will</span>
+                <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.will.current">
+                  <span class="js-display-block-target"></span>
+                </span>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+
+        <div class="m-display-body">
+          <p class="js-display-block" data-display-type="text-snippet" data-display="defense.save_notes" data-display-title="Notes ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
       </div>
     </div>
   </div>
