@@ -14,7 +14,7 @@ var nif = (function() {
       weight: "136 lbs",
       age: "120",
       gender: "Male",
-      speed: "30 ft, 6 sq",
+      speed: "30ft",
       initiative: "3",
       hero_points: "",
       luck_points: ""

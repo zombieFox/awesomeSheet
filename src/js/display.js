@@ -487,30 +487,24 @@ var display = (function() {
   function _get_spell(target) {
 
     var _render_displaySpell = function(array, level, target) {
-      console.log(level);
-      // console.log(level, array);
-      // read spells and add them to spell lists
-      var spellDc = sheet.getCharacter().spells.dc["level_" + level];
-      var perDay = sheet.getCharacter().spells.per_day["level_" + level];
-      var known = sheet.getCharacter().spells.known["level_" + level];
 
       var displayBody = document.createElement("div");
       displayBody.setAttribute("class", "m-display-body");
-
       var displayBodyTitle = document.createElement("p");
       displayBodyTitle.setAttribute("class", "m-display-body-title");
       displayBodyTitle.textContent = "Level " + level;
-
-      var spellBookPage = document.createElement("p");
-      spellBookPage.textContent = "test";
+      var spellBookPage = document.createElement("ul");
+      spellBookPage.setAttribute("class", "m-display-grid-1-col u-list-unstyled");
 
       displayBody.appendChild(displayBodyTitle);
 
       // add known, spells per day and dc
       if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
+        var spellDc = sheet.getCharacter().spells.dc["level_" + level];
+        var perDay = sheet.getCharacter().spells.per_day["level_" + level];
+        var known = sheet.getCharacter().spells.known["level_" + level];
         var displayGrid3Col = document.createElement("ul");
         displayGrid3Col.setAttribute("class", "m-display-grid-3-col u-list-unstyled");
-
         if (known != "" || known == "undefined") {
           var knownLi = document.createElement("li");
           knownLi.setAttribute("class", "m-display-col");
@@ -528,7 +522,6 @@ var display = (function() {
           displayGrid3Col.appendChild(knownLi);
           displayBody.appendChild(displayGrid3Col);
         };
-
         if (perDay != "" || perDay == "undefined") {
           var perDayLi = document.createElement("li");
           perDayLi.setAttribute("class", "m-display-col");
@@ -546,7 +539,6 @@ var display = (function() {
           displayGrid3Col.appendChild(perDayLi);
           displayBody.appendChild(displayGrid3Col);
         };
-
         if (spellDc != "" || spellDc == "undefined") {
           var spellDcLi = document.createElement("li");
           spellDcLi.setAttribute("class", "m-display-col");
@@ -564,146 +556,71 @@ var display = (function() {
           displayGrid3Col.appendChild(spellDcLi);
           displayBody.appendChild(displayGrid3Col);
         };
-
-        // if (perDay != "" || perDay == "undefined") {
-        //   var span2 = document.createElement("span");
-        //   if (spellKnownDailyDcPara.children.length > 0) {
-        //     span2.innerHTML = ", Per day " + perDay + " ";
-        //   } else {
-        //     span2.innerHTML = "Per day " + perDay;
-        //   };
-        //   spellKnownDailyDcPara.appendChild(span2);
-        // };
-        // if (spellDc != "" || spellDc == "undefined") {
-        //   var span3 = document.createElement("span");
-        //   if (spellKnownDailyDcPara.children.length > 0) {
-        //     span3.innerHTML = ", DC " + spellDc + " ";
-        //   } else {
-        //     span3.innerHTML = "DC " + spellDc;
-        //   };
-        //   spellKnownDailyDcPara.appendChild(span3);
-        // };
-        // if (spellKnownDailyDcPara) {
-        //   target.appendChild(spellKnownDailyDcPara);
-        // };
       };
 
-
+      // add spall pages
       for (var i = 0; i < array.length; i++) {
 
+        var spellObject = array[i];
+        var displayCol = document.createElement("li");
+        displayCol.setAttribute("class", "m-display-col");
+        var displayItem = document.createElement("div");
+        displayItem.setAttribute("class", "m-display-item m-display-item-list");
 
+        var spell = document.createElement("div");
+        spell.setAttribute("class", "m-display-spell");
+
+        var spellName = document.createElement("span");
+        spellName.setAttribute("class", "m-display-spell-name");
+        spellName.textContent = spellObject.name;
+        spell.appendChild(spellName);
+
+        var spellCount = document.createElement("span");
+        spellCount.setAttribute("class", "m-display-spell-count");
+
+        var spellActive = document.createElement("span");
+        spellActive.setAttribute("class", "m-display-spell-active");
+
+        // prepared
+        if (spellObject.prepared > 0) {
+          var marks = document.createElement("span");
+          for (var j = 0; j < spellObject.prepared; j++) {
+            var preparedIcon = document.createElement("span");
+            preparedIcon.setAttribute("class", "icon-radio-button-checked");
+            spellCount.insertBefore(preparedIcon, spellCount.firstChild);
+          };
+        };
+
+        // cast
+        if (spellObject.cast > 0) {
+          var all_check = spellCount.querySelectorAll(".icon-radio-button-checked");
+          for (var j = 0; j < spellObject.cast; j++) {
+            if (all_check[j]) {
+              helper.toggleClass(all_check[j], "icon-radio-button-checked");
+              helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
+            };
+          };
+        };
+
+        // active
+        if (spellObject.active) {
+          var activeIcon = document.createElement("span");
+          activeIcon.setAttribute("class", "icon-play-arrow");
+          spellActive.insertBefore(activeIcon, spellActive.firstChild);
+          spell.appendChild(spellActive);
+        };
+
+        spell.appendChild(spellName);
+        spell.appendChild(spellCount);
+
+        displayItem.appendChild(spell);
+        displayCol.appendChild(displayItem);
+        spellBookPage.appendChild(displayCol);
 
       };
-
 
       displayBody.appendChild(spellBookPage);
       target.appendChild(displayBody);
-
-
-      // for (var i = 0; i < array.length; i++) {
-      //   var spellObject = array[i];
-      //   // find spell list to add too
-      //   console.log(spellObject);
-      //   var spellPara;
-      //   if (helper.e(".js-display-spell-level-" + level)) {
-      //     spellPara = helper.e(".js-display-spell-level-" + level);
-      //   } else {
-      //     spellPara = document.createElement("p");
-      //     spellPara.setAttribute("class", "m-display-block m-display-block-tab js-display-spell-level-" + level);
-      //     var spellLevelPara = document.createElement("p");
-      //     spellLevelPara.setAttribute("class", "m-display-block");
-      //     var spellLevelParaStrong = document.createElement("strong");
-      //     spellLevelParaStrong.innerHTML = "Level " + level;
-      //     spellLevelPara.appendChild(spellLevelParaStrong);
-      //     target.appendChild(spellLevelPara);
-      //     if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
-      //       var spellKnownDailyDcPara = document.createElement("p");
-      //       spellKnownDailyDcPara.setAttribute("class", "m-display-block m-display-block-tab m-display-block-sub");
-      //       if (known != "" || known == "undefined") {
-      //         var span1 = document.createElement("span");
-      //         if (spellKnownDailyDcPara.children.length > 0) {
-      //           span1.innerHTML = ", Known " + known + " ";
-      //         } else {
-      //           span1.innerHTML = "Known " + known;
-      //         };
-      //         spellKnownDailyDcPara.appendChild(span1);
-      //       };
-      //       if (perDay != "" || perDay == "undefined") {
-      //         var span2 = document.createElement("span");
-      //         if (spellKnownDailyDcPara.children.length > 0) {
-      //           span2.innerHTML = ", Per day " + perDay + " ";
-      //         } else {
-      //           span2.innerHTML = "Per day " + perDay;
-      //         };
-      //         spellKnownDailyDcPara.appendChild(span2);
-      //       };
-      //       if (spellDc != "" || spellDc == "undefined") {
-      //         var span3 = document.createElement("span");
-      //         if (spellKnownDailyDcPara.children.length > 0) {
-      //           span3.innerHTML = ", DC " + spellDc + " ";
-      //         } else {
-      //           span3.innerHTML = "DC " + spellDc;
-      //         };
-      //         spellKnownDailyDcPara.appendChild(span3);
-      //       };
-      //       if (spellKnownDailyDcPara) {
-      //         target.appendChild(spellKnownDailyDcPara);
-      //       };
-      //     };
-      //     target.appendChild(spellPara);
-      //   };
-      //   // make spell
-      //   var spell = document.createElement("span");
-      //   spell.setAttribute("class", "m-display-spell");
-      //   var name = document.createElement("span");
-      //   name.setAttribute("class", "m-display-spell-name");
-      //   name.innerHTML = spellObject.name;
-      //   spell.appendChild(name);
-      //   // add spell marks
-      //   if (spellObject.prepared > 0) {
-      //     var marks = document.createElement("span");
-      //     marks.setAttribute("class", "m-display-spell-marks js-display-spell-marks");
-      //     spell.appendChild(marks);
-      //     var spellMarks = spell.querySelector(".js-display-spell-marks");
-      //     for (var j = 0; j < spellObject.prepared; j++) {
-      //       var preparedIcon = document.createElement("span");
-      //       preparedIcon.setAttribute("class", "icon-radio-button-checked");
-      //       spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
-      //     };
-      //   };
-      //   // cast spells if cast > 0
-      //   if (spellObject.cast > 0) {
-      //     var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
-      //     for (var j = 0; j < spellObject.cast; j++) {
-      //       if (all_check[j]) {
-      //         helper.toggleClass(all_check[j], "icon-radio-button-checked");
-      //         helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
-      //         helper.toggleClass(all_check[j], "js-display-spell-mark-checked");
-      //         helper.toggleClass(all_check[j], "js-display-spell-mark-unchecked");
-      //       };
-      //     };
-      //     if (spellObject.cast >= spellObject.prepared) {
-      //       helper.removeClass(spell, "button-primary");
-      //     };
-      //   };
-      //   // if spell is active
-      //   if (spellObject.active) {
-      //     var active = document.createElement("span");
-      //     active.setAttribute("class", "m-display-spell-active js-display-spell-active");
-      //     spell.insertBefore(active, spell.firstChild);
-      //     var spellActive = spell.querySelector(".js-display-spell-active");
-      //     var activeIcon = document.createElement("span");
-      //     activeIcon.setAttribute("class", "icon-play-arrow");
-      //     if (spellObject.prepared > 0) {
-      //       if (spellActive.children.length > 0) {
-      //         spellActive.firstChild.remove();
-      //       } else {
-      //         spellActive.appendChild(activeIcon);
-      //       };
-      //     };
-      //   };
-      //   spellPara.appendChild(spell);
-      // };
 
     };
 

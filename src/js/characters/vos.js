@@ -14,7 +14,7 @@ var vos = (function() {
       weight: "190 lbs",
       age: "40",
       gender: "Male",
-      speed: "50 ft, 10 sq",
+      speed: "50ft",
       initiative: "2",
       hero_points: "2",
       luck_points: ""

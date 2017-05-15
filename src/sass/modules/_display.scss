@@ -1,35 +1,29 @@
 // --------------------------------------------------
 // display grid
 // --------------------------------------------------
-
 .m-display-grid-1-col {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-
   .m-display-col {
     flex: 1 0 auto;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 2px solid $gray-18;
-
     &:not(:only-child):not(:last-child) {
       margin-bottom: 0;
     }
   }
 }
-
 .m-display-grid-3-col {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
-
   .m-display-col {
     flex: 1 0 auto;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 2px solid $gray-18;
-
     &:not(:only-child):not(:last-child) {
       margin-bottom: 0;
     }
@@ -44,9 +38,7 @@
 // --------------------------------------------------
 // display item
 // --------------------------------------------------
-
 .m-display-item {}
-
 .m-display-item-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-075;
@@ -54,21 +46,16 @@
   color: $gray-10;
   display: block;
 }
-
 .m-display-item-prefix {
   font-family: $open-sans-semi-bold;
 }
-
 .m-display-item-suffix {
   color: $gray-08;
 }
-
 .m-display-item-value {}
-
 .m-display-item-block {
   display: block;
 }
-
 .m-display-item-snippet {
   &:not(:only-child):not(:last-child) {
     padding-right: 0.5em;
@@ -76,37 +63,30 @@
     border-right: 2px solid $gray-18;
   }
 }
-
 .m-display-item-list {
   .m-display-item-prefix {
     display: block;
   }
 }
-
 .m-display-item-col {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-
   .m-display-item-prefix {}
-
   .m-display-item-value {}
 }
 // --------------------------------------------------
 // display head
 // --------------------------------------------------
-
 .m-display-head {
   font-size: $font-size-root-100;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
   }
 }
-
 .m-display-head-item {
   flex: 1 0 auto;
   border-top: 2px solid transparent;
@@ -115,18 +95,15 @@
   padding: 0.5em 0;
   border-radius: $border-radius-large;
 }
-
 .m-display-head-item-stat {
   flex-basis: 33.3333333333%;
   padding: 0.5em;
 }
-
 .m-display-head-item-title {
   font-size: $font-size-075;
   line-height: 1;
   font-family: $open-sans-semi-bold;
   color: $primary-color-10;
-
   .m-display-text {
     &:not(:only-child):not(:last-child) {
       margin-right: 0.5em;
@@ -134,50 +111,40 @@
       border-right: 0;
     }
   }
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0.5em;
   }
 }
-
 .m-display-head-item-value {
   font-size: $font-size-200;
   line-height: 1;
   color: $black;
-
   .m-display-head-item-value-small {
     font-size: $font-size-050;
   }
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-
 .m-display-head-item-highlight {
   border: 2px solid $gray-18;
-
   .m-display-head-item-title,
   .m-display-head-item-value {
     text-align: center;
   }
 }
-
 .m-display-head-hitpoints {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
 }
-
 .m-display-head-hitpoints-current,
 .m-display-head-hitpoints-total {
   flex: 0 0 auto;
 }
-
 .m-display-head-hitpoints-current {
   padding-right: 0.4em;
   position: relative;
-
   &:after {
     content: "";
     display: block;
@@ -190,7 +157,6 @@
     transform: translate(1px, 0) rotate(20deg);
   }
 }
-
 .m-display-head-hitpoints-total {
   padding-left: 0.4em;
   color: $gray-12;
@@ -198,19 +164,16 @@
 // --------------------------------------------------
 // display body
 // --------------------------------------------------
-
 .m-display-body {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
   }
 }
-
 .m-display-body-title {
   color: $primary-color-10;
   font-family: $open-sans-semi-bold;
   font-size: $font-size-075;
   line-height: 1;
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0.5em;
   }
@@ -218,42 +181,35 @@
 // --------------------------------------------------
 // display statistics
 // --------------------------------------------------
-
 .m-display-statistics {
   font-size: $font-size-root-100;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
   }
 }
-
 .m-display-statistics-item {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
-
 .m-display-statistics-item-score {
   width: 20%;
 }
-
 .m-display-statistics-item-title {
   width: 60%;
   text-align: left;
   font-family: $open-sans-semi-bold;
 }
-
 .m-display-statistics-item-value {
   width: 20%;
   text-align: right;
   font-size: $font-size-150;
   line-height: 1;
 }
-
 .m-display-statistics-item-score,
 .m-display-statistics-item-title {
   &:not(:only-child):not(:last-child) {
@@ -263,110 +219,105 @@
 // --------------------------------------------------
 // display attack melee
 // --------------------------------------------------
-
 .m-display-attack-melee-item {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-
 .m-display-attack-melee-item-weapon {
   flex: 0 1 auto;
   font-family: $open-sans-semi-bold;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-melee-item-attack {
   flex: 1 0 auto;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-melee-item-damage {
   flex: 0 1 auto;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-melee-item-critical {
   flex: 0 1 auto;
 }
 // --------------------------------------------------
 // display attack ranged
 // --------------------------------------------------
-
 .m-display-attack-ranged-item {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-
 .m-display-attack-ranged-item-weapon {
   flex: 0 1 auto;
   font-family: $open-sans-semi-bold;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-ranged-item-attack {
   flex: 1 0 auto;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-ranged-item-damage {
   flex: 0 1 auto;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-ranged-item-critical {
   flex: 0 1 auto;
-
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-ranged-item-range {
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     box-sizing: border-box;
   }
 }
-
 .m-display-attack-ranged-item-ammo {
   flex: 0 1 auto;
+}
+// --------------------------------------------------
+// spell
+// --------------------------------------------------
+.m-display-spell {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.m-display-spell-name {
+  margin-right: 1em;
+  flex: 1 1 auto;
+}
+.m-display-spell-active {
+  margin-right: 1em;
 }
 // --------------------------------------------------
 // media queries
@@ -375,61 +326,48 @@
   .m-display-grid-3-col {
     flex-flow: row wrap;
     justify-content: flex-start;
-
     .m-display-col {
       flex: 0 0 28%;
-
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 8%;
       }
     }
   }
-
   .m-display-item-col {
     .m-display-item-prefix {
       flex: 0 1 80%;
     }
   }
-
   .m-display-attack-melee-item {
     flex-flow: row nowrap;
   }
-
   .m-display-attack-melee-item-weapon {
     flex: 0 0 40%;
   }
-
   .m-display-attack-melee-item-attack {
     flex: 0 1 25%;
   }
-
   .m-display-attack-melee-item-damage {
     flex: 1 1 auto;
   }
-
   .m-display-attack-melee-item-critical {
     flex: 0 0 auto;
   }
-
   .m-display-attack-ranged-item {
     flex-flow: row nowrap;
   }
-
   .m-display-attack-ranged-item-weapon {
     flex: 0 0 40%;
   }
-
   .m-display-attack-ranged-item-attack {
     flex: 0 1 25%;
   }
-
   .m-display-attack-ranged-item-critical,
   .m-display-attack-ranged-item-damage,
   .m-display-attack-ranged-item-range {
     flex: 1 1 auto;
   }
-
   .m-display-attack-ranged-item-ammo {
     flex: 0 0 auto;
   }
@@ -440,15 +378,12 @@
   .m-display-grid-3-col {
     flex-flow: row wrap;
     justify-content: flex-start;
-
     .m-display-col {
       flex: 0 0 20%;
-
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 0;
       }
-
       &:nth-child(4n+1),
       &:nth-child(4n+2),
       &:nth-child(4n+3) {
