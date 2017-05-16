@@ -2,7 +2,7 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    // _bind_quickEdit();
+    _bind_editJump();
     // _bind_quickControl();
   };
 
@@ -11,22 +11,27 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
   };
 
-  // function _bind_quickEdit() {
-  //   var displayBlockQuickEdit = helper.eA(".js-display-block-quick-edit");
-  //   for (var i = 0; i < displayBlockQuickEdit.length; i++) {
-  //     displayBlockQuickEdit[i].addEventListener("click", function(event) {
-  //       event.stopPropagation();
-  //       event.preventDefault();
-  //       _toggle_quickEdit(this);
-  //       totalBlock.update();
-  //       if (body.dataset.displayMode == "true") {
-  //         clear();
-  //         render();
-  //       };
-  //     }, false);
-  //   };
-  // };
-  //
+  function _bind_editJump() {
+    var displayEditJump = helper.eA(".js-display-edit-jump");
+    for (var i = 0; i < displayEditJump.length; i++) {
+      displayEditJump[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _toggle_quickEdit(this);
+      }, false);
+    };
+  };
+
+  function _toggle_quickEdit(element) {
+    toggle();
+    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
+    var options = {
+      offset: quickNavHeight
+    };
+    var target = "#" + element.dataset.editJump;
+    smoothScroll.animateScroll(null, target, options);
+  };
+
   // function _bind_quickControl() {
   //   var displayBlockQuickControlItem = helper.eA(".js-display-block-quick-control-item");
   //   for (var i = 0; i < displayBlockQuickControlItem.length; i++) {

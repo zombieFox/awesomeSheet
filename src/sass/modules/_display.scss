@@ -223,7 +223,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -234,7 +233,7 @@
 .m-display-attack-melee-item-weapon {
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
-    padding-left: 1em;
+    padding-left: 1.5em;
   }
 }
 .m-display-attack-melee-item-weapon {
@@ -244,9 +243,7 @@
 .m-display-attack-melee-item-attack {
   flex: 1 0 auto;
 }
-.m-display-attack-melee-item-damage {
-  flex: 0 1 auto;
-}
+.m-display-attack-melee-item-damage,
 .m-display-attack-melee-item-critical {
   flex: 0 1 auto;
 }
@@ -257,7 +254,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -270,7 +266,7 @@
 .m-display-attack-ranged-item-weapon {
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
-    padding-left: 1em;
+    padding-left: 1.5em;
   }
 }
 .m-display-attack-ranged-item-weapon {
@@ -280,15 +276,9 @@
 .m-display-attack-ranged-item-attack {
   flex: 1 0 auto;
 }
-.m-display-attack-ranged-item-damage {
-  flex: 0 1 auto;
-}
-.m-display-attack-ranged-item-critical {
-  flex: 0 1 auto;
-}
-.m-display-attack-ranged-item-range {
-  flex: 0 1 auto;
-}
+.m-display-attack-ranged-item-damage,
+.m-display-attack-ranged-item-critical,
+.m-display-attack-ranged-item-range,
 .m-display-attack-ranged-item-ammo {
   flex: 0 1 auto;
 }
@@ -343,14 +333,10 @@
     flex: 0 0 40%;
   }
   .m-display-attack-melee-item-attack {
-    flex: 0 1 25%;
+    flex: 1 0 auto;
   }
-  .m-display-attack-melee-item-damage {
-    flex: 1 1 auto;
-  }
-  .m-display-attack-melee-item-critical {
-    flex: 0 0 auto;
-  }
+  .m-display-attack-melee-item-damage,
+  .m-display-attack-melee-item-critical,
   .m-display-attack-ranged-item {
     flex-flow: row wrap;
   }
@@ -358,13 +344,13 @@
     flex: 0 0 40%;
   }
   .m-display-attack-ranged-item-attack {
-    flex: 0 1 25%;
+    flex: 1 0 auto;
   }
   .m-display-attack-ranged-item-ammo,
   .m-display-attack-ranged-item-critical,
   .m-display-attack-ranged-item-damage,
   .m-display-attack-ranged-item-range {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
   }
 }
 @media (min-width: $screen-md) {}

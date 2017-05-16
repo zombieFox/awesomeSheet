@@ -80,7 +80,7 @@ button:not(:last-child) {
 }
 
 .button-medium {
-  padding: $font-size-025 $font-size-150;
+  padding: $font-size-025 $font-size-100;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
 }
@@ -111,7 +111,9 @@ button:not(:last-child) {
   [class*=" icon-"] {
     font-size: $font-size-150;
     display: inline-block;
-    margin-right: 0.4em;
+    &:not(:only-child):not(:last-child) {
+      margin-right: 0.4em;
+    }
   }
 }
 
