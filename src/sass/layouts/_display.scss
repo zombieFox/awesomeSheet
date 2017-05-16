@@ -1,17 +1,16 @@
 .l-section-display {
+  margin-bottom: 1.5em;
+  position: relative;
   z-index: $display;
 }
 .l-section-display-head {
   padding: 3em 0;
   background-color: $gray-19;
-  box-shadow: $shadow-medium;
+  box-shadow: $shadow-small;
 }
 .l-section-display-body {
   padding: 3em 0;
-  border-bottom: 2px solid $gray-19;
-}
-.l-section-display-last {
-  border: 0;
+  border-bottom: 1px solid $gray-19;
 }
 // --------------------------------------------------
 // media queries

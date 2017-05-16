@@ -1,4 +1,34 @@
 // --------------------------------------------------
+// edit
+// --------------------------------------------------
+.m-display-edit {
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  z-index: $display;
+  transform: translate(-50%, -50%);
+}
+.m-display-edit-jump {
+  padding: 0.5em 3em;
+  color: $gray-12;
+  border-color: $gray-19;
+  border-radius: 2em;
+  position: relative;
+  z-index: 2;
+  &:focus,
+  &:hover {
+    background-color: $white;
+  }
+  &.is-active,
+  &:active {
+    background-color: $gray-16;
+  }
+}
+.m-display-edit-jump-head {
+  background-color: $gray-19;
+  box-shadow: $shadow-small;
+}
+// --------------------------------------------------
 // display grid
 // --------------------------------------------------
 .m-display-grid-1-col {
@@ -15,7 +45,7 @@
     }
   }
 }
-.m-display-grid-3-col {
+.m-display-grid-multi-col {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
@@ -27,12 +57,6 @@
     &:not(:only-child):not(:last-child) {
       margin-bottom: 0;
     }
-    // .m-display-item {
-    //   .m-display-item-prefix,
-    //   .m-display-item-suffix {
-    //     display: block;
-    //   }
-    // }
   }
 }
 // --------------------------------------------------
@@ -243,8 +267,8 @@
 .m-display-attack-melee-item-attack {
   flex: 1 0 auto;
 }
-.m-display-attack-melee-item-damage,
-.m-display-attack-melee-item-critical {
+.m-display-attack-melee-item-critical,
+.m-display-attack-melee-item-damage {
   flex: 0 1 auto;
 }
 // --------------------------------------------------
@@ -276,10 +300,10 @@
 .m-display-attack-ranged-item-attack {
   flex: 1 0 auto;
 }
-.m-display-attack-ranged-item-damage,
+.m-display-attack-ranged-item-ammo,
 .m-display-attack-ranged-item-critical,
-.m-display-attack-ranged-item-range,
-.m-display-attack-ranged-item-ammo {
+.m-display-attack-ranged-item-damage,
+.m-display-attack-ranged-item-range {
   flex: 0 1 auto;
 }
 // --------------------------------------------------
@@ -291,32 +315,32 @@
   justify-content: flex-start;
 }
 .m-display-spell-name {
-  flex: 1 0 100%;
+  flex: 1 1 auto;
   font-family: $open-sans-semi-bold;
 }
 .m-display-spell-count {
+  flex: 1 1 auto;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
-  color: $secondary-color-alpha-04;
+  justify-content: flex-end;
+  color: $secondary-color-10;
 }
 .m-display-spell-active {
   margin-right: 0.5em;
-  color: $primary-color-08;
+  color: $primary-color-10;
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-display-grid-3-col {
+  .m-display-grid-multi-col {
     flex-flow: row wrap;
     justify-content: flex-start;
     .m-display-col {
       flex: 0 0 auto;
-      width: 28%;
-      max-width: 28%;
-      &:nth-child(3n+1),
-      &:nth-child(3n+2) {
+      width: 46%;
+      max-width: 46%;
+      &:nth-child(odd) {
         margin-right: 8%;
       }
     }
@@ -335,8 +359,8 @@
   .m-display-attack-melee-item-attack {
     flex: 1 0 auto;
   }
-  .m-display-attack-melee-item-damage,
   .m-display-attack-melee-item-critical,
+  .m-display-attack-melee-item-damage,
   .m-display-attack-ranged-item {
     flex-flow: row wrap;
   }
@@ -354,15 +378,29 @@
   }
 }
 @media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-display-grid-multi-col {
+    .m-display-col {
+      width: 30%;
+      max-width: 30%;
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+      &:nth-child(3n+1),
+      &:nth-child(3n+2) {
+        margin-right: 5%;
+      }
+    }
+  }
+}
 @media (min-width: $screen-xl) {
-  .m-display-grid-3-col {
+  .m-display-grid-multi-col {
     flex-flow: row wrap;
     justify-content: flex-start;
     .m-display-col {
       flex: 0 0 auto;
-      width: 20%;
-      max-width: 20%;
+      width: 22%;
+      max-width: 22%;
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 0;
@@ -370,7 +408,7 @@
       &:nth-child(4n+1),
       &:nth-child(4n+2),
       &:nth-child(4n+3) {
-        margin-right: 6.6666666667%;
+        margin-right: 4%;
       }
     }
   }
