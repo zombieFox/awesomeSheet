@@ -14,7 +14,7 @@ var marika = (function() {
       weight: "98 lb",
       age: "23",
       gender: "Female",
-      speed: "30 ft, 6 sq",
+      speed: "30ft",
       initiative: "8",
       hero_points: "1",
       luck_points: "2"

@@ -7,8 +7,8 @@ select {
   margin: 0 0 $font-size-200 0;
   font-family: $open-sans-regular;
   color: $base-color;
-  height: $line-height-root-250;
-  line-height: $line-height-root-250;
+  height: $line-height-250;
+  line-height: $line-height-250;
   transition: background-color $transition-ease-medium, border-color $transition-ease-medium;
   &:hover {
     border-color: $primary-color-10;
@@ -51,8 +51,8 @@ input {
   &[type="tel"],
   &[type="password"] {
     background-color: $secondary-color-alpha-20;
-    height: $line-height-root-250;
-    line-height: $line-height-root-250;
+    height: $line-height-250;
+    line-height: $line-height-250;
     padding: 0 10px;
     margin: 0 0 $font-size-200 0;
     border: 0;
@@ -72,7 +72,7 @@ input {
 
 label {
   color: $base-color;
-  line-height: $line-height-root-250;
+  line-height: $line-height-250;
   display: inline-block;
 }
 
@@ -84,14 +84,14 @@ input {
     transform: translateX(-50%);
     opacity: 0;
     display: block;
-    height: $line-height-root-250;
-    line-height: $line-height-root-250;
+    height: $line-height-250;
+    line-height: $line-height-250;
     cursor: pointer;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
-      height: $line-height-root-250;
-      line-height: $line-height-root-250;
+      height: $line-height-250;
+      line-height: $line-height-250;
       display: inline-block;
       cursor: pointer;
       color: $base-color;

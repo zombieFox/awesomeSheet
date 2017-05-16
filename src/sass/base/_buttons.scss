@@ -74,13 +74,13 @@ button:not(:last-child) {
 }
 
 .button-small {
-  padding: $font-size-025 $font-size-100;
+  padding: $font-size-025 $font-size-075;
   font-size: $font-size-075;
-  border-radius: $border-radius-medium;
+  border-radius: $border-radius-large;
 }
 
 .button-medium {
-  padding: $font-size-025 $font-size-150;
+  padding: $font-size-025 $font-size-100;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
 }
@@ -102,18 +102,18 @@ button:not(:last-child) {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  line-height: initial;
   align-items: center;
   span {
     flex: 0 0 auto;
-    line-height: initial;
     height: initial;
   }
   [class^="icon-"],
   [class*=" icon-"] {
     font-size: $font-size-150;
     display: inline-block;
-    margin-right: 0.4em;
+    &:not(:only-child):not(:last-child) {
+      margin-right: 0.4em;
+    }
   }
 }
 

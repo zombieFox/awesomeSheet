@@ -1,22 +1,29 @@
-<section class="l-section l-section-display js-section-display is-hidden">
+<section class="l-section l-section-display l-section-display-body is-hidden js-section-display">
   <div class="container">
-    <div class="m-display-wrapper">
-      <div class="m-display-section">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="m-display-section-divider">
-              <span class="m-display-section-icon icon-whatshot"></span>
-            </div>
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Spells</p>
+          <p class="js-display-block" data-display-type="text-snippet" data-display="spells.concentration.current" data-display-prefix="Concentration ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+        <div class="m-display-body">
+          <div class="js-display-block" data-display-type="spell">
+            <span class="js-display-block-target"></span>
           </div>
-          <div class="col-xs-12">
-            <p class="m-display-block js-display-block" data-display="spells.concentration.current">
-              <span class="js-display-block-target"></span>
-            </p>
-            <div class="js-display-block-spell">
-              <span class="js-display-block-target"></span>
-            </div>
-            <button href="#" data-mini-view="spells" class="button button-icon button-small m-display-block-quick-edit js-display-block-quick-edit"><span class="icon-edit"></span> Quick Edit</button>
-          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-display-edit">
+          <button data-edit-jump="spells" data-scroll class="button button-icon button-small m-display-edit-jump js-display-edit-jump"><span class="icon-edit"></span><span>Edit Section</span></button>
         </div>
       </div>
     </div>

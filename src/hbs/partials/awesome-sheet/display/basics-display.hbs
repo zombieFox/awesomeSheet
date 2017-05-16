@@ -1,28 +1,84 @@
-<section class="l-section l-section-display js-section-display is-hidden">
-  <div class="m-display-wrapper m-display-wrapper-nav-padding">
-    <div class="container">
-      <div class="m-display-section">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="m-display-section-divider">
-              <span class="m-display-section-icon icon-account-circle"></span>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <h1 class="m-display-block js-display-block" data-display="basics.name">
+<section class="l-section l-section-display l-section-display-head is-hidden js-section-display">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="m-display-head">
+
+          <div class="m-display-head-item">
+            <p class="m-display-head-item-title js-display-block" data-display-type="text-snippet" data-display="basics.gender,basics.race,basics.class,basics.level">
+              <span class="js-display-block-target"></span>
+            </p>
+            <h1 class="m-display-head-item-value js-display-block" data-display-type="text-snippet" data-display="basics.name">
               <span class="js-display-block-target"></span>
             </h1>
-            <p class="m-display-block js-display-block" data-display="basics.race,basics.class,basics.level,basics.alignment">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="m-display-block js-display-block" data-display="basics.speed,basics.initiative">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="m-display-block js-display-block" data-display="basics.xp,basics.size,basics.height,basics.weight,basics.age,basics.gender,basics.hero_points,basics.luck_points">
-              <span class="js-display-block-target"></span>
-            </p>
-            <button data-mini-view="basics" class="button button-icon button-small m-display-block-quick-edit js-display-block-quick-edit"><span class="icon-edit"></span> Quick Edit</button>
           </div>
+
+        </div>
+
+        <div class="m-display-head">
+
+          <div class="m-display-head-item">
+            <p class="m-display-head-item-title">Speed</p>
+            <h2 class="m-display-head-item-value js-display-block" data-display-type="text-snippet" data-display="basics.speed">
+              <span class="js-display-block-target"></span>
+            </h2>
+          </div>
+
+          <div class="m-display-head-item">
+            <p class="m-display-head-item-title">Perception</p>
+            <h2 class="m-display-head-item-value js-display-block" data-display-type="text-snippet" data-display="skills.perception.current">
+              <span class="js-display-block-target"></span>
+            </h2>
+          </div>
+
+          <div class="m-display-head-item">
+            <p class="m-display-head-item-title">Initiative</p>
+            <h2 class="m-display-head-item-value js-display-block" data-display-type="text-snippet" data-display="basics.initiative">
+              <span class="js-display-block-target"></span>
+            </h2>
+          </div>
+
+          <div class="m-display-head-item">
+            <p class="m-display-head-item-title">AC</p>
+            <h2 class="m-display-head-item-value js-display-block" data-display-type="text-snippet" data-display="defense.ac.current">
+              <span class="js-display-block-target"></span>
+            </h2>
+          </div>
+
+          <div class="m-display-head-item m-display-head-item-highlight">
+            <p class="m-display-head-item-title">HP</p>
+            <h2 class="m-display-head-item-value">
+              <div class="m-display-head-hitpoints">
+                <span class="m-display-head-hitpoints-current js-display-block" data-display-type="text-snippet" data-display="defense.hp.current">
+                  <span class="js-display-block-target"></span>
+                </span>
+                <span class="m-display-head-hitpoints-total js-display-block" data-display-type="text-snippet" data-display="defense.hp.total">
+                  <span class="js-display-block-target"></span>
+                </span>
+              </div>
+            </h2>
+          </div>
+
+        </div>
+
+        <div class="m-display-body">
+          <p class="js-display-block" data-display-type="text-snippet" data-display="basics.xp,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix="xp,, tall,, years old, hero points, luck points">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+        <div class="m-display-body">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-display-edit">
+          <button data-edit-jump="basics" data-scroll class="button button-icon button-small m-display-edit-jump m-display-edit-jump-head js-display-edit-jump"><span class="icon-edit"></span><span>Edit Section</span></button>
         </div>
       </div>
     </div>

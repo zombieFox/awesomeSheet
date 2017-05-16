@@ -1,25 +1,41 @@
-<section class="l-section l-section-display js-section-display is-hidden">
-  <div class="m-display-wrapper">
-    <div class="container">
-      <div class="m-display-section">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="m-display-section-divider">
-              <span class="m-display-section-icon icon-combat"></span>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <p class="m-display-block js-display-block" data-display="offense.base_attack,offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current">
-              <span class="js-display-block-target"></span>
-            </p>
-            <div class="js-display-block-attack">
-              <span class="js-display-block-target"></span>
-            </div>
-            <p class="m-display-block m-display-block-tab m-display-block-sub js-display-block" data-display="offense.attack_notes">
-              <span class="js-display-block-target"></span>
-            </p>
-            <button href="#" data-mini-view="offense" class="button button-icon button-small m-display-block-quick-edit js-display-block-quick-edit"><span class="icon-edit"></span> Quick Edit</button>
-          </div>
+<section class="l-section l-section-display l-section-display-body is-hidden js-section-display">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Offense</p>
+          <p class="js-display-block" data-display-type="text-snippet" data-display="offense.base_attack,offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current" data-display-prefix="BAB ,CMB ,CMD ,Melee ,Ranged ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Melee</p>
+          <ul class="m-display-grid-1-col u-list-unstyled js-display-block" data-display-type="clone" data-display="offense.attack.melee">
+          </ul>
+        </div>
+
+        <div class="m-display-body">
+          <p class="m-display-body-title">Ranged</p>
+          <ul class="m-display-grid-1-col u-list-unstyled js-display-block" data-display-type="clone" data-display="offense.attack.ranged">
+          </ul>
+        </div>
+
+        <div class="m-display-body">
+          <p class="js-display-block" data-display-type="text-snippet" data-display="offense.attack_notes" data-display-title="Notes ">
+            <span class="js-display-block-target"></span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-display-edit">
+          <button data-edit-jump="offense" data-scroll class="button button-icon button-small m-display-edit-jump js-display-edit-jump"><span class="icon-edit"></span><span>Edit Section</span></button>
         </div>
       </div>
     </div>

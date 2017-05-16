@@ -234,11 +234,15 @@ $font-size-475:                       4.75em;
 $font-size-500:                       5.00em;
 
 $line-height-100:                     1.00em;
-$line-height-160:                     1.6666666667;
+$line-height-150:                     1.50em;
+$line-height-160:                     1.6666666667em;
 $line-height-200:                     2.00em;
+$line-height-250:                     2.50em;
 $line-height-300:                     3.00em;
+$line-height-350:                     3.50em;
 $line-height-400:                     4.00em;
-$line-height-root-250:                2.50rem;
+$line-height-450:                     4.50em;
+$line-height-root-250:                2.50em;
 
 $border:                              2px solid transparent;
 
@@ -277,22 +281,23 @@ $modal:                              10000;
 // drop shadows
 // --------------------------------------------------
 
-$shadow-small:                      0 1px 8px rgba(0, 0, 0, 0.15);
+$shadow-small:                      0 2px 1px rgba(0, 0, 0, 0.1),
+                                    0 3px 2px rgba(0, 0, 0, 0.1);
 
-$shadow-medium:                     0 4px 10px rgba(0, 0, 0, 0.2),
-                                    0 6px 15px rgba(0, 0, 0, 0.2);
+$shadow-medium:                     0 4px 10px rgba(0, 0, 0, 0.1),
+                                    0 6px 15px rgba(0, 0, 0, 0.1);
 
-$shadow-large:                      0 4px 10px rgba(0, 0, 0, 0.3),
-                                    0 6px 30px rgba(0, 0, 0, 0.3);
+$shadow-large:                      0 4px 10px rgba(0, 0, 0, 0.15),
+                                    0 6px 30px rgba(0, 0, 0, 0.15);
 
-$shadow-small-inset:                inset 0 1px 1px rgba(0, 0, 0, 0.1),
-                                    inset 0 1px 10px rgba(0, 0, 0, 0.1);
+$shadow-small-inset:                inset 0 1px 1px rgba(0, 0, 0, 0.05),
+                                    inset 0 1px 10px rgba(0, 0, 0, 0.05);
 
-$shadow-medium-inset:               inset 0 1px 2px rgba(0, 0, 0, 0.2),
-                                    inset 0 1px 20px rgba(0, 0, 0, 0.2);
+$shadow-medium-inset:               inset 0 1px 2px rgba(0, 0, 0, 0.1),
+                                    inset 0 1px 20px rgba(0, 0, 0, 0.1);
 
-$shadow-large-inset:                inset 0 1px 3px rgba(0, 0, 0, 0.3),
-                                    inset 0 1px 30px rgba(0, 0, 0, 0.3);
+$shadow-large-inset:                inset 0 1px 3px rgba(0, 0, 0, 0.15),
+                                    inset 0 1px 30px rgba(0, 0, 0, 0.15);
 
 // --------------------------------------------------
 // radius

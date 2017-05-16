@@ -1,18 +1,24 @@
 .l-section-display {
+  margin-bottom: 1.5em;
+  position: relative;
   z-index: $display;
 }
-
+.l-section-display-head {
+  padding: 3em 0;
+  background-color: $gray-19;
+  box-shadow: $shadow-small;
+}
+.l-section-display-body {
+  padding: 3em 0;
+  border-bottom: 1px solid $gray-19;
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}
-
 @media print {
   .l-section-display {
     display: block !important;
