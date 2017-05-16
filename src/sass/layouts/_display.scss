@@ -1,31 +1,25 @@
 .l-section-display {
   z-index: $display;
 }
-
 .l-section-display-head {
   padding: 3em 0;
   background-color: $gray-19;
   box-shadow: $shadow-medium;
 }
-
 .l-section-display-body {
   padding: 3em 0;
-  &:not(:only-child):not(:last-child) {
-    border-bottom: 2px solid $gray-19;
-  }
+  border-bottom: 2px solid $gray-19;
 }
-
+.l-section-display-last {
+  border: 0;
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}
-
 @media print {
   .l-section-display {
     display: block !important;

@@ -96,10 +96,6 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
-    if (body.dataset.displayMode == "true") {
-      display.clear();
-      display.render();
-    };
     snack.render("All characters restored.", false, false);
   };
 
@@ -296,6 +292,7 @@ var sheet = (function() {
     totalBlock.update();
     spells.render();
     skills.render();
+    display.render();
   };
 
   function clear() {
@@ -306,6 +303,7 @@ var sheet = (function() {
     totalBlock.clear();
     totalBlock.update();
     spells.clear();
+    display.clear();
   };
 
   function switchCharacter(index) {

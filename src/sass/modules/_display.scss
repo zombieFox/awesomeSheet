@@ -228,27 +228,24 @@
     margin-bottom: 0;
   }
 }
+.m-display-attack-melee-item-attack,
+.m-display-attack-melee-item-critical,
+.m-display-attack-melee-item-damage,
+.m-display-attack-melee-item-weapon {
+  box-sizing: border-box;
+  &:not(:only-child):not(:first-child) {
+    padding-left: 1em;
+  }
+}
 .m-display-attack-melee-item-weapon {
   flex: 0 1 auto;
   font-family: $open-sans-semi-bold;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-melee-item-attack {
   flex: 1 0 auto;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-melee-item-damage {
   flex: 0 1 auto;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-melee-item-critical {
   flex: 0 1 auto;
@@ -265,40 +262,32 @@
     margin-bottom: 0;
   }
 }
+.m-display-attack-ranged-item-ammo,
+.m-display-attack-ranged-item-attack,
+.m-display-attack-ranged-item-critical,
+.m-display-attack-ranged-item-damage,
+.m-display-attack-ranged-item-range,
+.m-display-attack-ranged-item-weapon {
+  box-sizing: border-box;
+  &:not(:only-child):not(:first-child) {
+    padding-left: 1em;
+  }
+}
 .m-display-attack-ranged-item-weapon {
   flex: 0 1 auto;
   font-family: $open-sans-semi-bold;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-ranged-item-attack {
   flex: 1 0 auto;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-ranged-item-damage {
   flex: 0 1 auto;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-ranged-item-critical {
   flex: 0 1 auto;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
 }
 .m-display-attack-ranged-item-range {
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    box-sizing: border-box;
-  }
+  flex: 0 1 auto;
 }
 .m-display-attack-ranged-item-ammo {
   flex: 0 1 auto;
@@ -312,19 +301,18 @@
   justify-content: flex-start;
 }
 .m-display-spell-name {
-  // margin-right: 1em;
-  // flex: 1 1 auto;
   flex: 1 0 100%;
   font-family: $open-sans-semi-bold;
-}
-.m-display-spell-active {
-  margin-right: 0.5em;
-  // flex: 0 1 auto;
 }
 .m-display-spell-count {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  color: $secondary-color-alpha-04;
+}
+.m-display-spell-active {
+  margin-right: 0.5em;
+  color: $primary-color-08;
 }
 // --------------------------------------------------
 // media queries
@@ -349,7 +337,7 @@
     }
   }
   .m-display-attack-melee-item {
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
   }
   .m-display-attack-melee-item-weapon {
     flex: 0 0 40%;
@@ -364,7 +352,7 @@
     flex: 0 0 auto;
   }
   .m-display-attack-ranged-item {
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
   }
   .m-display-attack-ranged-item-weapon {
     flex: 0 0 40%;
@@ -372,13 +360,11 @@
   .m-display-attack-ranged-item-attack {
     flex: 0 1 25%;
   }
+  .m-display-attack-ranged-item-ammo,
   .m-display-attack-ranged-item-critical,
   .m-display-attack-ranged-item-damage,
   .m-display-attack-ranged-item-range {
     flex: 1 1 auto;
-  }
-  .m-display-attack-ranged-item-ammo {
-    flex: 0 0 auto;
   }
 }
 @media (min-width: $screen-md) {}
