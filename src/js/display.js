@@ -198,7 +198,7 @@ var display = (function() {
     for (var i = 0; i < all_displayBlock.length; i++) {
       var target;
       var displayType = all_displayBlock[i].dataset.displayType;
-      if (displayType == "stat" || displayType == "modifier" || displayType == "text-snippet" || displayType == "text-block") {
+      if (displayType == "stat" || displayType == "modifier" || displayType == "text-snippet" || displayType == "text-block" || displayType == "spell") {
         target = all_displayBlock[i].querySelector(".js-display-block-target");
       } else if (displayType == "list" || displayType == "clone" || displayType == "skill") {
         target = all_displayBlock[i];
@@ -397,7 +397,7 @@ var display = (function() {
       displayBodyTitle.setAttribute("class", "m-display-body-title");
       displayBodyTitle.textContent = "Level " + level;
       var spellBookPage = document.createElement("ul");
-      spellBookPage.setAttribute("class", "m-display-grid-1-col u-list-unstyled");
+      spellBookPage.setAttribute("class", "m-display-grid-3-col u-list-unstyled");
 
       displayBody.appendChild(displayBodyTitle);
 
@@ -406,58 +406,48 @@ var display = (function() {
         var spellDc = sheet.getCharacter().spells.dc["level_" + level];
         var perDay = sheet.getCharacter().spells.per_day["level_" + level];
         var known = sheet.getCharacter().spells.known["level_" + level];
-        var displayGrid3Col = document.createElement("ul");
-        displayGrid3Col.setAttribute("class", "m-display-grid-3-col u-list-unstyled");
+        var para = document.createElement("p");
         if (known != "" || known == "undefined") {
-          var knownLi = document.createElement("li");
-          knownLi.setAttribute("class", "m-display-col");
-          var knownDiv = document.createElement("div");
-          knownDiv.setAttribute("class", "m-display-item m-display-item-col");
-          var prefixSpan = document.createElement("span");
-          prefixSpan.textContent = "Known";
-          prefixSpan.setAttribute("class", "m-display-item-prefix");
-          var valueSpan = document.createElement("span");
-          valueSpan.textContent = known;
-          valueSpan.setAttribute("class", "m-display-item-value");
-          knownDiv.appendChild(prefixSpan);
-          knownDiv.appendChild(valueSpan);
-          knownLi.appendChild(knownDiv);
-          displayGrid3Col.appendChild(knownLi);
-          displayBody.appendChild(displayGrid3Col);
+          var knownSpan = document.createElement("span");
+          knownSpan.setAttribute("class", "m-display-item m-display-item-snippet");
+          var knownPrefixSpan = document.createElement("span");
+          knownPrefixSpan.setAttribute("class", "m-display-item-prefix");
+          knownPrefixSpan.textContent = "Known ";
+          var knownValueSpan = document.createElement("span");
+          knownValueSpan.setAttribute("class", "m-display-item-value");
+          knownValueSpan.textContent = known;
+          knownSpan.appendChild(knownPrefixSpan);
+          knownSpan.appendChild(knownValueSpan);
+          para.appendChild(knownSpan);
+          displayBody.appendChild(para);
         };
         if (perDay != "" || perDay == "undefined") {
-          var perDayLi = document.createElement("li");
-          perDayLi.setAttribute("class", "m-display-col");
-          var perDayDiv = document.createElement("div");
-          perDayDiv.setAttribute("class", "m-display-item m-display-item-col");
-          var prefixSpan = document.createElement("span");
-          prefixSpan.textContent = "Per Day";
-          prefixSpan.setAttribute("class", "m-display-item-prefix");
-          var valueSpan = document.createElement("span");
-          valueSpan.textContent = perDay;
-          valueSpan.setAttribute("class", "m-display-item-value");
-          perDayDiv.appendChild(prefixSpan);
-          perDayDiv.appendChild(valueSpan);
-          perDayLi.appendChild(perDayDiv);
-          displayGrid3Col.appendChild(perDayLi);
-          displayBody.appendChild(displayGrid3Col);
+          var perDaySpan = document.createElement("span");
+          perDaySpan.setAttribute("class", "m-display-item m-display-item-snippet");
+          var perDayPrefixSpan = document.createElement("span");
+          perDayPrefixSpan.setAttribute("class", "m-display-item-prefix");
+          perDayPrefixSpan.textContent = "Per Day ";
+          var perDayValueSpan = document.createElement("span");
+          perDayValueSpan.setAttribute("class", "m-display-item-value");
+          perDayValueSpan.textContent = perDay;
+          perDaySpan.appendChild(perDayPrefixSpan);
+          perDaySpan.appendChild(perDayValueSpan);
+          para.appendChild(perDaySpan);
+          displayBody.appendChild(para);
         };
         if (spellDc != "" || spellDc == "undefined") {
-          var spellDcLi = document.createElement("li");
-          spellDcLi.setAttribute("class", "m-display-col");
-          var spellDcDiv = document.createElement("div");
-          spellDcDiv.setAttribute("class", "m-display-item m-display-item-col");
-          var prefixSpan = document.createElement("span");
-          prefixSpan.textContent = "DC";
-          prefixSpan.setAttribute("class", "m-display-item-prefix");
-          var valueSpan = document.createElement("span");
-          valueSpan.textContent = spellDc;
-          valueSpan.setAttribute("class", "m-display-item-value");
-          spellDcDiv.appendChild(prefixSpan);
-          spellDcDiv.appendChild(valueSpan);
-          spellDcLi.appendChild(spellDcDiv);
-          displayGrid3Col.appendChild(spellDcLi);
-          displayBody.appendChild(displayGrid3Col);
+          var spellDcSpan = document.createElement("span");
+          spellDcSpan.setAttribute("class", "m-display-item m-display-item-snippet");
+          var spellDcPrefixSpan = document.createElement("span");
+          spellDcPrefixSpan.setAttribute("class", "m-display-item-prefix");
+          spellDcPrefixSpan.textContent = "DC ";
+          var spellDcValueSpan = document.createElement("span");
+          spellDcValueSpan.setAttribute("class", "m-display-item-value");
+          spellDcValueSpan.textContent = spellDc;
+          spellDcSpan.appendChild(spellDcPrefixSpan);
+          spellDcSpan.appendChild(spellDcValueSpan);
+          para.appendChild(spellDcSpan);
+          displayBody.appendChild(para);
         };
       };
 
@@ -481,9 +471,6 @@ var display = (function() {
         var spellCount = document.createElement("span");
         spellCount.setAttribute("class", "m-display-spell-count");
 
-        var spellActive = document.createElement("span");
-        spellActive.setAttribute("class", "m-display-spell-active");
-
         // prepared
         if (spellObject.prepared > 0) {
           var marks = document.createElement("span");
@@ -505,15 +492,18 @@ var display = (function() {
           };
         };
 
+        spell.appendChild(spellName);
+
         // active
         if (spellObject.active) {
+          var spellActive = document.createElement("span");
+          spellActive.setAttribute("class", "m-display-spell-active");
           var activeIcon = document.createElement("span");
           activeIcon.setAttribute("class", "icon-play-arrow");
-          spellActive.insertBefore(activeIcon, spellActive.firstChild);
-          spell.appendChild(spellActive);
+          spellActive.appendChild(activeIcon);
+          spellCount.insertBefore(spellActive, spellCount.firstChild);
         };
 
-        spell.appendChild(spellName);
         spell.appendChild(spellCount);
 
         displayItem.appendChild(spell);

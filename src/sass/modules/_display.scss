@@ -308,16 +308,23 @@
 // --------------------------------------------------
 .m-display-spell {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 .m-display-spell-name {
-  margin-right: 1em;
-  flex: 1 1 auto;
+  // margin-right: 1em;
+  // flex: 1 1 auto;
+  flex: 1 0 100%;
+  font-family: $open-sans-semi-bold;
 }
 .m-display-spell-active {
-  margin-right: 1em;
+  margin-right: 0.5em;
+  // flex: 0 1 auto;
+}
+.m-display-spell-count {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 // --------------------------------------------------
 // media queries
@@ -327,7 +334,9 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     .m-display-col {
-      flex: 0 0 28%;
+      flex: 0 0 auto;
+      width: 28%;
+      max-width: 28%;
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 8%;
@@ -379,7 +388,9 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     .m-display-col {
-      flex: 0 0 20%;
+      flex: 0 0 auto;
+      width: 20%;
+      max-width: 20%;
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 0;
