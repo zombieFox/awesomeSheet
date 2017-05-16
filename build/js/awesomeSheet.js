@@ -3889,7 +3889,7 @@ var nif = (function() {
       level: "7",
       size: "Medium",
       alignment: "Lawful Neutral",
-      xp: "38,214",
+      xp: "42,030",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -3920,7 +3920,7 @@ var nif = (function() {
           temp_modifier: ""
         },
         int: {
-          score: 23,
+          score: 25,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -3945,7 +3945,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock, Healer's Kik, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
-      magic_gear: "Pearl of Power (1st Level)<br>Viles: Antitoxin (1), Holy Water (1)<br>Potions: Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br>Scrolls: Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (0), Enlarge Person (2)",
+      magic_gear: "Pearl of Power (1st Level)<br><strong>Viles</strong> Antitoxin (1), Holy Water (1)<br><strong>Potions</strong> Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br><strong>Scrolls</strong> Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (4), Fly (5), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements(2)",
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -3960,7 +3960,7 @@ var nif = (function() {
         feet: "",
         hands: "",
         head: "",
-        headband: "Headband of Vast Intelligence +2",
+        headband: "Headband of Vast Intelligence +4",
         neck: "Amulet of Natural Armor +1",
         ring_left_hand: "Ring of Sustenance",
         ring_right_hand: "",
@@ -3970,7 +3970,7 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "1,404",
+        gold: "1,327",
         silver: "",
         copper: ""
       },
@@ -3978,7 +3978,7 @@ var nif = (function() {
         item: "Wand of Lightning Bolt",
         current: "",
         total: "50",
-        used: "47"
+        used: "48"
       }, {
         item: "Wand of Scorching Ray",
         current: "",
@@ -5190,7 +5190,7 @@ var nif = (function() {
           cast: 0,
           note: ""
         }, {
-          name: "Open Close",
+          name: "Open/Close",
           prepared: 0,
           active: false,
           cast: 0,
@@ -5211,7 +5211,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Enlarge Person",
-          prepared: 1,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
@@ -5229,7 +5229,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mage Armor",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -5253,13 +5253,13 @@ var nif = (function() {
           note: ""
         }, {
           name: "Protection from Evil",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Shield",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -5275,6 +5275,12 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Endure Elements",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
@@ -5285,9 +5291,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Create Pit",
-          prepared: 0,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Flaming Sphere",
@@ -5303,9 +5309,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Invisibility",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Levitate",
@@ -5315,7 +5321,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mirror Image",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 1,
           note: ""
@@ -5343,6 +5349,12 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Create Treasure Map",
+          prepared: 1,
+          active: false,
+          cast: 1,
+          note: ""
         }]
       }, {
         level_3: [{
@@ -5353,15 +5365,15 @@ var nif = (function() {
           note: ""
         }, {
           name: "Summon Monster III",
-          prepared: 0,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Spiked Pit",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Aqueous Orb",
@@ -5385,6 +5397,24 @@ var nif = (function() {
           name: "Haste",
           prepared: 1,
           active: false,
+          cast: 1,
+          note: ""
+        }, {
+          name: "Lightning Bolt",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Slow",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dispel Magic",
+          prepared: 0,
+          active: false,
           cast: 0,
           note: ""
         }]
@@ -5397,18 +5427,24 @@ var nif = (function() {
           note: ""
         }, {
           name: "Wall of Fire",
-          prepared: 1,
-          active: false,
-          cast: 1,
-          note: ""
-        }, {
-          name: "Secure Shelter",
           prepared: 0,
           active: false,
           cast: 0,
           note: ""
         }, {
+          name: "Secure Shelter",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
           name: "Summon Monster IV",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Heroism",
           prepared: 0,
           active: false,
           cast: 0,
@@ -5457,10 +5493,10 @@ var orrin = (function() {
       name: "Orrin Alareth",
       race: "Human",
       class: "Rogue",
-      level: "8",
+      level: "9",
       size: "Medium",
       alignment: "Lawful Evil",
-      xp: "45,051",
+      xp: "55,031",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -5509,14 +5545,14 @@ var orrin = (function() {
           temp_modifier: ""
         }
       },
-      feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude",
+      feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude, Iron Will",
       traits: "Reactionary, Resilient",
       languages: "Common, Elven",
-      special_abilities: "Sneak attack (+4d6), Trapfinding, Evasion, Rogue Talent (Trap spotter), Trap Sense +2, Rogue Talent (Finesse Rogue), Uncanny dodge, Rogue Talent (Fast stealth), Improved Uncanny Dodge, Rogue Talent (Combat Trick - Improved Two-Weapon Fighting)"
+      special_abilities: "Sneak attack (+4d6), Trapfinding, Evasion, Rogue Talent (Trap spotter), Trap Sense +3, Rogue Talent (Finesse Rogue), Uncanny dodge, Rogue Talent (Fast stealth), Improved Uncanny Dodge, Rogue Talent (Combat Trick - Improved Two-Weapon Fighting)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6)",
-      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1)",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6), Giant Squid Parts (10)",
+      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -5526,7 +5562,7 @@ var orrin = (function() {
         armor: "Mithral Chain Shirt",
         belts: "Belt of Dexterity +4",
         body: "",
-        chest: "",
+        chest: "Vest of Escape",
         eyes: "Eyes of the Eagle",
         feet: "",
         hands: "Gloves of Reconnaissance",
@@ -5541,7 +5577,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "3",
-        gold: "1,419",
+        gold: "2,919",
         silver: "5",
         copper: ""
       },
@@ -5549,27 +5585,32 @@ var orrin = (function() {
         item: "Potion of Cure Light Wounds",
         current: "",
         total: 6,
-        used: ""
+        used: 1
       }, {
         item: "Gloves of Reconnaissance",
         current: "",
         total: 10,
-        used: 4
+        used: 1
       }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
         total: 50,
         used: 4
       }, {
-        item: "Bread rolls",
+        item: "Flat Bread",
+        current: "",
+        total: 10,
+        used: 2
+      }, {
+        item: "Wand of Cure Light Wounds",
         current: "",
         total: 50,
-        used: 5
+        used: ""
       }]
     },
     defense: {
       hp: {
-        total: 68,
+        total: 74,
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -5641,9 +5682,9 @@ var orrin = (function() {
           max_dex: true
         }
       },
-      ac_notes: "+2 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
+      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
-        base: 2,
+        base: 3,
         racial: "",
         resistance: 2,
         misc: 3,
@@ -5675,10 +5716,10 @@ var orrin = (function() {
         }
       },
       will: {
-        base: 2,
+        base: 3,
         racial: "",
         resistance: 2,
-        misc: "",
+        misc: 2,
         temp: "",
         current: "",
         bonuses: {
@@ -5690,7 +5731,7 @@ var orrin = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "+2 bonus on Reflex saves made to avoid traps."
+      save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
       base_attack: "6/1",
@@ -5765,9 +5806,9 @@ var orrin = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Rapier +1",
-          attack: "15",
-          damage: "1d6+2",
+          weapon: "Mithral Rapier +2",
+          attack: "16",
+          damage: "1d6+3",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
@@ -5775,9 +5816,9 @@ var orrin = (function() {
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
-          weapon: "Rapier +1, Short sword +1",
-          attack: "13/13/7/7",
-          damage: "1d6+2, 1d6+2",
+          weapon: "Mithral Rapier +2, Short sword +1",
+          attack: "14/14/7/7",
+          damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
@@ -5795,14 +5836,14 @@ var orrin = (function() {
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
-          weapon: "Rapier +1, Punching Dagger +2 Shocking",
-          attack: "13/13/8/8",
-          damage: "1d6+2, 1d4+3 + 1d6 Electrical",
+          weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
+          attack: "14/14/8/8",
+          damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "13",
+          attack: "13/8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -5817,7 +5858,7 @@ var orrin = (function() {
         current: ""
       },
       acrobatics: {
-        ranks: 8,
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -5851,7 +5892,7 @@ var orrin = (function() {
         }
       },
       bluff: {
-        ranks: 8,
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -5868,7 +5909,7 @@ var orrin = (function() {
         }
       },
       climb: {
-        ranks: 3,
+        ranks: 4,
         misc: 2,
         current: "",
         bonuses: {
@@ -5938,8 +5979,8 @@ var orrin = (function() {
         }
       },
       disable_device: {
-        ranks: 8,
-        misc: 4,
+        ranks: 9,
+        misc: 8,
         current: "",
         bonuses: {
           class_skill: true,
@@ -5972,8 +6013,8 @@ var orrin = (function() {
         }
       },
       escape_artist: {
-        ranks: 8,
-        misc: "",
+        ranks: 9,
+        misc: 6,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6244,7 +6285,7 @@ var orrin = (function() {
         }
       },
       perception: {
-        ranks: 8,
+        ranks: 9,
         misc: 5,
         current: "",
         bonuses: {
@@ -6333,7 +6374,7 @@ var orrin = (function() {
         }
       },
       ride: {
-        ranks: 2,
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -6367,7 +6408,7 @@ var orrin = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: 8,
+        ranks: 9,
         misc: 2,
         current: "",
         bonuses: {
@@ -6401,7 +6442,7 @@ var orrin = (function() {
         }
       },
       stealth: {
-        ranks: 8,
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -6452,7 +6493,7 @@ var orrin = (function() {
         }
       },
       use_magic_device: {
-        ranks: 8,
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -6470,7 +6511,7 @@ var orrin = (function() {
       },
       custom_1: {
         name: "Perception (Traps)",
-        ranks: 8,
+        ranks: 9,
         misc: 5,
         current: "",
         bonuses: {
@@ -6488,8 +6529,8 @@ var orrin = (function() {
       },
       custom_2: {
         name: "Disable Device (Traps)",
-        ranks: 8,
-        misc: 4,
+        ranks: 9,
+        misc: 8,
         current: "",
         bonuses: {
           class_skill: true,
@@ -6692,7 +6733,7 @@ var orrin = (function() {
       }, {
         note: "<strong>Sneak attack</strong> If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.<br><strong>Trapfinding</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.<br><strong>Evasion (Ex)</strong> At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.<br><strong>Rogue Talent Trap spotter (Ex)</strong> Whenever a rogue with this talent comes within 10 feet of a trap, she receives an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.<br><strong>Trap Sense +2 (Ex)</strong> At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><strong>Rogue Talent Finesse Rogue (Ex)</strong> A rogue that selects this talent gains Weapon Finesse as a bonus feat.<br><strong>Uncanny Dodge (Ex)</strong> Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her.<br><strong>Rogue Talent Fast Stealth (Ex)</strong> This ability allows a rogue to move at full speed using the Stealth skill without penalty.<br><strong>Improved Uncanny Dodge (Ex)</strong> A rogue of 8th level or higher can no longer be flanked.<bt>This defense denies another rogue the ability to sneak attack the character by flanking her, unless the attacker has at least four more rogue levels than the target does.<bt>If a character already has uncanny dodge (see above) from another class, the levels from the classes that grant uncanny dodge stack to determine the minimum rogue level required to flank the character.<br><strong>Rogue Talent Combat Trick - Improved Two-Weapon Fighting</strong> In addition to the standard single extra attack you get with an off-hand weapon, you get a second attack with it, albeit at a –5 penalty."
       }, {
-        note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><strong>Weapon focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Deft hands</strong> You get a +2 bonus on Disable Device and Sleight of Hand skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws."
+        note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><strong>Weapon focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Deft hands</strong> You get a +2 bonus on Disable Device and Sleight of Hand skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws."
       }],
       story: []
     }
