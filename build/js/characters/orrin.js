@@ -14,7 +14,7 @@ var orrin = (function() {
       weight: "206 lbs",
       age: "26",
       gender: "Male",
-      speed: "30 ft, 6 sq",
+      speed: "30ft",
       initiative: "6",
       hero_points: "",
       luck_points: ""

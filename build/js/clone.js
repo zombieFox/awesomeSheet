@@ -965,7 +965,6 @@ var clone = (function() {
       var total = clone.querySelector(".js-clone-consumable-total").value;
       var used = clone.querySelector(".js-clone-consumable-used").value;
       var newConsumable = new _create_consumableObject(item, current, total, used);
-      console.log(newConsumable);
       sheet.getCharacter().equipment.consumable[cloneIndex] = newConsumable;
     };
     if (cloneType == "note-character") {
