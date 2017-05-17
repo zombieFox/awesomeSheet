@@ -13,6 +13,9 @@ body {
   font-size: $font-size-root-100;
   line-height: $line-height-160;
   // transition: background-color $transition-ease-medium;
+  &.is-display-mode {
+    background-color: $gray-20;
+  }
   &.is-night-mode {
     background-color: $gray-02;
     color: $white;

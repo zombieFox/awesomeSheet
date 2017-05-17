@@ -4,7 +4,6 @@
 .m-display-bar {
   background-color: $gray-19;
   margin: 0 0 3em;
-  padding: 0.5em 0;
   width: 100%;
 }
 .m-display-bar-edit,
@@ -35,7 +34,12 @@
   background-color: $gray-19;
   border-color: $gray-18;
   color: $gray-12;
-  padding: 0.5em 1em;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    height: 40px;
   border-color: transparent;
 }
 .m-display-bar-head {

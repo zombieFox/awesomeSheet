@@ -1,14 +1,9 @@
 .l-section-display {
   position: relative;
   z-index: $display;
-}
-.l-section-display-head {
-  background-color: $gray-19;
-  box-shadow: $shadow-small;
+  padding: 0 0 3em 0;
 }
 .l-section-display-body {
-  padding: 0 0 4em 0;
-  // border-bottom: 2px solid $gray-19;
 }
 .is-night-mode {
   .l-section-display-head {
