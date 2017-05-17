@@ -12,9 +12,9 @@ var display = (function() {
   };
 
   function _bind_edit() {
-    var displayBarEditButton = helper.eA(".js-display-bar-edit-button");
-    for (var i = 0; i < displayBarEditButton.length; i++) {
-      displayBarEditButton[i].addEventListener("click", function(event) {
+    var all_displayHeadingEdit = helper.eA(".js-display-heading-edit");
+    for (var i = 0; i < all_displayHeadingEdit.length; i++) {
+      all_displayHeadingEdit[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         _toggle_quickEdit(this);
@@ -100,7 +100,7 @@ var display = (function() {
     var hamburger = helper.e(".js-hamburger");
     var all_quickNavLink = helper.eA(".js-quick-nav-link");
     var all_sectionEdit = helper.eA(".js-section-edit");
-    var all_sectionDisplay = helper.eA(".js-section-display");
+    var all_display = helper.eA(".js-display");
 
     function _displayOn() {
       // record scroll top var
@@ -116,9 +116,9 @@ var display = (function() {
         helper.addClass(all_sectionEdit[i], "is-hidden");
       };
       // iterate over all display sections
-      for (var i = 0; i < all_sectionDisplay.length; i++) {
+      for (var i = 0; i < all_display.length; i++) {
         // make them visable
-        helper.removeClass(all_sectionDisplay[i], "is-hidden");
+        helper.removeClass(all_display[i], "is-hidden");
       };
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
@@ -143,9 +143,9 @@ var display = (function() {
         helper.removeClass(all_sectionEdit[i], "is-hidden");
       };
       // iterate over all display sections
-      for (var i = 0; i < all_sectionDisplay.length; i++) {
+      for (var i = 0; i < all_display.length; i++) {
         // hide display section
-        helper.addClass(all_sectionDisplay[i], "is-hidden");
+        helper.addClass(all_display[i], "is-hidden");
       };
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
@@ -714,7 +714,7 @@ var display = (function() {
     var data = _get_spell(target);
   };
 
-  function render() {
+  function _render_displayBlock() {
     var all_displayBlock = helper.eA(".js-display-block");
     for (var i = 0; i < all_displayBlock.length; i++) {
 
@@ -763,6 +763,41 @@ var display = (function() {
       };
 
     };
+  };
+
+  function _render_displayHeading() {
+    var body = helper.e("body");
+    window.onscroll = function() {
+      if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
+        var all_display = helper.eA(".js-display");
+        for (var i = 0; i < all_display.length; i++) {
+
+          var displayHeading = all_display[i].querySelector(".js-display-heading");
+          var displayHeadingHeight = parseInt(getComputedStyle(displayHeading).height, 10);
+
+          if (displayHeading) {
+            if (all_display[i].getBoundingClientRect().bottom < (0 + displayHeadingHeight + 30)) {
+                helper.addClass(displayHeading, "is-faded");
+            } else {
+              helper.removeClass(displayHeading, "is-faded");
+            };
+            if ((all_display[i].getBoundingClientRect().top) <= 0 && all_display[i].getBoundingClientRect().bottom > 0) {
+              helper.addClass(all_display[i], "is-pinned");
+              helper.addClass(displayHeading, "is-pinned");
+            } else {
+              helper.removeClass(all_display[i], "is-pinned");
+              helper.removeClass(displayHeading, "is-pinned");
+            };
+          };
+
+        };
+      };
+    };
+  };
+
+  function render() {
+    _render_displayBlock();
+    _render_displayHeading();
   };
 
   // exposed methods

@@ -2,39 +2,27 @@
   position: relative;
   z-index: $body;
   &.is-pinned {
-    padding-top: 40px;
+    padding-top: 3em;
   }
 }
-
-body:not(.is-display-mode) {
-  .l-section {
-    &:last-of-type {
-      min-height: 100vh;
-    }
-  }
+.l-section-last {
+  min-height: 100vh;
 }
-
 .l-section-dark {
   background-color: $secondary-color-07;
 }
-
 .is-night-mode {
   .l-section-dark {
     background-color: $secondary-color-03;
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}
-
 @media print {
   .l-section {
     display: none !important;

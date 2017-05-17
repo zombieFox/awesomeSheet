@@ -193,45 +193,48 @@ button:not(:last-child) {
 
 .button-tertiary {
   background-color: transparent;
-  border-color: $light-alpha-14;
+  border-color: $dark-alpha-18;
   color: $light-alpha-04;
   &:link,
   &:visited {
     background-color: transparent;
-    border-color: $dark-alpha-18;
+    border-color: $dark-alpha-20;
     color: $light-alpha-04;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-18;
-    border-color: $dark-alpha-16;
-    color: $white;
+    border-color: $dark-alpha-15;
+    color: $light-alpha-04;
   }
   &:active,
   &.is-active {
-    background-color: $light-alpha-14;
-    border-color: $light-alpha-12;
+    background-color: $dark-alpha-16;
+    border-color: $dark-alpha-12;
     color: $white;
   }
 }
 
 .button-tertiary-link {
   background-color: transparent;
-  border: 0;
+  border-color: transparent;
   color: $light-alpha-04;
   &:link,
   &:visited {
     background-color: transparent;
+    border-color: transparent;
     color: $light-alpha-04;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-18;
-    color: $white;
+    border-color: transparent;
+    color: $light-alpha-04;
   }
   &:active,
   &.is-active {
-    background-color: $light-alpha-14;
+    background-color: $dark-alpha-16;
+    border-color: transparent;
     color: $white;
   }
 }
@@ -375,7 +378,6 @@ label {
     background-color: transparent;
     border: 0;
     color: $white;
-    text-transform: initial;
     font-family: $open-sans-regular;
     &:link,
     &:visited {
@@ -420,7 +422,6 @@ label {
     background-color: transparent;
     border: 0;
     color: $light-alpha-04;
-    text-transform: initial;
     &:link,
     &:visited {
       background-color: transparent;

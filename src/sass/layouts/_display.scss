@@ -1,22 +1,19 @@
-.l-section-display {
+.l-display {
   position: relative;
   z-index: $display;
+  &.is-pinned {
+    padding-top: 4.5em;
+  }
 }
-.l-section-display-head {
-  padding: 4em 0;
-  background-color: $gray-19;
-  box-shadow: $shadow-small;
+.l-display-last {
+  min-height: 100vh;
 }
-.l-section-display-body {
-  padding: 2em 0;
-  // border-bottom: 1px solid $gray-19;
+.l-display-dark {
+  background-color: $gray-18;
 }
 .is-night-mode {
-  .l-section-display-head {
+  .l-display-head {
     background-color: $secondary-color-03;
-  }
-  .l-section-display-body {
-    // border-color: $secondary-color-02;
   }
 }
 // --------------------------------------------------
@@ -27,7 +24,7 @@
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {
-  .l-section-display {
+  .l-display {
     display: block !important;
     &.is-hidden {
       display: block !important;
