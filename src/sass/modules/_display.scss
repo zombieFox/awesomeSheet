@@ -1,21 +1,21 @@
 // --------------------------------------------------
-// edit
+// bar
 // --------------------------------------------------
 .m-display-bar {
-  margin: 2em 0 4em 0;
-  border-bottom: 2px solid $gray-18;
+  background-color: $gray-19;
+  margin: 0 0 3em;
+  padding: 0.5em 0;
   width: 100%;
-  position: relative;
 }
 .m-display-bar-edit,
-.m-display-bar-name {
-  position: absolute;
-  top: 100%;
-  transform: translate(0, -50%);
+.m-display-bar-name {}
+.m-display-bar-controls {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 .m-display-bar-name {
-  background-color: $white;
-  padding: 0 2em 0 0;
   color: $gray-12;
   font-size: $font-size-075;
   text-transform: uppercase;
@@ -32,17 +32,14 @@
   right: 0;
 }
 .m-display-bar-edit-button {
-  background-color: $white;
+  background-color: $gray-19;
   border-color: $gray-18;
   color: $gray-12;
-  padding: 0.5em 2em;
+  padding: 0.5em 1em;
   border-color: transparent;
 }
 .m-display-bar-head {
-  margin: 3em 0 4em 0;
-  .m-display-bar-name {
-    background-color: $gray-19;
-  }
+  padding-top: 4.5em;
   .m-display-bar-edit-button {
     background-color: $gray-19;
     &:focus,
@@ -56,9 +53,6 @@
   }
 }
 .is-night-mode {
-  .m-display-bar {
-    border-color: $secondary-color-04;
-  }
   .m-display-bar-name {
     background-color: $gray-02;
     color: $secondary-color-08;
@@ -175,7 +169,7 @@
 .is-night-mode {
   .m-display-item-snippet {
     &:not(:only-child):not(:last-child) {
-      border-color: $gray-06;
+      border-color: $secondary-color-04;
     }
   }
 }
@@ -267,6 +261,12 @@
 .is-night-mode {
   .m-display-head-item-highlight {
     border-color: $gray-06;
+  }
+  .m-display-head-item-title {
+    color: $secondary-color-10;
+  }
+  .m-display-head-item-highlight {
+    border-color: $secondary-color-04;
   }
 }
 // --------------------------------------------------

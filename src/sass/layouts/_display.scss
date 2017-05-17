@@ -3,13 +3,12 @@
   z-index: $display;
 }
 .l-section-display-head {
-  padding: 4em 0;
   background-color: $gray-19;
   box-shadow: $shadow-small;
 }
 .l-section-display-body {
-  padding: 2em 0;
-  // border-bottom: 1px solid $gray-19;
+  padding: 0 0 4em 0;
+  // border-bottom: 2px solid $gray-19;
 }
 .is-night-mode {
   .l-section-display-head {
