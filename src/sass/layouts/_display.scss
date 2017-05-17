@@ -1,16 +1,19 @@
-.l-section-display {
+.l-display {
   position: relative;
   z-index: $display;
-  padding: 0 0 3em 0;
+  &.is-pinned {
+    padding-top: 4.5em;
+  }
 }
-.l-section-display-body {
+.l-display-last {
+  min-height: 100vh;
+}
+.l-display-dark {
+  background-color: $gray-18;
 }
 .is-night-mode {
-  .l-section-display-head {
+  .l-display-head {
     background-color: $secondary-color-03;
-  }
-  .l-section-display-body {
-    // border-color: $secondary-color-02;
   }
 }
 // --------------------------------------------------
@@ -21,7 +24,7 @@
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {
-  .l-section-display {
+  .l-display {
     display: block !important;
     &.is-hidden {
       display: block !important;

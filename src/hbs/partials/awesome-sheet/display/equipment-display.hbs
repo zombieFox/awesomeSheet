@@ -1,59 +1,60 @@
-<section class="l-section l-section-display l-section-display-body is-hidden js-section-display">
-  <div class="m-display-bar">
+<section class="l-display js-display is-hidden">
+  <div class="m-display-heading js-display-heading">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <div class="m-display-bar-controls">
-            <p class="m-display-bar-name u-no-margin"><span class="m-display-bar-name-icon icon-bottle"></span> <span>Equipment</span></p>
-            <div class="m-display-bar-edit">
-              <button data-edit-jump="equipment" data-scroll class="button button-icon button-small m-display-bar-edit-button js-display-bar-edit-button"><span class="icon-edit"></span><span>Edit Section</span></button>
-            </div>
+          <div class="m-display-heading-wrapper">
+            <h1 class="m-display-heading-title">Equipment</h1>
+            <span class="m-display-heading-icon icon-bottle"></span>
+            <div class="m-display-heading-controls"><button data-edit-jump="equipment" class="button m-display-heading-edit js-display-heading-edit"><span>Edit</span></button></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
+  <div class="m-display-section-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
 
-        <div class="m-display-body">
-          <p class="m-display-body-title">Gear</p>
-          <p class="js-display-block" data-display-type="text-block" data-display="equipment.gear">
-            <span class="js-display-block-target"></span>
-          </p>
-          <p class="m-display-body-title">Magic Gear</p>
-          <p class="js-display-block" data-display-type="text-block" data-display="equipment.magic_gear">
-            <span class="js-display-block-target"></span>
-          </p>
+          <div class="m-display-body">
+            <p class="m-display-body-title">Gear</p>
+            <p class="js-display-block" data-display-type="text-block" data-display="equipment.gear">
+              <span class="js-display-block-target"></span>
+            </p>
+            <p class="m-display-body-title">Magic Gear</p>
+            <p class="js-display-block" data-display-type="text-block" data-display="equipment.magic_gear">
+              <span class="js-display-block-target"></span>
+            </p>
+          </div>
+
+          <div class="m-display-body">
+            <p class="m-display-body-title">Body Slots</p>
+            <ul class="m-display-grid-multi-col u-list-unstyled js-display-block" data-display-type="list" data-display="equipment.body_slots.armor,equipment.body_slots.belts,equipment.body_slots.body,equipment.body_slots.chest,equipment.body_slots.eyes,equipment.body_slots.feet,equipment.body_slots.hands,equipment.body_slots.head,equipment.body_slots.headband,equipment.body_slots.neck,equipment.body_slots.ring_left_hand,equipment.body_slots.ring_right_hand,equipment.body_slots.shield,equipment.body_slots.shoulders,equipment.body_slots.wrist" data-display-prefix="Armor ,Belts ,Body ,Chest ,Eyes ,Feet ,Hands ,Head ,Headband ,Neck ,Ring (Left Hand) ,Ring (Right Hand) ,Shield ,Shoulders ,Wrist ">
+            </ul>
+          </div>
+
+          <div class="m-display-body">
+            <p class="m-display-body-title">Encumbrance</p>
+            <p class="js-display-block" data-display-type="text-snippet" data-display="equipment.encumbrance.light,equipment.encumbrance.medium,equipment.encumbrance.heavy" data-display-prefix="Light ,Medium ,Heavy ">
+              <span class="js-display-block-target"></span>
+            </p>
+          </div>
+
+          <div class="m-display-body">
+            <p class="m-display-body-title">Wealth</p>
+            <p class="js-display-block" data-display-type="text-snippet" data-display="equipment.wealth.platinum,equipment.wealth.gold,equipment.wealth.silver,equipment.wealth.copper" data-display-suffix=" pp, gp, sp, cp">
+              <span class="js-display-block-target"></span>
+            </p>
+          </div>
+
+          <div class="m-display-body">
+            <p class="m-display-body-title">Consumables</p>
+            <ul class="m-display-grid-multi-col u-list-unstyled js-display-block" data-display-type="clone" data-display="equipment.consumable">
+            </ul>
+          </div>
+
         </div>
-
-        <div class="m-display-body">
-          <p class="m-display-body-title">Body Slots</p>
-          <ul class="m-display-grid-multi-col u-list-unstyled js-display-block" data-display-type="list" data-display="equipment.body_slots.armor,equipment.body_slots.belts,equipment.body_slots.body,equipment.body_slots.chest,equipment.body_slots.eyes,equipment.body_slots.feet,equipment.body_slots.hands,equipment.body_slots.head,equipment.body_slots.headband,equipment.body_slots.neck,equipment.body_slots.ring_left_hand,equipment.body_slots.ring_right_hand,equipment.body_slots.shield,equipment.body_slots.shoulders,equipment.body_slots.wrist" data-display-prefix="Armor ,Belts ,Body ,Chest ,Eyes ,Feet ,Hands ,Head ,Headband ,Neck ,Ring (Left Hand) ,Ring (Right Hand) ,Shield ,Shoulders ,Wrist ">
-          </ul>
-        </div>
-
-        <div class="m-display-body">
-          <p class="m-display-body-title">Encumbrance</p>
-          <p class="js-display-block" data-display-type="text-snippet" data-display="equipment.encumbrance.light,equipment.encumbrance.medium,equipment.encumbrance.heavy" data-display-prefix="Light ,Medium ,Heavy ">
-            <span class="js-display-block-target"></span>
-          </p>
-        </div>
-
-        <div class="m-display-body">
-          <p class="m-display-body-title">Wealth</p>
-          <p class="js-display-block" data-display-type="text-snippet" data-display="equipment.wealth.platinum,equipment.wealth.gold,equipment.wealth.silver,equipment.wealth.copper" data-display-suffix=" pp, gp, sp, cp">
-            <span class="js-display-block-target"></span>
-          </p>
-        </div>
-
-        <div class="m-display-body">
-          <p class="m-display-body-title">Consumables</p>
-          <ul class="m-display-grid-multi-col u-list-unstyled js-display-block" data-display-type="clone" data-display="equipment.consumable">
-          </ul>
-        </div>
-
       </div>
     </div>
   </div>

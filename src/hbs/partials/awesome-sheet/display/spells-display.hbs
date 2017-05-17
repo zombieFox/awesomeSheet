@@ -1,34 +1,35 @@
-<section class="l-section l-section-display l-section-display-body is-hidden js-section-display">
-  <div class="m-display-bar">
+<section class="l-display js-display is-hidden">
+  <div class="m-display-heading js-display-heading">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <div class="m-display-bar-controls">
-            <p class="m-display-bar-name u-no-margin"><span class="m-display-bar-name-icon icon-whatshot"></span> <span>Spells</span></p>
-            <div class="m-display-bar-edit">
-              <button data-edit-jump="spells" data-scroll class="button button-icon button-small m-display-bar-edit-button js-display-bar-edit-button"><span class="icon-edit"></span><span>Edit Section</span></button>
-            </div>
+          <div class="m-display-heading-wrapper">
+            <h1 class="m-display-heading-title">Spells</h1>
+            <span class="m-display-heading-icon icon-whatshot"></span>
+            <div class="m-display-heading-controls"><button data-edit-jump="spells" class="button m-display-heading-edit js-display-heading-edit"><span>Edit</span></button></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
+  <div class="m-display-section-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
 
-        <div class="m-display-body">
-          <p class="js-display-block" data-display-type="text-snippet" data-display="spells.concentration.current" data-display-prefix="Concentration ">
-            <span class="js-display-block-target"></span>
-          </p>
-        </div>
-
-        <div class="m-display-body">
-          <div class="js-display-block" data-display-type="spell">
-            <span class="js-display-block-target"></span>
+          <div class="m-display-body">
+            <p class="js-display-block" data-display-type="text-snippet" data-display="spells.concentration.current" data-display-prefix="Concentration ">
+              <span class="js-display-block-target"></span>
+            </p>
           </div>
-        </div>
 
+          <div class="m-display-body">
+            <div class="js-display-block" data-display-type="spell">
+              <span class="js-display-block-target"></span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
