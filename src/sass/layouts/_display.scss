@@ -12,6 +12,14 @@
   padding: 3em 0;
   border-bottom: 1px solid $gray-19;
 }
+.is-night-mode {
+  .l-section-display-head {
+    background-color: $secondary-color-03;
+  }
+  .l-section-display-body {
+    border-color: $gray-07;
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
