@@ -1,23 +1,22 @@
 .l-section-display {
-  margin-bottom: 1.5em;
   position: relative;
   z-index: $display;
 }
 .l-section-display-head {
-  padding: 3em 0;
+  padding: 4em 0;
   background-color: $gray-19;
   box-shadow: $shadow-small;
 }
 .l-section-display-body {
-  padding: 3em 0;
-  border-bottom: 1px solid $gray-19;
+  padding: 2em 0;
+  // border-bottom: 1px solid $gray-19;
 }
 .is-night-mode {
   .l-section-display-head {
     background-color: $secondary-color-03;
   }
   .l-section-display-body {
-    border-color: $gray-07;
+    // border-color: $secondary-color-02;
   }
 }
 // --------------------------------------------------

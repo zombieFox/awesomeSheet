@@ -2,31 +2,29 @@
   width: 100%;
   box-sizing: border-box;
 }
-
 .u-text-center {
   text-align: center;
 }
-
 .u-text-left {
   text-align: left;
 }
-
 .u-text-right {
   text-align: right;
 }
-
 .u-no-margin {
   margin: 0;
   &[type="email"],
   &[type="number"],
+  &[type="password"],
   &[type="search"],
-  &[type="text"],
   &[type="tel"],
-  &[type="password"] {
+  &[type="text"] {
+    margin: 0;
+  }
+  &:not(:last-child) {
     margin: 0;
   }
 }
-
 .u-inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
@@ -34,28 +32,23 @@
   line-height: $line-height-250;
   box-sizing: border-box;
 }
-
 .u-margin-with-input {
-  margin: 0 0 $font-size-root-150 0;
+  margin: 0 0 $font-size-root-150;
 }
-
 .u-underline-with-input {
   border-bottom: $border;
   border-color: $secondary-color-alpha-20;
 }
-
 .u-small-text {
   color: $gray-12;
   font-size: $font-size-075;
 }
-
 .u-muted-text {
   color: $gray-12;
   strong {
     color: $gray-06;
   }
 }
-
 .u-list-unstyled {
   padding-left: 0;
   margin-bottom: 0;
@@ -63,16 +56,14 @@
     list-style-type: none;
   }
 }
-
 .u-list-inline {
   li {
     display: inline-block;
   }
 }
-
 .u-clearfix {
-  &:before,
-  &:after {
+  &:after,
+  &:before {
     content: " ";
     display: table;
   }
@@ -80,14 +71,10 @@
     clear: both;
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

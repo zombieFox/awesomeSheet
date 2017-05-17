@@ -5,19 +5,20 @@
   left: 0;
   width: 100%;
   z-index: $quick-nav;
-  // transition: background-color $transition-ease-medium;
 }
 
 .m-quick-nav-list {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   > li {
+    flex: 1 0 auto;
     margin: 0;
     padding: 0;
     height: $font-size-450;
-    width: 11.1111111111%;
     display: block;
-    float: left;
     list-style-type: none;
     text-align: center;
   }
@@ -70,7 +71,11 @@
 
 .is-display-mode {
   .m-quick-nav {
-    background-color: transparent;
+    top: -$font-size-450;
+  }
+  .m-quick-nav-list-item-nav {
+    position: relative;
+    top: $font-size-450;
   }
 }
 

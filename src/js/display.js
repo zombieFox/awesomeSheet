@@ -2,7 +2,7 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    _bind_editJump();
+    _bind_edit();
     // _bind_quickControl();
   };
 
@@ -11,10 +11,10 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
   };
 
-  function _bind_editJump() {
-    var displayEditJump = helper.eA(".js-display-edit-jump");
-    for (var i = 0; i < displayEditJump.length; i++) {
-      displayEditJump[i].addEventListener("click", function(event) {
+  function _bind_edit() {
+    var displayBarEditButton = helper.eA(".js-display-bar-edit-button");
+    for (var i = 0; i < displayBarEditButton.length; i++) {
+      displayBarEditButton[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         _toggle_quickEdit(this);

@@ -303,25 +303,25 @@ label {
   input[type="submit"],
   input[type="reset"],
   input[type="button"] {
-    background-color: $secondary-color-04;
+    background-color: $secondary-color-02;
     border-color: $secondary-color-05;
     color: $white;
     &:link,
     &:visited {
-      background-color: $secondary-color-04;
-      border-color: $secondary-color-05;
+      background-color: $secondary-color-02;
+      border-color: $secondary-color-04;
       color: $white;
     }
     &:focus,
     &:hover {
-      background-color: $secondary-color-05;
-      border-color: $secondary-color-14;
+      background-color: $secondary-color-04;
+      border-color: $secondary-color-06;
       color: $white;
     }
     &:active,
     &.is-active {
-      background-color: $secondary-color-16;
-      border-color: $secondary-color-12;
+      background-color: $secondary-color-06;
+      border-color: $secondary-color-08;
       color: $white;
     }
   }

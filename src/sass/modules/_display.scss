@@ -1,32 +1,93 @@
 // --------------------------------------------------
 // edit
 // --------------------------------------------------
-.m-display-edit {
-  position: absolute;
-  top: 3em;
-  left: 50%;
-  z-index: $display;
-  transform: translate(-50%, -50%);
-}
-.m-display-edit-jump {
-  padding: 0.5em 3em;
-  color: $gray-12;
-  border-color: $gray-19;
-  border-radius: 2em;
+.m-display-bar {
+  margin: 2em 0 4em 0;
+  border-bottom: 2px solid $gray-18;
+  width: 100%;
   position: relative;
-  z-index: 2;
-  &:focus,
-  &:hover {
-    background-color: $white;
+}
+.m-display-bar-edit,
+.m-display-bar-name {
+  position: absolute;
+  top: 100%;
+  transform: translate(0, -50%);
+}
+.m-display-bar-name {
+  background-color: $white;
+  padding: 0 2em 0 0;
+  color: $gray-12;
+  font-size: $font-size-075;
+  text-transform: uppercase;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.m-display-bar-name-icon {
+  font-size: $font-size-200;
+  margin-right: 0.2em;
+}
+.m-display-bar-edit {
+  right: 0;
+}
+.m-display-bar-edit-button {
+  background-color: $white;
+  border-color: $gray-18;
+  color: $gray-12;
+  padding: 0.5em 2em;
+  border-color: transparent;
+}
+.m-display-bar-head {
+  margin: 3em 0 4em 0;
+  .m-display-bar-name {
+    background-color: $gray-19;
   }
-  &.is-active,
-  &:active {
-    background-color: $gray-16;
+  .m-display-bar-edit-button {
+    background-color: $gray-19;
+    &:focus,
+    &:hover {
+      background-color: $gray-18;
+    }
+    &.is-active,
+    &:active {
+      background-color: $gray-16;
+    }
   }
 }
-.m-display-edit-jump-head {
-  background-color: $gray-19;
-  box-shadow: $shadow-small;
+.is-night-mode {
+  .m-display-bar {
+    border-color: $secondary-color-04;
+  }
+  .m-display-bar-name {
+    background-color: $gray-02;
+    color: $secondary-color-08;
+  }
+  .m-display-bar-edit-button {
+    background-color: $gray-02;
+    color: $secondary-color-08;
+    border-color: transparent;
+  }
+  .m-display-bar-head {
+    .m-display-bar-name {
+      background-color: $secondary-color-03;
+    }
+    .m-display-bar-edit-button {
+      background-color: $secondary-color-03;
+      &:link,
+      &:visited {
+        background-color: $secondary-color-03;
+      }
+      &:focus,
+      &:hover {
+        background-color: $secondary-color-04;
+      }
+      &.is-active,
+      &:active {
+        background-color: $secondary-color-06;
+      }
+    }
+  }
 }
 // --------------------------------------------------
 // display grid
@@ -62,12 +123,12 @@
 .is-night-mode {
   .m-display-grid-1-col {
     .m-display-col {
-      border-color: $gray-06;
+      border-color: $secondary-color-04;
     }
   }
   .m-display-grid-multi-col {
     .m-display-col {
-      border-color: $gray-06;
+      border-color: $secondary-color-04;
     }
   }
 }
@@ -223,6 +284,11 @@
   line-height: 1;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0.5em;
+  }
+}
+.is-night-mode {
+  .m-display-body-title {
+    color: $secondary-color-10;
   }
 }
 // --------------------------------------------------
