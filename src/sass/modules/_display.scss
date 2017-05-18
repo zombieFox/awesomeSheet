@@ -6,13 +6,43 @@
   padding: 3em 0;
 }
 .is-night-mode {
-  .m-display-heading {
-    background-color: $secondary-color-05;
+  .m-display-section-wrapper {
+    border-color: $secondary-color-02;
   }
-  .m-display-heading-icon {
-    color: $white;
+}
+// --------------------------------------------------
+// self link
+// --------------------------------------------------
+.m-display-self-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.5em;
+  display: block;
+  &.is-active,
+  &:active,
+  &:focus,
+  &:hover,
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
   }
-  .m-display-heading-edit {
+}
+.is-night-mode {
+  .m-display-self-link {
+    &.is-active,
+    &:active,
+    &:focus,
+    &:hover,
+    &:link,
+    &:visited {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
   }
 }
 // --------------------------------------------------

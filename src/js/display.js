@@ -1,8 +1,29 @@
 var display = (function() {
 
   function bind() {
+    _bind_fab();
+    _bind_selfLink();
+  };
+
+  function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", toggle, false);
+  };
+
+  function _bind_selfLink() {
+    var all_displaySelfLink = helper.eA(".js-display-self-link");
+    for (var i = 0; i < all_displaySelfLink.length; i++) {
+      all_displaySelfLink[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _selfLink(this);
+      }, false);
+    };
+  };
+
+  function _selfLink(element) {
+    var target = "#" + element.dataset.selfLink;
+    smoothScroll.animateScroll(null, target);
   };
 
   var scrollTopEdit = 0;
@@ -13,7 +34,7 @@ var display = (function() {
     var fabIcon = helper.e(".js-fab-icon");
     var quickNavList = helper.e(".js-quick-nav-list");
     var quickNavDisplay = helper.e(".js-quick-nav-display");
-    var all_sectionEdit = helper.eA(".js-section-edit");
+    var all_edit = helper.eA(".js-edit");
     var all_display = helper.eA(".js-display");
 
     function _displayOn() {
@@ -24,9 +45,9 @@ var display = (function() {
       helper.removeClass(quickNavDisplay, "is-hidden");
 
       // iterate over all edit sections
-      for (var i = 0; i < all_sectionEdit.length; i++) {
+      for (var i = 0; i < all_edit.length; i++) {
         // make them visable
-        helper.addClass(all_sectionEdit[i], "is-hidden");
+        helper.addClass(all_edit[i], "is-hidden");
       };
       // iterate over all display sections
       for (var i = 0; i < all_display.length; i++) {
@@ -48,9 +69,9 @@ var display = (function() {
       helper.removeClass(quickNavList, "is-hidden");
       helper.addClass(quickNavDisplay, "is-hidden");
       // iterate over all edit sections
-      for (var i = 0; i < all_sectionEdit.length; i++) {
+      for (var i = 0; i < all_edit.length; i++) {
         // make them visable
-        helper.removeClass(all_sectionEdit[i], "is-hidden");
+        helper.removeClass(all_edit[i], "is-hidden");
       };
       // iterate over all display sections
       for (var i = 0; i < all_display.length; i++) {

@@ -1,4 +1,4 @@
-.m-section-controls {
+.m-edit-controls {
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -15,13 +15,13 @@
     }
   }
 }
-.m-section-heading {
+.m-edit-heading {
   background-color: $secondary-color-08;
   padding: 0;
   position: relative;
   z-index: $section-heading;
   transition: background-color $transition-bounce-medium;
-  .m-section-heading-title {
+  .m-edit-heading-title {
     color: $white;
     margin: 0;
     text-transform: uppercase;
@@ -39,18 +39,18 @@
     background-color: $secondary-color-05;
   }
 }
-.m-section-heading-sub {
+.m-edit-heading-sub {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
 }
-.m-section-wrapper {
+.m-edit-wrapper {
   padding: 3em 0;
 }
-.m-section-wrapper-nav-padding {
+.m-edit-wrapper-nav-padding {
   padding-top: 8em;
 }
 .is-night-mode {
-  .m-section-heading {
+  .m-edit-heading {
     background-color: $secondary-color-04;
     &.is-faded {
       background-color: $secondary-color-03;
@@ -63,10 +63,10 @@
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
-  .m-section-wrapper {
+  .m-edit-wrapper {
     padding: 3em 0;
   }
-  .m-section-wrapper-nav-padding {
+  .m-edit-wrapper-nav-padding {
     padding-top: 10em;
   }
 }

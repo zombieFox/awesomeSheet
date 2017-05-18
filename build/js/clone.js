@@ -41,10 +41,10 @@ var clone = (function() {
     var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
     var windowBottom = window.innerHeight;
     var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    var subHeaderHeight = parseInt(getComputedStyle(document.querySelector(".js-section-heading")).height, 10);
-    if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + subHeaderHeight + 20)) {
+    var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
+    if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + editHeadingHeight + 20)) {
       var options = {
-        offset: quickNavHeight + subHeaderHeight + 40
+        offset: quickNavHeight + editHeadingHeight + 40
       };
       if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
         smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);

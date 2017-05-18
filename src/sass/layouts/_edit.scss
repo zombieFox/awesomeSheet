@@ -1,18 +1,18 @@
-.l-section {
+.l-edit {
   position: relative;
   z-index: $body;
   &.is-pinned {
     padding-top: 3em;
   }
 }
-.l-section-last {
+.l-edit-last {
   min-height: 100vh;
 }
-.l-section-dark {
-  background-color: $secondary-color-07;
+.l-edit-dark {
+  background-color: $secondary-color-06;
 }
 .is-night-mode {
-  .l-section-dark {
+  .l-edit-dark {
     background-color: $secondary-color-03;
   }
 }
@@ -24,7 +24,7 @@
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {
-  .l-section {
+  .l-edit {
     display: none !important;
   }
 }

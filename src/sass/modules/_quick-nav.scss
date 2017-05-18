@@ -1,5 +1,5 @@
 .m-quick-nav {
-  background-color: $secondary-color-06;
+  background-color: $secondary-color-07;
   position: fixed;
   top: 0;
   left: 0;
@@ -119,31 +119,7 @@
 }
 .is-night-mode {
   .m-quick-nav {
-    background-color: $secondary-color-05;
-  }
-  &.is-display-mode {
-    .m-quick-nav {
-      background-color: transparent;
-    }
-  }
-  .m-quick-nav-link {
-    color: $secondary-color-03;
-    &:link,
-    &:visited {
-      color: $secondary-color-03;
-    }
-    &:focus {
-      color: $secondary-color-10;
-    }
-    &:hover {
-      color: $secondary-color-10;
-    }
-    &:active {
-      color: $secondary-color-14;
-    }
-    &.is-active {
-      color: $white;
-    }
+    background-color: $secondary-color-06;
   }
 }
 // --------------------------------------------------
