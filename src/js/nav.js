@@ -120,16 +120,16 @@ var nav = (function() {
 
       if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
         var quickNav = helper.e(".js-quick-nav");
+        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
         var all_quickNavLinks = helper.eA(".js-quick-nav-link");
         var all_edit = helper.eA(".js-edit");
-        var menu = parseInt(getComputedStyle(quickNav).height, 10);
         for (var i = 0; i < all_edit.length; i++) {
           // console.log(all_edit[i].id + " top = " + all_edit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_edit[i].getBoundingClientRect().bottom);
 
           var editHeading = all_edit[i].querySelector(".js-edit-heading");
           var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
 
-          if (all_edit[i].getBoundingClientRect().bottom < (menu + editHeadingHeight)) {
+          if (all_edit[i].getBoundingClientRect().bottom < (quickNavHeight + editHeadingHeight)) {
             if (editHeading) {
               helper.addClass(editHeading, "is-faded");
               // editHeading.setAttribute("style", "top:" + (all_edit[i].getBoundingClientRect().bottom - editHeadingHeight) + "px");
@@ -141,7 +141,7 @@ var nav = (function() {
             };
           };
 
-          if ((all_edit[i].getBoundingClientRect().top) <= menu && all_edit[i].getBoundingClientRect().bottom > menu) {
+          if ((all_edit[i].getBoundingClientRect().top) <= quickNavHeight && all_edit[i].getBoundingClientRect().bottom > quickNavHeight) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
               helper.removeClass(all_quickNavLinks[j], "is-active");
             };
@@ -170,13 +170,15 @@ var nav = (function() {
 
       if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
         var all_display = helper.eA(".js-display");
+        var quickNav = helper.e(".js-quick-nav");
+        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
         var title, icon, jump;
         var quickNavDisplayTitle = helper.e(".js-quick-nav-display-title");
         var quickNavDisplayIcon = helper.e(".js-quick-nav-display-icon");
         var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
 
         for (var i = 0; i < all_display.length; i++) {
-          if ((all_display[i].getBoundingClientRect().top) <= 0 && all_display[i].getBoundingClientRect().bottom > 0) {
+          if ((all_display[i].getBoundingClientRect().top) <= quickNavHeight && all_display[i].getBoundingClientRect().bottom > quickNavHeight) {
             title = all_display[i].dataset.displayTitle;
             icon = all_display[i].dataset.displayIcon;
             jump = all_display[i].dataset.editJump;
