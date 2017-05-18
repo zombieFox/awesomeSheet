@@ -14415,9 +14415,5 @@ var checkUrl = (function() {
   sheet.render();
   night.update();
   checkUrl.render();
-  //
-  //
-  //
-  display.toggle();
 
 })();
