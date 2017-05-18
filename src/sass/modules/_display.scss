@@ -2,10 +2,13 @@
 // bar
 // --------------------------------------------------
 .m-display-heading {
-  background-color: $white;
+  background-color: $dark-alpha-10;
+  border-top: 4px solid $primary-color-08;
+  box-sizing: border-box;
+  height: 4.5em;
   position: relative;
   font-size: $font-size-root-100;
-  transition: background-color $transition-bounce-medium;
+  transition: opacity $transition-ease-medium;
   z-index: $display-heading;
   &.is-pinned {
     position: fixed;
@@ -13,7 +16,7 @@
     width: 100%;
   }
   &.is-faded {
-    background-color: $gray-19;
+    opacity: 0.05;
   }
 }
 .m-display-heading-wrapper {
@@ -37,7 +40,7 @@
 .m-display-heading-title {
   margin: 0;
   padding: 0;
-  color: $gray-12;
+  color: $gray-19;
   font-size: $font-size-100;
   font-family: $open-sans-semi-bold;
   line-height: 4.5em;
@@ -47,7 +50,7 @@
   }
 }
 .m-display-heading-icon {
-  color: $gray-08;
+  color: $white;
   font-size: $font-size-200;
   line-height: 2.25;
 }
@@ -57,29 +60,25 @@
   height: 2.5em;
   font-size: $font-size-100;
   background-color: transparent;
-  color: $gray-12;
+  border-color: $gray-12;
+  color: $gray-19;
   &:link,
   &:visited {
-    border-color: transparent;
   }
   &:focus,
   &:hover {
-    border-color: transparent;
   }
   &.is-active,
   &:active {
-    border-color: transparent;
   }
 }
 .m-display-section-wrapper {
-  padding: 4em 0 10vmax;
+  padding: 6em 0 15vmax;
 }
 .is-night-mode {
   .m-display-heading {
     background-color: $secondary-color-03;
-    &.is-faded {
-      background-color: $secondary-color-02;
-    }
+    border-color: $secondary-color-06;
   }
   .m-display-heading-title {
     color: $secondary-color-10;

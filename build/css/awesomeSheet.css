@@ -2519,9 +2519,9 @@ label {
               transform: rotate(90deg); }
 
 .is-display-mode .m-hamburger .m-hamburger-inner {
-  background-color: #4d4d4d; }
+  background-color: #e6e6e6; }
   .is-display-mode .m-hamburger .m-hamburger-inner:before, .is-display-mode .m-hamburger .m-hamburger-inner:after {
-    background-color: #4d4d4d; }
+    background-color: #e6e6e6; }
 
 .is-display-mode .m-hamburger:hover .m-hamburger-inner {
   background-color: #ff3166; }
@@ -3239,17 +3239,20 @@ label {
     width: 40%; } }
 
 .m-display-heading {
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-top: 4px solid #ca0035;
+  box-sizing: border-box;
+  height: 4.5em;
   position: relative;
   font-size: 1rem;
-  transition: background-color 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: opacity 0.3s ease-in-out;
   z-index: 5000; }
   .m-display-heading.is-pinned {
     position: fixed;
     top: 0;
     width: 100%; }
   .m-display-heading.is-faded {
-    background-color: #f2f2f2; }
+    opacity: 0.05; }
 
 .m-display-heading-wrapper {
   display: -webkit-flex;
@@ -3286,7 +3289,7 @@ label {
 .m-display-heading-title {
   margin: 0;
   padding: 0;
-  color: #999999;
+  color: #f2f2f2;
   font-size: 1em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   line-height: 4.5em;
@@ -3295,7 +3298,7 @@ label {
     margin-bottom: 0; }
 
 .m-display-heading-icon {
-  color: #666666;
+  color: #ffffff;
   font-size: 2em;
   line-height: 2.25; }
 
@@ -3305,21 +3308,15 @@ label {
   height: 2.5em;
   font-size: 1em;
   background-color: transparent;
-  color: #999999; }
-  .m-display-heading-edit:link, .m-display-heading-edit:visited {
-    border-color: transparent; }
-  .m-display-heading-edit:focus, .m-display-heading-edit:hover {
-    border-color: transparent; }
-  .m-display-heading-edit.is-active, .m-display-heading-edit:active {
-    border-color: transparent; }
+  border-color: #999999;
+  color: #f2f2f2; }
 
 .m-display-section-wrapper {
-  padding: 4em 0 10vmax; }
+  padding: 6em 0 15vmax; }
 
 .is-night-mode .m-display-heading {
-  background-color: #162632; }
-  .is-night-mode .m-display-heading.is-faded {
-    background-color: #0f1820; }
+  background-color: #162632;
+  border-color: #264f6e; }
 
 .is-night-mode .m-display-heading-title {
   color: #3288c9; }
