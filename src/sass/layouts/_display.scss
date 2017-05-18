@@ -1,19 +1,18 @@
 .l-display {
   position: relative;
   z-index: $display;
-  &.is-pinned {
-    padding-top: 4.5em;
-  }
+  border-bottom: 2px solid $gray-16;
 }
 .l-display-last {
   min-height: 100vh;
+  border: 0;
 }
 .l-display-dark {
-  background-color: $gray-18;
+  background-color: $secondary-color-07;
 }
 .is-night-mode {
-  .l-display-head {
-    background-color: $secondary-color-03;
+  .l-display {
+    border-color: $secondary-color-05;
   }
 }
 // --------------------------------------------------

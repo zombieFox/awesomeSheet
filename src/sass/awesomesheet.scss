@@ -17,14 +17,13 @@
 @import "base/animations";
 // --------------------------------------------------
 @import "layouts/style-guide";
-@import "layouts/section";
+@import "layouts/edit";
 @import "layouts/display";
 // --------------------------------------------------
 @import "modules/style-guide";
 @import "modules/nav";
-@import "modules/section";
+@import "modules/edit";
 @import "modules/clone";
-// @import "modules/consumable";
 @import "modules/hamburger";
 @import "modules/input-block";
 @import "modules/total-block";
@@ -38,7 +37,6 @@
 @import "modules/import-select";
 @import "modules/snacks";
 @import "modules/display";
-@import "modules/quick-edit";
 @import "modules/fab";
 // --------------------------------------------------
 @import "states/utilities";

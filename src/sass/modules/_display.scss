@@ -1,94 +1,48 @@
 // --------------------------------------------------
-// bar
+// wrapper
 // --------------------------------------------------
-.m-display-heading {
-  background-color: $dark-alpha-10;
-  border-top: 4px solid $primary-color-08;
-  box-sizing: border-box;
-  height: 4.5em;
-  position: relative;
-  font-size: $font-size-root-100;
-  transition: opacity $transition-ease-medium;
-  z-index: $display-heading;
-  &.is-pinned {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  &.is-faded {
-    opacity: 0.05;
-  }
-}
-.m-display-heading-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-.m-display-heading-title {
-  flex-basis: 40%;
-  text-align: right;
-}
-.m-display-heading-icon {
-  flex-basis: 20%;
-  text-align: center;
-}
-.m-display-heading-controls {
-  flex-basis: 40%;
-  text-align: left;
-}
-.m-display-heading-title {
-  margin: 0;
-  padding: 0;
-  color: $gray-19;
-  font-size: $font-size-100;
-  font-family: $open-sans-semi-bold;
-  line-height: 4.5em;
-  text-transform: uppercase;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-display-heading-icon {
-  color: $white;
-  font-size: $font-size-200;
-  line-height: 2.25;
-}
-.m-display-heading-edit {
-  padding: 0 1em;
-  margin: 0;
-  height: 2.5em;
-  font-size: $font-size-100;
-  background-color: transparent;
-  border-color: $gray-12;
-  color: $gray-19;
-  &:link,
-  &:visited {
-  }
-  &:focus,
-  &:hover {
-  }
-  &.is-active,
-  &:active {
-  }
-}
 .m-display-section-wrapper {
-  padding: 6em 0 15vmax;
+  border-top: 4.5em solid $gray-19;
+  padding: 3em 0;
 }
 .is-night-mode {
-  .m-display-heading {
-    background-color: $secondary-color-03;
-    border-color: $secondary-color-06;
+  .m-display-section-wrapper {
+    border-color: $secondary-color-02;
   }
-  .m-display-heading-title {
-    color: $secondary-color-10;
+}
+// --------------------------------------------------
+// self link
+// --------------------------------------------------
+.m-display-self-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.5em;
+  display: block;
+  &.is-active,
+  &:active,
+  &:focus,
+  &:hover,
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
   }
-  .m-display-heading-icon {
-    color: $secondary-color-12;
-  }
-  .m-display-heading-edit {
-    color: $secondary-color-10;
-    background-color: $secondary-color-03;
+}
+.is-night-mode {
+  .m-display-self-link {
+    &.is-active,
+    &:active,
+    &:focus,
+    &:hover,
+    &:link,
+    &:visited {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
   }
 }
 // --------------------------------------------------

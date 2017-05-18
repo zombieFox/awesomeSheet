@@ -2,8 +2,7 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    _bind_edit();
-    // _bind_quickControl();
+    _bind_selfLink();
   };
 
   function _bind_fab() {
@@ -11,84 +10,21 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
   };
 
-  function _bind_edit() {
-    var all_displayHeadingEdit = helper.eA(".js-display-heading-edit");
-    for (var i = 0; i < all_displayHeadingEdit.length; i++) {
-      all_displayHeadingEdit[i].addEventListener("click", function(event) {
+  function _bind_selfLink() {
+    var all_displaySelfLink = helper.eA(".js-display-self-link");
+    for (var i = 0; i < all_displaySelfLink.length; i++) {
+      all_displaySelfLink[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _toggle_quickEdit(this);
+        _selfLink(this);
       }, false);
     };
   };
 
-  function _toggle_quickEdit(element) {
-    toggle();
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    var options = {
-      offset: quickNavHeight
-    };
-    var target = "#" + element.dataset.editJump;
-    smoothScroll.animateScroll(null, target, options);
+  function _selfLink(element) {
+    var target = "#" + element.dataset.selfLink;
+    smoothScroll.animateScroll(null, target);
   };
-
-  // function _bind_quickControl() {
-  //   var displayBlockQuickControlItem = helper.eA(".js-display-block-quick-control-item");
-  //   for (var i = 0; i < displayBlockQuickControlItem.length; i++) {
-  //     displayBlockQuickControlItem[i].addEventListener("click", function(event) {
-  //       event.stopPropagation();
-  //       event.preventDefault();
-  //       _quickConctrolAction(this);
-  //       totalBlock.update();
-  //       clear();
-  //       render();
-  //     }, false);
-  //   };
-  // };
-
-  // function _quickConctrolAction(element) {
-  //   var controlAction = element.dataset.displayControl;
-  //   var path = element.dataset.path;
-  //   var target = helper.e("#" + element.dataset.editTarget);
-  //   var content = parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0;
-  //   if (controlAction == "addition") {
-  //     content = content + 1;
-  //   };
-  //   if (controlAction == "subtract") {
-  //     content = content - 1;
-  //   };
-  //   if (controlAction == "addition-5") {
-  //     content = content + 5;
-  //   };
-  //   if (controlAction == "subtract-5") {
-  //     content = content - 5;
-  //   };
-  //   if (controlAction == "clear") {
-  //     content = "";
-  //   };
-  //   if (content == "0") {
-  //     target.value = "";
-  //     _store(element, "");
-  //   } else {
-  //     target.value = content;
-  //     _store(element, content);
-  //   };
-  //   inputBlock.update(target);
-  // };
-
-  // function _store(element, value) {
-  //   var path = element.dataset.path;
-  //   helper.setObject(sheet.getCharacter(), path, value);
-  //   sheet.storeCharacters();
-  // };
-  //
-  // function _toggle_quickEdit(element) {
-  //   var body = helper.e("body");
-  //   var node = helper.e(".js-" + element.dataset.miniView);
-  //   var all_sectionEdit = helper.eA(".js-section-edit");
-  //   helper.toggleClass(node, "is-collapsed");
-  //   helper.toggleClass(node, "is-expanded");
-  // };
 
   var scrollTopEdit = 0;
   var scrollTopDisplay = 0;
@@ -96,24 +32,22 @@ var display = (function() {
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var quickNav = helper.e(".js-quick-nav");
-    var hamburger = helper.e(".js-hamburger");
-    var all_quickNavLink = helper.eA(".js-quick-nav-link");
-    var all_sectionEdit = helper.eA(".js-section-edit");
+    var quickNavList = helper.e(".js-quick-nav-list");
+    var quickNavDisplay = helper.e(".js-quick-nav-display");
+    var all_edit = helper.eA(".js-edit");
     var all_display = helper.eA(".js-display");
 
     function _displayOn() {
       // record scroll top var
       scrollTopEdit = window.scrollY;
       helper.addClass(body, "is-display-mode");
-      // iterate over all quick nav links and hide
-      for (var i = 0; i < all_quickNavLink.length; i++) {
-        helper.addClass(all_quickNavLink[i], "is-invisible");
-      };
+      helper.addClass(quickNavList, "is-hidden");
+      helper.removeClass(quickNavDisplay, "is-hidden");
+
       // iterate over all edit sections
-      for (var i = 0; i < all_sectionEdit.length; i++) {
+      for (var i = 0; i < all_edit.length; i++) {
         // make them visable
-        helper.addClass(all_sectionEdit[i], "is-hidden");
+        helper.addClass(all_edit[i], "is-hidden");
       };
       // iterate over all display sections
       for (var i = 0; i < all_display.length; i++) {
@@ -132,15 +66,12 @@ var display = (function() {
       // record scroll top var
       scrollTopDisplay = window.scrollY;
       helper.removeClass(body, "is-display-mode");
-      // iterate over quick nav links
-      for (var i = 0; i < all_quickNavLink.length; i++) {
-        // make visable
-        helper.removeClass(all_quickNavLink[i], "is-invisible");
-      };
+      helper.removeClass(quickNavList, "is-hidden");
+      helper.addClass(quickNavDisplay, "is-hidden");
       // iterate over all edit sections
-      for (var i = 0; i < all_sectionEdit.length; i++) {
+      for (var i = 0; i < all_edit.length; i++) {
         // make them visable
-        helper.removeClass(all_sectionEdit[i], "is-hidden");
+        helper.removeClass(all_edit[i], "is-hidden");
       };
       // iterate over all display sections
       for (var i = 0; i < all_display.length; i++) {

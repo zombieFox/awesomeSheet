@@ -168,26 +168,19 @@ button:not(:last-child) {
 .button-link {
   background-color: transparent;
   border-color: transparent;
-  color: $base-color;
-  text-transform: initial;
   font-family: $open-sans-regular;
+  text-transform: initial;
   &:link,
   &:visited {
-    background-color: transparent;
     border-color: transparent;
-    color: $base-color;
   }
   &:focus,
   &:hover {
-    background-color: $dark-alpha-20;
     border-color: transparent;
-    color: $primary-color-08;
   }
   &:active,
   &.is-active {
-    background-color: $dark-alpha-18;
     border-color: transparent;
-    color: $primary-color-06;
   }
 }
 
@@ -306,19 +299,19 @@ label {
   input[type="submit"],
   input[type="reset"],
   input[type="button"] {
-    background-color: $secondary-color-02;
-    border-color: $secondary-color-05;
+    background-color: $secondary-color-04;
+    border-color: $secondary-color-03;
     color: $white;
     &:link,
     &:visited {
-      background-color: $secondary-color-02;
-      border-color: $secondary-color-04;
+      background-color: $secondary-color-04;
+      border-color: $secondary-color-03;
       color: $white;
     }
     &:focus,
     &:hover {
-      background-color: $secondary-color-04;
-      border-color: $secondary-color-06;
+      background-color: $secondary-color-05;
+      border-color: $secondary-color-07;
       color: $white;
     }
     &:active,
@@ -329,112 +322,112 @@ label {
     }
   }
   .button-primary {
-    background-color: $primary-color-10;
-    border-color: $primary-color-08;
+    background-color: $primary-color-08;
+    border-color: $primary-color-10;
     color: $white;
     &:link,
     &:visited {
-      background-color: $primary-color-10;
-      border-color: $primary-color-08;
+      background-color: $primary-color-08;
+      border-color: $primary-color-10;
       color: $white;
     }
     &:focus,
     &:hover {
-      background-color: $primary-color-08;
-      border-color: $primary-color-06;
+      background-color: $primary-color-10;
+      border-color: $primary-color-12;
       color: $white;
     }
     &:active,
     &.is-active {
-      background-color: $primary-color-06;
-      border-color: $primary-color-04;
+      background-color: $primary-color-12;
+      border-color: $primary-color-14;
       color: $white;
     }
   }
   .button-secondary {
-    background-color: $secondary-color-10;
-    border-color: $secondary-color-08;
+    background-color: $secondary-color-08;
+    border-color: $secondary-color-10;
     color: $white;
     &:link,
     &:visited {
-      background-color: $secondary-color-10;
-      border-color: $secondary-color-08;
+      background-color: $secondary-color-08;
+      border-color: $secondary-color-10;
       color: $white;
     }
     &:focus,
     &:hover {
-      background-color: $secondary-color-08;
-      border-color: $secondary-color-06;
+      background-color: $secondary-color-10;
+      border-color: $secondary-color-12;
       color: $white;
     }
     &:active,
     &.is-active {
-      background-color: $secondary-color-06;
-      border-color: $secondary-color-04;
+      background-color: $secondary-color-12;
+      border-color: $secondary-color-14;
       color: $white;
     }
   }
   .button-link {
     background-color: transparent;
-    border: 0;
-    color: $white;
+    border-color: transparent;
     font-family: $open-sans-regular;
+    text-transform: initial;
     &:link,
     &:visited {
-      background-color: transparent;
-      color: $white;
+      border-color: transparent;
     }
     &:focus,
     &:hover {
-      background-color: $dark-alpha-20;
-      color: $primary-color-08;
+      border-color: transparent;
     }
     &:active,
     &.is-active {
-      background-color: $dark-alpha-18;
-      color: $primary-color-06;
+      border-color: transparent;
     }
   }
   .button-tertiary {
     background-color: transparent;
-    border-color: $light-alpha-14;
+    border-color: $light-alpha-18;
     color: $light-alpha-04;
     &:link,
     &:visited {
       background-color: transparent;
-      border-color: $dark-alpha-18;
+      border-color: $light-alpha-20;
       color: $light-alpha-04;
     }
     &:focus,
     &:hover {
-      background-color: $dark-alpha-18;
-      border-color: $dark-alpha-16;
-      color: $white;
+      background-color: $light-alpha-18;
+      border-color: $light-alpha-15;
+      color: $light-alpha-04;
     }
     &:active,
     &.is-active {
-      background-color: $light-alpha-14;
+      background-color: $light-alpha-16;
       border-color: $light-alpha-12;
       color: $white;
     }
   }
   .button-tertiary-link {
     background-color: transparent;
-    border: 0;
+    border-color: transparent;
     color: $light-alpha-04;
     &:link,
     &:visited {
       background-color: transparent;
+      border-color: transparent;
       color: $light-alpha-04;
     }
     &:focus,
     &:hover {
-      background-color: $dark-alpha-18;
-      color: $white;
+      background-color: $light-alpha-18;
+      border-color: transparent;
+      color: $light-alpha-04;
     }
     &:active,
     &.is-active {
-      background-color: $light-alpha-14;
+      background-color: $light-alpha-16;
+      border-color: transparent;
       color: $white;
     }
   }
