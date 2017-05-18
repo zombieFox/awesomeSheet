@@ -170,26 +170,28 @@ var nav = (function() {
 
       if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
         var all_display = helper.eA(".js-display");
+        var title, icon, jump;
+        var quickNavDisplayTitle = helper.e(".js-quick-nav-display-title");
+        var quickNavDisplayIcon = helper.e(".js-quick-nav-display-icon");
+        var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
+
         for (var i = 0; i < all_display.length; i++) {
-
-          var displayHeading = all_display[i].querySelector(".js-display-heading");
-          var displayHeadingHeight = parseInt(getComputedStyle(displayHeading).height, 10);
-
-          if (displayHeading) {
-            if (all_display[i].getBoundingClientRect().bottom < (0 + displayHeadingHeight + 30)) {
-                helper.addClass(displayHeading, "is-faded");
-            } else {
-              helper.removeClass(displayHeading, "is-faded");
-            };
-            if ((all_display[i].getBoundingClientRect().top) <= 0 && all_display[i].getBoundingClientRect().bottom > 0) {
-              helper.addClass(all_display[i], "is-pinned");
-              helper.addClass(displayHeading, "is-pinned");
-            } else {
-              helper.removeClass(all_display[i], "is-pinned");
-              helper.removeClass(displayHeading, "is-pinned");
-            };
+          if ((all_display[i].getBoundingClientRect().top) <= 0 && all_display[i].getBoundingClientRect().bottom > 0) {
+            title = all_display[i].dataset.displayTitle;
+            icon = all_display[i].dataset.displayIcon;
+            jump = all_display[i].dataset.editJump;
+            quickNavDisplayTitle.textContent = title;
+            helper.removeClass(quickNavDisplayIcon, "icon-account-circle");
+            helper.removeClass(quickNavDisplayIcon, "icon-shield");
+            helper.removeClass(quickNavDisplayIcon, "icon-bottle");
+            helper.removeClass(quickNavDisplayIcon, "icon-file");
+            helper.removeClass(quickNavDisplayIcon, "icon-combat");
+            helper.removeClass(quickNavDisplayIcon, "icon-whatshot");
+            helper.removeClass(quickNavDisplayIcon, "icon-apps");
+            helper.removeClass(quickNavDisplayIcon, "icon-list");
+            helper.addClass(quickNavDisplayIcon, icon);
+            quickNavDisplayEdit.dataset.editJump = jump;
           };
-
         };
       };
 
@@ -303,6 +305,16 @@ var nav = (function() {
     };
   };
 
+  function _toggle_displayEdit(element) {
+    display.toggle();
+    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
+    var options = {
+      offset: quickNavHeight
+    };
+    var target = "#" + element.dataset.editJump;
+    smoothScroll.animateScroll(null, target, options);
+  };
+
   function bind() {
     var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
@@ -315,6 +327,7 @@ var nav = (function() {
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
     var all_quickNavLinks = helper.eA(".js-quick-nav-link");
+    var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
 
     for (var i = 0; i < all_quickNavLinks.length; i++) {
       all_quickNavLinks[i].addEventListener("click", navClose, false);
@@ -379,6 +392,12 @@ var nav = (function() {
       event.preventDefault();
       sheet.removeCharacter();
       navClose();
+    }, false);
+
+    quickNavDisplayEdit.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      _toggle_displayEdit(this);
     }, false);
 
     // window.addEventListener('click', function(event) {
