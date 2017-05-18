@@ -1,3 +1,12 @@
+// --------------------------------------------------
+// wrapper
+// --------------------------------------------------
+.m-edit-wrapper {
+  padding: 3em 0;
+}
+.m-edit-wrapper-nav-padding {
+  padding-top: 8em;
+}
 .m-edit-controls {
   position: relative;
   display: flex;
@@ -29,32 +38,14 @@
     font-size: $font-size-100;
     line-height: 3em;
   }
-  &.is-pinned {
-    margin: 0;
-    position: fixed;
-    top: $font-size-450;
-    width: 100%;
-  }
-  &.is-faded {
-    background-color: $secondary-color-05;
-  }
 }
 .m-edit-heading-sub {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
 }
-.m-edit-wrapper {
-  padding: 3em 0;
-}
-.m-edit-wrapper-nav-padding {
-  padding-top: 8em;
-}
 .is-night-mode {
   .m-edit-heading {
     background-color: $secondary-color-04;
-    &.is-faded {
-      background-color: $secondary-color-03;
-    }
   }
 }
 // --------------------------------------------------

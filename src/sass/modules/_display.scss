@@ -1,14 +1,10 @@
 // --------------------------------------------------
 // wrapper
 // --------------------------------------------------
-.m-display-section-wrapper {
-  border-top: 4.5em solid $gray-19;
+.m-display-wrapper {
   padding: 3em 0;
 }
 .is-night-mode {
-  .m-display-section-wrapper {
-    border-color: $secondary-color-02;
-  }
 }
 // --------------------------------------------------
 // self link
@@ -20,6 +16,7 @@
   width: 100%;
   height: 4.5em;
   display: block;
+  z-index: $display-heading;
   &.is-active,
   &:active,
   &:focus,

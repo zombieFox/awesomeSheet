@@ -129,33 +129,33 @@ var nav = (function() {
           var editHeading = all_edit[i].querySelector(".js-edit-heading");
           var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
 
-          if (all_edit[i].getBoundingClientRect().bottom < (quickNavHeight + editHeadingHeight)) {
-            if (editHeading) {
-              helper.addClass(editHeading, "is-faded");
-              // editHeading.setAttribute("style", "top:" + (all_edit[i].getBoundingClientRect().bottom - editHeadingHeight) + "px");
-            };
-          } else {
-            if (editHeading) {
-              helper.removeClass(editHeading, "is-faded");
-              // editHeading.removeAttribute("style");
-            };
-          };
+          // if (all_edit[i].getBoundingClientRect().bottom < (quickNavHeight + editHeadingHeight)) {
+          //   if (editHeading) {
+          //     helper.addClass(editHeading, "is-faded");
+          //     // editHeading.setAttribute("style", "top:" + (all_edit[i].getBoundingClientRect().bottom - editHeadingHeight) + "px");
+          //   };
+          // } else {
+          //   if (editHeading) {
+          //     helper.removeClass(editHeading, "is-faded");
+          //     // editHeading.removeAttribute("style");
+          //   };
+          // };
 
           if ((all_edit[i].getBoundingClientRect().top) <= quickNavHeight && all_edit[i].getBoundingClientRect().bottom > quickNavHeight) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
               helper.removeClass(all_quickNavLinks[j], "is-active");
             };
             helper.addClass(all_quickNavLinks[i], "is-active");
-            if (editHeading) {
-              helper.addClass(all_edit[i], "is-pinned");
-              helper.addClass(editHeading, "is-pinned");
-            };
+            // if (editHeading) {
+            //   helper.addClass(all_edit[i], "is-pinned");
+            //   helper.addClass(editHeading, "is-pinned");
+            // };
           } else {
             helper.removeClass(all_quickNavLinks[i], "is-active");
-            if (editHeading) {
-              helper.removeClass(all_edit[i], "is-pinned");
-              helper.removeClass(editHeading, "is-pinned");
-            };
+            // if (editHeading) {
+            //   helper.removeClass(all_edit[i], "is-pinned");
+            //   helper.removeClass(editHeading, "is-pinned");
+            // };
           };
 
         };
@@ -166,35 +166,6 @@ var nav = (function() {
         //   };
         //   helper.addClass(lastQuickLink, "is-active");
         // };
-      };
-
-      if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
-        var all_display = helper.eA(".js-display");
-        var quickNav = helper.e(".js-quick-nav");
-        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
-        var title, icon, jump;
-        var quickNavDisplayTitle = helper.e(".js-quick-nav-display-title");
-        var quickNavDisplayIcon = helper.e(".js-quick-nav-display-icon");
-        var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
-
-        for (var i = 0; i < all_display.length; i++) {
-          if ((all_display[i].getBoundingClientRect().top) <= quickNavHeight && all_display[i].getBoundingClientRect().bottom > quickNavHeight) {
-            title = all_display[i].dataset.displayTitle;
-            icon = all_display[i].dataset.displayIcon;
-            jump = all_display[i].dataset.editJump;
-            quickNavDisplayTitle.textContent = title;
-            helper.removeClass(quickNavDisplayIcon, "icon-account-circle");
-            helper.removeClass(quickNavDisplayIcon, "icon-shield");
-            helper.removeClass(quickNavDisplayIcon, "icon-bottle");
-            helper.removeClass(quickNavDisplayIcon, "icon-file");
-            helper.removeClass(quickNavDisplayIcon, "icon-combat");
-            helper.removeClass(quickNavDisplayIcon, "icon-whatshot");
-            helper.removeClass(quickNavDisplayIcon, "icon-apps");
-            helper.removeClass(quickNavDisplayIcon, "icon-list");
-            helper.addClass(quickNavDisplayIcon, icon);
-            quickNavDisplayEdit.dataset.editJump = jump;
-          };
-        };
       };
 
     };
@@ -329,7 +300,6 @@ var nav = (function() {
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
     var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-    var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
 
     for (var i = 0; i < all_quickNavLinks.length; i++) {
       all_quickNavLinks[i].addEventListener("click", navClose, false);
@@ -394,12 +364,6 @@ var nav = (function() {
       event.preventDefault();
       sheet.removeCharacter();
       navClose();
-    }, false);
-
-    quickNavDisplayEdit.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      _toggle_displayEdit(this);
     }, false);
 
     // window.addEventListener('click', function(event) {

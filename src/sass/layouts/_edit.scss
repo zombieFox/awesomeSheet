@@ -1,26 +1,44 @@
 .l-edit {
+  background-color: $white;
+  margin: 2em 1em;
   position: relative;
   z-index: $body;
-  &.is-pinned {
-    padding-top: 3em;
-  }
+  box-shadow: $shadow-small;
+  border-radius: $border-radius-medium;
+  overflow: hidden;
 }
-.l-edit-last {
-  min-height: 100vh;
-}
-.l-edit-dark {
-  background-color: $secondary-color-06;
+.l-edit-first {
+  margin-top: 6em;
 }
 .is-night-mode {
-  .l-edit-dark {
-    background-color: $secondary-color-03;
+  .l-edit {
+    background-color: $gray-03;
+    border-color: $secondary-color-05;
   }
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-sm) {
+  .l-edit {
+    margin: 4em 2em;
+  }
+  .l-edit-first {
+    margin-top: 6em;
+  }
+}
+@media (min-width: $screen-md) {
+  .l-edit {
+    margin: 4em auto;
+    max-width: 85%;
+  }
+  .l-edit-first {
+    margin-top: 6em;
+  }
+  .is-night-mode {
+    .l-edit {}
+  }
+}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {

@@ -32,18 +32,19 @@ var display = (function() {
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var quickNavList = helper.e(".js-quick-nav-list");
-    var quickNavDisplay = helper.e(".js-quick-nav-display");
+    // var quickNavList = helper.e(".js-quick-nav-list");
     var all_edit = helper.eA(".js-edit");
     var all_display = helper.eA(".js-display");
+    var all_quickNavLink = helper.eA(".js-quick-nav-link");
 
     function _displayOn() {
       // record scroll top var
       scrollTopEdit = window.scrollY;
       helper.addClass(body, "is-display-mode");
-      helper.addClass(quickNavList, "is-hidden");
-      helper.removeClass(quickNavDisplay, "is-hidden");
-
+      // iterate over all quick nav links
+      for (var i = 0; i < all_quickNavLink.length; i++) {
+        all_quickNavLink[i].href = all_quickNavLink[i].dataset.displayLink;
+      };
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
         // make them visable
@@ -66,8 +67,10 @@ var display = (function() {
       // record scroll top var
       scrollTopDisplay = window.scrollY;
       helper.removeClass(body, "is-display-mode");
-      helper.removeClass(quickNavList, "is-hidden");
-      helper.addClass(quickNavDisplay, "is-hidden");
+      // iterate over all quick nav links
+      for (var i = 0; i < all_quickNavLink.length; i++) {
+        all_quickNavLink[i].href = all_quickNavLink[i].dataset.editLink;
+      };
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
         // make them visable
