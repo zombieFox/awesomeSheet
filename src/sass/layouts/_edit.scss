@@ -39,7 +39,11 @@
     .l-edit {}
   }
 }
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .l-edit-first {
+    margin-top: 4em;
+  }
+}
 @media (min-width: $screen-xl) {}
 @media print {
   .l-edit {

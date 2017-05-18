@@ -1,12 +1,10 @@
 html {
   font-size: 75%; // 1rem = 12px
 }
-
 body {
   background: $gray-19;
   margin: 0;
-  padding: 0;
-  padding-bottom: 80vh;
+  padding: 0 0 80vh;
   font-weight: normal;
   color: $base-color;
   font-family: $base-font;
@@ -21,7 +19,6 @@ body {
     color: $white;
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -30,17 +27,17 @@ body {
     font-size: 87.5%; // 1rem = 14px
   }
 }
-
 @media (min-width: $screen-md) {
   html {
     font-size: 100%; // 1rem = 16px
   }
 }
-
-@media (min-width: $screen-lg) {}
-
+@media (min-width: $screen-lg) {
+  body {
+    margin-left: 4.5em;
+  }
+}
 @media (min-width: $screen-xl) {}
-
 @media print {
   html {
     font-size: 10px;

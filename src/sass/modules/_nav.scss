@@ -297,8 +297,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
-    border: 0;
-    padding: $font-size-450 0;
+    padding: 4.5em 0;
     right: 0;
     width: 400px;
     transform: translate(400px, 0);
@@ -308,7 +307,18 @@
   }
 }
 @media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-nav {
+    padding: 2em 0;
+    right: initial;
+    top: 0;
+    left: 0;
+    transform: translate(-100%, 0);
+    &.is-open {
+      transform: translate(4.5em, 0);
+    }
+  }
+}
 @media (min-width: $screen-xl) {}
 @media print {
   .m-nav {

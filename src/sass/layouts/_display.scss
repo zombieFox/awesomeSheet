@@ -39,7 +39,11 @@
     .l-display {}
   }
 }
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .l-display-first {
+    margin-top: 4em;
+  }
+}
 @media (min-width: $screen-xl) {}
 @media print {
   .l-display {

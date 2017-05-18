@@ -22,8 +22,19 @@ var display = (function() {
   };
 
   function _selfLink(element) {
-    var target = "#" + element.dataset.selfLink;
-    smoothScroll.animateScroll(null, target);
+    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
+    var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
+    var quickNavOffset;
+    if (quickNavHeight < quickNavWidth) {
+      quickNavOffset = quickNavHeight;
+    } else {
+      quickNavOffset = quickNavWidth;
+    };
+    var options = {
+      offset: quickNavOffset
+    };
+    var target = element.dataset.selfLink;
+    smoothScroll.animateScroll(null, target, options);
   };
 
   var scrollTopEdit = 0;

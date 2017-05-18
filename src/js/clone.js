@@ -36,21 +36,27 @@ var clone = (function() {
     };
   };
 
-  function _smoothScrollToClones(cloneType) {
-    var cloneTarget = _getCloneTarget(cloneType);
-    var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
-    var windowBottom = window.innerHeight;
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
-    if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + editHeadingHeight + 20)) {
-      var options = {
-        offset: quickNavHeight + editHeadingHeight + 40
-      };
-      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-        smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
-      };
-    };
-  };
+  // function _smoothScrollToClones(cloneType) {
+  //   var cloneTarget = _getCloneTarget(cloneType);
+  //   var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
+  //   var windowBottom = window.innerHeight;
+  //   var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
+  //   var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
+  //   var quickNavOffset;
+  //   if (quickNavHeight < quickNavWidth) {
+  //     quickNavOffset = quickNavHeight;
+  //   } else {
+  //     quickNavOffset = quickNavWidth;
+  //   };
+  //   if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + editHeadingHeight + 20)) {
+  //     var options = {
+  //       offset: quickNavOffset
+  //     };
+  //     if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+  //       smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
+  //     };
+  //   };
+  // };
 
   function _newConsumable(index) {
     var cloneString =
@@ -440,7 +446,7 @@ var clone = (function() {
       _add_cloneObject(cloneType);
       _render_clone(cloneType);
       _update_clonePlaceholder(cloneType);
-      _smoothScrollToClones(cloneType);
+      // _smoothScrollToClones(cloneType);
     } else {
       _render_maxClonesSnack(cloneType);
     };

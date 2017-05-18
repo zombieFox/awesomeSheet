@@ -88,7 +88,32 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-quick-nav {
+    background-color: $secondary-color-07;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4.5em;
+    height: 100%;
+    z-index: $quick-nav;
+  }
+  .m-quick-nav-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+  }
+
+  .m-quick-nav-list {
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+  }
+
+}
 @media (min-width: $screen-xl) {}
 @media print {
   .m-quick-nav {

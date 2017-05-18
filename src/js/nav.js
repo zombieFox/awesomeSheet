@@ -117,55 +117,44 @@ var nav = (function() {
   function _render_quickNav() {
     var body = helper.e("body");
     window.onscroll = function() {
+      console.log("fire");
 
-      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-        var quickNav = helper.e(".js-quick-nav");
-        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
-        var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-        var all_edit = helper.eA(".js-edit");
+      var quickNav = helper.e(".js-quick-nav");
+      var offset = 70;
+      var all_quickNavLinks = helper.eA(".js-quick-nav-link");
+      var all_edit = helper.eA(".js-edit");
+      var all_display = helper.eA(".js-display");
+
+      if (body.dataset.displayMode == "false" || body.dataset.displayMode == false) {
         for (var i = 0; i < all_edit.length; i++) {
-          // console.log(all_edit[i].id + " top = " + all_edit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_edit[i].getBoundingClientRect().bottom);
+          console.log("loop 1");
 
-          var editHeading = all_edit[i].querySelector(".js-edit-heading");
-          var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
-
-          // if (all_edit[i].getBoundingClientRect().bottom < (quickNavHeight + editHeadingHeight)) {
-          //   if (editHeading) {
-          //     helper.addClass(editHeading, "is-faded");
-          //     // editHeading.setAttribute("style", "top:" + (all_edit[i].getBoundingClientRect().bottom - editHeadingHeight) + "px");
-          //   };
-          // } else {
-          //   if (editHeading) {
-          //     helper.removeClass(editHeading, "is-faded");
-          //     // editHeading.removeAttribute("style");
-          //   };
-          // };
-
-          if ((all_edit[i].getBoundingClientRect().top) <= quickNavHeight && all_edit[i].getBoundingClientRect().bottom > quickNavHeight) {
+          if ((all_edit[i].getBoundingClientRect().top) <= offset && all_edit[i].getBoundingClientRect().bottom > offset) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
               helper.removeClass(all_quickNavLinks[j], "is-active");
             };
             helper.addClass(all_quickNavLinks[i], "is-active");
-            // if (editHeading) {
-            //   helper.addClass(all_edit[i], "is-pinned");
-            //   helper.addClass(editHeading, "is-pinned");
-            // };
           } else {
             helper.removeClass(all_quickNavLinks[i], "is-active");
-            // if (editHeading) {
-            //   helper.removeClass(all_edit[i], "is-pinned");
-            //   helper.removeClass(editHeading, "is-pinned");
-            // };
           };
 
         };
-        // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-        //   for (var i = 0; i < all_quickNavLinks.length; i++) {
-        //     helper.removeClass(all_quickNavLinks[i], "is-active");
-        //   };
-        //   helper.addClass(lastQuickLink, "is-active");
-        // };
+      };
+
+      if (body.dataset.displayMode == "true" || body.dataset.displayMode == true) {
+        for (var i = 0; i < all_display.length; i++) {
+          console.log("loop 2");
+
+          if ((all_display[i].getBoundingClientRect().top) <= offset && all_display[i].getBoundingClientRect().bottom > offset) {
+            for (var j = 0; j < all_quickNavLinks.length; j++) {
+              helper.removeClass(all_quickNavLinks[j], "is-active");
+            };
+            helper.addClass(all_quickNavLinks[i], "is-active");
+          } else {
+            helper.removeClass(all_quickNavLinks[i], "is-active");
+          };
+
+        };
       };
 
     };
@@ -280,9 +269,16 @@ var nav = (function() {
 
   function _toggle_displayEdit(element) {
     display.toggle();
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
+    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
+    var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
+    var quickNavOffset;
+    if (quickNavHeight < quickNavWidth) {
+      quickNavOffset = quickNavHeight;
+    } else {
+      quickNavOffset = quickNavWidth;
+    };
     var options = {
-      offset: quickNavHeight
+      offset: quickNavOffset
     };
     var target = "#" + element.dataset.editJump;
     smoothScroll.animateScroll(null, target, options);
