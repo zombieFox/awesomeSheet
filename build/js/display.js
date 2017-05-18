@@ -765,39 +765,8 @@ var display = (function() {
     };
   };
 
-  function _render_displayHeading() {
-    var body = helper.e("body");
-    window.onscroll = function() {
-      if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
-        var all_display = helper.eA(".js-display");
-        for (var i = 0; i < all_display.length; i++) {
-
-          var displayHeading = all_display[i].querySelector(".js-display-heading");
-          var displayHeadingHeight = parseInt(getComputedStyle(displayHeading).height, 10);
-
-          if (displayHeading) {
-            if (all_display[i].getBoundingClientRect().bottom < (0 + displayHeadingHeight + 30)) {
-                helper.addClass(displayHeading, "is-faded");
-            } else {
-              helper.removeClass(displayHeading, "is-faded");
-            };
-            if ((all_display[i].getBoundingClientRect().top) <= 0 && all_display[i].getBoundingClientRect().bottom > 0) {
-              helper.addClass(all_display[i], "is-pinned");
-              helper.addClass(displayHeading, "is-pinned");
-            } else {
-              helper.removeClass(all_display[i], "is-pinned");
-              helper.removeClass(displayHeading, "is-pinned");
-            };
-          };
-
-        };
-      };
-    };
-  };
-
   function render() {
     _render_displayBlock();
-    _render_displayHeading();
   };
 
   // exposed methods
