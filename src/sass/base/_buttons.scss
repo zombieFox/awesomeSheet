@@ -13,7 +13,7 @@ input[type="button"] {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  font-size: $font-size-root-100;
+  font-size: $font-size-100;
   line-height: $line-height-160;
   font-family: $open-sans-semi-bold;
   border-radius: $border-radius-medium;
@@ -49,28 +49,6 @@ input[type="button"] {
 
 button:not(:last-child) {
   margin-bottom: $font-size-100;
-}
-
-.button-normal {
-  background: transparent;
-  border-radius: initial;
-  white-space: normal;
-  border: 0;
-  &:link,
-  &:visited {
-    background-color: transparent;
-    border-color: transparent;
-  }
-  &:focus,
-  &:hover {
-    background-color: transparent;
-    border-color: transparent;
-  }
-  &:active,
-  &.is-active {
-    background-color: transparent;
-    border-color: transparent;
-  }
 }
 
 .button-small {

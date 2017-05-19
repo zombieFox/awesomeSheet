@@ -1,25 +1,26 @@
 .l-section-wrapper {
-  margin: 5.5em 1em 1em 1em;
+  margin: 4.5em 1em 2em 1em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: stretch;
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .l-section-wrapper {
-    margin: 5.5em 1em 1em 1em;
+    margin: 4.5em 1em 2em 1em;
   }
 }
 @media (min-width: $screen-md) {
   .l-section-wrapper {
-    margin: 5.5em 0 1em 0;
+    margin: 4.5em 0 0 0;
   }
 }
 @media (min-width: $screen-lg) {
   .l-section-wrapper {
-    margin: 3em 0 3em 4.5em;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    margin: 0 0 0 4.5em;
   }
 }
 @media (min-width: $screen-xl) {

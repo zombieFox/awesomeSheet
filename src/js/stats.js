@@ -29,6 +29,9 @@ var stats = (function() {
     var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), scoreElement.dataset.path));
     var path = totalElement.dataset.path;
     helper.setObject(sheet.getCharacter(), path, modifier);
+    if (modifier > 0) {
+      modifier =  "+" + modifier
+    };
     totalElement.textContent = modifier;
   };
 

@@ -119,15 +119,19 @@ var nav = (function() {
     window.onscroll = function() {
 
       var quickNav = helper.e(".js-quick-nav");
-      var offset = 70;
       var all_quickNavLinks = helper.eA(".js-quick-nav-link");
       var all_edit = helper.eA(".js-edit");
       var all_display = helper.eA(".js-display");
+      var offset = parseInt(getComputedStyle(quickNav).height, 10);
+      // if nav is on the left after 900px wide viewport
+      if (document.documentElement.clientWidth >= 900) {
+        offset = 0;
+      };
 
       if (body.dataset.displayMode == "false" || body.dataset.displayMode == false) {
         for (var i = 0; i < all_edit.length; i++) {
-
-          if ((all_edit[i].getBoundingClientRect().top) <= offset && all_edit[i].getBoundingClientRect().bottom > offset) {
+          // console.log(all_edit[i].id, "--- top", (all_edit[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_edit[i].getBoundingClientRect().bottom);
+          if ((all_edit[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_edit[i]).marginTop, 10)) <= offset && (all_edit[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_edit[i]).marginBottom, 10)) > offset) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
               helper.removeClass(all_quickNavLinks[j], "is-active");
             };
@@ -142,7 +146,7 @@ var nav = (function() {
       if (body.dataset.displayMode == "true" || body.dataset.displayMode == true) {
         for (var i = 0; i < all_display.length; i++) {
 
-          if ((all_display[i].getBoundingClientRect().top) <= offset && all_display[i].getBoundingClientRect().bottom > offset) {
+          if ((all_display[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_display[i]).marginTop, 10)) <= offset && (all_display[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_display[i]).marginBottom, 10)) > offset) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
               helper.removeClass(all_quickNavLinks[j], "is-active");
             };
@@ -264,25 +268,49 @@ var nav = (function() {
     };
   };
 
-  function _toggle_displayEdit(element) {
-    display.toggle();
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
-    var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
-    var quickNavOffset;
-    if (quickNavHeight < quickNavWidth) {
-      quickNavOffset = quickNavHeight;
+  // function _toggle_displayEdit(element) {
+  //   display.toggle();
+  //   var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
+  //   var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
+  //   var quickNavOffset;
+  //   if (quickNavHeight < quickNavWidth) {
+  //     quickNavOffset = quickNavHeight;
+  //   } else {
+  //     quickNavOffset = quickNavWidth;
+  //   };
+  //   var options = {
+  //     offset: quickNavOffset
+  //   };
+  //   var target = "#" + element.dataset.editJump;
+  //   smoothScroll.animateScroll(null, target, options);
+  // };
+
+  function _quickLinkSmoothScroll(element) {
+    var id;
+    var all_edit = helper.eA(".js-edit");
+    var quickNav = helper.e(".js-quick-nav");
+    var offset;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10);
     } else {
-      quickNavOffset = quickNavWidth;
+      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
     };
     var options = {
-      offset: quickNavOffset
+      speed: 500,
+      offset: offset
     };
-    var target = "#" + element.dataset.editJump;
-    smoothScroll.animateScroll(null, target, options);
+    if (body.dataset.displayMode == "false" || body.dataset.displayMode == false) {
+      id = element.dataset.editLink;
+    } else if (body.dataset.displayMode == "true" || body.dataset.displayMode == true) {
+      id = element.dataset.displayLink;
+    };
+    smoothScroll.animateScroll(null, id, options);
   };
 
-  function bind() {
-    var nav = helper.e(".js-nav");
+  function _bind_navLinks() {
+
+    // var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
     var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
     var nightModeToggle = helper.e(".js-night-mode");
@@ -292,11 +320,6 @@ var nav = (function() {
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
-    var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-
-    for (var i = 0; i < all_quickNavLinks.length; i++) {
-      all_quickNavLinks[i].addEventListener("click", navClose, false);
-    };
 
     navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -359,54 +382,62 @@ var nav = (function() {
       navClose();
     }, false);
 
-    // window.addEventListener('click', function(event) {
-    //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
-    //     navClose();
-    //   };
-    // }, false);
+  };
+
+  function _bind_quickNavLinks() {
+    var all_quickNavLink = helper.eA(".js-quick-nav-link");
+    for (var i = 0; i < all_quickNavLink.length; i++) {
+      all_quickNavLink[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        navClose();
+        _quickLinkSmoothScroll(this);
+      }, false);
+    };
+  };
+
+  function _bind_shortcutKeys() {
 
     window.addEventListener("keydown", function(event) {
-
       // ctrl+alt+delete
       if (event.ctrlKey && event.altKey && event.keyCode == 8) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
         navClose();
       };
-
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
         navClose();
       };
-
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
         navClose();
       };
-
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
         toggle_nav();
         helper.e(".js-nav-title").focus(this);
       };
-
       // ctrl+alt+d
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
         display.toggle();
       };
-
       // ctrl+alt+n
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {
         night.toggle();
       };
-
       // esc
       if (event.keyCode == 27) {
         navClose();
       };
-
     }, false);
+
+    // window.addEventListener('click', function(event) {
+    //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
+    //     navClose();
+    //   };
+    // }, false);
 
     // key debugging
     // window.addEventListener("keydown", function(event) {
@@ -415,6 +446,12 @@ var nav = (function() {
     //   console.log(event);
     // });
 
+  };
+
+  function bind() {
+    _bind_navLinks();
+    _bind_shortcutKeys();
+    _bind_quickNavLinks();
   };
 
   // exposed methods

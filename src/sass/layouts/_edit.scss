@@ -1,9 +1,10 @@
 .l-edit {
   background-color: $white;
-  margin: 0 0 1em;
+  margin: 2em 0 0;
   position: relative;
   z-index: $body;
   border: 2px solid transparent;
+  border-color: $secondary-color-07;
   box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
   overflow: hidden;
@@ -20,22 +21,23 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .l-edit {
-    margin: 0 0 1em;
   }
 }
 @media (min-width: $screen-md) {
   .l-edit {
-    margin: 0 auto 2em;
     width: 80%;
   }
 }
 @media (min-width: $screen-lg) {
   .l-edit {
-    margin: 0 auto 3em;
-    width: 50%;
+    margin: 3em 0 0;
   }
 }
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  .l-edit {
+    width: 60%;
+  }
+}
 @media print {
   .l-edit {
     display: none !important;

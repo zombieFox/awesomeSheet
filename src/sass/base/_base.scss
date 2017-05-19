@@ -2,7 +2,7 @@ html {
   font-size: 75%; // 1rem = 12px
 }
 body {
-  background: $gray-19;
+  background: $gray-18;
   margin: 0;
   padding: 0 0 80vh;
   font-weight: normal;
@@ -12,7 +12,7 @@ body {
   line-height: $line-height-160;
   // transition: background-color $transition-ease-medium;
   &.is-display-mode {
-    background: $gray-19;
+    background: $gray-18;
   }
   &.is-night-mode {
     background-color: $gray-04;
