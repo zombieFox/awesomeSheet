@@ -297,7 +297,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
-    margin: 4.5em 0;
+    padding: 4.5em 0;
     right: 0;
     width: 400px;
     transform: translate(400px, 0);
@@ -309,7 +309,7 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-nav {
-    margin: 0;
+    padding: 0 0 10em 0;
     right: initial;
     top: 0;
     left: 0;
