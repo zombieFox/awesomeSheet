@@ -117,7 +117,6 @@ var nav = (function() {
   function _render_quickNav() {
     var body = helper.e("body");
     window.onscroll = function() {
-      console.log("fire");
 
       var quickNav = helper.e(".js-quick-nav");
       var offset = 70;
@@ -127,7 +126,6 @@ var nav = (function() {
 
       if (body.dataset.displayMode == "false" || body.dataset.displayMode == false) {
         for (var i = 0; i < all_edit.length; i++) {
-          console.log("loop 1");
 
           if ((all_edit[i].getBoundingClientRect().top) <= offset && all_edit[i].getBoundingClientRect().bottom > offset) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {
@@ -143,7 +141,6 @@ var nav = (function() {
 
       if (body.dataset.displayMode == "true" || body.dataset.displayMode == true) {
         for (var i = 0; i < all_display.length; i++) {
-          console.log("loop 2");
 
           if ((all_display[i].getBoundingClientRect().top) <= offset && all_display[i].getBoundingClientRect().bottom > offset) {
             for (var j = 0; j < all_quickNavLinks.length; j++) {

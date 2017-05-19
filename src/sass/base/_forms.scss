@@ -28,6 +28,7 @@ textarea {
   border: 0;
   min-height: $font-size-250;
   border-bottom: $border;
+  border-color: $secondary-color-alpha-14;
   transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
   resize: vertical;
   &:hover {
@@ -58,6 +59,7 @@ input {
     border: 0;
     border-radius: 0;
     border-bottom: $border;
+    border-color: $secondary-color-alpha-14;
     box-shadow: none;
     transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
