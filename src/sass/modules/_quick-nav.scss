@@ -45,7 +45,14 @@
   }
 }
 .m-quick-nav-link {
-  display: block;
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
   line-height: 1;
   text-decoration: none;
   color: $secondary-color-04;
@@ -73,6 +80,9 @@
   }
   &.is-active {
     color: $white;
+    &:focus {
+      color: $secondary-color-18;
+    }
   }
 }
 .m-nav-toggle {
@@ -120,6 +130,9 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+  }
+  .m-quick-nav-list-item {
+    flex-flow: column nowrap;
   }
 }
 @media (min-height: 700px) and (min-width: $screen-lg) {

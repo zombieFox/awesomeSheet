@@ -150,14 +150,17 @@ button:not(:last-child) {
   text-transform: initial;
   &:link,
   &:visited {
+    background-color: transparent;
     border-color: transparent;
   }
   &:focus,
   &:hover {
+    background-color: $dark-alpha-20;
     border-color: transparent;
   }
   &:active,
   &.is-active {
+    background-color: $dark-alpha-18;
     border-color: transparent;
   }
 }
@@ -352,14 +355,17 @@ label {
     text-transform: initial;
     &:link,
     &:visited {
+      background-color: transparent;
       border-color: transparent;
     }
     &:focus,
     &:hover {
+      background-color: $light-alpha-20;
       border-color: transparent;
     }
     &:active,
     &.is-active {
+      background-color: $light-alpha-18;
       border-color: transparent;
     }
   }

@@ -35,10 +35,12 @@
 .u-margin-with-input {
   margin: 0 0 $font-size-root-150;
 }
+.u-background-with-input {
+  background-color: $gray-20;
+}
 .u-underline-with-input {
   border-bottom: $border;
-  // border-color: $secondary-color-alpha-20;
-  border-color: $secondary-color-alpha-14;
+  border-color: $gray-19;
 }
 .u-small-text {
   color: $gray-12;

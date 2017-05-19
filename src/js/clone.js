@@ -72,7 +72,7 @@ var clone = (function() {
       '            </div>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
-      '            <p class="u-text-center u-no-margin u-inline-with-input u-underline-with-input js-total-block-total js-clone-consumable-current">0</p>' +
+      '            <p class="u-text-center u-no-margin u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
       '            <div class="m-input-block js-input-block">' +
@@ -103,25 +103,25 @@ var clone = (function() {
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
-      '        <div class="col-xs-5 col-md-4">' +
+      '        <div class="col-xs-6 col-md-8 col-xl-4">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
       '            <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-2 col-md-2">' +
+      '        <div class="col-xs-6 col-md-4 col-xl-3">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '            <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-md-3">' +
+      '        <div class="col-xs-5 col-xs-offset-3 col-xl-3 col-xl-offset-0">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
       '            <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-2 col-md-3">' +
+      '        <div class="col-xs-4 col-xl-2">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
       '            <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +

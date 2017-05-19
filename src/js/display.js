@@ -66,7 +66,7 @@ var display = (function() {
       helper.removeClass(fabIcon, "icon-reader-mode");
       // scroll to
       window.scrollTo(0, scrollTopDisplay);
-      // if body is in display state
+      // snack.render("Display Mode", false, false, 1000);
     };
 
     function _displayOff() {
@@ -88,6 +88,7 @@ var display = (function() {
       helper.addClass(fabIcon, "icon-reader-mode");
       // scroll to
       window.scrollTo(0, scrollTopEdit);
+      // snack.render("Edit Mode", false, false, 1000);
     };
 
     if (body.dataset.displayMode == "true") {

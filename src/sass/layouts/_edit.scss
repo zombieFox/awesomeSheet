@@ -3,11 +3,9 @@
   margin: 2em 0 0;
   position: relative;
   z-index: $body;
-  border: 2px solid transparent;
-  border-color: $secondary-color-07;
+  border-left: 0.5em solid $secondary-color-07;
   box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
-  overflow: hidden;
   box-sizing: border-box;
   width: 100%;
 }
