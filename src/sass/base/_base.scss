@@ -32,11 +32,7 @@ body {
     font-size: 100%; // 1rem = 16px
   }
 }
-@media (min-width: $screen-lg) {
-  body {
-    margin-left: 4.5em;
-  }
-}
+@media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {
   html {

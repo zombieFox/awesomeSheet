@@ -1,0 +1,28 @@
+.l-section-wrapper {
+  margin: 5.5em 1em 1em 1em;
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .l-section-wrapper {
+    margin: 5.5em 1em 1em 1em;
+  }
+}
+@media (min-width: $screen-md) {
+  .l-section-wrapper {
+    margin: 5.5em 0 1em 0;
+  }
+}
+@media (min-width: $screen-lg) {
+  .l-section-wrapper {
+    margin: 3em 0 3em 4.5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+@media (min-width: $screen-xl) {
+  .l-section-wrapper {
+  }
+}

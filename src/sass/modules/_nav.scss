@@ -1,6 +1,7 @@
 .m-nav {
   background-color: $white;
-  padding: $font-size-450 0;
+  margin: 4.5em 0 0 0;
+  padding: 0;
   position: fixed;
   right: 0;
   top: 0;
@@ -12,8 +13,8 @@
   transition: transform $transition-ease-medium;
   transform: translate(100%, 0);
   .m-nav-list {
-    padding: $font-size-100 0;
-    margin: 0;
+    padding: 0;
+    margin: 1em 0;
     width: 100%;
     overflow-y: auto;
     > li {
@@ -297,7 +298,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
-    padding: 4.5em 0;
+    margin: 4.5em 0;
     right: 0;
     width: 400px;
     transform: translate(400px, 0);
@@ -309,7 +310,7 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-nav {
-    padding: 2em 0;
+    margin: 0;
     right: initial;
     top: 0;
     left: 0;

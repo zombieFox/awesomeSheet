@@ -2,10 +2,17 @@
 // wrapper
 // --------------------------------------------------
 .m-edit-wrapper {
-  padding: 3em 0;
+  margin: 2em 1em;
 }
-.m-edit-wrapper-nav-padding {
-  padding-top: 8em;
+// --------------------------------------------------
+// edit controls
+// --------------------------------------------------
+.m-edit-title {
+  margin-bottom: 2em;
+  text-transform: uppercase;
+  font-family: $open-sans-regular;
+  font-size: $font-size-150;
+  color: $secondary-color-14;
 }
 .m-edit-controls {
   position: relative;
@@ -25,19 +32,11 @@
   }
 }
 .m-edit-heading {
-  background-color: $secondary-color-08;
+  margin: 0 1em;
   padding: 0;
   position: relative;
   z-index: $section-heading;
   transition: background-color $transition-bounce-medium;
-  .m-edit-heading-title {
-    color: $white;
-    margin: 0;
-    text-transform: uppercase;
-    font-family: $open-sans-semi-bold;
-    font-size: $font-size-100;
-    line-height: 3em;
-  }
 }
 .m-edit-heading-sub {
   font-family: $open-sans-semi-bold;
@@ -52,14 +51,6 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-@media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {
-  .m-edit-wrapper {
-    padding: 3em 0;
-  }
-  .m-edit-wrapper-nav-padding {
-    padding-top: 10em;
-  }
-}
+@media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

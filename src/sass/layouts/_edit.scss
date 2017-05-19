@@ -1,14 +1,13 @@
 .l-edit {
   background-color: $white;
-  margin: 2em 1em;
+  margin: 0 0 1em;
   position: relative;
   z-index: $body;
+  border: 2px solid transparent;
   box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
   overflow: hidden;
-}
-.l-edit-first {
-  margin-top: 6em;
+  box-sizing: border-box;
 }
 .is-night-mode {
   .l-edit {
@@ -21,27 +20,19 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .l-edit {
-    margin: 4em 2em;
-  }
-  .l-edit-first {
-    margin-top: 6em;
+    margin: 0 0 1em;
   }
 }
 @media (min-width: $screen-md) {
   .l-edit {
-    margin: 4em auto;
-    max-width: 85%;
-  }
-  .l-edit-first {
-    margin-top: 6em;
-  }
-  .is-night-mode {
-    .l-edit {}
+    margin: 0 auto 2em;
+    width: 80%;
   }
 }
 @media (min-width: $screen-lg) {
-  .l-edit-first {
-    margin-top: 4em;
+  .l-edit {
+    margin: 0 auto 3em;
+    width: 50%;
   }
 }
 @media (min-width: $screen-xl) {}
