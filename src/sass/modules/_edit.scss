@@ -1,36 +1,33 @@
-// --------------------------------------------------
-// wrapper
-// --------------------------------------------------
 .m-edit-wrapper {
   margin: 2em 1em;
 }
-// --------------------------------------------------
-// edit controls
-// --------------------------------------------------
 .m-edit-title {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   text-transform: uppercase;
   font-family: $open-sans-bold;
-  font-size: $font-size-100;
-  color: $secondary-color-08;
+  font-size: $font-size-075;
+  color: $secondary-color-12;
 }
-.m-edit-controls {
-  position: relative;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  .button-group,
-  .button-group-strech {
-    .button {
-      margin: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      border: 0;
-      border-radius: 0;
-      height: 4em;
-    }
-  }
+.m-edit-title-fade {
+  color: $gray-08;
 }
+// .m-edit-controls {
+//   position: relative;
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: flex-end;
+//   .button-group,
+//   .button-group-strech {
+//     .button {
+//       margin: 0;
+//       padding-top: 0;
+//       padding-bottom: 0;
+//       border: 0;
+//       border-radius: 0;
+//       height: 4em;
+//     }
+//   }
+// }
 .m-edit-heading {
   margin: 0 1em;
   padding: 0;

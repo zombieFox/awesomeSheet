@@ -22,19 +22,22 @@ var display = (function() {
   };
 
   function _selfLink(element) {
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
-    var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
-    var quickNavOffset;
-    if (quickNavHeight < quickNavWidth) {
-      quickNavOffset = quickNavHeight;
+    var id;
+    var all_edit = helper.eA(".js-edit");
+    var quickNav = helper.e(".js-quick-nav");
+    var offset;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) - 10;
     } else {
-      quickNavOffset = quickNavWidth;
+      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
     var options = {
-      offset: quickNavOffset
+      speed: 500,
+      offset: offset
     };
-    var target = element.dataset.selfLink;
-    smoothScroll.animateScroll(null, target, options);
+    var id = element.dataset.selfLink;
+    smoothScroll.animateScroll(null, id, options);
   };
 
   var scrollTopEdit = 0;
@@ -67,6 +70,8 @@ var display = (function() {
       // scroll to
       window.scrollTo(0, scrollTopDisplay);
       // snack.render("Display Mode", false, false, 1000);
+      // chnage android theme color
+      themeColor.toggle();
     };
 
     function _displayOff() {
@@ -89,6 +94,8 @@ var display = (function() {
       // scroll to
       window.scrollTo(0, scrollTopEdit);
       // snack.render("Edit Mode", false, false, 1000);
+      // chnage android theme color
+      themeColor.toggle();
     };
 
     if (body.dataset.displayMode == "true") {
@@ -102,32 +109,6 @@ var display = (function() {
     totalBlock.update();
     clear();
     render();
-  };
-
-  function clear___xxxx() {
-    var all_displayItem = helper.eA(".js-display-block");
-    var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
-    var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
-    var displayAttack = helper.e(".js-display-block-attack").querySelector(".js-display-block-target");
-    var displayNote = helper.e(".js-display-block-note").querySelector(".js-display-block-target");
-    var displayConsumable = helper.e(".js-display-block-consumable").querySelector(".js-display-block-target");
-
-    function _removeAllChildren(parent) {
-      while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-      };
-    };
-
-    for (var i = 0; i < all_displayItem.length; i++) {
-      var target = all_displayItem[i].querySelector(".js-display-block-target");
-      _removeAllChildren(target);
-    };
-
-    _removeAllChildren(displaySpell);
-    _removeAllChildren(displaySkills);
-    _removeAllChildren(displayAttack);
-    _removeAllChildren(displayNote);
-    _removeAllChildren(displayConsumable);
   };
 
   function clear() {
@@ -215,13 +196,16 @@ var display = (function() {
     target.appendChild(span);
   };
 
-  function _get_textSnippet(path, target, title, prefix, suffix) {
+  function _get_textSnippet(path, target, title, prefix, suffix, displayBonusType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-value");
+      if (displayBonusType == "bonus") {
+        data = "+" + data;
+      };
       value.innerHTML = data;
       if (title) {
         var spanTitle = document.createElement("span");
@@ -298,7 +282,7 @@ var display = (function() {
         div.setAttribute("class", "m-display-item m-display-item-col");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-item-value");
-        value.textContent = object.current;
+        value.textContent = "+" + object.current;
 
 
         if (prefix || object["name"] || object["variant_name"]) {
@@ -605,13 +589,13 @@ var display = (function() {
     };
   };
 
-  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix) {
+  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var title = displayTitle[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
-      var data = _get_textSnippet(path, target, title, prefix, suffix);
+      var data = _get_textSnippet(path, target, title, prefix, suffix, displayBonusType);
     };
   };
 
@@ -660,6 +644,7 @@ var display = (function() {
       var displayTitle;
       var displayPrefix;
       var displaySuffix;
+      var displayBonusType = false;
       var displayType = all_displayBlock[i].dataset.displayType;
 
       if (all_displayBlock[i].dataset.display) {
@@ -679,6 +664,9 @@ var display = (function() {
         } else {
           displaySuffix = false;
         };
+        if (all_displayBlock[i].dataset.totalType) {
+          displayBonusType = all_displayBlock[i].dataset.totalType;
+        };
       };
 
       if (displayType == "stat") {
@@ -686,7 +674,7 @@ var display = (function() {
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
       } else if (displayType == "text-snippet") {
-        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix);
+        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType);
       } else if (displayType == "text-block") {
         _render_textBlock(itemsToDisplay, target);
       } else if (displayType == "list") {

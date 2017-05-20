@@ -1,8 +1,8 @@
 .button,
 button,
-input[type="submit"],
+input[type="button"],
 input[type="reset"],
-input[type="button"] {
+input[type="submit"] {
   background-color: $white;
   border-color: $gray-18;
   color: $base-color;
@@ -13,7 +13,7 @@ input[type="button"] {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  font-size: $font-size-100;
+  font-size: $font-size-075;
   line-height: $line-height-160;
   font-family: $open-sans-semi-bold;
   border-radius: $border-radius-medium;
@@ -21,7 +21,6 @@ input[type="button"] {
   box-sizing: border-box;
   transition: all $transition-ease-extra-fast;
   display: inline-block;
-  text-transform: uppercase;
   // transition: background-color $transition-ease-medium, border-color $transition-ease-medium, color $transition-ease-medium;
   &:link,
   &:visited {
@@ -37,8 +36,8 @@ input[type="button"] {
     outline: 0;
     text-decoration: none;
   }
-  &:active,
-  &.is-active {
+  &.is-active,
+  &:active {
     background-color: $gray-16;
     border-color: $gray-12;
     color: $base-color;
@@ -46,36 +45,30 @@ input[type="button"] {
     text-decoration: none;
   }
 }
-
 button:not(:last-child) {
   margin-bottom: $font-size-100;
 }
-
 .button-small {
-  padding: $font-size-025 $font-size-075;
+  padding: 0 0.5em;
   font-size: $font-size-075;
-  border-radius: $border-radius-large;
+  border-radius: $border-radius-small;
 }
-
 .button-medium {
-  padding: $font-size-025 $font-size-100;
-  font-size: $font-size-100;
+  padding: 0.2em 0.7em;
+  font-size: 0.9em;
   border-radius: $border-radius-medium;
 }
-
 .button-large {
   padding: $font-size-100 $font-size-200;
   font-size: $font-size-100;
   border-radius: $border-radius-medium;
 }
-
 .button-block {
   width: 100%;
   padding-left: 0;
   padding-right: 0;
   display: inline-block;
 }
-
 .button-icon {
   display: flex;
   flex-flow: row nowrap;
@@ -85,8 +78,8 @@ button:not(:last-child) {
     flex: 0 0 auto;
     height: initial;
   }
-  [class^="icon-"],
-  [class*=" icon-"] {
+  [class*=" icon-"],
+  [class^="icon-"] {
     font-size: $font-size-150;
     display: inline-block;
     &:not(:only-child):not(:last-child) {
@@ -94,11 +87,11 @@ button:not(:last-child) {
     }
   }
 }
-
 .button-primary {
   background-color: $primary-color-10;
   border-color: $primary-color-08;
   color: $white;
+  text-transform: uppercase;
   &:link,
   &:visited {
     background-color: $primary-color-10;
@@ -111,18 +104,18 @@ button:not(:last-child) {
     border-color: $primary-color-06;
     color: $white;
   }
-  &:active,
-  &.is-active {
+  &.is-active,
+  &:active {
     background-color: $primary-color-06;
     border-color: $primary-color-04;
     color: $white;
   }
 }
-
 .button-secondary {
   background-color: $secondary-color-10;
   border-color: $secondary-color-08;
   color: $white;
+  text-transform: uppercase;
   &:link,
   &:visited {
     background-color: $secondary-color-10;
@@ -135,19 +128,17 @@ button:not(:last-child) {
     border-color: $secondary-color-06;
     color: $white;
   }
-  &:active,
-  &.is-active {
+  &.is-active,
+  &:active {
     background-color: $secondary-color-06;
     border-color: $secondary-color-04;
     color: $white;
   }
 }
-
 .button-link {
   background-color: transparent;
   border-color: transparent;
   font-family: $open-sans-regular;
-  text-transform: initial;
   &:link,
   &:visited {
     background-color: transparent;
@@ -158,13 +149,12 @@ button:not(:last-child) {
     background-color: $dark-alpha-20;
     border-color: transparent;
   }
-  &:active,
-  &.is-active {
+  &.is-active,
+  &:active {
     background-color: $dark-alpha-18;
     border-color: transparent;
   }
 }
-
 .button-tertiary {
   background-color: transparent;
   border-color: $dark-alpha-18;
@@ -181,14 +171,13 @@ button:not(:last-child) {
     border-color: $dark-alpha-15;
     color: $light-alpha-04;
   }
-  &:active,
-  &.is-active {
+  &.is-active,
+  &:active {
     background-color: $dark-alpha-16;
     border-color: $dark-alpha-12;
     color: $white;
   }
 }
-
 .button-tertiary-link {
   background-color: transparent;
   border-color: transparent;
@@ -205,17 +194,16 @@ button:not(:last-child) {
     border-color: transparent;
     color: $light-alpha-04;
   }
-  &:active,
-  &.is-active {
+  &.is-active,
+  &:active {
     background-color: $dark-alpha-16;
     border-color: transparent;
     color: $white;
   }
 }
-
 .button-group {
-  &:before,
-  &:after {
+  &:after,
+  &:before {
     content: " ";
     display: table;
   }
@@ -250,11 +238,9 @@ button:not(:last-child) {
     }
   }
 }
-
 .button-group:not(:last-child) {
   margin-bottom: $font-size-100;
 }
-
 .button-group-strech {
   display: flex;
   flex-flow: row nowrap;
@@ -267,19 +253,17 @@ button:not(:last-child) {
     padding-right: 0;
   }
 }
-
 .button,
 button,
 label {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 .is-night-mode {
   .button,
   button,
-  input[type="submit"],
+  input[type="button"],
   input[type="reset"],
-  input[type="button"] {
+  input[type="submit"] {
     background-color: $secondary-color-04;
     border-color: $secondary-color-03;
     color: $white;
@@ -295,8 +279,8 @@ label {
       border-color: $secondary-color-07;
       color: $white;
     }
-    &:active,
-    &.is-active {
+    &.is-active,
+    &:active {
       background-color: $secondary-color-06;
       border-color: $secondary-color-08;
       color: $white;
@@ -318,8 +302,8 @@ label {
       border-color: $primary-color-12;
       color: $white;
     }
-    &:active,
-    &.is-active {
+    &.is-active,
+    &:active {
       background-color: $primary-color-12;
       border-color: $primary-color-14;
       color: $white;
@@ -341,8 +325,8 @@ label {
       border-color: $secondary-color-12;
       color: $white;
     }
-    &:active,
-    &.is-active {
+    &.is-active,
+    &:active {
       background-color: $secondary-color-12;
       border-color: $secondary-color-14;
       color: $white;
@@ -352,7 +336,6 @@ label {
     background-color: transparent;
     border-color: transparent;
     font-family: $open-sans-regular;
-    text-transform: initial;
     &:link,
     &:visited {
       background-color: transparent;
@@ -363,8 +346,8 @@ label {
       background-color: $light-alpha-20;
       border-color: transparent;
     }
-    &:active,
-    &.is-active {
+    &.is-active,
+    &:active {
       background-color: $light-alpha-18;
       border-color: transparent;
     }
@@ -385,8 +368,8 @@ label {
       border-color: $light-alpha-15;
       color: $light-alpha-04;
     }
-    &:active,
-    &.is-active {
+    &.is-active,
+    &:active {
       background-color: $light-alpha-16;
       border-color: $light-alpha-12;
       color: $white;
@@ -408,22 +391,18 @@ label {
       border-color: transparent;
       color: $light-alpha-04;
     }
-    &:active,
-    &.is-active {
+    &.is-active,
+    &:active {
       background-color: $light-alpha-16;
       border-color: transparent;
       color: $white;
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

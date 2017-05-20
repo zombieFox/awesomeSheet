@@ -74,6 +74,14 @@
     clear: both;
   }
 }
+.is-night-mode {
+  .u-background-with-input {
+    background-color: $light-alpha-20;
+  }
+  .u-underline-with-input {
+    border-color: $light-alpha-19;
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

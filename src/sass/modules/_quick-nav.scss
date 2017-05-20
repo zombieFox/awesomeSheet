@@ -64,24 +64,24 @@
   }
   &:link,
   &:visited {
-    color: $secondary-color-04;
+    color: $dark-alpha-08;
   }
   &:focus {
     background-color: transparent;
-    color: $secondary-color-12;
+    color: $dark-alpha-14;
   }
   &:hover {
-    color: $secondary-color-12;
+    color: $light-alpha-10;
     text-decoration: none;
     outline: 0;
   }
   &:active {
-    color: $secondary-color-16;
+    color: $light-alpha-08;
   }
   &.is-active {
     color: $white;
     &:focus {
-      color: $secondary-color-18;
+      color: $white;
     }
   }
 }
@@ -94,11 +94,15 @@
   height: 100%;
   display: block;
   cursor: pointer;
+  transition: background-color $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus {
+    background-color: $dark-alpha-16;
+  }
 }
-.is-night-mode {
+.is-display-mode {
   .m-quick-nav {
-    background-color: $secondary-color-06;
+    background-color: $primary-color-07;
   }
 }
 // --------------------------------------------------
