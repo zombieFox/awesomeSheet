@@ -12,7 +12,7 @@ var spells = (function() {
       var spellBook = helper.getClosest(all_newSpellAdd[i], ".js-spell-book");
       var newSpellField = spellBook.querySelector(".js-new-spell-field");
       all_newSpellAdd[i].addEventListener("click", function() {
-        _addNewSpell(helper.getClosest(this, ".js-new-spell").querySelector(".js-new-spell-field"));
+        _addNewSpell(helper.getClosest(this, ".js-spell-book").querySelector(".js-new-spell-field"));
         sheet.storeCharacters();
       }, false);
       newSpellField.addEventListener("keypress", function() {
