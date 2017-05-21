@@ -18,8 +18,8 @@
 }
 
 .row {
-  margin-left: -14px;
-  margin-right: -14px;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
   box-sizing: border-box;
   &:before,
   &:after {

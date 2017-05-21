@@ -1,58 +1,21 @@
+.xx-m-skill {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.m-skill-bonus,
+.m-skill-class-skill,
+.m-skill-misc,
+.m-skill-name,
+.m-skill-ranks,
+.m-skill-total,
+.m-skill-variant-name {
+  flex: 1 0 auto;
+}
+
+
 .m-skill {
-  .m-skill-name,
-  .m-skill-bonuses,
-  .m-skill-total,
-  .m-skill-ranks,
-  .m-skill-misc,
-  .m-skill-class-skill,
-  .m-skill-variant-name {
-    float: left;
-    display: block;
-    margin: 0;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .m-skill-name {
-    width: 40%;
-  }
-  .m-skill-bonuses {
-    width: 15%;
-    text-align: center;
-  }
-  .m-skill-total {
-    width: 15%;
-    font-family: $open-sans-semi-bold;
-    text-align: center;
-  }
-  .m-skill-ranks,
-  .m-skill-misc {
-    width: 10%;
-    text-align: center;
-    input {
-      &[type="email"],
-      &[type="number"],
-      &[type="search"],
-      &[type="text"],
-      &[type="tel"],
-      &[type="url"],
-      &[type="password"] {
-        text-align: center;
-        padding: 0;
-      }
-    }
-  }
-  .m-skill-class-skill {
-    width: 10%;
-    text-align: center;
-    label {
-      &:before {
-        width: 100%;
-        text-align: center;
-        margin-right: 0;
-      }
-    }
-  }
   &.m-skill-variant {
     .m-skill-name {
       width: 20%;
@@ -65,25 +28,83 @@
     margin-bottom: $font-size-root-150;
   }
 }
-
+.m-skill-bonus,
+.m-skill-class-skill,
+.m-skill-misc,
+.m-skill-name,
+.m-skill-ranks,
+.m-skill-total,
+.m-skill-variant-name {
+  float: left;
+  display: block;
+  margin: 0;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.m-skill-name {
+  width: 40%;
+}
+.m-skill-bonus {
+  width: 15%;
+  text-align: center;
+}
+.m-skill-total {
+  width: 15%;
+  font-family: $open-sans-semi-bold;
+  text-align: center;
+}
+.m-skill-misc,
+.m-skill-ranks {
+  width: 10%;
+  text-align: center;
+  input {
+    &[type="email"],
+    &[type="number"],
+    &[type="password"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="text"],
+    &[type="url"] {
+      text-align: center;
+      padding: 0;
+    }
+  }
+}
+.m-skill-class-skill {
+  width: 10%;
+  text-align: center;
+  label {
+    &:before {
+      width: 100%;
+      text-align: center;
+      margin-right: 0;
+    }
+  }
+}
+.m-skill-bonus-button {
+  padding: 0 0.5em;
+  border-radius: 0;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 2px;
+  border-left-width: 0;
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {
   .m-skill {
     &.m-skill-custom {
       .m-skill-name {
         width: 40%;
       }
-      .m-skill-bonuses {
+      .m-skill-bonus {
         width: 15%;
       }
     }
   }
 }
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

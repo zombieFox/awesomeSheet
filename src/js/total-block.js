@@ -269,7 +269,7 @@ var totalBlock = (function() {
         helper.setObject(sheet.getCharacter(), totalPath, grandTotal || 0);
       };
       // add + to bonus totals
-      if (totalType == "bonus") {
+      if (totalType == "bonus" && grandTotal > 0) {
         grandTotal = "+" + grandTotal;
       };
       // update total

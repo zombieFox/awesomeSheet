@@ -163,11 +163,9 @@
 .m-display-head-item-value {
   font-size: $font-size-200;
   line-height: 1;
+  margin-bottom: 0;
   .m-display-head-item-value-small {
     font-size: $font-size-050;
-  }
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
   }
 }
 .m-display-head-item-highlight {
@@ -249,6 +247,7 @@
   font-family: $open-sans-semi-bold;
 }
 .m-display-statistics-item-value {
+  margin: 0;
   width: 20%;
   text-align: right;
   font-size: $font-size-150;
