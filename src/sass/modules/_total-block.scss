@@ -2,6 +2,12 @@
   font-family: $open-sans-semi-bold;
   color: $secondary-color-08;
 }
+.is-night-mode {
+  .m-total-block-total {
+
+    color: $secondary-color-12;
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

@@ -3,8 +3,13 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
+  &:last-of-type {
+    margin-bottom: 2em;
+  }
 }
 .m-skill-name {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
   flex: 1 0 40%;
   margin-bottom: 0;
 }
@@ -39,11 +44,7 @@
 }
 .m-skill-bonus-button {
   padding: 0 0.5em;
-  border-radius: 0;
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 2px;
-  border-left-width: 0;
+  margin: 0;
 }
 .m-skill-variant {
   .m-skill-name {
@@ -59,13 +60,16 @@
   justify-content: flex-start;
   align-items: center;
 }
-.m-skill-bonus-title,
+.m-skill-bonus-title {
+  margin: 0;
+}
 .m-skill-class-skill-title,
 .m-skill-misc-title,
 .m-skill-name-title,
 .m-skill-ranks-title,
 .m-skill-total-title {
-  margin: 0;
+  margin: 0 0 1em;
+  line-height: $line-height-160;
 }
 .m-skill-name-title {
   flex: 1 0 40%;
@@ -98,79 +102,11 @@
     display: inline-block;
   }
 }
-// &:last-of-type {
-//   margin-bottom: $font-size-root-150;
-// }
-// .m-skill-bonus,
-// .m-skill-class-skill,
-// .m-skill-misc,
-// .m-skill-name,
-// .m-skill-ranks,
-// .m-skill-total,
-// .m-skill-variant-name {
-//   float: left;
-//   display: block;
-//   margin: 0;
-//   position: relative;
-//   white-space: nowrap;
-//   overflow: hidden;
-// }
-// .m-skill-name {
-//   width: 40%;
-// }
-// .m-skill-bonus {
-//   width: 15%;
-//   text-align: center;
-// }
-// .m-skill-total {
-//   width: 15%;
-//   font-family: $open-sans-semi-bold;
-//   text-align: center;
-// }
-// .m-skill-misc,
-// .m-skill-ranks {
-//   width: 10%;
-//   text-align: center;
-//   input {
-//     &[type="email"],
-//     &[type="number"],
-//     &[type="password"],
-//     &[type="search"],
-//     &[type="tel"],
-//     &[type="text"],
-//     &[type="url"] {
-//       text-align: center;
-//       padding: 0;
-//     }
-//   }
-// }
-// .m-skill-class-skill {
-//   width: 10%;
-//   text-align: center;
-//   label {
-//     &:before {
-//       width: 100%;
-//       text-align: center;
-//       margin-right: 0;
-//     }
-//   }
-// }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {
-  // .m-skill {
-  //   &.m-skill-custom {
-  //     .m-skill-name {
-  //       width: 40%;
-  //     }
-  //     .m-skill-bonus {
-  //       width: 15%;
-  //     }
-  //   }
-  // }
-}
+@media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-skill-bonus-button {
     padding: 0;

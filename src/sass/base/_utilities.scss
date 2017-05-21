@@ -47,9 +47,9 @@
   font-size: $font-size-075;
 }
 .u-muted-text {
-  color: $gray-12;
+  color: $gray-10;
   strong {
-    color: $gray-06;
+    color: $gray-04;
   }
 }
 .u-list-unstyled {
@@ -80,6 +80,11 @@
   }
   .u-underline-with-input {
     border-color: $light-alpha-19;
+  }
+  .u-muted-text {
+    strong {
+      color: $white;
+    }
   }
 }
 // --------------------------------------------------

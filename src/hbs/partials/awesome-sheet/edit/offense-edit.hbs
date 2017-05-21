@@ -3,176 +3,180 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h1 class="m-edit-title"><span class="m-edit-title-fade">Edit:</span> Offense</h1>
-        </div>
-        <div class="col-xs-10">
-          <div class="button-group js-clone-controls">
-            <button type="button" class="js-clone-add-melee button button-icon button-small button-tertiary-link" tabindex="3"><span class="icon-add"></span><span>Melee</span></button>
-            <button type="button" class="js-clone-add-ranged button button-icon button-small button-tertiary-link" tabindex="3"><span class="icon-add"></span><span>Ranged</span></button>
-            <button type="button" class="js-clone-remove button button-icon button-small button-tertiary-link" tabindex="3"><span class="icon-close"></span><span>Remove</span></button>
-          </div>
+          <h1 class="m-edit-title">Offense</h1>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-xs-6 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
           <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-base-attack">Base Attack</label>
+            <label class="m-input-block-label js-input-block-label" for="offense-base-attack">Base Attack Bonus</label>
             <input id="offense-base-attack" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.base_attack" type="text" tabindex="3">
           </div>
         </div>
       </div>
-      <div class="js-total-block">
+
+      <div class="m-edit-box js-total-block" data-total-type="bonus">
         <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-heading-sub u-inline-with-input u-margin-with-input">CMB <span class="m-total-block-total js-total-block-total" data-path="offense.cmb.current"></span></h2>
+          <div class="col-xs-12 col-lg-3">
+            <h2 class="m-edit-box-title u-inline-with-input">CMB <span class="m-total-block-total js-total-block-total" data-path="offense.cmb.current"></span></h2>
           </div>
-          <div class="col-xs-8 col-md-6">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
+          <div class="col-xs-12 col-lg-9">
+            <div class="m-edit-box-wrapper">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
-                  <input id="offense-cmb-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-cmb-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
-                  <input id="offense-cmb-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-cmb-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmb-size">Size</label>
-                  <input id="offense-cmb-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.size" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-cmb-size" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.size" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
+              </div>
+              <div class="m-edit-box-bonus">
+                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level" data-bonus-path="offense.cmb.bonuses" data-modal-heading="CMB bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 col-md-3">
-            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level" data-bonus-path="offense.cmb.bonuses" data-modal-heading="CMB bonuses" tabindex="3">Bonuses</a>
-          </div>
         </div>
       </div>
-      <div class="js-total-block">
+
+      <div class="m-edit-box js-total-block" data-total-type="bonus">
         <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-heading-sub u-inline-with-input u-margin-with-input">CMD <span class="m-total-block-total js-total-block-total" data-path="offense.cmd.current"></span></h2>
+          <div class="col-xs-12 col-lg-3">
+            <h2 class="m-edit-box-title u-inline-with-input">CMD <span class="m-total-block-total js-total-block-total" data-path="offense.cmd.current"></span></h2>
           </div>
-          <div class="col-xs-8 col-md-6">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
+          <div class="col-xs-12 col-lg-9">
+            <div class="m-edit-box-wrapper">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
-                  <input id="offense-cmd-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-cmd-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
-                  <input id="offense-cmd-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-cmd-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-cmd-size">Size</label>
-                  <input id="offense-cmd-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.size" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-cmd-size" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.size" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
+              </div>
+              <div class="m-edit-box-bonus">
+                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level,plus_ten" data-bonus-path="offense.cmd.bonuses" data-modal-heading="CMD bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 col-md-3">
-            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level,plus_ten" data-bonus-path="offense.cmd.bonuses" data-modal-heading="CMD bonuses" tabindex="3">Bonuses</a>
-          </div>
         </div>
       </div>
-      <div class="js-total-block">
+
+      <div class="m-edit-box js-total-block" data-total-type="bonus">
         <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-heading-sub u-inline-with-input u-margin-with-input">Melee <span class="m-total-block-total js-total-block-total" data-path="offense.melee_attack.current"></span></h2>
+          <div class="col-xs-12 col-lg-3">
+            <h2 class="m-edit-box-title u-inline-with-input">Melee <span class="m-total-block-total js-total-block-total" data-path="offense.melee_attack.current"></span></h2>
           </div>
-          <div class="col-xs-8 col-md-6">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
+          <div class="col-xs-12 col-lg-9">
+            <div class="m-edit-box-wrapper">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-misc">Misc</label>
-                  <input id="offense-melee-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.misc" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-melee-attack-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.misc" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-temp">Temp</label>
-                  <input id="offense-melee-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-melee-attack-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-size">Size</label>
-                  <input id="offense-melee-attack-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.size" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-melee-attack-size" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.size" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
+              </div>
+              <div class="m-edit-box-bonus">
+                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level" data-bonus-path="offense.melee_attack.bonuses" data-modal-heading="Melee bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 col-md-3">
-            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level" data-bonus-path="offense.melee_attack.bonuses" data-modal-heading="Melee bonuses" tabindex="3">Bonuses</a>
-          </div>
         </div>
       </div>
-      <div class="js-total-block">
+
+      <div class="m-edit-box js-total-block" data-total-type="bonus">
         <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-heading-sub u-inline-with-input u-margin-with-input">Ranged <span class="m-total-block-total js-total-block-total" data-path="offense.ranged_attack.current"></span></h2>
+          <div class="col-xs-12 col-lg-3">
+            <h2 class="m-edit-box-title u-inline-with-input">Ranged <span class="m-total-block-total js-total-block-total" data-path="offense.ranged_attack.current"></span></h2>
           </div>
-          <div class="col-xs-8 col-md-6">
-            <div class="row no-gutter">
-              <div class="col-xs-4">
+          <div class="col-xs-12 col-lg-9">
+            <div class="m-edit-box-wrapper">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-misc">Misc</label>
-                  <input id="offense-ranged-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.misc" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-ranged-attack-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.misc" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-temp">Temp</label>
-                  <input id="offense-ranged-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-ranged-attack-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="col-xs-4">
+              <div class="m-edit-box-item">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-size">Size</label>
-                  <input id="offense-ranged-attack-size" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.size" data-total="addition" data-type="number" type="text" tabindex="3">
+                  <input id="offense-ranged-attack-size" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.size" data-total="addition" data-type="number" type="text" tabindex="3">
                 </div>
+              </div>
+              <div class="m-edit-box-bonus">
+                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level" data-bonus-path="offense.ranged_attack.bonuses" data-modal-heading="Ranged bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 col-md-3">
-            <a href="javascript:void(0)" class="button button-medium button-block u-inline-with-input js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,level,half_level" data-bonus-path="offense.ranged_attack.bonuses" data-modal-heading="Ranged bonuses" tabindex="3">Bonuses</a>
-          </div>
         </div>
       </div>
-      <hr>
+
       <div class="row">
+        <div class="col-xs-12 col-md-9 col-md-offset-3">
+          <div class="button-group button-group-strech js-clone-controls">
+            <button type="button" class="button button-medium button-secondary button-icon js-clone-add-melee" tabindex="3"><span class="icon-add"></span><span class="button-text">Melee</span></button>
+            <button type="button" class="button button-medium button-secondary button-icon js-clone-add-ranged" tabindex="3"><span class="icon-add"></span><span class="button-text">Ranged</span></button>
+            <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="3"><span class="icon-close"></span><span class="button-text">Remove</span></button>
+          </div>
+        </div>
         <div class="col-xs-12 col-md-3">
           <h2 id="offense-attacks" class="m-edit-heading-sub u-inline-with-input u-margin-with-input">Melee Attacks</h2>
         </div>
         <div class="col-xs-12 col-md-9">
           <div class="m-clone-placeholder js-clone-placeholder-attack-melee">
-            <p class="m-clone-placeholder-description u-muted-text">Nothing here yet, add a <strong>Melee Attack</strong> from the <strong>Sub Nav.</strong></p>
+            <p class="m-clone-placeholder-description u-muted-text">No attacks here yet, use <strong class="m-clone-placeholder-mimic"><span class="icon-add"></span> Melee</strong> to add a Melee Attack.</p>
           </div>
           <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-melee"></div>
         </div>
-      </div>
-      <hr>
-      <div class="row">
+        <hr>
         <div class="col-xs-12 col-md-3">
           <h2 id="offense-attacks" class="m-edit-heading-sub u-inline-with-input u-margin-with-input">Ranged Attacks</h2>
         </div>
         <div class="col-xs-12 col-md-9">
           <div class="m-clone-placeholder js-clone-placeholder-attack-ranged">
-            <p class="m-clone-placeholder-description u-muted-text">Nothing here yet, add a <strong>Ranged Attack</strong> from the <strong>Sub Nav.</strong></p>
+            <p class="m-clone-placeholder-description u-muted-text">No attacks here yet, use <strong class="m-clone-placeholder-mimic"><span class="icon-add"></span> Ranged</strong> to add a Ranged Attack.</p>
           </div>
           <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-ranged"></div>
         </div>
       </div>
+
       <div class="row">
         <div class="col-xs-12 col-lg-9 col-lg-offset-3">
           <div class="m-textarea-block js-textarea-block">
@@ -181,6 +185,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

@@ -9,14 +9,13 @@
   z-index: $modal;
   transition: all $transition-ease-fast;
 }
-
 .m-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   z-index: $modal;
   font-size: $font-size-root-100;
-  width: 80%;
+  width: 85%;
   max-height: 80%;
   min-width: 200px;
   transform: translate(-50%, -50%);
@@ -24,7 +23,6 @@
   perspective: 1000px;
   transition: all $transition-ease-fast;
 }
-
 .m-modal-wrapper {
   background-color: $white;
   box-sizing: border-box;
@@ -36,7 +34,6 @@
     padding-left: 0;
   }
 }
-
 .m-modal-body {
   padding: $font-size-200;
   .m-modal-heading {
@@ -47,47 +44,38 @@
     }
   }
 }
-
 .m-modal-controls {
   .button {
     margin: 0;
     &.button {
-      border-right: 0;
-      border-bottom: 0;
-      border-left: 0;
       border-radius: 0 0 $border-radius-small $border-radius-small;
     }
   }
 }
-
 .is-night-mode {
   .m-modal-shade {
     background-color: $dark-alpha-08;
   }
   .m-modal {
     .m-modal-wrapper {
-      background-color: $secondary-color-04;
+      background-color: $secondary-color-03;
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {
   .m-modal {
     width: 70%;
   }
 }
-
 @media (min-width: $screen-lg) {
   .m-modal {
     width: 60%;
   }
 }
-
 @media (min-width: $screen-xl) {
   .m-modal {
     width: 50%;

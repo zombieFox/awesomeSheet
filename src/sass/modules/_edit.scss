@@ -2,14 +2,11 @@
   margin: 2em 1em;
 }
 .m-edit-title {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   text-transform: uppercase;
   font-family: $open-sans-bold;
-  font-size: $font-size-075;
+  font-size: $font-size-100;
   color: $secondary-color-12;
-}
-.m-edit-title-fade {
-  color: $gray-08;
 }
 .m-edit-box {
   margin-bottom: 2em;
@@ -34,11 +31,7 @@
 }
 .m-edit-box-bonus-button {
   padding: 0 0.5em;
-  border-radius: 0;
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 2px;
-  border-left-width: 0;
+  margin: 0;
 }
 // .m-edit-controls {
 //   position: relative;
@@ -87,6 +80,11 @@
   }
   .m-edit-box-bonus-button {
     padding: 0;
+  }
+  .is-night-mode {
+    .m-edit-box-title {
+      border-color: $light-alpha-19;
+    }
   }
 }
 @media (min-width: $screen-xl) {}

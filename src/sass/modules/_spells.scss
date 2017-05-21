@@ -1,8 +1,8 @@
 .m-spells {
-  &.is-state-prepare,
-  &.is-state-unprepare,
+  &.is-state-active,
   &.is-state-cast,
-  &.is-state-active {
+  &.is-state-prepare,
+  &.is-state-unprepare {
     .m-spell-book-known {
       .m-spell {
         background-color: $secondary-color-alpha-19;
@@ -19,8 +19,8 @@
           outline: 0;
           text-decoration: none;
         }
-        &:active,
-        &.is-active {
+        &.is-active,
+        &:active {
           background-color: $secondary-color-alpha-14;
         }
       }
@@ -45,8 +45,8 @@
           outline: 0;
           text-decoration: none;
         }
-        &:active,
-        &.is-active {
+        &.is-active,
+        &:active {
           background-color: $primary-color-alpha-14;
         }
         .m-spell-marks {
@@ -72,24 +72,21 @@
     }
   }
 }
-
-.m-spell-controls {
-  margin: 0 0 3em 0;
-}
-
 .m-spell-book {
   .m-spell-book-known {
-    margin: 0 0 2rem 0;
+    margin: 1em 0;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
+    align-items: stretch;
+  }
+  .m-spell-col {
+    flex: 0 0 46%;
   }
 }
-
 .m-spell {
   padding: 0 0.5em;
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.5em;
   width: 100%;
   text-align: left;
   position: relative;
@@ -112,8 +109,8 @@
     z-index: 2;
   }
   .m-spell-active,
-  .m-spell-name,
   .m-spell-marks,
+  .m-spell-name,
   .m-spell-remove {
     [class*=" icon-"],
     [class^="icon-"] {
@@ -161,33 +158,16 @@
     }
   }
 }
-
 .m-new-spell {
   position: relative;
   z-index: 1;
-  .m-new-spell-field {
-    padding-right: 4em;
-  }
-  .m-new-spell-add {
-    padding-left: 0.8em;
-    padding-right: 0.8em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      margin: 0;
-    }
-  }
 }
-
 .is-night-mode {
   .m-spells {
-    &.is-state-prepare,
-    &.is-state-unprepare,
+    &.is-state-active,
     &.is-state-cast,
-    &.is-state-active {
+    &.is-state-prepare,
+    &.is-state-unprepare {
       .m-spell-book-known {
         .m-spell {
           background-color: $secondary-color-06;
@@ -195,8 +175,8 @@
           &:hover {
             background-color: $secondary-color-04;
           }
-          &:active,
-          &.is-active {
+          &.is-active,
+          &:active {
             background-color: $secondary-color-02;
           }
         }
@@ -210,8 +190,8 @@
           &:hover {
             background-color: $primary-color-04;
           }
-          &:active,
-          &.is-active {
+          &.is-active,
+          &:active {
             background-color: $primary-color-02;
           }
         }
@@ -219,14 +199,10 @@
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

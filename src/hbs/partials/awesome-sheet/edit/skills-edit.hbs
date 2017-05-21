@@ -3,18 +3,18 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h1 class="m-edit-title"><span class="m-edit-title-fade">Edit:</span> Skills</h1>
+          <h1 class="m-edit-title">Skills</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
 
           <div class="m-skill-title u-clearfix">
-            <p class="u-small-text u-inline-with-input m-skill-name-title">Skill</p>
-            <p class="u-small-text u-inline-with-input m-skill-total-title">Total</p>
-            <p class="u-small-text u-inline-with-input m-skill-ranks-title">Ranks</p>
-            <p class="u-small-text u-inline-with-input m-skill-misc-title">Misc</p>
-            <p class="u-small-text u-inline-with-input m-skill-class-skill-title">Class Skill</p>
+            <p class="u-small-text m-skill-name-title">Skill</p>
+            <p class="u-small-text m-skill-total-title">Total</p>
+            <p class="u-small-text m-skill-ranks-title">Ranks</p>
+            <p class="u-small-text m-skill-misc-title">Misc</p>
+            <p class="u-small-text m-skill-class-skill-title">Class Skill</p>
             <p class="m-skill-bonus-title">
               <span class="m-skill-bonus-title-spacer is-invisible"><span class="icon-more-vertical"></span></span>
             </p>
@@ -884,19 +884,21 @@
 
         </div>
       </div>
+
       <div class="row">
-        <div class="m-spent-skill-rank">
+        <div class="m-skill-spent-ranks">
           <div class="col-xs-12">
-            <h2 class="m-edit-heading-sub u-inline-with-input">Skill ranks spent <span class="js-spent-skill-rank-total" data-path="skills.spent_ranks.current"></span></h2>
+            <h2 class="m-edit-heading-sub u-no-margin u-inline-with-input">Skill ranks spent <span class="js-skill-spent-ranks-total" data-path="skills.spent_ranks.current"></span></h2>
           </div>
           <div class="col-xs-12 col-md-6">
-            <div class="m-spent-skill-rank-toggle js-spent-skill-rank-toggle">
-              <input id="spent-skill-rank-toggle" class="m-spent-skill-rank-input js-spent-skill-rank-input" data-path="skills.spent_ranks.include_custom" type="checkbox" tabindex="3">
-              <label for="spent-skill-rank-toggle" class="u-full-width label-left">Include custom skills in total</label>
+            <div class="m-skill-spent-ranks-toggle js-skill-spent-ranks-toggle">
+              <input id="skill-spent-ranks-toggle" class="m-skill-spent-ranks-input js-skill-spent-ranks-input" data-path="skills.spent_ranks.include_custom" type="checkbox" tabindex="3">
+              <label for="skill-spent-ranks-toggle" class="u-full-width label-left">Include custom skills in total</label>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
