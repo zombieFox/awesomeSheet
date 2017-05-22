@@ -1,6 +1,5 @@
 .m-card {
   background-color: $white;
-  padding: 2em 1em;
   position: relative;
   z-index: $body;
   box-shadow: $shadow-small;
@@ -8,6 +7,23 @@
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
+}
+.m-card-head {
+  padding: 2em 2em 0;
+}
+.m-card-body {
+  padding: 2em 1em;
+}
+.m-card-title {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
+  color: $secondary-color-12;
+  margin: 0;
+}
+.is-display-mode {
+  .m-card-title {
+    color: $primary-color-08;
+  }
 }
 .is-night-mode {
   .m-card {

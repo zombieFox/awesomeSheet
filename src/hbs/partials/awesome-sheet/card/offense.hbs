@@ -1,10 +1,17 @@
 <section id="offense" class="l-section js-section">
   <div class="m-card">
-    <div class="js-edit">
-      {{> offense-edit }}
+    <div class="m-card-head">
+      <h1 class="m-card-title">Offense</h1>
+      <button class="m-display-self-link button button-link js-display-self-link"></button>
+      <button class="m-display-edit-link button button-link button-small button-icon js-display-edit-link"><span class="icon-edit"></span></button>
     </div>
-    <div class="js-display is-hidden">
-      {{> offense-display }}
+    <div class="m-card-body">
+      <div class="js-edit">
+        {{> offense-edit }}
+      </div>
+      <div class="js-display is-hidden">
+        {{> offense-display }}
+      </div>
     </div>
   </div>
 </section>
