@@ -1,13 +1,13 @@
 .m-spells {
-  &.is-state-prepare,
-  &.is-state-unprepare,
+  &.is-state-active,
   &.is-state-cast,
-  &.is-state-active {
+  &.is-state-prepare,
+  &.is-state-unprepare {
     .m-spell-book-known {
       .m-spell {
         background-color: $secondary-color-alpha-19;
         color: $base-color;
-        border-color: transparent;
+        border-color: $dark-alpha-19;
         &:link,
         &:visited {}
         &:focus {
@@ -19,8 +19,8 @@
           outline: 0;
           text-decoration: none;
         }
-        &:active,
-        &.is-active {
+        &.is-active,
+        &:active {
           background-color: $secondary-color-alpha-14;
         }
       }
@@ -31,7 +31,7 @@
       .m-spell {
         background-color: $primary-color-19;
         color: $base-color;
-        border-color: transparent;
+        border-color: $primary-color-alpha-18;
         &:link,
         &:visited {
           color: $gray-10;
@@ -45,9 +45,12 @@
           outline: 0;
           text-decoration: none;
         }
-        &:active,
-        &.is-active {
+        &.is-active,
+        &:active {
           background-color: $primary-color-alpha-14;
+        }
+        .m-spell-name {
+          max-width: 85%;
         }
         .m-spell-marks {
           display: none;
@@ -72,28 +75,32 @@
     }
   }
 }
-
 .m-spell-book {
   .m-spell-book-known {
-    margin: 0 0 2rem 0;
+    margin: 1em 0;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
+    align-items: stretch;
+  }
+  .m-spell-col {
+    flex: 0 0 46%;
+    max-width: 46%;
+    margin: 0 0 0.5em;
   }
 }
-
 .m-spell {
-  padding: 0 0.5em;
-  margin: 0 0 0.5em 0;
+  margin: 0;
   width: 100%;
   text-align: left;
   position: relative;
   white-space: normal;
-  font-size: $font-size-root-100;
-  line-height: $line-height-160;
+  text-transform: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
   font-family: $open-sans-regular;
-  display: block;
   .m-spell-flash {
     content: "";
     position: absolute;
@@ -108,37 +115,31 @@
     z-index: 2;
   }
   .m-spell-active,
-  .m-spell-name,
   .m-spell-marks,
+  .m-spell-name,
   .m-spell-remove {
     [class*=" icon-"],
     [class^="icon-"] {
       top: 0;
     }
   }
-  .m-spell-active,
   .m-spell-name {
-    float: left;
+    flex: 1 1 auto;
     display: block;
-    text-transform: none;
-  }
-  .m-spell-active {
-    margin: 0 5px 0 0;
-    visibility: visible;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      float: left;
-      margin: 0;
-    }
-  }
-  .m-spell-name {
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;
   }
+  .m-spell-active {
+    visibility: visible;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: left;
+      margin: 0 5px 0 0;
+    }
+  }
   .m-spell-marks {
-    float: right;
-    display: block;
+    flex: 1 1 auto;
     visibility: visible;
     [class*=" icon-"],
     [class^="icon-"] {
@@ -147,7 +148,6 @@
     }
   }
   .m-spell-remove {
-    float: right;
     display: none;
     visibility: hidden;
     [class*=" icon-"],
@@ -157,33 +157,16 @@
     }
   }
 }
-
 .m-new-spell {
   position: relative;
   z-index: 1;
-  .m-new-spell-field {
-    padding-right: 4em;
-  }
-  .m-new-spell-add {
-    padding-left: 0.8em;
-    padding-right: 0.8em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      margin: 0;
-    }
-  }
 }
-
 .is-night-mode {
   .m-spells {
-    &.is-state-prepare,
-    &.is-state-unprepare,
+    &.is-state-active,
     &.is-state-cast,
-    &.is-state-active {
+    &.is-state-prepare,
+    &.is-state-unprepare {
       .m-spell-book-known {
         .m-spell {
           background-color: $secondary-color-06;
@@ -191,8 +174,8 @@
           &:hover {
             background-color: $secondary-color-04;
           }
-          &:active,
-          &.is-active {
+          &.is-active,
+          &:active {
             background-color: $secondary-color-02;
           }
         }
@@ -202,12 +185,13 @@
       .m-spell-book-known {
         .m-spell {
           background-color: $primary-color-06;
+          border-color: $primary-color-04;
           color: $white;
           &:hover {
             background-color: $primary-color-04;
           }
-          &:active,
-          &.is-active {
+          &.is-active,
+          &:active {
             background-color: $primary-color-02;
           }
         }
@@ -215,14 +199,10 @@
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

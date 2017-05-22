@@ -9,10 +9,10 @@ var spells = (function() {
     var spellResetButton = helper.e(".js-spell-reset");
     var all_newSpellAdd = helper.eA(".js-new-spell-add");
     for (var i = 0; i < all_newSpellAdd.length; i++) {
-      var newSpell = helper.getClosest(all_newSpellAdd[i], ".js-new-spell");
-      var newSpellField = newSpell.querySelector(".js-new-spell-field");
+      var spellBook = helper.getClosest(all_newSpellAdd[i], ".js-spell-book");
+      var newSpellField = spellBook.querySelector(".js-new-spell-field");
       all_newSpellAdd[i].addEventListener("click", function() {
-        _addNewSpell(helper.getClosest(this, ".js-new-spell").querySelector(".js-new-spell-field"));
+        _addNewSpell(helper.getClosest(this, ".js-spell-book").querySelector(".js-new-spell-field"));
         sheet.storeCharacters();
       }, false);
       newSpellField.addEventListener("keypress", function() {
@@ -413,7 +413,7 @@ var spells = (function() {
   function _render_spell(spellObject, level, spellIndex) {
     // read spell and add them to spell lists
     var spellButtonCol = document.createElement("div");
-    spellButtonCol.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
+    spellButtonCol.setAttribute("class", "m-spell-col js-spell-col");
     // find spell list to add too
     var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
     // append new spell to spell list
@@ -429,7 +429,7 @@ var spells = (function() {
     for (var i = 0; i < array.length; i++) {
       var spellObject = array[i];
       var spellButtonCol = document.createElement("div");
-      spellButtonCol.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
+      spellButtonCol.setAttribute("class", "m-spell-col js-spell-col");
       // find spell list to add too
       var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
       // append new spell to spell list

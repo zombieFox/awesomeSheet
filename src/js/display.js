@@ -2,7 +2,6 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    _bind_selfLink();
   };
 
   function _bind_fab() {
@@ -10,40 +9,15 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
   };
 
-  function _bind_selfLink() {
-    var all_displaySelfLink = helper.eA(".js-display-self-link");
-    for (var i = 0; i < all_displaySelfLink.length; i++) {
-      all_displaySelfLink[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _selfLink(this);
-      }, false);
-    };
-  };
-
-  function _selfLink(element) {
-    var target = "#" + element.dataset.selfLink;
-    smoothScroll.animateScroll(null, target);
-  };
-
-  var scrollTopEdit = 0;
-  var scrollTopDisplay = 0;
-
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var quickNavList = helper.e(".js-quick-nav-list");
-    var quickNavDisplay = helper.e(".js-quick-nav-display");
+    // var quickNavList = helper.e(".js-quick-nav-list");
     var all_edit = helper.eA(".js-edit");
     var all_display = helper.eA(".js-display");
 
     function _displayOn() {
-      // record scroll top var
-      scrollTopEdit = window.scrollY;
       helper.addClass(body, "is-display-mode");
-      helper.addClass(quickNavList, "is-hidden");
-      helper.removeClass(quickNavDisplay, "is-hidden");
-
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
         // make them visable
@@ -57,17 +31,12 @@ var display = (function() {
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
-      // scroll to
-      window.scrollTo(0, scrollTopDisplay);
-      // if body is in display state
+      // chnage android theme color
+      themeColor.toggle();
     };
 
     function _displayOff() {
-      // record scroll top var
-      scrollTopDisplay = window.scrollY;
       helper.removeClass(body, "is-display-mode");
-      helper.removeClass(quickNavList, "is-hidden");
-      helper.addClass(quickNavDisplay, "is-hidden");
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
         // make them visable
@@ -81,8 +50,8 @@ var display = (function() {
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
-      // scroll to
-      window.scrollTo(0, scrollTopEdit);
+      // chnage android theme color
+      themeColor.toggle();
     };
 
     if (body.dataset.displayMode == "true") {
@@ -96,32 +65,6 @@ var display = (function() {
     totalBlock.update();
     clear();
     render();
-  };
-
-  function clear___xxxx() {
-    var all_displayItem = helper.eA(".js-display-block");
-    var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
-    var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
-    var displayAttack = helper.e(".js-display-block-attack").querySelector(".js-display-block-target");
-    var displayNote = helper.e(".js-display-block-note").querySelector(".js-display-block-target");
-    var displayConsumable = helper.e(".js-display-block-consumable").querySelector(".js-display-block-target");
-
-    function _removeAllChildren(parent) {
-      while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-      };
-    };
-
-    for (var i = 0; i < all_displayItem.length; i++) {
-      var target = all_displayItem[i].querySelector(".js-display-block-target");
-      _removeAllChildren(target);
-    };
-
-    _removeAllChildren(displaySpell);
-    _removeAllChildren(displaySkills);
-    _removeAllChildren(displayAttack);
-    _removeAllChildren(displayNote);
-    _removeAllChildren(displayConsumable);
   };
 
   function clear() {
@@ -209,13 +152,16 @@ var display = (function() {
     target.appendChild(span);
   };
 
-  function _get_textSnippet(path, target, title, prefix, suffix) {
+  function _get_textSnippet(path, target, title, prefix, suffix, displayBonusType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-value");
+      if (displayBonusType == "bonus") {
+        data = "+" + data;
+      };
       value.innerHTML = data;
       if (title) {
         var spanTitle = document.createElement("span");
@@ -257,7 +203,7 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col");
+      li.setAttribute("class", "m-display-col-three");
       var div = document.createElement("div");
       div.setAttribute("class", "m-display-item m-display-item-list");
       var value = document.createElement("span");
@@ -287,12 +233,12 @@ var display = (function() {
 
       if (object.ranks != "undefined" && object.ranks != "") {
         var li = document.createElement("li");
-        li.setAttribute("class", "m-display-col");
+        li.setAttribute("class", "m-display-col-three");
         var div = document.createElement("div");
         div.setAttribute("class", "m-display-item m-display-item-col");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-item-value");
-        value.textContent = object.current;
+        value.textContent = "+" + object.current;
 
 
         if (prefix || object["name"] || object["variant_name"]) {
@@ -333,7 +279,7 @@ var display = (function() {
       displayBodyTitle.setAttribute("class", "m-display-body-title");
       displayBodyTitle.textContent = "Level " + level;
       var spellBookPage = document.createElement("ul");
-      spellBookPage.setAttribute("class", "m-display-grid-multi-col u-list-unstyled");
+      spellBookPage.setAttribute("class", "m-display-grid u-list-unstyled");
 
       displayBody.appendChild(displayBodyTitle);
 
@@ -392,7 +338,7 @@ var display = (function() {
 
         var spellObject = array[i];
         var displayCol = document.createElement("li");
-        displayCol.setAttribute("class", "m-display-col");
+        displayCol.setAttribute("class", "m-display-col-three");
         var displayItem = document.createElement("div");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
 
@@ -474,17 +420,21 @@ var display = (function() {
 
     var _render_displayClone = function(object, target, cloneType) {
       var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col");
       var displayItem = document.createElement("div");
       if (cloneType == "consumable") {
+        li.setAttribute("class", "m-display-col-three");
         displayItem.setAttribute("class", "m-display-item m-display-item-col");
       } else if (cloneType == "attack-melee") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "attack-ranged") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "note-character") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "note-story") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       };
 
@@ -599,13 +549,13 @@ var display = (function() {
     };
   };
 
-  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix) {
+  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var title = displayTitle[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
-      var data = _get_textSnippet(path, target, title, prefix, suffix);
+      var data = _get_textSnippet(path, target, title, prefix, suffix, displayBonusType);
     };
   };
 
@@ -654,6 +604,7 @@ var display = (function() {
       var displayTitle;
       var displayPrefix;
       var displaySuffix;
+      var displayBonusType = false;
       var displayType = all_displayBlock[i].dataset.displayType;
 
       if (all_displayBlock[i].dataset.display) {
@@ -673,6 +624,9 @@ var display = (function() {
         } else {
           displaySuffix = false;
         };
+        if (all_displayBlock[i].dataset.totalType) {
+          displayBonusType = all_displayBlock[i].dataset.totalType;
+        };
       };
 
       if (displayType == "stat") {
@@ -680,7 +634,7 @@ var display = (function() {
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
       } else if (displayType == "text-snippet") {
-        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix);
+        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType);
       } else if (displayType == "text-block") {
         _render_textBlock(itemsToDisplay, target);
       } else if (displayType == "list") {

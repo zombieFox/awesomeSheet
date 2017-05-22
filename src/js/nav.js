@@ -118,82 +118,24 @@ var nav = (function() {
     var body = helper.e("body");
     window.onscroll = function() {
 
-      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-        var quickNav = helper.e(".js-quick-nav");
-        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
-        var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-        var all_edit = helper.eA(".js-edit");
-        for (var i = 0; i < all_edit.length; i++) {
-          // console.log(all_edit[i].id + " top = " + all_edit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_edit[i].getBoundingClientRect().bottom);
-
-          var editHeading = all_edit[i].querySelector(".js-edit-heading");
-          var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
-
-          if (all_edit[i].getBoundingClientRect().bottom < (quickNavHeight + editHeadingHeight)) {
-            if (editHeading) {
-              helper.addClass(editHeading, "is-faded");
-              // editHeading.setAttribute("style", "top:" + (all_edit[i].getBoundingClientRect().bottom - editHeadingHeight) + "px");
-            };
-          } else {
-            if (editHeading) {
-              helper.removeClass(editHeading, "is-faded");
-              // editHeading.removeAttribute("style");
-            };
-          };
-
-          if ((all_edit[i].getBoundingClientRect().top) <= quickNavHeight && all_edit[i].getBoundingClientRect().bottom > quickNavHeight) {
-            for (var j = 0; j < all_quickNavLinks.length; j++) {
-              helper.removeClass(all_quickNavLinks[j], "is-active");
-            };
-            helper.addClass(all_quickNavLinks[i], "is-active");
-            if (editHeading) {
-              helper.addClass(all_edit[i], "is-pinned");
-              helper.addClass(editHeading, "is-pinned");
-            };
-          } else {
-            helper.removeClass(all_quickNavLinks[i], "is-active");
-            if (editHeading) {
-              helper.removeClass(all_edit[i], "is-pinned");
-              helper.removeClass(editHeading, "is-pinned");
-            };
-          };
-
-        };
-        // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-        //   for (var i = 0; i < all_quickNavLinks.length; i++) {
-        //     helper.removeClass(all_quickNavLinks[i], "is-active");
-        //   };
-        //   helper.addClass(lastQuickLink, "is-active");
-        // };
+      var quickNav = helper.e(".js-quick-nav");
+      var all_quickNavLinks = helper.eA(".js-quick-nav-link");
+      var all_section = helper.eA(".js-section");
+      var offset = parseInt(getComputedStyle(quickNav).height, 10);
+      // if nav is on the left after 900px wide viewport
+      if (document.documentElement.clientWidth >= 900) {
+        offset = 0;
       };
 
-      if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
-        var all_display = helper.eA(".js-display");
-        var quickNav = helper.e(".js-quick-nav");
-        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
-        var title, icon, jump;
-        var quickNavDisplayTitle = helper.e(".js-quick-nav-display-title");
-        var quickNavDisplayIcon = helper.e(".js-quick-nav-display-icon");
-        var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
-
-        for (var i = 0; i < all_display.length; i++) {
-          if ((all_display[i].getBoundingClientRect().top) <= quickNavHeight && all_display[i].getBoundingClientRect().bottom > quickNavHeight) {
-            title = all_display[i].dataset.displayTitle;
-            icon = all_display[i].dataset.displayIcon;
-            jump = all_display[i].dataset.editJump;
-            quickNavDisplayTitle.textContent = title;
-            helper.removeClass(quickNavDisplayIcon, "icon-account-circle");
-            helper.removeClass(quickNavDisplayIcon, "icon-shield");
-            helper.removeClass(quickNavDisplayIcon, "icon-bottle");
-            helper.removeClass(quickNavDisplayIcon, "icon-file");
-            helper.removeClass(quickNavDisplayIcon, "icon-combat");
-            helper.removeClass(quickNavDisplayIcon, "icon-whatshot");
-            helper.removeClass(quickNavDisplayIcon, "icon-apps");
-            helper.removeClass(quickNavDisplayIcon, "icon-list");
-            helper.addClass(quickNavDisplayIcon, icon);
-            quickNavDisplayEdit.dataset.editJump = jump;
+      for (var i = 0; i < all_section.length; i++) {
+        // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
+        if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
+          for (var j = 0; j < all_quickNavLinks.length; j++) {
+            helper.removeClass(all_quickNavLinks[j], "is-active");
           };
+          helper.addClass(all_quickNavLinks[i], "is-active");
+        } else {
+          helper.removeClass(all_quickNavLinks[i], "is-active");
         };
       };
 
@@ -307,18 +249,44 @@ var nav = (function() {
     };
   };
 
-  function _toggle_displayEdit(element) {
-    display.toggle();
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    var options = {
-      offset: quickNavHeight
+  // function _toggle_displayEdit(element) {
+  //   display.toggle();
+  //   var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
+  //   var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
+  //   var quickNavOffset;
+  //   if (quickNavHeight < quickNavWidth) {
+  //     quickNavOffset = quickNavHeight;
+  //   } else {
+  //     quickNavOffset = quickNavWidth;
+  //   };
+  //   var options = {
+  //     offset: quickNavOffset
+  //   };
+  //   var target = "#" + element.dataset.editJump;
+  //   smoothScroll.animateScroll(null, target, options);
+  // };
+
+  function _quickLinkSmoothScroll(element) {
+    var id = element.dataset.link;
+    var all_section = helper.eA(".js-section");
+    var quickNav = helper.e(".js-quick-nav");
+    var offset;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
+    } else {
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
-    var target = "#" + element.dataset.editJump;
-    smoothScroll.animateScroll(null, target, options);
+    var options = {
+      speed: 500,
+      offset: offset
+    };
+    smoothScroll.animateScroll(null, id, options);
   };
 
-  function bind() {
-    var nav = helper.e(".js-nav");
+  function _bind_navLinks() {
+
+    // var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
     var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
     var nightModeToggle = helper.e(".js-night-mode");
@@ -328,12 +296,6 @@ var nav = (function() {
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
-    var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-    var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
-
-    for (var i = 0; i < all_quickNavLinks.length; i++) {
-      all_quickNavLinks[i].addEventListener("click", navClose, false);
-    };
 
     navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -396,10 +358,55 @@ var nav = (function() {
       navClose();
     }, false);
 
-    quickNavDisplayEdit.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      _toggle_displayEdit(this);
+  };
+
+  function _bind_quickNavLinks() {
+    var all_quickNavLink = helper.eA(".js-quick-nav-link");
+    for (var i = 0; i < all_quickNavLink.length; i++) {
+      all_quickNavLink[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        navClose();
+        _quickLinkSmoothScroll(this);
+      }, false);
+    };
+  };
+
+  function _bind_shortcutKeys() {
+
+    window.addEventListener("keydown", function(event) {
+      // ctrl+alt+delete
+      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
+        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
+        navClose();
+      };
+      // ctrl+alt+i
+      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
+        sheet.import();
+        navClose();
+      };
+      // ctrl+alt+e
+      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
+        sheet.export();
+        navClose();
+      };
+      // ctrl+alt+m
+      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
+        toggle_nav();
+        helper.e(".js-nav-title").focus(this);
+      };
+      // ctrl+alt+d
+      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
+        display.toggle();
+      };
+      // ctrl+alt+n
+      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
+        night.toggle();
+      };
+      // esc
+      if (event.keyCode == 27) {
+        navClose();
+      };
     }, false);
 
     // window.addEventListener('click', function(event) {
@@ -408,49 +415,6 @@ var nav = (function() {
     //   };
     // }, false);
 
-    window.addEventListener("keydown", function(event) {
-
-      // ctrl+alt+delete
-      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
-        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        navClose();
-      };
-
-      // ctrl+alt+i
-      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
-        sheet.import();
-        navClose();
-      };
-
-      // ctrl+alt+e
-      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
-        sheet.export();
-        navClose();
-      };
-
-      // ctrl+alt+m
-      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
-        toggle_nav();
-        helper.e(".js-nav-title").focus(this);
-      };
-
-      // ctrl+alt+d
-      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
-        display.toggle();
-      };
-
-      // ctrl+alt+n
-      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
-        night.toggle();
-      };
-
-      // esc
-      if (event.keyCode == 27) {
-        navClose();
-      };
-
-    }, false);
-
     // key debugging
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
@@ -458,6 +422,12 @@ var nav = (function() {
     //   console.log(event);
     // });
 
+  };
+
+  function bind() {
+    _bind_navLinks();
+    _bind_shortcutKeys();
+    _bind_quickNavLinks();
   };
 
   // exposed methods

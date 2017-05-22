@@ -35,7 +35,7 @@
 
 .is-night-mode {
   .m-snack-bar {
-    background-color: $secondary-color-06;
+    background-color: $gray-02;
   }
 }
 
@@ -67,6 +67,7 @@
 @media (min-width: $screen-lg) {
   .m-snack-bar {
     width: 50%;
+    left: 4.5em;
   }
 }
 

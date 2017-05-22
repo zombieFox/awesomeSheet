@@ -1,17 +1,17 @@
 ::-webkit-input-placeholder {
-  color: $gray-10;
+  color: $secondary-color-12;
   transition: color $transition-ease-medium;
 }
 
 // Firefox 18
 :-moz-placeholder {
-  color: $gray-10;
+  color: $secondary-color-12;
   transition: color $transition-ease-medium;
 }
 
 // Firefox 19
 ::-moz-placeholder {
-  color: $gray-10;
+  color: $secondary-color-12;
   transition: color $transition-ease-medium;
 }
 

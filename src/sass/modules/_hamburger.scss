@@ -1,10 +1,11 @@
 .m-hamburger {
   position: relative;
   width: 25px;
-  height: $font-size-450;
-  line-height: $font-size-450;
+  height: 100%;
+  line-height: 100%;
   left: 50%;
   transform: translateX(-50%);
+  display: inline-block;
   .m-hamburger-inner {
     background-color: $white;
     position: absolute;
@@ -15,15 +16,15 @@
     transform: translatey(-50%) rotate(0deg);
     display: block;
     transition: background-color $transition-ease-medium 0s, transform $transition-ease-medium 0s;
-    &:before,
-    &:after {
+    &:after,
+    &:before {
       background-color: $white;
       opacity: 1;
       content: "";
       position: absolute;
       width: 100%;
       height: 2px;
-      transition: background-color $transition-ease-medium 0s, top $transition-ease-medium 0.2s, transform $transition-ease-medium 0s;
+      transition: background-color $transition-ease-medium 0s, top $transition-ease-medium 0.1s, transform $transition-ease-medium 0s;
       border-radius: $border-radius-medium;
       display: block;
     }
@@ -35,24 +36,15 @@
       transform: rotate(0deg);
     }
   }
-  &:hover {
-    .m-hamburger-inner {
-      background-color: $secondary-color-12;
-      &:before,
-      &:after {
-        background-color: $secondary-color-12;
-      }
-    }
-  }
   &.is-open {
     .m-hamburger-inner {
       background-color: $white;
       transform: translatey(-50%) rotate(135deg);
       transition: background-color $transition-ease-medium 0s, transform $transition-ease-medium 0.2s;
-      &:before,
-      &:after {
+      &:after,
+      &:before {
         background-color: $white;
-        transition: background-color $transition-ease-medium 0s, top $transition-ease-medium 0s, transform $transition-ease-medium 0.2s;
+        transition: background-color $transition-ease-medium 0s, top $transition-ease-medium 0s, transform $transition-ease-medium 0.3s;
       }
       &:before {
         top: 0;
@@ -64,79 +56,17 @@
     }
   }
 }
-
-.is-display-mode {
-  .m-hamburger {
-    .m-hamburger-inner {
-      background-color: $gray-18;
-      &:before,
-      &:after {
-        background-color: $gray-18;
-      }
-    }
-    &:hover {
-      .m-hamburger-inner {
-        background-color: $primary-color-12;
-        &:before,
-        &:after {
-          background-color: $primary-color-12;
-        }
-      }
-    }
-    &.is-open {
-      .m-hamburger-inner {
-        background-color: $primary-color-10;
-        &:before,
-        &:after {
-          background-color: $primary-color-10;
-        }
-      }
-    }
-  }
-}
-
-.is-night-mode {
-  .m-hamburger {
-    .m-hamburger-inner {
-      background-color: $white;
-      &:before,
-      &:after {
-        background-color: $white;
-      }
-    }
-    &:hover {
-      .m-hamburger-inner {
-        background-color: $primary-color-12;
-        &:before,
-        &:after {
-          background-color: $primary-color-12;
-        }
-      }
-    }
-    &.is-open {
-      .m-hamburger-inner {
-        background-color: $primary-color-10;
-        &:before,
-        &:after {
-          background-color: $primary-color-10;
-        }
-      }
-    }
-  }
-}
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {
   .m-hamburger {
     width: 30px;
     .m-hamburger-inner {
       height: 3px;
-      &:before,
-      &:after {
+      &:after,
+      &:before {
         height: 3px;
       }
       &:before {
@@ -148,7 +78,5 @@
     }
   }
 }
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

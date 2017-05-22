@@ -1,8 +1,9 @@
 .m-nav {
   background-color: $white;
-  padding: $font-size-450 0;
+  padding: 4.5em 0 10em 0;
   position: fixed;
   right: 0;
+  top: 0;
   width: 80%;
   height: 100%;
   overflow-y: auto;
@@ -11,8 +12,8 @@
   transition: transform $transition-ease-medium;
   transform: translate(100%, 0);
   .m-nav-list {
-    padding: $font-size-100 0;
-    margin: 0;
+    padding: 0;
+    margin: 1em 0;
     width: 100%;
     overflow-y: auto;
     > li {
@@ -31,7 +32,6 @@
     transform: translate(0, 0);
   }
 }
-
 .m-nav-shade {
   background-color: rgba($secondary-color-03, 0.8);
   position: fixed;
@@ -43,7 +43,6 @@
   z-index: $nav;
   transition: opacity $transition-ease-medium, transform $transition-ease-medium;
 }
-
 .m-nav-title {
   margin-bottom: 0;
   margin-left: 20%;
@@ -58,7 +57,6 @@
     outline: 0;
   }
 }
-
 .m-nav-link {
   font-family: $open-sans-semi-bold;
   line-height: $line-height-300;
@@ -71,8 +69,8 @@
     float: right;
     font-family: $open-sans-light;
   }
-  [class^="icon-"],
-  [class*=" icon-"] {
+  [class*=" icon-"],
+  [class^="icon-"] {
     width: 20%;
     font-size: $font-size-125;
     color: $secondary-color-03;
@@ -90,8 +88,8 @@
   &:active {
     background-color: $primary-color-10;
     color: $white;
-    [class^="icon-"],
-    [class*=" icon-"] {
+    [class*=" icon-"],
+    [class^="icon-"] {
       color: $white;
     }
   }
@@ -102,12 +100,10 @@
     }
   }
 }
-
 .m-nav-characters {
   margin: 0;
   padding: 0;
 }
-
 .m-nav-character {
   margin: 0;
   position: relative;
@@ -116,8 +112,8 @@
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   input {
-    &[type="radio"],
-    &[type="checkbox"] {
+    &[type="checkbox"],
+    &[type="radio"] {
       top: 50%;
       transform: translate(-50%, -50%);
       & + label {
@@ -134,9 +130,9 @@
           transition: none;
           // transition: color $transition-ease-medium;
         }
-        .m-nav-characters-name,
         .m-nav-characters-class,
-        .m-nav-characters-level {
+        .m-nav-characters-level,
+        .m-nav-characters-name {
           display: block;
           float: left;
           line-height: $line-height-160;
@@ -179,9 +175,9 @@
           &:before {
             color: $white;
           }
-          .m-nav-characters-name,
           .m-nav-characters-class,
-          .m-nav-characters-level {
+          .m-nav-characters-level,
+          .m-nav-characters-name {
             color: $white;
           }
         }
@@ -193,9 +189,9 @@
           &:before {
             color: $white;
           }
-          .m-nav-characters-name,
           .m-nav-characters-class,
-          .m-nav-characters-level {
+          .m-nav-characters-level,
+          .m-nav-characters-name {
             color: $white;
           }
         }
@@ -216,9 +212,9 @@
             &:before {
               color: $white;
             }
-            .m-nav-characters-name,
             .m-nav-characters-class,
-            .m-nav-characters-level {
+            .m-nav-characters-level,
+            .m-nav-characters-name {
               color: $white;
             }
           }
@@ -227,11 +223,9 @@
     }
   }
 }
-
 .m-nav-character:not(:last-child) {
   margin: 0;
 }
-
 .is-night-mode {
   .m-nav-shade {
     background-color: $dark-alpha-08;
@@ -247,8 +241,8 @@
     }
   }
   .m-nav-link {
-    [class^="icon-"],
-    [class*=" icon-"] {
+    [class*=" icon-"],
+    [class^="icon-"] {
       color: $white;
     }
     &:focus,
@@ -264,8 +258,8 @@
   }
   .m-nav-character {
     input {
-      &[type="radio"],
-      &[type="checkbox"] {
+      &[type="checkbox"],
+      &[type="radio"] {
         & + label {
           &:before {
             color: $white;
@@ -281,9 +275,9 @@
         }
         &:checked {
           & + label {
-            .m-nav-characters-name,
             .m-nav-characters-class,
-            .m-nav-characters-level {
+            .m-nav-characters-level,
+            .m-nav-characters-name {
               color: $white;
             }
           }
@@ -298,14 +292,12 @@
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
-    border: 0;
-    padding: $font-size-450 0;
+    padding: 4.5em 0;
     right: 0;
     width: 400px;
     transform: translate(400px, 0);
@@ -314,13 +306,20 @@
     }
   }
 }
-
 @media (min-width: $screen-md) {}
-
-@media (min-width: $screen-lg) {}
-
+@media (min-width: $screen-lg) {
+  .m-nav {
+    padding: 0 0 10em 0;
+    right: initial;
+    top: 0;
+    left: 0;
+    transform: translate(-100%, 0);
+    &.is-open {
+      transform: translate(4.5em, 0);
+    }
+  }
+}
 @media (min-width: $screen-xl) {}
-
 @media print {
   .m-nav {
     display: none;

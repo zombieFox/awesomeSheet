@@ -1,10 +1,17 @@
+.m-total-block-total {
+  font-family: $open-sans-semi-bold;
+  color: $secondary-color-08;
+}
+.is-night-mode {
+  .m-total-block-total {
+
+    color: $secondary-color-12;
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

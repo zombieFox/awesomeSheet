@@ -1,89 +1,122 @@
 .m-skill {
-  .m-skill-name,
-  .m-skill-bonuses,
-  .m-skill-total,
-  .m-skill-ranks,
-  .m-skill-misc,
-  .m-skill-class-skill,
-  .m-skill-variant-name {
-    float: left;
-    display: block;
-    margin: 0;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .m-skill-name {
-    width: 40%;
-  }
-  .m-skill-bonuses {
-    width: 15%;
-    text-align: center;
-  }
-  .m-skill-total {
-    width: 15%;
-    font-family: $open-sans-semi-bold;
-    text-align: center;
-  }
-  .m-skill-ranks,
-  .m-skill-misc {
-    width: 10%;
-    text-align: center;
-    input {
-      &[type="email"],
-      &[type="number"],
-      &[type="search"],
-      &[type="text"],
-      &[type="tel"],
-      &[type="url"],
-      &[type="password"] {
-        text-align: center;
-        padding: 0;
-      }
-    }
-  }
-  .m-skill-class-skill {
-    width: 10%;
-    text-align: center;
-    label {
-      &:before {
-        width: 100%;
-        text-align: center;
-        margin-right: 0;
-      }
-    }
-  }
-  &.m-skill-variant {
-    .m-skill-name {
-      width: 20%;
-    }
-    .m-skill-variant-name {
-      width: 20%;
-    }
-  }
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
   &:last-of-type {
-    margin-bottom: $font-size-root-150;
+    margin-bottom: 2em;
   }
 }
-
+.m-skill-name {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
+  flex: 1 0 40%;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-skill-total {
+  flex: 0 0 15%;
+  text-align: center;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-skill-misc,
+.m-skill-ranks {
+  flex: 0 0 10%;
+  input {
+    &[type="email"],
+    &[type="number"],
+    &[type="password"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="text"],
+    &[type="url"] {
+      text-align: center;
+      padding: 0;
+    }
+  }
+}
+.m-skill-class-skill {
+  position: relative;
+  flex: 0 0 10%;
+  text-align: center;
+}
+.m-skill-bonus {
+  flex: 0 0 0;
+}
+.m-skill-bonus-button {
+  padding: 0 0.5em;
+  margin: 0;
+}
+.m-skill-variant {
+  .m-skill-name {
+    flex: 0 0 20%;
+  }
+  .m-skill-variant-name {
+    flex: 1 0 20%;
+  }
+}
+.m-skill-title {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.m-skill-bonus-title {
+  margin: 0;
+}
+.m-skill-class-skill-title,
+.m-skill-misc-title,
+.m-skill-name-title,
+.m-skill-ranks-title,
+.m-skill-total-title {
+  margin: 0 0 1em;
+  line-height: $line-height-160;
+}
+.m-skill-name-title {
+  flex: 1 0 40%;
+}
+.m-skill-total-title {
+  flex: 0 0 15%;
+  text-align: center;
+}
+.m-skill-misc-title,
+.m-skill-ranks-title {
+  flex: 0 0 10%;
+  text-align: center;
+}
+.m-skill-class-skill-title {
+  flex: 0 0 10%;
+  text-align: center;
+}
+.m-skill-bonus-title {
+  flex: 0 0 auto;
+}
+.m-skill-bonus-title {
+  flex: 0 0 0;
+}
+.m-skill-bonus-title-spacer {
+  padding: 0 0.5em;
+  display: block;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: $font-size-150;
+    display: inline-block;
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
-@media (min-width: $screen-md) {
-  .m-skill {
-    &.m-skill-custom {
-      .m-skill-name {
-        width: 40%;
-      }
-      .m-skill-bonuses {
-        width: 15%;
-      }
-    }
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {
+  .m-skill-bonus-button {
+    padding: 0;
+  }
+  .m-skill-bonus-title-spacer {
+    padding: 0;
   }
 }
-
-@media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

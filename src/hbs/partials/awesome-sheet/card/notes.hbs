@@ -1,0 +1,17 @@
+<section id="notes" class="l-section js-section">
+  <div class="m-card">
+    <div class="m-card-head">
+      <h1 class="m-card-title">Notes</h1>
+      <button class="m-card-link-self button button-link js-card-link-self"></button>
+      <button class="m-card-link-toggle button button-link button-small button-icon u-inline-with-input js-card-link-toggle"><span class="icon-reader-mode js-card-link-toggle-icon"></span></button>
+    </div>
+    <div class="m-card-body">
+      <div class="js-edit">
+        {{> notes-edit }}
+      </div>
+      <div class="js-display is-hidden">
+        {{> notes-display }}
+      </div>
+    </div>
+  </div>
+</section>

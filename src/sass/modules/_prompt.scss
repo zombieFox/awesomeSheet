@@ -9,14 +9,13 @@
   z-index: $prompt;
   transition: all $transition-ease-fast;
 }
-
 .m-prompt {
   position: fixed;
   top: 50%;
   left: 50%;
   font-size: $font-size-root-100;
   z-index: $modal;
-  width: 80%;
+  width: 85%;
   max-height: 80%;
   min-width: 200px;
   transform: translate(-50%, -50%);
@@ -24,14 +23,12 @@
   perspective: 1000px;
   transition: all $transition-ease-fast;
 }
-
 .m-prompt-wrapper {
   background-color: $white;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
   transition: all $transition-ease-fast;
 }
-
 .m-prompt-body {
   padding: $font-size-200;
   .m-prompt-heading {
@@ -47,15 +44,11 @@
     }
   }
 }
-
 .m-prompt-controls {
   .button {
     margin: 0;
     width: 50%;
     &.button {
-      border-right: 0;
-      border-bottom: 0;
-      border-left: 0;
     }
     &:first-child {
       border-radius: 0 0 0 $border-radius-small;
@@ -65,7 +58,6 @@
     }
   }
 }
-
 .m-prompt-code {
   background-color: $dark-alpha-06;
   max-height: 300px;
@@ -77,35 +69,30 @@
   box-shadow: $shadow-large-inset;
   white-space: pre-wrap;
 }
-
 .is-night-mode {
   .m-prompt-shade {
     background-color: $dark-alpha-08;
   }
   .m-prompt {
     .m-prompt-wrapper {
-      background-color: $secondary-color-04;
+      background-color: $secondary-color-03;
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {
   .m-prompt {
     width: 50%;
   }
 }
-
 @media (min-width: $screen-lg) {
   .m-prompt {
     width: 40%;
   }
 }
-
 @media (min-width: $screen-xl) {
   .m-prompt {
     width: 30%;

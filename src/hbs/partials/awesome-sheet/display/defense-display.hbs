@@ -1,63 +1,66 @@
-<section id="display-defense" class="l-display js-display is-hidden" data-display-title="Defense" data-display-icon="icon-shield" data-edit-jump="defense">
-  <button data-self-link="display-defense" class="m-display-self-link button button-link js-display-self-link"></button>
-  <div class="m-display-section-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
 
-          <div class="m-display-body">
-            <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch ">
-              <span class="js-display-block-target"></span>
-            </p>
-            <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac_notes" data-display-title="Notes ">
-              <span class="js-display-block-target"></span>
-            </p>
-          </div>
-
-          <div class="m-display-body">
-            <p class="m-display-body-title">Saves</p>
-            <ul class="m-display-grid-multi-col u-list-unstyled">
-              <li class="m-display-col">
-
-                <div class="m-display-item m-display-item-col">
-                  <span class="m-display-item-prefix">Fortitude</span>
-                  <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.fortitude.current">
-                    <span class="js-display-block-target"></span>
-                  </span>
-                </div>
-
-              </li>
-              <li class="m-display-col">
-
-                <div class="m-display-item m-display-item-col">
-                  <span class="m-display-item-prefix">Reflex</span>
-                  <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.reflex.current">
-                    <span class="js-display-block-target"></span>
-                  </span>
-                </div>
-
-              </li>
-              <li class="m-display-col">
-
-                <div class="m-display-item m-display-item-col">
-                  <span class="m-display-item-prefix">Will</span>
-                  <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.will.current">
-                    <span class="js-display-block-target"></span>
-                  </span>
-                </div>
-
-              </li>
-            </ul>
-          </div>
-
-          <div class="m-display-body">
-            <p class="js-display-block" data-display-type="text-snippet" data-display="defense.save_notes" data-display-title="Notes ">
-              <span class="js-display-block-target"></span>
-            </p>
-          </div>
-
-        </div>
+      <div class="m-display-body">
+        <h2>
+          <span class="js-display-block" data-display-type="text-snippet" data-display="defense.hp.current" data-display-prefix="HP ">
+            <span class="js-display-block-target"></span>
+          </span>
+          <span class="u-muted-text js-display-block" data-display-type="text-snippet" data-display="defense.hp.total">
+            / <span class="js-display-block-target"></span>
+          </span>
+        </h2>
+        <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch ">
+          <span class="js-display-block-target"></span>
+        </p>
+        <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac_notes" data-display-title="Notes ">
+          <span class="js-display-block-target"></span>
+        </p>
       </div>
+
+      <div class="m-display-body">
+        <p class="m-display-body-title">Saves</p>
+        <ul class="m-display-grid u-list-unstyled">
+          <li class="m-display-col-three-fixed">
+
+            <div class="m-display-item m-display-item-col">
+              <span class="m-display-item-prefix">Fortitude</span>
+              <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.fortitude.current" data-total-type="bonus">
+                <span class="js-display-block-target"></span>
+              </span>
+            </div>
+
+          </li>
+          <li class="m-display-col-three-fixed">
+
+            <div class="m-display-item m-display-item-col">
+              <span class="m-display-item-prefix">Reflex</span>
+              <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.reflex.current" data-total-type="bonus">
+                <span class="js-display-block-target"></span>
+              </span>
+            </div>
+
+          </li>
+          <li class="m-display-col-three-fixed">
+
+            <div class="m-display-item m-display-item-col">
+              <span class="m-display-item-prefix">Will</span>
+              <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.will.current" data-total-type="bonus">
+                <span class="js-display-block-target"></span>
+              </span>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="m-display-body">
+        <p class="js-display-block" data-display-type="text-snippet" data-display="defense.save_notes" data-display-title="Notes ">
+          <span class="js-display-block-target"></span>
+        </p>
+      </div>
+
     </div>
   </div>
-</section>
+</div>

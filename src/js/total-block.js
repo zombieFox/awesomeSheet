@@ -94,7 +94,7 @@ var totalBlock = (function() {
       return value;
     };
 
-    function _checkForTempScore(score, tempScore) {
+    function _checkForTempModifier(score, tempScore) {
       if (tempScore == "") {
         return _checkValue(score);
       } else {
@@ -137,36 +137,36 @@ var totalBlock = (function() {
       var checkPenalty = 0;
       // if str data attribute is true
       if (all_totalBlock[i].dataset.strBonus == "true") {
-        strBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
+        strBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
-        conBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
+        conBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
       };
       // if int data attribute is true
       if (all_totalBlock[i].dataset.intBonus == "true") {
-        intBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
+        intBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
       };
       // if wis data attribute is true
       if (all_totalBlock[i].dataset.wisBonus == "true") {
-        wisBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
+        wisBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
       };
       // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
-        chaBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+        chaBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
       };
       // if max dex data attribute is true
       if (all_totalBlock[i].dataset.maxDex == "true") {
         // if max dex is less than dex bonus
-        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
           // set dex bonuse to mac dex
           dexBonus = sheet.getCharacter().defense.ac.max_dex;
         };
@@ -220,6 +220,7 @@ var totalBlock = (function() {
         plusTenBonus = 10;
       };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
+      var totalType = all_totalBlock[i].dataset.totalType;
       var totalPath = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
@@ -263,12 +264,16 @@ var totalBlock = (function() {
       };
       // grand total
       var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill + checkPenalty;
-      // update total
-      total.textContent = grandTotal;
       // store current to character object
       if (totalPath) {
-        helper.setObject(sheet.getCharacter(), totalPath, parseInt(total.innerHTML, 10) || 0);
+        helper.setObject(sheet.getCharacter(), totalPath, grandTotal || 0);
       };
+      // add + to bonus totals
+      if (totalType == "bonus" && grandTotal > 0) {
+        grandTotal = "+" + grandTotal;
+      };
+      // update total
+      total.textContent = grandTotal;
     };
     sheet.storeCharacters();
   };

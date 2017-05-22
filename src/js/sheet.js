@@ -281,6 +281,7 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     display.bind();
+    card.bind();
   };
 
   function render() {

@@ -2,7 +2,15 @@
   position: relative;
   z-index: 1;
 }
-
+.m-input-block-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  .m-input-block {
+    flex: 1 1 30%;
+    min-width: 8em;
+  }
+}
 .m-input-block-label {
   margin: 0;
   padding: 0;
@@ -11,7 +19,7 @@
   top: 0;
   left: 10px;
   z-index: 2;
-  color: $gray-12;
+  color: $secondary-color-12;
   transition: all $transition-ease-extra-fast;
   cursor: text;
   box-sizing: border-box;
@@ -19,38 +27,34 @@
   &.is-active {
     top: -1.5em;
     left: 0;
-    color: $gray-16;
+    color: $secondary-color-16;
     font-size: $font-size-root-075;
     height: $line-height-100;
     line-height: $line-height-100;
   }
 }
-
 .m-input-block-field {
   position: relative;
   z-index: 1;
 }
-
 .m-input-block-label-dark {
   color: $light-alpha-08;
   &.is-active {
     color: $light-alpha-16;
   }
 }
-
 .m-input-block-label-large {
-  font-size: $font-size-200;
+  font-size: $font-size-150;
   left: 0.5em;
   &.is-active {}
 }
-
 .m-input-block-field-dark {
   &[type="email"],
   &[type="number"],
+  &[type="password"],
   &[type="search"],
-  &[type="text"],
   &[type="tel"],
-  &[type="password"] {
+  &[type="text"] {
     background-color: $dark-alpha-19;
     color: $white;
     &:focus {
@@ -58,21 +62,19 @@
     }
   }
 }
-
 .m-input-block-field-large {
   &[type="email"],
   &[type="number"],
+  &[type="password"],
   &[type="search"],
-  &[type="text"],
   &[type="tel"],
-  &[type="password"] {
-    font-size: $font-size-200;
-    margin: 0 0 1em 0;
+  &[type="text"] {
+    font-size: $font-size-150;
+    margin: 0 0 2em;
     padding-left: 0.5em;
     padding-right: 0.5em;
   }
 }
-
 .is-night-mode {
   .m-input-block-label {
     &.is-active {
@@ -80,14 +82,10 @@
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

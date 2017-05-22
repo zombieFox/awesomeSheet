@@ -2,7 +2,7 @@
 // grid
 // --------------------------------------------------
 .container {
-  max-width: 80%;
+  max-width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-left: $gutter;
@@ -18,8 +18,8 @@
 }
 
 .row {
-  margin-left: -14px;
-  margin-right: -14px;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
   box-sizing: border-box;
   &:before,
   &:after {
@@ -468,7 +468,7 @@
 
 @media (min-width: $screen-lg) {
   .container {
-    max-width: 70%;
+    // max-width: 70%;
   }
   .col-lg-1,
   .col-lg-2,
@@ -602,7 +602,7 @@
 
 @media (min-width: $screen-xl) {
   .container {
-    max-width: 60%;
+    // max-width: 60%;
   }
   .col-xl-1,
   .col-xl-2,

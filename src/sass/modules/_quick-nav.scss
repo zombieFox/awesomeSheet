@@ -8,79 +8,54 @@
   z-index: $quick-nav;
 }
 .m-quick-nav-wrapper {
+  padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
-}
-.m-quick-nav-display {
-  flex: 1 0 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
-.m-quick-nav-display-title {
-  margin: 0;
-  padding: 0;
-  color: $gray-19;
-  font-size: $font-size-100;
-  font-family: $open-sans-semi-bold;
-  line-height: 4.5em;
-  text-transform: uppercase;
-  flex: 1 0 auto;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-quick-nav-display-icon {
-  color: $white;
-  font-size: $font-size-200;
-  line-height: 2.25;
-  width: 12.5%;
-  text-align: center;
-}
-.m-quick-nav-display-edit {
-  padding: 0 2em;
-  margin: 0;
-  border-radius: 0;
-  height: 6em;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    font-size: 1.2em;
-    position: relative;
-    top: -1px;
-  }
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 .m-quick-nav-hamburger {
-  flex: 0 1 11.1111111111%
+  flex: 0 1 11.1111111111%;
+  display: block;
 }
 .m-quick-nav-list {
   margin: 0;
   padding: 0;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
-  > li {
-    flex: 1 0 auto;
-    margin: 0;
-    padding: 0;
-    height: 4.5em;
-    display: block;
-    list-style-type: none;
-    text-align: center;
+}
+.m-quick-nav-list-item {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  &:not(:last-child) {
+    margin-bottom: 0;
   }
 }
 .m-quick-nav-link {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: $font-size-450;
-  line-height: $font-size-450;
+  height: 100%;
+  text-align: center;
+  line-height: 1;
   text-decoration: none;
   color: $secondary-color-04;
-  display: block;
   transition: color $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   [class*=" icon-"],
@@ -89,45 +64,86 @@
   }
   &:link,
   &:visited {
-    color: $secondary-color-04;
+    color: $dark-alpha-08;
   }
   &:focus {
     background-color: transparent;
-    color: $secondary-color-12;
+    color: $dark-alpha-14;
   }
   &:hover {
-    color: $secondary-color-12;
+    color: $light-alpha-10;
     text-decoration: none;
     outline: 0;
   }
   &:active {
-    color: $secondary-color-16;
+    color: $light-alpha-08;
   }
   &.is-active {
     color: $white;
+    &:focus {
+      color: $white;
+    }
   }
 }
 .m-nav-toggle {
   position: relative;
-  display: inline;
   margin: 0;
   padding: 0;
   border: 0;
   width: 100%;
+  height: 100%;
+  display: block;
   cursor: pointer;
+  transition: background-color $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus {
+    background-color: $dark-alpha-16;
+  }
 }
-.is-night-mode {
+.is-display-mode {
   .m-quick-nav {
-    background-color: $secondary-color-06;
+    background-color: $primary-color-07;
   }
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-quick-nav-wrapper {
+    padding: 0 3em;
+  }
+}
 @media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-quick-nav {
+    background-color: $secondary-color-07;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4.5em;
+    height: 100%;
+    z-index: $quick-nav;
+  }
+  .m-quick-nav-wrapper {
+    padding: 0;
+    flex-flow: column nowrap;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .m-quick-nav-list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+  .m-quick-nav-list-item {
+    flex-flow: column nowrap;
+  }
+}
+@media (min-height: 700px) and (min-width: $screen-lg) {
+  .m-quick-nav-list {
+    max-height: 60%;
+  }
+}
 @media (min-width: $screen-xl) {}
 @media print {
   .m-quick-nav {

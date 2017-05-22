@@ -1,74 +1,95 @@
-.m-edit-controls {
-  position: relative;
+.m-edit-wrapper {
+  margin: 2em 1em;
+}
+.m-edit-box {
+  margin-bottom: 2em;
+  font-size: $font-size-root-100;
+}
+.m-edit-box-wrapper {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  .button-group,
-  .button-group-strech {
-    .button {
-      margin: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      border: 0;
-      border-radius: 0;
-      height: 4em;
-    }
-  }
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
-.m-edit-heading {
-  background-color: $secondary-color-08;
-  padding: 0;
-  position: relative;
-  z-index: $section-heading;
-  transition: background-color $transition-bounce-medium;
-  .m-edit-heading-title {
-    color: $white;
-    margin: 0;
-    text-transform: uppercase;
-    font-family: $open-sans-semi-bold;
-    font-size: $font-size-100;
-    line-height: 3em;
-  }
-  &.is-pinned {
-    margin: 0;
-    position: fixed;
-    top: $font-size-450;
-    width: 100%;
-  }
-  &.is-faded {
-    background-color: $secondary-color-05;
-  }
+.m-edit-box-title {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
+  margin-bottom: 1em;
 }
+.m-edit-box-item {
+  flex: 1 1 0;
+}
+.m-edit-box-item-20 {
+  flex-basis: 20%;
+}
+.m-edit-box-item-40 {
+  flex-basis: 40%;
+}
+.m-edit-box-item-60 {
+  flex-basis: 60%;
+}
+.m-edit-box-item-80 {
+  flex-basis: 80%;
+}
+.m-edit-box-bonus {
+  flex: 0 0 auto;
+}
+.m-edit-box-bonus-button {
+  padding: 0 0.5em;
+  margin: 0;
+}
+// .m-edit-controls {
+//   position: relative;
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: flex-end;
+//   .button-group,
+//   .button-group-strech {
+//     .button {
+//       margin: 0;
+//       padding-top: 0;
+//       padding-bottom: 0;
+//       border: 0;
+//       border-radius: 0;
+//       height: 4em;
+//     }
+//   }
+// }
 .m-edit-heading-sub {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
 }
-.m-edit-wrapper {
-  padding: 3em 0;
-}
-.m-edit-wrapper-nav-padding {
-  padding-top: 8em;
+.m-edit-heading {
+  margin: 0 1em;
+  padding: 0;
+  position: relative;
+  z-index: $section-heading;
+  transition: background-color $transition-bounce-medium;
 }
 .is-night-mode {
   .m-edit-heading {
     background-color: $secondary-color-04;
-    &.is-faded {
-      background-color: $secondary-color-03;
-    }
   }
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-@media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {
-  .m-edit-wrapper {
-    padding: 3em 0;
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {
+  .m-edit-box-title {
+    border-bottom: $border;
+    border-color: $gray-19;
+    margin-bottom: 0;
+    margin-right: -($gutter * 2);
   }
-  .m-edit-wrapper-nav-padding {
-    padding-top: 10em;
+  .m-edit-box-bonus-button {
+    padding: 0;
+  }
+  .is-night-mode {
+    .m-edit-box-title {
+      border-color: $light-alpha-19;
+    }
   }
 }
-@media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

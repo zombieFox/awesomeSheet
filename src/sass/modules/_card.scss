@@ -1,0 +1,138 @@
+.m-card {
+  background-color: $white;
+  position: relative;
+  z-index: $body;
+  box-shadow: $shadow-small;
+  border-radius: $border-radius-medium;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+.m-card-head {
+  padding: 2em 2em 0;
+  position: relative;
+}
+.m-card-body {
+  padding: 2em 1em;
+  position: relative;
+}
+.m-card-body-dark {
+  background-color: $gray-20;
+  padding: 2em 1em;
+  position: relative;
+}
+.m-card-title {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
+  color: $secondary-color-12;
+  margin: 0;
+}
+.m-card-link-self {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &.is-active,
+  &:active,
+  &:focus,
+  &:hover,
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-card-link-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  color: $secondary-color-12;
+  z-index: 2;
+  &:link,
+  &:visited {
+    color: $secondary-color-12;
+  }
+  &:focus,
+  &:hover {
+    color: $secondary-color-10;
+  }
+  &.is-active,
+  &:active {
+    color: $secondary-color-08;
+  }
+}
+.is-night-mode {
+  .m-card {
+    background-color: $gray-03;
+  }
+  .m-card-body-dark {
+    background-color: $secondary-color-02;
+  }
+  .m-card-link-self {
+    &.is-active,
+    &:active,
+    &:focus,
+    &:hover,
+    &:link,
+    &:visited {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+  }
+  .m-card-link-toggle {
+    color: $secondary-color-12;
+    &:link,
+    &:visited {
+      color: $secondary-color-12;
+    }
+    &:focus,
+    &:hover {
+      color: $secondary-color-10;
+    }
+    &.is-active,
+    &:active {
+      color: $secondary-color-08;
+    }
+  }
+}
+.is-display-mode {
+  .m-card-title {
+    color: $primary-color-08;
+  }
+  .m-card-link-toggle {
+    color: $primary-color-10;
+    &:link,
+    &:visited {
+      color: $primary-color-10;
+    }
+    &:focus,
+    &:hover {
+      color: $primary-color-08;
+    }
+    &.is-active,
+    &:active {
+      color: $primary-color-06;
+    }
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}

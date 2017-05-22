@@ -35,18 +35,21 @@
 .u-margin-with-input {
   margin: 0 0 $font-size-root-150;
 }
+.u-background-with-input {
+  background-color: $gray-20;
+}
 .u-underline-with-input {
   border-bottom: $border;
-  border-color: $secondary-color-alpha-20;
+  border-color: $gray-19;
 }
 .u-small-text {
   color: $gray-12;
   font-size: $font-size-075;
 }
 .u-muted-text {
-  color: $gray-12;
+  color: $gray-10;
   strong {
-    color: $gray-06;
+    color: $gray-04;
   }
 }
 .u-list-unstyled {
@@ -69,6 +72,19 @@
   }
   &:after {
     clear: both;
+  }
+}
+.is-night-mode {
+  .u-background-with-input {
+    background-color: $light-alpha-20;
+  }
+  .u-underline-with-input {
+    border-color: $light-alpha-19;
+  }
+  .u-muted-text {
+    strong {
+      color: $white;
+    }
   }
 }
 // --------------------------------------------------
