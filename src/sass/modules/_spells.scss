@@ -7,7 +7,7 @@
       .m-spell {
         background-color: $secondary-color-alpha-19;
         color: $base-color;
-        border-color: transparent;
+        border-color: $dark-alpha-19;
         &:link,
         &:visited {}
         &:focus {
@@ -31,7 +31,7 @@
       .m-spell {
         background-color: $primary-color-19;
         color: $base-color;
-        border-color: transparent;
+        border-color: $primary-color-alpha-18;
         &:link,
         &:visited {
           color: $gray-10;
@@ -48,6 +48,9 @@
         &.is-active,
         &:active {
           background-color: $primary-color-alpha-14;
+        }
+        .m-spell-name {
+          max-width: 85%;
         }
         .m-spell-marks {
           display: none;
@@ -82,19 +85,21 @@
   }
   .m-spell-col {
     flex: 0 0 46%;
+    max-width: 46%;
+    margin: 0 0 0.5em;
   }
 }
 .m-spell {
-  padding: 0 0.5em;
-  margin: 0 0 0.5em;
+  margin: 0;
   width: 100%;
   text-align: left;
   position: relative;
   white-space: normal;
-  font-size: $font-size-root-100;
-  line-height: $line-height-160;
-  font-family: $open-sans-regular;
-  display: block;
+  text-transform: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
   .m-spell-flash {
     content: "";
     position: absolute;
@@ -117,29 +122,23 @@
       top: 0;
     }
   }
-  .m-spell-active,
   .m-spell-name {
-    float: left;
+    flex: 1 1 auto;
     display: block;
-    text-transform: none;
-  }
-  .m-spell-active {
-    margin: 0 5px 0 0;
-    visibility: visible;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      float: left;
-      margin: 0;
-    }
-  }
-  .m-spell-name {
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;
   }
+  .m-spell-active {
+    visibility: visible;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      float: left;
+      margin: 0 5px 0 0;
+    }
+  }
   .m-spell-marks {
-    float: right;
-    display: block;
+    flex: 1 1 auto;
     visibility: visible;
     [class*=" icon-"],
     [class^="icon-"] {
@@ -148,7 +147,6 @@
     }
   }
   .m-spell-remove {
-    float: right;
     display: none;
     visibility: hidden;
     [class*=" icon-"],
@@ -186,6 +184,7 @@
       .m-spell-book-known {
         .m-spell {
           background-color: $primary-color-06;
+          border-color: $primary-color-04;
           color: $white;
           &:hover {
             background-color: $primary-color-04;
