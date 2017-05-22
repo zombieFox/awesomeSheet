@@ -120,41 +120,22 @@ var nav = (function() {
 
       var quickNav = helper.e(".js-quick-nav");
       var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-      var all_edit = helper.eA(".js-edit");
-      var all_display = helper.eA(".js-display");
+      var all_section = helper.eA(".js-section");
       var offset = parseInt(getComputedStyle(quickNav).height, 10);
       // if nav is on the left after 900px wide viewport
       if (document.documentElement.clientWidth >= 900) {
         offset = 0;
       };
 
-      if (body.dataset.displayMode == "false" || body.dataset.displayMode == false) {
-        for (var i = 0; i < all_edit.length; i++) {
-          // console.log(all_edit[i].id, "--- top", (all_edit[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_edit[i].getBoundingClientRect().bottom);
-          if ((all_edit[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_edit[i]).marginTop, 10)) <= offset && (all_edit[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_edit[i]).marginBottom, 10)) > offset) {
-            for (var j = 0; j < all_quickNavLinks.length; j++) {
-              helper.removeClass(all_quickNavLinks[j], "is-active");
-            };
-            helper.addClass(all_quickNavLinks[i], "is-active");
-          } else {
-            helper.removeClass(all_quickNavLinks[i], "is-active");
+      for (var i = 0; i < all_section.length; i++) {
+        // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
+        if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
+          for (var j = 0; j < all_quickNavLinks.length; j++) {
+            helper.removeClass(all_quickNavLinks[j], "is-active");
           };
-
-        };
-      };
-
-      if (body.dataset.displayMode == "true" || body.dataset.displayMode == true) {
-        for (var i = 0; i < all_display.length; i++) {
-
-          if ((all_display[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_display[i]).marginTop, 10)) <= offset && (all_display[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_display[i]).marginBottom, 10)) > offset) {
-            for (var j = 0; j < all_quickNavLinks.length; j++) {
-              helper.removeClass(all_quickNavLinks[j], "is-active");
-            };
-            helper.addClass(all_quickNavLinks[i], "is-active");
-          } else {
-            helper.removeClass(all_quickNavLinks[i], "is-active");
-          };
-
+          helper.addClass(all_quickNavLinks[i], "is-active");
+        } else {
+          helper.removeClass(all_quickNavLinks[i], "is-active");
         };
       };
 
@@ -292,7 +273,6 @@ var nav = (function() {
     var offset;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      console.log(getComputedStyle(all_section[1]).marginTop);
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
     } else {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
