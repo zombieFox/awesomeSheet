@@ -36,27 +36,29 @@ var clone = (function() {
     };
   };
 
-  // function _smoothScrollToClones(cloneType) {
-  //   var cloneTarget = _getCloneTarget(cloneType);
-  //   var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
-  //   var windowBottom = window.innerHeight;
-  //   var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
-  //   var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
-  //   var quickNavOffset;
-  //   if (quickNavHeight < quickNavWidth) {
-  //     quickNavOffset = quickNavHeight;
-  //   } else {
-  //     quickNavOffset = quickNavWidth;
-  //   };
-  //   if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + editHeadingHeight + 20)) {
-  //     var options = {
-  //       offset: quickNavOffset
-  //     };
-  //     if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-  //       smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
-  //     };
-  //   };
-  // };
+  function _smoothScrollToClones(cloneType) {
+    var cloneTarget = _getCloneTarget(cloneType);
+    var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
+    var targetBottom = cloneTarget.lastChild.getBoundingClientRect().bottom;
+    var windowHeight = window.innerHeight;
+    var quickNavHeight;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      quickNavHeight = 0;
+    } else {
+      quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
+    };
+    if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom > (windowHeight - (windowHeight / 6))) {
+      var offset = (windowHeight / 2);
+      var options = {
+        speed: 500,
+        offset: offset
+      };
+      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+        smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
+      };
+    };
+  };
 
   function _newConsumable(index) {
     var cloneString =
@@ -446,7 +448,7 @@ var clone = (function() {
       _add_cloneObject(cloneType);
       _render_clone(cloneType);
       _update_clonePlaceholder(cloneType);
-      // _smoothScrollToClones(cloneType);
+      _smoothScrollToClones(cloneType);
     } else {
       _render_maxClonesSnack(cloneType);
     };

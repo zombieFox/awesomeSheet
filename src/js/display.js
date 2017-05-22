@@ -420,17 +420,21 @@ var display = (function() {
 
     var _render_displayClone = function(object, target, cloneType) {
       var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col");
       var displayItem = document.createElement("div");
       if (cloneType == "consumable") {
+        li.setAttribute("class", "m-display-col-three");
         displayItem.setAttribute("class", "m-display-item m-display-item-col");
       } else if (cloneType == "attack-melee") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "attack-ranged") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "note-character") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "note-story") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       };
 
