@@ -11,12 +11,16 @@
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   flex: 1 0 40%;
-  margin-bottom: 0;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 .m-skill-total {
   flex: 0 0 15%;
-  margin-bottom: 0;
   text-align: center;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 .m-skill-misc,
 .m-skill-ranks {

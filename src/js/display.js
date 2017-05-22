@@ -72,9 +72,6 @@ var display = (function() {
     smoothScroll.animateScroll(null, id, options);
   };
 
-  var scrollTopEdit = 0;
-  var scrollTopDisplay = 0;
-
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
@@ -83,8 +80,6 @@ var display = (function() {
     var all_display = helper.eA(".js-display");
 
     function _displayOn() {
-      // record scroll top var
-      scrollTopEdit = window.scrollY;
       helper.addClass(body, "is-display-mode");
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
@@ -99,16 +94,11 @@ var display = (function() {
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
-      // scroll to
-      window.scrollTo(0, scrollTopDisplay);
-      // snack.render("Display Mode", false, false, 1000);
       // chnage android theme color
       themeColor.toggle();
     };
 
     function _displayOff() {
-      // record scroll top var
-      scrollTopDisplay = window.scrollY;
       helper.removeClass(body, "is-display-mode");
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
@@ -123,9 +113,6 @@ var display = (function() {
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
-      // scroll to
-      window.scrollTo(0, scrollTopEdit);
-      // snack.render("Edit Mode", false, false, 1000);
       // chnage android theme color
       themeColor.toggle();
     };

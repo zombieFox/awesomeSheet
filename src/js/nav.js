@@ -286,24 +286,20 @@ var nav = (function() {
   // };
 
   function _quickLinkSmoothScroll(element) {
-    var id;
-    var all_edit = helper.eA(".js-edit");
+    var id = element.dataset.link;
+    var all_section = helper.eA(".js-section");
     var quickNav = helper.e(".js-quick-nav");
     var offset;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) - 10;
+      console.log(getComputedStyle(all_section[1]).marginTop);
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
     } else {
-      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
     var options = {
       speed: 500,
       offset: offset
-    };
-    if (body.dataset.displayMode == "false" || body.dataset.displayMode == false) {
-      id = element.dataset.editLink;
-    } else if (body.dataset.displayMode == "true" || body.dataset.displayMode == true) {
-      id = element.dataset.displayLink;
     };
     smoothScroll.animateScroll(null, id, options);
   };

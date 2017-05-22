@@ -1,6 +1,6 @@
-.l-edit {
+.m-card {
   background-color: $white;
-  margin: 2em 0 0;
+  padding: 2em 1em;
   position: relative;
   z-index: $body;
   box-shadow: $shadow-small;
@@ -10,35 +10,14 @@
   width: 100%;
 }
 .is-night-mode {
-  .l-edit {
+  .l-section {
     background-color: $gray-03;
   }
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .l-edit {
-    width: 90%;
-  }
-}
-@media (min-width: $screen-md) {
-  .l-edit {
-    width: 80%;
-  }
-}
-@media (min-width: $screen-lg) {
-  .l-edit {
-    margin: 3em 0 0;
-  }
-}
-@media (min-width: $screen-xl) {
-  .l-edit {
-    width: 60%;
-  }
-}
-@media print {
-  .l-edit {
-    display: none !important;
-  }
-}
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}
