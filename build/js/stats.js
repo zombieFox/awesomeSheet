@@ -14,21 +14,18 @@ var stats = (function() {
     var statsTempModifier = element.querySelector(".js-stats-temp-modifier");
     _changeModifer(statsScore, statsModifier);
     _changeModifer(statsTempScore, statsTempModifier);
-    // console.log(element.dataset.path);
-    // console.log(statsTempScore.dataset.tempScore);
-    // if (statsTempScore.dataset.path) {
-    //   if (typeof helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "undefined" && helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "") {
-    //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, true);
-    //   } else {
-    //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, false);
-    //   };
-    // };
   };
 
   function _changeModifer(scoreElement, totalElement) {
     var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), scoreElement.dataset.path));
     var path = totalElement.dataset.path;
+    // store the modifier
     helper.setObject(sheet.getCharacter(), path, modifier);
+    // add a + if greater than 0
+    if (modifier > 0) {
+      modifier =  "+" + modifier
+    };
+    // render modifier
     totalElement.textContent = modifier;
   };
 

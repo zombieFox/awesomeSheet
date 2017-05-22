@@ -212,6 +212,71 @@ var helper = (function() {
 
 })();
 
+var card = (function() {
+
+  function bind() {
+    _bind_linkSelf();
+    _bind_linkToggle();
+  };
+
+  function _bind_linkSelf() {
+    var all_cardLinkSelf = helper.eA(".js-card-link-self");
+    for (var i = 0; i < all_cardLinkSelf.length; i++) {
+      all_cardLinkSelf[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _linkSelf(this);
+      }, false);
+    };
+  };
+
+  function _bind_linkToggle() {
+    var all_cardLinkToggle = helper.eA(".js-card-link-toggle");
+    for (var i = 0; i < all_cardLinkToggle.length; i++) {
+      all_cardLinkToggle[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _linkToggle(this);
+      }, false);
+    };
+  };
+
+  function _linkSelf(element) {
+    var id = "#" + helper.getClosest(element, ".js-section").id;
+    var all_section = helper.eA(".js-section");
+    var quickNav = helper.e(".js-quick-nav");
+    var offset;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
+    } else {
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
+    };
+    var options = {
+      speed: 500,
+      offset: offset
+    };
+    smoothScroll.animateScroll(null, id, options);
+  };
+
+  function _linkToggle(element) {
+    display.toggle();
+    _linkSelf(element);
+    var all_cardLinkToggle = helper.eA(".js-card-link-toggle");
+    for (var i = 0; i < all_cardLinkToggle.length; i++) {
+      var icon = all_cardLinkToggle[i].querySelector(".js-card-link-toggle-icon");
+      helper.toggleClass(icon, "icon-reader-mode");
+      helper.toggleClass(icon, "icon-edit");
+    };
+  };
+
+  // exposed methods
+  return {
+    bind: bind
+  };
+
+})();
+
 var blank = (function() {
 
   var data = {
@@ -9618,12 +9683,20 @@ var clone = (function() {
   function _smoothScrollToClones(cloneType) {
     var cloneTarget = _getCloneTarget(cloneType);
     var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
-    var windowBottom = window.innerHeight;
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
-    if (targetTop > (windowBottom - (windowBottom / 4)) || targetTop < (quickNavHeight + editHeadingHeight + 20)) {
+    var targetBottom = cloneTarget.lastChild.getBoundingClientRect().bottom;
+    var windowHeight = window.innerHeight;
+    var quickNavHeight;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      quickNavHeight = 0;
+    } else {
+      quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
+    };
+    if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom > (windowHeight - (windowHeight / 6))) {
+      var offset = (windowHeight - (windowHeight / 6));
       var options = {
-        offset: quickNavHeight + editHeadingHeight + 40
+        speed: 500,
+        offset: offset
       };
       if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
         smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
@@ -9645,7 +9718,7 @@ var clone = (function() {
       '            </div>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
-      '            <p class="u-text-center u-no-margin u-inline-with-input u-underline-with-input js-total-block-total js-clone-consumable-current">0</p>' +
+      '            <p class="u-text-center u-no-margin u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
       '            <div class="m-input-block js-input-block">' +
@@ -9676,25 +9749,25 @@ var clone = (function() {
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
-      '        <div class="col-xs-5 col-md-4">' +
+      '        <div class="col-xs-6 col-md-8 col-xl-4">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
       '            <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-2 col-md-2">' +
+      '        <div class="col-xs-6 col-md-4 col-xl-3">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '            <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-md-3">' +
+      '        <div class="col-xs-5 col-xs-offset-3 col-xl-3 col-xl-offset-0">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
       '            <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-2 col-md-3">' +
+      '        <div class="col-xs-4 col-xl-2">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
       '            <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
@@ -10590,7 +10663,6 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    _bind_selfLink();
   };
 
   function _bind_fab() {
@@ -10598,40 +10670,15 @@ var display = (function() {
     fabButton.addEventListener("click", toggle, false);
   };
 
-  function _bind_selfLink() {
-    var all_displaySelfLink = helper.eA(".js-display-self-link");
-    for (var i = 0; i < all_displaySelfLink.length; i++) {
-      all_displaySelfLink[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _selfLink(this);
-      }, false);
-    };
-  };
-
-  function _selfLink(element) {
-    var target = "#" + element.dataset.selfLink;
-    smoothScroll.animateScroll(null, target);
-  };
-
-  var scrollTopEdit = 0;
-  var scrollTopDisplay = 0;
-
   function toggle() {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    var quickNavList = helper.e(".js-quick-nav-list");
-    var quickNavDisplay = helper.e(".js-quick-nav-display");
+    // var quickNavList = helper.e(".js-quick-nav-list");
     var all_edit = helper.eA(".js-edit");
     var all_display = helper.eA(".js-display");
 
     function _displayOn() {
-      // record scroll top var
-      scrollTopEdit = window.scrollY;
       helper.addClass(body, "is-display-mode");
-      helper.addClass(quickNavList, "is-hidden");
-      helper.removeClass(quickNavDisplay, "is-hidden");
-
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
         // make them visable
@@ -10645,17 +10692,12 @@ var display = (function() {
       // change fab icon
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
-      // scroll to
-      window.scrollTo(0, scrollTopDisplay);
-      // if body is in display state
+      // chnage android theme color
+      themeColor.toggle();
     };
 
     function _displayOff() {
-      // record scroll top var
-      scrollTopDisplay = window.scrollY;
       helper.removeClass(body, "is-display-mode");
-      helper.removeClass(quickNavList, "is-hidden");
-      helper.addClass(quickNavDisplay, "is-hidden");
       // iterate over all edit sections
       for (var i = 0; i < all_edit.length; i++) {
         // make them visable
@@ -10669,8 +10711,8 @@ var display = (function() {
       // change fab icon
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
-      // scroll to
-      window.scrollTo(0, scrollTopEdit);
+      // chnage android theme color
+      themeColor.toggle();
     };
 
     if (body.dataset.displayMode == "true") {
@@ -10684,32 +10726,6 @@ var display = (function() {
     totalBlock.update();
     clear();
     render();
-  };
-
-  function clear___xxxx() {
-    var all_displayItem = helper.eA(".js-display-block");
-    var displaySpell = helper.e(".js-display-block-spell").querySelector(".js-display-block-target");
-    var displaySkills = helper.e(".js-display-block-skills").querySelector(".js-display-block-target");
-    var displayAttack = helper.e(".js-display-block-attack").querySelector(".js-display-block-target");
-    var displayNote = helper.e(".js-display-block-note").querySelector(".js-display-block-target");
-    var displayConsumable = helper.e(".js-display-block-consumable").querySelector(".js-display-block-target");
-
-    function _removeAllChildren(parent) {
-      while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-      };
-    };
-
-    for (var i = 0; i < all_displayItem.length; i++) {
-      var target = all_displayItem[i].querySelector(".js-display-block-target");
-      _removeAllChildren(target);
-    };
-
-    _removeAllChildren(displaySpell);
-    _removeAllChildren(displaySkills);
-    _removeAllChildren(displayAttack);
-    _removeAllChildren(displayNote);
-    _removeAllChildren(displayConsumable);
   };
 
   function clear() {
@@ -10797,13 +10813,16 @@ var display = (function() {
     target.appendChild(span);
   };
 
-  function _get_textSnippet(path, target, title, prefix, suffix) {
+  function _get_textSnippet(path, target, title, prefix, suffix, displayBonusType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-value");
+      if (displayBonusType == "bonus") {
+        data = "+" + data;
+      };
       value.innerHTML = data;
       if (title) {
         var spanTitle = document.createElement("span");
@@ -10845,7 +10864,7 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col");
+      li.setAttribute("class", "m-display-col-three");
       var div = document.createElement("div");
       div.setAttribute("class", "m-display-item m-display-item-list");
       var value = document.createElement("span");
@@ -10875,12 +10894,12 @@ var display = (function() {
 
       if (object.ranks != "undefined" && object.ranks != "") {
         var li = document.createElement("li");
-        li.setAttribute("class", "m-display-col");
+        li.setAttribute("class", "m-display-col-three");
         var div = document.createElement("div");
         div.setAttribute("class", "m-display-item m-display-item-col");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-item-value");
-        value.textContent = object.current;
+        value.textContent = "+" + object.current;
 
 
         if (prefix || object["name"] || object["variant_name"]) {
@@ -10921,7 +10940,7 @@ var display = (function() {
       displayBodyTitle.setAttribute("class", "m-display-body-title");
       displayBodyTitle.textContent = "Level " + level;
       var spellBookPage = document.createElement("ul");
-      spellBookPage.setAttribute("class", "m-display-grid-multi-col u-list-unstyled");
+      spellBookPage.setAttribute("class", "m-display-grid u-list-unstyled");
 
       displayBody.appendChild(displayBodyTitle);
 
@@ -10980,7 +10999,7 @@ var display = (function() {
 
         var spellObject = array[i];
         var displayCol = document.createElement("li");
-        displayCol.setAttribute("class", "m-display-col");
+        displayCol.setAttribute("class", "m-display-col-three");
         var displayItem = document.createElement("div");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
 
@@ -11062,17 +11081,21 @@ var display = (function() {
 
     var _render_displayClone = function(object, target, cloneType) {
       var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col");
       var displayItem = document.createElement("div");
       if (cloneType == "consumable") {
+        li.setAttribute("class", "m-display-col-three");
         displayItem.setAttribute("class", "m-display-item m-display-item-col");
       } else if (cloneType == "attack-melee") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "attack-ranged") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "note-character") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       } else if (cloneType == "note-story") {
+        li.setAttribute("class", "m-display-list-item");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
       };
 
@@ -11187,13 +11210,13 @@ var display = (function() {
     };
   };
 
-  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix) {
+  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var title = displayTitle[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
-      var data = _get_textSnippet(path, target, title, prefix, suffix);
+      var data = _get_textSnippet(path, target, title, prefix, suffix, displayBonusType);
     };
   };
 
@@ -11242,6 +11265,7 @@ var display = (function() {
       var displayTitle;
       var displayPrefix;
       var displaySuffix;
+      var displayBonusType = false;
       var displayType = all_displayBlock[i].dataset.displayType;
 
       if (all_displayBlock[i].dataset.display) {
@@ -11261,6 +11285,9 @@ var display = (function() {
         } else {
           displaySuffix = false;
         };
+        if (all_displayBlock[i].dataset.totalType) {
+          displayBonusType = all_displayBlock[i].dataset.totalType;
+        };
       };
 
       if (displayType == "stat") {
@@ -11268,7 +11295,7 @@ var display = (function() {
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
       } else if (displayType == "text-snippet") {
-        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix);
+        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType);
       } else if (displayType == "text-block") {
         _render_textBlock(itemsToDisplay, target);
       } else if (displayType == "list") {
@@ -11686,10 +11713,10 @@ var modal = (function() {
 
     modalShade.addEventListener("click", destroy, false);
     actionButton.addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        destroy();
-      }, false);
+      event.stopPropagation();
+      event.preventDefault();
+      destroy();
+    }, false);
     if (action) {
       actionButton.addEventListener("click", function(event) {
         event.stopPropagation();
@@ -11732,42 +11759,6 @@ var modal = (function() {
   };
 
 })();
-
-
-// (function() {
-
-//   // Define our constructor
-//   this.Modal = function() {
-
-//     // Define option defaults
-//     var defaults = {
-//       className: 'fade-and-drop',
-//       closeButton: true,
-//       content: "",
-//       maxWidth: 600,
-//       minWidth: 280,
-//       overlay: true
-//     }
-
-//     // Create options by extending defaults with the passed in arugments
-//     if (arguments[0] && typeof arguments[0] === "object") {
-//       this.options = extendDefaults(defaults, arguments[0]);
-//     }
-
-//   }
-
-//   // Utility method to extend defaults with user options
-//   function extendDefaults(source, properties) {
-//     var property;
-//     for (property in properties) {
-//       if (properties.hasOwnProperty(property)) {
-//         source[property] = properties[property];
-//       }
-//     }
-//     return source;
-//   }
-
-// }());
 
 var nav = (function() {
 
@@ -11889,82 +11880,24 @@ var nav = (function() {
     var body = helper.e("body");
     window.onscroll = function() {
 
-      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-        var quickNav = helper.e(".js-quick-nav");
-        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
-        var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-        var all_edit = helper.eA(".js-edit");
-        for (var i = 0; i < all_edit.length; i++) {
-          // console.log(all_edit[i].id + " top = " + all_edit[i].getBoundingClientRect().top + "\t\t|\t\tbottom = " + all_edit[i].getBoundingClientRect().bottom);
-
-          var editHeading = all_edit[i].querySelector(".js-edit-heading");
-          var editHeadingHeight = parseInt(getComputedStyle(document.querySelector(".js-edit-heading")).height, 10);
-
-          if (all_edit[i].getBoundingClientRect().bottom < (quickNavHeight + editHeadingHeight)) {
-            if (editHeading) {
-              helper.addClass(editHeading, "is-faded");
-              // editHeading.setAttribute("style", "top:" + (all_edit[i].getBoundingClientRect().bottom - editHeadingHeight) + "px");
-            };
-          } else {
-            if (editHeading) {
-              helper.removeClass(editHeading, "is-faded");
-              // editHeading.removeAttribute("style");
-            };
-          };
-
-          if ((all_edit[i].getBoundingClientRect().top) <= quickNavHeight && all_edit[i].getBoundingClientRect().bottom > quickNavHeight) {
-            for (var j = 0; j < all_quickNavLinks.length; j++) {
-              helper.removeClass(all_quickNavLinks[j], "is-active");
-            };
-            helper.addClass(all_quickNavLinks[i], "is-active");
-            if (editHeading) {
-              helper.addClass(all_edit[i], "is-pinned");
-              helper.addClass(editHeading, "is-pinned");
-            };
-          } else {
-            helper.removeClass(all_quickNavLinks[i], "is-active");
-            if (editHeading) {
-              helper.removeClass(all_edit[i], "is-pinned");
-              helper.removeClass(editHeading, "is-pinned");
-            };
-          };
-
-        };
-        // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        //   var lastQuickLink = helper.e(".js-quick-nav-last-link");
-        //   for (var i = 0; i < all_quickNavLinks.length; i++) {
-        //     helper.removeClass(all_quickNavLinks[i], "is-active");
-        //   };
-        //   helper.addClass(lastQuickLink, "is-active");
-        // };
+      var quickNav = helper.e(".js-quick-nav");
+      var all_quickNavLinks = helper.eA(".js-quick-nav-link");
+      var all_section = helper.eA(".js-section");
+      var offset = parseInt(getComputedStyle(quickNav).height, 10);
+      // if nav is on the left after 900px wide viewport
+      if (document.documentElement.clientWidth >= 900) {
+        offset = 0;
       };
 
-      if (body.dataset.displayMode == "true" || !body.dataset.displayMode) {
-        var all_display = helper.eA(".js-display");
-        var quickNav = helper.e(".js-quick-nav");
-        var quickNavHeight = parseInt(getComputedStyle(quickNav).height, 10);
-        var title, icon, jump;
-        var quickNavDisplayTitle = helper.e(".js-quick-nav-display-title");
-        var quickNavDisplayIcon = helper.e(".js-quick-nav-display-icon");
-        var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
-
-        for (var i = 0; i < all_display.length; i++) {
-          if ((all_display[i].getBoundingClientRect().top) <= quickNavHeight && all_display[i].getBoundingClientRect().bottom > quickNavHeight) {
-            title = all_display[i].dataset.displayTitle;
-            icon = all_display[i].dataset.displayIcon;
-            jump = all_display[i].dataset.editJump;
-            quickNavDisplayTitle.textContent = title;
-            helper.removeClass(quickNavDisplayIcon, "icon-account-circle");
-            helper.removeClass(quickNavDisplayIcon, "icon-shield");
-            helper.removeClass(quickNavDisplayIcon, "icon-bottle");
-            helper.removeClass(quickNavDisplayIcon, "icon-file");
-            helper.removeClass(quickNavDisplayIcon, "icon-combat");
-            helper.removeClass(quickNavDisplayIcon, "icon-whatshot");
-            helper.removeClass(quickNavDisplayIcon, "icon-apps");
-            helper.removeClass(quickNavDisplayIcon, "icon-list");
-            helper.addClass(quickNavDisplayIcon, icon);
-            quickNavDisplayEdit.dataset.editJump = jump;
+      for (var i = 0; i < all_section.length; i++) {
+        // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
+        if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
+          for (var j = 0; j < all_quickNavLinks.length; j++) {
+            helper.removeClass(all_quickNavLinks[j], "is-active");
           };
+          helper.addClass(all_quickNavLinks[i], "is-active");
+        } else {
+          helper.removeClass(all_quickNavLinks[i], "is-active");
         };
       };
 
@@ -12078,18 +12011,44 @@ var nav = (function() {
     };
   };
 
-  function _toggle_displayEdit(element) {
-    display.toggle();
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    var options = {
-      offset: quickNavHeight
+  // function _toggle_displayEdit(element) {
+  //   display.toggle();
+  //   var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
+  //   var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
+  //   var quickNavOffset;
+  //   if (quickNavHeight < quickNavWidth) {
+  //     quickNavOffset = quickNavHeight;
+  //   } else {
+  //     quickNavOffset = quickNavWidth;
+  //   };
+  //   var options = {
+  //     offset: quickNavOffset
+  //   };
+  //   var target = "#" + element.dataset.editJump;
+  //   smoothScroll.animateScroll(null, target, options);
+  // };
+
+  function _quickLinkSmoothScroll(element) {
+    var id = element.dataset.link;
+    var all_section = helper.eA(".js-section");
+    var quickNav = helper.e(".js-quick-nav");
+    var offset;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
+    } else {
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
-    var target = "#" + element.dataset.editJump;
-    smoothScroll.animateScroll(null, target, options);
+    var options = {
+      speed: 500,
+      offset: offset
+    };
+    smoothScroll.animateScroll(null, id, options);
   };
 
-  function bind() {
-    var nav = helper.e(".js-nav");
+  function _bind_navLinks() {
+
+    // var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
     var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
     var nightModeToggle = helper.e(".js-night-mode");
@@ -12099,12 +12058,6 @@ var nav = (function() {
     var characterRemove = helper.e(".js-character-remove");
     var characterImport = helper.e(".js-character-import");
     var characterExport = helper.e(".js-character-export");
-    var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-    var quickNavDisplayEdit = helper.e(".js-quick-nav-display-edit");
-
-    for (var i = 0; i < all_quickNavLinks.length; i++) {
-      all_quickNavLinks[i].addEventListener("click", navClose, false);
-    };
 
     navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -12167,10 +12120,55 @@ var nav = (function() {
       navClose();
     }, false);
 
-    quickNavDisplayEdit.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      _toggle_displayEdit(this);
+  };
+
+  function _bind_quickNavLinks() {
+    var all_quickNavLink = helper.eA(".js-quick-nav-link");
+    for (var i = 0; i < all_quickNavLink.length; i++) {
+      all_quickNavLink[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        navClose();
+        _quickLinkSmoothScroll(this);
+      }, false);
+    };
+  };
+
+  function _bind_shortcutKeys() {
+
+    window.addEventListener("keydown", function(event) {
+      // ctrl+alt+delete
+      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
+        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
+        navClose();
+      };
+      // ctrl+alt+i
+      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
+        sheet.import();
+        navClose();
+      };
+      // ctrl+alt+e
+      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
+        sheet.export();
+        navClose();
+      };
+      // ctrl+alt+m
+      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
+        toggle_nav();
+        helper.e(".js-nav-title").focus(this);
+      };
+      // ctrl+alt+d
+      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
+        display.toggle();
+      };
+      // ctrl+alt+n
+      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
+        night.toggle();
+      };
+      // esc
+      if (event.keyCode == 27) {
+        navClose();
+      };
     }, false);
 
     // window.addEventListener('click', function(event) {
@@ -12179,49 +12177,6 @@ var nav = (function() {
     //   };
     // }, false);
 
-    window.addEventListener("keydown", function(event) {
-
-      // ctrl+alt+delete
-      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
-        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        navClose();
-      };
-
-      // ctrl+alt+i
-      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
-        sheet.import();
-        navClose();
-      };
-
-      // ctrl+alt+e
-      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
-        sheet.export();
-        navClose();
-      };
-
-      // ctrl+alt+m
-      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
-        toggle_nav();
-        helper.e(".js-nav-title").focus(this);
-      };
-
-      // ctrl+alt+d
-      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
-        display.toggle();
-      };
-
-      // ctrl+alt+n
-      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
-        night.toggle();
-      };
-
-      // esc
-      if (event.keyCode == 27) {
-        navClose();
-      };
-
-    }, false);
-
     // key debugging
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
@@ -12229,6 +12184,12 @@ var nav = (function() {
     //   console.log(event);
     // });
 
+  };
+
+  function bind() {
+    _bind_navLinks();
+    _bind_shortcutKeys();
+    _bind_quickNavLinks();
   };
 
   // exposed methods
@@ -12733,6 +12694,7 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     display.bind();
+    card.bind();
   };
 
   function render() {
@@ -12800,33 +12762,33 @@ var skills = (function() {
   var renderTimer = null;
 
   function bind() {
-    var spentSkillRankInput = helper.e(".js-spent-skill-rank-input");
-    var all_rankInput = helper.eA(".js-input-block-field-ranks");
-    var all_customRankInput = helper.eA(".js-input-block-field-custom-ranks");
-    var spentSkillRankTotal = helper.e(".js-spent-skill-rank-total");
-    spentSkillRankInput.addEventListener("change", function() {
+    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
+    var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
+    var all_inputBlockFieldCustomRanks = helper.eA(".js-input-block-field-custom-ranks");
+    var skillSpentRanksTotal = helper.e(".js-skill-spent-ranks-total");
+    skillSpentRanksInput.addEventListener("change", function() {
       clearTimeout(renderTimer);
       renderTimer = setTimeout(function() {
         _render_rankTotal();
-        _store(spentSkillRankInput, spentSkillRankInput.checked);
-        _store(spentSkillRankTotal, parseInt(spentSkillRankTotal.innerHTML, 10) || 0);
+        _store(skillSpentRanksInput, skillSpentRanksInput.checked);
+        _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
       }, 200, this);
     }, false);
-    for (var i = 0; i < all_rankInput.length; i++) {
-      all_rankInput[i].addEventListener("input", function() {
+    for (var i = 0; i < all_inputBlockFieldRanks.length; i++) {
+      all_inputBlockFieldRanks[i].addEventListener("input", function() {
         clearTimeout(renderTimer);
         renderTimer = setTimeout(function() {
           _render_rankTotal();
-          _store(spentSkillRankTotal, parseInt(spentSkillRankTotal.innerHTML, 10) || 0);
+          _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
         }, 1000, this);
       }, false);
     };
-    for (var i = 0; i < all_customRankInput.length; i++) {
-      all_customRankInput[i].addEventListener("input", function() {
+    for (var i = 0; i < all_inputBlockFieldCustomRanks.length; i++) {
+      all_inputBlockFieldCustomRanks[i].addEventListener("input", function() {
         clearTimeout(renderTimer);
         renderTimer = setTimeout(function() {
           _render_rankTotal();
-          _store(spentSkillRankTotal, parseInt(spentSkillRankTotal.innerHTML, 10) || 0);
+          _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
         }, 1000, this);
       }, false);
     };
@@ -12844,26 +12806,26 @@ var skills = (function() {
   };
 
   function _render_includeCustomToggle(argument) {
-    var spentSkillRankInput = helper.e(".js-spent-skill-rank-input");
-    var path = spentSkillRankInput.dataset.path;
+    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
+    var path = skillSpentRanksInput.dataset.path;
     var state = helper.getObject(sheet.getCharacter(), path);
-    spentSkillRankInput.checked = state;
+    skillSpentRanksInput.checked = state;
   };
 
   function _render_rankTotal() {
-    var all_rankInput = helper.eA(".js-input-block-field-ranks");
-    var all_customRankInput = helper.eA(".js-input-block-field-custom-ranks");
-    var spentSkillRankInput = helper.e(".js-spent-skill-rank-input");
-    var spentSkillRankTotal = helper.e(".js-spent-skill-rank-total");
+    var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
+    var all_inputBlockFieldCustomRanks = helper.eA(".js-input-block-field-custom-ranks");
+    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
+    var skillSpentRanksTotal = helper.e(".js-skill-spent-ranks-total");
     var ranks = [];
     var ranksTotal;
     var customRanks = [];
     var customRanksTotal;
-    for (var i = 0; i < all_rankInput.length; i++) {
-      ranks.push(parseInt(all_rankInput[i].value, 10) || 0);
+    for (var i = 0; i < all_inputBlockFieldRanks.length; i++) {
+      ranks.push(parseInt(all_inputBlockFieldRanks[i].value, 10) || 0);
     };
-    for (var i = 0; i < all_customRankInput.length; i++) {
-      customRanks.push(parseInt(all_customRankInput[i].value, 10) || 0);
+    for (var i = 0; i < all_inputBlockFieldCustomRanks.length; i++) {
+      customRanks.push(parseInt(all_inputBlockFieldCustomRanks[i].value, 10) || 0);
     };
     ranksTotal = ranks.reduce(function(a, b) {
       return a + b;
@@ -12871,10 +12833,10 @@ var skills = (function() {
     customRanksTotal = customRanks.reduce(function(a, b) {
       return a + b;
     });
-    if (spentSkillRankInput.checked) {
-      spentSkillRankTotal.textContent = ranksTotal + customRanksTotal;
+    if (skillSpentRanksInput.checked) {
+      skillSpentRanksTotal.textContent = ranksTotal + customRanksTotal;
     } else {
-      spentSkillRankTotal.textContent = ranksTotal;
+      skillSpentRanksTotal.textContent = ranksTotal;
     };
   };
 
@@ -13003,10 +12965,10 @@ var spells = (function() {
     var spellResetButton = helper.e(".js-spell-reset");
     var all_newSpellAdd = helper.eA(".js-new-spell-add");
     for (var i = 0; i < all_newSpellAdd.length; i++) {
-      var newSpell = helper.getClosest(all_newSpellAdd[i], ".js-new-spell");
-      var newSpellField = newSpell.querySelector(".js-new-spell-field");
+      var spellBook = helper.getClosest(all_newSpellAdd[i], ".js-spell-book");
+      var newSpellField = spellBook.querySelector(".js-new-spell-field");
       all_newSpellAdd[i].addEventListener("click", function() {
-        _addNewSpell(helper.getClosest(this, ".js-new-spell").querySelector(".js-new-spell-field"));
+        _addNewSpell(helper.getClosest(this, ".js-spell-book").querySelector(".js-new-spell-field"));
         sheet.storeCharacters();
       }, false);
       newSpellField.addEventListener("keypress", function() {
@@ -13407,7 +13369,7 @@ var spells = (function() {
   function _render_spell(spellObject, level, spellIndex) {
     // read spell and add them to spell lists
     var spellButtonCol = document.createElement("div");
-    spellButtonCol.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
+    spellButtonCol.setAttribute("class", "m-spell-col js-spell-col");
     // find spell list to add too
     var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
     // append new spell to spell list
@@ -13423,7 +13385,7 @@ var spells = (function() {
     for (var i = 0; i < array.length; i++) {
       var spellObject = array[i];
       var spellButtonCol = document.createElement("div");
-      spellButtonCol.setAttribute("class", "col-xs-12 col-md-6 js-spell-col");
+      spellButtonCol.setAttribute("class", "m-spell-col js-spell-col");
       // find spell list to add too
       var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
       // append new spell to spell list
@@ -13537,21 +13499,18 @@ var stats = (function() {
     var statsTempModifier = element.querySelector(".js-stats-temp-modifier");
     _changeModifer(statsScore, statsModifier);
     _changeModifer(statsTempScore, statsTempModifier);
-    // console.log(element.dataset.path);
-    // console.log(statsTempScore.dataset.tempScore);
-    // if (statsTempScore.dataset.path) {
-    //   if (typeof helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "undefined" && helper.getObject(sheet.getCharacter(), statsTempScore.dataset.path) != "") {
-    //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, true);
-    //   } else {
-    //     helper.setObject(sheet.getCharacter(), element.dataset.statPath.temp, false);
-    //   };
-    // };
   };
 
   function _changeModifer(scoreElement, totalElement) {
     var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), scoreElement.dataset.path));
     var path = totalElement.dataset.path;
+    // store the modifier
     helper.setObject(sheet.getCharacter(), path, modifier);
+    // add a + if greater than 0
+    if (modifier > 0) {
+      modifier =  "+" + modifier
+    };
+    // render modifier
     totalElement.textContent = modifier;
   };
 
@@ -13716,6 +13675,33 @@ var textareaBlock = (function() {
 
 })();
 
+var themeColor = (function() {
+
+  function toggle() {
+    var body = helper.e("body");
+    var themeMeta = document.getElementsByTagName("meta");
+    if (body.dataset.displayMode == "true") {
+      for (var i = 0; i < themeMeta.length; i++) {
+        if (themeMeta[i].getAttribute("name") == "theme-color") {
+          themeMeta[i].setAttribute("content", "#b0002e");
+        };
+      };
+    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+      for (var i = 0; i < themeMeta.length; i++) {
+        if (themeMeta[i].getAttribute("name") == "theme-color") {
+          themeMeta[i].setAttribute("content", "#2a5d84");
+        };
+      };
+    };
+  };
+
+  // exposed methods
+  return {
+    toggle: toggle
+  };
+
+})();
+
 var totalBlock = (function() {
 
 
@@ -13812,7 +13798,7 @@ var totalBlock = (function() {
       return value;
     };
 
-    function _checkForTempScore(score, tempScore) {
+    function _checkForTempModifier(score, tempScore) {
       if (tempScore == "") {
         return _checkValue(score);
       } else {
@@ -13855,36 +13841,36 @@ var totalBlock = (function() {
       var checkPenalty = 0;
       // if str data attribute is true
       if (all_totalBlock[i].dataset.strBonus == "true") {
-        strBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
+        strBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if dex data attribute is true
       if (all_totalBlock[i].dataset.dexBonus == "true") {
-        dexBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if con data attribute is true
       if (all_totalBlock[i].dataset.conBonus == "true") {
-        conBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
+        conBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
       };
       // if int data attribute is true
       if (all_totalBlock[i].dataset.intBonus == "true") {
-        intBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
+        intBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
       };
       // if wis data attribute is true
       if (all_totalBlock[i].dataset.wisBonus == "true") {
-        wisBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
+        wisBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
       };
       // if cha data attribute is true
       if (all_totalBlock[i].dataset.chaBonus == "true") {
-        chaBonus = _checkForTempScore(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+        chaBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
       };
       // if max dex data attribute is true
       if (all_totalBlock[i].dataset.maxDex == "true") {
         // if max dex is less than dex bonus
-        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempScore(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
           // set dex bonuse to mac dex
           dexBonus = sheet.getCharacter().defense.ac.max_dex;
         };
@@ -13938,6 +13924,7 @@ var totalBlock = (function() {
         plusTenBonus = 10;
       };
       var total = all_totalBlock[i].querySelector(".js-total-block-total");
+      var totalType = all_totalBlock[i].dataset.totalType;
       var totalPath = total.dataset.path;
       var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
       var modifiers = [];
@@ -13981,12 +13968,16 @@ var totalBlock = (function() {
       };
       // grand total
       var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill + checkPenalty;
-      // update total
-      total.textContent = grandTotal;
       // store current to character object
       if (totalPath) {
-        helper.setObject(sheet.getCharacter(), totalPath, parseInt(total.innerHTML, 10) || 0);
+        helper.setObject(sheet.getCharacter(), totalPath, grandTotal || 0);
       };
+      // add + to bonus totals
+      if (totalType == "bonus" && grandTotal > 0) {
+        grandTotal = "+" + grandTotal;
+      };
+      // update total
+      total.textContent = grandTotal;
     };
     sheet.storeCharacters();
   };
@@ -14347,15 +14338,6 @@ var checkUrl = (function() {
 })();
 
 (function() {
-
-  if (document.querySelector(".js-quick-nav")) {
-    var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-  };
-
-  smoothScroll.init({
-    speed: 500,
-    offset: quickNavHeight
-  });
 
 })();
 
