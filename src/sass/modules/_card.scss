@@ -16,6 +16,11 @@
   padding: 2em 1em;
   position: relative;
 }
+.m-card-body-dark {
+  background-color: $gray-20;
+  padding: 2em 1em;
+  position: relative;
+}
 .m-card-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
@@ -72,6 +77,9 @@
 .is-night-mode {
   .m-card {
     background-color: $gray-03;
+  }
+  .m-card-body-dark {
+    background-color: $secondary-color-02;
   }
   .m-card-link-self {
     &.is-active,

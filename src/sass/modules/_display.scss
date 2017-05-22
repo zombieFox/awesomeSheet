@@ -108,7 +108,7 @@
 // --------------------------------------------------
 // display head
 // --------------------------------------------------
-.m-display-head {
+.m-display-quick-stats {
   font-size: $font-size-root-100;
   display: flex;
   flex-flow: row wrap;
@@ -117,7 +117,7 @@
     margin-bottom: 2em;
   }
 }
-.m-display-head-item {
+.m-display-quick-stats-item {
   flex: 1 0 auto;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
@@ -125,15 +125,14 @@
   padding: 0.5em 0;
   border-radius: $border-radius-large;
 }
-.m-display-head-item-stat {
+.m-display-quick-stats-item-stat {
   flex-basis: 33.3333333333%;
   padding: 0.5em;
 }
-.m-display-head-item-title {
+.m-display-quick-stats-item-title {
+  font-family: $open-sans-semi-bold;
   font-size: $font-size-075;
   line-height: 1;
-  font-family: $open-sans-semi-bold;
-  color: $primary-color-10;
   .m-display-text {
     &:not(:only-child):not(:last-child) {
       margin-right: 0.5em;
@@ -145,31 +144,31 @@
     margin-bottom: 0.5em;
   }
 }
-.m-display-head-item-value {
+.m-display-quick-stats-item-value {
   font-size: $font-size-200;
   line-height: 1;
   margin-bottom: 0;
-  .m-display-head-item-value-small {
+  .m-display-quick-stats-item-value-small {
     font-size: $font-size-050;
   }
 }
-.m-display-head-item-highlight {
+.m-display-quick-stats-item-highlight {
   border: 2px solid $gray-18;
-  .m-display-head-item-title,
-  .m-display-head-item-value {
+  .m-display-quick-stats-item-title,
+  .m-display-quick-stats-item-value {
     text-align: center;
   }
 }
-.m-display-head-hitpoints {
+.m-display-quick-stats-hitpoints {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
 }
-.m-display-head-hitpoints-current,
-.m-display-head-hitpoints-total {
+.m-display-quick-stats-hitpoints-current,
+.m-display-quick-stats-hitpoints-total {
   flex: 0 0 auto;
 }
-.m-display-head-hitpoints-current {
+.m-display-quick-stats-hitpoints-current {
   padding-right: 0.4em;
   position: relative;
   &:after {
@@ -184,12 +183,12 @@
     transform: translate(1px, 0) rotate(20deg);
   }
 }
-.m-display-head-hitpoints-total {
+.m-display-quick-stats-hitpoints-total {
   padding-left: 0.4em;
   color: $gray-12;
 }
 .is-night-mode {
-  .m-display-head-item-highlight {
+  .m-display-quick-stats-item-highlight {
     border-color: $light-alpha-19;
   }
 }
