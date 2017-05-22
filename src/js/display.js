@@ -12,9 +12,9 @@ var display = (function() {
   };
 
   function _bind_selfLink() {
-    var all_displaySelfLink = helper.eA(".js-display-self-link");
-    for (var i = 0; i < all_displaySelfLink.length; i++) {
-      all_displaySelfLink[i].addEventListener("click", function(event) {
+    var all_cardLinkSelf = helper.eA(".m-card-link-self");
+    for (var i = 0; i < all_cardLinkSelf.length; i++) {
+      all_cardLinkSelf[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         _selfLink(this);
@@ -34,41 +34,20 @@ var display = (function() {
   };
 
   function _selfLink(element) {
-    var id;
-    var all_edit = helper.eA(".js-edit");
+    var id = "#" + helper.getClosest(element, ".js-section").id;
+    var all_section = helper.eA(".js-section");
     var quickNav = helper.e(".js-quick-nav");
     var offset;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) - 10;
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
     } else {
-      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
+      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
     var options = {
       speed: 500,
       offset: offset
     };
-    var id = element.dataset.selfLink;
-    smoothScroll.animateScroll(null, id, options);
-  };
-
-  function _editLink(element) {
-    toggle();
-    var id;
-    var all_edit = helper.eA(".js-edit");
-    var quickNav = helper.e(".js-quick-nav");
-    var offset;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) - 10;
-    } else {
-      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
-    };
-    var options = {
-      speed: 500,
-      offset: offset
-    };
-    var id = element.dataset.editLink;
     smoothScroll.animateScroll(null, id, options);
   };
 

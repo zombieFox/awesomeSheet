@@ -12,83 +12,9 @@
   font-size: $font-size-100;
   color: $primary-color-08;
 }
-.m-display-edit-link {
-  z-index: $display-heading;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  color: $primary-color-10;
-  &:link,
-  &:visited {
-    color: $primary-color-10;
-  }
-  &:focus,
-  &:hover {
-    color: $primary-color-08;
-  }
-  &.is-active,
-  &:active {
-    color: $primary-color-06;
-  }
-}
-.m-display-self-link {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2em;
-  display: block;
-  z-index: $display-heading;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  &.is-active,
-  &:active,
-  &:focus,
-  &:hover,
-  &:link,
-  &:visited {
-    background-color: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  &:not(:last-child) {
-    margin-bottom: 0;
-  }
-}
 .is-night-mode {
   .m-display-wrapper-dark {
     background-color: $light-alpha-19;
-  }
-  .m-display-edit-link {
-    color: $primary-color-10;
-    &:link,
-    &:visited {
-      color: $primary-color-10;
-    }
-    &:focus,
-    &:hover {
-      color: $primary-color-08;
-    }
-    &.is-active,
-    &:active {
-      color: $primary-color-06;
-    }
-  }
-  .m-display-self-link {
-    &.is-active,
-    &:active,
-    &:focus,
-    &:hover,
-    &:link,
-    &:visited {
-      background-color: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
   }
 }
 // --------------------------------------------------
