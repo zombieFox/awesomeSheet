@@ -5,6 +5,7 @@
   z-index: $body;
   box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
+  overflow: hidden;
   box-sizing: border-box;
   width: 100%;
 }

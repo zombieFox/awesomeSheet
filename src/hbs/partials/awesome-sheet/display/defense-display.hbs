@@ -1,11 +1,25 @@
 <section id="display-defense" class="l-display js-display is-hidden">
-  <button data-self-link="#display-defense" class="m-display-self-link button button-link js-display-self-link"></button>
+  <button class="m-display-self-link button button-link js-display-self-link" data-self-link="#display-defense"></button>
+  <button class="m-display-edit-link button button-link button-small button-icon u-inline-with-input js-display-edit-link" data-edit-link="#defense"><span class="icon-edit"></span></button>
   <div class="m-display-wrapper">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
+          <h1 class="m-display-title">Defense</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
 
           <div class="m-display-body">
+            <h2>
+              <span class="js-display-block" data-display-type="text-snippet" data-display="defense.hp.current" data-display-prefix="HP ">
+                <span class="js-display-block-target"></span>
+              </span>
+              <span class="u-muted-text js-display-block" data-display-type="text-snippet" data-display="defense.hp.total">
+                / <span class="js-display-block-target"></span>
+              </span>
+            </h2>
             <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch ">
               <span class="js-display-block-target"></span>
             </p>
@@ -16,8 +30,8 @@
 
           <div class="m-display-body">
             <p class="m-display-body-title">Saves</p>
-            <ul class="m-display-grid-multi-col u-list-unstyled">
-              <li class="m-display-col">
+            <ul class="m-display-grid u-list-unstyled">
+              <li class="m-display-col-three m-display-col-three-fixed">
 
                 <div class="m-display-item m-display-item-col">
                   <span class="m-display-item-prefix">Fortitude</span>
@@ -27,7 +41,7 @@
                 </div>
 
               </li>
-              <li class="m-display-col">
+              <li class="m-display-col-three m-display-col-three-fixed">
 
                 <div class="m-display-item m-display-item-col">
                   <span class="m-display-item-prefix">Reflex</span>
@@ -37,7 +51,7 @@
                 </div>
 
               </li>
-              <li class="m-display-col">
+              <li class="m-display-col-three m-display-col-three-fixed">
 
                 <div class="m-display-item m-display-item-col">
                   <span class="m-display-item-prefix">Will</span>

@@ -3,6 +3,7 @@ var display = (function() {
   function bind() {
     _bind_fab();
     _bind_selfLink();
+    _bind_editLink();
   };
 
   function _bind_fab() {
@@ -17,6 +18,17 @@ var display = (function() {
         event.stopPropagation();
         event.preventDefault();
         _selfLink(this);
+      }, false);
+    };
+  };
+
+  function _bind_editLink() {
+    var all_displayEditLink = helper.eA(".js-display-edit-link");
+    for (var i = 0; i < all_displayEditLink.length; i++) {
+      all_displayEditLink[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _editLink(this);
       }, false);
     };
   };
@@ -37,6 +49,26 @@ var display = (function() {
       offset: offset
     };
     var id = element.dataset.selfLink;
+    smoothScroll.animateScroll(null, id, options);
+  };
+
+  function _editLink(element) {
+    toggle();
+    var id;
+    var all_edit = helper.eA(".js-edit");
+    var quickNav = helper.e(".js-quick-nav");
+    var offset;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) - 10;
+    } else {
+      offset = parseInt(getComputedStyle(all_edit[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
+    };
+    var options = {
+      speed: 500,
+      offset: offset
+    };
+    var id = element.dataset.editLink;
     smoothScroll.animateScroll(null, id, options);
   };
 
@@ -247,7 +279,7 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col");
+      li.setAttribute("class", "m-display-col-three");
       var div = document.createElement("div");
       div.setAttribute("class", "m-display-item m-display-item-list");
       var value = document.createElement("span");
@@ -277,7 +309,7 @@ var display = (function() {
 
       if (object.ranks != "undefined" && object.ranks != "") {
         var li = document.createElement("li");
-        li.setAttribute("class", "m-display-col");
+        li.setAttribute("class", "m-display-col-three");
         var div = document.createElement("div");
         div.setAttribute("class", "m-display-item m-display-item-col");
         var value = document.createElement("span");
@@ -323,7 +355,7 @@ var display = (function() {
       displayBodyTitle.setAttribute("class", "m-display-body-title");
       displayBodyTitle.textContent = "Level " + level;
       var spellBookPage = document.createElement("ul");
-      spellBookPage.setAttribute("class", "m-display-grid-multi-col u-list-unstyled");
+      spellBookPage.setAttribute("class", "m-display-grid u-list-unstyled");
 
       displayBody.appendChild(displayBodyTitle);
 
@@ -382,7 +414,7 @@ var display = (function() {
 
         var spellObject = array[i];
         var displayCol = document.createElement("li");
-        displayCol.setAttribute("class", "m-display-col");
+        displayCol.setAttribute("class", "m-display-col-three");
         var displayItem = document.createElement("div");
         displayItem.setAttribute("class", "m-display-item m-display-item-list");
 

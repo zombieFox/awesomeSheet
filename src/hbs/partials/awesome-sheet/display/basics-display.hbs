@@ -1,23 +1,40 @@
 <section id="display-basics" class="l-display l-display-first js-display is-hidden">
   <button class="m-display-self-link button button-link js-display-self-link" data-self-link="#display-basics"></button>
+  <button class="m-display-edit-link button button-link button-small button-icon u-inline-with-input js-display-edit-link" data-edit-link="#basics"><span class="icon-edit"></span></button>
   <div class="m-display-wrapper">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
+            <h1 class="m-display-title">Basics</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
 
-          <div class="m-display-head">
-
-            <div class="m-display-head-item">
-              <p class="m-display-head-item-title js-display-block" data-display-type="text-snippet" data-display="basics.gender,basics.race,basics.class,basics.level">
-                <span class="js-display-block-target"></span>
-              </p>
-              <h1 class="m-display-head-item-value js-display-block" data-display-type="text-snippet" data-display="basics.name">
-                <span class="js-display-block-target"></span>
-              </h1>
-            </div>
-
+          <div class="m-display-body">
+            <h2 class="js-display-block" data-display-type="text-snippet" data-display="basics.name">
+              <span class="js-display-block-target"></span>
+            </h2>
+            <p class="js-display-block" data-display-type="text-snippet" data-display="basics.gender,basics.race,basics.class,basics.level">
+              <span class="js-display-block-target"></span>
+            </p>
+            <p class="js-display-block" data-display-type="text-snippet" data-display="basics.xp,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix="xp,, tall,, years old, hero points, luck points">
+              <span class="js-display-block-target"></span>
+            </p>
           </div>
 
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-display-wrapper-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="m-display-body-title">Quick Stats</p>
           <div class="m-display-head">
 
             <div class="m-display-head-item">
@@ -63,13 +80,6 @@
             </div>
 
           </div>
-
-          <div class="m-display-head">
-            <p class="js-display-block" data-display-type="text-snippet" data-display="basics.xp,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix="xp,, tall,, years old, hero points, luck points">
-              <span class="js-display-block-target"></span>
-            </p>
-          </div>
-
         </div>
       </div>
     </div>
