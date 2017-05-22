@@ -2,53 +2,11 @@ var display = (function() {
 
   function bind() {
     _bind_fab();
-    _bind_selfLink();
-    _bind_editLink();
   };
 
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", toggle, false);
-  };
-
-  function _bind_selfLink() {
-    var all_cardLinkSelf = helper.eA(".m-card-link-self");
-    for (var i = 0; i < all_cardLinkSelf.length; i++) {
-      all_cardLinkSelf[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _selfLink(this);
-      }, false);
-    };
-  };
-
-  function _bind_editLink() {
-    var all_displayEditLink = helper.eA(".js-display-edit-link");
-    for (var i = 0; i < all_displayEditLink.length; i++) {
-      all_displayEditLink[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _editLink(this);
-      }, false);
-    };
-  };
-
-  function _selfLink(element) {
-    var id = "#" + helper.getClosest(element, ".js-section").id;
-    var all_section = helper.eA(".js-section");
-    var quickNav = helper.e(".js-quick-nav");
-    var offset;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
-    } else {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
-    };
-    var options = {
-      speed: 500,
-      offset: offset
-    };
-    smoothScroll.animateScroll(null, id, options);
   };
 
   function toggle() {

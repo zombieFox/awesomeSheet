@@ -14,6 +14,7 @@
 }
 .m-card-body {
   padding: 2em 1em;
+  position: relative;
 }
 .m-card-title {
   font-family: $open-sans-semi-bold;
@@ -53,8 +54,6 @@
   top: 0;
   right: 0;
   margin: 0;
-  height: 100%;
-  padding: 0 1.5em;
   color: $secondary-color-12;
   z-index: 2;
   &:link,
@@ -70,16 +69,43 @@
     color: $secondary-color-08;
   }
 }
-.is-display-mode {
-  .m-card-title {
-    color: $primary-color-08;
-  }
-}
 .is-night-mode {
   .m-card {
     background-color: $gray-03;
   }
   .m-card-link-self {
+    &.is-active,
+    &:active,
+    &:focus,
+    &:hover,
+    &:link,
+    &:visited {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+  }
+  .m-card-link-toggle {
+    color: $secondary-color-12;
+    &:link,
+    &:visited {
+      color: $secondary-color-12;
+    }
+    &:focus,
+    &:hover {
+      color: $secondary-color-10;
+    }
+    &.is-active,
+    &:active {
+      color: $secondary-color-08;
+    }
+  }
+}
+.is-display-mode {
+  .m-card-title {
+    color: $primary-color-08;
+  }
+  .m-card-link-toggle {
     color: $primary-color-10;
     &:link,
     &:visited {
@@ -92,18 +118,6 @@
     &.is-active,
     &:active {
       color: $primary-color-06;
-    }
-  }
-  .m-card-link-toggle {
-    &.is-active,
-    &:active,
-    &:focus,
-    &:hover,
-    &:link,
-    &:visited {
-      background-color: transparent;
-      border-color: transparent;
-      color: transparent;
     }
   }
 }

@@ -59,6 +59,7 @@ module.exports = function(grunt) {
         src: [
           '<%= folders.build %>/js/strict.js',
           '<%= folders.build %>/js/helper.js', // helper functions
+          '<%= folders.build %>/js/card.js',
           '<%= folders.build %>/js/characters/blank.js',
           '<%= folders.build %>/js/characters/marika.js',
           '<%= folders.build %>/js/characters/nefi.js',
@@ -82,9 +83,9 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/spells.js',
           '<%= folders.build %>/js/stats.js',
           '<%= folders.build %>/js/textarea-block.js',
+          '<%= folders.build %>/js/theme-color.js',
           '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/check-url.js',
-          '<%= folders.build %>/js/theme-color.js',
           '<%= folders.build %>/js/vendor-options.js',
           '<%= folders.build %>/js/init.js' // invoke calls
         ],
