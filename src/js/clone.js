@@ -49,7 +49,7 @@ var clone = (function() {
       quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
     };
     if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom > (windowHeight - (windowHeight / 6))) {
-      var offset = (windowHeight / 2);
+      var offset = (windowHeight - (windowHeight / 6));
       var options = {
         speed: 500,
         offset: offset
