@@ -51,7 +51,7 @@ var clone = (function() {
     if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom > (windowHeight - (windowHeight / 6))) {
       var offset = (windowHeight - (windowHeight / 6));
       var options = {
-        speed: 500,
+        speed: 200,
         offset: offset
       };
       if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {

@@ -18,26 +18,40 @@ var display = (function() {
     var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
     var all_section = helper.eA(".js-section");
-    var anySectionDisplay = 0;
+    var anySectionDisplay = false;
+    var allSectionDisplay = 0;
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
-        anySectionDisplay++;
+        anySectionDisplay = true;
+        allSectionDisplay ++;
       };
     };
-    if (anySectionDisplay == all_section.length) {
+    if (anySectionDisplay) {
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
-      fab.dataset.displayMode = "true";
       helper.addClass(quickNav, "is-display-mode");
+      themeColor.update();
     } else {
+      fab.dataset.displayMode = "false";
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
-      fab.dataset.displayMode = "false";
       helper.removeClass(quickNav, "is-display-mode");
+    };
+    if (allSectionDisplay == all_section.length) {
+      fab.dataset.displayMode = "true";
+      themeColor.update();
+    } else {
+      fab.dataset.displayMode = "false";
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
+      helper.removeClass(quickNav, "is-display-mode");
+      themeColor.update();
     };
   };
 

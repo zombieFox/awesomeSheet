@@ -1,15 +1,15 @@
 var themeColor = (function() {
 
-  function toggle() {
-    var body = helper.e("body");
+  function update() {
+    var fab = helper.e(".js-fab");
     var themeMeta = document.getElementsByTagName("meta");
-    if (body.dataset.displayMode == "true") {
+    if (fab.dataset.displayMode == "true") {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
           themeMeta[i].setAttribute("content", "#b0002e");
         };
       };
-    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+    } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
           themeMeta[i].setAttribute("content", "#2a5d84");
@@ -20,7 +20,7 @@ var themeColor = (function() {
 
   // exposed methods
   return {
-    toggle: toggle
+    update: update
   };
 
 })();
