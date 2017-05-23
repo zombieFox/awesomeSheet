@@ -6,66 +6,120 @@ var display = (function() {
 
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
-    fabButton.addEventListener("click", toggle, false);
+    fabButton.addEventListener("click", function() {
+      toggle();
+      themeColor.update();
+    }, false);
   };
 
-  function toggle() {
-    var body = helper.e("body");
+  function update() {
+    var quickNav = helper.e(".js-quick-nav");
+    var fab = helper.e(".js-fab");
+    var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
-    // var quickNavList = helper.e(".js-quick-nav-list");
-    var all_edit = helper.eA(".js-edit");
-    var all_display = helper.eA(".js-display");
-
-    function _displayOn() {
-      helper.addClass(body, "is-display-mode");
-      // iterate over all edit sections
-      for (var i = 0; i < all_edit.length; i++) {
-        // make them visable
-        helper.addClass(all_edit[i], "is-hidden");
+    var all_section = helper.eA(".js-section");
+    var anySectionDisplay = false;
+    var allSectionDisplay = 0;
+    for (var i = 0; i < all_section.length; i++) {
+      if (all_section[i].dataset.displayMode == "true") {
+        anySectionDisplay = true;
+        allSectionDisplay ++;
       };
-      // iterate over all display sections
-      for (var i = 0; i < all_display.length; i++) {
-        // make them visable
-        helper.removeClass(all_display[i], "is-hidden");
-      };
-      // change fab icon
+    };
+    if (anySectionDisplay) {
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
-      // chnage android theme color
-      themeColor.toggle();
+      helper.addClass(fabButton, "button-primary");
+      helper.removeClass(fabButton, "button-secondary");
+      helper.addClass(quickNav, "is-display-mode");
+      themeColor.update();
+    } else {
+      fab.dataset.displayMode = "false";
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
+      helper.removeClass(quickNav, "is-display-mode");
+    };
+    if (allSectionDisplay == all_section.length) {
+      fab.dataset.displayMode = "true";
+      themeColor.update();
+    } else {
+      fab.dataset.displayMode = "false";
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
+      helper.removeClass(quickNav, "is-display-mode");
+      themeColor.update();
+    };
+  };
+
+  function _toggle_singleSection(element, forceToggle) {
+    var icon = element.querySelector(".js-card-link-toggle-icon");
+    var section = helper.getClosest(element, ".js-section");
+    var edit = section.querySelector(".js-edit");
+    var display = section.querySelector(".js-display");
+
+    function _displayOn() {
+      section.dataset.displayMode = "true";
+      helper.addClass(section, "is-display-mode");
+      helper.addClass(edit, "is-hidden");
+      helper.removeClass(display, "is-hidden");
+      helper.addClass(icon, "icon-edit");
+      helper.removeClass(icon, "icon-reader-mode");
     };
 
     function _displayOff() {
-      helper.removeClass(body, "is-display-mode");
-      // iterate over all edit sections
-      for (var i = 0; i < all_edit.length; i++) {
-        // make them visable
-        helper.removeClass(all_edit[i], "is-hidden");
-      };
-      // iterate over all display sections
-      for (var i = 0; i < all_display.length; i++) {
-        // hide display section
-        helper.addClass(all_display[i], "is-hidden");
-      };
-      // change fab icon
-      helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader-mode");
-      // chnage android theme color
-      themeColor.toggle();
+      section.dataset.displayMode = "false";
+      helper.removeClass(section, "is-display-mode");
+      helper.removeClass(edit, "is-hidden");
+      helper.addClass(display, "is-hidden");
+      helper.removeClass(icon, "icon-edit");
+      helper.addClass(icon, "icon-reader-mode");
     };
 
-    if (body.dataset.displayMode == "true") {
-      body.dataset.displayMode = "false";
-      _displayOff();
-    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-      body.dataset.displayMode = "true";
+    if (forceToggle == true) {
       _displayOn();
+    } else if(forceToggle == false) {
+      _displayOff();
+    } else {
+      if (section.dataset.displayMode == "true") {
+        _displayOff();
+      } else if (section.dataset.displayMode == "false" || !section.dataset.displayMode) {
+        _displayOn();
+      };
     };
 
-    card.update();
-    totalBlock.update();
+  };
+
+  function _toggle_allSection() {
+    var fab = helper.e(".js-fab");
+    var all_section = helper.eA(".js-section");
+
+    if (fab.dataset.displayMode == "true") {
+      fab.dataset.displayMode = "false";
+      for (var i = 0; i < all_section.length; i++) {
+        _toggle_singleSection(all_section[i], false);
+      };
+    } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
+      fab.dataset.displayMode = "true";
+      for (var i = 0; i < all_section.length; i++) {
+        _toggle_singleSection(all_section[i], true);
+      };
+    };
+
+    update();
+  };
+
+  function toggle(section) {
     clear();
     render();
+    if (section) {
+      _toggle_singleSection(section);
+    } else {
+      _toggle_allSection();
+    };
   };
 
   function clear() {
@@ -659,6 +713,7 @@ var display = (function() {
   return {
     toggle: toggle,
     bind: bind,
+    update: update,
     render: render,
     clear: clear
   };
