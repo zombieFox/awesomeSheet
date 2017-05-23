@@ -21,7 +21,7 @@ select {
 
 .textarea,
 textarea {
-  background-color: $secondary-color-alpha-20;
+  background-color: $secondary-color-alpha-19;
   font-family: $open-sans-regular;
   padding: $font-size-050 10px;
   margin: 0 0 2em 0;
@@ -51,7 +51,7 @@ input {
   &[type="text"],
   &[type="tel"],
   &[type="password"] {
-    background-color: $secondary-color-alpha-20;
+    background-color: $secondary-color-alpha-19;
     height: $line-height-250;
     line-height: $line-height-250;
     padding: 0 10px;

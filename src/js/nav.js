@@ -261,7 +261,7 @@ var nav = (function() {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
     var options = {
-      speed: 200,
+      speed: 300,
       offset: offset
     };
     smoothScroll.animateScroll(null, id, options);

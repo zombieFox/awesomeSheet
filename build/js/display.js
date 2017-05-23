@@ -56,7 +56,7 @@ var display = (function() {
   };
 
   function _toggle_singleSection(element, forceToggle) {
-    var icon = element.querySelector(".js-card-link-toggle-icon");
+    var icon = element.querySelector(".js-card-display-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
     var display = section.querySelector(".js-display");

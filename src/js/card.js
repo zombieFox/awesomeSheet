@@ -1,14 +1,14 @@
 var card = (function() {
 
   function bind() {
-    _bind_linkSelf();
+    _bind_cardTitle();
     _bind_linkToggle();
   };
 
-  function _bind_linkSelf() {
-    var all_cardLinkSelf = helper.eA(".js-card-link-self");
-    for (var i = 0; i < all_cardLinkSelf.length; i++) {
-      all_cardLinkSelf[i].addEventListener("click", function(event) {
+  function _bind_cardTitle() {
+    var all_cardTitle = helper.eA(".js-card-title");
+    for (var i = 0; i < all_cardTitle.length; i++) {
+      all_cardTitle[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         _linkSelf(this);
@@ -17,9 +17,9 @@ var card = (function() {
   };
 
   function _bind_linkToggle() {
-    var all_cardLinkToggle = helper.eA(".js-card-link-toggle");
-    for (var i = 0; i < all_cardLinkToggle.length; i++) {
-      all_cardLinkToggle[i].addEventListener("click", function(event) {
+    var all_cardDisplayToggle = helper.eA(".js-card-display-toggle");
+    for (var i = 0; i < all_cardDisplayToggle.length; i++) {
+      all_cardDisplayToggle[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         _linkToggle(this);
@@ -39,7 +39,7 @@ var card = (function() {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
     var options = {
-      speed: 200,
+      speed: 300,
       offset: offset
     };
     smoothScroll.animateScroll(null, id, options);
