@@ -1,6 +1,7 @@
 .l-section {
   margin: 2em 0 0;
   width: 100%;
+  box-shadow: $shadow-small;
 }
 .l-section-wrapper {
   margin: 4.5em 1em 2em;
@@ -38,6 +39,20 @@
 }
 @media (min-width: $screen-xl) {
   .l-section {
-    width: 60%;
+    width: 100%;
+    margin: 0 0 2em;
+    break-inside: avoid;
+  }
+  .l-section-wrapper {
+    display: block;
+    margin: 0 0 0 4.5em;
+    padding: 2em 4vw;
+    column-gap: 2em;
+    column-count: 2;
+  }
+}
+@media (min-width: 2000px) {
+  .l-section-wrapper {
+    column-count: 3;
   }
 }

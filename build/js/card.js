@@ -33,8 +33,10 @@ var card = (function() {
     var quickNav = helper.e(".js-quick-nav");
     var offset;
     // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
+    if (document.documentElement.clientWidth >= 900 && document.documentElement.clientWidth < 1300) {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
+    } else if (document.documentElement.clientWidth >= 1300) {
+      offset = parseInt(getComputedStyle(all_section[1]).paddingBottom, 10) - 10;
     } else {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
@@ -48,17 +50,33 @@ var card = (function() {
   function _linkToggle(element) {
     display.toggle();
     _linkSelf(element);
+    update();
+  };
+
+  function update() {
+    var body = helper.e("body");
     var all_cardLinkToggle = helper.eA(".js-card-link-toggle");
-    for (var i = 0; i < all_cardLinkToggle.length; i++) {
-      var icon = all_cardLinkToggle[i].querySelector(".js-card-link-toggle-icon");
-      helper.toggleClass(icon, "icon-reader-mode");
-      helper.toggleClass(icon, "icon-edit");
+
+    if (body.dataset.displayMode == "true") {
+      for (var i = 0; i < all_cardLinkToggle.length; i++) {
+        var icon = all_cardLinkToggle[i].querySelector(".js-card-link-toggle-icon");
+        helper.removeClass(icon, "icon-reader-mode");
+        helper.addClass(icon, "icon-edit");
+      };
+    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+      for (var i = 0; i < all_cardLinkToggle.length; i++) {
+        var icon = all_cardLinkToggle[i].querySelector(".js-card-link-toggle-icon");
+        helper.addClass(icon, "icon-reader-mode");
+        helper.removeClass(icon, "icon-edit");
+      };
     };
+
   };
 
   // exposed methods
   return {
-    bind: bind
+    bind: bind,
+    update: update
   };
 
 })();

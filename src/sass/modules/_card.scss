@@ -2,14 +2,12 @@
   background-color: $white;
   position: relative;
   z-index: $body;
-  box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
 }
 .m-card-head {
-  padding: 2em 2em 0;
   position: relative;
 }
 .m-card-body {
@@ -24,7 +22,9 @@
 .m-card-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
-  color: $secondary-color-12;
+  color: $secondary-color-08;
+  border-top: 0.4em solid $secondary-color-08;
+  padding: 1em 2em 0.5em 2em;
   margin: 0;
 }
 .m-card-link-self {
@@ -59,19 +59,21 @@
   top: 0;
   right: 0;
   margin: 0;
-  color: $secondary-color-12;
+  border: 0;
+  height: 100%;
+  color: $secondary-color-08;
   z-index: 2;
   &:link,
   &:visited {
-    color: $secondary-color-12;
+    color: $secondary-color-08;
   }
   &:focus,
   &:hover {
-    color: $secondary-color-10;
+    color: $secondary-color-06;
   }
   &.is-active,
   &:active {
-    color: $secondary-color-08;
+    color: $secondary-color-04;
   }
 }
 .is-night-mode {
@@ -94,38 +96,39 @@
     }
   }
   .m-card-link-toggle {
-    color: $secondary-color-12;
+    color: $secondary-color-08;
     &:link,
     &:visited {
-      color: $secondary-color-12;
+      color: $secondary-color-08;
     }
     &:focus,
     &:hover {
-      color: $secondary-color-10;
+      color: $secondary-color-06;
     }
     &.is-active,
     &:active {
-      color: $secondary-color-08;
+      color: $secondary-color-04;
     }
   }
 }
 .is-display-mode {
   .m-card-title {
     color: $primary-color-08;
+    border-color: $primary-color-08;
   }
   .m-card-link-toggle {
-    color: $primary-color-10;
+    color: $primary-color-08;
     &:link,
     &:visited {
-      color: $primary-color-10;
+      color: $primary-color-08;
     }
     &:focus,
     &:hover {
-      color: $primary-color-08;
+      color: $primary-color-06;
     }
     &.is-active,
     &:active {
-      color: $primary-color-06;
+      color: $primary-color-04;
     }
   }
 }

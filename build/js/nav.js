@@ -249,31 +249,16 @@ var nav = (function() {
     };
   };
 
-  // function _toggle_displayEdit(element) {
-  //   display.toggle();
-  //   var quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10) + 40;
-  //   var quickNavWidth = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).width, 10) + 40;
-  //   var quickNavOffset;
-  //   if (quickNavHeight < quickNavWidth) {
-  //     quickNavOffset = quickNavHeight;
-  //   } else {
-  //     quickNavOffset = quickNavWidth;
-  //   };
-  //   var options = {
-  //     offset: quickNavOffset
-  //   };
-  //   var target = "#" + element.dataset.editJump;
-  //   smoothScroll.animateScroll(null, target, options);
-  // };
-
   function _quickLinkSmoothScroll(element) {
     var id = element.dataset.link;
     var all_section = helper.eA(".js-section");
     var quickNav = helper.e(".js-quick-nav");
     var offset;
     // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
+    if (document.documentElement.clientWidth >= 900 && document.documentElement.clientWidth < 1300) {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) - 10;
+    } else if (document.documentElement.clientWidth >= 1300) {
+      offset = parseInt(getComputedStyle(all_section[1]).paddingBottom, 10) - 10;
     } else {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };

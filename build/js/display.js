@@ -62,6 +62,7 @@ var display = (function() {
       _displayOn();
     };
 
+    card.update();
     totalBlock.update();
     clear();
     render();
