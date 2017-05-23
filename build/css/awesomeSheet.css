@@ -1631,10 +1631,7 @@ label {
 
 .l-section {
   margin: 2em 0 0;
-  width: 100%;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  overflow: hidden; }
+  width: 100%; }
 
 .l-section-wrapper {
   margin: 4.5em 1em 2em;
@@ -1667,23 +1664,11 @@ label {
 
 @media (min-width: 1300px) {
   .l-section {
-    width: 100%;
-    margin: 0 0 2em;
-    page-break-inside: avoid;
-         break-inside: avoid; }
-  .l-section-wrapper {
-    display: block;
-    margin: 0 0 0 4.5em;
-    padding: 2em 4vw;
-    -moz-column-gap: 2em;
-         column-gap: 2em;
-    -moz-column-count: 2;
-         column-count: 2; } }
+    width: 60%; } }
 
 @media (min-width: 2000px) {
-  .l-section-wrapper {
-    -moz-column-count: 3;
-         column-count: 3; } }
+  .l-section {
+    width: 40%; } }
 
 .style-guide-column {
   background-color: #e3f2fd;
@@ -1989,6 +1974,9 @@ label {
   position: relative;
   z-index: 1000;
   box-sizing: border-box;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
   width: 100%; }
 
 .m-card-head {

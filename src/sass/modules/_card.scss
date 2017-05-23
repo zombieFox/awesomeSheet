@@ -3,6 +3,9 @@
   position: relative;
   z-index: $body;
   box-sizing: border-box;
+  box-shadow: $shadow-small;
+  border-radius: $border-radius-medium;
+  overflow: hidden;
   width: 100%;
 }
 .m-card-head {
