@@ -1,5 +1,4 @@
 .m-quick-nav {
-  background-color: $secondary-color-07;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +6,8 @@
   height: 4.5em;
   z-index: $quick-nav;
 }
-.m-quick-nav-wrapper {
+.m-quick-nav-bar {
+  background-color: $secondary-color-07;
   padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
@@ -101,7 +101,7 @@
   }
 }
 .is-display-mode {
-  .m-quick-nav {
+  .m-quick-nav-bar {
     background-color: $primary-color-07;
   }
 }
@@ -109,7 +109,7 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-quick-nav-wrapper {
+  .m-quick-nav-bar {
     padding: 0 3em;
   }
 }
@@ -124,7 +124,7 @@
     height: 100%;
     z-index: $quick-nav;
   }
-  .m-quick-nav-wrapper {
+  .m-quick-nav-bar {
     padding: 0;
     flex-flow: column nowrap;
     flex-direction: column-reverse;

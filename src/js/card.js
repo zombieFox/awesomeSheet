@@ -47,33 +47,12 @@ var card = (function() {
 
   function _linkToggle(element) {
     display.toggle(element);
-    // _linkSelf(element);
-  };
-
-  function update() {
-    var body = helper.e("body");
-    var all_cardLinkToggle = helper.eA(".js-card-link-toggle");
-
-    if (body.dataset.displayMode == "true") {
-      for (var i = 0; i < all_cardLinkToggle.length; i++) {
-        var icon = all_cardLinkToggle[i].querySelector(".js-card-link-toggle-icon");
-        helper.removeClass(icon, "icon-reader-mode");
-        helper.addClass(icon, "icon-edit");
-      };
-    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-      for (var i = 0; i < all_cardLinkToggle.length; i++) {
-        var icon = all_cardLinkToggle[i].querySelector(".js-card-link-toggle-icon");
-        helper.addClass(icon, "icon-reader-mode");
-        helper.removeClass(icon, "icon-edit");
-      };
-    };
-
+    display.update();
   };
 
   // exposed methods
   return {
-    bind: bind,
-    update: update
+    bind: bind
   };
 
 })();
