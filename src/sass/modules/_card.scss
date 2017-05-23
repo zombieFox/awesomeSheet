@@ -2,8 +2,6 @@
   background-color: $white;
   position: relative;
   z-index: $body;
-  border-radius: $border-radius-medium;
-  overflow: hidden;
   box-sizing: border-box;
   width: 100%;
 }
@@ -24,7 +22,7 @@
   font-size: $font-size-100;
   color: $secondary-color-08;
   border-top: 0.4em solid $secondary-color-08;
-  padding: 1em 2em 0.5em 2em;
+  padding: 2em 2em 0 2em;
   margin: 0;
 }
 .m-card-link-self {
@@ -55,24 +53,36 @@
   }
 }
 .m-card-link-toggle {
+  background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;
   margin: 0;
   border: 0;
-  height: 100%;
+  margin: 0;
+  padding: 1.4em 1em 1em 1em;
   color: $secondary-color-08;
   z-index: 2;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: $font-size-100;
+    line-height: $line-height-160;
+    &:before {
+    }
+  }
   &:link,
   &:visited {
+    background-color: transparent;
     color: $secondary-color-08;
   }
   &:focus,
   &:hover {
+    background-color: transparent;
     color: $secondary-color-06;
   }
   &.is-active,
   &:active {
+    background-color: transparent;
     color: $secondary-color-04;
   }
 }
@@ -96,17 +106,21 @@
     }
   }
   .m-card-link-toggle {
+    background-color: transparent;
     color: $secondary-color-08;
     &:link,
     &:visited {
+      background-color: transparent;
       color: $secondary-color-08;
     }
     &:focus,
     &:hover {
+      background-color: transparent;
       color: $secondary-color-06;
     }
     &.is-active,
     &:active {
+      background-color: transparent;
       color: $secondary-color-04;
     }
   }
@@ -117,17 +131,21 @@
     border-color: $primary-color-08;
   }
   .m-card-link-toggle {
+    background-color: transparent;
     color: $primary-color-08;
     &:link,
     &:visited {
+      background-color: transparent;
       color: $primary-color-08;
     }
     &:focus,
     &:hover {
+      background-color: transparent;
       color: $primary-color-06;
     }
     &.is-active,
     &:active {
+      background-color: transparent;
       color: $primary-color-04;
     }
   }

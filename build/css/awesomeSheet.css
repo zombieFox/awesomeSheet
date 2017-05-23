@@ -1632,7 +1632,9 @@ label {
 .l-section {
   margin: 2em 0 0;
   width: 100%;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden; }
 
 .l-section-wrapper {
   margin: 4.5em 1em 2em;
@@ -1986,8 +1988,6 @@ label {
   background-color: #ffffff;
   position: relative;
   z-index: 1000;
-  border-radius: 3px;
-  overflow: hidden;
   box-sizing: border-box;
   width: 100%; }
 
@@ -2008,7 +2008,7 @@ label {
   font-size: 1em;
   color: #2e6b9a;
   border-top: 0.4em solid #2e6b9a;
-  padding: 1em 2em 0.5em 2em;
+  padding: 2em 2em 0 2em;
   margin: 0; }
 
 .m-card-link-self {
@@ -2032,19 +2032,28 @@ label {
     margin-bottom: 0; }
 
 .m-card-link-toggle {
+  background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;
   margin: 0;
   border: 0;
-  height: 100%;
+  margin: 0;
+  padding: 1.4em 1em 1em 1em;
   color: #2e6b9a;
   z-index: 2; }
+  .m-card-link-toggle [class*=" icon-"],
+  .m-card-link-toggle [class^="icon-"] {
+    font-size: 1em;
+    line-height: 1.6666666667em; }
   .m-card-link-toggle:link, .m-card-link-toggle:visited {
+    background-color: transparent;
     color: #2e6b9a; }
   .m-card-link-toggle:focus, .m-card-link-toggle:hover {
+    background-color: transparent;
     color: #264f6e; }
   .m-card-link-toggle.is-active, .m-card-link-toggle:active {
+    background-color: transparent;
     color: #1c3445; }
 
 .is-night-mode .m-card {
@@ -2059,12 +2068,16 @@ label {
   color: transparent; }
 
 .is-night-mode .m-card-link-toggle {
+  background-color: transparent;
   color: #2e6b9a; }
   .is-night-mode .m-card-link-toggle:link, .is-night-mode .m-card-link-toggle:visited {
+    background-color: transparent;
     color: #2e6b9a; }
   .is-night-mode .m-card-link-toggle:focus, .is-night-mode .m-card-link-toggle:hover {
+    background-color: transparent;
     color: #264f6e; }
   .is-night-mode .m-card-link-toggle.is-active, .is-night-mode .m-card-link-toggle:active {
+    background-color: transparent;
     color: #1c3445; }
 
 .is-display-mode .m-card-title {
@@ -2072,12 +2085,16 @@ label {
   border-color: #ca0035; }
 
 .is-display-mode .m-card-link-toggle {
+  background-color: transparent;
   color: #ca0035; }
   .is-display-mode .m-card-link-toggle:link, .is-display-mode .m-card-link-toggle:visited {
+    background-color: transparent;
     color: #ca0035; }
   .is-display-mode .m-card-link-toggle:focus, .is-display-mode .m-card-link-toggle:hover {
+    background-color: transparent;
     color: #970027; }
   .is-display-mode .m-card-link-toggle.is-active, .is-display-mode .m-card-link-toggle:active {
+    background-color: transparent;
     color: #64001a; }
 
 .m-nav {
