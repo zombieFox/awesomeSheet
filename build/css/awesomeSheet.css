@@ -3815,16 +3815,22 @@ label {
           align-items: center; }
 
 .m-display-statistics-item-score {
-  width: 20%; }
+  -webkit-flex: 0 1 20%;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%; }
 
 .m-display-statistics-item-title {
-  width: 60%;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   text-align: left;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 .m-display-statistics-item-value {
+  -webkit-flex: 0 1 20%;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%;
   margin: 0;
-  width: 20%;
   text-align: right;
   font-size: 1.5em;
   line-height: 1; }

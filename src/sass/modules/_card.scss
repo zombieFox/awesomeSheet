@@ -13,6 +13,7 @@
 }
 .m-card-controls {
   border-top: 0.4em solid $secondary-color-08;
+  // background-color: $secondary-color-alpha-20;
   position: relative;
   padding: 0 1em;
   display: flex;
@@ -113,6 +114,7 @@
 .is-display-mode {
   .m-card-controls {
     border-color: $primary-color-08;
+    // background-color: $primary-color-alpha-20;
   }
   .m-card-title {
     color: $primary-color-08;

@@ -233,16 +233,16 @@
   align-items: center;
 }
 .m-display-statistics-item-score {
-  width: 20%;
+  flex: 0 1 20%;
 }
 .m-display-statistics-item-title {
-  width: 60%;
+  flex: 1 1 auto;
   text-align: left;
   font-family: $open-sans-semi-bold;
 }
 .m-display-statistics-item-value {
+  flex: 0 1 20%;
   margin: 0;
-  width: 20%;
   text-align: right;
   font-size: $font-size-150;
   line-height: 1;
