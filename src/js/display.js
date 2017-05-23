@@ -6,15 +6,17 @@ var display = (function() {
 
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
-    fabButton.addEventListener("click", toggle, false);
+    fabButton.addEventListener("click", function() {
+      toggle();
+    }, false);
   };
 
-  function toggle() {
+  function toggle(section) {
     var body = helper.e("body");
     var fabIcon = helper.e(".js-fab-icon");
-    // var quickNavList = helper.e(".js-quick-nav-list");
     var all_edit = helper.eA(".js-edit");
     var all_display = helper.eA(".js-display");
+    var singleSection;
 
     function _displayOn() {
       helper.addClass(body, "is-display-mode");
@@ -54,12 +56,31 @@ var display = (function() {
       themeColor.toggle();
     };
 
-    if (body.dataset.displayMode == "true") {
-      body.dataset.displayMode = "false";
-      _displayOff();
-    } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-      body.dataset.displayMode = "true";
-      _displayOn();
+    if (section) {
+      singleSection = helper.getClosest(section, ".js-section");
+      var edit = singleSection.querySelector(".js-edit");
+      var display = singleSection.querySelector(".js-display");
+
+      if (singleSection.dataset.displayMode == "true") {
+        singleSection.dataset.displayMode = "false";
+        helper.removeClass(singleSection, "is-display-mode");
+        helper.removeClass(edit, "is-hidden");
+        helper.addClass(display, "is-hidden");
+      } else if (singleSection.dataset.displayMode == "false" || !singleSection.dataset.displayMode) {
+        singleSection.dataset.displayMode = "true";
+        helper.addClass(singleSection, "is-display-mode");
+        helper.addClass(edit, "is-hidden");
+        helper.removeClass(display, "is-hidden");
+      };
+
+    } else {
+      if (body.dataset.displayMode == "true") {
+        body.dataset.displayMode = "false";
+        _displayOff();
+      } else if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+        body.dataset.displayMode = "true";
+        _displayOn();
+      };
     };
 
     card.update();

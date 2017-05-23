@@ -39,16 +39,15 @@ var card = (function() {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10) - 10;
     };
     var options = {
-      speed: 500,
+      speed: 200,
       offset: offset
     };
     smoothScroll.animateScroll(null, id, options);
   };
 
   function _linkToggle(element) {
-    display.toggle();
-    _linkSelf(element);
-    update();
+    display.toggle(element);
+    // _linkSelf(element);
   };
 
   function update() {
