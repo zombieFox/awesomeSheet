@@ -26,10 +26,12 @@
   font-size: $font-size-100;
   color: $secondary-color-08;
   padding: 1em;
-  margin: 0;
   flex: 1 0 auto;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:not(:only-child):not(:last-child) {
+    margin: 0;
+  }
 }
 .m-card-display-toggle {
   background-color: transparent;
@@ -44,8 +46,7 @@
   [class^="icon-"] {
     font-size: $font-size-100;
     line-height: $line-height-160;
-    &:before {
-    }
+    &:before {}
   }
   &:link,
   &:visited {

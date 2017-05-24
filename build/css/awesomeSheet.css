@@ -2038,12 +2038,13 @@ label {
   font-size: 1em;
   color: #2e6b9a;
   padding: 1em;
-  margin: 0;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
+  .m-card-title:not(:only-child):not(:last-child) {
+    margin: 0; }
 
 .m-card-display-toggle {
   background-color: transparent;
@@ -3621,20 +3622,20 @@ label {
         -ms-flex: 0 0 30%;
             flex: 0 0 30%; }
 
-.m-display-list-item,
 .m-display-col-three,
-.m-display-col-three-fixed {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+.m-display-col-three-fixed,
+.m-display-list-item {
+  padding-top: 1em;
+  padding-bottom: 1em;
   border-bottom: 2px solid #e0e0e0; }
-  .m-display-list-item:not(:only-child):not(:last-child),
   .m-display-col-three:not(:only-child):not(:last-child),
-  .m-display-col-three-fixed:not(:only-child):not(:last-child) {
+  .m-display-col-three-fixed:not(:only-child):not(:last-child),
+  .m-display-list-item:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
 
-.is-night-mode .m-display-list-item,
 .is-night-mode .m-display-col-three,
-.is-night-mode .m-display-col-three-fixed {
+.is-night-mode .m-display-col-three-fixed,
+.is-night-mode .m-display-list-item {
   border-color: rgba(255, 255, 255, 0.1); }
 
 .m-display-item-title {
@@ -3709,6 +3710,7 @@ label {
   padding: 0.5em; }
 
 .m-display-quick-stats-item-title {
+  color: #fc0042;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   font-size: 0.75em;
   line-height: 1; }
@@ -3772,6 +3774,9 @@ label {
 .is-night-mode .m-display-quick-stats-item-highlight {
   border-color: rgba(255, 255, 255, 0.1); }
 
+.is-night-mode .m-display-quick-stats-item-title {
+  color: #fc0042; }
+
 .m-display-body:not(:only-child):not(:last-child) {
   margin-bottom: 2em; }
 
@@ -3781,7 +3786,7 @@ label {
   font-size: 0.75em;
   line-height: 1; }
   .m-display-body-title:not(:only-child):not(:last-child) {
-    margin-bottom: 0.5em; }
+    margin-bottom: 1em; }
 
 .is-night-mode .m-display-body-title {
   color: #fc0042; }
@@ -4035,7 +4040,7 @@ label {
           -ms-flex: 0 0 30%;
               flex: 0 0 30%; }
       .m-display-grid .m-display-col-three:nth-child(odd) {
-        margin-right: 0%; }
+        margin-right: 0; }
       .m-display-grid .m-display-col-three:nth-child(3n+1), .m-display-grid .m-display-col-three:nth-child(3n+2) {
         margin-right: 5%; } }
 
