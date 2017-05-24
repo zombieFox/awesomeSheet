@@ -14395,8 +14395,4 @@ var checkUrl = (function() {
   night.update();
   checkUrl.render();
 
-
-
-display.toggle();
-
 })();
