@@ -59,13 +59,15 @@ var display = (function() {
     var icon = element.querySelector(".js-card-display-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
-    var display = section.querySelector(".js-display");
+    var all_display = section.querySelectorAll(".js-display");
 
     function _displayOn() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
-      helper.removeClass(display, "is-hidden");
+      for (var i = 0; i < all_display.length; i++) {
+        helper.removeClass(all_display[i], "is-hidden");
+      };
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader-mode");
     };
@@ -74,7 +76,9 @@ var display = (function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
-      helper.addClass(display, "is-hidden");
+      for (var i = 0; i < all_display.length; i++) {
+        helper.addClass(all_display[i], "is-hidden");
+      };
       helper.removeClass(icon, "icon-edit");
       helper.addClass(icon, "icon-reader-mode");
     };
@@ -679,8 +683,8 @@ var display = (function() {
         } else {
           displaySuffix = false;
         };
-        if (all_displayBlock[i].dataset.totalType) {
-          displayBonusType = all_displayBlock[i].dataset.totalType;
+        if (all_displayBlock[i].dataset.displayTotalType) {
+          displayBonusType = all_displayBlock[i].dataset.displayTotalType;
         };
       };
 
