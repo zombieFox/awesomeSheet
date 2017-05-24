@@ -3871,13 +3871,13 @@ label {
 .m-display-attack-melee-item-weapon {
   -webkit-flex: 0 1 auto;
       -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+          flex: 0 1 auto; }
 
 .m-display-attack-melee-item-attack {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
-          flex: 1 0 auto; }
+          flex: 1 0 auto;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 .m-display-attack-melee-item-critical,
 .m-display-attack-melee-item-damage {
@@ -3916,13 +3916,13 @@ label {
 .m-display-attack-ranged-item-weapon {
   -webkit-flex: 0 1 auto;
       -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+          flex: 0 1 auto; }
 
 .m-display-attack-ranged-item-attack {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
-          flex: 1 0 auto; }
+          flex: 1 0 auto;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 .m-display-attack-ranged-item-ammo,
 .m-display-attack-ranged-item-critical,
