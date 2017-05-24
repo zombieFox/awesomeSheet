@@ -3869,15 +3869,19 @@ label {
     padding-left: 1.5em; }
 
 .m-display-attack-melee-item-weapon {
-  -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto; }
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  -webkit-flex: 0 1 100%;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%; }
 
 .m-display-attack-melee-item-attack {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+  line-height: 1;
+  margin: 0; }
+  .m-display-attack-melee-item-attack:not(:only-child):not(:first-child) {
+    padding-left: 0.5em; }
 
 .m-display-attack-melee-item-critical,
 .m-display-attack-melee-item-damage {
@@ -3914,15 +3918,19 @@ label {
     padding-left: 1.5em; }
 
 .m-display-attack-ranged-item-weapon {
-  -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto; }
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  -webkit-flex: 0 1 100%;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%; }
 
 .m-display-attack-ranged-item-attack {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+  line-height: 1;
+  margin: 0; }
+  .m-display-attack-ranged-item-attack:not(:only-child):not(:first-child) {
+    padding-left: 0.5em; }
 
 .m-display-attack-ranged-item-ammo,
 .m-display-attack-ranged-item-critical,

@@ -529,13 +529,21 @@ var display = (function() {
         div.setAttribute("class", "m-display-" + cloneType + "-item");
         for (var i in object) {
 
-          if (i == "weapon" || i == "attack" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
+          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var span = document.createElement("span");
               span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
               span.textContent = data;
               div.appendChild(span);
+            };
+          } else if (i == "attack") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var h2 = document.createElement("h2");
+              h2.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
+              h2.textContent = data;
+              div.appendChild(h2);
             };
           };
 

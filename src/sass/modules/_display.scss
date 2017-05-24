@@ -278,11 +278,16 @@
   }
 }
 .m-display-attack-melee-item-weapon {
-  flex: 0 1 auto;
+  font-family: $open-sans-semi-bold;
+  flex: 0 1 100%;
 }
 .m-display-attack-melee-item-attack {
   flex: 1 0 auto;
-  font-family: $open-sans-semi-bold;
+  line-height: 1;
+  margin: 0;
+  &:not(:only-child):not(:first-child) {
+    padding-left: 0.5em;
+  }
 }
 .m-display-attack-melee-item-critical,
 .m-display-attack-melee-item-damage {
@@ -311,11 +316,16 @@
   }
 }
 .m-display-attack-ranged-item-weapon {
-  flex: 0 1 auto;
+  font-family: $open-sans-semi-bold;
+  flex: 0 1 100%;
 }
 .m-display-attack-ranged-item-attack {
   flex: 1 0 auto;
-  font-family: $open-sans-semi-bold;
+  line-height: 1;
+  margin: 0;
+  &:not(:only-child):not(:first-child) {
+    padding-left: 0.5em;
+  }
 }
 .m-display-attack-ranged-item-ammo,
 .m-display-attack-ranged-item-critical,
