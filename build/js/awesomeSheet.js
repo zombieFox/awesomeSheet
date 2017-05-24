@@ -10998,7 +10998,7 @@ var display = (function() {
         var spellDc = sheet.getCharacter().spells.dc["level_" + level];
         var perDay = sheet.getCharacter().spells.per_day["level_" + level];
         var known = sheet.getCharacter().spells.known["level_" + level];
-        var para = document.createElement("p");
+        var h2 = document.createElement("h2");
         if (known != "" || known == "undefined") {
           var knownSpan = document.createElement("span");
           knownSpan.setAttribute("class", "m-display-item m-display-item-snippet");
@@ -11010,8 +11010,7 @@ var display = (function() {
           knownValueSpan.textContent = known;
           knownSpan.appendChild(knownPrefixSpan);
           knownSpan.appendChild(knownValueSpan);
-          para.appendChild(knownSpan);
-          displayBody.appendChild(para);
+          h2.appendChild(knownSpan);
         };
         if (perDay != "" || perDay == "undefined") {
           var perDaySpan = document.createElement("span");
@@ -11024,8 +11023,7 @@ var display = (function() {
           perDayValueSpan.textContent = perDay;
           perDaySpan.appendChild(perDayPrefixSpan);
           perDaySpan.appendChild(perDayValueSpan);
-          para.appendChild(perDaySpan);
-          displayBody.appendChild(para);
+          h2.appendChild(perDaySpan);
         };
         if (spellDc != "" || spellDc == "undefined") {
           var spellDcSpan = document.createElement("span");
@@ -11038,9 +11036,11 @@ var display = (function() {
           spellDcValueSpan.textContent = spellDc;
           spellDcSpan.appendChild(spellDcPrefixSpan);
           spellDcSpan.appendChild(spellDcValueSpan);
-          para.appendChild(spellDcSpan);
-          displayBody.appendChild(para);
+          h2.appendChild(spellDcSpan);
         };
+      };
+      if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
+        displayBody.appendChild(h2);
       };
 
       // add spall pages

@@ -30,7 +30,7 @@
 }
 .m-display-grid {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: flex-start;
   .m-display-col-three {
     flex: 1 0 auto;
