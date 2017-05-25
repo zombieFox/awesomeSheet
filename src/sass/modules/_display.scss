@@ -1,10 +1,3 @@
-.m-display-wrapper {
-  margin: 2em 1em;
-}
-.m-display-wrapper-dark {
-  padding: 2em 1em;
-  background-color: $gray-19;
-}
 .m-display-title {
   margin-bottom: 2em;
   text-transform: uppercase;
@@ -12,10 +5,20 @@
   font-size: $font-size-100;
   color: $primary-color-08;
 }
-.is-night-mode {
-  .m-display-wrapper-dark {
-    background-color: $light-alpha-19;
-  }
+.m-display-name {
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.m-display-name-title {
+  flex: 1 0 auto;
+  margin-right: 1em;
+}
+.m-display-name-description {
+  flex: 0 0 auto;
+  color: $gray-12;
+  font-size: $font-size-050;
 }
 // --------------------------------------------------
 // display grid
@@ -199,12 +202,12 @@
 // --------------------------------------------------
 // display body
 // --------------------------------------------------
-.m-display-body {
+.m-display-block {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
   }
 }
-.m-display-body-title {
+.m-display-title {
   color: $primary-color-10;
   font-family: $open-sans-semi-bold;
   font-size: $font-size-075;
@@ -214,7 +217,7 @@
   }
 }
 .is-night-mode {
-  .m-display-body-title {
+  .m-display-title {
     color: $primary-color-10;
   }
 }

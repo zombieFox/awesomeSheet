@@ -13,6 +13,19 @@ var display = (function() {
   };
 
   function update() {
+    _update_displayState();
+    _update_displayPlaceholder();
+  };
+
+  function _update_displayPlaceholder() {
+    var all_placeholder = helper.eA(".js-placeholder-display");
+    for (var i = 0; i < all_placeholder.length; i++) {
+      var section = helper.getClosest(all_placeholder[i], ".js-section");
+
+    };
+  };
+
+  function _update_displayState() {
     var quickNav = helper.e(".js-quick-nav");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
@@ -127,25 +140,27 @@ var display = (function() {
   };
 
   function clear() {
-    var all_displayBlock = helper.eA(".js-display-block");
-    var _removeAllChildren = function(parent) {
-      while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-      };
-    };
-    for (var i = 0; i < all_displayBlock.length; i++) {
-      var target;
-      var displayType = all_displayBlock[i].dataset.displayType;
-      if (displayType == "stat" || displayType == "modifier" || displayType == "text-snippet" || displayType == "text-block" || displayType == "spell") {
-        target = all_displayBlock[i].querySelector(".js-display-block-target");
-      } else if (displayType == "list" || displayType == "clone" || displayType == "skill") {
-        target = all_displayBlock[i];
-      };
-      _removeAllChildren(target);
-    };
+    // var all_displayBlock = helper.eA(".js-display-block");
+    // var _removeAllChildren = function(parent) {
+    //   while (parent.lastChild) {
+    //     parent.removeChild(parent.lastChild);
+    //   };
+    // };
+    // for (var i = 0; i < all_displayBlock.length; i++) {
+    //   var target;
+    //   var displayType = all_displayBlock[i].dataset.displayType;
+    //   if (displayType == "stat" || displayType == "modifier" || displayType == "text-snippet" || displayType == "text-block" || displayType == "spell") {
+    //     target = all_displayBlock[i].querySelector(".js-display-block-target");
+    //   } else if (displayType == "list" || displayType == "clone" || displayType == "skill") {
+    //     target = all_displayBlock[i];
+    //   };
+    //   _removeAllChildren(target);
+    // };
   };
 
-  function _get_stat(path, target) {
+  function _get_stat(path) {
+    var displayItem = document.createElement("span");
+    displayItem.setAttribute("class", "m-display-item")
     var data;
     if (path == "statistics.stats.str.score" && sheet.getCharacter().statistics.stats.str.temp_score) {
       data = sheet.getCharacter().statistics.stats.str.temp_score;
@@ -175,12 +190,11 @@ var display = (function() {
       data = helper.getObject(sheet.getCharacter(), path);
     };
     if (typeof data == "undefined" || data == "") {
-      data = 0;
+      displayItem.textContent = data;
+    } else {
+      displayItem = false;
     };
-    var span = document.createElement("span");
-    span.setAttribute("class", "m-display-item");
-    span.textContent = data;
-    target.appendChild(span);
+    return displayItem;
   };
 
   function _get_modifier(path, target) {
@@ -211,7 +225,7 @@ var display = (function() {
     target.appendChild(span);
   };
 
-  function _get_textSnippet(path, target, title, prefix, suffix, displayBonusType) {
+  function _get_textSnippet(path, title, prefix, suffix, displayBonusType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
@@ -241,8 +255,10 @@ var display = (function() {
         spanSuffix.textContent = suffix;
         displayItem.appendChild(spanSuffix);
       };
-      target.appendChild(displayItem);
+    } else {
+      displayItem = false;
     };
+    return displayItem;
   };
 
   function _get_textBlock(path, target) {
@@ -602,10 +618,11 @@ var display = (function() {
 
   };
 
-  function _render_stat(itemsToDisplay, target) {
+  function _render_stat(itemsToDisplay) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
-      var data = _get_stat(path, target);
+      var node = _get_stat(path);
+      return node;
     };
   };
 
@@ -616,13 +633,14 @@ var display = (function() {
     };
   };
 
-  function _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
+  function _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var title = displayTitle[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
-      var data = _get_textSnippet(path, target, title, prefix, suffix, displayBonusType);
+      var node = _get_textSnippet(path, title, prefix, suffix, displayBonusType);
+      return node;
     };
   };
 
@@ -667,12 +685,14 @@ var display = (function() {
     for (var i = 0; i < all_displayBlock.length; i++) {
 
       var target = all_displayBlock[i].querySelector(".js-display-block-target");
+      var display = helper.getClosest(all_displayBlock[i], ".js-display")
       var itemsToDisplay;
       var displayTitle;
       var displayPrefix;
       var displaySuffix;
       var displayBonusType = false;
       var displayType = all_displayBlock[i].dataset.displayType;
+      var node;
 
       if (all_displayBlock[i].dataset.display) {
         itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
@@ -697,11 +717,17 @@ var display = (function() {
       };
 
       if (displayType == "stat") {
-        _render_stat(itemsToDisplay, target);
+        _render_stat(itemsToDisplay);
+        if (node != false) {
+          target.appendChild(node);
+        };
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
       } else if (displayType == "text-snippet") {
-        _render_textSnippet(itemsToDisplay, target, displayTitle, displayPrefix, displaySuffix, displayBonusType);
+        node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType);
+        if (node != false) {
+          target.appendChild(node);
+        };
       } else if (displayType == "text-block") {
         _render_textBlock(itemsToDisplay, target);
       } else if (displayType == "list") {

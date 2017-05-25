@@ -1,0 +1,42 @@
+.m-placeholder {
+  background-color: $gray-20;
+  border-bottom: $border;
+  border-color: $gray-19;
+  margin: 0;
+  padding: 2em 4em;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 2em;
+  }
+}
+.m-placeholder-description {
+  text-align: center;
+  margin: 0;
+  flex: 0 0 auto;
+}
+.m-placeholder-key {
+  background-color: $secondary-color-alpha-20;
+  border-bottom: $border;
+  border-color: $secondary-color-alpha-14;
+  white-space: nowrap;
+  padding: 0.2em 0.5em;
+}
+.is-night-mode {
+  .m-placeholder {
+    background-color: $light-alpha-20;
+    border-color: $light-alpha-19;
+  }
+  .m-key {
+    background-color: $secondary-color-alpha-19;
+  }
+}
+.is-display-mode {
+  .m-placeholder-key {
+    background-color: $primary-color-alpha-20;
+    border-color: $primary-color-alpha-14;
+  }
+}

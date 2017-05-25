@@ -2,11 +2,29 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <div class="m-display-body">
-        <h1 class="js-display-block" data-display-type="text-snippet" data-display="basics.name">
-          <span class="js-display-block-target"></span>
+      <div class="m-placeholder js-placeholder-display">
+        <p class="m-placeholder-description u-muted-text">No Basics information added yet, use <strong class="m-placeholder-key"><span class="icon-edit"></span> Edit</strong> to add some.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="m-display-block js-display-block">
+        <h1 class="m-display-name">
+          <span class="m-display-name-title js-display-block" data-display-type="text-snippet" data-display="basics.name">
+            <span class="js-display-block-target"></span>
+          </span>
+          <span class="m-display-name-description js-display-block" data-display-type="text-snippet" data-display="basics.gender,basics.race,basics.class,basics.level">
+            <span class="js-display-block-target"></span>
+          </span>
         </h1>
-        <p class="js-display-block" data-display-type="text-snippet" data-display="basics.gender,basics.race,basics.class,basics.level">
+      </div>
+
+      <div class="m-display-block js-display-block">
+        <p class="m-display-title">Details</p>
+        <p class="js-display-block" data-display-type="text-snippet" data-display="basics.speed,basics.initiative" data-display-prefix="Speed ,Initiative ">
           <span class="js-display-block-target"></span>
         </p>
         <p class="js-display-block" data-display-type="text-snippet" data-display="basics.xp,basics.alignment,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix=" xp,,, tall,, years old, hero points, luck points">

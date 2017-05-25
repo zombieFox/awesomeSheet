@@ -131,30 +131,6 @@
     }
   }
 }
-.m-clone-placeholder {
-  background-color: $gray-20;
-  border-bottom: $border;
-  border-color: $gray-19;
-  margin: 0 0 2em;
-  padding: 2em 4em;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-}
-.m-clone-placeholder-description {
-  text-align: center;
-  margin: 0;
-  flex: 0 0 auto;
-}
-.m-clone-placeholder-mimic {
-  background-color: $secondary-color-alpha-20;
-  border-bottom: $border;
-  border-color: $secondary-color-alpha-14;
-  white-space: nowrap;
-  padding: 0.2em 0.5em;
-}
 .is-night-mode {
   .m-clone-block {
     &.is-delete-state {
@@ -187,13 +163,6 @@
         }
       }
     }
-  }
-  .m-clone-placeholder {
-    background-color: $light-alpha-20;
-    border-color: $light-alpha-19;
-  }
-  .m-clone-placeholder-mimic {
-    background-color: $secondary-color-alpha-19;
   }
 }
 // --------------------------------------------------
