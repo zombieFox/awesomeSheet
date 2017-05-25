@@ -692,38 +692,45 @@ var display = (function() {
     var all_displayBlock = helper.eA(".js-display-block");
     for (var i = 0; i < all_displayBlock.length; i++) {
 
-      var target = all_displayBlock[i].querySelector(".js-display-block-target");
-      var display = helper.getClosest(all_displayBlock[i], ".js-display")
-      var displayType = all_displayBlock[i].dataset.displayType;
-      var all_itemsToDisplay;
-      var displayBonusType = false;
-      var all_displayTitle = false;
-      var all_displayPrefix = false;
-      var all_displaySuffix = false;
-      var node = false;
+      var all_displayBlockTarget = all_displayBlock[i].querySelectorAll(".js-display-block-target");
 
-      if (all_displayBlock[i].dataset.displayPath) {
-        all_itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
-        if (all_displayBlock[i].dataset.displayTitle) {
-          all_displayTitle = all_displayBlock[i].dataset.displayTitle.split(",");
+      for (var j = 0; j < all_displayBlockTarget.length; j++) {
+
+        var target = all_displayBlockTarget[j];
+        var display = helper.getClosest(all_displayBlockTarget[j], ".js-display")
+        var displayType = all_displayBlockTarget[j].dataset.displayType;
+        var all_itemsToDisplay;
+        var displayBonusType = false;
+        var all_displayTitle = false;
+        var all_displayPrefix = false;
+        var all_displaySuffix = false;
+        var node = false;
+
+        if (all_displayBlockTarget[j].dataset.displayPath) {
+          all_itemsToDisplay = all_displayBlockTarget[j].dataset.displayPath.split(",");
+          if (all_displayBlockTarget[j].dataset.displayTitle) {
+            all_displayTitle = all_displayBlockTarget[j].dataset.displayTitle.split(",");
+          };
+          if (all_displayBlockTarget[j].dataset.displayPrefix) {
+            all_displayPrefix = all_displayBlockTarget[j].dataset.displayPrefix.split(",");
+          };
+          if (all_displayBlockTarget[j].dataset.displaySuffix) {
+            all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
+          };
+          if (all_displayBlockTarget[j].dataset.displayTotalType) {
+            displayBonusType = all_displayBlockTarget[j].dataset.displayTotalType;
+          };
         };
-        if (all_displayBlock[i].dataset.displayPrefix) {
-          all_displayPrefix = all_displayBlock[i].dataset.displayPrefix.split(",");
+
+        if (displayType == "text-snippet") {
+          node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType);
+          if (node != false) {
+            target.appendChild(node);
+          };
         };
-        if (all_displayBlock[i].dataset.displaySuffix) {
-          all_displaySuffix = all_displayBlock[i].dataset.displaySuffix.split(",");
-        };
-        if (all_displayBlock[i].dataset.displayTotalType) {
-          displayBonusType = all_displayBlock[i].dataset.displayTotalType;
-        };
+
       };
 
-      if (displayType == "text-snippet") {
-        node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType);
-        if (node != false) {
-          target.appendChild(node);
-        };
-      };
 
     };
 
