@@ -641,15 +641,26 @@ var display = (function() {
 
 
 
-  function _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var title = displayTitle[i];
-      var prefix = displayPrefix[i];
-      var suffix = displaySuffix[i];
-      var node = _get_textSnippet(path, title, prefix, suffix, displayBonusType);
-      return node;
+  function _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType) {
+    var all_node = [];
+    var path;
+    var title = false;
+    var prefix = false;
+    var suffix = false;
+    for (var i = 0; i < all_displayPath.length; i++) {
+      path = all_displayPath[i];
+      if (all_displayTitle[i]) {
+        title = all_displayTitle[i];
+      };
+      if (all_displayPrefix[i]) {
+        prefix = all_displayPrefix[i];
+      };
+      if (all_displaySuffix[i]) {
+        suffix = all_displaySuffix[i];
+      };
+      all_node.push(_get_textSnippet(path, title, prefix, suffix, displayBonusType));
     };
+    return all_node;
   };
 
   function _get_textSnippet(path, title, prefix, suffix, displayBonusType) {
@@ -688,26 +699,35 @@ var display = (function() {
     return displayItem;
   };
 
-  function _render_displayBlock_xxxx() {
+  function _render_displayBlock() {
+    // find all display blocks
     var all_displayBlock = helper.eA(".js-display-block");
+    // loop all display blocks
     for (var i = 0; i < all_displayBlock.length; i++) {
 
+      // find all targets in this display blocks
       var all_displayBlockTarget = all_displayBlock[i].querySelectorAll(".js-display-block-target");
+      // start a "path count"
+      var displayBlockPathCount = 0;
+      // start a "no data found at path" count
+      var dataNotFoundAtPath = 0;
 
+      // loop over each target in this display blocks
       for (var j = 0; j < all_displayBlockTarget.length; j++) {
 
+        // get all data from display blocks target
         var target = all_displayBlockTarget[j];
-        var display = helper.getClosest(all_displayBlockTarget[j], ".js-display")
+        var display = helper.getClosest(all_displayBlockTarget[j], ".js-display");
         var displayType = all_displayBlockTarget[j].dataset.displayType;
-        var all_itemsToDisplay;
-        var displayBonusType = false;
+        var all_node;
+        var all_displayPath;
         var all_displayTitle = false;
         var all_displayPrefix = false;
         var all_displaySuffix = false;
-        var node = false;
+        var displayBonusType = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
-          all_itemsToDisplay = all_displayBlockTarget[j].dataset.displayPath.split(",");
+          all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
           if (all_displayBlockTarget[j].dataset.displayTitle) {
             all_displayTitle = all_displayBlockTarget[j].dataset.displayTitle.split(",");
           };
@@ -717,26 +737,59 @@ var display = (function() {
           if (all_displayBlockTarget[j].dataset.displaySuffix) {
             all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
           };
+          displayBonusType = all_displayBlockTarget[j].dataset.displayTotalType;
           if (all_displayBlockTarget[j].dataset.displayTotalType) {
-            displayBonusType = all_displayBlockTarget[j].dataset.displayTotalType;
+          };
+        };
+        // increase the path count
+        displayBlockPathCount = displayBlockPathCount + all_displayPath.length;
+
+        // function for later use to check the element from node array for false or data
+        var _appendToTarget = function(element) {
+          if (element != false) {
+            // append to target
+            target.appendChild(element);
+          } else {
+            // or increment the "no data found at path" count
+            dataNotFoundAtPath++;
           };
         };
 
-        if (displayType == "text-snippet") {
-          node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType);
-          if (node != false) {
-            target.appendChild(node);
-          };
-        };
+        // get an array of nodes using the array of paths
+        all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType);
+
+        // loop over each node in array and append to target
+        all_node.forEach(_appendToTarget);
 
       };
 
+      // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
+      if (dataNotFoundAtPath == displayBlockPathCount) {
+        all_displayBlock[i].dataset.displayContent = false;
+      } else {
+        all_displayBlock[i].dataset.displayContent = true;
+      };
 
     };
 
   };
 
-  function _render_displayBlock() {
+  function _update_placeholder() {
+    var all_displayBlock = helper.eA(".js-display-block");
+    for (var i = 0; i < all_displayBlock.length; i++) {
+      var display = helper.getClosest(all_displayBlock[i], ".js-display");
+      var placeholderDisplay = display.querySelector(".js-placeholder-display");
+      if (all_displayBlock[i].dataset.displayContent == "true") {
+        helper.removeClass(all_displayBlock[i], "is-hidden");
+        helper.addClass(placeholderDisplay, "is-hidden");
+      } else {
+        helper.addClass(all_displayBlock[i], "is-hidden");
+        helper.removeClass(placeholderDisplay, "is-hidden");
+      };
+    };
+  };
+
+  function _render_displayBlock_xxxx() {
     var all_displayBlock = helper.eA(".js-display-block");
     for (var i = 0; i < all_displayBlock.length; i++) {
 
@@ -800,8 +853,8 @@ var display = (function() {
   };
 
   function render() {
-    // _render_displayBlock();
-    _render_displayBlock_xxxx();
+    _render_displayBlock();
+    _update_placeholder();
   };
 
   // exposed methods

@@ -19,14 +19,25 @@
 // --------------------------------------------------
 // display grid
 // --------------------------------------------------
-.m-display-list {
+.m-display-list {}
+.m-display-list-item {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
-  .m-display-list-item {
-    flex: 1 0 auto;
-  }
 }
+.m-display-list-title {
+  flex: 1 1 80%;
+  font-family: $open-sans-semi-bold;
+}
+.m-display-list-value {
+  flex: 1 0 auto;
+  text-align: right;
+}
+
+
+
+
+
 .m-display-grid {
   display: flex;
   flex-flow: column nowrap;
@@ -213,7 +224,6 @@
     color: $primary-color-10;
   }
 }
-
 // --------------------------------------------------
 // display statistics
 // --------------------------------------------------
