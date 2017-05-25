@@ -130,8 +130,12 @@ var display = (function() {
   };
 
   function toggle(section) {
-    clear();
-    render();
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // clear();
+    // render();
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     if (section) {
       _toggle_singleSection(section);
     } else {
@@ -223,42 +227,6 @@ var display = (function() {
     span.setAttribute("class", "m-display-item");
     span.textContent = data;
     target.appendChild(span);
-  };
-
-  function _get_textSnippet(path, title, prefix, suffix, displayBonusType) {
-    var data = helper.getObject(sheet.getCharacter(), path);
-    if (typeof data != "undefined" && data != "") {
-      var displayItem = document.createElement("span");
-      displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
-      var value = document.createElement("span");
-      value.setAttribute("class", "m-display-item-value");
-      if (displayBonusType == "bonus") {
-        data = "+" + data;
-      };
-      value.innerHTML = data;
-      if (title) {
-        var spanTitle = document.createElement("span");
-        spanTitle.setAttribute("class", "m-display-item-title");
-        spanTitle.textContent = title;
-        displayItem.appendChild(spanTitle);
-      };
-      if (prefix) {
-        var spanPrefix = document.createElement("span");
-        spanPrefix.setAttribute("class", "m-display-item-prefix");
-        spanPrefix.textContent = prefix;
-        displayItem.appendChild(spanPrefix);
-      };
-      displayItem.appendChild(value);
-      if (suffix) {
-        var spanSuffix = document.createElement("span");
-        spanSuffix.setAttribute("class", "m-display-item-suffix");
-        spanSuffix.textContent = suffix;
-        displayItem.appendChild(spanSuffix);
-      };
-    } else {
-      displayItem = false;
-    };
-    return displayItem;
   };
 
   function _get_textBlock(path, target) {
@@ -633,17 +601,6 @@ var display = (function() {
     };
   };
 
-  function _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var title = displayTitle[i];
-      var prefix = displayPrefix[i];
-      var suffix = displaySuffix[i];
-      var node = _get_textSnippet(path, title, prefix, suffix, displayBonusType);
-      return node;
-    };
-  };
-
   function _render_textBlock(itemsToDisplay, target) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
@@ -678,6 +635,98 @@ var display = (function() {
 
   function _render_spell(target) {
     var data = _get_spell(target);
+  };
+
+
+
+
+
+  function _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType) {
+    for (var i = 0; i < itemsToDisplay.length; i++) {
+      var path = itemsToDisplay[i];
+      var title = displayTitle[i];
+      var prefix = displayPrefix[i];
+      var suffix = displaySuffix[i];
+      var node = _get_textSnippet(path, title, prefix, suffix, displayBonusType);
+      return node;
+    };
+  };
+
+  function _get_textSnippet(path, title, prefix, suffix, displayBonusType) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    if (typeof data != "undefined" && data != "") {
+      var displayItem = document.createElement("span");
+      displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
+      var value = document.createElement("span");
+      value.setAttribute("class", "m-display-item-value");
+      if (displayBonusType == "bonus") {
+        data = "+" + data;
+      };
+      value.innerHTML = data;
+      if (title) {
+        var spanTitle = document.createElement("span");
+        spanTitle.setAttribute("class", "m-display-item-title");
+        spanTitle.textContent = title;
+        displayItem.appendChild(spanTitle);
+      };
+      if (prefix) {
+        var spanPrefix = document.createElement("span");
+        spanPrefix.setAttribute("class", "m-display-item-prefix");
+        spanPrefix.textContent = prefix;
+        displayItem.appendChild(spanPrefix);
+      };
+      displayItem.appendChild(value);
+      if (suffix) {
+        var spanSuffix = document.createElement("span");
+        spanSuffix.setAttribute("class", "m-display-item-suffix");
+        spanSuffix.textContent = suffix;
+        displayItem.appendChild(spanSuffix);
+      };
+    } else {
+      displayItem = false;
+    };
+    return displayItem;
+  };
+
+  function _render_displayBlock_xxxx() {
+    var all_displayBlock = helper.eA(".js-display-block");
+    for (var i = 0; i < all_displayBlock.length; i++) {
+
+      var target = all_displayBlock[i].querySelector(".js-display-block-target");
+      var display = helper.getClosest(all_displayBlock[i], ".js-display")
+      var displayType = all_displayBlock[i].dataset.displayType;
+      var all_itemsToDisplay;
+      var displayBonusType = false;
+      var all_displayTitle = false;
+      var all_displayPrefix = false;
+      var all_displaySuffix = false;
+      var node = false;
+
+      if (all_displayBlock[i].dataset.displayPath) {
+        all_itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
+        if (all_displayBlock[i].dataset.displayTitle) {
+          all_displayTitle = all_displayBlock[i].dataset.displayTitle.split(",");
+        };
+        if (all_displayBlock[i].dataset.displayPrefix) {
+          all_displayPrefix = all_displayBlock[i].dataset.displayPrefix.split(",");
+        };
+        if (all_displayBlock[i].dataset.displaySuffix) {
+          all_displaySuffix = all_displayBlock[i].dataset.displaySuffix.split(",");
+        };
+        if (all_displayBlock[i].dataset.displayTotalType) {
+          displayBonusType = all_displayBlock[i].dataset.displayTotalType;
+        };
+      };
+
+      if (displayType == "text-snippet") {
+        node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType);
+        if (node != false) {
+          target.appendChild(node);
+        };
+      };
+
+    };
+
   };
 
   function _render_displayBlock() {
@@ -744,7 +793,8 @@ var display = (function() {
   };
 
   function render() {
-    _render_displayBlock();
+    // _render_displayBlock();
+    _render_displayBlock_xxxx();
   };
 
   // exposed methods

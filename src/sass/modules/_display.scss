@@ -1,24 +1,20 @@
+// --------------------------------------------------
+// display body
+// --------------------------------------------------
+.m-display-block {
+  border: 1px solid red;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 2em;
+  }
+}
 .m-display-title {
-  margin-bottom: 2em;
-  text-transform: uppercase;
-  font-family: $open-sans-bold;
-  font-size: $font-size-100;
-  color: $primary-color-08;
-}
-.m-display-name {
-  margin-bottom: 0.5em;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-}
-.m-display-name-title {
-  flex: 1 0 auto;
-  margin-right: 1em;
-}
-.m-display-name-description {
-  flex: 0 0 auto;
-  color: $gray-12;
-  font-size: $font-size-050;
+  color: $primary-color-10;
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-075;
+  line-height: 1;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 // --------------------------------------------------
 // display grid
@@ -107,6 +103,24 @@
       border-color: $light-alpha-19;
     }
   }
+}
+// --------------------------------------------------
+// specific display components
+// --------------------------------------------------
+.m-display-name {
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.m-display-name-title {
+  flex: 1 0 auto;
+  margin-right: 1em;
+}
+.m-display-name-description {
+  flex: 0 0 auto;
+  color: $gray-12;
+  font-size: $font-size-050;
 }
 // --------------------------------------------------
 // display head
@@ -199,28 +213,7 @@
     color: $primary-color-10;
   }
 }
-// --------------------------------------------------
-// display body
-// --------------------------------------------------
-.m-display-block {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-title {
-  color: $primary-color-10;
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-075;
-  line-height: 1;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1em;
-  }
-}
-.is-night-mode {
-  .m-display-title {
-    color: $primary-color-10;
-  }
-}
+
 // --------------------------------------------------
 // display statistics
 // --------------------------------------------------
