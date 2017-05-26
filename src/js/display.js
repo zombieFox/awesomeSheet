@@ -162,72 +162,7 @@ var display = (function() {
     // };
   };
 
-  function _get_stat(path) {
-    var displayItem = document.createElement("span");
-    displayItem.setAttribute("class", "m-display-item")
-    var data;
-    if (path == "statistics.stats.str.score" && sheet.getCharacter().statistics.stats.str.temp_score) {
-      data = sheet.getCharacter().statistics.stats.str.temp_score;
-    } else if (path == "statistics.stats.dex.score" && sheet.getCharacter().statistics.stats.dex.temp_score) {
-      data = sheet.getCharacter().statistics.stats.dex.temp_score;
-    } else if (path == "statistics.stats.con.score" && sheet.getCharacter().statistics.stats.con.temp_score) {
-      data = sheet.getCharacter().statistics.stats.con.temp_score;
-    } else if (path == "statistics.stats.int.score" && sheet.getCharacter().statistics.stats.int.temp_score) {
-      data = sheet.getCharacter().statistics.stats.int.temp_score;
-    } else if (path == "statistics.stats.wis.score" && sheet.getCharacter().statistics.stats.wis.temp_score) {
-      data = sheet.getCharacter().statistics.stats.wis.temp_score;
-    } else if (path == "statistics.stats.cha.score" && sheet.getCharacter().statistics.stats.cha.temp_score) {
-      data = sheet.getCharacter().statistics.stats.cha.temp_score;
-    } else if (path == "statistics.stats.str.modifier" && sheet.getCharacter().statistics.stats.str.temp_score) {
-      data = sheet.getCharacter().statistics.stats.str.temp_modifier;
-    } else if (path == "statistics.stats.dex.modifier" && sheet.getCharacter().statistics.stats.dex.temp_score) {
-      data = sheet.getCharacter().statistics.stats.dex.temp_modifier;
-    } else if (path == "statistics.stats.con.modifier" && sheet.getCharacter().statistics.stats.con.temp_score) {
-      data = sheet.getCharacter().statistics.stats.con.temp_modifier;
-    } else if (path == "statistics.stats.int.modifier" && sheet.getCharacter().statistics.stats.int.temp_score) {
-      data = sheet.getCharacter().statistics.stats.int.temp_modifier;
-    } else if (path == "statistics.stats.wis.modifier" && sheet.getCharacter().statistics.stats.wis.temp_score) {
-      data = sheet.getCharacter().statistics.stats.wis.temp_modifier;
-    } else if (path == "statistics.stats.cha.modifier" && sheet.getCharacter().statistics.stats.cha.temp_score) {
-      data = sheet.getCharacter().statistics.stats.cha.temp_modifier;
-    } else {
-      data = helper.getObject(sheet.getCharacter(), path);
-    };
-    if (typeof data == "undefined" || data == "") {
-      displayItem.textContent = data;
-    } else {
-      displayItem = false;
-    };
-    return displayItem;
-  };
 
-  function _get_modifier(path, target) {
-    var data;
-    if (path == "statistics.stats.str.modifier" && sheet.getCharacter().statistics.stats.str.temp_score) {
-      data = sheet.getCharacter().statistics.stats.str.temp_modifier;
-    } else if (path == "statistics.stats.dex.modifier" && sheet.getCharacter().statistics.stats.dex.temp_score) {
-      data = sheet.getCharacter().statistics.stats.dex.temp_modifier;
-    } else if (path == "statistics.stats.con.modifier" && sheet.getCharacter().statistics.stats.con.temp_score) {
-      data = sheet.getCharacter().statistics.stats.con.temp_modifier;
-    } else if (path == "statistics.stats.int.modifier" && sheet.getCharacter().statistics.stats.int.temp_score) {
-      data = sheet.getCharacter().statistics.stats.int.temp_modifier;
-    } else if (path == "statistics.stats.wis.modifier" && sheet.getCharacter().statistics.stats.wis.temp_score) {
-      data = sheet.getCharacter().statistics.stats.wis.temp_modifier;
-    } else if (path == "statistics.stats.cha.modifier" && sheet.getCharacter().statistics.stats.cha.temp_score) {
-      data = sheet.getCharacter().statistics.stats.cha.temp_modifier;
-    } else {
-      data = helper.getObject(sheet.getCharacter(), path);
-    };
-    if (typeof data == "undefined" || data == "" || data == 0) {
-      data = "0";
-    } else if (parseInt(data, 10) > 0) {
-      data = "+" + data;
-    };
-    var span = document.createElement("span");
-    span.setAttribute("class", "m-display-item");
-    span.textContent = data;
-    target.appendChild(span);
-  };
 
   function _get_textBlock(path, target) {
     var data = helper.getObject(sheet.getCharacter(), path);
@@ -586,21 +521,6 @@ var display = (function() {
 
   };
 
-  function _render_stat(itemsToDisplay) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var node = _get_stat(path);
-      return node;
-    };
-  };
-
-  function _render_modifier(itemsToDisplay, target) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var data = _get_modifier(path, target);
-    };
-  };
-
   function _render_textBlock(itemsToDisplay, target) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
@@ -641,6 +561,69 @@ var display = (function() {
 
 
 
+
+  function _get_all_modifier(all_displayPath, displayBonusType) {
+    var all_node = [];
+    var path;
+    for (var i = 0; i < all_displayPath.length; i++) {
+      path = all_displayPath[i];
+      all_node.push(_get_modifier(path, displayBonusType));
+    };
+    return all_node;
+  };
+
+  function _get_modifier(path, displayBonusType) {
+    var displayItem = document.createElement("span");
+    // displayItem.setAttribute("class", "m-display-item");
+    var data;
+    var modifierPath = path.split(".");
+    if (sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
+      data = sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
+    } else {
+      data = helper.getObject(sheet.getCharacter(), path);
+    };
+    if (typeof data != "undefined" || data != "") {
+      console.log(displayBonusType);
+      if (displayBonusType) {
+        if (displayBonusType == "bonus" && data > 0) {
+          data = "+" + data;
+        };
+      };
+      displayItem.textContent = data;
+    } else {
+      displayItem = false;
+    };
+    return displayItem;
+  };
+
+  function _get_all_stat(all_displayPath) {
+    var all_node = [];
+    var path;
+    for (var i = 0; i < all_displayPath.length; i++) {
+      path = all_displayPath[i];
+      all_node.push(_get_stat(path));
+    };
+    return all_node;
+  };
+
+  function _get_stat(path) {
+    var displayItem = document.createElement("span");
+    displayItem.setAttribute("class", "m-display-item");
+    var data;
+    var statPath = path.split(".");
+    if (sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
+      data = sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score
+    } else {
+      data = helper.getObject(sheet.getCharacter(), path);
+    };
+    if (typeof data != "undefined" || data != "") {
+      displayItem.textContent = data;
+    } else {
+      displayItem = false;
+    };
+    return displayItem;
+  };
+
   function _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType) {
     var all_node = [];
     var path;
@@ -667,7 +650,7 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
-      displayItem.setAttribute("class", "m-display-item m-display-item-snippet");
+      displayItem.setAttribute("class", "m-display-item-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-value");
       if (displayBonusType == "bonus") {
@@ -737,8 +720,8 @@ var display = (function() {
           if (all_displayBlockTarget[j].dataset.displaySuffix) {
             all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
           };
-          displayBonusType = all_displayBlockTarget[j].dataset.displayTotalType;
-          if (all_displayBlockTarget[j].dataset.displayTotalType) {
+          displayBonusType = all_displayBlockTarget[j].dataset.displayBonusType;
+          if (all_displayBlockTarget[j].dataset.displayBonusType) {
           };
         };
         // increase the path count
@@ -754,9 +737,16 @@ var display = (function() {
             dataNotFoundAtPath++;
           };
         };
+        console.log(all_displayBlockTarget[j], displayBonusType);
 
         // get an array of nodes using the array of paths
-        all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType);
+        if (displayType == "stat") {
+          all_node = _get_all_stat(all_displayPath);
+        } else if (displayType == "modifier") {
+          all_node = _get_all_modifier(all_displayPath, displayBonusType);
+        } else if (displayType == "text-snippet") {
+          all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType);
+        };
 
         // loop over each node in array and append to target
         all_node.forEach(_appendToTarget);
