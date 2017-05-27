@@ -162,220 +162,107 @@ var display = (function() {
     // };
   };
 
+  function _get_all_spell(all_displayPath) {
+    var all_node = [];
+    for (var i = 0; i < all_displayPath.length; i++) {
+      var bookPath = all_displayPath[i].split(".");
+      var all_spells = sheet.getCharacter()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
+      if (all_spells.length == 0) {
+        all_node.push(false);
+      } else {
+        for (var j = 0; j < all_spells.length; j++) {
+          var spell = all_spells[j];
+          all_node.push(_get_spell(spell));
+        };
+      };
+    };
+    return all_node;
+  };
 
+  function _get_spell(spell) {
+    var displayItem = document.createElement("li");
+    displayItem.setAttribute("class", "m-display-list-item");
+    var displayItemPrefix = document.createElement("span");
+    displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+    var spellName = document.createElement("span");
+    spellName.textContent = spell.name;
+    var displayItemValue = document.createElement("span");
+    displayItemValue.setAttribute("class", "m-display-list-item-value");
+    displayItemPrefix.appendChild(spellName);
+    displayItem.appendChild(displayItemPrefix);
+    displayItem.appendChild(displayItemValue);
+    // prepared
+    if (spell.prepared > 0) {
+      // var marks = document.createElement("span");
+      for (var j = 0; j < spell.prepared; j++) {
+        var preparedIcon = document.createElement("span");
+        preparedIcon.setAttribute("class", "icon-radio-button-checked");
+        displayItemValue.insertBefore(preparedIcon, displayItemValue.firstChild);
+      };
+    };
+    // cast
+    if (spell.cast > 0) {
+      var all_check = displayItemValue.querySelectorAll(".icon-radio-button-checked");
+      for (var j = 0; j < spell.cast; j++) {
+        if (all_check[j]) {
+          helper.toggleClass(all_check[j], "icon-radio-button-checked");
+          helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
+        };
+      };
+    };
+    // active
+    if (spell.active) {
+      var spellActive = document.createElement("span");
+      spellActive.setAttribute("class", "m-display-spell-active");
+      var activeIcon = document.createElement("span");
+      activeIcon.setAttribute("class", "icon-play-arrow");
+      spellActive.appendChild(activeIcon);
+      spellName.insertBefore(spellActive, spellName.firstChild);
+    };
+    return displayItem;
+  };
 
+  function _get_all_skill(all_displayPath, displayPrefix) {
+    var all_node = [];
+    for (var i = 0; i < all_displayPath.length; i++) {
+      var path = all_displayPath[i];
+      var prefix = displayPrefix[i];
+      all_node.push(_get_skill(path, prefix));
+    };
+    return all_node;
+  };
 
-
-
-  function _get_skill(path, target, prefix, suffix) {
+  function _get_skill(path, prefix) {
     var object = helper.getObject(sheet.getCharacter(), path);
+    var displayItem;
     if (typeof object != "undefined" && object != "") {
 
       if (object.ranks != "undefined" && object.ranks != "") {
-        var li = document.createElement("li");
-        li.setAttribute("class", "m-display-col-three");
-        var div = document.createElement("div");
-        div.setAttribute("class", "m-display-item m-display-item-col");
+        displayItem = document.createElement("li");
+        displayItem.setAttribute("class", "m-display-list-item");
         var value = document.createElement("span");
-        value.setAttribute("class", "m-display-item-value");
+        value.setAttribute("class", "m-display-list-item-value");
         value.textContent = "+" + object.current;
-
-
         if (prefix || object["name"] || object["variant_name"]) {
-          var spanPrefix = document.createElement("span");
-          spanPrefix.setAttribute("class", "m-display-item-prefix");
+          var displayItemPrefix = document.createElement("span");
+          displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
           if (object["name"]) {
-            spanPrefix.textContent = object["name"] + " ";
+            displayItemPrefix.textContent = object["name"] + " ";
           } else if (object["variant_name"]) {
-            spanPrefix.textContent = object["variant_name"] + " ";
+            displayItemPrefix.textContent = object["variant_name"] + " ";
           } else {
-            spanPrefix.textContent = prefix;
+            displayItemPrefix.textContent = prefix;
           };
-          div.appendChild(spanPrefix);
+          displayItem.appendChild(displayItemPrefix);
         };
-
-        div.appendChild(value);
-
-        if (suffix) {
-          var spanSuffix = document.createElement("span");
-          spanSuffix.setAttribute("class", "m-display-item-suffix");
-          spanSuffix.textContent = suffix;
-          div.appendChild(spanSuffix);
-        };
-        li.appendChild(div);
-        target.appendChild(li);
+        displayItem.appendChild(value);
+      } else {
+        displayItem = false;
       };
 
     };
+    return displayItem;
   };
-
-  function _get_spell(target) {
-
-    var _render_displaySpell = function(array, level, target) {
-
-      var displayBody = document.createElement("div");
-      displayBody.setAttribute("class", "m-display-body");
-      var displayBodyTitle = document.createElement("p");
-      displayBodyTitle.setAttribute("class", "m-display-body-title");
-      displayBodyTitle.textContent = "Level " + level;
-      var spellBookPage = document.createElement("ul");
-      spellBookPage.setAttribute("class", "m-display-grid u-list-unstyled");
-
-      displayBody.appendChild(displayBodyTitle);
-
-      // add known, spells per day and dc
-      if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
-        var spellDc = sheet.getCharacter().spells.dc["level_" + level];
-        var perDay = sheet.getCharacter().spells.per_day["level_" + level];
-        var known = sheet.getCharacter().spells.known["level_" + level];
-        var h2 = document.createElement("h2");
-        if (known != "" || known == "undefined") {
-          var knownSpan = document.createElement("span");
-          knownSpan.setAttribute("class", "m-display-item m-display-item-snippet");
-          var knownPrefixSpan = document.createElement("span");
-          knownPrefixSpan.setAttribute("class", "m-display-item-prefix");
-          knownPrefixSpan.textContent = "Known ";
-          var knownValueSpan = document.createElement("span");
-          knownValueSpan.setAttribute("class", "m-display-item-value");
-          knownValueSpan.textContent = known;
-          knownSpan.appendChild(knownPrefixSpan);
-          knownSpan.appendChild(knownValueSpan);
-          h2.appendChild(knownSpan);
-        };
-        if (perDay != "" || perDay == "undefined") {
-          var perDaySpan = document.createElement("span");
-          perDaySpan.setAttribute("class", "m-display-item m-display-item-snippet");
-          var perDayPrefixSpan = document.createElement("span");
-          perDayPrefixSpan.setAttribute("class", "m-display-item-prefix");
-          perDayPrefixSpan.textContent = "Per Day ";
-          var perDayValueSpan = document.createElement("span");
-          perDayValueSpan.setAttribute("class", "m-display-item-value");
-          perDayValueSpan.textContent = perDay;
-          perDaySpan.appendChild(perDayPrefixSpan);
-          perDaySpan.appendChild(perDayValueSpan);
-          h2.appendChild(perDaySpan);
-        };
-        if (spellDc != "" || spellDc == "undefined") {
-          var spellDcSpan = document.createElement("span");
-          spellDcSpan.setAttribute("class", "m-display-item m-display-item-snippet");
-          var spellDcPrefixSpan = document.createElement("span");
-          spellDcPrefixSpan.setAttribute("class", "m-display-item-prefix");
-          spellDcPrefixSpan.textContent = "DC ";
-          var spellDcValueSpan = document.createElement("span");
-          spellDcValueSpan.setAttribute("class", "m-display-item-value");
-          spellDcValueSpan.textContent = spellDc;
-          spellDcSpan.appendChild(spellDcPrefixSpan);
-          spellDcSpan.appendChild(spellDcValueSpan);
-          h2.appendChild(spellDcSpan);
-        };
-      };
-      if (known != "" || known == "undefined" || perDay != "" || perDay == "undefined" || spellDc != "" || spellDc == "undefined") {
-        displayBody.appendChild(h2);
-      };
-
-      // add spall pages
-      for (var i = 0; i < array.length; i++) {
-
-        var spellObject = array[i];
-        var displayCol = document.createElement("li");
-        displayCol.setAttribute("class", "m-display-col-three");
-        var displayItem = document.createElement("div");
-        displayItem.setAttribute("class", "m-display-item m-display-item-list");
-
-        var spell = document.createElement("div");
-        spell.setAttribute("class", "m-display-spell");
-
-        var spellName = document.createElement("span");
-        spellName.setAttribute("class", "m-display-spell-name");
-        var spellNameSpan = document.createElement("span");
-        spellNameSpan.textContent = spellObject.name;
-        spellName.appendChild(spellNameSpan);
-
-        var spellCount = document.createElement("span");
-        spellCount.setAttribute("class", "m-display-spell-count");
-
-        // prepared
-        if (spellObject.prepared > 0) {
-          // var marks = document.createElement("span");
-          for (var j = 0; j < spellObject.prepared; j++) {
-            var preparedIcon = document.createElement("span");
-            preparedIcon.setAttribute("class", "icon-radio-button-checked");
-            spellCount.insertBefore(preparedIcon, spellCount.firstChild);
-          };
-        };
-
-        // cast
-        if (spellObject.cast > 0) {
-          var all_check = spellCount.querySelectorAll(".icon-radio-button-checked");
-          for (var j = 0; j < spellObject.cast; j++) {
-            if (all_check[j]) {
-              helper.toggleClass(all_check[j], "icon-radio-button-checked");
-              helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
-            };
-          };
-        };
-
-        // active
-        if (spellObject.active) {
-          var spellActive = document.createElement("span");
-          spellActive.setAttribute("class", "m-display-spell-active");
-          var activeIcon = document.createElement("span");
-          activeIcon.setAttribute("class", "icon-play-arrow");
-          spellActive.appendChild(activeIcon);
-          spellName.insertBefore(spellActive, spellName.firstChild);
-        };
-
-        spell.appendChild(spellName);
-        spell.appendChild(spellCount);
-
-        displayItem.appendChild(spell);
-        displayCol.appendChild(displayItem);
-        spellBookPage.appendChild(displayCol);
-
-      };
-
-      displayBody.appendChild(spellBookPage);
-      target.appendChild(displayBody);
-
-    };
-
-    // build an array of spell objects
-    var spellsToRender;
-    // iterate over all objects keys to find spells
-    if (sheet.getCharacter().spells.book) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          spellsToRender = sheet.getCharacter().spells.book[i][j];
-          // console.log(spellsToRender, i);
-          if (spellsToRender.length > 0) {
-            _render_displaySpell(spellsToRender, i, target);
-          };
-        };
-      };
-    };
-
-  };
-
-  function _render_skill(itemsToDisplay, target, displayPrefix, displaySuffix) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var prefix = displayPrefix[i];
-      var suffix = displaySuffix[i];
-      var data = _get_skill(path, target, prefix, suffix);
-    };
-  };
-
-  function _render_spell(target) {
-    var data = _get_spell(target);
-  };
-
-
-
-// /////////
-// /////////
-// /////////
-// /////////
-
 
   function _get_all_clone(all_displayPath) {
     var all_node = [];
@@ -461,22 +348,18 @@ var display = (function() {
         };
       };
 
+      if (cloneType == "note-character" || cloneType == "note-story") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          var data = object[i];
+          if (typeof data != "undefined" && data != "") {
+            displayListItem.innerHTML = data;
+          };
+        };
+      };
+
       return displayListItem;
-
-      // if (cloneType == "note-character" || cloneType == "note-story") {
-      //   for (var i in object) {
-      //
-      //     var data = object[i];
-      //     if (typeof data != "undefined" && data != "") {
-      //       displayItem.innerHTML = data;
-      //     };
-      //
-      //   };
-      //
-      //   li.appendChild(displayItem);
-      //   target.appendChild(li);
-      // };
-
     };
 
     for (var i in object) {
@@ -495,7 +378,7 @@ var display = (function() {
 
   };
 
-  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayBonusType) {
+  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
@@ -507,16 +390,16 @@ var display = (function() {
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      all_node.push(_get_list(path, prefix, suffix, displayBonusType));
+      all_node.push(_get_list(path, prefix, suffix, displayValueType));
     };
     return all_node;
   };
 
-  function _get_list(path, prefix, suffix, displayBonusType) {
+  function _get_list(path, prefix, suffix, displayValueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
-      if (displayBonusType == "bonus") {
+      if (displayValueType == "bonus") {
         data = "+" + data;
       };
       displayItem = document.createElement("li");
@@ -525,10 +408,10 @@ var display = (function() {
       value.setAttribute("class", "m-display-list-item-value");
       value.textContent = data;
       if (prefix) {
-        var prefix = document.createElement("span");
-        prefix.setAttribute("class", "m-display-list-item-prefix");
-        prefix.textContent = prefix;
-        displayItem.appendChild(prefix);
+        var displayItemPrefix = document.createElement("span");
+        displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+        displayItemPrefix.textContent = prefix;
+        displayItem.appendChild(displayItemPrefix);
       };
       displayItem.appendChild(value);
       if (suffix) {
@@ -543,16 +426,16 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_modifier(all_displayPath, displayBonusType) {
+  function _get_all_modifier(all_displayPath, displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
-      all_node.push(_get_modifier(path, displayBonusType));
+      all_node.push(_get_modifier(path, displayValueType));
     };
     return all_node;
   };
 
-  function _get_modifier(path, displayBonusType) {
+  function _get_modifier(path, displayValueType) {
     var displayItem;
     var data;
     var modifierPath = path.split(".");
@@ -563,8 +446,8 @@ var display = (function() {
     };
     if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
-      if (displayBonusType) {
-        if (displayBonusType == "bonus" && data > 0) {
+      if (displayValueType) {
+        if (displayValueType == "bonus" && data > 0) {
           data = "+" + data;
         };
       };
@@ -633,7 +516,7 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType) {
+  function _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
@@ -649,13 +532,13 @@ var display = (function() {
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      all_node.push(_get_textSnippet(path, title, prefix, suffix, displayBonusType));
+      all_node.push(_get_textSnippet(path, title, prefix, suffix, displayValueType));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_textSnippet(path, title, prefix, suffix, displayBonusType) {
+  function _get_textSnippet(path, title, prefix, suffix, displayValueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
@@ -663,7 +546,7 @@ var display = (function() {
       displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-text-snippet-value");
-      if (displayBonusType == "bonus") {
+      if (displayValueType == "bonus") {
         data = "+" + data;
       };
       value.innerHTML = data;
@@ -717,7 +600,7 @@ var display = (function() {
         var all_displayTitle = false;
         var all_displayPrefix = false;
         var all_displaySuffix = false;
-        var displayBonusType = false;
+        var displayValueType = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
@@ -730,9 +613,9 @@ var display = (function() {
           if (all_displayBlockTarget[j].dataset.displaySuffix) {
             all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
           };
-          displayBonusType = all_displayBlockTarget[j].dataset.displayBonusType;
-          if (all_displayBlockTarget[j].dataset.displayBonusType) {
-            displayBonusType = all_displayBlockTarget[j].dataset.displayBonusType;
+          displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
+          if (all_displayBlockTarget[j].dataset.displayValueType) {
+            displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
           };
         };
 
@@ -754,15 +637,19 @@ var display = (function() {
         if (displayType == "stat") {
           all_node = _get_all_stat(all_displayPath);
         } else if (displayType == "modifier") {
-          all_node = _get_all_modifier(all_displayPath, displayBonusType);
+          all_node = _get_all_modifier(all_displayPath, displayValueType);
         } else if (displayType == "text-snippet") {
-          all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType);
+          all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayValueType);
         } else if (displayType == "text-block") {
           all_node = _get_all_textBlock(all_displayPath);
         } else if (displayType == "list") {
-          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayBonusType);
+          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType);
         } else if (displayType == "clone") {
           all_node = _get_all_clone(all_displayPath);
+        } else if (displayType == "skill") {
+          all_node = _get_all_skill(all_displayPath, all_displayPrefix);
+        } else if (displayType == "spell") {
+          all_node = _get_all_spell(all_displayPath);
         };
 
         // loop over each node in array and append to target
@@ -816,7 +703,7 @@ var display = (function() {
       var displayTitle;
       var displayPrefix;
       var displaySuffix;
-      var displayBonusType = false;
+      var displayValueType = false;
       var displayType = all_displayBlock[i].dataset.displayType;
       var node;
 
@@ -838,7 +725,7 @@ var display = (function() {
           displaySuffix = false;
         };
         if (all_displayBlock[i].dataset.displayTotalType) {
-          displayBonusType = all_displayBlock[i].dataset.displayTotalType;
+          displayValueType = all_displayBlock[i].dataset.displayTotalType;
         };
       };
 
@@ -850,7 +737,7 @@ var display = (function() {
       } else if (displayType == "modifier") {
         _render_modifier(itemsToDisplay, target);
       } else if (displayType == "text-snippet") {
-        node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayBonusType);
+        node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayValueType);
         if (node != false) {
           target.appendChild(node);
         };
