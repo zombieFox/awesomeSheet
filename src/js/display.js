@@ -166,33 +166,6 @@ var display = (function() {
 
 
 
-  function _get_list(path, target, prefix, suffix) {
-    var data = helper.getObject(sheet.getCharacter(), path);
-    if (typeof data != "undefined" && data != "") {
-      var li = document.createElement("li");
-      li.setAttribute("class", "m-display-col-three");
-      var div = document.createElement("div");
-      div.setAttribute("class", "m-display-item m-display-item-list");
-      var value = document.createElement("span");
-      value.setAttribute("class", "m-display-item-value");
-      value.innerHTML = data;
-      if (prefix) {
-        var spanPrefix = document.createElement("span");
-        spanPrefix.setAttribute("class", "m-display-item-prefix");
-        spanPrefix.textContent = prefix;
-        div.appendChild(spanPrefix);
-      };
-      div.appendChild(value);
-      if (suffix) {
-        var spanSuffix = document.createElement("span");
-        spanSuffix.setAttribute("class", "m-display-item-suffix");
-        spanSuffix.textContent = suffix;
-        div.appendChild(spanSuffix);
-      };
-      li.appendChild(div);
-      target.appendChild(li);
-    };
-  };
 
   function _get_skill(path, target, prefix, suffix) {
     var object = helper.getObject(sheet.getCharacter(), path);
@@ -510,14 +483,6 @@ var display = (function() {
 
   };
 
-  function _render_list(itemsToDisplay, target, displayPrefix, displaySuffix) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var prefix = displayPrefix[i];
-      var suffix = displaySuffix[i];
-      var data = _get_list(path, target, prefix, suffix);
-    };
-  };
 
   function _render_skill(itemsToDisplay, target, displayPrefix, displaySuffix) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
@@ -547,6 +512,52 @@ var display = (function() {
 // /////////
 
 
+  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix) {
+    var all_node = [];
+    var path;
+    var prefix = false;
+    var suffix = false;
+    for (var i = 0; i < all_displayPath.length; i++) {
+      path = all_displayPath[i];
+      if (all_displayPrefix[i]) {
+        prefix = all_displayPrefix[i];
+      };
+      if (all_displaySuffix[i]) {
+        suffix = all_displaySuffix[i];
+      };
+      all_node.push(_get_list(path, prefix, suffix));
+    };
+    return all_node;
+  };
+
+  function _get_list(path, prefix, suffix) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    var displayItem;
+    if (typeof data != "undefined" && data != "") {
+      displayItem = document.createElement("li");
+      displayItem.setAttribute("class", "m-display-list-item");
+      var value = document.createElement("span");
+      value.setAttribute("class", "m-display-list-value");
+      value.textContent = data;
+      if (prefix) {
+        var displayItemPrefix = document.createElement("span");
+        displayItemPrefix.setAttribute("class", "m-display-list-prefix");
+        displayItemPrefix.textContent = prefix;
+        displayItem.appendChild(displayItemPrefix);
+      };
+      displayItem.appendChild(value);
+      if (suffix) {
+        var displayItemSuffix = document.createElement("span");
+        displayItemSuffix.setAttribute("class", "m-display-list-suffix");
+        displayItemSuffix.textContent = prefix;
+        displayItem.appendChild(displayItemSuffix);
+      };
+    } else {
+      displayItem = false;
+    };
+    return displayItem;
+  };
+
   function _get_all_modifier(all_displayPath, displayBonusType) {
     var all_node = [];
     var path;
@@ -566,7 +577,7 @@ var display = (function() {
     } else {
       data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != "undefined" && data != "" || data == 0) {
       var displayItem = document.createElement("span");
       if (displayBonusType) {
         if (displayBonusType == "bonus" && data > 0) {
@@ -599,7 +610,7 @@ var display = (function() {
     } else {
       data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != "undefined" && data != "" || data == 0) {
       displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else {
@@ -760,10 +771,13 @@ var display = (function() {
           all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType);
         } else if (displayType == "text-block") {
           all_node = _get_all_textBlock(all_displayPath);
+        } else if (displayType == "list") {
+          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix);
         };
 
         // loop over each node in array and append to target
         all_node.forEach(_appendToTarget);
+        all_node = [];
       };
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
       if (dataNotFoundAtPath == displayBlockPathCount) {
