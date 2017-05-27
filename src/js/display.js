@@ -776,32 +776,24 @@ var display = (function() {
 
   function _update_placeholder() {
     var all_display = helper.eA(".js-display");
-
     for (var i = 0; i < all_display.length; i++) {
       var placeholderDisplay = all_display[i].querySelector(".js-placeholder-display");
       var all_displayBlock = all_display[i].querySelectorAll(".js-display-block");
-      var displayContentCount = 0;
-
+      var contentFound = false;
       for (var j = 0; j < all_displayBlock.length; j++) {
-        console.log(all_displayBlock[j]);
         if (all_displayBlock[j].dataset.displayContent == "true") {
-          displayContentCount++;
-          helper.removeClass(all_displayBlock[i], "is-hidden");
-          helper.addClass(placeholderDisplay, "is-hidden");
+          contentFound = true;
+          helper.removeClass(all_displayBlock[j], "is-hidden");
         } else {
-          helper.addClass(all_displayBlock[i], "is-hidden");
-          helper.removeClass(placeholderDisplay, "is-hidden");
+          helper.addClass(all_displayBlock[j], "is-hidden");
         };
       };
-
-      if (displayContentCount > 0) {
+      if (contentFound) {
         helper.addClass(placeholderDisplay, "is-hidden")
       } else {
         helper.removeClass(placeholderDisplay, "is-hidden")
       };
-
     };
-
   };
 
   function _render_displayBlock_xxxx() {
