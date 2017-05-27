@@ -218,7 +218,7 @@ input[type="submit"] {
 .button-group {
   margin: 0 0 1.5em;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
