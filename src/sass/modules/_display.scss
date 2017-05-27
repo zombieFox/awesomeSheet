@@ -2,9 +2,13 @@
 // display body
 // --------------------------------------------------
 .m-display-block {
-  border: 1px solid red;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
+  }
+}
+.m-display-block-last {
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
   }
 }
 .m-display-title {
@@ -81,52 +85,52 @@
 // --------------------------------------------------
 // display item
 // --------------------------------------------------
-.m-display-item-title {
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-075;
-  line-height: $line-height-150;
-  color: $gray-10;
-  display: block;
-}
-.m-display-item-prefix {
-  font-family: $open-sans-semi-bold;
-}
-.m-display-item-suffix {
-  color: $gray-08;
-}
-.m-display-item-value {}
-.m-display-item-block {
-  display: block;
-}
-.m-display-item-snippet {
-  &:not(:only-child):not(:last-child) {
-    padding-right: 0.5em;
-    margin-right: 0.5em;
-    border-right: 2px solid $gray-18;
-  }
-}
-.m-display-item-list {
-  .m-display-item-prefix {
-    display: block;
-  }
-}
-.m-display-item-col {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  .m-display-item-prefix {}
-  .m-display-item-value {}
-}
-.is-night-mode {
-  .m-display-item-suffix {
-    color: $gray-12;
-  }
-  .m-display-item-snippet {
-    &:not(:only-child):not(:last-child) {
-      border-color: $light-alpha-19;
-    }
-  }
-}
+// .m-display-item-title {
+//   font-family: $open-sans-semi-bold;
+//   font-size: $font-size-075;
+//   line-height: $line-height-150;
+//   color: $gray-10;
+//   display: block;
+// }
+// .m-display-item-prefix {
+//   font-family: $open-sans-semi-bold;
+// }
+// .m-display-item-suffix {
+//   color: $gray-08;
+// }
+// .m-display-item-value {}
+// .m-display-item-block {
+//   display: block;
+// }
+// .m-display-item-text-snippet {
+//   &:not(:only-child):not(:last-child) {
+//     padding-right: 0.5em;
+//     margin-right: 0.5em;
+//     border-right: 2px solid $gray-18;
+//   }
+// }
+// .m-display-item-list {
+//   .m-display-item-prefix {
+//     display: block;
+//   }
+// }
+// .m-display-item-col {
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: space-between;
+//   .m-display-item-prefix {}
+//   .m-display-item-value {}
+// }
+// .is-night-mode {
+//   // .m-display-item-suffix {
+//   //   color: $gray-12;
+//   // }
+//   // .m-display-item-text-snippet {
+//   //   &:not(:only-child):not(:last-child) {
+//   //     border-color: $light-alpha-19;
+//   //   }
+//   // }
+// }
 // --------------------------------------------------
 // specific display components
 // --------------------------------------------------

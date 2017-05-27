@@ -164,18 +164,7 @@ var display = (function() {
 
 
 
-  function _get_textBlock(path, target) {
-    var data = helper.getObject(sheet.getCharacter(), path);
-    if (typeof data != "undefined" && data != "") {
-      var displayItem = document.createElement("span");
-      displayItem.setAttribute("class", "m-display-item m-display-item-block");
-      var value = document.createElement("span");
-      value.setAttribute("class", "m-display-item-value");
-      value.innerHTML = data;
-      displayItem.appendChild(value);
-      target.appendChild(displayItem);
-    };
-  };
+
 
   function _get_list(path, target, prefix, suffix) {
     var data = helper.getObject(sheet.getCharacter(), path);
@@ -521,13 +510,6 @@ var display = (function() {
 
   };
 
-  function _render_textBlock(itemsToDisplay, target) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var data = _get_textBlock(path, target);
-    };
-  };
-
   function _render_list(itemsToDisplay, target, displayPrefix, displaySuffix) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
@@ -559,7 +541,10 @@ var display = (function() {
 
 
 
-
+// /////////
+// /////////
+// /////////
+// /////////
 
 
   function _get_all_modifier(all_displayPath, displayBonusType) {
@@ -573,8 +558,7 @@ var display = (function() {
   };
 
   function _get_modifier(path, displayBonusType) {
-    var displayItem = document.createElement("span");
-    // displayItem.setAttribute("class", "m-display-item");
+    var displayItem;
     var data;
     var modifierPath = path.split(".");
     if (sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
@@ -582,7 +566,8 @@ var display = (function() {
     } else {
       data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data != "undefined" || data != "") {
+    if (typeof data != "undefined" && data != "") {
+      var displayItem = document.createElement("span");
       if (displayBonusType) {
         if (displayBonusType == "bonus" && data > 0) {
           data = "+" + data;
@@ -606,8 +591,7 @@ var display = (function() {
   };
 
   function _get_stat(path) {
-    var displayItem = document.createElement("span");
-    displayItem.setAttribute("class", "m-display-item");
+    var displayItem;
     var data;
     var statPath = path.split(".");
     if (sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
@@ -615,8 +599,35 @@ var display = (function() {
     } else {
       data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data != "undefined" || data != "") {
+    if (typeof data != "undefined" && data != "") {
+      displayItem = document.createElement("span");
       displayItem.textContent = data;
+    } else {
+      displayItem = false;
+    };
+    return displayItem;
+  };
+
+  function _get_all_textBlock(all_displayPath) {
+    var all_node = [];
+    var path;
+    for (var i = 0; i < all_displayPath.length; i++) {
+      path = all_displayPath[i];
+      all_node.push(_get_textBlock(path));
+    };
+    return all_node;
+  };
+
+  function _get_textBlock(path, target) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    var displayItem;
+    if (typeof data != "undefined" && data != "") {
+      displayItem = document.createElement("span");
+      displayItem.setAttribute("class", "m-display-item-text-block");
+      var value = document.createElement("span");
+      value.setAttribute("class", "m-display-item-text-block-value");
+      value.innerHTML = data;
+      displayItem.appendChild(value);
     } else {
       displayItem = false;
     };
@@ -648,31 +659,32 @@ var display = (function() {
 
   function _get_textSnippet(path, title, prefix, suffix, displayBonusType) {
     var data = helper.getObject(sheet.getCharacter(), path);
+    var displayItem;
     if (typeof data != "undefined" && data != "") {
-      var displayItem = document.createElement("span");
-      displayItem.setAttribute("class", "m-display-item-snippet");
+      displayItem = document.createElement("span");
+      displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
-      value.setAttribute("class", "m-display-item-value");
+      value.setAttribute("class", "m-display-item-text-snippet-value");
       if (displayBonusType == "bonus") {
         data = "+" + data;
       };
       value.innerHTML = data;
       if (title) {
         var spanTitle = document.createElement("span");
-        spanTitle.setAttribute("class", "m-display-item-title");
+        spanTitle.setAttribute("class", "m-display-item-text-snippet-title");
         spanTitle.textContent = title;
         displayItem.appendChild(spanTitle);
       };
       if (prefix) {
         var spanPrefix = document.createElement("span");
-        spanPrefix.setAttribute("class", "m-display-item-prefix");
+        spanPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
         spanPrefix.textContent = prefix;
         displayItem.appendChild(spanPrefix);
       };
       displayItem.appendChild(value);
       if (suffix) {
         var spanSuffix = document.createElement("span");
-        spanSuffix.setAttribute("class", "m-display-item-suffix");
+        spanSuffix.setAttribute("class", "m-display-item-text-snippet-suffix");
         spanSuffix.textContent = suffix;
         displayItem.appendChild(spanSuffix);
       };
@@ -688,10 +700,8 @@ var display = (function() {
     var all_displayBlock = helper.eA(".js-display-block");
     // loop all display blocks
     for (var i = 0; i < all_displayBlock.length; i++) {
-
       // find all targets in this display blocks
       var all_displayBlockTarget = all_displayBlock[i].querySelectorAll(".js-display-block-target");
-      // console.log("displayBlock --- >", all_displayBlock[i]);
       // start a "path count"
       var displayBlockPathCount = 0;
       // start a "no data found at path" count
@@ -699,7 +709,6 @@ var display = (function() {
 
       // loop over each target in this display blocks
       for (var j = 0; j < all_displayBlockTarget.length; j++) {
-        // console.log("\t\ttarget --- >", all_displayBlockTarget[j]);
 
         // get all data from display blocks target
         var target = all_displayBlockTarget[j];
@@ -730,20 +739,15 @@ var display = (function() {
 
         // increase the path count
         displayBlockPathCount = displayBlockPathCount + all_displayPath.length;
-        // console.log("\t\t\t\tdisplayBlockPathCount now ===== ", displayBlockPathCount);
 
         // function for later use to check the element from node array for false or data
         var _appendToTarget = function(element) {
           if (element != false) {
-            // console.log(element, true);
             // append to target
             target.appendChild(element);
           } else {
-            // console.log(element, false);
             // or increment the "no data found at path" count
             dataNotFoundAtPath++;
-            // console.log("dataNotFoundAtPath = ", dataNotFoundAtPath);
-            // console.log("displayBlockPathCount = ", displayBlockPathCount);
           };
         };
 
@@ -754,19 +758,17 @@ var display = (function() {
           all_node = _get_all_modifier(all_displayPath, displayBonusType);
         } else if (displayType == "text-snippet") {
           all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType);
+        } else if (displayType == "text-block") {
+          all_node = _get_all_textBlock(all_displayPath);
         };
 
         // loop over each node in array and append to target
         all_node.forEach(_appendToTarget);
-        // console.log("-- end of target");
       };
-      // console.log("\t\tnot found count ===", dataNotFoundAtPath);
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
       if (dataNotFoundAtPath == displayBlockPathCount) {
-        // console.log("- - - ");
         all_displayBlock[i].dataset.displayContent = false;
       } else {
-        // console.log("+ + + ");
         all_displayBlock[i].dataset.displayContent = true;
       };
 
@@ -780,13 +782,18 @@ var display = (function() {
       var placeholderDisplay = all_display[i].querySelector(".js-placeholder-display");
       var all_displayBlock = all_display[i].querySelectorAll(".js-display-block");
       var contentFound = false;
+      var lastActiveDisplayBlock;
       for (var j = 0; j < all_displayBlock.length; j++) {
         if (all_displayBlock[j].dataset.displayContent == "true") {
+          lastActiveDisplayBlock = all_displayBlock[j];
           contentFound = true;
           helper.removeClass(all_displayBlock[j], "is-hidden");
         } else {
           helper.addClass(all_displayBlock[j], "is-hidden");
         };
+      };
+      if (lastActiveDisplayBlock) {
+        helper.addClass(lastActiveDisplayBlock, "m-display-block-last");
       };
       if (contentFound) {
         helper.addClass(placeholderDisplay, "is-hidden")
