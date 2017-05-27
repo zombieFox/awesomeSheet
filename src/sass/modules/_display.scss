@@ -110,145 +110,97 @@
   flex-flow: row wrap;
   justify-content: flex-start;
 }
-.m-display-name-title {
-  flex: 1 0 auto;
-  margin-right: 1em;
-}
-.m-display-name-description {
-  flex: 0 0 auto;
-  color: $gray-12;
-  font-size: $font-size-050;
-}
-// --------------------------------------------------
-// display head
-// --------------------------------------------------
-.m-display-quick-stats {
-  font-size: $font-size-root-100;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-quick-stats-item {
-  flex: 1 0 auto;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  box-sizing: border-box;
-  padding: 0.5em 0;
-  border-radius: $border-radius-large;
-}
-.m-display-quick-stats-item-stat {
-  flex-basis: 33.3333333333%;
-  padding: 0.5em;
-}
-.m-display-quick-stats-item-title {
-  color: $primary-color-10;
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-075;
-  line-height: 1;
-  .m-display-text {
-    &:not(:only-child):not(:last-child) {
-      margin-right: 0.5em;
-      padding-right: 0;
-      border-right: 0;
-    }
-  }
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0.5em;
-  }
-}
-.m-display-quick-stats-item-value {
-  font-size: $font-size-200;
-  line-height: 1;
-  margin-bottom: 0;
-  .m-display-quick-stats-item-value-small {
-    font-size: $font-size-050;
-  }
-}
-.m-display-quick-stats-item-highlight {
-  border: 2px solid $gray-18;
-  .m-display-quick-stats-item-title,
-  .m-display-quick-stats-item-value {
-    text-align: center;
-  }
-}
-.m-display-quick-stats-hitpoints {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
-.m-display-quick-stats-hitpoints-current,
-.m-display-quick-stats-hitpoints-total {
-  flex: 0 0 auto;
-}
-.m-display-quick-stats-hitpoints-current {
-  padding-right: 0.4em;
-  position: relative;
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -1px;
-    width: 2px;
-    height: 100%;
-    background-color: $gray-12;
-    transform: translate(1px, 0) rotate(20deg);
-  }
-}
-.m-display-quick-stats-hitpoints-total {
-  padding-left: 0.4em;
-  color: $gray-12;
-}
-.is-night-mode {
-  .m-display-quick-stats-item-highlight {
-    border-color: $light-alpha-19;
-  }
-  .m-display-quick-stats-item-title {
-    color: $primary-color-10;
-  }
-}
-// --------------------------------------------------
-// display statistics
-// --------------------------------------------------
-.m-display-statistics {
-  font-size: $font-size-root-100;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-statistics-item {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-.m-display-statistics-item-score {
-  flex: 0 1 20%;
-}
-.m-display-statistics-item-title {
-  flex: 1 1 auto;
-  text-align: left;
-  font-family: $open-sans-semi-bold;
-}
-.m-display-statistics-item-value {
-  flex: 0 1 20%;
-  margin: 0;
-  text-align: right;
-  font-size: $font-size-150;
-  line-height: 1;
-}
-.m-display-statistics-item-score,
-.m-display-statistics-item-title {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
+// // --------------------------------------------------
+// // display head
+// // --------------------------------------------------
+// .m-display-quick-stats {
+//   font-size: $font-size-root-100;
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: flex-start;
+//   &:not(:only-child):not(:last-child) {
+//     margin-bottom: 2em;
+//   }
+// }
+// .m-display-quick-stats-item {
+//   flex: 1 0 auto;
+//   border-top: 2px solid transparent;
+//   border-bottom: 2px solid transparent;
+//   box-sizing: border-box;
+//   padding: 0.5em 0;
+//   border-radius: $border-radius-large;
+// }
+// .m-display-quick-stats-item-stat {
+//   flex-basis: 33.3333333333%;
+//   padding: 0.5em;
+// }
+// .m-display-quick-stats-item-title {
+//   color: $primary-color-10;
+//   font-family: $open-sans-semi-bold;
+//   font-size: $font-size-075;
+//   line-height: 1;
+//   .m-display-text {
+//     &:not(:only-child):not(:last-child) {
+//       margin-right: 0.5em;
+//       padding-right: 0;
+//       border-right: 0;
+//     }
+//   }
+//   &:not(:only-child):not(:last-child) {
+//     margin-bottom: 0.5em;
+//   }
+// }
+// .m-display-quick-stats-item-value {
+//   font-size: $font-size-200;
+//   line-height: 1;
+//   margin-bottom: 0;
+//   .m-display-quick-stats-item-value-small {
+//     font-size: $font-size-050;
+//   }
+// }
+// .m-display-quick-stats-item-highlight {
+//   border: 2px solid $gray-18;
+//   .m-display-quick-stats-item-title,
+//   .m-display-quick-stats-item-value {
+//     text-align: center;
+//   }
+// }
+// .m-display-quick-stats-hitpoints {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: center;
+// }
+// .m-display-quick-stats-hitpoints-current,
+// .m-display-quick-stats-hitpoints-total {
+//   flex: 0 0 auto;
+// }
+// .m-display-quick-stats-hitpoints-current {
+//   padding-right: 0.4em;
+//   position: relative;
+//   &:after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     right: -1px;
+//     width: 2px;
+//     height: 100%;
+//     background-color: $gray-12;
+//     transform: translate(1px, 0) rotate(20deg);
+//   }
+// }
+// .m-display-quick-stats-hitpoints-total {
+//   padding-left: 0.4em;
+//   color: $gray-12;
+// }
+// .is-night-mode {
+//   .m-display-quick-stats-item-highlight {
+//     border-color: $light-alpha-19;
+//   }
+//   .m-display-quick-stats-item-title {
+//     color: $primary-color-10;
+//   }
+// }
 // --------------------------------------------------
 // display attack melee
 // --------------------------------------------------
@@ -375,60 +327,6 @@
       }
     }
   }
-  // .m-display-grid {
-  //   flex-flow: row wrap;
-  //   .m-display-col-three {
-  //     flex: 0 0 46%;
-  //     &:nth-child(odd) {
-  //       margin-right: 8%;
-  //     }
-  //   }
-  //   .m-display-col-three-fixed {
-  //     flex: 0 0 30%;
-  //     &:nth-child(odd) {
-  //       margin-right: 0;
-  //     }
-  //     &:nth-child(3n+1),
-  //     &:nth-child(3n+2) {
-  //       margin-right: 5%;
-  //     }
-  //   }
-  // }
-  // .m-display-item-col {
-  //   .m-display-item-prefix {
-  //     flex: 1 1 80%;
-  //   }
-  //   .m-display-item-value {
-  //     flex: 1 1 auto;
-  //     text-align: right;
-  //   }
-  // }
-  // .m-display-attack-melee-item {
-  //   flex-flow: row wrap;
-  // }
-  // .m-display-attack-melee-item-weapon {
-  //   flex: 0 0 40%;
-  // }
-  // .m-display-attack-melee-item-attack {
-  //   flex: 1 0 auto;
-  // }
-  // .m-display-attack-melee-item-critical,
-  // .m-display-attack-melee-item-damage,
-  // .m-display-attack-ranged-item {
-  //   flex-flow: row wrap;
-  // }
-  // .m-display-attack-ranged-item-weapon {
-  //   flex: 0 0 40%;
-  // }
-  // .m-display-attack-ranged-item-attack {
-  //   flex: 1 0 auto;
-  // }
-  // .m-display-attack-ranged-item-ammo,
-  // .m-display-attack-ranged-item-critical,
-  // .m-display-attack-ranged-item-damage,
-  // .m-display-attack-ranged-item-range {
-  //   flex: 0 1 auto;
-  // }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
@@ -447,18 +345,5 @@
       }
     }
   }
-  // .m-display-grid {
-  //   flex-flow: row wrap;
-  //   .m-display-col-three {
-  //     flex: 0 0 30%;
-  //     &:nth-child(odd) {
-  //       margin-right: 0;
-  //     }
-  //     &:nth-child(3n+1),
-  //     &:nth-child(3n+2) {
-  //       margin-right: 5%;
-  //     }
-  //   }
-  // }
 }
 @media (min-width: $screen-xl) {}

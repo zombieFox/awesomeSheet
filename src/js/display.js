@@ -516,29 +516,25 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayValueType) {
+  function _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
-      var title = false;
       var prefix = false;
       var suffix = false;
-      if (all_displayTitle[i]) {
-        title = all_displayTitle[i];
-      };
       if (all_displayPrefix[i]) {
         prefix = all_displayPrefix[i];
       };
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      all_node.push(_get_textSnippet(path, title, prefix, suffix, displayValueType));
+      all_node.push(_get_textSnippet(path, prefix, suffix, displayValueType));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_textSnippet(path, title, prefix, suffix, displayValueType) {
+  function _get_textSnippet(path, prefix, suffix, displayValueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
@@ -550,12 +546,6 @@ var display = (function() {
         data = "+" + data;
       };
       value.innerHTML = data;
-      if (title) {
-        var spanTitle = document.createElement("span");
-        spanTitle.setAttribute("class", "m-display-item-text-snippet-title");
-        spanTitle.textContent = title;
-        displayItem.appendChild(spanTitle);
-      };
       if (prefix) {
         var spanPrefix = document.createElement("span");
         spanPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
@@ -597,26 +587,22 @@ var display = (function() {
         var displayType = all_displayBlockTarget[j].dataset.displayType;
         var all_node = [];
         var all_displayPath;
-        var all_displayTitle = false;
         var all_displayPrefix = false;
         var all_displaySuffix = false;
         var displayValueType = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
-          if (all_displayBlockTarget[j].dataset.displayTitle) {
-            all_displayTitle = all_displayBlockTarget[j].dataset.displayTitle.split(",");
-          };
-          if (all_displayBlockTarget[j].dataset.displayPrefix) {
-            all_displayPrefix = all_displayBlockTarget[j].dataset.displayPrefix.split(",");
-          };
-          if (all_displayBlockTarget[j].dataset.displaySuffix) {
-            all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
-          };
+        };
+        if (all_displayBlockTarget[j].dataset.displayPrefix) {
+          all_displayPrefix = all_displayBlockTarget[j].dataset.displayPrefix.split(",");
+        };
+        if (all_displayBlockTarget[j].dataset.displaySuffix) {
+          all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
+        };
+        displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
+        if (all_displayBlockTarget[j].dataset.displayValueType) {
           displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
-          if (all_displayBlockTarget[j].dataset.displayValueType) {
-            displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
-          };
         };
 
         // increase the path count
@@ -639,7 +625,7 @@ var display = (function() {
         } else if (displayType == "modifier") {
           all_node = _get_all_modifier(all_displayPath, displayValueType);
         } else if (displayType == "text-snippet") {
-          all_node = _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayValueType);
+          all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType);
         } else if (displayType == "text-block") {
           all_node = _get_all_textBlock(all_displayPath);
         } else if (displayType == "list") {
@@ -690,69 +676,6 @@ var display = (function() {
       } else {
         helper.removeClass(placeholderDisplay, "is-hidden")
       };
-    };
-  };
-
-  function _render_displayBlock_xxxx() {
-    var all_displayBlock = helper.eA(".js-display-block");
-    for (var i = 0; i < all_displayBlock.length; i++) {
-
-      var target = all_displayBlock[i].querySelector(".js-display-block-target");
-      var display = helper.getClosest(all_displayBlock[i], ".js-display")
-      var itemsToDisplay;
-      var displayTitle;
-      var displayPrefix;
-      var displaySuffix;
-      var displayValueType = false;
-      var displayType = all_displayBlock[i].dataset.displayType;
-      var node;
-
-      if (all_displayBlock[i].dataset.display) {
-        itemsToDisplay = all_displayBlock[i].dataset.display.split(",");
-        if (all_displayBlock[i].dataset.displayTitle) {
-          displayTitle = all_displayBlock[i].dataset.displayTitle.split(",");
-        } else {
-          displayTitle = false;
-        };
-        if (all_displayBlock[i].dataset.displayPrefix) {
-          displayPrefix = all_displayBlock[i].dataset.displayPrefix.split(",");
-        } else {
-          displayPrefix = false;
-        };
-        if (all_displayBlock[i].dataset.displaySuffix) {
-          displaySuffix = all_displayBlock[i].dataset.displaySuffix.split(",");
-        } else {
-          displaySuffix = false;
-        };
-        if (all_displayBlock[i].dataset.displayTotalType) {
-          displayValueType = all_displayBlock[i].dataset.displayTotalType;
-        };
-      };
-
-      if (displayType == "stat") {
-        _render_stat(itemsToDisplay);
-        if (node != false) {
-          target.appendChild(node);
-        };
-      } else if (displayType == "modifier") {
-        _render_modifier(itemsToDisplay, target);
-      } else if (displayType == "text-snippet") {
-        node = _get_all_textSnippet(itemsToDisplay, displayTitle, displayPrefix, displaySuffix, displayValueType);
-        if (node != false) {
-          target.appendChild(node);
-        };
-      } else if (displayType == "text-block") {
-        _render_textBlock(itemsToDisplay, target);
-      } else if (displayType == "list") {
-        _render_list(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
-      } else if (displayType == "skill") {
-        _render_skill(itemsToDisplay, all_displayBlock[i], displayPrefix, displaySuffix);
-      } else if (displayType == "clone") {
-        _render_clone(itemsToDisplay, all_displayBlock[i]);
-      } else if (displayType == "spell") {
-        _render_spell(target);
-      };
-
     };
   };
 
