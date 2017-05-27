@@ -356,147 +356,12 @@ var display = (function() {
 
   };
 
-  function _get_clone(path, target) {
-
-    var _render_displayClone = function(object, target, cloneType) {
-      var li = document.createElement("li");
-      var displayItem = document.createElement("div");
-      if (cloneType == "consumable") {
-        li.setAttribute("class", "m-display-col-three");
-        displayItem.setAttribute("class", "m-display-item m-display-item-col");
-      } else if (cloneType == "attack-melee") {
-        li.setAttribute("class", "m-display-list-item");
-        displayItem.setAttribute("class", "m-display-item m-display-item-list");
-      } else if (cloneType == "attack-ranged") {
-        li.setAttribute("class", "m-display-list-item");
-        displayItem.setAttribute("class", "m-display-item m-display-item-list");
-      } else if (cloneType == "note-character") {
-        li.setAttribute("class", "m-display-list-item");
-        displayItem.setAttribute("class", "m-display-item m-display-item-list");
-      } else if (cloneType == "note-story") {
-        li.setAttribute("class", "m-display-list-item");
-        displayItem.setAttribute("class", "m-display-item m-display-item-list");
-      };
-
-      if (cloneType == "consumable") {
-        for (var i in object) {
-
-          if (i == "item") {
-            var data = object[i];
-            if (typeof data != "undefined" && data != "") {
-              var span = document.createElement("span");
-              span.setAttribute("class", "m-display-item-prefix");
-              span.textContent = data;
-              displayItem.appendChild(span);
-            };
-          } else if (i == "current") {
-            var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
-              var span = document.createElement("span");
-              span.setAttribute("class", "m-display-item-value");
-              span.textContent = data;
-              displayItem.appendChild(span);
-            };
-          };
-
-        };
-
-        li.appendChild(displayItem);
-        target.appendChild(li);
-      };
-
-      if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
-        var div = document.createElement("div");
-        div.setAttribute("class", "m-display-" + cloneType + "-item");
-        for (var i in object) {
-
-          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
-            var data = object[i];
-            if (typeof data != "undefined" && data != "") {
-              var span = document.createElement("span");
-              span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
-              span.textContent = data;
-              div.appendChild(span);
-            };
-          } else if (i == "attack") {
-            var data = object[i];
-            if (typeof data != "undefined" && data != "") {
-              var h2 = document.createElement("h2");
-              h2.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
-              h2.textContent = data;
-              div.appendChild(h2);
-            };
-          };
-
-        };
-
-        displayItem.appendChild(div);
-        li.appendChild(displayItem);
-        target.appendChild(li);
-      };
-
-      if (cloneType == "note-character" || cloneType == "note-story") {
-        for (var i in object) {
-
-          var data = object[i];
-          if (typeof data != "undefined" && data != "") {
-            displayItem.innerHTML = data;
-          };
-
-        };
-
-        li.appendChild(displayItem);
-        target.appendChild(li);
-      };
-
-    };
-
-    var cloneType;
-    if (path == "equipment.consumable") {
-      cloneType = "consumable";
-    };
-    if (path == "offense.attack.melee") {
-      cloneType = "attack-melee";
-    };
-    if (path == "offense.attack.ranged") {
-      cloneType = "attack-ranged";
-    };
-    if (path == "notes.character") {
-      cloneType = "note-character";
-    };
-    if (path == "notes.story") {
-      cloneType = "note-story";
-    };
-
-    var all_clones = helper.getObject(sheet.getCharacter(), path);
-    for (var i in all_clones) {
-      var testForValues = false;
-      for (var j in all_clones[i]) {
-        if (typeof all_clones[i][j] != "undefined" && all_clones[i][j] != "") {
-          testForValues = true;
-        };
-      };
-      if (testForValues) {
-        _render_displayClone(all_clones[i], target, cloneType);
-      };
-    };
-
-  };
-
-
   function _render_skill(itemsToDisplay, target, displayPrefix, displaySuffix) {
     for (var i = 0; i < itemsToDisplay.length; i++) {
       var path = itemsToDisplay[i];
       var prefix = displayPrefix[i];
       var suffix = displaySuffix[i];
       var data = _get_skill(path, target, prefix, suffix);
-    };
-  };
-
-  function _render_clone(itemsToDisplay, target) {
-    for (var i = 0; i < itemsToDisplay.length; i++) {
-      var path = itemsToDisplay[i];
-      var data = _get_clone(path, target);
     };
   };
 
@@ -511,6 +376,123 @@ var display = (function() {
 // /////////
 // /////////
 
+
+  function _get_all_clone(all_displayPath) {
+    var all_node = [];
+
+    for (var i = 0; i < all_displayPath.length; i++) {
+      var all_clones = helper.getObject(sheet.getCharacter(), all_displayPath[i]);
+      for (var j = 0; j < all_clones.length; j++) {
+        var cloneType;
+        if (all_displayPath[i] == "equipment.consumable") {
+          cloneType = "consumable";
+        } else if (all_displayPath[i] == "offense.attack.melee") {
+          cloneType = "attack-melee";
+        } else if (all_displayPath[i] == "offense.attack.ranged") {
+          cloneType = "attack-ranged";
+        } else if (all_displayPath[i] == "notes.character") {
+          cloneType = "note-character";
+        } else if (all_displayPath[i] == "notes.story") {
+          cloneType = "note-story";
+        };
+        var object = all_clones[j];
+        all_node.push(_get_clone(object, cloneType));
+      };
+    };
+    return all_node;
+  };
+
+  function _get_clone(object, cloneType) {
+
+    var _get_cloneItem = function(object, cloneType) {
+      var displayListItem = document.createElement("li");
+      displayListItem.setAttribute("class", "m-display-list-item");
+
+      if (cloneType == "consumable") {
+        for (var i in object) {
+          if (i == "item") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-list-prefix");
+              prefix.textContent = data;
+              displayListItem.appendChild(prefix);
+            };
+          } else if (i == "current") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var value = document.createElement("span");
+              value.setAttribute("class", "m-display-list-value");
+              value.textContent = data;
+              displayListItem.appendChild(value);
+            };
+          };
+        };
+
+        return displayListItem;
+      };
+
+      // if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      //   var div = document.createElement("div");
+      //   div.setAttribute("class", "m-display-" + cloneType + "-item");
+      //   for (var i in object) {
+      //
+      //     if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
+      //       var data = object[i];
+      //       if (typeof data != "undefined" && data != "") {
+      //         var span = document.createElement("span");
+      //         span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
+      //         span.textContent = data;
+      //         div.appendChild(span);
+      //       };
+      //     } else if (i == "attack") {
+      //       var data = object[i];
+      //       if (typeof data != "undefined" && data != "") {
+      //         var h2 = document.createElement("h2");
+      //         h2.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
+      //         h2.textContent = data;
+      //         div.appendChild(h2);
+      //       };
+      //     };
+      //
+      //   };
+      //
+      //   displayItem.appendChild(div);
+      //   li.appendChild(displayItem);
+      //   target.appendChild(li);
+      // };
+
+      // if (cloneType == "note-character" || cloneType == "note-story") {
+      //   for (var i in object) {
+      //
+      //     var data = object[i];
+      //     if (typeof data != "undefined" && data != "") {
+      //       displayItem.innerHTML = data;
+      //     };
+      //
+      //   };
+      //
+      //   li.appendChild(displayItem);
+      //   target.appendChild(li);
+      // };
+
+    };
+
+    for (var i in object) {
+      var testForValues = false;
+      for (var j in object[i]) {
+        if (typeof object[i][j] != "undefined" && object[i][j] != "") {
+          testForValues = true;
+        };
+      };
+      if (testForValues) {
+        return _get_cloneItem(object, cloneType);
+      } else {
+        return false;
+      };
+    };
+
+  };
 
   function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix) {
     var all_node = [];
@@ -575,13 +557,16 @@ var display = (function() {
     } else {
       data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data != "undefined" && data != "" || data == 0) {
+    if (typeof data != "undefined" && data != "") {
       var displayItem = document.createElement("span");
       if (displayBonusType) {
         if (displayBonusType == "bonus" && data > 0) {
           data = "+" + data;
         };
       };
+      displayItem.textContent = data;
+    } else if (typeof data == "number" && data == 0) {
+      var displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else {
       displayItem = false;
@@ -607,8 +592,11 @@ var display = (function() {
     } else {
       data = helper.getObject(sheet.getCharacter(), path);
     };
-    if (typeof data != "undefined" && data != "" || data == 0) {
+    if (typeof data != "undefined" && data != "") {
       displayItem = document.createElement("span");
+      displayItem.textContent = data;
+    } else if (typeof data == "number" && data == 0) {
+      var displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else {
       displayItem = false;
@@ -769,6 +757,8 @@ var display = (function() {
           all_node = _get_all_textBlock(all_displayPath);
         } else if (displayType == "list") {
           all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix);
+        } else if (displayType == "clone") {
+          all_node = _get_all_clone(all_displayPath);
         };
 
         // loop over each node in array and append to target
