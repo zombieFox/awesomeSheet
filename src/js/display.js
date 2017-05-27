@@ -514,11 +514,10 @@ var display = (function() {
 
   function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix) {
     var all_node = [];
-    var path;
-    var prefix = false;
-    var suffix = false;
     for (var i = 0; i < all_displayPath.length; i++) {
-      path = all_displayPath[i];
+      var path = all_displayPath[i];
+      var prefix = false;
+      var suffix = false;
       if (all_displayPrefix[i]) {
         prefix = all_displayPrefix[i];
       };
@@ -560,9 +559,8 @@ var display = (function() {
 
   function _get_all_modifier(all_displayPath, displayBonusType) {
     var all_node = [];
-    var path;
     for (var i = 0; i < all_displayPath.length; i++) {
-      path = all_displayPath[i];
+      var path = all_displayPath[i];
       all_node.push(_get_modifier(path, displayBonusType));
     };
     return all_node;
@@ -593,9 +591,8 @@ var display = (function() {
 
   function _get_all_stat(all_displayPath) {
     var all_node = [];
-    var path;
     for (var i = 0; i < all_displayPath.length; i++) {
-      path = all_displayPath[i];
+      var path = all_displayPath[i];
       all_node.push(_get_stat(path));
     };
     return all_node;
@@ -621,9 +618,8 @@ var display = (function() {
 
   function _get_all_textBlock(all_displayPath) {
     var all_node = [];
-    var path;
     for (var i = 0; i < all_displayPath.length; i++) {
-      path = all_displayPath[i];
+      var path = all_displayPath[i];
       all_node.push(_get_textBlock(path));
     };
     return all_node;
@@ -647,12 +643,11 @@ var display = (function() {
 
   function _get_all_textSnippet(all_displayPath, all_displayTitle, all_displayPrefix, all_displaySuffix, displayBonusType) {
     var all_node = [];
-    var path;
-    var title = false;
-    var prefix = false;
-    var suffix = false;
     for (var i = 0; i < all_displayPath.length; i++) {
-      path = all_displayPath[i];
+      var path = all_displayPath[i];
+      var title = false;
+      var prefix = false;
+      var suffix = false;
       if (all_displayTitle[i]) {
         title = all_displayTitle[i];
       };
@@ -745,6 +740,7 @@ var display = (function() {
           };
           displayBonusType = all_displayBlockTarget[j].dataset.displayBonusType;
           if (all_displayBlockTarget[j].dataset.displayBonusType) {
+            displayBonusType = all_displayBlockTarget[j].dataset.displayBonusType;
           };
         };
 

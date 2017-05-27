@@ -3,7 +3,7 @@
 // --------------------------------------------------
 .m-display-block {
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 }
 .m-display-block-last {
@@ -25,8 +25,8 @@
 // --------------------------------------------------
 .m-display-item-text-snippet {
   &:not(:only-child):not(:last-child) {
-    padding-right: 0.5em;
-    margin-right: 0.5em;
+    padding-right: 1em;
+    margin-right: 1em;
     border-right: 2px solid $gray-18;
   }
 }
