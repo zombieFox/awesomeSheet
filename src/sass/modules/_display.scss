@@ -55,10 +55,10 @@
     margin-bottom: 0;
   }
 }
-.m-display-list-prefix {
+.m-display-list-item-prefix {
   font-family: $open-sans-semi-bold;
 }
-.m-display-list-value {
+.m-display-list-item-value {
   h2 {
     line-height: 1;
     margin-bottom: 0;
@@ -69,11 +69,11 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    .m-display-list-prefix {
+    .m-display-list-item-prefix {
       flex: 1 1 80%;
       padding-right: 1em;
     }
-    .m-display-list-value {
+    .m-display-list-item-value {
       text-align: right;
       flex: 1 0 20%;
     }
@@ -85,10 +85,10 @@
 .m-display-list-stack {
   .m-display-list-item {
     display: block;
-    .m-display-list-prefix {
+    .m-display-list-item-prefix {
       display: block;
     }
-    .m-display-list-value {
+    .m-display-list-item-value {
       display: block;
     }
   }

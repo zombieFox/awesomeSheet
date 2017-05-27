@@ -11,6 +11,22 @@
   <div class="row">
     <div class="col-xs-12">
 
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <h2>
+          <span class="js-display-block-target" data-display-type="text-snippet" data-display-path="offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current" data-display-prefix="CMB ,CMD ,Melee ,Ranged" data-display-bonus-type="bonus"></span>
+        </h2>
+      </div>
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="m-display-title">Melee Attacks</p>
+        <ul class="m-display-list m-display-list-line u-list-unstyled js-display-block-target" data-display-type="clone" data-display-path="offense.attack.melee"></ul>
+      </div>
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="m-display-title">Ranged Attacks</p>
+        <ul class="m-display-list m-display-list-line u-list-unstyled js-display-block-target" data-display-type="clone" data-display-path="offense.attack.ranged"></ul>
+      </div>
+
       <!-- <div class="m-display-body">
         <h2>
           <span class="js-display-block" data-display-total-type="bonus" data-display-type="text-snippet" data-display="offense.cmb.current,offense.cmd.current" data-display-prefix="CMB ,CMD ">

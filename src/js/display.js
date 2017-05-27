@@ -382,39 +382,46 @@ var display = (function() {
 
     for (var i = 0; i < all_displayPath.length; i++) {
       var all_clones = helper.getObject(sheet.getCharacter(), all_displayPath[i]);
-      for (var j = 0; j < all_clones.length; j++) {
-        var cloneType;
-        if (all_displayPath[i] == "equipment.consumable") {
-          cloneType = "consumable";
-        } else if (all_displayPath[i] == "offense.attack.melee") {
-          cloneType = "attack-melee";
-        } else if (all_displayPath[i] == "offense.attack.ranged") {
-          cloneType = "attack-ranged";
-        } else if (all_displayPath[i] == "notes.character") {
-          cloneType = "note-character";
-        } else if (all_displayPath[i] == "notes.story") {
-          cloneType = "note-story";
+      if (all_clones.length == 0) {
+        all_node.push(false);
+      } else {
+        for (var j = 0; j < all_clones.length; j++) {
+          var cloneType;
+          if (all_displayPath[i] == "equipment.consumable") {
+            cloneType = "consumable";
+          };
+          if (all_displayPath[i] == "offense.attack.melee") {
+            cloneType = "attack-melee";
+          };
+          if (all_displayPath[i] == "offense.attack.ranged") {
+            cloneType = "attack-ranged";
+          };
+          if (all_displayPath[i] == "notes.character") {
+            cloneType = "note-character";
+          };
+          if (all_displayPath[i] == "notes.story") {
+            cloneType = "note-story";
+          };
+          all_node.push(_get_clone(all_clones[j], cloneType));
         };
-        var object = all_clones[j];
-        all_node.push(_get_clone(object, cloneType));
       };
     };
     return all_node;
   };
 
   function _get_clone(object, cloneType) {
-
     var _get_cloneItem = function(object, cloneType) {
-      var displayListItem = document.createElement("li");
-      displayListItem.setAttribute("class", "m-display-list-item");
+      var displayListItem;
 
       if (cloneType == "consumable") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
         for (var i in object) {
           if (i == "item") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-list-prefix");
+              prefix.setAttribute("class", "m-display-list-item-prefix");
               prefix.textContent = data;
               displayListItem.appendChild(prefix);
             };
@@ -422,45 +429,39 @@ var display = (function() {
             var data = object[i];
             if (typeof data != "undefined" && data != "" || data == 0) {
               var value = document.createElement("span");
-              value.setAttribute("class", "m-display-list-value");
+              value.setAttribute("class", "m-display-list-item-value");
               value.textContent = data;
               displayListItem.appendChild(value);
             };
           };
         };
-
-        return displayListItem;
       };
 
-      // if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
-      //   var div = document.createElement("div");
-      //   div.setAttribute("class", "m-display-" + cloneType + "-item");
-      //   for (var i in object) {
-      //
-      //     if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
-      //       var data = object[i];
-      //       if (typeof data != "undefined" && data != "") {
-      //         var span = document.createElement("span");
-      //         span.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
-      //         span.textContent = data;
-      //         div.appendChild(span);
-      //       };
-      //     } else if (i == "attack") {
-      //       var data = object[i];
-      //       if (typeof data != "undefined" && data != "") {
-      //         var h2 = document.createElement("h2");
-      //         h2.setAttribute("class", "m-display-" + cloneType + "-item-" + i);
-      //         h2.textContent = data;
-      //         div.appendChild(h2);
-      //       };
-      //     };
-      //
-      //   };
-      //
-      //   displayItem.appendChild(div);
-      //   li.appendChild(displayItem);
-      //   target.appendChild(li);
-      // };
+      if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-list-item-prefix m-display-item-" + cloneType + "-" + i);
+              prefix.textContent = data;
+              displayListItem.appendChild(prefix);
+            };
+          } else if (i == "attack") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var value = document.createElement("span");
+              value.setAttribute("class", "m-display-list-item-value m-display-item-" + cloneType + "-" + i);
+              value.textContent = data;
+              displayListItem.appendChild(value);
+            };
+          };
+        };
+      };
+
+      return displayListItem;
 
       // if (cloneType == "note-character" || cloneType == "note-story") {
       //   for (var i in object) {
@@ -494,7 +495,7 @@ var display = (function() {
 
   };
 
-  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix) {
+  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayBonusType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
@@ -506,30 +507,33 @@ var display = (function() {
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      all_node.push(_get_list(path, prefix, suffix));
+      all_node.push(_get_list(path, prefix, suffix, displayBonusType));
     };
     return all_node;
   };
 
-  function _get_list(path, prefix, suffix) {
+  function _get_list(path, prefix, suffix, displayBonusType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
+      if (displayBonusType == "bonus") {
+        data = "+" + data;
+      };
       displayItem = document.createElement("li");
       displayItem.setAttribute("class", "m-display-list-item");
       var value = document.createElement("span");
-      value.setAttribute("class", "m-display-list-value");
+      value.setAttribute("class", "m-display-list-item-value");
       value.textContent = data;
       if (prefix) {
-        var displayItemPrefix = document.createElement("span");
-        displayItemPrefix.setAttribute("class", "m-display-list-prefix");
-        displayItemPrefix.textContent = prefix;
-        displayItem.appendChild(displayItemPrefix);
+        var prefix = document.createElement("span");
+        prefix.setAttribute("class", "m-display-list-item-prefix");
+        prefix.textContent = prefix;
+        displayItem.appendChild(prefix);
       };
       displayItem.appendChild(value);
       if (suffix) {
         var displayItemSuffix = document.createElement("span");
-        displayItemSuffix.setAttribute("class", "m-display-list-suffix");
+        displayItemSuffix.setAttribute("class", "m-display-list-item-suffix");
         displayItemSuffix.textContent = prefix;
         displayItem.appendChild(displayItemSuffix);
       };
@@ -708,7 +712,7 @@ var display = (function() {
         var target = all_displayBlockTarget[j];
         // var display = helper.getClosest(all_displayBlockTarget[j], ".js-display");
         var displayType = all_displayBlockTarget[j].dataset.displayType;
-        var all_node;
+        var all_node = [];
         var all_displayPath;
         var all_displayTitle = false;
         var all_displayPrefix = false;
@@ -756,14 +760,13 @@ var display = (function() {
         } else if (displayType == "text-block") {
           all_node = _get_all_textBlock(all_displayPath);
         } else if (displayType == "list") {
-          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix);
+          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayBonusType);
         } else if (displayType == "clone") {
           all_node = _get_all_clone(all_displayPath);
         };
 
         // loop over each node in array and append to target
         all_node.forEach(_appendToTarget);
-        all_node = [];
       };
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
       if (dataNotFoundAtPath == displayBlockPathCount) {
