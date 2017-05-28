@@ -42,16 +42,16 @@ var display = (function() {
     if (anySectionDisplay) {
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader-mode");
-      helper.addClass(fabButton, "button-primary");
-      helper.removeClass(fabButton, "button-secondary");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
       helper.addClass(quickNav, "is-display-mode");
       themeColor.update();
     } else {
       fab.dataset.displayMode = "false";
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
-      helper.removeClass(fabButton, "button-primary");
-      helper.addClass(fabButton, "button-secondary");
+      helper.addClass(fabButton, "button-primary");
+      helper.removeClass(fabButton, "button-secondary");
       helper.removeClass(quickNav, "is-display-mode");
     };
     if (allSectionDisplay == all_section.length) {
@@ -61,8 +61,8 @@ var display = (function() {
       fab.dataset.displayMode = "false";
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
-      helper.removeClass(fabButton, "button-primary");
-      helper.addClass(fabButton, "button-secondary");
+      helper.addClass(fabButton, "button-primary");
+      helper.removeClass(fabButton, "button-secondary");
       helper.removeClass(quickNav, "is-display-mode");
       themeColor.update();
     };
