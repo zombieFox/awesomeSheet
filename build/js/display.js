@@ -7,6 +7,9 @@ var display = (function() {
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", function() {
+      totalBlock.update();
+      clear();
+      render();
       toggle();
       themeColor.update();
     }, false);
@@ -15,14 +18,6 @@ var display = (function() {
   function update() {
     _update_displayState();
     _update_displayPlaceholder();
-  };
-
-  function _update_displayPlaceholder() {
-    var all_placeholder = helper.eA(".js-placeholder-display");
-    for (var i = 0; i < all_placeholder.length; i++) {
-      var section = helper.getClosest(all_placeholder[i], ".js-section");
-
-    };
   };
 
   function _update_displayState() {
@@ -130,8 +125,6 @@ var display = (function() {
   };
 
   function toggle(section) {
-    clear();
-    render();
     if (section) {
       _toggle_singleSection(section);
     } else {
@@ -139,14 +132,20 @@ var display = (function() {
     };
   };
 
-  function clear() {
-    var all_target = helper.eA(".js-display-block-target");
+  function clear(section) {
     var _removeAllChildren = function(parent) {
       while (parent.lastChild) {
         parent.removeChild(parent.lastChild);
       };
     };
+    if (section) {
+      var all_target = section.querySelectorAll(".js-display-block-target");
+    } else {
+      var all_target = helper.eA(".js-display-block-target");
+    };
     for (var i = 0; i < all_target.length; i++) {
+      var displayBlock = helper.getClosest(all_target[i], ".js-display-block");
+      displayBlock.dataset.displayContent = false;
       _removeAllChildren(all_target[i]);
     };
   };
@@ -555,9 +554,14 @@ var display = (function() {
     return displayItem;
   };
 
-  function _render_displayBlock() {
+  function _render_displayBlock(section) {
     // find all display blocks
-    var all_displayBlock = helper.eA(".js-display-block");
+    var all_displayBlock;
+    if (section) {
+      all_displayBlock = section.querySelectorAll(".js-display-block");
+    } else {
+      all_displayBlock = helper.eA(".js-display-block");
+    };
     // loop all display blocks
     for (var i = 0; i < all_displayBlock.length; i++) {
       // find all targets in this display blocks
@@ -641,8 +645,13 @@ var display = (function() {
 
   };
 
-  function _update_placeholder() {
-    var all_display = helper.eA(".js-display");
+  function _update_displayPlaceholder(section) {
+    var all_display
+    if (section) {
+      all_display = [section];
+    } else {
+      all_display = helper.eA(".js-display");
+    };
     for (var i = 0; i < all_display.length; i++) {
       var placeholderDisplay = all_display[i].querySelector(".js-placeholder-display");
       var all_displayBlock = all_display[i].querySelectorAll(".js-display-block");
@@ -672,9 +681,9 @@ var display = (function() {
     };
   };
 
-  function render() {
-    _render_displayBlock();
-    _update_placeholder();
+  function render(section) {
+    _render_displayBlock(section);
+    _update_displayPlaceholder(section);
   };
 
   // exposed methods

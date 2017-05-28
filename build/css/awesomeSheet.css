@@ -2930,13 +2930,8 @@ label {
 
 @media (min-width: 900px) {
   .m-quick-nav {
-    background-color: #2a5d84;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 4.5em;
-    height: 100%;
-    z-index: 9000; }
+    height: 100%; }
   .m-quick-nav-bar {
     padding: 0;
     -webkit-flex-flow: column nowrap;

@@ -85,6 +85,6 @@ var skills = (function() {
   return {
     bind: bind,
     render: render
-  }
+  };
 
 })();

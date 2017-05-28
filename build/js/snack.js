@@ -100,6 +100,6 @@ var snack = (function() {
     bind: bind,
     destroy: destroy,
     render: render
-  }
+  };
 
 })();

@@ -118,13 +118,8 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-quick-nav {
-    background-color: $secondary-color-07;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 4.5em;
     height: 100%;
-    z-index: $quick-nav;
   }
   .m-quick-nav-bar {
     padding: 0;

@@ -157,6 +157,6 @@ var prompt = (function() {
     bind: bind,
     destroy: destroy,
     render: render
-  }
+  };
 
 })();

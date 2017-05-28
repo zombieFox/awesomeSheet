@@ -46,8 +46,10 @@ var card = (function() {
   };
 
   function _linkToggle(element) {
-    display.toggle(element);
-    display.update();
+    var section = helper.getClosest(element, ".js-section");
+    display.toggle(section);
+    display.clear(section);
+    display.render(section);
   };
 
   // exposed methods
