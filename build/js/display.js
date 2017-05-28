@@ -648,6 +648,7 @@ var display = (function() {
       var all_displayBlock = all_display[i].querySelectorAll(".js-display-block");
       var contentFound = false;
       var lastActiveDisplayBlock;
+
       for (var j = 0; j < all_displayBlock.length; j++) {
         if (all_displayBlock[j].dataset.displayContent == "true") {
           lastActiveDisplayBlock = all_displayBlock[j];
@@ -656,6 +657,9 @@ var display = (function() {
         } else {
           helper.addClass(all_displayBlock[j], "is-hidden");
         };
+      };
+      for (var j = 0; j < all_displayBlock.length; j++) {
+        helper.removeClass(all_displayBlock[j], "m-display-block-last");
       };
       if (lastActiveDisplayBlock) {
         helper.addClass(lastActiveDisplayBlock, "m-display-block-last");
