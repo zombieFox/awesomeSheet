@@ -1,210 +1,17 @@
-.m-display-wrapper {
-  margin: 2em 1em;
-}
-.m-display-wrapper-dark {
-  padding: 2em 1em;
-  background-color: $gray-19;
-}
-.m-display-title {
-  margin-bottom: 2em;
-  text-transform: uppercase;
-  font-family: $open-sans-bold;
-  font-size: $font-size-100;
-  color: $primary-color-08;
-}
-.is-night-mode {
-  .m-display-wrapper-dark {
-    background-color: $light-alpha-19;
-  }
-}
 // --------------------------------------------------
-// display grid
+// display body
 // --------------------------------------------------
-.m-display-list {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  .m-display-list-item {
-    flex: 1 0 auto;
+.m-display-block {
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 2em;
   }
 }
-.m-display-grid {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  .m-display-col-three {
-    flex: 1 0 auto;
-  }
-  .m-display-col-three-fixed {
-    flex: 0 0 30%;
-  }
-}
-.m-display-col-three,
-.m-display-col-three-fixed,
-.m-display-list-item {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-bottom: 2px solid $gray-18;
+.m-display-block-last {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-.is-night-mode {
-  .m-display-col-three,
-  .m-display-col-three-fixed,
-  .m-display-list-item {
-    border-color: $light-alpha-19;
-  }
-}
-// --------------------------------------------------
-// display item
-// --------------------------------------------------
-.m-display-item-title {
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-075;
-  line-height: $line-height-150;
-  color: $gray-10;
-  display: block;
-}
-.m-display-item-prefix {
-  font-family: $open-sans-semi-bold;
-}
-.m-display-item-suffix {
-  color: $gray-08;
-}
-.m-display-item-value {}
-.m-display-item-block {
-  display: block;
-}
-.m-display-item-snippet {
-  &:not(:only-child):not(:last-child) {
-    padding-right: 0.5em;
-    margin-right: 0.5em;
-    border-right: 2px solid $gray-18;
-  }
-}
-.m-display-item-list {
-  .m-display-item-prefix {
-    display: block;
-  }
-}
-.m-display-item-col {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  .m-display-item-prefix {}
-  .m-display-item-value {}
-}
-.is-night-mode {
-  .m-display-item-suffix {
-    color: $gray-12;
-  }
-  .m-display-item-snippet {
-    &:not(:only-child):not(:last-child) {
-      border-color: $light-alpha-19;
-    }
-  }
-}
-// --------------------------------------------------
-// display head
-// --------------------------------------------------
-.m-display-quick-stats {
-  font-size: $font-size-root-100;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-quick-stats-item {
-  flex: 1 0 auto;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  box-sizing: border-box;
-  padding: 0.5em 0;
-  border-radius: $border-radius-large;
-}
-.m-display-quick-stats-item-stat {
-  flex-basis: 33.3333333333%;
-  padding: 0.5em;
-}
-.m-display-quick-stats-item-title {
-  color: $primary-color-10;
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-075;
-  line-height: 1;
-  .m-display-text {
-    &:not(:only-child):not(:last-child) {
-      margin-right: 0.5em;
-      padding-right: 0;
-      border-right: 0;
-    }
-  }
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0.5em;
-  }
-}
-.m-display-quick-stats-item-value {
-  font-size: $font-size-200;
-  line-height: 1;
-  margin-bottom: 0;
-  .m-display-quick-stats-item-value-small {
-    font-size: $font-size-050;
-  }
-}
-.m-display-quick-stats-item-highlight {
-  border: 2px solid $gray-18;
-  .m-display-quick-stats-item-title,
-  .m-display-quick-stats-item-value {
-    text-align: center;
-  }
-}
-.m-display-quick-stats-hitpoints {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
-.m-display-quick-stats-hitpoints-current,
-.m-display-quick-stats-hitpoints-total {
-  flex: 0 0 auto;
-}
-.m-display-quick-stats-hitpoints-current {
-  padding-right: 0.4em;
-  position: relative;
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -1px;
-    width: 2px;
-    height: 100%;
-    background-color: $gray-12;
-    transform: translate(1px, 0) rotate(20deg);
-  }
-}
-.m-display-quick-stats-hitpoints-total {
-  padding-left: 0.4em;
-  color: $gray-12;
-}
-.is-night-mode {
-  .m-display-quick-stats-item-highlight {
-    border-color: $light-alpha-19;
-  }
-  .m-display-quick-stats-item-title {
-    color: $primary-color-10;
-  }
-}
-// --------------------------------------------------
-// display body
-// --------------------------------------------------
-.m-display-body {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-body-title {
+.m-display-title {
   color: $primary-color-10;
   font-family: $open-sans-semi-bold;
   font-size: $font-size-075;
@@ -213,75 +20,124 @@
     margin-bottom: 1em;
   }
 }
-.is-night-mode {
-  .m-display-body-title {
-    color: $primary-color-10;
+// --------------------------------------------------
+// display snippet
+// --------------------------------------------------
+.m-display-item-text-snippet {
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    margin-right: 1em;
+    border-right: 2px solid $gray-18;
   }
 }
+.m-display-item-text-snippet-value {}
+.m-display-item-text-snippet-prefix {
+  color: $gray-10;
+  font-size: 0.8em;
+}
+.m-display-item-text-snippet-suffix {
+  color: $gray-10;
+  font-size: 0.8em;
+}
 // --------------------------------------------------
-// display statistics
+// display list
 // --------------------------------------------------
-.m-display-statistics {
-  font-size: $font-size-root-100;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
+.m-display-list {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
   }
 }
-.m-display-statistics-item {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-.m-display-statistics-item-score {
-  flex: 0 1 20%;
-}
-.m-display-statistics-item-title {
-  flex: 1 1 auto;
-  text-align: left;
-  font-family: $open-sans-semi-bold;
-}
-.m-display-statistics-item-value {
-  flex: 0 1 20%;
-  margin: 0;
-  text-align: right;
-  font-size: $font-size-150;
-  line-height: 1;
-}
-.m-display-statistics-item-score,
-.m-display-statistics-item-title {
+.m-display-list-item {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
+}
+.m-display-list-item-prefix {
+  font-family: $open-sans-semi-bold;
+}
+.m-display-list-item-value {
+  h2 {
+    line-height: 1;
+    margin-bottom: 0;
+  }
+}
+.m-display-list-line {
+  .m-display-list-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    .m-display-list-item-prefix {
+      flex: 1 1 80%;
+      padding-right: 1em;
+    }
+    .m-display-list-item-value {
+      text-align: right;
+      flex: 1 0 20%;
+    }
+  }
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 2em;
+  }
+}
+.m-display-list-stack {
+  .m-display-list-item {
+    display: block;
+    .m-display-list-item-prefix {
+      display: block;
+    }
+    .m-display-list-item-value {
+      display: block;
+    }
+  }
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 2em;
+  }
+}
+.is-night-mode {
+  .m-display-list-item {
+    border-color: $light-alpha-19;
+  }
+}
+// --------------------------------------------------
+// specific display components
+// --------------------------------------------------
+.m-display-name {
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 // --------------------------------------------------
 // display attack melee
 // --------------------------------------------------
-.m-display-attack-melee-item {
+.m-display-list-item-attack-melee {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-.m-display-attack-melee-item-attack,
-.m-display-attack-melee-item-critical,
-.m-display-attack-melee-item-damage,
-.m-display-attack-melee-item-weapon {
+.m-display-list-item-attack-melee-attack,
+.m-display-list-item-attack-melee-critical,
+.m-display-list-item-attack-melee-damage,
+.m-display-list-item-attack-melee-weapon {
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
     padding-left: 1.5em;
   }
 }
-.m-display-attack-melee-item-weapon {
+.m-display-list-item-attack-melee-weapon {
   font-family: $open-sans-semi-bold;
   flex: 0 1 100%;
 }
-.m-display-attack-melee-item-attack {
+.m-display-list-item-attack-melee-attack {
   flex: 1 0 auto;
   line-height: 1;
   margin: 0;
@@ -289,37 +145,40 @@
     padding-left: 0.5em;
   }
 }
-.m-display-attack-melee-item-critical,
-.m-display-attack-melee-item-damage {
+.m-display-list-item-attack-melee-critical,
+.m-display-list-item-attack-melee-damage {
   flex: 0 1 auto;
 }
 // --------------------------------------------------
 // display attack ranged
 // --------------------------------------------------
-.m-display-attack-ranged-item {
+.m-display-list-item-attack-ranged {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-.m-display-attack-ranged-item-ammo,
-.m-display-attack-ranged-item-attack,
-.m-display-attack-ranged-item-critical,
-.m-display-attack-ranged-item-damage,
-.m-display-attack-ranged-item-range,
-.m-display-attack-ranged-item-weapon {
+.m-display-list-item-attack-ranged-ammo,
+.m-display-list-item-attack-ranged-attack,
+.m-display-list-item-attack-ranged-critical,
+.m-display-list-item-attack-ranged-damage,
+.m-display-list-item-attack-ranged-range,
+.m-display-list-item-attack-ranged-weapon {
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
     padding-left: 1.5em;
   }
 }
-.m-display-attack-ranged-item-weapon {
+.m-display-list-item-attack-ranged-weapon {
   font-family: $open-sans-semi-bold;
   flex: 0 1 100%;
 }
-.m-display-attack-ranged-item-attack {
+.m-display-list-item-attack-ranged-attack {
   flex: 1 0 auto;
   line-height: 1;
   margin: 0;
@@ -327,99 +186,185 @@
     padding-left: 0.5em;
   }
 }
-.m-display-attack-ranged-item-ammo,
-.m-display-attack-ranged-item-critical,
-.m-display-attack-ranged-item-damage,
-.m-display-attack-ranged-item-range {
+.m-display-list-item-attack-ranged-ammo,
+.m-display-list-item-attack-ranged-critical,
+.m-display-list-item-attack-ranged-damage,
+.m-display-list-item-attack-ranged-range {
   flex: 0 1 auto;
 }
 // --------------------------------------------------
-// spell
+// display spell
 // --------------------------------------------------
-.m-display-spell {
+.m-display-list-item-spell {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
 }
-.m-display-spell-name {
+.m-display-list-item-spell-name {
   flex: 1 1 auto;
   font-family: $open-sans-semi-bold;
 }
-.m-display-spell-count {
+.m-display-list-item-spell-count {
   flex: 1 1 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   color: $secondary-color-10;
 }
-.m-display-spell-active {
+.m-display-list-item-spell-active {
   margin-right: 0.5em;
   color: $primary-color-10;
 }
+// // --------------------------------------------------
+// // display head
+// // --------------------------------------------------
+// .m-display-quick-stats {
+//   font-size: $font-size-root-100;
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: flex-start;
+//   &:not(:only-child):not(:last-child) {
+//     margin-bottom: 2em;
+//   }
+// }
+// .m-display-quick-stats-item {
+//   flex: 1 0 auto;
+//   border-top: 2px solid transparent;
+//   border-bottom: 2px solid transparent;
+//   box-sizing: border-box;
+//   padding: 0.5em 0;
+//   border-radius: $border-radius-large;
+// }
+// .m-display-quick-stats-item-stat {
+//   flex-basis: 33.3333333333%;
+//   padding: 0.5em;
+// }
+// .m-display-quick-stats-item-title {
+//   color: $primary-color-10;
+//   font-family: $open-sans-semi-bold;
+//   font-size: $font-size-075;
+//   line-height: 1;
+//   .m-display-text {
+//     &:not(:only-child):not(:last-child) {
+//       margin-right: 0.5em;
+//       padding-right: 0;
+//       border-right: 0;
+//     }
+//   }
+//   &:not(:only-child):not(:last-child) {
+//     margin-bottom: 0.5em;
+//   }
+// }
+// .m-display-quick-stats-item-value {
+//   font-size: $font-size-200;
+//   line-height: 1;
+//   margin-bottom: 0;
+//   .m-display-quick-stats-item-value-small {
+//     font-size: $font-size-050;
+//   }
+// }
+// .m-display-quick-stats-item-highlight {
+//   border: 2px solid $gray-18;
+//   .m-display-quick-stats-item-title,
+//   .m-display-quick-stats-item-value {
+//     text-align: center;
+//   }
+// }
+// .m-display-quick-stats-hitpoints {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: center;
+// }
+// .m-display-quick-stats-hitpoints-current,
+// .m-display-quick-stats-hitpoints-total {
+//   flex: 0 0 auto;
+// }
+// .m-display-quick-stats-hitpoints-current {
+//   padding-right: 0.4em;
+//   position: relative;
+//   &:after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     right: -1px;
+//     width: 2px;
+//     height: 100%;
+//     background-color: $gray-12;
+//     transform: translate(1px, 0) rotate(20deg);
+//   }
+// }
+// .m-display-quick-stats-hitpoints-total {
+//   padding-left: 0.4em;
+//   color: $gray-12;
+// }
+// .is-night-mode {
+//   .m-display-quick-stats-item-highlight {
+//     border-color: $light-alpha-19;
+//   }
+//   .m-display-quick-stats-item-title {
+//     color: $primary-color-10;
+//   }
+// }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-display-grid {
+  .m-display-list-responsive {
+    display: flex;
     flex-flow: row wrap;
-    .m-display-col-three {
+    justify-content: flex-start;
+    .m-display-list-item {
       flex: 0 0 46%;
       &:nth-child(odd) {
         margin-right: 8%;
       }
     }
-    .m-display-col-three-fixed {
+  }
+  .m-display-list-thirds {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    .m-display-list-item {
       flex: 0 0 30%;
-      &:nth-child(odd) {
-        margin-right: 0;
-      }
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 5%;
       }
     }
   }
-  .m-display-item-col {
-    .m-display-item-prefix {
-      flex: 1 1 80%;
-    }
-    .m-display-item-value {
-      flex: 1 1 auto;
-      text-align: right;
-    }
-  }
-  .m-display-attack-melee-item {
+  .m-display-list-item-attack-melee {
     flex-flow: row wrap;
   }
-  .m-display-attack-melee-item-weapon {
+  .m-display-list-item-attack-melee-weapon {
     flex: 0 0 40%;
   }
-  .m-display-attack-melee-item-attack {
+  .m-display-list-item-attack-melee-attack {
     flex: 1 0 auto;
   }
-  .m-display-attack-melee-item-critical,
-  .m-display-attack-melee-item-damage,
-  .m-display-attack-ranged-item {
+  .m-display-list-item-attack-ranged {
     flex-flow: row wrap;
   }
-  .m-display-attack-ranged-item-weapon {
+  .m-display-list-item-attack-ranged-weapon {
     flex: 0 0 40%;
   }
-  .m-display-attack-ranged-item-attack {
+  .m-display-list-item-attack-ranged-attack {
     flex: 1 0 auto;
   }
-  .m-display-attack-ranged-item-ammo,
-  .m-display-attack-ranged-item-critical,
-  .m-display-attack-ranged-item-damage,
-  .m-display-attack-ranged-item-range {
+  .m-display-list-item-attack-ranged-ammo,
+  .m-display-list-item-attack-ranged-critical,
+  .m-display-list-item-attack-ranged-damage,
+  .m-display-list-item-attack-ranged-range {
     flex: 0 1 auto;
   }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
-  .m-display-grid {
+  .m-display-list-responsive {
+    display: flex;
     flex-flow: row wrap;
-    .m-display-col-three {
+    justify-content: flex-start;
+    .m-display-list-item {
       flex: 0 0 30%;
       &:nth-child(odd) {
         margin-right: 0;

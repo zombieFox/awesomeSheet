@@ -321,22 +321,22 @@ var clone = (function() {
     return cloneCount;
   };
 
-  function _getClonePlaceholder(cloneType) {
+  function _getPlaceholderClone(cloneType) {
     var clonePlaceholder;
     if (cloneType == "attack-melee") {
-      clonePlaceholder = helper.e(".js-clone-placeholder-attack-melee");
+      clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
     };
     if (cloneType == "attack-ranged") {
-      clonePlaceholder = helper.e(".js-clone-placeholder-attack-ranged");
+      clonePlaceholder = helper.e(".js-placeholder-clone-attack-ranged");
     };
     if (cloneType == "consumable") {
-      clonePlaceholder = helper.e(".js-clone-placeholder-consumable");
+      clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
     };
     if (cloneType == "note-character") {
-      clonePlaceholder = helper.e(".js-clone-placeholder-note-character");
+      clonePlaceholder = helper.e(".js-placeholder-clone-note-character");
     };
     if (cloneType == "note-story") {
-      clonePlaceholder = helper.e(".js-clone-placeholder-note-story");
+      clonePlaceholder = helper.e(".js-placeholder-clone-note-story");
     };
     return clonePlaceholder;
   };
@@ -988,7 +988,7 @@ var clone = (function() {
   };
 
   function _update_clonePlaceholder(cloneType) {
-    var clonePlaceholder = _getClonePlaceholder(cloneType);
+    var clonePlaceholder = _getPlaceholderClone(cloneType);
     if (_getCloneCount(cloneType) == 0) {
       helper.removeClass(clonePlaceholder, "is-hidden");
     } else {

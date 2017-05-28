@@ -2,63 +2,34 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <div class="m-display-body">
+      <div class="m-placeholder js-placeholder-display">
+        <p class="m-placeholder-description u-muted-text">No Defense information added yet, use <strong class="m-placeholder-key"><span class="icon-edit"></span> Edit</strong> to add some.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
         <h2>
-          <span class="js-display-block" data-display-type="text-snippet" data-display="defense.hp.current" data-display-prefix="HP ">
-            <span class="js-display-block-target"></span>
-          </span>
-          <span class="u-muted-text js-display-block" data-display-type="text-snippet" data-display="defense.hp.total">
-            / <span class="js-display-block-target"></span>
-          </span>
+          <span class="js-display-block-target" data-display-type="text-snippet" data-display-path="defense.hp.current" data-display-prefix="HP "></span>
+          / <span class="js-display-block-target" data-display-type="text-snippet" data-display-path="defense.hp.total"></span>
         </h2>
-        <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch ">
-          <span class="js-display-block-target"></span>
-        </p>
-        <p class="js-display-block" data-display-type="text-snippet" data-display="defense.ac_notes" data-display-title="Notes ">
-          <span class="js-display-block-target"></span>
-        </p>
       </div>
 
-      <div class="m-display-body">
-        <p class="m-display-body-title">Saves</p>
-        <ul class="m-display-grid u-list-unstyled">
-          <li class="m-display-col-three-fixed">
-
-            <div class="m-display-item m-display-item-col">
-              <span class="m-display-item-prefix">Fortitude</span>
-              <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.fortitude.current" data-display-total-type="bonus">
-                <span class="js-display-block-target"></span>
-              </span>
-            </div>
-
-          </li>
-          <li class="m-display-col-three-fixed">
-
-            <div class="m-display-item m-display-item-col">
-              <span class="m-display-item-prefix">Reflex</span>
-              <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.reflex.current" data-display-total-type="bonus">
-                <span class="js-display-block-target"></span>
-              </span>
-            </div>
-
-          </li>
-          <li class="m-display-col-three-fixed">
-
-            <div class="m-display-item m-display-item-col">
-              <span class="m-display-item-prefix">Will</span>
-              <span class="m-display-item-value js-display-block" data-display-type="text-snippet" data-display="defense.will.current" data-display-total-type="bonus">
-                <span class="js-display-block-target"></span>
-              </span>
-            </div>
-
-          </li>
-        </ul>
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="js-display-block-target" data-display-type="text-snippet" data-display-path="defense.ac.current,defense.flat_footed.current,defense.touch.current" data-display-prefix="AC ,Flat Footed ,Touch "></p>
       </div>
 
-      <div class="m-display-body">
-        <p class="js-display-block" data-display-type="text-snippet" data-display="defense.save_notes" data-display-title="Notes ">
-          <span class="js-display-block-target"></span>
-        </p>
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="m-display-title">Saves</p>
+        <ul class="m-display-list m-display-list-line m-display-list-thirds u-list-unstyled js-display-block-target" data-display-type="list" data-display-path="defense.fortitude.current,defense.reflex.current,defense.will.current" data-display-prefix="Fortitude,Reflex,Will" data-display-value-type="bonus"></ul>
+      </div>
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="m-display-title">Notes</p>
+        <p class="js-display-block-target" data-display-type="text-block" data-display-path="defense.save_notes"></p>
       </div>
 
     </div>

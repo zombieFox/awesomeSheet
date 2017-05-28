@@ -1,7 +1,9 @@
-.style-guide {
-  margin: 50px 0;
+.l-style-guide-section-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

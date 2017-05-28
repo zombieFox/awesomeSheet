@@ -2,16 +2,26 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <div class="m-display-body">
-        <h1 class="js-display-block" data-display-type="text-snippet" data-display="basics.name">
-          <span class="js-display-block-target"></span>
-        </h1>
-        <p class="js-display-block" data-display-type="text-snippet" data-display="basics.gender,basics.race,basics.class,basics.level">
-          <span class="js-display-block-target"></span>
-        </p>
-        <p class="js-display-block" data-display-type="text-snippet" data-display="basics.xp,basics.alignment,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix=" xp,,, tall,, years old, hero points, luck points">
-          <span class="js-display-block-target"></span>
-        </p>
+      <div class="m-placeholder js-placeholder-display">
+        <p class="m-placeholder-description u-muted-text"><strong>No Basics information</strong> added yet, use <strong class="m-placeholder-key"><span class="icon-edit"></span> Edit</strong> to add some.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <h1 class="m-display-name js-display-block-target" data-display-type="text-snippet" data-display-path="basics.name"></h1>
+      </div>
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="js-display-block-target" data-display-type="text-snippet" data-display-path="basics.gender,basics.race,basics.class,basics.level,basics.speed,basics.initiative" data-display-prefix=",,,,Speed ,Initiative "></p>
+      </div>
+
+      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
+        <p class="m-display-title">Details</p>
+        <p class="js-display-block-target" data-display-type="text-snippet" data-display-path="basics.xp,basics.alignment,basics.size,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix=" xp,,, tall,, years old, hero points, luck points"></p>
       </div>
 
     </div>
