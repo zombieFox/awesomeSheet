@@ -144,22 +144,15 @@ var display = (function() {
   };
 
   function clear() {
-    // var all_displayBlock = helper.eA(".js-display-block");
-    // var _removeAllChildren = function(parent) {
-    //   while (parent.lastChild) {
-    //     parent.removeChild(parent.lastChild);
-    //   };
-    // };
-    // for (var i = 0; i < all_displayBlock.length; i++) {
-    //   var target;
-    //   var displayType = all_displayBlock[i].dataset.displayType;
-    //   if (displayType == "stat" || displayType == "modifier" || displayType == "text-snippet" || displayType == "text-block" || displayType == "spell") {
-    //     target = all_displayBlock[i].querySelector(".js-display-block-target");
-    //   } else if (displayType == "list" || displayType == "clone" || displayType == "skill") {
-    //     target = all_displayBlock[i];
-    //   };
-    //   _removeAllChildren(target);
-    // };
+    var all_target = helper.eA(".js-display-block-target");
+    var _removeAllChildren = function(parent) {
+      while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+      };
+    };
+    for (var i = 0; i < all_target.length; i++) {
+      _removeAllChildren(all_target[i]);
+    };
   };
 
   function _get_all_spell(all_displayPath) {
