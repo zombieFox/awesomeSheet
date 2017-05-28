@@ -3,7 +3,7 @@
 // --------------------------------------------------
 .m-display-block {
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
   }
 }
 .m-display-block-last {
@@ -30,9 +30,9 @@
 // --------------------------------------------------
 .m-display-item-text-snippet {
   &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    margin-right: 1em;
-    border-right: 2px solid $gray-18;
+    padding-right: 0.6em;
+    margin-right: 0.6em;
+    border-right: 2px solid $gray-20;
   }
 }
 .m-display-item-text-snippet-value {}
@@ -47,7 +47,7 @@
 .is-night-mode {
   .m-display-item-text-snippet {
     &:not(:only-child):not(:last-child) {
-      border-color: $light-alpha-19;
+      border-color: $light-alpha-20;
     }
   }
 }
@@ -125,10 +125,12 @@
 // specific display components
 // --------------------------------------------------
 .m-display-name {
-  margin-bottom: 0.5em;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-display-name-title {
+  margin-bottom: 0;
 }
 // --------------------------------------------------
 // display attack melee
