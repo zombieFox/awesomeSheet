@@ -130,12 +130,8 @@ var display = (function() {
   };
 
   function toggle(section) {
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // clear();
-    // render();
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    clear();
+    render();
     if (section) {
       _toggle_singleSection(section);
     } else {
@@ -174,13 +170,13 @@ var display = (function() {
 
   function _get_spell(spell) {
     var displayItem = document.createElement("li");
-    displayItem.setAttribute("class", "m-display-list-item");
+    displayItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
     var displayItemPrefix = document.createElement("span");
-    displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+    displayItemPrefix.setAttribute("class", "m-display-list-item-spell-name");
     var spellName = document.createElement("span");
     spellName.textContent = spell.name;
     var displayItemValue = document.createElement("span");
-    displayItemValue.setAttribute("class", "m-display-list-item-value");
+    displayItemValue.setAttribute("class", "m-display-list-item-spell-count");
     displayItemPrefix.appendChild(spellName);
     displayItem.appendChild(displayItemPrefix);
     displayItem.appendChild(displayItemValue);
@@ -206,7 +202,7 @@ var display = (function() {
     // active
     if (spell.active) {
       var spellActive = document.createElement("span");
-      spellActive.setAttribute("class", "m-display-spell-active");
+      spellActive.setAttribute("class", "m-display-list-item-spell-active");
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon-play-arrow");
       spellActive.appendChild(activeIcon);
@@ -319,21 +315,21 @@ var display = (function() {
 
       if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
         displayListItem = document.createElement("li");
-        displayListItem.setAttribute("class", "m-display-list-item");
+        displayListItem.setAttribute("class", "m-display-list-item-" + cloneType);
         for (var i in object) {
           if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-list-item-prefix m-display-item-" + cloneType + "-" + i);
+              prefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
               prefix.textContent = data;
               displayListItem.appendChild(prefix);
             };
           } else if (i == "attack") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var value = document.createElement("span");
-              value.setAttribute("class", "m-display-list-item-value m-display-item-" + cloneType + "-" + i);
+              var value = document.createElement("h2");
+              value.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
               value.textContent = data;
               displayListItem.appendChild(value);
             };
