@@ -20,6 +20,11 @@
     margin-bottom: 1em;
   }
 }
+.is-night-mode {
+  .m-display-title {
+    color: $primary-color-10;
+  }
+}
 // --------------------------------------------------
 // display snippet
 // --------------------------------------------------
@@ -32,12 +37,27 @@
 }
 .m-display-item-text-snippet-value {}
 .m-display-item-text-snippet-prefix {
-  color: $gray-10;
+  color: $gray-08;
   font-size: 0.8em;
 }
 .m-display-item-text-snippet-suffix {
-  color: $gray-10;
+  color: $gray-08;
   font-size: 0.8em;
+}
+.is-night-mode {
+  .m-display-item-text-snippet {
+    &:not(:only-child):not(:last-child) {
+      border-color: $light-alpha-19;
+    }
+  }
+}
+.is-night-mode {
+  .m-display-item-text-snippet-prefix {
+    color: $gray-12;
+  }
+  .m-display-item-text-snippet-suffix {
+    color: $gray-12;
+  }
 }
 // --------------------------------------------------
 // display list
@@ -149,6 +169,11 @@
 .m-display-list-item-attack-melee-damage {
   flex: 0 1 auto;
 }
+.is-night-mode {
+  .m-display-list-item-attack-melee {
+    border-color: $light-alpha-19;
+  }
+}
 // --------------------------------------------------
 // display attack ranged
 // --------------------------------------------------
@@ -191,6 +216,11 @@
 .m-display-list-item-attack-ranged-damage,
 .m-display-list-item-attack-ranged-range {
   flex: 0 1 auto;
+}
+.is-night-mode {
+  .m-display-list-item-attack-ranged {
+    border-color: $light-alpha-19;
+  }
 }
 // --------------------------------------------------
 // display spell
