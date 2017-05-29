@@ -1,7 +1,7 @@
 .m-card {
   background-color: $white;
   position: relative;
-  z-index: $body;
+  // z-index: $body;
   box-sizing: border-box;
   box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
@@ -11,7 +11,7 @@
 .m-card-head {
   position: relative;
 }
-.m-card-controls {
+.m-card-head-controls {
   border-top: 0.4em solid $secondary-color-08;
   // background-color: $secondary-color-alpha-20;
   position: relative;
@@ -68,10 +68,19 @@
   padding: 2em 1em;
   position: relative;
 }
-.m-card-body-dark {
-  background-color: $gray-20;
-  padding: 2em 1em;
-  position: relative;
+.m-card-body-controls {
+  padding: 1em 0 0.5em;
+  box-sizing: border-box;
+}
+.is-pinned {
+  .m-card-body-controls {
+    margin-bottom: 0;
+    position: fixed;
+    top: 4.5em;
+    left: 3em;
+    width: calc(100% - 6em);
+    z-index: $section-heading;
+  }
 }
 .is-night-mode {
   .m-card {
@@ -113,7 +122,7 @@
   }
 }
 .is-display-mode {
-  .m-card-controls {
+  .m-card-head-controls {
     border-color: $primary-color-08;
     // background-color: $primary-color-alpha-20;
   }
@@ -143,7 +152,25 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-sm) {
+  .is-pinned {
+    .m-card-body-controls {
+      left: calc(5% + 2em);
+      width: calc(90% - 4em);
+    }
+  }
+}
+@media (min-width: $screen-md) {
+  .m-card-body-controls {
+    padding-bottom: 2em;
+  }
+  .is-pinned {
+    .m-card-body-controls {
+      padding-bottom: 0;
+      left: calc(10% + 2em);
+      width: calc(80% - 4em);
+    }
+  }
+}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

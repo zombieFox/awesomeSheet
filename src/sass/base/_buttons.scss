@@ -20,7 +20,7 @@ input[type="submit"] {
   text-transform: uppercase;
   cursor: pointer;
   box-sizing: border-box;
-  transition: all $transition-ease-extra-fast;
+  transition: background-color $transition-ease-extra-fast, border-color $transition-ease-extra-fast, color $transition-ease-extra-fast, padding $transition-ease-extra-fast;
   display: inline-block;
   // transition: background-color $transition-ease-medium, border-color $transition-ease-medium, color $transition-ease-medium;
   &:link,
@@ -216,7 +216,6 @@ input[type="submit"] {
   }
 }
 .button-group {
-  margin: 0 0 1.5em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -231,9 +230,20 @@ input[type="submit"] {
 .button-group-right {
   justify-content: flex-end;
 }
+.button-group-line {
+  flex-flow: row nowrap;
+  .button,
+  button {
+    padding-left: 0;
+    padding-right: 0;
+    flex: 1 1 auto;
+  }
+}
 .button-group-strech {
   .button,
   button {
+    padding-left: 0;
+    padding-right: 0;
     flex: 1 1 30%;
   }
 }

@@ -121,10 +121,27 @@ var nav = (function() {
       var quickNav = helper.e(".js-quick-nav");
       var all_quickNavLinks = helper.eA(".js-quick-nav-link");
       var all_section = helper.eA(".js-section");
+
       var offset = parseInt(getComputedStyle(quickNav).height, 10);
       // if nav is on the left after 900px wide viewport
       if (document.documentElement.clientWidth >= 900) {
         offset = 0;
+      };
+
+      var all_cardBodyControls = helper.eA(".js-card-body-controls");
+
+      for (var i = 0; i < all_cardBodyControls.length; i++) {
+        var pinWatch = helper.e("." + all_cardBodyControls[i].dataset.pinWatch);
+        var fillHeight = parseInt(getComputedStyle(all_cardBodyControls[i]).height, 10);
+        if (pinWatch.getBoundingClientRect().top <= offset && pinWatch.getBoundingClientRect().bottom >= offset) {
+          helper.addClass(pinWatch, "is-pinned");
+          if (!pinWatch.hasAttribute("style")) {
+            pinWatch.setAttribute("style", "padding-top: " + fillHeight + "px");
+          };
+        } else {
+          helper.removeClass(pinWatch, "is-pinned");
+          pinWatch.removeAttribute("style");
+        };
       };
 
       for (var i = 0; i < all_section.length; i++) {
