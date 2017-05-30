@@ -3,7 +3,7 @@
 // --------------------------------------------------
 .m-display-block {
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
   }
 }
 .m-display-block-last {
@@ -14,11 +14,7 @@
 .m-display-title {
   color: $primary-color-10;
   font-family: $open-sans-semi-bold;
-  font-size: $font-size-075;
   line-height: 1;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1em;
-  }
 }
 .is-night-mode {
   .m-display-title {

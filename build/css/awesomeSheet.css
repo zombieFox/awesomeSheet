@@ -3043,7 +3043,6 @@ label {
     margin-bottom: 2em; }
 
 .m-skill-name {
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   font-size: 1em;
   -webkit-flex: 1 0 40%;
       -ms-flex: 1 0 40%;
@@ -3599,7 +3598,7 @@ label {
     width: 40%; } }
 
 .m-display-block:not(:only-child):not(:last-child) {
-  margin-bottom: 1.5em; }
+  margin-bottom: 2em; }
 
 .m-display-block-last:not(:only-child):not(:last-child) {
   margin-bottom: 0; }
@@ -3607,10 +3606,7 @@ label {
 .m-display-title {
   color: #fc0042;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
-  font-size: 0.75em;
   line-height: 1; }
-  .m-display-title:not(:only-child):not(:last-child) {
-    margin-bottom: 1em; }
 
 .is-night-mode .m-display-title {
   color: #fc0042; }
