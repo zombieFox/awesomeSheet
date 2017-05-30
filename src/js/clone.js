@@ -48,13 +48,13 @@ var clone = (function() {
     } else {
       quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
     };
-    if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom > (windowHeight - (windowHeight / 6))) {
-      var offset = (windowHeight - (windowHeight / 6));
-      var options = {
-        speed: 300,
-        offset: offset
-      };
-      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+    if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+      if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom <= 0) {
+        var offset = (windowHeight - (windowHeight / 2));
+        var options = {
+          speed: 300,
+          offset: offset
+        };
         smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
       };
     };
@@ -389,7 +389,7 @@ var clone = (function() {
     }, false);
   };
 
-  function bind() {
+  function _bind_cloneControls() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
     var cloneBlockNote = helper.e(".js-clone-block-note");
@@ -441,6 +441,10 @@ var clone = (function() {
     cloneRemoveNote.addEventListener("click", function() {
       _change_cloneState("note");
     }, false);
+  };
+
+  function bind() {
+    _bind_cloneControls();
   };
 
   function _addNewClone(cloneType) {
