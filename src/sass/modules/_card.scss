@@ -76,8 +76,9 @@
   .m-card-body-controls {
     margin-bottom: 0;
     position: fixed;
-    top: 4.5em;
+    top: 5.5em;
     z-index: $section-heading;
+    animation: card-body-controls-down-xs ease-in-out 1s;
   }
 }
 .is-night-mode {
@@ -155,7 +156,8 @@
 @media (min-width: $screen-lg) {
   .is-pinned {
     .m-card-body-controls {
-      top: 0;
+      top: 1em;
+      animation: card-body-controls-down-lg ease-in-out 0.5s;
     }
   }
 }

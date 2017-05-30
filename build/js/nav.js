@@ -134,7 +134,7 @@ var nav = (function() {
         var pinWatch = helper.e("." + all_cardBodyControls[i].dataset.pinWatch);
         var fillWidth = parseInt(getComputedStyle(all_cardBodyControls[i]).width, 10);
         var fillHeight = parseInt(getComputedStyle(all_cardBodyControls[i]).height, 10) + parseInt(getComputedStyle(all_cardBodyControls[i]).marginBottom, 10);
-        if (pinWatch.getBoundingClientRect().top <= offset && pinWatch.getBoundingClientRect().bottom >= offset) {
+        if (pinWatch.getBoundingClientRect().top <= (offset - fillHeight) && pinWatch.getBoundingClientRect().bottom >= offset) {
           helper.addClass(pinWatch, "is-pinned");
           if (!pinWatch.hasAttribute("style")) {
             all_cardBodyControls[i].setAttribute("style", "width: " + fillWidth + "px");

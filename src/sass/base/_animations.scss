@@ -18,3 +18,22 @@
     opacity: 0;
   }
 }
+@keyframes card-body-controls-down-xs {
+  0% {
+    top: -10em;
+  }
+  50% {
+    top: -10em;
+  }
+  100% {
+    top: 5.5em;
+  }
+}
+@keyframes card-body-controls-down-lg {
+  0% {
+    top: -10em;
+  }
+  100% {
+    top: 1em;
+  }
+}

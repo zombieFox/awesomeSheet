@@ -1637,6 +1637,20 @@ label {
     border-color: #fd0042;
     opacity: 0; } }
 
+@keyframes card-body-controls-down-xs {
+  0% {
+    top: -10em; }
+  50% {
+    top: -10em; }
+  100% {
+    top: 5.5em; } }
+
+@keyframes card-body-controls-down-lg {
+  0% {
+    top: -10em; }
+  100% {
+    top: 1em; } }
+
 .l-style-guide-section-wrapper {
   display: -ms-flexbox;
   display: flex;
@@ -2063,8 +2077,9 @@ label {
 .is-pinned .m-card-body-controls {
   margin-bottom: 0;
   position: fixed;
-  top: 4.5em;
-  z-index: 3000; }
+  top: 5.5em;
+  z-index: 3000;
+  animation: card-body-controls-down-xs ease-in-out 1s; }
 
 .is-night-mode .m-card {
   background-color: #212121; }
@@ -2111,7 +2126,8 @@ label {
 
 @media (min-width: 900px) {
   .is-pinned .m-card-body-controls {
-    top: 0; } }
+    top: 1em;
+    animation: card-body-controls-down-lg ease-in-out 0.5s; } }
 
 .m-nav {
   background-color: #ffffff;
@@ -2423,12 +2439,14 @@ label {
 .is-night-mode .m-edit-heading {
   background-color: #1c3445; }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
   .m-edit-box-title {
     border-bottom: 2px solid transparent;
     border-color: #ededed;
     margin-bottom: 0;
-    margin-right: -2rem; }
+    margin-right: -2rem; } }
+
+@media (min-width: 900px) {
   .m-edit-box-bonus-button {
     padding: 0; }
   .is-night-mode .m-edit-box-title {

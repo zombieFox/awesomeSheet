@@ -58,14 +58,15 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-md) {
   .m-edit-box-title {
     border-bottom: $border;
     border-color: $gray-19;
     margin-bottom: 0;
     margin-right: -($gutter * 2);
   }
+}
+@media (min-width: $screen-lg) {
   .m-edit-box-bonus-button {
     padding: 0;
   }
