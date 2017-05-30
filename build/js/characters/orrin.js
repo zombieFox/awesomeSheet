@@ -247,7 +247,7 @@ var orrin = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "6/1",
+      base_attack: "+6/+1",
       cmb: {
         misc: "",
         temp: "",
@@ -320,43 +320,43 @@ var orrin = (function() {
       attack: {
         melee: [{
           weapon: "Mithral Rapier +2",
-          attack: "16",
+          attack: "+16",
           damage: "1d6+3",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
-          attack: "14",
+          attack: "+14",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
           weapon: "Mithral Rapier +2, Short sword +1",
-          attack: "14/14/7/7",
+          attack: "+14/+14/+7/+7",
           damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+1",
           critical: "19–20/×2"
         }, {
           weapon: "Sap",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+1",
           critical: "x2"
         }, {
           weapon: "Punching Dagger +2 Shocking",
-          attack: "15",
+          attack: "+15",
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
           weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
-          attack: "14/14/8/8",
+          attack: "+14/+14/+8/+8",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "13/8",
+          attack: "+13/+8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",

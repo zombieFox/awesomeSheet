@@ -242,7 +242,7 @@ var ro = (function() {
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "5",
+      base_attack: "+5",
       cmb: {
         misc: "",
         temp: "",
@@ -315,43 +315,43 @@ var ro = (function() {
       attack: {
         melee: [{
           weapon: "Shortsword +1",
-          attack: "11",
+          attack: "+11",
           damage: "1d6+2",
           critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +2",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+7",
           critical: "18–20/x2"
         }, {
           weapon: "Spellstrike",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+7",
           critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +2/Spell Strike",
-          attack: "11/11",
+          attack: "+11/+11",
           damage: "1d6+7/Spell Effect",
           critical: "18–20/x2, 18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +3 Keen",
-          attack: "14",
+          attack: "+14",
           damage: "1d6+8",
           critical: "15-20x2"
         }, {
           weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
-          attack: "12/12",
+          attack: "+12/+12",
           damage: "1d6+8/Spell Effect",
           critical: "15-20x2,  15-20x2"
         }, {
           weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
-          attack: "16/16",
+          attack: "+16/+16",
           damage: "1d6+8/Spell Effect",
           critical: "15-20x2,  15-20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "10",
+          attack: "+10",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",

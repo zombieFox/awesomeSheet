@@ -257,7 +257,7 @@ var nif = (function() {
       save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
     },
     offense: {
-      base_attack: "3",
+      base_attack: "+3",
       cmb: {
         misc: "",
         temp: "",
@@ -330,13 +330,13 @@ var nif = (function() {
       attack: {
         melee: [{
           weapon: "Dagger (Master Work)",
-          attack: "3",
+          attack: "+3",
           damage: "1d6+1",
           critical: "19–20/x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "6",
+          attack: "+6",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",

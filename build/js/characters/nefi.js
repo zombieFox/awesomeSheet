@@ -222,7 +222,7 @@ var nefi = (function() {
       save_notes: "+3 bonus on Will saves against fear."
     },
     offense: {
-      base_attack: "10/5",
+      base_attack: "+10/+5",
       cmb: {
         misc: "",
         temp: "",
@@ -295,48 +295,48 @@ var nefi = (function() {
       attack: {
         melee: [{
           weapon: "Guisarme +1 Keen",
-          attack: "21/16/11",
+          attack: "+21/+16/+11",
           damage: "2d4+12",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
-          attack: "18/13/8",
+          attack: "+18/+13/+8",
           damage: "2d4+18",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
-          attack: "24",
+          attack: "+24",
           damage: "",
           critical: ""
         }, {
           weapon: "Greatsword MW",
-          attack: "18/13/8",
+          attack: "+18/+13/+8",
           damage: "1d10+8",
           critical: "19–20/x2"
         }, {
           weapon: "Greatsword MW Power Attack",
-          attack: "15/10/5",
+          attack: "+15/+10/+5",
           damage: "1d10+14",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
-          attack: "19/14/9",
+          attack: "+19/+14/+9",
           damage: "1d8+10",
           critical: "x3"
         }, {
           weapon: "Halberd MW Power Attack",
-          attack: "16/10/5",
+          attack: "+16/+10/+5",
           damage: "1d8+16",
           critical: "x3"
         }, {
           weapon: "Earthbreaker +1 Frost",
-          attack: "17/12/7",
+          attack: "+17/+12/+7",
           damage: "2d6+8 1d6 (cold)",
           critical: "x3"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
-          attack: "13/8/3",
+          attack: "+13/+8/+3",
           damage: "1d8+5",
           critical: "x3",
           range: "100 ft",

@@ -227,7 +227,7 @@ var marika = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "6/1",
+      base_attack: "+6/+1",
       cmb: {
         misc: "",
         temp: "",
@@ -300,22 +300,22 @@ var marika = (function() {
       attack: {
         melee: [{
           weapon: "Rapier +2",
-          attack: "16",
+          attack: "+16",
           damage: "1d6+3",
           critical: "18–20/x2"
         }, {
           weapon: "Rapier +2 Powerful Sneak",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+3",
           critical: "18–20/x2"
         }, {
           weapon: "Short Sword +2",
-          attack: "16",
+          attack: "+16",
           damage: "1d6+3",
           critical: "19–20/x2"
         }, {
           weapon: "Short Sword +2 Powerful Sneak",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+3",
           critical: "19–20/x2"
         }, {
@@ -326,7 +326,7 @@ var marika = (function() {
         }],
         ranged: [{
           weapon: "Shortbow +1",
-          attack: "15",
+          attack: "+15",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",

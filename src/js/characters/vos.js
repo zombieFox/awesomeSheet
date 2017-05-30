@@ -237,7 +237,7 @@ var vos = (function() {
       save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
     },
     offense: {
-      base_attack: "5",
+      base_attack: "+5",
       cmb: {
         misc: "",
         temp: "",
@@ -310,33 +310,33 @@ var vos = (function() {
       attack: {
         melee: [{
           weapon: "Flurry of Blows",
-          attack: "10/10/5",
+          attack: "+10/+10/+5",
           damage: "1d8+4",
           critical: "20x2"
         }, {
           weapon: "Grapple",
-          attack: "14",
+          attack: "+14",
           damage: "1d8+4",
           critical: "20x2"
         }, {
           weapon: "Disarm ",
-          attack: "14",
+          attack: "+14",
           damage: "",
           critical: ""
         }, {
           weapon: "Stunning Fist",
-          attack: "10",
+          attack: "+10",
           damage: "1d8+4",
           critical: "20x2"
         }, {
           weapon: "Unarmed Strike",
-          attack: "10",
+          attack: "+10",
           damage: "1d8+4",
           critical: "20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "7",
+          attack: "+7",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",

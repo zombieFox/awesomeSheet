@@ -1690,7 +1690,7 @@ var marika = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "6/1",
+      base_attack: "+6/+1",
       cmb: {
         misc: "",
         temp: "",
@@ -1763,22 +1763,22 @@ var marika = (function() {
       attack: {
         melee: [{
           weapon: "Rapier +2",
-          attack: "16",
+          attack: "+16",
           damage: "1d6+3",
           critical: "18–20/x2"
         }, {
           weapon: "Rapier +2 Powerful Sneak",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+3",
           critical: "18–20/x2"
         }, {
           weapon: "Short Sword +2",
-          attack: "16",
+          attack: "+16",
           damage: "1d6+3",
           critical: "19–20/x2"
         }, {
           weapon: "Short Sword +2 Powerful Sneak",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+3",
           critical: "19–20/x2"
         }, {
@@ -1789,7 +1789,7 @@ var marika = (function() {
         }],
         ranged: [{
           weapon: "Shortbow +1",
-          attack: "15",
+          attack: "+15",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -2918,7 +2918,7 @@ var nefi = (function() {
       save_notes: "+3 bonus on Will saves against fear."
     },
     offense: {
-      base_attack: "10/5",
+      base_attack: "+10/+5",
       cmb: {
         misc: "",
         temp: "",
@@ -2991,48 +2991,48 @@ var nefi = (function() {
       attack: {
         melee: [{
           weapon: "Guisarme +1 Keen",
-          attack: "21/16/11",
+          attack: "+21/+16/+11",
           damage: "2d4+12",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
-          attack: "18/13/8",
+          attack: "+18/+13/+8",
           damage: "2d4+18",
           critical: "19-20/x3"
         }, {
           weapon: "Guisarme +1 Trip",
-          attack: "24",
+          attack: "+24",
           damage: "",
           critical: ""
         }, {
           weapon: "Greatsword MW",
-          attack: "18/13/8",
+          attack: "+18/+13/+8",
           damage: "1d10+8",
           critical: "19–20/x2"
         }, {
           weapon: "Greatsword MW Power Attack",
-          attack: "15/10/5",
+          attack: "+15/+10/+5",
           damage: "1d10+14",
           critical: "19–20/x2"
         }, {
           weapon: "Halberd MW",
-          attack: "19/14/9",
+          attack: "+19/+14/+9",
           damage: "1d8+10",
           critical: "x3"
         }, {
           weapon: "Halberd MW Power Attack",
-          attack: "16/10/5",
+          attack: "+16/+10/+5",
           damage: "1d8+16",
           critical: "x3"
         }, {
           weapon: "Earthbreaker +1 Frost",
-          attack: "17/12/7",
+          attack: "+17/+12/+7",
           damage: "2d6+8 1d6 (cold)",
           critical: "x3"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
-          attack: "13/8/3",
+          attack: "+13/+8/+3",
           damage: "1d8+5",
           critical: "x3",
           range: "100 ft",
@@ -4198,7 +4198,7 @@ var nif = (function() {
       save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
     },
     offense: {
-      base_attack: "3",
+      base_attack: "+3",
       cmb: {
         misc: "",
         temp: "",
@@ -4271,13 +4271,13 @@ var nif = (function() {
       attack: {
         melee: [{
           weapon: "Dagger (Master Work)",
-          attack: "3",
+          attack: "+3",
           damage: "1d6+1",
           critical: "19–20/x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "6",
+          attack: "+6",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -5817,7 +5817,7 @@ var orrin = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "6/1",
+      base_attack: "+6/+1",
       cmb: {
         misc: "",
         temp: "",
@@ -5890,43 +5890,43 @@ var orrin = (function() {
       attack: {
         melee: [{
           weapon: "Mithral Rapier +2",
-          attack: "16",
+          attack: "+16",
           damage: "1d6+3",
           critical: "18–20/×2"
         }, {
           weapon: "Short sword +1",
-          attack: "14",
+          attack: "+14",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
           weapon: "Mithral Rapier +2, Short sword +1",
-          attack: "14/14/7/7",
+          attack: "+14/+14/+7/+7",
           damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
           weapon: "Silver Dagger",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+1",
           critical: "19–20/×2"
         }, {
           weapon: "Sap",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+1",
           critical: "x2"
         }, {
           weapon: "Punching Dagger +2 Shocking",
-          attack: "15",
+          attack: "+15",
           damage: "1d4+3 + 1d6 Electrical",
           critical: "x3"
         }, {
           weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
-          attack: "14/14/8/8",
+          attack: "+14/+14/+8/+8",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
-          attack: "13/8",
+          attack: "+13/+8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -7073,7 +7073,7 @@ var ro = (function() {
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "5",
+      base_attack: "+5",
       cmb: {
         misc: "",
         temp: "",
@@ -7146,43 +7146,43 @@ var ro = (function() {
       attack: {
         melee: [{
           weapon: "Shortsword +1",
-          attack: "11",
+          attack: "+11",
           damage: "1d6+2",
           critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +2",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+7",
           critical: "18–20/x2"
         }, {
           weapon: "Spellstrike",
-          attack: "13",
+          attack: "+13",
           damage: "1d6+7",
           critical: "18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +2/Spell Strike",
-          attack: "11/11",
+          attack: "+11/+11",
           damage: "1d6+7/Spell Effect",
           critical: "18–20/x2, 18–20/x2"
         }, {
           weapon: "Black Blade Scimitar +3 Keen",
-          attack: "14",
+          attack: "+14",
           damage: "1d6+8",
           critical: "15-20x2"
         }, {
           weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
-          attack: "12/12",
+          attack: "+12/+12",
           damage: "1d6+8/Spell Effect",
           critical: "15-20x2,  15-20x2"
         }, {
           weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
-          attack: "16/16",
+          attack: "+16/+16",
           damage: "1d6+8/Spell Effect",
           critical: "15-20x2,  15-20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "10",
+          attack: "+10",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -8610,7 +8610,7 @@ var vos = (function() {
       save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
     },
     offense: {
-      base_attack: "5",
+      base_attack: "+5",
       cmb: {
         misc: "",
         temp: "",
@@ -8683,33 +8683,33 @@ var vos = (function() {
       attack: {
         melee: [{
           weapon: "Flurry of Blows",
-          attack: "10/10/5",
+          attack: "+10/+10/+5",
           damage: "1d8+4",
           critical: "20x2"
         }, {
           weapon: "Grapple",
-          attack: "14",
+          attack: "+14",
           damage: "1d8+4",
           critical: "20x2"
         }, {
           weapon: "Disarm ",
-          attack: "14",
+          attack: "+14",
           damage: "",
           critical: ""
         }, {
           weapon: "Stunning Fist",
-          attack: "10",
+          attack: "+10",
           damage: "1d8+4",
           critical: "20x2"
         }, {
           weapon: "Unarmed Strike",
-          attack: "10",
+          attack: "+10",
           damage: "1d8+4",
           critical: "20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "7",
+          attack: "+7",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
