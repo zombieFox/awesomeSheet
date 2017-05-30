@@ -1,33 +1,34 @@
 <div class="container">
+
   <div class="m-edit-box js-total-block">
     <div class="row">
       <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">Hit Points <span class="m-total-block-total js-total-block-total" data-path="defense.hp.current"></span></h2>
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">Hit Points <span class="m-total-block-total js-total-block-total" data-path="defense.hp.current"></span></h2>
       </div>
       <div class="col-xs-12 col-md-9">
         <div class="m-edit-box-wrapper">
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-hp-total">Total HP</label>
-              <input id="defense-hp-total" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-type="number" data-path="defense.hp.total" type="text" tabindex="3">
+              <input id="defense-hp-total" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-type="number" data-path="defense.hp.total" type="text" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-hp-temp">Temp HP</label>
-              <input id="defense-hp-temp" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-type="number" data-path="defense.hp.temp" type="text" tabindex="3">
+              <input id="defense-hp-temp" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-type="number" data-path="defense.hp.temp" type="text" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-hp-damage">Damage</label>
-              <input id="defense-hp-damage" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="subtract" data-type="number" data-path="defense.hp.damage" type="text" tabindex="3">
+              <input id="defense-hp-damage" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-type="number" data-path="defense.hp.damage" type="text" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-hp-non-lethal-damage">Nonlethal</label>
-              <input id="defense-hp-non-lethal-damage" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-path="defense.hp.non_lethal_damage" data-type="number" type="text" tabindex="3">
+              <input id="defense-hp-non-lethal-damage" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.hp.non_lethal_damage" data-type="number" type="text" tabindex="3">
             </div>
           </div>
         </div>
@@ -35,23 +36,25 @@
     </div>
   </div>
 
+  <hr>
+
   <div class="m-edit-box js-total-block">
     <div class="row">
       <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">AC <span class="m-total-block-total js-total-block-total" data-path="defense.ac.current"></span></h2>
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">AC <span class="m-total-block-total js-total-block-total" data-path="defense.ac.current"></span></h2>
       </div>
       <div class="col-xs-12 col-md-9">
         <div class="m-edit-box-wrapper">
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-ac-misc">Misc</label>
-              <input id="defense-ac-misc" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-path="defense.ac.misc" type="text" data-type="number" tabindex="3">
+              <input id="defense-ac-misc" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-path="defense.ac.misc" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-ac-temp">Temp</label>
-              <input id="defense-ac-temp" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-path="defense.ac.temp" type="text" data-type="number" tabindex="3">
+              <input id="defense-ac-temp" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-path="defense.ac.temp" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-bonus">
@@ -62,8 +65,76 @@
     </div>
   </div>
 
+  <div class="m-edit-box js-total-block">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">Flat Footed AC <span class="m-total-block-total js-total-block-total" data-path="defense.flat_footed.current"></span></h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div class="m-edit-box-wrapper">
+          <div class="m-edit-box-item">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-flat-footed-misc">Misc</label>
+              <input id="defense-flat-footed-misc" class="m-input-block-field  u-full-width js-input-block-field" data-total="addition" data-path="defense.flat_footed.misc" type="text" data-type="number" tabindex="3">
+            </div>
+          </div>
+          <div class="m-edit-box-item">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-flat-footed-temp">Temp</label>
+              <input id="defense-flat-footed-temp" class="m-input-block-field  u-full-width js-input-block-field" data-total="addition" data-path="defense.flat_footed.temp" type="text" data-type="number" tabindex="3">
+            </div>
+          </div>
+          <div class="m-edit-box-bonus">
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size" data-bonus-path="defense.flat_footed.bonuses" data-modal-heading="Flat Footed AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box js-total-block">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">Touch AC <span class="m-total-block-total js-total-block-total" data-path="defense.touch.current"></span></h2>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div class="m-edit-box-wrapper">
+          <div class="m-edit-box-item">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-touch-misc">Misc</label>
+              <input id="defense-touch-misc" class="m-input-block-field  u-full-width js-input-block-field" data-total="addition" data-path="defense.touch.misc" type="text" data-type="number" tabindex="3">
+            </div>
+          </div>
+          <div class="m-edit-box-item">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-touch-temp">Temp</label>
+              <input id="defense-touch-temp" class="m-input-block-field  u-full-width js-input-block-field" data-total="addition" data-path="defense.touch.temp" type="text" data-type="number" tabindex="3">
+            </div>
+          </div>
+          <div class="m-edit-box-bonus">
+          <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size,max_dex" data-bonus-path="defense.touch.bonuses" data-modal-heading="Touch AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xs-12 col-md-9 col-md-offset-3">
+      <div class="m-textarea-block js-textarea-block">
+        <label class="m-textarea-block-label js-textarea-block-label" for="defense-ac-notes">Notes</label>
+        <div id="defense-ac-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="defense.ac_notes" contentEditable="true" tabindex="3"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <h2 class="m-edit-title u-margin-with-input u-inline-with-input">Armor</h2>
+    </div>
+    <div class="col-xs-12 col-md-9">
       <div class="m-input-block-wrapper">
         <div class="m-input-block js-input-block">
           <label class="m-input-block-label js-input-block-label" for="defense-ac-armor">Armor</label>
@@ -101,104 +172,43 @@
     </div>
   </div>
 
-  <div class="m-edit-box js-total-block">
-    <div class="row">
-      <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">Flat Footed AC <span class="m-total-block-total js-total-block-total" data-path="defense.flat_footed.current"></span></h2>
-      </div>
-      <div class="col-xs-12 col-md-9">
-        <div class="m-edit-box-wrapper">
-          <div class="m-edit-box-item">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="defense-flat-footed-misc">Misc</label>
-              <input id="defense-flat-footed-misc" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-path="defense.flat_footed.misc" type="text" data-type="number" tabindex="3">
-            </div>
-          </div>
-          <div class="m-edit-box-item">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="defense-flat-footed-temp">Temp</label>
-              <input id="defense-flat-footed-temp" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-path="defense.flat_footed.temp" type="text" data-type="number" tabindex="3">
-            </div>
-          </div>
-          <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size" data-bonus-path="defense.flat_footed.bonuses" data-modal-heading="Flat Footed AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="m-edit-box js-total-block">
-    <div class="row">
-      <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">Touch AC <span class="m-total-block-total js-total-block-total" data-path="defense.touch.current"></span></h2>
-      </div>
-      <div class="col-xs-12 col-md-9">
-        <div class="m-edit-box-wrapper">
-          <div class="m-edit-box-item">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="defense-touch-misc">Misc</label>
-              <input id="defense-touch-misc" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-path="defense.touch.misc" type="text" data-type="number" tabindex="3">
-            </div>
-          </div>
-          <div class="m-edit-box-item">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="defense-touch-temp">Temp</label>
-              <input id="defense-touch-temp" class="m-input-block-field u-no-margin u-full-width js-input-block-field" data-total="addition" data-path="defense.touch.temp" type="text" data-type="number" tabindex="3">
-            </div>
-          </div>
-          <div class="m-edit-box-bonus">
-          <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size,max_dex" data-bonus-path="defense.touch.bonuses" data-modal-heading="Touch AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-9 col-md-offset-3">
-      <div class="m-textarea-block js-textarea-block">
-        <label class="m-textarea-block-label js-textarea-block-label" for="defense-ac-notes">Notes</label>
-        <div id="defense-ac-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="defense.ac_notes" contentEditable="true" tabindex="3"></div>
-      </div>
-    </div>
-  </div>
+  <hr>
 
   <div class="m-edit-box js-total-block" data-total-type="bonus">
     <div class="row">
       <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">Fortitude <span class="m-total-block-total js-total-block-total" data-path="defense.fortitude.current"></span></h2>
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">Fortitude <span class="m-total-block-total js-total-block-total" data-path="defense.fortitude.current"></span></h2>
       </div>
       <div class="col-xs-12 col-md-9">
         <div class="m-edit-box-wrapper">
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-fortitude-base">Base</label>
-              <input id="defense-fortitude-base" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.base" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-fortitude-base" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.base" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-fortitude-racial">Racial</label>
-              <input id="defense-fortitude-racial" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.racial" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-fortitude-racial" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.racial" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-fortitude-resistance">Resistance</label>
-              <input id="defense-fortitude-resistance" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.resistance" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-fortitude-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.resistance" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-fortitude-misc">Misc</label>
-              <input id="defense-fortitude-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.misc" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-fortitude-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.misc" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-fortitude-temp">Temp</label>
-              <input id="defense-fortitude-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.temp" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-fortitude-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.temp" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-bonus">
@@ -212,38 +222,38 @@
   <div class="m-edit-box js-total-block" data-total-type="bonus">
     <div class="row">
       <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">Reflex <span class="m-total-block-total js-total-block-total" data-path="defense.reflex.current"></span></h2>
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">Reflex <span class="m-total-block-total js-total-block-total" data-path="defense.reflex.current"></span></h2>
       </div>
       <div class="col-xs-12 col-md-9">
         <div class="m-edit-box-wrapper">
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-reflex-base">Base</label>
-              <input id="defense-reflex-base" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.base" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-reflex-base" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.base" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-reflex-racial">Racial</label>
-              <input id="defense-reflex-racial" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.racial" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-reflex-racial" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.racial" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-reflex-resistance">Resistance</label>
-              <input id="defense-reflex-resistance" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.resistance" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-reflex-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.resistance" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-reflex-misc">Misc</label>
-              <input id="defense-reflex-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.misc" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-reflex-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.misc" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-reflex-temp">Temp</label>
-              <input id="defense-reflex-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.temp" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-reflex-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.temp" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-bonus">
@@ -257,38 +267,38 @@
   <div class="m-edit-box js-total-block" data-total-type="bonus">
     <div class="row">
       <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input">Will <span class="m-total-block-total js-total-block-total" data-path="defense.will.current"></span></h2>
+        <h2 class="m-edit-box-title u-margin-with-input u-inline-with-input">Will <span class="m-total-block-total js-total-block-total" data-path="defense.will.current"></span></h2>
       </div>
       <div class="col-xs-12 col-md-9">
         <div class="m-edit-box-wrapper">
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-will-base">Base</label>
-              <input id="defense-will-base" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.will.base" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-will-base" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.base" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-will-racial">Racial</label>
-              <input id="defense-will-racial" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.will.racial" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-will-racial" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.racial" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-will-resistance">Resistance</label>
-              <input id="defense-will-resistance" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.will.resistance" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-will-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.resistance" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-will-misc">Misc</label>
-              <input id="defense-will-misc" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.will.misc" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-will-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.misc" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-item">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="defense-will-temp">Temp</label>
-              <input id="defense-will-temp" class="u-no-margin m-input-block-field u-full-width js-input-block-field" data-path="defense.will.temp" data-total="addition" type="text" data-type="number" tabindex="3">
+              <input id="defense-will-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.temp" data-total="addition" type="text" data-type="number" tabindex="3">
             </div>
           </div>
           <div class="m-edit-box-bonus">

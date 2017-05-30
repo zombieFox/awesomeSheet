@@ -1,8 +1,25 @@
 .m-edit-wrapper {
   margin: 2em 1em;
 }
+.m-edit-title {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
+}
+.m-edit-controls {
+  margin: 1em 0;
+  box-sizing: border-box;
+}
+.is-pinned {
+  .m-edit-controls {
+    margin-bottom: 0;
+    position: fixed;
+    top: 5.5em;
+    z-index: $card-controls;
+    animation: edit-controls-down-xs ease-in-out 0.6s;
+    box-shadow: $shadow-large;
+  }
+}
 .m-edit-box {
-  margin-bottom: 2em;
   font-size: $font-size-root-100;
 }
 .m-edit-box-wrapper {
@@ -14,7 +31,6 @@
 .m-edit-box-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
-  margin-bottom: 1em;
 }
 .m-edit-box-item {
   flex: 1 1 0;
@@ -38,17 +54,6 @@
   padding: 0 0.5em;
   margin: 0;
 }
-.m-edit-heading-sub {
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-100;
-}
-.m-edit-heading {
-  margin: 0 1em;
-  padding: 0;
-  position: relative;
-  z-index: $section-heading;
-  transition: background-color $transition-bounce-medium;
-}
 .is-night-mode {
   .m-edit-heading {
     background-color: $secondary-color-04;
@@ -62,13 +67,18 @@
   .m-edit-box-title {
     border-bottom: $border;
     border-color: $gray-19;
-    margin-bottom: 0;
     margin-right: -($gutter * 2);
   }
 }
 @media (min-width: $screen-lg) {
   .m-edit-box-bonus-button {
     padding: 0;
+  }
+  .is-pinned {
+    .m-edit-controls {
+      top: 1em;
+      animation: edit-controls-down-lg ease-in-out 0.5s;
+    }
   }
   .is-night-mode {
     .m-edit-box-title {

@@ -9736,7 +9736,7 @@ var clone = (function() {
       '            </div>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
-      '            <p class="u-text-center u-no-margin u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
+      '            <p class="u-text-center u-margin-with-input u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
       '            <div class="m-input-block js-input-block">' +
@@ -11945,22 +11945,22 @@ var nav = (function() {
         offset = 0;
       };
 
-      var all_cardBodyControls = helper.eA(".js-card-body-controls");
+      var all_editControls = helper.eA(".js-edit-controls");
 
-      for (var i = 0; i < all_cardBodyControls.length; i++) {
-        var pinWatch = helper.e("." + all_cardBodyControls[i].dataset.pinWatch);
-        var fillWidth = parseInt(getComputedStyle(all_cardBodyControls[i]).width, 10);
-        var fillHeight = parseInt(getComputedStyle(all_cardBodyControls[i]).height, 10) + parseInt(getComputedStyle(all_cardBodyControls[i]).marginBottom, 10);
+      for (var i = 0; i < all_editControls.length; i++) {
+        var pinWatch = helper.e("." + all_editControls[i].dataset.pinWatch);
+        var fillWidth = parseInt(getComputedStyle(all_editControls[i]).width, 10);
+        var fillHeight = parseInt(getComputedStyle(all_editControls[i]).height, 10) + parseInt(getComputedStyle(all_editControls[i]).marginTop, 10) + parseInt(getComputedStyle(all_editControls[i]).marginBottom, 10);
         if (pinWatch.getBoundingClientRect().top <= (offset - fillHeight) && pinWatch.getBoundingClientRect().bottom >= offset) {
           helper.addClass(pinWatch, "is-pinned");
           if (!pinWatch.hasAttribute("style")) {
-            all_cardBodyControls[i].setAttribute("style", "width: " + fillWidth + "px");
+            all_editControls[i].setAttribute("style", "width: " + fillWidth + "px");
             pinWatch.setAttribute("style", "padding-top: " + fillHeight + "px");
           };
         } else {
           helper.removeClass(pinWatch, "is-pinned");
           pinWatch.removeAttribute("style");
-          all_cardBodyControls[i].removeAttribute("style");
+          all_editControls[i].removeAttribute("style");
         };
       };
 

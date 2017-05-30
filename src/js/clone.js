@@ -74,7 +74,7 @@ var clone = (function() {
       '            </div>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
-      '            <p class="u-text-center u-no-margin u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
+      '            <p class="u-text-center u-margin-with-input u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
       '          </div>' +
       '          <div class="col-xs-2">' +
       '            <div class="m-input-block js-input-block">' +

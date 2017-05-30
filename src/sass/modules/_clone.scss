@@ -99,7 +99,6 @@
           &[type="text"] {
             background-color: transparent;
             border-color: $primary-color-alpha-18;
-            margin: 0 0 $font-size-100;
             padding: 0 10px 0 0;
           }
         }
@@ -109,7 +108,7 @@
         }
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: $font-size-100 $font-size-400 0 $font-size-100;
+          padding: 0 $font-size-400 0 $font-size-100;
           border-radius: $border-radius-medium;
         }
         .u-underline-with-input {
