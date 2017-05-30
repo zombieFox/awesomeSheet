@@ -9710,13 +9710,13 @@ var clone = (function() {
     } else {
       quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
     };
-    if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom > (windowHeight - (windowHeight / 6))) {
-      var offset = (windowHeight - (windowHeight / 6));
-      var options = {
-        speed: 300,
-        offset: offset
-      };
-      if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+    if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+      if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom <= 0) {
+        var offset = (windowHeight - (windowHeight / 2));
+        var options = {
+          speed: 300,
+          offset: offset
+        };
         smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
       };
     };
@@ -10051,7 +10051,7 @@ var clone = (function() {
     }, false);
   };
 
-  function bind() {
+  function _bind_cloneControls() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
     var cloneBlockNote = helper.e(".js-clone-block-note");
@@ -10103,6 +10103,10 @@ var clone = (function() {
     cloneRemoveNote.addEventListener("click", function() {
       _change_cloneState("note");
     }, false);
+  };
+
+  function bind() {
+    _bind_cloneControls();
   };
 
   function _addNewClone(cloneType) {
@@ -11934,10 +11938,30 @@ var nav = (function() {
       var quickNav = helper.e(".js-quick-nav");
       var all_quickNavLinks = helper.eA(".js-quick-nav-link");
       var all_section = helper.eA(".js-section");
+
       var offset = parseInt(getComputedStyle(quickNav).height, 10);
       // if nav is on the left after 900px wide viewport
       if (document.documentElement.clientWidth >= 900) {
         offset = 0;
+      };
+
+      var all_cardBodyControls = helper.eA(".js-card-body-controls");
+
+      for (var i = 0; i < all_cardBodyControls.length; i++) {
+        var pinWatch = helper.e("." + all_cardBodyControls[i].dataset.pinWatch);
+        var fillWidth = parseInt(getComputedStyle(all_cardBodyControls[i]).width, 10);
+        var fillHeight = parseInt(getComputedStyle(all_cardBodyControls[i]).height, 10) + parseInt(getComputedStyle(all_cardBodyControls[i]).marginBottom, 10);
+        if (pinWatch.getBoundingClientRect().top <= offset && pinWatch.getBoundingClientRect().bottom >= offset) {
+          helper.addClass(pinWatch, "is-pinned");
+          if (!pinWatch.hasAttribute("style")) {
+            all_cardBodyControls[i].setAttribute("style", "width: " + fillWidth + "px");
+            pinWatch.setAttribute("style", "padding-top: " + fillHeight + "px");
+          };
+        } else {
+          helper.removeClass(pinWatch, "is-pinned");
+          pinWatch.removeAttribute("style");
+          all_cardBodyControls[i].removeAttribute("style");
+        };
       };
 
       for (var i = 0; i < all_section.length; i++) {
