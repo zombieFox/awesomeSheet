@@ -69,7 +69,7 @@
   position: relative;
 }
 .m-card-body-controls {
-  padding: 1em 0 0.5em;
+  margin-bottom: 2em;
   box-sizing: border-box;
 }
 .is-pinned {
@@ -77,8 +77,6 @@
     margin-bottom: 0;
     position: fixed;
     top: 4.5em;
-    left: 3em;
-    width: calc(100% - 6em);
     z-index: $section-heading;
   }
 }
@@ -152,25 +150,13 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {
   .is-pinned {
     .m-card-body-controls {
-      left: calc(5% + 2em);
-      width: calc(90% - 4em);
+      top: 0;
     }
   }
 }
-@media (min-width: $screen-md) {
-  .m-card-body-controls {
-    padding-bottom: 2em;
-  }
-  .is-pinned {
-    .m-card-body-controls {
-      padding-bottom: 0;
-      left: calc(10% + 2em);
-      width: calc(80% - 4em);
-    }
-  }
-}
-@media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
