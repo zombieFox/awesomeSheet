@@ -25,6 +25,7 @@
 // display snippet
 // --------------------------------------------------
 .m-display-item-text-snippet {
+  display: inline-block;
   &:not(:only-child):not(:last-child) {
     padding-right: 0.6em;
     margin-right: 0.6em;
@@ -229,6 +230,7 @@
   justify-content: flex-start;
 }
 .m-display-list-item-spell-name {
+  margin-right: 0.5em;
   flex: 1 1 auto;
   font-family: $open-sans-semi-bold;
 }

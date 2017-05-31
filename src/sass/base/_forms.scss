@@ -23,10 +23,10 @@ select {
 textarea {
   background-color: $secondary-color-alpha-19;
   font-family: $open-sans-regular;
-  padding: $font-size-050 10px;
+  padding: 0.6em;
   margin: 1em 0;
   border: 0;
-  min-height: $font-size-250;
+  min-height: 2.5em;
   border-bottom: $border;
   border-color: $secondary-color-alpha-14;
   transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
@@ -54,7 +54,7 @@ input {
     background-color: $secondary-color-alpha-19;
     height: $line-height-250;
     line-height: $line-height-250;
-    padding: 0 10px;
+    padding: 0 0.6em;
     margin: 1em 0;
     border: 0;
     border-radius: 0;
