@@ -28,10 +28,10 @@
 }
 
 .m-fab-button {
-  width: 55px;
-  height: 55px;
+  width: 2.3em;
+  height: 2.3em;
   font-size: $font-size-200;
-  line-height: 55px;
+  line-height: 2.3em;
   margin: 0;
   padding: 0;
   border: 0;
@@ -44,17 +44,12 @@
     left: 0;
     top: 0;
     width: 100%;
-    line-height: 55px;
-    transition: all $transition-ease-slow;
+    line-height: 2.3em;
   }
   &:focus,
   &:hover {
     transition: all $transition-ease-extra-fast;
     box-shadow: $shadow-medium;
-    [class^="icon-"],
-    [class*=" icon-"] {
-      transition: all $transition-ease-extra-fast;
-    }
   }
   &:active {
     transform: scale(1.1);

@@ -14,9 +14,9 @@
   top: 50%;
   left: 50%;
   font-size: $font-size-root-100;
-  z-index: $modal;
-  width: 85%;
-  max-height: 80%;
+  z-index: $prompt;
+  width: 30em;
+  max-width: 95%;
   min-width: 200px;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -33,7 +33,7 @@
   padding: $font-size-200;
   .m-prompt-heading {
     font-family: $open-sans-semi-bold;
-    font-size: $font-size-root-150;
+    font-size: $font-size-150;
     &:focus {
       outline: 0;
     }
@@ -48,8 +48,7 @@
   .button {
     margin: 0;
     width: 50%;
-    &.button {
-    }
+    &.button {}
     &:first-child {
       border-radius: 0 0 0 $border-radius-small;
     }
@@ -82,19 +81,15 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-prompt {
+    max-width: 90%;
+  }
+}
 @media (min-width: $screen-md) {
   .m-prompt {
-    width: 50%;
+    max-width: 80%;
   }
 }
-@media (min-width: $screen-lg) {
-  .m-prompt {
-    width: 40%;
-  }
-}
-@media (min-width: $screen-xl) {
-  .m-prompt {
-    width: 30%;
-  }
-}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}

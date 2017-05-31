@@ -13,10 +13,10 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: $modal;
   font-size: $font-size-root-100;
-  width: 85%;
-  max-height: 80%;
+  z-index: $modal;
+  width: 45em;
+  max-width: 95%;
   min-width: 200px;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -38,7 +38,7 @@
   padding: $font-size-200;
   .m-modal-heading {
     font-family: $open-sans-semi-bold;
-    font-size: $font-size-root-150;
+    font-size: $font-size-150;
     &:focus {
       outline: 0;
     }
@@ -65,19 +65,15 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-modal {
+    max-width: 90%;
+  }
+}
 @media (min-width: $screen-md) {
   .m-modal {
-    width: 70%;
+    max-width: 80%;
   }
 }
-@media (min-width: $screen-lg) {
-  .m-modal {
-    width: 60%;
-  }
-}
-@media (min-width: $screen-xl) {
-  .m-modal {
-    width: 50%;
-  }
-}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}

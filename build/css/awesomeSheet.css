@@ -743,6 +743,7 @@ textarea {
   margin: 1em 0;
   border: 0;
   min-height: 2.5em;
+  line-height: 1.6666666667em;
   border-bottom: 2px solid transparent;
   border-color: rgba(50, 136, 201, 0.35);
   transition: border-color 0.2s ease-in-out, padding 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -931,7 +932,8 @@ h6 {
 
 p {
   color: #212121;
-  margin: 0; }
+  margin: 0;
+  line-height: 1.6666666667em; }
   p:not(:last-child) {
     margin-bottom: 1em; }
 
@@ -3186,9 +3188,9 @@ label {
   top: 50%;
   left: 50%;
   font-size: 1rem;
-  z-index: 11000;
-  width: 85%;
-  max-height: 80%;
+  z-index: 10000;
+  width: 30em;
+  max-width: 95%;
   min-width: 200px;
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
@@ -3206,7 +3208,7 @@ label {
   padding: 2em; }
   .m-prompt-body .m-prompt-heading {
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
-    font-size: 1.5rem; }
+    font-size: 1.5em; }
     .m-prompt-body .m-prompt-heading:focus {
       outline: 0; }
   .m-prompt-body .m-prompt-text:last-child {
@@ -3237,17 +3239,13 @@ label {
 .is-night-mode .m-prompt .m-prompt-wrapper {
   background-color: #162632; }
 
+@media (min-width: 550px) {
+  .m-prompt {
+    max-width: 90%; } }
+
 @media (min-width: 700px) {
   .m-prompt {
-    width: 50%; } }
-
-@media (min-width: 900px) {
-  .m-prompt {
-    width: 40%; } }
-
-@media (min-width: 1300px) {
-  .m-prompt {
-    width: 30%; } }
+    max-width: 80%; } }
 
 .m-modal-shade {
   background-color: rgba(22, 38, 50, 0.8);
@@ -3264,10 +3262,10 @@ label {
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 11000;
   font-size: 1rem;
-  width: 85%;
-  max-height: 80%;
+  z-index: 11000;
+  width: 45em;
+  max-width: 95%;
   min-width: 200px;
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
@@ -3289,7 +3287,7 @@ label {
   padding: 2em; }
   .m-modal-body .m-modal-heading {
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
-    font-size: 1.5rem; }
+    font-size: 1.5em; }
     .m-modal-body .m-modal-heading:focus {
       outline: 0; }
 
@@ -3304,17 +3302,13 @@ label {
 .is-night-mode .m-modal .m-modal-wrapper {
   background-color: #162632; }
 
+@media (min-width: 550px) {
+  .m-modal {
+    max-width: 90%; } }
+
 @media (min-width: 700px) {
   .m-modal {
-    width: 70%; } }
-
-@media (min-width: 900px) {
-  .m-modal {
-    width: 60%; } }
-
-@media (min-width: 1300px) {
-  .m-modal {
-    width: 50%; } }
+    max-width: 80%; } }
 
 .m-import-select {
   position: relative;
@@ -3770,10 +3764,10 @@ label {
   transition: all 0.2s ease-in-out; }
 
 .m-fab-button {
-  width: 55px;
-  height: 55px;
+  width: 2.3em;
+  height: 2.3em;
   font-size: 2em;
-  line-height: 55px;
+  line-height: 2.3em;
   margin: 0;
   padding: 0;
   border: 0;
@@ -3786,15 +3780,10 @@ label {
     left: 0;
     top: 0;
     width: 100%;
-    line-height: 55px;
-    transition: all 0.4s ease-in-out; }
+    line-height: 2.3em; }
   .m-fab-button:focus, .m-fab-button:hover {
     transition: all 0.1s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 15px rgba(0, 0, 0, 0.1); }
-    .m-fab-button:focus [class^="icon-"],
-    .m-fab-button:focus [class*=" icon-"], .m-fab-button:hover [class^="icon-"],
-    .m-fab-button:hover [class*=" icon-"] {
-      transition: all 0.1s ease-in-out; }
   .m-fab-button:active {
     -ms-transform: scale(1.1);
         transform: scale(1.1);

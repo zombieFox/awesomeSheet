@@ -27,6 +27,7 @@ textarea {
   margin: 1em 0;
   border: 0;
   min-height: 2.5em;
+  line-height: $line-height-160;
   border-bottom: $border;
   border-color: $secondary-color-alpha-14;
   transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
