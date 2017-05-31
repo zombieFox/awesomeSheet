@@ -64,7 +64,7 @@ var display = (function() {
   };
 
   function _toggle_singleSection(element, forceToggle) {
-    var icon = element.querySelector(".js-card-display-toggle-icon");
+    var icon = element.querySelector(".js-card-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
     var all_display = section.querySelectorAll(".js-display");

@@ -23,9 +23,9 @@
 }
 .m-card-title {
   font-family: $open-sans-semi-bold;
-  font-size: $font-size-100;
   color: $secondary-color-08;
-  padding: 1em;
+  font-size: $font-size-125;
+  padding: 0.5em 1em;
   flex: 1 0 auto;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -33,20 +33,17 @@
     margin: 0;
   }
 }
-.m-card-display-toggle {
+.m-card-button {
   background-color: transparent;
   margin: 0;
   border: 0;
   margin: 0;
-  padding: 1em;
+  font-size: $font-size-125;
+  padding: 0.5em 1em;
   color: $secondary-color-08;
-  font-family: $open-sans-semi-bold;
   z-index: 2;
   [class*=" icon-"],
   [class^="icon-"] {
-    font-size: $font-size-100;
-    line-height: $line-height-160;
-    &:before {}
   }
   &:link,
   &:visited {
@@ -82,6 +79,14 @@
     box-shadow: $shadow-large;
   }
 }
+.is-minimise {
+  .m-card-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
 .is-night-mode {
   .m-card {
     background-color: $gray-03;
@@ -101,7 +106,7 @@
       color: transparent;
     }
   }
-  .m-card-display-toggle {
+  .m-card-button {
     background-color: transparent;
     color: $secondary-color-08;
     &:link,
@@ -129,7 +134,7 @@
   .m-card-title {
     color: $primary-color-08;
   }
-  .m-card-display-toggle {
+  .m-card-button {
     background-color: transparent;
     color: $primary-color-08;
     &:link,

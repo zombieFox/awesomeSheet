@@ -216,7 +216,8 @@ var card = (function() {
 
   function bind() {
     _bind_cardTitle();
-    _bind_linkToggle();
+    _bind_toggle();
+    _bind_minimise();
   };
 
   function _bind_cardTitle() {
@@ -230,13 +231,24 @@ var card = (function() {
     };
   };
 
-  function _bind_linkToggle() {
-    var all_cardDisplayToggle = helper.eA(".js-card-display-toggle");
+  function _bind_minimise() {
+    var all_cardMinimise = helper.eA(".js-card-minimise");
+    for (var i = 0; i < all_cardMinimise.length; i++) {
+      all_cardMinimise[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _minimise(this);
+      }, false);
+    };
+  };
+
+  function _bind_toggle() {
+    var all_cardDisplayToggle = helper.eA(".js-card-toggle");
     for (var i = 0; i < all_cardDisplayToggle.length; i++) {
       all_cardDisplayToggle[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _linkToggle(this);
+        _toggle(this);
       }, false);
     };
   };
@@ -259,11 +271,36 @@ var card = (function() {
     smoothScroll.animateScroll(null, id, options);
   };
 
-  function _linkToggle(element) {
+  function _toggle(element) {
     var section = helper.getClosest(element, ".js-section");
     display.toggle(section);
     display.clear(section);
     display.render(section);
+  };
+
+  function _minimise(element) {
+    var section = helper.getClosest(element, ".js-section");
+    var icon = section.querySelector(".js-card-minimise-icon");
+
+    function _minimise() {
+      section.dataset.minimise = "true";
+      helper.addClass(section, "is-minimise");
+      helper.addClass(icon, "icon-unfold-more");
+      helper.removeClass(icon, "icon-unfold-less");
+    };
+
+    function _maximise() {
+      section.dataset.minimise = "false";
+      helper.removeClass(section, "is-minimise");
+      helper.removeClass(icon, "icon-unfold-more");
+      helper.addClass(icon, "icon-unfold-less");
+    };
+
+    if (section.dataset.minimise == "true") {
+      _maximise();
+    } else if (section.dataset.minimise == "false" || !section.dataset.minimise) {
+      _minimise();
+    };
   };
 
   // exposed methods
@@ -10747,7 +10784,7 @@ var display = (function() {
   };
 
   function _toggle_singleSection(element, forceToggle) {
-    var icon = element.querySelector(".js-card-display-toggle-icon");
+    var icon = element.querySelector(".js-card-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
     var all_display = section.querySelectorAll(".js-display");
