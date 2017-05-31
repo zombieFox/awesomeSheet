@@ -144,6 +144,9 @@ table {
 }
 
 .is-night-mode {
+  hr {
+    border-color: $secondary-color-alpha-20;
+  }
   table {
     thead {
       tr {

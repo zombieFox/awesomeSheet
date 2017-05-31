@@ -1005,6 +1005,9 @@ table {
     text-align: left;
     box-sizing: border-box; }
 
+.is-night-mode hr {
+  border-color: rgba(50, 136, 201, 0.05); }
+
 .is-night-mode table thead tr td {
   border-color: #616161; }
 
