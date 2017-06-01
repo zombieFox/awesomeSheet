@@ -11417,6 +11417,33 @@ var display = (function() {
 
 })();
 
+var fireball = (function() {
+
+  function render() {
+
+    var body = helper.e("body");
+    var fireball = document.createElement("div");
+    fireball.setAttribute("class", "m-fireball js-fireball");
+
+    fireball.destroy = function() {
+      helper.addClass(fireball, "is-transparent");
+    };
+
+    fireball.addEventListener("animationend", function(event, elapsed) {
+      this.parentElement.removeChild(this);
+    }.bind(fireball), false);
+
+    body.appendChild(fireball);
+
+  };
+
+  // exposed methods
+  return {
+    render: render
+  };
+
+})();
+
 var fullscreen = (function() {
 
   function toggle() {
@@ -13543,12 +13570,17 @@ var spells = (function() {
     spellRemoveIcon.setAttribute("class", "icon-close");
     spellRemove.appendChild(spellRemoveIcon);
     if (newSpell) {
-      var newSpellFlash = document.createElement("span");
-      newSpellFlash.setAttribute("class", "m-spell-flash");
-      newSpellFlash.addEventListener("animationend", function(event, elapsed) {
-        this.remove();
-      }.bind(newSpellFlash), false);
-      spellButton.appendChild(newSpellFlash);
+      if (spellObject.name == "Fireball" || spellObject.name == "fireball" || spellObject.name == "Fire ball" || spellObject.name == "fire Ball" || spellObject.name == "fire ball" || spellObject.name == "Fire Ball" || spellObject.name == "FIREBALL") {
+        // easter egg fireball!
+        fireball.render();
+      } else {
+        var newSpellFlash = document.createElement("span");
+        newSpellFlash.setAttribute("class", "m-spell-flash");
+        newSpellFlash.addEventListener("animationend", function(event, elapsed) {
+          this.remove();
+        }.bind(newSpellFlash), false);
+        spellButton.appendChild(newSpellFlash);
+      };
     };
     return spellButton;
   };

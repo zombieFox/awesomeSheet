@@ -2138,7 +2138,7 @@ label {
   margin-bottom: 0;
   position: fixed;
   top: 5.5em;
-  z-index: 3000;
+  z-index: 2000;
   -webkit-animation: card-body-controls-down-xs ease-in-out 0.6s;
           animation: card-body-controls-down-xs ease-in-out 0.6s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 6px 30px rgba(0, 0, 0, 0.15); }
@@ -2208,7 +2208,7 @@ label {
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
-  z-index: 6000;
+  z-index: 5000;
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   -webkit-transform: translate(100%, 0);
@@ -2240,7 +2240,7 @@ label {
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: 6000;
+  z-index: 5000;
   transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
 
@@ -2468,7 +2468,7 @@ label {
   margin: 0;
   position: fixed;
   top: 5em;
-  z-index: 3000;
+  z-index: 2000;
   -webkit-animation: edit-controls-down-xs ease-in-out 0.6s;
           animation: edit-controls-down-xs ease-in-out 0.6s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 6px 30px rgba(0, 0, 0, 0.15); }
@@ -2857,7 +2857,7 @@ label {
   width: 100%;
   height: 4.5em;
   font-size: 1rem;
-  z-index: 9000; }
+  z-index: 8000; }
 
 .m-quick-nav-bar {
   background-color: #2a5d84;
@@ -3341,7 +3341,7 @@ label {
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: 10000;
+  z-index: 9000;
   transition: all 0.2s ease-in-out; }
 
 .m-prompt {
@@ -3349,7 +3349,7 @@ label {
   top: 50%;
   left: 50%;
   font-size: 1rem;
-  z-index: 10000;
+  z-index: 9000;
   width: 30em;
   max-width: 95%;
   min-width: 200px;
@@ -3418,7 +3418,7 @@ label {
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: 11000;
+  z-index: 10000;
   transition: all 0.2s ease-in-out; }
 
 .m-modal {
@@ -3426,7 +3426,7 @@ label {
   top: 50%;
   left: 50%;
   font-size: 1rem;
-  z-index: 11000;
+  z-index: 10000;
   width: 45em;
   max-width: 95%;
   min-width: 200px;
@@ -3509,7 +3509,7 @@ label {
   overflow: hidden;
   transition: all 0.4s ease-in-out, background-color 0.3s ease-in-out;
   opacity: 1;
-  z-index: 8000;
+  z-index: 7000;
   font-size: 1rem;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3965,7 +3965,7 @@ label {
   bottom: 1.5rem;
   right: 1.5rem;
   font-size: 1rem;
-  z-index: 7000;
+  z-index: 6000;
   transition: all 0.2s ease-in-out;
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
@@ -4036,6 +4036,39 @@ label {
 @media print {
   .m-fab {
     display: none; } }
+
+.m-fireball {
+  background-image: url("../images/boom.png");
+  background-position: 0 0;
+  background-attachment: scroll;
+  display: block;
+  width: 80px;
+  height: 170px;
+  position: fixed;
+  bottom: 2em;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) scale(2);
+      -ms-transform: translate(-50%, 0) scale(2);
+          transform: translate(-50%, 0) scale(2);
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+  z-index: 4000;
+  -webkit-animation: fireball steps(30) 2s 1;
+          animation: fireball steps(30) 2s 1;
+  transition: all ease; }
+
+@-webkit-keyframes fireball {
+  1% {
+    background-position: 0 0; }
+  100% {
+    background-position: -2400px 0; } }
+
+@keyframes fireball {
+  1% {
+    background-position: 0 0; }
+  100% {
+    background-position: -2400px 0; } }
 
 .is-hidden {
   display: none !important; }

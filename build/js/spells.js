@@ -492,12 +492,17 @@ var spells = (function() {
     spellRemoveIcon.setAttribute("class", "icon-close");
     spellRemove.appendChild(spellRemoveIcon);
     if (newSpell) {
-      var newSpellFlash = document.createElement("span");
-      newSpellFlash.setAttribute("class", "m-spell-flash");
-      newSpellFlash.addEventListener("animationend", function(event, elapsed) {
-        this.remove();
-      }.bind(newSpellFlash), false);
-      spellButton.appendChild(newSpellFlash);
+      if (spellObject.name == "Fireball" || spellObject.name == "fireball" || spellObject.name == "Fire ball" || spellObject.name == "fire Ball" || spellObject.name == "fire ball" || spellObject.name == "Fire Ball" || spellObject.name == "FIREBALL") {
+        // easter egg fireball!
+        fireball.render();
+      } else {
+        var newSpellFlash = document.createElement("span");
+        newSpellFlash.setAttribute("class", "m-spell-flash");
+        newSpellFlash.addEventListener("animationend", function(event, elapsed) {
+          this.remove();
+        }.bind(newSpellFlash), false);
+        spellButton.appendChild(newSpellFlash);
+      };
     };
     return spellButton;
   };
