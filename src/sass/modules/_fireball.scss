@@ -1,27 +1,25 @@
 .m-fireball {
-  background-image: url("../images/spritesheet.png");
-  background-position: 0 -4680px;
+  background-image: url("../images/boom.png");
+  background-position: 0 0;
   background-attachment: scroll;
   display: block;
-  width: 314px;
-  height: 255px;
+  width: 80px;
+  height: 170px;
   position: fixed;
-  bottom: 5em;
+  bottom: 2em;
   left: 50%;
-  transform: translate(-50%, 0) scale(1);
+  transform: translate(-50%, 0) scale(2);
+  transform-origin: center bottom;
   z-index: $fireball;
-  animation: fireball 2s steps(18) 1;
-  transition: all $transition-ease-slow;
+  animation: fireball steps(30) 2s 1;
+  // animation: fireball steps(30) 2s infinite;
+  transition: all ease;
 }
 @keyframes fireball {
   1% {
     background-position: 0 0;
-    bottom: 5em;
-    transform: translate(-50%, 0) scale(1);
   }
   100% {
-    background-position: -5652px 0;
-    bottom: 10em;
-    transform: translate(-50%, 0) scale(2);
+    background-position: -2400px 0;
   }
 }
