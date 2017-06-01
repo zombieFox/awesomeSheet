@@ -1,0 +1,27 @@
+.m-fireball {
+  background-image: url("../images/spritesheet.png");
+  background-position: 0 -4680px;
+  background-attachment: scroll;
+  display: block;
+  width: 314px;
+  height: 255px;
+  position: fixed;
+  bottom: 5em;
+  left: 50%;
+  transform: translate(-50%, 0) scale(1);
+  z-index: $fireball;
+  animation: fireball 2s steps(18) 1;
+  transition: all $transition-ease-slow;
+}
+@keyframes fireball {
+  1% {
+    background-position: 0 0;
+    bottom: 5em;
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    background-position: -5652px 0;
+    bottom: 10em;
+    transform: translate(-50%, 0) scale(2);
+  }
+}
