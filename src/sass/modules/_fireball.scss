@@ -12,7 +12,6 @@
   transform-origin: center bottom;
   z-index: $fireball;
   animation: fireball steps(30) 2s 1;
-  // animation: fireball steps(30) 2s infinite;
   transition: all ease;
 }
 @keyframes fireball {
