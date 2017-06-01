@@ -70,6 +70,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/characters.js',
           '<%= folders.build %>/js/clone.js',
           '<%= folders.build %>/js/display.js',
+          '<%= folders.build %>/js/fireball.js',
           '<%= folders.build %>/js/fullscreen.js',
           '<%= folders.build %>/js/hidable-block.js',
           '<%= folders.build %>/js/input-block.js',
