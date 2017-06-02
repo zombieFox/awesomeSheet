@@ -13122,18 +13122,12 @@ var spells = (function() {
     var newSpell = new _create_spellObject(spellName, 0, false, 0);
     // if input value is not empty
     if (spellName !== "") {
-      //  if first character is not a number
-      if (isNaN(spellName.charAt(0))) {
-        // add spell to current character known spells
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
-        var newSpellIndex = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].length - 1;
-        _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
-        // clear input field
-        element.value = "";
-      } else {
-        // error if the name starts with a number
-        snack.render("Name can't start with a space or number.");
-      };
+      // add spell to current character known spells
+      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
+      var newSpellIndex = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].length - 1;
+      _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
+      // clear input field
+      element.value = "";
     };
     inputBlock.focus(element);
   };

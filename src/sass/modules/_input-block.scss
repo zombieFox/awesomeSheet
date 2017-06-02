@@ -3,15 +3,6 @@
   z-index: 1;
   font-size: $font-size-root-100;
 }
-.m-input-block-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  .m-input-block {
-    flex: 1 1 30%;
-    min-width: 8em;
-  }
-}
 .m-input-block-label {
   margin: 0;
   padding: 0;

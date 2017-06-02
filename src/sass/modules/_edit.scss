@@ -9,16 +9,6 @@
   margin: 1em 0;
   box-sizing: border-box;
 }
-.is-pinned {
-  .m-edit-controls {
-    margin: 0;
-    position: fixed;
-    top: 5em;
-    z-index: $card-controls;
-    animation: edit-controls-down-xs ease-in-out 0.6s;
-    box-shadow: $shadow-large;
-  }
-}
 .m-edit-box {
   font-size: $font-size-root-100;
 }
@@ -38,6 +28,9 @@
 .m-edit-box-item-20 {
   flex-basis: 20%;
 }
+.m-edit-box-item-30 {
+  flex-basis: 30%;
+}
 .m-edit-box-item-40 {
   flex-basis: 40%;
 }
@@ -54,6 +47,16 @@
   padding: 0 0.5em;
   margin: 0;
 }
+.is-pinned {
+  .m-edit-controls {
+    margin: 0;
+    position: fixed;
+    top: 5em;
+    z-index: $card-controls;
+    animation: edit-controls-down-xs ease-in-out 0.6s;
+    box-shadow: $shadow-large;
+  }
+}
 .is-night-mode {
   .m-edit-heading {
     background-color: $secondary-color-04;
@@ -69,6 +72,11 @@
     border-color: $gray-19;
     margin-right: -($gutter * 2);
   }
+  .is-night-mode {
+    .m-edit-box-title {
+      border-color: $light-alpha-19;
+    }
+  }
 }
 @media (min-width: $screen-lg) {
   .m-edit-box-bonus-button {
@@ -78,11 +86,6 @@
     .m-edit-controls {
       top: 0.5em;
       animation: edit-controls-down-lg ease-in-out 0.5s;
-    }
-  }
-  .is-night-mode {
-    .m-edit-box-title {
-      border-color: $light-alpha-19;
     }
   }
 }

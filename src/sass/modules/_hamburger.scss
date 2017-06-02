@@ -1,6 +1,6 @@
 .m-hamburger {
   position: relative;
-  width: 25px;
+  width: 1.5em;
   height: 100%;
   line-height: 100%;
   left: 50%;
@@ -62,7 +62,7 @@
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
   .m-hamburger {
-    width: 30px;
+    // width: 30px;
     .m-hamburger-inner {
       height: 3px;
       &:after,

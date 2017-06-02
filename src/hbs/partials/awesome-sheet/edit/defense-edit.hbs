@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="m-edit-box js-total-block">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -33,11 +32,11 @@
           </div>
         </div>
       </div>
+      <div class="col-xs-12">
+        <hr>
+      </div>
     </div>
   </div>
-
-  <hr>
-
   <div class="m-edit-box js-total-block">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -58,13 +57,13 @@
             </div>
           </div>
           <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size,max_dex" data-bonus-path="defense.ac.bonuses" data-modal-heading="AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size,max_dex"
+              data-bonus-path="defense.ac.bonuses" data-modal-heading="AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="m-edit-box js-total-block">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -85,13 +84,13 @@
             </div>
           </div>
           <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size" data-bonus-path="defense.flat_footed.bonuses" data-modal-heading="Flat Footed AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size"
+              data-bonus-path="defense.flat_footed.bonuses" data-modal-heading="Flat Footed AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="m-edit-box js-total-block">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -112,13 +111,13 @@
             </div>
           </div>
           <div class="m-edit-box-bonus">
-          <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size,max_dex" data-bonus-path="defense.touch.bonuses" data-modal-heading="Touch AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,plus_ten,ac_armor,ac_shield,ac_deflect,ac_dodge,ac_natural,size,max_dex"
+              data-bonus-path="defense.touch.bonuses" data-modal-heading="Touch AC bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-xs-12 col-md-9 col-md-offset-3">
       <div class="m-textarea-block js-textarea-block">
@@ -126,54 +125,70 @@
         <div id="defense-ac-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="defense.ac_notes" contentEditable="true" tabindex="3"></div>
       </div>
     </div>
+    <div class="col-xs-12">
+      <hr>
+    </div>
   </div>
-
-  <hr>
-
   <div class="row">
     <div class="col-xs-12 col-md-3">
       <h2 class="m-edit-title u-margin-with-input u-inline-with-input">Armor</h2>
     </div>
     <div class="col-xs-12 col-md-9">
-      <div class="m-input-block-wrapper">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-armor">Armor</label>
-          <input id="defense-ac-armor" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.armor" data-type="number" type="text" tabindex="3">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-armor">Armor</label>
+              <input id="defense-ac-armor" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.armor" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-shield">Shield</label>
+              <input id="defense-ac-shield" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.shield" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-deflect">Deflect</label>
+              <input id="defense-ac-deflect" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.deflect" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-dodge">Dodge</label>
+              <input id="defense-ac-dodge" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.dodge" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-natural">Natural</label>
+              <input id="defense-ac-natural" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.natural" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-size-bonus">Size</label>
+              <input id="defense-ac-size-bonus" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.size_bonus" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-check-penalty">Armour Check Penalty</label>
+              <input id="defense-ac-check-penalty" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.check_penalty" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="defense-ac-max-dex">Max Dex</label>
+              <input id="defense-ac-max-dex" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.max_dex" data-type="number" type="text" tabindex="3">
+            </div>
+          </div>
         </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-shield">Shield</label>
-          <input id="defense-ac-shield" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.shield" data-type="number" type="text" tabindex="3">
-        </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-deflect">Deflect</label>
-          <input id="defense-ac-deflect" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.deflect" data-type="number" type="text" tabindex="3">
-        </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-dodge">Dodge</label>
-          <input id="defense-ac-dodge" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.dodge" data-type="number" type="text" tabindex="3">
-        </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-natural">Natural</label>
-          <input id="defense-ac-natural" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.natural" data-type="number" type="text" tabindex="3">
-        </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-size-bonus">Size</label>
-          <input id="defense-ac-size-bonus" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.size_bonus" data-type="number" type="text" tabindex="3">
-        </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-check-penalty">Armour Check Penalty</label>
-          <input id="defense-ac-check-penalty" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.check_penalty" data-type="number" type="text" tabindex="3">
-        </div>
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="defense-ac-max-dex">Max Dex</label>
-          <input id="defense-ac-max-dex" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.ac.max_dex" data-type="number" type="text" tabindex="3">
-        </div>
-      </div>
+    </div>
+    <div class="col-xs-12">
+      <hr>
     </div>
   </div>
-
-  <hr>
-
   <div class="m-edit-box js-total-block" data-total-type="bonus">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -212,13 +227,13 @@
             </div>
           </div>
           <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-bonus-path="defense.fortitude.bonuses" data-modal-heading="Fortitude bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-bonus-path="defense.fortitude.bonuses"
+              data-modal-heading="Fortitude bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="m-edit-box js-total-block" data-total-type="bonus">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -257,13 +272,13 @@
             </div>
           </div>
           <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-bonus-path="defense.reflex.bonuses" data-modal-heading="Reflex bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-bonus-path="defense.reflex.bonuses"
+              data-modal-heading="Reflex bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="m-edit-box js-total-block" data-total-type="bonus">
     <div class="row">
       <div class="col-xs-12 col-md-3">
@@ -302,13 +317,13 @@
             </div>
           </div>
           <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-bonus-path="defense.will.bonuses" data-modal-heading="Will bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-bonus-path="defense.will.bonuses"
+              data-modal-heading="Will bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-xs-12 col-md-9 col-md-offset-3">
       <div class="m-textarea-block js-textarea-block">

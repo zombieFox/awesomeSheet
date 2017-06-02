@@ -35,12 +35,12 @@
 .u-margin-with-input {
   margin: 1em 0;
 }
-.u-background-with-input {
-  background-color: $gray-20;
-}
 .u-underline-with-input {
   border-bottom: $border;
   border-color: $gray-19;
+}
+.u-background-with-input {
+  background-color: $gray-20;
 }
 .u-small-text {
   color: $gray-12;
@@ -75,11 +75,11 @@
   }
 }
 .is-night-mode {
-  .u-background-with-input {
-    background-color: $light-alpha-20;
-  }
   .u-underline-with-input {
     border-color: $light-alpha-19;
+  }
+  .u-background-with-input {
+    background-color: $light-alpha-20;
   }
   .u-muted-text {
     strong {
