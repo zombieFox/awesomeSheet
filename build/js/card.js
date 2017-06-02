@@ -62,6 +62,7 @@ var card = (function() {
     display.toggle(section);
     display.clear(section);
     display.render(section);
+    display.update();
   };
 
   function _minimise(element) {
