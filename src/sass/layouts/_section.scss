@@ -29,9 +29,6 @@
   }
 }
 @media (min-width: $screen-lg) {
-  .l-section {
-    margin: 3em 0 0;
-  }
   .l-section-wrapper {
     margin: 0 0 0 4.5em;
   }
@@ -40,24 +37,9 @@
   .l-section {
     width: 60%;
   }
-  // .l-section {
-  //   width: 100%;
-  //   margin: 0 0 2em;
-  //   break-inside: avoid;
-  // }
-  // .l-section-wrapper {
-  //   display: block;
-  //   margin: 0 0 0 4.5em;
-  //   padding: 2em 4vw;
-  //   column-gap: 2em;
-  //   column-count: 2;
-  // }
 }
 @media (min-width: 2000px) {
   .l-section {
     width: 40%;
   }
-//   .l-section-wrapper {
-//     column-count: 3;
-//   }
 }

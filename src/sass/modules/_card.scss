@@ -1,7 +1,6 @@
 .m-card {
   background-color: $white;
   position: relative;
-  // z-index: $body;
   box-sizing: border-box;
   box-shadow: $shadow-small;
   border-radius: $border-radius-medium;
@@ -10,22 +9,21 @@
 }
 .m-card-head {
   position: relative;
+  background-color: $secondary-color-06;
 }
 .m-card-head-controls {
-  border-top: 0.4em solid $secondary-color-08;
-  // background-color: $secondary-color-alpha-20;
   position: relative;
-  padding: 0 1em;
+  padding: 0 2em;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .m-card-title {
   font-family: $open-sans-semi-bold;
-  color: $secondary-color-08;
-  font-size: $font-size-125;
-  padding: 0.5em 1em;
+  color: $white;
+  font-size: $font-size-100;
+  padding: 0.3em 1em 0.3em 0;
   flex: 1 0 auto;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -33,32 +31,32 @@
     margin: 0;
   }
 }
+.m-card-title-icon {
+  margin-right: 1em;
+}
 .m-card-button {
   background-color: transparent;
-  margin: 0;
   border: 0;
   margin: 0;
-  font-size: $font-size-125;
-  padding: 0.5em 1em;
-  color: $secondary-color-08;
+  padding: 0.3em 1em;
+  font-size: $font-size-100;
+  color: $white;
   z-index: 2;
+  transition: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   [class*=" icon-"],
-  [class^="icon-"] {
-  }
+  [class^="icon-"] {}
   &:link,
   &:visited {
-    background-color: transparent;
-    color: $secondary-color-08;
+    color: $white;
   }
   &:focus,
   &:hover {
-    background-color: transparent;
-    color: $secondary-color-06;
+    color: $white;
   }
   &.is-active,
   &:active {
-    background-color: transparent;
-    color: $secondary-color-04;
+    color: $white;
   }
 }
 .m-card-body {
@@ -80,6 +78,9 @@
   }
 }
 .is-minimise {
+  .m-card-head {
+    background-color: $gray-08;
+  }
   .m-card-body {
     padding-top: 0;
     padding-bottom: 0;
@@ -91,67 +92,10 @@
   .m-card {
     background-color: $gray-03;
   }
-  .m-card-body-dark {
-    background-color: $secondary-color-02;
-  }
-  .m-card-link-self {
-    &.is-active,
-    &:active,
-    &:focus,
-    &:hover,
-    &:link,
-    &:visited {
-      background-color: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-  }
-  .m-card-button {
-    background-color: transparent;
-    color: $secondary-color-08;
-    &:link,
-    &:visited {
-      background-color: transparent;
-      color: $secondary-color-08;
-    }
-    &:focus,
-    &:hover {
-      background-color: transparent;
-      color: $secondary-color-06;
-    }
-    &.is-active,
-    &:active {
-      background-color: transparent;
-      color: $secondary-color-04;
-    }
-  }
 }
 .is-display-mode {
-  .m-card-head-controls {
-    border-color: $primary-color-08;
-    // background-color: $primary-color-alpha-20;
-  }
-  .m-card-title {
-    color: $primary-color-08;
-  }
-  .m-card-button {
-    background-color: transparent;
-    color: $primary-color-08;
-    &:link,
-    &:visited {
-      background-color: transparent;
-      color: $primary-color-08;
-    }
-    &:focus,
-    &:hover {
-      background-color: transparent;
-      color: $primary-color-06;
-    }
-    &.is-active,
-    &:active {
-      background-color: transparent;
-      color: $primary-color-04;
-    }
+  .m-card-head {
+    background-color: $primary-color-06;
   }
 }
 // --------------------------------------------------
