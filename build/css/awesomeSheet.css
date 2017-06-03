@@ -941,7 +941,7 @@ p {
 hr {
   border: 0;
   border-top: 1px solid #ededed;
-  margin: 2em -3em;
+  margin: 2em -2em;
   clear: both; }
 
 b,
@@ -2074,7 +2074,8 @@ label {
 
 .m-card-head {
   position: relative;
-  background-color: #264f6e; }
+  background-color: #264f6e;
+  transition: background-color 0.3s ease-in-out; }
 
 .m-card-head-controls {
   position: relative;
@@ -2126,7 +2127,7 @@ label {
     color: #ffffff; }
 
 .m-card-body {
-  padding: 3em 2em;
+  padding: 2em 1em;
   position: relative; }
 
 .m-card-body-controls {

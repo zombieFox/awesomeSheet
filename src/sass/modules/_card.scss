@@ -10,6 +10,7 @@
 .m-card-head {
   position: relative;
   background-color: $secondary-color-06;
+  transition: background-color $transition-ease-medium;
 }
 .m-card-head-controls {
   position: relative;
@@ -60,7 +61,7 @@
   }
 }
 .m-card-body {
-  padding: 3em 2em;
+  padding: 2em 1em;
   position: relative;
 }
 .m-card-body-controls {

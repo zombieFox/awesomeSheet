@@ -36,7 +36,7 @@ var nefi = (function() {
         con: {
           score: 12,
           modifier: "",
-          temp_score: 11,
+          temp_score: "",
           temp_modifier: ""
         },
         int: {
@@ -46,13 +46,13 @@ var nefi = (function() {
           temp_modifier: ""
         },
         wis: {
-          score: 10,
+          score: 12,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
         },
         cha: {
-          score: 8,
+          score: 10,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -65,7 +65,7 @@ var nefi = (function() {
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
-      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stones (Deep red), Feather Token (Tree)",
+      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -80,9 +80,9 @@ var nefi = (function() {
         feet: "Boots of Striding and Springing",
         hands: "",
         head: "Red Mantis Mask",
-        headband: "",
+        headband: "Headband of Mental Prowess +2 (Wis & Cha)",
         neck: "Amulet of Natural Armor +3",
-        ring_left_hand: "Ring of Protection +1",
+        ring_left_hand: "Ring of Protection +2",
         ring_right_hand: "",
         shield: "",
         shoulders: "Cloak of Resistance +3",
@@ -105,11 +105,11 @@ var nefi = (function() {
         current: ""
       },
       ac: {
-        misc: "",
+        misc: 1,
         temp: "",
         armor: 11,
         shield: "",
-        deflect: 1,
+        deflect: 2,
         dodge: 1,
         natural: 3,
         size_bonus: "",
@@ -134,7 +134,7 @@ var nefi = (function() {
         }
       },
       flat_footed: {
-        misc: "",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -153,7 +153,7 @@ var nefi = (function() {
         }
       },
       touch: {
-        misc: "",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -170,7 +170,7 @@ var nefi = (function() {
           max_dex: true
         }
       },
-      ac_notes: "",
+      ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
       fortitude: {
         base: 6,
         racial: "",
