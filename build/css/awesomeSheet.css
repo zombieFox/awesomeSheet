@@ -2095,8 +2095,8 @@ label {
 .m-card-title {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   color: #ffffff;
-  font-size: 1em;
-  padding: 0.3em 1em 0.3em 0;
+  font-size: 1.25em;
+  padding: 0.5em 1em 0.5em 0;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -2112,8 +2112,8 @@ label {
   background-color: transparent;
   border: 0;
   margin: 0;
-  padding: 0.3em 1em;
-  font-size: 1em;
+  padding: 0.5em 1em;
+  font-size: 1.25em;
   color: #ffffff;
   z-index: 2;
   transition: none;
