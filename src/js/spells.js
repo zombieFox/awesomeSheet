@@ -288,7 +288,7 @@ var spells = (function() {
     if (spellState == "prepare") {
       var preparedIcon = document.createElement("span");
       preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
-      if (spellMarks.children.length <= 30) {
+      if (spellMarks.children.length < 30) {
         spellMarks.appendChild(preparedIcon);
       };
     } else if (spellState == "unprepare") {
@@ -308,8 +308,8 @@ var spells = (function() {
         };
       };
       // if there are no spell marks add cast mark for spontaneous casters
-      if (all_remainingPrepared <= 0) {
-        if (spellMarks.children.length <= 30) {
+      if (all_remainingPrepared < 0) {
+        if (spellMarks.children.length < 30) {
           var castIcon = document.createElement("span");
           castIcon.setAttribute("class", "icon-radio-button-unchecked js-spell-mark-unchecked");
           spellMarks.appendChild(castIcon);
