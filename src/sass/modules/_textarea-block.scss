@@ -31,28 +31,9 @@
   }
 }
 
-.m-textarea-block-label-modal {
-  top: 1.6em;
-  left: 2em;
-  &.is-active {
-    left: 2.75em;
-  }
-}
-
 .m-textarea-block-field {
   position: relative;
   z-index: 1;
-}
-
-.m-textarea-block-field-modal {
-  margin: 1.5em 0 0 0;
-  padding: 2em;
-  border: 0;
-  min-height: 20vh;
-  max-height: 30vh;
-  resize: none;
-  display: block;
-  overflow-y: auto;
 }
 
 .is-night-mode {

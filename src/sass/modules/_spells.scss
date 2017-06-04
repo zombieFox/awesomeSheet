@@ -162,28 +162,49 @@
     }
   }
 }
+.m-spell-controls {
+  .button,
+  button {
+    flex-basis: 30%;
+  }
+}
+.m-textarea-block-field-modal {
+  margin: 1.5em 0 0;
+  padding: 2em;
+  border: 0;
+  min-height: 20vh;
+  max-height: 30vh;
+  resize: none;
+  display: block;
+  overflow-y: auto;
+}
 .m-new-spell {
   position: relative;
   z-index: 1;
 }
 .m-spell-control-row {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
 }
 .m-spell-control-title {
-  flex: 1 0 30%;
+  flex: 0 0 40%;
 }
 .m-spell-control-count {
-  flex: 0 1 30%;
+  flex: 0 0 30%;
   padding: 0 1em;
   text-align: center;
   font-family: $open-sans-semi-bold;
   color: $secondary-color-08;
 }
+.m-spell-control-checkbox {
+  position: relative;
+  text-align: center;
+  flex: 1 1 auto;
+}
 .m-spell-control-button {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
 }
 // --------------------------------------------------
 // media queries

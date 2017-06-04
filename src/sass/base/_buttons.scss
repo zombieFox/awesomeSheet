@@ -242,9 +242,7 @@ input[type="submit"] {
 .button-group-strech {
   .button,
   button {
-    padding-left: 0;
-    padding-right: 0;
-    flex: 1 1 30%;
+    flex: 1 1 auto;
   }
 }
 .button,
