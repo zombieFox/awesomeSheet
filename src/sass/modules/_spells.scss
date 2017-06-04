@@ -5,23 +5,26 @@
   &.is-state-unprepare {
     .m-spell-book-known {
       .m-spell {
-        background-color: $secondary-color-alpha-19;
-        color: $base-color;
-        border-color: $dark-alpha-19;
+        background-color: $secondary-color-10;
+        border-color: $secondary-color-08;
+        color: $white;
         &:link,
-        &:visited {}
-        &:focus {
-          outline: 0;
-          text-decoration: none;
+        &:visited {
+          background-color: $secondary-color-10;
+          border-color: $secondary-color-08;
+          color: $white;
         }
+        &:focus,
         &:hover {
-          background-color: $secondary-color-alpha-16;
-          outline: 0;
-          text-decoration: none;
+          background-color: $secondary-color-08;
+          border-color: $secondary-color-06;
+          color: $white;
         }
         &.is-active,
         &:active {
-          background-color: $secondary-color-alpha-14;
+          background-color: $secondary-color-06;
+          border-color: $secondary-color-04;
+          color: $white;
         }
       }
     }
@@ -29,25 +32,26 @@
   &.is-state-remove {
     .m-spell-book-known {
       .m-spell {
-        background-color: $primary-color-19;
-        color: $base-color;
-        border-color: $primary-color-alpha-18;
+        background-color: $primary-color-10;
+        border-color: $primary-color-08;
+        color: $white;
         &:link,
         &:visited {
-          color: $gray-10;
+          background-color: $primary-color-10;
+          border-color: $primary-color-08;
+          color: $white;
         }
-        &:focus {
-          outline: 0;
-          text-decoration: none;
-        }
+        &:focus,
         &:hover {
-          background-color: $primary-color-alpha-16;
-          outline: 0;
-          text-decoration: none;
+          background-color: $primary-color-08;
+          border-color: $primary-color-06;
+          color: $white;
         }
         &.is-active,
         &:active {
-          background-color: $primary-color-alpha-14;
+          background-color: $primary-color-06;
+          border-color: $primary-color-04;
+          color: $white;
         }
         .m-spell-name {
           max-width: 85%;
@@ -150,6 +154,7 @@
   .m-spell-remove {
     display: none;
     visibility: hidden;
+    font-size: $font-size-150;
     [class*=" icon-"],
     [class^="icon-"] {
       float: right;
@@ -161,43 +166,24 @@
   position: relative;
   z-index: 1;
 }
-.is-night-mode {
-  .m-spells {
-    &.is-state-active,
-    &.is-state-cast,
-    &.is-state-prepare,
-    &.is-state-unprepare {
-      .m-spell-book-known {
-        .m-spell {
-          background-color: $secondary-color-06;
-          color: $white;
-          &:hover {
-            background-color: $secondary-color-04;
-          }
-          &.is-active,
-          &:active {
-            background-color: $secondary-color-02;
-          }
-        }
-      }
-    }
-    &.is-state-remove {
-      .m-spell-book-known {
-        .m-spell {
-          background-color: $primary-color-06;
-          border-color: $primary-color-04;
-          color: $white;
-          &:hover {
-            background-color: $primary-color-04;
-          }
-          &.is-active,
-          &:active {
-            background-color: $primary-color-02;
-          }
-        }
-      }
-    }
-  }
+.m-spell-control-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.m-spell-control-title {
+  flex: 1 0 30%;
+}
+.m-spell-control-count {
+  flex: 0 1 30%;
+  padding: 0 1em;
+  text-align: center;
+  font-family: $open-sans-semi-bold;
+  color: $secondary-color-08;
+}
+.m-spell-control-button {
+  flex: 0 0 auto;
 }
 // --------------------------------------------------
 // media queries
