@@ -115,18 +115,25 @@ var spells = (function() {
       var currentActive = spellControl.dataset.spellActive;
       var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
       var currentCastCount = parseInt(spellControl.dataset.spellCast, 10);
-      if (type == "prepared" && action == "plus" && currentPreparedCount < 30) {
-        spellControl.dataset.spellPrepared = currentPreparedCount + 1;
-      } else if (type == "prepared" && action == "minus" && currentPreparedCount > 0) {
-        spellControl.dataset.spellPrepared = currentPreparedCount - 1;
+      if (type == "prepared") {
+        if (action == "plus" && currentPreparedCount < 30) {
+          spellControl.dataset.spellPrepared = currentPreparedCount + 1;
+        } else if (action == "minus" && currentPreparedCount > 0) {
+          spellControl.dataset.spellPrepared = currentPreparedCount - 1;
+        };
+        if (parseInt(spellControl.dataset.spellCast, 10) > parseInt(spellControl.dataset.spellPrepared, 10)) {
+          spellControl.dataset.spellCast = parseInt(spellControl.dataset.spellPrepared, 10);
+        };
       };
-      if (type == "cast" && action == "plus" && currentCastCount < 30) {
-        spellControl.dataset.spellCast = currentCastCount + 1;
-      } else if (type == "cast" && action == "minus" && currentCastCount > 0) {
-        spellControl.dataset.spellCast = currentCastCount - 1;
-      };
-      if (parseInt(spellControl.dataset.spellPrepared, 10) < parseInt(spellControl.dataset.spellCast, 10)) {
-        spellControl.dataset.spellPrepared = parseInt(spellControl.dataset.spellCast, 10);
+      if (type == "cast") {
+        if (action == "plus" && currentCastCount < 30) {
+          spellControl.dataset.spellCast = currentCastCount + 1;
+        } else if (action == "minus" && currentCastCount > 0) {
+          spellControl.dataset.spellCast = currentCastCount - 1;
+        };
+        if (parseInt(spellControl.dataset.spellPrepared, 10) < parseInt(spellControl.dataset.spellCast, 10)) {
+          spellControl.dataset.spellPrepared = parseInt(spellControl.dataset.spellCast, 10);
+        };
       };
       if (type == "active" && action == "toggle") {
         if (currentActive == "true") {
