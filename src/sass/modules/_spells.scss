@@ -184,15 +184,15 @@
 }
 .m-spell-control-row {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
 }
 .m-spell-control-title {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
 }
 .m-spell-control-count {
-  flex: 0 0 30%;
+  flex: 1 0 26%;
   padding: 0 1em;
   text-align: center;
   font-family: $open-sans-semi-bold;
@@ -201,10 +201,10 @@
 .m-spell-control-checkbox {
   position: relative;
   text-align: center;
-  flex: 1 1 auto;
+  flex: 1 0 auto;
 }
 .m-spell-control-button {
-  flex: 1 1 auto;
+  flex: 0 0 12%;
 }
 // --------------------------------------------------
 // media queries
