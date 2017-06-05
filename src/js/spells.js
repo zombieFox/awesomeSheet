@@ -97,52 +97,47 @@ var spells = (function() {
 
   function _spellNoteModalContent(button) {
 
-    function _changeValue(spellControl, count, action, type) {
-      var spellLevel = parseInt(button.dataset.spellLevel, 10);
-      var spellCount = parseInt(button.dataset.spellCount, 10);
-      if (action == "plus") {
-        if (type == "prepared" && sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 30) {
-          sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
-        } else if (type == "cast") {
-          sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
-        };
-      } else if (action == "minus") {
-        if (type == "prepared") {
-          sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
-        } else if (type == "cast") {
-          sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast--;
-        };
-      };
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast
-      };
-      console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-      sheet.storeCharacters();
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
 
-      // var newPrepared = parseInt(spellControl.dataset.spellPrepared, 10);
-      // var newCast = parseInt(spellControl.dataset.spellCast, 10);
-      // console.log(spellControl);
-      //
-      // var newCount;
-      // var currentCount;
-      // if (type == "prepared") {
-      //   currentCount = parseInt(spellControl.dataset.spellPrepared, 10);
-      // } else if (type == "cast") {
-      //   currentCount = parseInt(spellControl.dataset.spellCast, 10);
-      // };
+    function _changeValue(spellControl, count, action, type) {
       // if (action == "plus") {
-      //   newCount = currentCount + 1;
-      // } else if (action == "minus") {
-      //   newCount = currentCount - 1;
-      // };
-      // if (newCount >= 0 && newCount <= 30) {
-      //   if (type == "prepared") {
-      //     spellControl.dataset.spellPrepared = newCount;
+      //   if (type == "prepared" && sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 30) {
+      //     sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
       //   } else if (type == "cast") {
-      //     spellControl.dataset.spellCast = newCount;
+      //     sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
       //   };
-      //   count.textContent = newCount;
+      // } else if (action == "minus") {
+      //   if (type == "prepared") {
+      //     sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
+      //   } else if (type == "cast") {
+      //     sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast--;
+      //   };
       // };
+      // if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
+      //   sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast
+      // };
+      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // sheet.storeCharacters();
+
+      var newCount;
+      var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
+      var currentCastCount = parseInt(spellControl.dataset.spellCast, 10);
+      if (type == "prepared" && action == "plus" && currentPreparedCount < 30) {
+        spellControl.dataset.spellPrepared = currentPreparedCount + 1;
+      } else if (type == "prepared" && action == "minus" && currentPreparedCount > 0) {
+        spellControl.dataset.spellPrepared = currentPreparedCount - 1;
+      };
+      if (type == "cast" && action == "plus" && currentCastCount < 30) {
+        spellControl.dataset.spellCast = currentCastCount + 1;
+      } else if (type == "cast" && action == "minus" && currentCastCount > 0) {
+        spellControl.dataset.spellCast = currentCastCount - 1;
+      };
+      if (parseInt(spellControl.dataset.spellPrepared, 10) < parseInt(spellControl.dataset.spellCast, 10)) {
+        spellControl.dataset.spellPrepared = parseInt(spellControl.dataset.spellCast, 10);
+      };
+
     };
 
     function _update_spellObject(spellControl) {
@@ -207,170 +202,170 @@ var spells = (function() {
       };
     };
 
-    var spellLevel = parseInt(button.dataset.spellLevel, 10);
-    var spellCount = parseInt(button.dataset.spellCount, 10);
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    function _create_spellModal() {
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col = document.createElement("div");
+      col.setAttribute("class", "col-xs-12");
 
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    var row = document.createElement("div");
-    row.setAttribute("class", "row");
-    var col = document.createElement("div");
-    col.setAttribute("class", "col-xs-12");
+      var spellControl = document.createElement("div");
+      spellControl.setAttribute("class", "m-spell-control js-spell-control");
+      spellControl.setAttribute("data-spell-level", spellLevel);
+      spellControl.setAttribute("data-spell-count", spellCount);
+      spellControl.setAttribute("data-spell-active", spellObject.active);
+      spellControl.setAttribute("data-spell-prepared", spellObject.prepared);
+      spellControl.setAttribute("data-spell-cast", spellObject.cast);
 
-    var spellControl = document.createElement("div");
-    spellControl.setAttribute("class", "m-spell-control js-spell-control");
-    spellControl.setAttribute("data-spell-level", spellLevel);
-    spellControl.setAttribute("data-spell-count", spellCount);
-    spellControl.setAttribute("data-spell-active", spellObject.active);
-    spellControl.setAttribute("data-spell-prepared", spellObject.prepared);
-    spellControl.setAttribute("data-spell-cast", spellObject.cast);
+      var spellControlRowPrepared = document.createElement("div");
+      spellControlRowPrepared.setAttribute("class", "m-spell-control-row js-spell-control-row");
 
-    var spellControlRowPrepared = document.createElement("div");
-    spellControlRowPrepared.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      var preparedTitle = document.createElement("p");
+      preparedTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-underline-with-input u-no-margin");
+      preparedTitle.textContent = "Number of Prepared";
 
-    var preparedTitle = document.createElement("p");
-    preparedTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-underline-with-input u-no-margin");
-    preparedTitle.textContent = "Number of Prepared";
+      var preparedCount = document.createElement("p");
+      preparedCount.setAttribute("class", "m-spell-control-count u-background-with-input u-inline-with-input u-underline-with-input u-no-margin js-spell-control-count");
+      preparedCount.textContent = spellObject.prepared;
 
-    var preparedCount = document.createElement("p");
-    preparedCount.setAttribute("class", "m-spell-control-count u-background-with-input u-inline-with-input u-underline-with-input u-no-margin js-spell-control-count");
-    preparedCount.textContent = spellObject.prepared;
+      var preparedPlus = document.createElement("button");
+      preparedPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-plus");
+      var preparedPlusIcon = document.createElement("span");
+      preparedPlusIcon.setAttribute("class", "icon-add");
+      preparedPlus.appendChild(preparedPlusIcon);
 
-    var preparedPlus = document.createElement("button");
-    preparedPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-plus");
-    var preparedPlusIcon = document.createElement("span");
-    preparedPlusIcon.setAttribute("class", "icon-add");
-    preparedPlus.appendChild(preparedPlusIcon);
+      preparedPlus.addEventListener("click", function() {
+        _changeValue(spellControl, preparedCount, "plus", "prepared");
+      }, false);
 
-    preparedPlus.addEventListener("click", function() {
-      _changeValue(spellControl, preparedCount, "plus", "prepared");
-    }, false);
+      var preparedMinus = document.createElement("button");
+      preparedMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-minus");
+      var preparedMinusIcon = document.createElement("span");
+      preparedMinusIcon.setAttribute("class", "icon-remove");
+      preparedMinus.appendChild(preparedMinusIcon);
 
-    var preparedMinus = document.createElement("button");
-    preparedMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-minus");
-    var preparedMinusIcon = document.createElement("span");
-    preparedMinusIcon.setAttribute("class", "icon-remove");
-    preparedMinus.appendChild(preparedMinusIcon);
+      preparedMinus.addEventListener("click", function() {
+        _changeValue(spellControl, preparedCount, "minus", "prepared");
+      }, false);
 
-    preparedMinus.addEventListener("click", function() {
-      _changeValue(spellControl, preparedCount, "minus", "prepared");
-    }, false);
+      var spellControlRowCast = document.createElement("div");
+      spellControlRowCast.setAttribute("class", "m-spell-control-row js-spell-control-row");
 
-    var spellControlRowCast = document.createElement("div");
-    spellControlRowCast.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      var castTitle = document.createElement("p");
+      castTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-underline-with-input u-no-margin");
+      castTitle.textContent = "Number of Cast";
 
-    var castTitle = document.createElement("p");
-    castTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-underline-with-input u-no-margin");
-    castTitle.textContent = "Number of Cast";
+      var castCount = document.createElement("p");
+      castCount.setAttribute("class", "m-spell-control-count u-background-with-input u-inline-with-input u-underline-with-input u-no-margin js-spell-control-count");
+      castCount.textContent = spellObject.cast;
 
-    var castCount = document.createElement("p");
-    castCount.setAttribute("class", "m-spell-control-count u-background-with-input u-inline-with-input u-underline-with-input u-no-margin js-spell-control-count");
-    castCount.textContent = spellObject.cast;
+      var castPlus = document.createElement("button");
+      castPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-plus");
+      var castPlusIcon = document.createElement("span");
+      castPlusIcon.setAttribute("class", "icon-add");
+      castPlus.appendChild(castPlusIcon);
 
-    var castPlus = document.createElement("button");
-    castPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-plus");
-    var castPlusIcon = document.createElement("span");
-    castPlusIcon.setAttribute("class", "icon-add");
-    castPlus.appendChild(castPlusIcon);
+      castPlus.addEventListener("click", function() {
+        _changeValue(spellControl, castCount, "plus", "cast");
+      }, false);
 
-    castPlus.addEventListener("click", function() {
-      _changeValue(spellControl, castCount, "plus", "cast");
-    }, false);
+      var castMinus = document.createElement("button");
+      castMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-minus");
+      var castMinusIcon = document.createElement("span");
+      castMinusIcon.setAttribute("class", "icon-remove");
+      castMinus.appendChild(castMinusIcon);
 
-    var castMinus = document.createElement("button");
-    castMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-secondary button-medium js-spell-control-button-minus");
-    var castMinusIcon = document.createElement("span");
-    castMinusIcon.setAttribute("class", "icon-remove");
-    castMinus.appendChild(castMinusIcon);
+      castMinus.addEventListener("click", function() {
+        _changeValue(spellControl, castCount, "minus", "cast");
+      }, false);
 
-    castMinus.addEventListener("click", function() {
-      _changeValue(spellControl, castCount, "minus", "cast");
-    }, false);
+      var spellControlRowActive = document.createElement("div");
+      spellControlRowActive.setAttribute("class", "m-spell-control-row js-spell-control-row");
 
-    var spellControlRowActive = document.createElement("div");
-    spellControlRowActive.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      var activeTitle = document.createElement("p");
+      activeTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-underline-with-input u-no-margin");
+      activeTitle.textContent = "Active spell effect";
 
-    var activeTitle = document.createElement("p");
-    activeTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-underline-with-input u-no-margin");
-    activeTitle.textContent = "Active spell effect";
+      var activeCheckbox = document.createElement("div");
+      activeCheckbox.setAttribute("class", "m-spell-control-checkbox");
 
-    var activeCheckbox = document.createElement("div");
-    activeCheckbox.setAttribute("class", "m-spell-control-checkbox");
+      var activeInput = document.createElement("input");
+      activeInput.setAttribute("type", "checkbox");
+      activeInput.setAttribute("id", "spell-active");
+      activeInput.checked = spellObject.active;
 
-    var activeInput = document.createElement("input");
-    activeInput.setAttribute("type", "checkbox");
-    activeInput.setAttribute("id", "spell-active");
+      var activeLabel = document.createElement("label");
+      activeLabel.setAttribute("class", "m-spell-control-button u-full-width u-underline-with-input");
+      activeLabel.setAttribute("type", "checkbox");
+      activeLabel.setAttribute("for", "spell-active");
 
-    var activeLabel = document.createElement("label");
-    activeLabel.setAttribute("class", "m-spell-control-button u-full-width u-underline-with-input");
-    activeLabel.setAttribute("type", "checkbox");
-    activeLabel.setAttribute("for", "spell-active");
+      activeInput.addEventListener("change", function() {
+        console.log(this);
+        // _changeValue(spellControl, activeCount, "plus", "prepared");
+      }, false);
 
-    activeInput.addEventListener("change", function() {
-      console.log(this);
-      // _changeValue(spellControl, activeCount, "plus", "prepared");
-    }, false);
+      var textareaBlockDiv = document.createElement("div");
+      textareaBlockDiv.setAttribute("class", "m-textarea-block js-textarea-block");
 
-    var textareaBlockDiv = document.createElement("div");
-    textareaBlockDiv.setAttribute("class", "m-textarea-block js-textarea-block");
+      var textareaBlockLabel = document.createElement("label");
+      textareaBlockLabel.textContent = "Notes and details";
+      textareaBlockLabel.setAttribute("class", "m-textarea-block-label js-textarea-block-label");
 
-    var textareaBlockLabel = document.createElement("label");
-    textareaBlockLabel.textContent = "Notes and details";
-    textareaBlockLabel.setAttribute("class", "m-textarea-block-label js-textarea-block-label");
+      var textareaBlockField = document.createElement("div");
+      textareaBlockField.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field");
+      textareaBlockField.setAttribute("contenteditable", "true");
+      textareaBlockField.setAttribute("tabindex", "3");
 
-    var textareaBlockField = document.createElement("div");
-    textareaBlockField.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field");
-    textareaBlockField.setAttribute("contenteditable", "true");
-    textareaBlockField.setAttribute("tabindex", "3");
+      textareaBlockDiv.appendChild(textareaBlockLabel);
+      textareaBlockDiv.appendChild(textareaBlockField);
 
-    textareaBlockDiv.appendChild(textareaBlockLabel);
-    textareaBlockDiv.appendChild(textareaBlockField);
+      textareaBlock.focus(textareaBlockDiv);
 
-    textareaBlock.focus(textareaBlockDiv);
+      if (typeof spellObject.note != "undefined" && spellObject.note != "") {
+        textareaBlockField.innerHTML = spellObject.note;
+      };
 
-    if (typeof spellObject.note != "undefined" && spellObject.note != "") {
-      textareaBlockField.innerHTML = spellObject.note;
+      textareaBlockField.addEventListener("focus", function() {
+        textareaBlock.focus(this);
+      }, false);
+
+      textareaBlockField.addEventListener("blur", function() {
+        textareaBlock.focus(this);
+      }, false);
+
+      textareaBlockField.addEventListener("paste", function(event) {
+        helper.pasteStrip(event);
+      });
+
+      textareaBlockLabel.addEventListener("click", function() {
+        textareaBlock.focusLabel(this);
+      }, false);
+
+      textareaBlock.update(textareaBlockField);
+      activeCheckbox.appendChild(activeInput);
+      activeCheckbox.appendChild(activeLabel);
+      spellControlRowActive.appendChild(activeTitle);
+      spellControlRowActive.appendChild(activeCheckbox);
+      spellControlRowPrepared.appendChild(preparedTitle);
+      spellControlRowPrepared.appendChild(preparedMinus);
+      spellControlRowPrepared.appendChild(preparedCount);
+      spellControlRowPrepared.appendChild(preparedPlus);
+      spellControlRowCast.appendChild(castTitle);
+      spellControlRowCast.appendChild(castMinus);
+      spellControlRowCast.appendChild(castCount);
+      spellControlRowCast.appendChild(castPlus);
+      spellControl.appendChild(spellControlRowPrepared);
+      spellControl.appendChild(spellControlRowCast);
+      spellControl.appendChild(spellControlRowActive);
+      spellControl.appendChild(textareaBlockDiv);
+      col.appendChild(spellControl);
+      row.appendChild(col);
+      container.appendChild(row);
+      return container;
     };
 
-    textareaBlockField.addEventListener("focus", function() {
-      textareaBlock.focus(this);
-    }, false);
-
-    textareaBlockField.addEventListener("blur", function() {
-      textareaBlock.focus(this);
-    }, false);
-
-    textareaBlockField.addEventListener("paste", function(event) {
-      helper.pasteStrip(event);
-    });
-
-    textareaBlockLabel.addEventListener("click", function() {
-      textareaBlock.focusLabel(this);
-    }, false);
-
-    textareaBlock.update(textareaBlockField);
-    activeCheckbox.appendChild(activeInput);
-    activeCheckbox.appendChild(activeLabel);
-    spellControlRowActive.appendChild(activeTitle);
-    spellControlRowActive.appendChild(activeCheckbox);
-    spellControlRowPrepared.appendChild(preparedTitle);
-    spellControlRowPrepared.appendChild(preparedMinus);
-    spellControlRowPrepared.appendChild(preparedCount);
-    spellControlRowPrepared.appendChild(preparedPlus);
-    spellControlRowCast.appendChild(castTitle);
-    spellControlRowCast.appendChild(castMinus);
-    spellControlRowCast.appendChild(castCount);
-    spellControlRowCast.appendChild(castPlus);
-    spellControl.appendChild(spellControlRowPrepared);
-    spellControl.appendChild(spellControlRowCast);
-    spellControl.appendChild(spellControlRowActive);
-    spellControl.appendChild(textareaBlockDiv);
-    col.appendChild(spellControl);
-    row.appendChild(col);
-    container.appendChild(row);
-
-    modal.render(spellObject.name, container, "Save", function() {
+    modal.render(spellObject.name, _create_spellModal(), "Save", function() {
       // _update_spellObject(spellControl);
       _update_spellButton(button);
     });
