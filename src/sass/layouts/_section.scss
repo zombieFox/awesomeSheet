@@ -1,9 +1,8 @@
 .l-section {
-  margin: 2em 0 0;
   width: 100%;
 }
 .l-section-wrapper {
-  margin: 4.5em 1em 0;
+  margin: 4.5em 0 0;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
@@ -14,18 +13,13 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .l-section {
+    margin: 2em 0 0;
     width: 90%;
-  }
-  .l-section-wrapper {
-    margin: 4.5em 0 0;
   }
 }
 @media (min-width: $screen-md) {
   .l-section {
     width: 80%;
-  }
-  .l-section-wrapper {
-    margin: 4.5em 0 0;
   }
 }
 @media (min-width: $screen-lg) {
