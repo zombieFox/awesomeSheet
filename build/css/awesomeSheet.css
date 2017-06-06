@@ -39,7 +39,7 @@ html {
 body {
   background: #e0e0e0;
   margin: 0;
-  padding: 0 0 96vh;
+  padding: 0 0 calc(95vh - 4.5em);
   font-weight: normal;
   color: #2e2e2e;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
@@ -739,7 +739,7 @@ select {
 textarea {
   background-color: rgba(50, 136, 201, 0.1);
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  padding: 0.6em;
+  padding: 0.5em;
   margin: 1em 0;
   border: 0;
   min-height: 2.5em;
@@ -763,7 +763,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   background-color: rgba(50, 136, 201, 0.1);
   height: 2.5em;
   line-height: 2.5em;
-  padding: 0 0.6em;
+  padding: 0 0.5em;
   margin: 1em 0;
   border: 0;
   border-radius: 0;
@@ -810,7 +810,7 @@ input[type="radio"], input[type="checkbox"] {
       font-variant: normal;
       text-transform: none;
       display: block;
-      font-size: 1.25em;
+      font-size: 1.5em;
       color: #1c3445;
       vertical-align: text-bottom;
       transition: color 0.2s ease-in-out; }
@@ -1265,11 +1265,9 @@ input[type="submit"] {
 
 .button-group-strech .button,
 .button-group-strech button {
-  padding-left: 0;
-  padding-right: 0;
-  -webkit-flex: 1 1 30%;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%; }
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
 
 .button,
 button,
@@ -1717,11 +1715,10 @@ label {
           align-items: center; }
 
 .l-section {
-  margin: 2em 0 0;
   width: 100%; }
 
 .l-section-wrapper {
-  margin: 4.5em 1em 0;
+  margin: 4.5em 0 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1737,15 +1734,12 @@ label {
 
 @media (min-width: 550px) {
   .l-section {
-    width: 90%; }
-  .l-section-wrapper {
-    margin: 4.5em 0 0; } }
+    margin: 2em 0 0;
+    width: 90%; } }
 
 @media (min-width: 700px) {
   .l-section {
-    width: 80%; }
-  .l-section-wrapper {
-    margin: 4.5em 0 0; } }
+    width: 80%; } }
 
 @media (min-width: 900px) {
   .l-section-wrapper {
@@ -2068,7 +2062,6 @@ label {
   position: relative;
   box-sizing: border-box;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
   overflow: hidden;
   width: 100%; }
 
@@ -2160,6 +2153,10 @@ label {
 
 .is-display-mode.is-minimise .m-card-head {
   background-color: #7d0021; }
+
+@media (min-width: 550px) {
+  .m-card {
+    border-radius: 3px; } }
 
 @media (min-width: 900px) {
   .is-pinned .m-card-body-controls {
@@ -2752,9 +2749,6 @@ label {
   z-index: 1;
   font-size: 1rem; }
 
-.m-textarea-block-modal {
-  margin: 0 -2em -2em -2em; }
-
 .m-textarea-block-label {
   margin: 0;
   padding: 0;
@@ -2776,25 +2770,9 @@ label {
     height: 1em;
     line-height: 1em; }
 
-.m-textarea-block-label-modal {
-  top: 1.6em;
-  left: 2em; }
-  .m-textarea-block-label-modal.is-active {
-    left: 2.75em; }
-
 .m-textarea-block-field {
   position: relative;
   z-index: 1; }
-
-.m-textarea-block-field-modal {
-  margin: 1.5em 0 0 0;
-  padding: 2em;
-  border: 0;
-  min-height: 30vh;
-  max-height: 50vh;
-  resize: none;
-  display: block;
-  overflow-y: auto; }
 
 .is-night-mode .m-textarea-block-label.is-active {
   color: #264f6e; }
@@ -3128,34 +3106,38 @@ label {
     padding: 0; } }
 
 .m-spells.is-state-active .m-spell-book-known .m-spell, .m-spells.is-state-cast .m-spell-book-known .m-spell, .m-spells.is-state-prepare .m-spell-book-known .m-spell, .m-spells.is-state-unprepare .m-spell-book-known .m-spell {
-  background-color: rgba(50, 136, 201, 0.1);
-  color: #2e2e2e;
-  border-color: rgba(0, 0, 0, 0.1); }
-  .m-spells.is-state-active .m-spell-book-known .m-spell:focus, .m-spells.is-state-cast .m-spell-book-known .m-spell:focus, .m-spells.is-state-prepare .m-spell-book-known .m-spell:focus, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:focus {
-    outline: 0;
-    text-decoration: none; }
-  .m-spells.is-state-active .m-spell-book-known .m-spell:hover, .m-spells.is-state-cast .m-spell-book-known .m-spell:hover, .m-spells.is-state-prepare .m-spell-book-known .m-spell:hover, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:hover {
-    background-color: rgba(50, 136, 201, 0.25);
-    outline: 0;
-    text-decoration: none; }
+  background-color: #3288c9;
+  border-color: #2e6b9a;
+  color: #ffffff; }
+  .m-spells.is-state-active .m-spell-book-known .m-spell:link, .m-spells.is-state-active .m-spell-book-known .m-spell:visited, .m-spells.is-state-cast .m-spell-book-known .m-spell:link, .m-spells.is-state-cast .m-spell-book-known .m-spell:visited, .m-spells.is-state-prepare .m-spell-book-known .m-spell:link, .m-spells.is-state-prepare .m-spell-book-known .m-spell:visited, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:link, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:visited {
+    background-color: #3288c9;
+    border-color: #2e6b9a;
+    color: #ffffff; }
+  .m-spells.is-state-active .m-spell-book-known .m-spell:focus, .m-spells.is-state-active .m-spell-book-known .m-spell:hover, .m-spells.is-state-cast .m-spell-book-known .m-spell:focus, .m-spells.is-state-cast .m-spell-book-known .m-spell:hover, .m-spells.is-state-prepare .m-spell-book-known .m-spell:focus, .m-spells.is-state-prepare .m-spell-book-known .m-spell:hover, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:focus, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:hover {
+    background-color: #2e6b9a;
+    border-color: #264f6e;
+    color: #ffffff; }
   .m-spells.is-state-active .m-spell-book-known .m-spell.is-active, .m-spells.is-state-active .m-spell-book-known .m-spell:active, .m-spells.is-state-cast .m-spell-book-known .m-spell.is-active, .m-spells.is-state-cast .m-spell-book-known .m-spell:active, .m-spells.is-state-prepare .m-spell-book-known .m-spell.is-active, .m-spells.is-state-prepare .m-spell-book-known .m-spell:active, .m-spells.is-state-unprepare .m-spell-book-known .m-spell.is-active, .m-spells.is-state-unprepare .m-spell-book-known .m-spell:active {
-    background-color: rgba(50, 136, 201, 0.35); }
+    background-color: #264f6e;
+    border-color: #1c3445;
+    color: #ffffff; }
 
 .m-spells.is-state-remove .m-spell-book-known .m-spell {
-  background-color: #ffe3ea;
-  color: #2e2e2e;
-  border-color: rgba(252, 0, 66, 0.15); }
+  background-color: #fc0042;
+  border-color: #ca0035;
+  color: #ffffff; }
   .m-spells.is-state-remove .m-spell-book-known .m-spell:link, .m-spells.is-state-remove .m-spell-book-known .m-spell:visited {
-    color: #7a7a7a; }
-  .m-spells.is-state-remove .m-spell-book-known .m-spell:focus {
-    outline: 0;
-    text-decoration: none; }
-  .m-spells.is-state-remove .m-spell-book-known .m-spell:hover {
-    background-color: rgba(252, 0, 66, 0.25);
-    outline: 0;
-    text-decoration: none; }
+    background-color: #fc0042;
+    border-color: #ca0035;
+    color: #ffffff; }
+  .m-spells.is-state-remove .m-spell-book-known .m-spell:focus, .m-spells.is-state-remove .m-spell-book-known .m-spell:hover {
+    background-color: #ca0035;
+    border-color: #970027;
+    color: #ffffff; }
   .m-spells.is-state-remove .m-spell-book-known .m-spell.is-active, .m-spells.is-state-remove .m-spell-book-known .m-spell:active {
-    background-color: rgba(252, 0, 66, 0.35); }
+    background-color: #970027;
+    border-color: #63001a;
+    color: #ffffff; }
   .m-spells.is-state-remove .m-spell-book-known .m-spell .m-spell-name {
     max-width: 85%; }
   .m-spells.is-state-remove .m-spell-book-known .m-spell .m-spell-marks {
@@ -3262,32 +3244,72 @@ label {
       margin: 0 0 0 1px; }
   .m-spell .m-spell-remove {
     display: none;
-    visibility: hidden; }
+    visibility: hidden;
+    font-size: 1.5em; }
     .m-spell .m-spell-remove [class*=" icon-"],
     .m-spell .m-spell-remove [class^="icon-"] {
       float: right;
       margin: 0; }
 
+.m-spell-controls .button,
+.m-spell-controls button {
+  -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+          flex-basis: 30%; }
+
 .m-new-spell {
   position: relative;
   z-index: 1; }
 
-.is-night-mode .m-spells.is-state-active .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-cast .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-prepare .m-spell-book-known .m-spell, .is-night-mode .m-spells.is-state-unprepare .m-spell-book-known .m-spell {
-  background-color: #264f6e;
-  color: #ffffff; }
-  .is-night-mode .m-spells.is-state-active .m-spell-book-known .m-spell:hover, .is-night-mode .m-spells.is-state-cast .m-spell-book-known .m-spell:hover, .is-night-mode .m-spells.is-state-prepare .m-spell-book-known .m-spell:hover, .is-night-mode .m-spells.is-state-unprepare .m-spell-book-known .m-spell:hover {
-    background-color: #1c3445; }
-  .is-night-mode .m-spells.is-state-active .m-spell-book-known .m-spell.is-active, .is-night-mode .m-spells.is-state-active .m-spell-book-known .m-spell:active, .is-night-mode .m-spells.is-state-cast .m-spell-book-known .m-spell.is-active, .is-night-mode .m-spells.is-state-cast .m-spell-book-known .m-spell:active, .is-night-mode .m-spells.is-state-prepare .m-spell-book-known .m-spell.is-active, .is-night-mode .m-spells.is-state-prepare .m-spell-book-known .m-spell:active, .is-night-mode .m-spells.is-state-unprepare .m-spell-book-known .m-spell.is-active, .is-night-mode .m-spells.is-state-unprepare .m-spell-book-known .m-spell:active {
-    background-color: #0f1820; }
+.m-spell-control-block:not(:last-child):not(:only-child) {
+  margin-bottom: 1em; }
 
-.is-night-mode .m-spells.is-state-remove .m-spell-book-known .m-spell {
-  background-color: #970027;
-  border-color: #63001a;
-  color: #ffffff; }
-  .is-night-mode .m-spells.is-state-remove .m-spell-book-known .m-spell:hover {
-    background-color: #63001a; }
-  .is-night-mode .m-spells.is-state-remove .m-spell-book-known .m-spell.is-active, .is-night-mode .m-spells.is-state-remove .m-spell-book-known .m-spell:active {
-    background-color: #31000d; }
+.m-spell-control-row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+  .m-spell-control-row:not(:last-child):not(:only-child) {
+    margin-bottom: 1em; }
+
+.m-spell-control-title {
+  -webkit-flex: 0 0 30%;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
+
+.m-spell-control-count {
+  -webkit-flex: 1 1 20%;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
+  text-align: center;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  color: #2e6b9a; }
+
+.m-spell-control-input {
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  position: relative;
+  width: 100%; }
+
+.m-spell-control-textarea {
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
+
+.m-spell-control-button {
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
 
 .m-prompt-shade {
   background-color: rgba(22, 38, 50, 0.8);
@@ -3384,7 +3406,7 @@ label {
   font-size: 1rem;
   z-index: 10000;
   width: 45em;
-  max-width: 95%;
+  max-width: calc(100% - 2em);
   min-width: 200px;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -3395,9 +3417,7 @@ label {
   transition: all 0.2s ease-in-out; }
 
 .m-modal-wrapper {
-  background-color: #ffffff;
   box-sizing: border-box;
-  border-radius: 3px;
   transition: all 0.2s ease-in-out; }
   .m-modal-wrapper .container {
     max-width: 100%;
@@ -3405,17 +3425,25 @@ label {
     padding-left: 0; }
 
 .m-modal-body {
-  padding: 2em; }
+  background-color: #ffffff;
+  border-radius: 3px 3px 0 0;
+  padding: 2em;
+  max-height: calc(80vh - 3.6666666667em);
+  overflow: scroll;
+  box-sizing: border-box; }
   .m-modal-body .m-modal-heading {
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
     font-size: 1.5em; }
     .m-modal-body .m-modal-heading:focus {
       outline: 0; }
 
-.m-modal-controls .button {
-  margin: 0; }
-  .m-modal-controls .button.button {
-    border-radius: 0 0 2px 2px; }
+.m-modal-controls {
+  border-radius: 0 0 3px 3px;
+  overflow: hidden; }
+  .m-modal-controls .button {
+    margin: 0; }
+    .m-modal-controls .button.button {
+      border-radius: 0 0 2px 2px; }
 
 .is-night-mode .m-modal-shade {
   background-color: rgba(0, 0, 0, 0.65); }
