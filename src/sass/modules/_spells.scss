@@ -186,10 +186,19 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
+  // &:not(:last-child):not(:only-child) {
+  //   margin: 0 0 2em 0;
+  // }
+}
+.m-spell-control {
+  width: 100%;
+  // &:not(:last-child):not(:only-child) {
+  //   margin: 0 0 2em 0;
+  // }
 }
 .m-spell-control-title {
-  flex: 0 0 50%;
+  flex: 0 0 40%;
 }
 .m-spell-control-count {
   flex: 1 0 26%;
@@ -198,9 +207,8 @@
   font-family: $open-sans-semi-bold;
   color: $secondary-color-08;
 }
-.m-spell-control-checkbox {
+.m-spell-control-input {
   position: relative;
-  text-align: center;
   flex: 1 0 auto;
 }
 .m-spell-control-button {
