@@ -24,7 +24,6 @@
   transition: all $transition-ease-fast;
 }
 .m-modal-wrapper {
-  background-color: $white;
   box-sizing: border-box;
   border-radius: $border-radius-medium;
   transition: all $transition-ease-fast;
@@ -35,7 +34,10 @@
   }
 }
 .m-modal-body {
-  padding: $font-size-200;
+  background-color: $white;
+  padding: 2em;
+  max-height: 60vh;
+  overflow: scroll;
   .m-modal-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;

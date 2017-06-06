@@ -239,7 +239,7 @@ var spells = (function() {
 
       var preparedPlus = document.createElement("button");
       preparedPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary js-spell-control-button-plus");
-      preparedPlus.setAttribute("tabindex", "1");
+      preparedPlus.setAttribute("tabindex", "3");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
       preparedPlus.appendChild(preparedPlusIcon);
@@ -251,7 +251,7 @@ var spells = (function() {
 
       var preparedMinus = document.createElement("button");
       preparedMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary js-spell-control-button-minus");
-      preparedMinus.setAttribute("tabindex", "1");
+      preparedMinus.setAttribute("tabindex", "3");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
       preparedMinus.appendChild(preparedMinusIcon);
@@ -275,7 +275,7 @@ var spells = (function() {
 
       var castPlus = document.createElement("button");
       castPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary js-spell-control-button-plus");
-      castPlus.setAttribute("tabindex", "1");
+      castPlus.setAttribute("tabindex", "3");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
       castPlus.appendChild(castPlusIcon);
@@ -287,7 +287,7 @@ var spells = (function() {
 
       var castMinus = document.createElement("button");
       castMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary js-spell-control-button-minus");
-      castMinus.setAttribute("tabindex", "1");
+      castMinus.setAttribute("tabindex", "3");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
       castMinus.appendChild(castMinusIcon);
@@ -312,7 +312,7 @@ var spells = (function() {
       activeInput.setAttribute("type", "checkbox");
       activeInput.setAttribute("id", "spell-active");
       activeInput.setAttribute("class", "js-spell-control-active");
-      activeInput.setAttribute("tabindex", "1");
+      activeInput.setAttribute("tabindex", "3");
       activeInput.checked = spellObject.active;
 
       var activeLabel = document.createElement("label");
@@ -336,7 +336,7 @@ var spells = (function() {
       var nameInput = document.createElement("input");
       nameInput.setAttribute("class", "m-spell-control-input u-no-margin js-spell-control-input-name");
       nameInput.setAttribute("type", "text");
-      nameInput.setAttribute("tabindex", "1");
+      nameInput.setAttribute("tabindex", "3");
       nameInput.value = spellObject.name;
 
       // note
@@ -350,7 +350,7 @@ var spells = (function() {
       var noteTextarea = document.createElement("div");
       noteTextarea.setAttribute("class", "m-spell-control-textarea textarea textarea-large u-no-margin js-spell-control-textarea-note");
       noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "1");
+      noteTextarea.setAttribute("tabindex", "3");
       noteTextarea.innerHTML = spellObject.note;
 
       nameSpellControlRow.appendChild(nameTitle);
