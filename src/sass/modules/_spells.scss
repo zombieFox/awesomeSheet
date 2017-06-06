@@ -179,7 +179,7 @@
 }
 .m-spell-control-row {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-end;
   &:not(:last-child):not(:only-child) {
@@ -187,10 +187,11 @@
   }
 }
 .m-spell-control-title {
-  flex: 0 0 100%;
+  flex: 0 0 30%;
+  font-family: $open-sans-semi-bold;
 }
 .m-spell-control-count {
-  flex: 1 1 40%;
+  flex: 1 1 20%;
   text-align: center;
   font-family: $open-sans-semi-bold;
   color: $secondary-color-08;
@@ -198,10 +199,10 @@
 .m-spell-control-input {
   flex: 1 1 auto;
   position: relative;
+  width: 100%;
 }
 .m-spell-control-textarea {
   flex: 1 1 auto;
-  overflow: scroll;
 }
 .m-spell-control-button {
   flex: 1 1 auto;
@@ -209,24 +210,7 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-spell-control-row {
-    flex-flow: row nowrap;
-  }
-  .m-spell-control-count {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  .m-spell-control-button {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  .m-spell-control-title {
-    flex: 0 0 40%;
-    // border-bottom: $border;
-    // border-color: $gray-19;
-  }
-}
+@media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
