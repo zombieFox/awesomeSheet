@@ -3,7 +3,6 @@
   position: relative;
   box-sizing: border-box;
   box-shadow: $shadow-small;
-  border-radius: $border-radius-medium;
   overflow: hidden;
   width: 100%;
 }
@@ -107,7 +106,11 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-card {
+    border-radius: $border-radius-medium;
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .is-pinned {
