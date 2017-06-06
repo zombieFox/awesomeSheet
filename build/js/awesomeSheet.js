@@ -11287,8 +11287,6 @@ var display = (function() {
     for (var i = 0; i < all_displayBlock.length; i++) {
       // find all targets in this display blocks
       var all_displayBlockTarget = all_displayBlock[i].querySelectorAll(".js-display-block-target");
-      // start a "path count"
-      var displayBlockPathCount = 0;
       // start a "no data found at path" count
       var dataNotFoundAtPath = 0;
 
@@ -11318,9 +11316,6 @@ var display = (function() {
         if (all_displayBlockTarget[j].dataset.displayValueType) {
           displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
         };
-
-        // increase the path count
-        displayBlockPathCount = displayBlockPathCount + all_displayPath.length;
 
         // function for later use to check the element from node array for false or data
         var _appendToTarget = function(element) {
@@ -11356,7 +11351,7 @@ var display = (function() {
         all_node.forEach(_appendToTarget);
       };
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
-      if (dataNotFoundAtPath == displayBlockPathCount) {
+      if (dataNotFoundAtPath == all_node.length) {
         all_displayBlock[i].dataset.displayContent = false;
       } else {
         all_displayBlock[i].dataset.displayContent = true;
