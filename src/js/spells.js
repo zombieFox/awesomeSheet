@@ -227,7 +227,7 @@ var spells = (function() {
 
       // prepared
       var preparedSpellControlRow = document.createElement("div");
-      preparedSpellControlRow.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      preparedSpellControlRow.setAttribute("class", "m-spell-control-row");
 
       var preparedTitle = document.createElement("p");
       preparedTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-no-margin");
@@ -263,7 +263,7 @@ var spells = (function() {
 
       // cast
       var castSpellControlRow = document.createElement("div");
-      castSpellControlRow.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      castSpellControlRow.setAttribute("class", "m-spell-control-row");
 
       var castTitle = document.createElement("p");
       castTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-no-margin");
@@ -299,14 +299,14 @@ var spells = (function() {
 
       // active
       var activeSpellControlRow = document.createElement("div");
-      activeSpellControlRow.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      activeSpellControlRow.setAttribute("class", "m-spell-control-row");
 
       var activeTitle = document.createElement("p");
       activeTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-no-margin");
       activeTitle.textContent = "Active spell effect";
 
       var activeInputWrapper = document.createElement("div");
-      activeInputWrapper.setAttribute("class", "m-spell-control-input u-underline-with-input");
+      activeInputWrapper.setAttribute("class", "m-spell-control-input");
 
       var activeInput = document.createElement("input");
       activeInput.setAttribute("type", "checkbox");
@@ -327,7 +327,7 @@ var spells = (function() {
 
       // name
       var nameSpellControlRow = document.createElement("div");
-      nameSpellControlRow.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      nameSpellControlRow.setAttribute("class", "m-spell-control-row");
 
       var nameTitle = document.createElement("p");
       nameTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-no-margin");
@@ -341,7 +341,7 @@ var spells = (function() {
 
       // note
       var noteSpellControlRow = document.createElement("div");
-      noteSpellControlRow.setAttribute("class", "m-spell-control-row js-spell-control-row");
+      noteSpellControlRow.setAttribute("class", "m-spell-control-block");
 
       var noteTitle = document.createElement("p");
       noteTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-no-margin");
@@ -352,6 +352,10 @@ var spells = (function() {
       noteTextarea.setAttribute("contenteditable", "true");
       noteTextarea.setAttribute("tabindex", "3");
       noteTextarea.innerHTML = spellObject.note;
+
+      noteTextarea.addEventListener("paste", function(event) {
+        helper.pasteStrip(event);
+      });
 
       nameSpellControlRow.appendChild(nameTitle);
       nameSpellControlRow.appendChild(nameInput);

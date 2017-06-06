@@ -16,7 +16,7 @@
   font-size: $font-size-root-100;
   z-index: $modal;
   width: 45em;
-  max-width: 90%;
+  max-width: calc(100% - 2em);
   min-width: 200px;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -25,7 +25,6 @@
 }
 .m-modal-wrapper {
   box-sizing: border-box;
-  border-radius: $border-radius-medium;
   transition: all $transition-ease-fast;
   .container {
     max-width: 100%;
@@ -35,9 +34,11 @@
 }
 .m-modal-body {
   background-color: $white;
+  border-radius: $border-radius-medium $border-radius-medium 0 0;
   padding: 2em;
-  max-height: 60vh;
+  max-height: calc(90vh - 3.6666666667em);
   overflow: scroll;
+  box-sizing: border-box;
   .m-modal-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;
@@ -47,6 +48,8 @@
   }
 }
 .m-modal-controls {
+  border-radius: 0 0 $border-radius-medium $border-radius-medium;
+  overflow: hidden;
   .button {
     margin: 0;
     &.button {
