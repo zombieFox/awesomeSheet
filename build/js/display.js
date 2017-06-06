@@ -568,6 +568,8 @@ var display = (function() {
       var all_displayBlockTarget = all_displayBlock[i].querySelectorAll(".js-display-block-target");
       // start a "no data found at path" count
       var dataNotFoundAtPath = 0;
+      var totalNodeLength = 0;
+      var all_node = [];
 
       // loop over each target in this display blocks
       for (var j = 0; j < all_displayBlockTarget.length; j++) {
@@ -576,7 +578,6 @@ var display = (function() {
         var target = all_displayBlockTarget[j];
         // var display = helper.getClosest(all_displayBlockTarget[j], ".js-display");
         var displayType = all_displayBlockTarget[j].dataset.displayType;
-        var all_node = [];
         var all_displayPath;
         var all_displayPrefix = false;
         var all_displaySuffix = false;
@@ -594,17 +595,6 @@ var display = (function() {
         displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
         if (all_displayBlockTarget[j].dataset.displayValueType) {
           displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
-        };
-
-        // function for later use to check the element from node array for false or data
-        var _appendToTarget = function(element) {
-          if (element != false) {
-            // append to target
-            target.appendChild(element);
-          } else {
-            // or increment the "no data found at path" count
-            dataNotFoundAtPath++;
-          };
         };
 
         // get an array of nodes using the array of paths
@@ -626,14 +616,26 @@ var display = (function() {
           all_node = _get_all_spell(all_displayPath);
         };
 
+        // function for later use to check the element from node array for false or data
+        var _appendToTarget = function(element) {
+          if (element != false) {
+            // append to target
+            target.appendChild(element);
+          } else {
+            // or increment the "no data found at path" count
+            dataNotFoundAtPath++;
+          };
+        };
+
         // loop over each node in array and append to target
         all_node.forEach(_appendToTarget);
+        totalNodeLength = totalNodeLength + all_node.length;
       };
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
-      if (dataNotFoundAtPath == all_node.length) {
-        all_displayBlock[i].dataset.displayContent = false;
-      } else {
+      if (totalNodeLength > dataNotFoundAtPath) {
         all_displayBlock[i].dataset.displayContent = true;
+      } else {
+        all_displayBlock[i].dataset.displayContent = false;
       };
 
     };
