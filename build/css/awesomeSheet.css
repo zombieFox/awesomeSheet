@@ -3448,7 +3448,7 @@ label {
 .is-night-mode .m-modal-shade {
   background-color: rgba(0, 0, 0, 0.65); }
 
-.is-night-mode .m-modal .m-modal-wrapper {
+.is-night-mode .m-modal .m-modal-body {
   background-color: #162632; }
 
 @media (min-width: 550px) {
