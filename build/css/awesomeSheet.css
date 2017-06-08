@@ -2548,7 +2548,14 @@ label {
     border-radius: 0;
     position: relative;
     z-index: 1;
-    transition: all 0.1s ease-in-out; }
+    transition: all 0.1s ease-in-out;
+    background-color: #fafafa;
+    padding: 1em 1em 0 1em;
+    border: 2px solid transparent;
+    border-color: #ededed;
+    border-radius: 3px; }
+    .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content:not(:only-child):not(:last-child) {
+      margin-bottom: 2em; }
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls {
     position: absolute;
     top: 0;
@@ -2571,15 +2578,15 @@ label {
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"],
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class^="icon-"] {
         margin-right: 0; }
-  .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input {
-    transition: border-color 0.1s ease-in-out; }
+  .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input,
+  .m-clone-block .m-clone-block-target .m-clone .u-margin-with-input,
   .m-clone-block .m-clone-block-target .m-clone .u-background-with-input {
-    transition: background-color 0.1s ease-in-out; }
+    transition: margin 0.1s ease-in-out, background-color 0.1s ease-in-out, border-color 0.1s ease-in-out; }
 
 .m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-flash {
-  top: 1em;
-  -webkit-animation: new-flash ease-in 0.4s 2;
-          animation: new-flash ease-in 0.4s 2; }
+  top: 0;
+  -webkit-animation: new-flash ease-in 0.4s 3;
+          animation: new-flash ease-in 0.4s 3; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 0.25em; }
@@ -2592,16 +2599,22 @@ label {
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="email"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="number"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="password"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="search"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="tel"], .m-clone-block.is-delete-state .m-clone-block-target .m-clone input[type="text"] {
     background-color: transparent;
     border-color: rgba(252, 0, 66, 0.15);
-    padding: 0 10px 0 0; }
+    padding: 0 10px 0 0;
+    margin: 0; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone label {
     color: transparent;
     visibility: hidden; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
     background-color: #ffe3ea;
-    padding: 0 4em 0 1em;
+    padding: 1em 4em 1em 1em;
+    border-color: transparent;
     border-radius: 3px; }
+    .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content:not(:only-child):not(:last-child) {
+      margin-bottom: 2em; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-underline-with-input {
     border-color: rgba(252, 0, 66, 0.15); }
+  .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-margin-with-input {
+    margin: 0; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .u-background-with-input {
     background-color: transparent;
     color: #2e2e2e; }
@@ -3151,8 +3164,8 @@ label {
     visibility: visible; }
 
 .m-spells:not(.is-state-remove) .m-spell .m-spell-flash {
-  -webkit-animation: new-flash ease-in 0.4s 2;
-          animation: new-flash ease-in 0.4s 2; }
+  -webkit-animation: new-flash ease-in 0.4s 3;
+          animation: new-flash ease-in 0.4s 3; }
 
 .m-spell-book .m-spell-book-known {
   margin: 1em 0;
@@ -3786,7 +3799,9 @@ label {
           flex-flow: row wrap;
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
-          justify-content: flex-start; }
+          justify-content: flex-start;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
 
 .m-display-list-item-spell-name {
   margin-right: 0.5em;

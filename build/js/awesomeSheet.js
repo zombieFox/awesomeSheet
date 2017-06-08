@@ -9809,25 +9809,25 @@ var clone = (function() {
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
-      '        <div class="col-xs-6 col-md-8 col-xl-4">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
       '            <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-6 col-md-4 col-xl-3">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '            <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-5 col-xs-offset-3 col-xl-3 col-xl-offset-0">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
       '            <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-4 col-xl-2">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
       '            <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
@@ -9849,37 +9849,37 @@ var clone = (function() {
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
-      '        <div class="col-xs-6 col-xl-4">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
       '            <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-xl-2">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
       '            <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-xl-2">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
       '            <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-xs-offset-3 col-xl-2 col-xl-offset-0">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
       '            <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-xl-1">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
       '            <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
-      '        <div class="col-xs-3 col-xl-1">' +
+      '        <div class="col-xs-6">' +
       '          <div class="m-input-block js-input-block">' +
       '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
       '            <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
@@ -10885,14 +10885,14 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_spells.length; j++) {
           var spell = all_spells[j];
-          all_node.push(_get_spell(spell));
+          all_node.push(_get_spell(spell, bookPath[2], j));
         };
       };
     };
     return all_node;
   };
 
-  function _get_spell(spell) {
+  function _get_spell(spell, level, index) {
     var displayItem = document.createElement("li");
     displayItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
     var displayItemPrefix = document.createElement("span");
@@ -10904,6 +10904,8 @@ var display = (function() {
     displayItemPrefix.appendChild(spellName);
     displayItem.appendChild(displayItemPrefix);
     displayItem.appendChild(displayItemValue);
+    displayItem.setAttribute("data-spell-level", level);
+    displayItem.setAttribute("data-spell-count", index);
     // prepared
     if (spell.prepared > 0) {
       // var marks = document.createElement("span");
@@ -10932,6 +10934,9 @@ var display = (function() {
       spellActive.appendChild(activeIcon);
       spellName.insertBefore(spellActive, spellName.firstChild);
     };
+    displayItem.addEventListener("click", function() {
+      spells.update(helper.e(".js-spell-book-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
+    }, false);
     return displayItem;
   };
 
@@ -13171,14 +13176,17 @@ var spells = (function() {
     element.addEventListener("click", function() {
       _update_spellObject(this);
       _update_spellButton(this);
+      _update_spellControls(this);
       _checkSpellState();
     }, false);
   };
 
-  function _spellNoteModalContent(button) {
+  function _update_spellControls(button, force) {
 
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
+    var spellState = spellRoot.dataset.spellState;
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
 
     function _render_count(spellControl) {
@@ -13245,51 +13253,6 @@ var spells = (function() {
         spellObject.note = "";
       };
       sheet.storeCharacters();
-    };
-
-    function _update_spellButton(button) {
-      var spellName = button.querySelector(".js-spell-name");
-      var spellMarks = button.querySelector(".js-spell-marks");
-      var spellActive = button.querySelector(".js-spell-active");
-      var spellLevel = parseInt(button.dataset.spellLevel, 10);
-      var spellCount = parseInt(button.dataset.spellCount, 10);
-      var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-      if (spellMarks.lastChild) {
-        while (spellMarks.lastChild) {
-          spellMarks.removeChild(spellMarks.lastChild);
-        };
-      };
-      if (spellActive.lastChild) {
-        while (spellActive.lastChild) {
-          spellActive.removeChild(spellActive.lastChild);
-        };
-      };
-      if (spellObject.prepared > 0) {
-        for (var i = 0; i < spellObject.prepared; i++) {
-          var preparedIcon = document.createElement("span");
-          preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
-          spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
-        };
-      };
-      if (spellObject.cast > 0) {
-        var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
-        for (var j = 0; j < spellObject.cast; j++) {
-          if (all_check[j]) {
-            helper.toggleClass(all_check[j], "icon-radio-button-checked");
-            helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
-            helper.toggleClass(all_check[j], "js-spell-mark-checked");
-            helper.toggleClass(all_check[j], "js-spell-mark-unchecked");
-          };
-        };
-      };
-      if (spellObject.active) {
-        var activeIcon = document.createElement("span");
-        activeIcon.setAttribute("class", "icon-play-arrow");
-        if (spellObject.active) {
-          spellActive.appendChild(activeIcon);
-        };
-      };
-      spellName.textContent = spellObject.name;
     };
 
     function _create_spellModal() {
@@ -13497,73 +13460,67 @@ var spells = (function() {
       return container;
     };
 
-    var modalContent = _create_spellModal();
+    if (spellState == "false" || force) {
+      var modalContent = _create_spellModal();
 
-    modal.render(spellObject.name, modalContent, "Save", function() {
-      var spellControl = this.querySelector(".js-spell-control");
-      _update_spellObject(spellControl);
-      _update_spellButton(button);
-    }.bind(modalContent));
+      modal.render(spellObject.name, modalContent, "Save", function() {
+        var spellControl = this.querySelector(".js-spell-control");
+        var spellSection = helper.e(".js-section-spells");
+        _update_spellObject(spellControl);
+        _update_spellButton(button, true);
+        display.clear(spellSection);
+        display.render(spellSection);
+      }.bind(modalContent));
+    };
 
   };
 
-  function _update_spellButton(button) {
-    var spellRoot = helper.getClosest(button, ".js-spells");
+  function _update_spellButton(button, force) {
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
+    var spellName = button.querySelector(".js-spell-name");
     var spellMarks = button.querySelector(".js-spell-marks");
     var spellActive = button.querySelector(".js-spell-active");
     var spellState = spellRoot.dataset.spellState;
-    var spellLevel = parseInt(button.dataset.spellLevel, 10);
-    var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-    if (spellState == "prepare") {
-      var preparedIcon = document.createElement("span");
-      preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
-      if (spellMarks.children.length < 30) {
-        spellMarks.appendChild(preparedIcon);
-      };
-    } else if (spellState == "unprepare") {
+    if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove" || force) {
       if (spellMarks.lastChild) {
-        spellMarks.lastChild.remove();
-      };
-    } else if (spellState == "cast") {
-      var all_spellsMarks = spellMarks.children;
-      var all_remainingPrepared = spellMarks.querySelectorAll(".js-spell-mark-checked").length;
-      for (var i = 0; i < all_spellsMarks.length; i++) {
-        if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
-          helper.toggleClass(all_spellsMarks[i], "icon-radio-button-checked");
-          helper.toggleClass(all_spellsMarks[i], "icon-radio-button-unchecked");
-          helper.toggleClass(all_spellsMarks[i], "js-spell-mark-checked");
-          helper.toggleClass(all_spellsMarks[i], "js-spell-mark-unchecked");
-          break
+        while (spellMarks.lastChild) {
+          spellMarks.removeChild(spellMarks.lastChild);
         };
       };
-      // if there are no spell marks add cast mark for spontaneous casters
-      if (all_remainingPrepared <= 0) {
-        if (spellMarks.children.length < 30) {
-          var castIcon = document.createElement("span");
-          castIcon.setAttribute("class", "icon-radio-button-unchecked js-spell-mark-unchecked");
-          spellMarks.appendChild(castIcon);
+      if (spellActive.lastChild) {
+        while (spellActive.lastChild) {
+          spellActive.removeChild(spellActive.lastChild);
         };
       };
-      // if no checked icons can be found change all_remainingPrepared
-      for (var i = 0; i < all_spellsMarks.length; i++) {
-        if (all_spellsMarks[i].classList.contains("js-spell-mark-checked")) {
-          all_remainingPrepared--;
+      if (spellObject.prepared > 0) {
+        for (var i = 0; i < spellObject.prepared; i++) {
+          var preparedIcon = document.createElement("span");
+          preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
+          spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
         };
       };
-    } else if (spellState == "active") {
-      var activeIcon = document.createElement("span");
-      activeIcon.setAttribute("class", "icon-play-arrow");
-      if (spellActive.children.length > 0) {
-        spellActive.firstChild.remove();
-      } else {
-        spellActive.appendChild(activeIcon);
+      if (spellObject.cast > 0) {
+        var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
+        for (var j = 0; j < spellObject.cast; j++) {
+          if (all_check[j]) {
+            helper.toggleClass(all_check[j], "icon-radio-button-checked");
+            helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
+            helper.toggleClass(all_check[j], "js-spell-mark-checked");
+            helper.toggleClass(all_check[j], "js-spell-mark-unchecked");
+          };
+        };
       };
-    } else if (spellState == "remove") {
-      _destroy_spellBook(spellLevel);
-      _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
-    } else {
-      _spellNoteModalContent(button);
+      if (spellObject.active) {
+        var activeIcon = document.createElement("span");
+        activeIcon.setAttribute("class", "icon-play-arrow");
+        if (spellObject.active) {
+          spellActive.appendChild(activeIcon);
+        };
+      };
+      spellName.textContent = spellObject.name;
     };
   };
 
@@ -13744,19 +13701,6 @@ var spells = (function() {
     };
   };
 
-  function _render_spell(spellObject, level, spellIndex) {
-    // read spell and add them to spell lists
-    var spellButtonCol = document.createElement("div");
-    spellButtonCol.setAttribute("class", "m-spell-col js-spell-col");
-    // find spell list to add too
-    var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
-    // append new spell to spell list
-    var spellButton = _create_spellButton(spellObject, level, spellIndex, true);
-    spellButtonCol.appendChild(spellButton);
-    knownListToSaveTo.appendChild(spellButtonCol);
-    _bind_spellKnownItem(spellButton);
-  };
-
   function _render_all_spells(array, level) {
     // console.log(array, level);
     // read spells and add them to spell lists
@@ -13772,6 +13716,19 @@ var spells = (function() {
       knownListToSaveTo.appendChild(spellButtonCol);
       _bind_spellKnownItem(spellButton);
     };
+  };
+
+  function _render_spell(spellObject, level, spellIndex) {
+    // read spell and add them to spell lists
+    var spellButtonCol = document.createElement("div");
+    spellButtonCol.setAttribute("class", "m-spell-col js-spell-col");
+    // find spell list to add too
+    var knownListToSaveTo = helper.e(".js-spell-book-known-level-" + level);
+    // append new spell to spell list
+    var spellButton = _create_spellButton(spellObject, level, spellIndex, true);
+    spellButtonCol.appendChild(spellButton);
+    knownListToSaveTo.appendChild(spellButtonCol);
+    _bind_spellKnownItem(spellButton);
   };
 
   function _create_spellButton(spellObject, level, index, newSpell) {
@@ -13860,7 +13817,8 @@ var spells = (function() {
   return {
     clear: clear,
     bind: bind,
-    render: render
+    render: render,
+    update: _update_spellControls
   };
 
 })();
