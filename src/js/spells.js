@@ -380,17 +380,17 @@ var spells = (function() {
 
       modal.render(spellObject.name, modalContent, "Save", function() {
         var spellControl = this.querySelector(".js-spell-control");
+        var spellSection = helper.e(".js-section-spells");
         _update_spellObject(spellControl);
         _update_spellButton(button, true);
-        display.clear();
-        display.render();
+        display.clear(spellSection);
+        display.render(spellSection);
       }.bind(modalContent));
     };
 
   };
 
   function _update_spellButton(button, force) {
-    console.log(button);
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
