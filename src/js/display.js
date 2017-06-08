@@ -160,14 +160,14 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_spells.length; j++) {
           var spell = all_spells[j];
-          all_node.push(_get_spell(spell));
+          all_node.push(_get_spell(spell, bookPath[2], j));
         };
       };
     };
     return all_node;
   };
 
-  function _get_spell(spell) {
+  function _get_spell(spell, level, index) {
     var displayItem = document.createElement("li");
     displayItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
     var displayItemPrefix = document.createElement("span");
@@ -179,6 +179,8 @@ var display = (function() {
     displayItemPrefix.appendChild(spellName);
     displayItem.appendChild(displayItemPrefix);
     displayItem.appendChild(displayItemValue);
+    displayItem.setAttribute("data-spell-level", level);
+    displayItem.setAttribute("data-spell-count", index);
     // prepared
     if (spell.prepared > 0) {
       // var marks = document.createElement("span");
@@ -207,6 +209,9 @@ var display = (function() {
       spellActive.appendChild(activeIcon);
       spellName.insertBefore(spellActive, spellName.firstChild);
     };
+    displayItem.addEventListener("click", function() {
+      spells.update(helper.e(".js-spell-book-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
+    }, false);
     return displayItem;
   };
 
