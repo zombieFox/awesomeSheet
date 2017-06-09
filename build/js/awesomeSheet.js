@@ -9805,7 +9805,7 @@ var clone = (function() {
 
   function _newAttackMelee(index) {
     var cloneString =
-      '<div class="m-clone-block-content js-clone-block-content">' +
+      '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
@@ -9845,7 +9845,7 @@ var clone = (function() {
 
   function _newAttackRanged(index) {
     var cloneString =
-      '<div class="m-clone-block-content js-clone-block-content">' +
+      '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
       '  <div class="row">' +
       '    <div class="col-xs-12">' +
       '      <div class="row no-gutter">' +
@@ -10100,19 +10100,29 @@ var clone = (function() {
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
+    // var cloneAddConsumablePlaceholder = cloneBlockConsumable.querySelector(".js-clone-add-consumable-placeholder");
 
     var cloneAddAttackMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
     var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
     var cloneRemoveAttack = cloneBlockAttack.querySelector(".js-clone-remove");
+    // var cloneAddAttackMeleePlaceholder = cloneBlockAttack.querySelector(".js-clone-add-melee-placeholder");
+    // var cloneAddAttackRangedPlaceholder = cloneBlockAttack.querySelector(".js-clone-add-ranged-placeholder");
 
     var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
     var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
     var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
+    // var cloneAddCharacterNotePlaceholder = cloneBlockNote.querySelector(".js-clone-add-character-note-placeholder");
+    // var cloneAddStoryNotePlaceholder = cloneBlockNote.querySelector(".js-clone-add-story-note-placeholder");
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
       sheet.storeCharacters();
     }, false);
+
+    // cloneAddConsumablePlaceholder.addEventListener("click", function() {
+    //   _addNewClone("consumable");
+    //   sheet.storeCharacters();
+    // }, false);
 
     cloneAddAttackMelee.addEventListener("click", function() {
       _addNewClone("attack-melee");
@@ -10124,6 +10134,16 @@ var clone = (function() {
       sheet.storeCharacters();
     }, false);
 
+    // cloneAddAttackMeleePlaceholder.addEventListener("click", function() {
+    //   _addNewClone("attack-melee");
+    //   sheet.storeCharacters();
+    // }, false);
+
+    // cloneAddAttackRangedPlaceholder.addEventListener("click", function() {
+    //   _addNewClone("attack-ranged");
+    //   sheet.storeCharacters();
+    // }, false);
+
     cloneAddCharacterNote.addEventListener("click", function() {
       _addNewClone("note-character");
       sheet.storeCharacters();
@@ -10133,6 +10153,16 @@ var clone = (function() {
       _addNewClone("note-story");
       sheet.storeCharacters();
     }, false);
+
+    // cloneAddCharacterNotePlaceholder.addEventListener("click", function() {
+    //   _addNewClone("note-character");
+    //   sheet.storeCharacters();
+    // }, false);
+
+    // cloneAddStoryNotePlaceholder.addEventListener("click", function() {
+    //   _addNewClone("note-story");
+    //   sheet.storeCharacters();
+    // }, false);
 
     cloneRemoveAttack.addEventListener("click", function() {
       _change_cloneState("attack");

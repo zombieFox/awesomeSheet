@@ -40,13 +40,15 @@
         position: relative;
         z-index: 1;
         transition: all $transition-ease-extra-fast;
-        background-color: $gray-20;
-        padding: 1em 1em 0 1em;
-        border: $border;
-        border-color: $gray-19;
-        border-radius: $border-radius-medium;
-        &:not(:only-child):not(:last-child) {
-          margin-bottom: 2em;
+        &.m-clone-block-content-box {
+          background-color: $gray-20;
+          padding: 1em 1em 0 1em;
+          border: $border;
+          border-color: $gray-19;
+          border-radius: $border-radius-medium;
+          &:not(:only-child):not(:last-child) {
+            margin-bottom: 1em;
+          }
         }
       }
       .m-clone-block-delete-controls {
@@ -120,8 +122,8 @@
           padding: 1em 4em 1em 1em;
           border-color: transparent;
           border-radius: $border-radius-medium;
-          &:not(:only-child):not(:last-child) {
-            margin-bottom: 2em;
+          &.m-clone-block-content-box {
+            padding: 1em 4em 1em 1em;
           }
         }
         .u-underline-with-input {

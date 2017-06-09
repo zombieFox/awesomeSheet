@@ -54,7 +54,7 @@
     top: 5em;
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
-    box-shadow: $shadow-large;
+    box-shadow: $shadow-small;
   }
 }
 .is-night-mode {
