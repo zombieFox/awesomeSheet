@@ -6,7 +6,7 @@
   sheet.render();
   night.update();
   checkUrl.render();
-  intro.bind();
-  intro.render();
+  log.bind();
+  log.render();
 
 })();

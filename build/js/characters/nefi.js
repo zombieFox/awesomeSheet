@@ -15,9 +15,22 @@ var nefi = (function() {
       age: "28",
       gender: "Male",
       speed: "30ft",
-      initiative: "5",
       hero_points: "1",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "2",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {

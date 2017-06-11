@@ -15,9 +15,22 @@ var orrin = (function() {
       age: "26",
       gender: "Male",
       speed: "30ft",
-      initiative: "7",
       hero_points: "",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {

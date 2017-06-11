@@ -83,7 +83,7 @@ var helper = (function() {
       var currentKey = address.shift();
       var parentObject = object;
       object = object[currentKey];
-      if (!object) {
+      if (!object || typeof object != "object") {
         object = parentObject;
         object = object[currentKey] = {};
       };
@@ -328,9 +328,22 @@ var blank = (function() {
       age: "",
       gender: "",
       speed: "",
-      initiative: "",
       hero_points: "",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -1516,9 +1529,22 @@ var marika = (function() {
       age: "23",
       gender: "Female",
       speed: "30ft",
-      initiative: "8",
       hero_points: "1",
-      luck_points: "2"
+      luck_points: "2",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -2749,9 +2775,22 @@ var nefi = (function() {
       age: "28",
       gender: "Male",
       speed: "30ft",
-      initiative: "5",
       hero_points: "1",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "2",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -3994,9 +4033,22 @@ var nif = (function() {
       age: "120",
       gender: "Male",
       speed: "30ft",
-      initiative: "3",
       hero_points: "",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -5623,9 +5675,22 @@ var orrin = (function() {
       age: "26",
       gender: "Male",
       speed: "30ft",
-      initiative: "7",
       hero_points: "",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -6888,9 +6953,22 @@ var ro = (function() {
       age: "120",
       gender: "Male",
       speed: "30ft",
-      initiative: "4",
       hero_points: "",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -8430,9 +8508,22 @@ var vos = (function() {
       age: "40",
       gender: "Male",
       speed: "50ft",
-      initiative: "2",
       hero_points: "2",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
@@ -11179,22 +11270,26 @@ var display = (function() {
       var path = all_displayPath[i];
       var prefix = false;
       var suffix = false;
+      var valueType = false;
       if (all_displayPrefix[i]) {
         prefix = all_displayPrefix[i];
       };
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      all_node.push(_get_list(path, prefix, suffix, displayValueType));
+      if (displayValueType[i]) {
+        valueType = displayValueType[i];
+      };
+      all_node.push(_get_list(path, prefix, suffix, valueType));
     };
     return all_node;
   };
 
-  function _get_list(path, prefix, suffix, displayValueType) {
+  function _get_list(path, prefix, suffix, valueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
-      if (displayValueType == "bonus") {
+      if (valueType == "bonus") {
         data = "+" + data;
       };
       displayItem = document.createElement("li");
@@ -11317,19 +11412,23 @@ var display = (function() {
       var path = all_displayPath[i];
       var prefix = false;
       var suffix = false;
+      var valueType = false;
       if (all_displayPrefix[i]) {
         prefix = all_displayPrefix[i];
       };
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      all_node.push(_get_textSnippet(path, prefix, suffix, displayValueType));
+      if (displayValueType[i]) {
+        valueType = displayValueType[i];
+      };
+      all_node.push(_get_textSnippet(path, prefix, suffix, valueType));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_textSnippet(path, prefix, suffix, displayValueType) {
+  function _get_textSnippet(path, prefix, suffix, valueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
@@ -11337,7 +11436,7 @@ var display = (function() {
       displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-text-snippet-value");
-      if (displayValueType == "bonus") {
+      if (valueType == "bonus") {
         data = "+" + data;
       };
       value.innerHTML = data;
@@ -11399,9 +11498,8 @@ var display = (function() {
         if (all_displayBlockTarget[j].dataset.displaySuffix) {
           all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
         };
-        displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
         if (all_displayBlockTarget[j].dataset.displayValueType) {
-          displayValueType = all_displayBlockTarget[j].dataset.displayValueType;
+          displayValueType = all_displayBlockTarget[j].dataset.displayValueType.split(",");
         };
 
         // get an array of nodes using the array of paths
@@ -11692,25 +11790,25 @@ var inputBlock = (function() {
 
   function bind() {
     _bind_inputBlock();
-    _bind_awesomeName();
+    _bind_name();
     _bind_class();
     _bind_level();
     // _bind_inputControls();
   };
 
-  function _bind_inputControls() {
-    var all_inputControls = helper.eA(".js-input-controls");
-    for (var i = 0; i < all_inputControls.length; i++) {
-      var add = all_inputControls[i].querySelector(".add");
-      var minus = all_inputControls[i].querySelector(".minus");
-      add.addEventListener("click", function() {
-        _addOrMinusInput(this);
-      }, false);
-      minus.addEventListener("click", function() {
-        _addOrMinusInput(this);
-      }, false);
-    };
-  };
+  // function _bind_inputControls() {
+  //   var all_inputControls = helper.eA(".js-input-controls");
+  //   for (var i = 0; i < all_inputControls.length; i++) {
+  //     var add = all_inputControls[i].querySelector(".add");
+  //     var minus = all_inputControls[i].querySelector(".minus");
+  //     add.addEventListener("click", function() {
+  //       _addOrMinusInput(this);
+  //     }, false);
+  //     minus.addEventListener("click", function() {
+  //       _addOrMinusInput(this);
+  //     }, false);
+  //   };
+  // };
 
   function _addOrMinusInput(element) {
     var target;
@@ -11747,7 +11845,7 @@ var inputBlock = (function() {
     };
   };
 
-  function _bind_awesomeName() {
+  function _bind_name() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
@@ -11803,9 +11901,9 @@ var inputBlock = (function() {
 
 })();
 
-var intro = (function() {
+var log = (function() {
 
-  var previousIntro = null;
+  var previousLog = null;
 
   function bind() {
     window.addEventListener("keydown", function(event) {
@@ -11816,80 +11914,80 @@ var intro = (function() {
   };
 
   function destroy() {
-    var intro = helper.e(".js-intro");
-    var introWrapper = helper.e(".js-intro-wrapper");
-    if (intro) {
-      getComputedStyle(intro).opacity;
-      helper.removeClass(introWrapper, "is-unrotate-in");
-      helper.addClass(introWrapper, "is-dropped-out");
-      helper.removeClass(intro, "is-opaque");
-      helper.addClass(intro, "is-transparent");
+    var log = helper.e(".js-log");
+    var logWrapper = helper.e(".js-log-wrapper");
+    if (log) {
+      getComputedStyle(log).opacity;
+      helper.removeClass(logWrapper, "is-unrotate-in");
+      helper.addClass(logWrapper, "is-dropped-out");
+      helper.removeClass(log, "is-opaque");
+      helper.addClass(log, "is-transparent");
     };
   };
 
-  function _render_introMessage(heading, introBodyContent, actionText, action) {
+  function _render_logMessage(heading, logBodyContent, actionText, action) {
 
     prompt.destroy();
     modal.destroy();
     var body = helper.e("body");
 
-    var introWrapper = document.createElement("div");
-    introWrapper.setAttribute("class", "m-intro-wrapper js-intro-wrapper is-unrotate-out");
+    var logWrapper = document.createElement("div");
+    logWrapper.setAttribute("class", "m-log-wrapper js-log-wrapper is-unrotate-out");
 
-    var intro = document.createElement("div");
-    intro.setAttribute("class", "m-intro js-intro");
-    intro.destroy = function() {
-      helper.removeClass(introWrapper, "is-unrotate-in");
-      helper.addClass(introWrapper, "is-dropped-out");
-      helper.removeClass(intro, "is-opaque");
-      helper.addClass(intro, "is-transparent");
+    var log = document.createElement("div");
+    log.setAttribute("class", "m-log js-log");
+    log.destroy = function() {
+      helper.removeClass(logWrapper, "is-unrotate-in");
+      helper.addClass(logWrapper, "is-dropped-out");
+      helper.removeClass(log, "is-opaque");
+      helper.addClass(log, "is-transparent");
     };
 
-    var introHeading = document.createElement("h1");
-    introHeading.setAttribute("tabindex", "3");
-    introHeading.setAttribute("class", "m-intro-heading");
-    introHeading.textContent = heading;
+    var logHeading = document.createElement("h1");
+    logHeading.setAttribute("tabindex", "3");
+    logHeading.setAttribute("class", "m-log-heading");
+    logHeading.textContent = heading;
 
-    var introBody = document.createElement("div");
-    introBody.setAttribute("class", "m-intro-body u-clearfix");
+    var logBody = document.createElement("div");
+    logBody.setAttribute("class", "m-log-body u-clearfix");
 
-    var introControls = document.createElement("div");
-    introControls.setAttribute("class", "m-intro-controls");
+    var logControls = document.createElement("div");
+    logControls.setAttribute("class", "m-log-controls");
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
-    actionButton.setAttribute("class", "button button-secondary button-block button-large");
+    actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
 
-    introControls.appendChild(actionButton);
+    logControls.appendChild(actionButton);
 
     if (heading != false) {
-      introBody.appendChild(introHeading);
+      logBody.appendChild(logHeading);
     };
 
-    if (introBodyContent) {
-      if (typeof introBodyContent == "string") {
+    if (logBodyContent) {
+      if (typeof logBodyContent == "string") {
         var container = document.createElement("div");
         container.setAttribute("class", "container");
         var para = document.createElement("p");
-        para.textContent = introBodyContent;
+        para.textContent = logBodyContent;
         container.appendChild(para);
-        introBody.appendChild(container);
+        logBody.appendChild(container);
       } else {
-        introBody.appendChild(introBodyContent);
+        logBody.appendChild(logBodyContent);
       };
     };
 
-    introWrapper.appendChild(introBody);
-    introWrapper.appendChild(introControls);
-    intro.appendChild(introWrapper);
+    logWrapper.appendChild(logBody);
+    logWrapper.appendChild(logControls);
+    log.appendChild(logWrapper);
 
-    intro.addEventListener("transitionend", function(event, elapsed) {
+    log.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
       };
-    }.bind(intro), false);
+    }.bind(log), false);
 
     actionButton.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -11904,20 +12002,20 @@ var intro = (function() {
       }, false);
     };
 
-    if (previousIntro) {
-      previousIntro.destroy();
+    if (previousLog) {
+      previousLog.destroy();
     };
 
-    previousIntro = intro;
+    previousLog = log;
 
-    body.appendChild(intro);
+    body.appendChild(log);
 
-    getComputedStyle(intro).opacity;
-    helper.removeClass(intro, "is-transparent");
-    helper.addClass(intro, "is-opaque");
-    helper.removeClass(introWrapper, "is-unrotate-out");
-    helper.addClass(introWrapper, "is-unrotate-in");
-    introHeading.focus(this);
+    getComputedStyle(log).opacity;
+    helper.removeClass(log, "is-transparent");
+    helper.addClass(log, "is-opaque");
+    helper.removeClass(logWrapper, "is-unrotate-out");
+    helper.addClass(logWrapper, "is-unrotate-in");
+    logHeading.focus(this);
 
   };
 
@@ -11928,26 +12026,25 @@ var intro = (function() {
     row.setAttribute("class", "row");
     var col = document.createElement("div");
     col.setAttribute("class", "col-xs-12");
-    var version = document.createElement("p");
-    var versionNumber = document.createElement("strong");
-    versionNumber.textContent = update.message.version;
-    var list = document.createElement("ul");
-    for (var i = 0; i < update.message.list.length; i++) {
-      var listItem = document.createElement("li");
-      listItem.textContent = update.message.list[i];
-      list.appendChild(listItem);
-    };
-    version.appendChild(versionNumber);
-    col.appendChild(version);
-    col.appendChild(list);
     for (var i = 0; i < update.history.length; i++) {
       var version = document.createElement("p");
       var versionNumber = document.createElement("strong");
       versionNumber.textContent = update.history[i].version;
       var list = document.createElement("ul");
+      list.setAttribute("class", "m-log-list");
       for (var j = 0; j < update.history[i].list.length; j++) {
+        var asterisk = "*";
         var listItem = document.createElement("li");
-        listItem.textContent = update.history[i].list[j];
+        listItem.setAttribute("class", "m-log-list-item");
+        if (update.history[i].list[j].indexOf(asterisk) != -1) {
+          helper.addClass(listItem, "m-log-list-item-alert");
+          var listItemIcon = document.createElement("span");
+          listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
+          listItem.textContent = update.history[i].list[j].substr(1);
+          listItem.appendChild(listItemIcon);
+        } else {
+          listItem.textContent = update.history[i].list[j];
+        };
         list.appendChild(listItem);
       };
       version.appendChild(versionNumber);
@@ -11964,7 +12061,7 @@ var intro = (function() {
   };
 
   function render() {
-    if (helper.read("intro") != update.message.version) {
+    if (helper.read("log") != update.history[0].version) {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -11972,14 +12069,25 @@ var intro = (function() {
       var col = document.createElement("div");
       col.setAttribute("class", "col-xs-12");
       var list = document.createElement("ul");
-      for (var i = 0; i < update.message.list.length; i++) {
+      list.setAttribute("class", "m-log-list m-log-list-short u-list-unstyled");
+      for (var i = 0; i < update.history[0].list.length; i++) {
+        var asterisk = "*";
         var listItem = document.createElement("li");
-        listItem.textContent = update.message.list[i];
+        listItem.setAttribute("class", "m-log-list-item");
+        if (update.history[0].list[i].indexOf(asterisk) != -1) {
+          helper.addClass(listItem, "m-log-list-item-alert");
+          var listItemIcon = document.createElement("span");
+          listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
+          listItem.textContent = update.history[0].list[i].substr(1);
+          listItem.appendChild(listItemIcon);
+        } else {
+          listItem.textContent = update.history[0].list[i];
+        };
         list.appendChild(listItem);
       };
       var seeAll = document.createElement("button");
       seeAll.setAttribute("class", "button button-medium button-tertiary-link u-no-margin");
-      seeAll.textContent = "See full change log"
+      seeAll.textContent = "See complete change log"
       seeAll.addEventListener("click", function(event) {
         _create_fullChangeLog();
         destroy();
@@ -11988,14 +12096,14 @@ var intro = (function() {
       col.appendChild(seeAll);
       row.appendChild(col);
       container.appendChild(row);
-      var heading = "Change log - " + update.message.version;
-      _render_introMessage(heading, container, "Don't show again", _store_confirmation);
+      var heading = "Change log " + update.history[0].version;
+      _render_logMessage(heading, container, "Don't show this again", _store_confirmation);
     };
   };
 
   function _store_confirmation() {
-    helper.remove("intro");
-    helper.store("intro", update.message.version);
+    helper.remove("log");
+    helper.store("log", update.message.version);
   };
 
   // exposed methods
@@ -14920,16 +15028,19 @@ var totalBlock = (function() {
 
 var update = (function() {
 
-  var message = {
+  var history = [{
+    version: "3.2.1",
+    list: [
+      "Refactored change log module.",
+      "*Customisable Initiative block added. You will have to re-enter you initiative bonuses if any."
+    ]
+  }, {
     version: "3.1.0",
     list: [
-      // "An customisable Initiative block has been added. You will have to re-enter you initiative bonuses if any.",
       "Added a new feature update prompt. You're looking at it.",
       "UI fixes and updates."
     ]
-  };
-
-  var history = [{
+  }, {
     version: "3.0.0",
     list: [
       "Improve edit and display modes and introduce card layout."
@@ -14938,7 +15049,6 @@ var update = (function() {
 
   // exposed methods
   return {
-    message: message,
     history: history
   };
 
@@ -14956,7 +15066,7 @@ var update = (function() {
   sheet.render();
   night.update();
   checkUrl.render();
-  intro.bind();
-  intro.render();
+  log.bind();
+  log.render();
 
 })();

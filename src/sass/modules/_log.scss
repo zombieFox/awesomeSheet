@@ -1,9 +1,9 @@
-.m-intro {
+.m-log {
   position: fixed;
   bottom: 1em;
   left: 1em;
   font-size: $font-size-root-100;
-  z-index: $intro;
+  z-index: $log;
   width: 20em;
   max-width: calc(100% - 2em);
   min-width: 200px;
@@ -12,11 +12,11 @@
   transition: all $transition-ease-fast;
 }
 .is-onscreen-snack {
-  .m-intro {
+  .m-log {
     bottom: 5.5em;
   }
 }
-.m-intro-wrapper {
+.m-log-wrapper {
   box-sizing: border-box;
   transition: all $transition-ease-fast;
   .container {
@@ -25,30 +25,66 @@
     padding-left: 0;
   }
 }
-.m-intro-body {
+.m-log-body {
   background-color: $secondary-color-07;
   border-radius: $border-radius-medium $border-radius-medium 0 0;
-  padding: 1.5em;
+  padding: 1em;
   max-height: calc(50vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
-  li {
-    line-height: $line-height-160;
-    color: $white;
+}
+.m-log-heading {
+  padding: 0 0.65em;
+  margin-bottom: 0.5em;
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-150;
+  color: $white;
+  &:focus {
+    outline: 0;
   }
-  p {
-    color: $white;
-  }
-  .m-intro-heading {
-    font-family: $open-sans-semi-bold;
-    font-size: $font-size-150;
-    color: $white;
-    &:focus {
-      outline: 0;
+}
+.m-log-list {
+  .m-log-list-item {}
+  .m-log-list-item-alert {
+    background-color: $gray-19;
+    padding: 0.2em 3em 0.2em 1em;
+    position: relative;
+    border-radius: $border-radius-medium;
+    .m-log-list-item-alert-icon {
+      position: absolute;
+      top: 50%;
+      right: 0.5em;
+      color: $primary-color-10;
+      font-size: $font-size-150;
+      transform: translate(0, -50%);
     }
   }
 }
-.m-intro-controls {
+.m-log-list-short {
+  .m-log-list-item {
+    padding: 0.25em 1em;
+    line-height: $line-height-160;
+    border: $border;
+    color: $white;
+  }
+  .m-log-list-item-alert {
+    background-color: $secondary-color-06;
+    padding-right: 3em;
+    border-color: $secondary-color-14;
+    border-radius: $border-radius-medium;
+    position: relative;
+    font-family: $open-sans-semi-bold;
+    .m-log-list-item-alert-icon {
+      position: absolute;
+      top: 50%;
+      right: 0.5em;
+      color: $secondary-color-18;
+      font-size: $font-size-150;
+      transform: translate(0, -50%);
+    }
+  }
+}
+.m-log-controls {
   border-radius: 0 0 $border-radius-medium $border-radius-medium;
   overflow: hidden;
   .button {
@@ -59,11 +95,11 @@
   }
 }
 .is-night-mode {
-  .m-intro-shade {
+  .m-log-shade {
     background-color: $dark-alpha-08;
   }
-  .m-intro {
-    .m-intro-body {
+  .m-log {
+    .m-log-body {
       background-color: $secondary-color-03;
     }
   }
@@ -72,17 +108,17 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-intro {
+  .m-log {
     max-width: 90%;
   }
 }
 @media (min-width: $screen-md) {
-  .m-intro {
+  .m-log {
     max-width: 80%;
   }
 }
 @media (min-width: $screen-lg) {
-  .m-intro {
+  .m-log {
     left: 5.5em;
   }
 }

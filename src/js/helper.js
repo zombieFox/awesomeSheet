@@ -81,7 +81,7 @@ var helper = (function() {
       var currentKey = address.shift();
       var parentObject = object;
       object = object[currentKey];
-      if (!object) {
+      if (!object || typeof object != "object") {
         object = parentObject;
         object = object[currentKey] = {};
       };

@@ -15,9 +15,22 @@ var vos = (function() {
       age: "40",
       gender: "Male",
       speed: "50ft",
-      initiative: "2",
       hero_points: "2",
-      luck_points: ""
+      luck_points: "",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false
+        }
+      }
     },
     statistics: {
       stats: {
