@@ -296,7 +296,8 @@ var nav = (function() {
     // var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
     var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
-    var nightModeToggle = helper.e(".js-night-mode");
+    var nightMode = helper.e(".js-night-mode");
+    var chnageLog = helper.e(".js-chnage-log");
     var clearAll = helper.e(".js-clear-all");
     var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
     var characterAdd = helper.e(".js-character-add");
@@ -316,10 +317,16 @@ var nav = (function() {
       fullscreen.toggle();
     }, false);
 
-    nightModeToggle.addEventListener("click", function(event) {
+    nightMode.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       night.toggle();
+    }, false);
+
+    chnageLog.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      intro.changeLog();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
