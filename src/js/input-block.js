@@ -68,25 +68,25 @@ var inputBlock = (function() {
 
   function bind() {
     _bind_inputBlock();
-    _bind_awesomeName();
+    _bind_name();
     _bind_class();
     _bind_level();
     // _bind_inputControls();
   };
 
-  function _bind_inputControls() {
-    var all_inputControls = helper.eA(".js-input-controls");
-    for (var i = 0; i < all_inputControls.length; i++) {
-      var add = all_inputControls[i].querySelector(".add");
-      var minus = all_inputControls[i].querySelector(".minus");
-      add.addEventListener("click", function() {
-        _addOrMinusInput(this);
-      }, false);
-      minus.addEventListener("click", function() {
-        _addOrMinusInput(this);
-      }, false);
-    };
-  };
+  // function _bind_inputControls() {
+  //   var all_inputControls = helper.eA(".js-input-controls");
+  //   for (var i = 0; i < all_inputControls.length; i++) {
+  //     var add = all_inputControls[i].querySelector(".add");
+  //     var minus = all_inputControls[i].querySelector(".minus");
+  //     add.addEventListener("click", function() {
+  //       _addOrMinusInput(this);
+  //     }, false);
+  //     minus.addEventListener("click", function() {
+  //       _addOrMinusInput(this);
+  //     }, false);
+  //   };
+  // };
 
   function _addOrMinusInput(element) {
     var target;
@@ -123,7 +123,7 @@ var inputBlock = (function() {
     };
   };
 
-  function _bind_awesomeName() {
+  function _bind_name() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
