@@ -399,7 +399,7 @@ var spells = (function() {
     var spellActive = button.querySelector(".js-spell-active");
     var spellState = spellRoot.dataset.spellState;
     var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-    if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove" || force) {
+    if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || force) {
       if (spellMarks.lastChild) {
         while (spellMarks.lastChild) {
           spellMarks.removeChild(spellMarks.lastChild);
@@ -436,6 +436,9 @@ var spells = (function() {
         };
       };
       spellName.textContent = spellObject.name;
+    } else if (spellState == "remove") {
+      _destroy_spellBook(spellLevel);
+      _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
     };
   };
 
