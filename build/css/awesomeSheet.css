@@ -3317,7 +3317,8 @@ label {
   .m-import-select .m-import-select-label {
     margin-bottom: 0;
     position: relative;
-    z-index: 2; }
+    z-index: 2;
+    width: 100%; }
     .m-import-select .m-import-select-label.m-import-select-label-ok [class^="icon-"],
     .m-import-select .m-import-select-label.m-import-select-label-ok [class*=" icon-"] {
       color: #3288c9; }
