@@ -326,7 +326,7 @@ var nav = (function() {
     chnageLog.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      intro.changeLog();
+      log.changeLog();
     }, false);
 
     clearAll.addEventListener("click", function(event) {

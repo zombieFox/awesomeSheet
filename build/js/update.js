@@ -5,7 +5,8 @@ var update = (function() {
     list: [
       "Refactored change log module.",
       "*Customisable Initiative block added. You will have to re-enter you Initiative bonuses if any.",
-      "Fixed a bug with Update Prompt not hiding.",
+      "Fixed a bug with Update Prompt not hiding and Change Log control in the Nav not working.",
+      "UI fixes and updates."
     ]
   }, {
     version: "3.1.0",
