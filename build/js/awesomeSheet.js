@@ -12421,6 +12421,10 @@ var nav = (function() {
             pinWatch.removeAttribute("style");
             all_editControls[i].removeAttribute("style");
           };
+        } else if (section.dataset.minimise == "true" || section.dataset.minimise && section.dataset.displayMode == "true" || section.dataset.displayMode) {
+          helper.removeClass(pinWatch, "is-pinned");
+          pinWatch.removeAttribute("style");
+          all_editControls[i].removeAttribute("style");
         };
       };
 
