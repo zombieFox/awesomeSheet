@@ -12061,7 +12061,7 @@ var log = (function() {
   };
 
   function render() {
-    if (helper.read("log") != update.history[0].version) {
+    if (helper.read("latestVersionUpdate") != update.history[0].version) {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -12102,8 +12102,8 @@ var log = (function() {
   };
 
   function _store_confirmation() {
-    helper.remove("log");
-    helper.store("log", update.message.version);
+    helper.remove("latestVersionUpdate");
+    helper.store("latestVersionUpdate", update.history[0].version);
   };
 
   // exposed methods
@@ -15029,15 +15029,16 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
-    version: "3.2.1",
+    version: "3.2.2",
     list: [
       "Refactored change log module.",
-      "*Customisable Initiative block added. You will have to re-enter you initiative bonuses if any."
+      "*Customisable Initiative block added. You will have to re-enter you Initiative bonuses if any.",
+      "Fixed a bug with Update Prompt not hiding.",
     ]
   }, {
     version: "3.1.0",
     list: [
-      "Added a new feature update prompt. You're looking at it.",
+      "Added a new feature Update Prompt. You're looking at it.",
       "UI fixes and updates."
     ]
   }, {
