@@ -3923,6 +3923,12 @@ label {
 .is-night-mode .m-log .m-log-body {
   background-color: #162632; }
 
+.is-night-mode .m-log-list .m-log-list-item-alert {
+  background-color: #264f6e; }
+
+.is-night-mode .m-log-list-short .m-log-list-item-alert {
+  background-color: #264f6e; }
+
 @media (min-width: 550px) {
   .m-log {
     max-width: 90%; } }

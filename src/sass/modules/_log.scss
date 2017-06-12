@@ -103,6 +103,16 @@
       background-color: $secondary-color-03;
     }
   }
+  .m-log-list {
+    .m-log-list-item-alert {
+      background-color: $secondary-color-06;
+    }
+  }
+  .m-log-list-short {
+    .m-log-list-item-alert {
+      background-color: $secondary-color-06;
+    }
+  }
 }
 // --------------------------------------------------
 // media queries
