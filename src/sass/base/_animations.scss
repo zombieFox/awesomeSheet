@@ -1,22 +1,26 @@
 @keyframes new-flash {
   0% {
-    border-width: 0;
-    border-color: $primary-color-06;
-  }
-  50% {
     width: 0;
     height: 0;
-    border-width: 15px;
-    border-color: $primary-color-10;
+    opacity: 0;
+    background-color: $primary-color-05;
+    box-shadow: 0 0 0 0 $primary-color-alpha-01;
+  }
+  50% {
+    width: 20px;
+    height: 20px;
     opacity: 1;
+    background-color: $primary-color-10;
+    box-shadow: 0 0 0 30px $primary-color-alpha-20;
   }
   100% {
-    width: 45px;
-    height: 45px;
-    border-width: 0;
-    border-color: $primary-color-10;
+    width: 0;
+    height: 0;
     opacity: 0;
+    background-color: $primary-color-15;
+    box-shadow: 0 0 0 60px transparent;
   }
+
 }
 @keyframes edit-controls-down-xs {
   0% {

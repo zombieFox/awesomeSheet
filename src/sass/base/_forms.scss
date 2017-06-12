@@ -21,7 +21,7 @@ select {
 
 .textarea,
 textarea {
-  background-color: $secondary-color-alpha-19;
+  background-color: $secondary-color-19;
   font-family: $open-sans-regular;
   padding: 0.5em;
   margin: 1em 0;
@@ -29,7 +29,7 @@ textarea {
   min-height: 2.5em;
   line-height: $line-height-160;
   border-bottom: $border;
-  border-color: $secondary-color-alpha-14;
+  border-color: $secondary-color-14;
   transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
   resize: vertical;
   &:hover {
@@ -52,7 +52,7 @@ input {
   &[type="text"],
   &[type="tel"],
   &[type="password"] {
-    background-color: $secondary-color-alpha-19;
+    background-color: $secondary-color-19;
     height: $line-height-250;
     line-height: $line-height-250;
     padding: 0 0.5em;
@@ -60,7 +60,7 @@ input {
     border: 0;
     border-radius: 0;
     border-bottom: $border;
-    border-color: $secondary-color-alpha-14;
+    border-color: $secondary-color-14;
     box-shadow: none;
     transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
@@ -206,7 +206,8 @@ input {
   }
   .textarea,
   textarea {
-    background-color: $secondary-color-alpha-19;
+    background-color: $secondary-color-02;
+    border-color: $secondary-color-06;
   }
   input {
     &[type="email"],
@@ -215,7 +216,8 @@ input {
     &[type="text"],
     &[type="tel"],
     &[type="password"] {
-      background-color: $secondary-color-alpha-19;
+      background-color: $secondary-color-02;
+      border-color: $secondary-color-06;
     }
   }
   input {

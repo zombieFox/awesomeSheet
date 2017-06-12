@@ -3,19 +3,6 @@
     .m-clone {
       transition: all $transition-ease-extra-fast;
       position: relative;
-      .m-clone-flash {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border: 0 solid transparent;
-        transform: translate(-50%, -50%);
-        border-radius: 100%;
-        z-index: 2;
-      }
       .textarea,
       textarea {
         transition: background-color $transition-ease-extra-fast, border $transition-ease-extra-fast, margin $transition-ease-extra-fast, padding $transition-ease-extra-fast;
@@ -40,12 +27,27 @@
         position: relative;
         z-index: 1;
         transition: all $transition-ease-extra-fast;
+        .m-clone-flash {
+          content: "";
+          position: absolute;
+          display: block;
+          top: 1em;
+          left: 0;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          transform: translate(-50%, -50%);
+          border-radius: 100%;
+          z-index: 2;
+        }
         &.m-clone-block-content-box {
           background-color: $gray-20;
-          padding: 1em 1em 0 1em;
-          border: $border;
+          border-bottom: $border;
           border-color: $gray-19;
-          border-radius: $border-radius-medium;
+          padding: 1em 1em 0;
+          .m-clone-flash {
+            top: 0;
+          }
           &:not(:only-child):not(:last-child) {
             margin-bottom: 1em;
           }
@@ -72,9 +74,9 @@
           }
         }
       }
-      .u-underline-with-input,
+      .u-background-with-input,
       .u-margin-with-input,
-      .u-background-with-input {
+      .u-underline-with-input {
         transition: margin $transition-ease-extra-fast, background-color $transition-ease-extra-fast, border-color $transition-ease-extra-fast;
       }
     }
@@ -82,9 +84,10 @@
   &:not(.is-delete-state) {
     .m-clone-block-target {
       .m-clone {
-        .m-clone-flash {
-          top: 0;
-          animation: new-flash ease-in 0.4s 3;
+        .m-clone-block-content {
+          .m-clone-flash {
+            animation: new-flash ease 0.6s 3;
+          }
         }
       }
     }
@@ -150,6 +153,16 @@
 }
 .is-night-mode {
   .m-clone-block {
+    .m-clone-block-target {
+      .m-clone {
+        .m-clone-block-content {
+          &.m-clone-block-content-box {
+            border-color: $gray-04;
+            background-color: $gray-02;
+          }
+        }
+      }
+    }
     &.is-delete-state {
       .m-clone-block-target {
         .m-clone {

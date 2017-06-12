@@ -512,7 +512,7 @@ var clone = (function() {
     var cloneBlockDelete = newClone.querySelector(".js-clone-block-delete");
     var cloneBlockContent = newClone.querySelector(".js-clone-block-content");
     helper.addClass(cloneBlockContent, "is-small");
-    newClone.appendChild(newCloneFlash);
+    cloneBlockContent.appendChild(newCloneFlash);
     // append new clone
     cloneTarget.appendChild(newClone);
     getComputedStyle(cloneBlockContent).transform;

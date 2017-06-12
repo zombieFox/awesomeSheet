@@ -737,7 +737,7 @@ select {
 
 .textarea,
 textarea {
-  background-color: rgba(50, 136, 201, 0.1);
+  background-color: #e3f2fd;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
   padding: 0.5em;
   margin: 1em 0;
@@ -745,7 +745,7 @@ textarea {
   min-height: 2.5em;
   line-height: 1.6666666667em;
   border-bottom: 2px solid transparent;
-  border-color: rgba(50, 136, 201, 0.35);
+  border-color: #77b8e9;
   transition: border-color 0.2s ease-in-out, padding 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   resize: vertical; }
   .textarea:hover,
@@ -760,7 +760,7 @@ textarea {
   min-height: 4em; }
 
 input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="password"] {
-  background-color: rgba(50, 136, 201, 0.1);
+  background-color: #e3f2fd;
   height: 2.5em;
   line-height: 2.5em;
   padding: 0 0.5em;
@@ -768,7 +768,7 @@ input[type="email"], input[type="number"], input[type="search"], input[type="tex
   border: 0;
   border-radius: 0;
   border-bottom: 2px solid transparent;
-  border-color: rgba(50, 136, 201, 0.35);
+  border-color: #77b8e9;
   box-shadow: none;
   transition: border-color 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out; }
   input[type="email"]:hover, input[type="number"]:hover, input[type="search"]:hover, input[type="text"]:hover, input[type="tel"]:hover, input[type="password"]:hover {
@@ -864,10 +864,12 @@ input[type="checkbox"]:checked + label:before {
 
 .is-night-mode .textarea,
 .is-night-mode textarea {
-  background-color: rgba(50, 136, 201, 0.1); }
+  background-color: #0f1820;
+  border-color: #264f6e; }
 
 .is-night-mode input[type="email"], .is-night-mode input[type="number"], .is-night-mode input[type="search"], .is-night-mode input[type="text"], .is-night-mode input[type="tel"], .is-night-mode input[type="password"] {
-  background-color: rgba(50, 136, 201, 0.1); }
+  background-color: #0f1820;
+  border-color: #264f6e; }
 
 .is-night-mode input[type="radio"] + label, .is-night-mode input[type="checkbox"] + label {
   color: #ffffff; }
@@ -1630,47 +1632,53 @@ label {
   clear: both; }
 
 .is-night-mode .u-underline-with-input {
-  border-color: rgba(255, 255, 255, 0.1); }
+  border-color: #2e2e2e; }
 
 .is-night-mode .u-background-with-input {
-  background-color: rgba(255, 255, 255, 0.05); }
+  background-color: #141414; }
 
 .is-night-mode .u-muted-text strong {
   color: #ffffff; }
 
 @-webkit-keyframes new-flash {
   0% {
-    border-width: 0;
-    border-color: #970027; }
-  50% {
     width: 0;
     height: 0;
-    border-width: 15px;
-    border-color: #fc0042;
-    opacity: 1; }
+    opacity: 0;
+    background-color: #7d0021;
+    box-shadow: 0 0 0 0 #fc0042; }
+  50% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    background-color: #fc0042;
+    box-shadow: 0 0 0 30px rgba(252, 0, 66, 0.05); }
   100% {
-    width: 45px;
-    height: 45px;
-    border-width: 0;
-    border-color: #fc0042;
-    opacity: 0; } }
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: #ff7d9f;
+    box-shadow: 0 0 0 60px transparent; } }
 
 @keyframes new-flash {
   0% {
-    border-width: 0;
-    border-color: #970027; }
-  50% {
     width: 0;
     height: 0;
-    border-width: 15px;
-    border-color: #fc0042;
-    opacity: 1; }
+    opacity: 0;
+    background-color: #7d0021;
+    box-shadow: 0 0 0 0 #fc0042; }
+  50% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    background-color: #fc0042;
+    box-shadow: 0 0 0 30px rgba(252, 0, 66, 0.05); }
   100% {
-    width: 45px;
-    height: 45px;
-    border-width: 0;
-    border-color: #fc0042;
-    opacity: 0; } }
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: #ff7d9f;
+    box-shadow: 0 0 0 60px transparent; } }
 
 @-webkit-keyframes edit-controls-down-xs {
   0% {
@@ -2521,20 +2529,6 @@ label {
 .m-clone-block .m-clone-block-target .m-clone {
   transition: all 0.1s ease-in-out;
   position: relative; }
-  .m-clone-block .m-clone-block-target .m-clone .m-clone-flash {
-    content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    border-radius: 100%;
-    z-index: 2; }
   .m-clone-block .m-clone-block-target .m-clone .textarea,
   .m-clone-block .m-clone-block-target .m-clone textarea {
     transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out, margin 0.1s ease-in-out, padding 0.1s ease-in-out; }
@@ -2549,12 +2543,27 @@ label {
     position: relative;
     z-index: 1;
     transition: all 0.1s ease-in-out; }
+    .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content .m-clone-flash {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 1em;
+      left: 0;
+      width: 0;
+      height: 0;
+      border: 0 solid transparent;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      border-radius: 100%;
+      z-index: 2; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content.m-clone-block-content-box {
       background-color: #fafafa;
-      padding: 1em 1em 0 1em;
-      border: 2px solid transparent;
+      border-bottom: 2px solid transparent;
       border-color: #ededed;
-      border-radius: 3px; }
+      padding: 1em 1em 0; }
+      .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content.m-clone-block-content-box .m-clone-flash {
+        top: 0; }
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content.m-clone-block-content-box:not(:only-child):not(:last-child) {
         margin-bottom: 1em; }
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls {
@@ -2579,15 +2588,14 @@ label {
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class*=" icon-"],
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button [class^="icon-"] {
         margin-right: 0; }
-  .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input,
+  .m-clone-block .m-clone-block-target .m-clone .u-background-with-input,
   .m-clone-block .m-clone-block-target .m-clone .u-margin-with-input,
-  .m-clone-block .m-clone-block-target .m-clone .u-background-with-input {
+  .m-clone-block .m-clone-block-target .m-clone .u-underline-with-input {
     transition: margin 0.1s ease-in-out, background-color 0.1s ease-in-out, border-color 0.1s ease-in-out; }
 
-.m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-flash {
-  top: 0;
-  -webkit-animation: new-flash ease-in 0.4s 3;
-          animation: new-flash ease-in 0.4s 3; }
+.m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-block-content .m-clone-flash {
+  -webkit-animation: new-flash ease 0.6s 3;
+          animation: new-flash ease 0.6s 3; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 0.25em; }
@@ -2627,6 +2635,10 @@ label {
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.2s; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone:last-child {
     margin: 0 0 1em; }
+
+.is-night-mode .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content.m-clone-block-content-box {
+  border-color: #2e2e2e;
+  background-color: #141414; }
 
 .is-night-mode .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
   background-color: #970027; }
@@ -3165,8 +3177,8 @@ label {
     visibility: visible; }
 
 .m-spells:not(.is-state-remove) .m-spell .m-spell-flash {
-  -webkit-animation: new-flash ease-in 0.4s 3;
-          animation: new-flash ease-in 0.4s 3; }
+  -webkit-animation: new-flash ease 0.6s 3;
+          animation: new-flash ease 0.6s 3; }
 
 .m-spell-book .m-spell-book-known {
   margin: 1em 0;
@@ -3951,8 +3963,8 @@ label {
   padding: 0.2em 0.5em; }
 
 .is-night-mode .m-placeholder {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1); }
+  border-color: #2e2e2e;
+  background-color: #141414; }
 
 .is-night-mode .m-key {
   background-color: rgba(50, 136, 201, 0.1); }
