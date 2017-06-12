@@ -158,7 +158,7 @@ var log = (function() {
   };
 
   function render() {
-    if (helper.read("log") != update.history[0].version) {
+    if (helper.read("latestVersionUpdate") != update.history[0].version) {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -199,8 +199,8 @@ var log = (function() {
   };
 
   function _store_confirmation() {
-    helper.remove("log");
-    helper.store("log", update.message.version);
+    helper.remove("latestVersionUpdate");
+    helper.store("latestVersionUpdate", update.history[0].version);
   };
 
   // exposed methods
