@@ -25,11 +25,11 @@ textarea {
   font-family: $open-sans-regular;
   padding: 0.5em;
   margin: 1em 0;
-  border: 0;
   min-height: 2.5em;
   line-height: $line-height-160;
+  border: 0;
   border-bottom: $border;
-  border-color: $secondary-color-14;
+  border-bottom-color: $secondary-color-14;
   transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
   resize: vertical;
   &:hover {
@@ -57,10 +57,10 @@ input {
     line-height: $line-height-250;
     padding: 0 0.5em;
     margin: 1em 0;
-    border: 0;
     border-radius: 0;
+    border: 0;
     border-bottom: $border;
-    border-color: $secondary-color-14;
+    border-bottom-color: $secondary-color-14;
     box-shadow: none;
     transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
