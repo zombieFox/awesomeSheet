@@ -67,7 +67,7 @@
           padding: 0 $font-size-050;
           margin: 0;
           font-size: $font-size-150;
-          border-radius: 0 $border-radius-medium 0 $border-radius-medium;
+          border-radius: 0 $border-radius-medium 0 0;
           [class*=" icon-"],
           [class^="icon-"] {
             margin-right: 0;
@@ -86,7 +86,7 @@
       .m-clone {
         .m-clone-block-content {
           .m-clone-flash {
-            animation: new-flash ease 0.6s 3;
+            animation: new-flash ease 0.4s 3;
           }
         }
       }

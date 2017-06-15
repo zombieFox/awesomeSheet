@@ -154,7 +154,7 @@ var log = (function() {
   };
 
   function _create_fullChangeLog() {
-    modal.render("Complete change log", _create_fullChangeLogModal(), "Close");
+    modal.render("Change Log", _create_fullChangeLogModal(), "Close");
   };
 
   function render() {
@@ -184,7 +184,7 @@ var log = (function() {
       };
       var seeAll = document.createElement("button");
       seeAll.setAttribute("class", "button button-medium button-tertiary-link u-no-margin");
-      seeAll.textContent = "See complete change log"
+      seeAll.textContent = "See complete Change Log"
       seeAll.addEventListener("click", function(event) {
         _create_fullChangeLog();
         destroy();
@@ -193,7 +193,7 @@ var log = (function() {
       col.appendChild(seeAll);
       row.appendChild(col);
       container.appendChild(row);
-      var heading = "Change log " + update.history[0].version;
+      var heading = "Change Log";
       _render_logMessage(heading, container, "Don't show this again", _store_confirmation);
     };
   };
