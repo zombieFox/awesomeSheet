@@ -115,8 +115,8 @@ var totalBlock = (function() {
       return value;
     };
 
-    var all_totalBlock = helper.eA(".js-total-block");
-    for (var i = 0; i < all_totalBlock.length; i++) {
+    function _update_totalBlock(totalBlock) {
+      // console.log("total block update");
       var strBonus = 0;
       var dexBonus = 0;
       var conBonus = 0;
@@ -136,35 +136,35 @@ var totalBlock = (function() {
       var classSkill = 0;
       var checkPenalty = 0;
       // if str data attribute is true
-      if (all_totalBlock[i].dataset.strBonus == "true") {
+      if (totalBlock.dataset.strBonus == "true") {
         strBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
       };
       // if dex data attribute is true
-      if (all_totalBlock[i].dataset.dexBonus == "true") {
+      if (totalBlock.dataset.dexBonus == "true") {
         dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if dex data attribute is true
-      if (all_totalBlock[i].dataset.dexBonus == "true") {
+      if (totalBlock.dataset.dexBonus == "true") {
         dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
       };
       // if con data attribute is true
-      if (all_totalBlock[i].dataset.conBonus == "true") {
+      if (totalBlock.dataset.conBonus == "true") {
         conBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
       };
       // if int data attribute is true
-      if (all_totalBlock[i].dataset.intBonus == "true") {
+      if (totalBlock.dataset.intBonus == "true") {
         intBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
       };
       // if wis data attribute is true
-      if (all_totalBlock[i].dataset.wisBonus == "true") {
+      if (totalBlock.dataset.wisBonus == "true") {
         wisBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
       };
       // if cha data attribute is true
-      if (all_totalBlock[i].dataset.chaBonus == "true") {
+      if (totalBlock.dataset.chaBonus == "true") {
         chaBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
       };
       // if max dex data attribute is true
-      if (all_totalBlock[i].dataset.maxDex == "true") {
+      if (totalBlock.dataset.maxDex == "true") {
         // if max dex is less than dex bonus
         if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
           // set dex bonuse to mac dex
@@ -172,66 +172,66 @@ var totalBlock = (function() {
         };
       };
       // if bab data attribute is true
-      if (all_totalBlock[i].dataset.babBonus == "true") {
+      if (totalBlock.dataset.babBonus == "true") {
         babBonus = _checkValue(sheet.getCharacter().offense.base_attack);
       };
       // size
-      if (all_totalBlock[i].dataset.sizeBonus == "true") {
+      if (totalBlock.dataset.sizeBonus == "true") {
         sizeBonus = _checkValue(sheet.getCharacter().defense.ac.size_bonus);
       };
       // level
-      if (all_totalBlock[i].dataset.levelBonus == "true") {
+      if (totalBlock.dataset.levelBonus == "true") {
         levelBonus = _checkValue(sheet.getCharacter().basics.level);
       };
       // half level
-      if (all_totalBlock[i].dataset.halfLevelBonus == "true") {
+      if (totalBlock.dataset.halfLevelBonus == "true") {
         halfLevelBonus = Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2);
       };
       // ac armor
-      if (all_totalBlock[i].dataset.acArmor == "true") {
+      if (totalBlock.dataset.acArmor == "true") {
         acArmor = _checkValue(sheet.getCharacter().defense.ac.armor);
       };
       // ac shield
-      if (all_totalBlock[i].dataset.acShield == "true") {
+      if (totalBlock.dataset.acShield == "true") {
         acShield = _checkValue(sheet.getCharacter().defense.ac.shield);
       };
       // ac deflect
-      if (all_totalBlock[i].dataset.acDeflect == "true") {
+      if (totalBlock.dataset.acDeflect == "true") {
         acDeflect = _checkValue(sheet.getCharacter().defense.ac.deflect);
       };
       // ac dodge
-      if (all_totalBlock[i].dataset.acDodge == "true") {
+      if (totalBlock.dataset.acDodge == "true") {
         acDodge = _checkValue(sheet.getCharacter().defense.ac.dodge);
       };
       // ac natural
-      if (all_totalBlock[i].dataset.acNatural == "true") {
+      if (totalBlock.dataset.acNatural == "true") {
         acNatural = _checkValue(sheet.getCharacter().defense.ac.natural);
       };
       // armor check penalty
-      if (all_totalBlock[i].dataset.checkPenalty == "true") {
+      if (totalBlock.dataset.checkPenalty == "true") {
         checkPenalty = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
       };
       // class skill
-      if (all_totalBlock[i].dataset.classSkill == "true") {
-        _checkClassSkill(all_totalBlock[i]);
+      if (totalBlock.dataset.classSkill == "true") {
+        _checkClassSkill(totalBlock);
       };
       // 10
-      if (all_totalBlock[i].dataset.plusTenBonus == "true") {
+      if (totalBlock.dataset.plusTenBonus == "true") {
         plusTenBonus = 10;
       };
-      var total = all_totalBlock[i].querySelector(".js-total-block-total");
-      var totalType = all_totalBlock[i].dataset.totalType;
+      var total = totalBlock.querySelector(".js-total-block-total");
+      var totalType = totalBlock.dataset.totalType;
       var totalPath = total.dataset.path;
-      var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
+      var all_inputBlockField = totalBlock.querySelectorAll(".js-input-block-field");
       var modifiers = [];
       var modifiers_total = 0;
       // if there are any input fields in total block
       if (all_inputBlockField.length > 0) {
         // iterate over all input fields
-        for (var q = 0; q < all_inputBlockField.length; q++) {
+        for (var i = 0; i < all_inputBlockField.length; i++) {
           var value;
           // find the path for input field
-          var inputPath = all_inputBlockField[q].dataset.path;
+          var inputPath = all_inputBlockField[i].dataset.path;
           // if path is found
           if (inputPath) {
             // get the value of path from character
@@ -239,17 +239,17 @@ var totalBlock = (function() {
           } else {
             // get the value from input
             // needed because clone consumable total blocks dont have data paths
-            value = parseInt(all_inputBlockField[q].value, 10) || 0;
+            value = parseInt(all_inputBlockField[i].value, 10) || 0;
           };
           // if the value is not a NaN
           if (!isNaN(value)) {
             // check if the inpuy is to add or subtract
-            if (all_inputBlockField[q].dataset.total == "addition") {
+            if (all_inputBlockField[i].dataset.total == "addition") {
               // push to array
               modifiers.push(value);
             };
             // check if the inpuy is to add or subtract
-            if (all_inputBlockField[q].dataset.total == "subtract") {
+            if (all_inputBlockField[i].dataset.total == "subtract") {
               // push to array
               modifiers.push(-value);
             };
@@ -274,6 +274,11 @@ var totalBlock = (function() {
       };
       // update total
       total.textContent = grandTotal;
+    };
+
+    var all_totalBlock = helper.eA(".js-total-block");
+    for (var i = 0; i < all_totalBlock.length; i++) {
+      _update_totalBlock(all_totalBlock[i]);
     };
     sheet.storeCharacters();
   };

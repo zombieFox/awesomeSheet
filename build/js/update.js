@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.3.0",
+    list: [
+      "Optimise Consumable, Attack and Note modules for faster page load."
+    ]
+  }, {
     version: "3.2.2",
     list: [
       "Refactored change log module.",
