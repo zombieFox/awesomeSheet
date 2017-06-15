@@ -3,7 +3,8 @@ var update = (function() {
   var history = [{
     version: "3.3.0",
     list: [
-      "Optimise Consumable, Attack and Note modules for faster page load."
+      "Optimise Consumable, Attack and Note modules for faster page load.",
+      "Fixed a bug with Skill totals not recognising class skill."
     ]
   }, {
     version: "3.2.2",

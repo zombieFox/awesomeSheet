@@ -108,9 +108,9 @@ var totalBlock = (function() {
       var ranks = helper.getObject(sheet.getCharacter(), path);
       var value;
       if (ranks > 0) {
-        classSkill = 3;
+        value = 3;
       } else {
-        classSkill = 0;
+        value = 0;
       };
       return value;
     };
@@ -213,7 +213,7 @@ var totalBlock = (function() {
       };
       // class skill
       if (totalBlock.dataset.classSkill == "true") {
-        _checkClassSkill(totalBlock);
+        classSkill = _checkClassSkill(totalBlock);
       };
       // 10
       if (totalBlock.dataset.plusTenBonus == "true") {

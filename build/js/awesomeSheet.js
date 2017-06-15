@@ -14546,9 +14546,9 @@ var totalBlock = (function() {
       var ranks = helper.getObject(sheet.getCharacter(), path);
       var value;
       if (ranks > 0) {
-        classSkill = 3;
+        value = 3;
       } else {
-        classSkill = 0;
+        value = 0;
       };
       return value;
     };
@@ -14651,7 +14651,7 @@ var totalBlock = (function() {
       };
       // class skill
       if (totalBlock.dataset.classSkill == "true") {
-        _checkClassSkill(totalBlock);
+        classSkill = _checkClassSkill(totalBlock);
       };
       // 10
       if (totalBlock.dataset.plusTenBonus == "true") {
@@ -15034,7 +15034,8 @@ var update = (function() {
   var history = [{
     version: "3.3.0",
     list: [
-      "Optimise Consumable, Attack and Note modules for faster page load."
+      "Optimise Consumable, Attack and Note modules for faster page load.",
+      "Fixed a bug with Skill totals not recognising class skill."
     ]
   }, {
     version: "3.2.2",
