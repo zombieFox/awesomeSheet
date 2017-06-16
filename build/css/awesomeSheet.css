@@ -4109,15 +4109,14 @@ label {
     padding-left: 0; }
 
 .m-log-body {
-  background-color: #2a5d84;
+  background-color: #1c3445;
   border-radius: 3px 3px 0 0;
-  padding: 1em;
+  padding: 2em;
   max-height: calc(50vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box; }
 
 .m-log-heading {
-  padding: 0 0.65em;
   margin-bottom: 0.5em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
@@ -4141,27 +4140,8 @@ label {
             transform: translate(0, -50%); }
 
 .m-log-list-short .m-log-list-item {
-  padding: 0.25em 1em;
   line-height: 1.6666666667em;
-  border: 2px solid transparent;
   color: #ffffff; }
-
-.m-log-list-short .m-log-list-item-alert {
-  background-color: #264f6e;
-  padding-right: 3em;
-  border-color: #77b8e9;
-  border-radius: 3px;
-  position: relative;
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
-  .m-log-list-short .m-log-list-item-alert .m-log-list-item-alert-icon {
-    position: absolute;
-    top: 50%;
-    right: 0.5em;
-    color: #cce7fa;
-    font-size: 1.5em;
-    -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-            transform: translate(0, -50%); }
 
 .m-log-controls {
   border-radius: 0 0 3px 3px;
@@ -4175,7 +4155,7 @@ label {
   background-color: rgba(0, 0, 0, 0.65); }
 
 .is-night-mode .m-log .m-log-body {
-  background-color: #162632; }
+  background-color: #0f1820; }
 
 .is-night-mode .m-log-list .m-log-list-item-alert {
   background-color: #264f6e; }

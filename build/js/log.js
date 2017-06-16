@@ -158,7 +158,30 @@ var log = (function() {
   };
 
   function render() {
-    if (helper.read("latestVersionUpdate") != update.history[0].version) {
+    var all_breakingChanges = [];
+    var all_breakingChangesVersion = [];
+    var changeVersion;
+    var numberOfRecentChanges = 3;
+    for (var i = 0; i < update.history.length; i++) {
+      for (var j = 0; j < update.history[i].list.length; j++) {
+        var asterisk = "*";
+        if (update.history[i].list[j].indexOf(asterisk) != -1) {
+          all_breakingChanges.push(update.history[i].list[j].substr(1));
+          all_breakingChangesVersion.push(update.history[i].version);
+        };
+      };
+    };
+    for (var i = 0; i < all_breakingChangesVersion.length; i++) {
+      if (typeof changeVersion == "undefined") {
+        changeVersion = all_breakingChangesVersion[i];
+      } else {
+        changeVersion = changeVersion + "/" + all_breakingChangesVersion[i];
+      };
+    };
+    if (all_breakingChanges.length < numberOfRecentChanges) {
+      numberOfRecentChanges = all_breakingChanges.length;
+    };
+    if (helper.read("latestVersionUpdate") != changeVersion) {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -167,19 +190,10 @@ var log = (function() {
       col.setAttribute("class", "col-xs-12");
       var list = document.createElement("ul");
       list.setAttribute("class", "m-log-list m-log-list-short u-list-unstyled");
-      for (var i = 0; i < update.history[0].list.length; i++) {
-        var asterisk = "*";
+      for (var i = 0; i < numberOfRecentChanges; i++) {
         var listItem = document.createElement("li");
         listItem.setAttribute("class", "m-log-list-item");
-        if (update.history[0].list[i].indexOf(asterisk) != -1) {
-          helper.addClass(listItem, "m-log-list-item-alert");
-          var listItemIcon = document.createElement("span");
-          listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
-          listItem.textContent = update.history[0].list[i].substr(1);
-          listItem.appendChild(listItemIcon);
-        } else {
-          listItem.textContent = update.history[0].list[i];
-        };
+        listItem.textContent = all_breakingChanges[i];
         list.appendChild(listItem);
       };
       var seeAll = document.createElement("button");
@@ -193,14 +207,16 @@ var log = (function() {
       col.appendChild(seeAll);
       row.appendChild(col);
       container.appendChild(row);
-      var heading = "Change Log";
-      _render_logMessage(heading, container, "Don't show this again", _store_confirmation);
+      var heading = "Recent Changes";
+      _render_logMessage(heading, container, "Don't show this again", function(){
+        _store_confirmation(changeVersion);
+      });
     };
   };
 
-  function _store_confirmation() {
+  function _store_confirmation(changeVersion) {
     helper.remove("latestVersionUpdate");
-    helper.store("latestVersionUpdate", update.history[0].version);
+    helper.store("latestVersionUpdate", changeVersion);
   };
 
   // exposed methods

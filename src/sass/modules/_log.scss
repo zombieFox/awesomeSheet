@@ -26,9 +26,9 @@
   }
 }
 .m-log-body {
-  background-color: $secondary-color-07;
+  background-color: $secondary-color-04;
   border-radius: $border-radius-medium $border-radius-medium 0 0;
-  padding: 1em;
+  padding: 2em;
   max-height: calc(50vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
@@ -82,7 +82,7 @@
   }
   .m-log {
     .m-log-body {
-      background-color: $secondary-color-03;
+      background-color: $secondary-color-02;
     }
   }
   .m-log-list {
