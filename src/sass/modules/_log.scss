@@ -34,7 +34,7 @@
   box-sizing: border-box;
 }
 .m-log-heading {
-  padding: 0 0.65em;
+  // padding: 0 0.65em;
   margin-bottom: 0.5em;
   font-family: $open-sans-semi-bold;
   font-size: $font-size-150;
@@ -62,26 +62,8 @@
 }
 .m-log-list-short {
   .m-log-list-item {
-    padding: 0.25em 1em;
     line-height: $line-height-160;
-    border: $border;
     color: $white;
-  }
-  .m-log-list-item-alert {
-    background-color: $secondary-color-06;
-    padding-right: 3em;
-    border-color: $secondary-color-14;
-    border-radius: $border-radius-medium;
-    position: relative;
-    font-family: $open-sans-semi-bold;
-    .m-log-list-item-alert-icon {
-      position: absolute;
-      top: 50%;
-      right: 0.5em;
-      color: $secondary-color-18;
-      font-size: $font-size-150;
-      transform: translate(0, -50%);
-    }
   }
 }
 .m-log-controls {
