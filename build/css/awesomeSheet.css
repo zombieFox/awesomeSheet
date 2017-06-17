@@ -59,6 +59,10 @@ body {
   html {
     font-size: 100%; } }
 
+@media (min-width: 900px) {
+  body {
+    padding-bottom: 95vh; } }
+
 @media print {
   html {
     font-size: 10px; } }

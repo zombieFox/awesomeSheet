@@ -32,7 +32,11 @@ body {
     font-size: 100%; // 1rem = 16px
   }
 }
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  body {
+    padding-bottom: 95vh;
+  }
+}
 @media (min-width: $screen-xl) {}
 @media print {
   html {
