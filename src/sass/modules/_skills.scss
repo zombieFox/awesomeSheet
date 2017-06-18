@@ -3,6 +3,7 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
+  font-size: $font-size-root-100;
   &:last-of-type {
     margin-bottom: 2em;
   }
@@ -71,8 +72,8 @@
 .m-skill-name-title,
 .m-skill-ranks-title,
 .m-skill-total-title {
-  margin: 0 0 1em;
   line-height: $line-height-160;
+  margin-bottom: 1em;
 }
 .m-skill-name-title {
   flex: 1 0 40%;
@@ -91,19 +92,15 @@
   text-align: center;
 }
 .m-skill-bonus-title {
-  flex: 0 0 auto;
-}
-.m-skill-bonus-title {
   flex: 0 0 0;
 }
 .m-skill-bonus-title-spacer {
   padding: 0 0.5em;
   display: block;
-  [class*=" icon-"],
-  [class^="icon-"] {
-    font-size: $font-size-150;
-    display: inline-block;
-  }
+  font-size: 1.4em;
+  width: 1em;
+  height: 1em;
+  background: red;
 }
 // --------------------------------------------------
 // media queries

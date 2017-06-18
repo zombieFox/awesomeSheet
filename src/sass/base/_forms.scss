@@ -4,11 +4,14 @@ select {
   border-width: 1px;
   border-style: solid;
   border-color: $gray-18;
-  margin: 1em 0;
-  font-family: $open-sans-regular;
+  margin: 0 0 1em;
+  padding: 0.5em 0;
   color: $base-color;
-  height: $line-height-250;
-  line-height: $line-height-250;
+  font-size: $font-size-100;
+  line-height: $line-height-160;
+  height: 2.5em;
+  font-family: $open-sans-regular;
+  box-sizing: border-box;
   transition: background-color $transition-ease-medium, border-color $transition-ease-medium;
   &:hover {
     border-color: $primary-color-10;
@@ -18,15 +21,18 @@ select {
     outline: 0;
   }
 }
-
 .textarea,
 textarea {
   background-color: $secondary-color-19;
   font-family: $open-sans-regular;
   padding: 0.5em;
-  margin: 1em 0;
+  margin: 0 0 1em;
   min-height: 2.5em;
+  color: $base-color;
+  font-size: $font-size-100;
   line-height: $line-height-160;
+  font-family: $open-sans-regular;
+  box-sizing: border-box;
   border: 0;
   border-bottom: $border;
   border-bottom-color: $secondary-color-14;
@@ -40,23 +46,24 @@ textarea {
     outline: 0;
   }
 }
-
 .textarea-large {
-  min-height: $font-size-400;
+  min-height: 4em;
 }
-
 input {
   &[type="email"],
   &[type="number"],
+  &[type="password"],
   &[type="search"],
-  &[type="text"],
   &[type="tel"],
-  &[type="password"] {
+  &[type="text"] {
     background-color: $secondary-color-19;
-    height: $line-height-250;
-    line-height: $line-height-250;
     padding: 0 0.5em;
-    margin: 1em 0;
+    margin: 0 0 1em;
+    height: 2.5em;
+    font-size: $font-size-100;
+    line-height: $line-height-250;
+    font-family: $open-sans-regular;
+    box-sizing: border-box;
     border-radius: 0;
     border: 0;
     border-bottom: $border;
@@ -72,28 +79,27 @@ input {
     }
   }
 }
-
 label {
   color: $base-color;
+  font-size: $font-size-100;
   line-height: $line-height-250;
   display: inline-block;
 }
-
 input {
-  &[type="radio"],
-  &[type="checkbox"] {
+  &[type="checkbox"],
+  &[type="radio"] {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     display: block;
-    height: $line-height-250;
+    font-size: $font-size-100;
     line-height: $line-height-250;
     cursor: pointer;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
-      height: $line-height-250;
+      height: 2.5em;
       line-height: $line-height-250;
       display: inline-block;
       cursor: pointer;
@@ -108,6 +114,7 @@ input {
         text-transform: none;
         display: block;
         font-size: $font-size-150;
+        line-height: 1.7;
         color: $secondary-color-04;
         vertical-align: text-bottom;
         transition: color $transition-ease-fast;
@@ -195,7 +202,6 @@ input {
     }
   }
 }
-
 .is-night-mode {
   select {
     background-color: $secondary-color-06;
@@ -212,17 +218,17 @@ input {
   input {
     &[type="email"],
     &[type="number"],
+    &[type="password"],
     &[type="search"],
-    &[type="text"],
     &[type="tel"],
-    &[type="password"] {
+    &[type="text"] {
       background-color: $secondary-color-02;
       border-color: $secondary-color-06;
     }
   }
   input {
-    &[type="radio"],
-    &[type="checkbox"] {
+    &[type="checkbox"],
+    &[type="radio"] {
       & + label {
         color: $white;
         &:before {
@@ -271,14 +277,10 @@ input {
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

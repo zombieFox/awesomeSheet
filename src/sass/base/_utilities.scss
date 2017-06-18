@@ -1,6 +1,6 @@
 .u-full-width {
   width: 100%;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 .u-text-center {
   text-align: center;
@@ -28,8 +28,8 @@
 .u-inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  height: $line-height-250;
-  line-height: $line-height-250;
+  height: 2.5em;
+  line-height: 2.5;
   box-sizing: border-box;
 }
 .u-margin-with-input {
