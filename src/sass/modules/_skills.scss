@@ -97,10 +97,12 @@
 .m-skill-bonus-title-spacer {
   padding: 0 0.5em;
   display: block;
-  font-size: 1.4em;
-  width: 1em;
-  height: 1em;
-  background: red;
+  font-size: $font-size-100;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: 1.4em;
+    line-height: 1;
+  }
 }
 // --------------------------------------------------
 // media queries

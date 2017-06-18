@@ -42,11 +42,11 @@ var inputBlock = (function() {
       } else {
         helper.removeClass(inputBlockLabel, "is-active");
       };
-      if (element.value == "" && element != document.activeElement) {
-        helper.removeClass(inputBlockLabel, "is-active");
-      } else {
-        helper.addClass(inputBlockLabel, "is-active");
-      };
+      // if (element.value == "" && element != document.activeElement) {
+      //   helper.removeClass(inputBlockLabel, "is-active");
+      // } else {
+      //   helper.addClass(inputBlockLabel, "is-active");
+      // };
     };
   };
 

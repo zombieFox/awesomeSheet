@@ -57,6 +57,7 @@ input {
   &[type="tel"],
   &[type="text"] {
     background-color: $secondary-color-19;
+    background-color: $gray-19;
     padding: 0 0.5em;
     margin: 0 0 1em;
     height: 2.5em;
@@ -67,14 +68,15 @@ input {
     border-radius: 0;
     border: 0;
     border-bottom: $border;
-    border-bottom-color: $secondary-color-14;
+    border-bottom-color: $gray-18;
     box-shadow: none;
     transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
       border-color: $primary-color-10;
     }
     &:focus {
-      border-color: $secondary-color-10;
+      background-color: $white;
+      border-color: $secondary-color-06;
       outline: 0;
     }
   }

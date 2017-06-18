@@ -6,24 +6,20 @@
 
 .m-textarea-block-label {
   margin: 0;
-  padding: 0;
+  padding: 0 0.5em;
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0.6em;
+  background-color: $gray-08;
+  color: $gray-20;
+  width: 100%;
   z-index: 2;
-  color: $secondary-color-12;
+  font-size: $font-size-075;
+  line-height: 1.8;
   transition: all $transition-ease-extra-fast;
   cursor: text;
   box-sizing: border-box;
   white-space: nowrap;
   &.is-active {
-    top: -1.5em;
-    left: 0;
-    color: $secondary-color-16;
-    font-size: $font-size-075;
-    height: $line-height-100;
-    line-height: $line-height-100;
+    background-color: $secondary-color-08;
   }
 }
 
@@ -31,7 +27,9 @@
   position: relative;
   z-index: 1;
 }
-
+.m-textarea-block-large {
+  font-size: $font-size-root-150;
+}
 .is-night-mode {
   .m-textarea-block-label {
     &.is-active {

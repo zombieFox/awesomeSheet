@@ -32,11 +32,11 @@ var textareaBlock = (function() {
       } else {
         helper.removeClass(textareaBlockLabel, "is-active");
       };
-      if (element.innerHTML == "" && textareaBlockField != document.activeElement) {
-        helper.removeClass(textareaBlockLabel, "is-active");
-      } else {
-        helper.addClass(textareaBlockLabel, "is-active");
-      };
+      // if (element.innerHTML == "" && textareaBlockField != document.activeElement) {
+      //   helper.removeClass(textareaBlockLabel, "is-active");
+      // } else {
+      //   helper.addClass(textareaBlockLabel, "is-active");
+      // };
     };
   };
 
