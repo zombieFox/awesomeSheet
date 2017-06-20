@@ -57,7 +57,7 @@ input {
   &[type="tel"],
   &[type="text"] {
     background-color: $secondary-color-19;
-    background-color: $gray-19;
+    background-color: $gray-20;
     padding: 0 0.5em;
     margin: 0 0 1em;
     height: 2.5em;
@@ -69,14 +69,14 @@ input {
     border: 0;
     border-bottom: $border;
     border-bottom-color: $gray-18;
-    box-shadow: none;
     transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
-      border-color: $primary-color-10;
+      background-color: $gray-19;
+      border-bottom-color: $secondary-color-06;
     }
     &:focus {
-      background-color: $white;
-      border-color: $secondary-color-06;
+      background-color: $gray-19;
+      border-bottom-color: $primary-color-10;
       outline: 0;
     }
   }
@@ -84,8 +84,8 @@ input {
 label {
   color: $base-color;
   font-size: $font-size-100;
-  line-height: $line-height-250;
   display: inline-block;
+  cursor: text;
 }
 input {
   &[type="checkbox"],

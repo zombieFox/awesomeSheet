@@ -181,7 +181,7 @@ $screen-sm-max:                       ($screen-md-min - 1);
 $screen-md-max:                       ($screen-lg-min - 1);
 $screen-lg-max:                       ($screen-xl-min - 1);
 
-$gutter:                              1rem;
+$gutter:                              0.5rem;
 
 // --------------------------------------------------
 // typography
@@ -291,14 +291,11 @@ $shadow-medium:                     0 4px 10px rgba(0, 0, 0, 0.1),
 $shadow-large:                      0 4px 10px rgba(0, 0, 0, 0.15),
                                     0 6px 30px rgba(0, 0, 0, 0.15);
 
-$shadow-small-inset:                inset 0 1px 1px rgba(0, 0, 0, 0.05),
-                                    inset 0 1px 10px rgba(0, 0, 0, 0.05);
+$shadow-small-inset:                inset 0 1px 1px rgba(0, 0, 0, 0.05);
 
-$shadow-medium-inset:               inset 0 1px 2px rgba(0, 0, 0, 0.1),
-                                    inset 0 1px 20px rgba(0, 0, 0, 0.1);
+$shadow-medium-inset:               inset 0 2px 2px rgba(0, 0, 0, 0.1);
 
-$shadow-large-inset:                inset 0 1px 3px rgba(0, 0, 0, 0.15),
-                                    inset 0 1px 30px rgba(0, 0, 0, 0.15);
+$shadow-large-inset:                inset 0 3px 3px rgba(0, 0, 0, 0.15);
 
 // --------------------------------------------------
 // radius
