@@ -34,13 +34,10 @@ var inputBlock = (function() {
     var inputBlock = helper.getClosest(element, ".js-input-block");
     var inputBlockLabel;
     if (inputBlock.querySelector(".js-input-block-label")) {
-      inputBlockLabel = inputBlock.querySelector(".js-input-block-label");
-    };
-    if (inputBlock.querySelector(".js-input-block-label")) {
       if (element == document.activeElement) {
-        helper.addClass(inputBlockLabel, "is-active");
+        helper.addClass(inputBlock, "is-focus");
       } else {
-        helper.removeClass(inputBlockLabel, "is-active");
+        helper.removeClass(inputBlock, "is-focus");
       };
       // if (element.value == "" && element != document.activeElement) {
       //   helper.removeClass(inputBlockLabel, "is-active");

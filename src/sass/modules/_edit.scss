@@ -9,19 +9,14 @@
   margin: 1em 0;
   box-sizing: border-box;
 }
-.m-edit-box {
-  font-size: $font-size-root-100;
-  border: $border;
-  border-color: $gray-18;
-  border-radius: $border-radius-medium;
-}
+.m-edit-box {}
 .m-edit-box-head {
-  background-color: $gray-19;
-  padding: 0.5em;
+  border-bottom: $border;
+  border-bottom-color: $gray-18;
+  padding: 0 1em 0 0;
 }
 .m-edit-box-body {
   // padding: 0.5em;
-
 }
 .m-edit-box-wrapper {
   display: flex;
@@ -33,9 +28,35 @@
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
+  padding: 0.5em 0;
 }
 .m-edit-box-item {
   flex: 1 1 0;
+}
+.m-edit-box-input-group {
+  position: relative;
+  z-index: 1;
+  .m-edit-box-item {
+    .m-input-block {
+      z-index: 2;
+      &.is-focus {
+        z-index: 3;
+      }
+    }
+    .m-input-block-field {
+      margin-right: -1px;
+      &:hover,
+      &:focus {
+        z-index: 3;
+      }
+      &:first-of-type {
+        border-radius: $border-radius-medium 0 0 $border-radius-medium;
+      }
+      &:last-of-type {
+        border-radius: 0 $border-radius-medium $border-radius-medium 0;
+      }
+    }
+  }
 }
 .m-edit-box-item-20 {
   flex-basis: 20%;
@@ -79,36 +100,38 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
-
   .m-edit-box {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-end;
   }
   .m-edit-box-head {
     flex: 0 0 30%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
   }
   .m-edit-box-body {
     flex: 1 1 auto;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-start;
-      align-items: flex-start;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .m-edit-box-footer {
+    flex: 1 1 auto;
   }
   .m-edit-box-item {
     flex: 1 1 auto;
   }
-
-
   .m-edit-box-title {
-    // border-bottom: $border;
-    // border-color: $gray-19;
-    // margin-right: -($gutter * 2);
+    flex: 1 1 auto;
   }
   .is-night-mode {
     .m-edit-box-title {
-      border-color: $light-alpha-19;
+      // border-color: $light-alpha-19;
     }
   }
 }

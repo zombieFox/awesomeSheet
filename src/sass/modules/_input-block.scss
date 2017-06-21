@@ -13,6 +13,9 @@
   transition: all $transition-ease-extra-fast;
   box-sizing: border-box;
   white-space: nowrap;
+  // position: absolute;
+  // top: -2em;
+  // left: 0;
   &.is-active {
     // background-color: $secondary-color-08;
   }
