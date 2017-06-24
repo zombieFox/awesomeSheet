@@ -1,19 +1,18 @@
 .m-total-block-total {
-  background-color: $gray-19;
+  background-color: $gray-18;
   border: $border;
   border-color: $gray-16;
   font-family: $open-sans-semi-bold;
   height: 2.5em;
   line-height: $line-height-250;
-  padding: 0 1.5em;
+  padding: 0;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .m-total-block-label {
-  padding: 0;
   display: block;
-  z-index: 2;
-  color: $gray-16;
+  color: $gray-14;
   font-size: $font-size-075;
   font-family: $open-sans-bold;
   transition: all $transition-ease-extra-fast;

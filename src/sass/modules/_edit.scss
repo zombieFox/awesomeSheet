@@ -24,40 +24,49 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
-.m-edit-box-body {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-}
 .m-edit-box-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
-  align-self: center;
+  margin-top: 1.25em;
+}
+.m-edit-box-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
 }
 .m-edit-box-item {
-  flex: 1 1 auto;
-  margin-right: 1em;
+  flex: 1 1 20%;
   margin-bottom: 1em;
+  padding-left: $gutter;
+  padding-right: $gutter;
   &:last-of-type {
     margin-right: 0;
   }
 }
 .m-edit-box-item-small {
-  max-width: 20%;
+  flex: 0 0 5em;
 }
 .m-edit-box-bonus-button {
+  flex: 0 0 auto;
   align-self: flex-end;
 }
 .m-edit-box-input-group {
   position: relative;
+  flex-flow: row nowrap;
   z-index: 1;
+  margin-left: 0;
+  margin-right: 0;
   .m-edit-box-item {
     margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
     .m-input-block {
-      margin-left: -1px;
+      margin-right: -1px;
       z-index: 2;
       &.is-focus,
       &.is-hover {
