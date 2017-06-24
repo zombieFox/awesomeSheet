@@ -11,18 +11,14 @@
 }
 .m-edit-box {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: flex-end;
   .m-input-block-field {
     margin-bottom: 0;
   }
 }
-.m-edit-box-no-head {
-  margin-left: 30%;
-}
 .m-edit-box-head {
-  flex: 0 0 30%;
+  flex: 1 1 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -39,6 +35,7 @@
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
+  align-self: center;
 }
 .m-edit-box-item {
   flex: 1 1 auto;
@@ -49,7 +46,7 @@
   }
 }
 .m-edit-box-item-small {
-  max-width: 5em;
+  max-width: 20%;
 }
 .m-edit-box-bonus-button {
   align-self: flex-end;
@@ -122,7 +119,17 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-edit-box-no-head {
+    margin-left: 30%;
+  }
+  .m-edit-box {
+    flex-flow: row nowrap;
+  }
+  .m-edit-box-head {
+    flex: 0 0 30%;
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-edit-box-bonus-button {
