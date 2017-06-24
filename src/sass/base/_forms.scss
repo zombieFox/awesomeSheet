@@ -64,12 +64,11 @@ input {
     line-height: $line-height-250;
     font-family: $open-sans-regular;
     box-sizing: border-box;
-    border-radius: $border-radius-medium;
+    border-radius: $border-radius-large;
     border: 0;
     border: $border;
     border-color: $gray-16;
     box-shadow: $shadow-medium-inset;
-    transition: border-color $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
     &:hover {
       background-color: $secondary-color-19;
       border-color: $secondary-color-06;
@@ -83,7 +82,7 @@ input {
   }
 }
 label {
-  color: $base-color;
+  color: $secondary-color-06;
   font-size: $font-size-100;
   display: inline-block;
   cursor: text;

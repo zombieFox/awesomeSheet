@@ -39,11 +39,6 @@ var inputBlock = (function() {
       } else {
         helper.removeClass(inputBlock, "is-focus");
       };
-      // if (element.value == "" && element != document.activeElement) {
-      //   helper.removeClass(inputBlockLabel, "is-active");
-      // } else {
-      //   helper.addClass(inputBlockLabel, "is-active");
-      // };
     };
   };
 
