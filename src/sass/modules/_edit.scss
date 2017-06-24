@@ -11,14 +11,14 @@
 }
 .m-edit-box {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   .m-input-block-field {
     margin-bottom: 0;
   }
 }
 .m-edit-box-head {
-  flex: 1 1 100%;
+  flex: 0 1 30%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -83,6 +83,7 @@
     }
     &:first-of-type {
       .button,
+      .m-stat-block-modifier,
       .m-total-block-total {
         border-radius: $border-radius-large 0 0 $border-radius-large;
       }
@@ -94,6 +95,7 @@
     }
     &:last-of-type {
       .button,
+      .m-stat-block-modifier,
       .m-total-block-total {
         border-radius: 0 $border-radius-large $border-radius-large 0;
       }
@@ -132,12 +134,12 @@
   .m-edit-box-no-head {
     margin-left: 30%;
   }
-  .m-edit-box {
-    flex-flow: row nowrap;
-  }
-  .m-edit-box-head {
-    flex: 0 0 30%;
-  }
+  // .m-edit-box {
+  //   flex-flow: row nowrap;
+  // }
+  // .m-edit-box-head {
+  //   flex: 0 0 30%;
+  // }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {

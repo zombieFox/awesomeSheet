@@ -9,7 +9,7 @@
   display: block;
   z-index: 2;
   font-size: $font-size-075;
-  font-family: $open-sans-bold;
+  font-family: $open-sans-semi-bold;
   transition: all $transition-ease-extra-fast;
   box-sizing: border-box;
   white-space: nowrap;
@@ -19,7 +19,9 @@
   z-index: 1;
 }
 .m-input-block-large {
-  font-size: $font-size-root-150;
+  .m-input-block-field {
+    font-size: $font-size-root-150;
+  }
 }
 .is-night-mode {
   .m-input-block-label {
