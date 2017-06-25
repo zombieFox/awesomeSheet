@@ -1,475 +1,532 @@
 <div class="container">
-  <div class="m-edit-box js-total-block" data-total-type="bonus">
-    <div class="row">
-      <div class="col-xs-12 col-md-3">
-        <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Concentration <span class="m-total-block-total js-total-block-total" data-path="spells.concentration.current"></span></h2>
-      </div>
-      <div class="col-xs-12 col-md-9">
-        <div class="m-edit-box-wrapper">
-          <div class="m-edit-box-item">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="m-edit-box m-edit-box-break js-total-block" data-total-type="bonus">
+        <div class="m-edit-box-head">
+          <h2 class="m-edit-box-title-with-label u-inline-with-input">Concentration</h2>
+        </div>
+        <div class="m-edit-box-body m-edit-box-body-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-total-block-label">Total</p>
+            <p class="m-total-block-total js-total-block-total" data-path="spells.concentration.current"></p>
+          </div>
+          <div class="m-edit-box-item-small">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="spells-concentration-misc">Misc</label>
               <input id="spells-concentration-misc" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-type="number" data-path="spells.concentration.misc" type="text" tabindex="3">
             </div>
           </div>
-          <div class="m-edit-box-item">
+          <div class="m-edit-box-item-small">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="spells-concentration-temp">Temp</label>
               <input id="spells-concentration-temp" class="m-input-block-field u-full-width js-input-block-field" data-total="addition" data-type="number" data-path="spells.concentration.temp" type="text" tabindex="3">
             </div>
           </div>
-          <div class="m-edit-box-bonus">
-            <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level" data-bonus-path="spells.concentration.bonuses"
+          <div class="m-edit-box-item-button">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level" data-bonus-path="spells.concentration.bonuses"
               data-modal-heading="Concentration bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>
-      <div class="col-xs-12">
-        <hr>
-      </div>
     </div>
   </div>
+  <hr>
   <div class="m-spells js-spells" data-spell-state="false">
     <div class="row">
-      <div class="col-xs-12 col-md-9 col-md-offset-3">
-        <div class="m-edit-controls js-edit-controls" data-pin-watch="js-spells">
-          <div class="m-spell-controls button-group button-group-strech js-spell-controls">
-            <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-prepare" data-state="prepare" tabindex="3"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-            <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-unprepare" data-state="unprepare" tabindex="3"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
-            <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-cast" data-state="cast" tabindex="3"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-            <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-active" data-state="active" tabindex="3"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
-            <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-reset" data-state="false" tabindex="3"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-            <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-remove" data-state="remove" tabindex="3"><span class="icon-close"></span><span class="button-text">Remove</span></button>
+      <div class="col-xs-12">
+        <div class="m-edit-box m-edit-box-break m-edit-box-no-head-on-large">
+          <div class="m-edit-box-body">
+            <div class="m-edit-box-item-max">
+              <div class="m-edit-controls js-edit-controls" data-pin-watch="js-spells">
+                <div class="m-spell-controls button-group button-group-strech js-spell-controls">
+                  <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-prepare" data-state="prepare" tabindex="3"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+                  <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-unprepare" data-state="unprepare" tabindex="3"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+                  <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-cast" data-state="cast" tabindex="3"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+                  <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-active" data-state="active" tabindex="3"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+                  <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-reset" data-state="false" tabindex="3"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+                  <button type="button" class="button button-medium button-secondary button-icon js-spell-state-control js-spell-remove" data-state="remove" tabindex="3"><span class="icon-close"></span><span class="button-text">Remove</span></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="0">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 0</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="0">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 0</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-0">Known</label>
                   <input id="spells-known-level-0" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_0" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-0">Daily</label>
                   <input id="spells-daily-level-0" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_0" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-0">DC</label>
                   <input id="spells-dc-level-0" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_0" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-0">Add Spell</label>
                   <input id="spells-add-spell-0" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-0"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-0"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="1">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 1</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="1">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 1</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-1">Known</label>
                   <input id="spells-known-level-1" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_1" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-1">Daily</label>
                   <input id="spells-daily-level-1" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_1" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-1">DC</label>
                   <input id="spells-dc-level-1" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_1" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-1">Add Spell</label>
                   <input id="spells-add-spell-1" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-1"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-1"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="2">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 2</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="2">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 2</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-2">Known</label>
                   <input id="spells-known-level-2" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_2" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-2">Daily</label>
                   <input id="spells-daily-level-2" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_2" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-2">DC</label>
                   <input id="spells-dc-level-2" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_2" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-2">Add Spell</label>
                   <input id="spells-add-spell-2" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-2"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-2"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="3">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 3</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="3">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 3</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-3">Known</label>
                   <input id="spells-known-level-3" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_3" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-3">Daily</label>
                   <input id="spells-daily-level-3" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_3" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-3">DC</label>
                   <input id="spells-dc-level-3" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_3" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-3">Add Spell</label>
                   <input id="spells-add-spell-3" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-3"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-3"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="4">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 4</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="4">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 4</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-4">Known</label>
                   <input id="spells-known-level-4" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_4" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-4">Daily</label>
                   <input id="spells-daily-level-4" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_4" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-4">DC</label>
                   <input id="spells-dc-level-4" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_4" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-4">Add Spell</label>
                   <input id="spells-add-spell-4" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-4"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-4"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="5">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 5</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="5">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 5</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-5">Known</label>
                   <input id="spells-known-level-5" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_5" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-5">Daily</label>
                   <input id="spells-daily-level-5" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_5" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-5">DC</label>
                   <input id="spells-dc-level-5" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_5" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-5">Add Spell</label>
                   <input id="spells-add-spell-5" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-5"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-5"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="6">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 6</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="6">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 6</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-6">Known</label>
                   <input id="spells-known-level-6" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_6" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-6">Daily</label>
                   <input id="spells-daily-level-6" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_6" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-6">DC</label>
                   <input id="spells-dc-level-6" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_6" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-6">Add Spell</label>
                   <input id="spells-add-spell-6" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-6"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-6"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="7">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 7</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="7">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 7</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-7">Known</label>
                   <input id="spells-known-level-7" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_7" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-7">Daily</label>
                   <input id="spells-daily-level-7" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_7" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-7">DC</label>
                   <input id="spells-dc-level-7" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_7" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-7">Add Spell</label>
                   <input id="spells-add-spell-7" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-7"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-7"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="8">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 8</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="8">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 8</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-8">Known</label>
                   <input id="spells-known-level-8" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_8" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-8">Daily</label>
                   <input id="spells-daily-level-8" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_8" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-8">DC</label>
                   <input id="spells-dc-level-8" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_8" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-8">Add Spell</label>
                   <input id="spells-add-spell-8" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-8"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-8"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="m-spell-book js-spell-book" data-spell-level="9">
-      <div class="m-edit-box">
-        <div class="row">
-          <div class="col-xs-12 col-md-3">
-            <h2 class="m-edit-box-title u-inline-with-input u-margin-with-input">Level 9</h2>
-          </div>
-          <div class="col-xs-12 col-md-9">
-            <div class="m-edit-box-wrapper">
-              <div class="m-edit-box-item">
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="m-spell-book js-spell-book" data-spell-level="9">
+          <div class="m-edit-box m-edit-box-break">
+            <div class="m-edit-box-head">
+              <h2 class="m-edit-box-title-with-label u-inline-with-input">Level 9</h2>
+            </div>
+            <div class="m-edit-box-body m-edit-box-body-group">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-known-level-9">Known</label>
                   <input id="spells-known-level-9" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.known.level_9" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-daily-level-9">Daily</label>
                   <input id="spells-daily-level-9" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.per_day.level_9" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item">
+              <div class="m-edit-box-item-small">
                 <div class="m-input-block js-input-block">
                   <label class="m-input-block-label js-input-block-label" for="spells-dc-level-9">DC</label>
                   <input id="spells-dc-level-9" class="m-input-block-field u-full-width js-input-block-field" data-type="number" data-path="spells.dc.level_9" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-item m-edit-box-item-20">
+              <div class="m-edit-box-item-medium">
                 <div class="m-input-block m-new-spell js-input-block js-new-spell">
                   <label class="m-input-block-label js-input-block-label" for="spells-add-spell-9">Add Spell</label>
                   <input id="spells-add-spell-9" class="m-new-spell-field m-input-block-field u-full-width js-input-block-field js-new-spell-field" type="text" tabindex="3">
                 </div>
               </div>
-              <div class="m-edit-box-bonus">
-                <a href="javascript:void(0)" class="m-edit-box-bonus-button u-inline-with-input button button-secondary button-medium button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
+              <div class="m-edit-box-item-button">
+                <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-new-spell-add" tabindex="3"><span class="icon-add"></span></a>
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-9 col-md-offset-3">
-            <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-9"></div>
+          <div class="m-edit-box m-edit-box-no-head-on-large">
+            <div class="m-edit-box-body">
+              <div class="m-edit-box-item-max">
+                <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-9"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
