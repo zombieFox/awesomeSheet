@@ -10,6 +10,7 @@ input[type="submit"] {
   border-style: solid;
   border-bottom-width: 2px;
   border-color: $gray-18;
+  border-radius: $border-radius-large;
   margin: 0 0 1em 0;
   text-align: center;
   text-decoration: none;
@@ -232,11 +233,19 @@ input[type="submit"] {
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 1em;
   width: 100%;
   .button,
   button {
     flex: 0 0 auto;
+    border-radius: 0;
     margin-bottom: 0;
+    &:first-of-type {
+      border-radius: $border-radius-large 0 0 $border-radius-large;
+    }
+    &:last-of-type {
+      border-radius: 0 $border-radius-large $border-radius-large 0;
+    }
   }
 }
 .button-group-right {

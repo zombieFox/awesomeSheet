@@ -32,7 +32,6 @@ var inputBlock = (function() {
 
   function focus(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
-    var inputBlockLabel;
     if (inputBlock.querySelector(".js-input-block-label")) {
       if (element == document.activeElement) {
         helper.addClass(inputBlock, "is-focus");
@@ -63,22 +62,7 @@ var inputBlock = (function() {
     _bind_name();
     _bind_class();
     _bind_level();
-    // _bind_inputControls();
   };
-
-  // function _bind_inputControls() {
-  //   var all_inputControls = helper.eA(".js-input-controls");
-  //   for (var i = 0; i < all_inputControls.length; i++) {
-  //     var add = all_inputControls[i].querySelector(".add");
-  //     var minus = all_inputControls[i].querySelector(".minus");
-  //     add.addEventListener("click", function() {
-  //       _addOrMinusInput(this);
-  //     }, false);
-  //     minus.addEventListener("click", function() {
-  //       _addOrMinusInput(this);
-  //     }, false);
-  //   };
-  // };
 
   function _addOrMinusInput(element) {
     var target;

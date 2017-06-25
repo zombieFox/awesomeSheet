@@ -1,17 +1,17 @@
 ::-webkit-input-placeholder {
-  color: $primary-color-10;
+  color: $secondary-color-16;
   transition: color $transition-ease-medium;
 }
 
 // Firefox 18
 :-moz-placeholder {
-  color: $primary-color-10;
+  color: $secondary-color-16;
   transition: color $transition-ease-medium;
 }
 
 // Firefox 19
 ::-moz-placeholder {
-  color: $primary-color-10;
+  color: $secondary-color-16;
   transition: color $transition-ease-medium;
 }
 
@@ -29,15 +29,15 @@
 
 .is-night-mode {
   ::-webkit-input-placeholder {
-    color: $primary-color-10;
+    color: $secondary-color-16;
   }
   // Firefox 18
   :-moz-placeholder {
-    color: $primary-color-10;
+    color: $secondary-color-16;
   }
   // Firefox 19
   ::-moz-placeholder {
-    color: $primary-color-10;
+    color: $secondary-color-16;
   }
 }
 

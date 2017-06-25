@@ -23,27 +23,29 @@ select {
 }
 .textarea,
 textarea {
-  background-color: $secondary-color-19;
-  font-family: $open-sans-regular;
+  background-color: $secondary-color-20;
   padding: 0.5em;
   margin: 0 0 1em;
   min-height: 2.5em;
-  color: $base-color;
   font-size: $font-size-100;
   line-height: $line-height-160;
   font-family: $open-sans-regular;
   box-sizing: border-box;
+  border-radius: $border-radius-large;
   border: 0;
-  border-bottom: $border;
-  border-bottom-color: $secondary-color-14;
-  transition: border-color $transition-ease-fast, padding $transition-ease-fast, background-color $transition-ease-medium, color $transition-ease-medium;
+  border: $border;
+  border-color: $gray-16;
+  box-shadow: $shadow-medium-inset;
   resize: vertical;
   &:hover {
-    border-color: $primary-color-10;
+    background-color: $secondary-color-19;
+    border-color: $secondary-color-06;
   }
   &:focus {
-    border-color: $secondary-color-10;
+    background-color: $white;
+    border-color: $primary-color-10;
     outline: 0;
+    box-shadow: none;
   }
 }
 .textarea-large {

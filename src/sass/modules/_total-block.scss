@@ -2,10 +2,11 @@
   background-color: $gray-19;
   border: $border;
   border-color: $gray-17;
+  border-radius: $border-radius-large;
   font-family: $open-sans-bold;
   height: 2.5em;
   line-height: $line-height-250;
-  padding: 0;
+  padding: 0 0.5em;
   box-sizing: border-box;
   text-align: center;
 }

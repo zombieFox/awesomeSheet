@@ -8,23 +8,40 @@
 .m-edit-controls {
   margin: 1em 0;
   box-sizing: border-box;
+  .button-group {
+    margin-bottom: 0;
+  }
 }
 .m-edit-box {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
 }
 .m-edit-box-head {
-  flex: 1 0 100%;
+  flex: 0 0 20%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.m-edit-box-title {
+.m-edit-box-no-head-on-large {
+  margin-left: 0;
+}
+.m-edit-box-no-head-on-small {
+  margin-left: 20%;
+}
+.m-edit-box-break {
+  flex-flow: column wrap;
+  .m-edit-box-head {
+    flex: 1 0 100%;
+  }
+}
+[class^="m-edit-box-title"] {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
+}
+.m-edit-box-title-with-label {
   margin-top: 1.25em;
 }
 .m-edit-box-body {
@@ -46,11 +63,15 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+    .button,
+    .m-stat-block-modifier,
+    .m-total-block-total {
+      border-radius: 0;
+    }
     .m-input-block {
       margin-right: -1px;
       z-index: 2;
-      &.is-focus,
-      &.is-hover {
+      &.is-focus {
         z-index: 3;
       }
       .m-input-block-field {
@@ -64,6 +85,7 @@
     }
     &:first-of-type {
       .button,
+      .m-edit-box-item-button,
       .m-stat-block-modifier,
       .m-total-block-total {
         border-radius: $border-radius-large 0 0 $border-radius-large;
@@ -76,6 +98,7 @@
     }
     &:last-of-type {
       .button,
+      .m-edit-box-item-button,
       .m-stat-block-modifier,
       .m-total-block-total {
         border-radius: 0 $border-radius-large $border-radius-large 0;
@@ -93,16 +116,22 @@
   padding-left: $gutter;
   padding-right: $gutter;
 }
-[class*="box-item-small"] {
+.m-edit-box-item-total {
+  flex: 0 1 4em;
+}
+.m-edit-box-item-small {
   flex: 1 1 20%;
 }
-[class*="box-item-medium"] {
+.m-edit-box-item-medium {
   flex: 1 1 40%;
 }
-[class*="box-item-large"] {
-  flex: 1 1 40%;
+.m-edit-box-item-large {
+  flex: 1 1 50%;
 }
-.m-edit-box-bonus-button {
+.m-edit-box-item-max {
+  flex: 1 1 100%;
+}
+.m-edit-box-item-button {
   align-self: flex-end;
   .button {
     margin-bottom: 1em;
@@ -116,7 +145,10 @@
     top: 5em;
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
-    box-shadow: $shadow-small;
+    .button-group {
+      box-shadow: $shadow-small;
+      border-radius: $border-radius-large;
+    }
   }
 }
 .is-night-mode {
@@ -128,28 +160,32 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-edit-box {
-    flex-flow: row nowrap;
-  }
   .m-edit-box-head {
     flex: 0 0 30%;
   }
-  .m-edit-box-no-head {
+  .m-edit-box-break {
+    flex-flow: row nowrap;
+    .m-edit-box-head {
+      flex: 0 0 30%;
+    }
+  }
+  .m-edit-box-no-head-on-large,
+  .m-edit-box-no-head-on-small {
     margin-left: 30%;
   }
-  [class*="box-item-small"] {
+  .m-edit-box-item-small {
     flex: 1 1 15%;
   }
-  [class*="box-item-medium"] {
+  .m-edit-box-item-medium {
     flex: 1 1 20%;
   }
-  [class*="box-item-large"] {
+  .m-edit-box-item-large {
     flex: 1 1 45%;
   }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
-  .m-edit-box-bonus-button {
+  .m-edit-box-item-button {
     .button {
       padding: 0;
     }

@@ -6,21 +6,13 @@
 
 .m-textarea-block-label {
   margin: 0;
-  padding: 0 0.5em;
+  padding: 0;
   display: block;
-  background-color: $gray-08;
-  color: $gray-20;
-  width: 100%;
   z-index: 2;
   font-size: $font-size-075;
-  line-height: 1.8;
-  transition: all $transition-ease-extra-fast;
-  cursor: text;
+  font-family: $open-sans-semi-bold;
   box-sizing: border-box;
   white-space: nowrap;
-  &.is-active {
-    background-color: $secondary-color-08;
-  }
 }
 
 .m-textarea-block-field {
