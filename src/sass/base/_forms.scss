@@ -140,34 +140,34 @@ input {
     }
     &:hover {
       & + label {
-        color: $primary-color-10;
-        &:before {
-          color: $primary-color-10;
-        }
-      }
-    }
-    &:focus {
-      & + label {
         color: $secondary-color-10;
         &:before {
           color: $secondary-color-10;
         }
       }
     }
+    &:focus {
+      & + label {
+        color: $primary-color-10;
+        &:before {
+          color: $primary-color-10;
+        }
+      }
+    }
     &:checked {
       &:hover {
         & + label {
-          color: $primary-color-10;
+          color: $secondary-color-10;
           &:before {
-            color: $primary-color-10;
+            color: $secondary-color-10;
           }
         }
       }
       &:focus {
         & + label {
-          color: $secondary-color-10;
+          color: $primary-color-10;
           &:before {
-            color: $secondary-color-10;
+            color: $primary-color-10;
           }
         }
       }
@@ -241,30 +241,22 @@ input {
       }
       &:hover {
         & + label {
-          color: $primary-color-10;
-          &:before {
-            color: $primary-color-10;
-          }
-        }
-      }
-      &:focus {
-        & + label {
           color: $secondary-color-10;
           &:before {
             color: $secondary-color-10;
           }
         }
       }
-      &:checked {
-        &:hover {
-          & + label {
+      &:focus {
+        & + label {
+          color: $primary-color-10;
+          &:before {
             color: $primary-color-10;
-            &:before {
-              color: $primary-color-10;
-            }
           }
         }
-        &:focus {
+      }
+      &:checked {
+        &:hover {
           & + label {
             color: $secondary-color-10;
             &:before {
@@ -272,9 +264,17 @@ input {
             }
           }
         }
+        &:focus {
+          & + label {
+            color: $primary-color-10;
+            &:before {
+              color: $primary-color-10;
+            }
+          }
+        }
         & + label {
           &:before {
-            color: $secondary-color-10;
+            // color: $secondary-color-10;
           }
         }
       }

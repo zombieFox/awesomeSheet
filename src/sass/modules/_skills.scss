@@ -1,108 +1,124 @@
 .m-skill {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  // display: flex;
+  // flex-flow: row nowrap;
+  // justify-content: flex-start;
+  // align-items: center;
   font-size: $font-size-root-100;
-  &:last-of-type {
-    margin-bottom: 2em;
-  }
+  // &:last-of-type {
+  //   margin-bottom: 2em;
+  // }
+}
+.m-skill-class-skill {
+  background-color: $white;
+  border: $border;
+  border-color: $gray-17;
+  height: 2.5em;
+  line-height: $line-height-250;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
 }
 .m-skill-name {
-  font-size: $font-size-100;
-  flex: 1 0 40%;
-  &:not(:last-child) {
-    margin-bottom: 0;
-  }
+  // font-size: $font-size-100;
+  // flex: 1 0 40%;
+  // &:not(:last-child) {
+  // margin-bottom: 0;
+  // }
 }
 .m-skill-total {
-  flex: 0 0 15%;
-  text-align: center;
-  &:not(:last-child) {
-    margin-bottom: 0;
-  }
+  // flex: 0 0 15%;
+  // text-align: center;
+  // &:not(:last-child) {
+  //   margin-bottom: 0;
+  // }
 }
 .m-skill-misc,
 .m-skill-ranks {
-  flex: 0 0 10%;
-  input {
-    &[type="email"],
-    &[type="number"],
-    &[type="password"],
-    &[type="search"],
-    &[type="tel"],
-    &[type="text"],
-    &[type="url"] {
-      text-align: center;
-      padding: 0;
-    }
-  }
+  // flex: 0 0 10%;
+  // input {
+  //   &[type="email"],
+  //   &[type="number"],
+  //   &[type="password"],
+  //   &[type="search"],
+  //   &[type="tel"],
+  //   &[type="text"],
+  //   &[type="url"] {
+  //     text-align: center;
+  //     padding: 0;
+  //   }
+  // }
 }
 .m-skill-class-skill {
-  position: relative;
-  flex: 0 0 10%;
-  text-align: center;
+  // position: relative;
+  // flex: 0 0 10%;
+  // text-align: center;
 }
 .m-skill-bonus {
-  flex: 0 0 0;
+  // flex: 0 0 0;
 }
 .m-skill-bonus-button {
-  padding: 0 0.5em;
-  margin: 0;
+  // padding: 0 0.5em;
+  // margin: 0;
 }
 .m-skill-variant {
-  .m-skill-name {
-    flex: 0 0 20%;
-  }
-  .m-skill-variant-name {
-    flex: 1 0 20%;
-  }
+  // .m-skill-name {
+  //   flex: 0 0 20%;
+  // }
+  // .m-skill-variant-name {
+  //   flex: 1 0 20%;
+  // }
+}
+.m-skill-variant-name {
+  width: 100%;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 .m-skill-title {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  // display: flex;
+  // flex-flow: row nowrap;
+  // justify-content: flex-start;
+  // align-items: center;
 }
 .m-skill-bonus-title {
-  margin: 0;
+  // margin: 0;
 }
 .m-skill-class-skill-title,
 .m-skill-misc-title,
 .m-skill-name-title,
 .m-skill-ranks-title,
 .m-skill-total-title {
-  line-height: $line-height-160;
-  margin-bottom: 1em;
+  // line-height: $line-height-160;
+  // margin-bottom: 1em;
 }
 .m-skill-name-title {
-  flex: 1 0 40%;
+  // flex: 1 0 40%;
 }
 .m-skill-total-title {
-  flex: 0 0 15%;
-  text-align: center;
+  // flex: 0 0 15%;
+  // text-align: center;
 }
 .m-skill-misc-title,
 .m-skill-ranks-title {
-  flex: 0 0 10%;
-  text-align: center;
+  // flex: 0 0 10%;
+  // text-align: center;
 }
 .m-skill-class-skill-title {
-  flex: 0 0 10%;
-  text-align: center;
+  // flex: 0 0 10%;
+  // text-align: center;
 }
 .m-skill-bonus-title {
-  flex: 0 0 0;
+  // flex: 0 0 0;
 }
 .m-skill-bonus-title-spacer {
-  padding: 0 0.5em;
-  display: block;
-  font-size: $font-size-100;
-  [class*=" icon-"],
-  [class^="icon-"] {
-    font-size: 1.4em;
-    line-height: 1;
-  }
+  // padding: 0 0.5em;
+  // display: block;
+  // font-size: $font-size-100;
+  // [class*=" icon-"],
+  // [class^="icon-"] {
+  //   font-size: 1.4em;
+  //   line-height: 1;
+  // }
 }
 // --------------------------------------------------
 // media queries
@@ -110,11 +126,11 @@
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
-  .m-skill-bonus-button {
-    padding: 0;
-  }
-  .m-skill-bonus-title-spacer {
-    padding: 0;
-  }
+  // .m-skill-bonus-button {
+  //   padding: 0;
+  // }
+  // .m-skill-bonus-title-spacer {
+  //   padding: 0;
+  // }
 }
 @media (min-width: $screen-xl) {}

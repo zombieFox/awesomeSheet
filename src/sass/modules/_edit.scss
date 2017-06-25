@@ -16,19 +16,21 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
 }
 .m-edit-box-head {
-  flex: 0 0 20%;
+  flex: 0 0 30%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
 }
 .m-edit-box-no-head-on-large {
-  margin-left: 0;
+  padding-left: 0;
 }
 .m-edit-box-no-head-on-small {
-  margin-left: 20%;
+  padding-left: 30%;
 }
 .m-edit-box-break {
   flex-flow: column wrap;
@@ -117,7 +119,7 @@
   padding-right: $gutter;
 }
 .m-edit-box-item-total {
-  flex: 0 1 4em;
+  flex: 0 0 4em;
 }
 .m-edit-box-item-small {
   flex: 1 1 20%;
@@ -133,10 +135,28 @@
 }
 .m-edit-box-item-button {
   align-self: flex-end;
+  flex: 0 0 3em;
   .button {
     margin-bottom: 1em;
-    padding: 0 0.5em;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
+}
+[class^="m-edit-box-label"] {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: $font-size-075;
+  font-family: $open-sans-semi-bold;
+  color: $secondary-color-06;
+  box-sizing: border-box;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+.m-edit-box-label-total {
+  color: $gray-14;
 }
 .is-pinned {
   .m-edit-controls {
@@ -171,7 +191,7 @@
   }
   .m-edit-box-no-head-on-large,
   .m-edit-box-no-head-on-small {
-    margin-left: 30%;
+    padding-left: 30%;
   }
   .m-edit-box-item-small {
     flex: 0 1 20%;
@@ -182,14 +202,12 @@
   .m-edit-box-item-large {
     flex: 1 1 45%;
   }
+  .m-edit-box-item-button {
+    flex: 0 0 2em;
+  }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
-  .m-edit-box-item-button {
-    .button {
-      padding: 0;
-    }
-  }
   .is-pinned {
     .m-edit-controls {
       top: 0.5em;
