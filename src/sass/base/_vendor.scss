@@ -1,17 +1,17 @@
 ::-webkit-input-placeholder {
-  color: $secondary-color-16;
+  color: $gray-14;
   transition: color $transition-ease-medium;
 }
 
 // Firefox 18
 :-moz-placeholder {
-  color: $secondary-color-16;
+  color: $gray-14;
   transition: color $transition-ease-medium;
 }
 
 // Firefox 19
 ::-moz-placeholder {
-  color: $secondary-color-16;
+  color: $gray-14;
   transition: color $transition-ease-medium;
 }
 
@@ -27,19 +27,19 @@
   overflow: auto;
 }
 
-.is-night-mode {
-  ::-webkit-input-placeholder {
-    color: $secondary-color-16;
-  }
-  // Firefox 18
-  :-moz-placeholder {
-    color: $secondary-color-16;
-  }
-  // Firefox 19
-  ::-moz-placeholder {
-    color: $secondary-color-16;
-  }
-}
+// .is-night-mode {
+//   ::-webkit-input-placeholder {
+//     color: $secondary-color-16;
+//   }
+//   // Firefox 18
+//   :-moz-placeholder {
+//     color: $secondary-color-16;
+//   }
+//   // Firefox 19
+//   ::-moz-placeholder {
+//     color: $secondary-color-16;
+//   }
+// }
 
 // --------------------------------------------------
 // media queries
