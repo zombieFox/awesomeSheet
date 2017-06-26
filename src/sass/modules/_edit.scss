@@ -1,17 +1,3 @@
-.m-edit-wrapper {
-  margin: 2em 1em;
-}
-.m-edit-title {
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-100;
-}
-.m-edit-controls {
-  margin: 1em 0;
-  box-sizing: border-box;
-  .button-group {
-    margin-bottom: 0;
-  }
-}
 .m-edit-box {
   display: flex;
   flex-flow: row nowrap;
@@ -20,7 +6,7 @@
   box-sizing: border-box;
 }
 .m-edit-box-head {
-  flex: 0 0 30%;
+  flex: 0 0 20%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -30,7 +16,7 @@
   padding-left: 0;
 }
 .m-edit-box-no-head-on-small {
-  padding-left: 30%;
+  padding-left: 20%;
 }
 .m-edit-box-break {
   flex-flow: column wrap;
@@ -42,6 +28,8 @@
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
+  padding: 0.5em 0;
+  line-height: $line-height-150;
 }
 .m-edit-box-title-with-label {
   margin-top: 1.25em;
@@ -54,6 +42,42 @@
   align-items: stretch;
   margin-left: -$gutter;
   margin-right: -$gutter;
+}
+[class^="m-edit-box-item"] {
+  flex: 0 0 auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  margin-bottom: 1em;
+}
+.m-edit-box-item-total {
+  flex: 0 0 4em;
+}
+.m-edit-box-item-small {
+  flex: 1 1 20%;
+}
+.m-edit-box-item-medium {
+  flex: 1 1 40%;
+}
+.m-edit-box-item-large {
+  flex: 1 1 50%;
+}
+.m-edit-box-item-max {
+  flex: 1 1 100%;
+}
+[class^="m-edit-box-item-button"] {
+  flex: 0 0 3em;
+  .button {
+    // margin-bottom: 1em;
+    margin: 0;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.m-edit-box-item-button-with-label {
+  .button {
+    margin-top: 1.25em;
+  }
 }
 .m-edit-box-body-group {
   position: relative;
@@ -71,6 +95,7 @@
       border-radius: 0;
     }
     .m-input-block {
+      margin-left: -1px;
       margin-right: -1px;
       z-index: 2;
       &.is-focus {
@@ -113,36 +138,6 @@
     }
   }
 }
-[class^="m-edit-box-item"] {
-  flex: 0 0 auto;
-  padding-left: $gutter;
-  padding-right: $gutter;
-}
-.m-edit-box-item-total {
-  flex: 0 0 4em;
-}
-.m-edit-box-item-small {
-  flex: 1 1 20%;
-}
-.m-edit-box-item-medium {
-  flex: 1 1 40%;
-}
-.m-edit-box-item-large {
-  flex: 1 1 50%;
-}
-.m-edit-box-item-max {
-  flex: 1 1 100%;
-}
-.m-edit-box-item-button {
-  align-self: flex-end;
-  flex: 0 0 3em;
-  .button {
-    margin-bottom: 1em;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 [class^="m-edit-box-label"] {
   margin: 0;
   padding: 0;
@@ -157,6 +152,13 @@
 }
 .m-edit-box-label-total {
   color: $gray-14;
+}
+.m-edit-controls {
+  margin: 1em 0;
+  box-sizing: border-box;
+  .button-group {
+    margin-bottom: 0;
+  }
 }
 .is-pinned {
   .m-edit-controls {
@@ -202,7 +204,7 @@
   .m-edit-box-item-large {
     flex: 1 1 45%;
   }
-  .m-edit-box-item-button {
+  [class^="m-edit-box-item-button"] {
     flex: 0 0 2em;
   }
 }
