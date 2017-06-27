@@ -63,38 +63,37 @@ var clone = (function() {
   function _newConsumable(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
-      '      <div class="js-total-block">' +
-      '        <div class="row no-gutter">' +
-      '          <div class="col-xs-6">' +
-      '            <div class="m-input-block js-input-block">' +
-      '              <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
-      '              <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
-      '            </div>' +
+      '  <div class="js-total-block">' +
+      '    <div class="m-edit-box m-edit-box-no-head-small">' +
+      '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '        <div class="m-edit-box-item-large">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
+      '            <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
       '          </div>' +
-      '          <div class="col-xs-2">' +
-      '            <p class="u-text-center u-margin-with-input u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
+      '        </div>' +
+      '        <div class="m-edit-box-item-total">' +
+      '          <p class="m-total-block-label">Total</p>' +
+      '          <p class="u-text-center u-background-with-input u-inline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
+      '        </div>' +
+      '        <div class="m-edit-box-item-small">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Max</label>' +
+      '            <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
       '          </div>' +
-      '          <div class="col-xs-2">' +
-      '            <div class="m-input-block js-input-block">' +
-      '              <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Total</label>' +
-      '              <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
-      '            </div>' +
-      '          </div>' +
-      '          <div class="col-xs-2">' +
-      '            <div class="m-input-block js-input-block">' +
-      '              <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
-      '              <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
-      '            </div>' +
+      '        </div>' +
+      '        <div class="m-edit-box-item-small">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
+      '            <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -194,17 +193,15 @@ var clone = (function() {
   function _newNoteCharacter(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
-      '      <div class="m-textarea-block js-textarea-block">' +
-      '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
-      '        <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
-      '      </div>' +
+      '  <div class="m-edit-box-item-max">' +
+      '    <div class="m-textarea-block js-textarea-block">' +
+      '      <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
+      '      <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -212,17 +209,15 @@ var clone = (function() {
   function _newNoteStory(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
-      '      <div class="m-textarea-block js-textarea-block">' +
-      '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
-      '        <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
-      '      </div>' +
+      '  <div class="m-edit-box-item-max">' +
+      '    <div class="m-textarea-block js-textarea-block">' +
+      '      <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
+      '      <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };

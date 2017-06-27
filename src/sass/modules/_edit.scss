@@ -12,6 +12,7 @@
   border-bottom: $border;
   border-bottom-color: $gray-18;
 }
+[class*="m-edit-box-head"],
 [class^="m-edit-box-head"] {
   display: flex;
   flex-flow: row nowrap;
@@ -36,6 +37,7 @@
 .m-edit-box-no-head-large {
   padding-left: 45%;
 }
+[class*="m-edit-box-title"],
 [class^="m-edit-box-title"] {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
@@ -56,6 +58,7 @@
   margin-left: -$gutter;
   margin-right: -$gutter;
 }
+[class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
   flex: 0 0 auto;
   padding-left: $gutter;
@@ -97,6 +100,7 @@
   z-index: 1;
   margin-left: 0;
   margin-right: 0;
+  [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
     margin-right: 0;
     padding-left: 0;
@@ -154,10 +158,12 @@
   }
 }
 .m-edit-box-body-item-margin {
+  [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
+[class*="m-edit-box-label"],
 [class^="m-edit-box-label"] {
   margin: 0;
   padding: 0;

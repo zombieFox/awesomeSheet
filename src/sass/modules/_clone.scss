@@ -1,5 +1,6 @@
 .m-clone-block {
   .m-clone-block-target {
+    width: 100%;
     .m-clone {
       transition: all $transition-ease-extra-fast;
       position: relative;
@@ -21,8 +22,8 @@
         transition: all $transition-ease-extra-fast;
       }
       .m-clone-block-content {
-        margin: 0;
-        padding: 0;
+        // margin: 0;
+        // padding: 0;
         border-radius: 0;
         position: relative;
         z-index: 1;
@@ -31,7 +32,7 @@
           background-color: $primary-color-10;
           position: absolute;
           display: block;
-          top: 1em;
+          top: 0;
           left: 0;
           width: 0;
           height: 0;
@@ -56,9 +57,10 @@
         }
         &.m-clone-block-content-box {
           background-color: $gray-20;
-          border-bottom: $border;
-          border-color: $gray-19;
-          padding: 1em 1em 0;
+          border: $border;
+          border-color: $gray-17;
+          border-radius: $border-radius-large;
+          padding: 1em;
           .m-clone-flash {
             top: 0;
           }
@@ -112,13 +114,15 @@
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
-        margin: 0 0 $font-size-025;
+        margin: 0 0 1em 0;
+        padding: 0 0.5em;
         .textarea,
         textarea {
           background-color: transparent;
-          border-color: $primary-color-alpha-18;
-          margin: 0 0 1em;
-          padding: 0 10px $font-size-050 0;
+          border-color: $primary-color-10;
+          box-shadow: none;
+          margin: 0;
+          // padding: 0;
         }
         input {
           &[type="email"],
@@ -128,9 +132,10 @@
           &[type="tel"],
           &[type="text"] {
             background-color: transparent;
-            border-color: $primary-color-alpha-18;
-            padding: 0 10px 0 0;
-            margin: 0;
+            border-color: $primary-color-10;
+            box-shadow: none;
+            padding: 0;
+            // margin: 0;
           }
         }
         label {
@@ -139,11 +144,14 @@
         }
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: 1em 4em 1em 1em;
+          padding: 0 4em 1em 0.5em;
           border-color: transparent;
           border-radius: $border-radius-medium;
           &.m-clone-block-content-box {
-            padding: 1em 4em 1em 1em;
+            padding: 0 4em 1em 0.5em;
+          }
+          .m-edit-box-item-max {
+            margin-bottom: 0;
           }
         }
         .u-underline-with-input {
