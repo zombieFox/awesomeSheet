@@ -54,7 +54,7 @@
           color: $white;
         }
         .m-spell-name {
-          max-width: 85%;
+          max-width: 80%;
         }
         .m-spell-marks {
           display: none;
@@ -105,7 +105,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
   font-family: $open-sans-regular;
   .m-spell-flash {
     background-color: $primary-color-10;
@@ -156,6 +156,7 @@
     [class^="icon-"] {
       float: left;
       margin: 0 5px 0 0;
+      line-height: $line-height-160;
     }
   }
   .m-spell-marks {
@@ -164,18 +165,17 @@
     [class*=" icon-"],
     [class^="icon-"] {
       float: right;
-      margin: 0 0 0 1px;
+      margin: 0 0 0 2px;
+      line-height: $line-height-160;
     }
   }
   .m-spell-remove {
     display: none;
     visibility: hidden;
-    font-size: $font-size-150;
+    font-size: 1.4em;
+    line-height: 1;
     [class*=" icon-"],
-    [class^="icon-"] {
-      float: right;
-      margin: 0;
-    }
+    [class^="icon-"] {}
   }
 }
 .m-spell-controls {
