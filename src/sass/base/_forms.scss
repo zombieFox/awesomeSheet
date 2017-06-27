@@ -4,7 +4,7 @@ select {
   border-width: 1px;
   border-style: solid;
   border-color: $gray-18;
-  margin: 0 0 1em;
+  margin: 0;
   padding: 0.5em 0;
   color: $base-color;
   font-size: $font-size-100;
@@ -25,7 +25,7 @@ select {
 textarea {
   background-color: $secondary-color-20;
   padding: 0.5em;
-  margin: 0 0 1em;
+  margin: 0;
   min-height: 2.5em;
   font-size: $font-size-100;
   line-height: $line-height-160;
