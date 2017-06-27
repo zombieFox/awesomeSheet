@@ -67,6 +67,9 @@
 .m-edit-box-item-total {
   flex: 0 0 4em;
 }
+.m-edit-box-item-check {
+  flex: 0 0 3em;
+}
 .m-edit-box-item-small {
   flex: 0 1 20%;
 }
@@ -163,7 +166,6 @@
   font-family: $open-sans-semi-bold;
   color: $secondary-color-06;
   box-sizing: border-box;
-  white-space: nowrap;
   width: 100%;
   text-align: center;
 }

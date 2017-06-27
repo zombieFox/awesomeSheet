@@ -8,5 +8,6 @@
   checkUrl.render();
   log.bind();
   log.render();
+  nav.open();
 
 })();
