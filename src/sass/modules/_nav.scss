@@ -211,7 +211,9 @@
             color: $white;
           }
           .m-nav-characters-class,
-          .m-nav-characters-level,
+          .m-nav-characters-level {
+            color: $primary-color-17;
+          }
           .m-nav-characters-name {
             color: $white;
           }
