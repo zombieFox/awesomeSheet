@@ -66,6 +66,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
+  transition: margin $transition-ease-fast;
 }
 .m-edit-box-item-total {
   flex: 0 0 4em;

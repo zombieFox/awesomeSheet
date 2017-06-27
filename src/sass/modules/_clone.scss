@@ -22,8 +22,6 @@
         transition: all $transition-ease-extra-fast;
       }
       .m-clone-block-content {
-        // margin: 0;
-        // padding: 0;
         border-radius: 0;
         position: relative;
         z-index: 1;
@@ -115,7 +113,6 @@
     .m-clone-block-target {
       .m-clone {
         margin: 0 0 1em 0;
-        padding: 0 0.5em;
         .textarea,
         textarea {
           background-color: transparent;
@@ -123,6 +120,10 @@
           box-shadow: none;
           margin: 0;
           // padding: 0;
+        }
+        .m-total-block-total {
+          background-color: transparent;
+          border-color: $primary-color-10;
         }
         input {
           &[type="email"],
@@ -134,23 +135,25 @@
             background-color: transparent;
             border-color: $primary-color-10;
             box-shadow: none;
-            padding: 0;
+            // padding: 0;
             // margin: 0;
           }
         }
+        .m-total-block-label,
         label {
           color: transparent;
           visibility: hidden;
         }
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: 0 4em 1em 0.5em;
+          padding: 0 4em 1em 0;
           border-color: transparent;
           border-radius: $border-radius-medium;
           &.m-clone-block-content-box {
-            padding: 0 4em 1em 0.5em;
+            padding: 0 4em 1em 0;
           }
-          .m-edit-box-item-max {
+          [class*="m-edit-box-item"],
+          [class^="m-edit-box-item"] {
             margin-bottom: 0;
           }
         }
