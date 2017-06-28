@@ -148,6 +148,7 @@
     display: block;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
     max-width: 100%;
   }
   .m-spell-active {

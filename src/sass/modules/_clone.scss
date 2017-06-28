@@ -1,6 +1,8 @@
 .m-clone-block {
   .m-clone-block-target {
     width: 100%;
+    padding-left: 30%;
+    box-sizing: border-box;
     .m-clone {
       transition: all $transition-ease-extra-fast;
       position: relative;
@@ -30,8 +32,8 @@
           background-color: $primary-color-10;
           position: absolute;
           display: block;
-          top: 0;
-          left: 0;
+          top: 50%;
+          left: -1em;
           width: 0;
           height: 0;
           border-radius: 100%;
@@ -116,6 +118,9 @@
         .textarea,
         textarea {
           background-color: transparent;
+          border-radius: 0;
+          border: 0;
+          border-bottom: $border;
           border-color: $primary-color-10;
           box-shadow: none;
           margin: 0;
@@ -123,6 +128,9 @@
         }
         .m-total-block-total {
           background-color: transparent;
+          border-radius: 0;
+          border: 0;
+          border-bottom: $border;
           border-color: $primary-color-10;
         }
         input {
@@ -133,6 +141,9 @@
           &[type="tel"],
           &[type="text"] {
             background-color: transparent;
+            border-radius: 0;
+            border: 0;
+            border-bottom: $border;
             border-color: $primary-color-10;
             box-shadow: none;
             // padding: 0;
@@ -146,11 +157,11 @@
         }
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: 0 4em 1em 0;
+          padding: 0 4em 1em 1em;
           border-color: transparent;
           border-radius: $border-radius-medium;
           &.m-clone-block-content-box {
-            padding: 0 4em 1em 0;
+            padding: 0 4em 1em 1em;
           }
           [class*="m-edit-box-item"],
           [class^="m-edit-box-item"] {

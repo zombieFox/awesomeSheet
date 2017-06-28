@@ -69,7 +69,7 @@
   transition: margin $transition-ease-fast;
 }
 .m-edit-box-item-total {
-  flex: 0 0 4em;
+  flex: 0 0 3em;
 }
 .m-edit-box-item-check {
   flex: 0 0 3em;
@@ -208,6 +208,9 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
+  .m-edit-box-item-total {
+    flex: 0 0 4em;
+  }
   .m-edit-box-head-small {
     flex: 0 0 30%;
   }
