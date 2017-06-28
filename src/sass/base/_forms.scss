@@ -74,6 +74,10 @@ input {
     &:hover {
       background-color: $secondary-color-19;
       border-color: $secondary-color-06;
+      &:focus {
+        background-color: $white;
+        border-color: $primary-color-10;
+      }
     }
     &:focus {
       background-color: $white;

@@ -27,6 +27,12 @@
   overflow: auto;
 }
 
+.is-display-mode {
+  ::selection {
+    background-color: $secondary-color-10;
+    color: $white;
+  }
+}
 // .is-night-mode {
 //   ::-webkit-input-placeholder {
 //     color: $secondary-color-16;
