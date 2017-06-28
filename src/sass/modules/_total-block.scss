@@ -16,7 +16,7 @@
   color: $gray-14;
   font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
-  transition: all $transition-ease-extra-fast;
+  transition: all $transition-ease-medium;
   box-sizing: border-box;
   white-space: nowrap;
   &:not(:only-child):not(:last-child) {

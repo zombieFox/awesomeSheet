@@ -58,6 +58,12 @@
   margin-left: -$gutter;
   margin-right: -$gutter;
 }
+.m-edit-box-body-multiple {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
   flex: 0 0 auto;
@@ -66,7 +72,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  transition: margin $transition-ease-fast;
+  transition: margin $transition-ease-medium;
 }
 .m-edit-box-item-total {
   flex: 0 0 3em;
@@ -180,8 +186,8 @@
   color: $gray-14;
 }
 .m-edit-controls {
-  margin: 1em 0;
-  box-sizing: border-box;
+  margin: 0 0 1em 0;
+  // box-sizing: border-box;
   .button-group {
     margin-bottom: 0;
   }

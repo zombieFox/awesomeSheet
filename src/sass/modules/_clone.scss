@@ -1,14 +1,12 @@
 .m-clone-block {
   .m-clone-block-target {
     width: 100%;
-    padding-left: 30%;
-    box-sizing: border-box;
     .m-clone {
-      transition: all $transition-ease-extra-fast;
+      transition: all $transition-ease-medium;
       position: relative;
       .textarea,
       textarea {
-        transition: background-color $transition-ease-extra-fast, border $transition-ease-extra-fast, margin $transition-ease-extra-fast, padding $transition-ease-extra-fast;
+        // transition: background-color $transition-ease-medium, border $transition-ease-medium, margin $transition-ease-medium, padding $transition-ease-medium;
       }
       input {
         &[type="email"],
@@ -17,17 +15,18 @@
         &[type="search"],
         &[type="tel"],
         &[type="text"] {
-          transition: background-color $transition-ease-extra-fast, border $transition-ease-extra-fast, margin $transition-ease-extra-fast, padding $transition-ease-extra-fast;
+          // transition: background-color $transition-ease-medium, border $transition-ease-medium, margin $transition-ease-medium, padding $transition-ease-medium;
         }
       }
       label {
-        transition: all $transition-ease-extra-fast;
+        // transition: all $transition-ease-medium;
       }
       .m-clone-block-content {
         border-radius: 0;
         position: relative;
         z-index: 1;
-        transition: all $transition-ease-extra-fast;
+        transition: all $transition-ease-fast;
+        transform-origin: left center;
         .m-clone-flash {
           background-color: $primary-color-10;
           position: absolute;
@@ -60,13 +59,10 @@
           border: $border;
           border-color: $gray-17;
           border-radius: $border-radius-large;
-          padding: 1em;
-          .m-clone-flash {
-            top: 0;
-          }
-          &:not(:only-child):not(:last-child) {
-            margin-bottom: 1em;
-          }
+          margin: 0 0 1em 0;
+          padding: 1em 1em 0 1em;
+          width: 100%;
+          box-sizing: border-box;
         }
       }
       .m-clone-block-delete-controls {
@@ -78,7 +74,7 @@
         visibility: hidden;
         z-index: 2;
         overflow: hidden;
-        transition: all $transition-ease-extra-fast 0s;
+        transition: all $transition-ease-medium 0s;
         .button {
           padding: 0 $font-size-050;
           margin: 0;
@@ -93,7 +89,7 @@
       .u-background-with-input,
       .u-margin-with-input,
       .u-underline-with-input {
-        transition: margin $transition-ease-extra-fast, background-color $transition-ease-extra-fast, border-color $transition-ease-extra-fast;
+        // transition: margin $transition-ease-medium, background-color $transition-ease-medium, border-color $transition-ease-medium;
       }
     }
   }
@@ -114,54 +110,58 @@
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
-        margin: 0 0 1em 0;
-        .textarea,
-        textarea {
-          background-color: transparent;
-          border-radius: 0;
-          border: 0;
-          border-bottom: $border;
-          border-color: $primary-color-10;
-          box-shadow: none;
-          margin: 0;
-          // padding: 0;
-        }
-        .m-total-block-total {
-          background-color: transparent;
-          border-radius: 0;
-          border: 0;
-          border-bottom: $border;
-          border-color: $primary-color-10;
-        }
-        input {
-          &[type="email"],
-          &[type="number"],
-          &[type="password"],
-          &[type="search"],
-          &[type="tel"],
-          &[type="text"] {
-            background-color: transparent;
-            border-radius: 0;
-            border: 0;
-            border-bottom: $border;
-            border-color: $primary-color-10;
-            box-shadow: none;
-            // padding: 0;
-            // margin: 0;
-          }
-        }
-        .m-total-block-label,
-        label {
-          color: transparent;
-          visibility: hidden;
-        }
+        margin: 0 0 1em;
+        // .textarea,
+        // textarea {
+        //   background-color: $primary-color-18;
+        //   // border-radius: 0;
+        //   border: 0;
+        //   // border-bottom: $border;
+        //   // border-color: $primary-color-10;
+        //   border-color: $primary-color-19;
+        //   box-shadow: none;
+        //   margin: 0;
+        //   // padding: 0;
+        // }
+        // .m-total-block-total {
+        //   background-color: $primary-color-18;
+        //   // border-radius: 0;
+        //   border: 0;
+        //   // border-bottom: $border;
+        //   border-color: $primary-color-19;
+        //   // border-color: $primary-color-10;
+        // }
+        // input {
+        //   &[type="email"],
+        //   &[type="number"],
+        //   &[type="password"],
+        //   &[type="search"],
+        //   &[type="tel"],
+        //   &[type="text"] {
+        //     background-color: $primary-color-18;
+        //     // border-radius: 0;
+        //     border: 0;
+        //     // border-bottom: $border;
+        //     border-color: $primary-color-19;
+        //     box-shadow: none;
+        //     // padding: 0;
+        //     // margin: 0;
+        //   }
+        // }
+        // .m-total-block-label,
+        // label {
+        //   // color: transparent;
+        //   // visibility: hidden;
+        //   // color: $base-color;
+        //   color: $primary-color-16;
+        // }
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: 0 4em 1em 1em;
+          padding: 0.3em 4em 1em 1em;
           border-color: transparent;
           border-radius: $border-radius-medium;
           &.m-clone-block-content-box {
-            padding: 0 4em 1em 1em;
+            padding: 0.3em 4em 1em 1em;
           }
           [class*="m-edit-box-item"],
           [class^="m-edit-box-item"] {
