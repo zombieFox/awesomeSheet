@@ -171,7 +171,6 @@ var spells = (function() {
     };
 
     function _create_spellModal() {
-
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
       spellControl.setAttribute("data-spell-level", spellLevel);
@@ -213,7 +212,7 @@ var spells = (function() {
       var preparedEditBoxBody = document.createElement("div");
       preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
       var preparedEditBoxBodyItem1 = document.createElement("div");
-      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-large");
       var preparedEditBoxBodyItem2 = document.createElement("div");
       preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-medium");
       var preparedEditBoxBodyItem3 = document.createElement("div");
@@ -224,7 +223,7 @@ var spells = (function() {
       preparedCount.setAttribute("class", "m-total-block-total js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "m-spell-control-button u-no-margin button button-medium button-icon button-secondary");
+      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
       preparedPlus.setAttribute("tabindex", "3");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
@@ -233,7 +232,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "m-spell-control-button u-no-margin button button-medium button-icon button-secondary");
+      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
       preparedMinus.setAttribute("tabindex", "3");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
@@ -242,7 +241,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "m-spell-control-button u-no-margin button button-medium button-icon button-secondary");
+      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
       preparedClear.setAttribute("tabindex", "3");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
@@ -276,7 +275,7 @@ var spells = (function() {
       var castEditBoxBody = document.createElement("div");
       castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
       var castEditBoxBodyItem1 = document.createElement("div");
-      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-large");
       var castEditBoxBodyItem2 = document.createElement("div");
       castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-medium");
       var castEditBoxBodyItem3 = document.createElement("div");
@@ -287,7 +286,7 @@ var spells = (function() {
       castCount.setAttribute("class", "m-total-block-total js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "m-spell-control-button u-no-margin button button-medium button-icon button-secondary");
+      castPlus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
       castPlus.setAttribute("tabindex", "3");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
@@ -296,7 +295,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "m-spell-control-button u-no-margin button button-medium button-icon button-secondary");
+      castMinus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
       castMinus.setAttribute("tabindex", "3");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
@@ -305,7 +304,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castClear = document.createElement("button");
-      castClear.setAttribute("class", "m-spell-control-button u-no-margin button button-medium button-icon button-secondary");
+      castClear.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
       castClear.setAttribute("tabindex", "3");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");
@@ -389,210 +388,12 @@ var spells = (function() {
       noteEditBox.appendChild(noteEditBoxHead);
       noteEditBox.appendChild(noteEditBoxBody);
 
-
-
-
-      // var container = document.createElement("div");
-      // container.setAttribute("class", "container");
-      // var row = document.createElement("div");
-      // row.setAttribute("class", "row");
-      // var col = document.createElement("div");
-      // col.setAttribute("class", "col-xs-12");
-
-      //
-      // // prepared
-      // var preparedSpellControlRow = document.createElement("div");
-      // preparedSpellControlRow.setAttribute("class", "m-spell-control-row");
-      //
-      // var preparedTitle = document.createElement("p");
-      // preparedTitle.setAttribute("class", "m-spell-control-title u-underline-with-input u-inline-with-input u-no-margin");
-      // preparedTitle.textContent = "Prepared";
-      //
-      // var preparedCount = document.createElement("p");
-      // preparedCount.setAttribute("class", "m-spell-control-count u-background-with-input u-inline-with-input u-underline-with-input u-no-margin js-spell-control-prepared-count");
-      // preparedCount.textContent = spellObject.prepared;
-      //
-      // var preparedPlus = document.createElement("button");
-      // preparedPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary");
-      // preparedPlus.setAttribute("tabindex", "3");
-      // var preparedPlusIcon = document.createElement("span");
-      // preparedPlusIcon.setAttribute("class", "icon-add");
-      //
-      // preparedPlus.addEventListener("click", function() {
-      //   _store_data(spellControl, "plus", "prepared");
-      //   _render_count(spellControl);
-      // }, false);
-      //
-      // var preparedMinus = document.createElement("button");
-      // preparedMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary");
-      // preparedMinus.setAttribute("tabindex", "3");
-      // var preparedMinusIcon = document.createElement("span");
-      // preparedMinusIcon.setAttribute("class", "icon-remove");
-      //
-      // preparedMinus.addEventListener("click", function() {
-      //   _store_data(spellControl, "minus", "prepared");
-      //   _render_count(spellControl);
-      // }, false);
-      //
-      // var preparedClear = document.createElement("button");
-      // preparedClear.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary");
-      // preparedClear.setAttribute("tabindex", "3");
-      // var preparedClearIcon = document.createElement("span");
-      // preparedClearIcon.setAttribute("class", "icon-close");
-      //
-      // preparedClear.addEventListener("click", function() {
-      //   _store_data(spellControl, "clear", "prepared");
-      //   _render_count(spellControl);
-      // }, false);
-      //
-      // // cast
-      // var castSpellControlRow = document.createElement("div");
-      // castSpellControlRow.setAttribute("class", "m-spell-control-row");
-      //
-      // var castTitle = document.createElement("p");
-      // castTitle.setAttribute("class", "m-spell-control-title u-underline-with-input u-inline-with-input u-no-margin");
-      // castTitle.textContent = "Cast";
-      //
-      // var castCount = document.createElement("p");
-      // castCount.setAttribute("class", "m-spell-control-count u-background-with-input u-inline-with-input u-underline-with-input u-no-margin js-spell-control-cast-count");
-      // castCount.textContent = spellObject.cast;
-      //
-      // var castPlus = document.createElement("button");
-      // castPlus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary");
-      // castPlus.setAttribute("tabindex", "3");
-      // var castPlusIcon = document.createElement("span");
-      // castPlusIcon.setAttribute("class", "icon-add");
-      //
-      // castPlus.addEventListener("click", function() {
-      //   _store_data(spellControl, "plus", "cast");
-      //   _render_count(spellControl);
-      // }, false);
-      //
-      // var castClear = document.createElement("button");
-      // castClear.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary");
-      // castClear.setAttribute("tabindex", "3");
-      // var castClearIcon = document.createElement("span");
-      // castClearIcon.setAttribute("class", "icon-close");
-      //
-      // castClear.addEventListener("click", function() {
-      //   _store_data(spellControl, "clear", "cast");
-      //   _render_count(spellControl);
-      // }, false);
-      //
-      // var castMinus = document.createElement("button");
-      // castMinus.setAttribute("class", "m-spell-control-button u-inline-with-input u-no-margin button button-icon button-medium button-secondary");
-      // castMinus.setAttribute("tabindex", "3");
-      // var castMinusIcon = document.createElement("span");
-      // castMinusIcon.setAttribute("class", "icon-remove");
-      //
-      // castMinus.addEventListener("click", function() {
-      //   _store_data(spellControl, "minus", "cast");
-      //   _render_count(spellControl);
-      // }, false);
-
-      // // active
-      // var activeSpellControlRow = document.createElement("div");
-      // activeSpellControlRow.setAttribute("class", "m-spell-control-row");
-      //
-      // var activeTitle = document.createElement("p");
-      // activeTitle.setAttribute("class", "m-spell-control-title u-underline-with-input u-inline-with-input u-no-margin");
-      // activeTitle.textContent = "Active";
-      //
-      // var activeInputWrapper = document.createElement("div");
-      // activeInputWrapper.setAttribute("class", "m-spell-control-input u-underline-with-input");
-      //
-      // var activeInput = document.createElement("input");
-      // activeInput.setAttribute("type", "checkbox");
-      // activeInput.setAttribute("id", "spell-active");
-      // activeInput.setAttribute("class", "js-spell-control-active");
-      // activeInput.setAttribute("tabindex", "3");
-      // activeInput.checked = spellObject.active;
-      //
-      // var activeLabel = document.createElement("label");
-      // activeLabel.setAttribute("class", "u-full-width");
-      // activeLabel.setAttribute("type", "checkbox");
-      // activeLabel.setAttribute("for", "spell-active");
-      //
-      // activeInput.addEventListener("change", function() {
-      //   _store_data(spellControl, "toggle", "active");
-      //   _render_count(spellControl);
-      // }, false);
-      //
-      // // name
-      // var nameSpellControlRow = document.createElement("div");
-      // nameSpellControlRow.setAttribute("class", "m-spell-control-row");
-      //
-      // var nameTitle = document.createElement("p");
-      // nameTitle.setAttribute("class", "m-spell-control-title u-underline-with-input u-inline-with-input u-no-margin");
-      // nameTitle.textContent = "Name";
-      //
-      // var nameInput = document.createElement("input");
-      // nameInput.setAttribute("class", "m-spell-control-input u-no-margin js-spell-control-input-name");
-      // nameInput.setAttribute("type", "text");
-      // nameInput.setAttribute("tabindex", "3");
-      // nameInput.value = spellObject.name;
-      //
-      // // note
-      // var noteSpellControlRow = document.createElement("div");
-      // noteSpellControlRow.setAttribute("class", "m-spell-control-block");
-      //
-      // var noteTitle = document.createElement("p");
-      // noteTitle.setAttribute("class", "m-spell-control-title u-inline-with-input u-no-margin");
-      // noteTitle.textContent = "Notes and details";
-      //
-      // var noteTextarea = document.createElement("div");
-      // noteTextarea.setAttribute("class", "m-spell-control-textarea textarea textarea-large u-no-margin js-spell-control-textarea-note");
-      // noteTextarea.setAttribute("contenteditable", "true");
-      // noteTextarea.setAttribute("tabindex", "3");
-      // noteTextarea.innerHTML = spellObject.note;
-      //
-      // noteTextarea.addEventListener("paste", function(event) {
-      //   helper.pasteStrip(event);
-      // });
-
-      // nameSpellControlRow.appendChild(nameTitle);
-      // nameSpellControlRow.appendChild(nameInput);
-      // noteSpellControlRow.appendChild(noteTitle);
-      // noteSpellControlRow.appendChild(noteTextarea);
-      // activeInputWrapper.appendChild(activeInput);
-      // activeInputWrapper.appendChild(activeLabel);
-      // activeSpellControlRow.appendChild(activeTitle);
-      // activeSpellControlRow.appendChild(activeInputWrapper);
-
-      // preparedSpellControlRow.appendChild(preparedTitle);
-      // preparedSpellControlRow.appendChild(preparedCount);
-      // preparedClear.appendChild(preparedClearIcon);
-      // preparedSpellControlRow.appendChild(preparedClear);
-      // preparedMinus.appendChild(preparedMinusIcon);
-      // preparedSpellControlRow.appendChild(preparedMinus);
-      // preparedPlus.appendChild(preparedPlusIcon);
-      // preparedSpellControlRow.appendChild(preparedPlus);
-
-      // castSpellControlRow.appendChild(castTitle);
-      // castSpellControlRow.appendChild(castCount);
-      // castClear.appendChild(castClearIcon);
-      // castSpellControlRow.appendChild(castClear);
-      // castMinus.appendChild(castMinusIcon);
-      // castSpellControlRow.appendChild(castMinus);
-      // castPlus.appendChild(castPlusIcon);
-      // castSpellControlRow.appendChild(castPlus);
-//
-//
       spellControl.appendChild(nameEditBox);
       spellControl.appendChild(preparedEditBox);
       spellControl.appendChild(castEditBox);
       spellControl.appendChild(activeEditBox);
       spellControl.appendChild(noteEditBox);
-//
-//
-      // spellControl.appendChild(nameSpellControlRow);
-      // spellControl.appendChild(preparedSpellControlRow);
-      // spellControl.appendChild(castSpellControlRow);
-      // spellControl.appendChild(activeSpellControlRow);
-      // spellControl.appendChild(noteSpellControlRow);
-      // col.appendChild(spellControl);
-      // row.appendChild(col);
-      // container.appendChild(spellControl);
+
       return spellControl;
     };
 
@@ -600,9 +401,8 @@ var spells = (function() {
       var modalContent = _create_spellModal();
 
       modal.render(spellObject.name, modalContent, "Save", function() {
-        var spellControl = this.querySelector(".js-spell-control");
         var spellSection = helper.e(".js-section-spells");
-        _update_spellObject(spellControl);
+        _update_spellObject(this);
         _update_spellButton(button, true);
         display.clear(spellSection);
         display.render(spellSection);

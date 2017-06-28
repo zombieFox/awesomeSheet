@@ -112,6 +112,10 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+    button,
+    .button {
+      margin-bottom: 0;
+    }
     .button,
     .m-stat-modifier,
     .m-total-block-total {
