@@ -111,8 +111,8 @@
     background-color: $primary-color-10;
     position: absolute;
     display: block;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: -1em;
     width: 0;
     height: 0;
     border-radius: 100%;
@@ -179,50 +179,9 @@
     [class^="icon-"] {}
   }
 }
-.m-spell-controls {
-  .button,
-  button {
-    flex-basis: 30%;
-  }
-}
 .m-new-spell {
   position: relative;
   z-index: 1;
-}
-.m-spell-control-block {
-  &:not(:last-child):not(:only-child) {
-    margin-bottom: 1em;
-  }
-}
-.m-spell-control-row {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: flex-end;
-  &:not(:last-child):not(:only-child) {
-    margin-bottom: 1em;
-  }
-}
-.m-spell-control-title {
-  flex: 0 0 30%;
-  font-family: $open-sans-semi-bold;
-}
-.m-spell-control-count {
-  flex: 1 1 20%;
-  text-align: center;
-  font-family: $open-sans-semi-bold;
-  color: $secondary-color-08;
-}
-.m-spell-control-input {
-  flex: 1 1 auto;
-  position: relative;
-  width: 100%;
-}
-.m-spell-control-textarea {
-  flex: 1 1 auto;
-}
-.m-spell-control-button {
-  flex: 1 1 auto;
 }
 // --------------------------------------------------
 // media queries
