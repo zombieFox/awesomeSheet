@@ -5669,7 +5669,7 @@ var orrin = (function() {
       level: "9",
       size: "Medium",
       alignment: "Lawful Evil",
-      xp: "55,031",
+      xp: "68,881",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -5709,11 +5709,11 @@ var orrin = (function() {
         con: {
           score: 12,
           modifier: "",
-          temp_score: 10,
+          temp_score: "",
           temp_modifier: ""
         },
         int: {
-          score: 12,
+          score: 16,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -5737,22 +5737,22 @@ var orrin = (function() {
       special_abilities: "Sneak attack (+4d6), Trapfinding, Evasion, Rogue Talent (Trap spotter), Trap Sense +3, Rogue Talent (Finesse Rogue), Uncanny dodge, Rogue Talent (Fast stealth), Improved Uncanny Dodge, Rogue Talent (Combat Trick - Improved Two-Weapon Fighting)"
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11), Sovereign Glue (6), Giant Squid Parts (10)",
-      magic_gear: "Ioun Torch, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
+      gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11)",
+      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
         heavy: "101–150 lbs"
       },
       body_slots: {
-        armor: "Mithral Chain Shirt",
+        armor: "Mithral Chain Shirt +2",
         belts: "Belt of Dexterity +4",
         body: "",
         chest: "Vest of Escape",
         eyes: "Eyes of the Eagle",
         feet: "",
         hands: "Gloves of Reconnaissance",
-        head: "",
+        head: "Headband of Vast Intelligence +4",
         headband: "",
         neck: "Amulet of a Natural Armor +1",
         ring_left_hand: "Ring of Force Shield",
@@ -5763,7 +5763,7 @@ var orrin = (function() {
       },
       wealth: {
         platinum: "3",
-        gold: "2,919",
+        gold: "3,309",
         silver: "5",
         copper: ""
       },
@@ -5803,9 +5803,9 @@ var orrin = (function() {
         current: ""
       },
       ac: {
-        misc: "",
+        misc: 1,
         temp: "",
-        armor: 4,
+        armor: 6,
         shield: 2,
         deflect: 1,
         dodge: 1,
@@ -5832,7 +5832,7 @@ var orrin = (function() {
         }
       },
       flat_footed: {
-        misc: "",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -5851,7 +5851,7 @@ var orrin = (function() {
         }
       },
       touch: {
-        misc: "",
+        misc: 1,
         temp: "",
         current: "",
         bonuses: {
@@ -6095,7 +6095,7 @@ var orrin = (function() {
         }
       },
       climb: {
-        ranks: 4,
+        ranks: 5,
         misc: 2,
         current: "",
         bonuses: {
@@ -6301,7 +6301,7 @@ var orrin = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: 1,
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -6369,7 +6369,7 @@ var orrin = (function() {
         }
       },
       knowledge_local: {
-        ranks: 1,
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -6577,7 +6577,7 @@ var orrin = (function() {
         }
       },
       sense_motive: {
-        ranks: 5,
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -6611,7 +6611,7 @@ var orrin = (function() {
         }
       },
       spellcraft: {
-        ranks: "",
+        ranks: 9,
         misc: "",
         current: "",
         bonuses: {
@@ -6921,9 +6921,7 @@ var orrin = (function() {
       }, {
         note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><strong>Weapon focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Deft hands</strong> You get a +2 bonus on Disable Device and Sleight of Hand skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws."
       }, {
-        note: "Healing curse."
-      }, {
-        note: "Cloud kill poisoned, 2 Con damage.&nbsp;"
+        note: "Headband of Vast Intelligence +4 Skills: Sense Motive, Spellcraft."
       }],
       story: []
     }
