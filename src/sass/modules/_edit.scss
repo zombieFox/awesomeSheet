@@ -140,7 +140,8 @@
       .button,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total {
+      .m-total-block-total,
+      .m-check-block-check-icon {
         border-radius: $border-radius-large 0 0 $border-radius-large;
       }
       .m-input-block {
@@ -153,7 +154,8 @@
       .button,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total {
+      .m-total-block-total,
+      .m-check-block-check-icon {
         border-radius: 0 $border-radius-large $border-radius-large 0;
       }
       .m-input-block {

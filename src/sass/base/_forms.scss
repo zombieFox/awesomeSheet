@@ -36,7 +36,6 @@ textarea {
   border: $border;
   border-color: $gray-16;
   box-shadow: $shadow-medium-inset;
-  transition: box-shadow $transition-ease-medium;
   resize: vertical;
   &:hover {
     background-color: $secondary-color-19;
@@ -72,7 +71,6 @@ input {
     border: $border;
     border-color: $gray-16;
     box-shadow: $shadow-medium-inset;
-    transition: box-shadow $transition-ease-medium;
     &:hover {
       background-color: $secondary-color-19;
       border-color: $secondary-color-06;
@@ -95,6 +93,7 @@ input {
   &[type="checkbox"],
   &[type="radio"] {
     position: absolute;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
