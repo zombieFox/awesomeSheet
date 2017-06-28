@@ -210,6 +210,9 @@ var nav = (function() {
     label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
     label.setAttribute("data-character-index", characterIndex);
 
+    var detailsSpan = document.createElement("span");
+    detailsSpan.setAttribute("class", "m-nav-characters-details");
+
     var nameSpan = document.createElement("span");
     nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
     nameSpan.textContent = helper.truncate(characterName, 30, true);
@@ -223,9 +226,10 @@ var nav = (function() {
     levelSpan.textContent = helper.truncate(characterLevel, 10);
 
     // build module
-    label.appendChild(nameSpan);
-    label.appendChild(classSpan);
-    label.appendChild(levelSpan);
+    detailsSpan.appendChild(nameSpan);
+    detailsSpan.appendChild(classSpan);
+    detailsSpan.appendChild(levelSpan);
+    label.appendChild(detailsSpan);
     navCharacter.appendChild(input);
     navCharacter.appendChild(label);
 

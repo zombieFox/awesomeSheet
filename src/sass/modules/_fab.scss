@@ -31,21 +31,12 @@
   width: 2.3em;
   height: 2.3em;
   font-size: $font-size-200;
-  line-height: 2.3em;
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 50%;
   transition: all $transition-ease-slow;
   box-shadow: $shadow-small;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    margin: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    line-height: 2.3em;
-  }
   &:focus,
   &:hover {
     transition: all $transition-ease-extra-fast;

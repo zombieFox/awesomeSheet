@@ -4285,7 +4285,7 @@ var nif = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
+      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
     },
     offense: {
       base_attack: "+3",
@@ -9905,38 +9905,35 @@ var clone = (function() {
   function _newConsumable(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
-      '      <div class="js-total-block">' +
-      '        <div class="row no-gutter">' +
-      '          <div class="col-xs-6">' +
-      '            <div class="m-input-block js-input-block">' +
-      '              <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
-      '              <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
-      '            </div>' +
-      '          </div>' +
-      '          <div class="col-xs-2">' +
-      '            <p class="u-text-center u-margin-with-input u-background-with-input u-inline-with-input u-underline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
-      '          </div>' +
-      '          <div class="col-xs-2">' +
-      '            <div class="m-input-block js-input-block">' +
-      '              <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Total</label>' +
-      '              <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
-      '            </div>' +
-      '          </div>' +
-      '          <div class="col-xs-2">' +
-      '            <div class="m-input-block js-input-block">' +
-      '              <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
-      '              <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
-      '            </div>' +
-      '          </div>' +
+      '  <div class="js-total-block">' +
+      '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '      <div class="m-edit-box-item-large">' +
+      '        <div class="m-input-block js-input-block">' +
+      '          <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
+      '          <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
+      '        </div>' +
+      '      </div>' +
+      '      <div class="m-edit-box-item-total">' +
+      '        <p class="m-total-block-label">Total</p>' +
+      '        <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
+      '      </div>' +
+      '      <div class="m-edit-box-item-small">' +
+      '        <div class="m-input-block js-input-block">' +
+      '          <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Max</label>' +
+      '          <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
+      '        </div>' +
+      '      </div>' +
+      '      <div class="m-edit-box-item-small">' +
+      '        <div class="m-input-block js-input-block">' +
+      '          <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
+      '          <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -9944,39 +9941,37 @@ var clone = (function() {
   function _newAttackMelee(index) {
     var cloneString =
       '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
-      '      <div class="row no-gutter">' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
-      '            <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
-      '            <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
-      '            <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
-      '            <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '    <div class="m-edit-box-item-large">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
+      '        <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
+      '        <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
+      '        <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
+      '        <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -9984,51 +9979,49 @@ var clone = (function() {
   function _newAttackRanged(index) {
     var cloneString =
       '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
-      '      <div class="row no-gutter">' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
-      '            <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
-      '            <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
-      '            <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
-      '            <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
-      '            <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
-      '        <div class="col-xs-6">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
-      '            <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
-      '          </div>' +
-      '        </div>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '    <div class="m-edit-box-item-large">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
+      '        <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
+      '        <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
+      '        <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
+      '        <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
+      '        <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="m-edit-box-item-medium">' +
+      '      <div class="m-input-block js-input-block">' +
+      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
+      '        <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -10036,17 +10029,17 @@ var clone = (function() {
   function _newNoteCharacter(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '    <div class="m-edit-box-item-max">' +
       '      <div class="m-textarea-block js-textarea-block">' +
       '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
       '        <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -10054,17 +10047,17 @@ var clone = (function() {
   function _newNoteStory(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="row">' +
-      '    <div class="col-xs-12">' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+      '    <div class="m-edit-box-item-max">' +
       '      <div class="m-textarea-block js-textarea-block">' +
       '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
       '        <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
       '</div>';
     return cloneString;
   };
@@ -11745,20 +11738,11 @@ var inputBlock = (function() {
 
   function focus(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
-    var inputBlockLabel;
-    if (inputBlock.querySelector(".js-input-block-label")) {
-      inputBlockLabel = inputBlock.querySelector(".js-input-block-label");
-    };
     if (inputBlock.querySelector(".js-input-block-label")) {
       if (element == document.activeElement) {
-        helper.addClass(inputBlockLabel, "is-active");
+        helper.addClass(inputBlock, "is-focus");
       } else {
-        helper.removeClass(inputBlockLabel, "is-active");
-      };
-      if (element.value == "" && element != document.activeElement) {
-        helper.removeClass(inputBlockLabel, "is-active");
-      } else {
-        helper.addClass(inputBlockLabel, "is-active");
+        helper.removeClass(inputBlock, "is-focus");
       };
     };
   };
@@ -11784,22 +11768,7 @@ var inputBlock = (function() {
     _bind_name();
     _bind_class();
     _bind_level();
-    // _bind_inputControls();
   };
-
-  // function _bind_inputControls() {
-  //   var all_inputControls = helper.eA(".js-input-controls");
-  //   for (var i = 0; i < all_inputControls.length; i++) {
-  //     var add = all_inputControls[i].querySelector(".add");
-  //     var minus = all_inputControls[i].querySelector(".minus");
-  //     add.addEventListener("click", function() {
-  //       _addOrMinusInput(this);
-  //     }, false);
-  //     minus.addEventListener("click", function() {
-  //       _addOrMinusInput(this);
-  //     }, false);
-  //   };
-  // };
 
   function _addOrMinusInput(element) {
     var target;
@@ -12490,6 +12459,9 @@ var nav = (function() {
     label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
     label.setAttribute("data-character-index", characterIndex);
 
+    var detailsSpan = document.createElement("span");
+    detailsSpan.setAttribute("class", "m-nav-characters-details");
+
     var nameSpan = document.createElement("span");
     nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
     nameSpan.textContent = helper.truncate(characterName, 30, true);
@@ -12503,9 +12475,10 @@ var nav = (function() {
     levelSpan.textContent = helper.truncate(characterLevel, 10);
 
     // build module
-    label.appendChild(nameSpan);
-    label.appendChild(classSpan);
-    label.appendChild(levelSpan);
+    detailsSpan.appendChild(nameSpan);
+    detailsSpan.appendChild(classSpan);
+    detailsSpan.appendChild(levelSpan);
+    label.appendChild(detailsSpan);
     navCharacter.appendChild(input);
     navCharacter.appendChild(label);
 
@@ -13663,12 +13636,6 @@ var spells = (function() {
     };
 
     function _create_spellModal() {
-      var container = document.createElement("div");
-      container.setAttribute("class", "container");
-      var row = document.createElement("div");
-      row.setAttribute("class", "row");
-      var col = document.createElement("div");
-      col.setAttribute("class", "col-xs-12");
 
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
@@ -13678,6 +13645,37 @@ var spells = (function() {
       spellControl.setAttribute("data-spell-active", spellObject.active);
       spellControl.setAttribute("data-spell-prepared", spellObject.prepared);
       spellControl.setAttribute("data-spell-cast", spellObject.cast);
+
+      // var nameEditBox = document.createElement("div");
+      // nameEditBox.setAttribute("class", "m-edit-box");
+      // var nameEditBoxHead = document.createElement("div");
+      // nameEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      // var nameEditBoxHeadTitle = document.createElement("h2");
+      // nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      // nameEditBoxHeadTitle.textContent = "Name";
+      // var nameEditBoxBody = document.createElement("div");
+      // nameEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-item-margin");
+      // var nameEditBoxBodyItem = document.createElement("div");
+      // nameEditBoxBodyItem.setAttribute("class", "m-edit-box-item-large");
+      // var nameEditBoxBodyInput = document.createElement("input");
+      // nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
+      // nameEditBoxBodyInput.setAttribute("type", "text");
+      // nameEditBoxBodyInput.setAttribute("tabindex", "3");
+      // nameEditBoxBodyInput.value = spellObject.name;
+      //
+      // nameEditBoxBodyItem.appendChild(nameEditBoxBodyInput);
+      // nameEditBoxBody.appendChild(nameEditBoxBodyItem);
+      // nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
+      // nameEditBox.appendChild(nameEditBoxHead);
+      // nameEditBox.appendChild(nameEditBoxBody);
+
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col = document.createElement("div");
+      col.setAttribute("class", "col-xs-12");
+
 
       // prepared
       var preparedSpellControlRow = document.createElement("div");
@@ -13855,7 +13853,11 @@ var spells = (function() {
       castSpellControlRow.appendChild(castMinus);
       castPlus.appendChild(castPlusIcon);
       castSpellControlRow.appendChild(castPlus);
-
+//
+//
+      spellControl.appendChild(nameEditBox);
+//
+//
       spellControl.appendChild(nameSpellControlRow);
       spellControl.appendChild(preparedSpellControlRow);
       spellControl.appendChild(castSpellControlRow);
@@ -14331,22 +14333,10 @@ var textareaBlock = (function() {
 
   function focus(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel;
-    if (textareaBlock.querySelector(".js-textarea-block-label")) {
-      textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
-    };
-    if (textareaBlock.querySelector(".js-textarea-block-label")) {
-      if (textareaBlockField == document.activeElement) {
-        helper.addClass(textareaBlockLabel, "is-active");
-      } else {
-        helper.removeClass(textareaBlockLabel, "is-active");
-      };
-      if (element.innerHTML == "" && textareaBlockField != document.activeElement) {
-        helper.removeClass(textareaBlockLabel, "is-active");
-      } else {
-        helper.addClass(textareaBlockLabel, "is-active");
-      };
+    if (element == document.activeElement) {
+      helper.addClass(textareaBlock, "is-focus");
+    } else {
+      helper.removeClass(textareaBlock, "is-focus");
     };
   };
 

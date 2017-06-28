@@ -1,51 +1,198 @@
-.m-edit-wrapper {
-  margin: 2em 1em;
-}
-.m-edit-title {
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-100;
-}
-.m-edit-controls {
-  margin: 1em 0;
+.m-edit-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
   box-sizing: border-box;
 }
-.m-edit-box {
-  font-size: $font-size-root-100;
+.m-edit-box-guides {
+  padding: 0 0 0.4em;
+  margin: 0 0 0.4em;
+  border-bottom: $border;
+  border-bottom-color: $gray-18;
 }
-.m-edit-box-wrapper {
+[class*="m-edit-box-head"],
+[class^="m-edit-box-head"] {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.m-edit-box-head-small {
+  flex: 0 0 25%;
+}
+.m-edit-box-head-medium {
+  flex: 0 0 35%;
+}
+.m-edit-box-head-large {
+  flex: 0 0 45%;
+}
+.m-edit-box-no-head-small {
+  padding-left: 25%;
+}
+.m-edit-box-no-head-medium {
+  padding-left: 35%;
+}
+.m-edit-box-no-head-large {
+  padding-left: 45%;
+}
+[class*="m-edit-box-title"],
+[class^="m-edit-box-title"] {
+  font-family: $open-sans-semi-bold;
+  font-size: $font-size-100;
+  margin-bottom: 0;
+  margin-right: 1em;
+  padding: 0.5em 0;
+  line-height: $line-height-150;
+}
+.m-edit-box-title-with-label {
+  margin-top: 1.25em;
+}
+.m-edit-box-body {
+  flex: 1 1 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
 }
-.m-edit-box-title {
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-100;
+.m-edit-box-body-multiple {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
-.m-edit-box-item {
-  flex: 1 1 0;
-}
-.m-edit-box-item-20 {
-  flex-basis: 20%;
-}
-.m-edit-box-item-30 {
-  flex-basis: 30%;
-}
-.m-edit-box-item-40 {
-  flex-basis: 40%;
-}
-.m-edit-box-item-60 {
-  flex-basis: 60%;
-}
-.m-edit-box-item-80 {
-  flex-basis: 80%;
-}
-.m-edit-box-bonus {
+[class*="m-edit-box-item"],
+[class^="m-edit-box-item"] {
   flex: 0 0 auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  transition: margin $transition-ease-medium;
 }
-.m-edit-box-bonus-button {
-  padding: 0 0.5em;
+.m-edit-box-item-total {
+  flex: 0 0 3em;
+}
+.m-edit-box-item-check {
+  flex: 0 0 3em;
+}
+.m-edit-box-item-small {
+  flex: 0 1 20%;
+}
+.m-edit-box-item-medium {
+  flex: 1 1 30%;
+}
+.m-edit-box-item-large {
+  flex: 1 1 40%;
+}
+.m-edit-box-item-max {
+  flex: 1 1 100%;
+}
+.m-edit-box-item-button {
+  flex: 0 0 3em;
+  .button {
+    margin: 0;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.m-edit-box-body-group {
+  position: relative;
+  flex-flow: row nowrap;
+  z-index: 1;
+  margin-left: 0;
+  margin-right: 0;
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    .button,
+    .m-stat-modifier,
+    .m-total-block-total {
+      border-radius: 0;
+    }
+    .m-input-block {
+      margin-left: -1px;
+      margin-right: -1px;
+      z-index: 2;
+      &.is-focus {
+        z-index: 3;
+      }
+      .m-input-block-field {
+        border-radius: 0;
+        &:focus {
+          z-index: 3;
+        }
+      }
+    }
+    &:hover {
+      .m-input-block {
+        z-index: 3;
+      }
+    }
+    &:first-of-type {
+      .button,
+      .m-edit-box-item-button,
+      .m-stat-modifier,
+      .m-total-block-total,
+      .m-check-block-check-icon {
+        border-radius: $border-radius-large 0 0 $border-radius-large;
+      }
+      .m-input-block {
+        .m-input-block-field {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+      }
+    }
+    &:last-of-type {
+      .button,
+      .m-edit-box-item-button,
+      .m-stat-modifier,
+      .m-total-block-total,
+      .m-check-block-check-icon {
+        border-radius: 0 $border-radius-large $border-radius-large 0;
+      }
+      .m-input-block {
+        .m-input-block-field {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
+    }
+  }
+}
+.m-edit-box-body-item-margin {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-bottom: 1em;
+  }
+}
+[class*="m-edit-box-label"],
+[class^="m-edit-box-label"] {
   margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: $font-size-075;
+  font-family: $open-sans-semi-bold;
+  color: $secondary-color-06;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+.m-edit-box-label-total {
+  color: $gray-14;
+}
+.m-edit-controls {
+  margin: 0 0 1em 0;
+  // box-sizing: border-box;
+  .button-group {
+    margin-bottom: 0;
+  }
 }
 .is-pinned {
   .m-edit-controls {
@@ -54,7 +201,10 @@
     top: 5em;
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
-    box-shadow: $shadow-small;
+    .button-group {
+      box-shadow: $shadow-small;
+      border-radius: $border-radius-large;
+    }
   }
 }
 .is-night-mode {
@@ -65,23 +215,34 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {
-  .m-edit-box-title {
-    border-bottom: $border;
-    border-color: $gray-19;
-    margin-right: -($gutter * 2);
+@media (min-width: $screen-sm) {
+  .m-edit-box-item-total {
+    flex: 0 0 4em;
   }
-  .is-night-mode {
-    .m-edit-box-title {
-      border-color: $light-alpha-19;
-    }
+  .m-edit-box-head-small {
+    flex: 0 0 30%;
+  }
+  .m-edit-box-head-medium {
+    flex: 0 0 40%;
+  }
+  .m-edit-box-head-large {
+    flex: 0 0 50%;
+  }
+  .m-edit-box-no-head-small {
+    padding-left: 30%;
+  }
+  .m-edit-box-no-head-medium {
+    padding-left: 40%;
+  }
+  .m-edit-box-no-head-large {
+    padding-left: 50%;
+  }
+  .m-edit-box-item-button {
+    flex: 0 0 2em;
   }
 }
+@media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
-  .m-edit-box-bonus-button {
-    padding: 0;
-  }
   .is-pinned {
     .m-edit-controls {
       top: 0.5em;

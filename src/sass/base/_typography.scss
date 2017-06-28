@@ -50,8 +50,9 @@ p {
 
 hr {
   border: 0;
-  border-top: 1px solid $gray-19;
-  margin: 2em -2em;
+  border-top: $border;
+  border-top-color: $gray-18;
+  margin: 1em -2em;
   clear: both;
 }
 
@@ -85,7 +86,7 @@ a {
 ul,
 ol {
   margin: 0;
-  padding: 0 0 0 3em;
+  padding: 0 0 0 1.5em;
 }
 
 ul:not(:last-child),

@@ -21,22 +21,10 @@ var textareaBlock = (function() {
 
   function focus(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel;
-    if (textareaBlock.querySelector(".js-textarea-block-label")) {
-      textareaBlockLabel = textareaBlock.querySelector(".js-textarea-block-label");
-    };
-    if (textareaBlock.querySelector(".js-textarea-block-label")) {
-      if (textareaBlockField == document.activeElement) {
-        helper.addClass(textareaBlockLabel, "is-active");
-      } else {
-        helper.removeClass(textareaBlockLabel, "is-active");
-      };
-      if (element.innerHTML == "" && textareaBlockField != document.activeElement) {
-        helper.removeClass(textareaBlockLabel, "is-active");
-      } else {
-        helper.addClass(textareaBlockLabel, "is-active");
-      };
+    if (element == document.activeElement) {
+      helper.addClass(textareaBlock, "is-focus");
+    } else {
+      helper.removeClass(textareaBlock, "is-focus");
     };
   };
 

@@ -267,7 +267,7 @@ var nif = (function() {
           cha_bonus: false
         }
       },
-      save_notes: "Immune to sleep effecrs, +2 against enchantment spells and effects"
+      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
     },
     offense: {
       base_attack: "+3",

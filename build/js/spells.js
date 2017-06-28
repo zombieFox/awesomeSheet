@@ -171,12 +171,6 @@ var spells = (function() {
     };
 
     function _create_spellModal() {
-      var container = document.createElement("div");
-      container.setAttribute("class", "container");
-      var row = document.createElement("div");
-      row.setAttribute("class", "row");
-      var col = document.createElement("div");
-      col.setAttribute("class", "col-xs-12");
 
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
@@ -186,6 +180,37 @@ var spells = (function() {
       spellControl.setAttribute("data-spell-active", spellObject.active);
       spellControl.setAttribute("data-spell-prepared", spellObject.prepared);
       spellControl.setAttribute("data-spell-cast", spellObject.cast);
+
+      // var nameEditBox = document.createElement("div");
+      // nameEditBox.setAttribute("class", "m-edit-box");
+      // var nameEditBoxHead = document.createElement("div");
+      // nameEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      // var nameEditBoxHeadTitle = document.createElement("h2");
+      // nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      // nameEditBoxHeadTitle.textContent = "Name";
+      // var nameEditBoxBody = document.createElement("div");
+      // nameEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-item-margin");
+      // var nameEditBoxBodyItem = document.createElement("div");
+      // nameEditBoxBodyItem.setAttribute("class", "m-edit-box-item-large");
+      // var nameEditBoxBodyInput = document.createElement("input");
+      // nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
+      // nameEditBoxBodyInput.setAttribute("type", "text");
+      // nameEditBoxBodyInput.setAttribute("tabindex", "3");
+      // nameEditBoxBodyInput.value = spellObject.name;
+      //
+      // nameEditBoxBodyItem.appendChild(nameEditBoxBodyInput);
+      // nameEditBoxBody.appendChild(nameEditBoxBodyItem);
+      // nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
+      // nameEditBox.appendChild(nameEditBoxHead);
+      // nameEditBox.appendChild(nameEditBoxBody);
+
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col = document.createElement("div");
+      col.setAttribute("class", "col-xs-12");
+
 
       // prepared
       var preparedSpellControlRow = document.createElement("div");
@@ -363,7 +388,11 @@ var spells = (function() {
       castSpellControlRow.appendChild(castMinus);
       castPlus.appendChild(castPlusIcon);
       castSpellControlRow.appendChild(castPlus);
-
+//
+//
+      spellControl.appendChild(nameEditBox);
+//
+//
       spellControl.appendChild(nameSpellControlRow);
       spellControl.appendChild(preparedSpellControlRow);
       spellControl.appendChild(castSpellControlRow);

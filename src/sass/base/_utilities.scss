@@ -1,6 +1,6 @@
 .u-full-width {
   width: 100%;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 .u-text-center {
   text-align: center;
@@ -28,8 +28,8 @@
 .u-inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  height: $line-height-250;
-  line-height: $line-height-250;
+  height: 2.5em;
+  line-height: 2.5;
   box-sizing: border-box;
 }
 .u-margin-with-input {
@@ -37,13 +37,13 @@
 }
 .u-underline-with-input {
   border-bottom: $border;
-  border-color: $gray-19;
+  border-color: $gray-18;
 }
 .u-background-with-input {
-  background-color: $gray-20;
+  background-color: $gray-19;
 }
 .u-small-text {
-  color: $gray-12;
+  color: $gray-10;
   font-size: $font-size-075;
 }
 .u-muted-text {
