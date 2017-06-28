@@ -138,10 +138,10 @@
     }
     &:first-of-type {
       .button,
+      .m-check-block-check-icon,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total,
-      .m-check-block-check-icon {
+      .m-total-block-total {
         border-radius: $border-radius-large 0 0 $border-radius-large;
       }
       .m-input-block {
@@ -152,15 +152,29 @@
     }
     &:last-of-type {
       .button,
+      .m-check-block-check-icon,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total,
-      .m-check-block-check-icon {
+      .m-total-block-total {
         border-radius: 0 $border-radius-large $border-radius-large 0;
       }
       .m-input-block {
         .m-input-block-field {
           border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
+    }
+    &:first-of-type:last-of-type {
+      .button,
+      .m-check-block-check-icon,
+      .m-edit-box-item-button,
+      .m-stat-modifier,
+      .m-total-block-total {
+        border-radius: $border-radius-large;
+      }
+      .m-input-block {
+        .m-input-block-field {
+          border-radius: $border-radius-large;
         }
       }
     }
@@ -188,7 +202,7 @@
   color: $gray-14;
 }
 .m-edit-controls {
-  margin: 0 0 1em 0;
+  margin: 0 0 1em;
   // box-sizing: border-box;
   .button-group {
     margin-bottom: 0;
