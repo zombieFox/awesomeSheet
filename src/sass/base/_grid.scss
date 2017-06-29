@@ -3,8 +3,8 @@
 // --------------------------------------------------
 .container {
   max-width: 100%;
-  margin-left: -$gutter;
-  margin-right: -$gutter;
+  margin-right: auto;
+  margin-left: auto;
   padding-left: $gutter;
   padding-right: $gutter;
   &:after,
@@ -154,8 +154,8 @@
 }
 .no-gutter {
   margin: 0;
-   > [class*=" col-"],
-  > [class^="col-"] {
+   > [class^="col-"],
+  > [class*=" col-"] {
     padding: 0;
   }
 }
