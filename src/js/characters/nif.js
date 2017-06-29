@@ -363,6 +363,43 @@ var nif = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [
+        {
+          name: "Frog Tossing",
+          ranks: "3",
+          misc: "",
+          current: "",
+          bonuses: {
+            class_skill: false,
+            str_bonus: false,
+            dex_bonus: true,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            check_penalty: true
+          }
+        }, {
+          name: "Cheese Rolling",
+          ranks: "10",
+          misc: "3",
+          current: "",
+          bonuses: {
+            class_skill: true,
+            str_bonus: false,
+            dex_bonus: true,
+            con_bonus: true,
+            int_bonus: false,
+            wis_bonus: true,
+            cha_bonus: false,
+            level: true,
+            half_level: false,
+            check_penalty: true
+          }
+        }
+      ],
       acrobatics: {
         ranks: "",
         misc: "",

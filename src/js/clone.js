@@ -4,6 +4,7 @@ var clone = (function() {
     var all_attackMelee = sheet.getCharacter().offense.attack.melee;
     var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
     var all_consumable = sheet.getCharacter().equipment.consumable;
+    var all_skill = sheet.getCharacter().skills.custom;
     var all_noteCharacter = sheet.getCharacter().notes.character;
     var all_noteStory = sheet.getCharacter().notes.story;
 
@@ -26,6 +27,9 @@ var clone = (function() {
     _update_clonePlaceholder("consumable");
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
+
+
+    _render_all_clones("skill");
   };
 
   function _upddate_consumableTotals() {
@@ -93,6 +97,49 @@ var clone = (function() {
       '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '  </div>' +
       '</div>';
+    return cloneString;
+  };
+
+  function _newSkill(index) {
+    var cloneString =
+      '<div class="m-clone-block-content js-clone-block-content">' +
+      '<div class="m-skill js-total-block" data-total-type="bonus">'
+      '  <div class="m-edit-box m-edit-box-guides">'
+      '    <div class="m-edit-box-head-large">'
+      '      <div class="m-skill-name m-input-block js-input-block">'
+      '        <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="3" placeholder="Custom skill">'
+      '      </div>'
+      '    </div>'
+      '    <div class="m-edit-box-body m-edit-box-body-group">'
+      '      <div class="m-edit-box-item-total">'
+      '        <p class="m-total-block-total js-total-block-total></p>'
+      '      </div>'
+      '      <div class="m-edit-box-item-medium">'
+      '        <div class="m-input-block js-input-block">'
+      '          <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-custom-ranks" data-total="addition" data-type="number" type="text" tabindex="3">'
+      '        </div>'
+      '      </div>'
+      '      <div class="m-edit-box-item-medium">'
+      '        <div class="m-input-block js-input-block">'
+      '          <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-total="addition" data-type="number" type="text" tabindex="3">'
+      '        </div>'
+      '      </div>'
+      '      <div class="m-edit-box-item-check">'
+      '        <div class="m-check-block js-total-block-toggle">'
+      '          <input class="m-check-block-check js-total-block-toggle-check" data-bonus-type="class-skill type="checkbox" tabindex="3">'
+      '          <span class="m-check-block-check-icon"></span>'
+      '        </div>'
+      '      </div>'
+      '      <div class="m-edit-box-item-button">'
+      '        <a href="javascript:void(0)" class="u-inline-with-input button button-secondary button-large button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-modal-heading="Custom skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>'
+      '      </div>'
+      '    </div>'
+      '  </div>'
+      '</div>'
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
+      '</div>'
     return cloneString;
   };
 
@@ -235,6 +282,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       object = sheet.getCharacter().equipment.consumable;
     };
+    if (cloneType == "skill") {
+      object = sheet.getCharacter().skills.custom;
+    };
     if (cloneType == "attack-melee") {
       object = sheet.getCharacter().offense.attack.melee;
     };
@@ -254,6 +304,9 @@ var clone = (function() {
     var cloneString;
     if (cloneType == "consumable") {
       cloneString = _newConsumable(cloneIndex);
+    };
+    if (cloneType == "skill") {
+      cloneString = _newSkill(cloneIndex);
     };
     if (cloneType == "attack-melee") {
       cloneString = _newAttackMelee(cloneIndex);
@@ -275,6 +328,9 @@ var clone = (function() {
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
     };
+    if (cloneType == "skill") {
+      cloneBlock = helper.e(".js-clone-block-skill");
+    };
     if (cloneType == "attack-ranged") {
       cloneBlock = helper.e(".js-clone-block-attack");
     };
@@ -294,6 +350,9 @@ var clone = (function() {
     var cloneTarget;
     if (cloneType == "attack-melee") {
       cloneTarget = helper.e(".js-clone-block-target-attack-melee");
+    };
+    if (cloneType == "skill") {
+      cloneTarget = helper.e(".js-clone-block-target-skills");
     };
     if (cloneType == "attack-ranged") {
       cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
@@ -320,6 +379,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       cloneCount = sheet.getCharacter().equipment.consumable.length;
+    };
+    if (cloneType == "skill") {
+      cloneCount = sheet.getCharacter().skills.custom.length;
     };
     if (cloneType == "note-character") {
       cloneCount = sheet.getCharacter().notes.character.length;
@@ -367,6 +429,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       message = message + " Consumables?";
     };
+    if (cloneType == "skill") {
+      message = message + " Skills?";
+    };
     if (cloneType == "note-character") {
       message = message + " Character Notes?";
     };
@@ -387,6 +452,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       message = "Consumable " + message;
     };
+    if (cloneType == "skill") {
+      message = "Skill " + message;
+    };
     if (cloneType == "note-character") {
       message = "Character note " + message;
     };
@@ -399,6 +467,9 @@ var clone = (function() {
   function _bind_clone(cloneType, newClone) {
     if (cloneType == "consumable") {
       _bind_cloneConsumableInput(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "skill") {
+      _bind_cloneSkillInput(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "attack-melee") {
       _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
@@ -574,6 +645,7 @@ var clone = (function() {
       cloneTarget.appendChild(newClone);
       // bind listeners
       _bind_clone(cloneType, newClone);
+      console.log(newClone.querySelector(".js-clone-block-delete"));
       _bind_cloneRemoveButton(newClone.querySelector(".js-clone-block-delete"), cloneType);
     };
   };
@@ -773,6 +845,30 @@ var clone = (function() {
         inputBlock.focus(this);
       }, false);
     };
+  };
+
+  function _bind_cloneSkillInput(array) {
+    console.log(array);
+    // for (var i = 0; i < array.length; i++) {
+    //   var input = array[i].querySelector(".js-input-block-field");
+    //   if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
+    //     input.addEventListener("input", function() {
+    //       _minMaxCountLimit(this);
+    //     }, false);
+    //   };
+    //   input.addEventListener("input", function() {
+    //     clearTimeout(storeInputTimer);
+    //     storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
+    //   }, false);
+    //   input.addEventListener("focus", function() {
+    //     inputBlock.focus(this);
+    //   }, false);
+    //   input.addEventListener("blur", function() {
+    //     clearTimeout(storeInputTimer);
+    //     storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
+    //     inputBlock.focus(this);
+    //   }, false);
+    // };
   };
 
   function _bind_cloneAttackMeleeInput(array) {
