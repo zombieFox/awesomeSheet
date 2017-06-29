@@ -14,8 +14,7 @@
   white-space: nowrap;
 }
 .m-check-block-check {
-  &[type="checkbox"],
-  &[type="radio"] {
+  &[type="checkbox"] {
     position: relative;
     z-index: 1;
     cursor: pointer;
@@ -105,7 +104,65 @@
     }
   }
 }
-.is-night-mode {}
+.is-night-mode {
+  .m-check-block-check {
+    &[type="checkbox"],
+    &[type="radio"] {
+      & + .m-check-block-check-icon {
+        background-color: $gray-04;
+        border-color: $gray-06;
+        color: $gray-18;
+        &:before {
+          color: $white;
+        }
+      }
+      &:hover {
+        & + .m-check-block-check-icon {
+          &:before {
+            color: $secondary-color-10;
+          }
+        }
+      }
+      &:focus {
+        & + .m-check-block-check-icon {
+          &:before {
+            color: $primary-color-10;
+          }
+        }
+      }
+      &:checked {
+        &:hover {
+          & + .m-check-block-check-icon {
+            &:before {
+              color: $secondary-color-10;
+            }
+          }
+        }
+        &:focus {
+          & + .m-check-block-check-icon {
+            &:before {
+              color: $primary-color-10;
+            }
+          }
+        }
+      }
+      &[type="checkbox"] {
+        & + .m-check-block-check-icon {
+          &:before {
+            content: "\e25d";
+          }
+        }
+        &:checked {
+          & + .m-check-block-check-icon {
+            &:before {
+              content: "\e25c";
+            }
+          }
+        }
+      }
+    }
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

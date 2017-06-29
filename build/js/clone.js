@@ -100,20 +100,20 @@ var clone = (function() {
     var cloneString =
       '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-large">' +
+      '    <div class="m-edit-box-item-max">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
       '        <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
+      '  </div>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
       '        <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
-      '  </div>' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
@@ -138,20 +138,20 @@ var clone = (function() {
     var cloneString =
       '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-large">' +
+      '    <div class="m-edit-box-item-max">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
       '        <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
+      '  </div>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
       '        <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
-      '  </div>' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
@@ -164,6 +164,8 @@ var clone = (function() {
       '        <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
+      '  </div>' +
+      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
       '      <div class="m-input-block js-input-block">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +

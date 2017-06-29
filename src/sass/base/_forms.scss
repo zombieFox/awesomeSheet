@@ -221,8 +221,20 @@ input {
   }
   .textarea,
   textarea {
-    background-color: $secondary-color-02;
-    border-color: $secondary-color-06;
+    background-color: $secondary-color-01;
+    border-color: $gray-06;
+    &:hover {
+      background-color: $secondary-color-02;
+      border-color: $secondary-color-14;
+      &:focus {
+        background-color: $black;
+        border-color: $primary-color-10;
+      }
+    }
+    &:focus {
+      background-color: $black;
+      border-color: $primary-color-10;
+    }
   }
   input {
     &[type="email"],
@@ -231,8 +243,21 @@ input {
     &[type="search"],
     &[type="tel"],
     &[type="text"] {
-      background-color: $secondary-color-02;
-      border-color: $secondary-color-06;
+      background-color: $secondary-color-01;
+      border-color: $gray-06;
+      box-shadow: none;
+      &:hover {
+        background-color: $secondary-color-02;
+        border-color: $secondary-color-14;
+        &:focus {
+          background-color: $black;
+          border-color: $primary-color-10;
+        }
+      }
+      &:focus {
+        background-color: $black;
+        border-color: $primary-color-10;
+      }
     }
   }
   input {

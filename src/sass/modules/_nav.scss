@@ -22,10 +22,9 @@
       text-align: left;
       list-style-type: none;
       &.m-nav-divide {
-        margin: $font-size-100 0;
-        background-color: $gray-19;
+        margin: 1em 0;
+        background-color: $gray-18;
         height: 1px;
-        // transition: background-color $transition-ease-medium;
       }
     }
   }
@@ -45,14 +44,14 @@
   transition: opacity $transition-ease-medium, transform $transition-ease-medium;
 }
 .m-nav-title {
+  padding: 1em 0;
   margin-bottom: 0;
   margin-left: 20%;
   font-family: $open-sans-bold;
-  line-height: $line-height-300;
+  color: $gray-08;
   width: 80%;
   display: block;
   text-transform: uppercase;
-  text-align: left;
   transition: none;
   &:focus {
     outline: 0;
@@ -89,7 +88,7 @@
     font-size: 1.4em;
     line-height: 1;
     display: inline-block;
-    color: $primary-color-10;
+    color: $secondary-color-08;
     text-align: center;
   }
   &:focus,
@@ -100,8 +99,8 @@
   &.is-active,
   &:active {
     background-color: $primary-color-10;
-    .m-nav-link-shortcut,
     .m-nav-link-name,
+    .m-nav-link-shortcut,
     [class*=" icon-"],
     [class^="icon-"] {
       color: $white;
@@ -147,7 +146,7 @@
           font-size: 1.4em;
           line-height: 1;
           display: inline-block;
-          color: $primary-color-10;
+          color: $secondary-color-08;
           text-align: center;
           transition: none;
         }
@@ -157,16 +156,16 @@
           flex-flow: row wrap;
           justify-content: flex-start;
         }
-        .m-nav-characters-name,
         .m-nav-characters-class,
-        .m-nav-characters-level {
+        .m-nav-characters-level,
+        .m-nav-characters-name {
           white-space: nowrap;
           display: inline-block;
           line-height: $line-height-160;
         }
         .m-nav-characters-class,
         .m-nav-characters-level {
-          color: $primary-color-10;
+          color: $secondary-color-08;
           font-size: $font-size-075;
         }
         .m-nav-characters-name {
@@ -197,7 +196,9 @@
             color: $white;
           }
           .m-nav-characters-class,
-          .m-nav-characters-level,
+          .m-nav-characters-level {
+            color: $primary-color-17;
+          }
           .m-nav-characters-name {
             color: $white;
           }
@@ -245,9 +246,9 @@
       }
     }
   }
-}
-.m-nav-character:not(:last-child) {
-  margin: 0;
+  &:not(:last-child):not(:only-child) {
+    margin-bottom: 0;
+  }
 }
 .is-night-mode {
   .m-nav-shade {
@@ -258,26 +259,40 @@
     .m-nav-list {
       > li {
         &.m-nav-divide {
-          background-color: $secondary-color-05;
+          background-color: $gray-06;
+        }
+      }
+    }
+    .m-nav-link {
+      .m-nav-link-name {
+        color: $white;
+      }
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $secondary-color-12;
+      }
+      &:focus,
+      &:hover {
+        background-color: $gray-06;
+      }
+      &.is-active,
+      &:active {
+        background-color: $primary-color-10;
+        .m-nav-link-name,
+        .m-nav-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+        &:focus,
+        &:hover {
+          background-color: $primary-color-08;
         }
       }
     }
   }
-  .m-nav-link {
-    [class*=" icon-"],
-    [class^="icon-"] {
-      color: $white;
-    }
-    &:focus,
-    &:hover {
-      background-color: $secondary-color-04;
-    }
-    &.is-active {
-      &:focus,
-      &:hover {
-        background-color: $primary-color-08;
-      }
-    }
+  .m-nav-title {
+    color: $gray-12;
   }
   .m-nav-character {
     input {
@@ -285,7 +300,11 @@
       &[type="radio"] {
         & + label {
           &:before {
-            color: $white;
+            color: $secondary-color-12;
+          }
+          .m-nav-characters-class,
+          .m-nav-characters-level {
+            color: $secondary-color-12;
           }
           .m-nav-characters-name {
             color: $white;
@@ -293,13 +312,18 @@
         }
         &:hover {
           & + label {
-            background-color: $secondary-color-04;
+            background-color: $gray-06;
           }
         }
         &:checked {
           & + label {
+            &:before {
+              color: $white;
+            }
             .m-nav-characters-class,
-            .m-nav-characters-level,
+            .m-nav-characters-level {
+              color: $primary-color-17;
+            }
             .m-nav-characters-name {
               color: $white;
             }

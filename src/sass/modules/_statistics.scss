@@ -9,6 +9,13 @@
   box-sizing: border-box;
   text-align: center;
 }
+.is-night-mode {
+  .m-stat-modifier {
+    background-color: $gray-04;
+    border-color: $gray-06;
+    color: $gray-18;
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

@@ -223,7 +223,7 @@ var spells = (function() {
       preparedCount.setAttribute("class", "m-total-block-total js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
+      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
       preparedPlus.setAttribute("tabindex", "3");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
@@ -232,7 +232,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
+      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
       preparedMinus.setAttribute("tabindex", "3");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
@@ -241,7 +241,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
+      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
       preparedClear.setAttribute("tabindex", "3");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
@@ -286,7 +286,7 @@ var spells = (function() {
       castCount.setAttribute("class", "m-total-block-total js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
+      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
       castPlus.setAttribute("tabindex", "3");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
@@ -295,7 +295,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
+      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
       castMinus.setAttribute("tabindex", "3");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
@@ -304,7 +304,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castClear = document.createElement("button");
-      castClear.setAttribute("class", "u-inline-with-input button button-large button-icon button-secondary");
+      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
       castClear.setAttribute("tabindex", "3");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");

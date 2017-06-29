@@ -75,13 +75,13 @@
   transition: margin $transition-ease-medium;
 }
 .m-edit-box-item-total {
-  flex: 0 0 3em;
+  flex: 0 0 4.5em;
 }
 .m-edit-box-item-check {
   flex: 0 0 3em;
 }
 .m-edit-box-item-small {
-  flex: 0 1 20%;
+  flex: 0 1 25%;
 }
 .m-edit-box-item-medium {
   flex: 1 1 30%;
@@ -112,8 +112,8 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    button,
-    .button {
+    .button,
+    button {
       margin-bottom: 0;
     }
     .button,
@@ -226,6 +226,9 @@
   }
 }
 .is-night-mode {
+  .m-edit-box-guides {
+    border-bottom-color: $gray-06;
+  }
   .m-edit-heading {
     background-color: $secondary-color-04;
   }
@@ -254,6 +257,9 @@
   }
   .m-edit-box-no-head-large {
     padding-left: 50%;
+  }
+  .m-edit-box-item-small {
+    flex: 0 1 20%;
   }
   .m-edit-box-item-button {
     flex: 0 0 2em;

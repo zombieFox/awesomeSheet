@@ -111,61 +111,13 @@
     .m-clone-block-target {
       .m-clone {
         margin: 0 0 1em;
-        // .textarea,
-        // textarea {
-        //   background-color: $primary-color-18;
-        //   // border-radius: 0;
-        //   border: 0;
-        //   // border-bottom: $border;
-        //   // border-color: $primary-color-10;
-        //   border-color: $primary-color-19;
-        //   box-shadow: none;
-        //   margin: 0;
-        //   // padding: 0;
-        // }
-        // .m-total-block-total {
-        //   background-color: $primary-color-18;
-        //   // border-radius: 0;
-        //   border: 0;
-        //   // border-bottom: $border;
-        //   border-color: $primary-color-19;
-        //   // border-color: $primary-color-10;
-        // }
-        // input {
-        //   &[type="email"],
-        //   &[type="number"],
-        //   &[type="password"],
-        //   &[type="search"],
-        //   &[type="tel"],
-        //   &[type="text"] {
-        //     background-color: $primary-color-18;
-        //     // border-radius: 0;
-        //     border: 0;
-        //     // border-bottom: $border;
-        //     border-color: $primary-color-19;
-        //     box-shadow: none;
-        //     // padding: 0;
-        //     // margin: 0;
-        //   }
-        // }
-        // .m-total-block-label,
-        // label {
-        //   // color: transparent;
-        //   // visibility: hidden;
-        //   // color: $base-color;
-        //   color: $primary-color-16;
-        // }
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: 0.3em 4em 1em 1em;
+          padding: 0.5em 4em 0 1em;
           border-color: transparent;
           border-radius: $border-radius-medium;
           &.m-clone-block-content-box {
-            padding: 0.3em 4em 1em 1em;
-          }
-          [class*="m-edit-box-item"],
-          [class^="m-edit-box-item"] {
-            margin-bottom: 0;
+            padding: 1em 4em 0 1em;
           }
         }
         .u-underline-with-input {

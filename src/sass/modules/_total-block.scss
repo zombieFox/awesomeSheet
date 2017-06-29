@@ -1,8 +1,8 @@
 .m-total-block-total {
   background-color: $gray-19;
+  border-radius: $border-radius-large;
   border: $border;
   border-color: $gray-17;
-  border-radius: $border-radius-large;
   font-family: $open-sans-bold;
   height: 2.5em;
   line-height: $line-height-250;
@@ -10,7 +10,6 @@
   box-sizing: border-box;
   text-align: center;
 }
-
 .m-total-block-label {
   display: block;
   color: $gray-14;
@@ -25,7 +24,12 @@
 }
 .is-night-mode {
   .m-total-block-total {
-    color: $secondary-color-12;
+    background-color: $gray-04;
+    border-color: $gray-06;
+    color: $gray-18;
+  }
+  .m-total-block-label {
+    color: $gray-10;
   }
 }
 // --------------------------------------------------
