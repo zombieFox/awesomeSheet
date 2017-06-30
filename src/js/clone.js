@@ -11,6 +11,7 @@ var clone = (function() {
     _render_all_clones("attack-melee");
     _render_all_clones("attack-ranged");
     _render_all_clones("consumable");
+    _render_all_clones("skill");
     _render_all_clones("note-character");
     _render_all_clones("note-story");
 
@@ -19,17 +20,16 @@ var clone = (function() {
     _update_cloneInput(_get_cloneObjects("attack-melee"), "attack-melee");
     _update_cloneInput(_get_cloneObjects("attack-ranged"), "attack-ranged");
     _update_cloneInput(_get_cloneObjects("consumable"), "consumable");
+    _update_cloneInput(_get_cloneObjects("skill"), "skill");
     _update_cloneTextarea(_get_cloneObjects("note-character"), "note-character");
     _update_cloneTextarea(_get_cloneObjects("note-story"), "note-story");
 
     _update_clonePlaceholder("attack-melee");
     _update_clonePlaceholder("attack-ranged");
     _update_clonePlaceholder("consumable");
+    // _update_clonePlaceholder("skill");
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
-
-
-    _render_all_clones("skill");
   };
 
   function _upddate_consumableTotals() {
@@ -103,43 +103,43 @@ var clone = (function() {
   function _newSkill(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '<div class="m-skill js-total-block" data-total-type="bonus">' +
-      '  <div class="m-edit-box m-edit-box-guides">' +
-      '    <div class="m-edit-box-head-large">' +
-      '      <div class="m-skill-name m-input-block js-input-block">' +
-      '        <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="3" placeholder="Custom skill">' +
-      '      </div>' +
-      '    </div>' +
-      '    <div class="m-edit-box-body m-edit-box-body-group">' +
-      '      <div class="m-edit-box-item-total">' +
-      '        <p class="m-total-block-total js-total-block-total"></p>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-medium">' +
-      '        <div class="m-input-block js-input-block">' +
-      '          <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-custom-ranks" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '  <div class="m-skill js-total-block" data-total-type="bonus">' +
+      '    <div class="m-edit-box m-edit-box-guides">' +
+      '      <div class="m-edit-box-head-large">' +
+      '        <div class="m-skill-name m-input-block js-input-block">' +
+      '          <input id="skill-name-' + index + '" class="m-input-block-field u-full-width u-no-margin js-input-block-field js-clone-skill-name" type="text" tabindex="3" placeholder="Custom skill">' +
       '        </div>' +
       '      </div>' +
-      '      <div class="m-edit-box-item-medium">' +
-      '        <div class="m-input-block js-input-block">' +
-      '          <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '      <div class="m-edit-box-body m-edit-box-body-group">' +
+      '        <div class="m-edit-box-item-total">' +
+      '          <p class="m-total-block-total js-total-block-total"></p>' +
       '        </div>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-check">' +
-      '        <div class="m-check-block js-total-block-toggle">' +
-      '          <input class="m-check-block-check js-total-block-toggle-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
-      '          <span class="m-check-block-check-icon"></span>' +
+      '        <div class="m-edit-box-item-medium">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <input id="skill-rank-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-rank" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '          </div>' +
       '        </div>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-button">' +
-      '        <a href="javascript:void(0)" class="u-inline-with-input button button-secondary button-large button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-modal-heading="Custom skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
+      '        <div class="m-edit-box-item-medium">' +
+      '          <div class="m-input-block js-input-block">' +
+      '            <input id="skill-misc-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-misc" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="m-edit-box-item-check">' +
+      '          <div class="m-check-block js-total-block-toggle">' +
+      '            <input class="m-check-block-check js-total-block-toggle-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <span class="m-check-block-check-icon"></span>' +
+      '          </div>' +
+      '        </div>' +
+      '        <div class="m-edit-box-item-button">' +
+      '          <a href="javascript:void(0)" class="u-inline-with-input button button-secondary button-large button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-modal-heading="Custom skill bonuses"tabindex="3"><span class="icon-more-vertical"></span></a>' +
+      '        </div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
-      '</div>' +
       '  <div class="m-clone-block-delete-controls">' +
       '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '  </div>' +
-      '</div>'
+      '</div>';
     return cloneString;
   };
 
@@ -645,7 +645,6 @@ var clone = (function() {
       cloneTarget.appendChild(newClone);
       // bind listeners
       _bind_clone(cloneType, newClone);
-      console.log(newClone.querySelector(".js-clone-block-delete"));
       _bind_cloneRemoveButton(newClone.querySelector(".js-clone-block-delete"), cloneType);
     };
   };
@@ -659,6 +658,9 @@ var clone = (function() {
         if (cloneType == "consumable") {
           input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
         };
+        if (cloneType == "skill") {
+          input = cloneTarget.querySelector("#skill-" + j.replace(/_/g, "-") + "-" + i);
+        };
         if (cloneType == "attack-melee") {
           input = cloneTarget.querySelector("#attack-melee-" + j.replace(/_/g, "-") + "-" + i);
         };
@@ -671,7 +673,6 @@ var clone = (function() {
         };
       };
     };
-    // totalBlock.update();
   };
 
   function _update_cloneTextarea(array, cloneType) {
@@ -692,7 +693,6 @@ var clone = (function() {
         };
       };
     };
-    // totalBlock.update();
   };
 
   function _checkCloneState(cloneType) {
@@ -711,34 +711,22 @@ var clone = (function() {
   function _update_clones(button, cloneType) {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
     var undoMessage = _get_undoRemoveCloneMessage(cloneType);
-
     _remove_cloneObject(cloneType, cloneIndex);
     _destroy_allClones(cloneType);
     _render_all_clones(cloneType);
-
-    _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
     _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
     _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
-
     snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restoreLastRemovedClone, 6000);
     totalBlock.update();
   };
 
   function _restoreLastRemovedClone() {
     var undoData = JSON.parse(helper.read("lastRemovedClone"));
-
     _restoreCloneObject(undoData.cloneType, undoData.index, undoData.clone);
     _destroy_allClones(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
-
-    _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
     _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
     _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-
     _update_clonePlaceholder(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.update();
@@ -753,6 +741,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       object.clone = sheet.getCharacter().equipment.consumable[cloneIndex];
+    };
+    if (cloneType == "skill") {
+      object.clone = sheet.getCharacter().skills.custom[cloneIndex];
     };
     if (cloneType == "attack-melee") {
       object.clone = sheet.getCharacter().offense.attack.melee[cloneIndex];
@@ -777,6 +768,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       sheet.getCharacter().equipment.consumable.splice(index, 1);
     };
+    if (cloneType == "skill") {
+      sheet.getCharacter().skills.custom.splice(index, 1);
+    };
     if (cloneType == "attack-melee") {
       sheet.getCharacter().offense.attack.melee.splice(index, 1);
     };
@@ -794,6 +788,9 @@ var clone = (function() {
   function _restoreCloneObject(cloneType, index, cloneObject) {
     if (cloneType == "consumable") {
       sheet.getCharacter().equipment.consumable.splice(index, 0, cloneObject);
+    };
+    if (cloneType == "skill") {
+      sheet.getCharacter().skills.custom.splice(index, 0, cloneObject);
     };
     if (cloneType == "attack-melee") {
       sheet.getCharacter().offense.attack.melee.splice(index, 0, cloneObject);
@@ -848,27 +845,21 @@ var clone = (function() {
   };
 
   function _bind_cloneSkillInput(array) {
-    console.log(array);
-    // for (var i = 0; i < array.length; i++) {
-    //   var input = array[i].querySelector(".js-input-block-field");
-    //   if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
-    //     input.addEventListener("input", function() {
-    //       _minMaxCountLimit(this);
-    //     }, false);
-    //   };
-    //   input.addEventListener("input", function() {
-    //     clearTimeout(storeInputTimer);
-    //     storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
-    //   }, false);
-    //   input.addEventListener("focus", function() {
-    //     inputBlock.focus(this);
-    //   }, false);
-    //   input.addEventListener("blur", function() {
-    //     clearTimeout(storeInputTimer);
-    //     storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
-    //     inputBlock.focus(this);
-    //   }, false);
-    // };
+    for (var i = 0; i < array.length; i++) {
+      var input = array[i].querySelector(".js-input-block-field");
+      input.addEventListener("input", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "skill", this);
+      }, false);
+      input.addEventListener("focus", function() {
+        inputBlock.focus(this);
+      }, false);
+      input.addEventListener("blur", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 1000, "skill", this);
+        inputBlock.focus(this);
+      }, false);
+    };
   };
 
   function _bind_cloneAttackMeleeInput(array) {
@@ -1018,6 +1009,14 @@ var clone = (function() {
     };
   };
 
+  function _create_skillObject(name, ranks, misc) {
+    return {
+      name: this.item = name || "",
+      ranks: this.current = ranks || "",
+      misc: this.total = misc || ""
+    };
+  };
+
   function _create_noteCharacter(data) {
     return {
       note: this.data = data || ""
@@ -1090,6 +1089,13 @@ var clone = (function() {
       var used = clone.querySelector(".js-clone-consumable-used").value;
       var newConsumable = new _create_consumableObject(item, current, total, used);
       sheet.getCharacter().equipment.consumable[cloneIndex] = newConsumable;
+    };
+    if (cloneType == "skill") {
+      var name = clone.querySelector(".js-clone-skill-name").value;
+      var ranks = clone.querySelector(".js-clone-skill-rank").value;
+      var misc = clone.querySelector(".js-clone-skill-misc").value;
+      var newSkill = new _create_skillObject(name, ranks, misc);
+      sheet.getCharacter().skills.custom[cloneIndex] = newSkill;
     };
     if (cloneType == "note-character") {
       var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
