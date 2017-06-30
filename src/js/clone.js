@@ -497,12 +497,16 @@ var clone = (function() {
 
   function _bind_cloneControls() {
     var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
+    var cloneBlockSkill = helper.e(".js-clone-block-skill");
     var cloneBlockAttack = helper.e(".js-clone-block-attack");
     var cloneBlockNote = helper.e(".js-clone-block-note");
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
     // var cloneAddConsumablePlaceholder = cloneBlockConsumable.querySelector(".js-clone-add-consumable-placeholder");
+
+    var cloneAddSkill = cloneBlockSkill.querySelector(".js-clone-add-skill");
+    var cloneRemoveSkill = cloneBlockSkill.querySelector(".js-clone-remove");
 
     var cloneAddAttackMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
     var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
@@ -525,6 +529,11 @@ var clone = (function() {
     //   _addNewClone("consumable");
     //   sheet.storeCharacters();
     // }, false);
+
+    cloneAddSkill.addEventListener("click", function() {
+      _addNewClone("skill");
+      sheet.storeCharacters();
+    }, false);
 
     cloneAddAttackMelee.addEventListener("click", function() {
       _addNewClone("attack-melee");
@@ -572,6 +581,10 @@ var clone = (function() {
 
     cloneRemoveConsumable.addEventListener("click", function() {
       _change_cloneState("consumable");
+    }, false);
+
+    cloneRemoveSkill.addEventListener("click", function() {
+      _change_cloneState("skill");
     }, false);
 
     cloneRemoveNote.addEventListener("click", function() {
