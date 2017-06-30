@@ -54,13 +54,13 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 1000, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
       }, false);
     };
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 1000, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
       }, false);
     };
   };

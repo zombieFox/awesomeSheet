@@ -2,8 +2,8 @@
 
   nav.bind();
   nav.render();
-  sheet.bind();
   sheet.render();
+  sheet.bind();
   night.update();
   checkUrl.render();
   log.bind();

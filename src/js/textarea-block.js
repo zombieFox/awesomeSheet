@@ -52,7 +52,7 @@ var textareaBlock = (function() {
       if (textareaBlockField) {
         textareaBlockField.addEventListener("input", function() {
           clearTimeout(storeBlurTimer);
-          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
+          storeBlurTimer = setTimeout(delayUpdate, 400, this);
         }, false);
         textareaBlockField.addEventListener("focus", function() {
           focus(this);

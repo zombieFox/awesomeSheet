@@ -112,11 +112,11 @@ var clone = (function() {
       '      </div>' +
       '      <div class="m-edit-box-body m-edit-box-body-group">' +
       '        <div class="m-edit-box-item-total">' +
-      '          <p class="m-total-block-total js-total-block-total"></p>' +
+      '          <p class="m-total-block-total js-total-block-total js-clone-skill-current">0</p>' +
       '        </div>' +
       '        <div class="m-edit-box-item-medium">' +
       '          <div class="m-input-block js-input-block">' +
-      '            <input id="skill-ranks-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-ranks" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '            <input id="skill-ranks-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-ranks js-input-block-field-ranks" data-total="addition" data-type="number" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-medium">' +
@@ -126,7 +126,7 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block js-total-block-toggle">' +
-      '            <input class="m-check-block-check js-total-block-toggle-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
@@ -831,14 +831,14 @@ var clone = (function() {
       };
       input.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
       }, false);
       input.addEventListener("focus", function() {
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
         inputBlock.focus(this);
       }, false);
     };
@@ -849,14 +849,14 @@ var clone = (function() {
       var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "skill", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
       }, false);
       input.addEventListener("focus", function() {
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "skill", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
         inputBlock.focus(this);
       }, false);
     };
@@ -867,14 +867,14 @@ var clone = (function() {
       var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "attack-melee", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
       }, false);
       input.addEventListener("focus", function() {
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         clearTimeout(storeInputTimer);
-        storeBlurTimer = setTimeout(delayUpdate, 1000, "attack-melee", this);
+        storeBlurTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
         inputBlock.focus(this);
       }, false);
     };
@@ -885,14 +885,14 @@ var clone = (function() {
       var input = array[i].querySelector(".js-input-block-field");
       input.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "attack-ranged", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
       }, false);
       input.addEventListener("focus", function() {
         inputBlock.focus(this);
       }, false);
       input.addEventListener("blur", function() {
         clearTimeout(storeInputTimer);
-        storeBlurTimer = setTimeout(delayUpdate, 1000, "attack-ranged", this);
+        storeBlurTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
         inputBlock.focus(this);
       }, false);
     };
@@ -904,13 +904,13 @@ var clone = (function() {
     if (textareaBlockField) {
       textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
       }, false);
       textareaBlockField.addEventListener("focus", function() {
         textareaBlock.focus(this);
       }, false);
       textareaBlockField.addEventListener("blur", function() {
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
         textareaBlock.focus(this);
       }, false);
       textareaBlockField.addEventListener("paste", function(event) {
@@ -930,13 +930,13 @@ var clone = (function() {
     if (textareaBlockField) {
       textareaBlockField.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
       }, false);
       textareaBlockField.addEventListener("focus", function() {
         textareaBlock.focus(this);
       }, false);
       textareaBlockField.addEventListener("blur", function() {
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story", this);
+        storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
         textareaBlock.focus(this);
       }, false);
       textareaBlockField.addEventListener("paste", function(event) {
