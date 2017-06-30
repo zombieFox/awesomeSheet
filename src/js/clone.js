@@ -126,7 +126,7 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block js-total-block-toggle">' +
-      '            <input class="m-check-block-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check js-check-block-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
@@ -328,14 +328,14 @@ var clone = (function() {
     if (cloneType == "attack-melee") {
       cloneBlock = helper.e(".js-clone-block-attack");
     };
-    if (cloneType == "skill") {
-      cloneBlock = helper.e(".js-clone-block-skill");
-    };
     if (cloneType == "attack-ranged") {
       cloneBlock = helper.e(".js-clone-block-attack");
     };
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
+    };
+    if (cloneType == "skill") {
+      cloneBlock = helper.e(".js-clone-block-skill");
     };
     if (cloneType == "note-character") {
       cloneBlock = helper.e(".js-clone-block-note");
@@ -351,14 +351,14 @@ var clone = (function() {
     if (cloneType == "attack-melee") {
       cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     };
-    if (cloneType == "skill") {
-      cloneTarget = helper.e(".js-clone-block-target-skills");
-    };
     if (cloneType == "attack-ranged") {
       cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
     };
     if (cloneType == "consumable") {
       cloneTarget = helper.e(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "skill") {
+      cloneTarget = helper.e(".js-clone-block-target-skills");
     };
     if (cloneType == "note-character") {
       cloneTarget = helper.e(".js-clone-block-target-note-character");
@@ -473,6 +473,7 @@ var clone = (function() {
     };
     if (cloneType == "skill") {
       _bind_cloneSkillInput(newClone.querySelectorAll(".js-input-block"));
+      _bind_cloneSkillCheck(newClone.querySelector(".js-total-block-toggle"));
     };
     if (cloneType == "attack-melee") {
       _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
@@ -848,6 +849,14 @@ var clone = (function() {
     };
   };
 
+  function _bind_cloneSkillCheck(element) {
+    var input = element.querySelector(".js-check-block-check");
+    input.addEventListener("change", function() {
+      // delayUpdate("skill", this);
+      console.log(this, this.checked);
+    }, false);
+  };
+
   function _bind_cloneAttackMeleeInput(array) {
     for (var i = 0; i < array.length; i++) {
       var input = array[i].querySelector(".js-input-block-field");
@@ -999,7 +1008,19 @@ var clone = (function() {
     return {
       name: this.item = name || "",
       ranks: this.current = ranks || "",
-      misc: this.total = misc || ""
+      misc: this.total = misc || "",
+      bonuses: {
+        class_skill = false,
+        str_bonus = false,
+        dex_bonus = false,
+        con_bonus = false,
+        int_bonus = false,
+        wis_bonus = false,
+        cha_bonus = false,
+        level = false,
+        half_level = false,
+        check_penalty = false
+      },
     };
   };
 
