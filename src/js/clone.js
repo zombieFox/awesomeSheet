@@ -126,12 +126,12 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block js-total-block-toggle">' +
-      '            <input class="m-check-block-check js-check-block-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check js-clone-skill-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-button">' +
-      '          <a href="javascript:void(0)" class="u-inline-with-input button button-secondary button-large button-icon js-total-block-bonuses" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-modal-heading="Custom skill bonuses"tabindex="3"><span class="icon-more-vertical"></span></a>' +
+      '          <a href="javascript:void(0)" class="u-inline-with-input button button-secondary button-large button-icon" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-modal-heading="Custom skill bonuses"tabindex="3"><span class="icon-more-vertical"></span></a>' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
@@ -799,6 +799,7 @@ var clone = (function() {
   function delayUpdate(cloneType, element) {
     var clone = helper.getClosest(element, ".js-clone");
     var cloneIndex = parseInt(clone.dataset.cloneCount, 10);
+    console.log(clone);
     _update_cloneObject(cloneType, cloneIndex, clone);
     totalBlock.update();
     sheet.storeCharacters();
@@ -850,10 +851,16 @@ var clone = (function() {
   };
 
   function _bind_cloneSkillCheck(element) {
-    var input = element.querySelector(".js-check-block-check");
+    var input = element.querySelector(".js-clone-skill-check");
     input.addEventListener("change", function() {
-      // delayUpdate("skill", this);
-      console.log(this, this.checked);
+      ///
+      ///
+      ///
+      totalBlock.addRemoveBonus(this);
+      ///
+      ///
+      clearTimeout(storeInputTimer);
+      storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
     }, false);
   };
 
@@ -1004,23 +1011,23 @@ var clone = (function() {
     };
   };
 
-  function _create_skillObject(name, ranks, misc) {
+  function _create_skillObject(name, ranks, misc, classSkill) {
     return {
-      name: this.item = name || "",
-      ranks: this.current = ranks || "",
-      misc: this.total = misc || "",
-      bonuses: {
-        class_skill = false,
-        str_bonus = false,
-        dex_bonus = false,
-        con_bonus = false,
-        int_bonus = false,
-        wis_bonus = false,
-        cha_bonus = false,
-        level = false,
-        half_level = false,
-        check_penalty = false
-      },
+      name: this.name = name || "",
+      ranks: this.ranks = ranks || "",
+      misc: this.misc = misc || "",
+      bonuses: this.bonuses = {
+        class_skill: classSkill,
+        str_bonus: false,
+        dex_bonus: false,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false,
+        check_penalty: false
+      }
     };
   };
 
@@ -1107,7 +1114,8 @@ var clone = (function() {
       var name = clone.querySelector(".js-clone-skill-name").value;
       var ranks = clone.querySelector(".js-clone-skill-ranks").value;
       var misc = clone.querySelector(".js-clone-skill-misc").value;
-      var newSkill = new _create_skillObject(name, ranks, misc);
+      var classSkill = clone.querySelector(".js-clone-skill-check").checked;
+      var newSkill = new _create_skillObject(name, ranks, misc, classSkill);
       sheet.getCharacter().skills.custom[cloneIndex] = newSkill;
     };
     if (cloneType == "note-character") {

@@ -103,7 +103,7 @@ var totalBlock = (function() {
     };
 
     function _checkClassSkill(totalBlock) {
-      var input = totalBlock.querySelector(".js-input-block-field-ranks") || totalBlock.querySelector(".js-input-block-field-custom-ranks");
+      var input = totalBlock.querySelector(".js-input-block-field-ranks");
       var path = input.dataset.path;
       var ranks = helper.getObject(sheet.getCharacter(), path);
       var value;
@@ -391,7 +391,7 @@ var totalBlock = (function() {
 
   function _bind_bonusTypeChecks(element, totalBlock) {
     element.addEventListener("change", function() {
-      _addRemoveBonus(this, totalBlock);
+      addRemoveBonus(this, totalBlock);
       _store(this, totalBlock);
       update();
     }, false);
@@ -400,7 +400,7 @@ var totalBlock = (function() {
   function _bind_classSkillToggle(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     element.addEventListener("change", function() {
-      _addRemoveBonus(this, totalBlock);
+      addRemoveBonus(this, totalBlock);
       _store(this, totalBlock);
       update();
     }, false);
@@ -434,7 +434,7 @@ var totalBlock = (function() {
     };
   };
 
-  function _addRemoveBonus(input, totalBlock) {
+  function addRemoveBonus(input, totalBlock) {
     var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
     var bonusType = input.dataset.bonusType;
     if (input.checked) {
@@ -586,7 +586,8 @@ var totalBlock = (function() {
     clear: clear,
     bind: bind,
     update: update,
-    render: render
+    render: render,
+    addRemoveBonus: addRemoveBonus
   };
 
 })();
