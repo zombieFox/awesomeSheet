@@ -367,7 +367,7 @@ var nif = (function() {
         {
           name: "Frog Tossing",
           ranks: "3",
-          misc: "",
+          misc: "3",
           current: "",
           bonuses: {
             class_skill: false,

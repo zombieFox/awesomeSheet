@@ -116,7 +116,7 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-medium">' +
       '          <div class="m-input-block js-input-block">' +
-      '            <input id="skill-rank-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-rank" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '            <input id="skill-ranks-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-ranks" data-total="addition" data-type="number" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-medium">' +
@@ -1092,7 +1092,7 @@ var clone = (function() {
     };
     if (cloneType == "skill") {
       var name = clone.querySelector(".js-clone-skill-name").value;
-      var ranks = clone.querySelector(".js-clone-skill-rank").value;
+      var ranks = clone.querySelector(".js-clone-skill-ranks").value;
       var misc = clone.querySelector(".js-clone-skill-misc").value;
       var newSkill = new _create_skillObject(name, ranks, misc);
       sheet.getCharacter().skills.custom[cloneIndex] = newSkill;
