@@ -385,6 +385,7 @@ var orrin = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: 9,
         misc: "",

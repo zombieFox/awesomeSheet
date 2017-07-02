@@ -380,6 +380,7 @@ var ro = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: 4,
         misc: "",

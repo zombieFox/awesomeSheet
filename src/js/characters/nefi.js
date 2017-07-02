@@ -365,6 +365,7 @@ var nefi = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: 5,

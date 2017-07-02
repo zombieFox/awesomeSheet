@@ -365,6 +365,7 @@ var vos = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: 7,
         misc: "",

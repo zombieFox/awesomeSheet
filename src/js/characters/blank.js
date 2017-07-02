@@ -318,6 +318,7 @@ var blank = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: "",

@@ -850,12 +850,14 @@ var clone = (function() {
     };
   };
 
-  function _bind_cloneSkillCheck(element) {
-    // totalBlock.bind(element);
+  function _bind_cloneSkillCheck(check) {
+    // var totalBlockElement = helper.getClosest(element, ".js-total-block");
+    totalBlock.bindControlCheck(check);
   };
 
-  function _bind_cloneSkillButton(element) {
-    // totalBlock.bind(element);
+  function _bind_cloneSkillButton(button) {
+    // var totalBlockElement = helper.getClosest(element, ".js-total-block");
+    totalBlock.bindControlButton(button);
   };
 
   function _bind_cloneAttackMeleeInput(array) {

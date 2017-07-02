@@ -365,6 +365,7 @@ var nif = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       custom: [{
         name: "Frog Tossing",
         ranks: "2",
