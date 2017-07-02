@@ -23,7 +23,7 @@ var inputBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    totalBlock.update();
+    totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
@@ -76,7 +76,7 @@ var inputBlock = (function() {
     };
     _store(target);
     update(target);
-    totalBlock.update();
+    totalBlock.render();
   };
 
   function _bind_inputBlock() {

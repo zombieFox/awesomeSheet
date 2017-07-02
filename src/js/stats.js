@@ -41,7 +41,7 @@ var stats = (function() {
 
   function delayUpdate(element) {
     _render_stat(element);
-    totalBlock.update();
+    totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();

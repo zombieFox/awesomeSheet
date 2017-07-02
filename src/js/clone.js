@@ -126,12 +126,12 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block js-total-block-toggle">' +
-      '            <input class="m-check-block-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check js-total-block-bonus-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-button">' +
-      '          <a href="javascript:void(0)" class="u-inline-with-input button button-secondary button-large button-icon" data-bonuses="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-modal-heading="Custom skill bonuses"tabindex="3"><span class="icon-more-vertical"></span></a>' +
+      '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-modal-heading="Ranged bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
@@ -704,7 +704,7 @@ var clone = (function() {
     _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
     _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
     snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restoreLastRemovedClone, 6000);
-    totalBlock.update();
+    totalBlock.render();
   };
 
   function _restoreLastRemovedClone() {
@@ -716,7 +716,7 @@ var clone = (function() {
     _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
     _update_clonePlaceholder(undoData.cloneType);
     _remove_lastRemovedClone();
-    totalBlock.update();
+    totalBlock.render();
   };
 
   function _store_lastRemovedClone(button, cloneType) {
@@ -800,7 +800,7 @@ var clone = (function() {
     var clone = helper.getClosest(element, ".js-clone");
     var cloneIndex = parseInt(clone.dataset.cloneCount, 10);
     _update_cloneObject(cloneType, cloneIndex, clone);
-    totalBlock.update(element, _get_cloneObjects("skill")[cloneIndex]);
+    totalBlock.render();
     sheet.storeCharacters();
     if (body.dataset.displayMode == "true") {
       display.clear();
@@ -850,17 +850,17 @@ var clone = (function() {
   };
 
   function _bind_cloneSkillCheck(element) {
-    var input = element.querySelector(".js-clone-skill-check");
-    input.addEventListener("change", function() {
-      ///
-      ///
-      ///
-      totalBlock.addRemoveBonus(this);
-      ///
-      ///
-      clearTimeout(storeInputTimer);
-      storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
-    }, false);
+    var input = element.querySelector(".js-total-block-toggle-check");
+    var totalBlockElement = helper.getClosest(element, ".js-total-block");
+    // totalBlock.bind(totalBlockElement);
+    // input.addEventListener("change", function() {
+    //   ///
+    //   ///
+    //   ///
+    //   ///
+    //   clearTimeout(storeInputTimer);
+    //   storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
+    // }, false);
   };
 
   function _bind_cloneAttackMeleeInput(array) {
@@ -1016,7 +1016,7 @@ var clone = (function() {
       ranks: this.ranks = ranks || "",
       misc: this.misc = misc || "",
       bonuses: this.bonuses = {
-        class_skill: classSkill,
+        class_skill: classSkill || false,
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,

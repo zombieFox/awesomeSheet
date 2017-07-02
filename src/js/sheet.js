@@ -269,21 +269,6 @@ var sheet = (function() {
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };
 
-  function bind() {
-    prompt.bind();
-    modal.bind();
-    snack.bind();
-    inputBlock.bind();
-    textareaBlock.bind();
-    stats.bind();
-    clone.bind();
-    totalBlock.bind();
-    spells.bind();
-    skills.bind();
-    display.bind();
-    card.bind();
-  };
-
   function render() {
     inputBlock.render();
     textareaBlock.render();
@@ -292,8 +277,22 @@ var sheet = (function() {
     skills.render();
     spells.render();
     totalBlock.render();
-    totalBlock.update();
     display.render();
+  };
+
+  function bind() {
+    prompt.bind();
+    modal.bind();
+    snack.bind();
+    inputBlock.bind();
+    textareaBlock.bind();
+    stats.bind();
+    clone.bind();
+    spells.bind();
+    skills.bind();
+    totalBlock.bind();
+    display.bind();
+    card.bind();
   };
 
   function clear() {
@@ -302,7 +301,7 @@ var sheet = (function() {
     stats.render();
     clone.clear();
     totalBlock.clear();
-    totalBlock.update();
+    totalBlock.render();
     spells.clear();
     display.clear();
   };

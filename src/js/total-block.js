@@ -9,7 +9,6 @@ var totalBlock = (function() {
   };
 
   function _render_totalBlock(totalBlock) {
-
     var _checkValue = function(data) {
       var value;
       if (typeof data == "number") {
@@ -22,7 +21,6 @@ var totalBlock = (function() {
       };
       return value;
     };
-
     var _checkForTempModifier = function(score, tempScore) {
       if (tempScore == "") {
         return _checkValue(score);
@@ -30,7 +28,6 @@ var totalBlock = (function() {
         return _checkValue(tempScore);
       };
     };
-
     var _checkClassSkill = function(object) {
       var classSkill;
       if (object.ranks > 0) {
@@ -40,11 +37,11 @@ var totalBlock = (function() {
       };
       return classSkill;
     };
-
     var totalElement = totalBlock.querySelector(".js-total-block-total");
     var sum = [];
     var totalPath = totalBlock.dataset.totalPath;
     var totalType = totalBlock.dataset.totalType;
+    var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
     var totalPathAddition = false;
     if (totalBlock.dataset.totalPathAddition) {
       totalPathAddition = totalBlock.dataset.totalPathAddition.split(",");
@@ -144,6 +141,12 @@ var totalBlock = (function() {
       // 10
       if (object.bonuses.plus_ten) {
         sum.push(10);
+      };
+    };
+    if (all_bonusCheck.length > 0) {
+      for (var i = 0; i < all_bonusCheck.length; i++) {
+        var bonusType = all_bonusCheck[i].dataset.bonusType.replace(/-+/g, "_");
+        all_bonusCheck[i].checked = object.bonuses[bonusType];
       };
     };
     var grandTotal;
@@ -264,11 +267,11 @@ var totalBlock = (function() {
   };
 
   function xxxx_render() {
-    var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
-    var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
-    for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      var path = all_totalBlockBonuses[i].dataset.bonusPath;
-      var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
+    var all_totalBlockBonus = helper.eA(".js-total-block-bonuses");
+    var all_totalBlockBonusCheck = helper.eA(".js-total-block-toggle-check");
+    for (var i = 0; i < all_totalBlockBonus.length; i++) {
+      var path = all_totalBlockBonus[i].dataset.bonusPath;
+      var totalBlock = helper.getClosest(all_totalBlockBonus[i], ".js-total-block");
       if (path) {
         var object = helper.getObject(sheet.getCharacter(), path);
         for (var key in object) {
@@ -334,10 +337,10 @@ var totalBlock = (function() {
         };
       };
     };
-    for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
-      var path = all_totalBlockToggleCheck[i].dataset.path;
+    for (var i = 0; i < all_totalBlockBonusCheck.length; i++) {
+      var path = all_totalBlockBonusCheck[i].dataset.path;
       var state = helper.getObject(sheet.getCharacter(), path);
-      all_totalBlockToggleCheck[i].checked = state;
+      all_totalBlockBonusCheck[i].checked = state;
     };
   };
 
@@ -668,137 +671,191 @@ var totalBlock = (function() {
 
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
-    var path = element.dataset.bonusPath;
-    var bonuses = element.dataset.bonuses.split(",");
+    var totalPath = totalBlock.dataset.totalPath;
+    var totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex || false;
+    var object;
+    if (totalPath && totalPathBonusArrayIndex) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [totalPathBonusArrayIndex]);
+    } else if (totalPath) {
+      object = helper.getObject(sheet.getCharacter(), totalPath);
+    };
     var heading = element.dataset.modalHeading || "Bonuses to add to this ability";
+    var totalBlockControl = document.createElement("div");
+    totalBlockControl.setAttribute("class", "js-total-block-control");
+    totalBlockControl.setAttribute("data-total-path", totalPath);
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
     row.setAttribute("class", "row");
-
-    if (bonuses) {
-      var data = helper.getObject(sheet.getCharacter(), path);
-      for (var i = 0; i < bonuses.length; i++) {
+    if (object) {
+      for (var key in object.bonuses) {
+        // console.log(key, object.bonuses[key]);
+        // totalBlockControl.setAttribute("data-" + key.replace(/_+/g, "-"), object.bonuses[key]);
         var col = document.createElement("div");
         col.setAttribute("class", "col-xs-6 col-xl-4");
-
         var div = document.createElement("div");
-        div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");
-
+        div.setAttribute("class", "js-total-block-toggle");
         var input = document.createElement("input");
-        input.setAttribute("id", bonuses[i].replace(/_+/g, "-"));
+        input.setAttribute("id", key.replace(/_+/g, "-"));
         input.setAttribute("class", "m-total-block-toggle-check");
-        input.setAttribute("data-path", path + "." + bonuses[i]);
-        input.setAttribute("data-bonus-type", bonuses[i].replace(/_+/g, "-"));
+        input.setAttribute("data-bonus-type", key.replace(/_+/g, "-"));
         input.setAttribute("type", "checkbox");
         input.setAttribute("tabindex", "3");
-        input.checked = data[bonuses[i]];
-
+        input.checked = object.bonuses[key];
         var label = document.createElement("label");
-        label.setAttribute("for", bonuses[i].replace(/_+/g, "-"));
+        label.setAttribute("for", key.replace(/_+/g, "-"));
         label.setAttribute("class", "label-left u-full-width");
-        label.textContent = _bonusTextLable(bonuses[i]);
-
+        label.textContent = _bonusTextLable(key);
         div.appendChild(input);
         div.appendChild(label);
         col.appendChild(div);
         row.appendChild(col);
-
-        _bind_bonusTypeChecks(input, totalBlock);
-
+        _bind_bonusCheck(input);
       };
     };
     container.appendChild(row);
-    modal.render(heading, container, "Done");
+    totalBlockControl.appendChild(container);
+    modal.render(heading, totalBlockControl, "Done");
   };
 
-  function _bind_bonusTypeChecks(element, totalBlock) {
+  function _bind_bonusCheck(element) {
     element.addEventListener("change", function() {
-      addRemoveBonus(this, totalBlock);
-      _store(this, totalBlock);
-      update();
+      _update_bonuses(this);
+      render();
+      sheet.storeCharacters();
     }, false);
   };
 
-  function _bind_classSkillToggle(element) {
-    var totalBlock = helper.getClosest(element, ".js-total-block");
-    element.addEventListener("change", function() {
-      addRemoveBonus(this, totalBlock);
-      _store(this, totalBlock);
-      update();
+  function _bind_bonusButton(element) {
+    element.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      _totalBlockModalContent(this);
     }, false);
   };
 
-  function _bind_bonusButtons(element) {
-    if (element.nodeName.toLowerCase() == "a") {
-      element.addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _totalBlockModalContent(this);
-      }, false);
-    };
+  // function _bind_classSkillCheck(element) {
+  //   var totalBlock = helper.getClosest(element, ".js-total-block");
+  //   element.addEventListener("change", function() {
+  //     _update_bonuses(this);
+  //     render();
+  //     // _store_bonuses(this, totalBlock);
+  //   }, false);
+  // };
+
+
+  // function _store_bonuses(input, totalBlock) {
+  //   console.log(input);
+  //   var totalPath = totalBlock.dataset.totalPath;
+  //   var totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex || false;
+  //   var newBonuses = {};
+  //   [].forEach.call(input.attributes, function(attribute) {
+  //     if (/^data-/.test(attribute.name)) {
+  //       var newKey = attribute.name.substr(5).replace(/-+/g, "_");
+  //       newBonuses[newKey] = (attribute.value == "true");
+  //     };
+  //   });
+  //   if (totalPath && totalPathBonusArrayIndex) {
+  //     helper.setObject(sheet.getCharacter(), totalPath, newBonuses, totalPathBonusArrayIndex, "bonuses");
+  //   } else if (totalPath) {
+  //     helper.setObject(sheet.getCharacter(), totalPath, newBonuses, false, "bonuses");
+  //   };
+  // };
+
+  function bind(totalBlock) {
+    // if (totalBlock) {
+    //   var totalBlockBonuses = totalBlock.querySelector(".js-total-block-bonuses");
+    //   var totalBlockToggleCheck = totalBlock.querySelector(".js-total-block-toggle-check");
+    //   if (totalBlockBonuses) {
+    //     _bind_bonusButton(totalBlockBonuses);
+    //   };
+    //   if (totalBlockToggleCheck) {
+    //     _bind_bonusCheck(totalBlockToggleCheck);
+    //   };
+    // } else {
+      var all_totalBlockBonus = helper.eA(".js-total-block-bonuses");
+      var all_totalBlockBonusCheck = helper.eA(".js-total-block-bonus-check");
+      for (var i = 0; i < all_totalBlockBonus.length; i++) {
+        _bind_bonusButton(all_totalBlockBonus[i]);
+      };
+      for (var i = 0; i < all_totalBlockBonusCheck.length; i++) {
+        _bind_bonusCheck(all_totalBlockBonusCheck[i]);
+      };
+    // };
   };
 
-  function _store(input, totalBlock) {
-    var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
-    var path = input.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, input.checked);
-    sheet.storeCharacters();
-  };
+  function _update_bonuses(input) {
+    var bonusType = input.dataset.bonusType.replace(/-+/g, "_");
+    var totalBlock = helper.getClosest(input, ".js-total-block") || helper.getClosest(input, ".js-total-block-control");
+    var totalPath = totalBlock.dataset.totalPath;
+    var bonusesPath = totalPath + ".bonuses";
+    var bonusesObject = helper.getObject(sheet.getCharacter(), bonusesPath);
+    bonusesObject[bonusType] = input.checked;
 
-  function bind() {
-    var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
-    var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
-    for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      _bind_bonusButtons(all_totalBlockBonuses[i]);
-    };
-    for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
-      _bind_classSkillToggle(all_totalBlockToggleCheck[i]);
-    };
-  };
 
-  function addRemoveBonus(input, totalBlock) {
-    var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
-    var bonusType = input.dataset.bonusType;
-    if (bonusType == "str-bonus") {
-      totalBlock.dataset.strBonus = input.checked;
-    } else if (bonusType == "dex-bonus") {
-      totalBlock.dataset.dexBonus = input.checked;
-    } else if (bonusType == "con-bonus") {
-      totalBlock.dataset.conBonus = input.checked;
-    } else if (bonusType == "int-bonus") {
-      totalBlock.dataset.intBonus = input.checked;
-    } else if (bonusType == "wis-bonus") {
-      totalBlock.dataset.wisBonus = input.checked;
-    } else if (bonusType == "cha-bonus") {
-      totalBlock.dataset.chaBonus = input.checked;
-    } else if (bonusType == "bab") {
-      totalBlock.dataset.babBonus = input.checked;
-    } else if (bonusType == "size") {
-      totalBlock.dataset.sizeBonus = input.checked;
-    } else if (bonusType == "level") {
-      totalBlock.dataset.levelBonus = input.checked;
-    } else if (bonusType == "half-level") {
-      totalBlock.dataset.halfLevelBonus = input.checked;
-    } else if (bonusType == "plus-ten") {
-      totalBlock.dataset.plusTenBonus = input.checked;
-    } else if (bonusType == "ac-armor") {
-      totalBlock.dataset.acArmor = input.checked;
-    } else if (bonusType == "ac-shield") {
-      totalBlock.dataset.acShield = input.checked;
-    } else if (bonusType == "ac-deflect") {
-      totalBlock.dataset.acDeflect = input.checked;
-    } else if (bonusType == "ac-dodge") {
-      totalBlock.dataset.acDodge = input.checked;
-    } else if (bonusType == "ac-natural") {
-      totalBlock.dataset.acNatural = input.checked;
-    } else if (bonusType == "class-skill") {
-      totalBlock.dataset.classSkill = input.checked;
-    } else if (bonusType == "check-penalty") {
-      totalBlock.dataset.checkPenalty = input.checked;
-    } else if (bonusType == "max-dex") {
-      totalBlock.dataset.maxDex = input.checked;
-    };
+    // var totalBlock = helper.getClosest(input, ".js-total-block");
+    // var totalBlockControl = helper.getClosest(input, ".js-total-block-control");
+    // var path;
+    // var totalPath;
+    // var totalPathBonusArrayIndex;
+    // if (totalBlockControl) {
+    //   var bonusType = input.dataset.bonusType;
+    //   if (bonusType == "str-bonus") {
+    //     totalBlockControl.dataset.strBonus = input.checked;
+    //   } else if (bonusType == "dex-bonus") {
+    //     totalBlockControl.dataset.dexBonus = input.checked;
+    //   } else if (bonusType == "con-bonus") {
+    //     totalBlockControl.dataset.conBonus = input.checked;
+    //   } else if (bonusType == "int-bonus") {
+    //     totalBlockControl.dataset.intBonus = input.checked;
+    //   } else if (bonusType == "wis-bonus") {
+    //     totalBlockControl.dataset.wisBonus = input.checked;
+    //   } else if (bonusType == "cha-bonus") {
+    //     totalBlockControl.dataset.chaBonus = input.checked;
+    //   } else if (bonusType == "bab") {
+    //     totalBlockControl.dataset.bab = input.checked;
+    //   } else if (bonusType == "size") {
+    //     totalBlockControl.dataset.size = input.checked;
+    //   } else if (bonusType == "level") {
+    //     totalBlockControl.dataset.level = input.checked;
+    //   } else if (bonusType == "half-level") {
+    //     totalBlockControl.dataset.halfLevel = input.checked;
+    //   } else if (bonusType == "plus-ten") {
+    //     totalBlockControl.dataset.plusTen = input.checked;
+    //   } else if (bonusType == "ac-armor") {
+    //     totalBlockControl.dataset.acArmor = input.checked;
+    //   } else if (bonusType == "ac-shield") {
+    //     totalBlockControl.dataset.acShield = input.checked;
+    //   } else if (bonusType == "ac-deflect") {
+    //     totalBlockControl.dataset.acDeflect = input.checked;
+    //   } else if (bonusType == "ac-dodge") {
+    //     totalBlockControl.dataset.acDodge = input.checked;
+    //   } else if (bonusType == "ac-natural") {
+    //     totalBlockControl.dataset.acNatural = input.checked;
+    //   } else if (bonusType == "class-skill") {
+    //     totalBlockControl.dataset.classSkill = input.checked;
+    //   } else if (bonusType == "check-penalty") {
+    //     totalBlockControl.dataset.checkPenalty = input.checked;
+    //   } else if (bonusType == "max-dex") {
+    //     totalBlockControl.dataset.maxDex = input.checked;
+    //   };
+    // };
+    // if (totalBlock) {
+    //   path = input.dataset.path;
+    //   totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex || false;
+    //   if (totalPath && totalPathBonusArrayIndex) {
+    //     console.log("total", 1);
+    //
+    //     helper.setObject(sheet.getCharacter(), totalPath, input.checked, totalPathBonusArrayIndex, "bonuses");
+    //
+    //   } else if (totalPath) {
+    //     console.log("total", 2);
+    //
+    //     totalPath = totalPath + ".bonuses.class_skill";
+    //     helper.setObject(sheet.getCharacter(), totalPath, input.checked);
+    //
+    //   };
+    // };
   };
 
   function clear() {
@@ -831,8 +888,7 @@ var totalBlock = (function() {
     clear: clear,
     bind: bind,
     update: update,
-    render: render,
-    addRemoveBonus: addRemoveBonus
+    render: render
   };
 
 })();

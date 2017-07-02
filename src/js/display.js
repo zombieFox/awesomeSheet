@@ -7,7 +7,7 @@ var display = (function() {
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", function() {
-      totalBlock.update();
+      totalBlock.render();
       clear();
       render();
       toggle();
