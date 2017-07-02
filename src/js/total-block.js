@@ -50,12 +50,12 @@ var totalBlock = (function() {
     if (totalBlock.dataset.totalPathSubtraction) {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
-    var totalCloneCount = totalBlock.dataset.totalCloneCount || false;
+    var cloneCount = totalBlock.dataset.cloneCount || false;
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
-    // console.log("------ total blck", "\t", totalPath, totalCloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
+    // console.log("------ total blck", "\t", totalPath, cloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
     var object;
-    if (totalPath && totalCloneCount) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, [totalCloneCount]);
+    if (totalPath && cloneCount) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -170,6 +170,7 @@ var totalBlock = (function() {
     grandTotal = sum.reduce(function(a, b) {
       return a + b;
     });
+    object.current = grandTotal;
     // add + to bonus totals
     if (totalType == "bonus" && grandTotal > 0) {
       grandTotal = "+" + grandTotal;
@@ -308,10 +309,10 @@ var totalBlock = (function() {
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var totalPath = totalBlock.dataset.totalPath;
-    var totalCloneCount = totalBlock.dataset.totalCloneCount || false;
+    var cloneCount = totalBlock.dataset.cloneCount || false;
     var object;
-    if (totalPath && totalCloneCount) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, [totalCloneCount]);
+    if (totalPath && cloneCount) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -319,9 +320,9 @@ var totalBlock = (function() {
     var totalBlockControl = document.createElement("div");
     totalBlockControl.setAttribute("class", "js-total-block-control");
     totalBlockControl.setAttribute("data-total-path", totalPath);
-    if (element.dataset.totalClone == "true") {
-      totalBlockControl.setAttribute("data-total-clone", "true");
-      totalBlockControl.setAttribute("data-total-clone-count", helper.getClosest(element, ".js-clone").dataset.cloneCount);
+    if (element.dataset.clone == "true") {
+      totalBlockControl.setAttribute("data-clone", "true");
+      totalBlockControl.setAttribute("data-clone-count", helper.getClosest(element, ".js-clone").dataset.cloneCount);
     };
     var container = document.createElement("div");
     container.setAttribute("class", "container");
@@ -377,10 +378,14 @@ var totalBlock = (function() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockBonusCheck = helper.eA(".js-total-block-bonus-check");
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      _bind_bonusButton(all_totalBlockBonuses[i]);
+      if (all_totalBlockBonuses[i].dataset.clone != "true") {
+        _bind_bonusButton(all_totalBlockBonuses[i]);
+      };
     };
     for (var i = 0; i < all_totalBlockBonusCheck.length; i++) {
-      _bind_bonusCheck(all_totalBlockBonusCheck[i]);
+      if (all_totalBlockBonusCheck[i].dataset.clone != "true") {
+        _bind_bonusCheck(all_totalBlockBonusCheck[i]);
+      };
     };
   };
 
@@ -398,11 +403,13 @@ var totalBlock = (function() {
     var totalPath = totalBlock.dataset.totalPath;
     var bonusesPath;
     var bonusesObject;
-    if (totalBlock.dataset.totalClone == "true") {
-      var totalCloneCount = totalBlock.dataset.totalCloneCount;
-      object = helper.getObject(sheet.getCharacter(), totalPath, totalCloneCount);
+    if (totalBlock.dataset.clone == "true") {
+      console.log(1);
+      var cloneCount = totalBlock.dataset.cloneCount;
+      object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
       object.bonuses[bonusType] = input.checked;
     } else {
+      console.log(2);
       bonusesPath = totalPath + ".bonuses";
       bonusesObject = helper.getObject(sheet.getCharacter(), bonusesPath);
       bonusesObject[bonusType] = input.checked;

@@ -103,7 +103,7 @@ var clone = (function() {
   function _newSkill(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="js-total-block" data-total-path="skills.custom" data-total-clone-count="' + index + '" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus" data-total-clone="true">' +
+      '  <div class="js-total-block" data-total-path="skills.custom" data-clone-count="' + index + '" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus" data-clone="true">' +
       '    <div class="m-edit-box m-edit-box-guides">' +
       '      <div class="m-edit-box-head-large">' +
       '        <div class="m-skill-name m-input-block js-input-block">' +
@@ -126,12 +126,12 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block">' +
-      '            <input class="m-check-block-check js-total-block-bonus-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check js-total-block-bonus-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" data-clone="true" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-button">' +
-      '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-total-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
+      '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
