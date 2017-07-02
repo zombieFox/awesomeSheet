@@ -50,12 +50,12 @@ var totalBlock = (function() {
     if (totalBlock.dataset.totalPathSubtraction) {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
-    var totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex || false;
+    var totalCloneCount = totalBlock.dataset.totalCloneCount || false;
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
-    // console.log("------ total blck", "\t", totalPath, totalPathBonusArrayIndex, totalBonuses, totalPathAddition, totalPathSubtraction);
+    // console.log("------ total blck", "\t", totalPath, totalCloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
     var object;
-    if (totalPath && totalPathBonusArrayIndex) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, [totalPathBonusArrayIndex]);
+    if (totalPath && totalCloneCount) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [totalCloneCount]);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -672,10 +672,10 @@ var totalBlock = (function() {
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var totalPath = totalBlock.dataset.totalPath;
-    var totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex || false;
+    var totalCloneCount = totalBlock.dataset.totalCloneCount || false;
     var object;
-    if (totalPath && totalPathBonusArrayIndex) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, [totalPathBonusArrayIndex]);
+    if (totalPath && totalCloneCount) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [totalCloneCount]);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -683,6 +683,10 @@ var totalBlock = (function() {
     var totalBlockControl = document.createElement("div");
     totalBlockControl.setAttribute("class", "js-total-block-control");
     totalBlockControl.setAttribute("data-total-path", totalPath);
+    if (element.dataset.totalClone == "true") {
+      totalBlockControl.setAttribute("data-total-clone", "true");
+      totalBlockControl.setAttribute("data-total-clone-count", helper.getClosest(element, ".js-clone").dataset.cloneCount);
+    };
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
@@ -773,10 +777,10 @@ var totalBlock = (function() {
     //     _bind_bonusCheck(totalBlockToggleCheck);
     //   };
     // } else {
-      var all_totalBlockBonus = helper.eA(".js-total-block-bonuses");
+      var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
       var all_totalBlockBonusCheck = helper.eA(".js-total-block-bonus-check");
-      for (var i = 0; i < all_totalBlockBonus.length; i++) {
-        _bind_bonusButton(all_totalBlockBonus[i]);
+      for (var i = 0; i < all_totalBlockBonuses.length; i++) {
+        _bind_bonusButton(all_totalBlockBonuses[i]);
       };
       for (var i = 0; i < all_totalBlockBonusCheck.length; i++) {
         _bind_bonusCheck(all_totalBlockBonusCheck[i]);
@@ -788,9 +792,17 @@ var totalBlock = (function() {
     var bonusType = input.dataset.bonusType.replace(/-+/g, "_");
     var totalBlock = helper.getClosest(input, ".js-total-block") || helper.getClosest(input, ".js-total-block-control");
     var totalPath = totalBlock.dataset.totalPath;
-    var bonusesPath = totalPath + ".bonuses";
-    var bonusesObject = helper.getObject(sheet.getCharacter(), bonusesPath);
-    bonusesObject[bonusType] = input.checked;
+    var bonusesPath;
+    var bonusesObject;
+    if (totalBlock.dataset.totalClone == "true") {
+      var totalCloneCount = totalBlock.dataset.totalCloneCount;
+      object = helper.getObject(sheet.getCharacter(), totalPath, totalCloneCount);
+      object.bonuses[bonusType] = input.checked;
+    } else {
+      bonusesPath = totalPath + ".bonuses";
+      bonusesObject = helper.getObject(sheet.getCharacter(), bonusesPath);
+      bonusesObject[bonusType] = input.checked;
+    };
 
 
     // var totalBlock = helper.getClosest(input, ".js-total-block");

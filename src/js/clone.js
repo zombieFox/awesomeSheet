@@ -103,7 +103,7 @@ var clone = (function() {
   function _newSkill(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="js-total-block" data-total-path="skills.custom" data-total-path-bonus-array-index="' + index + '" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus">' +
+      '  <div class="js-total-block" data-total-path="skills.custom" data-total-clone-count="' + index + '" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus" data-total-clone="true">' +
       '    <div class="m-edit-box m-edit-box-guides">' +
       '      <div class="m-edit-box-head-large">' +
       '        <div class="m-skill-name m-input-block js-input-block">' +
@@ -125,13 +125,13 @@ var clone = (function() {
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
-      '          <div class="m-check-block js-total-block-toggle">' +
+      '          <div class="m-check-block">' +
       '            <input class="m-check-block-check js-total-block-bonus-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-button">' +
-      '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-modal-heading="Ranged bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
+      '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-total-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
@@ -473,7 +473,8 @@ var clone = (function() {
     };
     if (cloneType == "skill") {
       _bind_cloneSkillInput(newClone.querySelectorAll(".js-input-block"));
-      _bind_cloneSkillCheck(newClone.querySelector(".js-total-block-toggle"));
+      _bind_cloneSkillCheck(newClone.querySelector(".js-total-block-bonus-check"));
+      _bind_cloneSkillButton(newClone.querySelector(".js-total-block-bonuses"));
     };
     if (cloneType == "attack-melee") {
       _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
@@ -850,17 +851,11 @@ var clone = (function() {
   };
 
   function _bind_cloneSkillCheck(element) {
-    var input = element.querySelector(".js-total-block-toggle-check");
-    var totalBlockElement = helper.getClosest(element, ".js-total-block");
-    // totalBlock.bind(totalBlockElement);
-    // input.addEventListener("change", function() {
-    //   ///
-    //   ///
-    //   ///
-    //   ///
-    //   clearTimeout(storeInputTimer);
-    //   storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
-    // }, false);
+    // totalBlock.bind(element);
+  };
+
+  function _bind_cloneSkillButton(element) {
+    // totalBlock.bind(element);
   };
 
   function _bind_cloneAttackMeleeInput(array) {
