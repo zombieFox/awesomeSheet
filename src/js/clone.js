@@ -67,7 +67,7 @@ var clone = (function() {
   function _newConsumable(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="js-total-block">' +
+      '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-bonus-array-index="' + index + '" data-total-path-addition="total" data-total-path-subtraction="used">' +
       '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '      <div class="m-edit-box-item-large">' +
       '        <div class="m-input-block js-input-block">' +
@@ -103,7 +103,7 @@ var clone = (function() {
   function _newSkill(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="m-skill js-total-block" data-total-type="bonus">' +
+      '  <div class="js-total-block" data-total-path="skills.custom" data-total-path-bonus-array-index="' + index + '" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus">' +
       '    <div class="m-edit-box m-edit-box-guides">' +
       '      <div class="m-edit-box-head-large">' +
       '        <div class="m-skill-name m-input-block js-input-block">' +
@@ -126,7 +126,7 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block js-total-block-toggle">' +
-      '            <input class="m-check-block-check js-clone-skill-check" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
@@ -799,9 +799,8 @@ var clone = (function() {
   function delayUpdate(cloneType, element) {
     var clone = helper.getClosest(element, ".js-clone");
     var cloneIndex = parseInt(clone.dataset.cloneCount, 10);
-    console.log(clone);
     _update_cloneObject(cloneType, cloneIndex, clone);
-    totalBlock.update();
+    totalBlock.update(element, _get_cloneObjects("skill")[cloneIndex]);
     sheet.storeCharacters();
     if (body.dataset.displayMode == "true") {
       display.clear();

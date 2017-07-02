@@ -1,7 +1,269 @@
 var totalBlock = (function() {
 
+  function render(totalBlock) {
+    if (totalBlock) {
+      _render_totalBlock(totalBlock);
+    } else {
+      _render_all_totalBlock();
+    };
+  };
 
-  function render() {
+  function _render_totalBlock(totalBlock) {
+
+    var _checkValue = function(data) {
+      var value;
+      if (typeof data == "number") {
+        value = data;
+      } else if (typeof data == "string") {
+        value = parseInt(data, 10) || 0;
+      };
+      if (isNaN(value)) {
+        value = 0;
+      };
+      return value;
+    };
+
+    var _checkForTempModifier = function(score, tempScore) {
+      if (tempScore == "") {
+        return _checkValue(score);
+      } else {
+        return _checkValue(tempScore);
+      };
+    };
+
+    var _checkClassSkill = function(object) {
+      var classSkill;
+      if (object.ranks > 0) {
+        classSkill = 3;
+      } else {
+        classSkill = 0;
+      };
+      return classSkill;
+    };
+
+    var totalElement = totalBlock.querySelector(".js-total-block-total");
+    var sum = [];
+    var totalPath = totalBlock.dataset.totalPath;
+    var totalType = totalBlock.dataset.totalType;
+    var totalPathAddition = false;
+    if (totalBlock.dataset.totalPathAddition) {
+      totalPathAddition = totalBlock.dataset.totalPathAddition.split(",");
+    };
+    var totalPathSubtraction = false;
+    if (totalBlock.dataset.totalPathSubtraction) {
+      totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
+    };
+    var totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex || false;
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    // console.log("------ total blck", "\t", totalPath, totalPathBonusArrayIndex, totalBonuses, totalPathAddition, totalPathSubtraction);
+    var object;
+    if (totalPath && totalPathBonusArrayIndex) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [totalPathBonusArrayIndex]);
+    } else if (totalPath) {
+      object = helper.getObject(sheet.getCharacter(), totalPath);
+    };
+    // console.log("--- ", totalBlock, object);
+    if (totalBonuses) {
+      // console.log("\t\t", "totalBonuses = ", totalBonuses, object.bonuses);
+      if (object.bonuses.str_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier));
+      };
+      // if dex data attribute is true
+      if (object.bonuses.dex_bonus) {
+        // if max dex is true
+        if (object.bonuses.max_dex) {
+          if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+            sum.push(sheet.getCharacter().defense.ac.max_dex);
+          } else {
+            sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier));
+          };
+        } else {
+          sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier));
+        };
+      };
+      // if con data attribute is true
+      if (object.bonuses.con_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier));
+      };
+      // if int data attribute is true
+      if (object.bonuses.int_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier));
+      };
+      // if wis data attribute is true
+      if (object.bonuses.wis_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier));
+      };
+      // if cha data attribute is true
+      if (object.bonuses.cha_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier));
+      };
+      // if bab data attribute is true
+      if (object.bonuses.bab) {
+        sum.push(_checkValue(sheet.getCharacter().offense.base_attack));
+      };
+      // size
+      if (object.bonuses.size) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.size_bonus));
+      };
+      // level
+      if (object.bonuses.level) {
+        sum.push(_checkValue(sheet.getCharacter().basics.level));
+      };
+      // half level
+      if (object.bonuses.half_level) {
+        sum.push(Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2));
+      };
+      // ac armor
+      if (object.bonuses.ac_armor) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.armor));
+      };
+      // ac shield
+      if (object.bonuses.ac_shield) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.shield));
+      };
+      // ac deflect
+      if (object.bonuses.ac_deflect) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.deflect));
+      };
+      // ac dodge
+      if (object.bonuses.ac_dodge) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.dodge));
+      };
+      // ac natural
+      if (object.bonuses.ac_natural) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.natural));
+      };
+      // armor check penalty
+      if (object.bonuses.check_penalty) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.check_penalty));
+      };
+      // class skill
+      if (object.bonuses.class_skill) {
+        sum.push(_checkClassSkill(object));
+      };
+      // 10
+      if (object.bonuses.plus_ten) {
+        sum.push(10);
+      };
+    };
+    var grandTotal;
+    // console.log("\t\t add ----");
+    if (totalPathAddition) {
+      for (var i = 0; i < totalPathAddition.length; i++) {
+        // console.log("\t\t", totalPathAddition[i], "=", object[totalPathAddition[i]]);
+        value = parseInt(object[totalPathAddition[i]], 10) || 0;
+        sum.push(value);
+      };
+    };
+    // console.log("\t\t minus ----");
+    if (totalPathSubtraction) {
+      for (var i = 0; i < totalPathSubtraction.length; i++) {
+        // console.log("\t\t", totalPathSubtraction[i], "=", object[totalPathSubtraction[i]]);
+        value = parseInt(-object[totalPathSubtraction[i]], 10) || 0;
+        sum.push(value);
+      };
+    };
+    // console.log("\t\t", sum);
+    grandTotal = sum.reduce(function(a, b) {
+      return a + b;
+    });
+    // add + to bonus totals
+    if (totalType == "bonus" && grandTotal > 0) {
+      grandTotal = "+" + grandTotal;
+    };
+    totalElement.textContent = grandTotal;
+  };
+
+  function _render_all_totalBlock() {
+    var all_totalBlock = helper.eA(".js-total-block");
+    for (var i = 0; i < all_totalBlock.length; i++) {
+      _render_totalBlock(all_totalBlock[i]);
+    };
+  };
+
+  function xxxx_render_totalBlock(totalBlock) {
+    var totalPathBonus = totalBlock.dataset.totalPathBonus;
+    var totalPathBonusArrayIndex = totalBlock.dataset.totalPathBonusArrayIndex;
+    var object;
+    if (totalPathBonus && totalPathBonusArrayIndex) {
+      object = helper.getObject(sheet.getCharacter(), totalPathBonus, [totalPathBonusArrayIndex]);
+    } else if (totalPathBonus) {
+      object = helper.getObject(sheet.getCharacter(), totalPathBonus);
+    };
+    if (object) {
+      for (var key in object) {
+        if (object[key]) {
+          // console.log(totalBlock, key, object[key]);
+          if (key == "str_bonus") {
+            totalBlock.dataset.strBonus = "true";
+          };
+          if (key == "dex_bonus") {
+            totalBlock.dataset.dexBonus = "true";
+          };
+          if (key == "con_bonus") {
+            totalBlock.dataset.conBonus = "true";
+          };
+          if (key == "int_bonus") {
+            totalBlock.dataset.intBonus = "true";
+          };
+          if (key == "wis_bonus") {
+            totalBlock.dataset.wisBonus = "true";
+          };
+          if (key == "cha_bonus") {
+            totalBlock.dataset.chaBonus = "true";
+          };
+          if (key == "bab") {
+            totalBlock.dataset.babBonus = "true";
+          };
+          if (key == "size") {
+            totalBlock.dataset.sizeBonus = "true";
+          };
+          if (key == "level") {
+            totalBlock.dataset.levelBonus = "true";
+          };
+          if (key == "half_level") {
+            totalBlock.dataset.halfLevelBonus = "true";
+          };
+          if (key == "plus_ten") {
+            totalBlock.dataset.plusTenBonus = "true";
+          };
+          if (key == "ac_armor") {
+            totalBlock.dataset.acArmor = "true";
+          };
+          if (key == "ac_shield") {
+            totalBlock.dataset.acShield = "true";
+          };
+          if (key == "ac_deflect") {
+            totalBlock.dataset.acDeflect = "true";
+          };
+          if (key == "ac_dodge") {
+            totalBlock.dataset.acDodge = "true";
+          };
+          if (key == "ac_natural") {
+            totalBlock.dataset.acNatural = "true";
+          };
+          if (key == "class_skill") {
+            totalBlock.dataset.classSkill = "true";
+          };
+          if (key == "check_penalty") {
+            totalBlock.dataset.checkPenalty = "true";
+          };
+          if (key == "max_dex") {
+            totalBlock.dataset.maxDex = "true";
+          };
+        };
+      };
+    };
+  };
+
+  function xxxx_render_all_totalBlock() {
+    var all_totalBlock = helper.eA(".js-total-block");
+    for (var i = 0; i < all_totalBlock.length; i++) {
+      _render_totalBlock(all_totalBlock[i]);
+    };
+  };
+
+  function xxxx_render() {
     var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
     var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
     for (var i = 0; i < all_totalBlockBonuses.length; i++) {
@@ -80,6 +342,67 @@ var totalBlock = (function() {
   };
 
   function update() {
+    // var all_totalBlock = helper.eA(".js-total-block");
+    // console.log(all_totalBlock);
+    // for (var i = 0; i < all_totalBlock.length; i++) {
+    //   // var totalPathAddition = JSON.parse(all_totalBlock[i].dataset.totalPathAddition);
+    //   var totalPath = all_totalBlock[i].dataset.totalPath;
+    //   var totalPathAddition = all_totalBlock[i].dataset.totalPathAddition.split(",");
+    //   var totalPathSubtraction = all_totalBlock[i].dataset.totalPathAddition.split(",");
+    //   var object = helper.getObject(sheet.getCharacter(), totalPath);
+    //   var modifiers = [];
+    //   console.log(object, totalPathAddition);
+    //   for (var j = 0; j < totalPathAddition.length; j++) {
+    //     modifiers.push(object[totalPathAddition[j]]);
+    //   };
+    //   console.log(modifiers);
+
+
+
+    // var total = all_totalBlock[i].querySelector(".js-total-block-total");
+    // var totalPath = total.dataset.path;
+    // var totalType = all_totalBlock[i].dataset.totalType;
+    // var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
+    // var modifiers = [];
+    // var modifiers_total = 0;
+    // // if there are any input fields in total block
+    // if (all_inputBlockField.length > 0) {
+    //   // iterate over all input fields
+    //   for (var i = 0; i < all_inputBlockField.length; i++) {
+    //     var value;
+    //     // find the path for input field
+    //     var inputPath = all_inputBlockField[i].dataset.path;
+    //     // if path is found
+    //     if (inputPath) {
+    //       // get the value of path from character
+    //       value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
+    //     } else {
+    //       // get the value from input
+    //       // needed because clone consumable total blocks dont have data paths
+    //       value = parseInt(all_inputBlockField[i].value, 10) || 0;
+    //     };
+    //     // if the value is not a NaN
+    //     if (!isNaN(value)) {
+    //       // check if the input is to add or subtract
+    //       if (all_inputBlockField[i].dataset.total == "addition") {
+    //         // push to array
+    //         modifiers.push(value);
+    //       };
+    //       // check if the inpuy is to add or subtract
+    //       if (all_inputBlockField[i].dataset.total == "subtract") {
+    //         // push to array
+    //         modifiers.push(-value);
+    //       };
+    //     };
+    //   };
+    // };
+
+
+    // };
+
+  };
+
+  function xxxx_update(element) {
 
     function _checkValue(data) {
       var value;
@@ -437,122 +760,44 @@ var totalBlock = (function() {
   function addRemoveBonus(input, totalBlock) {
     var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
     var bonusType = input.dataset.bonusType;
-    if (input.checked) {
-      if (bonusType == "str-bonus") {
-        totalBlock.dataset.strBonus = "true";
-      };
-      if (bonusType == "dex-bonus") {
-        totalBlock.dataset.dexBonus = "true";
-      };
-      if (bonusType == "con-bonus") {
-        totalBlock.dataset.conBonus = "true";
-      };
-      if (bonusType == "int-bonus") {
-        totalBlock.dataset.intBonus = "true";
-      };
-      if (bonusType == "wis-bonus") {
-        totalBlock.dataset.wisBonus = "true";
-      };
-      if (bonusType == "cha-bonus") {
-        totalBlock.dataset.chaBonus = "true";
-      };
-      if (bonusType == "bab") {
-        totalBlock.dataset.babBonus = "true";
-      };
-      if (bonusType == "size") {
-        totalBlock.dataset.sizeBonus = "true";
-      };
-      if (bonusType == "level") {
-        totalBlock.dataset.levelBonus = "true";
-      };
-      if (bonusType == "half-level") {
-        totalBlock.dataset.halfLevelBonus = "true";
-      };
-      if (bonusType == "plus-ten") {
-        totalBlock.dataset.plusTenBonus = "true";
-      };
-      if (bonusType == "ac-armor") {
-        totalBlock.dataset.acArmor = "true";
-      };
-      if (bonusType == "ac-shield") {
-        totalBlock.dataset.acShield = "true";
-      };
-      if (bonusType == "ac-deflect") {
-        totalBlock.dataset.acDeflect = "true";
-      };
-      if (bonusType == "ac-dodge") {
-        totalBlock.dataset.acDodge = "true";
-      };
-      if (bonusType == "ac-natural") {
-        totalBlock.dataset.acNatural = "true";
-      };
-      if (bonusType == "class-skill") {
-        totalBlock.dataset.classSkill = "true";
-      };
-      if (bonusType == "check-penalty") {
-        totalBlock.dataset.checkPenalty = "true";
-      };
-      if (bonusType == "max-dex") {
-        totalBlock.dataset.maxDex = "true";
-      };
-    } else {
-      if (bonusType == "str-bonus") {
-        totalBlock.dataset.strBonus = "false";
-      };
-      if (bonusType == "dex-bonus") {
-        totalBlock.dataset.dexBonus = "false";
-      };
-      if (bonusType == "con-bonus") {
-        totalBlock.dataset.conBonus = "false";
-      };
-      if (bonusType == "int-bonus") {
-        totalBlock.dataset.intBonus = "false";
-      };
-      if (bonusType == "wis-bonus") {
-        totalBlock.dataset.wisBonus = "false";
-      };
-      if (bonusType == "cha-bonus") {
-        totalBlock.dataset.chaBonus = "false";
-      };
-      if (bonusType == "bab") {
-        totalBlock.dataset.babBonus = "false";
-      };
-      if (bonusType == "size") {
-        totalBlock.dataset.sizeBonus = "false";
-      };
-      if (bonusType == "level") {
-        totalBlock.dataset.levelBonus = "false";
-      };
-      if (bonusType == "half-level") {
-        totalBlock.dataset.halfLevelBonus = "false";
-      };
-      if (bonusType == "plus-ten") {
-        totalBlock.dataset.plusTenBonus = "false";
-      };
-      if (bonusType == "ac-armor") {
-        totalBlock.dataset.acArmor = "false";
-      };
-      if (bonusType == "ac-shield") {
-        totalBlock.dataset.acShield = "false";
-      };
-      if (bonusType == "ac-deflect") {
-        totalBlock.dataset.acDeflect = "false";
-      };
-      if (bonusType == "ac-dodge") {
-        totalBlock.dataset.acDodge = "false";
-      };
-      if (bonusType == "ac-natural") {
-        totalBlock.dataset.acNatural = "false";
-      };
-      if (bonusType == "class-skill") {
-        totalBlock.dataset.classSkill = "false";
-      };
-      if (bonusType == "check-penalty") {
-        totalBlock.dataset.checkPenalty = "false";
-      };
-      if (bonusType == "max-dex") {
-        totalBlock.dataset.maxDex = "false";
-      };
+    if (bonusType == "str-bonus") {
+      totalBlock.dataset.strBonus = input.checked;
+    } else if (bonusType == "dex-bonus") {
+      totalBlock.dataset.dexBonus = input.checked;
+    } else if (bonusType == "con-bonus") {
+      totalBlock.dataset.conBonus = input.checked;
+    } else if (bonusType == "int-bonus") {
+      totalBlock.dataset.intBonus = input.checked;
+    } else if (bonusType == "wis-bonus") {
+      totalBlock.dataset.wisBonus = input.checked;
+    } else if (bonusType == "cha-bonus") {
+      totalBlock.dataset.chaBonus = input.checked;
+    } else if (bonusType == "bab") {
+      totalBlock.dataset.babBonus = input.checked;
+    } else if (bonusType == "size") {
+      totalBlock.dataset.sizeBonus = input.checked;
+    } else if (bonusType == "level") {
+      totalBlock.dataset.levelBonus = input.checked;
+    } else if (bonusType == "half-level") {
+      totalBlock.dataset.halfLevelBonus = input.checked;
+    } else if (bonusType == "plus-ten") {
+      totalBlock.dataset.plusTenBonus = input.checked;
+    } else if (bonusType == "ac-armor") {
+      totalBlock.dataset.acArmor = input.checked;
+    } else if (bonusType == "ac-shield") {
+      totalBlock.dataset.acShield = input.checked;
+    } else if (bonusType == "ac-deflect") {
+      totalBlock.dataset.acDeflect = input.checked;
+    } else if (bonusType == "ac-dodge") {
+      totalBlock.dataset.acDodge = input.checked;
+    } else if (bonusType == "ac-natural") {
+      totalBlock.dataset.acNatural = input.checked;
+    } else if (bonusType == "class-skill") {
+      totalBlock.dataset.classSkill = input.checked;
+    } else if (bonusType == "check-penalty") {
+      totalBlock.dataset.checkPenalty = input.checked;
+    } else if (bonusType == "max-dex") {
+      totalBlock.dataset.maxDex = input.checked;
     };
   };
 

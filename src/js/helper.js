@@ -75,12 +75,18 @@ var helper = (function() {
     object[address.shift()] = newValue;
   };
 
-  function getObject(object, path) {
+  function getObject(object, path, arrayIndex) {
+    // split path into array items
     var address = path.split(".");
+    // while aeeay has more than 1 item
     while (address.length > 1) {
+      // shift off and store the first key
       var currentKey = address.shift();
+      // copy the object
       var parentObject = object;
+      // drill down the object with the first key
       object = object[currentKey];
+      // if there is not object there make one
       if (!object || typeof object != "object") {
         object = parentObject;
         object = object[currentKey] = {};
@@ -88,7 +94,11 @@ var helper = (function() {
     };
     var finalKey = address.shift();
     if (finalKey in object) {
-      return object[finalKey];
+      if (arrayIndex) {
+        return object[finalKey][arrayIndex];
+      } else {
+        return object[finalKey];
+      };
     } else {
       object[finalKey] = "";
       return object[finalKey];

@@ -387,14 +387,14 @@ var nif = (function() {
         current: "",
         bonuses: {
           class_skill: true,
-          str_bonus: false,
+          str_bonus: true,
           dex_bonus: true,
           con_bonus: true,
-          int_bonus: false,
+          int_bonus: true,
           wis_bonus: true,
-          cha_bonus: false,
+          cha_bonus: true,
           level: true,
-          half_level: false,
+          half_level: true,
           check_penalty: true
         }
       }],
