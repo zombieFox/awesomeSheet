@@ -4,32 +4,32 @@
     height: 0;
   }
   2% {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
   25% {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
   }
   27% {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
   50% {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
   }
   52% {
-    width: 20px;
-    height: 20px;
-  }
-  75% {
     width: 15px;
     height: 15px;
   }
+  75% {
+    width: 10px;
+    height: 10px;
+  }
   77% {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
   100% {
     width: 0;
@@ -43,8 +43,8 @@
     background-color: $primary-color-alpha-01;
   }
   25% {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     background-color: transparent;
   }
   25.0000000001% {
@@ -53,8 +53,8 @@
     background-color: $primary-color-alpha-01;
   }
   50% {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     background-color: transparent;
   }
   50.0000000001% {
@@ -63,8 +63,8 @@
     background-color: $primary-color-alpha-01;
   }
   75% {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     background-color: transparent;
   }
   75.0000000001% {
@@ -73,8 +73,8 @@
     background-color: $primary-color-alpha-01;
   }
   100% {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     background-color: transparent;
   }
 }

@@ -212,7 +212,7 @@ var clone = (function() {
         weapon: "",
         attack: "",
         damage: "",
-        critical:  ""
+        critical: ""
       };
     };
     if (cloneType == "attack-ranged") {
@@ -222,7 +222,7 @@ var clone = (function() {
         damage: "",
         critical: "",
         range: "",
-        ammo:  ""
+        ammo: ""
       };
     };
     if (cloneType == "consumable") {
@@ -230,7 +230,7 @@ var clone = (function() {
         item: "",
         current: "",
         total: "",
-        used:  ""
+        used: ""
       };
     };
     if (cloneType == "skill") {
@@ -723,10 +723,11 @@ var clone = (function() {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
     var undoMessage = _get_undoRemoveCloneMessage(cloneType);
     _remove_cloneObject(cloneType, cloneIndex);
-    _destroy_allClones(cloneType);
+    _clear_cloneTarget(cloneType);
     _render_all_clones(cloneType);
-    _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
+    // _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
+    // _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
+    _update_clonePlaceholder(undoData.cloneType);
     snack.render(undoMessage, "Undo", _restoreLastRemovedClone, 6000);
     totalBlock.render();
   };
@@ -734,10 +735,10 @@ var clone = (function() {
   function _restoreLastRemovedClone() {
     var undoData = JSON.parse(helper.read("lastRemovedClone"));
     _restoreCloneObject(undoData.cloneType, undoData.index, undoData.clone);
-    _destroy_allClones(undoData.cloneType);
+    _clear_cloneTarget(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
-    _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
+    // _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
+    // _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
     _update_clonePlaceholder(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.render();
@@ -871,13 +872,6 @@ var clone = (function() {
     };
   };
 
-  function _destroy_allClones(cloneType) {
-    var cloneTarget = _get_cloneTarget(cloneType);
-    while (cloneTarget.lastChild) {
-      cloneTarget.removeChild(cloneTarget.lastChild);
-    };
-  };
-
   function _create_attackMeleeObject(weapon, attack, damage, critical) {
     return {
       weapon: this.weapon = weapon || "",
@@ -1007,6 +1001,13 @@ var clone = (function() {
       while (all_cloneTarget[i].lastChild) {
         all_cloneTarget[i].removeChild(all_cloneTarget[i].lastChild);
       };
+    };
+  };
+
+  function _clear_cloneTarget(cloneType) {
+    var cloneTarget = _get_cloneTarget(cloneType);
+    while (cloneTarget.lastChild) {
+      cloneTarget.removeChild(cloneTarget.lastChild);
     };
   };
 
