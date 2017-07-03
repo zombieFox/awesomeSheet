@@ -52,11 +52,6 @@ var inputBlock = (function() {
     var all_inputBlock = helper.eA(".js-input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
       all_inputBlock[i].querySelector(".js-input-block-field").value = "";
-      var inputBlockLabel;
-      if (all_inputBlock[i].querySelector(".js-input-block-label")) {
-        inputBlockLabel = all_inputBlock[i].querySelector(".js-input-block-label");
-        helper.removeClass(inputBlockLabel, "is-active");
-      };
     };
   };
 

@@ -469,34 +469,24 @@ var clone = (function() {
 
   function _bind_clone(cloneType, newClone) {
     if (cloneType == "consumable") {
-      // _bind_cloneConsumableInput(newClone.querySelectorAll(".js-input-block"));
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-      console.log(newClone.querySelectorAll(".js-input-block"));
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
-      console.log(newClone.querySelector(".js-total-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "skill") {
-      // _bind_cloneSkillInput(newClone.querySelectorAll(".js-input-block"));
-      // _bind_cloneSkillCheck(newClone.querySelector(".js-total-block-bonus-check"));
-      // _bind_cloneSkillButton(newClone.querySelector(".js-total-block-bonuses"));
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "attack-melee") {
-      // _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "attack-ranged") {
-      // _bind_cloneAttackRangedInput(newClone.querySelectorAll(".js-input-block"));
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "note-character") {
-      // _bind_cloneNoteCharacterTextarea(newClone.querySelector(".js-textarea-block"));
-      _bind_textareaBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
     if (cloneType == "note-story") {
-      // _bind_cloneNoteStoryTextarea(newClone.querySelector(".js-textarea-block"));
-      _bind_textareaBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
   };
 
@@ -826,6 +816,7 @@ var clone = (function() {
   };
 
   function _bind_textareaBlock(textareaBlockElement) {
+    console.log(textareaBlockElement);
     for (var i = 0; i < textareaBlockElement.length; i++) {
       textareaBlock.bind(textareaBlockElement[i]);
     };
