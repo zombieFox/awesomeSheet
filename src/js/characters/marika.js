@@ -341,7 +341,7 @@ var marika = (function() {
           critical: "19–20/x2"
         }, {
           weapon: "Full Attack Rapier +2 / Short Sword +2",
-          attack: "14 / 9 / 14 / 9",
+          attack: "+14/+9/+14/+9",
           damage: "1d6+3",
           critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2"
         }],

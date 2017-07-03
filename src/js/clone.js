@@ -673,6 +673,7 @@ var clone = (function() {
     _update_cloneState(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.render();
+    sheet.storeCharacters();
   };
 
   function _store_lastRemovedClone(button, cloneType) {
