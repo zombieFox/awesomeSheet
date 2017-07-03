@@ -42,6 +42,9 @@ var sheet = (function() {
   };
 
   function addCharacter(newCharacter) {
+    if (newCharacter) {
+      newCharacter = repair.update(newCharacter);
+    };
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
     var newIndex = getAllCharacters().length - 1;
@@ -270,6 +273,7 @@ var sheet = (function() {
   };
 
   function render() {
+    repair.update(sheet.getCharacter());
     stats.render();
     clone.render();
     inputBlock.render();

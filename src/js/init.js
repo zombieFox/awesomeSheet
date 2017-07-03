@@ -1,5 +1,6 @@
 (function() {
 
+  repair.render();
   nav.bind();
   nav.render();
   sheet.render();

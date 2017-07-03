@@ -285,28 +285,28 @@ var clone = (function() {
   function _get_cloneCount(cloneType, mixed) {
     var cloneCount;
     if (cloneType == "attack-melee") {
-      cloneCount = sheet.getCharacter().offense.attack.melee.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.melee").length;
     };
     if (cloneType == "attack-ranged") {
-      cloneCount = sheet.getCharacter().offense.attack.ranged.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.ranged").length;
     };
     if (cloneType == "consumable") {
-      cloneCount = sheet.getCharacter().equipment.consumable.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "equipment.consumable").length;
     };
     if (cloneType == "skill") {
-      cloneCount = sheet.getCharacter().skills.custom.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "skills.custom").length;
     };
     if (cloneType == "note-character") {
-      cloneCount = sheet.getCharacter().notes.character.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "notes.character").length;
     };
     if (cloneType == "note-story") {
-      cloneCount = sheet.getCharacter().notes.story.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "notes.story").length;
     };
     if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
-      cloneCount = sheet.getCharacter().notes.story.length + sheet.getCharacter().notes.character.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "notes.story").length + helper.getObject(sheet.getCharacter(), "notes.character").length;
     };
     if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
-      cloneCount = sheet.getCharacter().offense.attack.melee.length + sheet.getCharacter().offense.attack.ranged.length;
+      cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.melee").length + helper.getObject(sheet.getCharacter(), "offense.attack.ranged").length;
     };
     return cloneCount;
   };
