@@ -74,21 +74,6 @@ var inputBlock = (function() {
     _bind_level();
   };
 
-  // function _addOrMinusInput(element) {
-  //   var target;
-  //   if (element.dataset.add) {
-  //     target = helper.e("#" + element.dataset.add);
-  //     target.value = (parseInt(target.value, 10) || 0) + 1;
-  //   };
-  //   if (element.dataset.minus) {
-  //     target = helper.e("#" + element.dataset.minus);
-  //     target.value = (parseInt(target.value, 10) || 0) - 1;
-  //   };
-  //   _store(target);
-  //   update(target);
-  //   totalBlock.render();
-  // };
-
   function _bind_inputBlock(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     if (input) {
@@ -150,8 +135,7 @@ var inputBlock = (function() {
           var cloneCount = all_inputBlock[i].dataset.cloneCount;
           var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
           all_inputBlockField.value = object[pathCloneKey];
-          // console.log("found clone input", path, all_inputBlock[i].dataset.cloneCount, all_inputBlock[i]);
-          // console.log("\t\t\t", pathCloneKey);
+          // console.log("found clone input", path, pathCloneKey, all_inputBlock[i].dataset.cloneCount, all_inputBlock[i]);
         } else {
           var content = helper.getObject(sheet.getCharacter(), path);
           all_inputBlockField.value = content;
@@ -163,8 +147,8 @@ var inputBlock = (function() {
   // exposed methods
   return {
     render: render,
-    clear: clear,
-    bind: bind
+    bind: bind,
+    clear: clear
   };
 
 })();

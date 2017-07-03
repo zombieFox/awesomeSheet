@@ -126,7 +126,7 @@ var clone = (function() {
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
       '          <div class="m-check-block">' +
-      '            <input class="m-check-block-check js-total-block-bonus-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" data-clone="true" type="checkbox" tabindex="3">' +
+      '            <input class="m-check-block-check js-total-block-bonus-check js-clone-skill-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
       '            <span class="m-check-block-check-icon"></span>' +
       '          </div>' +
       '        </div>' +
@@ -148,29 +148,29 @@ var clone = (function() {
       '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
-      '        <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
+      '        <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
-      '        <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
+      '        <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" data-path="offense.attack.melee" data-path-clone-key="attack" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
-      '        <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
+      '        <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
-      '        <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
+      '        <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
@@ -186,43 +186,43 @@ var clone = (function() {
       '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
-      '        <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
+      '        <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
-      '        <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
+      '        <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" data-path="offense.attack.ranged" data-path-clone-key="attack" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
-      '        <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
+      '        <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" data-path="offense.attack.ranged" data-path-clone-key="damage" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
-      '        <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
+      '        <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" data-path="offense.attack.ranged" data-path-clone-key="critical" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
-      '        <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
+      '        <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
+      '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
-      '        <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
+      '        <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="3">' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
@@ -238,9 +238,9 @@ var clone = (function() {
       '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-textarea-block js-textarea-block">' +
+      '      <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
-      '        <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '        <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.character" data-path-clone-key="note" tabindex="3"></div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
@@ -256,9 +256,9 @@ var clone = (function() {
       '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-textarea-block js-textarea-block">' +
+      '      <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + index + '">' +
       '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
-      '        <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
+      '        <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.story" data-path-clone-key="note" tabindex="3"></div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
@@ -483,16 +483,20 @@ var clone = (function() {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
     };
     if (cloneType == "attack-melee") {
-      _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
+      // _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "attack-ranged") {
-      _bind_cloneAttackRangedInput(newClone.querySelectorAll(".js-input-block"));
+      // _bind_cloneAttackRangedInput(newClone.querySelectorAll(".js-input-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "note-character") {
-      _bind_cloneNoteCharacterTextarea(newClone.querySelector(".js-textarea-block"));
+      // _bind_cloneNoteCharacterTextarea(newClone.querySelector(".js-textarea-block"));
+      _bind_textareaBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "note-story") {
-      _bind_cloneNoteStoryTextarea(newClone.querySelector(".js-textarea-block"));
+      // _bind_cloneNoteStoryTextarea(newClone.querySelector(".js-textarea-block"));
+      _bind_textareaBlock(newClone.querySelectorAll(".js-input-block"));
     };
   };
 
@@ -680,7 +684,6 @@ var clone = (function() {
         };
         if (textarea) {
           textarea.innerHTML = array[i][j];
-          textareaBlock.update(textarea);
         };
       };
     };
@@ -822,6 +825,12 @@ var clone = (function() {
     };
   };
 
+  function _bind_textareaBlock(textareaBlockElement) {
+    for (var i = 0; i < textareaBlockElement.length; i++) {
+      textareaBlock.bind(textareaBlockElement[i]);
+    };
+  };
+
   // function _bind_cloneConsumableInput(array) {
   //   for (var i = 0; i < array.length; i++) {
   //     var input = array[i].querySelector(".js-input-block-field");
@@ -863,93 +872,93 @@ var clone = (function() {
   //   };
   // };
 
-  function _bind_cloneAttackMeleeInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeBlurTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
-        inputBlock.focus(this);
-      }, false);
-    };
-  };
+  // function _bind_cloneAttackMeleeInput(array) {
+  //   for (var i = 0; i < array.length; i++) {
+  //     var input = array[i].querySelector(".js-input-block-field");
+  //     input.addEventListener("input", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
+  //     }, false);
+  //     input.addEventListener("focus", function() {
+  //       inputBlock.focus(this);
+  //     }, false);
+  //     input.addEventListener("blur", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeBlurTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
+  //       inputBlock.focus(this);
+  //     }, false);
+  //   };
+  // };
 
-  function _bind_cloneAttackRangedInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeBlurTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
-        inputBlock.focus(this);
-      }, false);
-    };
-  };
+  // function _bind_cloneAttackRangedInput(array) {
+  //   for (var i = 0; i < array.length; i++) {
+  //     var input = array[i].querySelector(".js-input-block-field");
+  //     input.addEventListener("input", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
+  //     }, false);
+  //     input.addEventListener("focus", function() {
+  //       inputBlock.focus(this);
+  //     }, false);
+  //     input.addEventListener("blur", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeBlurTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
+  //       inputBlock.focus(this);
+  //     }, false);
+  //   };
+  // };
 
-  function _bind_cloneNoteCharacterTextarea(element) {
-    var textareaBlockField = element.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
-    if (textareaBlockField) {
-      textareaBlockField.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
-      }, false);
-      textareaBlockField.addEventListener("focus", function() {
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("blur", function() {
-        storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
-    };
-    if (textareaBlockLabel) {
-      textareaBlockLabel.addEventListener("click", function() {
-        textareaBlock.focusLabel(this);
-      }, false);
-    };
-  };
+  // function _bind_cloneNoteCharacterTextarea(element) {
+  //   var textareaBlockField = element.querySelector(".js-textarea-block-field");
+  //   var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
+  //   if (textareaBlockField) {
+  //     textareaBlockField.addEventListener("input", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
+  //     }, false);
+  //     textareaBlockField.addEventListener("focus", function() {
+  //       textareaBlock.focus(this);
+  //     }, false);
+  //     textareaBlockField.addEventListener("blur", function() {
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
+  //       textareaBlock.focus(this);
+  //     }, false);
+  //     textareaBlockField.addEventListener("paste", function(event) {
+  //       helper.pasteStrip(event);
+  //     });
+  //   };
+  //   if (textareaBlockLabel) {
+  //     textareaBlockLabel.addEventListener("click", function() {
+  //       textareaBlock.focusLabel(this);
+  //     }, false);
+  //   };
+  // };
 
-  function _bind_cloneNoteStoryTextarea(element) {
-    var textareaBlockField = element.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
-    if (textareaBlockField) {
-      textareaBlockField.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
-      }, false);
-      textareaBlockField.addEventListener("focus", function() {
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("blur", function() {
-        storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
-    };
-    if (textareaBlockLabel) {
-      textareaBlockLabel.addEventListener("click", function() {
-        textareaBlock.focusLabel(this);
-      }, false);
-    };
-  };
+  // function _bind_cloneNoteStoryTextarea(element) {
+  //   var textareaBlockField = element.querySelector(".js-textarea-block-field");
+  //   var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
+  //   if (textareaBlockField) {
+  //     textareaBlockField.addEventListener("input", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
+  //     }, false);
+  //     textareaBlockField.addEventListener("focus", function() {
+  //       textareaBlock.focus(this);
+  //     }, false);
+  //     textareaBlockField.addEventListener("blur", function() {
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
+  //       textareaBlock.focus(this);
+  //     }, false);
+  //     textareaBlockField.addEventListener("paste", function(event) {
+  //       helper.pasteStrip(event);
+  //     });
+  //   };
+  //   if (textareaBlockLabel) {
+  //     textareaBlockLabel.addEventListener("click", function() {
+  //       textareaBlock.focusLabel(this);
+  //     }, false);
+  //   };
+  // };
 
   function _change_cloneState(cloneType) {
     var cloneBlock = helper.e(".js-clone-block-" + cloneType);
