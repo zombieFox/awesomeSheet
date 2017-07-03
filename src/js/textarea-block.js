@@ -66,11 +66,11 @@ var textareaBlock = (function() {
         sheet.storeCharacters();
       }, false);
       field.addEventListener("focus", function() {
-        focus(this);
+        _focus(this);
       }, false);
       field.addEventListener("blur", function() {
         _store(this);
-        focus(this);
+        _focus(this);
         sheet.storeCharacters();
       }, false);
       field.addEventListener("paste", function(event) {

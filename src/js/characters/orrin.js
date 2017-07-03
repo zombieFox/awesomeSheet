@@ -391,7 +391,41 @@ var orrin = (function() {
         include_custom: false,
         current: ""
       },
-      custom: [],
+      custom: [{
+        name: "Perception (Traps)",
+        ranks: 9,
+        misc: 5,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        }
+      }, {
+        name: "Disable Device (Traps)",
+        ranks: 9,
+        misc: 8,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: true,
+          check_penalty: true
+        }
+      }],
       acrobatics: {
         ranks: 9,
         misc: "",
@@ -1039,150 +1073,6 @@ var orrin = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: true,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_1: {
-        name: "Perception (Traps)",
-        ranks: 9,
-        misc: 5,
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "Disable Device (Traps)",
-        ranks: 9,
-        misc: 8,
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: true
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
           level: false,
           half_level: false,
           check_penalty: false

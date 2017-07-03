@@ -77,11 +77,11 @@ var inputBlock = (function() {
         storeInputTimer = setTimeout(delayUpdate, 400, this);
       }, false);
       input.addEventListener("focus", function() {
-        focus(this);
+        _focus(this);
       }, false);
       input.addEventListener("blur", function() {
         _store(this);
-        focus(this);
+        _focus(this);
       }, false);
     };
   };
@@ -98,7 +98,7 @@ var inputBlock = (function() {
         if (input.value == "restore all") {
           sheet.all();
         };
-        focus(this);
+        _focus(this);
       };
     }, false);
   };
