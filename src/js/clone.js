@@ -1,29 +1,12 @@
 var clone = (function() {
 
   function render() {
-    var all_attackMelee = sheet.getCharacter().offense.attack.melee;
-    var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
-    var all_consumable = sheet.getCharacter().equipment.consumable;
-    var all_skill = sheet.getCharacter().skills.custom;
-    var all_noteCharacter = sheet.getCharacter().notes.character;
-    var all_noteStory = sheet.getCharacter().notes.story;
-
     _render_all_clones("attack-melee");
     _render_all_clones("attack-ranged");
     _render_all_clones("consumable");
     _render_all_clones("skill");
     _render_all_clones("note-character");
     _render_all_clones("note-story");
-
-    _upddate_consumableTotals();
-
-    _update_cloneInput(_get_cloneObjects("attack-melee"), "attack-melee");
-    _update_cloneInput(_get_cloneObjects("attack-ranged"), "attack-ranged");
-    _update_cloneInput(_get_cloneObjects("consumable"), "consumable");
-    _update_cloneInput(_get_cloneObjects("skill"), "skill");
-    _update_cloneTextarea(_get_cloneObjects("note-character"), "note-character");
-    _update_cloneTextarea(_get_cloneObjects("note-story"), "note-story");
-
     _update_clonePlaceholder("attack-melee");
     _update_clonePlaceholder("attack-ranged");
     _update_clonePlaceholder("consumable");
@@ -32,12 +15,254 @@ var clone = (function() {
     _update_clonePlaceholder("note-story");
   };
 
-  function _upddate_consumableTotals() {
-    var all_consumable = _get_cloneObjects("consumable");
-    for (var i = 0; i < all_consumable.length; i++) {
-      var newCurrent = (parseInt(all_consumable[i].total, 10) || 0) - (parseInt(all_consumable[i].used, 10) || 0);
-      sheet.getCharacter().equipment.consumable[i].current = newCurrent;
+  function _get_cloneObjects(cloneType) {
+    var object;
+    if (cloneType == "consumable") {
+      object = sheet.getCharacter().equipment.consumable;
     };
+    if (cloneType == "skill") {
+      object = sheet.getCharacter().skills.custom;
+    };
+    if (cloneType == "attack-melee") {
+      object = sheet.getCharacter().offense.attack.melee;
+    };
+    if (cloneType == "attack-ranged") {
+      object = sheet.getCharacter().offense.attack.ranged;
+    };
+    if (cloneType == "note-character") {
+      object = sheet.getCharacter().notes.character;
+    };
+    if (cloneType == "note-story") {
+      object = sheet.getCharacter().notes.story;
+    };
+    return object;
+  };
+
+  function _get_cloneString(cloneType, cloneIndex) {
+    var cloneString;
+    if (cloneType == "consumable") {
+      cloneString = _newConsumable(cloneIndex);
+    };
+    if (cloneType == "skill") {
+      cloneString = _newSkill(cloneIndex);
+    };
+    if (cloneType == "attack-melee") {
+      cloneString = _newAttackMelee(cloneIndex);
+    };
+    if (cloneType == "attack-ranged") {
+      cloneString = _newAttackRanged(cloneIndex);
+    };
+    if (cloneType == "note-character") {
+      cloneString = _newNoteCharacter(cloneIndex);
+    };
+    if (cloneType == "note-story") {
+      cloneString = _newNoteStory(cloneIndex);
+    };
+    return cloneString;
+  };
+
+  function _get_cloneBlock(cloneType) {
+    var cloneBlock;
+    if (cloneType == "attack-melee") {
+      cloneBlock = helper.e(".js-clone-block-attack");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".js-clone-block-attack");
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".js-clone-block-consumable");
+    };
+    if (cloneType == "skill") {
+      cloneBlock = helper.e(".js-clone-block-skill");
+    };
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+    };
+    return cloneBlock;
+  };
+
+  function _get_cloneTarget(cloneType) {
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      cloneTarget = helper.e(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "skill") {
+      cloneTarget = helper.e(".js-clone-block-target-skills");
+    };
+    if (cloneType == "note-character") {
+      cloneTarget = helper.e(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneTarget = helper.e(".js-clone-block-target-note-story");
+    };
+    return cloneTarget;
+  };
+
+  function _get_cloneCount(cloneType, mixed) {
+    var cloneCount;
+    if (cloneType == "attack-melee") {
+      cloneCount = sheet.getCharacter().offense.attack.melee.length;
+    };
+    if (cloneType == "attack-ranged") {
+      cloneCount = sheet.getCharacter().offense.attack.ranged.length;
+    };
+    if (cloneType == "consumable") {
+      cloneCount = sheet.getCharacter().equipment.consumable.length;
+    };
+    if (cloneType == "skill") {
+      cloneCount = sheet.getCharacter().skills.custom.length;
+    };
+    if (cloneType == "note-character") {
+      cloneCount = sheet.getCharacter().notes.character.length;
+    };
+    if (cloneType == "note-story") {
+      cloneCount = sheet.getCharacter().notes.story.length;
+    };
+    if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
+      cloneCount = sheet.getCharacter().notes.story.length + sheet.getCharacter().notes.character.length;
+    };
+    if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
+      cloneCount = sheet.getCharacter().offense.attack.melee.length + sheet.getCharacter().offense.attack.ranged.length;
+    };
+    return cloneCount;
+  };
+
+  function _get_placeholderClone(cloneType) {
+    var clonePlaceholder;
+    if (cloneType == "attack-melee") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
+    };
+    if (cloneType == "skill") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-skill");
+    };
+    if (cloneType == "note-character") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-note-character");
+    };
+    if (cloneType == "note-story") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-note-story");
+    };
+    return clonePlaceholder;
+  };
+
+  function _get_maxCloneMessage(cloneType) {
+    var message = "Max 100, do you need that many";
+    if (cloneType == "attack-melee") {
+      message = message + " Melee Attacks?";
+    };
+    if (cloneType == "attack-ranged") {
+      message = message + " Ranged Attacks?";
+    };
+    if (cloneType == "consumable") {
+      message = message + " Consumables?";
+    };
+    if (cloneType == "skill") {
+      message = message + " Skills?";
+    };
+    if (cloneType == "note-character") {
+      message = message + " Character Notes?";
+    };
+    if (cloneType == "note-story") {
+      message = message + " Story Notes?";
+    };
+    return message;
+  };
+
+  function _get_undoRemoveCloneMessage(cloneType) {
+    var message = "removed.";
+    if (cloneType == "attack-melee") {
+      message = "Melee attack " + message;
+    };
+    if (cloneType == "attack-ranged") {
+      message = "Ranged attack " + message;
+    };
+    if (cloneType == "consumable") {
+      message = "Consumable " + message;
+    };
+    if (cloneType == "skill") {
+      message = "Skill " + message;
+    };
+    if (cloneType == "note-character") {
+      message = "Character note " + message;
+    };
+    if (cloneType == "note-story") {
+      message = "Story note " + message;
+    };
+    return message;
+  };
+
+  function _get_newCloneObject(cloneType) {
+    var object;
+    if (cloneType == "attack-melee") {
+      object = {
+        weapon: "",
+        attack: "",
+        damage: "",
+        critical:  ""
+      };
+    };
+    if (cloneType == "attack-ranged") {
+      object = {
+        weapon: "",
+        attack: "",
+        damage: "",
+        critical: "",
+        range: "",
+        ammo:  ""
+      };
+    };
+    if (cloneType == "consumable") {
+      object = {
+        item: "",
+        current: "",
+        total: "",
+        used:  ""
+      };
+    };
+    if (cloneType == "skill") {
+      object = {
+        name: "",
+        ranks: "",
+        misc: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      };
+    };
+    if (cloneType == "note-character") {
+      object = {
+        note: ""
+      };
+    };
+    if (cloneType == "note-story") {
+      object = {
+        note: ""
+      };
+    };
+    return object;
   };
 
   function _smoothScrollToClones(cloneType) {
@@ -72,7 +297,7 @@ var clone = (function() {
       '      <div class="m-edit-box-item-large">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '          <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
-      '          <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" data-path="equipment.consumable" data-path-clone-key="item" data-type="number" type="text" tabindex="3">' +
+      '          <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-total">' +
@@ -269,235 +494,8 @@ var clone = (function() {
     return cloneString;
   };
 
-  // function _minMaxCountLimit(input) {
-  //   if (input.value <= 0) {
-  //     input.value = "";
-  //   } else if (input.value >= 100) {
-  //     input.value = 100;
-  //   };
-  // };
-
-  function _get_cloneObjects(cloneType) {
-    var object;
-    if (cloneType == "consumable") {
-      object = sheet.getCharacter().equipment.consumable;
-    };
-    if (cloneType == "skill") {
-      object = sheet.getCharacter().skills.custom;
-    };
-    if (cloneType == "attack-melee") {
-      object = sheet.getCharacter().offense.attack.melee;
-    };
-    if (cloneType == "attack-ranged") {
-      object = sheet.getCharacter().offense.attack.ranged;
-    };
-    if (cloneType == "note-character") {
-      object = sheet.getCharacter().notes.character;
-    };
-    if (cloneType == "note-story") {
-      object = sheet.getCharacter().notes.story;
-    };
-    return object;
-  };
-
-  function _get_cloneString(cloneType, cloneIndex) {
-    var cloneString;
-    if (cloneType == "consumable") {
-      cloneString = _newConsumable(cloneIndex);
-    };
-    if (cloneType == "skill") {
-      cloneString = _newSkill(cloneIndex);
-    };
-    if (cloneType == "attack-melee") {
-      cloneString = _newAttackMelee(cloneIndex);
-    };
-    if (cloneType == "attack-ranged") {
-      cloneString = _newAttackRanged(cloneIndex);
-    };
-    if (cloneType == "note-character") {
-      cloneString = _newNoteCharacter(cloneIndex);
-    };
-    if (cloneType == "note-story") {
-      cloneString = _newNoteStory(cloneIndex);
-    };
-    return cloneString;
-  };
-
-  function _get_cloneBlock(cloneType) {
-    var cloneBlock;
-    if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".js-clone-block-attack");
-    };
-    if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".js-clone-block-attack");
-    };
-    if (cloneType == "consumable") {
-      cloneBlock = helper.e(".js-clone-block-consumable");
-    };
-    if (cloneType == "skill") {
-      cloneBlock = helper.e(".js-clone-block-skill");
-    };
-    if (cloneType == "note-character") {
-      cloneBlock = helper.e(".js-clone-block-note");
-    };
-    if (cloneType == "note-story") {
-      cloneBlock = helper.e(".js-clone-block-note");
-    };
-    return cloneBlock;
-  };
-
-  function _get_cloneTarget(cloneType) {
-    var cloneTarget;
-    if (cloneType == "attack-melee") {
-      cloneTarget = helper.e(".js-clone-block-target-attack-melee");
-    };
-    if (cloneType == "attack-ranged") {
-      cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
-    };
-    if (cloneType == "consumable") {
-      cloneTarget = helper.e(".js-clone-block-target-consumable");
-    };
-    if (cloneType == "skill") {
-      cloneTarget = helper.e(".js-clone-block-target-skills");
-    };
-    if (cloneType == "note-character") {
-      cloneTarget = helper.e(".js-clone-block-target-note-character");
-    };
-    if (cloneType == "note-story") {
-      cloneTarget = helper.e(".js-clone-block-target-note-story");
-    };
-    return cloneTarget;
-  };
-
-  function _get_cloneCount(cloneType, mixed) {
-    var cloneCount;
-    if (cloneType == "attack-melee") {
-      cloneCount = sheet.getCharacter().offense.attack.melee.length;
-    };
-    if (cloneType == "attack-ranged") {
-      cloneCount = sheet.getCharacter().offense.attack.ranged.length;
-    };
-    if (cloneType == "consumable") {
-      cloneCount = sheet.getCharacter().equipment.consumable.length;
-    };
-    if (cloneType == "skill") {
-      cloneCount = sheet.getCharacter().skills.custom.length;
-    };
-    if (cloneType == "note-character") {
-      cloneCount = sheet.getCharacter().notes.character.length;
-    };
-    if (cloneType == "note-story") {
-      cloneCount = sheet.getCharacter().notes.story.length;
-    };
-    if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
-      cloneCount = sheet.getCharacter().notes.story.length + sheet.getCharacter().notes.character.length;
-    };
-    if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
-      cloneCount = sheet.getCharacter().offense.attack.melee.length + sheet.getCharacter().offense.attack.ranged.length;
-    };
-    return cloneCount;
-  };
-
-  function _get_placeholderClone(cloneType) {
-    var clonePlaceholder;
-    if (cloneType == "attack-melee") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
-    };
-    if (cloneType == "attack-ranged") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-attack-ranged");
-    };
-    if (cloneType == "consumable") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
-    };
-    if (cloneType == "skill") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-skill");
-    };
-    if (cloneType == "note-character") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-note-character");
-    };
-    if (cloneType == "note-story") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-note-story");
-    };
-    return clonePlaceholder;
-  };
-
-  function _get_maxCloneMessage(cloneType) {
-    var message = "Max 100, do you need that many";
-    if (cloneType == "attack-melee") {
-      message = message + " Melee Attacks?";
-    };
-    if (cloneType == "attack-ranged") {
-      message = message + " Ranged Attacks?";
-    };
-    if (cloneType == "consumable") {
-      message = message + " Consumables?";
-    };
-    if (cloneType == "skill") {
-      message = message + " Skills?";
-    };
-    if (cloneType == "note-character") {
-      message = message + " Character Notes?";
-    };
-    if (cloneType == "note-story") {
-      message = message + " Story Notes?";
-    };
-    return message;
-  };
-
-  function _get_undoRemoveCloneMessage(cloneType) {
-    var message = "removed.";
-    if (cloneType == "attack-melee") {
-      message = "Melee attack " + message;
-    };
-    if (cloneType == "attack-ranged") {
-      message = "Ranged attack " + message;
-    };
-    if (cloneType == "consumable") {
-      message = "Consumable " + message;
-    };
-    if (cloneType == "skill") {
-      message = "Skill " + message;
-    };
-    if (cloneType == "note-character") {
-      message = "Character note " + message;
-    };
-    if (cloneType == "note-story") {
-      message = "Story note " + message;
-    };
-    return message;
-  };
-
-  function _bind_clone(cloneType, newClone) {
-    if (cloneType == "consumable") {
-      _bind_totalBlock(newClone.querySelector(".js-total-block"));
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "skill") {
-      _bind_totalBlock(newClone.querySelector(".js-total-block"));
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-melee") {
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-ranged") {
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "note-character") {
-      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
-    };
-    if (cloneType == "note-story") {
-      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
-    };
-  };
-
-  function _bind_cloneRemoveButton(button, cloneType) {
-    button.addEventListener("click", function() {
-      _store_lastRemovedClone(this, cloneType);
-      _update_clones(this, cloneType);
-      _checkCloneState(cloneType, true);
-      _update_clonePlaceholder(cloneType);
-      sheet.storeCharacters();
-    }, false);
+  function bind() {
+    _bind_cloneControls();
   };
 
   function _bind_cloneControls() {
@@ -567,8 +565,37 @@ var clone = (function() {
     }, false);
   };
 
-  function bind() {
-    _bind_cloneControls();
+  function _bind_cloneRemoveButton(button, cloneType) {
+    button.addEventListener("click", function() {
+      _store_lastRemovedClone(this, cloneType);
+      _update_clones(this, cloneType);
+      _checkCloneState(cloneType, true);
+      _update_clonePlaceholder(cloneType);
+      sheet.storeCharacters();
+    }, false);
+  };
+
+  function _bind_clone(cloneType, newClone) {
+    if (cloneType == "consumable") {
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "skill") {
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "attack-melee") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "attack-ranged") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "note-character") {
+      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
+    };
+    if (cloneType == "note-story") {
+      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
+    };
   };
 
   function _addNewClone(cloneType) {
@@ -580,10 +607,6 @@ var clone = (function() {
     } else {
       _render_maxClonesSnack(cloneType);
     };
-  };
-
-  function _render_maxClonesSnack(cloneType) {
-    snack.render(_get_maxCloneMessage(cloneType));
   };
 
   function _render_clone(cloneType) {
@@ -635,18 +658,22 @@ var clone = (function() {
     };
   };
 
+  function _render_maxClonesSnack(cloneType) {
+    snack.render(_get_maxCloneMessage(cloneType));
+  };
+
   function _update_cloneInput(array, cloneType) {
     var cloneBlock = _get_cloneBlock(cloneType);
     var cloneTarget = _get_cloneTarget(cloneType);
     for (var i = 0; i < array.length; i++) {
       for (var j in array[i]) {
         var input;
-        // if (cloneType == "consumable") {
-        //   input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
-        // };
-        // if (cloneType == "skill") {
-        //   input = cloneTarget.querySelector("#skill-" + j.replace(/_/g, "-") + "-" + i);
-        // };
+        if (cloneType == "consumable") {
+          input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
+        };
+        if (cloneType == "skill") {
+          input = cloneTarget.querySelector("#skill-" + j.replace(/_/g, "-") + "-" + i);
+        };
         if (cloneType == "attack-melee") {
           input = cloneTarget.querySelector("#attack-melee-" + j.replace(/_/g, "-") + "-" + i);
         };
@@ -816,140 +843,10 @@ var clone = (function() {
   };
 
   function _bind_textareaBlock(textareaBlockElement) {
-    console.log(textareaBlockElement);
     for (var i = 0; i < textareaBlockElement.length; i++) {
       textareaBlock.bind(textareaBlockElement[i]);
     };
   };
-
-  // function _bind_cloneConsumableInput(array) {
-  //   for (var i = 0; i < array.length; i++) {
-  //     var input = array[i].querySelector(".js-input-block-field");
-  //     if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
-  //       input.addEventListener("input", function() {
-  //         _minMaxCountLimit(this);
-  //       }, false);
-  //     };
-  //     input.addEventListener("input", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
-  //     }, false);
-  //     input.addEventListener("focus", function() {
-  //       inputBlock.focus(this);
-  //     }, false);
-  //     input.addEventListener("blur", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
-  //       inputBlock.focus(this);
-  //     }, false);
-  //   };
-  // };
-
-  // function _bind_cloneSkillInput(array) {
-  //   for (var i = 0; i < array.length; i++) {
-  //     var input = array[i].querySelector(".js-input-block-field");
-  //     input.addEventListener("input", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
-  //     }, false);
-  //     input.addEventListener("focus", function() {
-  //       inputBlock.focus(this);
-  //     }, false);
-  //     input.addEventListener("blur", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
-  //       inputBlock.focus(this);
-  //     }, false);
-  //   };
-  // };
-
-  // function _bind_cloneAttackMeleeInput(array) {
-  //   for (var i = 0; i < array.length; i++) {
-  //     var input = array[i].querySelector(".js-input-block-field");
-  //     input.addEventListener("input", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
-  //     }, false);
-  //     input.addEventListener("focus", function() {
-  //       inputBlock.focus(this);
-  //     }, false);
-  //     input.addEventListener("blur", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeBlurTimer = setTimeout(delayUpdate, 400, "attack-melee", this);
-  //       inputBlock.focus(this);
-  //     }, false);
-  //   };
-  // };
-
-  // function _bind_cloneAttackRangedInput(array) {
-  //   for (var i = 0; i < array.length; i++) {
-  //     var input = array[i].querySelector(".js-input-block-field");
-  //     input.addEventListener("input", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
-  //     }, false);
-  //     input.addEventListener("focus", function() {
-  //       inputBlock.focus(this);
-  //     }, false);
-  //     input.addEventListener("blur", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeBlurTimer = setTimeout(delayUpdate, 400, "attack-ranged", this);
-  //       inputBlock.focus(this);
-  //     }, false);
-  //   };
-  // };
-
-  // function _bind_cloneNoteCharacterTextarea(element) {
-  //   var textareaBlockField = element.querySelector(".js-textarea-block-field");
-  //   var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
-  //   if (textareaBlockField) {
-  //     textareaBlockField.addEventListener("input", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
-  //     }, false);
-  //     textareaBlockField.addEventListener("focus", function() {
-  //       textareaBlock.focus(this);
-  //     }, false);
-  //     textareaBlockField.addEventListener("blur", function() {
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-character", this);
-  //       textareaBlock.focus(this);
-  //     }, false);
-  //     textareaBlockField.addEventListener("paste", function(event) {
-  //       helper.pasteStrip(event);
-  //     });
-  //   };
-  //   if (textareaBlockLabel) {
-  //     textareaBlockLabel.addEventListener("click", function() {
-  //       textareaBlock.focusLabel(this);
-  //     }, false);
-  //   };
-  // };
-
-  // function _bind_cloneNoteStoryTextarea(element) {
-  //   var textareaBlockField = element.querySelector(".js-textarea-block-field");
-  //   var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
-  //   if (textareaBlockField) {
-  //     textareaBlockField.addEventListener("input", function() {
-  //       clearTimeout(storeInputTimer);
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
-  //     }, false);
-  //     textareaBlockField.addEventListener("focus", function() {
-  //       textareaBlock.focus(this);
-  //     }, false);
-  //     textareaBlockField.addEventListener("blur", function() {
-  //       storeInputTimer = setTimeout(delayUpdate, 400, "note-story", this);
-  //       textareaBlock.focus(this);
-  //     }, false);
-  //     textareaBlockField.addEventListener("paste", function(event) {
-  //       helper.pasteStrip(event);
-  //     });
-  //   };
-  //   if (textareaBlockLabel) {
-  //     textareaBlockLabel.addEventListener("click", function() {
-  //       textareaBlock.focusLabel(this);
-  //     }, false);
-  //   };
-  // };
 
   function _change_cloneState(cloneType) {
     var cloneBlock = helper.e(".js-clone-block-" + cloneType);
@@ -1010,13 +907,13 @@ var clone = (function() {
     };
   };
 
-  function _create_skillObject(name, ranks, misc, classSkill) {
+  function _create_skillObject(name, ranks, misc) {
     return {
       name: this.name = name || "",
       ranks: this.ranks = ranks || "",
       misc: this.misc = misc || "",
       bonuses: this.bonuses = {
-        class_skill: classSkill || false,
+        class_skill: false,
         str_bonus: false,
         dex_bonus: false,
         con_bonus: false,
@@ -1043,42 +940,8 @@ var clone = (function() {
   };
 
   function _add_cloneObject(cloneType) {
-    var newClone;
-    if (sheet.getCharacter().offense.attack.melee.length <= 99) {
-      if (cloneType == "attack-melee") {
-        newClone = new _create_attackMeleeObject();
-        sheet.getCharacter().offense.attack.melee.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().offense.attack.ranged.length <= 99) {
-      if (cloneType == "attack-ranged") {
-        newClone = new _create_attackRangedObject();
-        sheet.getCharacter().offense.attack.ranged.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().equipment.consumable.length <= 99) {
-      if (cloneType == "consumable") {
-        newClone = new _create_consumableObject();
-        sheet.getCharacter().equipment.consumable.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().skills.custom.length <= 99) {
-      if (cloneType == "skill") {
-        newClone = new _create_skillObject();
-        sheet.getCharacter().skills.custom.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().notes.character.length <= 99) {
-      if (cloneType == "note-character") {
-        newClone = new _create_noteCharacter();
-        sheet.getCharacter().notes.character.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().notes.story.length <= 99) {
-      if (cloneType == "note-story") {
-        newClone = new _create_noteStory();
-        sheet.getCharacter().notes.story.push(newClone);
-      };
+    if (_get_cloneCount(cloneType) <= 99) {
+      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
     };
   };
 
@@ -1113,8 +976,7 @@ var clone = (function() {
       var name = clone.querySelector(".js-clone-skill-name").value;
       var ranks = clone.querySelector(".js-clone-skill-ranks").value;
       var misc = clone.querySelector(".js-clone-skill-misc").value;
-      var classSkill = clone.querySelector(".js-clone-skill-check").checked;
-      var newSkill = new _create_skillObject(name, ranks, misc, classSkill);
+      var newSkill = new _create_skillObject(name, ranks, misc);
       sheet.getCharacter().skills.custom[cloneIndex] = newSkill;
     };
     if (cloneType == "note-character") {
