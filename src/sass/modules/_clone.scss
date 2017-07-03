@@ -4,23 +4,6 @@
     .m-clone {
       transition: all $transition-ease-medium;
       position: relative;
-      .textarea,
-      textarea {
-        // transition: background-color $transition-ease-medium, border $transition-ease-medium, margin $transition-ease-medium, padding $transition-ease-medium;
-      }
-      input {
-        &[type="email"],
-        &[type="number"],
-        &[type="password"],
-        &[type="search"],
-        &[type="tel"],
-        &[type="text"] {
-          // transition: background-color $transition-ease-medium, border $transition-ease-medium, margin $transition-ease-medium, padding $transition-ease-medium;
-        }
-      }
-      label {
-        // transition: all $transition-ease-medium;
-      }
       .m-clone-block-content {
         border-radius: 0;
         position: relative;
@@ -79,17 +62,12 @@
           padding: 0 $font-size-050;
           margin: 0;
           font-size: $font-size-150;
-          border-radius: 0 $border-radius-medium 0 0;
+          border-radius: 0 $border-radius-medium 0 $border-radius-medium;
           [class*=" icon-"],
           [class^="icon-"] {
             margin-right: 0;
           }
         }
-      }
-      .u-background-with-input,
-      .u-margin-with-input,
-      .u-underline-with-input {
-        // transition: margin $transition-ease-medium, background-color $transition-ease-medium, border-color $transition-ease-medium;
       }
     }
   }
@@ -119,6 +97,9 @@
           &.m-clone-block-content-box {
             padding: 1em 4em 0 1em;
           }
+        }
+        .m-edit-box-guides {
+          border-color: transparent;
         }
         .u-underline-with-input {
           border-color: $primary-color-alpha-18;

@@ -7,10 +7,11 @@
   box-sizing: border-box;
 }
 .m-edit-box-guides {
-  padding: 0 0 0.4em;
-  margin: 0 0 0.4em;
+  padding: 0 0 0.5em;
+  margin: 0 0 0.5em;
   border-bottom: $border;
   border-bottom-color: $gray-18;
+  transition: border-color $transition-ease-medium;
 }
 [class*="m-edit-box-head"],
 [class^="m-edit-box-head"] {

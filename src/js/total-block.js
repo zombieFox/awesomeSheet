@@ -185,67 +185,6 @@ var totalBlock = (function() {
     };
   };
 
-  // function update() {
-  //   var all_totalBlock = helper.eA(".js-total-block");
-  //   console.log(all_totalBlock);
-  //   for (var i = 0; i < all_totalBlock.length; i++) {
-  //     // var totalPathAddition = JSON.parse(all_totalBlock[i].dataset.totalPathAddition);
-  //     var totalPath = all_totalBlock[i].dataset.totalPath;
-  //     var totalPathAddition = all_totalBlock[i].dataset.totalPathAddition.split(",");
-  //     var totalPathSubtraction = all_totalBlock[i].dataset.totalPathAddition.split(",");
-  //     var object = helper.getObject(sheet.getCharacter(), totalPath);
-  //     var modifiers = [];
-  //     console.log(object, totalPathAddition);
-  //     for (var j = 0; j < totalPathAddition.length; j++) {
-  //       modifiers.push(object[totalPathAddition[j]]);
-  //     };
-  //     console.log(modifiers);
-  //
-  //
-  //
-  //   var total = all_totalBlock[i].querySelector(".js-total-block-total");
-  //   var totalPath = total.dataset.path;
-  //   var totalType = all_totalBlock[i].dataset.totalType;
-  //   var all_inputBlockField = all_totalBlock[i].querySelectorAll(".js-input-block-field");
-  //   var modifiers = [];
-  //   var modifiers_total = 0;
-  //   // if there are any input fields in total block
-  //   if (all_inputBlockField.length > 0) {
-  //     // iterate over all input fields
-  //     for (var i = 0; i < all_inputBlockField.length; i++) {
-  //       var value;
-  //       // find the path for input field
-  //       var inputPath = all_inputBlockField[i].dataset.path;
-  //       // if path is found
-  //       if (inputPath) {
-  //         // get the value of path from character
-  //         value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
-  //       } else {
-  //         // get the value from input
-  //         // needed because clone consumable total blocks dont have data paths
-  //         value = parseInt(all_inputBlockField[i].value, 10) || 0;
-  //       };
-  //       // if the value is not a NaN
-  //       if (!isNaN(value)) {
-  //         // check if the input is to add or subtract
-  //         if (all_inputBlockField[i].dataset.total == "addition") {
-  //           // push to array
-  //           modifiers.push(value);
-  //         };
-  //         // check if the inpuy is to add or subtract
-  //         if (all_inputBlockField[i].dataset.total == "subtract") {
-  //           // push to array
-  //           modifiers.push(-value);
-  //         };
-  //       };
-  //     };
-  //   };
-  //
-  //
-  //   };
-  //
-  // };
-
   function _bonusTextLable(bonusType) {
     if (bonusType == "str-bonus" || bonusType == "str_bonus") {
       return "Str Bonus";
@@ -365,7 +304,9 @@ var totalBlock = (function() {
     } else {
       var all_totalBlock = helper.eA(".js-total-block");
       for (var i = 0; i < all_totalBlock.length; i++) {
-        _bind_totalBlock(all_totalBlock[i]);
+        if (all_totalBlock[i].dataset.clone != "true") {
+          _bind_totalBlock(all_totalBlock[i]);
+        };
       };
     };
   };
@@ -373,11 +314,11 @@ var totalBlock = (function() {
   function _bind_totalBlock(totalBlock) {
     var totalBlockBonuses = totalBlock.querySelector(".js-total-block-bonuses");
     var totalBlockBonusCheck = totalBlock.querySelector(".js-total-block-bonus-check");
-    if (totalBlockBonuses) {
-      _bind_bonusButton(totalBlockBonuses);
-    };
     if (totalBlockBonusCheck) {
       _bind_bonusCheck(totalBlockBonusCheck);
+    };
+    if (totalBlockBonuses) {
+      _bind_bonusButton(totalBlockBonuses);
     };
   };
 
