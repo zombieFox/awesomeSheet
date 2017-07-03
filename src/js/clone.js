@@ -623,9 +623,7 @@ var clone = (function() {
       // append new clone
       cloneTarget.appendChild(newClone);
       // bind listeners
-      if (bind) {
-        _bind_clone(cloneType, newClone);
-      };
+      _bind_clone(cloneType, newClone);
       _bind_cloneRemoveButton(newClone.querySelector(".js-clone-block-delete"), cloneType);
     };
   };
@@ -666,7 +664,7 @@ var clone = (function() {
     var undoData = JSON.parse(helper.read("lastRemovedClone"));
     _restore_cloneObject(undoData.cloneType, undoData.index, undoData.clone);
     clear(undoData.cloneType);
-    _render_all_clones(undoData.cloneType, true);
+    _render_all_clones(undoData.cloneType);
     inputBlock.clear();
     inputBlock.render();
     textareaBlock.clear();

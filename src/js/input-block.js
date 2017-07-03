@@ -61,7 +61,9 @@ var inputBlock = (function() {
     } else {
       var all_inputBlock = helper.eA(".js-input-block");
       for (var i = 0; i < all_inputBlock.length; i++) {
-        _bind_inputBlock(all_inputBlock[i]);
+        if (all_inputBlock[i].dataset.clone != "true") {
+          _bind_inputBlock(all_inputBlock[i]);
+        };
       };
     };
     _bind_name();

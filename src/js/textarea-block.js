@@ -52,7 +52,9 @@ var textareaBlock = (function() {
     } else {
       var all_textareaBlock = helper.eA(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
-        _bind_textareaBlock(all_textareaBlock[i]);
+        if (all_textareaBlock[i].dataset.clone != "true") {
+          _bind_textareaBlock(all_textareaBlock[i]);
+        };
       };
     };
   };
