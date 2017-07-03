@@ -373,8 +373,8 @@ var nif = (function() {
       },
       custom: [{
         name: "Frog Tossing",
-        ranks: "10",
-        misc: "12",
+        ranks: 10,
+        misc: 12,
         current: "",
         bonuses: {
           class_skill: false,
@@ -390,8 +390,8 @@ var nif = (function() {
         }
       }, {
         name: "Cheese Rolling",
-        ranks: "2",
-        misc: "3",
+        ranks: 2,
+        misc: 3,
         current: "",
         bonuses: {
           class_skill: true,

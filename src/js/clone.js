@@ -538,9 +538,7 @@ var clone = (function() {
   function _bind_cloneRemoveButton(button, cloneType) {
     button.addEventListener("click", function() {
       _store_lastRemovedClone(this, cloneType);
-      _update_clones(this, cloneType);
-      _checkCloneState(cloneType, true);
-      _update_clonePlaceholder(cloneType);
+      _remove_clone(this, cloneType);
       sheet.storeCharacters();
     }, false);
   };
@@ -609,7 +607,7 @@ var clone = (function() {
     _bind_cloneRemoveButton(cloneBlockDelete, cloneType);
   };
 
-  function _render_all_clones(cloneType) {
+  function _render_all_clones(cloneType, bind) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
     for (var i = 0; i < cloneLength; i++) {
@@ -624,6 +622,10 @@ var clone = (function() {
       newClone.innerHTML = cloneString;
       // append new clone
       cloneTarget.appendChild(newClone);
+      // bind listeners
+      if (bind) {
+        _bind_clone(cloneType, newClone);
+      };
       _bind_cloneRemoveButton(newClone.querySelector(".js-clone-block-delete"), cloneType);
     };
   };
@@ -632,51 +634,7 @@ var clone = (function() {
     snack.render(_get_maxCloneMessage(cloneType));
   };
 
-  function _update_cloneInput(array, cloneType) {
-    var cloneBlock = _get_cloneBlock(cloneType);
-    var cloneTarget = _get_cloneTarget(cloneType);
-    for (var i = 0; i < array.length; i++) {
-      for (var j in array[i]) {
-        var input;
-        if (cloneType == "consumable") {
-          input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (cloneType == "skill") {
-          input = cloneTarget.querySelector("#skill-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (cloneType == "attack-melee") {
-          input = cloneTarget.querySelector("#attack-melee-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (cloneType == "attack-ranged") {
-          input = cloneTarget.querySelector("#attack-ranged-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (input) {
-          input.value = array[i][j];
-        };
-      };
-    };
-  };
-
-  function _update_cloneTextarea(array, cloneType) {
-    var cloneBlock = _get_cloneBlock(cloneType);
-    var cloneTarget = _get_cloneTarget(cloneType);
-    for (var i = 0; i < array.length; i++) {
-      for (var j in array[i]) {
-        var textarea;
-        if (cloneType == "note-character") {
-          textarea = cloneTarget.querySelector("#note-character-" + i);
-        };
-        if (cloneType == "note-story") {
-          textarea = cloneTarget.querySelector("#note-story-" + i);
-        };
-        if (textarea) {
-          textarea.innerHTML = array[i][j];
-        };
-      };
-    };
-  };
-
-  function _checkCloneState(cloneType) {
+  function _update_cloneState(cloneType) {
     var cloneBlock = _get_cloneBlock(cloneType);
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneCount = _get_cloneCount(cloneType, true);
@@ -689,57 +647,45 @@ var clone = (function() {
     };
   };
 
-  function _update_clones(button, cloneType) {
+  function _remove_clone(button, cloneType) {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
-    var undoMessage = _get_undoRemoveCloneMessage(cloneType);
     _remove_cloneObject(cloneType, cloneIndex);
     clear(cloneType);
-    _render_all_clones(cloneType);
-    // _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
-    // _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
-    _update_clonePlaceholder(undoData.cloneType);
-    snack.render(undoMessage, "Undo", _restoreLastRemovedClone, 6000);
+    _render_all_clones(cloneType, true);
+    inputBlock.clear();
+    inputBlock.render();
+    textareaBlock.clear();
+    textareaBlock.render();
+    _update_clonePlaceholder(cloneType);
+    _update_cloneState(cloneType);
     totalBlock.render();
+    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 6000);
   };
 
-  function _restoreLastRemovedClone() {
+  function _restore_lastRemovedClone() {
     var undoData = JSON.parse(helper.read("lastRemovedClone"));
-    _restoreCloneObject(undoData.cloneType, undoData.index, undoData.clone);
+    _restore_cloneObject(undoData.cloneType, undoData.index, undoData.clone);
     clear(undoData.cloneType);
-    _render_all_clones(undoData.cloneType);
-    // _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    // _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
+    _render_all_clones(undoData.cloneType, true);
+    inputBlock.clear();
+    inputBlock.render();
+    textareaBlock.clear();
+    textareaBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
+    _update_cloneState(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.render();
   };
 
   function _store_lastRemovedClone(button, cloneType) {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
-    var object = {
+    var removedCloneObject = {
       cloneType: cloneType,
       index: cloneIndex,
       clone: {}
     };
-    if (cloneType == "consumable") {
-      object.clone = sheet.getCharacter().equipment.consumable[cloneIndex];
-    };
-    if (cloneType == "skill") {
-      object.clone = sheet.getCharacter().skills.custom[cloneIndex];
-    };
-    if (cloneType == "attack-melee") {
-      object.clone = sheet.getCharacter().offense.attack.melee[cloneIndex];
-    };
-    if (cloneType == "attack-ranged") {
-      object.clone = sheet.getCharacter().offense.attack.ranged[cloneIndex];
-    };
-    if (cloneType == "note-character") {
-      object.clone = sheet.getCharacter().notes.character[cloneIndex];
-    };
-    if (cloneType == "note-story") {
-      object.clone = sheet.getCharacter().notes.story[cloneIndex];
-    };
-    helper.store("lastRemovedClone", JSON.stringify(object));
+    removedCloneObject.clone = _get_cloneObjects(cloneType)[cloneIndex];
+    helper.store("lastRemovedClone", JSON.stringify(removedCloneObject));
   };
 
   function _remove_lastRemovedClone() {
@@ -747,61 +693,27 @@ var clone = (function() {
   };
 
   function _remove_cloneObject(cloneType, index) {
-    if (cloneType == "consumable") {
-      sheet.getCharacter().equipment.consumable.splice(index, 1);
-    };
-    if (cloneType == "skill") {
-      sheet.getCharacter().skills.custom.splice(index, 1);
-    };
-    if (cloneType == "attack-melee") {
-      sheet.getCharacter().offense.attack.melee.splice(index, 1);
-    };
-    if (cloneType == "attack-ranged") {
-      sheet.getCharacter().offense.attack.ranged.splice(index, 1);
-    };
-    if (cloneType == "note-character") {
-      sheet.getCharacter().notes.character.splice(index, 1);
-    };
-    if (cloneType == "note-story") {
-      sheet.getCharacter().notes.story.splice(index, 1);
-    };
+    _get_cloneObjects(cloneType).splice(index, 1);
   };
 
-  function _restoreCloneObject(cloneType, index, cloneObject) {
-    if (cloneType == "consumable") {
-      sheet.getCharacter().equipment.consumable.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "skill") {
-      sheet.getCharacter().skills.custom.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "attack-melee") {
-      sheet.getCharacter().offense.attack.melee.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "attack-ranged") {
-      sheet.getCharacter().offense.attack.ranged.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "note-character") {
-      sheet.getCharacter().notes.character.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "note-story") {
-      sheet.getCharacter().notes.story.splice(index, 0, cloneObject);
-    };
+  function _restore_cloneObject(cloneType, index, cloneObject) {
+    _get_cloneObjects(cloneType).splice(index, 0, cloneObject);
   };
 
-  var storeInputTimer = null;
-  var storeBlurTimer = null;
+  // var storeInputTimer = null;
+  // var storeBlurTimer = null;
 
-  function delayUpdate(cloneType, element) {
-    var clone = helper.getClosest(element, ".js-clone");
-    var cloneIndex = parseInt(clone.dataset.cloneCount, 10);
-    _update_cloneObject(cloneType, cloneIndex, clone);
-    totalBlock.render();
-    sheet.storeCharacters();
-    if (body.dataset.displayMode == "true") {
-      display.clear();
-      display.render();
-    };
-  };
+  // function delayUpdate(cloneType, element) {
+  //   var clone = helper.getClosest(element, ".js-clone");
+  //   var cloneIndex = parseInt(clone.dataset.cloneCount, 10);
+  //   _update_cloneObject(cloneType, cloneIndex, clone);
+  //   totalBlock.render();
+  //   sheet.storeCharacters();
+  //   if (body.dataset.displayMode == "true") {
+  //     display.clear();
+  //     display.render();
+  //   };
+  // };
 
   function _bind_totalBlock(totalBlockeElement) {
     totalBlock.bind(totalBlockeElement);
@@ -842,66 +754,66 @@ var clone = (function() {
     };
   };
 
-  function _create_attackMeleeObject(weapon, attack, damage, critical) {
-    return {
-      weapon: this.weapon = weapon || "",
-      attack: this.attack = attack || "",
-      damage: this.damage = damage || "",
-      critical: this.critical = critical || ""
-    };
-  };
-
-  function _create_attackRangedObject(weapon, attack, damage, critical, range, ammo) {
-    return {
-      weapon: this.weapon = weapon || "",
-      attack: this.attack = attack || "",
-      damage: this.damage = damage || "",
-      critical: this.critical = critical || "",
-      range: this.range = range || "",
-      ammo: this.ammo = ammo || ""
-    };
-  };
-
-  function _create_consumableObject(item, current, total, used) {
-    return {
-      item: this.item = item || "",
-      current: this.current = current || "",
-      total: this.total = total || "",
-      used: this.used = used || ""
-    };
-  };
-
-  function _create_skillObject(name, ranks, misc) {
-    return {
-      name: this.name = name || "",
-      ranks: this.ranks = ranks || "",
-      misc: this.misc = misc || "",
-      bonuses: this.bonuses = {
-        class_skill: false,
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false,
-        check_penalty: false
-      }
-    };
-  };
-
-  function _create_noteCharacter(data) {
-    return {
-      note: this.data = data || ""
-    };
-  };
-
-  function _create_noteStory(data) {
-    return {
-      note: this.data = data || ""
-    };
-  };
+  // function _create_attackMeleeObject(weapon, attack, damage, critical) {
+  //   return {
+  //     weapon: this.weapon = weapon || "",
+  //     attack: this.attack = attack || "",
+  //     damage: this.damage = damage || "",
+  //     critical: this.critical = critical || ""
+  //   };
+  // };
+  //
+  // function _create_attackRangedObject(weapon, attack, damage, critical, range, ammo) {
+  //   return {
+  //     weapon: this.weapon = weapon || "",
+  //     attack: this.attack = attack || "",
+  //     damage: this.damage = damage || "",
+  //     critical: this.critical = critical || "",
+  //     range: this.range = range || "",
+  //     ammo: this.ammo = ammo || ""
+  //   };
+  // };
+  //
+  // function _create_consumableObject(item, current, total, used) {
+  //   return {
+  //     item: this.item = item || "",
+  //     current: this.current = current || "",
+  //     total: this.total = total || "",
+  //     used: this.used = used || ""
+  //   };
+  // };
+  //
+  // function _create_skillObject(name, ranks, misc) {
+  //   return {
+  //     name: this.name = name || "",
+  //     ranks: this.ranks = ranks || "",
+  //     misc: this.misc = misc || "",
+  //     bonuses: this.bonuses = {
+  //       class_skill: false,
+  //       str_bonus: false,
+  //       dex_bonus: false,
+  //       con_bonus: false,
+  //       int_bonus: false,
+  //       wis_bonus: false,
+  //       cha_bonus: false,
+  //       level: false,
+  //       half_level: false,
+  //       check_penalty: false
+  //     }
+  //   };
+  // };
+  //
+  // function _create_noteCharacter(data) {
+  //   return {
+  //     note: this.data = data || ""
+  //   };
+  // };
+  //
+  // function _create_noteStory(data) {
+  //   return {
+  //     note: this.data = data || ""
+  //   };
+  // };
 
   function _add_cloneObject(cloneType) {
     if (_get_cloneCount(cloneType) <= 99) {
@@ -909,51 +821,51 @@ var clone = (function() {
     };
   };
 
-  function _update_cloneObject(cloneType, cloneIndex, clone) {
-    if (cloneType == "attack-melee") {
-      var weapon = clone.querySelector(".js-clone-attack-melee-weapon").value;
-      var attack = clone.querySelector(".js-clone-attack-melee-attack").value;
-      var damage = clone.querySelector(".js-clone-attack-melee-damage").value;
-      var critical = clone.querySelector(".js-clone-attack-melee-critical").value;
-      var newAttackMelee = new _create_attackMeleeObject(weapon, attack, damage, critical);
-      sheet.getCharacter().offense.attack.melee[cloneIndex] = newAttackMelee;
-    };
-    if (cloneType == "attack-ranged") {
-      var weapon = clone.querySelector(".js-clone-attack-ranged-weapon").value;
-      var attack = clone.querySelector(".js-clone-attack-ranged-attack").value;
-      var damage = clone.querySelector(".js-clone-attack-ranged-damage").value;
-      var critical = clone.querySelector(".js-clone-attack-ranged-critical").value;
-      var range = clone.querySelector(".js-clone-attack-ranged-range").value;
-      var ammo = clone.querySelector(".js-clone-attack-ranged-ammo").value;
-      var newAttackRanged = new _create_attackRangedObject(weapon, attack, damage, critical, range, ammo);
-      sheet.getCharacter().offense.attack.ranged[cloneIndex] = newAttackRanged;
-    };
-    if (cloneType == "consumable") {
-      var item = clone.querySelector(".js-clone-consumable-item").value;
-      var current = clone.querySelector(".js-clone-consumable-current").innerHTML;
-      var total = clone.querySelector(".js-clone-consumable-total").value;
-      var used = clone.querySelector(".js-clone-consumable-used").value;
-      var newConsumable = new _create_consumableObject(item, current, total, used);
-      sheet.getCharacter().equipment.consumable[cloneIndex] = newConsumable;
-    };
-    if (cloneType == "skill") {
-      var name = clone.querySelector(".js-clone-skill-name").value;
-      var ranks = clone.querySelector(".js-clone-skill-ranks").value;
-      var misc = clone.querySelector(".js-clone-skill-misc").value;
-      var newSkill = new _create_skillObject(name, ranks, misc);
-      sheet.getCharacter().skills.custom[cloneIndex] = newSkill;
-    };
-    if (cloneType == "note-character") {
-      var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
-      var newCharacterNote = new _create_noteCharacter(textarea);
-      sheet.getCharacter().notes.character[cloneIndex] = newCharacterNote;
-    };
-    if (cloneType == "note-story") {
-      var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
-      var newStoryNote = new _create_noteStory(textarea);
-      sheet.getCharacter().notes.story[cloneIndex] = newStoryNote;
-    };
-  };
+  // function _update_cloneObject(cloneType, cloneIndex, clone) {
+  //   if (cloneType == "attack-melee") {
+  //     var weapon = clone.querySelector(".js-clone-attack-melee-weapon").value;
+  //     var attack = clone.querySelector(".js-clone-attack-melee-attack").value;
+  //     var damage = clone.querySelector(".js-clone-attack-melee-damage").value;
+  //     var critical = clone.querySelector(".js-clone-attack-melee-critical").value;
+  //     var newAttackMelee = new _create_attackMeleeObject(weapon, attack, damage, critical);
+  //     sheet.getCharacter().offense.attack.melee[cloneIndex] = newAttackMelee;
+  //   };
+  //   if (cloneType == "attack-ranged") {
+  //     var weapon = clone.querySelector(".js-clone-attack-ranged-weapon").value;
+  //     var attack = clone.querySelector(".js-clone-attack-ranged-attack").value;
+  //     var damage = clone.querySelector(".js-clone-attack-ranged-damage").value;
+  //     var critical = clone.querySelector(".js-clone-attack-ranged-critical").value;
+  //     var range = clone.querySelector(".js-clone-attack-ranged-range").value;
+  //     var ammo = clone.querySelector(".js-clone-attack-ranged-ammo").value;
+  //     var newAttackRanged = new _create_attackRangedObject(weapon, attack, damage, critical, range, ammo);
+  //     sheet.getCharacter().offense.attack.ranged[cloneIndex] = newAttackRanged;
+  //   };
+  //   if (cloneType == "consumable") {
+  //     var item = clone.querySelector(".js-clone-consumable-item").value;
+  //     var current = clone.querySelector(".js-clone-consumable-current").innerHTML;
+  //     var total = clone.querySelector(".js-clone-consumable-total").value;
+  //     var used = clone.querySelector(".js-clone-consumable-used").value;
+  //     var newConsumable = new _create_consumableObject(item, current, total, used);
+  //     sheet.getCharacter().equipment.consumable[cloneIndex] = newConsumable;
+  //   };
+  //   if (cloneType == "skill") {
+  //     var name = clone.querySelector(".js-clone-skill-name").value;
+  //     var ranks = clone.querySelector(".js-clone-skill-ranks").value;
+  //     var misc = clone.querySelector(".js-clone-skill-misc").value;
+  //     var newSkill = new _create_skillObject(name, ranks, misc);
+  //     sheet.getCharacter().skills.custom[cloneIndex] = newSkill;
+  //   };
+  //   if (cloneType == "note-character") {
+  //     var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
+  //     var newCharacterNote = new _create_noteCharacter(textarea);
+  //     sheet.getCharacter().notes.character[cloneIndex] = newCharacterNote;
+  //   };
+  //   if (cloneType == "note-story") {
+  //     var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
+  //     var newStoryNote = new _create_noteStory(textarea);
+  //     sheet.getCharacter().notes.story[cloneIndex] = newStoryNote;
+  //   };
+  // };
 
   function _update_clonePlaceholder(cloneType) {
     var clonePlaceholder = _get_placeholderClone(cloneType);
