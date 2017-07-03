@@ -397,13 +397,13 @@ var orrin = (function() {
         misc: 5,
         current: "",
         bonuses: {
-          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
           cha_bonus: false,
+          class_skill: true,
           level: false,
           half_level: true,
           check_penalty: false

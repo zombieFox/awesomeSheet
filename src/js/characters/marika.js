@@ -367,13 +367,13 @@ var marika = (function() {
         misc: 4,
         current: "",
         bonuses: {
-          class_skill: true,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: true,
           level: false,
           half_level: true,
           check_penalty: false

@@ -377,13 +377,13 @@ var nif = (function() {
         misc: 12,
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
