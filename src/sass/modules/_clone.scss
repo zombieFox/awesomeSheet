@@ -26,7 +26,7 @@
         position: relative;
         z-index: 1;
         transition: all $transition-ease-fast;
-        transform-origin: left center;
+        transform-origin: center center;
         .m-clone-flash {
           background-color: $primary-color-10;
           position: absolute;

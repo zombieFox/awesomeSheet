@@ -1,6 +1,12 @@
 var update = (function() {
 
   var history = [{
+    version: "3.5.0",
+    list: [
+      "Refactored Clones, Input and Textarea modules.",
+      "*New Custom Skills feature added. You will have to re-enter your custom skills",
+    ]
+  }, {
     version: "3.4.0",
     list: [
       "Redesigned edit mode layout and style for ease of reading."
