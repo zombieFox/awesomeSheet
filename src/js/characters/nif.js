@@ -112,37 +112,37 @@ var nif = (function() {
       consumable: [{
         item: "Wand of Lightning Bolt",
         current: "",
-        total: "50",
-        used: "49"
+        total: 50,
+        used: 49
       }, {
         item: "Wand of Scorching Ray",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Wand of Swift Girding",
         current: "",
-        total: "50",
-        used: "30"
+        total: 50,
+        used: 30
       }, {
         item: "Wand of Carry Companion",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Shift",
         current: "",
-        total: "9",
-        used: "2"
+        total: 9,
+        used: 2
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
-        total: "1",
+        total: 1,
         used: ""
       }, {
         item: "Wand of Purify Food and Drink",
         current: "",
-        total: "50",
+        total: 50,
         used: ""
       }]
     },
@@ -234,7 +234,9 @@ var nif = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -250,7 +252,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -266,7 +270,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
@@ -365,11 +371,10 @@ var nif = (function() {
         include_custom: false,
         current: ""
       },
-      custom: [],
       custom: [{
         name: "Frog Tossing",
-        ranks: "2",
-        misc: "3",
+        ranks: "10",
+        misc: "12",
         current: "",
         bonuses: {
           class_skill: false,

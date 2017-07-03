@@ -270,10 +270,10 @@ var sheet = (function() {
   };
 
   function render() {
-    inputBlock.render();
-    textareaBlock.render();
     stats.render();
     clone.render();
+    inputBlock.render();
+    textareaBlock.render();
     skills.render();
     spells.render();
     totalBlock.render();

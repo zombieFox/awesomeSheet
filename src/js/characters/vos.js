@@ -112,17 +112,17 @@ var vos = (function() {
       consumable: [{
         item: "Ki Pool",
         current: "",
-        total: "10",
+        total: 10,
         used: ""
       }, {
         item: "Scented Oils",
         current: "",
-        total: "5",
+        total: 5,
         used: ""
       }, {
         item: "Stunning Fist",
         current: "",
-        total: "7",
+        total: 7,
         used: ""
       }]
     },
@@ -214,7 +214,9 @@ var vos = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -230,7 +232,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -246,7 +250,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."

@@ -67,12 +67,12 @@ var clone = (function() {
   function _newConsumable(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-bonus-array-index="' + index + '" data-total-path-addition="total" data-total-path-subtraction="used">' +
+      '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + index + '">' +
       '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
       '      <div class="m-edit-box-item-large">' +
-      '        <div class="m-input-block js-input-block">' +
+      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '          <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
-      '          <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
+      '          <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" data-path="equipment.consumable" data-path-clone-key="item" data-type="number" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-total">' +
@@ -80,15 +80,15 @@ var clone = (function() {
       '        <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
-      '        <div class="m-input-block js-input-block">' +
+      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '          <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Max</label>' +
-      '          <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
+      '          <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-path="equipment.consumable" data-path-clone-key="total" data-type="number" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
-      '        <div class="m-input-block js-input-block">' +
+      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
       '          <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
-      '          <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
+      '          <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="number" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
@@ -103,11 +103,11 @@ var clone = (function() {
   function _newSkill(index) {
     var cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="js-total-block" data-total-path="skills.custom" data-clone-count="' + index + '" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus" data-clone="true">' +
+      '  <div class="js-total-block" data-total-path="skills.custom" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-type="bonus" data-clone="true" data-clone-count="' + index + '">' +
       '    <div class="m-edit-box m-edit-box-guides">' +
       '      <div class="m-edit-box-head-large">' +
-      '        <div class="m-skill-name m-input-block js-input-block">' +
-      '          <input id="skill-name-' + index + '" class="m-input-block-field u-full-width u-no-margin js-input-block-field js-clone-skill-name" type="text" tabindex="3" placeholder="Custom skill">' +
+      '        <div class="m-skill-name m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
+      '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field js-clone-skill-name" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="3" placeholder="Custom skill">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-body m-edit-box-body-group">' +
@@ -115,13 +115,13 @@ var clone = (function() {
       '          <p class="m-total-block-total js-total-block-total js-clone-skill-current">0</p>' +
       '        </div>' +
       '        <div class="m-edit-box-item-medium">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <input id="skill-ranks-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-ranks js-input-block-field-ranks" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
+      '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-ranks js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="number" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-medium">' +
-      '          <div class="m-input-block js-input-block">' +
-      '            <input id="skill-misc-' + index + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-misc" data-total="addition" data-type="number" type="text" tabindex="3">' +
+      '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + index + '">' +
+      '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-clone-skill-misc" data-path="skills.custom" data-path-clone-key="misc" data-type="number" type="text" tabindex="3">' +
       '          </div>' +
       '        </div>' +
       '        <div class="m-edit-box-item-check">' +
@@ -269,13 +269,13 @@ var clone = (function() {
     return cloneString;
   };
 
-  function _minMaxCountLimit(input) {
-    if (input.value <= 0) {
-      input.value = "";
-    } else if (input.value >= 100) {
-      input.value = 100;
-    };
-  };
+  // function _minMaxCountLimit(input) {
+  //   if (input.value <= 0) {
+  //     input.value = "";
+  //   } else if (input.value >= 100) {
+  //     input.value = 100;
+  //   };
+  // };
 
   function _get_cloneObjects(cloneType) {
     var object;
@@ -469,12 +469,18 @@ var clone = (function() {
 
   function _bind_clone(cloneType, newClone) {
     if (cloneType == "consumable") {
-      _bind_cloneConsumableInput(newClone.querySelectorAll(".js-input-block"));
+      // _bind_cloneConsumableInput(newClone.querySelectorAll(".js-input-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      console.log(newClone.querySelectorAll(".js-input-block"));
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      console.log(newClone.querySelector(".js-total-block"));
     };
     if (cloneType == "skill") {
-      _bind_cloneSkillInput(newClone.querySelectorAll(".js-input-block"));
-      _bind_cloneSkillCheck(newClone.querySelector(".js-total-block-bonus-check"));
-      _bind_cloneSkillButton(newClone.querySelector(".js-total-block-bonuses"));
+      // _bind_cloneSkillInput(newClone.querySelectorAll(".js-input-block"));
+      // _bind_cloneSkillCheck(newClone.querySelector(".js-total-block-bonus-check"));
+      // _bind_cloneSkillButton(newClone.querySelector(".js-total-block-bonuses"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
     };
     if (cloneType == "attack-melee") {
       _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
@@ -631,8 +637,6 @@ var clone = (function() {
       newClone.innerHTML = cloneString;
       // append new clone
       cloneTarget.appendChild(newClone);
-      // bind listeners
-      _bind_clone(cloneType, newClone);
       _bind_cloneRemoveButton(newClone.querySelector(".js-clone-block-delete"), cloneType);
     };
   };
@@ -643,12 +647,12 @@ var clone = (function() {
     for (var i = 0; i < array.length; i++) {
       for (var j in array[i]) {
         var input;
-        if (cloneType == "consumable") {
-          input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (cloneType == "skill") {
-          input = cloneTarget.querySelector("#skill-" + j.replace(/_/g, "-") + "-" + i);
-        };
+        // if (cloneType == "consumable") {
+        //   input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
+        // };
+        // if (cloneType == "skill") {
+        //   input = cloneTarget.querySelector("#skill-" + j.replace(/_/g, "-") + "-" + i);
+        // };
         if (cloneType == "attack-melee") {
           input = cloneTarget.querySelector("#attack-melee-" + j.replace(/_/g, "-") + "-" + i);
         };
@@ -657,7 +661,6 @@ var clone = (function() {
         };
         if (input) {
           input.value = array[i][j];
-          inputBlock.update(input);
         };
       };
     };
@@ -704,7 +707,7 @@ var clone = (function() {
     _render_all_clones(cloneType);
     _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
     _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
-    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restoreLastRemovedClone, 6000);
+    snack.render(undoMessage, "Undo", _restoreLastRemovedClone, 6000);
     totalBlock.render();
   };
 
@@ -809,56 +812,56 @@ var clone = (function() {
     };
   };
 
-  function _bind_cloneConsumableInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
-        input.addEventListener("input", function() {
-          _minMaxCountLimit(this);
-        }, false);
-      };
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
-        inputBlock.focus(this);
-      }, false);
+  function _bind_totalBlock(totalBlockeElement) {
+    totalBlock.bind(totalBlockeElement);
+  };
+
+  function _bind_inputBlock(inputBlockElement) {
+    for (var i = 0; i < inputBlockElement.length; i++) {
+      inputBlock.bind(inputBlockElement[i]);
     };
   };
 
-  function _bind_cloneSkillInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
-        inputBlock.focus(this);
-      }, false);
-    };
-  };
+  // function _bind_cloneConsumableInput(array) {
+  //   for (var i = 0; i < array.length; i++) {
+  //     var input = array[i].querySelector(".js-input-block-field");
+  //     if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
+  //       input.addEventListener("input", function() {
+  //         _minMaxCountLimit(this);
+  //       }, false);
+  //     };
+  //     input.addEventListener("input", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
+  //     }, false);
+  //     input.addEventListener("focus", function() {
+  //       inputBlock.focus(this);
+  //     }, false);
+  //     input.addEventListener("blur", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "consumable", this);
+  //       inputBlock.focus(this);
+  //     }, false);
+  //   };
+  // };
 
-  function _bind_cloneSkillCheck(check) {
-    // var totalBlockElement = helper.getClosest(element, ".js-total-block");
-    totalBlock.bindControlCheck(check);
-  };
-
-  function _bind_cloneSkillButton(button) {
-    // var totalBlockElement = helper.getClosest(element, ".js-total-block");
-    totalBlock.bindControlButton(button);
-  };
+  // function _bind_cloneSkillInput(array) {
+  //   for (var i = 0; i < array.length; i++) {
+  //     var input = array[i].querySelector(".js-input-block-field");
+  //     input.addEventListener("input", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
+  //     }, false);
+  //     input.addEventListener("focus", function() {
+  //       inputBlock.focus(this);
+  //     }, false);
+  //     input.addEventListener("blur", function() {
+  //       clearTimeout(storeInputTimer);
+  //       storeInputTimer = setTimeout(delayUpdate, 400, "skill", this);
+  //       inputBlock.focus(this);
+  //     }, false);
+  //   };
+  // };
 
   function _bind_cloneAttackMeleeInput(array) {
     for (var i = 0; i < array.length; i++) {
