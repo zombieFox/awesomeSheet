@@ -31,7 +31,7 @@ var display = (function() {
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
         anySectionDisplay = true;
-        allSectionDisplay ++;
+        allSectionDisplay++;
       };
     };
     if (anySectionDisplay) {
@@ -93,7 +93,7 @@ var display = (function() {
 
     if (forceToggle == true) {
       _displayOn();
-    } else if(forceToggle == false) {
+    } else if (forceToggle == false) {
       _displayOff();
     } else {
       if (section.dataset.displayMode == "true") {
@@ -270,6 +270,9 @@ var display = (function() {
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
+          if (all_displayPath[i] == "skills.custom") {
+            cloneType = "skill";
+          };
           if (all_displayPath[i] == "offense.attack.melee") {
             cloneType = "attack-melee";
           };
@@ -314,6 +317,27 @@ var display = (function() {
               displayListItem.appendChild(value);
             };
           };
+        };
+      };
+
+      if (cloneType == "skill") {
+        if (object.ranks != "undefined" && object.ranks != "") {
+          displayListItem = document.createElement("li");
+          displayListItem.setAttribute("class", "m-display-list-item");
+          var value = document.createElement("span");
+          value.setAttribute("class", "m-display-list-item-value");
+          value.textContent = "+" + object.current;
+          if (object["name"]) {
+            var prefix = document.createElement("span");
+            prefix.setAttribute("class", "m-display-list-item-prefix");
+            prefix.textContent = object["name"];
+          } else {
+            prefix.textContent = "Custom Skill";
+          };
+          displayListItem.appendChild(prefix);
+          displayListItem.appendChild(value);
+        } else {
+          displayListItem = false;
         };
       };
 
