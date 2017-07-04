@@ -45,6 +45,11 @@ var repair = (function() {
       characterObject.notes.character = [];
       characterObject.notes.story = [];
     };
+    // add item array
+    if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
+      console.log("\t\tadd item array");
+      characterObject.equipment.item = [];
+    };
     // add spell notes
     if (characterObject.spells.book) {
       for (var i in characterObject.spells.book) {
