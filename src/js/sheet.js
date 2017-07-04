@@ -43,7 +43,7 @@ var sheet = (function() {
 
   function addCharacter(newCharacter) {
     if (newCharacter) {
-      newCharacter = repair.update(newCharacter);
+      newCharacter = repair.render(newCharacter);
     };
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
@@ -273,7 +273,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.update(sheet.getCharacter());
+    repair.render(sheet.getCharacter());
     stats.render();
     clone.render();
     inputBlock.render();

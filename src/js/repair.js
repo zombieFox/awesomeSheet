@@ -1,8 +1,10 @@
 var repair = (function() {
 
-  function _update_character(characterObject) {
+  function render(characterObject) {
+    console.log("fire repair update");
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
+      console.log("\t\tadd initiative object");
       characterObject.basics.initiative = {
         misc: "",
         temp: "",
@@ -19,20 +21,34 @@ var repair = (function() {
           half_level: false
         }
       };
-      return characterObject;
     };
     // add custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
+      console.log("\t\tadd custom skills array");
       characterObject.skills.custom = [];
     };
+    // move custom skills to new custom skills
+    if (characterObject.skills.custom_1 || characterObject.skills.custom_2 || characterObject.skills.custom_3 || characterObject.skills.custom_4 || characterObject.skills.custom_5 || characterObject.skills.custom_6 || characterObject.skills.custom_7 || characterObject.skills.custom_8) {
+      console.log("\t\tmove custom skills to new custom skills");
+      var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
+      for (var i = 0; i < skillKeys.length; i++) {
+        if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
+          var newSkill = characterObject.skills[skillKeys[i]];
+          characterObject.skills.custom.push(newSkill);
+        };
+        delete characterObject.skills[skillKeys[i]];
+      };
+    };
     // add spell notes
-    if (sheet.getCharacter().spells.book) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          if (sheet.getCharacter().spells.book[i][j].length > 0) {
-            for (var k in sheet.getCharacter().spells.book[i][j]) {
-              if (!sheet.getCharacter().spells.book[i][j][k].note || sheet.getCharacter().spells.book[i][j][k].note == "" || sheet.getCharacter().spells.book[i][j][k].note == "undefined") {
-                sheet.getCharacter().spells.book[i][j][k].note = "";
+    if (characterObject.spells.book) {
+      for (var i in characterObject.spells.book) {
+        for (var j in characterObject.spells.book[i]) {
+          if (characterObject.spells.book[i][j].length > 0) {
+            for (var k in characterObject.spells.book[i][j]) {
+              if (!characterObject.spells.book[i][j][k].note || characterObject.spells.book[i][j][k].note == "undefined") {
+                console.log("\t\tadd spell notes");
+                characterObject.spells.book[i][j][k].note = "";
+                console.log(characterObject.spells.book[i][j][k]);
               };
             };
           };
@@ -40,15 +56,12 @@ var repair = (function() {
       };
     };
     sheet.storeCharacters();
-  };
-
-  function update(character) {
-    return _update_character(character);
+    return characterObject;
   };
 
   // exposed methods
   return {
-    update: update
+    render: render
   };
 
 })();

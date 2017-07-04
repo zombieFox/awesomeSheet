@@ -1004,14 +1004,14 @@ var auralis = (function() {
         }
       },
       "custom_1": {
-        "name": "",
-        "ranks": "",
-        "misc": "",
+        "name": "Bean Eating",
+        "ranks": "3",
+        "misc": "11",
         "current": 0,
         "bonuses": {
-          "class_skill": false,
+          "class_skill": true,
           "str_bonus": false,
-          "dex_bonus": false,
+          "dex_bonus": true,
           "con_bonus": false,
           "int_bonus": false,
           "wis_bonus": false,

@@ -6,13 +6,13 @@ var hardCodedCharacters = (function() {
   ];
 
   var allCharacters = [
+    auralis.data,
     nif.data,
     vos.data,
     orrin.data,
     nefi.data,
     ro.data,
-    marika.data,
-    auralis.data
+    marika.data
   ];
 
   var singleCharacters = {
