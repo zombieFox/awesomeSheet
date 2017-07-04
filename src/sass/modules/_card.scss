@@ -109,7 +109,10 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-card {
-    border-radius: $border-radius-medium;
+    border-radius: $border-radius-large;
+  }
+  .m-card-head {
+    border-radius: $border-radius-large $border-radius-large 0 0;
   }
 }
 @media (min-width: $screen-md) {}
