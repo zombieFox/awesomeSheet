@@ -131,8 +131,8 @@ var inputBlock = (function() {
           var pathCloneKey = all_inputBlockField.dataset.pathCloneKey;
           var cloneCount = all_inputBlock[i].dataset.cloneCount;
           var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-          all_inputBlockField.value = object[pathCloneKey];
           // console.log("found clone input", path, pathCloneKey, all_inputBlock[i].dataset.cloneCount, all_inputBlock[i]);
+          all_inputBlockField.value = object[pathCloneKey];
         } else {
           var content = helper.getObject(sheet.getCharacter(), path);
           all_inputBlockField.value = content;

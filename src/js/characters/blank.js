@@ -81,6 +81,7 @@ var blank = (function() {
     equipment: {
       gear: "",
       magic_gear: "",
+      item: [],
       encumbrance: {
         light: "",
         medium: "",

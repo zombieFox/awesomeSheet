@@ -49,7 +49,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '    <div class="m-edit-box m-edit-box-guides">' +
+        '    <div class="m-edit-box">' +
         '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -183,7 +183,7 @@ var clone = (function() {
     if (cloneType == "attack-melee") {
       cloneString =
         '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
-        '  <div class="m-edit-box m-edit-box-guides">' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -192,6 +192,8 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '    </div>' +
+        '  </div>' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -221,7 +223,7 @@ var clone = (function() {
     if (cloneType == "attack-ranged") {
       cloneString =
         '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
-        '  <div class="m-edit-box m-edit-box-guides">' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -230,6 +232,8 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '    </div>' +
+        '  </div>' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -250,6 +254,8 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '    </div>' +
+        '  </div>' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -874,6 +880,7 @@ var clone = (function() {
       _clear_cloneTarget("attack-melee");
       _clear_cloneTarget("attack-ranged");
       _clear_cloneTarget("consumable");
+      _clear_cloneTarget("item");
       _clear_cloneTarget("skill");
       _clear_cloneTarget("note-character");
       _clear_cloneTarget("note-story");

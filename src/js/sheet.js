@@ -288,9 +288,9 @@ var sheet = (function() {
     prompt.bind();
     modal.bind();
     snack.bind();
+    stats.bind();
     inputBlock.bind();
     textareaBlock.bind();
-    stats.bind();
     clone.bind();
     spells.bind();
     skills.bind();
@@ -300,11 +300,11 @@ var sheet = (function() {
   };
 
   function clear() {
+    stats.render();
+    totalBlock.clear();
+    clone.clear();
     inputBlock.clear();
     textareaBlock.clear();
-    stats.render();
-    clone.clear();
-    totalBlock.clear();
     spells.clear();
     display.clear();
   };

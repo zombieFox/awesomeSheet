@@ -4,7 +4,8 @@ var update = (function() {
     version: "3.5.0",
     list: [
       "Refactored Clones, Input and Textarea modules.",
-      "*New Custom Skills feature added. You will have to re-enter your custom skills",
+      "*New Items feature added.",
+      "*New Custom Skills feature added.",
     ]
   }, {
     version: "3.4.0",

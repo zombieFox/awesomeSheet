@@ -47,7 +47,7 @@ var repair = (function() {
     };
     // add item array
     if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
-      console.log("\t\tadd item array");
+      // console.log("\t\tadd item array");
       characterObject.equipment.item = [];
     };
     // add spell notes
