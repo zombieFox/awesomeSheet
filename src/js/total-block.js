@@ -247,9 +247,9 @@ var totalBlock = (function() {
     if (totalBonusesInclude.length > 0) {
       for (var i = 0; i < totalBonusesInclude.length; i++) {
         if (totalBonusesInclude[i] in object.bonuses) {
-          console.log(1, "found", totalBonusesInclude[i]);
+          // console.log(1, "found", totalBonusesInclude[i]);
         } else {
-          console.log(2, "not found", totalBonusesInclude[i]);
+          // console.log(2, "not found", totalBonusesInclude[i]);
           object.bonuses[totalBonusesInclude[i]] = false;
         };
       };

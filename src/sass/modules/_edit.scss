@@ -5,13 +5,14 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
 .m-edit-box-guides {
-  padding: 0 0 0.5em;
-  margin: 0 0 0.5em;
+  padding: 0.5em 0;
+  margin: 0;
   border-bottom: $border;
   border-bottom-color: $gray-18;
-  transition: border-color $transition-ease-medium, padding $transition-ease-medium;
+  transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
 }
 [class*="m-edit-box-head"],
 [class^="m-edit-box-head"] {
