@@ -67,7 +67,6 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/characters/orrin.js',
           '<%= folders.build %>/js/characters/ro.js',
           '<%= folders.build %>/js/characters/vos.js',
-          '<%= folders.build %>/js/characters/auralis.js',
           '<%= folders.build %>/js/characters.js',
           '<%= folders.build %>/js/check-url.js',
           '<%= folders.build %>/js/clone.js',

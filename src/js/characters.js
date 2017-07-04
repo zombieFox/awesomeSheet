@@ -6,7 +6,6 @@ var hardCodedCharacters = (function() {
   ];
 
   var allCharacters = [
-    auralis.data,
     nif.data,
     vos.data,
     orrin.data,
