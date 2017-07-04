@@ -5,12 +5,14 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
 .m-edit-box-guides {
-  padding: 0 0 0.4em;
-  margin: 0 0 0.4em;
+  padding: 0.5em 0;
+  margin: 0;
   border-bottom: $border;
   border-bottom-color: $gray-18;
+  transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
 }
 [class*="m-edit-box-head"],
 [class^="m-edit-box-head"] {
@@ -75,7 +77,7 @@
   transition: margin $transition-ease-medium;
 }
 .m-edit-box-item-total {
-  flex: 0 0 4.5em;
+  flex: 0 0 3em;
 }
 .m-edit-box-item-check {
   flex: 0 0 3em;
@@ -101,6 +103,9 @@
     padding-right: 0;
   }
 }
+.m-edit-box-item-control {
+  flex: 0 1 5em;
+}
 .m-edit-box-body-group {
   position: relative;
   flex-flow: row nowrap;
@@ -117,13 +122,19 @@
       margin-bottom: 0;
     }
     .button,
+    .m-check-block,
     .m-stat-modifier,
     .m-total-block-total {
       border-radius: 0;
     }
-    .m-input-block {
+    .m-check-block,
+    .m-input-block,
+    .m-stat-modifier,
+    .m-total-block-total {
       margin-left: -1px;
-      margin-right: -1px;
+      // margin-right: -1px;
+    }
+    .m-input-block {
       z-index: 2;
       &.is-focus {
         z-index: 3;
@@ -220,8 +231,9 @@
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
     .button-group {
-      box-shadow: $shadow-small;
-      border-radius: $border-radius-large;
+      .button {
+        box-shadow: $shadow-small;
+      }
     }
   }
 }

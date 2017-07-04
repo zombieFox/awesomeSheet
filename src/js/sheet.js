@@ -42,6 +42,9 @@ var sheet = (function() {
   };
 
   function addCharacter(newCharacter) {
+    if (newCharacter) {
+      newCharacter = repair.render(newCharacter);
+    };
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
     var newIndex = getAllCharacters().length - 1;
@@ -269,40 +272,39 @@ var sheet = (function() {
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };
 
+  function render() {
+    repair.render(sheet.getCharacter());
+    stats.render();
+    clone.render();
+    inputBlock.render();
+    textareaBlock.render();
+    skills.render();
+    spells.render();
+    totalBlock.render();
+    display.render();
+  };
+
   function bind() {
     prompt.bind();
     modal.bind();
     snack.bind();
+    stats.bind();
     inputBlock.bind();
     textareaBlock.bind();
-    stats.bind();
     clone.bind();
-    totalBlock.bind();
     spells.bind();
     skills.bind();
+    totalBlock.bind();
     display.bind();
     card.bind();
   };
 
-  function render() {
-    inputBlock.render();
-    textareaBlock.render();
-    stats.render();
-    clone.render();
-    totalBlock.render();
-    totalBlock.update();
-    spells.render();
-    skills.render();
-    display.render();
-  };
-
   function clear() {
+    stats.render();
+    totalBlock.clear();
+    clone.clear();
     inputBlock.clear();
     textareaBlock.clear();
-    stats.render();
-    clone.clear();
-    totalBlock.clear();
-    totalBlock.update();
     spells.clear();
     display.clear();
   };

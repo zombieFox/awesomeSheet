@@ -80,6 +80,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/nav.js',
           '<%= folders.build %>/js/night.js',
           '<%= folders.build %>/js/prompt.js',
+          '<%= folders.build %>/js/repair.js',
           '<%= folders.build %>/js/sheet.js',
           '<%= folders.build %>/js/skills.js',
           '<%= folders.build %>/js/snack.js',

@@ -28,7 +28,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -77,8 +79,133 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book, Viles of yellow mushroom juice",
-      magic_gear: "Handy Haversack (1)<br><strong>Viles</strong> Antitoxin (1), Holy Water (1)<br><strong>Potions</strong> Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br><strong>Scrolls</strong> Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (4), Fly (4), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements(2), Acid Arrow (0), Gust of Wind (0), Animate Rope (1), False Life (1), Floating Disk (1)",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
+      magic_gear: "Handy Haversack",
+      item: [{
+        name: "Vile of Antitoxin",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Vile of Holy Water",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Viles of Yellow Mushroom Juice",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Potion of Cure Light Wounds",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Potion of Cure Moderate Wounds",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Potion of Protection from Evil",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Adjustable Disguise",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Aid",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Displacement",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Acid Pit",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Summon Monster III",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Summon Monster IV",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Invisibility",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Create Pit",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Web",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll if Stinking Cloud",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Grease",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Mirror Image",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll if Spiked Pit",
+        quantity: 4,
+        weight: ""
+      }, {
+        name: "Scroll if Fly",
+        quantity: 4,
+        weight: ""
+      }, {
+        name: "Scroll if Interposing Hand",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Elemental Body 2",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Wall of Fire",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Haste",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Enlarge Person",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Endure Element",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Acid Arrow",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Gust of Wind",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Animate Rope",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if False Life",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Floating Disk",
+        quantity: 1,
+        weight: ""
+      }],
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -110,37 +237,37 @@ var nif = (function() {
       consumable: [{
         item: "Wand of Lightning Bolt",
         current: "",
-        total: "50",
-        used: "49"
+        total: 50,
+        used: 49
       }, {
         item: "Wand of Scorching Ray",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Wand of Swift Girding",
         current: "",
-        total: "50",
-        used: "30"
+        total: 50,
+        used: 30
       }, {
         item: "Wand of Carry Companion",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Shift",
         current: "",
-        total: "9",
-        used: "2"
+        total: 9,
+        used: 2
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
-        total: "1",
+        total: 1,
         used: ""
       }, {
         item: "Wand of Purify Food and Drink",
         current: "",
-        total: "50",
+        total: 50,
         used: ""
       }]
     },
@@ -232,7 +359,9 @@ var nif = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -248,7 +377,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -264,7 +395,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
@@ -363,6 +496,7 @@ var nif = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: "",
@@ -1014,150 +1148,6 @@ var nif = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -1172,7 +1162,8 @@ var nif = (function() {
           int_bonus: true,
           wis_bonus: false,
           cha_bonus: false,
-          level: true
+          level: true,
+          half_level: false
         }
       },
       per_day: {

@@ -54,7 +54,6 @@ var spells = (function() {
       // clear input field
       element.value = "";
     };
-    inputBlock.focus(element);
   };
 
   function _addNewSpellOnEnter(element) {
@@ -212,13 +211,13 @@ var spells = (function() {
       var preparedEditBoxBody = document.createElement("div");
       preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
       var preparedEditBoxBodyItem1 = document.createElement("div");
-      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-large");
+      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
       var preparedEditBoxBodyItem2 = document.createElement("div");
-      preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
       var preparedEditBoxBodyItem3 = document.createElement("div");
-      preparedEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
       var preparedEditBoxBodyItem4 = document.createElement("div");
-      preparedEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-total-block-total js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
@@ -275,13 +274,13 @@ var spells = (function() {
       var castEditBoxBody = document.createElement("div");
       castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
       var castEditBoxBodyItem1 = document.createElement("div");
-      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-large");
+      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
       var castEditBoxBodyItem2 = document.createElement("div");
-      castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
       var castEditBoxBodyItem3 = document.createElement("div");
-      castEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
       var castEditBoxBodyItem4 = document.createElement("div");
-      castEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-total-block-total js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
