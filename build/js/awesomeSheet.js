@@ -10987,7 +10987,7 @@ var inputBlock = (function() {
     if (input) {
       input.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, this);
+        storeInputTimer = setTimeout(delayUpdate, 300, this);
       }, false);
       input.addEventListener("focus", function() {
         _focus(this);
@@ -11003,7 +11003,7 @@ var inputBlock = (function() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 400, this);
+      updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
     input.addEventListener("keydown", function(event) {
       // enter
@@ -11020,7 +11020,7 @@ var inputBlock = (function() {
     var input = helper.e(".js-basics-class");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 400, this);
+      updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
   };
 
@@ -11028,7 +11028,7 @@ var inputBlock = (function() {
     var input = helper.e(".js-basics-level");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 400, this);
+      updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
   };
 
@@ -13626,7 +13626,7 @@ var textareaBlock = (function() {
     if (field) {
       field.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, this);
+        storeInputTimer = setTimeout(delayUpdate, 300, this);
         sheet.storeCharacters();
       }, false);
       field.addEventListener("focus", function() {

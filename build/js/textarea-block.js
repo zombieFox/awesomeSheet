@@ -64,7 +64,7 @@ var textareaBlock = (function() {
     if (field) {
       field.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 400, this);
+        storeInputTimer = setTimeout(delayUpdate, 300, this);
         sheet.storeCharacters();
       }, false);
       field.addEventListener("focus", function() {
