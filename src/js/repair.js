@@ -45,7 +45,7 @@ var repair = (function() {
         for (var j in characterObject.spells.book[i]) {
           if (characterObject.spells.book[i][j].length > 0) {
             for (var k in characterObject.spells.book[i][j]) {
-              if (!characterObject.spells.book[i][j][k].note || characterObject.spells.book[i][j][k].note == "undefined") {
+              if (typeof characterObject.spells.book[i][j][k].note != "string") {
                 console.log("\t\tadd spell notes");
                 characterObject.spells.book[i][j][k].note = "";
                 console.log(characterObject.spells.book[i][j][k]);
