@@ -268,6 +268,9 @@ var display = (function() {
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
+          if (all_displayPath[i] == "equipment.item") {
+            cloneType = "item";
+          };
           if (all_displayPath[i] == "skills.custom") {
             cloneType = "skill";
           };
@@ -307,6 +310,30 @@ var display = (function() {
               displayListItem.appendChild(displayListItemPrefix);
             };
           } else if (i == "current") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+      };
+
+      if (cloneType == "item") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          if (i == "name") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "quantity") {
             var data = object[i];
             if (typeof data != "undefined" && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
