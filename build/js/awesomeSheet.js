@@ -13755,6 +13755,7 @@ var totalBlock = (function() {
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
     // console.log("------ total blck", "\t", totalPath, cloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
     var object;
+    var value;
     if (totalPath && cloneCount) {
       object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
     } else if (totalPath) {
