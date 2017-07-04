@@ -11,7 +11,7 @@
   margin: 0 0 0.5em;
   border-bottom: $border;
   border-bottom-color: $gray-18;
-  transition: border-color $transition-ease-medium;
+  transition: border-color $transition-ease-medium, padding $transition-ease-medium;
 }
 [class*="m-edit-box-head"],
 [class^="m-edit-box-head"] {
@@ -121,13 +121,19 @@
       margin-bottom: 0;
     }
     .button,
+    .m-check-block,
     .m-stat-modifier,
     .m-total-block-total {
       border-radius: 0;
     }
-    .m-input-block {
+    .m-check-block,
+    .m-input-block,
+    .m-stat-modifier,
+    .m-total-block-total {
       margin-left: -1px;
-      margin-right: -1px;
+      // margin-right: -1px;
+    }
+    .m-input-block {
       z-index: 2;
       &.is-focus {
         z-index: 3;

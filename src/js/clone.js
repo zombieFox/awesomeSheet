@@ -279,7 +279,7 @@ var clone = (function() {
     if (cloneType == "note-character") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box m-edit-box-guides">' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -297,7 +297,7 @@ var clone = (function() {
     if (cloneType == "note-story") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box m-edit-box-guides">' +
+        '  <div class="m-edit-box">' +
         '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -710,7 +710,7 @@ var clone = (function() {
     // add content
     newClone.innerHTML = cloneString;
     var newCloneFlash = document.createElement("span");
-    newCloneFlash.setAttribute("class", "m-clone-flash");
+    newCloneFlash.setAttribute("class", "m-clone-flash m-clone-flash-" + cloneType.replace(/_+/g, "-"));
     newCloneFlash.addEventListener("animationend", function(event, elapsed) {
       this.remove();
     }.bind(newCloneFlash), false);
