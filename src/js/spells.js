@@ -54,7 +54,6 @@ var spells = (function() {
       // clear input field
       element.value = "";
     };
-    inputBlock.focus(element);
   };
 
   function _addNewSpellOnEnter(element) {

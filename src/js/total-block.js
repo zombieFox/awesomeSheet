@@ -188,65 +188,54 @@ var totalBlock = (function() {
   function _bonusTextLable(bonusType) {
     if (bonusType == "str-bonus" || bonusType == "str_bonus") {
       return "Str Bonus";
-    };
-    if (bonusType == "dex-bonus" || bonusType == "dex_bonus") {
+    } else if (bonusType == "dex-bonus" || bonusType == "dex_bonus") {
       return "Dex Bonus";
-    };
-    if (bonusType == "con-bonus" || bonusType == "con_bonus") {
+    } else if (bonusType == "con-bonus" || bonusType == "con_bonus") {
       return "Con Bonus";
-    };
-    if (bonusType == "int-bonus" || bonusType == "int_bonus") {
+    } else if (bonusType == "int-bonus" || bonusType == "int_bonus") {
       return "Int Bonus";
-    };
-    if (bonusType == "wis-bonus" || bonusType == "wis_bonus") {
+    } else if (bonusType == "wis-bonus" || bonusType == "wis_bonus") {
       return "Wis Bonus";
-    };
-    if (bonusType == "cha-bonus" || bonusType == "cha_bonus") {
+    } else if (bonusType == "cha-bonus" || bonusType == "cha_bonus") {
       return "Cha Bonus";
-    };
-    if (bonusType == "bab") {
+    } else if (bonusType == "bab") {
       return "Base Attack Bonus";
-    };
-    if (bonusType == "size") {
+    } else if (bonusType == "size") {
       return "Size Bonus";
-    };
-    if (bonusType == "level") {
+    } else if (bonusType == "level") {
       return "Level";
-    };
-    if (bonusType == "half-level" || bonusType == "half_level") {
+    } else if (bonusType == "half-level" || bonusType == "half_level") {
       return "Half Level";
-    };
-    if (bonusType == "plus-ten" || bonusType == "plus_ten") {
+    } else if (bonusType == "plus-ten" || bonusType == "plus_ten") {
       return "Plus 10";
-    };
-    if (bonusType == "ac-armor" || bonusType == "ac_armor") {
+    } else if (bonusType == "ac-armor" || bonusType == "ac_armor") {
       return "Armor";
-    };
-    if (bonusType == "ac-shield" || bonusType == "ac_shield") {
+    } else if (bonusType == "ac-shield" || bonusType == "ac_shield") {
       return "Shield";
-    };
-    if (bonusType == "ac-deflect" || bonusType == "ac_deflect") {
+    } else if (bonusType == "ac-deflect" || bonusType == "ac_deflect") {
       return "Deflect";
-    };
-    if (bonusType == "ac-dodge" || bonusType == "ac_dodge") {
+    } else if (bonusType == "ac-dodge" || bonusType == "ac_dodge") {
       return "Dodge";
-    };
-    if (bonusType == "ac-natural" || bonusType == "ac_natural") {
+    } else if (bonusType == "ac-natural" || bonusType == "ac_natural") {
       return "Natural Armor";
-    };
-    if (bonusType == "class-skill" || bonusType == "class_skill") {
+    } else if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
-    };
-    if (bonusType == "check-penalty" || bonusType == "check_penalty") {
+    } else if (bonusType == "check-penalty" || bonusType == "check_penalty") {
       return "Check Penalty";
-    };
-    if (bonusType == "max-dex" || bonusType == "max_dex") {
+    } else if (bonusType == "max-dex" || bonusType == "max_dex") {
       return "Max Dex Bonus";
+    } else {
+      return bonusType;
     };
   };
 
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    var totalBonusesInclude = false;
+    if (totalBonuses) {
+      totalBonusesInclude = totalBlock.dataset.totalBonusesInclude.split(",");
+    };
     var totalPath = totalBlock.dataset.totalPath;
     var cloneCount = totalBlock.dataset.cloneCount || false;
     var object;
@@ -254,6 +243,16 @@ var totalBlock = (function() {
       object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
+    };
+    if (totalBonusesInclude.length > 0) {
+      for (var i = 0; i < totalBonusesInclude.length; i++) {
+        if (totalBonusesInclude[i] in object.bonuses) {
+          console.log(1, "found", totalBonusesInclude[i]);
+        } else {
+          console.log(2, "not found", totalBonusesInclude[i]);
+          object.bonuses[totalBonusesInclude[i]] = false;
+        };
+      };
     };
     var heading = element.dataset.modalHeading || "Bonuses to add to this ability";
     var totalBlockControl = document.createElement("div");

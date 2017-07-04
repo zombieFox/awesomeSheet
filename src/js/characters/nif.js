@@ -1072,7 +1072,8 @@ var nif = (function() {
           int_bonus: true,
           wis_bonus: false,
           cha_bonus: false,
-          level: true
+          level: true,
+          half_level: false
         }
       },
       per_day: {
