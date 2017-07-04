@@ -20,8 +20,7 @@ var hardCodedCharacters = (function() {
     orrin: orrin.data,
     nefi: nefi.data,
     ro: ro.data,
-    marika: marika.data,
-    auralis: auralis.data
+    marika: marika.data
   }
 
   function all() {
