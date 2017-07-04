@@ -189,7 +189,7 @@ var log = (function() {
       var col = document.createElement("div");
       col.setAttribute("class", "col-xs-12");
       var list = document.createElement("ul");
-      list.setAttribute("class", "m-log-list m-log-list-short u-list-unstyled");
+      list.setAttribute("class", "m-log-list m-log-list-short");
       for (var i = 0; i < numberOfRecentChanges; i++) {
         var listItem = document.createElement("li");
         listItem.setAttribute("class", "m-log-list-item");

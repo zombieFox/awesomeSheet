@@ -7,7 +7,7 @@ var display = (function() {
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", function() {
-      totalBlock.update();
+      totalBlock.render();
       clear();
       render();
       toggle();
@@ -31,7 +31,7 @@ var display = (function() {
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
         anySectionDisplay = true;
-        allSectionDisplay ++;
+        allSectionDisplay++;
       };
     };
     if (anySectionDisplay) {
@@ -93,7 +93,7 @@ var display = (function() {
 
     if (forceToggle == true) {
       _displayOn();
-    } else if(forceToggle == false) {
+    } else if (forceToggle == false) {
       _displayOff();
     } else {
       if (section.dataset.displayMode == "true") {
@@ -108,7 +108,6 @@ var display = (function() {
   function _toggle_allSection() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
-
     if (fab.dataset.displayMode == "true") {
       fab.dataset.displayMode = "false";
       for (var i = 0; i < all_section.length; i++) {
@@ -120,7 +119,6 @@ var display = (function() {
         _toggle_singleSection(all_section[i], true);
       };
     };
-
     update();
   };
 
@@ -168,31 +166,31 @@ var display = (function() {
   };
 
   function _get_spell(spell, level, index) {
-    var displayItem = document.createElement("li");
-    displayItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
-    var displayItemPrefix = document.createElement("span");
-    displayItemPrefix.setAttribute("class", "m-display-list-item-spell-name");
+    var displayListItem = document.createElement("li");
+    displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
+    var displayListItemPrefix = document.createElement("span");
+    displayListItemPrefix.setAttribute("class", "m-display-list-item-spell-name");
     var spellName = document.createElement("span");
     spellName.textContent = spell.name;
-    var displayItemValue = document.createElement("span");
-    displayItemValue.setAttribute("class", "m-display-list-item-spell-count");
-    displayItemPrefix.appendChild(spellName);
-    displayItem.appendChild(displayItemPrefix);
-    displayItem.appendChild(displayItemValue);
-    displayItem.setAttribute("data-spell-level", level);
-    displayItem.setAttribute("data-spell-count", index);
+    var displayListItemValue = document.createElement("span");
+    displayListItemValue.setAttribute("class", "m-display-list-item-spell-count");
+    displayListItemPrefix.appendChild(spellName);
+    displayListItem.appendChild(displayListItemPrefix);
+    displayListItem.appendChild(displayListItemValue);
+    displayListItem.setAttribute("data-spell-level", level);
+    displayListItem.setAttribute("data-spell-count", index);
     // prepared
     if (spell.prepared > 0) {
       // var marks = document.createElement("span");
       for (var j = 0; j < spell.prepared; j++) {
         var preparedIcon = document.createElement("span");
         preparedIcon.setAttribute("class", "icon-radio-button-checked");
-        displayItemValue.insertBefore(preparedIcon, displayItemValue.firstChild);
+        displayListItemValue.insertBefore(preparedIcon, displayListItemValue.firstChild);
       };
     };
     // cast
     if (spell.cast > 0) {
-      var all_check = displayItemValue.querySelectorAll(".icon-radio-button-checked");
+      var all_check = displayListItemValue.querySelectorAll(".icon-radio-button-checked");
       for (var j = 0; j < spell.cast; j++) {
         if (all_check[j]) {
           helper.toggleClass(all_check[j], "icon-radio-button-checked");
@@ -209,10 +207,10 @@ var display = (function() {
       spellActive.appendChild(activeIcon);
       spellName.insertBefore(spellActive, spellName.firstChild);
     };
-    displayItem.addEventListener("click", function() {
+    displayListItem.addEventListener("click", function() {
       spells.update(helper.e(".js-spell-book-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
     }, false);
-    return displayItem;
+    return displayListItem;
   };
 
   function _get_all_skill(all_displayPath, displayPrefix) {
@@ -227,34 +225,34 @@ var display = (function() {
 
   function _get_skill(path, prefix) {
     var object = helper.getObject(sheet.getCharacter(), path);
-    var displayItem;
+    var displayListItem;
     if (typeof object != "undefined" && object != "") {
 
       if (object.ranks != "undefined" && object.ranks != "") {
-        displayItem = document.createElement("li");
-        displayItem.setAttribute("class", "m-display-list-item");
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-list-item-value");
         value.textContent = "+" + object.current;
         if (prefix || object["name"] || object["variant_name"]) {
-          var displayItemPrefix = document.createElement("span");
-          displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+          var displayListItemPrefix = document.createElement("span");
+          displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
           if (object["name"]) {
-            displayItemPrefix.textContent = object["name"] + " ";
+            displayListItemPrefix.textContent = object["name"] + " ";
           } else if (object["variant_name"]) {
-            displayItemPrefix.textContent = object["variant_name"] + " ";
+            displayListItemPrefix.textContent = object["variant_name"] + " ";
           } else {
-            displayItemPrefix.textContent = prefix;
+            displayListItemPrefix.textContent = prefix;
           };
-          displayItem.appendChild(displayItemPrefix);
+          displayListItem.appendChild(displayListItemPrefix);
         };
-        displayItem.appendChild(value);
+        displayListItem.appendChild(value);
       } else {
-        displayItem = false;
+        displayListItem = false;
       };
 
     };
-    return displayItem;
+    return displayListItem;
   };
 
   function _get_all_clone(all_displayPath) {
@@ -269,6 +267,12 @@ var display = (function() {
           var cloneType;
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
+          };
+          if (all_displayPath[i] == "equipment.item") {
+            cloneType = "item";
+          };
+          if (all_displayPath[i] == "skills.custom") {
+            cloneType = "skill";
           };
           if (all_displayPath[i] == "offense.attack.melee") {
             cloneType = "attack-melee";
@@ -300,20 +304,65 @@ var display = (function() {
           if (i == "item") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-list-item-prefix");
-              prefix.textContent = data;
-              displayListItem.appendChild(prefix);
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
             };
           } else if (i == "current") {
             var data = object[i];
             if (typeof data != "undefined" && data != "" || data == 0) {
-              var value = document.createElement("span");
-              value.setAttribute("class", "m-display-list-item-value");
-              value.textContent = data;
-              displayListItem.appendChild(value);
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
             };
           };
+        };
+      };
+
+      if (cloneType == "item") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          if (i == "name") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "quantity") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+      };
+
+      if (cloneType == "skill") {
+        if (object.ranks != "undefined" && object.ranks != "") {
+          displayListItem = document.createElement("li");
+          displayListItem.setAttribute("class", "m-display-list-item");
+          var displayListItemValue = document.createElement("span");
+          displayListItemValue.setAttribute("class", "m-display-list-item-value");
+          displayListItemValue.textContent = "+" + object.current;
+          if (object["name"]) {
+            var displayListItemPrefix = document.createElement("span");
+            displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+            displayListItemPrefix.textContent = object["name"];
+          } else {
+            displayListItemPrefix.textContent = "Custom Skill";
+          };
+          displayListItem.appendChild(displayListItemPrefix);
+          displayListItem.appendChild(displayListItemValue);
+        } else {
+          displayListItem = false;
         };
       };
 
@@ -324,18 +373,18 @@ var display = (function() {
           if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
-              prefix.textContent = data;
-              displayListItem.appendChild(prefix);
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
             };
           } else if (i == "attack") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var value = document.createElement("h2");
-              value.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
-              value.textContent = data;
-              displayListItem.appendChild(value);
+              var displayListItemValue = document.createElement("h2");
+              displayListItemValue.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
             };
           };
         };
@@ -394,33 +443,33 @@ var display = (function() {
 
   function _get_list(path, prefix, suffix, valueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
-    var displayItem;
+    var displayListItem;
     if (typeof data != "undefined" && data != "") {
       if (valueType == "bonus") {
         data = "+" + data;
       };
-      displayItem = document.createElement("li");
-      displayItem.setAttribute("class", "m-display-list-item");
-      var value = document.createElement("span");
-      value.setAttribute("class", "m-display-list-item-value");
-      value.textContent = data;
+      displayListItem = document.createElement("li");
+      displayListItem.setAttribute("class", "m-display-list-item");
+      var displayListItemvalue = document.createElement("span");
+      displayListItemvalue.setAttribute("class", "m-display-list-item-value");
+      displayListItemvalue.textContent = data;
       if (prefix) {
-        var displayItemPrefix = document.createElement("span");
-        displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
-        displayItemPrefix.textContent = prefix;
-        displayItem.appendChild(displayItemPrefix);
+        var displayListItemPrefix = document.createElement("span");
+        displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+        displayListItemPrefix.textContent = prefix;
+        displayListItem.appendChild(displayListItemPrefix);
       };
-      displayItem.appendChild(value);
+      displayListItem.appendChild(displayListItemvalue);
       if (suffix) {
-        var displayItemSuffix = document.createElement("span");
-        displayItemSuffix.setAttribute("class", "m-display-list-item-suffix");
-        displayItemSuffix.textContent = prefix;
-        displayItem.appendChild(displayItemSuffix);
+        var displayListItemSuffix = document.createElement("span");
+        displayListItemSuffix.setAttribute("class", "m-display-list-item-suffix");
+        displayListItemSuffix.textContent = prefix;
+        displayListItem.appendChild(displayListItemSuffix);
       };
     } else {
-      displayItem = false;
+      displayListItem = false;
     };
-    return displayItem;
+    return displayListItem;
   };
 
   function _get_all_modifier(all_displayPath, displayValueType) {
@@ -442,7 +491,7 @@ var display = (function() {
       data = helper.getObject(sheet.getCharacter(), path);
     };
     if (typeof data != "undefined" && data != "") {
-      var displayItem = document.createElement("span");
+      displayItem = document.createElement("span");
       if (displayValueType) {
         if (displayValueType == "bonus" && data > 0) {
           data = "+" + data;
@@ -450,7 +499,7 @@ var display = (function() {
       };
       displayItem.textContent = data;
     } else if (typeof data == "number" && data == 0) {
-      var displayItem = document.createElement("span");
+      displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else {
       displayItem = false;

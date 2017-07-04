@@ -77,12 +77,18 @@ var helper = (function() {
     object[address.shift()] = newValue;
   };
 
-  function getObject(object, path) {
+  function getObject(object, path, arrayIndex) {
+    // split path into array items
     var address = path.split(".");
+    // while aeeay has more than 1 item
     while (address.length > 1) {
+      // shift off and store the first key
       var currentKey = address.shift();
+      // copy the object
       var parentObject = object;
+      // drill down the object with the first key
       object = object[currentKey];
+      // if there is not object there make one
       if (!object || typeof object != "object") {
         object = parentObject;
         object = object[currentKey] = {};
@@ -90,7 +96,11 @@ var helper = (function() {
     };
     var finalKey = address.shift();
     if (finalKey in object) {
-      return object[finalKey];
+      if (arrayIndex) {
+        return object[finalKey][arrayIndex];
+      } else {
+        return object[finalKey];
+      };
     } else {
       object[finalKey] = "";
       return object[finalKey];
@@ -341,7 +351,9 @@ var blank = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -392,6 +404,7 @@ var blank = (function() {
     equipment: {
       gear: "",
       magic_gear: "",
+      item: [],
       encumbrance: {
         light: "",
         medium: "",
@@ -510,7 +523,9 @@ var blank = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -526,7 +541,9 @@ var blank = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -542,7 +559,9 @@ var blank = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: ""
@@ -629,18 +648,19 @@ var blank = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
@@ -1280,150 +1300,6 @@ var blank = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -1438,7 +1314,8 @@ var blank = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {
@@ -1542,7 +1419,9 @@ var marika = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -1593,6 +1472,7 @@ var marika = (function() {
     equipment: {
       gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
       magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
+      item: [],
       encumbrance: {
         light: "43 lbs or less",
         medium: "44–86 lbs",
@@ -1716,7 +1596,9 @@ var marika = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -1732,7 +1614,9 @@ var marika = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -1748,7 +1632,9 @@ var marika = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
@@ -1847,7 +1733,7 @@ var marika = (function() {
           critical: "19–20/x2"
         }, {
           weapon: "Full Attack Rapier +2 / Short Sword +2",
-          attack: "14 / 9 / 14 / 9",
+          attack: "+14/+9/+14/+9",
           damage: "1d6+3",
           critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2"
         }],
@@ -1867,6 +1753,41 @@ var marika = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [{
+        name: "Disable Device Trap",
+        ranks: 9,
+        misc: 4,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        }
+      }, {
+        name: "Perception Trap",
+        ranks: 9,
+        misc: 5,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        }
+      }],
       acrobatics: {
         ranks: 9,
         misc: "",
@@ -2518,150 +2439,6 @@ var marika = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "Disable Device Trap",
-        ranks: 9,
-        misc: 4,
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "Perception Trap",
-        ranks: 9,
-        misc: 5,
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -2676,7 +2453,8 @@ var marika = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {
@@ -2788,7 +2566,9 @@ var nefi = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -2839,6 +2619,7 @@ var nefi = (function() {
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
+      item: [],
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -2957,7 +2738,9 @@ var nefi = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -2973,7 +2756,9 @@ var nefi = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -2989,7 +2774,9 @@ var nefi = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "+3 bonus on Will saves against fear."
@@ -3123,18 +2910,19 @@ var nefi = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: 5,
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
@@ -3774,150 +3562,6 @@ var nefi = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -3932,7 +3576,8 @@ var nefi = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {
@@ -4046,7 +3691,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -4095,8 +3742,133 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book, Viles of yellow mushroom juice",
-      magic_gear: "Handy Haversack (1)<br><strong>Viles</strong> Antitoxin (1), Holy Water (1)<br><strong>Potions</strong> Cure Light Wounds (0), Cure Moderate Wounds (0), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1)<br><strong>Scrolls</strong> Acid Pit (1), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (4), Fly (4), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements(2), Acid Arrow (0), Gust of Wind (0), Animate Rope (1), False Life (1), Floating Disk (1)",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
+      magic_gear: "Handy Haversack",
+      item: [{
+        name: "Vile of Antitoxin",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Vile of Holy Water",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Viles of Yellow Mushroom Juice",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Potion of Cure Light Wounds",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Potion of Cure Moderate Wounds",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Potion of Protection from Evil",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Adjustable Disguise",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Aid",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Displacement",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Acid Pit",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Summon Monster III",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Summon Monster IV",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Invisibility",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Create Pit",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Web",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll if Stinking Cloud",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Grease",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Mirror Image",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll if Spiked Pit",
+        quantity: 4,
+        weight: ""
+      }, {
+        name: "Scroll if Fly",
+        quantity: 4,
+        weight: ""
+      }, {
+        name: "Scroll if Interposing Hand",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Elemental Body 2",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Wall of Fire",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Haste",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Enlarge Person",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Endure Element",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll if Acid Arrow",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Gust of Wind",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll if Animate Rope",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if False Life",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll if Floating Disk",
+        quantity: 1,
+        weight: ""
+      }],
       encumbrance: {
         light: "26 lbs or less",
         medium: "27–53 lbs",
@@ -4128,37 +3900,37 @@ var nif = (function() {
       consumable: [{
         item: "Wand of Lightning Bolt",
         current: "",
-        total: "50",
-        used: "49"
+        total: 50,
+        used: 49
       }, {
         item: "Wand of Scorching Ray",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Wand of Swift Girding",
         current: "",
-        total: "50",
-        used: "30"
+        total: 50,
+        used: 30
       }, {
         item: "Wand of Carry Companion",
         current: "",
-        total: "50",
-        used: "40"
+        total: 50,
+        used: 40
       }, {
         item: "Shift",
         current: "",
-        total: "9",
-        used: "2"
+        total: 9,
+        used: 2
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
-        total: "1",
+        total: 1,
         used: ""
       }, {
         item: "Wand of Purify Food and Drink",
         current: "",
-        total: "50",
+        total: 50,
         used: ""
       }]
     },
@@ -4250,7 +4022,9 @@ var nif = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -4266,7 +4040,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -4282,7 +4058,9 @@ var nif = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
@@ -4381,6 +4159,7 @@ var nif = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: "",
@@ -5032,150 +4811,6 @@ var nif = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -5190,7 +4825,8 @@ var nif = (function() {
           int_bonus: true,
           wis_bonus: false,
           cha_bonus: false,
-          level: true
+          level: true,
+          half_level: false
         }
       },
       per_day: {
@@ -5688,7 +5324,9 @@ var orrin = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -5739,6 +5377,7 @@ var orrin = (function() {
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools, MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, Bag of bread rolls (50), 10ft pole in pieces, Tanglefoot bag (11)",
       magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
+      item: [],
       encumbrance: {
         light: "50 lbs or less",
         medium: "51–100 lbs",
@@ -5882,7 +5521,9 @@ var orrin = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -5898,7 +5539,9 @@ var orrin = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -5914,7 +5557,9 @@ var orrin = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
@@ -6043,6 +5688,41 @@ var orrin = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [{
+        name: "Perception (Traps)",
+        ranks: 9,
+        misc: 5,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        }
+      }, {
+        name: "Disable Device (Traps)",
+        ranks: 9,
+        misc: 8,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: true,
+          check_penalty: true
+        }
+      }],
       acrobatics: {
         ranks: 9,
         misc: "",
@@ -6694,150 +6374,6 @@ var orrin = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "Perception (Traps)",
-        ranks: 9,
-        misc: 5,
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "Disable Device (Traps)",
-        ranks: 9,
-        misc: 8,
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: true
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -6852,7 +6388,8 @@ var orrin = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {
@@ -6964,7 +6501,9 @@ var ro = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -7015,6 +6554,7 @@ var ro = (function() {
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
+      item: [],
       encumbrance: {
         light: "43 lbs or less",
         medium: "44–86 lbs",
@@ -7153,7 +6693,9 @@ var ro = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -7169,7 +6711,9 @@ var ro = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -7185,7 +6729,9 @@ var ro = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
@@ -7314,18 +6860,19 @@ var ro = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: 4,
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
@@ -7965,150 +7512,6 @@ var ro = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -8123,7 +7526,8 @@ var ro = (function() {
           int_bonus: true,
           wis_bonus: false,
           cha_bonus: false,
-          level: true
+          level: true,
+          half_level: false
         }
       },
       per_day: {
@@ -8519,7 +7923,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -8570,6 +7976,7 @@ var vos = (function() {
     equipment: {
       gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger, Lavendar soap, Soap bar",
       magic_gear: "Good Berries (5), Potion of Stabilise, Potion of Cure Light Wounds (1), Potion of Cure Moderate Wounds (1), Potion of Owls Wisdom (1)",
+      item: [],
       encumbrance: {
         light: "76 lbs or less",
         medium: "77–153 lbs",
@@ -8601,17 +8008,17 @@ var vos = (function() {
       consumable: [{
         item: "Ki Pool",
         current: "",
-        total: "10",
+        total: 10,
         used: ""
       }, {
         item: "Scented Oils",
         current: "",
-        total: "5",
+        total: 5,
         used: ""
       }, {
         item: "Stunning Fist",
         current: "",
-        total: "7",
+        total: 7,
         used: ""
       }]
     },
@@ -8703,7 +8110,9 @@ var vos = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -8719,7 +8128,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -8735,7 +8146,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
@@ -8854,6 +8267,24 @@ var vos = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [{
+        name: "Acrobatics (Jump)",
+        ranks: 7,
+        misc: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: true,
+          half_level: false,
+          check_penalty: false
+        }
+      }],
       acrobatics: {
         ranks: 7,
         misc: "",
@@ -9505,150 +8936,6 @@ var vos = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "Acrobatics (Jump)",
-        ranks: 7,
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: true,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -9663,7 +8950,8 @@ var vos = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {
@@ -9841,39 +9129,547 @@ var checkUrl = (function() {
 var clone = (function() {
 
   function render() {
-    var all_attackMelee = sheet.getCharacter().offense.attack.melee;
-    var all_attackRanged = sheet.getCharacter().offense.attack.ranged;
-    var all_consumable = sheet.getCharacter().equipment.consumable;
-    var all_noteCharacter = sheet.getCharacter().notes.character;
-    var all_noteStory = sheet.getCharacter().notes.story;
-
     _render_all_clones("attack-melee");
     _render_all_clones("attack-ranged");
     _render_all_clones("consumable");
+    _render_all_clones("item");
+    _render_all_clones("skill");
     _render_all_clones("note-character");
     _render_all_clones("note-story");
-
-    _upddate_consumableTotals();
-
-    _update_cloneInput(_get_cloneObjects("attack-melee"), "attack-melee");
-    _update_cloneInput(_get_cloneObjects("attack-ranged"), "attack-ranged");
-    _update_cloneInput(_get_cloneObjects("consumable"), "consumable");
-    _update_cloneTextarea(_get_cloneObjects("note-character"), "note-character");
-    _update_cloneTextarea(_get_cloneObjects("note-story"), "note-story");
-
     _update_clonePlaceholder("attack-melee");
     _update_clonePlaceholder("attack-ranged");
     _update_clonePlaceholder("consumable");
+    _update_clonePlaceholder("item");
+    _update_clonePlaceholder("skill");
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
   };
 
-  function _upddate_consumableTotals() {
-    var all_consumable = _get_cloneObjects("consumable");
-    for (var i = 0; i < all_consumable.length; i++) {
-      var newCurrent = (parseInt(all_consumable[i].total, 10) || 0) - (parseInt(all_consumable[i].used, 10) || 0);
-      sheet.getCharacter().equipment.consumable[i].current = newCurrent;
+  function _get_cloneObjects(cloneType) {
+    var object;
+    if (cloneType == "consumable") {
+      object = sheet.getCharacter().equipment.consumable;
     };
+    if (cloneType == "item") {
+      object = sheet.getCharacter().equipment.item;
+    };
+    if (cloneType == "skill") {
+      object = sheet.getCharacter().skills.custom;
+    };
+    if (cloneType == "attack-melee") {
+      object = sheet.getCharacter().offense.attack.melee;
+    };
+    if (cloneType == "attack-ranged") {
+      object = sheet.getCharacter().offense.attack.ranged;
+    };
+    if (cloneType == "note-character") {
+      object = sheet.getCharacter().notes.character;
+    };
+    if (cloneType == "note-story") {
+      object = sheet.getCharacter().notes.story;
+    };
+    return object;
+  };
+
+  function _get_cloneString(cloneType, cloneIndex) {
+    var cloneString;
+    if (cloneType == "consumable") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '    <div class="m-edit-box">' +
+        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <label class="m-input-block-label js-input-block-label" for="consumable-item-' + cloneIndex + '">Item</label>' +
+        '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="3">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-total">' +
+        '          <p class="m-total-block-label">Total</p>' +
+        '          <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total">0</p>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-small">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + cloneIndex + '">Max</label>' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="number" type="text" tabindex="3">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-small">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + cloneIndex + '">Used</label>' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="number" type="text" tabindex="3">' +
+        '          </div>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+    };
+    if (cloneType == "item") {
+      if (_get_cloneTarget("item").children.length >= 1) {
+        cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-large">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+      } else {
+        cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-large">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="item-name-' + cloneIndex + '">Name</label>' +
+        '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="item-quantity-' + cloneIndex + '">Quantity</label>' +
+        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="item-weight-' + cloneIndex + '">Weight</label>' +
+        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+      };
+    };
+    if (cloneType == "skill") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="js-total-block" data-total-path="skills.custom" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '    <div class="m-edit-box m-edit-box-guides">' +
+        '      <div class="m-edit-box-head-large">' +
+        '        <div class="m-skill-name m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="3" placeholder="Custom skill">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-body m-edit-box-body-group">' +
+        '        <div class="m-edit-box-item-total">' +
+        '          <p class="m-total-block-total js-total-block-total">0</p>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-medium">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="number" type="text" tabindex="3">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-medium">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="number" type="text" tabindex="3">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-check">' +
+        '          <div class="m-check-block">' +
+        '            <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+        '            <span class="m-check-block-check-icon"></span>' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+    };
+    if (cloneType == "attack-melee") {
+      cloneString =
+        '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-max">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
+        '          <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + cloneIndex + '">Attack</label>' +
+        '          <input id="attack-melee-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="attack" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + cloneIndex + '">Damage</label>' +
+        '          <input id="attack-melee-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + cloneIndex + '">Critical</label>' +
+        '          <input id="attack-melee-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+    };
+    if (cloneType == "attack-ranged") {
+      cloneString =
+        '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-max">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
+        '          <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + cloneIndex + '">Attack</label>' +
+        '          <input id="attack-ranged-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="attack" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + cloneIndex + '">Damage</label>' +
+        '          <input id="attack-ranged-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="damage" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + cloneIndex + '">Critical</label>' +
+        '          <input id="attack-ranged-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="critical" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + cloneIndex + '">Range</label>' +
+        '          <input id="attack-ranged-range-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + cloneIndex + '">Ammo</label>' +
+        '          <input id="attack-ranged-ammo-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="3">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+    };
+    if (cloneType == "note-character") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-max">' +
+        '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + cloneIndex + '">Note</label>' +
+        '          <div id="note-character-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.character" data-path-clone-key="note" tabindex="3"></div>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+    };
+    if (cloneType == "note-story") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="m-edit-box">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-item-max">' +
+        '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + cloneIndex + '">Note</label>' +
+        '          <div id="note-story-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.story" data-path-clone-key="note" tabindex="3"></div>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div class="m-clone-block-delete-controls">' +
+        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  </div>' +
+        '</div>';
+    };
+    return cloneString;
+  };
+
+  function _get_cloneBlock(cloneType) {
+    var cloneBlock;
+    if (cloneType == "attack-melee" || cloneType == "attack") {
+      cloneBlock = helper.e(".js-clone-block-attack");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneBlock = helper.e(".js-clone-block-attack");
+    };
+    if (cloneType == "item") {
+      cloneBlock = helper.e(".js-clone-block-item");
+    };
+    if (cloneType == "consumable") {
+      cloneBlock = helper.e(".js-clone-block-consumable");
+    };
+    if (cloneType == "skill") {
+      cloneBlock = helper.e(".js-clone-block-skill");
+    };
+    if (cloneType == "note-character" || cloneType == "note") {
+      cloneBlock = helper.e(".js-clone-block-note");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note");
+    };
+    return cloneBlock;
+  };
+
+  function _get_cloneTarget(cloneType) {
+    var cloneTarget;
+    if (cloneType == "attack-melee") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      cloneTarget = helper.e(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "item") {
+      cloneTarget = helper.e(".js-clone-block-target-item");
+    };
+    if (cloneType == "skill") {
+      cloneTarget = helper.e(".js-clone-block-target-skills");
+    };
+    if (cloneType == "note-character") {
+      cloneTarget = helper.e(".js-clone-block-target-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneTarget = helper.e(".js-clone-block-target-note-story");
+    };
+    return cloneTarget;
+  };
+
+  function _get_cloneCount(cloneType, mixed) {
+    var cloneCount;
+    if (cloneType == "attack-melee") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.melee").length;
+    };
+    if (cloneType == "attack-ranged") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.ranged").length;
+    };
+    if (cloneType == "consumable") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "equipment.consumable").length;
+    };
+    if (cloneType == "item") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "equipment.item").length;
+    };
+    if (cloneType == "skill") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "skills.custom").length;
+    };
+    if (cloneType == "note-character") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "notes.character").length;
+    };
+    if (cloneType == "note-story") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "notes.story").length;
+    };
+    if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
+      cloneCount = helper.getObject(sheet.getCharacter(), "notes.story").length + helper.getObject(sheet.getCharacter(), "notes.character").length;
+    };
+    if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
+      cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.melee").length + helper.getObject(sheet.getCharacter(), "offense.attack.ranged").length;
+    };
+    return cloneCount;
+  };
+
+  function _get_placeholderClone(cloneType) {
+    var clonePlaceholder;
+    if (cloneType == "attack-melee") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
+    };
+    if (cloneType == "item") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-item");
+    };
+    if (cloneType == "skill") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-skill");
+    };
+    if (cloneType == "note-character") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-note-character");
+    };
+    if (cloneType == "note-story") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-note-story");
+    };
+    return clonePlaceholder;
+  };
+
+  function _get_maxCloneMessage(cloneType) {
+    var message = "Max 100, do you need that many";
+    if (cloneType == "attack-melee") {
+      message = message + " Melee Attacks?";
+    };
+    if (cloneType == "attack-ranged") {
+      message = message + " Ranged Attacks?";
+    };
+    if (cloneType == "consumable") {
+      message = message + " Consumables?";
+    };
+    if (cloneType == "item") {
+      message = message + " Items?";
+    };
+    if (cloneType == "skill") {
+      message = message + " Skills?";
+    };
+    if (cloneType == "note-character") {
+      message = message + " Character Notes?";
+    };
+    if (cloneType == "note-story") {
+      message = message + " Story Notes?";
+    };
+    return message;
+  };
+
+  function _get_undoRemoveCloneMessage(cloneType) {
+    var message = "removed.";
+    if (cloneType == "attack-melee") {
+      message = "Melee attack " + message;
+    };
+    if (cloneType == "attack-ranged") {
+      message = "Ranged attack " + message;
+    };
+    if (cloneType == "consumable") {
+      message = "Consumable " + message;
+    };
+    if (cloneType == "item") {
+      message = "Item " + message;
+    };
+    if (cloneType == "skill") {
+      message = "Skill " + message;
+    };
+    if (cloneType == "note-character") {
+      message = "Character note " + message;
+    };
+    if (cloneType == "note-story") {
+      message = "Story note " + message;
+    };
+    return message;
+  };
+
+  function _get_newCloneObject(cloneType) {
+    var object;
+    if (cloneType == "attack-melee") {
+      object = {
+        weapon: "",
+        attack: "",
+        damage: "",
+        critical: ""
+      };
+    };
+    if (cloneType == "attack-ranged") {
+      object = {
+        weapon: "",
+        attack: "",
+        damage: "",
+        critical: "",
+        range: "",
+        ammo: ""
+      };
+    };
+    if (cloneType == "consumable") {
+      object = {
+        item: "",
+        current: "",
+        total: "",
+        used: ""
+      };
+    };
+    if (cloneType == "item") {
+      object = {
+        name: "",
+        quantity: "",
+        weight: ""
+      };
+    };
+    if (cloneType == "skill") {
+      object = {
+        name: "",
+        ranks: "",
+        misc: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      };
+    };
+    if (cloneType == "note-character") {
+      object = {
+        note: ""
+      };
+    };
+    if (cloneType == "note-story") {
+      object = {
+        note: ""
+      };
+    };
+    return object;
   };
 
   function _smoothScrollToClones(cloneType) {
@@ -9900,400 +9696,48 @@ var clone = (function() {
     };
   };
 
-  function _newConsumable(index) {
-    var cloneString =
-      '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="js-total-block">' +
-      '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '      <div class="m-edit-box-item-large">' +
-      '        <div class="m-input-block js-input-block">' +
-      '          <label class="m-input-block-label js-input-block-label" for="consumable-item-' + index + '">Item</label>' +
-      '          <input id="consumable-item-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-item" type="text" tabindex="3">' +
-      '        </div>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-total">' +
-      '        <p class="m-total-block-label">Total</p>' +
-      '        <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total js-clone-consumable-current">0</p>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-small">' +
-      '        <div class="m-input-block js-input-block">' +
-      '          <label class="m-input-block-label js-input-block-label" for="consumable-total-' + index + '">Max</label>' +
-      '          <input id="consumable-total-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-total" data-total="addition" type="text" tabindex="3">' +
-      '        </div>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-small">' +
-      '        <div class="m-input-block js-input-block">' +
-      '          <label class="m-input-block-label js-input-block-label" for="consumable-used-' + index + '">Used</label>' +
-      '          <input id="consumable-used-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-consumable-used" data-total="subtract" type="text" tabindex="3">' +
-      '        </div>' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-clone-block-delete-controls">' +
-      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '  </div>' +
-      '</div>';
-    return cloneString;
-  };
-
-  function _newAttackMelee(index) {
-    var cloneString =
-      '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + index + '">Weapon</label>' +
-      '        <input id="attack-melee-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-weapon" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + index + '">Attack</label>' +
-      '        <input id="attack-melee-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-attack" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + index + '">Damage</label>' +
-      '        <input id="attack-melee-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-damage" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + index + '">Critical</label>' +
-      '        <input id="attack-melee-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-melee-critical" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-clone-block-delete-controls">' +
-      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '  </div>' +
-      '</div>';
-    return cloneString;
-  };
-
-  function _newAttackRanged(index) {
-    var cloneString =
-      '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + index + '">Weapon</label>' +
-      '        <input id="attack-ranged-weapon-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-weapon" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + index + '">Attack</label>' +
-      '        <input id="attack-ranged-attack-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-attack" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + index + '">Damage</label>' +
-      '        <input id="attack-ranged-damage-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-damage" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + index + '">Critical</label>' +
-      '        <input id="attack-ranged-critical-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-critical" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + index + '">Range</label>' +
-      '        <input id="attack-ranged-range-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-range" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '    <div class="m-edit-box-item-medium">' +
-      '      <div class="m-input-block js-input-block">' +
-      '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + index + '">Ammo</label>' +
-      '        <input id="attack-ranged-ammo-' + index + '" class="m-input-block-field u-full-width js-input-block-field js-clone-attack-ranged-ammo" type="text" tabindex="3">' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-clone-block-delete-controls">' +
-      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '  </div>' +
-      '</div>';
-    return cloneString;
-  };
-
-  function _newNoteCharacter(index) {
-    var cloneString =
-      '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-textarea-block js-textarea-block">' +
-      '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + index + '">Note</label>' +
-      '        <div id="note-character-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-clone-block-delete-controls">' +
-      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '  </div>' +
-      '</div>';
-    return cloneString;
-  };
-
-  function _newNoteStory(index) {
-    var cloneString =
-      '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-      '    <div class="m-edit-box-item-max">' +
-      '      <div class="m-textarea-block js-textarea-block">' +
-      '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + index + '">Note</label>' +
-      '        <div id="note-story-' + index + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="3"></div>' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="m-clone-block-delete-controls">' +
-      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '  </div>' +
-      '</div>';
-    return cloneString;
-  };
-
-  function _minMaxCountLimit(input) {
-    if (input.value <= 0) {
-      input.value = "";
-    } else if (input.value >= 100) {
-      input.value = 100;
-    };
-  };
-
-  function _get_cloneObjects(cloneType) {
-    var object;
-    if (cloneType == "consumable") {
-      object = sheet.getCharacter().equipment.consumable;
-    };
-    if (cloneType == "attack-melee") {
-      object = sheet.getCharacter().offense.attack.melee;
-    };
-    if (cloneType == "attack-ranged") {
-      object = sheet.getCharacter().offense.attack.ranged;
-    };
-    if (cloneType == "note-character") {
-      object = sheet.getCharacter().notes.character;
-    };
-    if (cloneType == "note-story") {
-      object = sheet.getCharacter().notes.story;
-    };
-    return object;
-  };
-
-  function _get_cloneString(cloneType, cloneIndex) {
-    var cloneString;
-    if (cloneType == "consumable") {
-      cloneString = _newConsumable(cloneIndex);
-    };
-    if (cloneType == "attack-melee") {
-      cloneString = _newAttackMelee(cloneIndex);
-    };
-    if (cloneType == "attack-ranged") {
-      cloneString = _newAttackRanged(cloneIndex);
-    };
-    if (cloneType == "note-character") {
-      cloneString = _newNoteCharacter(cloneIndex);
-    };
-    if (cloneType == "note-story") {
-      cloneString = _newNoteStory(cloneIndex);
-    };
-    return cloneString;
-  };
-
-  function _get_cloneBlock(cloneType) {
-    var cloneBlock;
-    if (cloneType == "attack-melee") {
-      cloneBlock = helper.e(".js-clone-block-attack");
-    };
-    if (cloneType == "attack-ranged") {
-      cloneBlock = helper.e(".js-clone-block-attack");
-    };
-    if (cloneType == "consumable") {
-      cloneBlock = helper.e(".js-clone-block-consumable");
-    };
-    if (cloneType == "note-character") {
-      cloneBlock = helper.e(".js-clone-block-note");
-    };
-    if (cloneType == "note-story") {
-      cloneBlock = helper.e(".js-clone-block-note");
-    };
-    return cloneBlock;
-  };
-
-  function _get_cloneTarget(cloneType) {
-    var cloneTarget;
-    if (cloneType == "attack-melee") {
-      cloneTarget = helper.e(".js-clone-block-target-attack-melee");
-    };
-    if (cloneType == "attack-ranged") {
-      cloneTarget = helper.e(".js-clone-block-target-attack-ranged");
-    };
-    if (cloneType == "consumable") {
-      cloneTarget = helper.e(".js-clone-block-target-consumable");
-    };
-    if (cloneType == "note-character") {
-      cloneTarget = helper.e(".js-clone-block-target-note-character");
-    };
-    if (cloneType == "note-story") {
-      cloneTarget = helper.e(".js-clone-block-target-note-story");
-    };
-    return cloneTarget;
-  };
-
-  function _get_cloneCount(cloneType, mixed) {
-    var cloneCount;
-    if (cloneType == "attack-melee") {
-      cloneCount = sheet.getCharacter().offense.attack.melee.length;
-    };
-    if (cloneType == "attack-ranged") {
-      cloneCount = sheet.getCharacter().offense.attack.ranged.length;
-    };
-    if (cloneType == "consumable") {
-      cloneCount = sheet.getCharacter().equipment.consumable.length;
-    };
-    if (cloneType == "note-character") {
-      cloneCount = sheet.getCharacter().notes.character.length;
-    };
-    if (cloneType == "note-story") {
-      cloneCount = sheet.getCharacter().notes.story.length;
-    };
-    if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
-      cloneCount = sheet.getCharacter().notes.story.length + sheet.getCharacter().notes.character.length;
-    };
-    if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
-      cloneCount = sheet.getCharacter().offense.attack.melee.length + sheet.getCharacter().offense.attack.ranged.length;
-    };
-    return cloneCount;
-  };
-
-  function _get_placeholderClone(cloneType) {
-    var clonePlaceholder;
-    if (cloneType == "attack-melee") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
-    };
-    if (cloneType == "attack-ranged") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-attack-ranged");
-    };
-    if (cloneType == "consumable") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
-    };
-    if (cloneType == "note-character") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-note-character");
-    };
-    if (cloneType == "note-story") {
-      clonePlaceholder = helper.e(".js-placeholder-clone-note-story");
-    };
-    return clonePlaceholder;
-  };
-
-  function _get_maxCloneMessage(cloneType) {
-    var message = "Max 100, do you need that many";
-    if (cloneType == "attack-melee") {
-      message = message + " Melee Attacks?";
-    };
-    if (cloneType == "attack-ranged") {
-      message = message + " Ranged Attacks?";
-    };
-    if (cloneType == "consumable") {
-      message = message + " Consumables?";
-    };
-    if (cloneType == "note-character") {
-      message = message + " Character Notes?";
-    };
-    if (cloneType == "note-story") {
-      message = message + " Story Notes?";
-    };
-    return message;
-  };
-
-  function _get_undoRemoveCloneMessage(cloneType) {
-    var message = "removed.";
-    if (cloneType == "attack-melee") {
-      message = "Melee attack " + message;
-    };
-    if (cloneType == "attack-ranged") {
-      message = "Ranged attack " + message;
-    };
-    if (cloneType == "consumable") {
-      message = "Consumable " + message;
-    };
-    if (cloneType == "note-character") {
-      message = "Character note " + message;
-    };
-    if (cloneType == "note-story") {
-      message = "Story note " + message;
-    };
-    return message;
-  };
-
-  function _bind_clone(cloneType, newClone) {
-    if (cloneType == "consumable") {
-      _bind_cloneConsumableInput(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-melee") {
-      _bind_cloneAttackMeleeInput(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-ranged") {
-      _bind_cloneAttackRangedInput(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "note-character") {
-      _bind_cloneNoteCharacterTextarea(newClone.querySelector(".js-textarea-block"));
-    };
-    if (cloneType == "note-story") {
-      _bind_cloneNoteStoryTextarea(newClone.querySelector(".js-textarea-block"));
-    };
-  };
-
-  function _bind_cloneRemoveButton(button, cloneType) {
-    button.addEventListener("click", function() {
-      _store_lastRemovedClone(this, cloneType);
-      _update_clones(this, cloneType);
-      _checkCloneState(cloneType, true);
-      _update_clonePlaceholder(cloneType);
-      sheet.storeCharacters();
-    }, false);
+  function bind() {
+    _bind_cloneControls();
   };
 
   function _bind_cloneControls() {
-    var cloneBlockConsumable = helper.e(".js-clone-block-consumable");
-    var cloneBlockAttack = helper.e(".js-clone-block-attack");
-    var cloneBlockNote = helper.e(".js-clone-block-note");
+    var cloneBlockConsumable =  _get_cloneBlock("consumable"); helper.e(".js-clone-block-consumable");
+    var cloneBlockSkill =  _get_cloneBlock("skill"); helper.e(".js-clone-block-skill");
+    var cloneBlockItem =  _get_cloneBlock("item"); helper.e(".js-clone-block-skill");
+    var cloneBlockAttack =  _get_cloneBlock("attack"); helper.e(".js-clone-block-attack");
+    var cloneBlockNote =  _get_cloneBlock("note"); helper.e(".js-clone-block-note");
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
-    // var cloneAddConsumablePlaceholder = cloneBlockConsumable.querySelector(".js-clone-add-consumable-placeholder");
+
+    var cloneAddItem = cloneBlockItem.querySelector(".js-clone-add-item");
+    var cloneRemoveItem = cloneBlockItem.querySelector(".js-clone-remove");
+
+    var cloneAddSkill = cloneBlockSkill.querySelector(".js-clone-add-skill");
+    var cloneRemoveSkill = cloneBlockSkill.querySelector(".js-clone-remove");
 
     var cloneAddAttackMelee = cloneBlockAttack.querySelector(".js-clone-add-melee");
     var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
     var cloneRemoveAttack = cloneBlockAttack.querySelector(".js-clone-remove");
-    // var cloneAddAttackMeleePlaceholder = cloneBlockAttack.querySelector(".js-clone-add-melee-placeholder");
-    // var cloneAddAttackRangedPlaceholder = cloneBlockAttack.querySelector(".js-clone-add-ranged-placeholder");
 
     var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
     var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
     var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
-    // var cloneAddCharacterNotePlaceholder = cloneBlockNote.querySelector(".js-clone-add-character-note-placeholder");
-    // var cloneAddStoryNotePlaceholder = cloneBlockNote.querySelector(".js-clone-add-story-note-placeholder");
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
       sheet.storeCharacters();
     }, false);
 
-    // cloneAddConsumablePlaceholder.addEventListener("click", function() {
-    //   _addNewClone("consumable");
-    //   sheet.storeCharacters();
-    // }, false);
+    cloneAddItem.addEventListener("click", function() {
+      _addNewClone("item");
+      sheet.storeCharacters();
+    }, false);
+
+    cloneAddSkill.addEventListener("click", function() {
+      _addNewClone("skill");
+      sheet.storeCharacters();
+    }, false);
 
     cloneAddAttackMelee.addEventListener("click", function() {
       _addNewClone("attack-melee");
@@ -10305,16 +9749,6 @@ var clone = (function() {
       sheet.storeCharacters();
     }, false);
 
-    // cloneAddAttackMeleePlaceholder.addEventListener("click", function() {
-    //   _addNewClone("attack-melee");
-    //   sheet.storeCharacters();
-    // }, false);
-
-    // cloneAddAttackRangedPlaceholder.addEventListener("click", function() {
-    //   _addNewClone("attack-ranged");
-    //   sheet.storeCharacters();
-    // }, false);
-
     cloneAddCharacterNote.addEventListener("click", function() {
       _addNewClone("note-character");
       sheet.storeCharacters();
@@ -10325,16 +9759,6 @@ var clone = (function() {
       sheet.storeCharacters();
     }, false);
 
-    // cloneAddCharacterNotePlaceholder.addEventListener("click", function() {
-    //   _addNewClone("note-character");
-    //   sheet.storeCharacters();
-    // }, false);
-
-    // cloneAddStoryNotePlaceholder.addEventListener("click", function() {
-    //   _addNewClone("note-story");
-    //   sheet.storeCharacters();
-    // }, false);
-
     cloneRemoveAttack.addEventListener("click", function() {
       _change_cloneState("attack");
     }, false);
@@ -10343,13 +9767,51 @@ var clone = (function() {
       _change_cloneState("consumable");
     }, false);
 
+    cloneRemoveItem.addEventListener("click", function() {
+      _change_cloneState("item");
+    }, false);
+
+    cloneRemoveSkill.addEventListener("click", function() {
+      _change_cloneState("skill");
+    }, false);
+
     cloneRemoveNote.addEventListener("click", function() {
       _change_cloneState("note");
     }, false);
   };
 
-  function bind() {
-    _bind_cloneControls();
+  function _bind_cloneRemoveButton(button, cloneType) {
+    button.addEventListener("click", function() {
+      _store_lastRemovedClone(this, cloneType);
+      _remove_clone(this, cloneType);
+      sheet.storeCharacters();
+    }, false);
+  };
+
+  function _bind_clone(cloneType, newClone) {
+    if (cloneType == "consumable") {
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "skill") {
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "item") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "attack-melee") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "attack-ranged") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
+    if (cloneType == "note-character") {
+      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
+    };
+    if (cloneType == "note-story") {
+      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
+    };
   };
 
   function _addNewClone(cloneType) {
@@ -10361,10 +9823,6 @@ var clone = (function() {
     } else {
       _render_maxClonesSnack(cloneType);
     };
-  };
-
-  function _render_maxClonesSnack(cloneType) {
-    snack.render(_get_maxCloneMessage(cloneType));
   };
 
   function _render_clone(cloneType) {
@@ -10380,7 +9838,7 @@ var clone = (function() {
     // add content
     newClone.innerHTML = cloneString;
     var newCloneFlash = document.createElement("span");
-    newCloneFlash.setAttribute("class", "m-clone-flash");
+    newCloneFlash.setAttribute("class", "m-clone-flash m-clone-flash-" + cloneType.replace(/_+/g, "-"));
     newCloneFlash.addEventListener("animationend", function(event, elapsed) {
       this.remove();
     }.bind(newCloneFlash), false);
@@ -10397,7 +9855,7 @@ var clone = (function() {
     _bind_cloneRemoveButton(cloneBlockDelete, cloneType);
   };
 
-  function _render_all_clones(cloneType) {
+  function _render_all_clones(cloneType, bind) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
     for (var i = 0; i < cloneLength; i++) {
@@ -10418,52 +9876,11 @@ var clone = (function() {
     };
   };
 
-  function _update_cloneInput(array, cloneType) {
-    var cloneBlock = _get_cloneBlock(cloneType);
-    var cloneTarget = _get_cloneTarget(cloneType);
-    for (var i = 0; i < array.length; i++) {
-      for (var j in array[i]) {
-        var input;
-        if (cloneType == "consumable") {
-          input = cloneTarget.querySelector("#consumable-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (cloneType == "attack-melee") {
-          input = cloneTarget.querySelector("#attack-melee-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (cloneType == "attack-ranged") {
-          input = cloneTarget.querySelector("#attack-ranged-" + j.replace(/_/g, "-") + "-" + i);
-        };
-        if (input) {
-          input.value = array[i][j];
-          inputBlock.update(input);
-        };
-      };
-    };
-    // totalBlock.update();
+  function _render_maxClonesSnack(cloneType) {
+    snack.render(_get_maxCloneMessage(cloneType));
   };
 
-  function _update_cloneTextarea(array, cloneType) {
-    var cloneBlock = _get_cloneBlock(cloneType);
-    var cloneTarget = _get_cloneTarget(cloneType);
-    for (var i = 0; i < array.length; i++) {
-      for (var j in array[i]) {
-        var textarea;
-        if (cloneType == "note-character") {
-          textarea = cloneTarget.querySelector("#note-character-" + i);
-        };
-        if (cloneType == "note-story") {
-          textarea = cloneTarget.querySelector("#note-story-" + i);
-        };
-        if (textarea) {
-          textarea.innerHTML = array[i][j];
-          textareaBlock.update(textarea);
-        };
-      };
-    };
-    // totalBlock.update();
-  };
-
-  function _checkCloneState(cloneType) {
+  function _update_cloneState(cloneType) {
     var cloneBlock = _get_cloneBlock(cloneType);
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneCount = _get_cloneCount(cloneType, true);
@@ -10476,65 +9893,46 @@ var clone = (function() {
     };
   };
 
-  function _update_clones(button, cloneType) {
+  function _remove_clone(button, cloneType) {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
-    var undoMessage = _get_undoRemoveCloneMessage(cloneType);
-
     _remove_cloneObject(cloneType, cloneIndex);
-    _destroy_allClones(cloneType);
-    _render_all_clones(cloneType);
-
-    _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneInput(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
-    _update_cloneTextarea(_get_cloneObjects(cloneType), cloneType);
-
-    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restoreLastRemovedClone, 6000);
-    totalBlock.update();
+    clear(cloneType);
+    _render_all_clones(cloneType, true);
+    inputBlock.clear();
+    inputBlock.render();
+    textareaBlock.clear();
+    textareaBlock.render();
+    _update_clonePlaceholder(cloneType);
+    _update_cloneState(cloneType);
+    totalBlock.render();
+    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 6000);
   };
 
-  function _restoreLastRemovedClone() {
+  function _restore_lastRemovedClone() {
     var undoData = JSON.parse(helper.read("lastRemovedClone"));
-
-    _restoreCloneObject(undoData.cloneType, undoData.index, undoData.clone);
-    _destroy_allClones(undoData.cloneType);
+    _restore_cloneObject(undoData.cloneType, undoData.index, undoData.clone);
+    clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
-
-    _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneInput(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-    _update_cloneTextarea(_get_cloneObjects(undoData.cloneType), undoData.cloneType);
-
+    inputBlock.clear();
+    inputBlock.render();
+    textareaBlock.clear();
+    textareaBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
+    _update_cloneState(undoData.cloneType);
     _remove_lastRemovedClone();
-    totalBlock.update();
+    totalBlock.render();
+    sheet.storeCharacters();
   };
 
   function _store_lastRemovedClone(button, cloneType) {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
-    var object = {
+    var removedCloneObject = {
       cloneType: cloneType,
       index: cloneIndex,
       clone: {}
     };
-    if (cloneType == "consumable") {
-      object.clone = sheet.getCharacter().equipment.consumable[cloneIndex];
-    };
-    if (cloneType == "attack-melee") {
-      object.clone = sheet.getCharacter().offense.attack.melee[cloneIndex];
-    };
-    if (cloneType == "attack-ranged") {
-      object.clone = sheet.getCharacter().offense.attack.ranged[cloneIndex];
-    };
-    if (cloneType == "note-character") {
-      object.clone = sheet.getCharacter().notes.character[cloneIndex];
-    };
-    if (cloneType == "note-story") {
-      object.clone = sheet.getCharacter().notes.story[cloneIndex];
-    };
-    helper.store("lastRemovedClone", JSON.stringify(object));
+    removedCloneObject.clone = _get_cloneObjects(cloneType)[cloneIndex];
+    helper.store("lastRemovedClone", JSON.stringify(removedCloneObject));
   };
 
   function _remove_lastRemovedClone() {
@@ -10542,164 +9940,26 @@ var clone = (function() {
   };
 
   function _remove_cloneObject(cloneType, index) {
-    if (cloneType == "consumable") {
-      sheet.getCharacter().equipment.consumable.splice(index, 1);
-    };
-    if (cloneType == "attack-melee") {
-      sheet.getCharacter().offense.attack.melee.splice(index, 1);
-    };
-    if (cloneType == "attack-ranged") {
-      sheet.getCharacter().offense.attack.ranged.splice(index, 1);
-    };
-    if (cloneType == "note-character") {
-      sheet.getCharacter().notes.character.splice(index, 1);
-    };
-    if (cloneType == "note-story") {
-      sheet.getCharacter().notes.story.splice(index, 1);
+    _get_cloneObjects(cloneType).splice(index, 1);
+  };
+
+  function _restore_cloneObject(cloneType, index, cloneObject) {
+    _get_cloneObjects(cloneType).splice(index, 0, cloneObject);
+  };
+
+  function _bind_totalBlock(totalBlockeElement) {
+    totalBlock.bind(totalBlockeElement);
+  };
+
+  function _bind_inputBlock(inputBlockElement) {
+    for (var i = 0; i < inputBlockElement.length; i++) {
+      inputBlock.bind(inputBlockElement[i]);
     };
   };
 
-  function _restoreCloneObject(cloneType, index, cloneObject) {
-    if (cloneType == "consumable") {
-      sheet.getCharacter().equipment.consumable.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "attack-melee") {
-      sheet.getCharacter().offense.attack.melee.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "attack-ranged") {
-      sheet.getCharacter().offense.attack.ranged.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "note-character") {
-      sheet.getCharacter().notes.character.splice(index, 0, cloneObject);
-    };
-    if (cloneType == "note-story") {
-      sheet.getCharacter().notes.story.splice(index, 0, cloneObject);
-    };
-  };
-
-  var storeInputTimer = null;
-  var storeBlurTimer = null;
-
-  function delayUpdate(cloneType, element) {
-    var clone = helper.getClosest(element, ".js-clone");
-    var cloneIndex = parseInt(clone.dataset.cloneCount, 10);
-    _update_cloneObject(cloneType, cloneIndex, clone);
-    totalBlock.update();
-    sheet.storeCharacters();
-    if (body.dataset.displayMode == "true") {
-      display.clear();
-      display.render();
-    };
-  };
-
-  function _bind_cloneConsumableInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      if (input.classList.contains("js-clone-consumable-used") || input.classList.contains("js-clone-consumable-total")) {
-        input.addEventListener("input", function() {
-          _minMaxCountLimit(this);
-        }, false);
-      };
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "consumable", this);
-        inputBlock.focus(this);
-      }, false);
-    };
-  };
-
-  function _bind_cloneAttackMeleeInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "attack-melee", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeBlurTimer = setTimeout(delayUpdate, 1000, "attack-melee", this);
-        inputBlock.focus(this);
-      }, false);
-    };
-  };
-
-  function _bind_cloneAttackRangedInput(array) {
-    for (var i = 0; i < array.length; i++) {
-      var input = array[i].querySelector(".js-input-block-field");
-      input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "attack-ranged", this);
-      }, false);
-      input.addEventListener("focus", function() {
-        inputBlock.focus(this);
-      }, false);
-      input.addEventListener("blur", function() {
-        clearTimeout(storeInputTimer);
-        storeBlurTimer = setTimeout(delayUpdate, 1000, "attack-ranged", this);
-        inputBlock.focus(this);
-      }, false);
-    };
-  };
-
-  function _bind_cloneNoteCharacterTextarea(element) {
-    var textareaBlockField = element.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
-    if (textareaBlockField) {
-      textareaBlockField.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character", this);
-      }, false);
-      textareaBlockField.addEventListener("focus", function() {
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("blur", function() {
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-character", this);
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
-    };
-    if (textareaBlockLabel) {
-      textareaBlockLabel.addEventListener("click", function() {
-        textareaBlock.focusLabel(this);
-      }, false);
-    };
-  };
-
-  function _bind_cloneNoteStoryTextarea(element) {
-    var textareaBlockField = element.querySelector(".js-textarea-block-field");
-    var textareaBlockLabel = element.querySelector(".js-textarea-block-label");
-    if (textareaBlockField) {
-      textareaBlockField.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story", this);
-      }, false);
-      textareaBlockField.addEventListener("focus", function() {
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("blur", function() {
-        storeInputTimer = setTimeout(delayUpdate, 1000, "note-story", this);
-        textareaBlock.focus(this);
-      }, false);
-      textareaBlockField.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
-    };
-    if (textareaBlockLabel) {
-      textareaBlockLabel.addEventListener("click", function() {
-        textareaBlock.focusLabel(this);
-      }, false);
+  function _bind_textareaBlock(textareaBlockElement) {
+    for (var i = 0; i < textareaBlockElement.length; i++) {
+      textareaBlock.bind(textareaBlockElement[i]);
     };
   };
 
@@ -10726,124 +9986,9 @@ var clone = (function() {
     };
   };
 
-  function _destroy_allClones(cloneType) {
-    var cloneTarget = _get_cloneTarget(cloneType);
-    while (cloneTarget.lastChild) {
-      cloneTarget.removeChild(cloneTarget.lastChild);
-    };
-  };
-
-  function _create_attackMeleeObject(weapon, attack, damage, critical) {
-    return {
-      weapon: this.weapon = weapon || "",
-      attack: this.attack = attack || "",
-      damage: this.damage = damage || "",
-      critical: this.critical = critical || ""
-    };
-  };
-
-  function _create_attackRangedObject(weapon, attack, damage, critical, range, ammo) {
-    return {
-      weapon: this.weapon = weapon || "",
-      attack: this.attack = attack || "",
-      damage: this.damage = damage || "",
-      critical: this.critical = critical || "",
-      range: this.range = range || "",
-      ammo: this.ammo = ammo || ""
-    };
-  };
-
-  function _create_consumableObject(item, current, total, used) {
-    return {
-      item: this.item = item || "",
-      current: this.current = current || "",
-      total: this.total = total || "",
-      used: this.used = used || ""
-    };
-  };
-
-  function _create_noteCharacter(data) {
-    return {
-      note: this.data = data || ""
-    };
-  };
-
-  function _create_noteStory(data) {
-    return {
-      note: this.data = data || ""
-    };
-  };
-
   function _add_cloneObject(cloneType) {
-    var newClone;
-    if (sheet.getCharacter().offense.attack.melee.length <= 99) {
-      if (cloneType == "attack-melee") {
-        newClone = new _create_attackMeleeObject();
-        sheet.getCharacter().offense.attack.melee.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().offense.attack.ranged.length <= 99) {
-      if (cloneType == "attack-ranged") {
-        newClone = new _create_attackRangedObject();
-        sheet.getCharacter().offense.attack.ranged.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().equipment.consumable.length <= 99) {
-      if (cloneType == "consumable") {
-        newClone = new _create_consumableObject();
-        sheet.getCharacter().equipment.consumable.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().notes.character.length <= 99) {
-      if (cloneType == "note-character") {
-        newClone = new _create_noteCharacter();
-        sheet.getCharacter().notes.character.push(newClone);
-      };
-    };
-    if (sheet.getCharacter().notes.story.length <= 99) {
-      if (cloneType == "note-story") {
-        newClone = new _create_noteStory();
-        sheet.getCharacter().notes.story.push(newClone);
-      };
-    };
-  };
-
-  function _update_cloneObject(cloneType, cloneIndex, clone) {
-    if (cloneType == "attack-melee") {
-      var weapon = clone.querySelector(".js-clone-attack-melee-weapon").value;
-      var attack = clone.querySelector(".js-clone-attack-melee-attack").value;
-      var damage = clone.querySelector(".js-clone-attack-melee-damage").value;
-      var critical = clone.querySelector(".js-clone-attack-melee-critical").value;
-      var newAttackMelee = new _create_attackMeleeObject(weapon, attack, damage, critical);
-      sheet.getCharacter().offense.attack.melee[cloneIndex] = newAttackMelee;
-    };
-    if (cloneType == "attack-ranged") {
-      var weapon = clone.querySelector(".js-clone-attack-ranged-weapon").value;
-      var attack = clone.querySelector(".js-clone-attack-ranged-attack").value;
-      var damage = clone.querySelector(".js-clone-attack-ranged-damage").value;
-      var critical = clone.querySelector(".js-clone-attack-ranged-critical").value;
-      var range = clone.querySelector(".js-clone-attack-ranged-range").value;
-      var ammo = clone.querySelector(".js-clone-attack-ranged-ammo").value;
-      var newAttackRanged = new _create_attackRangedObject(weapon, attack, damage, critical, range, ammo);
-      sheet.getCharacter().offense.attack.ranged[cloneIndex] = newAttackRanged;
-    };
-    if (cloneType == "consumable") {
-      var item = clone.querySelector(".js-clone-consumable-item").value;
-      var current = clone.querySelector(".js-clone-consumable-current").innerHTML;
-      var total = clone.querySelector(".js-clone-consumable-total").value;
-      var used = clone.querySelector(".js-clone-consumable-used").value;
-      var newConsumable = new _create_consumableObject(item, current, total, used);
-      sheet.getCharacter().equipment.consumable[cloneIndex] = newConsumable;
-    };
-    if (cloneType == "note-character") {
-      var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
-      var newCharacterNote = new _create_noteCharacter(textarea);
-      sheet.getCharacter().notes.character[cloneIndex] = newCharacterNote;
-    };
-    if (cloneType == "note-story") {
-      var textarea = clone.querySelector(".js-textarea-block-field").innerHTML;
-      var newStoryNote = new _create_noteStory(textarea);
-      sheet.getCharacter().notes.story[cloneIndex] = newStoryNote;
+    if (_get_cloneCount(cloneType) <= 99) {
+      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
     };
   };
 
@@ -10856,13 +10001,24 @@ var clone = (function() {
     };
   };
 
-  function clear() {
-    var all_cloneTarget = helper.eA(".js-clone-block-target");
-    for (var i = 0; i < all_cloneTarget.length; i++) {
-      // console.log(all_cloneTarget[i].classList[2], "cleared");
-      while (all_cloneTarget[i].lastChild) {
-        all_cloneTarget[i].removeChild(all_cloneTarget[i].lastChild);
-      };
+  function clear(cloneType) {
+    if (cloneType) {
+      _clear_cloneTarget(cloneType);
+    } else {
+      _clear_cloneTarget("attack-melee");
+      _clear_cloneTarget("attack-ranged");
+      _clear_cloneTarget("consumable");
+      _clear_cloneTarget("item");
+      _clear_cloneTarget("skill");
+      _clear_cloneTarget("note-character");
+      _clear_cloneTarget("note-story");
+    };
+  };
+
+  function _clear_cloneTarget(cloneType) {
+    var cloneTarget = _get_cloneTarget(cloneType);
+    while (cloneTarget.lastChild) {
+      cloneTarget.removeChild(cloneTarget.lastChild);
     };
   };
 
@@ -10884,7 +10040,7 @@ var display = (function() {
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", function() {
-      totalBlock.update();
+      totalBlock.render();
       clear();
       render();
       toggle();
@@ -10908,7 +10064,7 @@ var display = (function() {
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
         anySectionDisplay = true;
-        allSectionDisplay ++;
+        allSectionDisplay++;
       };
     };
     if (anySectionDisplay) {
@@ -10970,7 +10126,7 @@ var display = (function() {
 
     if (forceToggle == true) {
       _displayOn();
-    } else if(forceToggle == false) {
+    } else if (forceToggle == false) {
       _displayOff();
     } else {
       if (section.dataset.displayMode == "true") {
@@ -10985,7 +10141,6 @@ var display = (function() {
   function _toggle_allSection() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
-
     if (fab.dataset.displayMode == "true") {
       fab.dataset.displayMode = "false";
       for (var i = 0; i < all_section.length; i++) {
@@ -10997,7 +10152,6 @@ var display = (function() {
         _toggle_singleSection(all_section[i], true);
       };
     };
-
     update();
   };
 
@@ -11045,31 +10199,31 @@ var display = (function() {
   };
 
   function _get_spell(spell, level, index) {
-    var displayItem = document.createElement("li");
-    displayItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
-    var displayItemPrefix = document.createElement("span");
-    displayItemPrefix.setAttribute("class", "m-display-list-item-spell-name");
+    var displayListItem = document.createElement("li");
+    displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-spell");
+    var displayListItemPrefix = document.createElement("span");
+    displayListItemPrefix.setAttribute("class", "m-display-list-item-spell-name");
     var spellName = document.createElement("span");
     spellName.textContent = spell.name;
-    var displayItemValue = document.createElement("span");
-    displayItemValue.setAttribute("class", "m-display-list-item-spell-count");
-    displayItemPrefix.appendChild(spellName);
-    displayItem.appendChild(displayItemPrefix);
-    displayItem.appendChild(displayItemValue);
-    displayItem.setAttribute("data-spell-level", level);
-    displayItem.setAttribute("data-spell-count", index);
+    var displayListItemValue = document.createElement("span");
+    displayListItemValue.setAttribute("class", "m-display-list-item-spell-count");
+    displayListItemPrefix.appendChild(spellName);
+    displayListItem.appendChild(displayListItemPrefix);
+    displayListItem.appendChild(displayListItemValue);
+    displayListItem.setAttribute("data-spell-level", level);
+    displayListItem.setAttribute("data-spell-count", index);
     // prepared
     if (spell.prepared > 0) {
       // var marks = document.createElement("span");
       for (var j = 0; j < spell.prepared; j++) {
         var preparedIcon = document.createElement("span");
         preparedIcon.setAttribute("class", "icon-radio-button-checked");
-        displayItemValue.insertBefore(preparedIcon, displayItemValue.firstChild);
+        displayListItemValue.insertBefore(preparedIcon, displayListItemValue.firstChild);
       };
     };
     // cast
     if (spell.cast > 0) {
-      var all_check = displayItemValue.querySelectorAll(".icon-radio-button-checked");
+      var all_check = displayListItemValue.querySelectorAll(".icon-radio-button-checked");
       for (var j = 0; j < spell.cast; j++) {
         if (all_check[j]) {
           helper.toggleClass(all_check[j], "icon-radio-button-checked");
@@ -11086,10 +10240,10 @@ var display = (function() {
       spellActive.appendChild(activeIcon);
       spellName.insertBefore(spellActive, spellName.firstChild);
     };
-    displayItem.addEventListener("click", function() {
+    displayListItem.addEventListener("click", function() {
       spells.update(helper.e(".js-spell-book-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
     }, false);
-    return displayItem;
+    return displayListItem;
   };
 
   function _get_all_skill(all_displayPath, displayPrefix) {
@@ -11104,34 +10258,34 @@ var display = (function() {
 
   function _get_skill(path, prefix) {
     var object = helper.getObject(sheet.getCharacter(), path);
-    var displayItem;
+    var displayListItem;
     if (typeof object != "undefined" && object != "") {
 
       if (object.ranks != "undefined" && object.ranks != "") {
-        displayItem = document.createElement("li");
-        displayItem.setAttribute("class", "m-display-list-item");
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-list-item-value");
         value.textContent = "+" + object.current;
         if (prefix || object["name"] || object["variant_name"]) {
-          var displayItemPrefix = document.createElement("span");
-          displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+          var displayListItemPrefix = document.createElement("span");
+          displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
           if (object["name"]) {
-            displayItemPrefix.textContent = object["name"] + " ";
+            displayListItemPrefix.textContent = object["name"] + " ";
           } else if (object["variant_name"]) {
-            displayItemPrefix.textContent = object["variant_name"] + " ";
+            displayListItemPrefix.textContent = object["variant_name"] + " ";
           } else {
-            displayItemPrefix.textContent = prefix;
+            displayListItemPrefix.textContent = prefix;
           };
-          displayItem.appendChild(displayItemPrefix);
+          displayListItem.appendChild(displayListItemPrefix);
         };
-        displayItem.appendChild(value);
+        displayListItem.appendChild(value);
       } else {
-        displayItem = false;
+        displayListItem = false;
       };
 
     };
-    return displayItem;
+    return displayListItem;
   };
 
   function _get_all_clone(all_displayPath) {
@@ -11146,6 +10300,12 @@ var display = (function() {
           var cloneType;
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
+          };
+          if (all_displayPath[i] == "equipment.item") {
+            cloneType = "item";
+          };
+          if (all_displayPath[i] == "skills.custom") {
+            cloneType = "skill";
           };
           if (all_displayPath[i] == "offense.attack.melee") {
             cloneType = "attack-melee";
@@ -11177,20 +10337,65 @@ var display = (function() {
           if (i == "item") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-list-item-prefix");
-              prefix.textContent = data;
-              displayListItem.appendChild(prefix);
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
             };
           } else if (i == "current") {
             var data = object[i];
             if (typeof data != "undefined" && data != "" || data == 0) {
-              var value = document.createElement("span");
-              value.setAttribute("class", "m-display-list-item-value");
-              value.textContent = data;
-              displayListItem.appendChild(value);
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
             };
           };
+        };
+      };
+
+      if (cloneType == "item") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          if (i == "name") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "quantity") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+      };
+
+      if (cloneType == "skill") {
+        if (object.ranks != "undefined" && object.ranks != "") {
+          displayListItem = document.createElement("li");
+          displayListItem.setAttribute("class", "m-display-list-item");
+          var displayListItemValue = document.createElement("span");
+          displayListItemValue.setAttribute("class", "m-display-list-item-value");
+          displayListItemValue.textContent = "+" + object.current;
+          if (object["name"]) {
+            var displayListItemPrefix = document.createElement("span");
+            displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+            displayListItemPrefix.textContent = object["name"];
+          } else {
+            displayListItemPrefix.textContent = "Custom Skill";
+          };
+          displayListItem.appendChild(displayListItemPrefix);
+          displayListItem.appendChild(displayListItemValue);
+        } else {
+          displayListItem = false;
         };
       };
 
@@ -11201,18 +10406,18 @@ var display = (function() {
           if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
-              prefix.textContent = data;
-              displayListItem.appendChild(prefix);
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
             };
           } else if (i == "attack") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
-              var value = document.createElement("h2");
-              value.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
-              value.textContent = data;
-              displayListItem.appendChild(value);
+              var displayListItemValue = document.createElement("h2");
+              displayListItemValue.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
             };
           };
         };
@@ -11271,33 +10476,33 @@ var display = (function() {
 
   function _get_list(path, prefix, suffix, valueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
-    var displayItem;
+    var displayListItem;
     if (typeof data != "undefined" && data != "") {
       if (valueType == "bonus") {
         data = "+" + data;
       };
-      displayItem = document.createElement("li");
-      displayItem.setAttribute("class", "m-display-list-item");
-      var value = document.createElement("span");
-      value.setAttribute("class", "m-display-list-item-value");
-      value.textContent = data;
+      displayListItem = document.createElement("li");
+      displayListItem.setAttribute("class", "m-display-list-item");
+      var displayListItemvalue = document.createElement("span");
+      displayListItemvalue.setAttribute("class", "m-display-list-item-value");
+      displayListItemvalue.textContent = data;
       if (prefix) {
-        var displayItemPrefix = document.createElement("span");
-        displayItemPrefix.setAttribute("class", "m-display-list-item-prefix");
-        displayItemPrefix.textContent = prefix;
-        displayItem.appendChild(displayItemPrefix);
+        var displayListItemPrefix = document.createElement("span");
+        displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+        displayListItemPrefix.textContent = prefix;
+        displayListItem.appendChild(displayListItemPrefix);
       };
-      displayItem.appendChild(value);
+      displayListItem.appendChild(displayListItemvalue);
       if (suffix) {
-        var displayItemSuffix = document.createElement("span");
-        displayItemSuffix.setAttribute("class", "m-display-list-item-suffix");
-        displayItemSuffix.textContent = prefix;
-        displayItem.appendChild(displayItemSuffix);
+        var displayListItemSuffix = document.createElement("span");
+        displayListItemSuffix.setAttribute("class", "m-display-list-item-suffix");
+        displayListItemSuffix.textContent = prefix;
+        displayListItem.appendChild(displayListItemSuffix);
       };
     } else {
-      displayItem = false;
+      displayListItem = false;
     };
-    return displayItem;
+    return displayListItem;
   };
 
   function _get_all_modifier(all_displayPath, displayValueType) {
@@ -11319,7 +10524,7 @@ var display = (function() {
       data = helper.getObject(sheet.getCharacter(), path);
     };
     if (typeof data != "undefined" && data != "") {
-      var displayItem = document.createElement("span");
+      displayItem = document.createElement("span");
       if (displayValueType) {
         if (displayValueType == "bonus" && data > 0) {
           data = "+" + data;
@@ -11327,7 +10532,7 @@ var display = (function() {
       };
       displayItem.textContent = data;
     } else if (typeof data == "number" && data == 0) {
-      var displayItem = document.createElement("span");
+      displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else {
       displayItem = false;
@@ -11707,8 +10912,10 @@ var hidableBlock = (function() {
 var inputBlock = (function() {
 
   function _store(element) {
-    var path = element.dataset.path;
-    var type = element.dataset.type;
+    var inputBlock = helper.getClosest(element, ".js-input-block");
+    var inputBlockField = inputBlock.querySelector(".js-input-block-field");
+    var path = inputBlockField.dataset.path;
+    var type = inputBlockField.dataset.type;
     var data;
     if (type == "number") {
       data = parseInt(element.value, 10 || 0);
@@ -11719,8 +10926,14 @@ var inputBlock = (function() {
       data = element.value;
     };
     if (path) {
-      helper.setObject(sheet.getCharacter(), path, data);
-      sheet.storeCharacters();
+      if (inputBlock.dataset.clone == "true") {
+        var pathCloneKey = inputBlockField.dataset.pathCloneKey;
+        var cloneCount = inputBlock.dataset.cloneCount;
+        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+        object[pathCloneKey] = data;
+      } else {
+        helper.setObject(sheet.getCharacter(), path, data);
+      };
     };
   };
 
@@ -11729,21 +10942,20 @@ var inputBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    totalBlock.update();
+    sheet.storeCharacters();
+    totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };
   };
 
-  function focus(element) {
+  function _focus(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
-    if (inputBlock.querySelector(".js-input-block-label")) {
-      if (element == document.activeElement) {
-        helper.addClass(inputBlock, "is-focus");
-      } else {
-        helper.removeClass(inputBlock, "is-focus");
-      };
+    if (element == document.activeElement) {
+      helper.addClass(inputBlock, "is-focus");
+    } else {
+      helper.removeClass(inputBlock, "is-focus");
     };
   };
 
@@ -11751,57 +10963,39 @@ var inputBlock = (function() {
     var all_inputBlock = helper.eA(".js-input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
       all_inputBlock[i].querySelector(".js-input-block-field").value = "";
-      var inputBlockLabel;
-      if (all_inputBlock[i].querySelector(".js-input-block-label")) {
-        inputBlockLabel = all_inputBlock[i].querySelector(".js-input-block-label");
-        helper.removeClass(inputBlockLabel, "is-active");
-      };
     };
   };
 
-  function update(element) {
-    focus(element);
-  };
-
-  function bind() {
-    _bind_inputBlock();
+  function bind(inputBlock) {
+    if (inputBlock) {
+      _bind_inputBlock(inputBlock);
+    } else {
+      var all_inputBlock = helper.eA(".js-input-block");
+      for (var i = 0; i < all_inputBlock.length; i++) {
+        if (all_inputBlock[i].dataset.clone != "true") {
+          _bind_inputBlock(all_inputBlock[i]);
+        };
+      };
+    };
     _bind_name();
     _bind_class();
     _bind_level();
   };
 
-  function _addOrMinusInput(element) {
-    var target;
-    if (element.dataset.add) {
-      target = helper.e("#" + element.dataset.add);
-      target.value = (parseInt(target.value, 10) || 0) + 1;
-    };
-    if (element.dataset.minus) {
-      target = helper.e("#" + element.dataset.minus);
-      target.value = (parseInt(target.value, 10) || 0) - 1;
-    };
-    _store(target);
-    update(target);
-    totalBlock.update();
-  };
-
-  function _bind_inputBlock() {
-    var all_inputBlock = helper.eA(".js-input-block");
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var input = all_inputBlock[i].querySelector(".js-input-block-field");
-      if (input) {
-        input.addEventListener("input", function() {
-          clearTimeout(storeInputTimer);
-          storeInputTimer = setTimeout(delayUpdate, 1000, this);
-        }, false);
-        input.addEventListener("focus", function() {
-          focus(this);
-        }, false);
-        input.addEventListener("blur", function() {
-          _store(this);
-          focus(this);
-        }, false);
-      };
+  function _bind_inputBlock(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    if (input) {
+      input.addEventListener("input", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 400, this);
+      }, false);
+      input.addEventListener("focus", function() {
+        _focus(this);
+      }, false);
+      input.addEventListener("blur", function() {
+        _store(this);
+        _focus(this);
+      }, false);
     };
   };
 
@@ -11809,7 +11003,7 @@ var inputBlock = (function() {
     var input = helper.e(".js-basics-name");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 1000, this);
+      updateNavTimer = setTimeout(nav.update, 400, this);
     }, false);
     input.addEventListener("keydown", function(event) {
       // enter
@@ -11817,7 +11011,7 @@ var inputBlock = (function() {
         if (input.value == "restore all") {
           sheet.all();
         };
-        focus(this);
+        _focus(this);
       };
     }, false);
   };
@@ -11826,7 +11020,7 @@ var inputBlock = (function() {
     var input = helper.e(".js-basics-class");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 1000, this);
+      updateNavTimer = setTimeout(nav.update, 400, this);
     }, false);
   };
 
@@ -11834,29 +11028,35 @@ var inputBlock = (function() {
     var input = helper.e(".js-basics-level");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 1000, this);
+      updateNavTimer = setTimeout(nav.update, 400, this);
     }, false);
   };
 
   function render() {
-    var all_inputBlockField = helper.eA(".js-input-block-field");
-    for (var i = 0; i < all_inputBlockField.length; i++) {
-      var path = all_inputBlockField[i].dataset.path;
+    var all_inputBlock = helper.eA(".js-input-block");
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      var all_inputBlockField = all_inputBlock[i].querySelector(".js-input-block-field");
+      var path = all_inputBlockField.dataset.path;
       if (path) {
-        var content = helper.getObject(sheet.getCharacter(), path);
-        all_inputBlockField[i].value = content;
-        update(all_inputBlockField[i]);
+        if (all_inputBlock[i].dataset.clone == "true") {
+          var pathCloneKey = all_inputBlockField.dataset.pathCloneKey;
+          var cloneCount = all_inputBlock[i].dataset.cloneCount;
+          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+          // console.log("found clone input", path, pathCloneKey, all_inputBlock[i].dataset.cloneCount, all_inputBlock[i]);
+          all_inputBlockField.value = object[pathCloneKey];
+        } else {
+          var content = helper.getObject(sheet.getCharacter(), path);
+          all_inputBlockField.value = content;
+        };
       };
     };
   };
 
   // exposed methods
   return {
-    update: update,
-    focus: focus,
     render: render,
-    clear: clear,
-    bind: bind
+    bind: bind,
+    clear: clear
   };
 
 })();
@@ -12052,7 +11252,7 @@ var log = (function() {
       var col = document.createElement("div");
       col.setAttribute("class", "col-xs-12");
       var list = document.createElement("ul");
-      list.setAttribute("class", "m-log-list m-log-list-short u-list-unstyled");
+      list.setAttribute("class", "m-log-list m-log-list-short");
       for (var i = 0; i < numberOfRecentChanges; i++) {
         var listItem = document.createElement("li");
         listItem.setAttribute("class", "m-log-list-item");
@@ -12920,6 +12120,84 @@ var prompt = (function() {
 
 })();
 
+var repair = (function() {
+
+  function render(characterObject) {
+    // console.log("fire repair update");
+    // add initiative object
+    if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
+      // console.log("\t\tadd initiative object");
+      characterObject.basics.initiative = {
+        misc: "",
+        temp: "",
+        feat: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      };
+    };
+    // add custom skills array
+    if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
+      // console.log("\t\tadd custom skills array");
+      characterObject.skills.custom = [];
+    };
+    // move custom skills to new custom skills
+    if (characterObject.skills.custom_1 || characterObject.skills.custom_2 || characterObject.skills.custom_3 || characterObject.skills.custom_4 || characterObject.skills.custom_5 || characterObject.skills.custom_6 || characterObject.skills.custom_7 || characterObject.skills.custom_8) {
+      // console.log("\t\tmove custom skills to new custom skills");
+      var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
+      for (var i = 0; i < skillKeys.length; i++) {
+        if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
+          var newSkill = characterObject.skills[skillKeys[i]];
+          characterObject.skills.custom.push(newSkill);
+        };
+        delete characterObject.skills[skillKeys[i]];
+      };
+    };
+    // add note array
+    if (typeof characterObject.notes.character == "string" || typeof characterObject.notes.story == "string") {
+      // console.log("\t\tadd note array");
+      characterObject.notes.character = [];
+      characterObject.notes.story = [];
+    };
+    // add item array
+    if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
+      // console.log("\t\tadd item array");
+      characterObject.equipment.item = [];
+    };
+    // add spell notes
+    if (characterObject.spells.book) {
+      for (var i in characterObject.spells.book) {
+        for (var j in characterObject.spells.book[i]) {
+          if (characterObject.spells.book[i][j].length > 0) {
+            for (var k in characterObject.spells.book[i][j]) {
+              if (typeof characterObject.spells.book[i][j][k].note != "string") {
+                // console.log("\t\tadd spell notes");
+                characterObject.spells.book[i][j][k].note = "";
+              };
+            };
+          };
+        };
+      };
+    };
+    sheet.storeCharacters();
+    return characterObject;
+  };
+
+  // exposed methods
+  return {
+    render: render
+  };
+
+})();
+
 var sheet = (function() {
 
   var allCharacters = JSON.parse(JSON.stringify([blank.data]));
@@ -12964,6 +12242,9 @@ var sheet = (function() {
   };
 
   function addCharacter(newCharacter) {
+    if (newCharacter) {
+      newCharacter = repair.render(newCharacter);
+    };
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
     var newIndex = getAllCharacters().length - 1;
@@ -13191,40 +12472,39 @@ var sheet = (function() {
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };
 
+  function render() {
+    repair.render(sheet.getCharacter());
+    stats.render();
+    clone.render();
+    inputBlock.render();
+    textareaBlock.render();
+    skills.render();
+    spells.render();
+    totalBlock.render();
+    display.render();
+  };
+
   function bind() {
     prompt.bind();
     modal.bind();
     snack.bind();
+    stats.bind();
     inputBlock.bind();
     textareaBlock.bind();
-    stats.bind();
     clone.bind();
-    totalBlock.bind();
     spells.bind();
     skills.bind();
+    totalBlock.bind();
     display.bind();
     card.bind();
   };
 
-  function render() {
-    inputBlock.render();
-    textareaBlock.render();
-    stats.render();
-    clone.render();
-    totalBlock.render();
-    totalBlock.update();
-    spells.render();
-    skills.render();
-    display.render();
-  };
-
   function clear() {
+    stats.render();
+    totalBlock.clear();
+    clone.clear();
     inputBlock.clear();
     textareaBlock.clear();
-    stats.render();
-    clone.clear();
-    totalBlock.clear();
-    totalBlock.update();
     spells.clear();
     display.clear();
   };
@@ -13273,32 +12553,19 @@ var skills = (function() {
   function bind() {
     var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
     var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
-    var all_inputBlockFieldCustomRanks = helper.eA(".js-input-block-field-custom-ranks");
     var skillSpentRanksTotal = helper.e(".js-skill-spent-ranks-total");
     skillSpentRanksInput.addEventListener("change", function() {
-      clearTimeout(renderTimer);
-      renderTimer = setTimeout(function() {
-        _render_rankTotal();
-        _store(skillSpentRanksInput, skillSpentRanksInput.checked);
-        _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
-      }, 200, this);
+      _store(skillSpentRanksInput, skillSpentRanksInput.checked);
+      _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
+      _render_rankTotal();
     }, false);
     for (var i = 0; i < all_inputBlockFieldRanks.length; i++) {
       all_inputBlockFieldRanks[i].addEventListener("input", function() {
         clearTimeout(renderTimer);
         renderTimer = setTimeout(function() {
-          _render_rankTotal();
           _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
-        }, 1000, this);
-      }, false);
-    };
-    for (var i = 0; i < all_inputBlockFieldCustomRanks.length; i++) {
-      all_inputBlockFieldCustomRanks[i].addEventListener("input", function() {
-        clearTimeout(renderTimer);
-        renderTimer = setTimeout(function() {
           _render_rankTotal();
-          _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
-        }, 1000, this);
+        }, 400, this);
       }, false);
     };
   };
@@ -13322,31 +12589,23 @@ var skills = (function() {
   };
 
   function _render_rankTotal() {
-    var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
-    var all_inputBlockFieldCustomRanks = helper.eA(".js-input-block-field-custom-ranks");
-    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
+    var all_skills = helper.getObject(sheet.getCharacter(), "skills");
+    var all_customSkills = helper.getObject(sheet.getCharacter(), "skills.custom");
     var skillSpentRanksTotal = helper.e(".js-skill-spent-ranks-total");
     var ranks = [];
     var ranksTotal;
-    var customRanks = [];
-    var customRanksTotal;
-    for (var i = 0; i < all_inputBlockFieldRanks.length; i++) {
-      ranks.push(parseInt(all_inputBlockFieldRanks[i].value, 10) || 0);
+    for (var i in all_skills) {
+      ranks.push(parseInt(all_skills[i].ranks, 10) || 0);
     };
-    for (var i = 0; i < all_inputBlockFieldCustomRanks.length; i++) {
-      customRanks.push(parseInt(all_inputBlockFieldCustomRanks[i].value, 10) || 0);
+    if (helper.getObject(sheet.getCharacter(), "skills.spent_ranks.include_custom")) {
+      for (var i = 0; i < all_customSkills.length; i++) {
+        ranks.push(parseInt(all_customSkills[i].ranks, 10) || 0);
+      };
     };
     ranksTotal = ranks.reduce(function(a, b) {
       return a + b;
     });
-    customRanksTotal = customRanks.reduce(function(a, b) {
-      return a + b;
-    });
-    if (skillSpentRanksInput.checked) {
-      skillSpentRanksTotal.textContent = ranksTotal + customRanksTotal;
-    } else {
-      skillSpentRanksTotal.textContent = ranksTotal;
-    };
+    skillSpentRanksTotal.textContent = ranksTotal;
   };
 
   // exposed methods
@@ -13519,7 +12778,6 @@ var spells = (function() {
       // clear input field
       element.value = "";
     };
-    inputBlock.focus(element);
   };
 
   function _addNewSpellOnEnter(element) {
@@ -13677,13 +12935,13 @@ var spells = (function() {
       var preparedEditBoxBody = document.createElement("div");
       preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
       var preparedEditBoxBodyItem1 = document.createElement("div");
-      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-large");
+      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
       var preparedEditBoxBodyItem2 = document.createElement("div");
-      preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
       var preparedEditBoxBodyItem3 = document.createElement("div");
-      preparedEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
       var preparedEditBoxBodyItem4 = document.createElement("div");
-      preparedEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-medium");
+      preparedEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-total-block-total js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
@@ -13740,13 +12998,13 @@ var spells = (function() {
       var castEditBoxBody = document.createElement("div");
       castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
       var castEditBoxBodyItem1 = document.createElement("div");
-      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-large");
+      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
       var castEditBoxBodyItem2 = document.createElement("div");
-      castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
       var castEditBoxBodyItem3 = document.createElement("div");
-      castEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
       var castEditBoxBodyItem4 = document.createElement("div");
-      castEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-medium");
+      castEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-total-block-total js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
@@ -14270,7 +13528,7 @@ var stats = (function() {
 
   function delayUpdate(element) {
     _render_stat(element);
-    totalBlock.update();
+    totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
@@ -14283,13 +13541,13 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 1000, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
       }, false);
     };
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 1000, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
       }, false);
     };
   };
@@ -14305,25 +13563,36 @@ var stats = (function() {
 var textareaBlock = (function() {
 
   function _store(element) {
-    var path = element.dataset.path;
+    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var path = textareaBlockField.dataset.path;
+    var type = textareaBlockField.dataset.type;
+    var data = element.innerHTML;
     if (path) {
-      helper.setObject(sheet.getCharacter(), path, element.innerHTML);
-      sheet.storeCharacters();
+      if (textareaBlock.dataset.clone == "true") {
+        var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
+        var cloneCount = textareaBlock.dataset.cloneCount;
+        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+        object[pathCloneKey] = data;
+      } else {
+        helper.setObject(sheet.getCharacter(), path, data);
+      };
     };
   };
 
   var storeInputTimer = null;
-  var storeBlurTimer = null;
 
   function delayUpdate(element) {
     _store(element);
+    sheet.storeCharacters();
+    totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };
   };
 
-  function focus(element) {
+  function _focus(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
     if (element == document.activeElement) {
       helper.addClass(textareaBlock, "is-focus");
@@ -14336,73 +13605,69 @@ var textareaBlock = (function() {
     var all_textareaBlock = helper.eA(".js-textarea-block");
     for (var i = 0; i < all_textareaBlock.length; i++) {
       all_textareaBlock[i].querySelector(".js-textarea-block-field").innerHTML = "";
-      var textareaBlockLabel;
-      if (all_textareaBlock[i].querySelector(".js-textarea-block-label")) {
-        textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
-        helper.removeClass(textareaBlockLabel, "is-active");
+    };
+  };
+
+  function bind(textareaBlock) {
+    if (textareaBlock) {
+      _bind_textareaBlock(textareaBlock);
+    } else {
+      var all_textareaBlock = helper.eA(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        if (all_textareaBlock[i].dataset.clone != "true") {
+          _bind_textareaBlock(all_textareaBlock[i]);
+        };
       };
     };
   };
 
-  function update(element) {
-    focus(element);
-  };
-
-  function bind() {
-    var all_textareaBlock = helper.eA(".js-textarea-block");
-    for (var i = 0; i < all_textareaBlock.length; i++) {
-      var textareaBlockField = all_textareaBlock[i].querySelector(".js-textarea-block-field");
-      var textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
-      if (textareaBlockField) {
-        textareaBlockField.addEventListener("input", function() {
-          clearTimeout(storeBlurTimer);
-          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
-        }, false);
-        textareaBlockField.addEventListener("focus", function() {
-          focus(this);
-        }, false);
-        textareaBlockField.addEventListener("blur", function() {
-          _store(this);
-          focus(this);
-        }, false);
-        textareaBlockField.addEventListener("paste", function(event) {
-          helper.pasteStrip(event);
-        });
-      };
-      if (textareaBlockLabel) {
-        textareaBlockLabel.addEventListener("click", function() {
-          focusLabel(this);
-        }, false);
-      };
+  function _bind_textareaBlock(textareaBlock) {
+    var field = textareaBlock.querySelector(".js-textarea-block-field");
+    if (field) {
+      field.addEventListener("input", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 400, this);
+        sheet.storeCharacters();
+      }, false);
+      field.addEventListener("focus", function() {
+        _focus(this);
+      }, false);
+      field.addEventListener("blur", function() {
+        _store(this);
+        _focus(this);
+        sheet.storeCharacters();
+      }, false);
+      field.addEventListener("paste", function(event) {
+        helper.pasteStrip(event);
+      });
     };
-  };
-
-  function focusLabel(element) {
-    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    textareaBlockField.focus();
   };
 
   function render() {
-    var all_textareaBlockField = helper.eA(".js-textarea-block-field");
-    for (var i = 0; i < all_textareaBlockField.length; i++) {
-      var path = all_textareaBlockField[i].dataset.path;
+    var all_textareaBlock = helper.eA(".js-textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      var all_textareaBlockField = all_textareaBlock[i].querySelector(".js-textarea-block-field");
+      var path = all_textareaBlockField.dataset.path;
       if (path) {
-        var content = helper.getObject(sheet.getCharacter(), path);
-        all_textareaBlockField[i].innerHTML = content;
-        update(all_textareaBlockField[i]);
+        if (all_textareaBlock[i].dataset.clone == "true") {
+          var pathCloneKey = all_textareaBlockField.dataset.pathCloneKey;
+          var cloneCount = all_textareaBlock[i].dataset.cloneCount;
+          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+          all_textareaBlockField.innerHTML = object[pathCloneKey];
+          // console.log("found clone input", path, pathCloneKey, all_textareaBlock[i].dataset.cloneCount, all_textareaBlock[i]);
+        } else {
+          var content = helper.getObject(sheet.getCharacter(), path);
+          all_textareaBlockField.innerHTML = content;
+        };
       };
     };
   };
 
   // exposed methods
   return {
-    update: update,
-    focus: focus,
-    focusLabel: focusLabel,
     render: render,
-    clear: clear,
-    bind: bind
+    bind: bind,
+    clear: clear
   };
 
 })();
@@ -14436,88 +13701,16 @@ var themeColor = (function() {
 
 var totalBlock = (function() {
 
-
-  function render() {
-    var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
-    var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
-    for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      var path = all_totalBlockBonuses[i].dataset.bonusPath;
-      var totalBlock = helper.getClosest(all_totalBlockBonuses[i], ".js-total-block");
-      if (path) {
-        var object = helper.getObject(sheet.getCharacter(), path);
-        for (var key in object) {
-          if (object[key]) {
-            if (key == "str_bonus") {
-              totalBlock.dataset.strBonus = "true";
-            };
-            if (key == "dex_bonus") {
-              totalBlock.dataset.dexBonus = "true";
-            };
-            if (key == "con_bonus") {
-              totalBlock.dataset.conBonus = "true";
-            };
-            if (key == "int_bonus") {
-              totalBlock.dataset.intBonus = "true";
-            };
-            if (key == "wis_bonus") {
-              totalBlock.dataset.wisBonus = "true";
-            };
-            if (key == "cha_bonus") {
-              totalBlock.dataset.chaBonus = "true";
-            };
-            if (key == "bab") {
-              totalBlock.dataset.babBonus = "true";
-            };
-            if (key == "size") {
-              totalBlock.dataset.sizeBonus = "true";
-            };
-            if (key == "level") {
-              totalBlock.dataset.levelBonus = "true";
-            };
-            if (key == "half_level") {
-              totalBlock.dataset.halfLevelBonus = "true";
-            };
-            if (key == "plus_ten") {
-              totalBlock.dataset.plusTenBonus = "true";
-            };
-            if (key == "ac_armor") {
-              totalBlock.dataset.acArmor = "true";
-            };
-            if (key == "ac_shield") {
-              totalBlock.dataset.acShield = "true";
-            };
-            if (key == "ac_deflect") {
-              totalBlock.dataset.acDeflect = "true";
-            };
-            if (key == "ac_dodge") {
-              totalBlock.dataset.acDodge = "true";
-            };
-            if (key == "ac_natural") {
-              totalBlock.dataset.acNatural = "true";
-            };
-            if (key == "class_skill") {
-              totalBlock.dataset.classSkill = "true";
-            };
-            if (key == "check_penalty") {
-              totalBlock.dataset.checkPenalty = "true";
-            };
-            if (key == "max_dex") {
-              totalBlock.dataset.maxDex = "true";
-            };
-          };
-        };
-      };
-    };
-    for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
-      var path = all_totalBlockToggleCheck[i].dataset.path;
-      var state = helper.getObject(sheet.getCharacter(), path);
-      all_totalBlockToggleCheck[i].checked = state;
+  function render(totalBlock) {
+    if (totalBlock) {
+      _render_totalBlock(totalBlock);
+    } else {
+      _render_all_totalBlock();
     };
   };
 
-  function update() {
-
-    function _checkValue(data) {
+  function _render_totalBlock(totalBlock) {
+    var _checkValue = function(data) {
       var value;
       if (typeof data == "number") {
         value = data;
@@ -14529,491 +13722,345 @@ var totalBlock = (function() {
       };
       return value;
     };
-
-    function _checkForTempModifier(score, tempScore) {
+    var _checkForTempModifier = function(score, tempScore) {
       if (tempScore == "") {
         return _checkValue(score);
       } else {
         return _checkValue(tempScore);
       };
     };
-
-    function _checkClassSkill(totalBlock) {
-      var input = totalBlock.querySelector(".js-input-block-field-ranks") || totalBlock.querySelector(".js-input-block-field-custom-ranks");
-      var path = input.dataset.path;
-      var ranks = helper.getObject(sheet.getCharacter(), path);
-      var value;
-      if (ranks > 0) {
-        value = 3;
+    var _checkClassSkill = function(object) {
+      var classSkill;
+      if (object.ranks > 0) {
+        classSkill = 3;
       } else {
-        value = 0;
+        classSkill = 0;
       };
-      return value;
+      return classSkill;
     };
-
-    function _update_totalBlock(totalBlock) {
-      // console.log("total block update");
-      var strBonus = 0;
-      var dexBonus = 0;
-      var conBonus = 0;
-      var intBonus = 0;
-      var wisBonus = 0;
-      var chaBonus = 0;
-      var babBonus = 0;
-      var sizeBonus = 0;
-      var levelBonus = 0;
-      var halfLevelBonus = 0;
-      var plusTenBonus = 0;
-      var acArmor = 0;
-      var acShield = 0;
-      var acDeflect = 0;
-      var acDodge = 0;
-      var acNatural = 0;
-      var classSkill = 0;
-      var checkPenalty = 0;
-      // if str data attribute is true
-      if (totalBlock.dataset.strBonus == "true") {
-        strBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
+    var totalElement = totalBlock.querySelector(".js-total-block-total");
+    var sum = [];
+    var totalPath = totalBlock.dataset.totalPath;
+    var totalType = totalBlock.dataset.totalType;
+    var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
+    var totalPathAddition = false;
+    if (totalBlock.dataset.totalPathAddition) {
+      totalPathAddition = totalBlock.dataset.totalPathAddition.split(",");
+    };
+    var totalPathSubtraction = false;
+    if (totalBlock.dataset.totalPathSubtraction) {
+      totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
+    };
+    var cloneCount = totalBlock.dataset.cloneCount || false;
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    // console.log("------ total blck", "\t", totalPath, cloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
+    var object;
+    if (totalPath && cloneCount) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
+    } else if (totalPath) {
+      object = helper.getObject(sheet.getCharacter(), totalPath);
+    };
+    // console.log("--- ", totalBlock, object);
+    if (totalBonuses) {
+      // console.log("\t\t", "totalBonuses = ", totalBonuses, object.bonuses);
+      if (object.bonuses.str_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier));
       };
       // if dex data attribute is true
-      if (totalBlock.dataset.dexBonus == "true") {
-        dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
-      };
-      // if dex data attribute is true
-      if (totalBlock.dataset.dexBonus == "true") {
-        dexBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+      if (object.bonuses.dex_bonus) {
+        // if max dex is true
+        if (object.bonuses.max_dex) {
+          if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+            sum.push(sheet.getCharacter().defense.ac.max_dex);
+          } else {
+            sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier));
+          };
+        } else {
+          sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier));
+        };
       };
       // if con data attribute is true
-      if (totalBlock.dataset.conBonus == "true") {
-        conBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
+      if (object.bonuses.con_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier));
       };
       // if int data attribute is true
-      if (totalBlock.dataset.intBonus == "true") {
-        intBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
+      if (object.bonuses.int_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier));
       };
       // if wis data attribute is true
-      if (totalBlock.dataset.wisBonus == "true") {
-        wisBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
+      if (object.bonuses.wis_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier));
       };
       // if cha data attribute is true
-      if (totalBlock.dataset.chaBonus == "true") {
-        chaBonus = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
-      };
-      // if max dex data attribute is true
-      if (totalBlock.dataset.maxDex == "true") {
-        // if max dex is less than dex bonus
-        if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
-          // set dex bonuse to mac dex
-          dexBonus = sheet.getCharacter().defense.ac.max_dex;
-        };
+      if (object.bonuses.cha_bonus) {
+        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier));
       };
       // if bab data attribute is true
-      if (totalBlock.dataset.babBonus == "true") {
-        babBonus = _checkValue(sheet.getCharacter().offense.base_attack);
+      if (object.bonuses.bab) {
+        sum.push(_checkValue(sheet.getCharacter().offense.base_attack));
       };
       // size
-      if (totalBlock.dataset.sizeBonus == "true") {
-        sizeBonus = _checkValue(sheet.getCharacter().defense.ac.size_bonus);
+      if (object.bonuses.size) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.size_bonus));
       };
       // level
-      if (totalBlock.dataset.levelBonus == "true") {
-        levelBonus = _checkValue(sheet.getCharacter().basics.level);
+      if (object.bonuses.level) {
+        sum.push(_checkValue(sheet.getCharacter().basics.level));
       };
       // half level
-      if (totalBlock.dataset.halfLevelBonus == "true") {
-        halfLevelBonus = Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2);
+      if (object.bonuses.half_level) {
+        sum.push(Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2));
       };
       // ac armor
-      if (totalBlock.dataset.acArmor == "true") {
-        acArmor = _checkValue(sheet.getCharacter().defense.ac.armor);
+      if (object.bonuses.ac_armor) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.armor));
       };
       // ac shield
-      if (totalBlock.dataset.acShield == "true") {
-        acShield = _checkValue(sheet.getCharacter().defense.ac.shield);
+      if (object.bonuses.ac_shield) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.shield));
       };
       // ac deflect
-      if (totalBlock.dataset.acDeflect == "true") {
-        acDeflect = _checkValue(sheet.getCharacter().defense.ac.deflect);
+      if (object.bonuses.ac_deflect) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.deflect));
       };
       // ac dodge
-      if (totalBlock.dataset.acDodge == "true") {
-        acDodge = _checkValue(sheet.getCharacter().defense.ac.dodge);
+      if (object.bonuses.ac_dodge) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.dodge));
       };
       // ac natural
-      if (totalBlock.dataset.acNatural == "true") {
-        acNatural = _checkValue(sheet.getCharacter().defense.ac.natural);
+      if (object.bonuses.ac_natural) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.natural));
       };
       // armor check penalty
-      if (totalBlock.dataset.checkPenalty == "true") {
-        checkPenalty = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
+      if (object.bonuses.check_penalty) {
+        sum.push(_checkValue(sheet.getCharacter().defense.ac.check_penalty));
       };
       // class skill
-      if (totalBlock.dataset.classSkill == "true") {
-        classSkill = _checkClassSkill(totalBlock);
+      if (object.bonuses.class_skill) {
+        sum.push(_checkClassSkill(object));
       };
       // 10
-      if (totalBlock.dataset.plusTenBonus == "true") {
-        plusTenBonus = 10;
+      if (object.bonuses.plus_ten) {
+        sum.push(10);
       };
-      var total = totalBlock.querySelector(".js-total-block-total");
-      var totalType = totalBlock.dataset.totalType;
-      var totalPath = total.dataset.path;
-      var all_inputBlockField = totalBlock.querySelectorAll(".js-input-block-field");
-      var modifiers = [];
-      var modifiers_total = 0;
-      // if there are any input fields in total block
-      if (all_inputBlockField.length > 0) {
-        // iterate over all input fields
-        for (var i = 0; i < all_inputBlockField.length; i++) {
-          var value;
-          // find the path for input field
-          var inputPath = all_inputBlockField[i].dataset.path;
-          // if path is found
-          if (inputPath) {
-            // get the value of path from character
-            value = parseInt(helper.getObject(sheet.getCharacter(), inputPath), 10);
-          } else {
-            // get the value from input
-            // needed because clone consumable total blocks dont have data paths
-            value = parseInt(all_inputBlockField[i].value, 10) || 0;
-          };
-          // if the value is not a NaN
-          if (!isNaN(value)) {
-            // check if the inpuy is to add or subtract
-            if (all_inputBlockField[i].dataset.total == "addition") {
-              // push to array
-              modifiers.push(value);
-            };
-            // check if the inpuy is to add or subtract
-            if (all_inputBlockField[i].dataset.total == "subtract") {
-              // push to array
-              modifiers.push(-value);
-            };
-          };
-        };
-      };
-      // if modifiers array has values total them
-      if (modifiers.length > 0) {
-        modifiers_total = modifiers.reduce(function(a, b) {
-          return a + b;
-        });
-      };
-      // grand total
-      var grandTotal = modifiers_total + levelBonus + halfLevelBonus + babBonus + sizeBonus + plusTenBonus + strBonus + dexBonus + conBonus + intBonus + wisBonus + chaBonus + acArmor + acShield + acDeflect + acDodge + acNatural + classSkill + checkPenalty;
-      // store current to character object
-      if (totalPath) {
-        helper.setObject(sheet.getCharacter(), totalPath, grandTotal || 0);
-      };
-      // add + to bonus totals
-      if (totalType == "bonus" && grandTotal > 0) {
-        grandTotal = "+" + grandTotal;
-      };
-      // update total
-      total.textContent = grandTotal;
     };
+    if (all_bonusCheck.length > 0) {
+      for (var i = 0; i < all_bonusCheck.length; i++) {
+        var bonusType = all_bonusCheck[i].dataset.bonusType.replace(/-+/g, "_");
+        all_bonusCheck[i].checked = object.bonuses[bonusType];
+      };
+    };
+    var grandTotal;
+    // console.log("\t\t add ----");
+    if (totalPathAddition) {
+      for (var i = 0; i < totalPathAddition.length; i++) {
+        // console.log("\t\t", totalPathAddition[i], "=", object[totalPathAddition[i]]);
+        value = parseInt(object[totalPathAddition[i]], 10) || 0;
+        sum.push(value);
+      };
+    };
+    // console.log("\t\t minus ----");
+    if (totalPathSubtraction) {
+      for (var i = 0; i < totalPathSubtraction.length; i++) {
+        // console.log("\t\t", totalPathSubtraction[i], "=", object[totalPathSubtraction[i]]);
+        value = parseInt(-object[totalPathSubtraction[i]], 10) || 0;
+        sum.push(value);
+      };
+    };
+    // console.log("\t\t", sum);
+    grandTotal = sum.reduce(function(a, b) {
+      return a + b;
+    });
+    object.current = grandTotal;
+    // add + to bonus totals
+    if (totalType == "bonus" && grandTotal > 0) {
+      grandTotal = "+" + grandTotal;
+    };
+    totalElement.textContent = grandTotal;
+  };
 
+  function _render_all_totalBlock() {
     var all_totalBlock = helper.eA(".js-total-block");
     for (var i = 0; i < all_totalBlock.length; i++) {
-      _update_totalBlock(all_totalBlock[i]);
+      _render_totalBlock(all_totalBlock[i]);
     };
-    sheet.storeCharacters();
   };
 
   function _bonusTextLable(bonusType) {
     if (bonusType == "str-bonus" || bonusType == "str_bonus") {
       return "Str Bonus";
-    };
-    if (bonusType == "dex-bonus" || bonusType == "dex_bonus") {
+    } else if (bonusType == "dex-bonus" || bonusType == "dex_bonus") {
       return "Dex Bonus";
-    };
-    if (bonusType == "con-bonus" || bonusType == "con_bonus") {
+    } else if (bonusType == "con-bonus" || bonusType == "con_bonus") {
       return "Con Bonus";
-    };
-    if (bonusType == "int-bonus" || bonusType == "int_bonus") {
+    } else if (bonusType == "int-bonus" || bonusType == "int_bonus") {
       return "Int Bonus";
-    };
-    if (bonusType == "wis-bonus" || bonusType == "wis_bonus") {
+    } else if (bonusType == "wis-bonus" || bonusType == "wis_bonus") {
       return "Wis Bonus";
-    };
-    if (bonusType == "cha-bonus" || bonusType == "cha_bonus") {
+    } else if (bonusType == "cha-bonus" || bonusType == "cha_bonus") {
       return "Cha Bonus";
-    };
-    if (bonusType == "bab") {
+    } else if (bonusType == "bab") {
       return "Base Attack Bonus";
-    };
-    if (bonusType == "size") {
+    } else if (bonusType == "size") {
       return "Size Bonus";
-    };
-    if (bonusType == "level") {
+    } else if (bonusType == "level") {
       return "Level";
-    };
-    if (bonusType == "half-level" || bonusType == "half_level") {
+    } else if (bonusType == "half-level" || bonusType == "half_level") {
       return "Half Level";
-    };
-    if (bonusType == "plus-ten" || bonusType == "plus_ten") {
+    } else if (bonusType == "plus-ten" || bonusType == "plus_ten") {
       return "Plus 10";
-    };
-    if (bonusType == "ac-armor" || bonusType == "ac_armor") {
+    } else if (bonusType == "ac-armor" || bonusType == "ac_armor") {
       return "Armor";
-    };
-    if (bonusType == "ac-shield" || bonusType == "ac_shield") {
+    } else if (bonusType == "ac-shield" || bonusType == "ac_shield") {
       return "Shield";
-    };
-    if (bonusType == "ac-deflect" || bonusType == "ac_deflect") {
+    } else if (bonusType == "ac-deflect" || bonusType == "ac_deflect") {
       return "Deflect";
-    };
-    if (bonusType == "ac-dodge" || bonusType == "ac_dodge") {
+    } else if (bonusType == "ac-dodge" || bonusType == "ac_dodge") {
       return "Dodge";
-    };
-    if (bonusType == "ac-natural" || bonusType == "ac_natural") {
+    } else if (bonusType == "ac-natural" || bonusType == "ac_natural") {
       return "Natural Armor";
-    };
-    if (bonusType == "class-skill" || bonusType == "class_skill") {
+    } else if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
-    };
-    if (bonusType == "check-penalty" || bonusType == "check_penalty") {
+    } else if (bonusType == "check-penalty" || bonusType == "check_penalty") {
       return "Check Penalty";
-    };
-    if (bonusType == "max-dex" || bonusType == "max_dex") {
+    } else if (bonusType == "max-dex" || bonusType == "max_dex") {
       return "Max Dex Bonus";
+    } else {
+      return bonusType;
     };
   };
 
   function _totalBlockModalContent(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
-    var path = element.dataset.bonusPath;
-    var bonuses = element.dataset.bonuses.split(",");
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    var totalBonusesInclude = false;
+    if (totalBonuses) {
+      totalBonusesInclude = totalBlock.dataset.totalBonusesInclude.split(",");
+    };
+    var totalPath = totalBlock.dataset.totalPath;
+    var cloneCount = totalBlock.dataset.cloneCount || false;
+    var object;
+    if (totalPath && cloneCount) {
+      object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
+    } else if (totalPath) {
+      object = helper.getObject(sheet.getCharacter(), totalPath);
+    };
+    if (totalBonusesInclude.length > 0) {
+      for (var i = 0; i < totalBonusesInclude.length; i++) {
+        if (totalBonusesInclude[i] in object.bonuses) {
+          // console.log(1, "found", totalBonusesInclude[i]);
+        } else {
+          // console.log(2, "not found", totalBonusesInclude[i]);
+          object.bonuses[totalBonusesInclude[i]] = false;
+        };
+      };
+    };
     var heading = element.dataset.modalHeading || "Bonuses to add to this ability";
+    var totalBlockControl = document.createElement("div");
+    totalBlockControl.setAttribute("class", "js-total-block-control");
+    totalBlockControl.setAttribute("data-total-path", totalPath);
+    if (element.dataset.clone == "true") {
+      totalBlockControl.setAttribute("data-clone", "true");
+      totalBlockControl.setAttribute("data-clone-count", helper.getClosest(element, ".js-clone").dataset.cloneCount);
+    };
     var container = document.createElement("div");
     container.setAttribute("class", "container");
     var row = document.createElement("div");
     row.setAttribute("class", "row");
-
-    if (bonuses) {
-      var data = helper.getObject(sheet.getCharacter(), path);
-      for (var i = 0; i < bonuses.length; i++) {
+    if (object) {
+      for (var key in object.bonuses) {
+        // console.log(key, object.bonuses[key]);
         var col = document.createElement("div");
         col.setAttribute("class", "col-xs-6 col-xl-4");
-
         var div = document.createElement("div");
-        div.setAttribute("class", "m-total-block-toggle js-total-block-toggle");
-
+        div.setAttribute("class", "js-total-block-toggle");
         var input = document.createElement("input");
-        input.setAttribute("id", bonuses[i].replace(/_+/g, "-"));
+        input.setAttribute("id", key.replace(/_+/g, "-"));
         input.setAttribute("class", "m-total-block-toggle-check");
-        input.setAttribute("data-path", path + "." + bonuses[i]);
-        input.setAttribute("data-bonus-type", bonuses[i].replace(/_+/g, "-"));
+        input.setAttribute("data-bonus-type", key.replace(/_+/g, "-"));
         input.setAttribute("type", "checkbox");
         input.setAttribute("tabindex", "3");
-        input.checked = data[bonuses[i]];
-
+        input.checked = object.bonuses[key];
         var label = document.createElement("label");
-        label.setAttribute("for", bonuses[i].replace(/_+/g, "-"));
+        label.setAttribute("for", key.replace(/_+/g, "-"));
         label.setAttribute("class", "label-left u-full-width");
-        label.textContent = _bonusTextLable(bonuses[i]);
-
+        label.textContent = _bonusTextLable(key);
         div.appendChild(input);
         div.appendChild(label);
         col.appendChild(div);
         row.appendChild(col);
-
-        _bind_bonusTypeChecks(input, totalBlock);
-
+        _bind_bonusCheck(input);
       };
     };
     container.appendChild(row);
-    modal.render(heading, container, "Done");
+    totalBlockControl.appendChild(container);
+    modal.render(heading, totalBlockControl, "Done");
   };
 
-  function _bind_bonusTypeChecks(element, totalBlock) {
-    element.addEventListener("change", function() {
-      _addRemoveBonus(this, totalBlock);
-      _store(this, totalBlock);
-      update();
-    }, false);
-  };
 
-  function _bind_classSkillToggle(element) {
-    var totalBlock = helper.getClosest(element, ".js-total-block");
-    element.addEventListener("change", function() {
-      _addRemoveBonus(this, totalBlock);
-      _store(this, totalBlock);
-      update();
-    }, false);
-  };
-
-  function _bind_bonusButtons(element) {
-    if (element.nodeName.toLowerCase() == "a") {
-      element.addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        _totalBlockModalContent(this);
-      }, false);
-    };
-  };
-
-  function _store(input, totalBlock) {
-    var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
-    var path = input.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, input.checked);
-    sheet.storeCharacters();
-  };
-
-  function bind() {
-    var all_totalBlockBonuses = helper.eA(".js-total-block-bonuses");
-    var all_totalBlockToggleCheck = helper.eA(".js-total-block-toggle-check");
-    for (var i = 0; i < all_totalBlockBonuses.length; i++) {
-      _bind_bonusButtons(all_totalBlockBonuses[i]);
-    };
-    for (var i = 0; i < all_totalBlockToggleCheck.length; i++) {
-      _bind_classSkillToggle(all_totalBlockToggleCheck[i]);
-    };
-  };
-
-  function _addRemoveBonus(input, totalBlock) {
-    var totalBlock = helper.getClosest(input, ".js-total-block") || totalBlock;
-    var bonusType = input.dataset.bonusType;
-    if (input.checked) {
-      if (bonusType == "str-bonus") {
-        totalBlock.dataset.strBonus = "true";
-      };
-      if (bonusType == "dex-bonus") {
-        totalBlock.dataset.dexBonus = "true";
-      };
-      if (bonusType == "con-bonus") {
-        totalBlock.dataset.conBonus = "true";
-      };
-      if (bonusType == "int-bonus") {
-        totalBlock.dataset.intBonus = "true";
-      };
-      if (bonusType == "wis-bonus") {
-        totalBlock.dataset.wisBonus = "true";
-      };
-      if (bonusType == "cha-bonus") {
-        totalBlock.dataset.chaBonus = "true";
-      };
-      if (bonusType == "bab") {
-        totalBlock.dataset.babBonus = "true";
-      };
-      if (bonusType == "size") {
-        totalBlock.dataset.sizeBonus = "true";
-      };
-      if (bonusType == "level") {
-        totalBlock.dataset.levelBonus = "true";
-      };
-      if (bonusType == "half-level") {
-        totalBlock.dataset.halfLevelBonus = "true";
-      };
-      if (bonusType == "plus-ten") {
-        totalBlock.dataset.plusTenBonus = "true";
-      };
-      if (bonusType == "ac-armor") {
-        totalBlock.dataset.acArmor = "true";
-      };
-      if (bonusType == "ac-shield") {
-        totalBlock.dataset.acShield = "true";
-      };
-      if (bonusType == "ac-deflect") {
-        totalBlock.dataset.acDeflect = "true";
-      };
-      if (bonusType == "ac-dodge") {
-        totalBlock.dataset.acDodge = "true";
-      };
-      if (bonusType == "ac-natural") {
-        totalBlock.dataset.acNatural = "true";
-      };
-      if (bonusType == "class-skill") {
-        totalBlock.dataset.classSkill = "true";
-      };
-      if (bonusType == "check-penalty") {
-        totalBlock.dataset.checkPenalty = "true";
-      };
-      if (bonusType == "max-dex") {
-        totalBlock.dataset.maxDex = "true";
-      };
+  function bind(totalBlock) {
+    if (totalBlock) {
+      _bind_totalBlock(totalBlock);
     } else {
-      if (bonusType == "str-bonus") {
-        totalBlock.dataset.strBonus = "false";
+      var all_totalBlock = helper.eA(".js-total-block");
+      for (var i = 0; i < all_totalBlock.length; i++) {
+        if (all_totalBlock[i].dataset.clone != "true") {
+          _bind_totalBlock(all_totalBlock[i]);
+        };
       };
-      if (bonusType == "dex-bonus") {
-        totalBlock.dataset.dexBonus = "false";
-      };
-      if (bonusType == "con-bonus") {
-        totalBlock.dataset.conBonus = "false";
-      };
-      if (bonusType == "int-bonus") {
-        totalBlock.dataset.intBonus = "false";
-      };
-      if (bonusType == "wis-bonus") {
-        totalBlock.dataset.wisBonus = "false";
-      };
-      if (bonusType == "cha-bonus") {
-        totalBlock.dataset.chaBonus = "false";
-      };
-      if (bonusType == "bab") {
-        totalBlock.dataset.babBonus = "false";
-      };
-      if (bonusType == "size") {
-        totalBlock.dataset.sizeBonus = "false";
-      };
-      if (bonusType == "level") {
-        totalBlock.dataset.levelBonus = "false";
-      };
-      if (bonusType == "half-level") {
-        totalBlock.dataset.halfLevelBonus = "false";
-      };
-      if (bonusType == "plus-ten") {
-        totalBlock.dataset.plusTenBonus = "false";
-      };
-      if (bonusType == "ac-armor") {
-        totalBlock.dataset.acArmor = "false";
-      };
-      if (bonusType == "ac-shield") {
-        totalBlock.dataset.acShield = "false";
-      };
-      if (bonusType == "ac-deflect") {
-        totalBlock.dataset.acDeflect = "false";
-      };
-      if (bonusType == "ac-dodge") {
-        totalBlock.dataset.acDodge = "false";
-      };
-      if (bonusType == "ac-natural") {
-        totalBlock.dataset.acNatural = "false";
-      };
-      if (bonusType == "class-skill") {
-        totalBlock.dataset.classSkill = "false";
-      };
-      if (bonusType == "check-penalty") {
-        totalBlock.dataset.checkPenalty = "false";
-      };
-      if (bonusType == "max-dex") {
-        totalBlock.dataset.maxDex = "false";
-      };
+    };
+  };
+
+  function _bind_totalBlock(totalBlock) {
+    var totalBlockBonuses = totalBlock.querySelector(".js-total-block-bonuses");
+    var totalBlockBonusCheck = totalBlock.querySelector(".js-total-block-bonus-check");
+    if (totalBlockBonusCheck) {
+      _bind_bonusCheck(totalBlockBonusCheck);
+    };
+    if (totalBlockBonuses) {
+      _bind_bonusButton(totalBlockBonuses);
+    };
+  };
+
+  function _bind_bonusCheck(check) {
+    check.addEventListener("change", function() {
+      _update_bonuses(this);
+      render();
+      sheet.storeCharacters();
+    }, false);
+  };
+
+  function _bind_bonusButton(button) {
+    button.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      _totalBlockModalContent(this);
+    }, false);
+  };
+
+  function _update_bonuses(input) {
+    var bonusType = input.dataset.bonusType.replace(/-+/g, "_");
+    var totalBlock = helper.getClosest(input, ".js-total-block") || helper.getClosest(input, ".js-total-block-control");
+    var totalPath = totalBlock.dataset.totalPath;
+    var bonusesPath;
+    var bonusesObject;
+    if (totalBlock.dataset.clone == "true") {
+      // console.log(1);
+      var cloneCount = totalBlock.dataset.cloneCount;
+      object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
+      object.bonuses[bonusType] = input.checked;
+    } else {
+      // console.log(2);
+      bonusesPath = totalPath + ".bonuses";
+      bonusesObject = helper.getObject(sheet.getCharacter(), bonusesPath);
+      bonusesObject[bonusType] = input.checked;
     };
   };
 
   function clear() {
-    var all_totalBlock = helper.eA(".js-total-block");
-    for (var i = 0; i < all_totalBlock.length; i++) {
-      delete all_totalBlock[i].dataset.strBonus;
-      delete all_totalBlock[i].dataset.dexBonus;
-      delete all_totalBlock[i].dataset.conBonus;
-      delete all_totalBlock[i].dataset.intBonus;
-      delete all_totalBlock[i].dataset.wisBonus;
-      delete all_totalBlock[i].dataset.chaBonus;
-      delete all_totalBlock[i].dataset.babBonus;
-      delete all_totalBlock[i].dataset.sizeBonus;
-      delete all_totalBlock[i].dataset.levelBonus;
-      delete all_totalBlock[i].dataset.halfLevelBonus;
-      delete all_totalBlock[i].dataset.plusTenBonus;
-      delete all_totalBlock[i].dataset.acArmor;
-      delete all_totalBlock[i].dataset.acShield;
-      delete all_totalBlock[i].dataset.acDeflect;
-      delete all_totalBlock[i].dataset.acDodge;
-      delete all_totalBlock[i].dataset.acNatural;
-      delete all_totalBlock[i].dataset.classSkill;
-      delete all_totalBlock[i].dataset.checkPenalty;
-      delete all_totalBlock[i].dataset.maxDex;
+    var all_total = helper.eA(".js-total-block-total");
+    for (var i = 0; i < all_total.length; i++) {
+      all_total[i].textContent = "";
     };
   };
 
@@ -15021,7 +14068,6 @@ var totalBlock = (function() {
   return {
     clear: clear,
     bind: bind,
-    update: update,
     render: render
   };
 
@@ -15030,6 +14076,13 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.5.0",
+    list: [
+      "Refactored Clones, Input and Textarea modules.",
+      "*New Items feature added.",
+      "*New Custom Skills feature added.",
+    ]
+  }, {
     version: "3.4.0",
     list: [
       "Redesigned edit mode layout and style for ease of reading."
@@ -15076,8 +14129,8 @@ var update = (function() {
 
   nav.bind();
   nav.render();
-  sheet.bind();
   sheet.render();
+  sheet.bind();
   night.update();
   checkUrl.render();
   log.bind();

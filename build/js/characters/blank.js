@@ -28,7 +28,9 @@ var blank = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -79,6 +81,7 @@ var blank = (function() {
     equipment: {
       gear: "",
       magic_gear: "",
+      item: [],
       encumbrance: {
         light: "",
         medium: "",
@@ -197,7 +200,9 @@ var blank = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -213,7 +218,9 @@ var blank = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -229,7 +236,9 @@ var blank = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: ""
@@ -316,18 +325,19 @@ var blank = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
@@ -967,150 +977,6 @@ var blank = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -1125,7 +991,8 @@ var blank = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {

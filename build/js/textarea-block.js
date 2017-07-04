@@ -1,25 +1,36 @@
 var textareaBlock = (function() {
 
   function _store(element) {
-    var path = element.dataset.path;
+    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var path = textareaBlockField.dataset.path;
+    var type = textareaBlockField.dataset.type;
+    var data = element.innerHTML;
     if (path) {
-      helper.setObject(sheet.getCharacter(), path, element.innerHTML);
-      sheet.storeCharacters();
+      if (textareaBlock.dataset.clone == "true") {
+        var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
+        var cloneCount = textareaBlock.dataset.cloneCount;
+        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+        object[pathCloneKey] = data;
+      } else {
+        helper.setObject(sheet.getCharacter(), path, data);
+      };
     };
   };
 
   var storeInputTimer = null;
-  var storeBlurTimer = null;
 
   function delayUpdate(element) {
     _store(element);
+    sheet.storeCharacters();
+    totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
       display.render();
     };
   };
 
-  function focus(element) {
+  function _focus(element) {
     var textareaBlock = helper.getClosest(element, ".js-textarea-block");
     if (element == document.activeElement) {
       helper.addClass(textareaBlock, "is-focus");
@@ -32,73 +43,69 @@ var textareaBlock = (function() {
     var all_textareaBlock = helper.eA(".js-textarea-block");
     for (var i = 0; i < all_textareaBlock.length; i++) {
       all_textareaBlock[i].querySelector(".js-textarea-block-field").innerHTML = "";
-      var textareaBlockLabel;
-      if (all_textareaBlock[i].querySelector(".js-textarea-block-label")) {
-        textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
-        helper.removeClass(textareaBlockLabel, "is-active");
+    };
+  };
+
+  function bind(textareaBlock) {
+    if (textareaBlock) {
+      _bind_textareaBlock(textareaBlock);
+    } else {
+      var all_textareaBlock = helper.eA(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        if (all_textareaBlock[i].dataset.clone != "true") {
+          _bind_textareaBlock(all_textareaBlock[i]);
+        };
       };
     };
   };
 
-  function update(element) {
-    focus(element);
-  };
-
-  function bind() {
-    var all_textareaBlock = helper.eA(".js-textarea-block");
-    for (var i = 0; i < all_textareaBlock.length; i++) {
-      var textareaBlockField = all_textareaBlock[i].querySelector(".js-textarea-block-field");
-      var textareaBlockLabel = all_textareaBlock[i].querySelector(".js-textarea-block-label");
-      if (textareaBlockField) {
-        textareaBlockField.addEventListener("input", function() {
-          clearTimeout(storeBlurTimer);
-          storeBlurTimer = setTimeout(delayUpdate, 1000, this);
-        }, false);
-        textareaBlockField.addEventListener("focus", function() {
-          focus(this);
-        }, false);
-        textareaBlockField.addEventListener("blur", function() {
-          _store(this);
-          focus(this);
-        }, false);
-        textareaBlockField.addEventListener("paste", function(event) {
-          helper.pasteStrip(event);
-        });
-      };
-      if (textareaBlockLabel) {
-        textareaBlockLabel.addEventListener("click", function() {
-          focusLabel(this);
-        }, false);
-      };
+  function _bind_textareaBlock(textareaBlock) {
+    var field = textareaBlock.querySelector(".js-textarea-block-field");
+    if (field) {
+      field.addEventListener("input", function() {
+        clearTimeout(storeInputTimer);
+        storeInputTimer = setTimeout(delayUpdate, 400, this);
+        sheet.storeCharacters();
+      }, false);
+      field.addEventListener("focus", function() {
+        _focus(this);
+      }, false);
+      field.addEventListener("blur", function() {
+        _store(this);
+        _focus(this);
+        sheet.storeCharacters();
+      }, false);
+      field.addEventListener("paste", function(event) {
+        helper.pasteStrip(event);
+      });
     };
-  };
-
-  function focusLabel(element) {
-    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    textareaBlockField.focus();
   };
 
   function render() {
-    var all_textareaBlockField = helper.eA(".js-textarea-block-field");
-    for (var i = 0; i < all_textareaBlockField.length; i++) {
-      var path = all_textareaBlockField[i].dataset.path;
+    var all_textareaBlock = helper.eA(".js-textarea-block");
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      var all_textareaBlockField = all_textareaBlock[i].querySelector(".js-textarea-block-field");
+      var path = all_textareaBlockField.dataset.path;
       if (path) {
-        var content = helper.getObject(sheet.getCharacter(), path);
-        all_textareaBlockField[i].innerHTML = content;
-        update(all_textareaBlockField[i]);
+        if (all_textareaBlock[i].dataset.clone == "true") {
+          var pathCloneKey = all_textareaBlockField.dataset.pathCloneKey;
+          var cloneCount = all_textareaBlock[i].dataset.cloneCount;
+          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+          all_textareaBlockField.innerHTML = object[pathCloneKey];
+          // console.log("found clone input", path, pathCloneKey, all_textareaBlock[i].dataset.cloneCount, all_textareaBlock[i]);
+        } else {
+          var content = helper.getObject(sheet.getCharacter(), path);
+          all_textareaBlockField.innerHTML = content;
+        };
       };
     };
   };
 
   // exposed methods
   return {
-    update: update,
-    focus: focus,
-    focusLabel: focusLabel,
     render: render,
-    clear: clear,
-    bind: bind
+    bind: bind,
+    clear: clear
   };
 
 })();

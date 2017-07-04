@@ -28,7 +28,9 @@ var nefi = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -79,6 +81,7 @@ var nefi = (function() {
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
+      item: [],
       encumbrance: {
         light: "173 lbs or less",
         medium: "174–346 lbs",
@@ -197,7 +200,9 @@ var nefi = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -213,7 +218,9 @@ var nefi = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -229,7 +236,9 @@ var nefi = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "+3 bonus on Will saves against fear."
@@ -363,18 +372,19 @@ var nefi = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: "",
         misc: 5,
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
@@ -1014,150 +1024,6 @@ var nefi = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -1172,7 +1038,8 @@ var nefi = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {

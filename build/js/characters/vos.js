@@ -28,7 +28,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -79,6 +81,7 @@ var vos = (function() {
     equipment: {
       gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger, Lavendar soap, Soap bar",
       magic_gear: "Good Berries (5), Potion of Stabilise, Potion of Cure Light Wounds (1), Potion of Cure Moderate Wounds (1), Potion of Owls Wisdom (1)",
+      item: [],
       encumbrance: {
         light: "76 lbs or less",
         medium: "77–153 lbs",
@@ -110,17 +113,17 @@ var vos = (function() {
       consumable: [{
         item: "Ki Pool",
         current: "",
-        total: "10",
+        total: 10,
         used: ""
       }, {
         item: "Scented Oils",
         current: "",
-        total: "5",
+        total: 5,
         used: ""
       }, {
         item: "Stunning Fist",
         current: "",
-        total: "7",
+        total: 7,
         used: ""
       }]
     },
@@ -212,7 +215,9 @@ var vos = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -228,7 +233,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -244,7 +251,9 @@ var vos = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
@@ -363,6 +372,24 @@ var vos = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [{
+        name: "Acrobatics (Jump)",
+        ranks: 7,
+        misc: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: true,
+          half_level: false,
+          check_penalty: false
+        }
+      }],
       acrobatics: {
         ranks: 7,
         misc: "",
@@ -1014,150 +1041,6 @@ var vos = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "Acrobatics (Jump)",
-        ranks: 7,
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: true,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -1172,7 +1055,8 @@ var vos = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          level: false
+          level: false,
+          half_level: false
         }
       },
       per_day: {

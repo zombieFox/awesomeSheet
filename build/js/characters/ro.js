@@ -28,7 +28,9 @@ var ro = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       }
     },
@@ -79,6 +81,7 @@ var ro = (function() {
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
+      item: [],
       encumbrance: {
         light: "43 lbs or less",
         medium: "44–86 lbs",
@@ -217,7 +220,9 @@ var ro = (function() {
           con_bonus: true,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       reflex: {
@@ -233,7 +238,9 @@ var ro = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       will: {
@@ -249,7 +256,9 @@ var ro = (function() {
           con_bonus: false,
           int_bonus: false,
           wis_bonus: true,
-          cha_bonus: false
+          cha_bonus: false,
+          level: false,
+          half_level: false
         }
       },
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
@@ -378,18 +387,19 @@ var ro = (function() {
         include_custom: false,
         current: ""
       },
+      custom: [],
       acrobatics: {
         ranks: 4,
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
+          class_skill: false,
           level: false,
           half_level: false,
           check_penalty: true
@@ -1029,150 +1039,6 @@ var ro = (function() {
           half_level: false,
           check_penalty: false
         }
-      },
-      custom_1: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_2: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_3: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_4: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_5: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_6: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_7: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
-      },
-      custom_8: {
-        name: "",
-        ranks: "",
-        misc: "",
-        current: "",
-        bonuses: {
-          class_skill: false,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false,
-          check_penalty: false
-        }
       }
     },
     spells: {
@@ -1187,7 +1053,8 @@ var ro = (function() {
           int_bonus: true,
           wis_bonus: false,
           cha_bonus: false,
-          level: true
+          level: true,
+          half_level: false
         }
       },
       per_day: {
