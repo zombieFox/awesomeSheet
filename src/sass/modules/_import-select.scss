@@ -1,7 +1,10 @@
+.m-import-select-wrapper {
+  text-align: center;
+}
 .m-import-select {
   position: relative;
-  text-align: center;
   cursor: pointer;
+  display: inline-block;
 }
 .m-import-select-input {
   position: absolute;
@@ -16,27 +19,24 @@
   margin-bottom: 0;
   position: relative;
   z-index: 2;
+  display: flex;
   &.m-import-select-label-ok {
-    [class^="icon-"],
-    [class*=" icon-"] {
+    [class*=" icon-"],
+    [class^="icon-"] {
       color: $secondary-color-10;
     }
   }
   &.m-import-select-label-error {
-    [class^="icon-"],
-    [class*=" icon-"] {
+    [class*=" icon-"],
+    [class^="icon-"] {
       color: $primary-color-10;
     }
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

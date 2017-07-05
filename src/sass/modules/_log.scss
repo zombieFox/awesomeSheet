@@ -19,11 +19,6 @@
 .m-log-wrapper {
   box-sizing: border-box;
   transition: all $transition-ease-fast;
-  .container {
-    max-width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 .m-log-body {
   background-color: $secondary-color-04;

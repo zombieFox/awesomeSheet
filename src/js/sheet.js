@@ -138,6 +138,8 @@ var sheet = (function() {
     row.setAttribute("class", "row");
     var col = document.createElement("div");
     col.setAttribute("class", "col-xs-12");
+    var importSelectWrapper = document.createElement("div");
+    importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
     var importSelect = document.createElement("div");
     importSelect.setAttribute("class", "m-import-select");
     var input = document.createElement("input");
@@ -160,8 +162,9 @@ var sheet = (function() {
     label.appendChild(labelText);
     importSelect.appendChild(input);
     importSelect.appendChild(label);
+    importSelectWrapper.appendChild(importSelect);
     col.appendChild(message);
-    col.appendChild(importSelect);
+    col.appendChild(importSelectWrapper);
     row.appendChild(col);
     container.appendChild(row);
     input.addEventListener("change", _handleFiles, false);
