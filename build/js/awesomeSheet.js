@@ -9028,6 +9028,7 @@ var clone = (function() {
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
     _update_clonePrefix("item");
+    _update_clonePrefix("consumable");
   };
 
   function _get_cloneObjects(cloneType) {
@@ -9063,26 +9064,22 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
+        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-medium">' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="consumable-item-' + cloneIndex + '">Item</label>' +
         '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
-        '          <p class="m-total-block-label">Total</p>' +
         '          <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total">0</p>' +
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + cloneIndex + '">Max</label>' +
         '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="number" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + cloneIndex + '">Used</label>' +
         '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="number" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
@@ -9126,7 +9123,7 @@ var clone = (function() {
       cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="m-edit-box">' +
-      '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-small">' +
+      '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-medium">' +
       '      <div class="m-edit-box-item-large">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
       '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
@@ -12246,6 +12243,8 @@ var sheet = (function() {
     row.setAttribute("class", "row");
     var col = document.createElement("div");
     col.setAttribute("class", "col-xs-12");
+    var importSelectWrapper = document.createElement("div");
+    importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
     var importSelect = document.createElement("div");
     importSelect.setAttribute("class", "m-import-select");
     var input = document.createElement("input");
@@ -12268,8 +12267,9 @@ var sheet = (function() {
     label.appendChild(labelText);
     importSelect.appendChild(input);
     importSelect.appendChild(label);
+    importSelectWrapper.appendChild(importSelect);
     col.appendChild(message);
-    col.appendChild(importSelect);
+    col.appendChild(importSelectWrapper);
     row.appendChild(col);
     container.appendChild(row);
     input.addEventListener("change", _handleFiles, false);
