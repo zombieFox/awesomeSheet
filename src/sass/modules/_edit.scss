@@ -195,10 +195,22 @@
     }
   }
 }
-.m-edit-box-body-item-margin {
+.m-edit-box-body-item-margin-large {
   [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
     margin-bottom: 1em;
+  }
+}
+.m-edit-box-body-item-margin-medium {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-bottom: 0.5em;
+  }
+}
+.m-edit-box-body-item-margin-small {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-bottom: 0.2em;
   }
 }
 [class*="m-edit-box-label"],
@@ -211,7 +223,6 @@
   color: $secondary-color-06;
   box-sizing: border-box;
   width: 100%;
-  text-align: center;
 }
 .m-edit-box-label-total {
   color: $gray-14;

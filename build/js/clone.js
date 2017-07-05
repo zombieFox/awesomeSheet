@@ -15,6 +15,7 @@ var clone = (function() {
     _update_clonePlaceholder("skill");
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
+    _update_clonePrefix("item");
   };
 
   function _get_cloneObjects(cloneType) {
@@ -50,7 +51,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-item-' + cloneIndex + '">Item</label>' +
@@ -82,62 +83,59 @@ var clone = (function() {
         '</div>';
     };
     if (cloneType == "item") {
-      if (_get_cloneTarget("item").children.length >= 1) {
-        cloneString =
-        '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-        '      <div class="m-edit-box-item-large">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
-        '        </div>' +
-        '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
-        '        </div>' +
-        '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" type="text" tabindex="3">' +
-        '        </div>' +
-        '      </div>' +
-        '    </div>' +
-        '  </div>' +
-        '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-        '  </div>' +
-        '</div>';
-      } else {
-        cloneString =
-        '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
-        '      <div class="m-edit-box-item-large">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <label class="m-input-block-label js-input-block-label" for="item-name-' + cloneIndex + '">Name</label>' +
-        '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
-        '        </div>' +
-        '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <label class="m-input-block-label js-input-block-label" for="item-quantity-' + cloneIndex + '">Quantity</label>' +
-        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
-        '        </div>' +
-        '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <label class="m-input-block-label js-input-block-label" for="item-weight-' + cloneIndex + '">Weight</label>' +
-        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" type="text" tabindex="3">' +
-        '        </div>' +
-        '      </div>' +
-        '    </div>' +
-        '  </div>' +
-        '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-        '  </div>' +
-        '</div>';
-      };
+      // cloneString =
+      // '<div class="m-clone-block-content js-clone-block-content">' +
+      // '  <div class="m-edit-box">' +
+      // '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
+      // '      <div class="m-edit-box-item-large">' +
+      // '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+      // '          <label class="m-input-block-label js-input-block-label" for="item-name-' + cloneIndex + '">Name</label>' +
+      // '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
+      // '        </div>' +
+      // '      </div>' +
+      // '      <div class="m-edit-box-item-small">' +
+      // '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+      // '          <label class="m-input-block-label js-input-block-label" for="item-quantity-' + cloneIndex + '">Quantity</label>' +
+      // '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
+      // '        </div>' +
+      // '      </div>' +
+      // '      <div class="m-edit-box-item-small">' +
+      // '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+      // '          <label class="m-input-block-label js-input-block-label" for="item-weight-' + cloneIndex + '">Weight</label>' +
+      // '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" type="text" tabindex="3">' +
+      // '        </div>' +
+      // '      </div>' +
+      // '    </div>' +
+      // '  </div>' +
+      // '  <div class="m-clone-block-delete-controls">' +
+      // '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      // '  </div>' +
+      // '</div>';
+      cloneString =
+      '<div class="m-clone-block-content js-clone-block-content">' +
+      '  <div class="m-edit-box">' +
+      '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-small">' +
+      '      <div class="m-edit-box-item-large">' +
+      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+      '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
+      '        </div>' +
+      '      </div>' +
+      '      <div class="m-edit-box-item-small">' +
+      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
+      '        </div>' +
+      '      </div>' +
+      '      <div class="m-edit-box-item-small">' +
+      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="number" type="text" tabindex="3">' +
+      '        </div>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
+      '  <div class="m-clone-block-delete-controls">' +
+      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  </div>' +
+      '</div>';
     };
     if (cloneType == "skill") {
       cloneString =
@@ -184,7 +182,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
@@ -194,7 +192,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + cloneIndex + '">Attack</label>' +
@@ -224,7 +222,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content m-clone-block-content-box js-clone-block-content">' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
@@ -234,7 +232,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + cloneIndex + '">Attack</label>' +
@@ -256,7 +254,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + cloneIndex + '">Range</label>' +
@@ -280,7 +278,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + cloneIndex + '">Note</label>' +
@@ -298,7 +296,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin">' +
+        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + cloneIndex + '">Note</label>' +
@@ -423,6 +421,32 @@ var clone = (function() {
       clonePlaceholder = helper.e(".js-placeholder-clone-note-story");
     };
     return clonePlaceholder;
+  };
+
+  function _get_clonePrefix(cloneType) {
+    var clonePrefix;
+    if (cloneType == "attack-melee") {
+      clonePrefix = helper.e(".js-clone-block-prefix-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      clonePrefix = helper.e(".js-clone-block-prefix-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      clonePrefix = helper.e(".js-clone-block-prefix-consumable");
+    };
+    if (cloneType == "item") {
+      clonePrefix = helper.e(".js-clone-block-prefix-item");
+    };
+    if (cloneType == "skill") {
+      clonePrefix = helper.e(".js-clone-block-prefix-skill");
+    };
+    if (cloneType == "note-character") {
+      clonePrefix = helper.e(".js-clone-block-prefix-note-character");
+    };
+    if (cloneType == "note-story") {
+      clonePrefix = helper.e(".js-clone-block-prefix-note-story");
+    };
+    return clonePrefix;
   };
 
   function _get_maxCloneMessage(cloneType) {
@@ -661,27 +685,13 @@ var clone = (function() {
   };
 
   function _bind_clone(cloneType, newClone) {
-    if (cloneType == "consumable") {
+    if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
+    };
+    if (cloneType == "consumable" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
-    if (cloneType == "skill") {
-      _bind_totalBlock(newClone.querySelector(".js-total-block"));
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "item") {
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-melee") {
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-ranged") {
-      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "note-character") {
-      _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
-    };
-    if (cloneType == "note-story") {
+    if (cloneType == "note-character" || cloneType == "note-story") {
       _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
   };
@@ -691,6 +701,7 @@ var clone = (function() {
       _add_cloneObject(cloneType);
       _render_clone(cloneType);
       _update_clonePlaceholder(cloneType);
+      _update_clonePrefix(cloneType);
       _smoothScrollToClones(cloneType);
     } else {
       _render_maxClonesSnack(cloneType);
@@ -775,6 +786,7 @@ var clone = (function() {
     textareaBlock.clear();
     textareaBlock.render();
     _update_clonePlaceholder(cloneType);
+    _update_clonePrefix(cloneType);
     _update_cloneState(cloneType);
     totalBlock.render();
     snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 6000);
@@ -790,6 +802,7 @@ var clone = (function() {
     textareaBlock.clear();
     textareaBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
+    _update_clonePrefix(undoData.cloneType);
     _update_cloneState(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.render();
@@ -870,6 +883,17 @@ var clone = (function() {
       helper.removeClass(clonePlaceholder, "is-hidden");
     } else {
       helper.addClass(clonePlaceholder, "is-hidden");
+    };
+  };
+
+  function _update_clonePrefix(cloneType) {
+    var clonePrefix = _get_clonePrefix(cloneType);
+    if (clonePrefix) {
+      if (_get_cloneCount(cloneType) <= 0) {
+        helper.addClass(clonePrefix, "is-hidden");
+      } else {
+        helper.removeClass(clonePrefix, "is-hidden");
+      };
     };
   };
 

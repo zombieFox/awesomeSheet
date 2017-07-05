@@ -114,6 +114,11 @@
   .m-card-head {
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
+  .is-minimise {
+    .m-card-head {
+      border-radius: $border-radius-large;
+    }
+  }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {

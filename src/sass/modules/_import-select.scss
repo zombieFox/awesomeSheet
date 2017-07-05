@@ -1,31 +1,31 @@
 .m-import-select {
   position: relative;
+  text-align: center;
   cursor: pointer;
-  .m-import-select-input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    z-index: 1;
-  }
-  .m-import-select-label {
-    margin-bottom: 0;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    &.m-import-select-label-ok {
-      [class^="icon-"],
-      [class*=" icon-"] {
-        color: $secondary-color-10;
-      }
+}
+.m-import-select-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+.m-import-select-label {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  &.m-import-select-label-ok {
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: $secondary-color-10;
     }
-    &.m-import-select-label-error {
-      [class^="icon-"],
-      [class*=" icon-"] {
-        color: $primary-color-10;
-      }
+  }
+  &.m-import-select-label-error {
+    [class^="icon-"],
+    [class*=" icon-"] {
+      color: $primary-color-10;
     }
   }
 }

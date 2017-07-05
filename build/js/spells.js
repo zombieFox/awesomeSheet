@@ -187,7 +187,7 @@ var spells = (function() {
       nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       nameEditBoxHeadTitle.textContent = "Name";
       var nameEditBoxBody = document.createElement("div");
-      nameEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-item-margin");
+      nameEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-item-margin-large");
       var nameEditBoxBodyItem = document.createElement("div");
       nameEditBoxBodyItem.setAttribute("class", "m-edit-box-item-large");
       var nameEditBoxBodyInput = document.createElement("input");
@@ -209,7 +209,7 @@ var spells = (function() {
       preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       preparedEditBoxHeadTitle.textContent = "Prepared";
       var preparedEditBoxBody = document.createElement("div");
-      preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
+      preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
       var preparedEditBoxBodyItem1 = document.createElement("div");
       preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
       var preparedEditBoxBodyItem2 = document.createElement("div");
@@ -272,7 +272,7 @@ var spells = (function() {
       castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       castEditBoxHeadTitle.textContent = "Cast";
       var castEditBoxBody = document.createElement("div");
-      castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
+      castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
       var castEditBoxBodyItem1 = document.createElement("div");
       castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
       var castEditBoxBodyItem2 = document.createElement("div");
@@ -335,7 +335,7 @@ var spells = (function() {
       activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       activeEditBoxHeadTitle.textContent = "Active";
       var activeEditBoxBody = document.createElement("div");
-      activeEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin");
+      activeEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
       var activeEditBoxBodyItem1 = document.createElement("div");
       activeEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-check");
       var activeCheck = document.createElement("div");

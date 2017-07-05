@@ -14,7 +14,7 @@
           background-color: $primary-color-10;
           position: absolute;
           display: block;
-          top: 0;
+          top: 50%;
           left: -1em;
           width: 0;
           height: 0;
@@ -88,7 +88,7 @@
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
-        margin: 0 0 1em;
+        margin: 0 0 0.5em;
         .m-clone-block-content {
           background-color: $primary-color-19;
           padding: 1em 4em 1em 1em;
@@ -101,7 +101,9 @@
           padding: 0;
           margin: 0;
         }
-        .m-edit-box-body-item-margin {
+        .m-edit-box-body-item-margin-large,
+        .m-edit-box-body-item-margin-medium,
+        .m-edit-box-body-item-margin-small {
           [class*="m-edit-box-item"],
           [class^="m-edit-box-item"] {
             margin: 0;

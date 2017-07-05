@@ -79,131 +79,15 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse, Viles of insect sap (15), Andorak spell book",
-      magic_gear: "Handy Haversack",
+      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse",
+      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3), Potion of Cure Light Wounds (0), Potion of Cure Moderate Wounds (0), Potion of Protection from Evil (1), Potion of Adjustable Disguise (1), Potion of Aid (1), Potion of Displacement (1), Scroll if Acid Pit (1), Scroll if Summon Monster III (2), Scroll if Summon Monster IV (0), Scroll if Invisibility (2), Scroll if Create Pit (2), Scroll if Web (3), Scroll if Stinking Cloud (2), Scroll if Grease (1), Scroll if Mirror Image (3), Scroll if Spiked Pit (4), Scroll if Fly (4), Scroll if Interposing Hand (1), Scroll if Elemental Body 2 (0), Scroll if Wall of Fire (1), Scroll if Haste (2), Scroll if Enlarge Person (2), Scroll if Endure Element (2), Scroll if Acid Arrow (0), Scroll if Gust of Wind (0), Scroll if Animate Rope (1), Scroll if False Life (1), Scroll if Floating Disk (1)",
       item: [{
-        name: "Vile of Antitoxin",
+        name: "Andorak spell book",
         quantity: 1,
         weight: ""
       }, {
-        name: "Vile of Holy Water",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Viles of Yellow Mushroom Juice",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Potion of Cure Light Wounds",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Potion of Cure Moderate Wounds",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Potion of Protection from Evil",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Adjustable Disguise",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Aid",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Displacement",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if Acid Pit",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if Summon Monster III",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Summon Monster IV",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll if Invisibility",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Create Pit",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Web",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Scroll if Stinking Cloud",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Grease",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if Mirror Image",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Scroll if Spiked Pit",
-        quantity: 4,
-        weight: ""
-      }, {
-        name: "Scroll if Fly",
-        quantity: 4,
-        weight: ""
-      }, {
-        name: "Scroll if Interposing Hand",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if Elemental Body 2",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll if Wall of Fire",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if Haste",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Enlarge Person",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Endure Element",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll if Acid Arrow",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll if Gust of Wind",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll if Animate Rope",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if False Life",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll if Floating Disk",
-        quantity: 1,
+        name: "Viles of insect sap",
+        quantity: 15,
         weight: ""
       }],
       encumbrance: {
