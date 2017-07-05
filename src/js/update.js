@@ -1,11 +1,16 @@
 var update = (function() {
 
   var history = [{
+    version: "3.5.1",
+    list: [
+      "Improve Clone and Import UI.",
+    ]
+  }, {
     version: "3.5.0",
     list: [
       "Refactored Clones, Input and Textarea modules.",
       "*New Items feature added.",
-      "*New Custom Skills feature added.",
+      "*New Custom Skills feature added."
     ]
   }, {
     version: "3.4.0",
