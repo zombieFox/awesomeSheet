@@ -13953,6 +13953,7 @@ var totalBlock = (function() {
     var totalPath = totalBlock.dataset.totalPath;
     var bonusesPath;
     var bonusesObject;
+    var object;
     if (totalBlock.dataset.clone == "true") {
       // console.log(1);
       var cloneCount = totalBlock.dataset.cloneCount;
