@@ -22,6 +22,20 @@ var repair = (function() {
         }
       };
     };
+    // add concentration bonus object
+    if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
+      // console.log("\t\tadd concentration bonus object");
+      characterObject.spells.concentration.bonuses = {
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
+      };
+    };
     // add custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
       // console.log("\t\tadd custom skills array");

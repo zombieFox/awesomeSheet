@@ -12116,6 +12116,20 @@ var repair = (function() {
         }
       };
     };
+    // add concentration bonus object
+    if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
+      // console.log("\t\tadd concentration bonus object");
+      characterObject.spells.concentration.bonuses = {
+        str_bonus: false,
+        dex_bonus: true,
+        con_bonus: false,
+        int_bonus: false,
+        wis_bonus: false,
+        cha_bonus: false,
+        level: false,
+        half_level: false
+      };
+    };
     // add custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
       // console.log("\t\tadd custom skills array");
@@ -14082,9 +14096,15 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.5.2",
+    list: [
+      "Added Item list total weight.",
+      "Updated character object repair for concentration bonuses"
+    ]
+  }, {
     version: "3.5.1",
     list: [
-      "Improve Clone and Import UI.",
+      "Improve Clone and Import UI."
     ]
   }, {
     version: "3.5.0",

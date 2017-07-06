@@ -1,9 +1,15 @@
 var update = (function() {
 
   var history = [{
+    version: "3.5.2",
+    list: [
+      "Added Item list total weight.",
+      "Updated character object repair for concentration bonuses"
+    ]
+  }, {
     version: "3.5.1",
     list: [
-      "Improve Clone and Import UI.",
+      "Improve Clone and Import UI."
     ]
   }, {
     version: "3.5.0",
