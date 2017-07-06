@@ -2,14 +2,26 @@
   .m-clone-block-target {
     width: 100%;
     .m-clone {
-      transition: all $transition-ease-medium;
       position: relative;
+      transition: all $transition-ease-medium 0.2s;
       .m-clone-block-content {
         border-radius: 0;
         position: relative;
         z-index: 1;
-        transition: all $transition-ease-fast;
+        transition: all $transition-ease-fast 0.2s;
         transform-origin: center center;
+        .m-edit-box,
+        .m-edit-box-guides {
+          transition: border-color $transition-ease-fast 0.2s, padding $transition-ease-fast 0.2s, margin $transition-ease-fast 0.2s;
+        }
+        .m-edit-box-body-item-margin-large,
+        .m-edit-box-body-item-margin-medium,
+        .m-edit-box-body-item-margin-small {
+          [class*="m-edit-box-item"],
+          [class^="m-edit-box-item"] {
+            transition: margin $transition-ease-fast 0.2s;
+          }
+        }
         .m-clone-flash {
           background-color: $primary-color-10;
           position: absolute;
@@ -42,8 +54,8 @@
           border: $border;
           border-color: $gray-17;
           border-radius: $border-radius-large;
-          margin: 0 0 1em 0;
-          padding: 1em 1em 0 1em;
+          margin: 0 0 1em;
+          padding: 1em 1em 0;
           width: 100%;
           box-sizing: border-box;
         }
@@ -62,7 +74,7 @@
           padding: 0 $font-size-050;
           margin: 0;
           font-size: $font-size-150;
-          border-radius: 0 $border-radius-medium 0 $border-radius-medium;
+          border-radius: 0 $border-radius-large 0 $border-radius-large;
           [class*=" icon-"],
           [class^="icon-"] {
             margin-right: 0;
@@ -89,30 +101,34 @@
     .m-clone-block-target {
       .m-clone {
         margin: 0 0 0.5em;
+        transition: all $transition-ease-medium 0s;
         .m-clone-block-content {
           background-color: $primary-color-19;
           padding: 0.5em 4em 0.5em 0.5em;
           border-color: transparent;
           border-radius: $border-radius-large;
-        }
-        .m-edit-box,
-        .m-edit-box-guides {
-          border-color: transparent;
-          padding: 0;
-          margin: 0;
-        }
-        .m-edit-box-body-item-margin-large,
-        .m-edit-box-body-item-margin-medium,
-        .m-edit-box-body-item-margin-small {
-          [class*="m-edit-box-item"],
-          [class^="m-edit-box-item"] {
+          transition: all $transition-ease-fast 0s;
+          .m-edit-box,
+          .m-edit-box-guides {
+            border-color: transparent;
+            padding: 0;
             margin: 0;
+            transition: border-color $transition-ease-fast 0s, padding $transition-ease-fast 0s, margin $transition-ease-fast 0s;
+          }
+          .m-edit-box-body-item-margin-large,
+          .m-edit-box-body-item-margin-medium,
+          .m-edit-box-body-item-margin-small {
+            [class*="m-edit-box-item"],
+            [class^="m-edit-box-item"] {
+              margin: 0;
+              transition: margin $transition-ease-fast 0s;
+            }
           }
         }
         .m-clone-block-delete-controls {
           visibility: visible;
           transform: scale(1);
-          transition: all $transition-bounce-fast 0.2s;
+          transition: all $transition-bounce-medium 0.2s;
         }
         &:last-child {
           margin: 0 0 1em;
