@@ -3745,16 +3745,56 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse",
+      gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
       magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3), Potion of Cure Light Wounds (0), Potion of Cure Moderate Wounds (0), Potion of Protection from Evil (1), Potion of Adjustable Disguise (1), Potion of Aid (1), Potion of Displacement (1), Scroll if Acid Pit (1), Scroll if Summon Monster III (2), Scroll if Summon Monster IV (0), Scroll if Invisibility (2), Scroll if Create Pit (2), Scroll if Web (3), Scroll if Stinking Cloud (2), Scroll if Grease (1), Scroll if Mirror Image (3), Scroll if Spiked Pit (4), Scroll if Fly (4), Scroll if Interposing Hand (1), Scroll if Elemental Body 2 (0), Scroll if Wall of Fire (1), Scroll if Haste (2), Scroll if Enlarge Person (2), Scroll if Endure Element (2), Scroll if Acid Arrow (0), Scroll if Gust of Wind (0), Scroll if Animate Rope (1), Scroll if False Life (1), Scroll if Floating Disk (1)",
       item: [{
+        name: "Flask of oil",
+        quantity: 5,
+        weight: 5
+      }, {
+        name: "Sack",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Waterskin",
+        quantity: 1,
+        weight: 4
+      }, {
+        name: "Bedroll",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Blanket",
+        quantity: 1,
+        weight: 3
+      }, {
+        name: "Bloodblock",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Healer's Kit",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Rope (silk)",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Mirror",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Compass",
+        quantity: 1,
+        weight: 1
+      }, {
         name: "Andorak spell book",
         quantity: 1,
-        weight: ""
+        weight: 0.5
       }, {
         name: "Viles of insect sap",
-        quantity: 15,
-        weight: ""
+        quantity: 14,
+        weight: 7
       }],
       encumbrance: {
         light: "26 lbs or less",
@@ -9036,6 +9076,7 @@ var clone = (function() {
     _update_clonePlaceholder("note-story");
     _update_clonePrefix("item");
     _update_clonePrefix("consumable");
+    _update_cloneSuffix("item");
   };
 
   function _get_cloneObjects(cloneType) {
@@ -9082,12 +9123,12 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="number" type="text" tabindex="3">' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="number" type="text" tabindex="3">' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -9110,12 +9151,12 @@ var clone = (function() {
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
+      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" data-type="integer" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="number" type="text" tabindex="3">' +
+      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="float" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
@@ -9141,12 +9182,12 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="number" type="text" tabindex="3">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="number" type="text" tabindex="3">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-check">' +
@@ -9437,6 +9478,32 @@ var clone = (function() {
     return clonePrefix;
   };
 
+  function _get_cloneSuffix(cloneType) {
+    var cloneSuffix;
+    if (cloneType == "attack-melee") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-consumable");
+    };
+    if (cloneType == "item") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-item");
+    };
+    if (cloneType == "skill") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-skill");
+    };
+    if (cloneType == "note-character") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-note-story");
+    };
+    return cloneSuffix;
+  };
+
   function _get_maxCloneMessage(cloneType) {
     var message = "Max 200, do you need that many";
     if (cloneType == "attack-melee") {
@@ -9690,6 +9757,7 @@ var clone = (function() {
       _render_clone(cloneType);
       _update_clonePlaceholder(cloneType);
       _update_clonePrefix(cloneType);
+      _update_cloneSuffix(cloneType);
       _smoothScrollToClones(cloneType);
     } else {
       _render_maxClonesSnack(cloneType);
@@ -9777,6 +9845,7 @@ var clone = (function() {
     textareaBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
+    _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
     totalBlock.render();
     snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 6000);
@@ -9793,6 +9862,7 @@ var clone = (function() {
     textareaBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
+    _update_cloneSuffix(undoData.cloneType);
     _update_cloneState(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.render();
@@ -9883,6 +9953,17 @@ var clone = (function() {
         helper.addClass(clonePrefix, "is-hidden");
       } else {
         helper.removeClass(clonePrefix, "is-hidden");
+      };
+    };
+  };
+
+  function _update_cloneSuffix(cloneType) {
+    var cloneSuffix = _get_cloneSuffix(cloneType);
+    if (cloneSuffix) {
+      if (_get_cloneCount(cloneType) <= 0) {
+        helper.addClass(cloneSuffix, "is-hidden");
+      } else {
+        helper.removeClass(cloneSuffix, "is-hidden");
       };
     };
   };
@@ -10803,9 +10884,14 @@ var inputBlock = (function() {
     var path = inputBlockField.dataset.path;
     var type = inputBlockField.dataset.type;
     var data;
-    if (type == "number") {
+    if (type == "integer") {
       data = parseInt(element.value, 10 || 0);
-      if (isNaN(data) && type == "number") {
+      if (isNaN(data) && type == "integer") {
+        data = "";
+      };
+    } else if (type == "float") {
+      data = parseFloat(element.value);
+      if (isNaN(data)) {
         data = "";
       };
     } else {
@@ -13631,6 +13717,7 @@ var totalBlock = (function() {
     var sum = [];
     var totalPath = totalBlock.dataset.totalPath;
     var totalType = totalBlock.dataset.totalType;
+    var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
     var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
     var totalPathAddition = false;
     if (totalBlock.dataset.totalPathAddition) {
@@ -13641,12 +13728,16 @@ var totalBlock = (function() {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
     var cloneCount = totalBlock.dataset.cloneCount || false;
-    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
+    // console.log("totalCloneSet", totalCloneSet);
     // console.log("------ total blck", "\t", totalPath, cloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
     var object;
+    var array;
     var value;
     if (totalPath && cloneCount) {
       object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
+    } else if (totalPath && totalCloneSet) {
+      array = helper.getObject(sheet.getCharacter(), totalPath);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -13742,29 +13833,53 @@ var totalBlock = (function() {
     };
     var grandTotal;
     // console.log("\t\t add ----");
-    if (totalPathAddition) {
+    if (totalPathAddition && totalCloneSet) {
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < totalPathAddition.length; j++) {
+          // console.log("\t\t", totalPathAddition[i], "=", array[i][totalPathAddition[j]]);
+          value = parseFloat(array[i][totalPathAddition[j]]) || 0;
+          sum.push(value);
+        };
+      };
+    } else {
       for (var i = 0; i < totalPathAddition.length; i++) {
         // console.log("\t\t", totalPathAddition[i], "=", object[totalPathAddition[i]]);
-        value = parseInt(object[totalPathAddition[i]], 10) || 0;
+        value = parseFloat(object[totalPathAddition[i]]) || 0;
         sum.push(value);
       };
     };
     // console.log("\t\t minus ----");
-    if (totalPathSubtraction) {
+    if (totalPathSubtraction && totalCloneSet) {
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < totalPathSubtraction.length; j++) {
+          // console.log("\t\t", totalPathSubtraction[i], "=", array[i][totalPathSubtraction[j]]);
+          value = parseFloat(-array[i][totalPathSubtraction[j]]) || 0;
+          sum.push(value);
+        };
+      };
+    } else {
       for (var i = 0; i < totalPathSubtraction.length; i++) {
         // console.log("\t\t", totalPathSubtraction[i], "=", object[totalPathSubtraction[i]]);
-        value = parseInt(-object[totalPathSubtraction[i]], 10) || 0;
+        value = parseFloat(-object[totalPathSubtraction[i]]) || 0;
         sum.push(value);
       };
     };
     // console.log("\t\t", sum);
-    grandTotal = sum.reduce(function(a, b) {
-      return a + b;
-    });
-    object.current = grandTotal;
+    if (sum.length > 0) {
+      grandTotal = sum.reduce(function(a, b) {
+        return a + b;
+      });
+    } else {
+      grandTotal = 0;
+    };
+    if (object) {
+      object.current = grandTotal;
+    };
     // add + to bonus totals
     if (totalType == "bonus" && grandTotal > 0) {
       grandTotal = "+" + grandTotal;
+    } else if (totalType == "weight" && grandTotal > 0) {
+      grandTotal = grandTotal + "lbs";
     };
     totalElement.textContent = grandTotal;
   };

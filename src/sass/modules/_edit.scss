@@ -60,6 +60,9 @@
   margin-left: -$gutter;
   margin-right: -$gutter;
 }
+.m-edit-box-body-end {
+  justify-content: flex-end;
+}
 .m-edit-box-body-multiple {
   flex: 1 1 auto;
   display: flex;
@@ -132,7 +135,6 @@
     .m-stat-modifier,
     .m-total-block-total {
       margin-left: -1px;
-      // margin-right: -1px;
     }
     .m-input-block {
       z-index: 2;

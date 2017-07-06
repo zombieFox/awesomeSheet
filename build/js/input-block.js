@@ -6,9 +6,14 @@ var inputBlock = (function() {
     var path = inputBlockField.dataset.path;
     var type = inputBlockField.dataset.type;
     var data;
-    if (type == "number") {
+    if (type == "integer") {
       data = parseInt(element.value, 10 || 0);
-      if (isNaN(data) && type == "number") {
+      if (isNaN(data) && type == "integer") {
+        data = "";
+      };
+    } else if (type == "float") {
+      data = parseFloat(element.value);
+      if (isNaN(data)) {
         data = "";
       };
     } else {

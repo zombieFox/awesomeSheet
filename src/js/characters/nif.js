@@ -79,16 +79,56 @@ var nif = (function() {
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
-      gear: "Spell component pouch, Spellbook, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Bloodblock (2), Healer's Kit (2), Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Scroll Case, Combat trained horse",
+      gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
       magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3), Potion of Cure Light Wounds (0), Potion of Cure Moderate Wounds (0), Potion of Protection from Evil (1), Potion of Adjustable Disguise (1), Potion of Aid (1), Potion of Displacement (1), Scroll if Acid Pit (1), Scroll if Summon Monster III (2), Scroll if Summon Monster IV (0), Scroll if Invisibility (2), Scroll if Create Pit (2), Scroll if Web (3), Scroll if Stinking Cloud (2), Scroll if Grease (1), Scroll if Mirror Image (3), Scroll if Spiked Pit (4), Scroll if Fly (4), Scroll if Interposing Hand (1), Scroll if Elemental Body 2 (0), Scroll if Wall of Fire (1), Scroll if Haste (2), Scroll if Enlarge Person (2), Scroll if Endure Element (2), Scroll if Acid Arrow (0), Scroll if Gust of Wind (0), Scroll if Animate Rope (1), Scroll if False Life (1), Scroll if Floating Disk (1)",
       item: [{
+        name: "Flask of oil",
+        quantity: 5,
+        weight: 5
+      }, {
+        name: "Sack",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Waterskin",
+        quantity: 1,
+        weight: 4
+      }, {
+        name: "Bedroll",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Blanket",
+        quantity: 1,
+        weight: 3
+      }, {
+        name: "Bloodblock",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Healer's Kit",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Rope (silk)",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Mirror",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Compass",
+        quantity: 1,
+        weight: 1
+      }, {
         name: "Andorak spell book",
         quantity: 1,
-        weight: ""
+        weight: 0.5
       }, {
         name: "Viles of insect sap",
-        quantity: 15,
-        weight: ""
+        quantity: 14,
+        weight: 7
       }],
       encumbrance: {
         light: "26 lbs or less",

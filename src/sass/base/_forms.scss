@@ -40,12 +40,13 @@ textarea {
   &:hover {
     background-color: $secondary-color-19;
     border-color: $secondary-color-06;
+    box-shadow: 0 0 0 3px $secondary-color-alpha-15;
   }
   &:focus {
     background-color: $white;
     border-color: $primary-color-10;
+    box-shadow: 0 0 0 3px $primary-color-alpha-15;
     outline: 0;
-    box-shadow: none;
   }
 }
 .textarea-large {
@@ -74,6 +75,7 @@ input {
     &:hover {
       background-color: $secondary-color-19;
       border-color: $secondary-color-06;
+      box-shadow: 0 0 0 3px $secondary-color-alpha-15;
       &:focus {
         background-color: $white;
         border-color: $primary-color-10;
@@ -82,8 +84,8 @@ input {
     &:focus {
       background-color: $white;
       border-color: $primary-color-10;
+      box-shadow: 0 0 0 3px $primary-color-alpha-15;
       outline: 0;
-      box-shadow: none;
     }
   }
 }

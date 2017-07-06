@@ -17,6 +17,7 @@ var clone = (function() {
     _update_clonePlaceholder("note-story");
     _update_clonePrefix("item");
     _update_clonePrefix("consumable");
+    _update_cloneSuffix("item");
   };
 
   function _get_cloneObjects(cloneType) {
@@ -63,12 +64,12 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="number" type="text" tabindex="3">' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="number" type="text" tabindex="3">' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -91,12 +92,12 @@ var clone = (function() {
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
+      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" data-type="integer" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="number" type="text" tabindex="3">' +
+      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="float" type="text" tabindex="3">' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
@@ -122,12 +123,12 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="number" type="text" tabindex="3">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="number" type="text" tabindex="3">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-check">' +
@@ -418,6 +419,32 @@ var clone = (function() {
     return clonePrefix;
   };
 
+  function _get_cloneSuffix(cloneType) {
+    var cloneSuffix;
+    if (cloneType == "attack-melee") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-attack-melee");
+    };
+    if (cloneType == "attack-ranged") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-attack-ranged");
+    };
+    if (cloneType == "consumable") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-consumable");
+    };
+    if (cloneType == "item") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-item");
+    };
+    if (cloneType == "skill") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-skill");
+    };
+    if (cloneType == "note-character") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-note-story");
+    };
+    return cloneSuffix;
+  };
+
   function _get_maxCloneMessage(cloneType) {
     var message = "Max 200, do you need that many";
     if (cloneType == "attack-melee") {
@@ -671,6 +698,7 @@ var clone = (function() {
       _render_clone(cloneType);
       _update_clonePlaceholder(cloneType);
       _update_clonePrefix(cloneType);
+      _update_cloneSuffix(cloneType);
       _smoothScrollToClones(cloneType);
     } else {
       _render_maxClonesSnack(cloneType);
@@ -758,6 +786,7 @@ var clone = (function() {
     textareaBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
+    _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
     totalBlock.render();
     snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 6000);
@@ -774,6 +803,7 @@ var clone = (function() {
     textareaBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
+    _update_cloneSuffix(undoData.cloneType);
     _update_cloneState(undoData.cloneType);
     _remove_lastRemovedClone();
     totalBlock.render();
@@ -864,6 +894,17 @@ var clone = (function() {
         helper.addClass(clonePrefix, "is-hidden");
       } else {
         helper.removeClass(clonePrefix, "is-hidden");
+      };
+    };
+  };
+
+  function _update_cloneSuffix(cloneType) {
+    var cloneSuffix = _get_cloneSuffix(cloneType);
+    if (cloneSuffix) {
+      if (_get_cloneCount(cloneType) <= 0) {
+        helper.addClass(cloneSuffix, "is-hidden");
+      } else {
+        helper.removeClass(cloneSuffix, "is-hidden");
       };
     };
   };

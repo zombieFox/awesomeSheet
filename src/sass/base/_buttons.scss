@@ -12,7 +12,7 @@ input[type="submit"] {
   border-bottom: $border;
   border-bottom-color: $gray-18;
   border-radius: $border-radius-large;
-  margin: 0 0 1em 0;
+  margin: 0 0 1em;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -135,6 +135,10 @@ input[type="submit"] {
     border-bottom-color: $primary-color-06;
     color: $white;
   }
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 3px $primary-color-alpha-15;
+  }
   &.is-active,
   &:active {
     background-color: $primary-color-06;
@@ -157,6 +161,10 @@ input[type="submit"] {
     background-color: $secondary-color-08;
     border-bottom-color: $secondary-color-06;
     color: $white;
+  }
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 3px $secondary-color-alpha-15;
   }
   &.is-active,
   &:active {
@@ -240,11 +248,17 @@ input[type="submit"] {
   align-items: center;
   margin-bottom: 1em;
   width: 100%;
+  position: relative;
   .button,
   button {
     flex: 0 0 auto;
     border-radius: 0;
     margin-bottom: 0;
+    z-index: 1;
+    &:focus,
+    &:hover {
+      z-index: 2;
+    }
     &:first-of-type {
       border-radius: $border-radius-large 0 0 $border-radius-large;
     }

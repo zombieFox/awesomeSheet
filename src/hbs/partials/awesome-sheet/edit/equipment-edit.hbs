@@ -17,41 +17,53 @@
     </div>
   </div>
 </div>
-<div class="m-clone-block js-clone-block-item">
-  <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-item">
-    <div class="button-group button-group-right js-clone-controls">
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-add-item" tabindex="3"><span class="icon-add"></span><span class="button-text">Items</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="3"><span class="icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-  </div>
-  <div class="js-clone-block-prefix-item">
-    <div class="m-edit-box m-edit-box-no-head-small">
-      <div class="m-edit-box-body m-edit-box-body-group">
-        <div class="m-edit-box-item-large">
-          <p class="m-edit-box-label">Name</p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <p class="m-edit-box-label">Quantity</p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <p class="m-edit-box-label">Weight</p>
-        </div>
+<div class="js-total-block" data-total-path="equipment.item" data-total-path-addition="weight" data-total-clone-set="true" data-total-type="weight">
+  <div class="m-clone-block js-clone-block-item">
+    <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-item">
+      <div class="button-group button-group-right js-clone-controls">
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-add-item" tabindex="3"><span class="icon-add"></span><span class="button-text">Items</span></button>
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="3"><span class="icon-close"></span><span class="button-text">Remove</span></button>
       </div>
     </div>
-  </div>
-  <div class="m-edit-box">
-    <div class="m-edit-box-head-small">
-      <h2 class="m-edit-box-title">Items</h2>
-    </div>
-    <div class="m-edit-box-body-multiple">
-      <div class="m-edit-box-body">
-        <div class="m-edit-box-item-max">
-          <div class="m-placeholder js-placeholder-clone-item">
-            <p class="m-placeholder-description u-muted-text">You dont have any Items, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Items</strong>.</p>
+    <div class="js-clone-block-prefix-item">
+      <div class="m-edit-box m-edit-box-no-head-small">
+        <div class="m-edit-box-body m-edit-box-body-group">
+          <div class="m-edit-box-item-large">
+            <p class="m-edit-box-label">Name</p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <p class="m-edit-box-label">Quantity</p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <p class="m-edit-box-label">Weight</p>
           </div>
         </div>
       </div>
-      <div class="m-clone-block-target js-clone-block-target js-clone-block-target-item"></div>
+    </div>
+    <div class="m-edit-box">
+      <div class="m-edit-box-head-small">
+        <h2 class="m-edit-box-title">Items</h2>
+      </div>
+      <div class="m-edit-box-body-multiple">
+        <div class="m-edit-box-body">
+          <div class="m-edit-box-item-max">
+            <div class="m-placeholder js-placeholder-clone-item">
+              <p class="m-placeholder-description u-muted-text">You dont have any Items, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Items</strong>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="m-clone-block-target js-clone-block-target js-clone-block-target-item"></div>
+      </div>
+    </div>
+    <div class="js-clone-block-suffix-item">
+      <div class="m-edit-box m-edit-box-no-head-small">
+        <div class="m-edit-box-body m-edit-box-body-end m-edit-box-body-group">
+          <div class="m-edit-box-item-small">
+            <p class="m-total-block-label">Total</p>
+            <p class="m-total-block-total js-total-block-total"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

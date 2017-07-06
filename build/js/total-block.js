@@ -41,6 +41,7 @@ var totalBlock = (function() {
     var sum = [];
     var totalPath = totalBlock.dataset.totalPath;
     var totalType = totalBlock.dataset.totalType;
+    var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
     var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
     var totalPathAddition = false;
     if (totalBlock.dataset.totalPathAddition) {
@@ -51,12 +52,16 @@ var totalBlock = (function() {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
     var cloneCount = totalBlock.dataset.cloneCount || false;
-    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
+    // console.log("totalCloneSet", totalCloneSet);
     // console.log("------ total blck", "\t", totalPath, cloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
     var object;
+    var array;
     var value;
     if (totalPath && cloneCount) {
       object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
+    } else if (totalPath && totalCloneSet) {
+      array = helper.getObject(sheet.getCharacter(), totalPath);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -152,29 +157,53 @@ var totalBlock = (function() {
     };
     var grandTotal;
     // console.log("\t\t add ----");
-    if (totalPathAddition) {
+    if (totalPathAddition && totalCloneSet) {
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < totalPathAddition.length; j++) {
+          // console.log("\t\t", totalPathAddition[i], "=", array[i][totalPathAddition[j]]);
+          value = parseFloat(array[i][totalPathAddition[j]]) || 0;
+          sum.push(value);
+        };
+      };
+    } else {
       for (var i = 0; i < totalPathAddition.length; i++) {
         // console.log("\t\t", totalPathAddition[i], "=", object[totalPathAddition[i]]);
-        value = parseInt(object[totalPathAddition[i]], 10) || 0;
+        value = parseFloat(object[totalPathAddition[i]]) || 0;
         sum.push(value);
       };
     };
     // console.log("\t\t minus ----");
-    if (totalPathSubtraction) {
+    if (totalPathSubtraction && totalCloneSet) {
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < totalPathSubtraction.length; j++) {
+          // console.log("\t\t", totalPathSubtraction[i], "=", array[i][totalPathSubtraction[j]]);
+          value = parseFloat(-array[i][totalPathSubtraction[j]]) || 0;
+          sum.push(value);
+        };
+      };
+    } else {
       for (var i = 0; i < totalPathSubtraction.length; i++) {
         // console.log("\t\t", totalPathSubtraction[i], "=", object[totalPathSubtraction[i]]);
-        value = parseInt(-object[totalPathSubtraction[i]], 10) || 0;
+        value = parseFloat(-object[totalPathSubtraction[i]]) || 0;
         sum.push(value);
       };
     };
     // console.log("\t\t", sum);
-    grandTotal = sum.reduce(function(a, b) {
-      return a + b;
-    });
-    object.current = grandTotal;
+    if (sum.length > 0) {
+      grandTotal = sum.reduce(function(a, b) {
+        return a + b;
+      });
+    } else {
+      grandTotal = 0;
+    };
+    if (object) {
+      object.current = grandTotal;
+    };
     // add + to bonus totals
     if (totalType == "bonus" && grandTotal > 0) {
       grandTotal = "+" + grandTotal;
+    } else if (totalType == "weight" && grandTotal > 0) {
+      grandTotal = grandTotal + "lbs";
     };
     totalElement.textContent = grandTotal;
   };
