@@ -984,6 +984,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,

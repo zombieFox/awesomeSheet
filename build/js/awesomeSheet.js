@@ -1307,6 +1307,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -2446,6 +2447,7 @@ var marika = (function() {
         current: "",
         misc: "",
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -3569,6 +3571,7 @@ var nefi = (function() {
         current: "",
         misc: "",
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -4700,8 +4703,9 @@ var nif = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: 4,
+        misc: "",
         temp: "",
+        feat: 4,
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -6265,6 +6269,7 @@ var orrin = (function() {
         current: "",
         misc: "",
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -7403,6 +7408,7 @@ var ro = (function() {
         current: "",
         misc: 2,
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -8827,6 +8833,7 @@ var vos = (function() {
         current: "",
         misc: "",
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,

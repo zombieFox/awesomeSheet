@@ -1037,8 +1037,9 @@ var nif = (function() {
     spells: {
       concentration: {
         current: "",
-        misc: 4,
+        misc: "",
         temp: "",
+        feat: 4,
         bonuses: {
           str_bonus: false,
           dex_bonus: false,

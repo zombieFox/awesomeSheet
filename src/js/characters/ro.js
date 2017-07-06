@@ -1046,6 +1046,7 @@ var ro = (function() {
         current: "",
         misc: 2,
         temp: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
