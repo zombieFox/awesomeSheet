@@ -56,7 +56,7 @@ var totalBlock = (function() {
     var object;
     var value;
     if (totalPath && cloneCount) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
+      object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
@@ -241,7 +241,7 @@ var totalBlock = (function() {
     var cloneCount = totalBlock.dataset.cloneCount || false;
     var object;
     if (totalPath && cloneCount) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, [cloneCount]);
+      object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };

@@ -2849,7 +2849,7 @@ label {
       border-radius: 0;
       position: relative;
       z-index: 1;
-      transition: all 0.2s ease-in-out 0.2s;
+      transition: all 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out;
       -ms-transform-origin: center center;
           transform-origin: center center; }
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content .m-edit-box,
@@ -2909,7 +2909,7 @@ label {
       visibility: hidden;
       z-index: 2;
       overflow: hidden;
-      transition: all 0.3s ease-in-out 0s; }
+      transition: all 0.2s ease-in-out 0s; }
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
         padding: 0 0.5em;
         margin: 0;
@@ -2926,7 +2926,7 @@ label {
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
   margin: 0 0 0.5em;
-  transition: all 0.3s ease-in-out 0s; }
+  transition: all 0.2s ease-in-out 0s; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
     background-color: #ffe3ea;
     padding: 0.5em 4em 0.5em 0.5em;

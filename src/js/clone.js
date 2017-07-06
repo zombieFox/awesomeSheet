@@ -80,34 +80,6 @@ var clone = (function() {
         '</div>';
     };
     if (cloneType == "item") {
-      // cloneString =
-      // '<div class="m-clone-block-content js-clone-block-content">' +
-      // '  <div class="m-edit-box">' +
-      // '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-      // '      <div class="m-edit-box-item-large">' +
-      // '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      // '          <label class="m-input-block-label js-input-block-label" for="item-name-' + cloneIndex + '">Name</label>' +
-      // '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
-      // '        </div>' +
-      // '      </div>' +
-      // '      <div class="m-edit-box-item-small">' +
-      // '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      // '          <label class="m-input-block-label js-input-block-label" for="item-quantity-' + cloneIndex + '">Quantity</label>' +
-      // '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" type="text" tabindex="3">' +
-      // '        </div>' +
-      // '      </div>' +
-      // '      <div class="m-edit-box-item-small">' +
-      // '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      // '          <label class="m-input-block-label js-input-block-label" for="item-weight-' + cloneIndex + '">Weight</label>' +
-      // '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" type="text" tabindex="3">' +
-      // '        </div>' +
-      // '      </div>' +
-      // '    </div>' +
-      // '  </div>' +
-      // '  <div class="m-clone-block-delete-controls">' +
-      // '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      // '  </div>' +
-      // '</div>';
       cloneString =
       '<div class="m-clone-block-content js-clone-block-content">' +
       '  <div class="m-edit-box">' +
@@ -447,7 +419,7 @@ var clone = (function() {
   };
 
   function _get_maxCloneMessage(cloneType) {
-    var message = "Max 100, do you need that many";
+    var message = "Max 200, do you need that many";
     if (cloneType == "attack-melee") {
       message = message + " Melee Attacks?";
     };
@@ -578,7 +550,7 @@ var clone = (function() {
       quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
     };
     if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
-      if (targetTop > (windowHeight - (windowHeight / 6)) || targetBottom <= 0) {
+      if (targetTop > (windowHeight - (windowHeight / 10)) || targetBottom <= 0) {
         var offset = (windowHeight - (windowHeight / 2));
         var options = {
           speed: 300,
@@ -694,7 +666,7 @@ var clone = (function() {
   };
 
   function _addNewClone(cloneType) {
-    if (_get_cloneCount(cloneType) <= 99) {
+    if (_get_cloneCount(cloneType) < 200) {
       _add_cloneObject(cloneType);
       _render_clone(cloneType);
       _update_clonePlaceholder(cloneType);
@@ -712,6 +684,7 @@ var clone = (function() {
     var cloneString = _get_cloneString(cloneType, cloneIndex);
     // make new clone node
     var newClone = document.createElement("div");
+    // id needed for smooth scroll
     newClone.setAttribute("id", "clone-" + cloneType + "-" + cloneIndex);
     newClone.setAttribute("class", "m-clone js-clone");
     newClone.setAttribute("data-clone-count", cloneIndex);
@@ -743,6 +716,7 @@ var clone = (function() {
       // make new clone node
       var cloneString = _get_cloneString(cloneType, cloneIndex);
       var newClone = document.createElement("div");
+      // id needed for smooth scroll
       newClone.setAttribute("id", "clone-" + cloneType + "-" + cloneIndex);
       newClone.setAttribute("class", "m-clone js-clone");
       newClone.setAttribute("data-clone-count", cloneIndex);
@@ -869,7 +843,7 @@ var clone = (function() {
   };
 
   function _add_cloneObject(cloneType) {
-    if (_get_cloneCount(cloneType) <= 99) {
+    if (_get_cloneCount(cloneType) < 200) {
       _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
     };
   };
