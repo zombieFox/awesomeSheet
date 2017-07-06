@@ -12121,7 +12121,7 @@ var repair = (function() {
       // console.log("\t\tadd concentration bonus object");
       characterObject.spells.concentration.bonuses = {
         str_bonus: false,
-        dex_bonus: true,
+        dex_bonus: false,
         con_bonus: false,
         int_bonus: false,
         wis_bonus: false,
