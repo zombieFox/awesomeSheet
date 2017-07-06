@@ -719,7 +719,7 @@ body {
   font-style: normal; }
 
 select {
-  background-color: #ffffff;
+  background-color: #fbfdff;
   color: #2e2e2e;
   border-width: 1px;
   border-style: solid;
@@ -731,12 +731,15 @@ select {
   line-height: 1.6666666667;
   height: 2.5em;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out; }
+  box-sizing: border-box; }
   select:hover {
-    border-color: #fc0042; }
+    background-color: #e3f2fd;
+    border-color: #264f6e;
+    box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.3); }
   select:focus {
-    border-color: #3288c9;
+    background-color: #ffffff;
+    border-color: #fc0042;
+    box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.3);
     outline: 0; }
 
 .textarea,
@@ -760,6 +763,11 @@ textarea {
     background-color: #e3f2fd;
     border-color: #264f6e;
     box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.3); }
+    .textarea:hover:focus,
+    textarea:hover:focus {
+      background-color: #ffffff;
+      border-color: #fc0042;
+      box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.3); }
   .textarea:focus,
   textarea:focus {
     background-color: #ffffff;
@@ -790,7 +798,8 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
     box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.3); }
     input[type="email"]:hover:focus, input[type="number"]:hover:focus, input[type="password"]:hover:focus, input[type="search"]:hover:focus, input[type="tel"]:hover:focus, input[type="text"]:hover:focus {
       background-color: #ffffff;
-      border-color: #fc0042; }
+      border-color: #fc0042;
+      box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.3); }
   input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus {
     background-color: #ffffff;
     border-color: #fc0042;

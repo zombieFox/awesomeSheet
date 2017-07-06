@@ -1,5 +1,5 @@
 select {
-  background-color: $white;
+  background-color: $secondary-color-20;
   color: $base-color;
   border-width: 1px;
   border-style: solid;
@@ -12,12 +12,15 @@ select {
   height: 2.5em;
   font-family: $open-sans-regular;
   box-sizing: border-box;
-  transition: background-color $transition-ease-medium, border-color $transition-ease-medium;
   &:hover {
-    border-color: $primary-color-10;
+    background-color: $secondary-color-19;
+    border-color: $secondary-color-06;
+    box-shadow: 0 0 0 3px $secondary-color-alpha-15;
   }
   &:focus {
-    border-color: $secondary-color-10;
+    background-color: $white;
+    border-color: $primary-color-10;
+    box-shadow: 0 0 0 3px $primary-color-alpha-15;
     outline: 0;
   }
 }
@@ -41,6 +44,11 @@ textarea {
     background-color: $secondary-color-19;
     border-color: $secondary-color-06;
     box-shadow: 0 0 0 3px $secondary-color-alpha-15;
+    &:focus {
+      background-color: $white;
+      border-color: $primary-color-10;
+      box-shadow: 0 0 0 3px $primary-color-alpha-15;
+    }
   }
   &:focus {
     background-color: $white;
@@ -79,6 +87,7 @@ input {
       &:focus {
         background-color: $white;
         border-color: $primary-color-10;
+        box-shadow: 0 0 0 3px $primary-color-alpha-15;
       }
     }
     &:focus {
