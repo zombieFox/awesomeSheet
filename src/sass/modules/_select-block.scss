@@ -1,9 +1,9 @@
-.m-input-block {
+.m-select-block {
   position: relative;
   z-index: 1;
   font-size: $font-size-root-100;
 }
-.m-input-block-label {
+.m-select-block-label {
   margin: 0;
   padding: 0;
   display: block;
@@ -16,17 +16,17 @@
     margin-bottom: 0;
   }
 }
-.m-input-block-field {
+.m-select-block-field {
   position: relative;
   z-index: 1;
 }
-.m-input-block-large {
-  .m-input-block-field {
+.m-select-block-large {
+  .m-select-block-field {
     font-size: $font-size-150;
   }
 }
 .is-night-mode {
-  .m-input-block-label {
+  .m-select-block-label {
     &.is-active {
       color: $secondary-color-06;
     }
