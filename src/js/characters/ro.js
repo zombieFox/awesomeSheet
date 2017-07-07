@@ -7,7 +7,13 @@ var ro = (function() {
       race: "Elf",
       class: "Magus Bladebound",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Evil",
       xp: "29,090",
       height: "6'0",

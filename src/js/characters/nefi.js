@@ -7,7 +7,13 @@ var nefi = (function() {
       race: "Human",
       class: "Fighter",
       level: "11",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Neutral",
       xp: "155,000",
       height: "6'2",

@@ -285,6 +285,7 @@ var sheet = (function() {
     skills.render();
     spells.render();
     totalBlock.render();
+    totalBlock.size();
     display.render();
   };
 

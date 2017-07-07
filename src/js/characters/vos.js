@@ -7,7 +7,13 @@ var vos = (function() {
       race: "Dwarf",
       class: "Monk",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Chaotic Neutral",
       xp: "35,000",
       height: "5'0",

@@ -1,5 +1,67 @@
 var totalBlock = (function() {
 
+  function sizeModifierCalculate(index) {
+    var size_modifier;
+    var special_size_modifier;
+    var size_modifier_fly;
+    var size_modifier_stealth;
+    if (index == 1) {
+      size_modifier = 8;
+      special_size_modifier = -8;
+      size_modifier_fly = 8;
+      size_modifier_stealth = 16;
+    } else if (index == 2) {
+      size_modifier = 4;
+      special_size_modifier = -4;
+      size_modifier_fly = 6;
+      size_modifier_stealth = 12;
+    } else if (index == 3) {
+      size_modifier = 2;
+      special_size_modifier = -2;
+      size_modifier_fly = 4;
+      size_modifier_stealth = 8;
+    } else if (index == 4) {
+      size_modifier = 1;
+      special_size_modifier = -1;
+      size_modifier_fly = 2;
+      size_modifier_stealth = 4;
+    } else if (index == 5) {
+      size_modifier = 0;
+      special_size_modifier = 0;
+      size_modifier_fly = 0;
+      size_modifier_stealth = 0;
+    } else if (index == 6) {
+      size_modifier = -1;
+      special_size_modifier = 1;
+      size_modifier_fly = -2;
+      size_modifier_stealth = -4;
+    } else if (index == 7) {
+      size_modifier = -2;
+      special_size_modifier = 2;
+      size_modifier_fly = -4;
+      size_modifier_stealth = -8;
+    } else if (index == 8) {
+      size_modifier = -4;
+      special_size_modifier = 4;
+      size_modifier_fly = -6;
+      size_modifier_stealth = -12;
+    } else if (index == 9) {
+      size_modifier = -8;
+      special_size_modifier = 8;
+      size_modifier_fly = -8;
+      size_modifier_stealth = -16;
+    } else if (index == 0 || !index) {
+      size_modifier = 0;
+      special_size_modifier = 0;
+      size_modifier_fly = 0;
+      size_modifier_stealth = 0;
+    };
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier", size_modifier);
+    helper.setObject(sheet.getCharacter(), "basics.size.special_size_modifier", special_size_modifier);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_fly", size_modifier_fly);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", size_modifier_stealth);
+  };
+
   function render(totalBlock) {
     if (totalBlock) {
       _render_totalBlock(totalBlock);
@@ -419,6 +481,7 @@ var totalBlock = (function() {
 
   // exposed methods
   return {
+    size: sizeModifierCalculate,
     clear: clear,
     bind: bind,
     render: render

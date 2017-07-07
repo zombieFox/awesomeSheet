@@ -7,7 +7,13 @@ var orrin = (function() {
       race: "Human",
       class: "Rogue",
       level: "9",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Evil",
       xp: "68,881",
       height: "6'0",

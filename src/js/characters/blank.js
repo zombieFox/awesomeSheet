@@ -7,7 +7,13 @@ var blank = (function() {
       race: "",
       class: "",
       level: "",
-      size: "",
+      size: {
+        category: "",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "",
       xp: "",
       height: "",
