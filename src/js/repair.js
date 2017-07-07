@@ -2,6 +2,27 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // add size object
+    if (typeof characterObject.basics.size != "object") {
+      // console.log("\t\tadd size object");
+      var size = characterObject.basics.size;
+      console.log(size);
+      if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
+        size = "Medium";
+      } else if (size == "") {
+        size = false;
+      };
+      characterObject.basics.size = {
+        category: "",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      };
+      if (size) {
+        characterObject.basics.size.category = size;
+      };
+    };
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
       // console.log("\t\tadd initiative object");
