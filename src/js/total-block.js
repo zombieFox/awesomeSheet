@@ -139,7 +139,11 @@ var totalBlock = (function() {
       };
       // size
       if (key == "size") {
-        externalBouns = _checkValue(sheet.getCharacter().defense.ac.size_bonus);
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.size_modifier);
+      };
+      // special size
+      if (key == "special_size") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.special_size_modifier);
       };
       // level
       if (key == "level") {
@@ -176,6 +180,14 @@ var totalBlock = (function() {
       // class skill
       if (key == "class_skill") {
         externalBouns = _checkClassSkill(totalObject);
+      };
+      // class skill
+      if (key == "size_modifier_fly") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.size_modifier_fly);
+      };
+      // class skill
+      if (key == "size_modifier_stealth") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.size_modifier_stealth);
       };
       // 10
       if (key == "plus_ten") {
@@ -317,6 +329,12 @@ var totalBlock = (function() {
       return "Base Attack Bonus";
     } else if (bonusType == "size") {
       return "Size Bonus";
+    } else if (bonusType == "special_size") {
+      return "Special Size Bonus";
+    } else if (bonusType == "size_modifier_fly") {
+      return "Size Fly Bonus";
+    } else if (bonusType == "size_modifier_stealth") {
+      return "Size Stealth Bonus";
     } else if (bonusType == "level") {
       return "Level";
     } else if (bonusType == "half-level" || bonusType == "half_level") {

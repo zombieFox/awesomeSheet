@@ -159,7 +159,6 @@ var orrin = (function() {
         deflect: 1,
         dodge: 1,
         natural: 1,
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -279,7 +278,6 @@ var orrin = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -289,6 +287,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -296,7 +295,6 @@ var orrin = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -306,6 +304,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -314,7 +313,6 @@ var orrin = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -324,6 +322,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -331,7 +330,6 @@ var orrin = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -341,6 +339,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -619,7 +618,8 @@ var orrin = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -1031,7 +1031,8 @@ var orrin = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {

@@ -3,10 +3,9 @@ var repair = (function() {
   function render(characterObject) {
     // console.log("fire repair update");
     // add size object
-    if (typeof characterObject.basics.size != "object") {
+    if (typeof characterObject.basics.size != "object" || "size_bonus" in sheet.getCharacter().defense.ac) {
       // console.log("\t\tadd size object");
       var size = characterObject.basics.size;
-      console.log(size);
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
         size = "Medium";
       } else if (size == "") {
@@ -22,6 +21,7 @@ var repair = (function() {
       if (size) {
         characterObject.basics.size.category = size;
       };
+      delete characterObject.defense.ac.size_bonus;
     };
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
