@@ -66,7 +66,7 @@ var helper = (function() {
       if (dropdown.options[i].text == value) {
         dropdown.selectedIndex = i;
         dropdown.options[i].selected = true;
-        console.log(dropdown, value, dropdown.options, dropdown.selectedIndex);
+        // console.log(dropdown, value, dropdown.options, dropdown.selectedIndex);
         return;
       };
     };

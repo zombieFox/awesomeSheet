@@ -8,7 +8,7 @@ var nif = (function() {
       class: "Wizard",
       level: "7",
       size: {
-        size: "Medium",
+        category: "Medium",
         size_modifier: 0,
         special_size_modifier: 0,
         size_modifier_fly: 0,
