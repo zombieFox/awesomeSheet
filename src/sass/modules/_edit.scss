@@ -136,6 +136,17 @@
     .m-total-block-total {
       margin-left: -1px;
     }
+    .button {
+      z-index: 2;
+      &:focus {
+        z-index: 3;
+      }
+    }
+    &:hover {
+      .button {
+        z-index: 3;
+      }
+    }
     .m-input-block {
       z-index: 2;
       &.is-focus {

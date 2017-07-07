@@ -8,7 +8,7 @@ var selectBlock = (function() {
     if (path) {
       helper.setObject(sheet.getCharacter(), path, data);
     };
-    console.log(sheet.getCharacter().basics.size);
+    // console.log(sheet.getCharacter().basics.size);
   };
 
   var storeDropdownTimer = null;

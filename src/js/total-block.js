@@ -1,6 +1,12 @@
 var totalBlock = (function() {
 
   function sizeModifierCalculate(index) {
+    if (!index) {
+      var size = helper.e(".js-size");
+      var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
+      index = selectBlockDropdown.selectedIndex;
+    };
+    // console.log(index);
     var size_modifier;
     var special_size_modifier;
     var size_modifier_fly;
@@ -354,7 +360,7 @@ var totalBlock = (function() {
     } else if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
     } else if (bonusType == "check-penalty" || bonusType == "check_penalty") {
-      return "Check Penalty";
+      return "Armor Check Penalty";
     } else if (bonusType == "max-dex" || bonusType == "max_dex") {
       return "Max Dex Bonus";
     } else {
