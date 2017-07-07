@@ -223,7 +223,7 @@ var helper = (function() {
     setObject: setObject,
     getObject: getObject,
     truncate: truncateString,
-    selectDropdown: selectDropdown,
+    setDropdown: setDropdown,
     randomId: randomId,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,

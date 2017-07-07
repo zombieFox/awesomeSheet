@@ -7,7 +7,13 @@ var nif = (function() {
       race: "Elf",
       class: "Wizard",
       level: "7",
-      size: "Medium",
+      size: {
+        size: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Neutral",
       xp: "42,030",
       height: "6'0",

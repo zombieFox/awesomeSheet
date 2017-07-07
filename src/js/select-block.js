@@ -128,24 +128,26 @@ var selectBlock = (function() {
 
   function render() {
     var all_selectBlock = helper.eA(".js-select-block");
-    console.log(all_selectBlock);
-    for (var i = 0; i < all_selectBlock.length; i++) {
-      var all_selectBlockDropdown = all_selectBlock[i].querySelector(".js-select-block-dropdown");
-      var path = all_selectBlockDropdown.dataset.path;
-      console.log(path);
-      if (path) {
-        if (all_selectBlock[i].dataset.clone == "true") {
-          var pathCloneKey = all_selectBlockDropdown.dataset.pathCloneKey;
-          var cloneCount = all_selectBlock[i].dataset.cloneCount;
-          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-          // console.log("found clone input", path, pathCloneKey, all_selectBlock[i].dataset.cloneCount, all_selectBlock[i]);
-          all_selectBlockDropdown.value = object[pathCloneKey];
-        } else {
-          var content = helper.getObject(sheet.getCharacter(), path);
-          all_selectBlockDropdown.value = content;
-        };
-      };
-    };
+    // console.log(all_selectBlock);
+    // for (var i = 0; i < all_selectBlock.length; i++) {
+    //   var all_selectBlockDropdown = all_selectBlock[i].querySelector(".js-select-block-dropdown");
+    //   var path = all_selectBlockDropdown.dataset.path;
+    //   // console.log(path);
+    //   var selected = all_selectBlockDropdown.options.selectedIndex;
+    //   // console.log(all_selectBlockDropdown.options[selected]);
+    //   // if (path) {
+    //   //   if (all_selectBlock[i].dataset.clone == "true") {
+    //   //     var pathCloneKey = all_selectBlockDropdown.dataset.pathCloneKey;
+    //   //     var cloneCount = all_selectBlock[i].dataset.cloneCount;
+    //   //     var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+    //   //     // console.log("found clone input", path, pathCloneKey, all_selectBlock[i].dataset.cloneCount, all_selectBlock[i]);
+    //   //     all_selectBlockDropdown.value = object[pathCloneKey];
+    //   //   } else {
+    //   //     var content = helper.getObject(sheet.getCharacter(), path);
+    //   //     all_selectBlockDropdown.value = content;
+    //   //   };
+    //   // };
+    // };
   };
 
   // exposed methods
