@@ -7,7 +7,13 @@ var nefi = (function() {
       race: "Human",
       class: "Fighter",
       level: "11",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Neutral",
       xp: "155,000",
       height: "6'2",
@@ -128,7 +134,6 @@ var nefi = (function() {
         deflect: 2,
         dodge: 1,
         natural: 3,
-        size_bonus: "",
         check_penalty: -3,
         current: "",
         max_dex: "",
@@ -248,7 +253,6 @@ var nefi = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -258,6 +262,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -265,7 +270,6 @@ var nefi = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -275,6 +279,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -283,7 +288,6 @@ var nefi = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -293,6 +297,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -300,7 +305,6 @@ var nefi = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -310,6 +314,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -559,7 +564,8 @@ var nefi = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -971,7 +977,8 @@ var nefi = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {

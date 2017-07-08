@@ -7,7 +7,13 @@ var nif = (function() {
       race: "Elf",
       class: "Wizard",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Neutral",
       xp: "42,030",
       height: "6'0",
@@ -211,7 +217,6 @@ var nif = (function() {
         deflect: "",
         dodge: "",
         natural: 1,
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -331,7 +336,6 @@ var nif = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -341,6 +345,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -348,7 +353,6 @@ var nif = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -358,6 +362,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -366,7 +371,6 @@ var nif = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -376,6 +380,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -383,7 +388,6 @@ var nif = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -393,6 +397,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -607,7 +612,8 @@ var nif = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -1019,7 +1025,8 @@ var nif = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {

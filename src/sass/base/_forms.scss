@@ -1,9 +1,9 @@
 select {
   background-color: $secondary-color-20;
   color: $base-color;
-  border-width: 1px;
-  border-style: solid;
-  border-color: $gray-18;
+  border: $border;
+  border-color: $gray-16;
+  border-radius: $border-radius-large;
   margin: 0;
   padding: 0.5em 0;
   color: $base-color;
@@ -12,6 +12,7 @@ select {
   height: 2.5em;
   font-family: $open-sans-regular;
   box-sizing: border-box;
+  box-shadow: $shadow-medium-inset;
   &:hover {
     background-color: $secondary-color-19;
     border-color: $secondary-color-06;

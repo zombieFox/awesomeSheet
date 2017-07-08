@@ -37,20 +37,42 @@
   <div class="m-edit-box-body m-edit-box-body-item-margin-large">
     <div class="m-edit-box-item-medium">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="basics-alignment">Alignment</label>
-        <input class="m-input-block-field u-full-width js-input-block-field" id="basics-alignment" data-path="basics.alignment" type="text" tabindex="1">
-      </div>
-    </div>
-    <div class="m-edit-box-item-medium">
-      <div class="m-input-block js-input-block">
         <label class="m-input-block-label js-input-block-label" for="basics-race">Race</label>
         <input class="m-input-block-field u-full-width js-input-block-field" id="basics-race" data-path="basics.race" type="text" tabindex="1">
       </div>
     </div>
-    <div class="m-edit-box-item-small">
-      <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="basics-size">Size</label>
-        <input class="m-input-block-field u-full-width js-input-block-field" id="basics-size" data-path="basics.size" type="text" tabindex="1">
+    <div class="m-edit-box-item-medium">
+      <div class="m-select-block js-select-block">
+        <p class="m-select-block-label js-select-block-label">Alignment</p>
+        <select class="m-select-block-dropdown u-full-width js-select-block-dropdown" data-path="basics.alignment" tabindex="1">
+          <option></option>
+          <option value="Lawful Good">Lawful Good</option>
+          <option value="Lawful Neutral">Lawful Neutral</option>
+          <option value="Lawful Evil">Lawful Evil</option>
+          <option value="Neutral Good">Neutral Good</option>
+          <option value="Neutral">Neutral</option>
+          <option value="Neutral Evil">Neutral Evil</option>
+          <option value="Chaotic Good">Chaotic Good</option>
+          <option value="Chaotic Neutral">Chaotic Neutral</option>
+          <option value="Chaotic Evil">Chaotic Evil</option>
+        </select>
+      </div>
+    </div>
+    <div class="m-edit-box-item-medium">
+      <div class="m-select-block js-select-block js-size">
+        <p class="m-select-block-label js-select-block-label">size</p>
+        <select class="m-select-block-dropdown u-full-width js-select-block-dropdown" data-path="basics.size.category" tabindex="1">
+          <option></option>
+          <option value="Fine">Fine</option>
+          <option value="Diminutive">Diminutive</option>
+          <option value="Tiny">Tiny</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+          <option value="Huge">Huge</option>
+          <option value="Gargantuan">Gargantuan</option>
+          <option value="Colossal">Colossal</option>
+        </select>
       </div>
     </div>
     <div class="m-edit-box-item-small">

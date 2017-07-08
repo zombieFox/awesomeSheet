@@ -61,6 +61,17 @@ var helper = (function() {
     return string;
   };
 
+  function setDropdown(dropdown, value) {
+    for (var i = 0; i < dropdown.options.length; i++) {
+      if (dropdown.options[i].text == value) {
+        dropdown.selectedIndex = i;
+        dropdown.options[i].selected = true;
+        // console.log(dropdown, value, dropdown.options, dropdown.selectedIndex);
+        return;
+      };
+    };
+  };
+
   function setObject(object, path, newValue) {
     var address = path.split(".");
     while (address.length > 1) {
@@ -212,6 +223,7 @@ var helper = (function() {
     setObject: setObject,
     getObject: getObject,
     truncate: truncateString,
+    setDropdown: setDropdown,
     randomId: randomId,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,

@@ -2,6 +2,67 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update alignment
+    if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
+      if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Lawful Good";
+      };
+      if (["Lawful Neutral", "Lawful neutral", "lawful neutral", "LN", "Ln", "ln"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Lawful Neutral";
+      };
+      if (["Lawful Evil", "Lawful evil", "lawful evil", "LE", "Le", "le"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Lawful Evil";
+      };
+      if (["Neutral Good", "Neutral good", "neutral good", "NG", "Ng", "ng"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Neutral Good";
+      };
+      if (["Neutral", "Neutral", "neutral", "N", "n"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Neutral";
+      };
+      if (["Neutral Evil", "Neutral evil", "neutral evil", "NE", "Ne", "ne"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Neutral Evil";
+      };
+      if (["Chaotic Good", "Chaotic good", "chaotic good", "CG", "Cg", "cg"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Chaotic Good";
+      };
+      if (["Chaotic Neutral", "Chaotic neutral", "chaotic neutral", "CN", "Cn", "cn"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Chaotic Neutral";
+      };
+      if (["Chaotic Evil", "Chaotic evil", "chaotic evil", "CE", "Ce", "ce"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Chaotic Evil";
+      };
+    };
+    // add size object
+    if (typeof characterObject.basics.size != "object" || "size_bonus" in sheet.getCharacter().defense.ac) {
+      // console.log("\t\tadd size object");
+      var size = characterObject.basics.size;
+      if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
+        size = "Medium";
+      } else if (size == "") {
+        size = false;
+      };
+      characterObject.basics.size = {
+        category: "",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      };
+      if (size) {
+        characterObject.basics.size.category = size;
+      };
+      delete characterObject.defense.ac.size_bonus;
+      delete characterObject.offense.cmb.size;
+      delete characterObject.offense.cmd.size;
+      delete characterObject.offense.melee_attack.size;
+      delete characterObject.offense.ranged_attack.size;
+      characterObject.offense.cmb.bonuses.special_size = true;
+      characterObject.offense.cmd.bonuses.special_size = true;
+      characterObject.offense.melee_attack.bonuses.size = true;
+      characterObject.offense.ranged_attack.bonuses.size = true;
+      characterObject.defense.ac.bonuses.max_dex = true;
+      characterObject.defense.touch.bonuses.max_dex = true;
+    };
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
       // console.log("\t\tadd initiative object");

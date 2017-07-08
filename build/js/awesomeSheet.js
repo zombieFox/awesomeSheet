@@ -63,6 +63,17 @@ var helper = (function() {
     return string;
   };
 
+  function setDropdown(dropdown, value) {
+    for (var i = 0; i < dropdown.options.length; i++) {
+      if (dropdown.options[i].text == value) {
+        dropdown.selectedIndex = i;
+        dropdown.options[i].selected = true;
+        // console.log(dropdown, value, dropdown.options, dropdown.selectedIndex);
+        return;
+      };
+    };
+  };
+
   function setObject(object, path, newValue) {
     var address = path.split(".");
     while (address.length > 1) {
@@ -214,6 +225,7 @@ var helper = (function() {
     setObject: setObject,
     getObject: getObject,
     truncate: truncateString,
+    setDropdown: setDropdown,
     randomId: randomId,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
@@ -330,7 +342,13 @@ var blank = (function() {
       race: "",
       class: "",
       level: "",
-      size: "",
+      size: {
+        category: "",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "",
       xp: "",
       height: "",
@@ -451,7 +469,6 @@ var blank = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -571,7 +588,6 @@ var blank = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -581,6 +597,7 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -588,7 +605,6 @@ var blank = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -598,6 +614,7 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -606,7 +623,6 @@ var blank = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -616,6 +632,7 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -623,7 +640,6 @@ var blank = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -633,6 +649,7 @@ var blank = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -835,7 +852,8 @@ var blank = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -1247,7 +1265,8 @@ var blank = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -1399,7 +1418,13 @@ var marika = (function() {
       race: "Human",
       class: "Rogue",
       level: "9",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Chaotic Neutral",
       xp: "76,000",
       height: "5’3",
@@ -1525,7 +1550,6 @@ var marika = (function() {
         deflect: 2,
         dodge: "",
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -1645,7 +1669,6 @@ var marika = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -1655,6 +1678,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -1662,7 +1686,6 @@ var marika = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -1672,6 +1695,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -1680,7 +1704,6 @@ var marika = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -1690,6 +1713,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -1697,7 +1721,6 @@ var marika = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -1707,6 +1730,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -1975,7 +1999,8 @@ var marika = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -2387,7 +2412,8 @@ var marika = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -2547,7 +2573,13 @@ var nefi = (function() {
       race: "Human",
       class: "Fighter",
       level: "11",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Neutral",
       xp: "155,000",
       height: "6'2",
@@ -2668,7 +2700,6 @@ var nefi = (function() {
         deflect: 2,
         dodge: 1,
         natural: 3,
-        size_bonus: "",
         check_penalty: -3,
         current: "",
         max_dex: "",
@@ -2788,7 +2819,6 @@ var nefi = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -2798,6 +2828,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -2805,7 +2836,6 @@ var nefi = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -2815,6 +2845,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -2823,7 +2854,6 @@ var nefi = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -2833,6 +2863,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -2840,7 +2871,6 @@ var nefi = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -2850,6 +2880,7 @@ var nefi = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -3099,7 +3130,8 @@ var nefi = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -3511,7 +3543,8 @@ var nefi = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -3673,7 +3706,13 @@ var nif = (function() {
       race: "Elf",
       class: "Wizard",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Neutral",
       xp: "42,030",
       height: "6'0",
@@ -3877,7 +3916,6 @@ var nif = (function() {
         deflect: "",
         dodge: "",
         natural: 1,
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -3997,7 +4035,6 @@ var nif = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -4007,6 +4044,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -4014,7 +4052,6 @@ var nif = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -4024,6 +4061,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -4032,7 +4070,6 @@ var nif = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -4042,6 +4079,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -4049,7 +4087,6 @@ var nif = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -4059,6 +4096,7 @@ var nif = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -4273,7 +4311,8 @@ var nif = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -4685,7 +4724,8 @@ var nif = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -5231,7 +5271,13 @@ var orrin = (function() {
       race: "Human",
       class: "Rogue",
       level: "9",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Evil",
       xp: "68,881",
       height: "6'0",
@@ -5377,7 +5423,6 @@ var orrin = (function() {
         deflect: 1,
         dodge: 1,
         natural: 1,
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -5497,7 +5542,6 @@ var orrin = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -5507,6 +5551,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -5514,7 +5559,6 @@ var orrin = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -5524,6 +5568,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -5532,7 +5577,6 @@ var orrin = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -5542,6 +5586,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -5549,7 +5594,6 @@ var orrin = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -5559,6 +5603,7 @@ var orrin = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -5837,7 +5882,8 @@ var orrin = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -6249,7 +6295,8 @@ var orrin = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -6409,7 +6456,13 @@ var ro = (function() {
       race: "Elf",
       class: "Magus Bladebound",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Evil",
       xp: "29,090",
       height: "6'0",
@@ -6550,7 +6603,6 @@ var ro = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -6670,7 +6722,6 @@ var ro = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -6680,6 +6731,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -6687,7 +6739,6 @@ var ro = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -6697,6 +6748,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -6705,7 +6757,6 @@ var ro = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -6715,6 +6766,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -6722,7 +6774,6 @@ var ro = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -6732,6 +6783,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -6976,7 +7028,8 @@ var ro = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -7388,7 +7441,8 @@ var ro = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -7832,7 +7886,13 @@ var vos = (function() {
       race: "Dwarf",
       class: "Monk",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Chaotic Neutral",
       xp: "35,000",
       height: "5'0",
@@ -7968,7 +8028,6 @@ var vos = (function() {
         deflect: 1,
         dodge: 1,
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -8088,7 +8147,6 @@ var vos = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -8098,6 +8156,7 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: false,
+          special_size: true,
           level: true,
           half_level: false
         }
@@ -8105,7 +8164,6 @@ var vos = (function() {
       cmd: {
         misc: 1,
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -8115,6 +8173,7 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -8123,7 +8182,6 @@ var vos = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -8133,6 +8191,7 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -8140,7 +8199,6 @@ var vos = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -8150,6 +8208,7 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -8401,7 +8460,8 @@ var vos = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -8813,7 +8873,8 @@ var vos = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
@@ -12096,6 +12157,67 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update alignment
+    if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
+      if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Lawful Good";
+      };
+      if (["Lawful Neutral", "Lawful neutral", "lawful neutral", "LN", "Ln", "ln"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Lawful Neutral";
+      };
+      if (["Lawful Evil", "Lawful evil", "lawful evil", "LE", "Le", "le"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Lawful Evil";
+      };
+      if (["Neutral Good", "Neutral good", "neutral good", "NG", "Ng", "ng"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Neutral Good";
+      };
+      if (["Neutral", "Neutral", "neutral", "N", "n"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Neutral";
+      };
+      if (["Neutral Evil", "Neutral evil", "neutral evil", "NE", "Ne", "ne"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Neutral Evil";
+      };
+      if (["Chaotic Good", "Chaotic good", "chaotic good", "CG", "Cg", "cg"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Chaotic Good";
+      };
+      if (["Chaotic Neutral", "Chaotic neutral", "chaotic neutral", "CN", "Cn", "cn"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Chaotic Neutral";
+      };
+      if (["Chaotic Evil", "Chaotic evil", "chaotic evil", "CE", "Ce", "ce"].indexOf(characterObject.basics.alignment) > -1) {
+        characterObject.basics.alignment = "Chaotic Evil";
+      };
+    };
+    // add size object
+    if (typeof characterObject.basics.size != "object" || "size_bonus" in sheet.getCharacter().defense.ac) {
+      // console.log("\t\tadd size object");
+      var size = characterObject.basics.size;
+      if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
+        size = "Medium";
+      } else if (size == "") {
+        size = false;
+      };
+      characterObject.basics.size = {
+        category: "",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      };
+      if (size) {
+        characterObject.basics.size.category = size;
+      };
+      delete characterObject.defense.ac.size_bonus;
+      delete characterObject.offense.cmb.size;
+      delete characterObject.offense.cmd.size;
+      delete characterObject.offense.melee_attack.size;
+      delete characterObject.offense.ranged_attack.size;
+      characterObject.offense.cmb.bonuses.special_size = true;
+      characterObject.offense.cmd.bonuses.special_size = true;
+      characterObject.offense.melee_attack.bonuses.size = true;
+      characterObject.offense.ranged_attack.bonuses.size = true;
+      characterObject.defense.ac.bonuses.max_dex = true;
+      characterObject.defense.touch.bonuses.max_dex = true;
+    };
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
       // console.log("\t\tadd initiative object");
@@ -12180,6 +12302,101 @@ var repair = (function() {
   // exposed methods
   return {
     render: render
+  };
+
+})();
+
+var selectBlock = (function() {
+
+  function _store(element) {
+    var selectBlock = helper.getClosest(element, ".js-select-block");
+    var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
+    var path = selectBlockDropdown.dataset.path;
+    var data = selectBlockDropdown.options[selectBlockDropdown.selectedIndex].value;
+    if (path) {
+      helper.setObject(sheet.getCharacter(), path, data);
+    };
+    // console.log(sheet.getCharacter().basics.size);
+  };
+
+  var storeDropdownTimer = null;
+
+  function delayUpdate(element) {
+    _store(element);
+    sheet.storeCharacters();
+    totalBlock.render();
+    if (body.dataset.displayMode == "true") {
+      display.clear();
+      display.render();
+    };
+  };
+
+  function _focus(element) {
+    var selectBlock = helper.getClosest(element, ".js-select-block");
+    if (element == document.activeElement) {
+      helper.addClass(selectBlock, "is-focus");
+    } else {
+      helper.removeClass(selectBlock, "is-focus");
+    };
+  };
+
+  function clear() {
+    var all_selectBlock = helper.eA(".js-select-block");
+    for (var i = 0; i < all_selectBlock.length; i++) {
+      all_selectBlock[i].querySelector(".js-select-block-dropdown").selectedIndex = 0;
+    };
+  };
+
+  function bind(selectBlock) {
+    if (selectBlock) {
+      _bind_selectBlock(selectBlock);
+    } else {
+      var all_selectBlock = helper.eA(".js-select-block");
+      for (var i = 0; i < all_selectBlock.length; i++) {
+        if (all_selectBlock[i].dataset.clone != "true") {
+          _bind_selectBlock(all_selectBlock[i]);
+        };
+      };
+    };
+    _bind_size();
+  };
+
+  function _bind_size() {
+    var size = helper.e(".js-size");
+    var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
+    selectBlockDropdown.addEventListener("change", function() {
+      totalBlock.size(selectBlockDropdown.selectedIndex);
+    }, false);
+  };
+
+  function _bind_selectBlock(selectBlock) {
+    var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
+    if (selectBlockDropdown) {
+      selectBlockDropdown.addEventListener("change", function() {
+        clearTimeout(storeDropdownTimer);
+        storeDropdownTimer = setTimeout(delayUpdate, 300, this);
+      }, false);
+    };
+  };
+
+  function render() {
+    var all_selectBlock = helper.eA(".js-select-block");
+    for (var i = 0; i < all_selectBlock.length; i++) {
+      var selectBlockDropdown = all_selectBlock[i].querySelector(".js-select-block-dropdown");
+      var path = selectBlockDropdown.dataset.path;
+      var selected = selectBlockDropdown.options.selectedIndex;
+      if (path) {
+        var selection = helper.getObject(sheet.getCharacter(), path);
+        helper.setDropdown(selectBlockDropdown, selection);
+      };
+    };
+  };
+
+  // exposed methods
+  return {
+    render: render,
+    bind: bind,
+    clear: clear
   };
 
 })();
@@ -12466,9 +12683,11 @@ var sheet = (function() {
     stats.render();
     clone.render();
     inputBlock.render();
+    selectBlock.render();
     textareaBlock.render();
     skills.render();
     spells.render();
+    totalBlock.size();
     totalBlock.render();
     display.render();
   };
@@ -12479,6 +12698,7 @@ var sheet = (function() {
     snack.bind();
     stats.bind();
     inputBlock.bind();
+    selectBlock.bind();
     textareaBlock.bind();
     clone.bind();
     spells.bind();
@@ -12493,6 +12713,7 @@ var sheet = (function() {
     totalBlock.clear();
     clone.clear();
     inputBlock.clear();
+    selectBlock.clear();
     textareaBlock.clear();
     spells.clear();
     display.clear();
@@ -13690,6 +13911,74 @@ var themeColor = (function() {
 
 var totalBlock = (function() {
 
+  function sizeModifierCalculate(index) {
+    if (!index) {
+      var size = helper.e(".js-size");
+      var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
+      index = selectBlockDropdown.selectedIndex;
+    };
+    // console.log(index);
+    var size_modifier;
+    var special_size_modifier;
+    var size_modifier_fly;
+    var size_modifier_stealth;
+    if (index == 1) {
+      size_modifier = 8;
+      special_size_modifier = -8;
+      size_modifier_fly = 8;
+      size_modifier_stealth = 16;
+    } else if (index == 2) {
+      size_modifier = 4;
+      special_size_modifier = -4;
+      size_modifier_fly = 6;
+      size_modifier_stealth = 12;
+    } else if (index == 3) {
+      size_modifier = 2;
+      special_size_modifier = -2;
+      size_modifier_fly = 4;
+      size_modifier_stealth = 8;
+    } else if (index == 4) {
+      size_modifier = 1;
+      special_size_modifier = -1;
+      size_modifier_fly = 2;
+      size_modifier_stealth = 4;
+    } else if (index == 5) {
+      size_modifier = 0;
+      special_size_modifier = 0;
+      size_modifier_fly = 0;
+      size_modifier_stealth = 0;
+    } else if (index == 6) {
+      size_modifier = -1;
+      special_size_modifier = 1;
+      size_modifier_fly = -2;
+      size_modifier_stealth = -4;
+    } else if (index == 7) {
+      size_modifier = -2;
+      special_size_modifier = 2;
+      size_modifier_fly = -4;
+      size_modifier_stealth = -8;
+    } else if (index == 8) {
+      size_modifier = -4;
+      special_size_modifier = 4;
+      size_modifier_fly = -6;
+      size_modifier_stealth = -12;
+    } else if (index == 9) {
+      size_modifier = -8;
+      special_size_modifier = 8;
+      size_modifier_fly = -8;
+      size_modifier_stealth = -16;
+    } else if (index == 0 || !index) {
+      size_modifier = 0;
+      special_size_modifier = 0;
+      size_modifier_fly = 0;
+      size_modifier_stealth = 0;
+    };
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier", size_modifier);
+    helper.setObject(sheet.getCharacter(), "basics.size.special_size_modifier", special_size_modifier);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_fly", size_modifier_fly);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", size_modifier_stealth);
+  };
+
   function render(totalBlock) {
     if (totalBlock) {
       _render_totalBlock(totalBlock);
@@ -13718,20 +14007,145 @@ var totalBlock = (function() {
         return _checkValue(tempScore);
       };
     };
-    var _checkClassSkill = function(object) {
+    var _checkClassSkill = function(totalObject) {
       var classSkill;
-      if (object.ranks > 0) {
+      if (totalObject.ranks > 0) {
         classSkill = 3;
       } else {
         classSkill = 0;
       };
       return classSkill;
     };
+    var _get_externalBonus = function(key, totalObject) {
+      var externalBouns;
+      if (key == "str_bonus") {
+        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
+      };
+      // if dex data attribute is true
+      if (key == "dex_bonus") {
+        // if max dex is true
+        if ("max_dex" in totalObject.bonuses) {
+          if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
+            externalBouns = sheet.getCharacter().defense.ac.max_dex;
+          } else {
+            externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+          };
+        } else {
+          externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+        };
+      };
+      // if con data attribute is true
+      if (key == "con_bonus") {
+        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
+      };
+      // if int data attribute is true
+      if (key == "int_bonus") {
+        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
+      };
+      // if wis data attribute is true
+      if (key == "wis_bonus") {
+        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
+      };
+      // if cha data attribute is true
+      if (key == "cha_bonus") {
+        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+      };
+      // if bab data attribute is true
+      if (key == "bab") {
+        externalBouns = _checkValue(sheet.getCharacter().offense.base_attack);
+      };
+      // size
+      if (key == "size") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.size_modifier);
+      };
+      // special size
+      if (key == "special_size") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.special_size_modifier);
+      };
+      // level
+      if (key == "level") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.level);
+      };
+      // half level
+      if (key == "half_level") {
+        externalBouns = Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2);
+      };
+      // ac armor
+      if (key == "ac_armor") {
+        externalBouns = _checkValue(sheet.getCharacter().defense.ac.armor);
+      };
+      // ac shield
+      if (key == "ac_shield") {
+        externalBouns = _checkValue(sheet.getCharacter().defense.ac.shield);
+      };
+      // ac deflect
+      if (key == "ac_deflect") {
+        externalBouns = _checkValue(sheet.getCharacter().defense.ac.deflect);
+      };
+      // ac dodge
+      if (key == "ac_dodge") {
+        externalBouns = _checkValue(sheet.getCharacter().defense.ac.dodge);
+      };
+      // ac natural
+      if (key == "ac_natural") {
+        externalBouns = _checkValue(sheet.getCharacter().defense.ac.natural);
+      };
+      // armor check penalty
+      if (key == "check_penalty") {
+        externalBouns = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
+      };
+      // class skill
+      if (key == "class_skill") {
+        externalBouns = _checkClassSkill(totalObject);
+      };
+      // class skill
+      if (key == "size_modifier_fly") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.size_modifier_fly);
+      };
+      // class skill
+      if (key == "size_modifier_stealth") {
+        externalBouns = _checkValue(sheet.getCharacter().basics.size.size_modifier_stealth);
+      };
+      // 10
+      if (key == "plus_ten") {
+        externalBouns = 10;
+      };
+      // console.log("\t\t\t", key, externalBouns);
+      return externalBouns;
+    };
+    var _get_totalObject = function(character, totalPath, cloneCount, totalCloneSet) {
+      var object;
+      if (totalPath && cloneCount) {
+        object = helper.getObject(character, totalPath, cloneCount);
+      } else if (totalPath && totalCloneSet) {
+        object = helper.getObject(character, totalPath);
+      } else if (totalPath) {
+        object = helper.getObject(character, totalPath);
+      };
+      return object;
+    };
+    var _addPrefixSuffix = function(grandTotal, totalType) {
+      var total;
+      if (totalType == "bonus" && grandTotal > 0) {
+        total = grandTotal = "+" + grandTotal;
+      } else if (totalType == "weight" && grandTotal > 0) {
+        total = grandTotal = grandTotal + "lbs";
+      } else {
+        total = grandTotal;
+      };
+      return total;
+    };
+    var _updateCheck = function(check, object) {
+      var bonusType = check.dataset.bonusType.replace(/-+/g, "_");
+      check.checked = object[bonusType];
+    };
+
     var totalElement = totalBlock.querySelector(".js-total-block-total");
-    var sum = [];
-    var totalPath = totalBlock.dataset.totalPath;
     var totalType = totalBlock.dataset.totalType;
+    var totalPath = totalBlock.dataset.totalPath;
+    var cloneCount = totalBlock.dataset.cloneCount || false;
     var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
     var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
     var totalPathAddition = false;
     if (totalBlock.dataset.totalPathAddition) {
@@ -13741,161 +14155,71 @@ var totalBlock = (function() {
     if (totalBlock.dataset.totalPathSubtraction) {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
-    var cloneCount = totalBlock.dataset.cloneCount || false;
-    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
-    // console.log("totalCloneSet", totalCloneSet);
-    // console.log("------ total blck", "\t", totalPath, cloneCount, totalBonuses, totalPathAddition, totalPathSubtraction);
-    var object;
-    var array;
-    var value;
-    if (totalPath && cloneCount) {
-      object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
-    } else if (totalPath && totalCloneSet) {
-      array = helper.getObject(sheet.getCharacter(), totalPath);
-    } else if (totalPath) {
-      object = helper.getObject(sheet.getCharacter(), totalPath);
-    };
-    // console.log("--- ", totalBlock, object);
-    if (totalBonuses) {
-      // console.log("\t\t", "totalBonuses = ", totalBonuses, object.bonuses);
-      if (object.bonuses.str_bonus) {
-        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier));
-      };
-      // if dex data attribute is true
-      if (object.bonuses.dex_bonus) {
-        // if max dex is true
-        if (object.bonuses.max_dex) {
-          if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
-            sum.push(sheet.getCharacter().defense.ac.max_dex);
-          } else {
-            sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier));
-          };
-        } else {
-          sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier));
-        };
-      };
-      // if con data attribute is true
-      if (object.bonuses.con_bonus) {
-        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier));
-      };
-      // if int data attribute is true
-      if (object.bonuses.int_bonus) {
-        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier));
-      };
-      // if wis data attribute is true
-      if (object.bonuses.wis_bonus) {
-        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier));
-      };
-      // if cha data attribute is true
-      if (object.bonuses.cha_bonus) {
-        sum.push(_checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier));
-      };
-      // if bab data attribute is true
-      if (object.bonuses.bab) {
-        sum.push(_checkValue(sheet.getCharacter().offense.base_attack));
-      };
-      // size
-      if (object.bonuses.size) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.size_bonus));
-      };
-      // level
-      if (object.bonuses.level) {
-        sum.push(_checkValue(sheet.getCharacter().basics.level));
-      };
-      // half level
-      if (object.bonuses.half_level) {
-        sum.push(Math.floor(_checkValue(sheet.getCharacter().basics.level) / 2));
-      };
-      // ac armor
-      if (object.bonuses.ac_armor) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.armor));
-      };
-      // ac shield
-      if (object.bonuses.ac_shield) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.shield));
-      };
-      // ac deflect
-      if (object.bonuses.ac_deflect) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.deflect));
-      };
-      // ac dodge
-      if (object.bonuses.ac_dodge) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.dodge));
-      };
-      // ac natural
-      if (object.bonuses.ac_natural) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.natural));
-      };
-      // armor check penalty
-      if (object.bonuses.check_penalty) {
-        sum.push(_checkValue(sheet.getCharacter().defense.ac.check_penalty));
-      };
-      // class skill
-      if (object.bonuses.class_skill) {
-        sum.push(_checkClassSkill(object));
-      };
-      // 10
-      if (object.bonuses.plus_ten) {
-        sum.push(10);
-      };
-    };
+    var totalObject = _get_totalObject(sheet.getCharacter(), totalPath, cloneCount, totalCloneSet);
+    var toSum = [];
+    var grandTotal;
+
     if (all_bonusCheck.length > 0) {
       for (var i = 0; i < all_bonusCheck.length; i++) {
-        var bonusType = all_bonusCheck[i].dataset.bonusType.replace(/-+/g, "_");
-        all_bonusCheck[i].checked = object.bonuses[bonusType];
+        _updateCheck(all_bonusCheck[i], totalObject.bonuses);
       };
     };
-    var grandTotal;
-    // console.log("\t\t add ----");
+
+    // console.log("\t", totalPath);
+    // console.log("\t\ttotalObject = ", totalObject);
+
+    if (totalBonuses) {
+      for (var key in totalObject.bonuses) {
+        // console.log("\t\t\t", key, totalObject.bonuses[key]);
+        if (totalObject.bonuses[key] && key != "max_dex") {
+          toSum.push(_get_externalBonus(key, totalObject));
+        };
+      };
+    };
+
     if (totalPathAddition && totalCloneSet) {
-      for (var i = 0; i < array.length; i++) {
+      for (var i = 0; i < totalObject.length; i++) {
         for (var j = 0; j < totalPathAddition.length; j++) {
-          // console.log("\t\t", totalPathAddition[i], "=", array[i][totalPathAddition[j]]);
-          value = parseFloat(array[i][totalPathAddition[j]]) || 0;
-          sum.push(value);
+          toSum.push(parseFloat(totalObject[i][totalPathAddition[j]]) || 0);
         };
       };
     } else {
       for (var i = 0; i < totalPathAddition.length; i++) {
-        // console.log("\t\t", totalPathAddition[i], "=", object[totalPathAddition[i]]);
-        value = parseFloat(object[totalPathAddition[i]]) || 0;
-        sum.push(value);
+        toSum.push(parseInt(totalObject[totalPathAddition[i]], 10) || 0);
       };
     };
-    // console.log("\t\t minus ----");
+
     if (totalPathSubtraction && totalCloneSet) {
-      for (var i = 0; i < array.length; i++) {
+      for (var i = 0; i < totalObject.length; i++) {
         for (var j = 0; j < totalPathSubtraction.length; j++) {
-          // console.log("\t\t", totalPathSubtraction[i], "=", array[i][totalPathSubtraction[j]]);
-          value = parseFloat(-array[i][totalPathSubtraction[j]]) || 0;
-          sum.push(value);
+          toSum.push(parseFloat(-totalObject[i][totalPathSubtraction[j]]) || 0);
         };
       };
     } else {
       for (var i = 0; i < totalPathSubtraction.length; i++) {
-        // console.log("\t\t", totalPathSubtraction[i], "=", object[totalPathSubtraction[i]]);
-        value = parseFloat(-object[totalPathSubtraction[i]]) || 0;
-        sum.push(value);
+        toSum.push(parseInt(-totalObject[totalPathSubtraction[i]], 10) || 0);
       };
     };
-    // console.log("\t\t", sum);
-    if (sum.length > 0) {
-      grandTotal = sum.reduce(function(a, b) {
+
+    // console.log("\t\t\t", toSum);
+
+    if (toSum.length > 0) {
+      grandTotal = toSum.reduce(function(a, b) {
         return a + b;
       });
     } else {
       grandTotal = 0;
     };
-    if (object) {
-      object.current = grandTotal;
+
+    if (totalObject) {
+      if ("current" in totalObject) {
+        totalObject.current = grandTotal;
+      };
     };
-    // add + to bonus totals
-    if (totalType == "bonus" && grandTotal > 0) {
-      grandTotal = "+" + grandTotal;
-    } else if (totalType == "weight" && grandTotal > 0) {
-      grandTotal = grandTotal + "lbs";
-    };
-    totalElement.textContent = grandTotal;
+
+    totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);
+
+    // console.log("------------------------------");
   };
 
   function _render_all_totalBlock() {
@@ -13922,6 +14246,12 @@ var totalBlock = (function() {
       return "Base Attack Bonus";
     } else if (bonusType == "size") {
       return "Size Bonus";
+    } else if (bonusType == "special_size") {
+      return "Special Size Bonus";
+    } else if (bonusType == "size_modifier_fly") {
+      return "Size Fly Bonus";
+    } else if (bonusType == "size_modifier_stealth") {
+      return "Size Stealth Bonus";
     } else if (bonusType == "level") {
       return "Level";
     } else if (bonusType == "half-level" || bonusType == "half_level") {
@@ -13941,7 +14271,7 @@ var totalBlock = (function() {
     } else if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
     } else if (bonusType == "check-penalty" || bonusType == "check_penalty") {
-      return "Check Penalty";
+      return "Armor Check Penalty";
     } else if (bonusType == "max-dex" || bonusType == "max_dex") {
       return "Max Dex Bonus";
     } else {
@@ -14086,6 +14416,7 @@ var totalBlock = (function() {
 
   // exposed methods
   return {
+    size: sizeModifierCalculate,
     clear: clear,
     bind: bind,
     render: render
@@ -14096,10 +14427,15 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.6.0",
+    list: [
+      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment."
+    ]
+  }, {
     version: "3.5.2",
     list: [
       "Added Item list total weight.",
-      "Updated character object repair for concentration bonuses"
+      "Updated character object repair for concentration bonuses."
     ]
   }, {
     version: "3.5.1",

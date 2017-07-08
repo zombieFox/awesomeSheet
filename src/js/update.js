@@ -1,10 +1,15 @@
 var update = (function() {
 
   var history = [{
+    version: "3.6.0",
+    list: [
+      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment."
+    ]
+  }, {
     version: "3.5.2",
     list: [
       "Added Item list total weight.",
-      "Updated character object repair for concentration bonuses"
+      "Updated character object repair for concentration bonuses."
     ]
   }, {
     version: "3.5.1",

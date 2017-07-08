@@ -7,7 +7,13 @@ var vos = (function() {
       race: "Dwarf",
       class: "Monk",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Chaotic Neutral",
       xp: "35,000",
       height: "5'0",
@@ -143,7 +149,6 @@ var vos = (function() {
         deflect: 1,
         dodge: 1,
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -263,7 +268,6 @@ var vos = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -273,6 +277,7 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: false,
+          special_size: true,
           level: true,
           half_level: false
         }
@@ -280,7 +285,6 @@ var vos = (function() {
       cmd: {
         misc: 1,
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -290,6 +294,7 @@ var vos = (function() {
           wis_bonus: true,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -298,7 +303,6 @@ var vos = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -308,6 +312,7 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -315,7 +320,6 @@ var vos = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -325,6 +329,7 @@ var vos = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -576,7 +581,8 @@ var vos = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -988,7 +994,8 @@ var vos = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
