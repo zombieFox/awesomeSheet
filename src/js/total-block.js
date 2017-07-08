@@ -258,7 +258,7 @@ var totalBlock = (function() {
     // console.log("\t\ttotalObject = ", totalObject);
 
     if (totalBonuses) {
-      for (key in totalObject.bonuses) {
+      for (var key in totalObject.bonuses) {
         // console.log("\t\t\t", key, totalObject.bonuses[key]);
         if (totalObject.bonuses[key] && key != "max_dex") {
           toSum.push(_get_externalBonus(key, totalObject));

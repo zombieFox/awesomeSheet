@@ -3,7 +3,7 @@ var update = (function() {
   var history = [{
     version: "3.6.0",
     list: [
-      "*Added Size categories with auto calculation. You may need to re-enter you size."
+      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment."
     ]
   }, {
     version: "3.5.2",

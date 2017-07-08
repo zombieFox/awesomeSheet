@@ -4,41 +4,31 @@ var repair = (function() {
     // console.log("fire repair update");
     // update alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
-      console.log(characterObject.basics.alignment);
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Lawful Good");
         characterObject.basics.alignment = "Lawful Good";
       };
       if (["Lawful Neutral", "Lawful neutral", "lawful neutral", "LN", "Ln", "ln"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Lawful Neutral");
         characterObject.basics.alignment = "Lawful Neutral";
       };
       if (["Lawful Evil", "Lawful evil", "lawful evil", "LE", "Le", "le"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Lawful Evil");
         characterObject.basics.alignment = "Lawful Evil";
       };
       if (["Neutral Good", "Neutral good", "neutral good", "NG", "Ng", "ng"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Neutral Good");
         characterObject.basics.alignment = "Neutral Good";
       };
       if (["Neutral", "Neutral", "neutral", "N", "n"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Neutral");
         characterObject.basics.alignment = "Neutral";
       };
       if (["Neutral Evil", "Neutral evil", "neutral evil", "NE", "Ne", "ne"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Neutral Evil");
         characterObject.basics.alignment = "Neutral Evil";
       };
       if (["Chaotic Good", "Chaotic good", "chaotic good", "CG", "Cg", "cg"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Chaotic Good");
         characterObject.basics.alignment = "Chaotic Good";
       };
       if (["Chaotic Neutral", "Chaotic neutral", "chaotic neutral", "CN", "Cn", "cn"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Chaotic Neutral");
         characterObject.basics.alignment = "Chaotic Neutral";
       };
       if (["Chaotic Evil", "Chaotic evil", "chaotic evil", "CE", "Ce", "ce"].indexOf(characterObject.basics.alignment) > -1) {
-        console.log("found", "Chaotic Evil");
         characterObject.basics.alignment = "Chaotic Evil";
       };
     };
