@@ -284,8 +284,8 @@ var sheet = (function() {
     textareaBlock.render();
     skills.render();
     spells.render();
-    totalBlock.render();
     totalBlock.size();
+    totalBlock.render();
     display.render();
   };
 
