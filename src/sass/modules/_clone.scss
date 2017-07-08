@@ -100,7 +100,7 @@
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
-        margin: 0 0 0.5em;
+        margin: 0 0 2px;
         transition: all $transition-ease-fast 0s;
         .m-clone-block-content {
           background-color: $primary-color-19;

@@ -93,8 +93,13 @@ var orrin = (function() {
         medium: "51–100 lbs",
         heavy: "101–150 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Mithral Chain Shirt +2",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Dexterity +4",
         body: "",
         chest: "Vest of Escape",
@@ -106,7 +111,6 @@ var orrin = (function() {
         neck: "Amulet of a Natural Armor +1",
         ring_left_hand: "Ring of Force Shield",
         ring_right_hand: "Ring of Protection +1",
-        shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: ""
       },
@@ -159,9 +163,7 @@ var orrin = (function() {
         deflect: 1,
         dodge: 1,
         natural: 1,
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

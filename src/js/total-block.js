@@ -113,9 +113,9 @@ var totalBlock = (function() {
       // if dex data attribute is true
       if (key == "dex_bonus") {
         // if max dex is true
-        if ("max_dex" in totalObject.bonuses) {
-          if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
-            externalBouns = sheet.getCharacter().defense.ac.max_dex;
+        if (totalObject.bonuses.max_dex) {
+          if (sheet.getCharacter().equipment.armor.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().equipment.armor.max_dex != "") {
+            externalBouns = sheet.getCharacter().equipment.armor.max_dex;
           } else {
             externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
           };
@@ -181,7 +181,7 @@ var totalBlock = (function() {
       };
       // armor check penalty
       if (key == "check_penalty") {
-        externalBouns = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
+        externalBouns = _checkValue(sheet.getCharacter().equipment.armor.check_penalty);
       };
       // class skill
       if (key == "class_skill") {

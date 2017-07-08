@@ -3141,7 +3141,7 @@ label {
             animation: new-flash-pulse ease 3s 1; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone {
-  margin: 0 0 0.5em;
+  margin: 0 0 2px;
   transition: all 0.2s ease-in-out 0s; }
   .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
     background-color: #ffe3ea;

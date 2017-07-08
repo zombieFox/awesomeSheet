@@ -126,22 +126,30 @@ var inputBlock = (function() {
     }, false);
   };
 
-  function render() {
-    var all_inputBlock = helper.eA(".js-input-block");
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var all_inputBlockField = all_inputBlock[i].querySelector(".js-input-block-field");
-      var path = all_inputBlockField.dataset.path;
-      if (path) {
-        if (all_inputBlock[i].dataset.clone == "true") {
-          var pathCloneKey = all_inputBlockField.dataset.pathCloneKey;
-          var cloneCount = all_inputBlock[i].dataset.cloneCount;
-          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-          // console.log("found clone input", path, pathCloneKey, all_inputBlock[i].dataset.cloneCount, all_inputBlock[i]);
-          all_inputBlockField.value = object[pathCloneKey];
-        } else {
-          var content = helper.getObject(sheet.getCharacter(), path);
-          all_inputBlockField.value = content;
-        };
+  function _render_inputBlock(inputBlock) {
+    var inputBlockField = inputBlock.querySelector(".js-input-block-field");
+    var path = inputBlockField.dataset.path;
+    if (path) {
+      if (inputBlock.dataset.clone == "true") {
+        var pathCloneKey = inputBlockField.dataset.pathCloneKey;
+        var cloneCount = inputBlock.dataset.cloneCount;
+        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+        // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
+        inputBlockField.value = object[pathCloneKey];
+      } else {
+        var content = helper.getObject(sheet.getCharacter(), path);
+        inputBlockField.value = content;
+      };
+    };
+  };
+
+  function render(inputBlock) {
+    if (inputBlock) {
+      _render_inputBlock(inputBlock);
+    } else {
+      var all_inputBlock = helper.eA(".js-input-block");
+      for (var i = 0; i < all_inputBlock.length; i++) {
+        _render_inputBlock(all_inputBlock[i]);
       };
     };
   };

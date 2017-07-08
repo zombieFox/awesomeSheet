@@ -93,8 +93,13 @@ var nefi = (function() {
         medium: "174–346 lbs",
         heavy: "347–520 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Full Plate +2",
+        check_penalty: -3,
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Physical Might (+4 Str +2 Dex)",
         body: "",
         chest: "",
@@ -106,7 +111,6 @@ var nefi = (function() {
         neck: "Amulet of Natural Armor +3",
         ring_left_hand: "Ring of Protection +2",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
@@ -134,9 +138,7 @@ var nefi = (function() {
         deflect: 2,
         dodge: 1,
         natural: 3,
-        check_penalty: -3,
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

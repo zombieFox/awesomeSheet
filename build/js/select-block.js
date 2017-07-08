@@ -71,15 +71,23 @@ var selectBlock = (function() {
     };
   };
 
-  function render() {
-    var all_selectBlock = helper.eA(".js-select-block");
-    for (var i = 0; i < all_selectBlock.length; i++) {
-      var selectBlockDropdown = all_selectBlock[i].querySelector(".js-select-block-dropdown");
-      var path = selectBlockDropdown.dataset.path;
-      var selected = selectBlockDropdown.options.selectedIndex;
-      if (path) {
-        var selection = helper.getObject(sheet.getCharacter(), path);
-        helper.setDropdown(selectBlockDropdown, selection);
+  function _render_selectBlock(selectBlock) {
+    var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
+    var path = selectBlockDropdown.dataset.path;
+    var selected = selectBlockDropdown.options.selectedIndex;
+    if (path) {
+      var selection = helper.getObject(sheet.getCharacter(), path);
+      helper.setDropdown(selectBlockDropdown, selection);
+    };
+  };
+
+  function render(selectBlock) {
+    if (all_selectBlock) {
+      _render_selectBlock(selectBlock);
+    } else {
+      var all_selectBlock = helper.eA(".js-select-block");
+      for (var i = 0; i < all_selectBlock.length; i++) {
+        _render_selectBlock(all_selectBlock[i]);
       };
     };
   };

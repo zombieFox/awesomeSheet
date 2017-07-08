@@ -141,8 +141,13 @@ var nif = (function() {
         medium: "27–53 lbs",
         heavy: "54–80 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "",
         body: "",
         chest: "",
@@ -154,7 +159,6 @@ var nif = (function() {
         neck: "Amulet of Natural Armor +1",
         ring_left_hand: "Ring of Sustenance",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: ""
       },
@@ -217,9 +221,7 @@ var nif = (function() {
         deflect: "",
         dodge: "",
         natural: 1,
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

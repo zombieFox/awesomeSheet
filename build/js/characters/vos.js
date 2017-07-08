@@ -93,8 +93,13 @@ var vos = (function() {
         medium: "77–153 lbs",
         heavy: "154–230 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Giant Strength +2",
         body: "",
         chest: "",
@@ -106,7 +111,6 @@ var vos = (function() {
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "Ring of Protection +1",
-        shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: "Bracers of Armor +1"
       },
@@ -149,9 +153,7 @@ var vos = (function() {
         deflect: 1,
         dodge: 1,
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

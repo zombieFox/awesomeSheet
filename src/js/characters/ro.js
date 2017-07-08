@@ -93,8 +93,13 @@ var ro = (function() {
         medium: "44–86 lbs",
         heavy: "87–130 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Mithral Chain Shirt +1",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Incredible Dexterity +2",
         body: "",
         chest: "",
@@ -106,7 +111,6 @@ var ro = (function() {
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance  +1",
         wrist: ""
       },
@@ -154,9 +158,7 @@ var ro = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

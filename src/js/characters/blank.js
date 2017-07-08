@@ -93,8 +93,13 @@ var blank = (function() {
         medium: "",
         heavy: ""
       },
-      body_slots: {
+      armor: {
         armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "",
         body: "",
         chest: "",
@@ -106,7 +111,6 @@ var blank = (function() {
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "",
-        shield: "",
         shoulders: "",
         wrist: ""
       },
@@ -134,9 +138,7 @@ var blank = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

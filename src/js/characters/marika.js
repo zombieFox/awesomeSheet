@@ -93,8 +93,13 @@ var marika = (function() {
         medium: "44–86 lbs",
         heavy: "87–130 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Leather +2",
+        check_penalty: -3,
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Dexterity +4",
         body: "",
         chest: "",
@@ -106,7 +111,6 @@ var marika = (function() {
         neck: "",
         ring_left_hand: "Ring of Protection +2",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
@@ -139,9 +143,7 @@ var marika = (function() {
         deflect: 2,
         dodge: "",
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,

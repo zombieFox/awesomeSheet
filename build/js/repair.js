@@ -2,6 +2,32 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update armor
+    if (typeof characterObject.equipment.armor != "object") {
+      // console.log("\t\tupdate armor");
+      characterObject.equipment.armor = {
+        armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      };
+      if (characterObject.equipment.body_slots.armor != "") {
+        characterObject.equipment.armor.armor = characterObject.equipment.body_slots.armor;
+      };
+      if (characterObject.equipment.body_slots.shield != "") {
+        characterObject.equipment.armor.shield = characterObject.equipment.body_slots.shield;
+      };
+      if (characterObject.defense.ac.max_dex != "") {
+        characterObject.equipment.armor.max_dex = characterObject.defense.ac.max_dex;
+      };
+      if (characterObject.defense.ac.check_penalty != "") {
+        characterObject.equipment.armor.check_penalty = characterObject.defense.ac.check_penalty;
+      };
+      delete characterObject.equipment.body_slots.armor;
+      delete characterObject.equipment.body_slots.shield;
+      delete characterObject.defense.ac.max_dex;
+      delete characterObject.defense.ac.check_penalty;
+    };
     // update alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {

@@ -1,9 +1,10 @@
 var update = (function() {
 
   var history = [{
-    version: "3.6.0",
+    version: "3.6.1",
     list: [
-      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment."
+      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment.",
+      "Moving Armor to Equipment section."
     ]
   }, {
     version: "3.5.2",

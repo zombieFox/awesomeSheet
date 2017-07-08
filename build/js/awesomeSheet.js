@@ -428,8 +428,13 @@ var blank = (function() {
         medium: "",
         heavy: ""
       },
-      body_slots: {
+      armor: {
         armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "",
         body: "",
         chest: "",
@@ -441,7 +446,6 @@ var blank = (function() {
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "",
-        shield: "",
         shoulders: "",
         wrist: ""
       },
@@ -469,9 +473,7 @@ var blank = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -1504,8 +1506,13 @@ var marika = (function() {
         medium: "44–86 lbs",
         heavy: "87–130 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Leather +2",
+        check_penalty: -3,
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Dexterity +4",
         body: "",
         chest: "",
@@ -1517,7 +1524,6 @@ var marika = (function() {
         neck: "",
         ring_left_hand: "Ring of Protection +2",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
@@ -1550,9 +1556,7 @@ var marika = (function() {
         deflect: 2,
         dodge: "",
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -2659,8 +2663,13 @@ var nefi = (function() {
         medium: "174–346 lbs",
         heavy: "347–520 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Full Plate +2",
+        check_penalty: -3,
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Physical Might (+4 Str +2 Dex)",
         body: "",
         chest: "",
@@ -2672,7 +2681,6 @@ var nefi = (function() {
         neck: "Amulet of Natural Armor +3",
         ring_left_hand: "Ring of Protection +2",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
@@ -2700,9 +2708,7 @@ var nefi = (function() {
         deflect: 2,
         dodge: 1,
         natural: 3,
-        check_penalty: -3,
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -3840,8 +3846,13 @@ var nif = (function() {
         medium: "27–53 lbs",
         heavy: "54–80 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "",
         body: "",
         chest: "",
@@ -3853,7 +3864,6 @@ var nif = (function() {
         neck: "Amulet of Natural Armor +1",
         ring_left_hand: "Ring of Sustenance",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: ""
       },
@@ -3916,9 +3926,7 @@ var nif = (function() {
         deflect: "",
         dodge: "",
         natural: 1,
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -5357,8 +5365,13 @@ var orrin = (function() {
         medium: "51–100 lbs",
         heavy: "101–150 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Mithral Chain Shirt +2",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Dexterity +4",
         body: "",
         chest: "Vest of Escape",
@@ -5370,7 +5383,6 @@ var orrin = (function() {
         neck: "Amulet of a Natural Armor +1",
         ring_left_hand: "Ring of Force Shield",
         ring_right_hand: "Ring of Protection +1",
-        shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: ""
       },
@@ -5423,9 +5435,7 @@ var orrin = (function() {
         deflect: 1,
         dodge: 1,
         natural: 1,
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -6542,8 +6552,13 @@ var ro = (function() {
         medium: "44–86 lbs",
         heavy: "87–130 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "Mithral Chain Shirt +1",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Incredible Dexterity +2",
         body: "",
         chest: "",
@@ -6555,7 +6570,6 @@ var ro = (function() {
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "",
-        shield: "",
         shoulders: "Cloak of Resistance  +1",
         wrist: ""
       },
@@ -6603,9 +6617,7 @@ var ro = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -7972,8 +7984,13 @@ var vos = (function() {
         medium: "77–153 lbs",
         heavy: "154–230 lbs"
       },
-      body_slots: {
+      armor: {
         armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
         belts: "Belt of Giant Strength +2",
         body: "",
         chest: "",
@@ -7985,7 +8002,6 @@ var vos = (function() {
         neck: "",
         ring_left_hand: "",
         ring_right_hand: "Ring of Protection +1",
-        shield: "",
         shoulders: "Cloak of Resistance +2",
         wrist: "Bracers of Armor +1"
       },
@@ -8028,9 +8044,7 @@ var vos = (function() {
         deflect: 1,
         dodge: 1,
         natural: "",
-        check_penalty: "",
         current: "",
-        max_dex: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -11065,22 +11079,30 @@ var inputBlock = (function() {
     }, false);
   };
 
-  function render() {
-    var all_inputBlock = helper.eA(".js-input-block");
-    for (var i = 0; i < all_inputBlock.length; i++) {
-      var all_inputBlockField = all_inputBlock[i].querySelector(".js-input-block-field");
-      var path = all_inputBlockField.dataset.path;
-      if (path) {
-        if (all_inputBlock[i].dataset.clone == "true") {
-          var pathCloneKey = all_inputBlockField.dataset.pathCloneKey;
-          var cloneCount = all_inputBlock[i].dataset.cloneCount;
-          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-          // console.log("found clone input", path, pathCloneKey, all_inputBlock[i].dataset.cloneCount, all_inputBlock[i]);
-          all_inputBlockField.value = object[pathCloneKey];
-        } else {
-          var content = helper.getObject(sheet.getCharacter(), path);
-          all_inputBlockField.value = content;
-        };
+  function _render_inputBlock(inputBlock) {
+    var inputBlockField = inputBlock.querySelector(".js-input-block-field");
+    var path = inputBlockField.dataset.path;
+    if (path) {
+      if (inputBlock.dataset.clone == "true") {
+        var pathCloneKey = inputBlockField.dataset.pathCloneKey;
+        var cloneCount = inputBlock.dataset.cloneCount;
+        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+        // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
+        inputBlockField.value = object[pathCloneKey];
+      } else {
+        var content = helper.getObject(sheet.getCharacter(), path);
+        inputBlockField.value = content;
+      };
+    };
+  };
+
+  function render(inputBlock) {
+    if (inputBlock) {
+      _render_inputBlock(inputBlock);
+    } else {
+      var all_inputBlock = helper.eA(".js-input-block");
+      for (var i = 0; i < all_inputBlock.length; i++) {
+        _render_inputBlock(all_inputBlock[i]);
       };
     };
   };
@@ -12157,6 +12179,32 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update armor
+    if (typeof characterObject.equipment.armor != "object") {
+      // console.log("\t\tupdate armor");
+      characterObject.equipment.armor = {
+        armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      };
+      if (characterObject.equipment.body_slots.armor != "") {
+        characterObject.equipment.armor.armor = characterObject.equipment.body_slots.armor;
+      };
+      if (characterObject.equipment.body_slots.shield != "") {
+        characterObject.equipment.armor.shield = characterObject.equipment.body_slots.shield;
+      };
+      if (characterObject.defense.ac.max_dex != "") {
+        characterObject.equipment.armor.max_dex = characterObject.defense.ac.max_dex;
+      };
+      if (characterObject.defense.ac.check_penalty != "") {
+        characterObject.equipment.armor.check_penalty = characterObject.defense.ac.check_penalty;
+      };
+      delete characterObject.equipment.body_slots.armor;
+      delete characterObject.equipment.body_slots.shield;
+      delete characterObject.defense.ac.max_dex;
+      delete characterObject.defense.ac.check_penalty;
+    };
     // update alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
@@ -12379,15 +12427,23 @@ var selectBlock = (function() {
     };
   };
 
-  function render() {
-    var all_selectBlock = helper.eA(".js-select-block");
-    for (var i = 0; i < all_selectBlock.length; i++) {
-      var selectBlockDropdown = all_selectBlock[i].querySelector(".js-select-block-dropdown");
-      var path = selectBlockDropdown.dataset.path;
-      var selected = selectBlockDropdown.options.selectedIndex;
-      if (path) {
-        var selection = helper.getObject(sheet.getCharacter(), path);
-        helper.setDropdown(selectBlockDropdown, selection);
+  function _render_selectBlock(selectBlock) {
+    var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
+    var path = selectBlockDropdown.dataset.path;
+    var selected = selectBlockDropdown.options.selectedIndex;
+    if (path) {
+      var selection = helper.getObject(sheet.getCharacter(), path);
+      helper.setDropdown(selectBlockDropdown, selection);
+    };
+  };
+
+  function render(selectBlock) {
+    if (all_selectBlock) {
+      _render_selectBlock(selectBlock);
+    } else {
+      var all_selectBlock = helper.eA(".js-select-block");
+      for (var i = 0; i < all_selectBlock.length; i++) {
+        _render_selectBlock(all_selectBlock[i]);
       };
     };
   };
@@ -13853,22 +13909,30 @@ var textareaBlock = (function() {
     };
   };
 
-  function render() {
-    var all_textareaBlock = helper.eA(".js-textarea-block");
-    for (var i = 0; i < all_textareaBlock.length; i++) {
-      var all_textareaBlockField = all_textareaBlock[i].querySelector(".js-textarea-block-field");
-      var path = all_textareaBlockField.dataset.path;
-      if (path) {
-        if (all_textareaBlock[i].dataset.clone == "true") {
-          var pathCloneKey = all_textareaBlockField.dataset.pathCloneKey;
-          var cloneCount = all_textareaBlock[i].dataset.cloneCount;
-          var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-          all_textareaBlockField.innerHTML = object[pathCloneKey];
-          // console.log("found clone input", path, pathCloneKey, all_textareaBlock[i].dataset.cloneCount, all_textareaBlock[i]);
-        } else {
-          var content = helper.getObject(sheet.getCharacter(), path);
-          all_textareaBlockField.innerHTML = content;
-        };
+  function _render_textareaBlock(textareaBlock) {
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var path = textareaBlockField.dataset.path;
+    if (path) {
+      if (textareaBlock.dataset.clone == "true") {
+        var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
+        var cloneCount = textareaBlock.dataset.cloneCount;
+        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+        textareaBlockField.innerHTML = object[pathCloneKey];
+        // console.log("found clone input", path, pathCloneKey, textareaBlock.dataset.cloneCount, textareaBlock);
+      } else {
+        var content = helper.getObject(sheet.getCharacter(), path);
+        textareaBlockField.innerHTML = content;
+      };
+    };
+  };
+
+  function render(textareaBlock) {
+    if (textareaBlock) {
+      _render_textareaBlock(textareaBlock);
+    } else {
+      var all_textareaBlock = helper.eA(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        _render_textareaBlock(all_textareaBlock[i]);
       };
     };
   };
@@ -14024,9 +14088,9 @@ var totalBlock = (function() {
       // if dex data attribute is true
       if (key == "dex_bonus") {
         // if max dex is true
-        if ("max_dex" in totalObject.bonuses) {
-          if (sheet.getCharacter().defense.ac.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().defense.ac.max_dex != "") {
-            externalBouns = sheet.getCharacter().defense.ac.max_dex;
+        if (totalObject.bonuses.max_dex) {
+          if (sheet.getCharacter().equipment.armor.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().equipment.armor.max_dex != "") {
+            externalBouns = sheet.getCharacter().equipment.armor.max_dex;
           } else {
             externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
           };
@@ -14092,7 +14156,7 @@ var totalBlock = (function() {
       };
       // armor check penalty
       if (key == "check_penalty") {
-        externalBouns = _checkValue(sheet.getCharacter().defense.ac.check_penalty);
+        externalBouns = _checkValue(sheet.getCharacter().equipment.armor.check_penalty);
       };
       // class skill
       if (key == "class_skill") {
@@ -14427,9 +14491,10 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
-    version: "3.6.0",
+    version: "3.6.1",
     list: [
-      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment."
+      "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment.",
+      "Moving Armor to Equipment section."
     ]
   }, {
     version: "3.5.2",
