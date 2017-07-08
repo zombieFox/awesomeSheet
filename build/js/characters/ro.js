@@ -7,7 +7,13 @@ var ro = (function() {
       race: "Elf",
       class: "Magus Bladebound",
       level: "7",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Lawful Evil",
       xp: "29,090",
       height: "6'0",
@@ -148,7 +154,6 @@ var ro = (function() {
         deflect: "",
         dodge: "",
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -268,7 +273,6 @@ var ro = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -278,6 +282,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -285,7 +290,6 @@ var ro = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -295,6 +299,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -303,7 +308,6 @@ var ro = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -313,6 +317,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -320,7 +325,6 @@ var ro = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -330,6 +334,7 @@ var ro = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -574,7 +579,8 @@ var ro = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -986,7 +992,8 @@ var ro = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {

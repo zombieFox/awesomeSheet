@@ -721,9 +721,9 @@ body {
 select {
   background-color: #fbfdff;
   color: #2e2e2e;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #e0e0e0;
+  border: 1px solid transparent;
+  border-color: #c7c7c7;
+  border-radius: 4px;
   margin: 0;
   padding: 0.5em 0;
   color: #2e2e2e;
@@ -731,7 +731,8 @@ select {
   line-height: 1.6666666667;
   height: 2.5em;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1); }
   select:hover {
     background-color: #e3f2fd;
     border-color: #264f6e;
@@ -2895,6 +2896,15 @@ label {
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-stat-modifier,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-total-block-total {
       margin-left: -1px; }
+    .m-edit-box-body-group [class*="m-edit-box-item"] .button,
+    .m-edit-box-body-group [class^="m-edit-box-item"] .button {
+      z-index: 2; }
+      .m-edit-box-body-group [class*="m-edit-box-item"] .button:focus,
+      .m-edit-box-body-group [class^="m-edit-box-item"] .button:focus {
+        z-index: 3; }
+    .m-edit-box-body-group [class*="m-edit-box-item"]:hover .button,
+    .m-edit-box-body-group [class^="m-edit-box-item"]:hover .button {
+      z-index: 3; }
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-input-block,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-input-block {
       z-index: 2; }
@@ -3253,6 +3263,8 @@ label {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   white-space: nowrap; }
+  .m-input-block-label:not(:only-child):not(:last-child) {
+    margin-bottom: 0; }
 
 .m-input-block-field {
   position: relative;
@@ -3262,6 +3274,34 @@ label {
   font-size: 1.5em; }
 
 .is-night-mode .m-input-block-label.is-active {
+  color: #264f6e; }
+
+.m-select-block {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem; }
+
+.m-select-block-label {
+  margin: 0;
+  padding: 0;
+  display: block;
+  z-index: 2;
+  color: #264f6e;
+  font-size: 0.75em;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  white-space: nowrap; }
+  .m-select-block-label:not(:only-child):not(:last-child) {
+    margin-bottom: 0; }
+
+.m-select-block-field {
+  position: relative;
+  z-index: 1; }
+
+.m-select-block-large .m-select-block-field {
+  font-size: 1.5em; }
+
+.is-night-mode .m-select-block-label.is-active {
   color: #264f6e; }
 
 .m-check-block {

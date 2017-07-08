@@ -3,43 +3,45 @@ var repair = (function() {
   function render(characterObject) {
     // console.log("fire repair update");
     // update alignment
-    if (characterObject.basics.alignment && "Lawful Good" || characterObject.basics.alignment && "Lawful Neutral" || characterObject.basics.alignment && "Lawful Evil" || characterObject.basics.alignment && "Neutral Good" || characterObject.basics.alignment && "Neutral" || characterObject.basics.alignment && "Neutral Evil" || characterObject.basics.alignment && "Chaotic Good" || characterObject.basics.alignment && "Chaotic Neutral" || characterObject.basics.alignment && "Chaotic Evil") {
+    if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
       console.log(characterObject.basics.alignment);
+      if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Lawful Good");
+        characterObject.basics.alignment = "Lawful Good";
+      };
+      if (["Lawful Neutral", "Lawful neutral", "lawful neutral", "LN", "Ln", "ln"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Lawful Neutral");
+        characterObject.basics.alignment = "Lawful Neutral";
+      };
+      if (["Lawful Evil", "Lawful evil", "lawful evil", "LE", "Le", "le"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Lawful Evil");
+        characterObject.basics.alignment = "Lawful Evil";
+      };
+      if (["Neutral Good", "Neutral good", "neutral good", "NG", "Ng", "ng"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Neutral Good");
+        characterObject.basics.alignment = "Neutral Good";
+      };
+      if (["Neutral", "Neutral", "neutral", "N", "n"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Neutral");
+        characterObject.basics.alignment = "Neutral";
+      };
+      if (["Neutral Evil", "Neutral evil", "neutral evil", "NE", "Ne", "ne"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Neutral Evil");
+        characterObject.basics.alignment = "Neutral Evil";
+      };
+      if (["Chaotic Good", "Chaotic good", "chaotic good", "CG", "Cg", "cg"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Chaotic Good");
+        characterObject.basics.alignment = "Chaotic Good";
+      };
+      if (["Chaotic Neutral", "Chaotic neutral", "chaotic neutral", "CN", "Cn", "cn"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Chaotic Neutral");
+        characterObject.basics.alignment = "Chaotic Neutral";
+      };
+      if (["Chaotic Evil", "Chaotic evil", "chaotic evil", "CE", "Ce", "ce"].indexOf(characterObject.basics.alignment) > -1) {
+        console.log("found", "Chaotic Evil");
+        characterObject.basics.alignment = "Chaotic Evil";
+      };
     };
-
-
-    // if (characterObject.basics.alignment != "" || characterObject.basics.alignment != "" || characterObject.basics.alignment != "" || characterObject.basics.alignment != "" || characterObject.basics.alignment != " || characterObject.basics.alignment != "" || characterObject.basics.alignment != "" || characterObject.basics.alignment != "" || characterObject.basics.alignment != """) {
-    //       console.log("bad alignment", characterObject.basics.alignment);
-    //       // // console.log("\t\tupdate alignment");
-    //       // var size = characterObject.basics.size;
-    //       // if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
-    //       //   size = "Medium";
-    //       // } else if (size == "") {
-    //       //   size = false;
-    //       // };
-    //       // characterObject.basics.size = {
-    //       //   category: "",
-    //       //   size_modifier: 0,
-    //       //   special_size_modifier: 0,
-    //       //   size_modifier_fly: 0,
-    //       //   size_modifier_stealth: 0
-    //       // };
-    //       // if (size) {
-    //       //   characterObject.basics.size.category = size;
-    //       // };
-    //       // delete characterObject.defense.ac.size_bonus;
-    //       // delete characterObject.offense.cmb.size;
-    //       // delete characterObject.offense.cmd.size;
-    //       // delete characterObject.offense.melee_attack.size;
-    //       // delete characterObject.offense.ranged_attack.size;
-    //       // characterObject.offense.cmb.bonuses.special_size = true;
-    //       // characterObject.offense.cmd.bonuses.special_size = true;
-    //       // characterObject.offense.melee_attack.bonuses.size = true;
-    //       // characterObject.offense.ranged_attack.bonuses.size = true;
-    //       // characterObject.defense.ac.bonuses.max_dex = true;
-    //       // characterObject.defense.touch.bonuses.max_dex = true;
-    //     };
-
     // add size object
     if (typeof characterObject.basics.size != "object" || "size_bonus" in sheet.getCharacter().defense.ac) {
       // console.log("\t\tadd size object");

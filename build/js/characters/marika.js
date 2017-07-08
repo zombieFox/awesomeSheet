@@ -7,7 +7,13 @@ var marika = (function() {
       race: "Human",
       class: "Rogue",
       level: "9",
-      size: "Medium",
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
       alignment: "Chaotic Neutral",
       xp: "76,000",
       height: "5’3",
@@ -133,7 +139,6 @@ var marika = (function() {
         deflect: 2,
         dodge: "",
         natural: "",
-        size_bonus: "",
         check_penalty: "",
         current: "",
         max_dex: "",
@@ -253,7 +258,6 @@ var marika = (function() {
       cmb: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -263,6 +267,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false
         }
@@ -270,7 +275,6 @@ var marika = (function() {
       cmd: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -280,6 +284,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          special_size: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -288,7 +293,6 @@ var marika = (function() {
       melee_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: true,
@@ -298,6 +302,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -305,7 +310,6 @@ var marika = (function() {
       ranged_attack: {
         misc: "",
         temp: "",
-        size: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -315,6 +319,7 @@ var marika = (function() {
           wis_bonus: false,
           cha_bonus: false,
           bab: true,
+          size: true,
           level: false,
           half_level: false
         }
@@ -583,7 +588,8 @@ var marika = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_fly: true
         }
       },
       handle_animal: {
@@ -995,7 +1001,8 @@ var marika = (function() {
           cha_bonus: false,
           level: false,
           half_level: false,
-          check_penalty: true
+          check_penalty: true,
+          size_modifier_stealth: true
         }
       },
       survival: {
