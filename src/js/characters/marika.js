@@ -201,8 +201,9 @@ var marika = (function() {
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
         base: 3,
-        racial: "",
         resistance: 3,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -219,9 +220,10 @@ var marika = (function() {
       },
       reflex: {
         base: 6,
-        racial: "",
         resistance: 3,
-        misc: 1,
+        feat: "",
+        trait: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -237,8 +239,9 @@ var marika = (function() {
       },
       will: {
         base: 3,
-        racial: "",
         resistance: 3,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",

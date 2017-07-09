@@ -196,8 +196,9 @@ var blank = (function() {
       ac_notes: "",
       fortitude: {
         base: "",
-        racial: "",
         resistance: "",
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -214,8 +215,9 @@ var blank = (function() {
       },
       reflex: {
         base: "",
-        racial: "",
         resistance: "",
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -232,8 +234,9 @@ var blank = (function() {
       },
       will: {
         base: "",
-        racial: "",
         resistance: "",
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",

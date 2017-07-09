@@ -2846,9 +2846,9 @@ label {
           flex: 1 1 100%; }
 
 .m-edit-box-item-button {
-  -webkit-flex: 0 0 3em;
-      -ms-flex: 0 0 3em;
-          flex: 0 0 3em; }
+  -webkit-flex: 0 0 2.5em;
+      -ms-flex: 0 0 2.5em;
+          flex: 0 0 2.5em; }
   .m-edit-box-item-button .button {
     margin: 0;
     width: 100%;

@@ -335,6 +335,7 @@ var nav = (function() {
       event.stopPropagation();
       event.preventDefault();
       log.changeLog();
+      navClose();
     }, false);
 
     clearAll.addEventListener("click", function(event) {

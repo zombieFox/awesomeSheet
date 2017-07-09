@@ -2,6 +2,27 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // remove racial save bonuses
+    ifRacial("racial", characterObject.defense.fortitude);
+    ifRacial("racial", characterObject.defense.reflex);
+    ifRacial("racial", characterObject.defense.will);
+    function ifRacial(key, object) {
+      if (key in object) {
+        // console.log("\t\tremove racial save bonuses");
+        if (object.racial != "" && !isNaN(object.racial)) {
+          // console.log("racial found");
+          // console.log(object, object.racial);
+          if (object.misc != "" && !isNaN(object.misc)) {
+            // console.log("misc found");
+            // console.log(object.misc);
+            object.misc = object.misc + object.racial;
+          } else {
+            object.misc = object.racial;
+          };
+        };
+        delete object[key];
+      };
+    };
     // update armor
     if (typeof characterObject.equipment.armor != "object") {
       // console.log("\t\tupdate armor");

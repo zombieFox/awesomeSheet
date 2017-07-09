@@ -160,7 +160,7 @@
   </div>
 </div>
 <hr>
-<div class="m-edit-box js-total-block" data-total-path="defense.fortitude" data-total-path-addition="base,racial,resistance,misc,temp" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-total-type="bonus">
+<div class="m-edit-box js-total-block" data-total-path="defense.fortitude" data-total-path-addition="base,resistance,feat,trait,misc,temp" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-total-type="bonus">
   <div class="m-edit-box-head-small">
     <h2 class="m-edit-box-title-with-label">Fortitude</h2>
   </div>
@@ -177,14 +177,20 @@
     </div>
     <div class="m-edit-box-item-small">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="defense-fortitude-racial">Racial</label>
-        <input id="defense-fortitude-racial" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.racial" type="text" data-type="integer" tabindex="3">
+        <label class="m-input-block-label js-input-block-label" for="defense-fortitude-resistance"><span class="hidden-lg hidden-xl">Resist</span><span class="hidden-sm hidden-md hidden-xs">Resistance</span></label>
+        <input id="defense-fortitude-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.resistance" type="text" data-type="integer" tabindex="3">
       </div>
     </div>
     <div class="m-edit-box-item-small">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="defense-fortitude-resistance">Resistance</label>
-        <input id="defense-fortitude-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.resistance" type="text" data-type="integer" tabindex="3">
+        <label class="m-input-block-label js-input-block-label" for="defense-fortitude-feat">Feat</label>
+        <input id="defense-fortitude-feat" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.feat" type="text" data-type="integer" tabindex="3">
+      </div>
+    </div>
+    <div class="m-edit-box-item-small">
+      <div class="m-input-block js-input-block">
+        <label class="m-input-block-label js-input-block-label" for="defense-fortitude-trait">Trait</label>
+        <input id="defense-fortitude-trait" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.trait" type="text" data-type="integer" tabindex="3">
       </div>
     </div>
     <div class="m-edit-box-item-small">
@@ -204,7 +210,7 @@
     </div>
   </div>
 </div>
-<div class="m-edit-box js-total-block" data-total-path="defense.reflex" data-total-path-addition="base,racial,resistance,misc,temp" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-total-type="bonus">
+<div class="m-edit-box js-total-block" data-total-path="defense.reflex" data-total-path-addition="base,resistance,feat,trait,misc,temp" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-total-type="bonus">
   <div class="m-edit-box-head-small">
     <h2 class="m-edit-box-title-with-label">Reflex</h2>
   </div>
@@ -221,14 +227,20 @@
     </div>
     <div class="m-edit-box-item-small">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="defense-reflex-racial">Racial</label>
-        <input id="defense-reflex-racial" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.racial" type="text" data-type="integer" tabindex="3">
+        <label class="m-input-block-label js-input-block-label" for="defense-reflex-resistance"><span class="hidden-lg hidden-xl">Resist</span><span class="hidden-sm hidden-md hidden-xs">Resistance</span></label>
+        <input id="defense-reflex-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.resistance" type="text" data-type="integer" tabindex="3">
       </div>
     </div>
     <div class="m-edit-box-item-small">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="defense-reflex-resistance">Resistance</label>
-        <input id="defense-reflex-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.resistance" type="text" data-type="integer" tabindex="3">
+        <label class="m-input-block-label js-input-block-label" for="defense-reflex-feat">Feat</label>
+        <input id="defense-reflex-feat" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.feat" type="text" data-type="integer" tabindex="3">
+      </div>
+    </div>
+    <div class="m-edit-box-item-small">
+      <div class="m-input-block js-input-block">
+        <label class="m-input-block-label js-input-block-label" for="defense-reflex-trait">Trait</label>
+        <input id="defense-reflex-trait" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.trait" type="text" data-type="integer" tabindex="3">
       </div>
     </div>
     <div class="m-edit-box-item-small">
@@ -248,7 +260,7 @@
     </div>
   </div>
 </div>
-<div class="m-edit-box js-total-block" data-total-path="defense.will" data-total-path-addition="base,racial,resistance,misc,temp" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-total-type="bonus">
+<div class="m-edit-box js-total-block" data-total-path="defense.will" data-total-path-addition="base,resistance,feat,trait,misc,temp" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level" data-total-type="bonus">
   <div class="m-edit-box-head-small">
     <h2 class="m-edit-box-title-with-label">Will</h2>
   </div>
@@ -265,14 +277,20 @@
     </div>
     <div class="m-edit-box-item-small">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="defense-will-racial">Racial</label>
-        <input id="defense-will-racial" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.racial" type="text" data-type="integer" tabindex="3">
+        <label class="m-input-block-label js-input-block-label" for="defense-will-resistance"><span class="hidden-lg hidden-xl">Resist</span><span class="hidden-sm hidden-md hidden-xs">Resistance</span></label>
+        <input id="defense-will-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.resistance" type="text" data-type="integer" tabindex="3">
       </div>
     </div>
     <div class="m-edit-box-item-small">
       <div class="m-input-block js-input-block">
-        <label class="m-input-block-label js-input-block-label" for="defense-will-resistance">Resistance</label>
-        <input id="defense-will-resistance" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.resistance" type="text" data-type="integer" tabindex="3">
+        <label class="m-input-block-label js-input-block-label" for="defense-will-feat">Feat</label>
+        <input id="defense-will-feat" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.feat" type="text" data-type="integer" tabindex="3">
+      </div>
+    </div>
+    <div class="m-edit-box-item-small">
+      <div class="m-input-block js-input-block">
+        <label class="m-input-block-label js-input-block-label" for="defense-will-trait">Trait</label>
+        <input id="defense-will-trait" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.trait" type="text" data-type="integer" tabindex="3">
       </div>
     </div>
     <div class="m-edit-box-item-small">

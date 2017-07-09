@@ -196,9 +196,10 @@ var nefi = (function() {
       ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
       fortitude: {
         base: 6,
-        racial: "",
         resistance: 3,
-        misc: 3,
+        feat: 2,
+        trait: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -214,8 +215,9 @@ var nefi = (function() {
       },
       reflex: {
         base: 3,
-        racial: "",
         resistance: 3,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -232,9 +234,10 @@ var nefi = (function() {
       },
       will: {
         base: 2,
-        racial: "",
         resistance: 3,
-        misc: 2,
+        feat: 2,
+        trait: "",
+        misc: "",
         temp: "",
         current: "",
         bonuses: {

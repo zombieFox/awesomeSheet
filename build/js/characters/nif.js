@@ -279,9 +279,10 @@ var nif = (function() {
       ac_notes: "",
       fortitude: {
         base: 2,
-        racial: "",
         resistance: 2,
-        misc: 3,
+        feat: "",
+        trait: 1,
+        misc: 2,
         temp: "",
         current: "",
         bonuses: {
@@ -297,8 +298,9 @@ var nif = (function() {
       },
       reflex: {
         base: 2,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -315,8 +317,9 @@ var nif = (function() {
       },
       will: {
         base: 5,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",

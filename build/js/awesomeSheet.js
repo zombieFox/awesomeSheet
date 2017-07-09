@@ -531,8 +531,9 @@ var blank = (function() {
       ac_notes: "",
       fortitude: {
         base: "",
-        racial: "",
         resistance: "",
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -549,8 +550,9 @@ var blank = (function() {
       },
       reflex: {
         base: "",
-        racial: "",
         resistance: "",
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -567,8 +569,9 @@ var blank = (function() {
       },
       will: {
         base: "",
-        racial: "",
         resistance: "",
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -1614,8 +1617,9 @@ var marika = (function() {
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
         base: 3,
-        racial: "",
         resistance: 3,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -1632,9 +1636,10 @@ var marika = (function() {
       },
       reflex: {
         base: 6,
-        racial: "",
         resistance: 3,
-        misc: 1,
+        feat: "",
+        trait: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -1650,8 +1655,9 @@ var marika = (function() {
       },
       will: {
         base: 3,
-        racial: "",
         resistance: 3,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -2766,9 +2772,10 @@ var nefi = (function() {
       ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
       fortitude: {
         base: 6,
-        racial: "",
         resistance: 3,
-        misc: 3,
+        feat: 2,
+        trait: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -2784,8 +2791,9 @@ var nefi = (function() {
       },
       reflex: {
         base: 3,
-        racial: "",
         resistance: 3,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -2802,9 +2810,10 @@ var nefi = (function() {
       },
       will: {
         base: 2,
-        racial: "",
         resistance: 3,
-        misc: 2,
+        feat: 2,
+        trait: "",
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -3984,9 +3993,10 @@ var nif = (function() {
       ac_notes: "",
       fortitude: {
         base: 2,
-        racial: "",
         resistance: 2,
-        misc: 3,
+        feat: "",
+        trait: 1,
+        misc: 2,
         temp: "",
         current: "",
         bonuses: {
@@ -4002,8 +4012,9 @@ var nif = (function() {
       },
       reflex: {
         base: 2,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -4020,8 +4031,9 @@ var nif = (function() {
       },
       will: {
         base: 5,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -5493,9 +5505,10 @@ var orrin = (function() {
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
         base: 3,
-        racial: "",
         resistance: 2,
-        misc: 3,
+        feat: 2,
+        trait: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -5511,8 +5524,9 @@ var orrin = (function() {
       },
       reflex: {
         base: 6,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -5529,9 +5543,10 @@ var orrin = (function() {
       },
       will: {
         base: 3,
-        racial: "",
         resistance: 2,
-        misc: 2,
+        feat: 2,
+        trait: "",
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -6675,8 +6690,9 @@ var ro = (function() {
       ac_notes: "",
       fortitude: {
         base: 6,
-        racial: "",
         resistance: 1,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -6693,8 +6709,9 @@ var ro = (function() {
       },
       reflex: {
         base: 2,
-        racial: "",
         resistance: 1,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -6711,8 +6728,9 @@ var ro = (function() {
       },
       will: {
         base: 6,
-        racial: "",
         resistance: 1,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -8102,9 +8120,10 @@ var vos = (function() {
       ac_notes: "",
       fortitude: {
         base: 5,
-        racial: "",
         resistance: 2,
-        misc: 2,
+        feat: 2,
+        trait: "",
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -8120,8 +8139,9 @@ var vos = (function() {
       },
       reflex: {
         base: 5,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -8138,8 +8158,9 @@ var vos = (function() {
       },
       will: {
         base: 5,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -11839,6 +11860,7 @@ var nav = (function() {
       event.stopPropagation();
       event.preventDefault();
       log.changeLog();
+      navClose();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
@@ -12179,6 +12201,27 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // remove racial save bonuses
+    ifRacial("racial", characterObject.defense.fortitude);
+    ifRacial("racial", characterObject.defense.reflex);
+    ifRacial("racial", characterObject.defense.will);
+    function ifRacial(key, object) {
+      if (key in object) {
+        // console.log("\t\tremove racial save bonuses");
+        if (object.racial != "" && !isNaN(object.racial)) {
+          // console.log("racial found");
+          // console.log(object, object.racial);
+          if (object.misc != "" && !isNaN(object.misc)) {
+            // console.log("misc found");
+            // console.log(object.misc);
+            object.misc = object.misc + object.racial;
+          } else {
+            object.misc = object.racial;
+          };
+        };
+        delete object[key];
+      };
+    };
     // update armor
     if (typeof characterObject.equipment.armor != "object") {
       // console.log("\t\tupdate armor");
@@ -14493,8 +14536,9 @@ var update = (function() {
   var history = [{
     version: "3.6.1",
     list: [
+      "Adding Feat and Trait inputs to Saves, removing Racial inputs on Saves.",
       "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment.",
-      "Moving Armor to Equipment section."
+      "Moved Armor and Shield to Equipment section."
     ]
   }, {
     version: "3.5.2",

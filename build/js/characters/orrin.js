@@ -221,9 +221,10 @@ var orrin = (function() {
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
         base: 3,
-        racial: "",
         resistance: 2,
-        misc: 3,
+        feat: 2,
+        trait: 1,
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -239,8 +240,9 @@ var orrin = (function() {
       },
       reflex: {
         base: 6,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -257,9 +259,10 @@ var orrin = (function() {
       },
       will: {
         base: 3,
-        racial: "",
         resistance: 2,
-        misc: 2,
+        feat: 2,
+        trait: "",
+        misc: "",
         temp: "",
         current: "",
         bonuses: {

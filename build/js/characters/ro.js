@@ -216,8 +216,9 @@ var ro = (function() {
       ac_notes: "",
       fortitude: {
         base: 6,
-        racial: "",
         resistance: 1,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -234,8 +235,9 @@ var ro = (function() {
       },
       reflex: {
         base: 2,
-        racial: "",
         resistance: 1,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -252,8 +254,9 @@ var ro = (function() {
       },
       will: {
         base: 6,
-        racial: "",
         resistance: 1,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",

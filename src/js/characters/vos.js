@@ -211,9 +211,10 @@ var vos = (function() {
       ac_notes: "",
       fortitude: {
         base: 5,
-        racial: "",
         resistance: 2,
-        misc: 2,
+        feat: 2,
+        trait: "",
+        misc: "",
         temp: "",
         current: "",
         bonuses: {
@@ -229,8 +230,9 @@ var vos = (function() {
       },
       reflex: {
         base: 5,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
@@ -247,8 +249,9 @@ var vos = (function() {
       },
       will: {
         base: 5,
-        racial: "",
         resistance: 2,
+        feat: "",
+        trait: "",
         misc: "",
         temp: "",
         current: "",
