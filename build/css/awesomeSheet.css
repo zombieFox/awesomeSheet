@@ -3804,8 +3804,7 @@ label {
     .m-spell .m-spell-active [class*=" icon-"],
     .m-spell .m-spell-active [class^="icon-"] {
       float: left;
-      margin: 0 5px 0 0;
-      line-height: 1.6666666667; }
+      margin: 0 5px 0 0; }
   .m-spell .m-spell-marks {
     -webkit-flex: 1 1 auto;
         -ms-flex: 1 1 auto;
@@ -3814,13 +3813,16 @@ label {
     .m-spell .m-spell-marks [class*=" icon-"],
     .m-spell .m-spell-marks [class^="icon-"] {
       float: right;
-      margin: 0 0 0 2px;
-      line-height: 1.6666666667; }
+      margin: 0 0 0 2px; }
   .m-spell .m-spell-remove {
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
     display: none;
-    visibility: hidden;
-    font-size: 1.4em;
-    line-height: 1; }
+    visibility: hidden; }
+    .m-spell .m-spell-remove [class*=" icon-"],
+    .m-spell .m-spell-remove [class^="icon-"] {
+      float: right; }
 
 .m-new-spell {
   position: relative;

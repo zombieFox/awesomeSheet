@@ -157,7 +157,6 @@
     [class^="icon-"] {
       float: left;
       margin: 0 5px 0 0;
-      line-height: $line-height-160;
     }
   }
   .m-spell-marks {
@@ -167,16 +166,16 @@
     [class^="icon-"] {
       float: right;
       margin: 0 0 0 2px;
-      line-height: $line-height-160;
     }
   }
   .m-spell-remove {
+    flex: 1 1 auto;
     display: none;
     visibility: hidden;
-    font-size: 1.4em;
-    line-height: 1;
     [class*=" icon-"],
-    [class^="icon-"] {}
+    [class^="icon-"] {
+      float: right;
+    }
   }
 }
 .m-new-spell {
