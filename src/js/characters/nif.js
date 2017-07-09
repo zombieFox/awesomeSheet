@@ -6,7 +6,7 @@ var nif = (function() {
       name: "Nif Amakir",
       race: "Elf",
       class: "Wizard",
-      level: "7",
+      level: "8",
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -15,13 +15,13 @@ var nif = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Lawful Neutral",
-      xp: "42,030",
+      xp: "51,330",
       height: "6'0",
       weight: "136 lbs",
       age: "120",
       gender: "Male",
       speed: "30ft",
-      hero_points: "",
+      hero_points: "1",
       luck_points: "",
       initiative: {
         misc: "",
@@ -61,7 +61,7 @@ var nif = (function() {
           temp_modifier: ""
         },
         int: {
-          score: 25,
+          score: 26,
           modifier: "",
           temp_score: "",
           temp_modifier: ""
@@ -81,14 +81,14 @@ var nif = (function() {
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
-      languages: "Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Orc, Sylvan, Undercommon",
+      languages: "Aquan, Auran, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Terran, Undercommon",
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
-      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3), Potion of Cure Light Wounds (0), Potion of Cure Moderate Wounds (0), Potion of Protection from Evil (1), Potion of Adjustable Disguise (1), Potion of Aid (1), Potion of Displacement (1), Scroll if Acid Pit (1), Scroll if Summon Monster III (2), Scroll if Summon Monster IV (0), Scroll if Invisibility (2), Scroll if Create Pit (2), Scroll if Web (3), Scroll if Stinking Cloud (2), Scroll if Grease (1), Scroll if Mirror Image (3), Scroll if Spiked Pit (4), Scroll if Fly (4), Scroll if Interposing Hand (1), Scroll if Elemental Body 2 (0), Scroll if Wall of Fire (1), Scroll if Haste (2), Scroll if Enlarge Person (2), Scroll if Endure Element (2), Scroll if Acid Arrow (0), Scroll if Gust of Wind (0), Scroll if Animate Rope (1), Scroll if False Life (1), Scroll if Floating Disk (1)",
+      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3)",
       item: [{
-        name: "Flask of oil",
+        name: "Flask of Oil",
         quantity: 5,
         weight: 5
       }, {
@@ -134,7 +134,159 @@ var nif = (function() {
       }, {
         name: "Viles of insect sap",
         quantity: 14,
-        weight: 7
+        weight: 0.5
+      }, {
+        name: "Potion of Cure Light Wounds",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Cure Moderate Wounds",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Cure Serious Wounds",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Protection from Evil",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Adjustable Disguise",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Aid",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Displacement",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Hide from Animals",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Delay Poison",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Bear's Endurance",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Levitate",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll of Acid Pit",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Summon Monster III",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Summon Monster IV",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll of Invisibility",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Create Pit",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Web",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll of Stinking Cloud",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Grease",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll of Mirror Image",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll of Spiked Pit",
+        quantity: 6,
+        weight: ""
+      }, {
+        name: "Scroll of Fly",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Scroll of Interposing Hand",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll of Elemental Body 2",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll of Wall of Fire",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll of Haste",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Enlarge Person",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Endure Elements",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Acid Arrow",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll of Gust of Wind",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll of Animate Rope",
+        quantity: 0,
+        weight: ""
+      }, {
+        name: "Scroll of False Life",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scroll of Floating Disk",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Oil of Magic Weapon",
+        quantity: 2,
+        weight: ""
+      }, {
+        name: "Scrolls of Comprehend Languages",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll of Erase",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll of Detect Secret Doors",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scroll of Black Tentacles",
+        quantity: 2,
+        weight: ""
       }],
       encumbrance: {
         light: "26 lbs or less",
@@ -164,7 +316,7 @@ var nif = (function() {
       },
       wealth: {
         platinum: "",
-        gold: "1,327",
+        gold: "1,027",
         silver: "",
         copper: ""
       },
@@ -192,7 +344,7 @@ var nif = (function() {
         item: "Shift",
         current: "",
         total: 9,
-        used: 2
+        used: 1
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
@@ -207,9 +359,9 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: 48,
+        total: 58,
         temp: "",
-        damage: 1,
+        damage: "",
         non_lethal_damage: "",
         current: ""
       },
@@ -316,7 +468,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: 5,
+        base: 6,
         resistance: 2,
         feat: "",
         trait: "",
@@ -337,7 +489,7 @@ var nif = (function() {
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
     },
     offense: {
-      base_attack: "+3",
+      base_attack: "+4",
       cmb: {
         misc: "",
         temp: "",
@@ -410,13 +562,13 @@ var nif = (function() {
       attack: {
         melee: [{
           weapon: "Dagger (Master Work)",
-          attack: "+3",
+          attack: "+4",
           damage: "1d6+1",
           critical: "19–20/x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "+6",
+          attack: "+7",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
@@ -449,7 +601,7 @@ var nif = (function() {
         }
       },
       appraise: {
-        ranks: 2,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -673,7 +825,7 @@ var nif = (function() {
         }
       },
       knowledge_arcana: {
-        ranks: 3,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -690,7 +842,7 @@ var nif = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: 3,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -707,7 +859,7 @@ var nif = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: 2,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -724,7 +876,7 @@ var nif = (function() {
         }
       },
       knowledge_geography: {
-        ranks: 2,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -741,7 +893,7 @@ var nif = (function() {
         }
       },
       knowledge_history: {
-        ranks: 2,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -758,7 +910,7 @@ var nif = (function() {
         }
       },
       knowledge_local: {
-        ranks: 3,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -775,7 +927,7 @@ var nif = (function() {
         }
       },
       knowledge_nature: {
-        ranks: 2,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -792,7 +944,7 @@ var nif = (function() {
         }
       },
       knowledge_nobility: {
-        ranks: 3,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -809,7 +961,7 @@ var nif = (function() {
         }
       },
       knowledge_planes: {
-        ranks: 3,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -826,7 +978,7 @@ var nif = (function() {
         }
       },
       knowledge_religion: {
-        ranks: 3,
+        ranks: 4,
         misc: "",
         current: "",
         bonuses: {
@@ -843,7 +995,7 @@ var nif = (function() {
         }
       },
       linguistics: {
-        ranks: 3,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -860,7 +1012,7 @@ var nif = (function() {
         }
       },
       perception: {
-        ranks: 7,
+        ranks: 8,
         misc: 4,
         current: "",
         bonuses: {
@@ -1000,7 +1152,7 @@ var nif = (function() {
         }
       },
       spellcraft: {
-        ranks: 7,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -1069,7 +1221,7 @@ var nif = (function() {
         }
       },
       use_magic_device: {
-        ranks: 7,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -1105,10 +1257,10 @@ var nif = (function() {
       },
       per_day: {
         level_0: 4,
-        level_1: 6,
-        level_2: 4,
-        level_3: 3,
-        level_4: 2,
+        level_1: 7,
+        level_2: 5,
+        level_3: 5,
+        level_4: 4,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -1116,11 +1268,11 @@ var nif = (function() {
         level_9: ""
       },
       dc: {
-        level_0: 16,
-        level_1: 17,
-        level_2: 18,
-        level_3: 19,
-        level_4: 20,
+        level_0: 18,
+        level_1: 19,
+        level_2: 20,
+        level_3: 21,
+        level_4: 22,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -1232,7 +1384,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mending",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
@@ -1262,7 +1414,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Open/Close",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -1276,13 +1428,13 @@ var nif = (function() {
       }, {
         level_1: [{
           name: "Comprehend Languages",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Enlarge Person",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -1294,9 +1446,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Grease",
-          prepared: 3,
+          prepared: 2,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Mage Armor",
@@ -1312,7 +1464,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Obscuring Mist",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -1324,7 +1476,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Protection from Evil",
-          prepared: 1,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
@@ -1352,6 +1504,24 @@ var nif = (function() {
           active: false,
           cast: 0,
           note: ""
+        }, {
+          name: "Animate Rope",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Floating Disk",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Detect Secret Doors",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
         }]
       }, {
         level_2: [{
@@ -1374,13 +1544,13 @@ var nif = (function() {
           note: ""
         }, {
           name: "Glitterdust",
-          prepared: 0,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Invisibility",
-          prepared: 0,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
@@ -1392,9 +1562,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Mirror Image",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Resist Energy",
@@ -1428,12 +1598,18 @@ var nif = (function() {
           note: ""
         }, {
           name: "Gust of Wind",
-          prepared: 2,
+          prepared: 0,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Acid Arrow",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "False Life",
           prepared: 0,
           active: false,
           cast: 0,
@@ -1454,7 +1630,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Spiked Pit",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -1466,9 +1642,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Fly",
-          prepared: 1,
+          prepared: 2,
           active: false,
-          cast: 1,
+          cast: 0,
           note: ""
         }, {
           name: "Sleet Storm",
@@ -1478,7 +1654,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Haste",
-          prepared: 0,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
@@ -1516,19 +1692,31 @@ var nif = (function() {
           note: ""
         }, {
           name: "Secure Shelter",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Summon Monster IV",
-          prepared: 0,
+          prepared: 2,
           active: false,
           cast: 0,
           note: ""
         }, {
           name: "Heroism",
           prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dimension Door",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Greater Invisibility",
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -1547,9 +1735,11 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration (Teleportation),<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Headband of Vast Intelligence skill</strong> Use Magic Device,<br><strong>Linguistics Skill</strong> Dwarven, Giant, Undercommon,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration (Teleportation),<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
+      }, {
+        note: "Headband of Vast Intelligence skill: Use Magic Device"
       }],
       story: [{
         note: "Baron Turbine Blackshield, lord of Thornkeep <br>Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"

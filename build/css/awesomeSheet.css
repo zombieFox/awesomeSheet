@@ -3953,8 +3953,7 @@ label {
       outline: 0; }
 
 .m-modal-controls {
-  border-radius: 0 0 4px 4px;
-  overflow: hidden; }
+  border-radius: 0 0 4px 4px; }
   .m-modal-controls .button {
     margin: 0; }
     .m-modal-controls .button.button {
