@@ -14314,6 +14314,9 @@ var totalBlock = (function() {
       grandTotal = toSum.reduce(function(a, b) {
         return a + b;
       });
+      if (grandTotal != parseInt(grandTotal, 10)) {
+        grandTotal = parseFloat(grandTotal).toFixed(2);
+      };
     } else {
       grandTotal = 0;
     };
