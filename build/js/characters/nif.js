@@ -343,8 +343,8 @@ var nif = (function() {
       }, {
         item: "Shift",
         current: "",
-        total: 9,
-        used: 1
+        total: 11,
+        used: ""
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
