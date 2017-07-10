@@ -2,8 +2,6 @@
   background-color: $white;
   position: relative;
   box-sizing: border-box;
-  box-shadow: $shadow-small;
-  // overflow: hidden;
   width: 100%;
 }
 .m-card-head {
@@ -110,6 +108,7 @@
 @media (min-width: $screen-sm) {
   .m-card {
     border-radius: $border-radius-large;
+    box-shadow: $shadow-small;
   }
   .m-card-head {
     border-radius: $border-radius-large $border-radius-large 0 0;
