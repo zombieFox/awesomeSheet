@@ -62,23 +62,18 @@
       }
       .m-clone-block-delete-controls {
         position: absolute;
-        top: 0;
-        right: 0;
-        transform-origin: top right;
+        top: 6px;
+        right: 6px;
+        transform-origin: center center;
         transform: scale(0);
         visibility: hidden;
         z-index: 2;
-        overflow: hidden;
         transition: all $transition-ease-fast 0s;
         .button {
-          padding: 0 $font-size-050;
+          padding: 0 0.55em;
           margin: 0;
-          font-size: $font-size-150;
-          border-radius: 0 $border-radius-large 0 $border-radius-large;
-          [class*=" icon-"],
-          [class^="icon-"] {
-            margin-right: 0;
-          }
+          height: 2.5em;
+          line-height: 2.5;
         }
       }
     }
@@ -100,12 +95,11 @@
   &.is-delete-state {
     .m-clone-block-target {
       .m-clone {
-        margin: 0 0 2px;
         transition: all $transition-ease-fast 0s;
         .m-clone-block-content {
           background-color: $primary-color-19;
-          padding: 0.5em 4em 0.5em 0.5em;
-          border-color: transparent;
+          margin-top: 2px;
+          padding: 6px 3.5em 6px 6px;
           border-radius: $border-radius-large;
           transition: all $transition-ease-fast 0s;
           .m-edit-box,
@@ -124,6 +118,10 @@
               transition: margin $transition-ease-fast 0s;
             }
           }
+          &.m-clone-block-content-box {
+            padding: 1em 3.5em 1em 1em;
+            border-color: $primary-color-16;
+          }
         }
         .m-clone-block-delete-controls {
           visibility: visible;
@@ -131,7 +129,7 @@
           transition: all $transition-bounce-medium 0.2s;
         }
         &:last-child {
-          margin: 0 0 1em;
+          margin-bottom: 1em;
         }
       }
     }

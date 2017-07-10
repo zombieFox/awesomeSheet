@@ -76,7 +76,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
         '  </div>' +
         '</div>';
     };
@@ -103,7 +103,7 @@ var clone = (function() {
       '    </div>' +
       '  </div>' +
       '  <div class="m-clone-block-delete-controls">' +
-      '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
       '  </div>' +
       '</div>';
     };
@@ -144,7 +144,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
         '  </div>' +
         '</div>';
     };
@@ -184,7 +184,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
         '  </div>' +
         '</div>';
     };
@@ -240,7 +240,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
         '  </div>' +
         '</div>';
     };
@@ -258,7 +258,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
         '  </div>' +
         '</div>';
     };
@@ -276,7 +276,7 @@ var clone = (function() {
         '    </div>' +
         '  </div>' +
         '  <div class="m-clone-block-delete-controls">' +
-        '    <button class="button button-meidum button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '    <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
         '  </div>' +
         '</div>';
     };
