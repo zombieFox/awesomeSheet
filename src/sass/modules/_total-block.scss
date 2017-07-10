@@ -12,10 +12,9 @@
 }
 .m-total-block-label {
   display: block;
-  color: $gray-12;
+  color: $gray-08;
   font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
-  transition: all $transition-ease-medium;
   box-sizing: border-box;
   white-space: nowrap;
   &:not(:only-child):not(:last-child) {
@@ -24,12 +23,12 @@
 }
 .is-night-mode {
   .m-total-block-total {
-    background-color: $gray-04;
-    border-color: $gray-06;
+    background-color: $gray-01;
+    border-color: $gray-04;
     color: $gray-18;
   }
   .m-total-block-label {
-    color: $gray-10;
+    color: $gray-12;
   }
 }
 // --------------------------------------------------

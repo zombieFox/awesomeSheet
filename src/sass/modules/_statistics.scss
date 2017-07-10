@@ -8,12 +8,13 @@
   padding: 0 0.5em;
   box-sizing: border-box;
   text-align: center;
+    color: $secondary-color-06;
 }
 .is-night-mode {
   .m-stat-modifier {
     background-color: $gray-04;
     border-color: $gray-06;
-    color: $gray-18;
+    color: $secondary-color-08;
   }
 }
 // --------------------------------------------------

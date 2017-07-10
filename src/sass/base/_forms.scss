@@ -225,27 +225,46 @@ input {
 }
 .is-night-mode {
   select {
-    background-color: $secondary-color-06;
-    border-color: $secondary-color-04;
-  }
-  label {
-    color: $secondary-color-10;
-  }
-  .textarea,
-  textarea {
-    background-color: $secondary-color-01;
-    border-color: $gray-06;
+    background-color: $gray-02;
+    border-color: $gray-04;
+    box-shadow: none;
+    color: $white;
     &:hover {
-      background-color: $secondary-color-02;
-      border-color: $secondary-color-14;
+      background-color: $gray-01;
+      border-color: $secondary-color-10;
+      box-shadow: 0 0 0 3px $secondary-color-alpha-08;
       &:focus {
         background-color: $black;
         border-color: $primary-color-10;
+        box-shadow: 0 0 0 3px $primary-color-alpha-08;
       }
     }
     &:focus {
       background-color: $black;
       border-color: $primary-color-10;
+      box-shadow: 0 0 0 3px $primary-color-alpha-08;
+    }
+  }
+  .textarea,
+  textarea {
+    background-color: $gray-02;
+    border-color: $gray-04;
+    box-shadow: none;
+    color: $white;
+    &:hover {
+      background-color: $gray-01;
+      border-color: $secondary-color-10;
+      box-shadow: 0 0 0 3px $secondary-color-alpha-08;
+      &:focus {
+        background-color: $black;
+        border-color: $primary-color-10;
+        box-shadow: 0 0 0 3px $primary-color-alpha-08;
+      }
+    }
+    &:focus {
+      background-color: $black;
+      border-color: $primary-color-10;
+      box-shadow: 0 0 0 3px $primary-color-alpha-08;
     }
   }
   input {
@@ -255,22 +274,29 @@ input {
     &[type="search"],
     &[type="tel"],
     &[type="text"] {
-      background-color: $secondary-color-01;
-      border-color: $gray-06;
+      background-color: $gray-02;
+      border-color: $gray-04;
       box-shadow: none;
+      color: $white;
       &:hover {
-        background-color: $secondary-color-02;
-        border-color: $secondary-color-14;
+        background-color: $gray-01;
+        border-color: $secondary-color-10;
+        box-shadow: 0 0 0 3px $secondary-color-alpha-08;
         &:focus {
           background-color: $black;
           border-color: $primary-color-10;
+          box-shadow: 0 0 0 3px $primary-color-alpha-08;
         }
       }
       &:focus {
         background-color: $black;
         border-color: $primary-color-10;
+        box-shadow: 0 0 0 3px $primary-color-alpha-08;
       }
     }
+  }
+  label {
+    color: $secondary-color-08;
   }
   input {
     &[type="checkbox"],
