@@ -238,7 +238,7 @@
   width: 100%;
 }
 .m-edit-box-label-total {
-  color: $gray-14;
+  color: $gray-08;
 }
 .m-edit-controls {
   margin: 0 0 1em;
@@ -271,6 +271,9 @@
   [class*="m-edit-box-label"],
   [class^="m-edit-box-label"] {
     color: $secondary-color-08;
+  }
+  .m-edit-box-label-total {
+    color: $gray-12;
   }
 }
 // --------------------------------------------------

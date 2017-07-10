@@ -17,14 +17,9 @@
     margin-bottom: 0;
   }
 }
-.m-select-block-field {
+.m-select-block-dropdown {
   position: relative;
   z-index: 1;
-}
-.m-select-block-large {
-  .m-select-block-field {
-    font-size: $font-size-150;
-  }
 }
 .is-night-mode {
   .m-select-block-label {
