@@ -7,6 +7,16 @@
   box-sizing: border-box;
   transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
+.m-edit-box-group {
+  background-color: $gray-20;
+  border: $border;
+  border-color: $gray-17;
+  border-radius: $border-radius-large;
+  margin: 0 0 1em;
+  padding: 1em 1em 0;
+  width: 100%;
+  box-sizing: border-box;
+}
 .m-edit-box-guides {
   padding: 0.5em 0;
   margin: 0;
@@ -262,6 +272,10 @@
   }
 }
 .is-night-mode {
+  .m-edit-box-group {
+    border-color: $gray-04;
+    background-color: $gray-02;
+  }
   .m-edit-box-guides {
     border-bottom-color: $gray-06;
   }

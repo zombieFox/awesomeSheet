@@ -12,16 +12,22 @@ select {
   height: 2.5em;
   font-family: $open-sans-regular;
   box-sizing: border-box;
-  box-shadow: $shadow-medium-inset;
+  box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: background-color $transition-ease-fast, box-shadow $transition-ease-fast;
   &:hover {
     background-color: $secondary-color-19;
     border-color: $secondary-color-06;
-    box-shadow: 0 0 0 3px $secondary-color-alpha-15;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $secondary-color-alpha-15;
+    &:focus {
+      background-color: $white;
+      border-color: $primary-color-10;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-15;
+    }
   }
   &:focus {
     background-color: $white;
     border-color: $primary-color-10;
-    box-shadow: 0 0 0 3px $primary-color-alpha-15;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-15;
     outline: 0;
   }
 }
@@ -39,22 +45,23 @@ textarea {
   border: 0;
   border: $border;
   border-color: $gray-16;
-  box-shadow: $shadow-medium-inset;
+  box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: background-color $transition-ease-fast, box-shadow $transition-ease-fast;
   resize: vertical;
   &:hover {
     background-color: $secondary-color-19;
     border-color: $secondary-color-06;
-    box-shadow: 0 0 0 3px $secondary-color-alpha-15;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $secondary-color-alpha-15;
     &:focus {
       background-color: $white;
       border-color: $primary-color-10;
-      box-shadow: 0 0 0 3px $primary-color-alpha-15;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-15;
     }
   }
   &:focus {
     background-color: $white;
     border-color: $primary-color-10;
-    box-shadow: 0 0 0 3px $primary-color-alpha-15;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-15;
     outline: 0;
   }
 }
@@ -80,21 +87,22 @@ input {
     border: 0;
     border: $border;
     border-color: $gray-16;
-    box-shadow: $shadow-medium-inset;
+    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: background-color $transition-ease-fast, box-shadow $transition-ease-fast;
     &:hover {
       background-color: $secondary-color-19;
       border-color: $secondary-color-06;
-      box-shadow: 0 0 0 3px $secondary-color-alpha-15;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $secondary-color-alpha-15;
       &:focus {
         background-color: $white;
         border-color: $primary-color-10;
-        box-shadow: 0 0 0 3px $primary-color-alpha-15;
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-15;
       }
     }
     &:focus {
       background-color: $white;
       border-color: $primary-color-10;
-      box-shadow: 0 0 0 3px $primary-color-alpha-15;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-15;
       outline: 0;
     }
   }
@@ -227,44 +235,44 @@ input {
   select {
     background-color: $gray-02;
     border-color: $gray-04;
-    box-shadow: none;
     color: $white;
+    box-shadow: none;
     &:hover {
       background-color: $gray-01;
-      border-color: $secondary-color-10;
-      box-shadow: 0 0 0 3px $secondary-color-alpha-08;
+      border-color: $secondary-color-05;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $secondary-color-alpha-05;
       &:focus {
         background-color: $black;
-        border-color: $primary-color-10;
-        box-shadow: 0 0 0 3px $primary-color-alpha-08;
+        border-color: $primary-color-05;
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-05;
       }
     }
     &:focus {
       background-color: $black;
-      border-color: $primary-color-10;
-      box-shadow: 0 0 0 3px $primary-color-alpha-08;
+      border-color: $primary-color-05;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-05;
     }
   }
   .textarea,
   textarea {
     background-color: $gray-02;
     border-color: $gray-04;
-    box-shadow: none;
     color: $white;
+    box-shadow: none;
     &:hover {
       background-color: $gray-01;
-      border-color: $secondary-color-10;
-      box-shadow: 0 0 0 3px $secondary-color-alpha-08;
+      border-color: $secondary-color-05;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $secondary-color-alpha-05;
       &:focus {
         background-color: $black;
-        border-color: $primary-color-10;
-        box-shadow: 0 0 0 3px $primary-color-alpha-08;
+        border-color: $primary-color-05;
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-05;
       }
     }
     &:focus {
       background-color: $black;
-      border-color: $primary-color-10;
-      box-shadow: 0 0 0 3px $primary-color-alpha-08;
+      border-color: $primary-color-05;
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-05;
     }
   }
   input {
@@ -276,22 +284,22 @@ input {
     &[type="text"] {
       background-color: $gray-02;
       border-color: $gray-04;
-      box-shadow: none;
       color: $white;
+      box-shadow: none;
       &:hover {
         background-color: $gray-01;
-        border-color: $secondary-color-10;
-        box-shadow: 0 0 0 3px $secondary-color-alpha-08;
+        border-color: $secondary-color-05;
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $secondary-color-alpha-05;
         &:focus {
           background-color: $black;
-          border-color: $primary-color-10;
-          box-shadow: 0 0 0 3px $primary-color-alpha-08;
+          border-color: $primary-color-05;
+          box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-05;
         }
       }
       &:focus {
         background-color: $black;
-        border-color: $primary-color-10;
-        box-shadow: 0 0 0 3px $primary-color-alpha-08;
+        border-color: $primary-color-05;
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 3px $primary-color-alpha-05;
       }
     }
   }

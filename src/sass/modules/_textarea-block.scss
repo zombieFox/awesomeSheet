@@ -3,37 +3,38 @@
   z-index: 1;
   font-size: $font-size-root-100;
 }
-
 .m-textarea-block-label {
   margin: 0;
   padding: 0;
   display: block;
   z-index: 2;
+  color: $secondary-color-06;
   font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
   box-sizing: border-box;
   white-space: nowrap;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
-
 .m-textarea-block-field {
   position: relative;
   z-index: 1;
 }
 .m-textarea-block-large {
-  font-size: $font-size-root-150;
+  .m-textarea-block-large {
+    font-size: $font-size-150;
+  }
 }
 .is-night-mode {
   .m-textarea-block-label {
+    color: $secondary-color-08;
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

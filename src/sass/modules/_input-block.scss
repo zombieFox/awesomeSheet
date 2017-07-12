@@ -8,6 +8,7 @@
   padding: 0;
   display: block;
   z-index: 2;
+  color: $secondary-color-06;
   font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
   box-sizing: border-box;
@@ -27,6 +28,7 @@
 }
 .is-night-mode {
   .m-input-block-label {
+    color: $secondary-color-08;
   }
 }
 // --------------------------------------------------
