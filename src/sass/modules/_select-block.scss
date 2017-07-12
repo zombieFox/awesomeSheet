@@ -21,6 +21,11 @@
   position: relative;
   z-index: 1;
 }
+.m-select-block-large {
+  .m-select-block-large {
+    font-size: $font-size-150;
+  }
+}
 .is-night-mode {
   .m-select-block-label {
     color: $secondary-color-08;
