@@ -12500,8 +12500,8 @@ var repair = (function() {
       characterObject.offense.cmd.bonuses.special_size = true;
       characterObject.offense.melee_attack.bonuses.size = true;
       characterObject.offense.ranged_attack.bonuses.size = true;
-      characterObject.defense.ac.bonuses.max_dex = true;
-      characterObject.defense.touch.bonuses.max_dex = true;
+      characterObject.skills.fly.bonuses.size_modifier_fly = true;
+      characterObject.skills.stealth.bonuses.size_modifier_stealth = true;
     };
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
