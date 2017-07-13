@@ -1535,8 +1535,8 @@ label {
 
 @font-face {
   font-family: "Icons";
-  src: url("../fonts/icons/icons.eot?tvx3e0");
-  src: url("../fonts/icons/icons.eot?tvx3e0#iefix") format("embedded-opentype"), url("../fonts/icons/icons.ttf?tvx3e0") format("truetype"), url("../fonts/icons/icons.woff?tvx3e0") format("woff"), url("../fonts/icons/icons.svg?tvx3e0#icomoon") format("svg");
+  src: url("../fonts/icons/icons.eot");
+  src: url("../fonts/icons/icons.eot") format("embedded-opentype"), url("../fonts/icons/icons.ttf") format("truetype"), url("../fonts/icons/icons.woff") format("woff"), url("../fonts/icons/icons.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
 
