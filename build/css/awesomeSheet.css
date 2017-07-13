@@ -1111,10 +1111,8 @@ input[type="submit"] {
   color: #2e2e2e;
   padding: 0.25em 1em;
   border: 0;
-  border-top: 1px solid transparent;
-  border-top-color: transparent;
-  border-bottom: 1px solid transparent;
-  border-bottom-color: #e0e0e0;
+  border: 1px solid transparent;
+  border-color: #e0e0e0;
   border-radius: 4px;
   margin: 0 0 1em;
   text-align: center;
@@ -1125,7 +1123,8 @@ input[type="submit"] {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   cursor: pointer;
   box-sizing: border-box;
-  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, color 0.1s ease-in-out, padding 0.1s ease-in-out;
+  box-shadow: none;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   display: inline-block; }
   .button:link, .button:visited,
   button:link,
@@ -1137,7 +1136,7 @@ input[type="submit"] {
   input[type="submit"]:link,
   input[type="submit"]:visited {
     background-color: #fafafa;
-    border-bottom-color: #e0e0e0;
+    border-color: #e0e0e0;
     color: #2e2e2e; }
   .button:focus, .button:hover,
   button:focus,
@@ -1149,10 +1148,11 @@ input[type="submit"] {
   input[type="submit"]:focus,
   input[type="submit"]:hover {
     background-color: #e0e0e0;
-    border-bottom-color: #c7c7c7;
+    border-color: #c7c7c7;
     color: #2e2e2e;
     outline: 0;
-    text-decoration: none; }
+    text-decoration: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05); }
   .button.is-active, .button:active,
   button.is-active,
   button:active,
@@ -1163,10 +1163,11 @@ input[type="submit"] {
   input[type="submit"].is-active,
   input[type="submit"]:active {
     background-color: #c7c7c7;
-    border-bottom-color: #adadad;
+    border-color: #adadad;
     color: #2e2e2e;
     outline: 0;
-    text-decoration: none; }
+    text-decoration: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); }
 
 .button-icon {
   display: -webkit-inline-flex;
@@ -1245,90 +1246,87 @@ input[type="submit"] {
 
 .button-primary {
   background-color: #fc0042;
-  border-bottom-color: #ca0035;
+  border-color: #ca0035;
   color: #ffffff; }
   .button-primary:link, .button-primary:visited {
     background-color: #fc0042;
-    border-bottom-color: #ca0035;
+    border-color: #ca0035;
     color: #ffffff; }
   .button-primary:focus, .button-primary:hover {
     background-color: #ca0035;
-    border-bottom-color: #970027;
-    color: #ffffff; }
-  .button-primary:active, .button-primary:focus {
+    border-color: #970027;
+    color: #ffffff;
     box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.3); }
   .button-primary.is-active, .button-primary:active {
     background-color: #970027;
-    border-bottom-color: #63001a;
-    color: #ffffff; }
+    border-color: #63001a;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.55); }
 
 .button-secondary {
   background-color: #3288c9;
-  border-bottom-color: #2e6b9a;
+  border-color: #2e6b9a;
   color: #ffffff; }
   .button-secondary:link, .button-secondary:visited {
     background-color: #3288c9;
-    border-bottom-color: #2e6b9a;
+    border-color: #2e6b9a;
     color: #ffffff; }
   .button-secondary:focus, .button-secondary:hover {
     background-color: #2e6b9a;
-    border-bottom-color: #264f6e;
-    color: #ffffff; }
-  .button-secondary:active, .button-secondary:focus {
+    border-color: #264f6e;
+    color: #ffffff;
     box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.3); }
   .button-secondary.is-active, .button-secondary:active {
     background-color: #264f6e;
-    border-bottom-color: #1c3445;
-    color: #ffffff; }
+    border-color: #1c3445;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.55); }
 
 .button-link {
   background-color: transparent;
-  border-bottom-color: #e0e0e0;
-  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
-  text-transform: initial; }
+  border-color: transparent; }
   .button-link:link, .button-link:visited {
     background-color: transparent;
-    border-bottom-color: #e0e0e0; }
+    border-color: transparent; }
   .button-link:focus, .button-link:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    border-bottom-color: #c7c7c7; }
+    background-color: #e0e0e0;
+    border-color: #c7c7c7; }
   .button-link.is-active, .button-link:active {
-    background-color: rgba(0, 0, 0, 0.15);
-    border-bottom-color: #adadad; }
+    background-color: #c7c7c7;
+    border-color: #adadad; }
 
 .button-tertiary {
   background-color: transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.15);
   color: rgba(255, 255, 255, 0.85); }
   .button-tertiary:link, .button-tertiary:visited {
     background-color: transparent;
-    border-bottom-color: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.05);
     color: rgba(255, 255, 255, 0.85); }
   .button-tertiary:focus, .button-tertiary:hover {
     background-color: rgba(0, 0, 0, 0.15);
-    border-bottom-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.3);
     color: rgba(255, 255, 255, 0.85); }
   .button-tertiary.is-active, .button-tertiary:active {
     background-color: rgba(0, 0, 0, 0.25);
-    border-bottom-color: rgba(0, 0, 0, 0.45);
+    border-color: rgba(0, 0, 0, 0.45);
     color: #ffffff; }
 
 .button-tertiary-link {
   background-color: transparent;
-  border-bottom-color: transparent;
-  color: rgba(255, 255, 255, 0.85);
-  text-transform: initial; }
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.85); }
   .button-tertiary-link:link, .button-tertiary-link:visited {
     background-color: transparent;
-    border-bottom-color: transparent;
+    border-color: transparent;
     color: rgba(255, 255, 255, 0.85); }
   .button-tertiary-link:focus, .button-tertiary-link:hover {
     background-color: rgba(0, 0, 0, 0.15);
-    border-bottom-color: transparent;
+    border-color: rgba(0, 0, 0, 0.3);
     color: rgba(255, 255, 255, 0.85); }
   .button-tertiary-link.is-active, .button-tertiary-link:active {
     background-color: rgba(0, 0, 0, 0.25);
-    border-bottom-color: transparent;
+    border-color: rgba(0, 0, 0, 0.45);
     color: #ffffff; }
 
 .button-group {
@@ -1354,6 +1352,7 @@ input[type="submit"] {
             flex: 0 0 auto;
     border-radius: 0;
     margin-bottom: 0;
+    margin-left: -1px;
     z-index: 1; }
     .button-group .button:focus, .button-group .button:hover,
     .button-group button:focus,
@@ -1389,6 +1388,12 @@ input[type="submit"] {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto; }
 
+.button-group-equal .button,
+.button-group-equal button {
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0; }
+
 .button,
 button,
 label {
@@ -1399,8 +1404,8 @@ label {
 .is-night-mode input[type="button"],
 .is-night-mode input[type="reset"],
 .is-night-mode input[type="submit"] {
-  background-color: #1c3445;
-  border-bottom-color: #162632;
+  background-color: #2e2e2e;
+  border-color: #474747;
   color: #ffffff; }
   .is-night-mode .button:link, .is-night-mode .button:visited,
   .is-night-mode button:link,
@@ -1411,9 +1416,8 @@ label {
   .is-night-mode input[type="reset"]:visited,
   .is-night-mode input[type="submit"]:link,
   .is-night-mode input[type="submit"]:visited {
-    background-color: #1c3445;
-    border-bottom-color: #162632;
-    color: #ffffff; }
+    background-color: #2e2e2e;
+    border-color: #474747; }
   .is-night-mode .button:focus, .is-night-mode .button:hover,
   .is-night-mode button:focus,
   .is-night-mode button:hover,
@@ -1423,8 +1427,9 @@ label {
   .is-night-mode input[type="reset"]:hover,
   .is-night-mode input[type="submit"]:focus,
   .is-night-mode input[type="submit"]:hover {
-    background-color: #224159;
-    border-bottom-color: #2a5d84;
+    background-color: #474747;
+    border-color: #616161;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55);
     color: #ffffff; }
   .is-night-mode .button.is-active, .is-night-mode .button:active,
   .is-night-mode button.is-active,
@@ -1435,90 +1440,97 @@ label {
   .is-night-mode input[type="reset"]:active,
   .is-night-mode input[type="submit"].is-active,
   .is-night-mode input[type="submit"]:active {
-    background-color: #264f6e;
-    border-bottom-color: #2e6b9a;
+    background-color: #616161;
+    border-color: #7a7a7a;
     color: #ffffff; }
 
 .is-night-mode .button-primary {
   background-color: #ca0035;
-  border-bottom-color: #fc0042;
+  border-color: #970027;
   color: #ffffff; }
   .is-night-mode .button-primary:link, .is-night-mode .button-primary:visited {
     background-color: #ca0035;
-    border-bottom-color: #fc0042;
+    border-color: #970027;
     color: #ffffff; }
   .is-night-mode .button-primary:focus, .is-night-mode .button-primary:hover {
     background-color: #fc0042;
-    border-bottom-color: #ff3166;
-    color: #ffffff; }
+    border-color: #ca0035;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.55); }
   .is-night-mode .button-primary.is-active, .is-night-mode .button-primary:active {
     background-color: #ff3166;
-    border-bottom-color: #ff648c;
-    color: #ffffff; }
+    border-color: #fc0042;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(252, 0, 66, 0.8); }
 
 .is-night-mode .button-secondary {
   background-color: #2e6b9a;
-  border-bottom-color: #3288c9;
+  border-color: #264f6e;
   color: #ffffff; }
   .is-night-mode .button-secondary:link, .is-night-mode .button-secondary:visited {
     background-color: #2e6b9a;
-    border-bottom-color: #3288c9;
+    border-color: #264f6e;
     color: #ffffff; }
   .is-night-mode .button-secondary:focus, .is-night-mode .button-secondary:hover {
     background-color: #3288c9;
-    border-bottom-color: #52a1dc;
-    color: #ffffff; }
+    border-color: #2e6b9a;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.55); }
   .is-night-mode .button-secondary.is-active, .is-night-mode .button-secondary:active {
     background-color: #52a1dc;
-    border-bottom-color: #77b8e9;
-    color: #ffffff; }
+    border-color: #3288c9;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(50, 136, 201, 0.8); }
 
 .is-night-mode .button-link {
   background-color: transparent;
-  border-bottom-color: transparent;
-  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
+  border-color: transparent; }
   .is-night-mode .button-link:link, .is-night-mode .button-link:visited {
     background-color: transparent;
-    border-bottom-color: transparent; }
+    border-color: transparent; }
   .is-night-mode .button-link:focus, .is-night-mode .button-link:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-bottom-color: transparent; }
+    background-color: #474747;
+    border-color: #616161; }
   .is-night-mode .button-link.is-active, .is-night-mode .button-link:active {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-bottom-color: transparent; }
+    background-color: #616161;
+    border-color: #7a7a7a; }
 
 .is-night-mode .button-tertiary {
   background-color: transparent;
-  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.85); }
   .is-night-mode .button-tertiary:link, .is-night-mode .button-tertiary:visited {
     background-color: transparent;
-    border-bottom-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
     color: rgba(255, 255, 255, 0.85); }
   .is-night-mode .button-tertiary:focus, .is-night-mode .button-tertiary:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    border-bottom-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.85); }
   .is-night-mode .button-tertiary.is-active, .is-night-mode .button-tertiary:active {
     background-color: rgba(255, 255, 255, 0.25);
-    border-bottom-color: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
     color: #ffffff; }
 
 .is-night-mode .button-tertiary-link {
   background-color: transparent;
-  border-bottom-color: transparent;
+  border-color: transparent;
   color: rgba(255, 255, 255, 0.85); }
   .is-night-mode .button-tertiary-link:link, .is-night-mode .button-tertiary-link:visited {
     background-color: transparent;
-    border-bottom-color: transparent;
+    border-color: transparent;
     color: rgba(255, 255, 255, 0.85); }
   .is-night-mode .button-tertiary-link:focus, .is-night-mode .button-tertiary-link:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    border-bottom-color: transparent;
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.85); }
   .is-night-mode .button-tertiary-link.is-active, .is-night-mode .button-tertiary-link:active {
     background-color: rgba(255, 255, 255, 0.25);
-    border-bottom-color: transparent;
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
     color: #ffffff; }
 
 @font-face {
@@ -2923,18 +2935,26 @@ label {
     .m-edit-box-body-group [class^="m-edit-box-item"] button {
       margin-bottom: 0; }
     .m-edit-box-body-group [class*="m-edit-box-item"] .button,
+    .m-edit-box-body-group [class*="m-edit-box-item"] button,
+    .m-edit-box-body-group [class*="m-edit-box-item"] .button,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-check-block,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-stat-modifier,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-total-block-total,
+    .m-edit-box-body-group [class^="m-edit-box-item"] .button,
+    .m-edit-box-body-group [class^="m-edit-box-item"] button,
     .m-edit-box-body-group [class^="m-edit-box-item"] .button,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-check-block,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-stat-modifier,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-total-block-total {
       border-radius: 0; }
+    .m-edit-box-body-group [class*="m-edit-box-item"] .button,
+    .m-edit-box-body-group [class*="m-edit-box-item"] button,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-check-block,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-input-block,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-stat-modifier,
     .m-edit-box-body-group [class*="m-edit-box-item"] .m-total-block-total,
+    .m-edit-box-body-group [class^="m-edit-box-item"] .button,
+    .m-edit-box-body-group [class^="m-edit-box-item"] button,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-check-block,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-input-block,
     .m-edit-box-body-group [class^="m-edit-box-item"] .m-stat-modifier,
@@ -3045,12 +3065,10 @@ label {
   z-index: 2000;
   -webkit-animation: edit-controls-down-xs ease-in-out 0.6s;
           animation: edit-controls-down-xs ease-in-out 0.6s; }
-  .is-pinned .m-edit-controls .button-group .button {
-    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1); }
 
 .is-night-mode .m-edit-box-group {
-  border-color: #2e2e2e;
-  background-color: #141414; }
+  border-color: #474747;
+  background-color: #2e2e2e; }
 
 .is-night-mode .m-edit-box-guides {
   border-bottom-color: #474747; }
@@ -3113,7 +3131,7 @@ label {
       position: relative;
       width: 100%;
       z-index: 2;
-      transition: width 0.2s ease-in-out; }
+      transition: width 0.2s ease-in-out 0.3s; }
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content .m-clone-flash {
         background-color: #fc0042;
         position: absolute;
@@ -3157,11 +3175,11 @@ label {
         height: 2.5em;
         line-height: 2.5;
         opacity: 0;
-        visibility: hidden;
-        -webkit-transform: scale(0.8);
-            -ms-transform: scale(0.8);
-                transform: scale(0.8);
-        transition: all 0.2s ease-in-out; }
+        -webkit-transform: scale(0.4);
+            -ms-transform: scale(0.4);
+                transform: scale(0.4);
+        transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls-skill {
       margin-top: 0.5em; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls-note {
@@ -3175,14 +3193,16 @@ label {
             animation: new-flash-pulse ease 3s 1; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
-  width: calc(100% - 3em); }
+  width: calc(100% - 3em);
+  transition: width 0.2s ease-in-out; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-delete-controls .button {
   opacity: 1;
-  visibility: visible;
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
-          transform: scale(1); }
+          transform: scale(1);
+  transition: opacity 0.2s ease-in-out 0.3s, -webkit-transform 0.2s ease-in-out 0.3s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out 0.3s, transform 0.2s ease-in-out 0.3s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
 
 .m-hamburger {
   position: relative;
@@ -3880,13 +3900,14 @@ label {
   .m-prompt-body .m-prompt-text:last-child {
     margin-bottom: 0; }
 
-.m-prompt-controls .button {
-  margin: 0;
-  width: 50%; }
-  .m-prompt-controls .button:first-child {
-    border-radius: 0 0 0 4px; }
-  .m-prompt-controls .button:last-child {
-    border-radius: 0 0 4px 0; }
+.m-prompt-controls {
+  margin: 0; }
+  .m-prompt-controls .button {
+    margin: 0; }
+    .m-prompt-controls .button:first-child {
+      border-radius: 0 0 0 4px; }
+    .m-prompt-controls .button:last-child {
+      border-radius: 0 0 4px 0; }
 
 .m-prompt-code {
   background-color: rgba(0, 0, 0, 0.75);
@@ -3903,7 +3924,7 @@ label {
   background-color: rgba(0, 0, 0, 0.65); }
 
 .is-night-mode .m-prompt .m-prompt-wrapper {
-  background-color: #162632; }
+  background-color: #212121; }
 
 @media (min-width: 550px) {
   .m-prompt {
@@ -3963,15 +3984,14 @@ label {
 .m-modal-controls {
   border-radius: 0 0 4px 4px; }
   .m-modal-controls .button {
-    margin: 0; }
-    .m-modal-controls .button.button {
-      border-radius: 0 0 4px 4px; }
+    margin: 0;
+    border-radius: 0 0 4px 4px; }
 
 .is-night-mode .m-modal-shade {
   background-color: rgba(0, 0, 0, 0.65); }
 
 .is-night-mode .m-modal .m-modal-body {
-  background-color: #162632; }
+  background-color: #212121; }
 
 @media (min-width: 550px) {
   .m-modal {
@@ -4645,9 +4665,6 @@ label {
     margin: 0; }
     .m-log-controls .button.button {
       border-radius: 0 0 2px 2px; }
-
-.is-night-mode .m-log-shade {
-  background-color: rgba(0, 0, 0, 0.65); }
 
 .is-night-mode .m-log .m-log-body {
   background-color: #0f1820; }

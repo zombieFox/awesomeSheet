@@ -135,11 +135,15 @@
       margin-bottom: 0;
     }
     .button,
+    button,
+    .button,
     .m-check-block,
     .m-stat-modifier,
     .m-total-block-total {
       border-radius: 0;
     }
+    .button,
+    button,
     .m-check-block,
     .m-input-block,
     .m-stat-modifier,
@@ -266,15 +270,15 @@
     animation: edit-controls-down-xs ease-in-out 0.6s;
     .button-group {
       .button {
-        box-shadow: $shadow-small;
+        // box-shadow: $shadow-small;
       }
     }
   }
 }
 .is-night-mode {
   .m-edit-box-group {
-    border-color: $gray-04;
-    background-color: $gray-02;
+    border-color: $gray-06;
+    background-color: $gray-04;
   }
   .m-edit-box-guides {
     border-bottom-color: $gray-06;

@@ -49,9 +49,7 @@
   border-radius: 0 0 $border-radius-large $border-radius-large;
   .button {
     margin: 0;
-    &.button {
-      border-radius: 0 0 $border-radius-large $border-radius-large;
-    }
+    border-radius: 0 0 $border-radius-large $border-radius-large;
   }
 }
 .is-night-mode {
@@ -60,7 +58,7 @@
   }
   .m-modal {
     .m-modal-body {
-      background-color: $secondary-color-03;
+      background-color: $gray-03;
     }
   }
 }

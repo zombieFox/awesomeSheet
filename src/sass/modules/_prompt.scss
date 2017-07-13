@@ -45,10 +45,10 @@
   }
 }
 .m-prompt-controls {
+  margin: 0;
   .button {
     margin: 0;
-    width: 50%;
-    &.button {}
+    // width: 50%;
     &:first-child {
       border-radius: 0 0 0 $border-radius-large;
     }
@@ -74,7 +74,7 @@
   }
   .m-prompt {
     .m-prompt-wrapper {
-      background-color: $secondary-color-03;
+      background-color: $gray-03;
     }
   }
 }

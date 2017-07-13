@@ -7,10 +7,8 @@ input[type="submit"] {
   color: $base-color;
   padding: 0.25em 1em;
   border: 0;
-  border-top: $border;
-  border-top-color: transparent;
-  border-bottom: $border;
-  border-bottom-color: $gray-18;
+  border: $border;
+  border-color: $gray-18;
   border-radius: $border-radius-large;
   margin: 0 0 1em;
   text-align: center;
@@ -21,29 +19,32 @@ input[type="submit"] {
   font-family: $open-sans-semi-bold;
   cursor: pointer;
   box-sizing: border-box;
-  transition: background-color $transition-ease-extra-fast, border-color $transition-ease-extra-fast, color $transition-ease-extra-fast, padding $transition-ease-extra-fast;
+  box-shadow: none;
+  transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
   display: inline-block;
   &:link,
   &:visited {
     background-color: $gray-20;
-    border-bottom-color: $gray-18;
+    border-color: $gray-18;
     color: $base-color;
   }
   &:focus,
   &:hover {
     background-color: $gray-18;
-    border-bottom-color: $gray-16;
+    border-color: $gray-16;
     color: $base-color;
     outline: 0;
     text-decoration: none;
+    box-shadow: 0 0 0 3px $dark-alpha-20;
   }
   &.is-active,
   &:active {
     background-color: $gray-16;
-    border-bottom-color: $gray-14;
+    border-color: $gray-14;
     color: $base-color;
     outline: 0;
     text-decoration: none;
+    box-shadow: 0 0 0 3px $dark-alpha-19;
   }
 }
 .button-icon {
@@ -121,123 +122,116 @@ input[type="submit"] {
 }
 .button-primary {
   background-color: $primary-color-10;
-  border-bottom-color: $primary-color-08;
+  border-color: $primary-color-08;
   color: $white;
   &:link,
   &:visited {
     background-color: $primary-color-10;
-    border-bottom-color: $primary-color-08;
+    border-color: $primary-color-08;
     color: $white;
   }
   &:focus,
   &:hover {
     background-color: $primary-color-08;
-    border-bottom-color: $primary-color-06;
+    border-color: $primary-color-06;
     color: $white;
-  }
-  &:active,
-  &:focus {
     box-shadow: 0 0 0 3px $primary-color-alpha-15;
   }
   &.is-active,
   &:active {
     background-color: $primary-color-06;
-    border-bottom-color: $primary-color-04;
+    border-color: $primary-color-04;
     color: $white;
+    box-shadow: 0 0 0 3px $primary-color-alpha-10;
   }
 }
 .button-secondary {
   background-color: $secondary-color-10;
-  border-bottom-color: $secondary-color-08;
+  border-color: $secondary-color-08;
   color: $white;
   &:link,
   &:visited {
     background-color: $secondary-color-10;
-    border-bottom-color: $secondary-color-08;
+    border-color: $secondary-color-08;
     color: $white;
   }
   &:focus,
   &:hover {
     background-color: $secondary-color-08;
-    border-bottom-color: $secondary-color-06;
+    border-color: $secondary-color-06;
     color: $white;
-  }
-  &:active,
-  &:focus {
     box-shadow: 0 0 0 3px $secondary-color-alpha-15;
   }
   &.is-active,
   &:active {
     background-color: $secondary-color-06;
-    border-bottom-color: $secondary-color-04;
+    border-color: $secondary-color-04;
     color: $white;
+    box-shadow: 0 0 0 3px $secondary-color-alpha-10;
   }
 }
 .button-link {
   background-color: transparent;
-  border-bottom-color: $gray-18;
-  font-family: $open-sans-regular;
-  text-transform: initial;
+  border-color: transparent;
   &:link,
   &:visited {
     background-color: transparent;
-    border-bottom-color: $gray-18;
+    border-color: transparent;
   }
   &:focus,
   &:hover {
-    background-color: $dark-alpha-20;
-    border-bottom-color: $gray-16;
+    background-color: $gray-18;
+    border-color: $gray-16;
   }
   &.is-active,
   &:active {
-    background-color: $dark-alpha-18;
-    border-bottom-color: $gray-14;
+    background-color: $gray-16;
+    border-color: $gray-14;
   }
 }
 .button-tertiary {
   background-color: transparent;
-  border-bottom-color: $dark-alpha-18;
+  border-color: $dark-alpha-18;
   color: $light-alpha-04;
   &:link,
   &:visited {
     background-color: transparent;
-    border-bottom-color: $dark-alpha-20;
+    border-color: $dark-alpha-20;
     color: $light-alpha-04;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-18;
-    border-bottom-color: $dark-alpha-15;
+    border-color: $dark-alpha-15;
     color: $light-alpha-04;
   }
   &.is-active,
   &:active {
     background-color: $dark-alpha-16;
-    border-bottom-color: $dark-alpha-12;
+    border-color: $dark-alpha-12;
     color: $white;
   }
 }
 .button-tertiary-link {
   background-color: transparent;
-  border-bottom-color: transparent;
+  border-color: transparent;
   color: $light-alpha-04;
-  text-transform: initial;
   &:link,
   &:visited {
     background-color: transparent;
-    border-bottom-color: transparent;
+    border-color: transparent;
     color: $light-alpha-04;
   }
   &:focus,
   &:hover {
     background-color: $dark-alpha-18;
-    border-bottom-color: transparent;
+    border-color: $dark-alpha-15;
     color: $light-alpha-04;
   }
   &.is-active,
   &:active {
     background-color: $dark-alpha-16;
-    border-bottom-color: transparent;
+    border-color: $dark-alpha-12;
     color: $white;
   }
 }
@@ -254,6 +248,7 @@ input[type="submit"] {
     flex: 0 0 auto;
     border-radius: 0;
     margin-bottom: 0;
+    margin-left: -1px;
     z-index: 1;
     &:focus,
     &:hover {
@@ -285,6 +280,12 @@ input[type="submit"] {
     flex: 1 1 auto;
   }
 }
+.button-group-equal {
+  .button,
+  button {
+    flex-basis: 0;
+  }
+}
 .button,
 button,
 label {
@@ -296,137 +297,144 @@ label {
   input[type="button"],
   input[type="reset"],
   input[type="submit"] {
-    background-color: $secondary-color-04;
-    border-bottom-color: $secondary-color-03;
+    background-color: $gray-04;
+    border-color: $gray-06;
     color: $white;
     &:link,
     &:visited {
-      background-color: $secondary-color-04;
-      border-bottom-color: $secondary-color-03;
-      color: $white;
+      background-color: $gray-04;
+      border-color: $gray-06;
     }
     &:focus,
     &:hover {
-      background-color: $secondary-color-05;
-      border-bottom-color: $secondary-color-07;
+      background-color: $gray-06;
+      border-color: $gray-08;
+      box-shadow: 0 0 0 3px $light-alpha-10;
       color: $white;
     }
     &.is-active,
     &:active {
-      background-color: $secondary-color-06;
-      border-bottom-color: $secondary-color-08;
+      background-color: $gray-08;
+      border-color: $gray-10;
       color: $white;
     }
   }
   .button-primary {
     background-color: $primary-color-08;
-    border-bottom-color: $primary-color-10;
+    border-color: $primary-color-06;
     color: $white;
     &:link,
     &:visited {
       background-color: $primary-color-08;
-      border-bottom-color: $primary-color-10;
+      border-color: $primary-color-06;
       color: $white;
     }
     &:focus,
     &:hover {
       background-color: $primary-color-10;
-      border-bottom-color: $primary-color-12;
+      border-color: $primary-color-08;
       color: $white;
+      box-shadow: 0 0 0 3px $primary-color-alpha-10;
     }
     &.is-active,
     &:active {
       background-color: $primary-color-12;
-      border-bottom-color: $primary-color-14;
+      border-color: $primary-color-10;
       color: $white;
+      box-shadow: 0 0 0 3px $primary-color-alpha-05;
     }
   }
   .button-secondary {
     background-color: $secondary-color-08;
-    border-bottom-color: $secondary-color-10;
+    border-color: $secondary-color-06;
     color: $white;
     &:link,
     &:visited {
       background-color: $secondary-color-08;
-      border-bottom-color: $secondary-color-10;
+      border-color: $secondary-color-06;
       color: $white;
     }
     &:focus,
     &:hover {
       background-color: $secondary-color-10;
-      border-bottom-color: $secondary-color-12;
+      border-color: $secondary-color-08;
       color: $white;
+      box-shadow: 0 0 0 3px $secondary-color-alpha-10;
     }
     &.is-active,
     &:active {
       background-color: $secondary-color-12;
-      border-bottom-color: $secondary-color-14;
+      border-color: $secondary-color-10;
       color: $white;
+      box-shadow: 0 0 0 3px $secondary-color-alpha-05;
     }
   }
   .button-link {
     background-color: transparent;
-    border-bottom-color: transparent;
-    font-family: $open-sans-regular;
+    border-color: transparent;
     &:link,
     &:visited {
       background-color: transparent;
-      border-bottom-color: transparent;
+      border-color: transparent;
     }
     &:focus,
     &:hover {
-      background-color: $light-alpha-20;
-      border-bottom-color: transparent;
+      background-color: $gray-06;
+      border-color: $gray-08;
     }
     &.is-active,
     &:active {
-      background-color: $light-alpha-18;
-      border-bottom-color: transparent;
+      background-color: $gray-08;
+      border-color: $gray-10;
     }
   }
   .button-tertiary {
     background-color: transparent;
-    border-bottom-color: $light-alpha-18;
+    border-color: $light-alpha-18;
     color: $light-alpha-04;
     &:link,
     &:visited {
       background-color: transparent;
-      border-bottom-color: $light-alpha-20;
+      border-color: $light-alpha-18;
       color: $light-alpha-04;
     }
     &:focus,
     &:hover {
       background-color: $light-alpha-18;
-      border-bottom-color: $light-alpha-15;
+      border-color: $light-alpha-16;
+      box-shadow: 0 0 0 3px $light-alpha-20;
       color: $light-alpha-04;
     }
     &.is-active,
     &:active {
       background-color: $light-alpha-16;
-      border-bottom-color: $light-alpha-12;
+      border-color: $light-alpha-14;
+      box-shadow: 0 0 0 3px $light-alpha-18;
       color: $white;
     }
   }
   .button-tertiary-link {
     background-color: transparent;
-    border-bottom-color: transparent;
+    border-color: transparent;
     color: $light-alpha-04;
     &:link,
     &:visited {
       background-color: transparent;
-      border-bottom-color: transparent;
+      border-color: transparent;
       color: $light-alpha-04;
     }
     &:focus,
     &:hover {
       background-color: $light-alpha-18;
-      border-bottom-color: transparent;
+      border-color: $light-alpha-16;
+      box-shadow: 0 0 0 3px $light-alpha-20;
       color: $light-alpha-04;
     }
     &.is-active,
     &:active {
       background-color: $light-alpha-16;
-      border-bottom-color: transparent;
+      border-color: $light-alpha-14;
+      box-shadow: 0 0 0 3px $light-alpha-18;
       color: $white;
     }
   }

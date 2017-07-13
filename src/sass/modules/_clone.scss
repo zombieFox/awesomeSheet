@@ -9,7 +9,7 @@
         position: relative;
         width: 100%;
         z-index: 2;
-        transition: width $transition-ease-fast;
+        transition: width $transition-ease-fast 0.3s;
         .m-clone-flash {
           background-color: $primary-color-10;
           position: absolute;
@@ -52,9 +52,10 @@
           height: 2.5em;
           line-height: 2.5;
           opacity: 0;
-          visibility: hidden;
-          transform: scale(0.8);
-          transition: all $transition-ease-fast;
+          // visibility: hidden;
+          transform: scale(0.4);
+          // transform-origin: top left;
+          transition: opacity $transition-ease-fast, transform $transition-ease-fast, background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
         }
       }
       .m-clone-block-delete-controls-skill {
@@ -84,12 +85,14 @@
       .m-clone {
         .m-clone-block-content {
           width: calc(100% - 3em);
+          transition: width $transition-ease-fast;
         }
         .m-clone-block-delete-controls {
           .button {
             opacity: 1;
-            visibility: visible;
+            // visibility: visible;
             transform: scale(1);
+            transition: opacity $transition-ease-fast 0.3s, transform $transition-ease-fast 0.3s, background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
           }
         }
       }

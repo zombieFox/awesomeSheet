@@ -12296,18 +12296,18 @@ var prompt = (function() {
     promptText.textContent = message;
 
     var promptControls = document.createElement("div");
-    promptControls.setAttribute("class", "m-prompt-controls");
+    promptControls.setAttribute("class", "m-prompt-controls button-group button-group-line button-group-equal");
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
     actionButton.setAttribute("tabindex", "3");
-    actionButton.setAttribute("class", "button button-primary button-block button-large js-prompt-action");
+    actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
     actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
     cancelButton.setAttribute("href", "javascript:void(0)");
     cancelButton.setAttribute("tabindex", "3");
-    cancelButton.setAttribute("class", "button button-block button-large");
+    cancelButton.setAttribute("class", "button button-large");
     cancelButton.textContent = "Cancel";
 
     promptControls.appendChild(cancelButton);
