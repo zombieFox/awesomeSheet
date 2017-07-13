@@ -12,7 +12,6 @@ var registerServiceWorker = (function() {
           console.log("Service Worker Failed");
         });
     });
-
   };
 
   // exposed methods
