@@ -15,13 +15,13 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json', 'service-worker.js'],
         dest: '<%= folders.dev %>/',
         expand: true
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json', 'service-worker.js'],
         dest: '<%= folders.build %>/',
         expand: true
       },
@@ -80,6 +80,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/nav.js',
           '<%= folders.build %>/js/night.js',
           '<%= folders.build %>/js/prompt.js',
+          '<%= folders.build %>/js/register-service-worker.js',
           '<%= folders.build %>/js/repair.js',
           '<%= folders.build %>/js/select-block.js',
           '<%= folders.build %>/js/sheet.js',
@@ -187,7 +188,7 @@ module.exports = function(grunt) {
         }
       },
       assets: {
-        files: '<%= folders.src %>/{images,fonts,js}/**/*',
+        files: ['<%= folders.src %>/{images,fonts,js}/**/*', '<%= folders.src %>/service-worker.js'],
         tasks: ['copy:dev'],
         options: {
           livereload: true
@@ -200,10 +201,10 @@ module.exports = function(grunt) {
         options: {
           port: 9999,
           base: '<%= folders.dev %>',
-          hostname: '0.0.0.0',
+          hostname: 'localhost',
           livereload: 35729,
           open: {
-            target: 'http://0.0.0.0:9999'
+            target: 'http://localhost:9999'
           }
         }
       }
