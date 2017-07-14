@@ -1,6 +1,6 @@
 (function() {
 
-  registerServiceWorker.bind();
+  // registerServiceWorker.bind();
   nav.bind();
   nav.render();
   sheet.render();
