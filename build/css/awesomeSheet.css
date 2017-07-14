@@ -4297,8 +4297,7 @@ label {
     color: #ffffff; }
 
 .m-log-controls {
-  border-radius: 0 0 3px 3px;
-  overflow: hidden; }
+  border-radius: 0 0 3px 3px; }
   .m-log-controls .button {
     margin: 0; }
     .m-log-controls .button.button {
