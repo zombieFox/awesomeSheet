@@ -197,7 +197,7 @@ var log = (function() {
         list.appendChild(listItem);
       };
       var seeAll = document.createElement("button");
-      seeAll.setAttribute("class", "button button-medium button-tertiary-link u-no-margin");
+      seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
       seeAll.textContent = "See complete Change Log"
       seeAll.addEventListener("click", function(event) {
         _create_fullChangeLog();

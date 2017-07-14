@@ -11530,7 +11530,7 @@ var log = (function() {
         list.appendChild(listItem);
       };
       var seeAll = document.createElement("button");
-      seeAll.setAttribute("class", "button button-medium button-tertiary-link u-no-margin");
+      seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
       seeAll.textContent = "See complete Change Log"
       seeAll.addEventListener("click", function(event) {
         _create_fullChangeLog();
@@ -13170,7 +13170,7 @@ var snack = (function() {
     if (actionText) {
       var destroyAction = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("a");
-      actionButton.setAttribute("class", "button button-medium button-tertiary-link m-snack-bar-button");
+      actionButton.setAttribute("class", "button button-medium button-tertiary m-snack-bar-button");
       if (typeof actionText == "boolean") {
         helper.addClass(actionButton, "button-icon");
         var icon = document.createElement("span");

@@ -26,7 +26,7 @@ var snack = (function() {
     if (actionText) {
       var destroyAction = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("a");
-      actionButton.setAttribute("class", "button button-medium button-tertiary-link m-snack-bar-button");
+      actionButton.setAttribute("class", "button button-medium button-tertiary m-snack-bar-button");
       if (typeof actionText == "boolean") {
         helper.addClass(actionButton, "button-icon");
         var icon = document.createElement("span");

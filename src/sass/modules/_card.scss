@@ -10,52 +10,30 @@
   transition: background-color $transition-ease-medium;
 }
 .m-card-head-controls {
-  position: relative;
-  padding: 0 2em;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-.m-card-title {
-  font-family: $open-sans-semi-bold;
-  color: $white;
-  font-size: $font-size-125;
-  padding: 0.5em 1em 0.5em 0;
-  flex: 1 0 auto;
-  cursor: pointer;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  &:not(:only-child):not(:last-child) {
-    margin: 0;
+  margin: 0;
+  box-sizing: border-box;
+  .m-card-title {
+    flex: 1 1 auto;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .button {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    line-height: 2.5;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      font-size: 1.4em;
+    }
   }
 }
 .m-card-title-icon {
   margin-right: 1em;
 }
-.m-card-button {
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  margin: 0;
-  padding: 0.5em 1em;
-  font-size: $font-size-125;
-  color: $white;
-  z-index: 2;
-  transition: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  [class*=" icon-"],
-  [class^="icon-"] {}
-  &:link,
-  &:visited {
-    color: $white;
-  }
-  &:focus,
-  &:hover {
-    color: $white;
-  }
-  &.is-active,
-  &:active {
-    color: $white;
+.m-card-head-controls-button-group {
+  margin-bottom: 0;
+  .button {
+    font-size: $font-size-125;
   }
 }
 .m-card-body {

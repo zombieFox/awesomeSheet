@@ -19,28 +19,6 @@
   transform: translatey(100%);
   .m-snack-bar-button {
     margin: 0 0 0 1em;
-    background-color: transparent;
-    border-color: transparent;
-    color: $light-alpha-04;
-    border-radius: $border-radius-medium;
-    &:link,
-    &:visited {
-      background-color: transparent;
-      border-color: transparent;
-      color: $light-alpha-04;
-    }
-    &:focus,
-    &:hover {
-      background-color: $light-alpha-18;
-      border-color: transparent;
-      color: $light-alpha-04;
-    }
-    &.is-active,
-    &:active {
-      background-color: $light-alpha-16;
-      border-color: transparent;
-      color: $white;
-    }
   }
   .m-snack-bar-message {
     margin: 0;
@@ -57,7 +35,7 @@
 
 .is-night-mode {
   .m-snack-bar {
-    background-color: $gray-02;
+    background-color: $gray-05;
   }
 }
 

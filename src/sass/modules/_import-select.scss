@@ -14,12 +14,14 @@
   width: 100%;
   opacity: 0;
   z-index: 1;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .m-import-select-label {
   margin-bottom: 0;
   position: relative;
   z-index: 2;
   display: flex;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &.m-import-select-label-ok {
     [class*=" icon-"],
     [class^="icon-"] {

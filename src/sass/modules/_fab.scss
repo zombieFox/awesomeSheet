@@ -7,13 +7,11 @@
   transition: all $transition-ease-fast;
   transform: scale(1);
 }
-
 .is-onscreen-snack {
   .m-fab {
     bottom: 6rem;
   }
 }
-
 .is-nav-open {
   .m-fab {
     transform: scale(0);
@@ -26,7 +24,6 @@
     }
   }
 }
-
 .m-fab-button {
   width: 2.3em;
   height: 2.3em;
@@ -47,7 +44,18 @@
     transition: all $transition-bounce-extra-fast;
   }
 }
-
+.is-night-mode {
+  .m-fab-button {
+    box-shadow: none;
+    &:focus,
+    &:hover {
+      box-shadow: none;
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -58,7 +66,6 @@
     }
   }
 }
-
 @media (min-width: $screen-md) {
   .m-fab {
     bottom: 2rem;
@@ -73,7 +80,6 @@
     }
   }
 }
-
 @media (min-width: $screen-lg) {
   .m-fab {
     bottom: 3rem;
@@ -85,9 +91,7 @@
     }
   }
 }
-
 @media (min-width: $screen-xl) {}
-
 @media print {
   .m-fab {
     display: none;
