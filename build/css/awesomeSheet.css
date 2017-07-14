@@ -3037,7 +3037,7 @@ label {
 
 .m-edit-box-body-item-margin-small [class*="m-edit-box-item"],
 .m-edit-box-body-item-margin-small [class^="m-edit-box-item"] {
-  margin-bottom: 0.2em; }
+  margin-bottom: 4px; }
 
 [class*="m-edit-box-label"],
 [class^="m-edit-box-label"] {
