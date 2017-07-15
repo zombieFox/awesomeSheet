@@ -1,14 +1,9 @@
 var update = (function() {
 
   var history = [{
-    version: "3.7.1",
-    list: [
-      "Bug fixes and performance improvements."
-    ]
-  }, {
     version: "3.7.0",
     list: [
-      "*Offline use feature added!"
+      "*Offline use feature added. AwesomeSheet will now work offline if it has been cached."
     ]
   }, {
     version: "3.6.1",

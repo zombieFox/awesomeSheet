@@ -12418,12 +12418,12 @@ var registerServiceWorker = (function() {
                     // have been added to the cache.
                     // It's the perfect time to display a "New content is available; please refresh."
                     // message in the page's interface.
-                    // console.log("New or updated content is available.");
+                    console.log("New or updated content is available.");
                     window.location.reload(true);
                   } else {
                     // At this point, everything has been precached.
                     // It's the perfect time to display a "Content is cached for offline use." message.
-                    // console.log("Content is now available offline!");
+                    console.log("Content is now available offline!");
                   };
                   break;
                 case "redundant":
@@ -14786,14 +14786,9 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
-    version: "3.7.1",
-    list: [
-      "Bug fixes and performance improvements."
-    ]
-  }, {
     version: "3.7.0",
     list: [
-      "*Offline use feature added!"
+      "*Offline use feature added. AwesomeSheet will now work offline if it has been cached."
     ]
   }, {
     version: "3.6.1",

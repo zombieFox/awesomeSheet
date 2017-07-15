@@ -270,7 +270,6 @@ module.exports = function(grunt) {
       options: {
         baseDir: '<%= folders.build %>/',
         stripPrefix: 'build/',
-        // replacePrefix: 'awesomeSheet/',
         cacheId: 'aS',
         workerFileName: 'service-worker.js',
         verbose: false,
@@ -281,7 +280,7 @@ module.exports = function(grunt) {
           'css/**/*.css',
           'fonts/**/*.{woff,ttf,svg,eot,woff,woff2}',
           'images/**/*.{gif,png,jpg}',
-          'js/**/*.js',
+          'js/**/*.js'
         ],
       }
     }
