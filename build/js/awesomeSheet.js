@@ -11504,7 +11504,7 @@ var log = (function() {
         };
       };
     };
-    for (var i = 0; i < all_breakingChangesVersion.length; i++) {
+    for (var i = 0; i < numberOfRecentChanges; i++) {
       if (typeof changeVersion == "undefined") {
         changeVersion = all_breakingChangesVersion[i];
       } else {
@@ -14786,6 +14786,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.7.1",
+    list: [
+      "Bug fixes and performance improvements."
+    ]
+  }, {
     version: "3.7.0",
     list: [
       "*Offline use feature added!"

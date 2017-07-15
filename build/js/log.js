@@ -171,7 +171,7 @@ var log = (function() {
         };
       };
     };
-    for (var i = 0; i < all_breakingChangesVersion.length; i++) {
+    for (var i = 0; i < numberOfRecentChanges; i++) {
       if (typeof changeVersion == "undefined") {
         changeVersion = all_breakingChangesVersion[i];
       } else {

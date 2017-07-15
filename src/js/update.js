@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.7.1",
+    list: [
+      "Bug fixes and performance improvements."
+    ]
+  }, {
     version: "3.7.0",
     list: [
       "*Offline use feature added!"
