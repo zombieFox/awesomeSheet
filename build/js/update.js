@@ -57,8 +57,13 @@ var update = (function() {
     ]
   }];
 
+  function currentVersion() {
+    return history[0].version;
+  };
+
   // exposed methods
   return {
+    ver: currentVersion,
     history: history
   };
 
