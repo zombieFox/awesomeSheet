@@ -188,7 +188,7 @@ module.exports = function(grunt) {
         }
       },
       assets: {
-        files: ['<%= folders.src %>/{images,fonts,js}/**/*', '<%= folders.src %>/service-worker.js'],
+        files: ['<%= folders.src %>/{images,fonts,js}/**/*', '<%= folders.src %>/manifest.json', '<%= folders.src %>/service-worker.js'],
         tasks: ['copy:dev'],
         options: {
           livereload: true
