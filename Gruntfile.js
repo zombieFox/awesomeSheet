@@ -15,13 +15,13 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json', 'service-worker.js'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.dev %>/',
         expand: true
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json', 'service-worker.js'],
+        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.build %>/',
         expand: true
       },
@@ -188,7 +188,7 @@ module.exports = function(grunt) {
         }
       },
       assets: {
-        files: ['<%= folders.src %>/{images,fonts,js}/**/*', '<%= folders.src %>/manifest.json', '<%= folders.src %>/service-worker.js'],
+        files: ['<%= folders.src %>/{images,fonts,js}/**/*', '<%= folders.src %>/manifest.json'],
         tasks: ['copy:dev'],
         options: {
           livereload: true

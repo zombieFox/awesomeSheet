@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.7.0",
+    list: [
+      "*Offline use feature added!"
+    ]
+  }, {
     version: "3.6.1",
     list: [
       "Adding Feat and Trait inputs to Saves, removing Racial inputs on Saves.",
