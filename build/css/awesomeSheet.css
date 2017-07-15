@@ -2265,8 +2265,7 @@ label {
   background-color: #ffffff;
   position: relative;
   box-sizing: border-box;
-  width: 100%;
-  border-bottom: 3px solid #8bc4ef; }
+  width: 100%; }
 
 .m-card-head {
   position: relative;
