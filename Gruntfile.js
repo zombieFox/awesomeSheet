@@ -197,14 +197,25 @@ module.exports = function(grunt) {
     },
 
     connect: {
-      server: {
+      dev: {
         options: {
-          port: 9999,
+          port: 9000,
           base: '<%= folders.dev %>',
           hostname: 'localhost',
           livereload: 35729,
           open: {
-            target: 'http://localhost:9999'
+            target: 'http://localhost:9000'
+          }
+        }
+      },
+      build: {
+        options: {
+          port: 9001,
+          base: '<%= folders.build %>',
+          hostname: 'localhost',
+          livereload: 35729,
+          open: {
+            target: 'http://localhost:9001'
           }
         }
       }
@@ -277,7 +288,12 @@ module.exports = function(grunt) {
     'copy:dev',
     'sass:dev',
     'autoprefixer:dev',
-    'connect',
+    'connect:dev',
+    'watch'
+  ]);
+
+  grunt.registerTask('aslive', [
+    'connect:build',
     'watch'
   ]);
 
