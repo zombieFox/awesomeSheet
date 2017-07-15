@@ -264,6 +264,26 @@ module.exports = function(grunt) {
           dest: '<%= folders.build %>/'
         }]
       }
+    },
+
+    'sw-precache': {
+      options: {
+        baseDir: '<%= folders.build %>/',
+        stripPrefix: 'build/',
+        replacePrefix: 'awesomeSheet/',
+        cacheId: 'aS',
+        workerFileName: 'service-worker.js',
+        verbose: false,
+      },
+      'default': {
+        staticFileGlobs: [
+          '**/*.html',
+          'css/**/*.css',
+          'fonts/**/*.{woff,ttf,svg,eot,woff,woff2}',
+          'images/**/*.{gif,png,jpg}',
+          'js/**/*.js',
+        ],
+      }
     }
 
   });
@@ -280,6 +300,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-assemble');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-sw-precache');
 
   grunt.registerTask('dev', [
     'clean:dev',
@@ -297,6 +318,10 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('sw', [
+    'sw-precache:default'
+  ]);
+
   grunt.registerTask('build', [
     'clean:build',
     'clean:tmp',
@@ -311,7 +336,8 @@ module.exports = function(grunt) {
     'uglify:build',
     'usemin',
     'clean:buildCleanBower',
-    'htmlmin'
+    'htmlmin',
+    'sw-precache:default'
   ]);
 
 };

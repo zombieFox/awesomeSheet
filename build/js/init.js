@@ -1,6 +1,5 @@
 (function() {
 
-  // registerServiceWorker.bind();
   nav.bind();
   nav.render();
   sheet.render();
@@ -9,5 +8,6 @@
   checkUrl.render();
   log.bind();
   log.render();
+  registerServiceWorker.bind();
 
 })();
