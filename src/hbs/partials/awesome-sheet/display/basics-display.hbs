@@ -12,20 +12,13 @@
     <div class="col-xs-12">
 
       <div class="m-display-name m-display-block js-display-block is-hidden" data-display-content="false">
-        <h1 class="m-display-name-title js-display-block-target" data-display-type="text-snippet" data-display-path="basics.name"></h1>
-      </div>
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <p class="js-display-block-target" data-display-type="text-snippet" data-display-path="basics.gender,basics.race,basics.class,basics.level"></p>
-      </div>
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <h2 class="js-display-block-target" data-display-type="text-snippet" data-display-value-type=",bonus" data-display-path="basics.speed,basics.initiative.current" data-display-prefix="Speed ,Initiative "></h2>
-      </div>
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <p class="m-display-title">Details</p>
-        <p class="js-display-block-target" data-display-type="text-snippet" data-display-path="basics.xp,basics.alignment,basics.size.category,basics.height,basics.weight,basics.age,basics.hero_points,basics.luck_points" data-display-suffix=" xp,,, tall,, years old, hero points, luck points"></p>
+        <div class="m-display-box">
+          <div class="m-display-box-body">
+            <h1 class="u-no-margin js-display-block-target" data-display-type="text-snippet" data-display-path="basics.name"></h1>
+            <h2 class="m-display-box-accent js-display-block-target" data-display-type="text-snippet" data-display-path="basics.initiative.current,basics.speed,skills.perception.current" data-display-prefix="Initiative,Speed,Perception" data-display-value-type="bonus,,bonus"></h2>
+            <p class="m-display-box-text js-display-block-target" data-display-type="text-snippet" data-display-path="basics.race,basics.class,basics.level,basics.xp,basics.alignment,basics.size.category,basics.height,basics.weight,basics.age,basics.luck_points,basics.hero_points" data-display-prefix=",,Level,,,,,,,Luck points,Hero points" data-display-suffix=",,,XP,,,tall,,years old,,,"></p>
+          </div>
+        </div>
       </div>
 
     </div>

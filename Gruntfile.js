@@ -201,10 +201,10 @@ module.exports = function(grunt) {
         options: {
           port: 9000,
           base: '<%= folders.dev %>',
-          hostname: 'localhost',
+          hostname: '0.0.0.0',
           livereload: 35729,
           open: {
-            target: 'http://localhost:9000'
+            target: 'http://0.0.0.0:9000'
           }
         }
       },
