@@ -280,13 +280,13 @@ var card = (function() {
     var all_section = helper.eA(".js-section");
     var quickNav = helper.e(".js-quick-nav");
     var offset;
+    var options;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
     } else {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
     };
-    var options;
     if (window.innerWidth < 550) {
       options = {
         speed: 150,
@@ -12023,6 +12023,7 @@ var nav = (function() {
     var all_section = helper.eA(".js-section");
     var quickNav = helper.e(".js-quick-nav");
     var offset;
+    var options;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
