@@ -6,44 +6,78 @@
   position: relative;
   box-sizing: border-box;
 }
-.m-display-box-head {
-  flex: 1 1 auto;
+[class*="m-display-box-head"],
+[class^="m-display-box-head"] {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
 }
-// .m-display-box-body {
-//   flex: 1 1 auto;
-//   display: flex;
-//   flex-flow: column nowrap;
-//   justify-content: flex-start;
-//   align-items: stretch;
-//   &:not(:only-child) {
-//     margin-left: 2em;
-//   }
-// }
+.m-display-box-head-small {
+  flex: 0 0 25%;
+}
+.m-display-box-head-medium {
+  flex: 0 0 35%;
+}
+.m-display-box-head-large {
+  flex: 0 0 45%;
+}
 .m-display-box-body {
   flex: 1 1 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: stretch;
-  // margin-left: -$gutter;
-  // margin-right: -$gutter;
+  &:not(:only-child):not(:last-child) {
+    border-right: 1px solid $gray-18;
+  }
+}
+.m-display-box-body-indent {
+  margin-left: 2em;
+}
+.m-display-box-body-item-margin-large {
+  [class*="m-display-box-item"],
+  [class^="m-display-box-item"] {
+    margin-bottom: 1em;
+  }
+}
+.m-display-box-body-item-margin-medium {
+  [class*="m-display-box-item"],
+  [class^="m-display-box-item"] {
+    margin-bottom: 0.5em;
+  }
+}
+.m-display-box-body-item-margin-small {
+  [class*="m-display-box-item"],
+  [class^="m-display-box-item"] {
+    margin-bottom: 4px;
+  }
 }
 [class*="m-display-box-item"],
 [class^="m-display-box-item"] {
-  flex: 0 0 auto;
-  // padding-left: $gutter;
-  // padding-right: $gutter;
+  flex: 1 1 auto;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   transition: margin $transition-ease-medium;
 }
 .m-display-box-item-stat {
-  flex: 1 0 30%;
+  flex: 1 1 15%;
+  box-sizing: border-box;
+  position: relative;
+  &:not(:only-child):not(:last-child) {
+    &:after {
+      content: "";
+      background-color: $gray-18;
+      display: block;
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: rotate(10deg);
+    }
+  }
 }
 .m-display-box-item-small {
   flex: 0 1 25%;
@@ -64,20 +98,29 @@
   justify-content: flex-start;
 }
 .m-display-box-title {
-  color: $gray-14;
-  font-family: $open-sans-regular;
+  margin-bottom: 0;
+  margin-right: 1em;
+  padding: 0.5em 0;
+  color: $primary-color-04;
+  font-family: $open-sans-semi-bold;
   font-size: $font-size-075;
-  line-height: 1;
 }
 .m-display-box-accent {
   color: $primary-color-06;
 }
-.m-display-box-text {
-  line-height: 2.5;
-}
 .is-night-mode {
   .m-display-box-accent {
     color: $primary-color-14;
+  }
+  .m-display-box-item-stat {
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        background-color: $gray-04;
+      }
+    }
+  }
+  .m-display-box-title {
+    color: $primary-color-08;
   }
 }
 // --------------------------------------------------
@@ -85,23 +128,40 @@
 // --------------------------------------------------
 .m-display-block {
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    position: relative;
+    &:after {
+      content: "";
+      width: calc(100% + 4em);
+      height: 1px;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: -2em;
+      background-color: $dark-alpha-20;
+    }
   }
 }
 .m-display-block-last {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    &:after {
+      display: none;
+    }
   }
 }
-.m-display-title {
-  color: $primary-color-10;
-  font-family: $open-sans-semi-bold;
-  line-height: 1;
-}
+// .m-display-title {
+//   color: $primary-color-10;
+//   font-family: $open-sans-semi-bold;
+//   line-height: 1;
+// }
 .is-night-mode {
-  .m-display-title {
-    color: $primary-color-10;
-  }
+  //   .m-display-title {
+  //     color: $secondary--color-10;
+  //   }
 }
 // --------------------------------------------------
 // display snippet
@@ -110,18 +170,18 @@
   display: inline-block;
   position: relative;
   &:not(:only-child):not(:last-child) {
-    padding-right: 0.5em;
-    margin-right: 0.5em;
+    padding-right: 0.6em;
+    margin-right: 0.6em;
     &:after {
       content: "";
-      background-color: $gray-19;
+      background-color: $gray-18;
       display: block;
-      width: 2px;
-      height: 1.5em;
+      width: 1px;
+      height: 1.2em;
       position: absolute;
       top: 50%;
       right: 0.15em;
-      transform: rotate(15deg) translate(0, -50%);
+      transform: rotate(10deg) translate(0, -50%);
     }
   }
 }
@@ -129,19 +189,18 @@
 .m-display-item-text-snippet-prefix {
   color: $gray-08;
   font-size: 0.85em;
-  margin-right: 0.5em;
+  margin-right: 0.3em;
 }
 .m-display-item-text-snippet-suffix {
   color: $gray-08;
   font-size: 0.85em;
-  margin-left: 0.5em;
+  margin-left: 0.3em;
 }
 .m-display-box-accent {
   .m-display-item-text-snippet {
     &:not(:only-child):not(:last-child) {
       &:after {
-        background-color: $secondary-color-06;
-        width: 1px;
+        // background-color: $secondary-color-06;
       }
     }
   }
@@ -151,7 +210,7 @@
     &:not(:only-child):not(:last-child) {
       &:after {
         content: "";
-        background-color: $gray-04;
+        background-color: $gray-06;
       }
     }
   }
@@ -165,7 +224,7 @@
     .m-display-item-text-snippet {
       &:not(:only-child):not(:last-child) {
         &:after {
-          background-color: $secondary-color-14;
+          // background-color: $secondary-color-14;
         }
       }
     }
@@ -180,18 +239,18 @@
   }
 }
 .m-display-list-item {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-bottom: 2px solid $gray-18;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
 .m-display-list-item-prefix {
-  font-family: $open-sans-semi-bold;
   margin-right: 0.5em;
 }
 .m-display-list-item-value {
+  color: $primary-color-06;
   h2 {
     line-height: 1;
     margin-bottom: 0;
@@ -218,6 +277,7 @@
   .m-display-list-item {
     display: block;
     .m-display-list-item-prefix {
+      margin-right: 0;
       display: block;
     }
     .m-display-list-item-value {
@@ -228,21 +288,23 @@
     margin-bottom: 2em;
   }
 }
+.m-display-list-compact {
+  columns: 10em 2;
+  column-gap: 3em;
+  .m-display-list-item {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid $gray-18;
+    break-inside: avoid;
+  }
+}
 .is-night-mode {
   .m-display-list-item {
     border-color: $light-alpha-19;
   }
-}
-// --------------------------------------------------
-// specific display components
-// --------------------------------------------------
-.m-display-name {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
+  .m-display-list-item-value {
+    color: $primary-color-14;
   }
-}
-.m-display-name-title {
-  margin-bottom: 0;
 }
 // --------------------------------------------------
 // display attack melee
@@ -253,7 +315,7 @@
   justify-content: flex-start;
   padding-top: 1em;
   padding-bottom: 1em;
-  border-bottom: 2px solid $gray-18;
+  border-bottom: 1px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -297,7 +359,7 @@
   justify-content: flex-start;
   padding-top: 1em;
   padding-bottom: 1em;
-  border-bottom: 2px solid $gray-18;
+  border-bottom: 1px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -366,8 +428,11 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-display-indent {
-    margin-left: 1em;
+  .m-display-box {
+    flex-flow: row nowrap;
+  }
+  .m-display-box-body-indent {
+    margin-left: 0;
   }
   .m-display-list-responsive {
     display: flex;
@@ -417,11 +482,7 @@
     flex: 0 1 auto;
   }
 }
-@media (min-width: $screen-md) {
-  .m-display-box-item-stat {
-    flex: 1 0 15%;
-  }
-}
+@media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-display-list-responsive {
     display: flex;
