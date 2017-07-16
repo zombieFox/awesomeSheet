@@ -4077,8 +4077,6 @@ label {
   width: 100%;
   position: relative;
   box-sizing: border-box; }
-  .m-display-box:not(:only-child):not(:last-child) {
-    margin-bottom: 1em; }
 
 [class*="m-display-box-head"],
 [class^="m-display-box-head"] {
@@ -4210,6 +4208,8 @@ label {
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start; }
+  .m-display-box-body-multiple .m-display-box-body:not(:only-child):not(:first-child) {
+    margin-top: 1.5em; }
 
 .m-display-box-title {
   margin-bottom: 0;
