@@ -420,6 +420,8 @@ var nav = (function() {
       };
       // ctrl+alt+d
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
+        display.clear();
+        display.render();
         display.toggle();
       };
       // ctrl+alt+n

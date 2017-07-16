@@ -33,6 +33,9 @@
   }
 }
 .is-display-mode {
+  .m-placeholder {
+    margin: 0;
+  }
   .m-placeholder-key {
     background-color: $primary-color-alpha-20;
     border-color: $primary-color-alpha-14;

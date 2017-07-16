@@ -12139,6 +12139,8 @@ var nav = (function() {
       };
       // ctrl+alt+d
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
+        display.clear();
+        display.render();
         display.toggle();
       };
       // ctrl+alt+n
@@ -14344,6 +14346,7 @@ var totalBlock = (function() {
   };
 
   function _render_totalBlock(totalBlock) {
+    // console.log(totalBlock);
     var _checkValue = function(data) {
       var value;
       if (typeof data == "number") {
@@ -14571,9 +14574,9 @@ var totalBlock = (function() {
     };
 
     if (totalObject) {
-      if ("current" in totalObject) {
+      // if ("current" in totalObject) {
         totalObject.current = grandTotal;
-      };
+      // };
     };
 
     totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);
@@ -14874,5 +14877,7 @@ var update = (function() {
   log.bind();
   log.render();
   registerServiceWorker.bind();
+
+  display.toggle();
 
 })();
