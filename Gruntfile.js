@@ -277,6 +277,7 @@ module.exports = function(grunt) {
       'default': {
         staticFileGlobs: [
           '**/*.html',
+          '**/*.json',
           'css/**/*.css',
           'fonts/**/*.{woff,ttf,svg,eot,woff,woff2}',
           'images/**/*.{gif,png,jpg}',

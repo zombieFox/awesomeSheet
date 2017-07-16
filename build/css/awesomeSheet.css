@@ -11,11 +11,11 @@
   transition: color 0.3s ease-in-out; }
 
 ::-moz-selection {
-  background-color: #fc0042;
+  background-color: #77b8e9;
   color: #ffffff; }
 
 ::selection {
-  background-color: #fc0042;
+  background-color: #77b8e9;
   color: #ffffff; }
 
 ::-webkit-full-screen {
@@ -25,11 +25,11 @@
   overflow: auto; }
 
 .is-display-mode ::-moz-selection {
-  background-color: #3288c9;
+  background-color: #ff648c;
   color: #ffffff; }
 
 .is-display-mode ::selection {
-  background-color: #3288c9;
+  background-color: #ff648c;
   color: #ffffff; }
 
 html {
@@ -4332,14 +4332,14 @@ label {
       -ms-flex-pack: start;
           justify-content: flex-start; }
   .m-display-list-line .m-display-list-item .m-display-list-item-prefix {
-    -webkit-flex: 1 1 80%;
-        -ms-flex: 1 1 80%;
-            flex: 1 1 80%; }
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
   .m-display-list-line .m-display-list-item .m-display-list-item-value {
     text-align: right;
-    -webkit-flex: 1 0 20%;
-        -ms-flex: 1 0 20%;
-            flex: 1 0 20%; }
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto; }
 
 .m-display-list-line:not(:only-child):not(:last-child) {
   margin-bottom: 2em; }
@@ -4815,7 +4815,7 @@ label {
     outline: 0; }
 
 .m-log-list {
-  padding-left: 3em; }
+  padding-left: 1em; }
   .m-log-list .m-log-list-item-alert {
     background-color: #ededed;
     padding: 0.5em 3em 0.5em 1em;

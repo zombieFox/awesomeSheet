@@ -2,58 +2,36 @@
   color: $gray-14;
   transition: color $transition-ease-medium;
 }
-
 // Firefox 18
 :-moz-placeholder {
   color: $gray-14;
   transition: color $transition-ease-medium;
 }
-
 // Firefox 19
 ::-moz-placeholder {
   color: $gray-14;
   transition: color $transition-ease-medium;
 }
-
 ::selection {
-  background-color: $primary-color-10;
+  background-color: $secondary-color-14;
   color: $white;
 }
-
 ::-webkit-full-screen {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   overflow: auto;
 }
-
 .is-display-mode {
   ::selection {
-    background-color: $secondary-color-10;
+    background-color: $primary-color-14;
     color: $white;
   }
 }
-// .is-night-mode {
-//   ::-webkit-input-placeholder {
-//     color: $secondary-color-16;
-//   }
-//   // Firefox 18
-//   :-moz-placeholder {
-//     color: $secondary-color-16;
-//   }
-//   // Firefox 19
-//   ::-moz-placeholder {
-//     color: $secondary-color-16;
-//   }
-// }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

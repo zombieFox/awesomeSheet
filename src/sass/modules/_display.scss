@@ -269,11 +269,11 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     .m-display-list-item-prefix {
-      flex: 1 1 80%;
+      flex: 1 1 auto;
     }
     .m-display-list-item-value {
       text-align: right;
-      flex: 1 0 20%;
+      flex: 0 0 auto;
     }
   }
   &:not(:only-child):not(:last-child) {

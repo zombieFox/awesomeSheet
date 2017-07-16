@@ -29,7 +29,6 @@
   box-sizing: border-box;
 }
 .m-log-heading {
-  // padding: 0 0.65em;
   margin-bottom: 0.5em;
   font-family: $open-sans-semi-bold;
   font-size: $font-size-150;
@@ -39,7 +38,7 @@
   }
 }
 .m-log-list {
-  padding-left: 3em;
+  padding-left: 1em;
   .m-log-list-item {}
   .m-log-list-item-alert {
     background-color: $gray-19;

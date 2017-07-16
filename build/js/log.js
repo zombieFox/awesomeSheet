@@ -119,11 +119,16 @@ var log = (function() {
   function _create_fullChangeLogModal() {
     var container = document.createElement("div");
     container.setAttribute("class", "container");
-    var row = document.createElement("div");
-    row.setAttribute("class", "row");
-    var col = document.createElement("div");
-    col.setAttribute("class", "col-xs-12");
     for (var i = 0; i < update.history.length; i++) {
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col2 = document.createElement("div");
+      col2.setAttribute("class", "col-xs-2");
+      row.setAttribute("class", "row");
+      var col10 = document.createElement("div");
+      col10.setAttribute("class", "col-xs-10");
+      row.setAttribute("class", "row");
+      var hr = document.createElement("hr");
       var version = document.createElement("p");
       var versionNumber = document.createElement("strong");
       versionNumber.textContent = update.history[i].version;
@@ -145,11 +150,13 @@ var log = (function() {
         list.appendChild(listItem);
       };
       version.appendChild(versionNumber);
-      col.appendChild(version);
-      col.appendChild(list);
+      col2.appendChild(version);
+      col10.appendChild(list);
+      row.appendChild(col2);
+      row.appendChild(col10);
+      container.appendChild(hr);
+      container.appendChild(row);
     };
-    row.appendChild(col);
-    container.appendChild(row);
     return container;
   };
 
