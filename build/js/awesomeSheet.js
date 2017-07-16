@@ -286,9 +286,17 @@ var card = (function() {
     } else {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
     };
-    var options = {
-      speed: 300,
-      offset: offset
+    var options;
+    if (window.innerWidth < 550) {
+      options = {
+        speed: 150,
+        offset: offset
+      };
+    } else {
+      options = {
+        speed: 300,
+        offset: offset
+      };
     };
     smoothScroll.animateScroll(null, id, options);
   };
@@ -11775,10 +11783,11 @@ var nav = (function() {
 
   };
 
-  function _closeNavScrollToTop() {
+  function _scrollToTop() {
     if (window.innerWidth < 550) {
-      navClose();
       window.scrollTo(0, 0);
+    } else {
+      smoothScroll.animateScroll(null, "#body");
     };
   };
 
@@ -11788,7 +11797,8 @@ var nav = (function() {
     input.addEventListener("change", function() {
       _switch_character(label);
       sheet.storeCharacters();
-      smoothScroll.animateScroll(null, "#body");
+      navClose();
+      _scrollToTop();
     }, false);
   };
 
@@ -11802,7 +11812,8 @@ var nav = (function() {
       name = "New character";
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
-    _closeNavScrollToTop();
+    navClose();
+    _scrollToTop();
   };
 
   function updateNavCharacters(input) {
@@ -12018,10 +12029,18 @@ var nav = (function() {
     } else {
       offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
     };
-    var options = {
-      speed: 300,
-      offset: offset
+    if (window.innerWidth < 550) {
+      options = {
+        speed: 150,
+        offset: offset
+      };
+    } else {
+      options = {
+        speed: 300,
+        offset: offset
+      };
     };
+    navClose();
     smoothScroll.animateScroll(null, id, options);
   };
 
@@ -12060,51 +12079,52 @@ var nav = (function() {
     chnageLog.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      log.changeLog();
       navClose();
+      log.changeLog();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
       navClose();
+      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
     }, false);
 
     restoreDemoPcs.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
       navClose();
+      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
     }, false);
 
     characterImport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      sheet.import();
       navClose();
+      sheet.import();
     }, false);
 
     characterExport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      sheet.export();
       navClose();
+      sheet.export();
     }, false);
 
     characterAdd.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      navClose();
       sheet.addCharacter();
       snack.render("New character added.", false);
-      _closeNavScrollToTop();
+      _scrollToTop();
     }, false);
 
     characterRemove.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      sheet.removeCharacter();
       navClose();
+      sheet.removeCharacter();
     }, false);
 
   };
@@ -12427,22 +12447,22 @@ var registerServiceWorker = (function() {
                     // have been added to the cache.
                     // It's the perfect time to display a "New content is available; please refresh."
                     // message in the page's interface.
-                    console.log("New or updated content is available.");
+                    console.log("[Service Worker] New or updated content is available.");
                     window.location.reload(true);
                   } else {
                     // At this point, everything has been precached.
                     // It's the perfect time to display a "Content is cached for offline use." message.
-                    console.log("Content is now available offline!");
+                    console.log("[Service Worker] Content is now available offline!");
                   };
                   break;
                 case "redundant":
-                  console.error("The installing service worker became redundant.");
+                  console.error("[Service Worker] The installing service worker became redundant.");
                   break;
               };
             };
           };
         }).catch(function(e) {
-          console.error("Error during service worker registration:", e);
+          console.error("[Service Worker] Error during service worker registration:", e);
         });
       });
     };
@@ -12814,7 +12834,6 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
-    smoothScroll.animateScroll(null, "#body");
   };
 
   function removeCharacter() {

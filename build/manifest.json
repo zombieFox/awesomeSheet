@@ -22,6 +22,6 @@
   "display": "standalone",
   "description": "A dynamic character sheet which auto calculates many scores and bonuses.",
   "version": "1.0.0",
-  "background_color": "#224159",
-  "theme_color": "#224159"
+  "background_color": "#245689",
+  "theme_color": "#245689"
 }

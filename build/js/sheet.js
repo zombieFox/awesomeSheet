@@ -54,7 +54,6 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
-    smoothScroll.animateScroll(null, "#body");
   };
 
   function removeCharacter() {
