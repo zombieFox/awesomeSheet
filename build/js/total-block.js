@@ -77,6 +77,7 @@ var totalBlock = (function() {
   };
 
   function _render_totalBlock(totalBlock) {
+    // console.log(totalBlock);
     var _checkValue = function(data) {
       var value;
       if (typeof data == "number") {
@@ -304,9 +305,9 @@ var totalBlock = (function() {
     };
 
     if (totalObject) {
-      if ("current" in totalObject) {
+      // if ("current" in totalObject) {
         totalObject.current = grandTotal;
-      };
+      // };
     };
 
     totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);

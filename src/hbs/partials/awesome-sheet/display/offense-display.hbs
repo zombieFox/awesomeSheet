@@ -1,39 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+<div class="m-placeholder js-placeholder-display">
+  <p class="m-placeholder-description u-muted-text">No Offense information added yet, use <strong class="m-placeholder-key"><span class="icon-edit"></span> Edit</strong> to add some.</p>
+</div>
 
-      <div class="m-placeholder js-placeholder-display">
-        <p class="m-placeholder-description u-muted-text">No Offense information added yet, use <strong class="m-placeholder-key"><span class="icon-edit"></span> Edit</strong> to add some.</p>
+<div class="m-display-block js-display-block is-hidden" data-display-content="false">
+  <div class="m-display-box">
+    <div class="m-display-box-body">
+      <div class="m-display-box-item-large">
+        <h2 class="m-display-box-accent u-no-margin js-display-block-target" data-display-type="text-snippet" data-display-path="offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current" data-display-prefix="CMB,CMD,Melee,Ranged" data-display-value-type="bonus,bonus,bonus,bonus"></h2>
       </div>
-
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <h2 class="js-display-block-target" data-display-type="text-snippet" data-display-path="offense.base_attack" data-display-prefix="BAB "></h2>
+  <div class="m-display-box">
+    <div class="m-display-box-body">
+      <div class="m-display-box-item-large">
+        <p class="m-display-box-recess js-display-block-target" data-display-type="text-block" data-display-path="offense.attack_notes"></p>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <h2 class="js-display-block-target" data-display-type="text-snippet" data-display-path="offense.cmb.current,offense.cmd.current,offense.melee_attack.current,offense.ranged_attack.current" data-display-prefix="CMB ,CMD ,Melee ,Ranged " data-display-value-type="bonus,bonus,bonus,bonus"></h2>
-      </div>
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <p class="m-display-title">Melee Attacks</p>
+<div class="m-display-block js-display-block is-hidden" data-display-content="false">
+  <div class="m-display-box">
+    <div class="m-display-box-body">
+      <div class="m-display-box-item-large">
         <ul class="m-display-list m-display-list-line u-list-unstyled js-display-block-target" data-display-type="clone" data-display-path="offense.attack.melee"></ul>
-      </div>
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <p class="m-display-title">Ranged Attacks</p>
         <ul class="m-display-list m-display-list-line u-list-unstyled js-display-block-target" data-display-type="clone" data-display-path="offense.attack.ranged"></ul>
       </div>
-
-      <div class="m-display-block js-display-block is-hidden" data-display-content="false">
-        <p class="m-display-title">Notes</p>
-        <p class="js-display-block-target" data-display-type="text-block" data-display-path="offense.attack_notes"></p>
-      </div>
-
     </div>
   </div>
 </div>
