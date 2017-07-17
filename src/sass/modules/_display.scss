@@ -65,12 +65,12 @@
   &:nth-child(1),
   &:nth-child(2),
   &:nth-child(3) {
-    padding: 0 0.5em 0.5em 0.5em;
+    padding: 0 0.5em 0.5em;
   }
   &:nth-child(4),
   &:nth-child(5),
   &:nth-child(6) {
-    padding: 0.5em 0.5em 0 0.5em;
+    padding: 0.5em 0.5em 0;
   }
   &:nth-child(1),
   &:nth-child(2),
@@ -149,7 +149,15 @@
     color: $primary-color-14;
   }
   .m-display-box-item-stat {
-    &:not(:only-child):not(:last-child) {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      &:before {
+        background-color: $gray-06;
+      }
+    }
+    &:nth-child(3n+1),
+    &:nth-child(3n+2) {
       &:after {
         background-color: $gray-06;
       }
@@ -563,6 +571,15 @@
   .m-display-list-item-attack-ranged-damage,
   .m-display-list-item-attack-ranged-range {
     flex: 0 1 auto;
+  }
+  .is-night-mode {
+    .m-display-box-item-stat {
+      &:not(:only-child):not(:last-child) {
+        &:after {
+          background-color: $gray-06;
+        }
+      }
+    }
   }
 }
 @media (min-width: $screen-md) {}
