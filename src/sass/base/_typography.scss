@@ -4,36 +4,40 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-weight: normal;
   line-height: $line-height-160;
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 h1 {
-  margin: 0 0 0.5em;
+  // margin: 0 0 0.5em;
   font-size: $font-size-200;
   font-family: $open-sans-light;
 }
 h2 {
-  margin: 0 0 1em;
+  // margin: 0 0 1em;
   font-size: $font-size-150;
   font-family: $open-sans-regular;
 }
 h3 {
-  margin: 0 0 1em;
+  // margin: 0 0 1em;
   font-size: $font-size-150;
   font-family: $open-sans-regular;
 }
 h4 {
-  margin: 0 0 1em;
+  // margin: 0 0 1em;
   font-size: $font-size-125;
   font-family: $open-sans-semi-bold;
 }
 h5 {
-  margin: 0 0 1em;
+  // margin: 0 0 1em;
   font-size: $font-size-100;
   font-family: $open-sans-bold;
 }
 h6 {
-  margin: 0 0 1em;
+  // margin: 0 0 1em;
   font-size: $font-size-075;
   font-family: $open-sans-bold;
 }

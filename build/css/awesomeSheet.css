@@ -987,36 +987,38 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-weight: normal;
   line-height: 1.6666666667; }
+  h1:not(:last-child),
+  h2:not(:last-child),
+  h3:not(:last-child),
+  h4:not(:last-child),
+  h5:not(:last-child),
+  h6:not(:last-child) {
+    margin-bottom: 1em; }
 
 h1 {
-  margin: 0 0 0.5em;
   font-size: 2em;
   font-family: "Open Sans Light", Helvetica, Arial, sans-serif; }
 
 h2 {
-  margin: 0 0 1em;
   font-size: 1.5em;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
 
 h3 {
-  margin: 0 0 1em;
   font-size: 1.5em;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
 
 h4 {
-  margin: 0 0 1em;
   font-size: 1.25em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
 h5 {
-  margin: 0 0 1em;
   font-size: 1em;
   font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
 
 h6 {
-  margin: 0 0 1em;
   font-size: 0.75em;
   font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
 
@@ -4401,7 +4403,8 @@ label {
   .m-display-list-item-attack-melee-critical:not(:only-child):not(:first-child),
   .m-display-list-item-attack-melee-damage:not(:only-child):not(:first-child),
   .m-display-list-item-attack-melee-weapon:not(:only-child):not(:first-child) {
-    padding-left: 1.5em; }
+    padding-left: 1.5em;
+    margin-bottom: 0; }
 
 .m-display-list-item-attack-melee-weapon {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
@@ -4460,7 +4463,8 @@ label {
   .m-display-list-item-attack-ranged-damage:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-range:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-weapon:not(:only-child):not(:first-child) {
-    padding-left: 1.5em; }
+    padding-left: 1.5em;
+    margin-bottom: 0; }
 
 .m-display-list-item-attack-ranged-weapon {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;

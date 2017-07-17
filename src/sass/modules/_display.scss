@@ -336,6 +336,7 @@
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
     padding-left: 1.5em;
+    margin-bottom: 0;
   }
 }
 .m-display-list-item-attack-melee-weapon {
@@ -386,6 +387,7 @@
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
     padding-left: 1.5em;
+    margin-bottom: 0;
   }
 }
 .m-display-list-item-attack-ranged-weapon {

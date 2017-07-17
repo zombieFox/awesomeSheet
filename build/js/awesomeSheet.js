@@ -14911,4 +14911,6 @@ var update = (function() {
   log.render();
   registerServiceWorker.bind();
 
+  display.toggle();
+
 })();

@@ -10,4 +10,6 @@
   log.render();
   registerServiceWorker.bind();
 
+  display.toggle();
+
 })();
