@@ -362,6 +362,7 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      _scrollToTop();
     }, false);
 
     characterImport.addEventListener("click", function(event) {
@@ -369,6 +370,7 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       sheet.import();
+      _scrollToTop();
     }, false);
 
     characterExport.addEventListener("click", function(event) {
