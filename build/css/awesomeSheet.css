@@ -3089,7 +3089,11 @@ label {
       position: relative;
       width: 100%;
       z-index: 2;
-      transition: width 0.2s ease-in-out 0.3s; }
+      -webkit-transform-origin: left center;
+          -ms-transform-origin: left center;
+              transform-origin: left center;
+      transition: width 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+      transition: width 0.2s ease-in-out, transform 0.2s ease-in-out; }
       .m-clone-block .m-clone-block-target .m-clone .m-clone-block-content .m-clone-flash {
         background-color: #fc0042;
         position: absolute;
