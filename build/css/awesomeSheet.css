@@ -1361,6 +1361,9 @@ input[type="submit"] {
     .button-group .button:last-of-type,
     .button-group button:last-of-type {
       border-radius: 0 4px 4px 0; }
+    .button-group .button:first-of-type:last-of-type,
+    .button-group button:first-of-type:last-of-type {
+      border-radius: 4px; }
 
 .button-group-right {
   -webkit-justify-content: flex-end;

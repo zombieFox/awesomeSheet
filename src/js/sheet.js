@@ -302,6 +302,7 @@ var sheet = (function() {
     totalBlock.bind();
     display.bind();
     card.bind();
+    registerServiceWorker.bind();
   };
 
   function clear() {

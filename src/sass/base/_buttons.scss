@@ -241,6 +241,9 @@ input[type="submit"] {
     &:last-of-type {
       border-radius: 0 $border-radius-large $border-radius-large 0;
     }
+    &:first-of-type:last-of-type {
+      border-radius: $border-radius-large;
+    }
   }
 }
 .button-group-right {
