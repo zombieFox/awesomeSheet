@@ -7,26 +7,26 @@ var nif = (function() {
       race: "Elf",
       // class: "Wizard",
       level: "8",
-      class: [],
-      // class: [{
-      //   classname: "Wizard",
-      //   levels: 8,
-      //   hp: 34,
-      //   fortitude_base: 2,
-      //   reflex_base: 2,
-      //   will_base: 6,
-      //   skill_ranks_per_level: 2,
-      //   favoured_class: {
-      //     hp: 8,
-      //     skill_rank: ""
-      //   },
-      //   bab: {
-      //     one: "",
-      //     two: "",
-      //     three: "",
-      //     four: ""
-      //   }
-      // }],
+      // class: [],
+      class: [{
+        classname: "Wizard",
+        levels: 8,
+        hp: 34,
+        fortitude_base: 2,
+        reflex_base: 2,
+        will_base: 6,
+        skill_ranks_per_level: 2,
+        favoured_class: {
+          hp: 8,
+          skill_rank: ""
+        },
+        bab: {
+          one: "",
+          two: "",
+          three: "",
+          four: ""
+        }
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
