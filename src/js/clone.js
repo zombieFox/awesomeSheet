@@ -22,6 +22,9 @@ var clone = (function() {
 
   function _get_cloneObjects(cloneType) {
     var object;
+    if (cloneType == "class") {
+      object = sheet.getCharacter().basics.class;
+    };
     if (cloneType == "consumable") {
       object = sheet.getCharacter().equipment.consumable;
     };
@@ -48,6 +51,10 @@ var clone = (function() {
 
   function _get_cloneString(cloneType, cloneIndex) {
     var cloneString;
+    if (cloneType == "class") {
+      cloneString =
+        'Hello World';
+    };
     if (cloneType == "consumable") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
@@ -289,6 +296,9 @@ var clone = (function() {
 
   function _get_cloneBlock(cloneType) {
     var cloneBlock;
+    if (cloneType == "class") {
+      cloneBlock = helper.e(".js-clone-block-class");
+    };
     if (cloneType == "attack-melee" || cloneType == "attack") {
       cloneBlock = helper.e(".js-clone-block-attack");
     };
@@ -315,6 +325,9 @@ var clone = (function() {
 
   function _get_cloneTarget(cloneType) {
     var cloneTarget;
+    if (cloneType == "attack-class") {
+      cloneTarget = helper.e(".js-clone-block-target-class");
+    };
     if (cloneType == "attack-melee") {
       cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     };
@@ -341,6 +354,9 @@ var clone = (function() {
 
   function _get_cloneCount(cloneType, mixed) {
     var cloneCount;
+    if (cloneType == "class") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "basics.class").length;
+    };
     if (cloneType == "attack-melee") {
       cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.melee").length;
     };
@@ -373,6 +389,9 @@ var clone = (function() {
 
   function _get_placeholderClone(cloneType) {
     var clonePlaceholder;
+    if (cloneType == "class") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-class");
+    };
     if (cloneType == "attack-melee") {
       clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
     };
@@ -399,6 +418,9 @@ var clone = (function() {
 
   function _get_clonePrefix(cloneType) {
     var clonePrefix;
+    if (cloneType == "class") {
+      clonePrefix = helper.e(".js-clone-block-prefix-class");
+    };
     if (cloneType == "attack-melee") {
       clonePrefix = helper.e(".js-clone-block-prefix-attack-melee");
     };
@@ -425,6 +447,9 @@ var clone = (function() {
 
   function _get_cloneSuffix(cloneType) {
     var cloneSuffix;
+    if (cloneType == "class") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-class");
+    };
     if (cloneType == "attack-melee") {
       cloneSuffix = helper.e(".js-clone-block-suffix-attack-melee");
     };
@@ -451,6 +476,9 @@ var clone = (function() {
 
   function _get_maxCloneMessage(cloneType) {
     var message = "Max 200, do you need that many";
+    if (cloneType == "class") {
+      message = message + " Classes?";
+    };
     if (cloneType == "attack-melee") {
       message = message + " Melee Attacks?";
     };
@@ -477,6 +505,9 @@ var clone = (function() {
 
   function _get_undoRemoveCloneMessage(cloneType) {
     var message = "removed.";
+    if (cloneType == "class") {
+      message = "Class attack " + message;
+    };
     if (cloneType == "attack-melee") {
       message = "Melee attack " + message;
     };
@@ -503,6 +534,27 @@ var clone = (function() {
 
   function _get_newCloneObject(cloneType) {
     var object;
+    if (cloneType == "class") {
+      object = {
+        classname: "",
+        levels: "",
+        hp: "",
+        fortitude_base: "",
+        reflex_base: "",
+        will_base: "",
+        skill_ranks_per_level: "",
+        favoured_class: {
+          hp: "",
+          skill_rank: ""
+        },
+        bab: {
+          one: "",
+          two: "",
+          three: "",
+          four: ""
+        }
+      };
+    };
     if (cloneType == "attack-melee") {
       object = {
         weapon: "",
@@ -597,11 +649,15 @@ var clone = (function() {
   };
 
   function _bind_cloneControls() {
-    var cloneBlockConsumable =  _get_cloneBlock("consumable"); helper.e(".js-clone-block-consumable");
-    var cloneBlockSkill =  _get_cloneBlock("skill"); helper.e(".js-clone-block-skill");
-    var cloneBlockItem =  _get_cloneBlock("item"); helper.e(".js-clone-block-skill");
-    var cloneBlockAttack =  _get_cloneBlock("attack"); helper.e(".js-clone-block-attack");
-    var cloneBlockNote =  _get_cloneBlock("note"); helper.e(".js-clone-block-note");
+    var cloneBlockClass = _get_cloneBlock("class");
+    var cloneBlockConsumable = _get_cloneBlock("consumable");
+    var cloneBlockSkill = _get_cloneBlock("skill");
+    var cloneBlockItem = _get_cloneBlock("item");
+    var cloneBlockAttack = _get_cloneBlock("attack");
+    var cloneBlockNote = _get_cloneBlock("note");
+
+    var cloneAddClass = cloneBlockClass.querySelector(".js-clone-add-class");
+    var cloneRemoveClass = cloneBlockClass.querySelector(".js-clone-remove");
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
@@ -619,6 +675,11 @@ var clone = (function() {
     var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
     var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
     var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
+
+    cloneAddClass.addEventListener("click", function() {
+      _addNewClone("class");
+      sheet.storeCharacters();
+    }, false);
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
@@ -655,6 +716,10 @@ var clone = (function() {
       sheet.storeCharacters();
     }, false);
 
+    cloneRemoveClass.addEventListener("click", function() {
+      _change_cloneState("class");
+    }, false);
+
     cloneRemoveAttack.addEventListener("click", function() {
       _change_cloneState("attack");
     }, false);
@@ -685,6 +750,9 @@ var clone = (function() {
   };
 
   function _bind_clone(cloneType, newClone) {
+    if (cloneType == "class") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+    };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
     };
@@ -917,6 +985,7 @@ var clone = (function() {
     if (cloneType) {
       _clear_cloneTarget(cloneType);
     } else {
+      _clear_cloneTarget("class");
       _clear_cloneTarget("attack-melee");
       _clear_cloneTarget("attack-ranged");
       _clear_cloneTarget("consumable");
