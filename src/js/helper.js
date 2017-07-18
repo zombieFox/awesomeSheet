@@ -154,6 +154,10 @@ var helper = (function() {
     return text;
   };
 
+  function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
+
   function store(key, data) {
     if (localStorage.getItem) {
       localStorage.setItem(key, data);
@@ -225,6 +229,7 @@ var helper = (function() {
     truncate: truncateString,
     setDropdown: setDropdown,
     randomId: randomId,
+    randomNumber: randomNumber,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip

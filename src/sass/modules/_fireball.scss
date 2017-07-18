@@ -6,9 +6,9 @@
   width: 80px;
   height: 170px;
   position: fixed;
-  bottom: 2em;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, 0) scale(2);
+  transform: translate(-50%, 0) scale(1.5);
   transform-origin: center bottom;
   z-index: $fireball;
   animation: fireball steps(30) 2s 1;

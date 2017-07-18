@@ -57,6 +57,9 @@
   margin-right: 1em;
   padding: 0.5em 0;
   line-height: $line-height-150;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 .m-edit-box-title-with-label {
   margin-top: 1.25em;
@@ -135,19 +138,19 @@
       margin-bottom: 0;
     }
     .button,
-    button,
     .button,
     .m-check-block,
     .m-stat-modifier,
-    .m-total-block-total {
+    .m-total-block-total,
+    button {
       border-radius: 0;
     }
     .button,
-    button,
     .m-check-block,
     .m-input-block,
     .m-stat-modifier,
-    .m-total-block-total {
+    .m-total-block-total,
+    button {
       margin-left: -1px;
     }
     .button {
