@@ -10,22 +10,15 @@ var nif = (function() {
       // class: [],
       class: [{
         classname: "Wizard",
-        levels: 8,
+        level: 8,
         hp: 34,
-        fortitude_base: 2,
-        reflex_base: 2,
-        will_base: 6,
-        skill_ranks_per_level: 2,
-        favoured_class: {
-          hp: 8,
-          skill_rank: ""
-        },
-        bab: {
-          one: "",
-          two: "",
-          three: "",
-          four: ""
-        }
+        fortitude: 2,
+        reflex: 2,
+        will: 6,
+        ranks: 2,
+        favoured_class_hp: 8,
+        favoured_class_ranks: "",
+        bab: 4
       }],
       size: {
         category: "Medium",
