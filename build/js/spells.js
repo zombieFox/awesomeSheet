@@ -92,7 +92,25 @@ var spells = (function() {
       _update_spellButton(this);
       _update_spellControls(this);
       _checkSpellState();
+      _castFireball(this);
     }, false);
+  };
+
+  function _castFireball(button) {
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
+    var spellState = spellRoot.dataset.spellState;
+    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+
+    if (spellState == "cast") {
+      var fireballName = ["Fireball", "fireball", "Fire ball", "fire Ball", "fire ball", "Fire Ball", "FIREBALL", "FIREBALL!", "FIREBALL!!", "FIREBALL!!!", "FIREBALL!!!!"];
+      if (fireballName.indexOf(spellObject.name) > -1) {
+        // easter egg fireball!
+        fireball.render();
+      };
+    };
+
   };
 
   function _update_spellControls(button, force) {
@@ -720,17 +738,12 @@ var spells = (function() {
     spellRemoveIcon.setAttribute("class", "icon-close");
     spellRemove.appendChild(spellRemoveIcon);
     if (newSpell) {
-      if (spellObject.name == "Fireball" || spellObject.name == "fireball" || spellObject.name == "Fire ball" || spellObject.name == "fire Ball" || spellObject.name == "fire ball" || spellObject.name == "Fire Ball" || spellObject.name == "FIREBALL") {
-        // easter egg fireball!
-        fireball.render();
-      } else {
-        var newSpellFlash = document.createElement("span");
-        newSpellFlash.setAttribute("class", "m-spell-flash");
-        newSpellFlash.addEventListener("animationend", function(event, elapsed) {
-          this.remove();
-        }.bind(newSpellFlash), false);
-        spellButton.appendChild(newSpellFlash);
-      };
+      var newSpellFlash = document.createElement("span");
+      newSpellFlash.setAttribute("class", "m-spell-flash");
+      newSpellFlash.addEventListener("animationend", function(event, elapsed) {
+        this.remove();
+      }.bind(newSpellFlash), false);
+      spellButton.appendChild(newSpellFlash);
     };
     return spellButton;
   };

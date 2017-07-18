@@ -82,11 +82,11 @@ var nif = (function() {
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
       languages: "Aquan, Auran, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Terran, Undercommon",
-      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
+      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
-      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3)",
+      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
       item: [{
         name: "Flask of Oil",
         quantity: 5,
@@ -135,158 +135,6 @@ var nif = (function() {
         name: "Viles of insect sap",
         quantity: 14,
         weight: 0.5
-      }, {
-        name: "Potion of Cure Light Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Cure Moderate Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Cure Serious Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Protection from Evil",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Adjustable Disguise",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Aid",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Displacement",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Hide from Animals",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Delay Poison",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Bear's Endurance",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Levitate",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll of Acid Pit",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Summon Monster III",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Summon Monster IV",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll of Invisibility",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Create Pit",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Web",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Scroll of Stinking Cloud",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Grease",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll of Mirror Image",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Scroll of Spiked Pit",
-        quantity: 6,
-        weight: ""
-      }, {
-        name: "Scroll of Fly",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Scroll of Interposing Hand",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll of Elemental Body 2",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll of Wall of Fire",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll of Haste",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Enlarge Person",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Endure Elements",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Acid Arrow",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll of Gust of Wind",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll of Animate Rope",
-        quantity: 0,
-        weight: ""
-      }, {
-        name: "Scroll of False Life",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scroll of Floating Disk",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Oil of Magic Weapon",
-        quantity: 2,
-        weight: ""
-      }, {
-        name: "Scrolls of Comprehend Languages",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll of Erase",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll of Detect Secret Doors",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scroll of Black Tentacles",
-        quantity: 2,
-        weight: ""
       }],
       encumbrance: {
         light: "26 lbs or less",
@@ -486,7 +334,7 @@ var nif = (function() {
           half_level: false
         }
       },
-      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects"
+      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
     },
     offense: {
       base_attack: "+4",
@@ -582,7 +430,23 @@ var nif = (function() {
         include_custom: false,
         current: ""
       },
-      custom: [],
+      custom: [{
+        name: "Spellcraft (Identify magic items)",
+        ranks: 8,
+        misc: 2,
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      }],
       acrobatics: {
         ranks: "",
         misc: "",
@@ -601,7 +465,7 @@ var nif = (function() {
         }
       },
       appraise: {
-        ranks: 4,
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -756,7 +620,7 @@ var nif = (function() {
         }
       },
       fly: {
-        ranks: 4,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -944,7 +808,7 @@ var nif = (function() {
         }
       },
       knowledge_nobility: {
-        ranks: 4,
+        ranks: 3,
         misc: "",
         current: "",
         bonuses: {
@@ -1735,11 +1599,9 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save,<br><strong>Bonus feats</strong>,<br><strong>Cantrips</strong>,<br><strong>Arcane schools</strong> Conjuration (Teleportation),<br><strong>Opposition arcane school</strong> Enchantment, Necromancy,<br><strong>Elven Immunities (Ex)</strong> +2 against enchantment spells and effects,<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items,<br><strong>Keen Senses (Ex)</strong> +2 Perception checks,<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination,<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day,<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells,<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
-      }, {
-        note: "Headband of Vast Intelligence skill: Use Magic Device"
       }],
       story: [{
         note: "Baron Turbine Blackshield, lord of Thornkeep <br>Five factions in Thornkeep: Three Daggers (the thives), Iron jaws, Hunters guild, The Order (deal in magic), The Goblins, The Blue Basilisks (the muscle)"
