@@ -6,12 +6,15 @@
 
 ## Features
 - Edit stats and abilities will auto update.
-- Dynamically add attack and consumable blocks.
+- Dynamically add attack, items, skills and consumable blocks.
+- Spell organisation and state management
 - Add multiple characters
 - Export and Import characters as JSON file.
 - Local store all changes made so changes will persist after reload.
 
 ## JS/UI modular features
+- Responsive
+- Offline use (Service Worker)
 - Snack bars
 - Slide nav
 - Modal promots
