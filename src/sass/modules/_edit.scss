@@ -92,6 +92,9 @@
   justify-content: flex-end;
   transition: margin $transition-ease-medium;
 }
+.m-edit-box-item-text {
+  flex: 0 0 0;
+}
 .m-edit-box-item-total {
   flex: 0 0 3em;
 }
@@ -142,6 +145,7 @@
     .m-check-block,
     .m-stat-modifier,
     .m-total-block-total,
+    .m-edit-box-text,
     button {
       border-radius: 0;
     }
@@ -150,6 +154,7 @@
     .m-input-block,
     .m-stat-modifier,
     .m-total-block-total,
+    .m-edit-box-text,
     button {
       margin-left: -1px;
     }
@@ -186,7 +191,8 @@
       .m-check-block-check-icon,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total {
+      .m-total-block-total,
+      .m-edit-box-text {
         border-radius: $border-radius-large 0 0 $border-radius-large;
       }
       .m-input-block {
@@ -200,7 +206,8 @@
       .m-check-block-check-icon,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total {
+      .m-total-block-total,
+      .m-edit-box-text {
         border-radius: 0 $border-radius-large $border-radius-large 0;
       }
       .m-input-block {
@@ -214,7 +221,8 @@
       .m-check-block-check-icon,
       .m-edit-box-item-button,
       .m-stat-modifier,
-      .m-total-block-total {
+      .m-total-block-total,
+      .m-edit-box-text {
         border-radius: $border-radius-large;
       }
       .m-input-block {
@@ -253,9 +261,31 @@
   color: $secondary-color-06;
   box-sizing: border-box;
   width: 100%;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 .m-edit-box-label-total {
   color: $gray-08;
+}
+.m-edit-box-text {
+  background-color: $gray-19;
+  padding: 0 0.3em;
+  margin: 0;
+  height: 2.5em;
+  width: 100%;
+  font-size: $font-size-100;
+  line-height: $line-height-250;
+  font-family: $open-sans-regular;
+  box-sizing: border-box;
+  border-radius: $border-radius-large;
+  border: 0;
+  border: $border;
+  border-color: $gray-16;
+  color: $gray-10;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 .m-edit-controls {
   margin: 0 0 1em;
