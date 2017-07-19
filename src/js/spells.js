@@ -211,7 +211,7 @@ var spells = (function() {
       var nameEditBoxBodyInput = document.createElement("input");
       nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
       nameEditBoxBodyInput.setAttribute("type", "text");
-      nameEditBoxBodyInput.setAttribute("tabindex", "3");
+      nameEditBoxBodyInput.setAttribute("tabindex", "1");
       nameEditBoxBodyInput.value = spellObject.name;
 
       nameEditBoxBodyItem.appendChild(nameEditBoxBodyInput);
@@ -241,7 +241,7 @@ var spells = (function() {
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
       preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedPlus.setAttribute("tabindex", "3");
+      preparedPlus.setAttribute("tabindex", "1");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
       preparedPlus.addEventListener("click", function() {
@@ -250,7 +250,7 @@ var spells = (function() {
       }, false);
       var preparedMinus = document.createElement("button");
       preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedMinus.setAttribute("tabindex", "3");
+      preparedMinus.setAttribute("tabindex", "1");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
       preparedMinus.addEventListener("click", function() {
@@ -259,7 +259,7 @@ var spells = (function() {
       }, false);
       var preparedClear = document.createElement("button");
       preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedClear.setAttribute("tabindex", "3");
+      preparedClear.setAttribute("tabindex", "1");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
       preparedClear.addEventListener("click", function() {
@@ -304,7 +304,7 @@ var spells = (function() {
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
       castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castPlus.setAttribute("tabindex", "3");
+      castPlus.setAttribute("tabindex", "1");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
       castPlus.addEventListener("click", function() {
@@ -313,7 +313,7 @@ var spells = (function() {
       }, false);
       var castMinus = document.createElement("button");
       castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castMinus.setAttribute("tabindex", "3");
+      castMinus.setAttribute("tabindex", "1");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
       castMinus.addEventListener("click", function() {
@@ -322,7 +322,7 @@ var spells = (function() {
       }, false);
       var castClear = document.createElement("button");
       castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castClear.setAttribute("tabindex", "3");
+      castClear.setAttribute("tabindex", "1");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");
       castClear.addEventListener("click", function() {
@@ -362,7 +362,7 @@ var spells = (function() {
       activeInput.setAttribute("type", "checkbox");
       activeInput.setAttribute("id", "spell-active");
       activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-      activeInput.setAttribute("tabindex", "3");
+      activeInput.setAttribute("tabindex", "1");
       activeInput.checked = spellObject.active;
       activeInput.addEventListener("change", function() {
         _store_data(spellControl, "toggle", "active");
@@ -393,7 +393,7 @@ var spells = (function() {
       var noteTextarea = document.createElement("div");
       noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
       noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "3");
+      noteTextarea.setAttribute("tabindex", "1");
       noteTextarea.innerHTML = spellObject.note;
       noteTextarea.addEventListener("paste", function(event) {
         helper.pasteStrip(event);
@@ -584,6 +584,13 @@ var spells = (function() {
         if (!button.classList.contains("js-spell-reset")) {
           helper.addClass(button, "is-active");
         };
+        if (spellRoot.dataset.spellState == "remove") {
+          helper.addClass(spellRemoveButton, "button-primary");
+          helper.removeClass(spellRemoveButton, "button-secondary");
+        } else {
+          helper.removeClass(spellRemoveButton, "button-primary");
+          helper.addClass(spellRemoveButton, "button-secondary");
+        };
       } else {
         spellRoot.dataset.spellState = "false";
         helper.removeClass(button, "is-active");
@@ -592,6 +599,8 @@ var spells = (function() {
         helper.removeClass(spellRoot, "is-state-cast");
         helper.removeClass(spellRoot, "is-state-active");
         helper.removeClass(spellRoot, "is-state-remove");
+        helper.removeClass(spellRemoveButton, "button-primary");
+        helper.addClass(spellRemoveButton, "button-secondary");
       };
     } else {
       spellRoot.dataset.spellState = "false";
@@ -601,6 +610,8 @@ var spells = (function() {
       helper.removeClass(spellRoot, "is-state-cast");
       helper.removeClass(spellRoot, "is-state-active");
       helper.removeClass(spellRoot, "is-state-remove");
+      helper.removeClass(spellRemoveButton, "button-primary");
+      helper.addClass(spellRemoveButton, "button-secondary");
     };
   };
 
@@ -693,7 +704,7 @@ var spells = (function() {
     spellButton.setAttribute("data-spell-count", index);
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
-    spellButton.setAttribute("tabindex", "3");
+    spellButton.setAttribute("tabindex", "1");
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);

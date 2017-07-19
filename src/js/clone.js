@@ -62,31 +62,31 @@ var clone = (function() {
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Classname</label>' +
-        '            <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="classname" type="text" tabindex="3">' +
+        '            <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="classname" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
-        '            <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="level" type="text" tabindex="3">' +
+        '            <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="level" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
-        '            <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="hp" type="text" tabindex="3">' +
+        '            <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="hp" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '            <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="bab" type="text" tabindex="3">' +
+        '            <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="bab" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
-        '            <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="ranks" type="text" tabindex="3">' +
+        '            <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="ranks" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -96,31 +96,31 @@ var clone = (function() {
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-favoured-class-hp-' + cloneIndex + '">Favoured HP</label>' +
-        '            <input id="class-favoured-class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="favoured_class_hp" type="text" tabindex="3">' +
+        '            <input id="class-favoured-class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="favoured_class_hp" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-favoured-class-ranks-' + cloneIndex + '">Favoured Ranks</label>' +
-        '            <input id="class-favoured-class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="favoured_class_ranks" type="text" tabindex="3">' +
+        '            <input id="class-favoured-class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="favoured_class_ranks" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-fortitude-' + cloneIndex + '">fortitude</label>' +
-        '            <input id="class-fortitude-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="fortitude" type="text" tabindex="3">' +
+        '            <input id="class-fortitude-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="fortitude" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-reflex-' + cloneIndex + '">Reflex</label>' +
-        '            <input id="class-reflex-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="reflex" type="text" tabindex="3">' +
+        '            <input id="class-reflex-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="reflex" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-will-' + cloneIndex + '">Will</label>' +
-        '            <input id="class-will-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="will" type="text" tabindex="3">' +
+        '            <input id="class-will-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="will" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -128,7 +128,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "consumable") {
@@ -139,7 +139,7 @@ var clone = (function() {
         '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-small">' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="3">' +
+        '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
@@ -147,12 +147,12 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="3">' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="3">' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -160,7 +160,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "item") {
@@ -170,24 +170,24 @@ var clone = (function() {
       '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-small">' +
       '      <div class="m-edit-box-item-large">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
+      '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="1">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" data-type="integer" type="text" tabindex="3">' +
+      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" data-type="integer" type="text" tabindex="1">' +
       '        </div>' +
       '      </div>' +
       '      <div class="m-edit-box-item-small">' +
       '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="float" type="text" tabindex="3">' +
+      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="float" type="text" tabindex="1">' +
       '        </div>' +
       '      </div>' +
       '    </div>' +
       '  </div>' +
       '</div>' +
       '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+      '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
       '</div>';
     };
     if (cloneType == "skill") {
@@ -197,7 +197,7 @@ var clone = (function() {
         '    <div class="m-edit-box m-edit-box-guides">' +
         '      <div class="m-edit-box-head-large">' +
         '        <div class="m-skill-name m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="3" placeholder="Custom skill">' +
+        '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="1" placeholder="Custom skill">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-body m-edit-box-body-group">' +
@@ -206,29 +206,29 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="3">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="3">' +
+        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-check">' +
         '          <div class="m-check-block">' +
-        '            <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
+        '            <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="1">' +
         '            <span class="m-check-block-check-icon"></span>' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-skill">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "attack-melee") {
@@ -240,7 +240,7 @@ var clone = (function() {
         '        <div class="m-edit-box-item-max">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
-        '            <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="3">' +
+        '            <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -250,19 +250,19 @@ var clone = (function() {
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + cloneIndex + '">Attack</label>' +
-        '            <input id="attack-melee-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="attack" type="text" tabindex="3">' +
+        '            <input id="attack-melee-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="attack" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + cloneIndex + '">Damage</label>' +
-        '            <input id="attack-melee-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="3">' +
+        '            <input id="attack-melee-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + cloneIndex + '">Critical</label>' +
-        '            <input id="attack-melee-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="3">' +
+        '            <input id="attack-melee-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -270,7 +270,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "attack-ranged") {
@@ -282,7 +282,7 @@ var clone = (function() {
         '        <div class="m-edit-box-item-max">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
-        '            <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="3">' +
+        '            <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -292,19 +292,19 @@ var clone = (function() {
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + cloneIndex + '">Attack</label>' +
-        '            <input id="attack-ranged-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="attack" type="text" tabindex="3">' +
+        '            <input id="attack-ranged-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="attack" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + cloneIndex + '">Damage</label>' +
-        '            <input id="attack-ranged-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="damage" type="text" tabindex="3">' +
+        '            <input id="attack-ranged-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="damage" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + cloneIndex + '">Critical</label>' +
-        '            <input id="attack-ranged-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="critical" type="text" tabindex="3">' +
+        '            <input id="attack-ranged-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="critical" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -314,13 +314,13 @@ var clone = (function() {
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + cloneIndex + '">Range</label>' +
-        '            <input id="attack-ranged-range-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="3">' +
+        '            <input id="attack-ranged-range-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + cloneIndex + '">Ammo</label>' +
-        '            <input id="attack-ranged-ammo-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="3">' +
+        '            <input id="attack-ranged-ammo-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -328,7 +328,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "note-character") {
@@ -339,14 +339,14 @@ var clone = (function() {
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + cloneIndex + '">Note</label>' +
-        '          <div id="note-character-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.character" data-path-clone-key="note" tabindex="3"></div>' +
+        '          <div id="note-character-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.character" data-path-clone-key="note" tabindex="1"></div>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-note">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "note-story") {
@@ -357,14 +357,14 @@ var clone = (function() {
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + cloneIndex + '">Note</label>' +
-        '          <div id="note-story-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.story" data-path-clone-key="note" tabindex="3"></div>' +
+        '          <div id="note-story-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.story" data-path-clone-key="note" tabindex="1"></div>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-note">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     return cloneString;
@@ -994,22 +994,46 @@ var clone = (function() {
     var cloneBlock = helper.e(".js-clone-block-" + cloneType);
     var cloneControls = cloneBlock.querySelector(".js-clone-controls");
     var cloneRemoveButton = cloneControls.querySelector(".js-clone-remove");
-    var cloneCount = _get_cloneCount(cloneType);
-    // change clone remove button
-    helper.toggleClass(cloneRemoveButton, "is-active");
+    var cloneTarget = _get_cloneTarget(cloneType);
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "false" || !cloneBlock.dataset.deleteCloneState) {
       helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
+      // change clone remove button
+      helper.toggleClass(cloneRemoveButton, "is-active");
+      helper.addClass(cloneRemoveButton, "button-primary");
+      helper.removeClass(cloneRemoveButton, "button-secondary");
     } else {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
+      // change clone remove button
+      helper.removeClass(cloneRemoveButton, "is-active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-secondary");
     };
     // if clone count is 0 restore all classes to normal
-    if (cloneCount == 0) {
-      helper.removeClass(cloneBlock, "is-delete-state");
+    if (_get_cloneCount(cloneType) == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
+      helper.removeClass(cloneBlock, "is-delete-state");
+      // change clone remove button
       helper.removeClass(cloneRemoveButton, "is-active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-secondary");
+    };
+    _removeButtonTab(cloneType);
+  };
+
+  function _removeButtonTab(cloneType) {
+    var cloneBlock = helper.e(".js-clone-block-" + cloneType);
+    var all_removeButtons = cloneBlock.querySelectorAll(".js-clone-block-delete");
+    if (cloneBlock.dataset.deleteCloneState == "true") {
+      for (var i = 0; i < all_removeButtons.length; i++) {
+        all_removeButtons[i].setAttribute("tabindex", "1");
+      };
+    } else {
+      for (var i = 0; i < all_removeButtons.length; i++) {
+        all_removeButtons[i].setAttribute("tabindex", "-1");
+      };
     };
   };
 
