@@ -136,26 +136,9 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    .button,
-    button {
-      margin-bottom: 0;
-    }
-    .button,
-    .button,
-    .m-check-block,
-    .m-stat-modifier,
-    .m-total-block-total,
-    .m-edit-box-text,
-    button {
+    & > * {
       border-radius: 0;
-    }
-    .button,
-    .m-check-block,
-    .m-input-block,
-    .m-stat-modifier,
-    .m-total-block-total,
-    .m-edit-box-text,
-    button {
+      margin-bottom: 0;
       margin-left: -1px;
     }
     .button {
@@ -187,12 +170,7 @@
       }
     }
     &:first-of-type {
-      .button,
-      .m-check-block-check-icon,
-      .m-edit-box-item-button,
-      .m-stat-modifier,
-      .m-total-block-total,
-      .m-edit-box-text {
+      & > * {
         border-radius: $border-radius-large 0 0 $border-radius-large;
       }
       .m-input-block {
@@ -202,12 +180,7 @@
       }
     }
     &:last-of-type {
-      .button,
-      .m-check-block-check-icon,
-      .m-edit-box-item-button,
-      .m-stat-modifier,
-      .m-total-block-total,
-      .m-edit-box-text {
+      & > * {
         border-radius: 0 $border-radius-large $border-radius-large 0;
       }
       .m-input-block {
@@ -217,12 +190,7 @@
       }
     }
     &:first-of-type:last-of-type {
-      .button,
-      .m-check-block-check-icon,
-      .m-edit-box-item-button,
-      .m-stat-modifier,
-      .m-total-block-total,
-      .m-edit-box-text {
+      & > * {
         border-radius: $border-radius-large;
       }
       .m-input-block {
@@ -251,8 +219,7 @@
     margin-bottom: 4px;
   }
 }
-[class*="m-edit-box-label"],
-[class^="m-edit-box-label"] {
+.m-edit-box-label {
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -265,24 +232,21 @@
     margin-bottom: 0;
   }
 }
-.m-edit-box-label-total {
-  color: $gray-08;
-}
 .m-edit-box-text {
   background-color: $gray-19;
-  padding: 0 0.3em;
+  padding: 0 0.8em;
   margin: 0;
   height: 2.5em;
-  width: 100%;
   font-size: $font-size-100;
   line-height: $line-height-250;
-  font-family: $open-sans-regular;
+  font-family: $open-sans-bold;
   box-sizing: border-box;
   border-radius: $border-radius-large;
   border: 0;
   border: $border;
   border-color: $gray-16;
-  color: $gray-10;
+  color: $base-color;
+  text-align: center;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -319,12 +283,13 @@
   .m-edit-heading {
     background-color: $secondary-color-04;
   }
-  [class*="m-edit-box-label"],
-  [class^="m-edit-box-label"] {
+  .m-edit-box-label {
     color: $secondary-color-08;
   }
-  .m-edit-box-label-total {
-    color: $gray-12;
+  .m-edit-box-text {
+    background-color: $gray-04;
+    border-color: $gray-04;
+    color: $gray-18;
   }
 }
 // --------------------------------------------------

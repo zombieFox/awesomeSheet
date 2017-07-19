@@ -83,11 +83,6 @@ var clone = (function() {
         '            <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.class" data-path-clone-key="bab" type="text" tabindex="3">' +
         '          </div>' +
         '        </div>' +
-        '        <div class="m-edit-box-item-text">' +
-        '          <p class="m-edit-box-text">' +
-        '            /' +
-        '          </p>' +
-        '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
@@ -148,7 +143,7 @@ var clone = (function() {
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
-        '          <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total">0</p>' +
+        '          <p class="m-edit-box-text js-total-block-total">0</p>' +
         '        </div>' +
         '        <div class="m-edit-box-item-small">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
@@ -207,7 +202,7 @@ var clone = (function() {
         '      </div>' +
         '      <div class="m-edit-box-body m-edit-box-body-group">' +
         '        <div class="m-edit-box-item-total">' +
-        '          <p class="m-total-block-total js-total-block-total">0</p>' +
+        '          <p class="m-edit-box-text js-total-block-total">0</p>' +
         '        </div>' +
         '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
