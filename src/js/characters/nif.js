@@ -16,8 +16,6 @@ var nif = (function() {
         reflex: 2,
         will: 6,
         ranks: 2,
-        favoured_class_hp: 8,
-        favoured_class_ranks: "",
         bab: 4
       }],
       size: {
