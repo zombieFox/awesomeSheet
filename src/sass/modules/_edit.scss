@@ -1,92 +1,193 @@
 .m-edit-box {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column wrap;
   justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
   position: relative;
   box-sizing: border-box;
   transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
-.m-edit-box-group {
-  background-color: $gray-20;
-  border: $border;
-  border-color: $gray-17;
-  border-radius: $border-radius-large;
-  margin: 0 0 1em;
-  padding: 1em 1em 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-.m-edit-box-guides {
-  padding: 0.5em 0;
-  margin: 0;
-  border-bottom: $border;
-  border-bottom-color: $gray-18;
-  transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
-}
-[class*="m-edit-box-head"],
-[class^="m-edit-box-head"] {
+.m-edit-box-head {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.m-edit-box-head-small {
-  flex: 0 0 25%;
+.m-edit-box-body {
+  flex: 1 1 100%;
+  padding-left: 2em;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
 }
-.m-edit-box-head-medium {
-  flex: 0 0 35%;
+.m-edit-box-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
-.m-edit-box-head-large {
-  flex: 0 0 45%;
+.m-edit-box {
+  &:not(.m-edit-box-group) {
+    [class*="m-edit-box-item"],
+    [class^="m-edit-box-item"] {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
 }
-.m-edit-box-no-head-small {
-  padding-left: 25%;
+.m-edit-box-outline {
+  .m-edit-box-body {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .m-edit-box-content {
+    background-color: $gray-20;
+    border: $border;
+    border-color: $gray-17;
+    border-radius: $border-radius-large;
+    padding: 1em 0.5em;
+  }
+  &.m-edit-box-group {
+    .m-edit-box-content {
+      padding: 1em;
+    }
+  }
 }
-.m-edit-box-no-head-medium {
-  padding-left: 35%;
+.m-edit-box-guides {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: $border;
+  border-bottom-color: $gray-18;
+  transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
 }
-.m-edit-box-no-head-large {
-  padding-left: 45%;
+.m-edit-box-group {
+  .m-edit-box-body {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .m-edit-box-content {
+    position: relative;
+    flex-flow: row nowrap;
+    padding: 0;
+    z-index: 1;
+    [class*="m-edit-box-item"],
+    [class^="m-edit-box-item"] {
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      & > * {
+        border-radius: 0;
+        margin-bottom: 0;
+        margin-left: -1px;
+      }
+      .button {
+        z-index: 2;
+        &:focus {
+          z-index: 3;
+        }
+      }
+      &:hover {
+        .button {
+          z-index: 3;
+        }
+      }
+      .m-input-block {
+        z-index: 2;
+        &.is-focus {
+          z-index: 3;
+        }
+        .m-input-block-field {
+          border-radius: 0;
+          &:focus {
+            z-index: 3;
+          }
+        }
+      }
+      &:hover {
+        .m-input-block {
+          z-index: 3;
+        }
+      }
+      &:first-of-type {
+        & > * {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+        .m-input-block {
+          .m-input-block-field {
+            border-radius: $border-radius-large 0 0 $border-radius-large;
+          }
+        }
+      }
+      &:last-of-type {
+        & > * {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+        .m-input-block {
+          .m-input-block-field {
+            border-radius: 0 $border-radius-large $border-radius-large 0;
+          }
+        }
+      }
+      &:first-of-type:last-of-type {
+        & > * {
+          border-radius: $border-radius-large;
+        }
+        .m-input-block {
+          .m-input-block-field {
+            border-radius: $border-radius-large;
+          }
+        }
+      }
+    }
+  }
 }
-[class*="m-edit-box-title"],
-[class^="m-edit-box-title"] {
+.m-edit-box-end {
+  .m-edit-box-content {
+    justify-content: flex-end;
+  }
+}
+[class*="m-edit-box-margin"],
+[class^="m-edit-box-margin"] {
+  &.m-edit-box-outline {
+    .m-edit-box-content {
+      padding-bottom: 0;
+    }
+  }
+}
+.m-edit-box-margin-large {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-bottom: 1em;
+  }
+}
+.m-edit-box-margin-medium {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-bottom: 0.5em;
+  }
+}
+.m-edit-box-margin-small {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-bottom: 4px;
+  }
+}
+.m-edit-box-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
-  margin-right: 1em;
   padding: 0.5em 0;
   line-height: $line-height-150;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-.m-edit-box-title-with-label {
-  margin-top: 1.25em;
-}
-.m-edit-box-body {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  margin-left: -$gutter;
-  margin-right: -$gutter;
-}
-.m-edit-box-body-end {
-  justify-content: flex-end;
-}
-.m-edit-box-body-multiple {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-}
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
   flex: 0 0 auto;
-  padding-left: $gutter;
-  padding-right: $gutter;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
@@ -124,100 +225,6 @@
 }
 .m-edit-box-item-control {
   flex: 0 1 5em;
-}
-.m-edit-box-body-group {
-  position: relative;
-  flex-flow: row nowrap;
-  z-index: 1;
-  margin-left: 0;
-  margin-right: 0;
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    & > * {
-      border-radius: 0;
-      margin-bottom: 0;
-      margin-left: -1px;
-    }
-    .button {
-      z-index: 2;
-      &:focus {
-        z-index: 3;
-      }
-    }
-    &:hover {
-      .button {
-        z-index: 3;
-      }
-    }
-    .m-input-block {
-      z-index: 2;
-      &.is-focus {
-        z-index: 3;
-      }
-      .m-input-block-field {
-        border-radius: 0;
-        &:focus {
-          z-index: 3;
-        }
-      }
-    }
-    &:hover {
-      .m-input-block {
-        z-index: 3;
-      }
-    }
-    &:first-of-type {
-      & > * {
-        border-radius: $border-radius-large 0 0 $border-radius-large;
-      }
-      .m-input-block {
-        .m-input-block-field {
-          border-radius: $border-radius-large 0 0 $border-radius-large;
-        }
-      }
-    }
-    &:last-of-type {
-      & > * {
-        border-radius: 0 $border-radius-large $border-radius-large 0;
-      }
-      .m-input-block {
-        .m-input-block-field {
-          border-radius: 0 $border-radius-large $border-radius-large 0;
-        }
-      }
-    }
-    &:first-of-type:last-of-type {
-      & > * {
-        border-radius: $border-radius-large;
-      }
-      .m-input-block {
-        .m-input-block-field {
-          border-radius: $border-radius-large;
-        }
-      }
-    }
-  }
-}
-.m-edit-box-body-item-margin-large {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 1em;
-  }
-}
-.m-edit-box-body-item-margin-medium {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 0.5em;
-  }
-}
-.m-edit-box-body-item-margin-small {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 4px;
-  }
 }
 .m-edit-box-label {
   margin: 0;
@@ -296,23 +303,40 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-edit-box-item-total {
-    flex: 0 0 4em;
+  .m-edit-box {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+  }
+  .m-edit-box-body {
+    padding-left: 0;
+  }
+  .m-edit-box-labels {
+    .m-edit-box-title {
+      margin-top: 1.25em;
+    }
+  }
+  .m-edit-box-outline {
+    &.m-edit-box-labels {
+      .m-edit-box-title {
+        margin-top: 2.25em;
+      }
+    }
   }
   .m-edit-box-head-small {
-    flex: 0 0 30%;
-  }
-  .m-edit-box-head-medium {
-    flex: 0 0 40%;
+    .m-edit-box-head {
+      flex: 0 0 30%;
+    }
   }
   .m-edit-box-head-large {
-    flex: 0 0 50%;
+    .m-edit-box-head {
+      flex: 0 0 50%;
+    }
+  }
+  .m-edit-box-title {
+    margin-right: 1em;
   }
   .m-edit-box-no-head-small {
     padding-left: 30%;
-  }
-  .m-edit-box-no-head-medium {
-    padding-left: 40%;
   }
   .m-edit-box-no-head-large {
     padding-left: 50%;
