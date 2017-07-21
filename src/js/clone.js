@@ -183,35 +183,39 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="js-total-block" data-total-path="skills.custom" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '    <div class="m-edit-box m-edit-box-guides">' +
-        '      <div class="m-edit-box-head-large">' +
+        '  <div class="m-skill js-total-block" data-total-path="skills.custom" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '    <div class="m-edit-box m-edit-box-head-large m-edit-box-guides">' +
+        '      <div class="m-edit-box-head">' +
         '        <div class="m-skill-name m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="1" placeholder="Custom skill">' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-body m-edit-box-body-group">' +
-        '        <div class="m-edit-box-item-total">' +
-        '          <p class="m-edit-box-text js-total-block-total">0</p>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
+        '      <div class="m-edit-box-body">' +
+        '        <div class="m-edit-box-content">' +
+        '          <div class="m-edit-box-item-max m-edit-box-group">' +
+        '            <div class="m-edit-box-item-total">' +
+        '              <p class="m-edit-box-text js-total-block-total">0</p>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-medium">' +
+        '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-medium">' +
+        '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-check">' +
+        '              <div class="m-check-block">' +
+        '                <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="1">' +
+        '                <span class="m-check-block-check-icon"></span>' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-button">' +
+        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
+        '            </div>' +
         '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
-        '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-check">' +
-        '          <div class="m-check-block">' +
-        '            <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="1">' +
-        '            <span class="m-check-block-check-icon"></span>' +
-        '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-button">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +

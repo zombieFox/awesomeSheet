@@ -3,16 +3,29 @@
 }
 .m-skill-name {
   width: 100%;
-  margin-right: 1em;
+  margin-right: 0;
+  margin-bottom: 0.5em;
 }
 .m-skill-variant-name {
   width: 100%;
-  margin-right: 1em;
+  margin-left: 1em;
+  margin-right: 0;
+  margin-bottom: 0.5em;
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-skill-name {
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+  .m-skill-variant-name {
+    margin-left: 0;
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
