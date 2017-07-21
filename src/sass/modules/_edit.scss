@@ -25,9 +25,9 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: stretch;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1em;
-  }
+  // &:not(:only-child):not(:last-child) {
+  //   margin-bottom: 1em;
+  // }
 }
 .m-edit-box {
   &:not(.m-edit-box-group) {
@@ -42,17 +42,16 @@
   .m-edit-box-body {
     margin-left: 0;
     margin-right: 0;
-  }
-  .m-edit-box-content {
     background-color: $gray-20;
     border: $border;
     border-color: $gray-17;
     border-radius: $border-radius-large;
     padding: 1em 0.5em;
   }
+  .m-edit-box-content {}
   &.m-edit-box-group {
     .m-edit-box-content {
-      padding: 1em;
+      // padding: 1em;
     }
   }
 }
@@ -152,27 +151,39 @@
 [class*="m-edit-box-margin"],
 [class^="m-edit-box-margin"] {
   &.m-edit-box-outline {
-    .m-edit-box-content {
-      padding-bottom: 0;
+    .m-edit-box-body {
+      // padding-bottom: 0;
     }
   }
 }
 .m-edit-box-margin-large {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 1em;
+  .m-edit-box-content {
+    &:not(:only-child):not(:last-child) {
+      [class*="m-edit-box-item"],
+      [class^="m-edit-box-item"] {
+        margin-bottom: 1em;
+      }
+    }
   }
 }
 .m-edit-box-margin-medium {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 0.5em;
+  .m-edit-box-content {
+    &:not(:only-child):not(:last-child) {
+      [class*="m-edit-box-item"],
+      [class^="m-edit-box-item"] {
+        margin-bottom: 0.5em;
+      }
+    }
   }
 }
 .m-edit-box-margin-small {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 4px;
+  .m-edit-box-content {
+    &:not(:only-child):not(:last-child) {
+      [class*="m-edit-box-item"],
+      [class^="m-edit-box-item"] {
+        margin-bottom: 4px;
+      }
+    }
   }
 }
 .m-edit-box-title {
