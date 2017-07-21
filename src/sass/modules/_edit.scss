@@ -30,6 +30,48 @@
   align-items: stretch;
 }
 // --------------------------------------------------
+// edit outline
+// --------------------------------------------------
+.m-edit-box-content-outline {
+  background-color: $gray-20;
+  border: $border;
+  border-color: $gray-17;
+  border-radius: $border-radius-large;
+  padding: 1em 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1em;
+  // &:not(:only-child):not(:last-child) {
+  // }
+}
+// --------------------------------------------------
+// edit margin
+// --------------------------------------------------
+[class*="m-edit-box-content-margin"],
+[class^="m-edit-box-content-margin"] {
+  &.m-edit-box-content-outline {
+    padding-bottom: 0;
+  }
+}
+.m-edit-box-content-margin-large {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
+    margin-bottom: 1em;
+  }
+}
+.m-edit-box-content-margin-medium {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
+    margin-bottom: 0.5em;
+  }
+}
+.m-edit-box-content-margin-small {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
+    margin-bottom: 4px;
+  }
+}
+// --------------------------------------------------
 // edit group
 // --------------------------------------------------
 .m-edit-box {
@@ -37,55 +79,6 @@
   [class^="m-edit-box-item"] {
     padding-left: $gutter;
     padding-right: $gutter;
-  }
-}
-// --------------------------------------------------
-// edit outline
-// --------------------------------------------------
-.m-edit-box-outline {
-  .m-edit-box-content {
-    background-color: $gray-20;
-    border: $border;
-    border-color: $gray-17;
-    border-radius: $border-radius-large;
-    padding: 1em 0.5em;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  &.m-edit-box-margin-large {
-    .m-edit-box-content {
-      padding-bottom: 0;
-      &:not(:only-child):not(:last-child) {
-        margin-bottom: 1em;
-      }
-    }
-  }
-}
-// --------------------------------------------------
-// edit margin
-// --------------------------------------------------
-.m-edit-box-margin-large {
-  .m-edit-box-content {
-     > [class*="m-edit-box-item"],
-    > [class^="m-edit-box-item"] {
-      margin-bottom: 1em;
-    }
-  }
-}
-.m-edit-box-margin-medium {
-  .m-edit-box-content {
-     > [class*="m-edit-box-item"],
-    > [class^="m-edit-box-item"] {
-      margin-bottom: 0.5em;
-    }
-  }
-}
-.m-edit-box-margin-small {
-  .m-edit-box-content {
-     > [class*="m-edit-box-item"],
-    > [class^="m-edit-box-item"] {
-      margin-bottom: 4px;
-    }
   }
 }
 // --------------------------------------------------
@@ -132,6 +125,12 @@
 }
 .m-edit-box-item-text {
   flex: 0 0 0;
+}
+.m-edit-box-item-stat {
+  flex: 1 1 40%;
+}
+.m-edit-box-item-modifier {
+  flex: 1 1 30%;
 }
 .m-edit-box-item-total {
   flex: 0 0 3em;
@@ -353,6 +352,12 @@
     .m-edit-box-head {
       flex: 0 0 50%;
     }
+  }
+  .m-edit-box-item-stat {
+    flex: 0 1 20%;
+  }
+  .m-edit-box-item-modifier {
+    flex: 0 0 3em;
   }
   .m-edit-box-title {
     margin-right: 1em;
