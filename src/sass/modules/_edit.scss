@@ -1,3 +1,6 @@
+// --------------------------------------------------
+// edit box
+// --------------------------------------------------
 .m-edit-box {
   display: flex;
   flex-flow: column wrap;
@@ -16,45 +19,73 @@
 }
 .m-edit-box-body {
   flex: 1 1 100%;
-  padding-left: 2em;
-  margin-left: -$gutter;
-  margin-right: -$gutter;
+  margin-left: 2em;
 }
 .m-edit-box-content {
+  margin-left: -$gutter;
+  margin-right: -$gutter;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: stretch;
-  // &:not(:only-child):not(:last-child) {
-  //   margin-bottom: 1em;
-  // }
 }
+// --------------------------------------------------
+// edit group
+// --------------------------------------------------
 .m-edit-box {
-  &:not(.m-edit-box-group) {
-    [class*="m-edit-box-item"],
-    [class^="m-edit-box-item"] {
-      padding-left: $gutter;
-      padding-right: $gutter;
-    }
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    padding-left: $gutter;
+    padding-right: $gutter;
   }
 }
+// --------------------------------------------------
+// edit outline
+// --------------------------------------------------
 .m-edit-box-outline {
   .m-edit-box-body {
-    margin-left: 0;
-    margin-right: 0;
     background-color: $gray-20;
     border: $border;
     border-color: $gray-17;
     border-radius: $border-radius-large;
-    padding: 1em 0.5em;
+    padding: 1em;
   }
-  .m-edit-box-content {}
-  &.m-edit-box-group {
-    .m-edit-box-content {
-      // padding: 1em;
+  &.m-edit-box-margin-large {
+    .m-edit-box-body {
+      padding-bottom: 0;
     }
   }
 }
+// --------------------------------------------------
+// edit margin
+// --------------------------------------------------
+.m-edit-box-margin-large {
+  .m-edit-box-content {
+     > [class^="m-edit-box-item"],
+    > [class*="m-edit-box-item"] {
+      margin-bottom: 1em;
+    }
+  }
+}
+.m-edit-box-margin-medium {
+  .m-edit-box-content {
+     > [class^="m-edit-box-item"],
+    > [class*="m-edit-box-item"] {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+.m-edit-box-margin-small {
+  .m-edit-box-content {
+     > [class^="m-edit-box-item"],
+    > [class*="m-edit-box-item"] {
+      margin-bottom: 4px;
+    }
+  }
+}
+// --------------------------------------------------
+// edit guides
+// --------------------------------------------------
 .m-edit-box-guides {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
@@ -62,130 +93,17 @@
   border-bottom-color: $gray-18;
   transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
 }
-.m-edit-box-group {
-  .m-edit-box-body {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .m-edit-box-content {
-    position: relative;
-    flex-flow: row nowrap;
-    padding: 0;
-    z-index: 1;
-    [class*="m-edit-box-item"],
-    [class^="m-edit-box-item"] {
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      & > * {
-        border-radius: 0;
-        margin-bottom: 0;
-        margin-left: -1px;
-      }
-      .button {
-        z-index: 2;
-        &:focus {
-          z-index: 3;
-        }
-      }
-      &:hover {
-        .button {
-          z-index: 3;
-        }
-      }
-      .m-input-block {
-        z-index: 2;
-        &.is-focus {
-          z-index: 3;
-        }
-        .m-input-block-field {
-          border-radius: 0;
-          &:focus {
-            z-index: 3;
-          }
-        }
-      }
-      &:hover {
-        .m-input-block {
-          z-index: 3;
-        }
-      }
-      &:first-of-type {
-        & > * {
-          border-radius: $border-radius-large 0 0 $border-radius-large;
-        }
-        .m-input-block {
-          .m-input-block-field {
-            border-radius: $border-radius-large 0 0 $border-radius-large;
-          }
-        }
-      }
-      &:last-of-type {
-        & > * {
-          border-radius: 0 $border-radius-large $border-radius-large 0;
-        }
-        .m-input-block {
-          .m-input-block-field {
-            border-radius: 0 $border-radius-large $border-radius-large 0;
-          }
-        }
-      }
-      &:first-of-type:last-of-type {
-        & > * {
-          border-radius: $border-radius-large;
-        }
-        .m-input-block {
-          .m-input-block-field {
-            border-radius: $border-radius-large;
-          }
-        }
-      }
-    }
-  }
-}
+// --------------------------------------------------
+// edit end
+// --------------------------------------------------
 .m-edit-box-end {
   .m-edit-box-content {
     justify-content: flex-end;
   }
 }
-[class*="m-edit-box-margin"],
-[class^="m-edit-box-margin"] {
-  &.m-edit-box-outline {
-    .m-edit-box-body {
-      // padding-bottom: 0;
-    }
-  }
-}
-.m-edit-box-margin-large {
-  .m-edit-box-content {
-    &:not(:only-child):not(:last-child) {
-      [class*="m-edit-box-item"],
-      [class^="m-edit-box-item"] {
-        margin-bottom: 1em;
-      }
-    }
-  }
-}
-.m-edit-box-margin-medium {
-  .m-edit-box-content {
-    &:not(:only-child):not(:last-child) {
-      [class*="m-edit-box-item"],
-      [class^="m-edit-box-item"] {
-        margin-bottom: 0.5em;
-      }
-    }
-  }
-}
-.m-edit-box-margin-small {
-  .m-edit-box-content {
-    &:not(:only-child):not(:last-child) {
-      [class*="m-edit-box-item"],
-      [class^="m-edit-box-item"] {
-        margin-bottom: 4px;
-      }
-    }
-  }
-}
+// --------------------------------------------------
+// edit title
+// --------------------------------------------------
 .m-edit-box-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
@@ -196,6 +114,9 @@
     margin-bottom: 0;
   }
 }
+// --------------------------------------------------
+// edit items
+// --------------------------------------------------
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
   flex: 0 0 auto;
@@ -237,6 +158,88 @@
 .m-edit-box-item-control {
   flex: 0 1 5em;
 }
+// --------------------------------------------------
+// edit group
+// --------------------------------------------------
+.m-edit-box-group {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  z-index: 1;
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    & > * {
+      border-radius: 0;
+      margin-bottom: 0;
+      margin-left: -1px;
+    }
+    .button {
+      z-index: 2;
+      &:focus {
+        z-index: 3;
+      }
+    }
+    &:hover {
+      .button {
+        z-index: 3;
+      }
+    }
+    .m-input-block {
+      z-index: 2;
+      &.is-focus {
+        z-index: 3;
+      }
+      .m-input-block-field {
+        border-radius: 0;
+        &:focus {
+          z-index: 3;
+        }
+      }
+    }
+    &:hover {
+      .m-input-block {
+        z-index: 3;
+      }
+    }
+    &:first-of-type {
+      & > * {
+        border-radius: $border-radius-large 0 0 $border-radius-large;
+      }
+      .m-input-block {
+        .m-input-block-field {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+      }
+    }
+    &:last-of-type {
+      & > * {
+        border-radius: 0 $border-radius-large $border-radius-large 0;
+      }
+      .m-input-block {
+        .m-input-block-field {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
+    }
+    &:first-of-type:last-of-type {
+      & > * {
+        border-radius: $border-radius-large;
+      }
+      .m-input-block {
+        .m-input-block-field {
+          border-radius: $border-radius-large;
+        }
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// edit label
+// --------------------------------------------------
 .m-edit-box-label {
   margin: 0;
   padding: 0;
@@ -250,6 +253,9 @@
     margin-bottom: 0;
   }
 }
+// --------------------------------------------------
+// edit text
+// --------------------------------------------------
 .m-edit-box-text {
   background-color: $gray-19;
   padding: 0 0.8em;
@@ -269,9 +275,11 @@
     margin-bottom: 0;
   }
 }
+// --------------------------------------------------
+// edit controls
+// --------------------------------------------------
 .m-edit-controls {
   margin: 0 0 1em;
-  // box-sizing: border-box;
   .button-group {
     margin-bottom: 0;
   }
@@ -283,13 +291,11 @@
     top: 5em;
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
-    .button-group {
-      .button {
-        // box-shadow: $shadow-small;
-      }
-    }
   }
 }
+// --------------------------------------------------
+// night mode
+// --------------------------------------------------
 .is-night-mode {
   .m-edit-box-group {
     border-color: $gray-06;
@@ -319,7 +325,7 @@
     align-items: flex-start;
   }
   .m-edit-box-body {
-    padding-left: 0;
+    margin-left: 0;
   }
   .m-edit-box-labels {
     .m-edit-box-title {
