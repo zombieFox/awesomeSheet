@@ -43,16 +43,21 @@
 // edit outline
 // --------------------------------------------------
 .m-edit-box-outline {
-  .m-edit-box-body {
+  .m-edit-box-content {
     background-color: $gray-20;
     border: $border;
     border-color: $gray-17;
     border-radius: $border-radius-large;
-    padding: 1em;
+    padding: 1em 0.5em;
+    margin-left: 0;
+    margin-right: 0;
   }
   &.m-edit-box-margin-large {
-    .m-edit-box-body {
+    .m-edit-box-content {
       padding-bottom: 0;
+      &:not(:only-child):not(:last-child) {
+        margin-bottom: 1em;
+      }
     }
   }
 }
@@ -61,24 +66,24 @@
 // --------------------------------------------------
 .m-edit-box-margin-large {
   .m-edit-box-content {
-     > [class^="m-edit-box-item"],
-    > [class*="m-edit-box-item"] {
+     > [class*="m-edit-box-item"],
+    > [class^="m-edit-box-item"] {
       margin-bottom: 1em;
     }
   }
 }
 .m-edit-box-margin-medium {
   .m-edit-box-content {
-     > [class^="m-edit-box-item"],
-    > [class*="m-edit-box-item"] {
+     > [class*="m-edit-box-item"],
+    > [class^="m-edit-box-item"] {
       margin-bottom: 0.5em;
     }
   }
 }
 .m-edit-box-margin-small {
   .m-edit-box-content {
-     > [class^="m-edit-box-item"],
-    > [class*="m-edit-box-item"] {
+     > [class*="m-edit-box-item"],
+    > [class^="m-edit-box-item"] {
       margin-bottom: 4px;
     }
   }
