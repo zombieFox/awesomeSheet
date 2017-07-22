@@ -4,7 +4,7 @@ var repair = (function() {
     // console.log("fire repair update");
     // update classes
     if (!characterObject.basics.classes) {
-      console.log("--------\t\tupdate classes");
+      // console.log("--------\t\tupdate classes");
       characterObject.basics.classes = [{
         classname: "",
         level: "",
@@ -44,22 +44,15 @@ var repair = (function() {
       };
       // move base saves
       if (characterObject.defense.fortitude.base != "") {
-        console.log("Found fort base = ", characterObject.defense.fortitude.base);
         characterObject.basics.classes[0].fortitude = characterObject.defense.fortitude.base;
       };
       if (characterObject.defense.reflex.base != "") {
-        console.log("Found ref base = ", characterObject.defense.reflex.base);
         characterObject.basics.classes[0].reflex = characterObject.defense.reflex.base;
       };
       if (characterObject.defense.will.base != "") {
-        console.log("Found wil base = ", characterObject.defense.will.base);
         characterObject.basics.classes[0].will = characterObject.defense.will.base;
       };
-
       delete characterObject.basics.class;
-      delete characterObject.defense.fortitude.base;
-      delete characterObject.defense.reflex.base;
-      delete characterObject.defense.will.base;
     };
     // remove racial save bonuses
     ifRacial("racial", characterObject.defense.fortitude);
