@@ -353,7 +353,8 @@ var nif = (function() {
       save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
     },
     offense: {
-      base_attack: "+4",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -442,9 +443,12 @@ var nif = (function() {
       attack_notes: ""
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Spellcraft (Identify magic items)",

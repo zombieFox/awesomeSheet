@@ -22,6 +22,23 @@ var classes = (function() {
     return allBab;
   };
 
+  function delayUpdate(element) {
+    render();
+    textBlock.render();
+  };
+
+  var delayUpdateTimer = null;
+
+  function bind(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    if (input) {
+      input.addEventListener("input", function() {
+        clearTimeout(delayUpdateTimer);
+        delayUpdateTimer = setTimeout(delayUpdate, 300, this);
+      }, false);
+    };
+  };
+
   function render() {
     var all_classes = helper.getObject(sheet.getCharacter(), "basics.class");
     var totalLevels = _total(all_classes, "level");
@@ -32,23 +49,20 @@ var classes = (function() {
     var totalReflex = _total(all_classes, "reflex");
     var totalWill = _total(all_classes, "will");
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
-
     helper.setObject(sheet.getCharacter(), "basics.level", totalLevels);
     helper.setObject(sheet.getCharacter(), "defense.hp.total", totalHP);
-    helper.setObject(sheet.getCharacter(), "offense.base_attack", baseAttackBonuses);
+    helper.setObject(sheet.getCharacter(), "offense.base_attack", totalBab);
+    helper.setObject(sheet.getCharacter(), "offense.base_attack_bonuses", baseAttackBonuses);
+    helper.setObject(sheet.getCharacter(), "skills.ranks.total", totalRanks);
     helper.setObject(sheet.getCharacter(), "defense.fortitude.base", totalFortitude);
     helper.setObject(sheet.getCharacter(), "defense.reflex.base", totalReflex);
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
-  function clear() {
-    console.log(456);
-  };
-
   // exposed methods
   return {
-    render: render,
-    clear: clear
+    bind: bind,
+    render: render
   };
 
 })();

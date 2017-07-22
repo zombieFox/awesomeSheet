@@ -311,7 +311,6 @@ var sheet = (function() {
     stats.render();
     totalBlock.clear();
     clone.clear();
-    classes.clear();
     textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();

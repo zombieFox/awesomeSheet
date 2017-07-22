@@ -796,6 +796,7 @@ var clone = (function() {
   function _bind_clone(cloneType, newClone) {
     if (cloneType == "class") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_classInputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
@@ -959,6 +960,12 @@ var clone = (function() {
   function _bind_inputBlock(inputBlockElement) {
     for (var i = 0; i < inputBlockElement.length; i++) {
       inputBlock.bind(inputBlockElement[i]);
+    };
+  };
+
+  function _bind_classInputBlock(inputBlockElement) {
+    for (var i = 0; i < inputBlockElement.length; i++) {
+      classes.bind(inputBlockElement[i]);
     };
   };
 
