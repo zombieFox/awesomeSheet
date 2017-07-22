@@ -278,6 +278,8 @@ var sheet = (function() {
     repair.render(sheet.getCharacter());
     stats.render();
     clone.render();
+    classes.render();
+    textBlock.render();
     inputBlock.render();
     selectBlock.render();
     textareaBlock.render();
@@ -309,6 +311,8 @@ var sheet = (function() {
     stats.render();
     totalBlock.clear();
     clone.clear();
+    classes.clear();
+    textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
     textareaBlock.clear();

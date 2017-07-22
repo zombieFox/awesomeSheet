@@ -6,14 +6,8 @@
     <div class="m-edit-box-content m-edit-box-content-margin-large">
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.hp.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="defense-hp-total">Total HP</label>
-            <input id="defense-hp-total" class="m-input-block-field u-full-width js-input-block-field" data-type="integer" data-path="defense.hp.total" type="text" tabindex="1">
-          </div>
+          <p class="m-edit-box-label">Current</p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.hp.current"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
@@ -33,6 +27,10 @@
             <input id="defense-hp-non-lethal-damage" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.hp.non_lethal_damage" data-type="integer" type="text" tabindex="1">
           </div>
         </div>
+        <div class="m-edit-box-item-small">
+          <p class="m-edit-box-label">Total HP</p>
+          <p class="m-edit-box-text js-text-block" data-path="defense.hp.total"></p>
+        </div>
       </div>
     </div>
   </div>
@@ -49,7 +47,7 @@
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.ac.current"></p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.ac.current"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
@@ -80,7 +78,7 @@
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.flat_footed.current"></p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.flat_footed.current"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
@@ -111,7 +109,7 @@
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.touch.current"></p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.touch.current"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
@@ -198,13 +196,11 @@
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.fortitude.current"></p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.fortitude.current"></p>
         </div>
         <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="defense-fortitude-base">Base</label>
-            <input id="defense-fortitude-base" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.fortitude.base" type="text" data-type="integer" tabindex="1">
-          </div>
+          <p class="m-edit-box-label">Base</p>
+          <p class="m-edit-box-text js-text-block" data-path="defense.fortitude.base"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
@@ -254,13 +250,11 @@
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.reflex.current"></p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.reflex.current"></p>
         </div>
         <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="defense-reflex-base">Base</label>
-            <input id="defense-reflex-base" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.reflex.base" type="text" data-type="integer" tabindex="1">
-          </div>
+          <p class="m-edit-box-label">Base</p>
+          <p class="m-edit-box-text js-text-block" data-path="defense.reflex.base"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
@@ -310,13 +304,11 @@
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-total-block-total" data-path="defense.will.current"></p>
+          <p class="m-edit-box-total js-total-block-total" data-path="defense.will.current"></p>
         </div>
         <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="defense-will-base">Base</label>
-            <input id="defense-will-base" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.will.base" type="text" data-type="integer" tabindex="1">
-          </div>
+          <p class="m-edit-box-label">Base</p>
+          <p class="m-edit-box-text js-text-block" data-path="defense.will.base"></p>
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">

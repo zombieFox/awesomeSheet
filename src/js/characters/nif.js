@@ -5,8 +5,8 @@ var nif = (function() {
     basics: {
       name: "Nif Amakir",
       race: "Elf",
+      level: "",
       // class: "Wizard",
-      level: "8",
       // class: [],
       class: [{
         classname: "Wizard",
