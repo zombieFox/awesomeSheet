@@ -250,7 +250,6 @@ var vos = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 6,
         resistance: 2,
         feat: 2,
         trait: "",
@@ -269,7 +268,6 @@ var vos = (function() {
         }
       },
       reflex: {
-        base: 6,
         resistance: 2,
         feat: "",
         trait: "",
@@ -288,7 +286,6 @@ var vos = (function() {
         }
       },
       will: {
-        base: 6,
         resistance: 2,
         feat: "",
         trait: "",

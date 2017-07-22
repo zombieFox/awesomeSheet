@@ -230,7 +230,8 @@ var log = (function() {
   return {
     changeLog: _create_fullChangeLog,
     render: render,
-    bind: bind
+    bind: bind,
+    destroy: destroy
   };
 
 })();

@@ -284,7 +284,6 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 2,
         resistance: 2,
         feat: "",
         trait: 1,
@@ -303,7 +302,6 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: 2,
         resistance: 2,
         feat: "",
         trait: "",
@@ -322,7 +320,6 @@ var nif = (function() {
         }
       },
       will: {
-        base: 6,
         resistance: 2,
         feat: "",
         trait: "",

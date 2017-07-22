@@ -49,7 +49,7 @@ var nav = (function() {
 
   };
 
-  function _scrollToTop() {
+  function scrollToTop() {
     if (window.innerWidth < 550) {
       window.scrollTo(0, 0);
     } else {
@@ -64,7 +64,7 @@ var nav = (function() {
       _switch_character(label);
       sheet.storeCharacters();
       navClose();
-      _scrollToTop();
+      scrollToTop();
     }, false);
   };
 
@@ -79,7 +79,7 @@ var nav = (function() {
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
     navClose();
-    _scrollToTop();
+    scrollToTop();
   };
 
   function updateNavCharacters(input) {
@@ -362,7 +362,7 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-      _scrollToTop();
+      scrollToTop();
     }, false);
 
     characterImport.addEventListener("click", function(event) {
@@ -370,7 +370,6 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       sheet.import();
-      _scrollToTop();
     }, false);
 
     characterExport.addEventListener("click", function(event) {
@@ -386,7 +385,6 @@ var nav = (function() {
       navClose();
       sheet.addCharacter();
       snack.render("New character added.", false);
-      _scrollToTop();
     }, false);
 
     characterRemove.addEventListener("click", function(event) {
@@ -478,7 +476,8 @@ var nav = (function() {
     update: updateNavCharacters,
     open: navOpen,
     close: navClose,
-    toggle: toggle_nav
+    toggle: toggle_nav,
+    scrollToTop: scrollToTop
   }
 
 })();

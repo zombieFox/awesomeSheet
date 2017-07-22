@@ -73,7 +73,7 @@ var stats = (function() {
       value = sheet.getCharacter().statistics.stats[key].temp_modifier;
     } else {
       value = sheet.getCharacter().statistics.stats[key].modifier;
-    }
+    };
     return value;
   };
 

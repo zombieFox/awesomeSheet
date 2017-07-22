@@ -42,8 +42,6 @@
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 1em;
-  // &:not(:only-child):not(:last-child) {
-  // }
 }
 // --------------------------------------------------
 // edit margin
@@ -55,20 +53,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -336,10 +334,6 @@
 // night mode
 // --------------------------------------------------
 .is-night-mode {
-  .m-edit-box-group {
-    border-color: $gray-06;
-    background-color: $gray-04;
-  }
   .m-edit-box-guides {
     border-bottom-color: $gray-06;
   }
@@ -349,10 +343,19 @@
   .m-edit-box-label {
     color: $secondary-color-08;
   }
-  .m-edit-box-text {
-    background-color: $gray-04;
-    border-color: $gray-04;
+  .m-edit-box-total {
+    background-color: $gray-07;
+    border-color: $gray-06;
     color: $gray-18;
+  }
+  .m-edit-box-text {
+    background-color: $gray-05;
+    border-color: $gray-06;
+    color: $gray-18;
+  }
+  .m-edit-box-content-outline {
+    background-color: $gray-04;
+    border-color: $gray-06;
   }
 }
 // --------------------------------------------------
