@@ -8,6 +8,27 @@ var classes = (function() {
     return parseInt(currentTotal, 10);
   };
 
+  function _checkValue (data) {
+    var value;
+    if (typeof data == "number") {
+      value = data;
+    } else if (typeof data == "string") {
+      value = parseInt(data, 10) || 0;
+    };
+    if (isNaN(value)) {
+      value = 0;
+    };
+    return value;
+  };
+
+  function _checkForTempModifier(score, tempScore) {
+    if (tempScore == "") {
+      return _checkValue(score);
+    } else {
+      return _checkValue(tempScore);
+    };
+  };
+
   function _makeBaseAttackBonuses(totalBab) {
     var allBab = [];
     if (totalBab >= 5) {
@@ -25,6 +46,7 @@ var classes = (function() {
   function delayUpdate(element) {
     render();
     textBlock.render();
+    totalBlock.render();
   };
 
   var delayUpdateTimer = null;
@@ -42,7 +64,7 @@ var classes = (function() {
   function render() {
     var all_classes = helper.getObject(sheet.getCharacter(), "basics.class");
     var totalLevels = _total(all_classes, "level");
-    var totalHP = _total(all_classes, "hp");
+    var totalHP = _total(all_classes, "hp") + (totalLevels * _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier));
     var totalBab = _total(all_classes, "bab");
     var totalRanks = _total(all_classes, "ranks");
     var totalFortitude = _total(all_classes, "fortitude");

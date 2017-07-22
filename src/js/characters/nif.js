@@ -17,15 +17,6 @@ var nif = (function() {
         will: 6,
         ranks: 2,
         bab: 4
-      }, {
-        classname: "Fighter",
-        level: 8,
-        hp: 98,
-        fortitude: 8,
-        reflex: 5,
-        will: 7,
-        ranks: 29,
-        bab: 8
       }],
       size: {
         category: "Medium",
