@@ -95,10 +95,10 @@ var inputBlock = (function() {
 
   function _bind_name() {
     var input = helper.e(".js-basics-name");
-    // input.addEventListener("input", function() {
-    //   clearTimeout(updateNavTimer);
-    //   updateNavTimer = setTimeout(nav.update, 300, this);
-    // }, false);
+    input.addEventListener("input", function() {
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 300, this);
+    }, false);
     input.addEventListener("keydown", function(event) {
       // enter
       if (event.keyCode == 13) {

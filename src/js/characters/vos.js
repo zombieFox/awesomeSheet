@@ -175,7 +175,7 @@ var vos = (function() {
     },
     defense: {
       hp: {
-        total: 60,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",

@@ -213,7 +213,7 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: 58,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
