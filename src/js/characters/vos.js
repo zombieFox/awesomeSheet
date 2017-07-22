@@ -5,8 +5,18 @@ var vos = (function() {
     basics: {
       name: "Vos Thunderstomp",
       race: "Dwarf",
-      class: "Monk",
-      level: "7",
+      level: "",
+      // class: "Monk",
+      class: [{
+        classname: "Monk",
+        level: 8,
+        hp: 51,
+        fortitude: 6,
+        reflex: 6,
+        will: 6,
+        ranks: 32,
+        bab: 6
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -378,9 +388,12 @@ var vos = (function() {
       attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 16."
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Acrobatics (Jump)",

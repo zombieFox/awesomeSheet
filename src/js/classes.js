@@ -3,30 +3,10 @@ var classes = (function() {
   function _total(classObjects, key) {
     var currentTotal = 0;
     for (var i = 0; i < classObjects.length; i++) {
+      console.log(key, classObjects[i][key]);
       currentTotal = currentTotal + classObjects[i][key];
     };
     return parseInt(currentTotal, 10);
-  };
-
-  function _checkValue (data) {
-    var value;
-    if (typeof data == "number") {
-      value = data;
-    } else if (typeof data == "string") {
-      value = parseInt(data, 10) || 0;
-    };
-    if (isNaN(value)) {
-      value = 0;
-    };
-    return value;
-  };
-
-  function _checkForTempModifier(score, tempScore) {
-    if (tempScore == "") {
-      return _checkValue(score);
-    } else {
-      return _checkValue(tempScore);
-    };
   };
 
   function _makeBaseAttackBonuses(totalBab) {
@@ -64,13 +44,14 @@ var classes = (function() {
   function render() {
     var all_classes = helper.getObject(sheet.getCharacter(), "basics.class");
     var totalLevels = _total(all_classes, "level");
-    var totalHP = _total(all_classes, "hp") + (totalLevels * _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier));
+    var totalHP = _total(all_classes, "hp") + (totalLevels * stats.getMod("con"));
     var totalBab = _total(all_classes, "bab");
-    var totalRanks = _total(all_classes, "ranks");
+    var totalRanks = _total(all_classes, "ranks") + (totalLevels * stats.getMod("int"));
     var totalFortitude = _total(all_classes, "fortitude");
     var totalReflex = _total(all_classes, "reflex");
     var totalWill = _total(all_classes, "will");
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
+    console.log("all_classes", all_classes);
     helper.setObject(sheet.getCharacter(), "basics.level", totalLevels);
     helper.setObject(sheet.getCharacter(), "defense.hp.total", totalHP);
     helper.setObject(sheet.getCharacter(), "offense.base_attack", totalBab);
