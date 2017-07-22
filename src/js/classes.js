@@ -3,7 +3,6 @@ var classes = (function() {
   function _total(classObjects, key) {
     var currentTotal = 0;
     for (var i = 0; i < classObjects.length; i++) {
-      console.log(key, classObjects[i][key]);
       currentTotal = currentTotal + classObjects[i][key];
     };
     return parseInt(currentTotal, 10);
@@ -42,7 +41,7 @@ var classes = (function() {
   };
 
   function render() {
-    var all_classes = helper.getObject(sheet.getCharacter(), "basics.class");
+    var all_classes = helper.getObject(sheet.getCharacter(), "basics.classes");
     var totalLevels = _total(all_classes, "level");
     var totalHP = _total(all_classes, "hp") + (totalLevels * stats.getMod("con"));
     var totalBab = _total(all_classes, "bab");
@@ -51,7 +50,6 @@ var classes = (function() {
     var totalReflex = _total(all_classes, "reflex");
     var totalWill = _total(all_classes, "will");
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
-    console.log("all_classes", all_classes);
     helper.setObject(sheet.getCharacter(), "basics.level", totalLevels);
     helper.setObject(sheet.getCharacter(), "defense.hp.total", totalHP);
     helper.setObject(sheet.getCharacter(), "offense.base_attack", totalBab);

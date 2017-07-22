@@ -41,6 +41,8 @@ var stats = (function() {
 
   function delayUpdate(element) {
     _render_stat(element);
+    classes.render();
+    textBlock.render();
     totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
@@ -54,13 +56,13 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 310, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 310, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
   };

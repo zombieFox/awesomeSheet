@@ -7,8 +7,7 @@ var nif = (function() {
       race: "Elf",
       level: "",
       // class: "Wizard",
-      // class: [],
-      class: [{
+      classes: [{
         classname: "Wizard",
         level: 8,
         hp: 42,
