@@ -25,9 +25,7 @@ var tip = (function() {
   function destroy() {
     var all_tipBox = helper.eA(".js-tip-box");
     for (var i = 0; i < all_tipBox.length; i++) {
-      getComputedStyle(all_tipBox[i]).opacity;
-      helper.removeClass(all_tipBox[i], "is-opaque");
-      helper.addClass(all_tipBox[i], "is-transparent");
+      all_tipBox[i].destroy();
     };
   };
 
@@ -52,14 +50,14 @@ var tip = (function() {
     tipWrapper.appendChild(tipBox);
     body.appendChild(tipWrapper);
 
-    var top = tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height - 20;
+    var top = tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height + pageYOffset - 20;
     var left = tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2) - (tipWrapper.getBoundingClientRect().width / 2);
 
-    tipWrapper.setAttribute("style", "transform: translate(" + parseFloat(left).toFixed(2) + "px, " + parseFloat(top).toFixed(2) + "px)");
+    tipWrapper.setAttribute("style", "top:" + parseFloat(top).toFixed(2) + "px; left:" + parseFloat(left).toFixed(2) + "px");
     if (tipWrapper.getBoundingClientRect().right > (document.documentElement.clientWidth + 10)) {
-      tipWrapper.setAttribute("style", "transform: translate(" + parseFloat((document.documentElement.clientWidth - tipWrapper.getBoundingClientRect().width - 10)).toFixed(2) + "px, " + top + "px)");
+      tipWrapper.setAttribute("style", "top:" + top + "px, left:" + parseFloat((document.documentElement.clientWidth - tipWrapper.getBoundingClientRect().width - 10)).toFixed(2) + "px)");
     } else if (tipWrapper.getBoundingClientRect().left < 10) {
-      tipWrapper.setAttribute("style", "transform: translate(" + 10 + "px, " + parseFloat(top).toFixed(2) + "px)");
+      tipWrapper.setAttribute("style", "top:" + parseFloat(top).toFixed(2) + "px; left:" + 10 + "px");
     };
 
     getComputedStyle(tipWrapper).opacity;
