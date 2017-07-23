@@ -1,6 +1,6 @@
 .m-tip {
   position: absolute;
-  width: 20em;
+  max-width: 20em;
   font-size: $font-size-root-100;
   opacity: 0;
   z-index: $tip;
@@ -20,7 +20,7 @@
   }
 }
 .m-tip-box {
-  padding: 0.7em;
+  padding: 0.5em 1em;
   background-color: $secondary-color-08;
   border: 1px solid $secondary-color-06;
   border-radius: $border-radius-large;

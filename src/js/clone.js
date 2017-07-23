@@ -67,7 +67,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-small">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
-        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="level" data-type="integer" data-tip="Number of classes in this level." type="text" tabindex="1">' +
+        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="level" data-type="integer" data-tip="Total number of classes in this level." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
