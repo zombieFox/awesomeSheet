@@ -210,11 +210,8 @@ var nav = (function() {
   };
 
   function _createNavCharacterItem(characterObject, characterIndex) {
-    console.log(characterIndex);
     var classLevel = _get_allClassLevel(characterObject);
     var characterName = _get_name(characterObject);
-    console.log(characterName);
-    console.log(classLevel);
 
     var uniqueId = helper.randomId(10);
 
