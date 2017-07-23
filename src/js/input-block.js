@@ -72,8 +72,6 @@ var inputBlock = (function() {
       };
     };
     _bind_name();
-    // _bind_class();
-    // _bind_level();
   };
 
   function _bind_inputBlock(inputBlock) {
@@ -118,22 +116,6 @@ var inputBlock = (function() {
       updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
   };
-
-  // function _bind_class() {
-  //   var input = helper.e(".js-basics-class");
-  //   input.addEventListener("input", function() {
-  //     clearTimeout(updateNavTimer);
-  //     updateNavTimer = setTimeout(nav.update, 300, this);
-  //   }, false);
-  // };
-  //
-  // function _bind_level() {
-  //   var input = helper.e(".js-basics-level");
-  //   input.addEventListener("input", function() {
-  //     clearTimeout(updateNavTimer);
-  //     updateNavTimer = setTimeout(nav.update, 300, this);
-  //   }, false);
-  // };
 
   function _render_inputBlock(inputBlock) {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");

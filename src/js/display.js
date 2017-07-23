@@ -265,6 +265,9 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_clones.length; j++) {
           var cloneType;
+          if (all_displayPath[i] == "basics.classes") {
+            cloneType = "class";
+          };
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
@@ -296,6 +299,30 @@ var display = (function() {
   function _get_clone(object, cloneType) {
     var _get_cloneItem = function(object, cloneType) {
       var displayListItem;
+
+      if (cloneType == "class") {
+        displayListItem = document.createElement("span");
+        displayListItem.setAttribute("class", "m-display-item-text-snippet");
+        for (var i in object) {
+          if (i == "classname") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "level") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-item-text-snippet-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+      };
 
       if (cloneType == "consumable") {
         displayListItem = document.createElement("li");
