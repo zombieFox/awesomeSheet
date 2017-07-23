@@ -1,27 +1,16 @@
 .m-tip {
   position: absolute;
-  max-width: 18em;
-  bottom: 3.5em;
-  left: 50%;
+  max-width: 20em;
+  // bottom: 3.5em;
+  // left: 50%;
+  left: 0;
+  top: 0;
   font-size: $font-size-root-100;
   opacity: 0;
   z-index: $tip;
   transition: opacity $transition-ease-fast;
-  transform: translate(-50%, 0);
+  // transform: translate(-50%, 0);
   box-shadow: $shadow-medium;
-  &:before {
-    content: "";
-    border: 0.5em solid transparent;
-    border-top-color: $dark-alpha-05;
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: -1em;
-    left: 50%;
-    display: block;
-    z-index: 1;
-    transform: translate(-50%, 0);
-  }
 }
 .m-tip-push-left {
   left: 20%;
@@ -48,6 +37,19 @@
   position: relative;
   display: block;
   z-index: 2;
+  &:before {
+    content: "";
+    border: 0.5em solid transparent;
+    border-top-color: $dark-alpha-05;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -1em;
+    left: 50%;
+    display: block;
+    z-index: 1;
+    transform: translate(-50%, 0);
+  }
 }
 // --------------------------------------------------
 // media queries
