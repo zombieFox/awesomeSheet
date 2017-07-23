@@ -156,15 +156,13 @@
           flex-flow: row wrap;
           justify-content: flex-start;
         }
-        .m-nav-characters-class,
-        .m-nav-characters-level,
+        .m-nav-characters-class-level,
         .m-nav-characters-name {
           white-space: nowrap;
           display: inline-block;
           line-height: $line-height-160;
         }
-        .m-nav-characters-class,
-        .m-nav-characters-level {
+        .m-nav-characters-class-level {
           color: $secondary-color-08;
           font-size: $font-size-075;
         }
@@ -195,8 +193,7 @@
           &:before {
             color: $white;
           }
-          .m-nav-characters-class,
-          .m-nav-characters-level {
+          .m-nav-characters-class-level {
             color: $primary-color-17;
           }
           .m-nav-characters-name {
@@ -211,8 +208,7 @@
           &:before {
             color: $white;
           }
-          .m-nav-characters-class,
-          .m-nav-characters-level {
+          .m-nav-characters-class-level {
             color: $primary-color-17;
           }
           .m-nav-characters-name {
@@ -236,8 +232,7 @@
             &:before {
               color: $white;
             }
-            .m-nav-characters-class,
-            .m-nav-characters-level,
+            .m-nav-characters-class-level,
             .m-nav-characters-name {
               color: $white;
             }
@@ -302,8 +297,7 @@
           &:before {
             color: $secondary-color-12;
           }
-          .m-nav-characters-class,
-          .m-nav-characters-level {
+          .m-nav-characters-class-level {
             color: $secondary-color-12;
           }
           .m-nav-characters-name {
@@ -320,8 +314,7 @@
             &:before {
               color: $white;
             }
-            .m-nav-characters-class,
-            .m-nav-characters-level {
+            .m-nav-characters-class-level {
               color: $primary-color-17;
             }
             .m-nav-characters-name {

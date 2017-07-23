@@ -9,7 +9,7 @@ var orrin = (function() {
       classes: [{
         classname: "Rogue",
         level: 9,
-        hp: 63,
+        hp: 65,
         fortitude: 3,
         reflex: 6,
         will: 3,
@@ -229,7 +229,7 @@ var orrin = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
-        base: 3,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: 1,
@@ -248,7 +248,7 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -267,7 +267,7 @@ var orrin = (function() {
         }
       },
       will: {
-        base: 3,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: "",

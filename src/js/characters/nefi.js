@@ -5,8 +5,17 @@ var nefi = (function() {
     basics: {
       name: "Nefi Fefi",
       race: "Human",
-      class: "Fighter",
       level: "11",
+      classes: [{
+        classname: "Fighter",
+        level: 11,
+        hp: 85,
+        fortitude: 7,
+        reflex: 3,
+        will: 3,
+        ranks: 22,
+        bab: 11
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -124,7 +133,7 @@ var nefi = (function() {
     },
     defense: {
       hp: {
-        total: 96,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -254,7 +263,8 @@ var nefi = (function() {
       save_notes: "+3 bonus on Will saves against fear."
     },
     offense: {
-      base_attack: "+10/+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",

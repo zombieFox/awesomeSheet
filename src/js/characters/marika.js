@@ -5,8 +5,17 @@ var marika = (function() {
     basics: {
       name: "Marika Spandrell",
       race: "Human",
-      class: "Rogue",
       level: "9",
+      classes: [{
+        classname: "Rogue",
+        level: 9,
+        hp: 53,
+        fortitude: 3,
+        reflex: 6,
+        will: 3,
+        ranks: 72,
+        bab: 6
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -129,7 +138,7 @@ var marika = (function() {
     },
     defense: {
       hp: {
-        total: 53,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -259,7 +268,8 @@ var marika = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "+6/+1",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",

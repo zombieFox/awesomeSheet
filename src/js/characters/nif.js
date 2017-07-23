@@ -6,7 +6,6 @@ var nif = (function() {
       name: "Nif Amakir",
       race: "Elf",
       level: "",
-      // class: "Wizard",
       classes: [{
         classname: "Wizard",
         level: 8,
@@ -284,6 +283,7 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
+        base: "",
         resistance: 2,
         feat: "",
         trait: 1,
@@ -302,6 +302,7 @@ var nif = (function() {
         }
       },
       reflex: {
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -320,6 +321,7 @@ var nif = (function() {
         }
       },
       will: {
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
