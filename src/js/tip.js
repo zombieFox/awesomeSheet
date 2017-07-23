@@ -32,7 +32,6 @@ var tip = (function() {
   };
 
   function render(tip) {
-    console.log(tip.getBoundingClientRect());
     var body = helper.e("body");
     var tipWrapper = document.createElement("div");
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
@@ -49,12 +48,20 @@ var tip = (function() {
       };
     }.bind(tipWrapper), false);
 
-    tipWrapper.appendChild(tipBox);
-    body.appendChild(tipWrapper);
 
-    var top = (tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height - 15) + "px;";
-    var left = (tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2)) + "px;";
-    tipWrapper.setAttribute("style", "top:" + top + "left:" + left);
+    tipWrapper.appendChild(tipBox);
+    // body.appendChild(tipWrapper);
+    tip.parentElement.appendChild(tipWrapper);
+
+    // var top = (tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height - 15) + "px;";
+    // var left = (tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2)) + "px;";
+    // tipWrapper.setAttribute("style", "top:" + top + "left:" + left);
+
+    if (tipWrapper.getBoundingClientRect().right > document.documentElement.clientWidth) {
+      helper.addClass(tipWrapper, "m-tip-push-left");
+    } else if (tipWrapper.getBoundingClientRect().left < 0) {
+      helper.addClass(tipWrapper, "m-tip-push-right");
+    };
 
     getComputedStyle(tipWrapper).opacity;
     helper.removeClass(tipWrapper, "is-transparent");

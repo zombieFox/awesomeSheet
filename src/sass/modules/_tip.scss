@@ -1,33 +1,50 @@
 .m-tip {
   position: absolute;
-  max-width: 20em;
+  max-width: 18em;
+  bottom: 3.5em;
+  left: 50%;
   font-size: $font-size-root-100;
   opacity: 0;
   z-index: $tip;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-fast;
   transform: translate(-50%, 0);
+  box-shadow: $shadow-medium;
   &:before {
     content: "";
-    background-color: $secondary-color-08;
+    border: 0.5em solid transparent;
+    border-top-color: $dark-alpha-05;
     position: absolute;
-    width: 1em;
-    height: 1em;
-    bottom: -0.75em;
+    width: 0;
+    height: 0;
+    bottom: -1em;
     left: 50%;
     display: block;
     z-index: 1;
-    transform: rotate(45deg) translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+.m-tip-push-left {
+  left: 20%;
+  transform: translate(-60%, 0);
+  &:before {
+    left: 80%;
+  }
+}
+.m-tip-push-right {
+  left: 80%;
+  transform: translate(-40%, 0);
+  &:before {
+    left: 20%;
   }
 }
 .m-tip-box {
   padding: 0.5em 1em;
-  background-color: $secondary-color-08;
-  border: 1px solid $secondary-color-06;
+  background-color: $dark-alpha-05;
   border-radius: $border-radius-large;
   color: $white;
+  font-size: 0.8em;
   font-family: $open-sans-semi-bold;
   text-align: center;
-  box-shadow: $shadow-medium;
   position: relative;
   display: block;
   z-index: 2;
