@@ -18,7 +18,7 @@ var tip = (function() {
       render(tip);
     }, false);
     tip.addEventListener("blur", function() {
-      // destroy();
+      destroy();
     }, false);
   };
 
@@ -32,7 +32,7 @@ var tip = (function() {
   };
 
   function render(tip) {
-    console.log(tip.getBoundingClientRect());
+    // console.log(tip.getBoundingClientRect());
     var body = helper.e("body");
     var tipWrapper = document.createElement("div");
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
@@ -49,22 +49,18 @@ var tip = (function() {
       };
     }.bind(tipWrapper), false);
 
-
     tipWrapper.appendChild(tipBox);
     body.appendChild(tipWrapper);
-    // tip.parentElement.appendChild(tipWrapper);
 
     var top = tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height - 20;
-    var left = tip.getBoundingClientRect().left - (tip.getBoundingClientRect().width / 2) - (tip.getBoundingClientRect().width / 2);
-    // var top = (tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height - 15) + "px;";
-    // var left = (tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2)) + "px;";
-    tipWrapper.setAttribute("style", "transform: translate(" + left + "px, " + top + "px)");
+    var left = tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2) - (tipWrapper.getBoundingClientRect().width / 2);
 
-    // if (tipWrapper.getBoundingClientRect().right > document.documentElement.clientWidth) {
-    //   helper.addClass(tipWrapper, "m-tip-push-left");
-    // } else if (tipWrapper.getBoundingClientRect().left < 0) {
-    //   helper.addClass(tipWrapper, "m-tip-push-right");
-    // };
+    tipWrapper.setAttribute("style", "transform: translate(" + parseFloat(left).toFixed(2) + "px, " + parseFloat(top).toFixed(2) + "px)");
+    if (tipWrapper.getBoundingClientRect().right > (document.documentElement.clientWidth + 10)) {
+      tipWrapper.setAttribute("style", "transform: translate(" + parseFloat((document.documentElement.clientWidth - tipWrapper.getBoundingClientRect().width - 10)).toFixed(2) + "px, " + top + "px)");
+    } else if (tipWrapper.getBoundingClientRect().left < 10) {
+      tipWrapper.setAttribute("style", "transform: translate(" + 10 + "px, " + parseFloat(top).toFixed(2) + "px)");
+    };
 
     getComputedStyle(tipWrapper).opacity;
     helper.removeClass(tipWrapper, "is-transparent");
