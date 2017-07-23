@@ -18,7 +18,7 @@ var tip = (function() {
       render(tip);
     }, false);
     tip.addEventListener("blur", function() {
-      // destroy();
+      destroy();
     }, false);
   };
 
@@ -52,9 +52,9 @@ var tip = (function() {
     tipWrapper.appendChild(tipBox);
     body.appendChild(tipWrapper);
 
-    var bottom = (tip.getBoundingClientRect().top) + "px;";
+    var top = (tip.getBoundingClientRect().top - tipWrapper.getBoundingClientRect().height - 15) + "px;";
     var left = (tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2)) + "px;";
-    tipWrapper.setAttribute("style", "bottom:" + bottom + "left:" + left);
+    tipWrapper.setAttribute("style", "top:" + top + "left:" + left);
 
     getComputedStyle(tipWrapper).opacity;
     helper.removeClass(tipWrapper, "is-transparent");

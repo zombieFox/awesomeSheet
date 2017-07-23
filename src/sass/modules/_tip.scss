@@ -5,7 +5,7 @@
   opacity: 0;
   z-index: $tip;
   transition: all $transition-ease-fast;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   &:before {
     content: "";
     background-color: $secondary-color-08;
