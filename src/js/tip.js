@@ -18,7 +18,7 @@ var tip = (function() {
       render(tip);
     }, false);
     tip.addEventListener("blur", function() {
-      destroy();
+      // destroy();
     }, false);
   };
 
@@ -36,9 +36,6 @@ var tip = (function() {
     var body = helper.e("body");
     var tipWrapper = document.createElement("div");
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
-    var top = (tip.getBoundingClientRect().top - tip.getBoundingClientRect().height - 10) + "px;";
-    var left = (tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2)) + "px;";
-    tipWrapper.setAttribute("style", "top:" + top + "left:" + left);
     var tipBox = document.createElement("p");
     tipBox.setAttribute("class", "m-tip-box");
     tipBox.textContent = tip.dataset.tip;
@@ -54,6 +51,10 @@ var tip = (function() {
 
     tipWrapper.appendChild(tipBox);
     body.appendChild(tipWrapper);
+
+    var bottom = (tip.getBoundingClientRect().top) + "px;";
+    var left = (tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2)) + "px;";
+    tipWrapper.setAttribute("style", "bottom:" + bottom + "left:" + left);
 
     getComputedStyle(tipWrapper).opacity;
     helper.removeClass(tipWrapper, "is-transparent");
