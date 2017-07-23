@@ -94,7 +94,8 @@ var inputBlock = (function() {
   };
 
   function _bind_name() {
-    var input = helper.e(".js-basics-name");
+    var inputBlock = helper.e(".js-basics-name");
+    var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(nav.update, 300, this);
@@ -107,6 +108,14 @@ var inputBlock = (function() {
         };
         _focus(this);
       };
+    }, false);
+  };
+
+  function bind_classLevel(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    input.addEventListener("input", function() {
+      clearTimeout(updateNavTimer);
+      updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
   };
 
@@ -158,6 +167,7 @@ var inputBlock = (function() {
   return {
     render: render,
     bind: bind,
+    bind_classLevel: bind_classLevel,
     clear: clear
   };
 

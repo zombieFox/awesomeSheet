@@ -59,13 +59,13 @@ var clone = (function() {
         '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
         '    <div class="m-edit-box-item-max m-edit-box-group">' +
         '      <div class="m-edit-box-item-large">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Classname</label>' +
         '          <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="classname" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
         '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="level" data-type="integer" type="text" tabindex="1">' +
         '        </div>' +
@@ -796,7 +796,8 @@ var clone = (function() {
   function _bind_clone(cloneType, newClone) {
     if (cloneType == "class") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-      _bind_classInputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_classesInputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
     };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
@@ -961,25 +962,31 @@ var clone = (function() {
     _get_cloneObjects(cloneType).splice(index, 0, cloneObject);
   };
 
-  function _bind_totalBlock(totalBlockeElement) {
-    totalBlock.bind(totalBlockeElement);
+  function _bind_totalBlock(all_totalBlock) {
+    totalBlock.bind(all_totalBlock);
   };
 
-  function _bind_inputBlock(inputBlockElement) {
-    for (var i = 0; i < inputBlockElement.length; i++) {
-      inputBlock.bind(inputBlockElement[i]);
+  function _bind_inputBlock(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      inputBlock.bind(all_inputBlock[i]);
     };
   };
 
-  function _bind_classInputBlock(inputBlockElement) {
-    for (var i = 0; i < inputBlockElement.length; i++) {
-      classes.bind(inputBlockElement[i]);
+  function _bind_classesInputBlock(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      classes.bind(all_inputBlock[i]);
     };
   };
 
-  function _bind_textareaBlock(textareaBlockElement) {
-    for (var i = 0; i < textareaBlockElement.length; i++) {
-      textareaBlock.bind(textareaBlockElement[i]);
+  function _bind_classLevelInputBlock(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      inputBlock.bind_classLevel(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_textareaBlock(all_textareaBlock) {
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      textareaBlock.bind(all_textareaBlock[i]);
     };
   };
 

@@ -141,6 +141,7 @@
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
+        overflow: hidden;
         &:before {
           flex: 0 0 20%;
           font-size: 1.4em;
@@ -151,16 +152,19 @@
           transition: none;
         }
         .m-nav-characters-details {
-          flex: 1 0 auto;
+          flex: 0 0 80%;
           display: flex;
           flex-flow: row wrap;
           justify-content: flex-start;
+          width: 80%;
         }
         .m-nav-characters-class-level,
         .m-nav-characters-name {
           white-space: nowrap;
           display: inline-block;
           line-height: $line-height-160;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .m-nav-characters-class-level {
           color: $secondary-color-08;
