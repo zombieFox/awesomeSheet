@@ -1,6 +1,7 @@
 .m-tip {
   position: absolute;
   max-width: 20em;
+  margin: 1em;
   // bottom: 3.5em;
   // left: 50%;
   left: 0;
@@ -36,7 +37,7 @@
   position: relative;
   display: block;
   z-index: 2;
-  box-shadow: $shadow-medium;
+  box-shadow: $shadow-large;
   &:before {
     content: "";
     border: 0.5em solid transparent;
