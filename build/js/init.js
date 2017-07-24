@@ -1,9 +1,9 @@
 (function() {
 
-  nav.bind();
-  nav.render();
   sheet.render();
   sheet.bind();
+  nav.bind();
+  nav.render();
   log.bind();
   log.render();
   night.update();

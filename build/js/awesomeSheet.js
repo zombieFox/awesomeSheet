@@ -13343,7 +13343,9 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.getCharacter());
+    for (var i = 0; i < allCharacters.length; i++) {
+      repair.render(allCharacters[i]);
+    };
     stats.render();
     clone.render();
     classes.render();
@@ -15487,10 +15489,10 @@ var update = (function() {
 
 (function() {
 
-  nav.bind();
-  nav.render();
   sheet.render();
   sheet.bind();
+  nav.bind();
+  nav.render();
   log.bind();
   log.render();
   night.update();
