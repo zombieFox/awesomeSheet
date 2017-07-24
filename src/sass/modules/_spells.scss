@@ -1,58 +1,7 @@
 .m-spells {
-  &.is-state-active,
-  &.is-state-cast,
-  &.is-state-prepare,
-  &.is-state-unprepare {
-    .m-spell-book-known {
-      .m-spell {
-        background-color: $secondary-color-10;
-        border-color: $secondary-color-08;
-        color: $white;
-        &:link,
-        &:visited {
-          background-color: $secondary-color-10;
-          border-color: $secondary-color-08;
-          color: $white;
-        }
-        &:focus,
-        &:hover {
-          background-color: $secondary-color-08;
-          border-color: $secondary-color-06;
-          color: $white;
-        }
-        &.is-active,
-        &:active {
-          background-color: $secondary-color-06;
-          border-color: $secondary-color-04;
-          color: $white;
-        }
-      }
-    }
-  }
   &.is-state-remove {
     .m-spell-book-known {
       .m-spell {
-        background-color: $primary-color-10;
-        border-color: $primary-color-08;
-        color: $white;
-        &:link,
-        &:visited {
-          background-color: $primary-color-10;
-          border-color: $primary-color-08;
-          color: $white;
-        }
-        &:focus,
-        &:hover {
-          background-color: $primary-color-08;
-          border-color: $primary-color-06;
-          color: $white;
-        }
-        &.is-active,
-        &:active {
-          background-color: $primary-color-06;
-          border-color: $primary-color-04;
-          color: $white;
-        }
         .m-spell-name {
           max-width: 80%;
         }

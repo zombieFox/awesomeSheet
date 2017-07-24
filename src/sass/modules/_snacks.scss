@@ -26,19 +26,20 @@
     color: $white;
     font-size: 1em;
     font-family: $open-sans-semi-bold;
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 0;
+    }
   }
   &.is-reveal {
     transform: translatey(0);
     transition: all $transition-ease-fast;
   }
 }
-
 .is-night-mode {
   .m-snack-bar {
     background-color: $gray-05;
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -57,20 +58,17 @@
     }
   }
 }
-
 @media (min-width: $screen-md) {
   .m-snack-bar {
     width: 70%;
   }
 }
-
 @media (min-width: $screen-lg) {
   .m-snack-bar {
     width: 50%;
     left: 4.5em;
   }
 }
-
 @media (min-width: $screen-xl) {
   .m-snack-bar {
     width: 40%;

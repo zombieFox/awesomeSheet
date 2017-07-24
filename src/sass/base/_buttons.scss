@@ -137,6 +137,11 @@ input[type="submit"] {
     color: $white;
     box-shadow: 0 0 0 3px $primary-color-alpha-15;
   }
+  &.is-live {
+    background-color: $primary-color-06;
+    border-color: $primary-color-04;
+    color: $white;
+  }
   &.is-active,
   &:active {
     background-color: $primary-color-06;
@@ -161,6 +166,11 @@ input[type="submit"] {
     border-color: $secondary-color-06;
     color: $white;
     box-shadow: 0 0 0 3px $secondary-color-alpha-15;
+  }
+  &.is-live {
+    background-color: $secondary-color-06;
+    border-color: $secondary-color-04;
+    color: $white;
   }
   &.is-active,
   &:active {

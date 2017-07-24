@@ -32,12 +32,12 @@ var spells = (function() {
     spellActiveButton.addEventListener("click", function() {
       _change_spellState(this);
     }, false);
-    spellRemoveButton.addEventListener("click", function() {
-      _change_spellState(this);
-    }, false);
     spellResetButton.addEventListener("click", function() {
       _change_spellState(this);
       _resetAllSpells();
+    }, false);
+    spellRemoveButton.addEventListener("click", function() {
+      _change_spellState(this);
     }, false);
   };
 
@@ -589,66 +589,145 @@ var spells = (function() {
         spellsFound = true;
       };
     };
+
+    var _normalStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.removeClass(all_spellBookItem[i], "button-primary");
+        helper.removeClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+
+    var _activeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+
+    var _removeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-primary");
+      };
+    };
+
+    var _resetAllControls = function() {
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        helper.removeClass(all_spellStateControls[i], "is-live");
+      };
+    };
+
+    // change spell state
     if (spellsFound) {
-      // if this button is active
-      if (spellRoot.dataset.spellState != button.dataset.state) {
-        helper.removeClass(button, "is-active");
-        helper.removeClass(spellRoot, "is-state-prepare");
-        helper.removeClass(spellRoot, "is-state-unprepare");
-        helper.removeClass(spellRoot, "is-state-cast");
-        helper.removeClass(spellRoot, "is-state-active");
-        helper.removeClass(spellRoot, "is-state-remove");
-        helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+      if (button.dataset.state != spellRoot.dataset.spellState) {
         spellRoot.dataset.spellState = button.dataset.state;
-        for (var i = 0; i < all_spellStateControls.length; i++) {
-          helper.removeClass(all_spellStateControls[i], "is-active");
-        };
-        if (!button.classList.contains("js-spell-reset")) {
-          helper.addClass(button, "is-active");
-        };
-        if (spellRoot.dataset.spellState == "remove") {
-          helper.addClass(spellRemoveButton, "button-primary");
-          helper.removeClass(spellRemoveButton, "button-secondary");
-        } else {
-          helper.removeClass(spellRemoveButton, "button-primary");
-          helper.addClass(spellRemoveButton, "button-secondary");
+        _resetAllControls();
+        if (button.dataset.state == "prepare" || button.dataset.state == "unprepare" || button.dataset.state == "cast" || button.dataset.state == "active") {
+          helper.addClass(button, "is-live");
         };
       } else {
-        spellRoot.dataset.spellState = "false";
-        helper.removeClass(button, "is-active");
-        helper.removeClass(spellRoot, "is-state-prepare");
-        helper.removeClass(spellRoot, "is-state-unprepare");
-        helper.removeClass(spellRoot, "is-state-cast");
-        helper.removeClass(spellRoot, "is-state-active");
-        helper.removeClass(spellRoot, "is-state-remove");
-        helper.removeClass(spellRemoveButton, "button-primary");
-        helper.addClass(spellRemoveButton, "button-secondary");
+        spellRoot.dataset.spellState = false;
+        _resetAllControls();
       };
+    };
+
+    // change spells to reflect state
+    if (spellRoot.dataset.spellState == "remove") {
+      _removeStateSpellItems();
+      helper.addClass(spellRoot, "is-state-remove");
+      helper.addClass(spellRemoveButton, "button-primary");
+      helper.removeClass(spellRemoveButton, "button-secondary");
+    } else if (spellRoot.dataset.spellState != "false") {
+      _activeStateSpellItems();
+      helper.removeClass(spellRoot, "is-state-remove");
+      helper.removeClass(spellRemoveButton, "button-primary");
+      helper.addClass(spellRemoveButton, "button-secondary");
     } else {
-      spellRoot.dataset.spellState = "false";
-      helper.removeClass(button, "is-active");
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
+      _normalStateSpellItems();
       helper.removeClass(spellRoot, "is-state-remove");
       helper.removeClass(spellRemoveButton, "button-primary");
       helper.addClass(spellRemoveButton, "button-secondary");
     };
+
+    // // if there are spells
+    // if (spellsFound) {
+    //   if (button.dataset.state != spellRoot.dataset.spellState) {
+    //     for (var i = 0; i < all_spellStateControls.length; i++) {
+    //       helper.removeClass(all_spellStateControls[i], "is-live");
+    //     };
+    //     helper.addClass(button, "is-live");
+    //   };
+    // } else {
+    //   spellRoot.dataset.spellState = "false";
+    //   helper.removeClass(button, "is-live");
+    //   helper.removeClass(spellRoot, "is-state-prepare");
+    //   helper.removeClass(spellRoot, "is-state-unprepare");
+    //   helper.removeClass(spellRoot, "is-state-cast");
+    //   helper.removeClass(spellRoot, "is-state-active");
+    //   helper.removeClass(spellRoot, "is-state-remove");
+    //   helper.removeClass(spellRemoveButton, "button-primary");
+    //   helper.addClass(spellRemoveButton, "button-secondary");
+    // };
+
+
+
+    // if (spellsFound) {
+    //   // if this button is active
+    //   if (spellRoot.dataset.spellState != button.dataset.state) {
+    //     helper.removeClass(button, "is-active");
+    //     helper.removeClass(spellRoot, "is-state-prepare");
+    //     helper.removeClass(spellRoot, "is-state-unprepare");
+    //     helper.removeClass(spellRoot, "is-state-cast");
+    //     helper.removeClass(spellRoot, "is-state-active");
+    //     helper.removeClass(spellRoot, "is-state-remove");
+    //     helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+    //     spellRoot.dataset.spellState = button.dataset.state;
+    //     for (var i = 0; i < all_spellStateControls.length; i++) {
+    //       helper.removeClass(all_spellStateControls[i], "is-active");
+    //     };
+    //     if (!button.classList.contains("js-spell-reset")) {
+    //       helper.addClass(button, "is-active");
+    //     };
+    //     if (spellRoot.dataset.spellState == "remove") {
+    //       helper.addClass(spellRemoveButton, "button-primary");
+    //       helper.removeClass(spellRemoveButton, "button-secondary");
+    //     } else {
+    //       helper.removeClass(spellRemoveButton, "button-primary");
+    //       helper.addClass(spellRemoveButton, "button-secondary");
+    //     };
+    //   } else {
+    //     spellRoot.dataset.spellState = "false";
+    //     helper.removeClass(button, "is-active");
+    //     helper.removeClass(spellRoot, "is-state-prepare");
+    //     helper.removeClass(spellRoot, "is-state-unprepare");
+    //     helper.removeClass(spellRoot, "is-state-cast");
+    //     helper.removeClass(spellRoot, "is-state-active");
+    //     helper.removeClass(spellRoot, "is-state-remove");
+    //     helper.removeClass(spellRemoveButton, "button-primary");
+    //     helper.addClass(spellRemoveButton, "button-secondary");
+    //   };
+    // } else {
+    //   spellRoot.dataset.spellState = "false";
+    //   helper.removeClass(button, "is-active");
+    //   helper.removeClass(spellRoot, "is-state-prepare");
+    //   helper.removeClass(spellRoot, "is-state-unprepare");
+    //   helper.removeClass(spellRoot, "is-state-cast");
+    //   helper.removeClass(spellRoot, "is-state-active");
+    //   helper.removeClass(spellRoot, "is-state-remove");
+    //   helper.removeClass(spellRemoveButton, "button-primary");
+    //   helper.addClass(spellRemoveButton, "button-secondary");
+    // };
   };
 
   function _checkSpellState() {
     var spellRoot = helper.e(".js-spells");
     var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
     var all_spellBookItem = helper.eA(".js-spell");
+    var spellRemoveButton = helper.e(".js-spell-remove");
     if (all_spellBookItem.length == 0) {
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
       helper.removeClass(spellRoot, "is-state-remove");
       for (var i = 0; i < all_spellStateControls.length; i++) {
-        helper.removeClass(all_spellStateControls[i], "is-active");
+        helper.removeClass(all_spellStateControls[i], "is-live");
+        helper.removeClass(spellRemoveButton, "button-primary");
+        helper.addClass(spellRemoveButton, "button-secondary");
       };
       spellRoot.dataset.spellState = "false";
     };
@@ -721,12 +800,16 @@ var spells = (function() {
   };
 
   function _create_spellButton(spellObject, level, index, newSpell) {
+    var spellRoot = helper.e(".js-spells");
     var spellButton = document.createElement("button");
     spellButton.setAttribute("data-spell-level", level);
     spellButton.setAttribute("data-spell-count", index);
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
     spellButton.setAttribute("tabindex", "1");
+    if (spellRoot.dataset.spellState == "remove") {
+      helper.addClass(spellButton, "button-primary");
+    };
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);
