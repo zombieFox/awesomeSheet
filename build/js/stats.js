@@ -41,6 +41,8 @@ var stats = (function() {
 
   function delayUpdate(element) {
     _render_stat(element);
+    classes.render();
+    textBlock.render();
     totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
@@ -54,21 +56,32 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
+  };
+
+  function get_mod(key) {
+    var value = 0;
+    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
+      value = sheet.getCharacter().statistics.stats[key].temp_modifier;
+    } else {
+      value = sheet.getCharacter().statistics.stats[key].modifier;
+    };
+    return value;
   };
 
   // exposed methods
   return {
     render: render,
-    bind: bind
+    bind: bind,
+    getMod: get_mod
   };
 
 })();

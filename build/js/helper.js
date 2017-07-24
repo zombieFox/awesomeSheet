@@ -210,6 +210,13 @@ var helper = (function() {
     };
   };
 
+  function inViewport(element) {
+    var rectangle = element.getBoundingClientRect();
+    return (
+      rectangle.top >= 0 && rectangle.left >= 0 && rectangle.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rectangle.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  };
+
   // exposed methods
   return {
     store: store,
@@ -232,7 +239,8 @@ var helper = (function() {
     randomNumber: randomNumber,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
-    pasteStrip: pasteStrip
+    pasteStrip: pasteStrip,
+    inViewport: inViewport
   };
 
 })();

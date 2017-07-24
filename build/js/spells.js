@@ -32,12 +32,12 @@ var spells = (function() {
     spellActiveButton.addEventListener("click", function() {
       _change_spellState(this);
     }, false);
-    spellRemoveButton.addEventListener("click", function() {
-      _change_spellState(this);
-    }, false);
     spellResetButton.addEventListener("click", function() {
       _change_spellState(this);
       _resetAllSpells();
+    }, false);
+    spellRemoveButton.addEventListener("click", function() {
+      _change_spellState(this);
     }, false);
   };
 
@@ -198,50 +198,58 @@ var spells = (function() {
       spellControl.setAttribute("data-spell-cast", spellObject.cast);
 
       var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box");
+      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var nameEditBoxHead = document.createElement("div");
-      nameEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      nameEditBoxHead.setAttribute("class", "m-edit-box-head");
       var nameEditBoxHeadTitle = document.createElement("h2");
       nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       nameEditBoxHeadTitle.textContent = "Name";
       var nameEditBoxBody = document.createElement("div");
-      nameEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-item-margin-large");
-      var nameEditBoxBodyItem = document.createElement("div");
-      nameEditBoxBodyItem.setAttribute("class", "m-edit-box-item-large");
+      nameEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var nameEditBoxContent = document.createElement("div");
+      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var nameEditBoxContentItem = document.createElement("div");
+      nameEditBoxContentItem.setAttribute("class", "m-edit-box-item-large");
       var nameEditBoxBodyInput = document.createElement("input");
       nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
       nameEditBoxBodyInput.setAttribute("type", "text");
-      nameEditBoxBodyInput.setAttribute("tabindex", "3");
+      nameEditBoxBodyInput.setAttribute("tabindex", "1");
       nameEditBoxBodyInput.value = spellObject.name;
 
-      nameEditBoxBodyItem.appendChild(nameEditBoxBodyInput);
-      nameEditBoxBody.appendChild(nameEditBoxBodyItem);
+      nameEditBoxContentItem.appendChild(nameEditBoxBodyInput);
+      nameEditBoxContent.appendChild(nameEditBoxContentItem);
+      nameEditBoxBody.appendChild(nameEditBoxContent);
       nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
       nameEditBox.appendChild(nameEditBoxHead);
       nameEditBox.appendChild(nameEditBoxBody);
+
       var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box");
+      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var preparedEditBoxHead = document.createElement("div");
-      preparedEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
       var preparedEditBoxHeadTitle = document.createElement("h2");
       preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       preparedEditBoxHeadTitle.textContent = "Prepared";
       var preparedEditBoxBody = document.createElement("div");
-      preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
-      var preparedEditBoxBodyItem1 = document.createElement("div");
-      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
-      var preparedEditBoxBodyItem2 = document.createElement("div");
-      preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
-      var preparedEditBoxBodyItem3 = document.createElement("div");
-      preparedEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
-      var preparedEditBoxBodyItem4 = document.createElement("div");
-      preparedEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var preparedEditBoxContent = document.createElement("div");
+      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var preparedEditBoxGroup = document.createElement("div");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var preparedEditBoxContentItem1 = document.createElement("div");
+      preparedEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
+      var preparedEditBoxContentItem2 = document.createElement("div");
+      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      var preparedEditBoxContentItem3 = document.createElement("div");
+      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      var preparedEditBoxContentItem4 = document.createElement("div");
+      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
       var preparedCount = document.createElement("p");
-      preparedCount.setAttribute("class", "m-total-block-total js-spell-control-prepared-count");
+      preparedCount.setAttribute("class", "m-edit-box-text js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
       preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedPlus.setAttribute("tabindex", "3");
+      preparedPlus.setAttribute("tabindex", "1");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
       preparedPlus.addEventListener("click", function() {
@@ -250,7 +258,7 @@ var spells = (function() {
       }, false);
       var preparedMinus = document.createElement("button");
       preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedMinus.setAttribute("tabindex", "3");
+      preparedMinus.setAttribute("tabindex", "1");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
       preparedMinus.addEventListener("click", function() {
@@ -259,7 +267,7 @@ var spells = (function() {
       }, false);
       var preparedClear = document.createElement("button");
       preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedClear.setAttribute("tabindex", "3");
+      preparedClear.setAttribute("tabindex", "1");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
       preparedClear.addEventListener("click", function() {
@@ -267,44 +275,50 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
 
-      preparedEditBoxBodyItem1.appendChild(preparedCount);
+      preparedEditBoxContentItem1.appendChild(preparedCount);
       preparedPlus.appendChild(preparedPlusIcon);
-      preparedEditBoxBodyItem2.appendChild(preparedPlus);
+      preparedEditBoxContentItem2.appendChild(preparedPlus);
       preparedMinus.appendChild(preparedMinusIcon);
-      preparedEditBoxBodyItem3.appendChild(preparedMinus);
+      preparedEditBoxContentItem3.appendChild(preparedMinus);
       preparedClear.appendChild(preparedClearIcon);
-      preparedEditBoxBodyItem4.appendChild(preparedClear);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem1);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem2);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem3);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem4);
+      preparedEditBoxContentItem4.appendChild(preparedClear);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem1);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem2);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem3);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem4);
+      preparedEditBoxContent.appendChild(preparedEditBoxGroup);
+      preparedEditBoxBody.appendChild(preparedEditBoxContent);
       preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
       preparedEditBox.appendChild(preparedEditBoxHead);
       preparedEditBox.appendChild(preparedEditBoxBody);
 
       var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box");
+      castEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var castEditBoxHead = document.createElement("div");
-      castEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      castEditBoxHead.setAttribute("class", "m-edit-box-head");
       var castEditBoxHeadTitle = document.createElement("h2");
       castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       castEditBoxHeadTitle.textContent = "Cast";
       var castEditBoxBody = document.createElement("div");
-      castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
-      var castEditBoxBodyItem1 = document.createElement("div");
-      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
-      var castEditBoxBodyItem2 = document.createElement("div");
-      castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
-      var castEditBoxBodyItem3 = document.createElement("div");
-      castEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
-      var castEditBoxBodyItem4 = document.createElement("div");
-      castEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var castEditBoxContent = document.createElement("div");
+      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var castEditBoxGroup = document.createElement("div");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var castEditBoxContentItem1 = document.createElement("div");
+      castEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
+      var castEditBoxContentItem2 = document.createElement("div");
+      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      var castEditBoxContentItem3 = document.createElement("div");
+      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      var castEditBoxContentItem4 = document.createElement("div");
+      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
       var castCount = document.createElement("p");
-      castCount.setAttribute("class", "m-total-block-total js-spell-control-cast-count");
+      castCount.setAttribute("class", "m-edit-box-text js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
       castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castPlus.setAttribute("tabindex", "3");
+      castPlus.setAttribute("tabindex", "1");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
       castPlus.addEventListener("click", function() {
@@ -313,7 +327,7 @@ var spells = (function() {
       }, false);
       var castMinus = document.createElement("button");
       castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castMinus.setAttribute("tabindex", "3");
+      castMinus.setAttribute("tabindex", "1");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
       castMinus.addEventListener("click", function() {
@@ -322,7 +336,7 @@ var spells = (function() {
       }, false);
       var castClear = document.createElement("button");
       castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castClear.setAttribute("tabindex", "3");
+      castClear.setAttribute("tabindex", "1");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");
       castClear.addEventListener("click", function() {
@@ -330,39 +344,43 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
 
-      castEditBoxBodyItem1.appendChild(castCount);
+      castEditBoxContentItem1.appendChild(castCount);
       castPlus.appendChild(castPlusIcon);
-      castEditBoxBodyItem2.appendChild(castPlus);
+      castEditBoxContentItem2.appendChild(castPlus);
       castMinus.appendChild(castMinusIcon);
-      castEditBoxBodyItem3.appendChild(castMinus);
+      castEditBoxContentItem3.appendChild(castMinus);
       castClear.appendChild(castClearIcon);
-      castEditBoxBodyItem4.appendChild(castClear);
-      castEditBoxBody.appendChild(castEditBoxBodyItem1);
-      castEditBoxBody.appendChild(castEditBoxBodyItem2);
-      castEditBoxBody.appendChild(castEditBoxBodyItem3);
-      castEditBoxBody.appendChild(castEditBoxBodyItem4);
+      castEditBoxContentItem4.appendChild(castClear);
+      castEditBoxGroup.appendChild(castEditBoxContentItem1);
+      castEditBoxGroup.appendChild(castEditBoxContentItem2);
+      castEditBoxGroup.appendChild(castEditBoxContentItem3);
+      castEditBoxGroup.appendChild(castEditBoxContentItem4);
+      castEditBoxContent.appendChild(castEditBoxGroup);
+      castEditBoxBody.appendChild(castEditBoxContent);
       castEditBoxHead.appendChild(castEditBoxHeadTitle);
       castEditBox.appendChild(castEditBoxHead);
       castEditBox.appendChild(castEditBoxBody);
 
       var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box");
+      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var activeEditBoxHead = document.createElement("div");
-      activeEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      activeEditBoxHead.setAttribute("class", "m-edit-box-head");
       var activeEditBoxHeadTitle = document.createElement("h2");
       activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       activeEditBoxHeadTitle.textContent = "Active";
       var activeEditBoxBody = document.createElement("div");
-      activeEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
-      var activeEditBoxBodyItem1 = document.createElement("div");
-      activeEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-check");
+      activeEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var activeEditBoxContent = document.createElement("div");
+      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var activeEditBoxContentItem1 = document.createElement("div");
+      activeEditBoxContentItem1.setAttribute("class", "m-edit-box-item-check");
       var activeCheck = document.createElement("div");
       activeCheck.setAttribute("class", "m-check-block");
       var activeInput = document.createElement("input");
       activeInput.setAttribute("type", "checkbox");
       activeInput.setAttribute("id", "spell-active");
       activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-      activeInput.setAttribute("tabindex", "3");
+      activeInput.setAttribute("tabindex", "1");
       activeInput.checked = spellObject.active;
       activeInput.addEventListener("change", function() {
         _store_data(spellControl, "toggle", "active");
@@ -373,34 +391,38 @@ var spells = (function() {
 
       activeCheck.appendChild(activeInput);
       activeCheck.appendChild(activeIcon);
-      activeEditBoxBodyItem1.appendChild(activeCheck);
-      activeEditBoxBody.appendChild(activeEditBoxBodyItem1);
+      activeEditBoxContentItem1.appendChild(activeCheck);
+      activeEditBoxContent.appendChild(activeEditBoxContentItem1);
+      activeEditBoxBody.appendChild(activeEditBoxContent);
       activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
       activeEditBox.appendChild(activeEditBoxHead);
       activeEditBox.appendChild(activeEditBoxBody);
 
       var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box");
+      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var noteEditBoxHead = document.createElement("div");
-      noteEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      noteEditBoxHead.setAttribute("class", "m-edit-box-head");
       var noteEditBoxHeadTitle = document.createElement("h2");
       noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       noteEditBoxHeadTitle.textContent = "Spell Notes";
       var noteEditBoxBody = document.createElement("div");
-      noteEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group");
-      var noteEditBoxBodyItem1 = document.createElement("div");
-      noteEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-max");
+      noteEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var noteEditBoxContent = document.createElement("div");
+      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var noteEditBoxContentItem1 = document.createElement("div");
+      noteEditBoxContentItem1.setAttribute("class", "m-edit-box-item-max");
       var noteTextarea = document.createElement("div");
       noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
       noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "3");
+      noteTextarea.setAttribute("tabindex", "1");
       noteTextarea.innerHTML = spellObject.note;
       noteTextarea.addEventListener("paste", function(event) {
         helper.pasteStrip(event);
       });
 
-      noteEditBoxBodyItem1.appendChild(noteTextarea);
-      noteEditBoxBody.appendChild(noteEditBoxBodyItem1);
+      noteEditBoxContentItem1.appendChild(noteTextarea);
+      noteEditBoxContent.appendChild(noteEditBoxContentItem1);
+      noteEditBoxBody.appendChild(noteEditBoxContent);
       noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
       noteEditBox.appendChild(noteEditBoxHead);
       noteEditBox.appendChild(noteEditBoxBody);
@@ -567,55 +589,145 @@ var spells = (function() {
         spellsFound = true;
       };
     };
+
+    var _normalStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.removeClass(all_spellBookItem[i], "button-primary");
+        helper.removeClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+
+    var _activeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+
+    var _removeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-primary");
+      };
+    };
+
+    var _resetAllControls = function() {
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        helper.removeClass(all_spellStateControls[i], "is-live");
+      };
+    };
+
+    // change spell state
     if (spellsFound) {
-      // if this button is active
-      if (spellRoot.dataset.spellState != button.dataset.state) {
-        helper.removeClass(button, "is-active");
-        helper.removeClass(spellRoot, "is-state-prepare");
-        helper.removeClass(spellRoot, "is-state-unprepare");
-        helper.removeClass(spellRoot, "is-state-cast");
-        helper.removeClass(spellRoot, "is-state-active");
-        helper.removeClass(spellRoot, "is-state-remove");
-        helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+      if (button.dataset.state != spellRoot.dataset.spellState) {
         spellRoot.dataset.spellState = button.dataset.state;
-        for (var i = 0; i < all_spellStateControls.length; i++) {
-          helper.removeClass(all_spellStateControls[i], "is-active");
-        };
-        if (!button.classList.contains("js-spell-reset")) {
-          helper.addClass(button, "is-active");
+        _resetAllControls();
+        if (button.dataset.state == "prepare" || button.dataset.state == "unprepare" || button.dataset.state == "cast" || button.dataset.state == "active") {
+          helper.addClass(button, "is-live");
         };
       } else {
-        spellRoot.dataset.spellState = "false";
-        helper.removeClass(button, "is-active");
-        helper.removeClass(spellRoot, "is-state-prepare");
-        helper.removeClass(spellRoot, "is-state-unprepare");
-        helper.removeClass(spellRoot, "is-state-cast");
-        helper.removeClass(spellRoot, "is-state-active");
-        helper.removeClass(spellRoot, "is-state-remove");
+        spellRoot.dataset.spellState = false;
+        _resetAllControls();
       };
-    } else {
-      spellRoot.dataset.spellState = "false";
-      helper.removeClass(button, "is-active");
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
-      helper.removeClass(spellRoot, "is-state-remove");
     };
+
+    // change spells to reflect state
+    if (spellRoot.dataset.spellState == "remove") {
+      _removeStateSpellItems();
+      helper.addClass(spellRoot, "is-state-remove");
+      helper.addClass(spellRemoveButton, "button-primary");
+      helper.removeClass(spellRemoveButton, "button-secondary");
+    } else if (spellRoot.dataset.spellState != "false") {
+      _activeStateSpellItems();
+      helper.removeClass(spellRoot, "is-state-remove");
+      helper.removeClass(spellRemoveButton, "button-primary");
+      helper.addClass(spellRemoveButton, "button-secondary");
+    } else {
+      _normalStateSpellItems();
+      helper.removeClass(spellRoot, "is-state-remove");
+      helper.removeClass(spellRemoveButton, "button-primary");
+      helper.addClass(spellRemoveButton, "button-secondary");
+    };
+
+    // // if there are spells
+    // if (spellsFound) {
+    //   if (button.dataset.state != spellRoot.dataset.spellState) {
+    //     for (var i = 0; i < all_spellStateControls.length; i++) {
+    //       helper.removeClass(all_spellStateControls[i], "is-live");
+    //     };
+    //     helper.addClass(button, "is-live");
+    //   };
+    // } else {
+    //   spellRoot.dataset.spellState = "false";
+    //   helper.removeClass(button, "is-live");
+    //   helper.removeClass(spellRoot, "is-state-prepare");
+    //   helper.removeClass(spellRoot, "is-state-unprepare");
+    //   helper.removeClass(spellRoot, "is-state-cast");
+    //   helper.removeClass(spellRoot, "is-state-active");
+    //   helper.removeClass(spellRoot, "is-state-remove");
+    //   helper.removeClass(spellRemoveButton, "button-primary");
+    //   helper.addClass(spellRemoveButton, "button-secondary");
+    // };
+
+
+
+    // if (spellsFound) {
+    //   // if this button is active
+    //   if (spellRoot.dataset.spellState != button.dataset.state) {
+    //     helper.removeClass(button, "is-active");
+    //     helper.removeClass(spellRoot, "is-state-prepare");
+    //     helper.removeClass(spellRoot, "is-state-unprepare");
+    //     helper.removeClass(spellRoot, "is-state-cast");
+    //     helper.removeClass(spellRoot, "is-state-active");
+    //     helper.removeClass(spellRoot, "is-state-remove");
+    //     helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+    //     spellRoot.dataset.spellState = button.dataset.state;
+    //     for (var i = 0; i < all_spellStateControls.length; i++) {
+    //       helper.removeClass(all_spellStateControls[i], "is-active");
+    //     };
+    //     if (!button.classList.contains("js-spell-reset")) {
+    //       helper.addClass(button, "is-active");
+    //     };
+    //     if (spellRoot.dataset.spellState == "remove") {
+    //       helper.addClass(spellRemoveButton, "button-primary");
+    //       helper.removeClass(spellRemoveButton, "button-secondary");
+    //     } else {
+    //       helper.removeClass(spellRemoveButton, "button-primary");
+    //       helper.addClass(spellRemoveButton, "button-secondary");
+    //     };
+    //   } else {
+    //     spellRoot.dataset.spellState = "false";
+    //     helper.removeClass(button, "is-active");
+    //     helper.removeClass(spellRoot, "is-state-prepare");
+    //     helper.removeClass(spellRoot, "is-state-unprepare");
+    //     helper.removeClass(spellRoot, "is-state-cast");
+    //     helper.removeClass(spellRoot, "is-state-active");
+    //     helper.removeClass(spellRoot, "is-state-remove");
+    //     helper.removeClass(spellRemoveButton, "button-primary");
+    //     helper.addClass(spellRemoveButton, "button-secondary");
+    //   };
+    // } else {
+    //   spellRoot.dataset.spellState = "false";
+    //   helper.removeClass(button, "is-active");
+    //   helper.removeClass(spellRoot, "is-state-prepare");
+    //   helper.removeClass(spellRoot, "is-state-unprepare");
+    //   helper.removeClass(spellRoot, "is-state-cast");
+    //   helper.removeClass(spellRoot, "is-state-active");
+    //   helper.removeClass(spellRoot, "is-state-remove");
+    //   helper.removeClass(spellRemoveButton, "button-primary");
+    //   helper.addClass(spellRemoveButton, "button-secondary");
+    // };
   };
 
   function _checkSpellState() {
     var spellRoot = helper.e(".js-spells");
     var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
     var all_spellBookItem = helper.eA(".js-spell");
+    var spellRemoveButton = helper.e(".js-spell-remove");
     if (all_spellBookItem.length == 0) {
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
       helper.removeClass(spellRoot, "is-state-remove");
       for (var i = 0; i < all_spellStateControls.length; i++) {
-        helper.removeClass(all_spellStateControls[i], "is-active");
+        helper.removeClass(all_spellStateControls[i], "is-live");
+        helper.removeClass(spellRemoveButton, "button-primary");
+        helper.addClass(spellRemoveButton, "button-secondary");
       };
       spellRoot.dataset.spellState = "false";
     };
@@ -688,12 +800,16 @@ var spells = (function() {
   };
 
   function _create_spellButton(spellObject, level, index, newSpell) {
+    var spellRoot = helper.e(".js-spells");
     var spellButton = document.createElement("button");
     spellButton.setAttribute("data-spell-level", level);
     spellButton.setAttribute("data-spell-count", index);
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
-    spellButton.setAttribute("tabindex", "3");
+    spellButton.setAttribute("tabindex", "1");
+    if (spellRoot.dataset.spellState == "remove") {
+      helper.addClass(spellButton, "button-primary");
+    };
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);

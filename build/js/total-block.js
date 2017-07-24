@@ -90,13 +90,6 @@ var totalBlock = (function() {
       };
       return value;
     };
-    var _checkForTempModifier = function(score, tempScore) {
-      if (tempScore == "") {
-        return _checkValue(score);
-      } else {
-        return _checkValue(tempScore);
-      };
-    };
     var _checkClassSkill = function(totalObject) {
       var classSkill;
       if (totalObject.ranks > 0) {
@@ -109,36 +102,36 @@ var totalBlock = (function() {
     var _get_externalBonus = function(key, totalObject) {
       var externalBouns;
       if (key == "str_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("str"));
       };
       // if dex data attribute is true
       if (key == "dex_bonus") {
         // if max dex is true
         if (totalObject.bonuses.max_dex) {
-          if (sheet.getCharacter().equipment.armor.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().equipment.armor.max_dex != "") {
+          if (sheet.getCharacter().equipment.armor.max_dex < _checkValue(stats.getMod("dex")) && sheet.getCharacter().equipment.armor.max_dex != "") {
             externalBouns = sheet.getCharacter().equipment.armor.max_dex;
           } else {
-            externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+            externalBouns = _checkValue(stats.getMod("dex"));
           };
         } else {
-          externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+          externalBouns = _checkValue(stats.getMod("dex"));
         };
       };
       // if con data attribute is true
       if (key == "con_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("con"));
       };
       // if int data attribute is true
       if (key == "int_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("int"));
       };
       // if wis data attribute is true
       if (key == "wis_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("wis"));
       };
       // if cha data attribute is true
       if (key == "cha_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("cha"));
       };
       // if bab data attribute is true
       if (key == "bab") {

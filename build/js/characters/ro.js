@@ -5,8 +5,17 @@ var ro = (function() {
     basics: {
       name: "Ro Flint",
       race: "Elf",
-      class: "Magus Bladebound",
       level: "7",
+      classes: [{
+        classname: "Magus Bladebound",
+        level: 7,
+        hp: 38,
+        fortitude: 6,
+        reflex: 2,
+        will: 6,
+        ranks: 14,
+        bab: 5
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -144,7 +153,7 @@ var ro = (function() {
     },
     defense: {
       hp: {
-        total: 38,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -274,7 +283,8 @@ var ro = (function() {
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",

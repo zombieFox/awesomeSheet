@@ -54,6 +54,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
   };
 
   function removeCharacter() {
@@ -278,6 +279,8 @@ var sheet = (function() {
     repair.render(sheet.getCharacter());
     stats.render();
     clone.render();
+    classes.render();
+    textBlock.render();
     inputBlock.render();
     selectBlock.render();
     textareaBlock.render();
@@ -302,6 +305,7 @@ var sheet = (function() {
     totalBlock.bind();
     display.bind();
     card.bind();
+    tip.bind();
     registerServiceWorker.bind();
   };
 
@@ -309,6 +313,7 @@ var sheet = (function() {
     stats.render();
     totalBlock.clear();
     clone.clear();
+    textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
     textareaBlock.clear();
