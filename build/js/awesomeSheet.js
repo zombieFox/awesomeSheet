@@ -15404,6 +15404,14 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.9.0",
+    list: [
+      "*Added Multi class support!",
+      "Added areas for more than one Class.",
+      "Added skill rank totals.",
+      "Improved edit mode layout and general UI fixes."
+    ]
+  }, {
     version: "3.8.0",
     list: [
       "Redesigned layout of Display mode.",
