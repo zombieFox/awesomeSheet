@@ -276,7 +276,9 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.getCharacter());
+    for (var i = 0; i < allCharacters.length; i++) {
+      repair.render(allCharacters[i]);
+    };
     stats.render();
     clone.render();
     classes.render();
