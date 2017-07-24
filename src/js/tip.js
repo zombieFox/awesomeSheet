@@ -7,7 +7,9 @@ var tip = (function() {
       var all_tip = helper.eA(".js-tip");
       for (var i = 0; i < all_tip.length; i++) {
         if (all_tip[i].dataset.clone != "true") {
-          _bind_tip(all_tip[i]);
+          if (all_tip[i].dataset.clone != "true") {
+            _bind_tip(all_tip[i]);
+          };
         };
       };
     };
@@ -15,6 +17,7 @@ var tip = (function() {
 
   function _bind_tip(tip) {
     tip.addEventListener("focus", function() {
+      destroy();
       render(tip);
     }, false);
     tip.addEventListener("blur", function() {
@@ -80,12 +83,12 @@ var tip = (function() {
         };
         tipWrapper.setAttribute("style", "width: " + style.width + "; top: " + style.top + "; left: " + 0 + "px;");
         tipArrow.setAttribute("style", "left: " +
-        (
-          parseInt(tip.getBoundingClientRect().left, 10) +
-          parseInt((tip.getBoundingClientRect().width / 2), 10) -
-          parseInt(getComputedStyle(tipWrapper).marginLeft, 10)
-        )
-        + "px;");
+          (
+            parseInt(tip.getBoundingClientRect().left, 10) +
+            parseInt((tip.getBoundingClientRect().width / 2), 10) -
+            parseInt(getComputedStyle(tipWrapper).marginLeft, 10)
+          ) +
+          "px;");
       } else if (tipWrapper.getBoundingClientRect().right > document.documentElement.clientWidth) {
         // console.log("too far right");
         var style = {
@@ -93,17 +96,16 @@ var tip = (function() {
           width: tipWrapper.style.width
         };
         tipWrapper.setAttribute("style", "width: " + style.width + "; top: " + style.top + "; left: " +
-        (
-          document.documentElement.clientWidth - parseInt((parseInt(tipWrapper.getBoundingClientRect().width, 10) + parseInt(getComputedStyle(tipWrapper).marginLeft, 10) + parseInt(getComputedStyle(tipWrapper).marginRight, 10)), 10)
-        )
-        + "px;");
+          (
+            document.documentElement.clientWidth - parseInt((parseInt(tipWrapper.getBoundingClientRect().width, 10) + parseInt(getComputedStyle(tipWrapper).marginLeft, 10) + parseInt(getComputedStyle(tipWrapper).marginRight, 10)), 10)
+          ) +
+          "px;");
         tipArrow.setAttribute("style", "left: " +
-        (
-          - parseInt(tipWrapper.getBoundingClientRect().left, 10) +
-          parseInt(tip.getBoundingClientRect().left, 10) +
-          (parseInt((tip.getBoundingClientRect().width), 10) / 2)
-        )
-        + "px;");
+          (-parseInt(tipWrapper.getBoundingClientRect().left, 10) +
+            parseInt(tip.getBoundingClientRect().left, 10) +
+            (parseInt((tip.getBoundingClientRect().width), 10) / 2)
+          ) +
+          "px;");
       };
     };
 
