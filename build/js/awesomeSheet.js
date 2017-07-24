@@ -212,6 +212,13 @@ var helper = (function() {
     };
   };
 
+  function inViewport(element) {
+    var rectangle = element.getBoundingClientRect();
+    return (
+      rectangle.top >= 0 && rectangle.left >= 0 && rectangle.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rectangle.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  };
+
   // exposed methods
   return {
     store: store,
@@ -234,7 +241,8 @@ var helper = (function() {
     randomNumber: randomNumber,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
-    pasteStrip: pasteStrip
+    pasteStrip: pasteStrip,
+    inViewport: inViewport
   };
 
 })();
@@ -353,8 +361,17 @@ var blank = (function() {
     basics: {
       name: "",
       race: "",
-      class: "",
       level: "",
+      classes: [{
+        classname: "",
+        level: "",
+        hp: "",
+        fortitude: "",
+        reflex: "",
+        will: "",
+        ranks: "",
+        bab: ""
+      }],
       size: {
         category: "",
         size_modifier: 0,
@@ -603,6 +620,7 @@ var blank = (function() {
     },
     offense: {
       base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -1434,8 +1452,17 @@ var marika = (function() {
     basics: {
       name: "Marika Spandrell",
       race: "Human",
-      class: "Rogue",
       level: "9",
+      classes: [{
+        classname: "Rogue",
+        level: 9,
+        hp: 53,
+        fortitude: 3,
+        reflex: 6,
+        will: 3,
+        ranks: 72,
+        bab: 6
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -1558,7 +1585,7 @@ var marika = (function() {
     },
     defense: {
       hp: {
-        total: 53,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -1688,7 +1715,8 @@ var marika = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "+6/+1",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -2594,8 +2622,17 @@ var nefi = (function() {
     basics: {
       name: "Nefi Fefi",
       race: "Human",
-      class: "Fighter",
       level: "11",
+      classes: [{
+        classname: "Fighter",
+        level: 11,
+        hp: 85,
+        fortitude: 7,
+        reflex: 3,
+        will: 3,
+        ranks: 22,
+        bab: 11
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -2713,7 +2750,7 @@ var nefi = (function() {
     },
     defense: {
       hp: {
-        total: 96,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -2843,7 +2880,8 @@ var nefi = (function() {
       save_notes: "+3 bonus on Will saves against fear."
     },
     offense: {
-      base_attack: "+10/+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -3732,8 +3770,17 @@ var nif = (function() {
     basics: {
       name: "Nif Amakir",
       race: "Elf",
-      class: "Wizard",
-      level: "8",
+      level: "",
+      classes: [{
+        classname: "Wizard",
+        level: 8,
+        hp: 42,
+        fortitude: 2,
+        reflex: 2,
+        will: 6,
+        ranks: 16,
+        bab: 4
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -3813,7 +3860,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
-      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
+      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of insect sap (10), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
       item: [{
         name: "Flask of Oil",
         quantity: 5,
@@ -3857,10 +3904,6 @@ var nif = (function() {
       }, {
         name: "Andorak spell book",
         quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Viles of insect sap",
-        quantity: 14,
         weight: 0.5
       }],
       encumbrance: {
@@ -3934,7 +3977,7 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: 58,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -4005,7 +4048,7 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: 1,
@@ -4024,7 +4067,7 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -4043,7 +4086,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -4064,7 +4107,8 @@ var nif = (function() {
       save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
     },
     offense: {
-      base_attack: "+4",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -4153,9 +4197,12 @@ var nif = (function() {
       attack_notes: ""
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Spellcraft (Identify magic items)",
@@ -5326,7 +5373,7 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 20 feet 11 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
       }],
@@ -5354,8 +5401,17 @@ var orrin = (function() {
     basics: {
       name: "Orrin Alareth",
       race: "Human",
-      class: "Rogue",
-      level: "9",
+      level: "",
+      classes: [{
+        classname: "Rogue",
+        level: 9,
+        hp: 65,
+        fortitude: 3,
+        reflex: 6,
+        will: 3,
+        ranks: 72,
+        bab: 6
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -5498,7 +5554,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: 74,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -5569,7 +5625,7 @@ var orrin = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
-        base: 3,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: 1,
@@ -5588,7 +5644,7 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -5607,7 +5663,7 @@ var orrin = (function() {
         }
       },
       will: {
-        base: 3,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: "",
@@ -5628,7 +5684,8 @@ var orrin = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "+6/+1",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -6544,8 +6601,17 @@ var ro = (function() {
     basics: {
       name: "Ro Flint",
       race: "Elf",
-      class: "Magus Bladebound",
       level: "7",
+      classes: [{
+        classname: "Magus Bladebound",
+        level: 7,
+        hp: 38,
+        fortitude: 6,
+        reflex: 2,
+        will: 6,
+        ranks: 14,
+        bab: 5
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -6683,7 +6749,7 @@ var ro = (function() {
     },
     defense: {
       hp: {
-        total: 38,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -6813,7 +6879,8 @@ var ro = (function() {
       save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
     },
     offense: {
-      base_attack: "+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -7979,8 +8046,17 @@ var vos = (function() {
     basics: {
       name: "Vos Thunderstomp",
       race: "Dwarf",
-      class: "Monk",
-      level: "7",
+      level: "",
+      classes: [{
+        classname: "Monk",
+        level: 8,
+        hp: 46,
+        fortitude: 6,
+        reflex: 6,
+        will: 6,
+        ranks: 32,
+        bab: 6
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -7989,13 +8065,13 @@ var vos = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Chaotic Neutral",
-      xp: "35,000",
+      xp: "51,000",
       height: "5'0",
       weight: "190 lbs",
       age: "40",
       gender: "Male",
       speed: "50ft",
-      hero_points: "2",
+      hero_points: "",
       luck_points: "",
       initiative: {
         misc: "",
@@ -8018,50 +8094,82 @@ var vos = (function() {
       stats: {
         str: {
           score: 19,
-          modifier: 4,
+          modifier: "",
           temp_score: "",
           temp_modifier: ""
         },
         dex: {
           score: 14,
-          modifier: 2,
+          modifier: "",
           temp_score: "",
           temp_modifier: ""
         },
         con: {
           score: 12,
-          modifier: 1,
+          modifier: "",
           temp_score: "",
           temp_modifier: ""
         },
         int: {
           score: 10,
-          modifier: 0,
+          modifier: "",
           temp_score: "",
           temp_modifier: ""
         },
         wis: {
-          score: 16,
-          modifier: 3,
+          score: 18,
+          modifier: "",
           temp_score: "",
           temp_modifier: ""
         },
         cha: {
           score: 7,
-          modifier: -2,
+          modifier: "",
           temp_score: "",
           temp_modifier: ""
         }
       },
-      feats: "Weapon Focus (Unarmed Strike), Improved Grapple (Bonus Feat), Dodge (Bonus Feat), Extra Ki, Improved Disarm (Bonus Feat), Extra Ki, Combat Reflexes (Bonus Feat), Great Fortitude",
+      feats: "Weapon Focus (Unarmed Strike), Improved Grapple, Dodge, Extra Ki, Improved Disarm, Extra Ki, Combat Reflexes, Great Fortitude",
       traits: "",
       languages: "Common, Dwarven",
-      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows +3/+3 (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus +1 (Ex), Evasion (Ex), Fast Movement +20ft (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 30ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)"
+      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)"
     },
     equipment: {
-      gear: "Backpack, Flask Of Oil (3), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Alchemist Fire (3), Dagger, Lavendar soap, Soap bar",
-      magic_gear: "Good Berries (5), Potion of Stabilise, Potion of Cure Light Wounds (1), Potion of Cure Moderate Wounds (1), Potion of Owls Wisdom (1)",
-      item: [],
+      gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
+      magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
+      item: [{
+        name: "Alchemist Fire",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Flask Of Oil",
+        quantity: 3,
+        weight: ""
+      }, {
+        name: "Potion of Cure Light Wounds",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Cure Moderate Wounds",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Cure Serious Wounds ",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Owls Wisdom",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Potion of Stabilise",
+        quantity: 1,
+        weight: ""
+      }, {
+        name: "Scented Oils",
+        quantity: 5,
+        weight: ""
+      }],
       encumbrance: {
         light: "76 lbs or less",
         medium: "77–153 lbs",
@@ -8082,47 +8190,42 @@ var vos = (function() {
         hands: "",
         head: "Headband of Inspired Wisdom +2",
         headband: "",
-        neck: "",
+        neck: "Amulet of Mighty Fists +1 (Shock)",
         ring_left_hand: "",
         ring_right_hand: "Ring of Protection +1",
         shoulders: "Cloak of Resistance +2",
-        wrist: "Bracers of Armor +1"
+        wrist: "Bracers of Armor +2"
       },
       wealth: {
         platinum: "",
-        gold: "6,596",
-        silver: "5",
+        gold: "2,155",
+        silver: "",
         copper: ""
       },
       consumable: [{
         item: "Ki Pool",
         current: "",
-        total: 10,
-        used: ""
-      }, {
-        item: "Scented Oils",
-        current: "",
-        total: 5,
-        used: ""
+        total: 11,
+        used: 2
       }, {
         item: "Stunning Fist",
         current: "",
-        total: 7,
-        used: ""
+        total: 10,
+        used: 1
       }]
     },
     defense: {
       hp: {
-        total: 53,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
         current: ""
       },
       ac: {
-        misc: 1,
+        misc: 3,
         temp: "",
-        armor: 1,
+        armor: 2,
         shield: "",
         deflect: 1,
         dodge: 1,
@@ -8146,7 +8249,7 @@ var vos = (function() {
         }
       },
       flat_footed: {
-        misc: 1,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -8161,11 +8264,12 @@ var vos = (function() {
           ac_shield: true,
           ac_deflect: true,
           ac_natural: true,
-          size: true
+          size: true,
+          ac_dodge: false
         }
       },
       touch: {
-        misc: 1,
+        misc: 3,
         temp: "",
         current: "",
         bonuses: {
@@ -8179,12 +8283,15 @@ var vos = (function() {
           ac_deflect: true,
           ac_dodge: true,
           size: true,
-          max_dex: true
+          max_dex: true,
+          ac_armor: false,
+          ac_shield: false,
+          ac_natural: false
         }
       },
       ac_notes: "",
       fortitude: {
-        base: 5,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: "",
@@ -8203,7 +8310,7 @@ var vos = (function() {
         }
       },
       reflex: {
-        base: 5,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -8222,7 +8329,7 @@ var vos = (function() {
         }
       },
       will: {
-        base: 5,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -8243,7 +8350,8 @@ var vos = (function() {
       save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
     },
     offense: {
-      base_attack: "+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -8316,13 +8424,13 @@ var vos = (function() {
       attack: {
         melee: [{
           weapon: "Flurry of Blows",
-          attack: "+10/+10/+5",
-          damage: "1d8+4",
+          attack: "+11/+11/+8/+8",
+          damage: "1d10+4 + 1d6 electricity",
           critical: "20x2"
         }, {
           weapon: "Grapple",
           attack: "+14",
-          damage: "1d8+4",
+          damage: "1d10+4",
           critical: "20x2"
         }, {
           weapon: "Disarm ",
@@ -8331,25 +8439,25 @@ var vos = (function() {
           critical: ""
         }, {
           weapon: "Stunning Fist",
-          attack: "+10",
-          damage: "1d8+4",
+          attack: "+11",
+          damage: "1d10+4 + 1d6 electricity",
           critical: "20x2"
         }, {
           weapon: "Unarmed Strike",
-          attack: "+10",
-          damage: "1d8+4",
+          attack: "+11",
+          damage: "1d10+4 + 1d6 electricity",
           critical: "20x2"
         }],
         ranged: [{
           weapon: "Shortbow",
-          attack: "+7",
+          attack: "+8",
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
           ammo: "50"
         }]
       },
-      attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 16."
+      attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude."
     },
     skills: {
       spent_ranks: {
@@ -8358,7 +8466,7 @@ var vos = (function() {
       },
       custom: [{
         name: "Acrobatics (Jump)",
-        ranks: 7,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -8375,7 +8483,7 @@ var vos = (function() {
         }
       }],
       acrobatics: {
-        ranks: 7,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -8803,7 +8911,7 @@ var vos = (function() {
         }
       },
       perception: {
-        ranks: 7,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -8960,7 +9068,7 @@ var vos = (function() {
         }
       },
       stealth: {
-        ranks: 6,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -9111,9 +9219,15 @@ var vos = (function() {
         note: "<strong>Weapon and Armor Proficiency</strong> Monks are proficient with the club, crossbow (light or heavy), dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, and spear.<br>Monks are not proficient with any armor or shields.<br>When wearing armor, using a shield, or carrying a medium or heavy load, a monk loses his AC bonus, as well as his fast movement and flurry of blows abilities.<br><strong>AC Bonus (Ex)</strong> When unarmored and unencumbered, the monk adds his Wisdom bonus (if any) to his AC and his CMD. In addition, a monk gains a +1 bonus to AC and CMD at 4th level. This bonus increases by 1 for every four monk levels thereafter, up to a maximum of +5 at 20th level.<br>These bonuses to AC apply even against touch attacks or when the monk is flat-footed. He loses these bonuses when he is immobilized or helpless, when he wears any armor, when he carries a shield, or when he carries a medium or heavy load.<br><strong>Flurry of Blows (Ex)</strong> Starting at 1st level, a monk can make a flurry of blows as a full-attack action. When doing so, he may make on additional attack, taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat. These attacks can be any combination of unarmed strikes and attacks with a monk special weapon (he does not need to use two weapons to use this ability). For the purpose of these attacks, the monk's base attack bonus from his monk class levels is equal to his monk level. For all Other purposes, such as qualifying for a feat or a prestige class, the monk uses his normal base attack bonus.<br>At 8th level, the monk can make two additional attacks when he uses flurry of blows, as if using Improved Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br>At 15th level, the monk can make three additional attacks using flurry of blows, as if using Greater Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br>A monk applies his full Strength bonus to his damage rolls for all successful attacks made with flurry of blows, whether the attacks are made with an off-hand or with a weapon wielded in both hands. A monk may substitute disarm, sunder, and trip combat maneuvers for unarmed attacks as part of a flurry of blows. A monk cannot use any weapon other than an unarmed strike or a special monk weapon as part of a flurry of blows. A monk with natural weapons cannot use such weapons as part of a flurry of blows, nor can he make natural attacks in addition to his flurry of blows attacks.<br><strong>Unarmed Strike</strong> At 1st level, a monk gains Improved Unarmed Strike as a bonus feat. A monk's attacks may be with fist, elbows, knees, and feet. This means that a monk may make unarmed strikes with his hands full. There is no such thing as an off-hand attack for a monk striking unarmed. A monk may thus apply his full Strength bonus on damage rolls for all his unarmed strikes.<br>Usually a monk's unarmed strikes deal lethal damage, but he can choose to deal nonlethal damage instead with no penalty on his attack roll. He has the same choice to deal lethal or nonlethal damage while grappling.<br>A monk's unarmed strike is treated as both a manufactured weapon and a natural weapon for the purpose of spells and effects that enhance or improve either manufactured weapons or natural weapons.<br>A monk also deals more damage with his unarmed strikes than a normal person would, as shown above on Table: Monk. The unarmed damage values listed on Table: Monk is for Medium monks. A Small monk deals less damage than the amount given there with his unarmed attacks, while a Large monk deals more damage; see Small or Large Monk Unarmed Damage on the table given below.<br><strong>Bonus Feat</strong> At 1st level, 2nd level, and every 4 levels thereafter, a monk may select a bonus feat. These feats must be taken from the following list: Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, and Throw Anything. At 6th level, the following feats are added to the list: Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, and Mobility. At 10th level, the following feats are added to the list: Improved Critical, Medusa's Wrath, Snatch Arrows, and Spring Attack. A monk need not have any of the prerequisites normally required for these feats to select them.<br><strong>Stunning Fist (Ex)</strong> At 1st level, the monk gains Stunning Fist as a bonus feat, even if he does not meet the prerequisites. At 4th level, and every 4 levels thereafter, the monk gains the ability to apply a new condition to the target of his Stunning Fist. This condition replaces stunning the target for 1 round, and a successful saving throw still negates the effect. At 4th level, he can choose to make the target fatigued. At 8th level, he can make the target sickened for 1 minute. At 12th level, he can make the target staggered for 1d6+1 rounds. At 16th level, he can permanently blind or deafen the target. At 20th level, he can paralyze the target for 1d6+1 rounds. The monk must choose which condition will apply before the attack roll is made. These effects do not stack with themselves (a creature sickened by Stunning Fist cannot become nauseated if hit by Stunning Fist again), but additional hits do increase the duration.<br><strong>Evasion (Ex)</strong> At 2nd level or higher, a monk can avoid damage from many area-effect attacks. If a monk makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, he instead takes no damage. Evasion can be used only if a monk is wearing light armor or no armor. A helpless monk does not gain the benefit of evasion.<br><strong>Fast Movement (Ex)</strong> At 3rd level, a monk gains an enhancement bonus to his land speed, as shown on Table: Monk. A monk in armor or carrying a medium or heavy load loses this extra speed.<br><strong>Maneuver Training (Ex)</strong> At 3rd level, a monk uses his monk level in place of his base attack bonus when calculating his Combat Maneuver Bonus. Base attack bonuses granted from other classes are unaffected and are added normally.<br><strong>Still Mind (Ex)</strong> A monk of 3rd level or higher gains a +2 bonus on saving throws against enchantment spells and effects.<br><strong>Ki Pool (Su)</strong> At 4th level, a monk gains a pool of ki points, supernatural energy he can use to accomplish amazing feats. The number of points in a monk's ki pool is equal to 1/2 his monk level + his Wisdom modifier. As long as he has at least 1 point in his ki pool, he can make a ki strike. At 4th level, ki strike allows his unarmed attacks to be treated as magic weapons for the purpose of overcoming damage reduction. At 7th level, his unarmed attacks are also treated as cold iron and silver for the purpose of overcoming damage reduction. At 10th level, his unarmed attacks are also treated as lawful weapons for the purpose of overcoming damage reduction. At 16th level, his unarmed attacks are treated as adamantine weapons for the purpose of overcoming damage reduction and bypassing hardness.<br>By spending 1 point from his ki pool, a monk can make one additional attack at his highest attack bonus when making a flurry of blows attack. In addition, he can spend 1 point to increase his speed by 20 feet for 1 round. Finally, a monk can spend 1 point from his ki pool to give himself a +4 dodge bonus to AC for 1 round. Each of these powers is activated as a swift action. A monk gains additional powers that consume points from his ki pool as he gains levels.<br>The ki pool is replenished each morning after 8 hours of rest or meditation; these hours do not need to be consecutive.<br><strong>Slow Fall (Ex)</strong> At 4th level or higher, a monk within arm's reach of a wall can use it to slow his descent. When first gaining this ability, he takes damage as if the fall were 20 feet shorter than it actually is. The monk's ability to slow his fall (that is, to reduce the effective distance of the fall when next to a wall) improves with his monk level until at 20th level he can use a nearby wall to slow his descent and fall any distance without harm.<br><strong>High Jump (Ex)</strong> At 5th level, a monk adds his level to all Acrobatics checks made to jump, both for vertical jumps and horizontal jumps. In addition, he always counts as having a running start when making jump checks using Acrobatics. By spending 1 point from his ki pool as a swift action, a monk gains a +20 bonus on Acrobatics checks made to jump for 1 round.<br><strong>Purity of Body (Ex)</strong> At 5th level, a monk gains immunity to all diseases, including supernatural and magical diseases.<br><strong>Wholeness of Body (Su)</strong> At 7th level or higher, a monk can heal his own wounds as a standard action. He can heal a number of hit points of damage equal to his monk level by using 2 points from his ki pool."
       }, {
         note: "<strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. In addition, you receive a +2 bonus on checks made to grapple a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to grapple you.<br><strong>Weapon Focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Extra Ki</strong> Your ki pool increases by 2.<br><strong>Improved Disarm</strong> You do not provoke an attack of opportunity when performing a disarm combat maneuver. In addition, you receive a +2 bonus on checks made to disarm a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to disarm you.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws."
+      }, {
+        note: "Infected with lycanthropy."
+      }, {
+        note: "Pippin making Ioun Stones Dusty Rose for Vos (2,500gp spent on materials)."
       }],
       story: [{
-        note: "<strong>Party gear</strong> Wand of Cure Light Wounds x2 (Pippin and Morin)."
+        note: "Party gear Wand of Cure Light Wounds x2 (Pippin and Morin)."
+      }, {
+        note: "Prince's Wolves scarf, a toke to proof."
       }]
     }
   };
@@ -9218,9 +9332,80 @@ var checkUrl = (function() {
 
 })();
 
+var classes = (function() {
+
+  function _total(classObjects, key) {
+    var currentTotal = 0;
+    for (var i = 0; i < classObjects.length; i++) {
+      currentTotal = currentTotal + classObjects[i][key];
+    };
+    return parseInt(currentTotal, 10);
+  };
+
+  function _makeBaseAttackBonuses(totalBab) {
+    var allBab = [];
+    if (totalBab >= 5) {
+      while (totalBab > 0) {
+        allBab.push("+" + totalBab);
+        totalBab = totalBab - 5;
+      };
+    } else {
+      allBab.push("+" + totalBab);
+    };
+    allBab = allBab.join("/");
+    return allBab;
+  };
+
+  function delayUpdate(element) {
+    render();
+    textBlock.render();
+    totalBlock.render();
+  };
+
+  var delayUpdateTimer = null;
+
+  function bind(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    if (input) {
+      input.addEventListener("input", function() {
+        clearTimeout(delayUpdateTimer);
+        delayUpdateTimer = setTimeout(delayUpdate, 300, this);
+      }, false);
+    };
+  };
+
+  function render() {
+    var all_classes = helper.getObject(sheet.getCharacter(), "basics.classes");
+    var totalLevels = _total(all_classes, "level");
+    var totalHP = _total(all_classes, "hp") + (totalLevels * stats.getMod("con"));
+    var totalBab = _total(all_classes, "bab");
+    var totalRanks = _total(all_classes, "ranks") + (totalLevels * stats.getMod("int"));
+    var totalFortitude = _total(all_classes, "fortitude");
+    var totalReflex = _total(all_classes, "reflex");
+    var totalWill = _total(all_classes, "will");
+    var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
+    helper.setObject(sheet.getCharacter(), "basics.level", totalLevels);
+    helper.setObject(sheet.getCharacter(), "defense.hp.total", totalHP);
+    helper.setObject(sheet.getCharacter(), "offense.base_attack", totalBab);
+    helper.setObject(sheet.getCharacter(), "offense.base_attack_bonuses", baseAttackBonuses);
+    helper.setObject(sheet.getCharacter(), "skills.ranks.total", totalRanks);
+    helper.setObject(sheet.getCharacter(), "defense.fortitude.base", totalFortitude);
+    helper.setObject(sheet.getCharacter(), "defense.reflex.base", totalReflex);
+    helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render
+  };
+
+})();
+
 var clone = (function() {
 
   function render() {
+    _render_all_clones("class");
     _render_all_clones("attack-melee");
     _render_all_clones("attack-ranged");
     _render_all_clones("consumable");
@@ -9228,6 +9413,7 @@ var clone = (function() {
     _render_all_clones("skill");
     _render_all_clones("note-character");
     _render_all_clones("note-story");
+    _update_clonePlaceholder("class");
     _update_clonePlaceholder("attack-melee");
     _update_clonePlaceholder("attack-ranged");
     _update_clonePlaceholder("consumable");
@@ -9242,6 +9428,9 @@ var clone = (function() {
 
   function _get_cloneObjects(cloneType) {
     var object;
+    if (cloneType == "class") {
+      object = sheet.getCharacter().basics.classes;
+    };
     if (cloneType == "consumable") {
       object = sheet.getCharacter().equipment.consumable;
     };
@@ -9268,240 +9457,294 @@ var clone = (function() {
 
   function _get_cloneString(cloneType, cloneIndex) {
     var cloneString;
-    if (cloneType == "consumable") {
+    if (cloneType == "class") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-small">' +
-        '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="3">' +
-        '          </div>' +
+        '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-large">' +
+        '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Classname</label>' +
+        '          <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="classname" type="text" tabindex="1">' +
         '        </div>' +
-        '        <div class="m-edit-box-item-total">' +
-        '          <p class="u-text-center u-inline-with-input m-total-block-total js-total-block-total">0</p>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
+        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="level" data-type="integer" data-clone="true" data-tip="Total number of Levels in this Class." type="text" tabindex="1">' +
         '        </div>' +
-        '        <div class="m-edit-box-item-small">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="3">' +
-        '          </div>' +
+        '      </div>' +
+        '    </div>' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
+        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="hp" data-type="integer" data-clone="true" data-tip="HP for all Levels in this Class, (CON bonuses will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
-        '        <div class="m-edit-box-item-small">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="3">' +
-        '          </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
+        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="ranks" data-type="integer" data-clone="true" data-tip="Skill Ranks for all Levels in this Class, (INT bonuses will be automatically added)." type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-fortitude-' + cloneIndex + '">Base Fortitude</label>' +
+        '          <input id="class-fortitude-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="fortitude" data-type="integer" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-reflex-' + cloneIndex + '">Base Reflex</label>' +
+        '          <input id="class-reflex-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="reflex" data-type="integer" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="class-will-' + cloneIndex + '">Base Will</label>' +
+        '          <input id="class-will-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="will" data-type="integer" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '</div>';
+    };
+    if (cloneType == "consumable") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+
+        '        <div class="m-edit-box-item-total">' +
+        '          <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '        </div>' +
+
+        '        <div class="m-edit-box-item-small">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+
+        '        <div class="m-edit-box-item-small">' +
+        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="m-clone-block-delete-controls">' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "item") {
       cloneString =
-      '<div class="m-clone-block-content js-clone-block-content">' +
-      '  <div class="m-edit-box">' +
-      '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-small">' +
-      '      <div class="m-edit-box-item-large">' +
-      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="3">' +
-      '        </div>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-small">' +
-      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" data-type="integer" type="text" tabindex="3">' +
-      '        </div>' +
-      '      </div>' +
-      '      <div class="m-edit-box-item-small">' +
-      '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-      '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="float" type="text" tabindex="3">' +
-      '        </div>' +
-      '      </div>' +
-      '    </div>' +
-      '  </div>' +
-      '</div>' +
-      '<div class="m-clone-block-delete-controls">' +
-      '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
-      '</div>';
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-large">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="quantity" data-type="integer" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-small">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="weight" data-type="float" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="m-clone-block-delete-controls">' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '</div>';
     };
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="js-total-block" data-total-path="skills.custom" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '    <div class="m-edit-box m-edit-box-guides">' +
-        '      <div class="m-edit-box-head-large">' +
+        '  <div class="m-skill js-total-block" data-total-path="skills.custom" data-total-path-addition="ranks,misc" data-total-bonuses="true" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level,check_penalty" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '    <div class="m-edit-box m-edit-box-head-large m-edit-box-guides">' +
+        '      <div class="m-edit-box-head">' +
         '        <div class="m-skill-name m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="3" placeholder="Custom skill">' +
+        '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" data-path="skills.custom" data-path-clone-key="name" type="text" tabindex="1" placeholder="Custom skill">' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-body m-edit-box-body-group">' +
-        '        <div class="m-edit-box-item-total">' +
-        '          <p class="m-total-block-total js-total-block-total">0</p>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="3">' +
+        '      <div class="m-edit-box-body">' +
+        '        <div class="m-edit-box-content">' +
+        '          <div class="m-edit-box-item-max m-edit-box-group">' +
+        '            <div class="m-edit-box-item-total">' +
+        '              <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-medium">' +
+        '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-medium">' +
+        '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-check">' +
+        '              <div class="m-check-block">' +
+        '                <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="1">' +
+        '                <span class="m-check-block-check-icon"></span>' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-button">' +
+        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
+        '            </div>' +
         '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="3">' +
-        '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-check">' +
-        '          <div class="m-check-block">' +
-        '            <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="3">' +
-        '            <span class="m-check-block-check-icon"></span>' +
-        '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-button">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="3"><span class="icon-more-vertical"></span></a>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-skill">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "attack-melee") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box-group">' +
-        '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '        <div class="m-edit-box-item-max">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
-        '            <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="3">' +
-        '          </div>' +
-        '        </div>' +
+        '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
+        '    <div class="m-edit-box-item-max">' +
+        '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '        <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
+        '        <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="1">' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + cloneIndex + '">Attack</label>' +
-        '            <input id="attack-melee-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="attack" type="text" tabindex="3">' +
-        '          </div>' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + cloneIndex + '">Attack</label>' +
+        '          <input id="attack-melee-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="attack" type="text" tabindex="1">' +
         '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + cloneIndex + '">Damage</label>' +
-        '            <input id="attack-melee-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="3">' +
-        '          </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-damage-' + cloneIndex + '">Damage</label>' +
+        '          <input id="attack-melee-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="1">' +
         '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + cloneIndex + '">Critical</label>' +
-        '            <input id="attack-melee-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="3">' +
-        '          </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + cloneIndex + '">Critical</label>' +
+        '          <input id="attack-melee-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "attack-ranged") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box-group">' +
-        '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '        <div class="m-edit-box-item-max">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
-        '            <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="3">' +
-        '          </div>' +
+        '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
+        '    <div class="m-edit-box-item-max">' +
+        '      <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
+        '        <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="1">' +
+        '      </div>' +
+        '    </div>' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + cloneIndex + '">Attack</label>' +
+        '          <input id="attack-ranged-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="attack" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + cloneIndex + '">Damage</label>' +
+        '          <input id="attack-ranged-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="damage" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + cloneIndex + '">Attack</label>' +
-        '            <input id="attack-ranged-attack-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="attack" type="text" tabindex="3">' +
-        '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-damage-' + cloneIndex + '">Damage</label>' +
-        '            <input id="attack-ranged-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="damage" type="text" tabindex="3">' +
-        '          </div>' +
-        '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + cloneIndex + '">Critical</label>' +
-        '            <input id="attack-ranged-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="critical" type="text" tabindex="3">' +
-        '          </div>' +
+        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + cloneIndex + '">Critical</label>' +
+        '          <input id="attack-ranged-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="critical" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
-        '    </div>' +
-        '    <div class="m-edit-box">' +
-        '      <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + cloneIndex + '">Range</label>' +
-        '            <input id="attack-ranged-range-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="3">' +
-        '          </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-range-' + cloneIndex + '">Range</label>' +
+        '          <input id="attack-ranged-range-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="1">' +
         '        </div>' +
-        '        <div class="m-edit-box-item-medium">' +
-        '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + cloneIndex + '">Ammo</label>' +
-        '            <input id="attack-ranged-ammo-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="3">' +
-        '          </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + cloneIndex + '">Ammo</label>' +
+        '          <input id="attack-ranged-ammo-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "note-character") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '      <div class="m-edit-box-item-max">' +
-        '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + cloneIndex + '">Note</label>' +
-        '          <div id="note-character-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.character" data-path-clone-key="note" tabindex="3"></div>' +
-        '        </div>' +
+        '  <div class="m-edit-box-content m-edit-box-content-margin-large">' +
+        '    <div class="m-edit-box-item-max">' +
+        '      <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + cloneIndex + '">Note</label>' +
+        '        <div id="note-character-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.character" data-path-clone-key="note" tabindex="1"></div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-note">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "note-story") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box">' +
-        '    <div class="m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large">' +
-        '      <div class="m-edit-box-item-max">' +
-        '        <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '          <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + cloneIndex + '">Note</label>' +
-        '          <div id="note-story-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.story" data-path-clone-key="note" tabindex="3"></div>' +
-        '        </div>' +
+        '  <div class="m-edit-box-content m-edit-box-content-margin-large">' +
+        '    <div class="m-edit-box-item-max">' +
+        '      <div class="m-textarea-block js-textarea-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + cloneIndex + '">Note</label>' +
+        '        <div id="note-story-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" data-path="notes.story" data-path-clone-key="note" tabindex="1"></div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-note">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="3"><span class="icon-close"></span></button>' +
+        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     return cloneString;
@@ -9509,10 +9752,10 @@ var clone = (function() {
 
   function _get_cloneBlock(cloneType) {
     var cloneBlock;
-    if (cloneType == "attack-melee" || cloneType == "attack") {
-      cloneBlock = helper.e(".js-clone-block-attack");
+    if (cloneType == "class") {
+      cloneBlock = helper.e(".js-clone-block-class");
     };
-    if (cloneType == "attack-ranged") {
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged" || cloneType == "attack") {
       cloneBlock = helper.e(".js-clone-block-attack");
     };
     if (cloneType == "item") {
@@ -9524,10 +9767,7 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneBlock = helper.e(".js-clone-block-skill");
     };
-    if (cloneType == "note-character" || cloneType == "note") {
-      cloneBlock = helper.e(".js-clone-block-note");
-    };
-    if (cloneType == "note-story") {
+    if (cloneType == "note-character" || cloneType == "note-story" || cloneType == "note") {
       cloneBlock = helper.e(".js-clone-block-note");
     };
     return cloneBlock;
@@ -9535,6 +9775,9 @@ var clone = (function() {
 
   function _get_cloneTarget(cloneType) {
     var cloneTarget;
+    if (cloneType == "class") {
+      cloneTarget = helper.e(".js-clone-block-target-class");
+    };
     if (cloneType == "attack-melee") {
       cloneTarget = helper.e(".js-clone-block-target-attack-melee");
     };
@@ -9561,6 +9804,9 @@ var clone = (function() {
 
   function _get_cloneCount(cloneType, mixed) {
     var cloneCount;
+    if (cloneType == "class") {
+      cloneCount = helper.getObject(sheet.getCharacter(), "basics.classes").length;
+    };
     if (cloneType == "attack-melee") {
       cloneCount = helper.getObject(sheet.getCharacter(), "offense.attack.melee").length;
     };
@@ -9593,6 +9839,9 @@ var clone = (function() {
 
   function _get_placeholderClone(cloneType) {
     var clonePlaceholder;
+    if (cloneType == "class") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-class");
+    };
     if (cloneType == "attack-melee") {
       clonePlaceholder = helper.e(".js-placeholder-clone-attack-melee");
     };
@@ -9619,6 +9868,9 @@ var clone = (function() {
 
   function _get_clonePrefix(cloneType) {
     var clonePrefix;
+    if (cloneType == "class") {
+      clonePrefix = helper.e(".js-clone-block-prefix-class");
+    };
     if (cloneType == "attack-melee") {
       clonePrefix = helper.e(".js-clone-block-prefix-attack-melee");
     };
@@ -9645,6 +9897,9 @@ var clone = (function() {
 
   function _get_cloneSuffix(cloneType) {
     var cloneSuffix;
+    if (cloneType == "class") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-class");
+    };
     if (cloneType == "attack-melee") {
       cloneSuffix = helper.e(".js-clone-block-suffix-attack-melee");
     };
@@ -9671,6 +9926,9 @@ var clone = (function() {
 
   function _get_maxCloneMessage(cloneType) {
     var message = "Max 200, do you need that many";
+    if (cloneType == "class") {
+      message = message + " Classes?";
+    };
     if (cloneType == "attack-melee") {
       message = message + " Melee Attacks?";
     };
@@ -9697,6 +9955,9 @@ var clone = (function() {
 
   function _get_undoRemoveCloneMessage(cloneType) {
     var message = "removed.";
+    if (cloneType == "class") {
+      message = "Class " + message;
+    };
     if (cloneType == "attack-melee") {
       message = "Melee attack " + message;
     };
@@ -9723,6 +9984,18 @@ var clone = (function() {
 
   function _get_newCloneObject(cloneType) {
     var object;
+    if (cloneType == "class") {
+      object = {
+        classname: "",
+        level: "",
+        hp: "",
+        fortitude: "",
+        reflex: "",
+        will: "",
+        ranks: "",
+        bab: ""
+      };
+    };
     if (cloneType == "attack-melee") {
       object = {
         weapon: "",
@@ -9817,11 +10090,15 @@ var clone = (function() {
   };
 
   function _bind_cloneControls() {
-    var cloneBlockConsumable =  _get_cloneBlock("consumable"); helper.e(".js-clone-block-consumable");
-    var cloneBlockSkill =  _get_cloneBlock("skill"); helper.e(".js-clone-block-skill");
-    var cloneBlockItem =  _get_cloneBlock("item"); helper.e(".js-clone-block-skill");
-    var cloneBlockAttack =  _get_cloneBlock("attack"); helper.e(".js-clone-block-attack");
-    var cloneBlockNote =  _get_cloneBlock("note"); helper.e(".js-clone-block-note");
+    var cloneBlockClass = _get_cloneBlock("class");
+    var cloneBlockConsumable = _get_cloneBlock("consumable");
+    var cloneBlockSkill = _get_cloneBlock("skill");
+    var cloneBlockItem = _get_cloneBlock("item");
+    var cloneBlockAttack = _get_cloneBlock("attack");
+    var cloneBlockNote = _get_cloneBlock("note");
+
+    var cloneAddClass = cloneBlockClass.querySelector(".js-clone-add-class");
+    var cloneRemoveClass = cloneBlockClass.querySelector(".js-clone-remove");
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
@@ -9839,6 +10116,11 @@ var clone = (function() {
     var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
     var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
     var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
+
+    cloneAddClass.addEventListener("click", function() {
+      _addNewClone("class");
+      sheet.storeCharacters();
+    }, false);
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
@@ -9875,24 +10157,34 @@ var clone = (function() {
       sheet.storeCharacters();
     }, false);
 
+    cloneRemoveClass.addEventListener("click", function() {
+      _change_cloneState("class");
+      _update_removeButtonTab("class");
+    }, false);
+
     cloneRemoveAttack.addEventListener("click", function() {
       _change_cloneState("attack");
+      _update_removeButtonTab("attack");
     }, false);
 
     cloneRemoveConsumable.addEventListener("click", function() {
       _change_cloneState("consumable");
+      _update_removeButtonTab("consumable");
     }, false);
 
     cloneRemoveItem.addEventListener("click", function() {
       _change_cloneState("item");
+      _update_removeButtonTab("item");
     }, false);
 
     cloneRemoveSkill.addEventListener("click", function() {
       _change_cloneState("skill");
+      _update_removeButtonTab("skill");
     }, false);
 
     cloneRemoveNote.addEventListener("click", function() {
       _change_cloneState("note");
+      _update_removeButtonTab("note");
     }, false);
   };
 
@@ -9900,11 +10192,18 @@ var clone = (function() {
     button.addEventListener("click", function() {
       _store_lastRemovedClone(this, cloneType);
       _remove_clone(this, cloneType);
+      _update_removeButtonTab(cloneType);
       sheet.storeCharacters();
     }, false);
   };
 
   function _bind_clone(cloneType, newClone) {
+    if (cloneType == "class") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_classesInputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
+      _bind_tip(newClone.querySelectorAll(".js-tip"));
+    };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
     };
@@ -9995,7 +10294,9 @@ var clone = (function() {
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
-      helper.removeClass(cloneRemoveButton, "is-active");
+      // helper.removeClass(cloneRemoveButton, "is-active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-secondary");
     };
   };
 
@@ -10008,12 +10309,16 @@ var clone = (function() {
     inputBlock.render();
     textareaBlock.clear();
     textareaBlock.render();
+    if (cloneType == "class") {
+      classes.render();
+    };
+    textBlock.render();
+    totalBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
-    totalBlock.render();
-    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 6000);
+    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 8000);
   };
 
   function _restore_lastRemovedClone() {
@@ -10025,12 +10330,17 @@ var clone = (function() {
     inputBlock.render();
     textareaBlock.clear();
     textareaBlock.render();
+    if (undoData.cloneType == "class") {
+      classes.render();
+    };
+    textBlock.render();
+    totalBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
     _update_cloneSuffix(undoData.cloneType);
     _update_cloneState(undoData.cloneType);
+    _update_removeButtonTab(undoData.cloneType);
     _remove_lastRemovedClone();
-    totalBlock.render();
     sheet.storeCharacters();
   };
 
@@ -10057,19 +10367,37 @@ var clone = (function() {
     _get_cloneObjects(cloneType).splice(index, 0, cloneObject);
   };
 
-  function _bind_totalBlock(totalBlockeElement) {
-    totalBlock.bind(totalBlockeElement);
+  function _bind_totalBlock(all_totalBlock) {
+    totalBlock.bind(all_totalBlock);
   };
 
-  function _bind_inputBlock(inputBlockElement) {
-    for (var i = 0; i < inputBlockElement.length; i++) {
-      inputBlock.bind(inputBlockElement[i]);
+  function _bind_inputBlock(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      inputBlock.bind(all_inputBlock[i]);
     };
   };
 
-  function _bind_textareaBlock(textareaBlockElement) {
-    for (var i = 0; i < textareaBlockElement.length; i++) {
-      textareaBlock.bind(textareaBlockElement[i]);
+  function _bind_classesInputBlock(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      classes.bind(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_classLevelInputBlock(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      inputBlock.bind_classLevel(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_tip(all_tip) {
+    for (var i = 0; i < all_tip.length; i++) {
+      tip.bind(all_tip[i]);
+    };
+  };
+
+  function _bind_textareaBlock(all_textareaBlock) {
+    for (var i = 0; i < all_textareaBlock.length; i++) {
+      textareaBlock.bind(all_textareaBlock[i]);
     };
   };
 
@@ -10077,22 +10405,45 @@ var clone = (function() {
     var cloneBlock = helper.e(".js-clone-block-" + cloneType);
     var cloneControls = cloneBlock.querySelector(".js-clone-controls");
     var cloneRemoveButton = cloneControls.querySelector(".js-clone-remove");
-    var cloneCount = _get_cloneCount(cloneType);
-    // change clone remove button
-    helper.toggleClass(cloneRemoveButton, "is-active");
+    var cloneTarget = _get_cloneTarget(cloneType);
     // change clone block state
     if (cloneBlock.dataset.deleteCloneState == "false" || !cloneBlock.dataset.deleteCloneState) {
       helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
+      // change clone remove button
+      // helper.toggleClass(cloneRemoveButton, "is-active");
+      helper.addClass(cloneRemoveButton, "button-primary");
+      helper.removeClass(cloneRemoveButton, "button-secondary");
     } else {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
+      // change clone remove button
+      // helper.removeClass(cloneRemoveButton, "is-active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-secondary");
     };
     // if clone count is 0 restore all classes to normal
-    if (cloneCount == 0) {
-      helper.removeClass(cloneBlock, "is-delete-state");
+    if (_get_cloneCount(cloneType) == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
-      helper.removeClass(cloneRemoveButton, "is-active");
+      helper.removeClass(cloneBlock, "is-delete-state");
+      // change clone remove button
+      // helper.removeClass(cloneRemoveButton, "is-active");
+      helper.removeClass(cloneRemoveButton, "button-primary");
+      helper.addClass(cloneRemoveButton, "button-secondary");
+    };
+  };
+
+  function _update_removeButtonTab(cloneType) {
+    var cloneBlock = _get_cloneBlock(cloneType);
+    var all_removeButtons = cloneBlock.querySelectorAll(".js-clone-block-delete");
+    if (cloneBlock.dataset.deleteCloneState == "true") {
+      for (var i = 0; i < all_removeButtons.length; i++) {
+        all_removeButtons[i].setAttribute("tabindex", "1");
+      };
+    } else {
+      for (var i = 0; i < all_removeButtons.length; i++) {
+        all_removeButtons[i].setAttribute("tabindex", "-1");
+      };
     };
   };
 
@@ -10137,6 +10488,7 @@ var clone = (function() {
     if (cloneType) {
       _clear_cloneTarget(cloneType);
     } else {
+      _clear_cloneTarget("class");
       _clear_cloneTarget("attack-melee");
       _clear_cloneTarget("attack-ranged");
       _clear_cloneTarget("consumable");
@@ -10430,6 +10782,9 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_clones.length; j++) {
           var cloneType;
+          if (all_displayPath[i] == "basics.classes") {
+            cloneType = "class";
+          };
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
@@ -10461,6 +10816,30 @@ var display = (function() {
   function _get_clone(object, cloneType) {
     var _get_cloneItem = function(object, cloneType) {
       var displayListItem;
+
+      if (cloneType == "class") {
+        displayListItem = document.createElement("span");
+        displayListItem.setAttribute("class", "m-display-item-text-snippet");
+        for (var i in object) {
+          if (i == "classname") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "level") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-item-text-snippet-value");
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+      };
 
       if (cloneType == "consumable") {
         displayListItem = document.createElement("li");
@@ -11115,8 +11494,6 @@ var inputBlock = (function() {
       };
     };
     _bind_name();
-    _bind_class();
-    _bind_level();
   };
 
   function _bind_inputBlock(inputBlock) {
@@ -11137,7 +11514,8 @@ var inputBlock = (function() {
   };
 
   function _bind_name() {
-    var input = helper.e(".js-basics-name");
+    var inputBlock = helper.e(".js-basics-name");
+    var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(nav.update, 300, this);
@@ -11153,16 +11531,8 @@ var inputBlock = (function() {
     }, false);
   };
 
-  function _bind_class() {
-    var input = helper.e(".js-basics-class");
-    input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 300, this);
-    }, false);
-  };
-
-  function _bind_level() {
-    var input = helper.e(".js-basics-level");
+  function bind_classLevel(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(nav.update, 300, this);
@@ -11201,6 +11571,7 @@ var inputBlock = (function() {
   return {
     render: render,
     bind: bind,
+    bind_classLevel: bind_classLevel,
     clear: clear
   };
 
@@ -11438,7 +11809,8 @@ var log = (function() {
   return {
     changeLog: _create_fullChangeLog,
     render: render,
-    bind: bind
+    bind: bind,
+    destroy: destroy
   };
 
 })();
@@ -11650,7 +12022,7 @@ var nav = (function() {
 
   };
 
-  function _scrollToTop() {
+  function scrollToTop() {
     if (window.innerWidth < 550) {
       window.scrollTo(0, 0);
     } else {
@@ -11665,7 +12037,7 @@ var nav = (function() {
       _switch_character(label);
       sheet.storeCharacters();
       navClose();
-      _scrollToTop();
+      scrollToTop();
     }, false);
   };
 
@@ -11680,28 +12052,13 @@ var nav = (function() {
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
     navClose();
-    _scrollToTop();
+    scrollToTop();
   };
 
-  function updateNavCharacters(input) {
-    var inputType = input.dataset.characterNav;
-    var inputValue = input.value;
-    if (inputType == "name") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "New character";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-name").textContent = helper.truncate(inputValue, 30, true);
-    } else if (inputType == "class") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "Class";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-class").textContent = helper.truncate(inputValue, 20, true) + " ";
-    } else if (inputType == "level") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "Level";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-level").textContent = helper.truncate(inputValue, 10, false);
-    };
+
+  function updateNavCharacters() {
+    nav.clear();
+    nav.render();
   };
 
   function clear() {
@@ -11778,61 +12135,69 @@ var nav = (function() {
     var characters = sheet.getAllCharacters();
     var navCharacters = helper.e(".js-nav-characters");
     for (var i in characters) {
-      var characterAnchor = _createNavCharacterItem(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
-      navCharacters.appendChild(characterAnchor);
+      navCharacters.appendChild(_createNavCharacterItem(characters[i], i));
     };
-    var all_navCharacterSelect = helper.eA(".js-nav-character-input");
-    all_navCharacterSelect[sheet.getIndex()].checked = true;
+    var all_navCharacterInput = helper.eA(".js-nav-character-input");
+    all_navCharacterInput[sheet.getIndex()].checked = true;
   };
 
-  function _createNavCharacterItem(characterName, characterClass, characterLevel, characterIndex) {
+  function _get_name(characterObject) {
+    var characterName = characterObject.basics.name;
     if (typeof characterName == "undefined" || characterName == "") {
-      characterName = "New character";
+      characterName = "New Character";
     };
-    if (typeof characterClass == "undefined" || characterClass == "") {
-      characterClass = "Class";
-    };
-    if (typeof characterLevel == "undefined" || characterLevel == "") {
-      characterLevel = "Level";
-    };
+    return characterName;
+  };
 
-    // define elements
+  function _get_allClassLevel(characterObject) {
+    var classAndLevel = "";
+    var classes = characterObject.basics.classes;
+    for (var i = 0; i < classes.length; i++) {
+      var classname = classes[i].classname || "Class";
+      var level = classes[i].level || "Level";
+      classAndLevel = classAndLevel + classname + " " + level;
+      if (i < (classes.length - 1)) {
+        classAndLevel = classAndLevel + " / ";
+      };
+    };
+    return classAndLevel;
+  };
+
+  function _createNavCharacterItem(characterObject, characterIndex) {
+    var classLevel = _get_allClassLevel(characterObject);
+    var characterName = _get_name(characterObject);
+
     var uniqueId = helper.randomId(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character");
+    navCharacter.setAttribute("class", "m-nav-character js-nav-character-" + characterIndex);
 
     var input = document.createElement("input");
     input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     input.setAttribute("name", "js-nav-all-characters");
     input.setAttribute("class", "js-nav-character-input");
     input.setAttribute("type", "radio");
-    input.setAttribute("tabindex", 10);
+    input.setAttribute("tabindex", 1);
 
     var label = document.createElement("label");
     label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
+    label.setAttribute("class", "u-full-width js-nav-character-label");
     label.setAttribute("data-character-index", characterIndex);
 
     var detailsSpan = document.createElement("span");
     detailsSpan.setAttribute("class", "m-nav-characters-details");
 
     var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
-    nameSpan.textContent = helper.truncate(characterName, 30, true);
+    nameSpan.setAttribute("class", "m-nav-characters-name");
+    nameSpan.textContent = characterName;
 
-    var classSpan = document.createElement("span");
-    classSpan.setAttribute("class", "m-nav-characters-class js-nav-characters-class");
-    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
-
-    var levelSpan = document.createElement("span");
-    levelSpan.setAttribute("class", "m-nav-characters-level js-nav-characters-level");
-    levelSpan.textContent = helper.truncate(characterLevel, 10);
+    var classLevelSpan = document.createElement("span");
+    classLevelSpan.setAttribute("class", "m-nav-characters-class-level");
+    classLevelSpan.textContent = classLevel;
 
     // build module
     detailsSpan.appendChild(nameSpan);
-    detailsSpan.appendChild(classSpan);
-    detailsSpan.appendChild(levelSpan);
+    detailsSpan.appendChild(classLevelSpan);
     label.appendChild(detailsSpan);
     navCharacter.appendChild(input);
     navCharacter.appendChild(label);
@@ -11963,7 +12328,7 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-      _scrollToTop();
+      scrollToTop();
     }, false);
 
     characterImport.addEventListener("click", function(event) {
@@ -11971,7 +12336,6 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       sheet.import();
-      _scrollToTop();
     }, false);
 
     characterExport.addEventListener("click", function(event) {
@@ -11987,7 +12351,6 @@ var nav = (function() {
       navClose();
       sheet.addCharacter();
       snack.render("New character added.", false);
-      _scrollToTop();
     }, false);
 
     characterRemove.addEventListener("click", function(event) {
@@ -12079,7 +12442,8 @@ var nav = (function() {
     update: updateNavCharacters,
     open: navOpen,
     close: navClose,
-    toggle: toggle_nav
+    toggle: toggle_nav,
+    scrollToTop: scrollToTop
   }
 
 })();
@@ -12349,10 +12713,63 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update classes
+    if (!characterObject.basics.classes) {
+      // console.log("--------\t\tupdate classes");
+      characterObject.basics.classes = [{
+        classname: "",
+        level: "",
+        hp: "",
+        fortitude: "",
+        reflex: "",
+        will: "",
+        ranks: "",
+        bab: ""
+      }];
+      // move class to classes
+      if (characterObject.basics.class != "") {
+        characterObject.basics.classes[0].classname = characterObject.basics.class;
+      };
+      // move level to classes
+      if (characterObject.basics.level != "") {
+        characterObject.basics.classes[0].level = parseInt(characterObject.basics.level, 10);
+        characterObject.basics.level = "";
+      };
+      // remove con bonus from hp and add it to classes
+      if (characterObject.defense.hp.total != "") {
+        var conMod = 0;
+        if (characterObject.statistics.stats.con.temp_score != "") {
+          conMod = Math.floor((parseInt(characterObject.statistics.stats.con.temp_score, 10) - 10) / 2);
+        } else {
+          conMod = Math.floor((parseInt(characterObject.statistics.stats.con.score, 10) - 10) / 2);
+        };
+        var conHp = conMod * characterObject.basics.classes[0].level;
+        characterObject.basics.classes[0].hp = characterObject.defense.hp.total - conHp;
+        characterObject.defense.hp.total = "";
+      };
+      // move bab
+      if (characterObject.offense.base_attack != "") {
+        characterObject.basics.classes[0].bab = parseInt(characterObject.offense.base_attack, 10);
+        characterObject.offense.base_attack = "";
+        characterObject.offense.base_attack_bonuses = "";
+      };
+      // move base saves
+      if (characterObject.defense.fortitude.base != "") {
+        characterObject.basics.classes[0].fortitude = characterObject.defense.fortitude.base;
+      };
+      if (characterObject.defense.reflex.base != "") {
+        characterObject.basics.classes[0].reflex = characterObject.defense.reflex.base;
+      };
+      if (characterObject.defense.will.base != "") {
+        characterObject.basics.classes[0].will = characterObject.defense.will.base;
+      };
+      delete characterObject.basics.class;
+    };
     // remove racial save bonuses
     ifRacial("racial", characterObject.defense.fortitude);
     ifRacial("racial", characterObject.defense.reflex);
     ifRacial("racial", characterObject.defense.will);
+
     function ifRacial(key, object) {
       if (key in object) {
         // console.log("\t\tremove racial save bonuses");
@@ -12427,7 +12844,7 @@ var repair = (function() {
       };
     };
     // add size object
-    if (typeof characterObject.basics.size != "object" || "size_bonus" in sheet.getCharacter().defense.ac) {
+    if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
       // console.log("\t\tadd size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
@@ -12704,6 +13121,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
   };
 
   function removeCharacter() {
@@ -12925,9 +13343,13 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.getCharacter());
+    for (var i = 0; i < allCharacters.length; i++) {
+      repair.render(allCharacters[i]);
+    };
     stats.render();
     clone.render();
+    classes.render();
+    textBlock.render();
     inputBlock.render();
     selectBlock.render();
     textareaBlock.render();
@@ -12952,6 +13374,7 @@ var sheet = (function() {
     totalBlock.bind();
     display.bind();
     card.bind();
+    tip.bind();
     registerServiceWorker.bind();
   };
 
@@ -12959,6 +13382,7 @@ var sheet = (function() {
     stats.render();
     totalBlock.clear();
     clone.clear();
+    textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
     textareaBlock.clear();
@@ -13054,7 +13478,7 @@ var skills = (function() {
     for (var i in all_skills) {
       ranks.push(parseInt(all_skills[i].ranks, 10) || 0);
     };
-    if (helper.getObject(sheet.getCharacter(), "skills.spent_ranks.include_custom")) {
+    if (helper.getObject(sheet.getCharacter(), "skills.ranks.spent.include_custom")) {
       for (var i = 0; i < all_customSkills.length; i++) {
         ranks.push(parseInt(all_customSkills[i].ranks, 10) || 0);
       };
@@ -13213,12 +13637,12 @@ var spells = (function() {
     spellActiveButton.addEventListener("click", function() {
       _change_spellState(this);
     }, false);
-    spellRemoveButton.addEventListener("click", function() {
-      _change_spellState(this);
-    }, false);
     spellResetButton.addEventListener("click", function() {
       _change_spellState(this);
       _resetAllSpells();
+    }, false);
+    spellRemoveButton.addEventListener("click", function() {
+      _change_spellState(this);
     }, false);
   };
 
@@ -13379,50 +13803,58 @@ var spells = (function() {
       spellControl.setAttribute("data-spell-cast", spellObject.cast);
 
       var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box");
+      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var nameEditBoxHead = document.createElement("div");
-      nameEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      nameEditBoxHead.setAttribute("class", "m-edit-box-head");
       var nameEditBoxHeadTitle = document.createElement("h2");
       nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       nameEditBoxHeadTitle.textContent = "Name";
       var nameEditBoxBody = document.createElement("div");
-      nameEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-item-margin-large");
-      var nameEditBoxBodyItem = document.createElement("div");
-      nameEditBoxBodyItem.setAttribute("class", "m-edit-box-item-large");
+      nameEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var nameEditBoxContent = document.createElement("div");
+      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var nameEditBoxContentItem = document.createElement("div");
+      nameEditBoxContentItem.setAttribute("class", "m-edit-box-item-large");
       var nameEditBoxBodyInput = document.createElement("input");
       nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
       nameEditBoxBodyInput.setAttribute("type", "text");
-      nameEditBoxBodyInput.setAttribute("tabindex", "3");
+      nameEditBoxBodyInput.setAttribute("tabindex", "1");
       nameEditBoxBodyInput.value = spellObject.name;
 
-      nameEditBoxBodyItem.appendChild(nameEditBoxBodyInput);
-      nameEditBoxBody.appendChild(nameEditBoxBodyItem);
+      nameEditBoxContentItem.appendChild(nameEditBoxBodyInput);
+      nameEditBoxContent.appendChild(nameEditBoxContentItem);
+      nameEditBoxBody.appendChild(nameEditBoxContent);
       nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
       nameEditBox.appendChild(nameEditBoxHead);
       nameEditBox.appendChild(nameEditBoxBody);
+
       var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box");
+      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var preparedEditBoxHead = document.createElement("div");
-      preparedEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
       var preparedEditBoxHeadTitle = document.createElement("h2");
       preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       preparedEditBoxHeadTitle.textContent = "Prepared";
       var preparedEditBoxBody = document.createElement("div");
-      preparedEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
-      var preparedEditBoxBodyItem1 = document.createElement("div");
-      preparedEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
-      var preparedEditBoxBodyItem2 = document.createElement("div");
-      preparedEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
-      var preparedEditBoxBodyItem3 = document.createElement("div");
-      preparedEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
-      var preparedEditBoxBodyItem4 = document.createElement("div");
-      preparedEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var preparedEditBoxContent = document.createElement("div");
+      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var preparedEditBoxGroup = document.createElement("div");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var preparedEditBoxContentItem1 = document.createElement("div");
+      preparedEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
+      var preparedEditBoxContentItem2 = document.createElement("div");
+      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      var preparedEditBoxContentItem3 = document.createElement("div");
+      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      var preparedEditBoxContentItem4 = document.createElement("div");
+      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
       var preparedCount = document.createElement("p");
-      preparedCount.setAttribute("class", "m-total-block-total js-spell-control-prepared-count");
+      preparedCount.setAttribute("class", "m-edit-box-text js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
       preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedPlus.setAttribute("tabindex", "3");
+      preparedPlus.setAttribute("tabindex", "1");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
       preparedPlus.addEventListener("click", function() {
@@ -13431,7 +13863,7 @@ var spells = (function() {
       }, false);
       var preparedMinus = document.createElement("button");
       preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedMinus.setAttribute("tabindex", "3");
+      preparedMinus.setAttribute("tabindex", "1");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
       preparedMinus.addEventListener("click", function() {
@@ -13440,7 +13872,7 @@ var spells = (function() {
       }, false);
       var preparedClear = document.createElement("button");
       preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      preparedClear.setAttribute("tabindex", "3");
+      preparedClear.setAttribute("tabindex", "1");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
       preparedClear.addEventListener("click", function() {
@@ -13448,44 +13880,50 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
 
-      preparedEditBoxBodyItem1.appendChild(preparedCount);
+      preparedEditBoxContentItem1.appendChild(preparedCount);
       preparedPlus.appendChild(preparedPlusIcon);
-      preparedEditBoxBodyItem2.appendChild(preparedPlus);
+      preparedEditBoxContentItem2.appendChild(preparedPlus);
       preparedMinus.appendChild(preparedMinusIcon);
-      preparedEditBoxBodyItem3.appendChild(preparedMinus);
+      preparedEditBoxContentItem3.appendChild(preparedMinus);
       preparedClear.appendChild(preparedClearIcon);
-      preparedEditBoxBodyItem4.appendChild(preparedClear);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem1);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem2);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem3);
-      preparedEditBoxBody.appendChild(preparedEditBoxBodyItem4);
+      preparedEditBoxContentItem4.appendChild(preparedClear);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem1);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem2);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem3);
+      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem4);
+      preparedEditBoxContent.appendChild(preparedEditBoxGroup);
+      preparedEditBoxBody.appendChild(preparedEditBoxContent);
       preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
       preparedEditBox.appendChild(preparedEditBoxHead);
       preparedEditBox.appendChild(preparedEditBoxBody);
 
       var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box");
+      castEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var castEditBoxHead = document.createElement("div");
-      castEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      castEditBoxHead.setAttribute("class", "m-edit-box-head");
       var castEditBoxHeadTitle = document.createElement("h2");
       castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       castEditBoxHeadTitle.textContent = "Cast";
       var castEditBoxBody = document.createElement("div");
-      castEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
-      var castEditBoxBodyItem1 = document.createElement("div");
-      castEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-total");
-      var castEditBoxBodyItem2 = document.createElement("div");
-      castEditBoxBodyItem2.setAttribute("class", "m-edit-box-item-control");
-      var castEditBoxBodyItem3 = document.createElement("div");
-      castEditBoxBodyItem3.setAttribute("class", "m-edit-box-item-control");
-      var castEditBoxBodyItem4 = document.createElement("div");
-      castEditBoxBodyItem4.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var castEditBoxContent = document.createElement("div");
+      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var castEditBoxGroup = document.createElement("div");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var castEditBoxContentItem1 = document.createElement("div");
+      castEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
+      var castEditBoxContentItem2 = document.createElement("div");
+      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      var castEditBoxContentItem3 = document.createElement("div");
+      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      var castEditBoxContentItem4 = document.createElement("div");
+      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
       var castCount = document.createElement("p");
-      castCount.setAttribute("class", "m-total-block-total js-spell-control-cast-count");
+      castCount.setAttribute("class", "m-edit-box-text js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
       castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castPlus.setAttribute("tabindex", "3");
+      castPlus.setAttribute("tabindex", "1");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
       castPlus.addEventListener("click", function() {
@@ -13494,7 +13932,7 @@ var spells = (function() {
       }, false);
       var castMinus = document.createElement("button");
       castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castMinus.setAttribute("tabindex", "3");
+      castMinus.setAttribute("tabindex", "1");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
       castMinus.addEventListener("click", function() {
@@ -13503,7 +13941,7 @@ var spells = (function() {
       }, false);
       var castClear = document.createElement("button");
       castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
-      castClear.setAttribute("tabindex", "3");
+      castClear.setAttribute("tabindex", "1");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");
       castClear.addEventListener("click", function() {
@@ -13511,39 +13949,43 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
 
-      castEditBoxBodyItem1.appendChild(castCount);
+      castEditBoxContentItem1.appendChild(castCount);
       castPlus.appendChild(castPlusIcon);
-      castEditBoxBodyItem2.appendChild(castPlus);
+      castEditBoxContentItem2.appendChild(castPlus);
       castMinus.appendChild(castMinusIcon);
-      castEditBoxBodyItem3.appendChild(castMinus);
+      castEditBoxContentItem3.appendChild(castMinus);
       castClear.appendChild(castClearIcon);
-      castEditBoxBodyItem4.appendChild(castClear);
-      castEditBoxBody.appendChild(castEditBoxBodyItem1);
-      castEditBoxBody.appendChild(castEditBoxBodyItem2);
-      castEditBoxBody.appendChild(castEditBoxBodyItem3);
-      castEditBoxBody.appendChild(castEditBoxBodyItem4);
+      castEditBoxContentItem4.appendChild(castClear);
+      castEditBoxGroup.appendChild(castEditBoxContentItem1);
+      castEditBoxGroup.appendChild(castEditBoxContentItem2);
+      castEditBoxGroup.appendChild(castEditBoxContentItem3);
+      castEditBoxGroup.appendChild(castEditBoxContentItem4);
+      castEditBoxContent.appendChild(castEditBoxGroup);
+      castEditBoxBody.appendChild(castEditBoxContent);
       castEditBoxHead.appendChild(castEditBoxHeadTitle);
       castEditBox.appendChild(castEditBoxHead);
       castEditBox.appendChild(castEditBoxBody);
 
       var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box");
+      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var activeEditBoxHead = document.createElement("div");
-      activeEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      activeEditBoxHead.setAttribute("class", "m-edit-box-head");
       var activeEditBoxHeadTitle = document.createElement("h2");
       activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       activeEditBoxHeadTitle.textContent = "Active";
       var activeEditBoxBody = document.createElement("div");
-      activeEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group m-edit-box-body-item-margin-large");
-      var activeEditBoxBodyItem1 = document.createElement("div");
-      activeEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-check");
+      activeEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var activeEditBoxContent = document.createElement("div");
+      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var activeEditBoxContentItem1 = document.createElement("div");
+      activeEditBoxContentItem1.setAttribute("class", "m-edit-box-item-check");
       var activeCheck = document.createElement("div");
       activeCheck.setAttribute("class", "m-check-block");
       var activeInput = document.createElement("input");
       activeInput.setAttribute("type", "checkbox");
       activeInput.setAttribute("id", "spell-active");
       activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-      activeInput.setAttribute("tabindex", "3");
+      activeInput.setAttribute("tabindex", "1");
       activeInput.checked = spellObject.active;
       activeInput.addEventListener("change", function() {
         _store_data(spellControl, "toggle", "active");
@@ -13554,34 +13996,38 @@ var spells = (function() {
 
       activeCheck.appendChild(activeInput);
       activeCheck.appendChild(activeIcon);
-      activeEditBoxBodyItem1.appendChild(activeCheck);
-      activeEditBoxBody.appendChild(activeEditBoxBodyItem1);
+      activeEditBoxContentItem1.appendChild(activeCheck);
+      activeEditBoxContent.appendChild(activeEditBoxContentItem1);
+      activeEditBoxBody.appendChild(activeEditBoxContent);
       activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
       activeEditBox.appendChild(activeEditBoxHead);
       activeEditBox.appendChild(activeEditBoxBody);
 
       var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box");
+      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
       var noteEditBoxHead = document.createElement("div");
-      noteEditBoxHead.setAttribute("class", "m-edit-box-head-small");
+      noteEditBoxHead.setAttribute("class", "m-edit-box-head");
       var noteEditBoxHeadTitle = document.createElement("h2");
       noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
       noteEditBoxHeadTitle.textContent = "Spell Notes";
       var noteEditBoxBody = document.createElement("div");
-      noteEditBoxBody.setAttribute("class", "m-edit-box-body m-edit-box-body-group");
-      var noteEditBoxBodyItem1 = document.createElement("div");
-      noteEditBoxBodyItem1.setAttribute("class", "m-edit-box-item-max");
+      noteEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var noteEditBoxContent = document.createElement("div");
+      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var noteEditBoxContentItem1 = document.createElement("div");
+      noteEditBoxContentItem1.setAttribute("class", "m-edit-box-item-max");
       var noteTextarea = document.createElement("div");
       noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
       noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "3");
+      noteTextarea.setAttribute("tabindex", "1");
       noteTextarea.innerHTML = spellObject.note;
       noteTextarea.addEventListener("paste", function(event) {
         helper.pasteStrip(event);
       });
 
-      noteEditBoxBodyItem1.appendChild(noteTextarea);
-      noteEditBoxBody.appendChild(noteEditBoxBodyItem1);
+      noteEditBoxContentItem1.appendChild(noteTextarea);
+      noteEditBoxContent.appendChild(noteEditBoxContentItem1);
+      noteEditBoxBody.appendChild(noteEditBoxContent);
       noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
       noteEditBox.appendChild(noteEditBoxHead);
       noteEditBox.appendChild(noteEditBoxBody);
@@ -13748,55 +14194,145 @@ var spells = (function() {
         spellsFound = true;
       };
     };
+
+    var _normalStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.removeClass(all_spellBookItem[i], "button-primary");
+        helper.removeClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+
+    var _activeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+
+    var _removeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-primary");
+      };
+    };
+
+    var _resetAllControls = function() {
+      for (var i = 0; i < all_spellStateControls.length; i++) {
+        helper.removeClass(all_spellStateControls[i], "is-live");
+      };
+    };
+
+    // change spell state
     if (spellsFound) {
-      // if this button is active
-      if (spellRoot.dataset.spellState != button.dataset.state) {
-        helper.removeClass(button, "is-active");
-        helper.removeClass(spellRoot, "is-state-prepare");
-        helper.removeClass(spellRoot, "is-state-unprepare");
-        helper.removeClass(spellRoot, "is-state-cast");
-        helper.removeClass(spellRoot, "is-state-active");
-        helper.removeClass(spellRoot, "is-state-remove");
-        helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+      if (button.dataset.state != spellRoot.dataset.spellState) {
         spellRoot.dataset.spellState = button.dataset.state;
-        for (var i = 0; i < all_spellStateControls.length; i++) {
-          helper.removeClass(all_spellStateControls[i], "is-active");
-        };
-        if (!button.classList.contains("js-spell-reset")) {
-          helper.addClass(button, "is-active");
+        _resetAllControls();
+        if (button.dataset.state == "prepare" || button.dataset.state == "unprepare" || button.dataset.state == "cast" || button.dataset.state == "active") {
+          helper.addClass(button, "is-live");
         };
       } else {
-        spellRoot.dataset.spellState = "false";
-        helper.removeClass(button, "is-active");
-        helper.removeClass(spellRoot, "is-state-prepare");
-        helper.removeClass(spellRoot, "is-state-unprepare");
-        helper.removeClass(spellRoot, "is-state-cast");
-        helper.removeClass(spellRoot, "is-state-active");
-        helper.removeClass(spellRoot, "is-state-remove");
+        spellRoot.dataset.spellState = false;
+        _resetAllControls();
       };
-    } else {
-      spellRoot.dataset.spellState = "false";
-      helper.removeClass(button, "is-active");
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
-      helper.removeClass(spellRoot, "is-state-remove");
     };
+
+    // change spells to reflect state
+    if (spellRoot.dataset.spellState == "remove") {
+      _removeStateSpellItems();
+      helper.addClass(spellRoot, "is-state-remove");
+      helper.addClass(spellRemoveButton, "button-primary");
+      helper.removeClass(spellRemoveButton, "button-secondary");
+    } else if (spellRoot.dataset.spellState != "false") {
+      _activeStateSpellItems();
+      helper.removeClass(spellRoot, "is-state-remove");
+      helper.removeClass(spellRemoveButton, "button-primary");
+      helper.addClass(spellRemoveButton, "button-secondary");
+    } else {
+      _normalStateSpellItems();
+      helper.removeClass(spellRoot, "is-state-remove");
+      helper.removeClass(spellRemoveButton, "button-primary");
+      helper.addClass(spellRemoveButton, "button-secondary");
+    };
+
+    // // if there are spells
+    // if (spellsFound) {
+    //   if (button.dataset.state != spellRoot.dataset.spellState) {
+    //     for (var i = 0; i < all_spellStateControls.length; i++) {
+    //       helper.removeClass(all_spellStateControls[i], "is-live");
+    //     };
+    //     helper.addClass(button, "is-live");
+    //   };
+    // } else {
+    //   spellRoot.dataset.spellState = "false";
+    //   helper.removeClass(button, "is-live");
+    //   helper.removeClass(spellRoot, "is-state-prepare");
+    //   helper.removeClass(spellRoot, "is-state-unprepare");
+    //   helper.removeClass(spellRoot, "is-state-cast");
+    //   helper.removeClass(spellRoot, "is-state-active");
+    //   helper.removeClass(spellRoot, "is-state-remove");
+    //   helper.removeClass(spellRemoveButton, "button-primary");
+    //   helper.addClass(spellRemoveButton, "button-secondary");
+    // };
+
+
+
+    // if (spellsFound) {
+    //   // if this button is active
+    //   if (spellRoot.dataset.spellState != button.dataset.state) {
+    //     helper.removeClass(button, "is-active");
+    //     helper.removeClass(spellRoot, "is-state-prepare");
+    //     helper.removeClass(spellRoot, "is-state-unprepare");
+    //     helper.removeClass(spellRoot, "is-state-cast");
+    //     helper.removeClass(spellRoot, "is-state-active");
+    //     helper.removeClass(spellRoot, "is-state-remove");
+    //     helper.addClass(spellRoot, "is-state-" + button.dataset.state);
+    //     spellRoot.dataset.spellState = button.dataset.state;
+    //     for (var i = 0; i < all_spellStateControls.length; i++) {
+    //       helper.removeClass(all_spellStateControls[i], "is-active");
+    //     };
+    //     if (!button.classList.contains("js-spell-reset")) {
+    //       helper.addClass(button, "is-active");
+    //     };
+    //     if (spellRoot.dataset.spellState == "remove") {
+    //       helper.addClass(spellRemoveButton, "button-primary");
+    //       helper.removeClass(spellRemoveButton, "button-secondary");
+    //     } else {
+    //       helper.removeClass(spellRemoveButton, "button-primary");
+    //       helper.addClass(spellRemoveButton, "button-secondary");
+    //     };
+    //   } else {
+    //     spellRoot.dataset.spellState = "false";
+    //     helper.removeClass(button, "is-active");
+    //     helper.removeClass(spellRoot, "is-state-prepare");
+    //     helper.removeClass(spellRoot, "is-state-unprepare");
+    //     helper.removeClass(spellRoot, "is-state-cast");
+    //     helper.removeClass(spellRoot, "is-state-active");
+    //     helper.removeClass(spellRoot, "is-state-remove");
+    //     helper.removeClass(spellRemoveButton, "button-primary");
+    //     helper.addClass(spellRemoveButton, "button-secondary");
+    //   };
+    // } else {
+    //   spellRoot.dataset.spellState = "false";
+    //   helper.removeClass(button, "is-active");
+    //   helper.removeClass(spellRoot, "is-state-prepare");
+    //   helper.removeClass(spellRoot, "is-state-unprepare");
+    //   helper.removeClass(spellRoot, "is-state-cast");
+    //   helper.removeClass(spellRoot, "is-state-active");
+    //   helper.removeClass(spellRoot, "is-state-remove");
+    //   helper.removeClass(spellRemoveButton, "button-primary");
+    //   helper.addClass(spellRemoveButton, "button-secondary");
+    // };
   };
 
   function _checkSpellState() {
     var spellRoot = helper.e(".js-spells");
     var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
     var all_spellBookItem = helper.eA(".js-spell");
+    var spellRemoveButton = helper.e(".js-spell-remove");
     if (all_spellBookItem.length == 0) {
-      helper.removeClass(spellRoot, "is-state-prepare");
-      helper.removeClass(spellRoot, "is-state-unprepare");
-      helper.removeClass(spellRoot, "is-state-cast");
-      helper.removeClass(spellRoot, "is-state-active");
       helper.removeClass(spellRoot, "is-state-remove");
       for (var i = 0; i < all_spellStateControls.length; i++) {
-        helper.removeClass(all_spellStateControls[i], "is-active");
+        helper.removeClass(all_spellStateControls[i], "is-live");
+        helper.removeClass(spellRemoveButton, "button-primary");
+        helper.addClass(spellRemoveButton, "button-secondary");
       };
       spellRoot.dataset.spellState = "false";
     };
@@ -13869,12 +14405,16 @@ var spells = (function() {
   };
 
   function _create_spellButton(spellObject, level, index, newSpell) {
+    var spellRoot = helper.e(".js-spells");
     var spellButton = document.createElement("button");
     spellButton.setAttribute("data-spell-level", level);
     spellButton.setAttribute("data-spell-count", index);
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
-    spellButton.setAttribute("tabindex", "3");
+    spellButton.setAttribute("tabindex", "1");
+    if (spellRoot.dataset.spellState == "remove") {
+      helper.addClass(spellButton, "button-primary");
+    };
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
     spellButton.appendChild(spellActive);
@@ -13998,6 +14538,8 @@ var stats = (function() {
 
   function delayUpdate(element) {
     _render_stat(element);
+    classes.render();
+    textBlock.render();
     totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
@@ -14011,21 +14553,68 @@ var stats = (function() {
     for (var i = 0; i < score.length; i++) {
       score[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
     for (var i = 0; i < tempScore.length; i++) {
       tempScore[i].addEventListener("input", function() {
         clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 400, helper.getClosest(this, ".js-stats"));
+        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
+    };
+  };
+
+  function get_mod(key) {
+    var value = 0;
+    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
+      value = sheet.getCharacter().statistics.stats[key].temp_modifier;
+    } else {
+      value = sheet.getCharacter().statistics.stats[key].modifier;
+    };
+    return value;
+  };
+
+  // exposed methods
+  return {
+    render: render,
+    bind: bind,
+    getMod: get_mod
+  };
+
+})();
+
+var textBlock = (function() {
+
+  function clear() {
+    var all_textBlock = helper.eA(".js-text-block");
+    for (var i = 0; i < all_textBlock.length; i++) {
+      all_textBlock[i].textContent = "";
+    };
+  };
+
+  function _render_textBlock(textBlock) {
+    var path = textBlock.dataset.path;
+    if (path) {
+      var content = helper.getObject(sheet.getCharacter(), path);
+      textBlock.textContent = content;
+    };
+  };
+
+  function render(textBlock) {
+    if (textBlock) {
+      _render_textBlock(textBlock);
+    } else {
+      var all_textBlock = helper.eA(".js-text-block");
+      for (var i = 0; i < all_textBlock.length; i++) {
+        _render_textBlock(all_textBlock[i]);
+      };
     };
   };
 
   // exposed methods
   return {
     render: render,
-    bind: bind
+    clear: clear
   };
 
 })();
@@ -14177,6 +14766,129 @@ var themeColor = (function() {
 
 })();
 
+var tip = (function() {
+
+  function bind(tip) {
+    if (tip) {
+      _bind_tip(tip);
+    } else {
+      var all_tip = helper.eA(".js-tip");
+      for (var i = 0; i < all_tip.length; i++) {
+        if (all_tip[i].dataset.clone != "true") {
+          if (all_tip[i].dataset.clone != "true") {
+            _bind_tip(all_tip[i]);
+          };
+        };
+      };
+    };
+  };
+
+  function _bind_tip(tip) {
+    tip.addEventListener("focus", function() {
+      destroy();
+      render(tip);
+    }, false);
+    tip.addEventListener("blur", function() {
+      destroy();
+    }, false);
+  };
+
+  function destroy() {
+    var all_tipBox = helper.eA(".js-tip-box");
+    for (var i = 0; i < all_tipBox.length; i++) {
+      all_tipBox[i].destroy();
+    };
+  };
+
+  function render(tip) {
+    // console.log(tip.getBoundingClientRect());
+    var body = helper.e("body");
+    var tipWrapper = document.createElement("div");
+    tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
+    var tipArrow = document.createElement("span");
+    tipArrow.setAttribute("class", "m-tip-arrow");
+    tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
+    var tipMessage = document.createElement("p");
+    tipMessage.setAttribute("class", "m-tip-message");
+    tipMessage.textContent = tip.dataset.tip;
+    tipWrapper.destroy = function() {
+      helper.removeClass(tipWrapper, "is-opaque");
+      helper.addClass(tipWrapper, "is-transparent");
+    };
+    tipWrapper.addEventListener("transitionend", function(event, elapsed) {
+      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
+        this.parentElement.removeChild(this);
+      };
+    }.bind(tipWrapper), false);
+
+    tipWrapper.appendChild(tipMessage);
+    tipWrapper.appendChild(tipArrow);
+    body.appendChild(tipWrapper);
+    tipWrapper.setAttribute("style", "width: " + parseInt(tipWrapper.getBoundingClientRect().width + 2, 10) + "px;");
+
+    var width = parseInt(tipWrapper.getBoundingClientRect().width + 2);
+    var top =
+      parseInt(tip.getBoundingClientRect().top, 10) +
+      parseInt(pageYOffset, 10) -
+      parseInt(tipWrapper.getBoundingClientRect().height, 10) -
+      parseInt(getComputedStyle(tipWrapper).marginTop, 10) -
+      parseInt(getComputedStyle(tipWrapper).marginBottom, 10);
+    var left =
+      parseInt(tip.getBoundingClientRect().left, 10) +
+      parseInt((tip.getBoundingClientRect().width / 2), 10) -
+      parseInt(((width + parseInt(getComputedStyle(tipWrapper).marginLeft, 10) + parseInt(getComputedStyle(tipWrapper).marginRight, 10) + 2) / 2), 10);
+
+    tipWrapper.setAttribute("style", "width: " + width + "px; top: " + top + "px; left: " + left + "px");
+
+    if (!helper.inViewport(tipWrapper)) {
+      // console.log(!helper.inViewport(tipWrapper), "outside viewport");
+
+      if (tipWrapper.getBoundingClientRect().left < 10) {
+        // console.log("too far left");
+        var style = {
+          top: tipWrapper.style.top,
+          width: tipWrapper.style.width
+        };
+        tipWrapper.setAttribute("style", "width: " + style.width + "; top: " + style.top + "; left: " + 0 + "px;");
+        tipArrow.setAttribute("style", "left: " +
+          (
+            parseInt(tip.getBoundingClientRect().left, 10) +
+            parseInt((tip.getBoundingClientRect().width / 2), 10) -
+            parseInt(getComputedStyle(tipWrapper).marginLeft, 10)
+          ) +
+          "px;");
+      } else if (tipWrapper.getBoundingClientRect().right > document.documentElement.clientWidth) {
+        // console.log("too far right");
+        var style = {
+          top: tipWrapper.style.top,
+          width: tipWrapper.style.width
+        };
+        tipWrapper.setAttribute("style", "width: " + style.width + "; top: " + style.top + "; left: " +
+          (
+            document.documentElement.clientWidth - parseInt((parseInt(tipWrapper.getBoundingClientRect().width, 10) + parseInt(getComputedStyle(tipWrapper).marginLeft, 10) + parseInt(getComputedStyle(tipWrapper).marginRight, 10)), 10)
+          ) +
+          "px;");
+        tipArrow.setAttribute("style", "left: " +
+          (-parseInt(tipWrapper.getBoundingClientRect().left, 10) +
+            parseInt(tip.getBoundingClientRect().left, 10) +
+            (parseInt((tip.getBoundingClientRect().width), 10) / 2)
+          ) +
+          "px;");
+      };
+    };
+
+    getComputedStyle(tipWrapper).opacity;
+    helper.removeClass(tipWrapper, "is-transparent");
+    helper.addClass(tipWrapper, "is-opaque");
+  };
+
+  // exposed methods
+  return {
+    bind: bind
+  };
+
+})();
+
 var totalBlock = (function() {
 
   function sizeModifierCalculate(index) {
@@ -14269,13 +14981,6 @@ var totalBlock = (function() {
       };
       return value;
     };
-    var _checkForTempModifier = function(score, tempScore) {
-      if (tempScore == "") {
-        return _checkValue(score);
-      } else {
-        return _checkValue(tempScore);
-      };
-    };
     var _checkClassSkill = function(totalObject) {
       var classSkill;
       if (totalObject.ranks > 0) {
@@ -14288,36 +14993,36 @@ var totalBlock = (function() {
     var _get_externalBonus = function(key, totalObject) {
       var externalBouns;
       if (key == "str_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.str.modifier, sheet.getCharacter().statistics.stats.str.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("str"));
       };
       // if dex data attribute is true
       if (key == "dex_bonus") {
         // if max dex is true
         if (totalObject.bonuses.max_dex) {
-          if (sheet.getCharacter().equipment.armor.max_dex < _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier) && sheet.getCharacter().equipment.armor.max_dex != "") {
+          if (sheet.getCharacter().equipment.armor.max_dex < _checkValue(stats.getMod("dex")) && sheet.getCharacter().equipment.armor.max_dex != "") {
             externalBouns = sheet.getCharacter().equipment.armor.max_dex;
           } else {
-            externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+            externalBouns = _checkValue(stats.getMod("dex"));
           };
         } else {
-          externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.dex.modifier, sheet.getCharacter().statistics.stats.dex.temp_modifier);
+          externalBouns = _checkValue(stats.getMod("dex"));
         };
       };
       // if con data attribute is true
       if (key == "con_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.con.modifier, sheet.getCharacter().statistics.stats.con.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("con"));
       };
       // if int data attribute is true
       if (key == "int_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.int.modifier, sheet.getCharacter().statistics.stats.int.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("int"));
       };
       // if wis data attribute is true
       if (key == "wis_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.wis.modifier, sheet.getCharacter().statistics.stats.wis.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("wis"));
       };
       // if cha data attribute is true
       if (key == "cha_bonus") {
-        externalBouns = _checkForTempModifier(sheet.getCharacter().statistics.stats.cha.modifier, sheet.getCharacter().statistics.stats.cha.temp_modifier);
+        externalBouns = _checkValue(stats.getMod("cha"));
       };
       // if bab data attribute is true
       if (key == "bab") {
@@ -14784,10 +15489,10 @@ var update = (function() {
 
 (function() {
 
-  nav.bind();
-  nav.render();
   sheet.render();
   sheet.bind();
+  nav.bind();
+  nav.render();
   log.bind();
   log.render();
   night.update();

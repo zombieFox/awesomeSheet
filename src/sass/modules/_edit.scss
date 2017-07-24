@@ -1,99 +1,138 @@
+// --------------------------------------------------
+// edit box
+// --------------------------------------------------
 .m-edit-box {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column wrap;
   justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
   position: relative;
   box-sizing: border-box;
   transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
-.m-edit-box-group {
-  background-color: $gray-20;
-  border: $border;
-  border-color: $gray-17;
-  border-radius: $border-radius-large;
-  margin: 0 0 1em;
-  padding: 1em 1em 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-.m-edit-box-guides {
-  padding: 0.5em 0;
-  margin: 0;
-  border-bottom: $border;
-  border-bottom-color: $gray-18;
-  transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
-}
-[class*="m-edit-box-head"],
-[class^="m-edit-box-head"] {
+.m-edit-box-head {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.m-edit-box-head-small {
-  flex: 0 0 25%;
+.m-edit-box-body {
+  flex: 1 1 100%;
+  margin-left: 2em;
+  max-width: 100%;
 }
-.m-edit-box-head-medium {
-  flex: 0 0 35%;
+.m-edit-box-content {
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
 }
-.m-edit-box-head-large {
-  flex: 0 0 45%;
+// --------------------------------------------------
+// edit outline
+// --------------------------------------------------
+.m-edit-box-content-outline {
+  background-color: $gray-20;
+  border: $border;
+  border-color: $gray-17;
+  border-radius: $border-radius-large;
+  padding: 1em 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1em;
 }
-.m-edit-box-no-head-small {
-  padding-left: 25%;
+// --------------------------------------------------
+// edit margin
+// --------------------------------------------------
+[class*="m-edit-box-content-margin"],
+[class^="m-edit-box-content-margin"] {
+  &.m-edit-box-content-outline {
+    padding-bottom: 0;
+  }
 }
-.m-edit-box-no-head-medium {
-  padding-left: 35%;
+.m-edit-box-content-margin-large {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
+    margin-bottom: 1em;
+  }
 }
-.m-edit-box-no-head-large {
-  padding-left: 45%;
+.m-edit-box-content-margin-medium {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
+    margin-bottom: 0.5em;
+  }
 }
-[class*="m-edit-box-title"],
-[class^="m-edit-box-title"] {
+.m-edit-box-content-margin-small {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
+    margin-bottom: 4px;
+  }
+}
+// --------------------------------------------------
+// edit group
+// --------------------------------------------------
+.m-edit-box {
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+}
+// --------------------------------------------------
+// edit guides
+// --------------------------------------------------
+.m-edit-box-guides {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: $border;
+  border-bottom-color: $gray-18;
+  transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
+}
+// --------------------------------------------------
+// edit end
+// --------------------------------------------------
+.m-edit-box-end {
+  .m-edit-box-content {
+    justify-content: flex-end;
+  }
+}
+// --------------------------------------------------
+// edit title
+// --------------------------------------------------
+.m-edit-box-title {
   font-family: $open-sans-semi-bold;
   font-size: $font-size-100;
   margin-bottom: 0;
-  margin-right: 1em;
   padding: 0.5em 0;
   line-height: $line-height-150;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
-.m-edit-box-title-with-label {
-  margin-top: 1.25em;
-}
-.m-edit-box-body {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  margin-left: -$gutter;
-  margin-right: -$gutter;
-}
-.m-edit-box-body-end {
-  justify-content: flex-end;
-}
-.m-edit-box-body-multiple {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-}
+// --------------------------------------------------
+// edit items
+// --------------------------------------------------
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
   flex: 0 0 auto;
-  padding-left: $gutter;
-  padding-right: $gutter;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
   transition: margin $transition-ease-medium;
 }
+.m-edit-box-item-text {
+  flex: 0 0 0;
+}
+.m-edit-box-item-stat {
+  flex: 1 1 40%;
+}
+.m-edit-box-item-modifier {
+  flex: 1 1 30%;
+}
 .m-edit-box-item-total {
-  flex: 0 0 3em;
+  flex: 0 0 4em;
 }
 .m-edit-box-item-check {
   flex: 0 0 3em;
@@ -102,7 +141,7 @@
   flex: 0 1 25%;
 }
 .m-edit-box-item-medium {
-  flex: 1 1 30%;
+  flex: 0.5 1 30%;
 }
 .m-edit-box-item-large {
   flex: 1 1 40%;
@@ -122,35 +161,23 @@
 .m-edit-box-item-control {
   flex: 0 1 5em;
 }
-.m-edit-box-body-group {
-  position: relative;
+// --------------------------------------------------
+// edit group
+// --------------------------------------------------
+.m-edit-box-group {
+  display: flex;
   flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
   z-index: 1;
-  margin-left: 0;
-  margin-right: 0;
   [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    .button,
-    button {
-      margin-bottom: 0;
-    }
-    .button,
-    .button,
-    .m-check-block,
-    .m-stat-modifier,
-    .m-total-block-total,
-    button {
+    & > * {
       border-radius: 0;
-    }
-    .button,
-    .m-check-block,
-    .m-input-block,
-    .m-stat-modifier,
-    .m-total-block-total,
-    button {
+      margin-bottom: 0;
       margin-left: -1px;
     }
     .button {
@@ -182,12 +209,13 @@
       }
     }
     &:first-of-type {
-      .button,
-      .m-check-block-check-icon,
-      .m-edit-box-item-button,
-      .m-stat-modifier,
-      .m-total-block-total {
+      & > * {
         border-radius: $border-radius-large 0 0 $border-radius-large;
+      }
+      .m-check-block {
+        .m-check-block-check-icon {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
       }
       .m-input-block {
         .m-input-block-field {
@@ -196,12 +224,13 @@
       }
     }
     &:last-of-type {
-      .button,
-      .m-check-block-check-icon,
-      .m-edit-box-item-button,
-      .m-stat-modifier,
-      .m-total-block-total {
+      & > * {
         border-radius: 0 $border-radius-large $border-radius-large 0;
+      }
+      .m-check-block {
+        .m-check-block-check-icon {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
       }
       .m-input-block {
         .m-input-block-field {
@@ -210,12 +239,13 @@
       }
     }
     &:first-of-type:last-of-type {
-      .button,
-      .m-check-block-check-icon,
-      .m-edit-box-item-button,
-      .m-stat-modifier,
-      .m-total-block-total {
+      & > * {
         border-radius: $border-radius-large;
+      }
+      .m-check-block {
+        .m-check-block-check-icon {
+          border-radius: $border-radius-large;
+        }
       }
       .m-input-block {
         .m-input-block-field {
@@ -225,26 +255,10 @@
     }
   }
 }
-.m-edit-box-body-item-margin-large {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 1em;
-  }
-}
-.m-edit-box-body-item-margin-medium {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 0.5em;
-  }
-}
-.m-edit-box-body-item-margin-small {
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    margin-bottom: 4px;
-  }
-}
-[class*="m-edit-box-label"],
-[class^="m-edit-box-label"] {
+// --------------------------------------------------
+// edit label
+// --------------------------------------------------
+.m-edit-box-label {
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -253,13 +267,56 @@
   color: $secondary-color-06;
   box-sizing: border-box;
   width: 100%;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
-.m-edit-box-label-total {
-  color: $gray-08;
+// --------------------------------------------------
+// edit text
+// --------------------------------------------------
+.m-edit-box-total {
+  background-color: $gray-19;
+  padding: 0 0.8em;
+  margin: 0;
+  height: 2.5em;
+  font-size: $font-size-100;
+  line-height: $line-height-250;
+  font-family: $open-sans-bold;
+  box-sizing: border-box;
+  border-radius: $border-radius-large;
+  border: 0;
+  border: $border;
+  border-color: $gray-16;
+  color: $base-color;
+  text-align: center;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
+.m-edit-box-text {
+  background-color: $gray-20;
+  padding: 0 0.8em;
+  margin: 0;
+  height: 2.5em;
+  font-size: $font-size-100;
+  line-height: $line-height-250;
+  font-family: $open-sans-semi-bold;
+  box-sizing: border-box;
+  border-radius: $border-radius-large;
+  border: 0;
+  border: $border;
+  border-color: $gray-16;
+  color: $base-color;
+  text-align: center;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+// --------------------------------------------------
+// edit controls
+// --------------------------------------------------
 .m-edit-controls {
   margin: 0 0 1em;
-  // box-sizing: border-box;
   .button-group {
     margin-bottom: 0;
   }
@@ -271,53 +328,80 @@
     top: 5em;
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
-    .button-group {
-      .button {
-        // box-shadow: $shadow-small;
-      }
-    }
   }
 }
+// --------------------------------------------------
+// night mode
+// --------------------------------------------------
 .is-night-mode {
-  .m-edit-box-group {
-    border-color: $gray-06;
-    background-color: $gray-04;
-  }
   .m-edit-box-guides {
     border-bottom-color: $gray-06;
   }
   .m-edit-heading {
     background-color: $secondary-color-04;
   }
-  [class*="m-edit-box-label"],
-  [class^="m-edit-box-label"] {
+  .m-edit-box-label {
     color: $secondary-color-08;
   }
-  .m-edit-box-label-total {
-    color: $gray-12;
+  .m-edit-box-total {
+    background-color: $gray-07;
+    border-color: $gray-06;
+    color: $gray-18;
+  }
+  .m-edit-box-text {
+    background-color: $gray-05;
+    border-color: $gray-06;
+    color: $gray-18;
+  }
+  .m-edit-box-content-outline {
+    background-color: $gray-04;
+    border-color: $gray-06;
   }
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-edit-box-item-total {
-    flex: 0 0 4em;
+  .m-edit-box {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+  }
+  .m-edit-box-body {
+    margin-left: 0;
+  }
+  .m-edit-box-labels {
+    .m-edit-box-title {
+      margin-top: 1.25em;
+    }
+  }
+  .m-edit-box-outline {
+    &.m-edit-box-labels {
+      .m-edit-box-title {
+        margin-top: 2.25em;
+      }
+    }
   }
   .m-edit-box-head-small {
-    flex: 0 0 30%;
-  }
-  .m-edit-box-head-medium {
-    flex: 0 0 40%;
+    .m-edit-box-head {
+      flex: 0 0 30%;
+    }
   }
   .m-edit-box-head-large {
-    flex: 0 0 50%;
+    .m-edit-box-head {
+      flex: 0 0 50%;
+    }
+  }
+  .m-edit-box-item-stat {
+    flex: 0 1 20%;
+  }
+  .m-edit-box-item-modifier {
+    flex: 0 0 4em;
+  }
+  .m-edit-box-title {
+    margin-right: 1em;
   }
   .m-edit-box-no-head-small {
     padding-left: 30%;
-  }
-  .m-edit-box-no-head-medium {
-    padding-left: 40%;
   }
   .m-edit-box-no-head-large {
     padding-left: 50%;

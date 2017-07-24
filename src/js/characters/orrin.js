@@ -5,8 +5,17 @@ var orrin = (function() {
     basics: {
       name: "Orrin Alareth",
       race: "Human",
-      class: "Rogue",
-      level: "9",
+      level: "",
+      classes: [{
+        classname: "Rogue",
+        level: 9,
+        hp: 65,
+        fortitude: 3,
+        reflex: 6,
+        will: 3,
+        ranks: 72,
+        bab: 6
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -149,7 +158,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: 74,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -220,7 +229,7 @@ var orrin = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.",
       fortitude: {
-        base: 3,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: 1,
@@ -239,7 +248,7 @@ var orrin = (function() {
         }
       },
       reflex: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -258,7 +267,7 @@ var orrin = (function() {
         }
       },
       will: {
-        base: 3,
+        base: "",
         resistance: 2,
         feat: 2,
         trait: "",
@@ -279,7 +288,8 @@ var orrin = (function() {
       save_notes: "+3 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "+6/+1",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",

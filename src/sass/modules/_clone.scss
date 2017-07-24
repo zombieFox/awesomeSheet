@@ -10,7 +10,7 @@
         width: 100%;
         z-index: 2;
         transform-origin: left center;
-        transition: width $transition-ease-fast, transform $transition-ease-fast;
+        transition: width $transition-ease-fast 0.3s, transform $transition-ease-fast;
         .m-clone-flash {
           background-color: $primary-color-10;
           position: absolute;

@@ -3,7 +3,7 @@
   border: $border;
   border-color: $gray-17;
   border-radius: $border-radius-large;
-  margin: 1em 0;
+  margin: 0 0 1em;
   padding: 2em 4em;
   width: 100%;
   box-sizing: border-box;
@@ -41,3 +41,10 @@
     border-color: $primary-color-alpha-14;
   }
 }
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}

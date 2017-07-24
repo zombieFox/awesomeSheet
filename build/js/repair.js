@@ -2,10 +2,63 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update classes
+    if (!characterObject.basics.classes) {
+      // console.log("--------\t\tupdate classes");
+      characterObject.basics.classes = [{
+        classname: "",
+        level: "",
+        hp: "",
+        fortitude: "",
+        reflex: "",
+        will: "",
+        ranks: "",
+        bab: ""
+      }];
+      // move class to classes
+      if (characterObject.basics.class != "") {
+        characterObject.basics.classes[0].classname = characterObject.basics.class;
+      };
+      // move level to classes
+      if (characterObject.basics.level != "") {
+        characterObject.basics.classes[0].level = parseInt(characterObject.basics.level, 10);
+        characterObject.basics.level = "";
+      };
+      // remove con bonus from hp and add it to classes
+      if (characterObject.defense.hp.total != "") {
+        var conMod = 0;
+        if (characterObject.statistics.stats.con.temp_score != "") {
+          conMod = Math.floor((parseInt(characterObject.statistics.stats.con.temp_score, 10) - 10) / 2);
+        } else {
+          conMod = Math.floor((parseInt(characterObject.statistics.stats.con.score, 10) - 10) / 2);
+        };
+        var conHp = conMod * characterObject.basics.classes[0].level;
+        characterObject.basics.classes[0].hp = characterObject.defense.hp.total - conHp;
+        characterObject.defense.hp.total = "";
+      };
+      // move bab
+      if (characterObject.offense.base_attack != "") {
+        characterObject.basics.classes[0].bab = parseInt(characterObject.offense.base_attack, 10);
+        characterObject.offense.base_attack = "";
+        characterObject.offense.base_attack_bonuses = "";
+      };
+      // move base saves
+      if (characterObject.defense.fortitude.base != "") {
+        characterObject.basics.classes[0].fortitude = characterObject.defense.fortitude.base;
+      };
+      if (characterObject.defense.reflex.base != "") {
+        characterObject.basics.classes[0].reflex = characterObject.defense.reflex.base;
+      };
+      if (characterObject.defense.will.base != "") {
+        characterObject.basics.classes[0].will = characterObject.defense.will.base;
+      };
+      delete characterObject.basics.class;
+    };
     // remove racial save bonuses
     ifRacial("racial", characterObject.defense.fortitude);
     ifRacial("racial", characterObject.defense.reflex);
     ifRacial("racial", characterObject.defense.will);
+
     function ifRacial(key, object) {
       if (key in object) {
         // console.log("\t\tremove racial save bonuses");
@@ -80,7 +133,7 @@ var repair = (function() {
       };
     };
     // add size object
-    if (typeof characterObject.basics.size != "object" || "size_bonus" in sheet.getCharacter().defense.ac) {
+    if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
       // console.log("\t\tadd size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {

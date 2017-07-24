@@ -5,8 +5,17 @@ var blank = (function() {
     basics: {
       name: "",
       race: "",
-      class: "",
       level: "",
+      classes: [{
+        classname: "",
+        level: "",
+        hp: "",
+        fortitude: "",
+        reflex: "",
+        will: "",
+        ranks: "",
+        bab: ""
+      }],
       size: {
         category: "",
         size_modifier: 0,
@@ -255,6 +264,7 @@ var blank = (function() {
     },
     offense: {
       base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",

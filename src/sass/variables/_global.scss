@@ -267,16 +267,16 @@ $transition-ease-extra-slow:         0.5s ease-in-out;
 // --------------------------------------------------
 
 $body:                               1000;
-$card-controls:                      2000;
-$display-heading:                    3000;
-$fireball:                           4000;
+$fireball:                           2000;
+$tip:                                3000;
+$card-controls:                      4000;
 $log:                                5000;
 $nav:                                6000;
 $fab:                                7000;
-$snacks:                             8000;
-$quick-nav:                          9000;
-$prompt:                             10000;
-$modal:                              11000;
+$snacks:                             9000;
+$quick-nav:                          10000;
+$prompt:                             11000;
+$modal:                              12000;
 
 // --------------------------------------------------
 // drop shadows

@@ -49,7 +49,7 @@ var nav = (function() {
 
   };
 
-  function _scrollToTop() {
+  function scrollToTop() {
     if (window.innerWidth < 550) {
       window.scrollTo(0, 0);
     } else {
@@ -64,7 +64,7 @@ var nav = (function() {
       _switch_character(label);
       sheet.storeCharacters();
       navClose();
-      _scrollToTop();
+      scrollToTop();
     }, false);
   };
 
@@ -79,28 +79,13 @@ var nav = (function() {
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
     navClose();
-    _scrollToTop();
+    scrollToTop();
   };
 
-  function updateNavCharacters(input) {
-    var inputType = input.dataset.characterNav;
-    var inputValue = input.value;
-    if (inputType == "name") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "New character";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-name").textContent = helper.truncate(inputValue, 30, true);
-    } else if (inputType == "class") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "Class";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-class").textContent = helper.truncate(inputValue, 20, true) + " ";
-    } else if (inputType == "level") {
-      if (typeof inputValue == "undefined" || inputValue == "") {
-        inputValue = "Level";
-      };
-      helper.e(".character-index-" + sheet.getIndex()).querySelector(".js-nav-characters-level").textContent = helper.truncate(inputValue, 10, false);
-    };
+
+  function updateNavCharacters() {
+    nav.clear();
+    nav.render();
   };
 
   function clear() {
@@ -177,61 +162,69 @@ var nav = (function() {
     var characters = sheet.getAllCharacters();
     var navCharacters = helper.e(".js-nav-characters");
     for (var i in characters) {
-      var characterAnchor = _createNavCharacterItem(characters[i].basics.name, characters[i].basics.class, characters[i].basics.level, i);
-      navCharacters.appendChild(characterAnchor);
+      navCharacters.appendChild(_createNavCharacterItem(characters[i], i));
     };
-    var all_navCharacterSelect = helper.eA(".js-nav-character-input");
-    all_navCharacterSelect[sheet.getIndex()].checked = true;
+    var all_navCharacterInput = helper.eA(".js-nav-character-input");
+    all_navCharacterInput[sheet.getIndex()].checked = true;
   };
 
-  function _createNavCharacterItem(characterName, characterClass, characterLevel, characterIndex) {
+  function _get_name(characterObject) {
+    var characterName = characterObject.basics.name;
     if (typeof characterName == "undefined" || characterName == "") {
-      characterName = "New character";
+      characterName = "New Character";
     };
-    if (typeof characterClass == "undefined" || characterClass == "") {
-      characterClass = "Class";
-    };
-    if (typeof characterLevel == "undefined" || characterLevel == "") {
-      characterLevel = "Level";
-    };
+    return characterName;
+  };
 
-    // define elements
+  function _get_allClassLevel(characterObject) {
+    var classAndLevel = "";
+    var classes = characterObject.basics.classes;
+    for (var i = 0; i < classes.length; i++) {
+      var classname = classes[i].classname || "Class";
+      var level = classes[i].level || "Level";
+      classAndLevel = classAndLevel + classname + " " + level;
+      if (i < (classes.length - 1)) {
+        classAndLevel = classAndLevel + " / ";
+      };
+    };
+    return classAndLevel;
+  };
+
+  function _createNavCharacterItem(characterObject, characterIndex) {
+    var classLevel = _get_allClassLevel(characterObject);
+    var characterName = _get_name(characterObject);
+
     var uniqueId = helper.randomId(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character");
+    navCharacter.setAttribute("class", "m-nav-character js-nav-character-" + characterIndex);
 
     var input = document.createElement("input");
     input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     input.setAttribute("name", "js-nav-all-characters");
     input.setAttribute("class", "js-nav-character-input");
     input.setAttribute("type", "radio");
-    input.setAttribute("tabindex", 10);
+    input.setAttribute("tabindex", 1);
 
     var label = document.createElement("label");
     label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-nav-character-label character-index-" + characterIndex);
+    label.setAttribute("class", "u-full-width js-nav-character-label");
     label.setAttribute("data-character-index", characterIndex);
 
     var detailsSpan = document.createElement("span");
     detailsSpan.setAttribute("class", "m-nav-characters-details");
 
     var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-nav-characters-name js-nav-characters-name");
-    nameSpan.textContent = helper.truncate(characterName, 30, true);
+    nameSpan.setAttribute("class", "m-nav-characters-name");
+    nameSpan.textContent = characterName;
 
-    var classSpan = document.createElement("span");
-    classSpan.setAttribute("class", "m-nav-characters-class js-nav-characters-class");
-    classSpan.textContent = helper.truncate(characterClass, 20, true) + " ";
-
-    var levelSpan = document.createElement("span");
-    levelSpan.setAttribute("class", "m-nav-characters-level js-nav-characters-level");
-    levelSpan.textContent = helper.truncate(characterLevel, 10);
+    var classLevelSpan = document.createElement("span");
+    classLevelSpan.setAttribute("class", "m-nav-characters-class-level");
+    classLevelSpan.textContent = classLevel;
 
     // build module
     detailsSpan.appendChild(nameSpan);
-    detailsSpan.appendChild(classSpan);
-    detailsSpan.appendChild(levelSpan);
+    detailsSpan.appendChild(classLevelSpan);
     label.appendChild(detailsSpan);
     navCharacter.appendChild(input);
     navCharacter.appendChild(label);
@@ -362,7 +355,7 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-      _scrollToTop();
+      scrollToTop();
     }, false);
 
     characterImport.addEventListener("click", function(event) {
@@ -370,7 +363,6 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       sheet.import();
-      _scrollToTop();
     }, false);
 
     characterExport.addEventListener("click", function(event) {
@@ -386,7 +378,6 @@ var nav = (function() {
       navClose();
       sheet.addCharacter();
       snack.render("New character added.", false);
-      _scrollToTop();
     }, false);
 
     characterRemove.addEventListener("click", function(event) {
@@ -478,7 +469,8 @@ var nav = (function() {
     update: updateNavCharacters,
     open: navOpen,
     close: navClose,
-    toggle: toggle_nav
+    toggle: toggle_nav,
+    scrollToTop: scrollToTop
   }
 
 })();

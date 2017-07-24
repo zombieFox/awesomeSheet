@@ -5,8 +5,17 @@ var nif = (function() {
     basics: {
       name: "Nif Amakir",
       race: "Elf",
-      class: "Wizard",
-      level: "8",
+      level: "",
+      classes: [{
+        classname: "Wizard",
+        level: 8,
+        hp: 42,
+        fortitude: 2,
+        reflex: 2,
+        will: 6,
+        ranks: 16,
+        bab: 4
+      }],
       size: {
         category: "Medium",
         size_modifier: 0,
@@ -86,7 +95,7 @@ var nif = (function() {
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
-      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
+      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of insect sap (10), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
       item: [{
         name: "Flask of Oil",
         quantity: 5,
@@ -130,10 +139,6 @@ var nif = (function() {
       }, {
         name: "Andorak spell book",
         quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Viles of insect sap",
-        quantity: 14,
         weight: 0.5
       }],
       encumbrance: {
@@ -207,7 +212,7 @@ var nif = (function() {
     },
     defense: {
       hp: {
-        total: 58,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -278,7 +283,7 @@ var nif = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: 1,
@@ -297,7 +302,7 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -316,7 +321,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -337,7 +342,8 @@ var nif = (function() {
       save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
     },
     offense: {
-      base_attack: "+4",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -426,9 +432,12 @@ var nif = (function() {
       attack_notes: ""
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Spellcraft (Identify magic items)",
@@ -1599,7 +1608,7 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 20 feet 11 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
       }],

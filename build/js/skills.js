@@ -49,7 +49,7 @@ var skills = (function() {
     for (var i in all_skills) {
       ranks.push(parseInt(all_skills[i].ranks, 10) || 0);
     };
-    if (helper.getObject(sheet.getCharacter(), "skills.spent_ranks.include_custom")) {
+    if (helper.getObject(sheet.getCharacter(), "skills.ranks.spent.include_custom")) {
       for (var i = 0; i < all_customSkills.length; i++) {
         ranks.push(parseInt(all_customSkills[i].ranks, 10) || 0);
       };
