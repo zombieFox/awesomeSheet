@@ -34,9 +34,12 @@ var tip = (function() {
     var body = helper.e("body");
     var tipWrapper = document.createElement("div");
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
-    var tipBox = document.createElement("p");
-    tipBox.setAttribute("class", "m-tip-box");
-    tipBox.textContent = tip.dataset.tip;
+    var tipArrow = document.createElement("span");
+    tipArrow.setAttribute("class", "m-tip-arrow");
+    tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
+    var tipMessage = document.createElement("p");
+    tipMessage.setAttribute("class", "m-tip-message");
+    tipMessage.textContent = tip.dataset.tip;
     tipWrapper.destroy = function() {
       helper.removeClass(tipWrapper, "is-opaque");
       helper.addClass(tipWrapper, "is-transparent");
@@ -47,36 +50,55 @@ var tip = (function() {
       };
     }.bind(tipWrapper), false);
 
-    tipWrapper.appendChild(tipBox);
+    tipWrapper.appendChild(tipMessage);
+    tipWrapper.appendChild(tipArrow);
     body.appendChild(tipWrapper);
+    tipWrapper.setAttribute("style", "width: " + parseInt(tipWrapper.getBoundingClientRect().width + 2, 10) + "px;");
 
-    var top = tip.getBoundingClientRect().top - (tipWrapper.getBoundingClientRect().height + parseInt(getComputedStyle(tipWrapper).marginTop) + parseInt(getComputedStyle(tipWrapper).marginBottom)) + pageYOffset;
-    var left = tip.getBoundingClientRect().left + (tip.getBoundingClientRect().width / 2) - (tipWrapper.getBoundingClientRect().width / 2);
+    var width = parseInt(tipWrapper.getBoundingClientRect().width + 2);
 
-    tipWrapper.setAttribute("style", "top: " + parseFloat(top).toFixed(1) + "px; left: " + parseFloat(left).toFixed(1) + "px");
+    var top =
+      parseInt(tip.getBoundingClientRect().top, 10) +
+      parseInt(pageYOffset, 10) -
+      parseInt(tipWrapper.getBoundingClientRect().height, 10) -
+      parseInt(getComputedStyle(tipWrapper).marginTop, 10) -
+      parseInt(getComputedStyle(tipWrapper).marginBottom, 10);
 
-    console.log(helper.inViewport(tipWrapper));
-    if (helper.inViewport(tipWrapper)) {
-      if (tipWrapper.getBoundingClientRect().right > (document.documentElement.clientWidth - 10)) {
-        console.log("too right");
-        tipWrapper.setAttribute("style", "top:" + top + "px; left:" + parseFloat((document.documentElement.clientWidth - tipWrapper.getBoundingClientRect().width - 30)).toFixed(2) + "px");
-      } else if (tipWrapper.getBoundingClientRect().left < 10) {
-        console.log("too left");
-        tipWrapper.setAttribute("style", "top:" + parseFloat(top).toFixed(2) + "px; left:" + 30 + "px");
+    var left =
+      parseInt(tip.getBoundingClientRect().left, 10) +
+      parseInt((tip.getBoundingClientRect().width / 2), 10) -
+      parseInt(((width + parseInt(getComputedStyle(tipWrapper).marginLeft, 10) + parseInt(getComputedStyle(tipWrapper).marginRight, 10) + 2) / 2), 10);
+
+    tipWrapper.setAttribute("style", "width: " + width + "px; top: " + top + "px; left: " + left + "px");
+
+    if (!helper.inViewport(tipWrapper)) {
+      console.log(!helper.inViewport(tipWrapper), "outside viewport");
+      if (tipWrapper.getBoundingClientRect().left < 10) {
+        console.log("too far left");
+      } else if (tipWrapper.getBoundingClientRect().right > document.documentElement.clientWidth) {
+        console.log("too far right");
       };
     };
 
-
+    // console.log(helper.inViewport(tipWrapper));
+    // if (!helper.inViewport(tipWrapper)) {
+    //   console.log("1");
+    //   if (tipWrapper.getBoundingClientRect().left < 10) {
+    //     console.log("2");
+    //     tipWrapper.setAttribute("style", "width: " + parseInt(tipWrapper.getBoundingClientRect().width + 2) + "px; top:" + parseInt(tip.getBoundingClientRect().top - (tipWrapper.getBoundingClientRect().height + parseInt(getComputedStyle(tipWrapper).marginTop) + parseInt(getComputedStyle(tipWrapper).marginBottom)) + pageYOffset) + "px; left:" + 0 + "px");
+    //     tipArrow.setAttribute("style", "left: " + parseInt(tip.getBoundingClientRect().left) - parseInt(getComputedStyle(tipWrapper).marginLeft) + "px;");
+    //     // tipWrapper.setAttribute("style", "border: 10px solid red");
+    //   } else if (tipWrapper.getBoundingClientRect().right > document.documentElement.clientWidth) {
+    //     console.log("3");
+    //     // tipWrapper.setAttribute("style", "border: 10px solid blue");
+    //     tipWrapper.setAttribute("style", "width: " + parseInt(tipWrapper.getBoundingClientRect().width + 2) + "px; top:" + parseInt(tip.getBoundingClientRect().top - (tipWrapper.getBoundingClientRect().height + parseInt(getComputedStyle(tipWrapper).marginTop) + parseInt(getComputedStyle(tipWrapper).marginBottom)) + pageYOffset) + "px; left: initial; right: " + 0 + "px");
+    //   };
+    // };
 
     getComputedStyle(tipWrapper).opacity;
     helper.removeClass(tipWrapper, "is-transparent");
     helper.addClass(tipWrapper, "is-opaque");
   };
-
-  function _create_tip(message) {
-
-    return tipBox;
-  }
 
   // exposed methods
   return {

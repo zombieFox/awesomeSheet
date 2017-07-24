@@ -7,7 +7,7 @@ h6 {
   margin: 0;
   font-weight: normal;
   line-height: $line-height-160;
-  &:not(:last-child) {
+  &:not(:only-child):not(:last-child) {
     margin-bottom: 1em;
   }
 }
@@ -45,7 +45,7 @@ p {
   color: $gray-03;
   margin: 0;
   line-height: $line-height-160;
-  &:not(:last-child) {
+  &:not(:only-child):not(:last-child) {
     margin-bottom: 1em;
   }
 }
