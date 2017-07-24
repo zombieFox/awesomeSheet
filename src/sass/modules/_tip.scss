@@ -2,15 +2,12 @@
   position: absolute;
   max-width: 20em;
   margin: 1em;
-  // bottom: 3.5em;
-  // left: 50%;
   left: 0;
   top: 0;
   font-size: $font-size-root-100;
   opacity: 0;
   z-index: $tip;
   transition: opacity $transition-ease-fast;
-  // transform: translate(-50%, 0);
 }
 .m-tip-push-left {
   left: 20%;
@@ -48,7 +45,7 @@
   position: absolute;
   width: 0;
   height: 0;
-  bottom: calc(-1em);
+  top: 100%;
   left: 50%;
   display: block;
   z-index: 1;

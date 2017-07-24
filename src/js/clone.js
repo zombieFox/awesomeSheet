@@ -61,7 +61,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-large">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Classname</label>' +
-        '          <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="classname" data-tip="Beans!" type="text" tabindex="1">' +
+        '          <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="classname" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
@@ -798,6 +798,7 @@ var clone = (function() {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
       _bind_classesInputBlock(newClone.querySelectorAll(".js-input-block"));
       _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
+      _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
@@ -981,6 +982,12 @@ var clone = (function() {
   function _bind_classLevelInputBlock(all_inputBlock) {
     for (var i = 0; i < all_inputBlock.length; i++) {
       inputBlock.bind_classLevel(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_tip(all_tip) {
+    for (var i = 0; i < all_tip.length; i++) {
+      tip.bind(all_tip[i]);
     };
   };
 
