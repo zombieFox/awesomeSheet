@@ -92,15 +92,15 @@ ul:not(:last-child) {
 }
 li {
   margin: 0;
-   > ul,
-  > ol {
+   > ol,
+  > ul {
     margin: 0;
   }
 }
 li:not(:last-child) {
   margin-bottom: 0.5em;
-   > ul:not(:last-child),
-  > ol:not(:last-child) {
+   > ol:not(:last-child),
+  > ul:not(:last-child) {
     margin-bottom: 0.5em;
   }
 }
@@ -139,9 +139,6 @@ table {
   }
 }
 .is-display-mode {
-  // p {
-  //   line-height: $line-height-200;
-  // }
   hr {
     margin: 2em -2em;
   }
@@ -174,3 +171,8 @@ table {
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
+@media print {
+  hr {
+    display: none;
+  }
+}

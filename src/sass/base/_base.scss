@@ -40,6 +40,10 @@ body {
 @media (min-width: $screen-xl) {}
 @media print {
   html {
-    font-size: 10px;
+    font-size: 12px;
+  }
+  body {
+    margin: 2em;
+    background: $white;
   }
 }
