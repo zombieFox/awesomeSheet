@@ -330,6 +330,11 @@ label {
       color: $white;
       box-shadow: 0 0 0 3px $primary-color-alpha-10;
     }
+    &.is-live {
+      background-color: $primary-color-12;
+      border-color: $primary-color-10;
+      color: $white;
+    }
     &.is-active,
     &:active {
       background-color: $primary-color-12;
@@ -354,6 +359,11 @@ label {
       border-color: $secondary-color-08;
       color: $white;
       box-shadow: 0 0 0 3px $secondary-color-alpha-10;
+    }
+    &.is-live {
+      background-color: $secondary-color-12;
+      border-color: $secondary-color-10;
+      color: $white;
     }
     &.is-active,
     &:active {

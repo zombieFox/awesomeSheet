@@ -1449,6 +1449,10 @@ label {
     border-color: #ca0035;
     color: #ffffff;
     box-shadow: 0 0 0 3px rgba(253, 0, 66, 0.55); }
+  .is-night-mode .button-primary.is-live {
+    background-color: #ff3166;
+    border-color: #fd0042;
+    color: #ffffff; }
   .is-night-mode .button-primary.is-active, .is-night-mode .button-primary:active {
     background-color: #ff3166;
     border-color: #fd0042;
@@ -1468,6 +1472,10 @@ label {
     border-color: #2763a0;
     color: #ffffff;
     box-shadow: 0 0 0 3px rgba(41, 125, 208, 0.55); }
+  .is-night-mode .button-secondary.is-live {
+    background-color: #4a96e3;
+    border-color: #297dd0;
+    color: #ffffff; }
   .is-night-mode .button-secondary.is-active, .is-night-mode .button-secondary:active {
     background-color: #4a96e3;
     border-color: #297dd0;
