@@ -10,15 +10,19 @@ var classes = (function() {
 
   function _makeBaseAttackBonuses(totalBab) {
     var allBab = [];
-    if (totalBab >= 5) {
-      while (totalBab > 0) {
+    if (totalBab < 100) {
+      if (totalBab >= 5) {
+        while (totalBab > 0) {
+          allBab.push("+" + totalBab);
+          totalBab = totalBab - 5;
+        };
+      } else {
         allBab.push("+" + totalBab);
-        totalBab = totalBab - 5;
       };
     } else {
-      allBab.push("+" + totalBab);
+      allBab.push("BAB exceeds maximum calculation");
     };
-    allBab = allBab.join("/");
+    allBab = allBab.join(" / ");
     return allBab;
   };
 

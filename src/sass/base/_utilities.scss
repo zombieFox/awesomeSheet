@@ -21,7 +21,7 @@
   &[type="text"] {
     margin: 0;
   }
-  &:not(:last-child) {
+  &:not(:only-child):not(:last-child) {
     margin: 0;
   }
 }
@@ -36,7 +36,7 @@
   margin: 1em 0;
 }
 .u-margin-bottom {
-  margin-bottom: 1em;  
+  margin-bottom: 1em;
 }
 .u-underline-with-input {
   border-bottom: $border;

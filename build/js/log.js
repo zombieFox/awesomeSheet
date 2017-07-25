@@ -168,7 +168,7 @@ var log = (function() {
     var all_breakingChanges = [];
     var all_breakingChangesVersion = [];
     var changeVersion;
-    var numberOfRecentChanges = 3;
+    var numberOfRecentChanges = 2;
     for (var i = 0; i < update.history.length; i++) {
       for (var j = 0; j < update.history[i].list.length; j++) {
         var asterisk = "*";

@@ -631,6 +631,7 @@ var spells = (function() {
 
     // change spells to reflect state
     if (spellRoot.dataset.spellState == "remove") {
+      _normalStateSpellItems();
       _removeStateSpellItems();
       helper.addClass(spellRoot, "is-state-remove");
       helper.addClass(spellRemoveButton, "button-primary");

@@ -93,8 +93,8 @@
 // --------------------------------------------------
 // edit end
 // --------------------------------------------------
-.m-edit-box-end {
   .m-edit-box-content {
+    &.m-edit-box-content-end {
     justify-content: flex-end;
   }
 }

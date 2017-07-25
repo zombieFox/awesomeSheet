@@ -9344,15 +9344,19 @@ var classes = (function() {
 
   function _makeBaseAttackBonuses(totalBab) {
     var allBab = [];
-    if (totalBab >= 5) {
-      while (totalBab > 0) {
+    if (totalBab < 100) {
+      if (totalBab >= 5) {
+        while (totalBab > 0) {
+          allBab.push("+" + totalBab);
+          totalBab = totalBab - 5;
+        };
+      } else {
         allBab.push("+" + totalBab);
-        totalBab = totalBab - 5;
       };
     } else {
-      allBab.push("+" + totalBab);
+      allBab.push("BAB exceeds maximum calculation");
     };
-    allBab = allBab.join("/");
+    allBab = allBab.join(" / ");
     return allBab;
   };
 
@@ -9485,7 +9489,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" type="text" tabindex="1">' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-tip="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
@@ -11747,7 +11751,7 @@ var log = (function() {
     var all_breakingChanges = [];
     var all_breakingChangesVersion = [];
     var changeVersion;
-    var numberOfRecentChanges = 3;
+    var numberOfRecentChanges = 2;
     for (var i = 0; i < update.history.length; i++) {
       for (var j = 0; j < update.history[i].list.length; j++) {
         var asterisk = "*";
@@ -14236,6 +14240,7 @@ var spells = (function() {
 
     // change spells to reflect state
     if (spellRoot.dataset.spellState == "remove") {
+      _normalStateSpellItems();
       _removeStateSpellItems();
       helper.addClass(spellRoot, "is-state-remove");
       helper.addClass(spellRemoveButton, "button-primary");
