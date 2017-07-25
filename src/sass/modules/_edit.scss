@@ -191,11 +191,13 @@
         z-index: 3;
       }
     }
+    .m-check-block,
     .m-input-block {
       z-index: 2;
       &.is-focus {
         z-index: 3;
       }
+      .m-check-block-check-icon,
       .m-input-block-field {
         border-radius: 0;
         &:focus {

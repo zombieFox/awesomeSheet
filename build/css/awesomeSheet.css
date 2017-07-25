@@ -2752,16 +2752,32 @@ label {
     .m-edit-box-group [class*="m-edit-box-item"]:hover .button,
     .m-edit-box-group [class^="m-edit-box-item"]:hover .button {
       z-index: 3; }
+    .m-edit-box-group [class*="m-edit-box-item"] .m-check-block,
     .m-edit-box-group [class*="m-edit-box-item"] .m-input-block,
+    .m-edit-box-group [class^="m-edit-box-item"] .m-check-block,
     .m-edit-box-group [class^="m-edit-box-item"] .m-input-block {
       z-index: 2; }
+      .m-edit-box-group [class*="m-edit-box-item"] .m-check-block.is-focus,
       .m-edit-box-group [class*="m-edit-box-item"] .m-input-block.is-focus,
+      .m-edit-box-group [class^="m-edit-box-item"] .m-check-block.is-focus,
       .m-edit-box-group [class^="m-edit-box-item"] .m-input-block.is-focus {
         z-index: 3; }
+      .m-edit-box-group [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
+      .m-edit-box-group [class*="m-edit-box-item"] .m-check-block .m-input-block-field,
+      .m-edit-box-group [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
       .m-edit-box-group [class*="m-edit-box-item"] .m-input-block .m-input-block-field,
+      .m-edit-box-group [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
+      .m-edit-box-group [class^="m-edit-box-item"] .m-check-block .m-input-block-field,
+      .m-edit-box-group [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
       .m-edit-box-group [class^="m-edit-box-item"] .m-input-block .m-input-block-field {
         border-radius: 0; }
+        .m-edit-box-group [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
+        .m-edit-box-group [class*="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
+        .m-edit-box-group [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
         .m-edit-box-group [class*="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
+        .m-edit-box-group [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
+        .m-edit-box-group [class^="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
+        .m-edit-box-group [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
         .m-edit-box-group [class^="m-edit-box-item"] .m-input-block .m-input-block-field:focus {
           z-index: 3; }
     .m-edit-box-group [class*="m-edit-box-item"]:hover .m-input-block,
