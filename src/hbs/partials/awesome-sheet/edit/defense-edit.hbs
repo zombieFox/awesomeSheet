@@ -17,12 +17,6 @@
         </div>
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="defense-hp-damage">Damage</label>
-            <input id="defense-hp-damage" class="m-input-block-field u-full-width js-input-block-field" data-type="integer" data-path="defense.hp.damage" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
             <label class="m-input-block-label js-input-block-label" for="defense-hp-non-lethal-damage">Nonlethal</label>
             <input id="defense-hp-non-lethal-damage" class="m-input-block-field u-full-width js-input-block-field" data-path="defense.hp.non_lethal_damage" data-type="integer" type="text" tabindex="1">
           </div>
@@ -30,6 +24,22 @@
         <div class="m-edit-box-item-small">
           <p class="m-edit-box-label">Total HP</p>
           <p class="m-edit-box-text js-text-block" data-path="defense.hp.total"></p>
+        </div>
+      </div>
+    </div>
+    <div class="m-edit-box-content m-edit-box-content-margin-large">
+      <div class="m-edit-box-item-max m-edit-box-group">
+        <div class="m-edit-box-item-button">
+          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-input-block-increment" data-path="defense.hp.damage" data-increment="add" tabindex="1"><span class="icon-remove"></span></a>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="defense-hp-damage">Damage</label>
+            <input id="defense-hp-damage" class="m-input-block-field u-full-width js-input-block-field" data-type="integer" data-path="defense.hp.damage" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-button">
+          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-input-block-increment" data-path="defense.hp.damage" data-increment="minus" tabindex="1"><span class="icon-add"></span></a>
         </div>
       </div>
     </div>

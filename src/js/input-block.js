@@ -60,18 +60,36 @@ var inputBlock = (function() {
     };
   };
 
+  function _increment(button) {
+    console.log(button.dataset.path);
+  };
+
   function bind(inputBlock) {
     if (inputBlock) {
       _bind_inputBlock(inputBlock);
     } else {
-      var all_inputBlock = helper.eA(".js-input-block");
-      for (var i = 0; i < all_inputBlock.length; i++) {
-        if (all_inputBlock[i].dataset.clone != "true") {
-          _bind_inputBlock(all_inputBlock[i]);
-        };
+      _bind_all_inputBlock();
+      _bind_inputBlockIncrement();
+      _bind_name();
+    };
+  };
+
+  function _bind_inputBlockIncrement() {
+    var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
+    for (var i = 0; i < all_inputBlockIncrement.length; i++) {
+      all_inputBlockIncrement[i].addEventListener("click", function() {
+        _increment(this);
+      }, false);
+    };
+  };
+
+  function _bind_all_inputBlock() {
+    var all_inputBlock = helper.eA(".js-input-block");
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      if (all_inputBlock[i].dataset.clone != "true") {
+        _bind_inputBlock(all_inputBlock[i]);
       };
     };
-    _bind_name();
   };
 
   function _bind_inputBlock(inputBlock) {
