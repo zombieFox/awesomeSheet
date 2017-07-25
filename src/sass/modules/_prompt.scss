@@ -46,9 +46,9 @@
 }
 .m-prompt-controls {
   margin: 0;
+  position: relative;
   .button {
     margin: 0;
-    // width: 50%;
     &:first-child {
       border-radius: 0 0 0 $border-radius-large;
     }

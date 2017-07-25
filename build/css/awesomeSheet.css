@@ -3593,7 +3593,8 @@ label {
     margin-bottom: 0; }
 
 .m-prompt-controls {
-  margin: 0; }
+  margin: 0;
+  position: relative; }
   .m-prompt-controls .button {
     margin: 0; }
     .m-prompt-controls .button:first-child {
@@ -3672,6 +3673,7 @@ label {
       outline: 0; }
 
 .m-modal-controls {
+  position: relative;
   border-radius: 0 0 4px 4px; }
   .m-modal-controls .button {
     margin: 0;

@@ -46,6 +46,7 @@
   }
 }
 .m-modal-controls {
+  position: relative;
   border-radius: 0 0 $border-radius-large $border-radius-large;
   .button {
     margin: 0;
