@@ -107,3 +107,8 @@
   }
 }
 @media (min-width: $screen-xl) {}
+@media print {
+  .m-log {
+    display: none;
+  }
+}

@@ -43,3 +43,18 @@
     width: 40%;
   }
 }
+@media print {
+  .l-section-wrapper {
+    margin: 0;
+    display: block;
+    columns: 10em 2;
+    column-gap: 2em;
+    & > * {
+      break-inside: avoid;
+    }
+  }
+  .l-section {
+    margin: 0 0 1em;
+    width: 100%;
+  }
+}

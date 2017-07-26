@@ -601,3 +601,121 @@
   }
 }
 @media (min-width: $screen-xl) {}
+@media print {
+  .m-display-box {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+  }
+  [class*="m-display-box-head"],
+  [class^="m-display-box-head"] {
+    flex: 1 1 auto;
+  }
+  .m-display-box-body {
+    margin-left: 2em;
+    flex: 1 1 auto;
+  }
+  .m-display-box-item-stat {
+    flex: 1 1 15%;
+    box-sizing: border-box;
+    position: relative;
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      padding: 0;
+    }
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      &:before {
+        content: none;
+      }
+    }
+    &:nth-child(3n+1),
+    &:nth-child(3n+2) {
+      &:after {
+        content: none;
+      }
+    }
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        content: "";
+        background-color: $gray-16;
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: rotate(10deg);
+      }
+    }
+  }
+  .m-display-block,
+  .m-display-block-last {
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 1em;
+      padding-bottom: 0;
+      border-bottom: 0;
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .m-display-list {
+    display: block;
+  }
+  .m-display-box-title {
+    font-size: $font-size-100;
+  }
+  .m-display-list-item {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid $gray-14;
+  }
+  .m-display-list-responsive {
+    display: block;
+    .m-display-list-item {
+      display: block;
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+      &:nth-child(3n+1),
+      &:nth-child(3n+2) {
+        margin-right: 0;
+      }
+    }
+  }
+  .m-display-list-line {
+    display: block;
+    .m-display-list-item {
+      margin-right: 0;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid $gray-14;
+    }
+  }
+  .m-display-list-stack {
+    display: block;
+    .m-display-list-item {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid $gray-14;
+    }
+  }
+  .m-display-list-compact {
+    columns: 1;
+    .m-display-list-item {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid $gray-14;
+    }
+  }
+  .m-display-list-item-attack-melee,
+  .m-display-list-item-attack-ranged {
+    border-bottom: 1px solid $gray-14;
+  }
+}

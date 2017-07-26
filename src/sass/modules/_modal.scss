@@ -78,3 +78,9 @@
 }
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
+@media print {
+  .m-modal,
+  .m-modal-shade {
+    display: none;
+  }
+}
