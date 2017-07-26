@@ -7,12 +7,12 @@ var inputBlock = (function() {
     var type = inputBlockField.dataset.type;
     var data;
     if (type == "integer") {
-      data = parseInt(element.value, 10 || 0);
+      data = parseInt(element.value, 10) || 0;
       if (isNaN(data) && type == "integer") {
         data = "";
       };
     } else if (type == "float") {
-      data = parseFloat(element.value);
+      data = parseFloat(element.value) || 0;
       if (isNaN(data)) {
         data = "";
       };
@@ -61,7 +61,19 @@ var inputBlock = (function() {
   };
 
   function _increment(button) {
-    console.log(button.dataset.path);
+    var increment = button.dataset.increment;
+    var target = button.dataset.incrementTarget;
+    var inputBlockField = helper.e("#" + target);
+    var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    var path = inputBlockField.dataset.path;
+    if (increment == "add") {
+      helper.setObject(sheet.getCharacter(), path, (parseInt(helper.getObject(sheet.getCharacter(), path), 10) + 1));
+    } else if (increment == "minus") {
+      helper.setObject(sheet.getCharacter(), path, (parseInt(helper.getObject(sheet.getCharacter(), path), 10) - 1));
+    };
+    _render_inputBlock(inputBlock);
+    sheet.storeCharacters();
+    totalBlock.render();
   };
 
   function bind(inputBlock) {
