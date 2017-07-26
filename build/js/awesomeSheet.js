@@ -14790,7 +14790,6 @@ var tip = (function() {
 
   function _bind_tip(tip) {
     tip.addEventListener("focus", function() {
-      destroy();
       render(tip);
     }, false);
     tip.addEventListener("blur", function() {
