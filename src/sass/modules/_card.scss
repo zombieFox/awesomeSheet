@@ -89,9 +89,10 @@
   }
   .m-card-head {
     background-color: transparent;
+    border-bottom: 2px solid $gray-02;
   }
   .m-card-body {
-    padding: 0;
+    padding: 2em 0;
   }
   .m-card-head-controls {
     .button {
