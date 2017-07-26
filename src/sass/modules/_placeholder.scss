@@ -48,3 +48,8 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
+@media print {
+  .m-placeholder {
+    display: none;
+  }
+}

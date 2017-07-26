@@ -14790,7 +14790,6 @@ var tip = (function() {
 
   function _bind_tip(tip) {
     tip.addEventListener("focus", function() {
-      destroy();
       render(tip);
     }, false);
     tip.addEventListener("blur", function() {
@@ -15409,6 +15408,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.9.1",
+    list: [
+      "Update print styles to use columns."
+    ]
+  }, {
     version: "3.9.0",
     list: [
       "*Added Multi class support!",
