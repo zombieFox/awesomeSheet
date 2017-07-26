@@ -212,7 +212,7 @@ var clone = (function() {
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-button">' +
+        '            <div class="m-edit-box-item-button-small">' +
         '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '            </div>' +
         '          </div>' +

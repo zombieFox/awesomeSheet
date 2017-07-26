@@ -149,13 +149,26 @@
 .m-edit-box-item-max {
   flex: 1 1 100%;
 }
-.m-edit-box-item-button {
+[class*="m-edit-box-item-button"],
+[class^="m-edit-box-item-button"] {
   flex: 0 0 2.5em;
   .button {
     margin: 0;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
+  }
+}
+.m-edit-box-item-button-small {
+  .button {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.m-edit-box-item-button-large {
+  .button {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 .m-edit-box-item-control {
@@ -411,7 +424,7 @@
   .m-edit-box-item-small {
     flex: 0 1 20%;
   }
-  .m-edit-box-item-button {
+  .m-edit-box-item-button-small {
     flex: 0 0 2em;
   }
 }

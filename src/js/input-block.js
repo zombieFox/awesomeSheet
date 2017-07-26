@@ -7,12 +7,12 @@ var inputBlock = (function() {
     var type = inputBlockField.dataset.type;
     var data;
     if (type == "integer") {
-      data = parseInt(element.value, 10) || 0;
+      data = parseInt(element.value, 10);
       if (isNaN(data) && type == "integer") {
         data = "";
       };
     } else if (type == "float") {
-      data = parseFloat(element.value) || 0;
+      data = parseFloat(element.value);
       if (isNaN(data)) {
         data = "";
       };
@@ -67,9 +67,11 @@ var inputBlock = (function() {
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var path = inputBlockField.dataset.path;
     if (increment == "add") {
-      helper.setObject(sheet.getCharacter(), path, (parseInt(helper.getObject(sheet.getCharacter(), path), 10) + 1));
+      helper.setObject(sheet.getCharacter(), path, ((parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0) + 1));
     } else if (increment == "minus") {
-      helper.setObject(sheet.getCharacter(), path, (parseInt(helper.getObject(sheet.getCharacter(), path), 10) - 1));
+      helper.setObject(sheet.getCharacter(), path, ((parseInt(helper.getObject(sheet.getCharacter(), path), 10) || 0) - 1));
+    } else if (increment == "clear") {
+      helper.setObject(sheet.getCharacter(), path, "");
     };
     _render_inputBlock(inputBlock);
     sheet.storeCharacters();
