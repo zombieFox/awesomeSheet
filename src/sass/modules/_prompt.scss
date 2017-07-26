@@ -93,3 +93,9 @@
 }
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
+@media print {
+  .m-prompt,
+  .m-prompt-shade {
+    display: none;
+  }
+}

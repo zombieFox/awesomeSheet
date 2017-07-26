@@ -74,3 +74,8 @@
     width: 40%;
   }
 }
+@media print {
+  .m-snack-bar {
+    display: none;
+  }
+}

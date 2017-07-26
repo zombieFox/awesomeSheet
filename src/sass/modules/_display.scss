@@ -714,4 +714,8 @@
       border-bottom: 1px solid $gray-14;
     }
   }
+  .m-display-list-item-attack-melee,
+  .m-display-list-item-attack-ranged {
+    border-bottom: 1px solid $gray-14;
+  }
 }
