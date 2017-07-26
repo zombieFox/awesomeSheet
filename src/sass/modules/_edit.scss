@@ -135,13 +135,13 @@
   flex: 0 0 4em;
 }
 .m-edit-box-item-check {
-  flex: 0 0 3em;
+  flex: 0 0 4em;
 }
 .m-edit-box-item-small {
-  flex: 0 1 25%;
+  flex: 0 1 30%;
 }
 .m-edit-box-item-medium {
-  flex: 0.5 1 30%;
+  flex: 0 1 35%;
 }
 .m-edit-box-item-large {
   flex: 1 1 40%;
@@ -151,7 +151,7 @@
 }
 [class*="m-edit-box-item-button"],
 [class^="m-edit-box-item-button"] {
-  flex: 0 0 2.5em;
+  flex: 0 0 4em;
   .button {
     margin: 0;
     width: 100%;
@@ -188,10 +188,11 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+    margin-left: -1px;
+    // border: 1px solid red;
     & > * {
       border-radius: 0;
       margin-bottom: 0;
-      margin-left: -1px;
     }
     .button {
       z-index: 2;
@@ -291,7 +292,7 @@
 // --------------------------------------------------
 .m-edit-box-total {
   background-color: $gray-19;
-  padding: 0 0.8em;
+  padding: 0 1em;
   margin: 0;
   height: 2.5em;
   font-size: $font-size-100;
@@ -309,7 +310,7 @@
   }
 }
 .m-edit-box-text {
-  background-color: $gray-20;
+  background-color: $white;
   padding: 0 0.8em;
   margin: 0;
   height: 2.5em;
@@ -359,13 +360,13 @@
     color: $secondary-color-08;
   }
   .m-edit-box-total {
-    background-color: $gray-07;
+    background-color: $gray-05;
     border-color: $gray-06;
     color: $gray-18;
   }
   .m-edit-box-text {
-    background-color: $gray-05;
-    border-color: $gray-06;
+    background-color: $gray-03;
+    border-color: $gray-04;
     color: $gray-18;
   }
   .m-edit-box-content-outline {
@@ -412,6 +413,12 @@
   .m-edit-box-item-modifier {
     flex: 0 0 4em;
   }
+  .m-edit-box-item-small {
+    flex: 0 1 20%;
+  }
+  .m-edit-box-item-button-small {
+    flex: 0 0 2em;
+  }
   .m-edit-box-title {
     margin-right: 1em;
   }
@@ -420,12 +427,6 @@
   }
   .m-edit-box-no-head-large {
     padding-left: 50%;
-  }
-  .m-edit-box-item-small {
-    flex: 0 1 20%;
-  }
-  .m-edit-box-item-button-small {
-    flex: 0 0 2em;
   }
 }
 @media (min-width: $screen-md) {}

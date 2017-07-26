@@ -8,7 +8,7 @@ input[type="submit"] {
   padding: 0.25em 1em;
   border: 0;
   border: $border;
-  border-color: $gray-18;
+  border-color: $gray-16;
   border-radius: $border-radius-large;
   margin: 0 0 1em;
   text-align: center;
@@ -25,13 +25,13 @@ input[type="submit"] {
   &:link,
   &:visited {
     background-color: $gray-20;
-    border-color: $gray-18;
+    border-color: $gray-16;
     color: $base-color;
   }
   &:focus,
   &:hover {
     background-color: $gray-18;
-    border-color: $gray-16;
+    border-color: $gray-14;
     color: $base-color;
     outline: 0;
     text-decoration: none;
@@ -40,7 +40,7 @@ input[type="submit"] {
   &.is-active,
   &:active {
     background-color: $gray-16;
-    border-color: $gray-14;
+    border-color: $gray-12;
     color: $base-color;
     outline: 0;
     text-decoration: none;

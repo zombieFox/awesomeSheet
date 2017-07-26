@@ -187,7 +187,7 @@ var spells = (function() {
       sheet.storeCharacters();
     };
 
-    function _create_spellModal() {
+    function _create_spellControlModal() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
       spellControl.setAttribute("data-spell-level", spellLevel);
@@ -437,7 +437,7 @@ var spells = (function() {
     };
 
     if (spellState == "false" || force) {
-      var modalContent = _create_spellModal();
+      var modalContent = _create_spellControlModal();
 
       modal.render(spellObject.name, modalContent, "Save", function() {
         var spellSection = helper.e(".js-section-spells");

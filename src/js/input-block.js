@@ -60,6 +60,95 @@ var inputBlock = (function() {
     };
   };
 
+  function _quickValue(button) {
+    var target = button.dataset.valueTarget;
+    var heading = button.dataset.modalHeading;
+    var inputBlockField = helper.e("#" + target);
+    var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    var path = inputBlockField.dataset.path;
+
+    function _create_quickValueModal() {
+      function _makeButton(value, addMinus) {
+        var button = document.createElement("button");
+        button.setAttribute("class", "button button-icon");
+        var buttonText = document.createElement("span");
+        buttonText.setAttribute("class", "button-text");
+        buttonText.textContent = value;
+        var buttonIcon = document.createElement("span");
+        if (addMinus == "add") {
+          buttonIcon.setAttribute("class", "icon-add");
+        } else if (addMinus == "minus") {
+          buttonIcon.setAttribute("class", "icon-remove");
+        };
+        button.appendChild(buttonIcon);
+        button.appendChild(buttonText);
+        return button;
+      };
+
+      var quickValueControl = document.createElement("div");
+      quickValueControl.setAttribute("class", "m-input-block-quick-value");
+      quickValueControl.setAttribute("data-quick-value-damage", "");
+
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col1 = document.createElement("div");
+      col1.setAttribute("class", "col-xs-12 col-sm-6");
+      var col2 = document.createElement("div");
+      col2.setAttribute("class", "col-xs-12 col-sm-6");
+
+      var heading = document.createElement("h1");
+      heading.setAttribute("class", "m-modal-heading");
+      heading.textContent = "Apply 0 Damage";
+
+      var buttonGroupPlus = document.createElement("div");
+      buttonGroupPlus.setAttribute("class", "button-group m-input-block-quick-value-button-group");
+      var buttonGroupMinus = document.createElement("div");
+      buttonGroupMinus.setAttribute("class", "button-group m-input-block-quick-value-button-group");
+
+      buttonGroupPlus.appendChild(_makeButton(1, "add"));
+      buttonGroupPlus.appendChild(_makeButton(2, "add"));
+      buttonGroupPlus.appendChild(_makeButton(3, "add"));
+      buttonGroupPlus.appendChild(_makeButton(4, "add"));
+      buttonGroupPlus.appendChild(_makeButton(5, "add"));
+      buttonGroupPlus.appendChild(_makeButton(6, "add"));
+      buttonGroupPlus.appendChild(_makeButton(7, "add"));
+      buttonGroupPlus.appendChild(_makeButton(8, "add"));
+      buttonGroupPlus.appendChild(_makeButton(9, "add"));
+      buttonGroupPlus.appendChild(_makeButton(10, "add"));
+
+      buttonGroupMinus.appendChild(_makeButton(1, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(2, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(3, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(4, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(5, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(6, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(7, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(8, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(9, "minus"));
+      buttonGroupMinus.appendChild(_makeButton(10, "minus"));
+
+      col1.appendChild(heading);
+      col1.appendChild(buttonGroupPlus);
+      col1.appendChild(buttonGroupMinus);
+
+      row.appendChild(col1);
+      row.appendChild(col2);
+      container.appendChild(row);
+      container.appendChild(row);
+      quickValueControl.appendChild(container);
+
+      return quickValueControl;
+    };
+
+    var modalContent = _create_quickValueModal();
+
+    modal.render(false, modalContent, "Apply", function() {
+      console.log(this);
+    }.bind(modalContent));
+  };
+
   function _increment(button) {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
@@ -84,6 +173,7 @@ var inputBlock = (function() {
     } else {
       _bind_all_inputBlock();
       _bind_inputBlockIncrement();
+      _bind_inputBlockQuickValue();
       _bind_name();
     };
   };
@@ -93,6 +183,15 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockIncrement.length; i++) {
       all_inputBlockIncrement[i].addEventListener("click", function() {
         _increment(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockQuickValue() {
+    var all_inputBlockQuickValues = helper.eA(".js-input-block-quick-value");
+    for (var i = 0; i < all_inputBlockQuickValues.length; i++) {
+      all_inputBlockQuickValues[i].addEventListener("click", function() {
+        _quickValue(this);
       }, false);
     };
   };
