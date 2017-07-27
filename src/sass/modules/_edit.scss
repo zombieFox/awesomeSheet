@@ -177,7 +177,8 @@
 // --------------------------------------------------
 // edit group
 // --------------------------------------------------
-.m-edit-box-group {
+[class*="m-edit-box-group"],
+[class^="m-edit-box-group"] {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -189,7 +190,6 @@
     padding-left: 0;
     padding-right: 0;
     margin-left: -1px;
-    // border: 1px solid red;
     & > * {
       border-radius: 0;
       margin-bottom: 0;
@@ -267,6 +267,43 @@
         .m-input-block-field {
           border-radius: $border-radius-large;
         }
+      }
+    }
+  }
+}
+.m-edit-box-group-button-20 {
+  flex-flow: row wrap;
+  [class*="m-edit-box-item"],
+  [class^="m-edit-box-item"] {
+    flex: 1 1 20%;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      &:not(:only-child):not(:last-child) {
+        margin-right: 0;
+      }
+    }
+    & > * {
+      margin-bottom: -1px;
+      border-radius: 0;
+    }
+    &:nth-child(1) {
+      & > * {
+        border-radius: $border-radius-large 0 0 0;
+      }
+    }
+    &:nth-child(5) {
+      & > * {
+        border-radius: 0 $border-radius-large 0 0;
+      }
+    }
+    &:nth-child(6) {
+      & > * {
+        border-radius: 0 0 0 $border-radius-large;
+      }
+    }
+    &:nth-child(10) {
+      & > * {
+        border-radius: 0 0 $border-radius-large 0;
       }
     }
   }
