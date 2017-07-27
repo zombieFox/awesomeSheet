@@ -234,7 +234,7 @@ var spells = (function() {
       var preparedEditBoxContent = document.createElement("div");
       preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
       var preparedEditBoxContentItem1 = document.createElement("div");
       preparedEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
       var preparedEditBoxContentItem2 = document.createElement("div");
@@ -275,13 +275,13 @@ var spells = (function() {
       }, false);
 
       preparedEditBoxContentItem1.appendChild(preparedCount);
-      preparedPlus.appendChild(preparedPlusIcon);
-      preparedEditBoxContentItem2.appendChild(preparedPlus);
       preparedMinus.appendChild(preparedMinusIcon);
-      preparedEditBoxContentItem3.appendChild(preparedMinus);
+      preparedEditBoxContentItem2.appendChild(preparedMinus);
+      preparedPlus.appendChild(preparedPlusIcon);
+      preparedEditBoxContentItem3.appendChild(preparedPlus);
       preparedClear.appendChild(preparedClearIcon);
       preparedEditBoxContentItem4.appendChild(preparedClear);
-      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem1);
+      preparedEditBoxContent.appendChild(preparedEditBoxContentItem1);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem2);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem3);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem4);
@@ -303,7 +303,7 @@ var spells = (function() {
       var castEditBoxContent = document.createElement("div");
       castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
       var castEditBoxContentItem1 = document.createElement("div");
       castEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
       var castEditBoxContentItem2 = document.createElement("div");
@@ -344,13 +344,13 @@ var spells = (function() {
       }, false);
 
       castEditBoxContentItem1.appendChild(castCount);
-      castPlus.appendChild(castPlusIcon);
-      castEditBoxContentItem2.appendChild(castPlus);
       castMinus.appendChild(castMinusIcon);
-      castEditBoxContentItem3.appendChild(castMinus);
+      castEditBoxContentItem2.appendChild(castMinus);
+      castPlus.appendChild(castPlusIcon);
+      castEditBoxContentItem3.appendChild(castPlus);
       castClear.appendChild(castClearIcon);
       castEditBoxContentItem4.appendChild(castClear);
-      castEditBoxGroup.appendChild(castEditBoxContentItem1);
+      castEditBoxContent.appendChild(castEditBoxContentItem1);
       castEditBoxGroup.appendChild(castEditBoxContentItem2);
       castEditBoxGroup.appendChild(castEditBoxContentItem3);
       castEditBoxGroup.appendChild(castEditBoxContentItem4);

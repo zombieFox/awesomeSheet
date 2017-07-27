@@ -61,7 +61,9 @@ var inputBlock = (function() {
   };
 
   function _update_quickValueControls(button) {
-    var target = button.dataset.valueTarget;
+    var type = button.dataset.quickValueType;
+    console.log(type);
+    var target = button.dataset.quickValueTarget;
     var heading = button.dataset.modalHeading;
     var inputBlockField = helper.e("#" + target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
@@ -94,18 +96,24 @@ var inputBlock = (function() {
       };
     };
 
-    function _makeButton(quickValueControl, text, icon, value, damageOrHealing) {
+    function _makeButton(quickValueControl, text, icon, value, large, damageOrHealing) {
       var button = document.createElement("button");
-      button.setAttribute("class", "button button-icon u-inline-with-input");
-      var buttonText = document.createElement("span");
-      buttonText.setAttribute("class", "button-text");
-      buttonText.textContent = text;
+      if (large) {
+        button.setAttribute("class", "button button-icon button-large u-inline-with-input");
+      } else {
+        button.setAttribute("class", "button button-icon u-inline-with-input");
+      };
       if (icon) {
         var buttonIcon = document.createElement("span");
         buttonIcon.setAttribute("class", icon);
         button.appendChild(buttonIcon);
       };
-      button.appendChild(buttonText);
+      if (text) {
+        var buttonText = document.createElement("span");
+        buttonText.setAttribute("class", "button-text");
+        buttonText.textContent = text;
+        button.appendChild(buttonText);
+      };
       button.addEventListener("click", function() {
         _store_data(quickValueControl, value, damageOrHealing);
         _render_count(quickValueControl);
@@ -122,7 +130,7 @@ var inputBlock = (function() {
       return editBoxItem;
     };
 
-    function _update_damage(quickValueControl) {
+    function _update_value(quickValueControl) {
       var damage = parseInt(quickValueControl.dataset.quickValueDamage, 10);
       var healing = parseInt(quickValueControl.dataset.quickValueHealing, 10);
       var currentDamage = helper.getObject(sheet.getCharacter(), "defense.hp.damage");
@@ -138,11 +146,19 @@ var inputBlock = (function() {
       helper.setObject(sheet.getCharacter(), "defense.hp.damage", currentDamage);
     };
 
-    function _create_quickValueModal() {
+    function _create_quickValueModal(type) {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
-      quickValueControl.setAttribute("data-quick-value-damage", 0);
-      quickValueControl.setAttribute("data-quick-value-healing", 0);
+      if (type == "damage") {
+        quickValueControl.setAttribute("data-quick-value-damage", 0);
+        quickValueControl.setAttribute("data-quick-value-healing", 0);
+      } else if (type == "temp-hp") {
+        quickValueControl.setAttribute("data-quick-value-damage", 0);
+        quickValueControl.setAttribute("data-quick-value-healing", 0);
+      } else if (type == "non-lethal-damage") {
+        quickValueControl.setAttribute("data-quick-value-damage", 0);
+        quickValueControl.setAttribute("data-quick-value-healing", 0);
+      };
 
       var damageEditBox = document.createElement("div");
       damageEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
@@ -162,11 +178,11 @@ var inputBlock = (function() {
       damageCount.setAttribute("class", "m-edit-box-text js-input-block-quick-value-damage-count");
       damageCount.textContent = 0;
 
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-add", 1, "damage")));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-add", 3, "damage")));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-add", 5, "damage")));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-add", 10, "damage")));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, "Clear", false, 0, "damage")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-add", 1, false, "damage")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-add", 3, false, "damage")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-add", 5, false, "damage")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-add", 10, false, "damage")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, false, "icon-close", 0, "large", "damage")));
 
       damageEditBoxContent.appendChild(_makeEditBoxItem("total", damageCount));
       damageEditBoxContent.appendChild(damageEditBoxGroup);
@@ -193,11 +209,11 @@ var inputBlock = (function() {
       healingCount.setAttribute("class", "m-edit-box-text js-input-block-quick-value-healing-count");
       healingCount.textContent = 0;
 
-      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-add", 1, "healing")));
-      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-add", 3, "healing")));
-      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-add", 5, "healing")));
-      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-add", 10, "healing")));
-      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, "Clear", false, 0, "healing")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-add", 1, false, "healing")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-add", 3, false, "healing")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-add", 5, false, "healing")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-add", 10, false, "healing")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, false, "icon-close", 0, "large", "healing")));
 
       healingEditBoxContent.appendChild(_makeEditBoxItem("total", healingCount));
       healingEditBoxContent.appendChild(healingEditBoxGroup);
@@ -212,11 +228,11 @@ var inputBlock = (function() {
       return quickValueControl;
     };
 
-    var modalContent = _create_quickValueModal();
+    var modalContent = _create_quickValueModal(type);
 
     modal.render(heading, modalContent, "Apply", function() {
       var defenceSection = helper.e(".js-section-defense");
-      _update_damage(this);
+      _update_value(this);
       sheet.storeCharacters();
       render(helper.e("#" + this.dataset.valueTarget));
       totalBlock.render();
