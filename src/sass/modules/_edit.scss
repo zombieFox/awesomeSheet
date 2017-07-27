@@ -53,20 +53,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -160,19 +160,18 @@
   }
 }
 .m-edit-box-item-button-small {
+  flex: 0 0 3em;
   .button {
     padding-left: 0;
     padding-right: 0;
   }
 }
 .m-edit-box-item-button-large {
+  flex: 0 0 4em;
   .button {
     padding-left: 1em;
     padding-right: 1em;
   }
-}
-.m-edit-box-item-control {
-  flex: 0 1 5em;
 }
 // --------------------------------------------------
 // edit group
@@ -267,43 +266,6 @@
         .m-input-block-field {
           border-radius: $border-radius-large;
         }
-      }
-    }
-  }
-}
-.m-edit-box-group-button-20 {
-  flex-flow: row wrap;
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
-    flex: 1 1 20%;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      &:not(:only-child):not(:last-child) {
-        margin-right: 0;
-      }
-    }
-    & > * {
-      margin-bottom: -1px;
-      border-radius: 0;
-    }
-    &:nth-child(1) {
-      & > * {
-        border-radius: $border-radius-large 0 0 0;
-      }
-    }
-    &:nth-child(5) {
-      & > * {
-        border-radius: 0 $border-radius-large 0 0;
-      }
-    }
-    &:nth-child(6) {
-      & > * {
-        border-radius: 0 0 0 $border-radius-large;
-      }
-    }
-    &:nth-child(10) {
-      & > * {
-        border-radius: 0 0 $border-radius-large 0;
       }
     }
   }
@@ -453,9 +415,6 @@
   .m-edit-box-item-small {
     flex: 0 1 20%;
   }
-  .m-edit-box-item-button-small {
-    flex: 0 0 2em;
-  }
   .m-edit-box-title {
     margin-right: 1em;
   }
@@ -465,6 +424,10 @@
   .m-edit-box-no-head-large {
     padding-left: 50%;
   }
+  .m-edit-box-item-button-small {
+    flex: 0 0 2em;
+  }
+  .m-edit-box-item-button-large {}
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {

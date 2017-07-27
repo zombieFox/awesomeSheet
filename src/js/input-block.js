@@ -107,144 +107,64 @@ var inputBlock = (function() {
       damageEditBoxHead.setAttribute("class", "m-edit-box-head");
       var damageEditBoxHeadTitle = document.createElement("h2");
       damageEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      damageEditBoxHeadTitle.textContent = "Damage";
+      damageEditBoxHeadTitle.textContent = "Damage to apply";
       var damageEditBoxBody = document.createElement("div");
       damageEditBoxBody.setAttribute("class", "m-edit-box-body");
       var damageEditBoxContent = document.createElement("div");
       damageEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var damageEditBoxGroup1 = document.createElement("div");
-      damageEditBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
-      var damageEditBoxGroup2 = document.createElement("div");
-      damageEditBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group-button-20");
-      var damageEditBoxGroup3 = document.createElement("div");
-      damageEditBoxGroup3.setAttribute("class", "m-edit-box-item-max m-edit-box-group-button-20");
+      var damageEditBoxGroup = document.createElement("div");
+      damageEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group m-input-block-quick-value-button-group");
 
       var damageCount = document.createElement("p");
       damageCount.setAttribute("class", "m-edit-box-text");
-      damageCount.textContent = helper.getObject(sheet.getCharacter(), "defense.hp.damage");
+      damageCount.textContent = 0;
 
-      damageEditBoxGroup1.appendChild(_makeEditBoxItem("total", damageCount));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(1, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(2, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(3, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(4, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(5, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(6, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(7, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(8, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(9, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(10, "add")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(1, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(2, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(3, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(4, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(5, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(6, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(7, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(8, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(9, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton(10, "minus")));
-      damageEditBoxGroup2.appendChild(_makeEditBoxItem("control", _makeButton("Clear",)));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(1, "add")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(3, "add")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(5, "add")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(10, "add")));
+      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton("Clear")));
 
-      damageEditBoxContent.appendChild(damageEditBoxGroup1);
-      damageEditBoxContent.appendChild(damageEditBoxGroup2);
-      damageEditBoxContent.appendChild(damageEditBoxGroup3);
+      damageEditBoxContent.appendChild(_makeEditBoxItem("total", damageCount));
+      damageEditBoxContent.appendChild(damageEditBoxGroup);
       damageEditBoxBody.appendChild(damageEditBoxContent);
       damageEditBoxHead.appendChild(damageEditBoxHeadTitle);
       damageEditBox.appendChild(damageEditBoxHead);
       damageEditBox.appendChild(damageEditBoxBody);
 
+      var healingEditBox = document.createElement("div");
+      healingEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      var healingEditBoxHead = document.createElement("div");
+      healingEditBoxHead.setAttribute("class", "m-edit-box-head");
+      var healingEditBoxHeadTitle = document.createElement("h2");
+      healingEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      healingEditBoxHeadTitle.textContent = "Healing to apply";
+      var healingEditBoxBody = document.createElement("div");
+      healingEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var healingEditBoxContent = document.createElement("div");
+      healingEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var healingEditBoxGroup = document.createElement("div");
+      healingEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group m-input-block-quick-value-button-group");
+
+      var healingCount = document.createElement("p");
+      healingCount.setAttribute("class", "m-edit-box-text");
+      healingCount.textContent = 0;
+
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(1, "add")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(3, "add")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(5, "add")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(10, "add")));
+      healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton("Clear")));
+
+      healingEditBoxContent.appendChild(_makeEditBoxItem("total", healingCount));
+      healingEditBoxContent.appendChild(healingEditBoxGroup);
+      healingEditBoxBody.appendChild(healingEditBoxContent);
+      healingEditBoxHead.appendChild(healingEditBoxHeadTitle);
+      healingEditBox.appendChild(healingEditBoxHead);
+      healingEditBox.appendChild(healingEditBoxBody);
+
       quickValueControl.appendChild(damageEditBox);
-
-      // quickValueControl.appendChild(healingEditBox);
-
-
-      // var damageButtonGroupPlus = document.createElement("div");
-      // damageButtonGroupPlus.setAttribute("class", "button-group m-input-block-quick-value-button-group");
-      // var damageButtonGroupMinus = document.createElement("div");
-      // damageButtonGroupMinus.setAttribute("class", "button-group m-input-block-quick-value-button-group");
-      //
-      // damageButtonGroupPlus.appendChild(_makeButton(1, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(2, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(3, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(4, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(5, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(6, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(7, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(8, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(9, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(10, "add"));
-      //
-      // damageButtonGroupMinus.appendChild(_makeButton(1, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(2, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(3, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(4, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(5, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(6, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(7, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(8, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(9, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(10, "minus"));
-      //
-      //
-      // damageEditBoxContentItem.appendChild(damageButtonGroupPlus);
-      // damageEditBoxContentItem.appendChild(damageButtonGroupMinus);
-      // damageEditBoxContent.appendChild(damageEditBoxContentItem);
-      // damageEditBoxBody.appendChild(damageEditBoxContent);
-      // damageEditBoxHead.appendChild(damageEditBoxHeadTitle);
-      // damageEditBox.appendChild(damageEditBoxHead);
-      // damageEditBox.appendChild(damageEditBoxBody);
-      //
-      // var healingEditBox = document.createElement("div");
-      // healingEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
-      // var healingEditBoxHead = document.createElement("div");
-      // healingEditBoxHead.setAttribute("class", "m-edit-box-head");
-      // var healingEditBoxHeadTitle = document.createElement("h2");
-      // healingEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      // healingEditBoxHeadTitle.textContent = "0 Healing";
-      // var healingEditBoxBody = document.createElement("div");
-      // healingEditBoxBody.setAttribute("class", "m-edit-box-body");
-      // var healingEditBoxContent = document.createElement("div");
-      // healingEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      // var healingEditBoxContentItem = document.createElement("div");
-      // healingEditBoxContentItem.setAttribute("class", "m-edit-box-item-large");
-      //
-      // var damageButtonGroupPlus = document.createElement("div");
-      // damageButtonGroupPlus.setAttribute("class", "button-group m-input-block-quick-value-button-group");
-      // var damageButtonGroupMinus = document.createElement("div");
-      // damageButtonGroupMinus.setAttribute("class", "button-group m-input-block-quick-value-button-group");
-      //
-      // damageButtonGroupPlus.appendChild(_makeButton(1, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(2, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(3, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(4, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(5, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(6, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(7, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(8, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(9, "add"));
-      // damageButtonGroupPlus.appendChild(_makeButton(10, "add"));
-      //
-      // damageButtonGroupMinus.appendChild(_makeButton(1, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(2, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(3, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(4, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(5, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(6, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(7, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(8, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(9, "minus"));
-      // damageButtonGroupMinus.appendChild(_makeButton(10, "minus"));
-      //
-      //
-      // healingEditBoxContentItem.appendChild(damageButtonGroupPlus);
-      // healingEditBoxContentItem.appendChild(damageButtonGroupMinus);
-      // healingEditBoxContent.appendChild(healingEditBoxContentItem);
-      // healingEditBoxBody.appendChild(healingEditBoxContent);
-      // healingEditBoxHead.appendChild(healingEditBoxHeadTitle);
-      // healingEditBox.appendChild(healingEditBoxHead);
-      // healingEditBox.appendChild(healingEditBoxBody);
-
+      quickValueControl.appendChild(healingEditBox);
 
       return quickValueControl;
     };
