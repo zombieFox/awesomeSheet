@@ -184,7 +184,6 @@ var spells = (function() {
       if (spellObject.note == " " || spellObject.note == "&nbsp;" || spellObject.note == "<br/>" || spellObject.note == "<br>") {
         spellObject.note = "";
       };
-      sheet.storeCharacters();
     };
 
     function _create_spellControlModal() {
@@ -443,6 +442,7 @@ var spells = (function() {
         var spellSection = helper.e(".js-section-spells");
         _update_spellObject(this);
         _update_spellButton(button, true);
+        sheet.storeCharacters();
         display.clear(spellSection);
         display.render(spellSection);
       }.bind(modalContent));
