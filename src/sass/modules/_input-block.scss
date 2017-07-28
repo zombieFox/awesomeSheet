@@ -31,15 +31,18 @@
 .m-input-block-quick-value-healing {}
 .m-input-block-quick-value-damage {}
 .m-input-block-quick-value-button-group {
-  .m-edit-box-item-button-small {
+  .m-edit-box-item-button-large {
+    flex-shrink: 1;
     flex-grow: 1;
   }
-  margin-bottom: 0;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1em;
-  }
+  // margin-bottom: 0;
+  // &:not(:only-child):not(:last-child) {
+  //   margin-bottom: 1em;
+  // }
   .button,
   button {
+    padding-left: 0;
+    padding-right: 0;
     // padding: 1em 0;
     // margin-top: -1px;
     [class*=" icon-"],

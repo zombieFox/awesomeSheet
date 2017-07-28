@@ -136,41 +136,51 @@ var inputBlock = (function() {
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
 
-      var damageEditBox = document.createElement("div");
-      damageEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
-      var damageEditBoxHead = document.createElement("div");
-      damageEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var damageEditBoxHeadTitle = document.createElement("h2");
-      damageEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      damageEditBoxHeadTitle.textContent = "Damage to apply";
-      var damageEditBoxBody = document.createElement("div");
-      damageEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var damageEditBoxContent = document.createElement("div");
-      damageEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var damageEditBoxGroup = document.createElement("div");
-      damageEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group m-input-block-quick-value-button-group");
+      var editBox = document.createElement("div");
+      editBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      var editBoxHead = document.createElement("div");
+      editBoxHead.setAttribute("class", "m-edit-box-head");
+      var editBoxHeadTitle = document.createElement("h2");
+      editBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      editBoxHeadTitle.textContent = "To add or subtract";
+      var editBoxBody = document.createElement("div");
+      editBoxBody.setAttribute("class", "m-edit-box-body");
+      var editBoxContent = document.createElement("div");
+      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var editBoxGroup1 = document.createElement("div");
+      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var editBoxGroup2 = document.createElement("div");
+      editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
+      var editBoxGroup3 = document.createElement("div");
+      editBoxGroup3.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
-      var damageCount = document.createElement("p");
-      damageCount.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
-      damageCount.textContent = 0;
+      var Count = document.createElement("p");
+      Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
+      Count.textContent = 0;
 
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("total", damageCount));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
-      damageEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxGroup1.appendChild(_makeEditBoxItem("total", Count));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
 
-      // damageEditBoxContent.appendChild(_makeEditBoxItem("total", damageCount));
-      damageEditBoxContent.appendChild(damageEditBoxGroup);
-      damageEditBoxBody.appendChild(damageEditBoxContent);
-      // damageEditBoxHead.appendChild(damageEditBoxHeadTitle);
-      // damageEditBox.appendChild(damageEditBoxHead);
-      damageEditBox.appendChild(damageEditBoxBody);
+      // editBoxContent.appendChild(_makeEditBoxItem("total", Count));
+      editBoxContent.appendChild(editBoxGroup1);
+      editBoxContent.appendChild(editBoxGroup2);
+      editBoxContent.appendChild(editBoxGroup3);
+      editBoxBody.appendChild(editBoxContent);
+      editBoxHead.appendChild(editBoxHeadTitle);
+      editBox.appendChild(editBoxHead);
+      editBox.appendChild(editBoxBody);
 
       // var healingEditBox = document.createElement("div");
       // healingEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
@@ -203,7 +213,7 @@ var inputBlock = (function() {
       // healingEditBox.appendChild(healingEditBoxHead);
       // healingEditBox.appendChild(healingEditBoxBody);
 
-      quickValueControl.appendChild(damageEditBox);
+      quickValueControl.appendChild(editBox);
       // quickValueControl.appendChild(healingEditBox);
 
       return quickValueControl;
