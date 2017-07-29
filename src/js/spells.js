@@ -184,10 +184,9 @@ var spells = (function() {
       if (spellObject.note == " " || spellObject.note == "&nbsp;" || spellObject.note == "<br/>" || spellObject.note == "<br>") {
         spellObject.note = "";
       };
-      sheet.storeCharacters();
     };
 
-    function _create_spellModal() {
+    function _create_spellControlModal() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
       spellControl.setAttribute("data-spell-level", spellLevel);
@@ -235,20 +234,20 @@ var spells = (function() {
       var preparedEditBoxContent = document.createElement("div");
       preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
       var preparedEditBoxContentItem1 = document.createElement("div");
       preparedEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
       var preparedEditBoxContentItem2 = document.createElement("div");
-      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-button-large");
       var preparedEditBoxContentItem3 = document.createElement("div");
-      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-button-large");
       var preparedEditBoxContentItem4 = document.createElement("div");
-      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-button-large");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-edit-box-text js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedPlus.setAttribute("tabindex", "1");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
@@ -257,7 +256,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedMinus.setAttribute("tabindex", "1");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
@@ -266,7 +265,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedClear.setAttribute("tabindex", "1");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
@@ -276,13 +275,13 @@ var spells = (function() {
       }, false);
 
       preparedEditBoxContentItem1.appendChild(preparedCount);
-      preparedPlus.appendChild(preparedPlusIcon);
-      preparedEditBoxContentItem2.appendChild(preparedPlus);
       preparedMinus.appendChild(preparedMinusIcon);
-      preparedEditBoxContentItem3.appendChild(preparedMinus);
+      preparedEditBoxContentItem2.appendChild(preparedMinus);
+      preparedPlus.appendChild(preparedPlusIcon);
+      preparedEditBoxContentItem3.appendChild(preparedPlus);
       preparedClear.appendChild(preparedClearIcon);
       preparedEditBoxContentItem4.appendChild(preparedClear);
-      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem1);
+      preparedEditBoxContent.appendChild(preparedEditBoxContentItem1);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem2);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem3);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem4);
@@ -304,20 +303,20 @@ var spells = (function() {
       var castEditBoxContent = document.createElement("div");
       castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
       var castEditBoxContentItem1 = document.createElement("div");
       castEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
       var castEditBoxContentItem2 = document.createElement("div");
-      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-button-large");
       var castEditBoxContentItem3 = document.createElement("div");
-      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-button-large");
       var castEditBoxContentItem4 = document.createElement("div");
-      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-button-large");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-edit-box-text js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castPlus.setAttribute("tabindex", "1");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
@@ -326,7 +325,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castMinus.setAttribute("tabindex", "1");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
@@ -335,7 +334,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castClear = document.createElement("button");
-      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castClear.setAttribute("tabindex", "1");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");
@@ -345,13 +344,13 @@ var spells = (function() {
       }, false);
 
       castEditBoxContentItem1.appendChild(castCount);
-      castPlus.appendChild(castPlusIcon);
-      castEditBoxContentItem2.appendChild(castPlus);
       castMinus.appendChild(castMinusIcon);
-      castEditBoxContentItem3.appendChild(castMinus);
+      castEditBoxContentItem2.appendChild(castMinus);
+      castPlus.appendChild(castPlusIcon);
+      castEditBoxContentItem3.appendChild(castPlus);
       castClear.appendChild(castClearIcon);
       castEditBoxContentItem4.appendChild(castClear);
-      castEditBoxGroup.appendChild(castEditBoxContentItem1);
+      castEditBoxContent.appendChild(castEditBoxContentItem1);
       castEditBoxGroup.appendChild(castEditBoxContentItem2);
       castEditBoxGroup.appendChild(castEditBoxContentItem3);
       castEditBoxGroup.appendChild(castEditBoxContentItem4);
@@ -437,12 +436,13 @@ var spells = (function() {
     };
 
     if (spellState == "false" || force) {
-      var modalContent = _create_spellModal();
+      var modalContent = _create_spellControlModal();
 
       modal.render(spellObject.name, modalContent, "Save", function() {
         var spellSection = helper.e(".js-section-spells");
         _update_spellObject(this);
         _update_spellButton(button, true);
+        sheet.storeCharacters();
         display.clear(spellSection);
         display.render(spellSection);
       }.bind(modalContent));

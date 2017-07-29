@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.10.0",
+    list: [
+      "Improved Damage, Temp and Non Leathal HP controls."
+    ]
+  }, {
     version: "3.9.1",
     list: [
       "Update print styles to use columns."
