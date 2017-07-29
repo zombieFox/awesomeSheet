@@ -64,10 +64,25 @@ var classes = (function() {
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
+  function _get_allClassLevel(characterObject) {
+    var classAndLevel = "";
+    var classes = characterObject.basics.classes;
+    for (var i = 0; i < classes.length; i++) {
+      var classname = classes[i].classname || "No class";
+      var level = classes[i].level || "No level";
+      classAndLevel = classAndLevel + classname + " " + level;
+      if (i < (classes.length - 1)) {
+        classAndLevel = classAndLevel + " / ";
+      };
+    };
+    return classAndLevel;
+  };
+
   // exposed methods
   return {
     bind: bind,
-    render: render
+    render: render,
+    getClassLevel: _get_allClassLevel
   };
 
 })();

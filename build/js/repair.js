@@ -2,6 +2,26 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update caster level check
+    if (!characterObject.spells.caster_level_check) {
+      // console.log("--------\t\tupdate caster level check");
+      characterObject.spells.caster_level_check = {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      };
+    };
     // update classes
     if (!characterObject.basics.classes) {
       // console.log("--------\t\tupdate classes");

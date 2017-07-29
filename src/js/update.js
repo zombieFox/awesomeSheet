@@ -1,6 +1,12 @@
 var update = (function() {
 
   var history = [{
+    version: "3.12.0",
+    list: [
+      "Added Caster Level Check support.",
+      "Updated demo PCs"
+    ]
+  }, {
     version: "3.10.0",
     list: [
       "Improved Damage, Temp and Non Leathal HP controls."

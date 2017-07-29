@@ -419,9 +419,12 @@ var vos = (function() {
       attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude."
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Acrobatics (Jump)",
@@ -1098,6 +1101,22 @@ var vos = (function() {
     },
     spells: {
       concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      caster_level_check: {
         current: "",
         misc: "",
         temp: "",

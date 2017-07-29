@@ -313,15 +313,15 @@ var inputBlock = (function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
-    input.addEventListener("keydown", function(event) {
-      // enter
-      if (event.keyCode == 13) {
-        if (input.value == "restore all") {
-          sheet.all();
-        };
-        _focus(this);
-      };
-    }, false);
+    // input.addEventListener("keydown", function(event) {
+    //   // enter
+    //   if (event.keyCode == 13) {
+    //     if (input.value == "restore all") {
+    //       sheet.all();
+    //     };
+    //     _focus(this);
+    //   };
+    // }, false);
   };
 
   function bind_classLevel(inputBlock) {

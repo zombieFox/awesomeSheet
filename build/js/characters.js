@@ -1,11 +1,13 @@
 var hardCodedCharacters = (function() {
 
   var demoCharacters = [
-    nif.data,
-    vos.data
+    izlara.data,
+    ravich.data
   ];
 
   var allCharacters = [
+    izlara.data,
+    ravich.data,
     nif.data,
     vos.data,
     orrin.data,
@@ -15,6 +17,8 @@ var hardCodedCharacters = (function() {
   ];
 
   var singleCharacters = {
+    izlara: izlara.data,
+    ravich: ravich.data,
     nif: nif.data,
     vos: vos.data,
     orrin: orrin.data,

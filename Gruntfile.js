@@ -58,9 +58,11 @@ module.exports = function(grunt) {
       awesomeSheet: {
         src: [
           '<%= folders.build %>/js/strict.js',
-          '<%= folders.build %>/js/helper.js', // helper functions
+          '<%= folders.build %>/js/helper.js',
           '<%= folders.build %>/js/card.js',
           '<%= folders.build %>/js/characters/blank.js',
+          '<%= folders.build %>/js/characters/izlara.js',
+          '<%= folders.build %>/js/characters/ravich.js',
           '<%= folders.build %>/js/characters/marika.js',
           '<%= folders.build %>/js/characters/nefi.js',
           '<%= folders.build %>/js/characters/nif.js',

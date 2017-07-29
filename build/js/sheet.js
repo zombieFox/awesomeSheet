@@ -84,6 +84,7 @@ var sheet = (function() {
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
+      nav.scrollToTop();
       snack.render(helper.truncate(name, 50, true) + " removed.", false, false);
     };
   };
@@ -99,6 +100,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
     snack.render("All characters restored.", false, false);
   };
 
@@ -113,6 +115,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
     snack.render("Default characters restored.", false, false);
   };
 
@@ -127,8 +130,8 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
     snack.render("All characters cleared.", false, false);
-    // document.location.reload(true);
   };
 
   function _createImportModal() {
@@ -259,18 +262,14 @@ var sheet = (function() {
   function exportJson() {
     var fileName;
     var characterName = getCharacter().basics.name;
-    var characterClass = getCharacter().basics.class;
-    var characterLevel = getCharacter().basics.level;
+    var classLevel = classes.getClassLevel(sheet.getCharacter());
     if (characterName != "") {
       fileName = characterName;
     } else {
       fileName = "New character";
     };
-    if (characterClass != "") {
-      fileName = fileName + ", " + characterClass;
-    };
-    if (characterLevel != "") {
-      fileName = fileName + ", " + characterLevel;
+    if (classLevel != "") {
+      fileName = fileName + ", " + classLevel;
     };
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };

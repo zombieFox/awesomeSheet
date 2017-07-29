@@ -697,9 +697,12 @@ var blank = (function() {
       attack_notes: ""
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [],
       acrobatics: {
@@ -1374,6 +1377,3109 @@ var blank = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      per_day: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      dc: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      book: [{
+        level_0: []
+      }, {
+        level_1: []
+      }, {
+        level_2: []
+      }, {
+        level_3: []
+      }, {
+        level_4: []
+      }, {
+        level_5: []
+      }, {
+        level_6: []
+      }, {
+        level_7: []
+      }, {
+        level_8: []
+      }, {
+        level_9: []
+      }]
+    },
+    notes: {
+      character: [],
+      story: []
+    }
+  };
+
+  // exposed methods
+  return {
+    data: data
+  };
+
+})();
+
+var izlara = (function() {
+
+  var data = {
+    awesomeSheet: true,
+    basics: {
+      name: "Izlara Datrel",
+      race: "Elf",
+      level: 12,
+      classes: [{
+        classname: "Wizard",
+        level: 12,
+        hp: 62,
+        fortitude: 4,
+        reflex: 4,
+        will: 8,
+        ranks: 24,
+        bab: 6
+      }],
+      size: {
+        category: "Medium",
+        size_modifier: 0,
+        special_size_modifier: 0,
+        size_modifier_fly: 0,
+        size_modifier_stealth: 0
+      },
+      alignment: "Neutral Good",
+      xp: "220,000",
+      height: "5.5ft",
+      weight: "95lbs",
+      age: "118",
+      gender: "Female",
+      speed: "30",
+      hero_points: "1",
+      luck_points: "3",
+      initiative: {
+        misc: 2,
+        temp: "",
+        feat: 4,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: true
+        }
+      }
+    },
+    statistics: {
+      stats: {
+        str: {
+          score: 12,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
+        },
+        dex: {
+          score: 16,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
+        },
+        con: {
+          score: 14,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
+        },
+        int: {
+          score: 28,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
+        },
+        wis: {
+          score: 16,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
+        },
+        cha: {
+          score: 16,
+          modifier: "",
+          temp_score: "",
+          temp_modifier: ""
+        }
+      },
+      feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
+      traits: "Reactionary, Magical Lineage (Overland Flight)",
+      languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
+      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
+    },
+    equipment: {
+      gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Spyglass",
+      magic_gear: "Handy Haversack, Ioun Stones (Scarlet and Blue), lesser, Pearl of Power (1st) (1), Pearl of Power (2nd) (1), Pearl of Power (3rd) (1), Pearl of Power (4th) (1), Pearl of Power (5th) (1)<br><br>Viles:<br>Antitoxin (2), Holy Water (1)<br><br>Potion:<br>Cure Light Wounds (4), Cure Moderate Wounds (2), Cure Serious Wounds (2), Protection from Evil (2), Displacement (2), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Create Pit (3), Spiked Pit (3), Hungry Pit (3), Acid Pit (3), Summon Monster III (3), Summon Monster IV (3), Summon Monster V (3), Summon Monster VI (2), Form of the Dragon I (2), Invisibility (5), Web (3), Stinking Cloud (2), Grease (2), Mirror Image (3), Fly (3), Interposing Hand (1), Elemental Body 2 (2), Wall of Fire (2), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (2), Gust of Wind (1), Animate Rope (2), False Life (2), Floating Disk (1), Erase (1), Detect Secret Doors (2), Black Tentacles (2), Mage Armor (2)",
+      item: [{
+        name: "Flask of Oil",
+        quantity: 4,
+        weight: 4
+      }, {
+        name: "Sack",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Waterskin",
+        quantity: 1,
+        weight: 4
+      }, {
+        name: "Bedroll and Blanket",
+        quantity: 1,
+        weight: 8
+      }, {
+        name: "Bloodblock",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Healer's Kit",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Silk Rope (50ft)",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Mirror",
+        quantity: 1,
+        weight: 1
+      }, {
+        name: "Compass",
+        quantity: 1,
+        weight: 0.5
+      }],
+      encumbrance: {
+        light: "33 lbs or less",
+        medium: "34–66 lbs",
+        heavy: "67–100 lbs"
+      },
+      armor: {
+        armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
+        belts: "Belt of Physical Perfection +2",
+        body: "",
+        chest: "",
+        eyes: "Eyes of the Eagle",
+        feet: "Boots of Teleportation",
+        hands: "",
+        head: "",
+        headband: "Headband of Mental Superiority +4",
+        neck: "Amulet of Natural Armor +2",
+        ring_left_hand: "Ring of Sustenance",
+        ring_right_hand: "Ring of Feather Falling",
+        shoulders: "Cloak of Resistance +3",
+        wrist: ""
+      },
+      wealth: {
+        platinum: "45",
+        gold: "8,405",
+        silver: "102",
+        copper: ""
+      },
+      consumable: [{
+        item: "Boots of Teleportation",
+        current: "",
+        total: 3,
+        used: 1
+      }, {
+        item: "Wand of Lightning Bolt",
+        current: "",
+        total: 50,
+        used: 2
+      }, {
+        item: "Wand of Spider Climb",
+        current: "",
+        total: 50,
+        used: 19
+      }, {
+        item: "Rod of Metamagic Extend Lesser",
+        current: "",
+        total: 3,
+        used: ""
+      }, {
+        item: "Rod of Metamagic Silent Lesser",
+        current: "",
+        total: 3,
+        used: ""
+      }, {
+        item: "Rod of Metamaic Quicken Lesser",
+        current: "",
+        total: 3,
+        used: ""
+      }]
+    },
+    defense: {
+      hp: {
+        total: 86,
+        temp: "",
+        damage: "",
+        non_lethal_damage: "",
+        current: ""
+      },
+      ac: {
+        misc: "",
+        temp: "",
+        armor: "",
+        shield: "",
+        deflect: "",
+        dodge: "",
+        natural: 2,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_armor: true,
+          ac_shield: true,
+          ac_deflect: true,
+          ac_dodge: true,
+          ac_natural: true,
+          size: true,
+          max_dex: true
+        }
+      },
+      flat_footed: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_armor: true,
+          ac_shield: true,
+          ac_deflect: true,
+          ac_natural: true,
+          size: true
+        }
+      },
+      touch: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_deflect: true,
+          ac_dodge: true,
+          size: true,
+          max_dex: true
+        }
+      },
+      ac_notes: "",
+      fortitude: {
+        base: 4,
+        resistance: 3,
+        feat: "",
+        trait: "",
+        misc: 2,
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: true,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      reflex: {
+        base: 4,
+        resistance: 3,
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      will: {
+        base: 8,
+        resistance: 3,
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
+    },
+    offense: {
+      base_attack: 6,
+      base_attack_bonuses: "+6 / +1",
+      cmb: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          special_size: true,
+          level: false,
+          half_level: false
+        }
+      },
+      cmd: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          special_size: true,
+          level: false,
+          half_level: false,
+          plus_ten: true
+        }
+      },
+      melee_attack: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          size: true,
+          level: false,
+          half_level: false
+        }
+      },
+      ranged_attack: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          size: true,
+          level: false,
+          half_level: false
+        }
+      },
+      attack: {
+        melee: [{
+          weapon: "Dagger +1",
+          attack: "+7",
+          damage: "1d4+1",
+          critical: "19–20/x2"
+        }],
+        ranged: [{
+          weapon: "Shortbow +1",
+          attack: "+9",
+          damage: "1d6",
+          critical: "x3",
+          range: "60ft",
+          ammo: "30 normal, 5 silver"
+        }]
+      },
+      attack_notes: ""
+    },
+    skills: {
+      ranks: {
+        total: 132,
+        spent: {
+          include_custom: false,
+          current: ""
+        }
+      },
+      custom: [{
+        name: "Spellcraft (Identify magic items)",
+        ranks: 12,
+        misc: 2,
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        },
+        current: ""
+      }],
+      acrobatics: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      appraise: {
+        ranks: 4,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      bluff: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      climb: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      craft_1: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      craft_2: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      diplomacy: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      disable_device: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      disguise: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      escape_artist: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      fly: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true,
+          size_modifier_fly: true
+        }
+      },
+      handle_animal: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      heal: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      intimidate: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_arcana: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_dungeoneering: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_engineering: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_geography: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_history: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_local: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_nature: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_nobility: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_planes: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_religion: {
+        ranks: 8,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      linguistics: {
+        ranks: 12,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      perception: {
+        ranks: 12,
+        misc: 5,
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      perform_1: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      perform_2: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      profession_1: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      profession_2: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      ride: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      sense_motive: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      sleight_of_hand: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      spellcraft: {
+        ranks: 12,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      stealth: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true,
+          size_modifier_stealth: true
+        }
+      },
+      survival: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      swim: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      use_magic_device: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      }
+    },
+    spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: 4,
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: 2,
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      },
+      per_day: {
+        level_0: 4,
+        level_1: 7,
+        level_2: 6,
+        level_3: 6,
+        level_4: 5,
+        level_5: 5,
+        level_6: 3,
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      dc: {
+        level_0: 19,
+        level_1: 20,
+        level_2: 21,
+        level_3: 22,
+        level_4: 23,
+        level_5: 24,
+        level_6: 25,
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      book: [{
+        level_0: [{
+          name: "Acid Splash",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Arcane Mark",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dancing Lights",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Detect Magic",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Detect Poison",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Flare",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Ghost Sound",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Haunted Fey Aspect",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Light",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Mage Hand",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Mending",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Message",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Open/Close",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Prestidigitation",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Ray of Frost",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Read Magic",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Resistance",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Spark",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_1: [{
+          name: "Protection From Chaos",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Protection From Evil",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Protection From Good",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Protection From Law",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Hold Portal",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Grease",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Mage Armor",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Mount",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Obscuring Mist",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Summon Monster I",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Unseen Servant",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Comprehend Languages",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Detect Secret Doors",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Detect Undead",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Color Spray",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Silent Image",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Enlarge Person",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Feather Fall",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_2: [{
+          name: "Resist Energy",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Glitterdust",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Summon Monster II",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Web",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Detect Thoughts",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "See Invisibility",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Flaming Sphere",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Invisibility",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Minor Image",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Mirror Image",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Levitate",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Darkvision",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Make Whole",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Pyrotechnics",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Rope Trick",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Create Pit",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_3: [{
+          name: "Dispel Magic",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Magic Circle Against Chaos",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Magic Circle Against Evil",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Magic Circle Against Good",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Magic Circle Against Law",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Phantom Steed",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Sleet Storm",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Stinking Cloud",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Summon Monster III",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Tiny Hut",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Wind Wall",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Fly",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Haste",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Magic Weapon Greater",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Shrink Item",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Slow",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Spiked Pit",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_4: [{
+          name: "Dimensional Anchor",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Black Tentacles",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dimension Door",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Summon Monster IV",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Arcane Eye",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Confusion",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Resilient Sphere",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Wall of Fire",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Wall of Ice",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Enervation",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Stone Shape",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Acid Pit",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_5: [{
+          name: "Mages Private Sanctum",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Planar Binding Lesser",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Secret Chest",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Summon Monster V",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Teleport",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Wall of Stone",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Contact Other Plane",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Prying Eyes",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Telepathic Bond",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Wall of Force",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Persistent Image",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Sending",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Animal Growth",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Beast Shape III",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Overland Flight",
+          prepared: 1,
+          active: true,
+          cast: 1,
+          note: ""
+        }, {
+          name: "Polymorph",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Telekinesis",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Transmute Rock to Mud",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Permanency",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Hungry Pit",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_6: [{
+          name: "Planar Binding",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Summon Monster VI",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Antimagic Field",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Dispel Magic Greater",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Contingency",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Forceful Hand",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Programmed Image",
+          prepared: 0,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
+          name: "Form of the Dragon I",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
+      }, {
+        level_7: []
+      }, {
+        level_8: []
+      }, {
+        level_9: []
+      }]
+    },
+    notes: {
+      character: [{
+        note: "Wizard familiar: Dako. Rat, white hair, tiny."
+      }],
+      story: []
+    }
+  };
+
+  // exposed methods
+  return {
+    data: data
+  };
+
+})();
+
+var ravich = (function() {
+
+  var data = {
+    awesomeSheet: true,
+    basics: {
+      name: "Ravich Swiftcloak",
+      race: "Human",
+      level: 6,
+      classes: [{
+        classname: "Rogue",
+        level: 3,
+        hp: 24,
+        fortitude: 1,
+        reflex: 3,
+        will: 1,
+        ranks: 27,
+        bab: 2
+      }, {
+        classname: "Fighter",
+        level: 3,
+        hp: 21,
+        fortitude: 3,
+        reflex: 1,
+        will: 1,
+        ranks: 9,
+        bab: 3
+      }],
+      size: {
+        category: "Medium",
+        size_modifier: 4,
+        special_size_modifier: -4,
+        size_modifier_fly: 6,
+        size_modifier_stealth: 12
+      },
+      alignment: "Chaotic Neutral",
+      xp: "23,000",
+      height: "6ft",
+      weight: "134lbs",
+      age: "24",
+      gender: "Male",
+      speed: "30",
+      hero_points: "1",
+      luck_points: "1",
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: 4,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      }
+    },
+    statistics: {
+      stats: {
+        str: {
+          score: 18,
+          modifier: 4,
+          temp_score: "",
+          temp_modifier: ""
+        },
+        dex: {
+          score: 20,
+          modifier: 5,
+          temp_score: "",
+          temp_modifier: ""
+        },
+        con: {
+          score: 13,
+          modifier: 1,
+          temp_score: "",
+          temp_modifier: ""
+        },
+        int: {
+          score: 13,
+          modifier: 1,
+          temp_score: "",
+          temp_modifier: ""
+        },
+        wis: {
+          score: 12,
+          modifier: 1,
+          temp_score: "",
+          temp_modifier: ""
+        },
+        cha: {
+          score: 10,
+          modifier: 0,
+          temp_score: "",
+          temp_modifier: ""
+        }
+      },
+      feats: "Weapon Finesse, Weapon Focus (Rapier), Improved Initiative, Deft Hands, Acrobatic, Toughness, Two-Weapon Fighting, Magical Aptitude, Great Fortitude",
+      traits: "Resilient, Dirty Fighter",
+      languages: "Common, Humans, Dwarven, Undercommon",
+      special_abilities: "Sneak Attack +2d6, Trapfinding, Evasion, Rogue Talent (Finesse Rogue), Trap Sense +1, Bonus Feat (2), Bravery +1, Armor Training 1"
+    },
+    equipment: {
+      gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
+      magic_gear: "Ioun Stone (Dusty Rose), Feather Token (Tree)<br><br>Potion:<br>Cure Light Wounds (4), Cure Moderate Wounds (5), Cure Serious Wounds (1), Resist Fire (1), Alchemist Fire (1), Lesser Restoration (1), Remove Disease (1)",
+      item: [{
+        name: "Flask of Oil",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Waterskin",
+        quantity: 1,
+        weight: 4
+      }, {
+        name: "Bedroll & Blanket",
+        quantity: 1,
+        weight: 8
+      }, {
+        name: "Rope (silk)",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Mirror",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Compass",
+        quantity: 1,
+        weight: 1
+      }],
+      encumbrance: {
+        light: "100 lbs or less",
+        medium: "101–200 lbs",
+        heavy: "201–300 lbs"
+      },
+      armor: {
+        armor: "Mithral Chain Shirt +1",
+        check_penalty: 0,
+        max_dex: 6,
+        shield: "Mithral Buckler +1"
+      },
+      body_slots: {
+        belts: "Belt of Physical Might +2 (Str, Dex)",
+        body: "",
+        chest: "",
+        eyes: "",
+        feet: "Boots of Striding and Springing",
+        hands: "",
+        head: "",
+        headband: "",
+        neck: "Amulet of Natural Armor +1",
+        ring_left_hand: "Ring of Protection +1",
+        ring_right_hand: "",
+        shoulders: "Cloak of Resistance +1",
+        wrist: ""
+      },
+      wealth: {
+        platinum: "12",
+        gold: "2,391",
+        silver: "22",
+        copper: ""
+      },
+      consumable: [{
+        item: "Wand of Cure Light Wounds",
+        current: "",
+        total: 50,
+        used: 32
+      }, {
+        item: "Wand of Invisibility",
+        current: "",
+        total: 50,
+        used: 12
+      }]
+    },
+    defense: {
+      hp: {
+        total: 51,
+        temp: "",
+        damage: 5,
+        non_lethal_damage: "",
+        current: ""
+      },
+      ac: {
+        misc: 1,
+        temp: "",
+        armor: 5,
+        shield: 1,
+        deflect: 1,
+        dodge: "",
+        natural: 1,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_armor: true,
+          ac_shield: true,
+          ac_deflect: true,
+          ac_dodge: true,
+          ac_natural: true,
+          size: true,
+          max_dex: true
+        }
+      },
+      flat_footed: {
+        misc: 1,
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_armor: true,
+          ac_shield: true,
+          ac_deflect: true,
+          ac_natural: true,
+          size: true
+        }
+      },
+      touch: {
+        misc: 1,
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          plus_ten: true,
+          ac_deflect: true,
+          ac_dodge: true,
+          size: true,
+          max_dex: true
+        }
+      },
+      ac_notes: "+1 dodge bonus to AC against attacks made by traps. +1 damage when flanking.",
+      fortitude: {
+        base: 4,
+        resistance: 1,
+        feat: 2,
+        trait: 1,
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: true,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      reflex: {
+        base: 4,
+        resistance: 1,
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      will: {
+        base: 2,
+        resistance: 1,
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      save_notes: "+1 bonus on Reflex saves made to avoid traps."
+    },
+    offense: {
+      base_attack: 5,
+      base_attack_bonuses: "+5",
+      cmb: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          special_size: true,
+          level: false,
+          half_level: false
+        }
+      },
+      cmd: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          special_size: true,
+          level: false,
+          half_level: false,
+          plus_ten: true
+        }
+      },
+      melee_attack: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          size: true,
+          level: false,
+          half_level: false
+        }
+      },
+      ranged_attack: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          bab: true,
+          size: true,
+          level: false,
+          half_level: false
+        }
+      },
+      attack: {
+        melee: [{
+          weapon: "Rapier +1 Flaming",
+          attack: "+11",
+          damage: "1d6+4, 1d6 fire",
+          critical: "18–20/x2"
+        }, {
+          weapon: "Short Sword +1",
+          attack: "+10",
+          damage: "1d6+4",
+          critical: "19–20/x2"
+        }, {
+          weapon: "Rapier +1 Flaming, Short Sword +1",
+          attack: "+9/+8",
+          damage: "1d6+4, 1d6 fire/1d6+4",
+          critical: "18–20/x2, 19–20/x2"
+        }],
+        ranged: [{
+          weapon: "Shortbow +1",
+          attack: "+15",
+          damage: "1d6",
+          critical: "x3",
+          range: "60ft",
+          ammo: "30 nornal"
+        }]
+      },
+      attack_notes: "Sneak Attack +2d6"
+    },
+    skills: {
+      ranks: {
+        total: 42,
+        spent: {
+          include_custom: false,
+          current: ""
+        }
+      },
+      custom: [{
+        name: "Perception (Traps)",
+        ranks: 6,
+        misc: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        },
+        current: ""
+      }, {
+        name: "Disable Device (Traps)",
+        ranks: 6,
+        misc: 2,
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        },
+        current: ""
+      }, {
+        name: "Acrobatics (Jump)",
+        ranks: 6,
+        misc: 5,
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        },
+        current: ""
+      }],
+      acrobatics: {
+        ranks: 6,
+        misc: 2,
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      appraise: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      bluff: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      climb: {
+        ranks: 1,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      craft_1: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      craft_2: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      diplomacy: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      disable_device: {
+        ranks: 6,
+        misc: 2,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      disguise: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      escape_artist: {
+        ranks: 6,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      fly: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true,
+          size_modifier_fly: true
+        }
+      },
+      handle_animal: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      heal: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      intimidate: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_arcana: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_dungeoneering: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_engineering: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_geography: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_history: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_local: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_nature: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_nobility: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_planes: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      knowledge_religion: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      linguistics: {
+        ranks: 1,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      perception: {
+        ranks: 6,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      perform_1: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      perform_2: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      profession_1: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      profession_2: {
+        variant_name: "",
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      ride: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      sense_motive: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      sleight_of_hand: {
+        ranks: 4,
+        misc: 2,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      spellcraft: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      stealth: {
+        ranks: 6,
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true,
+          size_modifier_stealth: true
+        }
+      },
+      survival: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      },
+      swim: {
+        ranks: "",
+        misc: "",
+        current: "",
+        bonuses: {
+          class_skill: false,
+          str_bonus: true,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
+      use_magic_device: {
+        ranks: 6,
+        misc: 2,
+        current: "",
+        bonuses: {
+          class_skill: true,
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        }
+      }
+    },
+    spells: {
+      concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -1825,9 +4931,12 @@ var marika = (function() {
       attack_notes: ""
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Disable Device Trap",
@@ -2536,6 +5645,22 @@ var marika = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -3005,9 +6130,12 @@ var nefi = (function() {
       attack_notes: "+2 bonus to CMD against trip."
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [],
       acrobatics: {
@@ -3682,6 +6810,22 @@ var nefi = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -3855,12 +6999,12 @@ var nif = (function() {
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
-      languages: "Aquan, Auran, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Terran, Undercommon",
+      languages: "Aquan, Auran, Azlanti, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Undercommon",
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
-      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of insect sap (10), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
+      magic_gear: "Handy Haversack<br><br>Viles:<br>Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (0), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (1), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)<br><br>Oil:<br>Magic Weapon (2)",
       item: [{
         name: "Flask of Oil",
         quantity: 5,
@@ -3962,7 +7106,7 @@ var nif = (function() {
         item: "Shift",
         current: "",
         total: 11,
-        used: ""
+        used: 2
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
@@ -3973,6 +7117,11 @@ var nif = (function() {
         current: "",
         total: 50,
         used: ""
+      }, {
+        item: "Dimensional Step",
+        current: "",
+        total: 240,
+        used: 50
       }]
     },
     defense: {
@@ -3986,7 +7135,7 @@ var nif = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "",
+        armor: 4,
         shield: "",
         deflect: "",
         dodge: "",
@@ -4046,9 +7195,9 @@ var nif = (function() {
           max_dex: true
         }
       },
-      ac_notes: "",
+      ac_notes: "Mage Armor active, 3 Mirror Images active",
       fortitude: {
-        base: "",
+        base: 2,
         resistance: 2,
         feat: "",
         trait: 1,
@@ -4067,7 +7216,7 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: "",
+        base: 2,
         resistance: 2,
         feat: "",
         trait: "",
@@ -4086,7 +7235,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: "",
+        base: 6,
         resistance: 2,
         feat: "",
         trait: "",
@@ -4107,8 +7256,7 @@ var nif = (function() {
       save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      base_attack: "+4",
       cmb: {
         misc: "",
         temp: "",
@@ -4208,6 +7356,7 @@ var nif = (function() {
         name: "Spellcraft (Identify magic items)",
         ranks: 8,
         misc: 2,
+        current: "",
         bonuses: {
           class_skill: true,
           str_bonus: false,
@@ -4893,6 +8042,22 @@ var nif = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: 4,
         level_1: 7,
@@ -5201,8 +8366,8 @@ var nif = (function() {
         }, {
           name: "Mirror Image",
           prepared: 1,
-          active: false,
-          cast: 0,
+          active: true,
+          cast: 1,
           note: ""
         }, {
           name: "Resist Energy",
@@ -5280,9 +8445,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Fly",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Sleet Storm",
@@ -5304,7 +8469,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Slow",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -5356,7 +8521,7 @@ var nif = (function() {
           name: "Greater Invisibility",
           prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }]
       }, {
@@ -5373,7 +8538,7 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 20 feet 11 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.<br><strong>Dimensional Steps (Sp)</strong> At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
       }],
@@ -5383,6 +8548,8 @@ var nif = (function() {
         note: "Andorak (Lich shade), wizard's apprentice, locked in tomb"
       }, {
         note: "Jonas the mail man, messenger of Thornkeep"
+      }, {
+        note: "Library reference: 957"
       }]
     }
   };
@@ -5804,9 +8971,12 @@ var orrin = (function() {
       attack_notes: "+4d6 Sneak attack"
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Perception (Traps)",
@@ -6515,6 +9685,22 @@ var orrin = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -6999,9 +10185,12 @@ var ro = (function() {
       attack_notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen"
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [],
       acrobatics: {
@@ -7670,6 +10859,22 @@ var ro = (function() {
           dex_bonus: false,
           con_bonus: false,
           int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      },
+      caster_level_check: {
+        current: "",
+        misc: 2,
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
           level: true,
@@ -8460,9 +11665,12 @@ var vos = (function() {
       attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude."
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Acrobatics (Jump)",
@@ -9154,6 +12362,22 @@ var vos = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: "",
         level_1: "",
@@ -9242,11 +12466,13 @@ var vos = (function() {
 var hardCodedCharacters = (function() {
 
   var demoCharacters = [
-    nif.data,
-    vos.data
+    izlara.data,
+    ravich.data
   ];
 
   var allCharacters = [
+    izlara.data,
+    ravich.data,
     nif.data,
     vos.data,
     orrin.data,
@@ -9256,6 +12482,8 @@ var hardCodedCharacters = (function() {
   ];
 
   var singleCharacters = {
+    izlara: izlara.data,
+    ravich: ravich.data,
     nif: nif.data,
     vos: vos.data,
     orrin: orrin.data,
@@ -9398,10 +12626,25 @@ var classes = (function() {
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
+  function _get_allClassLevel(characterObject) {
+    var classAndLevel = "";
+    var classes = characterObject.basics.classes;
+    for (var i = 0; i < classes.length; i++) {
+      var classname = classes[i].classname || "No class";
+      var level = classes[i].level || "No level";
+      classAndLevel = classAndLevel + classname + " " + level;
+      if (i < (classes.length - 1)) {
+        classAndLevel = classAndLevel + " / ";
+      };
+    };
+    return classAndLevel;
+  };
+
   // exposed methods
   return {
     bind: bind,
-    render: render
+    render: render,
+    getClassLevel: _get_allClassLevel
   };
 
 })();
@@ -11739,15 +14982,15 @@ var inputBlock = (function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(nav.update, 300, this);
     }, false);
-    input.addEventListener("keydown", function(event) {
-      // enter
-      if (event.keyCode == 13) {
-        if (input.value == "restore all") {
-          sheet.all();
-        };
-        _focus(this);
-      };
-    }, false);
+    // input.addEventListener("keydown", function(event) {
+    //   // enter
+    //   if (event.keyCode == 13) {
+    //     if (input.value == "restore all") {
+    //       sheet.all();
+    //     };
+    //     _focus(this);
+    //   };
+    // }, false);
   };
 
   function bind_classLevel(inputBlock) {
@@ -12271,7 +15514,6 @@ var nav = (function() {
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
     navClose();
-    scrollToTop();
   };
 
 
@@ -12368,22 +15610,8 @@ var nav = (function() {
     return characterName;
   };
 
-  function _get_allClassLevel(characterObject) {
-    var classAndLevel = "";
-    var classes = characterObject.basics.classes;
-    for (var i = 0; i < classes.length; i++) {
-      var classname = classes[i].classname || "Class";
-      var level = classes[i].level || "Level";
-      classAndLevel = classAndLevel + classname + " " + level;
-      if (i < (classes.length - 1)) {
-        classAndLevel = classAndLevel + " / ";
-      };
-    };
-    return classAndLevel;
-  };
-
   function _createNavCharacterItem(characterObject, characterIndex) {
-    var classLevel = _get_allClassLevel(characterObject);
+    var classLevel = classes.getClassLevel(characterObject);
     var characterName = _get_name(characterObject);
 
     var uniqueId = helper.randomId(10);
@@ -12547,7 +15775,6 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-      scrollToTop();
     }, false);
 
     characterImport.addEventListener("click", function(event) {
@@ -12932,6 +16159,26 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update caster level check
+    if (!characterObject.spells.caster_level_check) {
+      // console.log("--------\t\tupdate caster level check");
+      characterObject.spells.caster_level_check = {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      };
+    };
     // update classes
     if (!characterObject.basics.classes) {
       // console.log("--------\t\tupdate classes");
@@ -13370,6 +16617,7 @@ var sheet = (function() {
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
+      nav.scrollToTop();
       snack.render(helper.truncate(name, 50, true) + " removed.", false, false);
     };
   };
@@ -13385,6 +16633,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
     snack.render("All characters restored.", false, false);
   };
 
@@ -13399,6 +16648,7 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
     snack.render("Default characters restored.", false, false);
   };
 
@@ -13413,8 +16663,8 @@ var sheet = (function() {
     render();
     nav.clear();
     nav.render();
+    nav.scrollToTop();
     snack.render("All characters cleared.", false, false);
-    // document.location.reload(true);
   };
 
   function _createImportModal() {
@@ -13545,18 +16795,14 @@ var sheet = (function() {
   function exportJson() {
     var fileName;
     var characterName = getCharacter().basics.name;
-    var characterClass = getCharacter().basics.class;
-    var characterLevel = getCharacter().basics.level;
+    var classLevel = classes.getClassLevel(sheet.getCharacter());
     if (characterName != "") {
       fileName = characterName;
     } else {
       fileName = "New character";
     };
-    if (characterClass != "") {
-      fileName = fileName + ", " + characterClass;
-    };
-    if (characterLevel != "") {
-      fileName = fileName + ", " + characterLevel;
+    if (classLevel != "") {
+      fileName = fileName + ", " + classLevel;
     };
     prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
   };
@@ -15623,6 +18869,12 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.12.0",
+    list: [
+      "Added Caster Level Check support.",
+      "Updated demo PCs"
+    ]
+  }, {
     version: "3.10.0",
     list: [
       "Improved Damage, Temp and Non Leathal HP controls."

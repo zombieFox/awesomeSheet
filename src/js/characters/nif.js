@@ -90,12 +90,12 @@ var nif = (function() {
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
-      languages: "Aquan, Auran, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Terran, Undercommon",
+      languages: "Aquan, Auran, Azlanti, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Undercommon",
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
-      magic_gear: "Handy Haversack, Vile of Antitoxin (1), Vile of Holy Water (1), Viles of insect sap (10), Viles of Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (1), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (1), Erase (1), Detect Secret Doors (1), Black Tentacles (2)<br><br>Oil:<br>Magic Weapon (2)",
+      magic_gear: "Handy Haversack<br><br>Viles:<br>Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3)<br><br>Potion:<br>Cure Light Wounds (0), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)<br><br>Scroll:<br>Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (3), Interposing Hand (1), Elemental Body 2 (0), Wall of Fire (0), Haste (1), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)<br><br>Oil:<br>Magic Weapon (2)",
       item: [{
         name: "Flask of Oil",
         quantity: 5,
@@ -197,7 +197,7 @@ var nif = (function() {
         item: "Shift",
         current: "",
         total: 11,
-        used: ""
+        used: 2
       }, {
         item: "Pearl of Power (1st Level)",
         current: "",
@@ -208,6 +208,11 @@ var nif = (function() {
         current: "",
         total: 50,
         used: ""
+      }, {
+        item: "Dimensional Step",
+        current: "",
+        total: 240,
+        used: 50
       }]
     },
     defense: {
@@ -221,7 +226,7 @@ var nif = (function() {
       ac: {
         misc: "",
         temp: "",
-        armor: "",
+        armor: 4,
         shield: "",
         deflect: "",
         dodge: "",
@@ -281,9 +286,9 @@ var nif = (function() {
           max_dex: true
         }
       },
-      ac_notes: "",
+      ac_notes: "Mage Armor active, 3 Mirror Images active",
       fortitude: {
-        base: "",
+        base: 2,
         resistance: 2,
         feat: "",
         trait: 1,
@@ -302,7 +307,7 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: "",
+        base: 2,
         resistance: 2,
         feat: "",
         trait: "",
@@ -321,7 +326,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: "",
+        base: 6,
         resistance: 2,
         feat: "",
         trait: "",
@@ -342,8 +347,7 @@ var nif = (function() {
       save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      base_attack: "+4",
       cmb: {
         misc: "",
         temp: "",
@@ -443,6 +447,7 @@ var nif = (function() {
         name: "Spellcraft (Identify magic items)",
         ranks: 8,
         misc: 2,
+        current: "",
         bonuses: {
           class_skill: true,
           str_bonus: false,
@@ -1128,6 +1133,22 @@ var nif = (function() {
           half_level: false
         }
       },
+      caster_level_check: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      },
       per_day: {
         level_0: 4,
         level_1: 7,
@@ -1436,8 +1457,8 @@ var nif = (function() {
         }, {
           name: "Mirror Image",
           prepared: 1,
-          active: false,
-          cast: 0,
+          active: true,
+          cast: 1,
           note: ""
         }, {
           name: "Resist Energy",
@@ -1515,9 +1536,9 @@ var nif = (function() {
           note: ""
         }, {
           name: "Fly",
-          prepared: 2,
+          prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }, {
           name: "Sleet Storm",
@@ -1539,7 +1560,7 @@ var nif = (function() {
           note: ""
         }, {
           name: "Slow",
-          prepared: 0,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -1591,7 +1612,7 @@ var nif = (function() {
           name: "Greater Invisibility",
           prepared: 1,
           active: false,
-          cast: 0,
+          cast: 1,
           note: ""
         }]
       }, {
@@ -1608,7 +1629,7 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 20 feet 11 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.<br><strong>Dimensional Steps (Sp)</strong> At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
       }],
@@ -1618,6 +1639,8 @@ var nif = (function() {
         note: "Andorak (Lich shade), wizard's apprentice, locked in tomb"
       }, {
         note: "Jonas the mail man, messenger of Thornkeep"
+      }, {
+        note: "Library reference: 957"
       }]
     }
   };

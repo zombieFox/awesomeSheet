@@ -403,9 +403,12 @@ var ro = (function() {
       attack_notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen"
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [],
       acrobatics: {
@@ -1074,6 +1077,22 @@ var ro = (function() {
           dex_bonus: false,
           con_bonus: false,
           int_bonus: true,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: true,
+          half_level: false
+        }
+      },
+      caster_level_check: {
+        current: "",
+        misc: 2,
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
           level: true,

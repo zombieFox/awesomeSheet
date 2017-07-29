@@ -378,9 +378,12 @@ var marika = (function() {
       attack_notes: ""
     },
     skills: {
-      spent_ranks: {
-        include_custom: false,
-        current: ""
+      ranks: {
+        total: "",
+        spent: {
+          include_custom: false,
+          current: ""
+        }
       },
       custom: [{
         name: "Disable Device Trap",
@@ -1074,6 +1077,22 @@ var marika = (function() {
     },
     spells: {
       concentration: {
+        current: "",
+        misc: "",
+        temp: "",
+        feat: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      caster_level_check: {
         current: "",
         misc: "",
         temp: "",

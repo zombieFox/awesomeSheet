@@ -79,7 +79,6 @@ var nav = (function() {
     };
     snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
     navClose();
-    scrollToTop();
   };
 
 
@@ -176,22 +175,8 @@ var nav = (function() {
     return characterName;
   };
 
-  function _get_allClassLevel(characterObject) {
-    var classAndLevel = "";
-    var classes = characterObject.basics.classes;
-    for (var i = 0; i < classes.length; i++) {
-      var classname = classes[i].classname || "Class";
-      var level = classes[i].level || "Level";
-      classAndLevel = classAndLevel + classname + " " + level;
-      if (i < (classes.length - 1)) {
-        classAndLevel = classAndLevel + " / ";
-      };
-    };
-    return classAndLevel;
-  };
-
   function _createNavCharacterItem(characterObject, characterIndex) {
-    var classLevel = _get_allClassLevel(characterObject);
+    var classLevel = classes.getClassLevel(characterObject);
     var characterName = _get_name(characterObject);
 
     var uniqueId = helper.randomId(10);
@@ -355,7 +340,6 @@ var nav = (function() {
       event.preventDefault();
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-      scrollToTop();
     }, false);
 
     characterImport.addEventListener("click", function(event) {

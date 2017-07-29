@@ -4,7 +4,7 @@
     <p class="m-edit-box-title">Concentration</p>
   </div>
   <div class="m-edit-box-body">
-    <div class="m-edit-box-content">
+    <div class="m-edit-box-content m-edit-box-content-margin-large">
       <div class="m-edit-box-item-max m-edit-box-group">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Total</p>
@@ -30,6 +30,44 @@
         </div>
         <div class="m-edit-box-item-button-small">
           <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-modal-heading="Concentration bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-edit-box m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="spells.caster_level_check" data-total-path-addition="misc,temp,feat" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level"
+  data-total-type="bonus">
+  <div class="m-edit-box-head">
+    <p class="m-edit-box-title">Caster Level Check</p>
+  </div>
+  <div class="m-edit-box-body">
+    <div class="m-edit-box-content m-edit-box-content-margin-large">
+      <div class="m-edit-box-item-max m-edit-box-group">
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Total</p>
+          <p class="m-edit-box-total js-total-block-total" data-path="spells.caster_level_check.current"></p>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-misc">Misc</label>
+            <input id="spells-caster-level-check-misc" class="m-input-block-field u-full-width js-input-block-field" data-type="integer" data-path="spells.caster_level_check.misc" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-temp">Temp</label>
+            <input id="spells-caster-level-check-temp" class="m-input-block-field u-full-width js-input-block-field" data-type="integer" data-path="spells.caster_level_check.temp" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-feat">Feat</label>
+            <input id="spells-caster-level-check-feat" class="m-input-block-field u-full-width js-input-block-field" data-type="integer" data-path="spells.caster_level_check.feat" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-button-small">
+          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-modal-heading="Caster Level Check bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
         </div>
       </div>
     </div>

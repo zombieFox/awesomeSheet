@@ -1,41 +1,50 @@
-var nefi = (function() {
+var ravich = (function() {
 
   var data = {
     awesomeSheet: true,
     basics: {
-      name: "Nefi Fefi",
+      name: "Ravich Swiftcloak",
       race: "Human",
-      level: "11",
+      level: 6,
       classes: [{
-        classname: "Fighter",
-        level: 11,
-        hp: 85,
-        fortitude: 7,
+        classname: "Rogue",
+        level: 3,
+        hp: 24,
+        fortitude: 1,
         reflex: 3,
-        will: 3,
-        ranks: 22,
-        bab: 11
+        will: 1,
+        ranks: 27,
+        bab: 2
+      }, {
+        classname: "Fighter",
+        level: 3,
+        hp: 21,
+        fortitude: 3,
+        reflex: 1,
+        will: 1,
+        ranks: 9,
+        bab: 3
       }],
       size: {
         category: "Medium",
-        size_modifier: 0,
-        special_size_modifier: 0,
-        size_modifier_fly: 0,
-        size_modifier_stealth: 0
+        size_modifier: 4,
+        special_size_modifier: -4,
+        size_modifier_fly: 6,
+        size_modifier_stealth: 12
       },
-      alignment: "Neutral",
-      xp: "155,000",
-      height: "6'2",
-      weight: "202 lbs",
-      age: "28",
+      alignment: "Chaotic Neutral",
+      xp: "23,000",
+      height: "6ft",
+      weight: "134lbs",
+      age: "24",
       gender: "Male",
-      speed: "30ft",
+      speed: "30",
       hero_points: "1",
-      luck_points: "",
+      luck_points: "1",
       initiative: {
-        misc: "2",
+        misc: "",
         temp: "",
-        feat: "",
+        feat: 4,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -52,101 +61,135 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: 21,
-          modifier: "",
+          score: 18,
+          modifier: 4,
           temp_score: "",
           temp_modifier: ""
         },
         dex: {
-          score: 16,
-          modifier: "",
+          score: 20,
+          modifier: 5,
           temp_score: "",
           temp_modifier: ""
         },
         con: {
-          score: 12,
-          modifier: "",
+          score: 13,
+          modifier: 1,
           temp_score: "",
           temp_modifier: ""
         },
         int: {
           score: 13,
-          modifier: "",
+          modifier: 1,
           temp_score: "",
           temp_modifier: ""
         },
         wis: {
           score: 12,
-          modifier: "",
+          modifier: 1,
           temp_score: "",
           temp_modifier: ""
         },
         cha: {
           score: 10,
-          modifier: "",
+          modifier: 0,
           temp_score: "",
           temp_modifier: ""
         }
       },
-      feats: "Weapon Focus (Guisarme), Iron Will, Great Fortitude, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Weapon Specialization (Guisarme), Furious Focus",
-      traits: "Resilient, Adopted (Elven Reflexes)",
-      languages: "Common, Elven, Draconic",
-      special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 3"
+      feats: "Weapon Finesse, Weapon Focus (Rapier), Improved Initiative, Deft Hands, Acrobatic, Toughness, Two-Weapon Fighting, Magical Aptitude, Great Fortitude",
+      traits: "Resilient, Dirty Fighter",
+      languages: "Common, Humans, Dwarven, Undercommon",
+      special_abilities: "Sneak Attack +2d6, Trapfinding, Evasion, Rogue Talent (Finesse Rogue), Trap Sense +1, Bonus Feat (2), Bravery +1, Armor Training 1"
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
-      magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
-      item: [],
+      magic_gear: "Ioun Stone (Dusty Rose), Feather Token (Tree)<br><br>Potion:<br>Cure Light Wounds (4), Cure Moderate Wounds (5), Cure Serious Wounds (1), Resist Fire (1), Alchemist Fire (1), Lesser Restoration (1), Remove Disease (1)",
+      item: [{
+        name: "Flask of Oil",
+        quantity: 2,
+        weight: 2
+      }, {
+        name: "Waterskin",
+        quantity: 1,
+        weight: 4
+      }, {
+        name: "Bedroll & Blanket",
+        quantity: 1,
+        weight: 8
+      }, {
+        name: "Rope (silk)",
+        quantity: 1,
+        weight: 5
+      }, {
+        name: "Mirror",
+        quantity: 1,
+        weight: 0.5
+      }, {
+        name: "Compass",
+        quantity: 1,
+        weight: 1
+      }],
       encumbrance: {
-        light: "173 lbs or less",
-        medium: "174–346 lbs",
-        heavy: "347–520 lbs"
+        light: "100 lbs or less",
+        medium: "101–200 lbs",
+        heavy: "201–300 lbs"
       },
       armor: {
-        armor: "Full Plate +2",
-        check_penalty: -3,
-        max_dex: "",
-        shield: ""
+        armor: "Mithral Chain Shirt +1",
+        check_penalty: 0,
+        max_dex: 6,
+        shield: "Mithral Buckler +1"
       },
       body_slots: {
-        belts: "Belt of Physical Might (+4 Str +2 Dex)",
+        belts: "Belt of Physical Might +2 (Str, Dex)",
         body: "",
         chest: "",
         eyes: "",
         feet: "Boots of Striding and Springing",
         hands: "",
-        head: "Red Mantis Mask",
-        headband: "Headband of Mental Prowess +2 (Wis & Cha)",
-        neck: "Amulet of Natural Armor +3",
-        ring_left_hand: "Ring of Protection +2",
+        head: "",
+        headband: "",
+        neck: "Amulet of Natural Armor +1",
+        ring_left_hand: "Ring of Protection +1",
         ring_right_hand: "",
-        shoulders: "Cloak of Resistance +3",
+        shoulders: "Cloak of Resistance +1",
         wrist: ""
       },
       wealth: {
-        platinum: "",
-        gold: "870",
-        silver: "",
+        platinum: "12",
+        gold: "2,391",
+        silver: "22",
         copper: ""
       },
-      consumable: []
+      consumable: [{
+        item: "Wand of Cure Light Wounds",
+        current: "",
+        total: 50,
+        used: 32
+      }, {
+        item: "Wand of Invisibility",
+        current: "",
+        total: 50,
+        used: 12
+      }]
     },
     defense: {
       hp: {
-        total: "",
+        total: 51,
         temp: "",
-        damage: "",
+        damage: 5,
         non_lethal_damage: "",
         current: ""
       },
       ac: {
         misc: 1,
         temp: "",
-        armor: 11,
-        shield: "",
-        deflect: 2,
-        dodge: 1,
-        natural: 3,
+        armor: 5,
+        shield: 1,
+        deflect: 1,
+        dodge: "",
+        natural: 1,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -202,10 +245,10 @@ var nefi = (function() {
           max_dex: true
         }
       },
-      ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
+      ac_notes: "+1 dodge bonus to AC against attacks made by traps. +1 damage when flanking.",
       fortitude: {
-        base: 6,
-        resistance: 3,
+        base: 4,
+        resistance: 1,
         feat: 2,
         trait: 1,
         misc: "",
@@ -223,8 +266,8 @@ var nefi = (function() {
         }
       },
       reflex: {
-        base: 3,
-        resistance: 3,
+        base: 4,
+        resistance: 1,
         feat: "",
         trait: "",
         misc: "",
@@ -243,8 +286,8 @@ var nefi = (function() {
       },
       will: {
         base: 2,
-        resistance: 3,
-        feat: 2,
+        resistance: 1,
+        feat: "",
         trait: "",
         misc: "",
         temp: "",
@@ -260,11 +303,11 @@ var nefi = (function() {
           half_level: false
         }
       },
-      save_notes: "+3 bonus on Will saves against fear."
+      save_notes: "+1 bonus on Reflex saves made to avoid traps."
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      base_attack: 5,
+      base_attack_bonuses: "+5",
       cmb: {
         misc: "",
         temp: "",
@@ -336,69 +379,95 @@ var nefi = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Guisarme +1 Keen",
-          attack: "+21/+16/+11",
-          damage: "2d4+12",
-          critical: "19-20/x3"
+          weapon: "Rapier +1 Flaming",
+          attack: "+11",
+          damage: "1d6+4, 1d6 fire",
+          critical: "18–20/x2"
         }, {
-          weapon: "Guisarme +1 Keen Power Attack",
-          attack: "+18/+13/+8",
-          damage: "2d4+18",
-          critical: "19-20/x3"
-        }, {
-          weapon: "Guisarme +1 Trip",
-          attack: "+24",
-          damage: "",
-          critical: ""
-        }, {
-          weapon: "Greatsword MW",
-          attack: "+18/+13/+8",
-          damage: "1d10+8",
+          weapon: "Short Sword +1",
+          attack: "+10",
+          damage: "1d6+4",
           critical: "19–20/x2"
         }, {
-          weapon: "Greatsword MW Power Attack",
-          attack: "+15/+10/+5",
-          damage: "1d10+14",
-          critical: "19–20/x2"
-        }, {
-          weapon: "Halberd MW",
-          attack: "+19/+14/+9",
-          damage: "1d8+10",
-          critical: "x3"
-        }, {
-          weapon: "Halberd MW Power Attack",
-          attack: "+16/+10/+5",
-          damage: "1d8+16",
-          critical: "x3"
-        }, {
-          weapon: "Earthbreaker +1 Frost",
-          attack: "+17/+12/+7",
-          damage: "2d6+8 1d6 (cold)",
-          critical: "x3"
+          weapon: "Rapier +1 Flaming, Short Sword +1",
+          attack: "+9/+8",
+          damage: "1d6+4, 1d6 fire/1d6+4",
+          critical: "18–20/x2, 19–20/x2"
         }],
         ranged: [{
-          weapon: "Composite Longbow MW",
-          attack: "+13/+8/+3",
-          damage: "1d8+5",
+          weapon: "Shortbow +1",
+          attack: "+15",
+          damage: "1d6",
           critical: "x3",
-          range: "100 ft",
-          ammo: "50"
+          range: "60ft",
+          ammo: "30 nornal"
         }]
       },
-      attack_notes: "+2 bonus to CMD against trip."
+      attack_notes: "Sneak Attack +2d6"
     },
     skills: {
       ranks: {
-        total: "",
+        total: 42,
         spent: {
           include_custom: false,
           current: ""
         }
       },
-      custom: [],
-      acrobatics: {
-        ranks: "",
+      custom: [{
+        name: "Perception (Traps)",
+        ranks: 6,
+        misc: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: true,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        },
+        current: ""
+      }, {
+        name: "Disable Device (Traps)",
+        ranks: 6,
+        misc: 2,
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: true,
+          check_penalty: false
+        },
+        current: ""
+      }, {
+        name: "Acrobatics (Jump)",
+        ranks: 6,
         misc: 5,
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: true,
+          level: false,
+          half_level: false,
+          check_penalty: false
+        },
+        current: ""
+      }],
+      acrobatics: {
+        ranks: 6,
+        misc: 2,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -407,7 +476,7 @@ var nefi = (function() {
           int_bonus: false,
           wis_bonus: false,
           cha_bonus: false,
-          class_skill: false,
+          class_skill: true,
           level: false,
           half_level: false,
           check_penalty: true
@@ -448,7 +517,7 @@ var nefi = (function() {
         }
       },
       climb: {
-        ranks: 4,
+        ranks: 1,
         misc: "",
         current: "",
         bonuses: {
@@ -518,11 +587,11 @@ var nefi = (function() {
         }
       },
       disable_device: {
-        ranks: "",
-        misc: "",
+        ranks: 6,
+        misc: 2,
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
@@ -552,11 +621,11 @@ var nefi = (function() {
         }
       },
       escape_artist: {
-        ranks: "",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
@@ -587,11 +656,11 @@ var nefi = (function() {
         }
       },
       handle_animal: {
-        ranks: 8,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -621,11 +690,11 @@ var nefi = (function() {
         }
       },
       intimidate: {
-        ranks: 4,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -642,7 +711,7 @@ var nefi = (function() {
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -655,11 +724,11 @@ var nefi = (function() {
         }
       },
       knowledge_dungeoneering: {
-        ranks: 1,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -672,11 +741,11 @@ var nefi = (function() {
         }
       },
       knowledge_engineering: {
-        ranks: 1,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -812,7 +881,7 @@ var nefi = (function() {
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -825,11 +894,11 @@ var nefi = (function() {
         }
       },
       perception: {
-        ranks: 11,
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -914,7 +983,7 @@ var nefi = (function() {
         }
       },
       ride: {
-        ranks: 9,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
@@ -948,11 +1017,11 @@ var nefi = (function() {
         }
       },
       sleight_of_hand: {
-        ranks: "",
-        misc: "",
+        ranks: 4,
+        misc: 2,
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
@@ -982,11 +1051,11 @@ var nefi = (function() {
         }
       },
       stealth: {
-        ranks: "",
+        ranks: 6,
         misc: "",
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: true,
           con_bonus: false,
@@ -1000,11 +1069,11 @@ var nefi = (function() {
         }
       },
       survival: {
-        ranks: 2,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -1017,11 +1086,11 @@ var nefi = (function() {
         }
       },
       swim: {
-        ranks: 3,
+        ranks: "",
         misc: "",
         current: "",
         bonuses: {
-          class_skill: true,
+          class_skill: false,
           str_bonus: true,
           dex_bonus: false,
           con_bonus: false,
@@ -1034,11 +1103,11 @@ var nefi = (function() {
         }
       },
       use_magic_device: {
-        ranks: "",
-        misc: "",
+        ranks: 6,
+        misc: 2,
         current: "",
         bonuses: {
-          class_skill: false,
+          class_skill: true,
           str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
@@ -1143,17 +1212,7 @@ var nefi = (function() {
       }]
     },
     notes: {
-      character: [{
-        note: "<strong>Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
-      }, {
-        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat<br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage<br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn<br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity<br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you<br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent<br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus.<br><strong>Weapon Specialization</strong> You gain a +2 bonus on all damage rolls you make using the selected weapon.<br><strong>Furious Focus</strong> When you are wielding a two-handed weapon or a one-handed weapon with two hands, and using the Power Attack feat, you do not suffer Power Attack's penalty on melee attack rolls on the first attack you make each turn. You still suffer the penalty on any additional attacks, including attacks of opportunity."
-      }, {
-        note: "<strong>Bonus feat (5)</strong> At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\" </span>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.<br><strong>Bravery (Ex)</strong> Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.<br><strong>Weapon training 2 (Pole Arms +2, Blades, Heavy +1)</strong> Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls. </span>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups. </span>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.<br><strong>Armor Training (Ex)</strong> Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed. In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor."
-      }, {
-        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<br><strong>Adopted (Elven Reflexes)</strong> You were adopted and raised by someone not of your actual race, and raised in a society not your own. As a result, you picked up a race trait from your adoptive parents and society, and may immediately select a race trait from your adoptive parents' race.<br>One of your parents was a member of a wild elven tribe, and you've inherited a portion of your elven parent's quick reflexes. You gain a +2 trait bonus on Initiative checks."
-      }, {
-        note: "Harrow point = +5 on all damage rolls for one combat"
-      }],
+      character: [],
       story: []
     }
   };
