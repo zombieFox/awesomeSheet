@@ -1122,7 +1122,7 @@ var izlara = (function() {
         temp: "",
         feat: 2,
         bonuses: {
-          str_bonus: true,
+          str_bonus: false,
           dex_bonus: false,
           con_bonus: false,
           int_bonus: false,
