@@ -61,8 +61,8 @@ var inputBlock = (function() {
   };
 
   function _update_quickValueControls(button) {
-    var type = button.dataset.quickValueType;
     var target = button.dataset.quickValueTarget;
+    var change = button.dataset.quickValueChange;
     var heading = button.dataset.modalHeading;
     var inputBlockField = helper.e("#" + target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
@@ -123,15 +123,29 @@ var inputBlock = (function() {
       if (isNaN(currentValue)) {
         currentValue = 0;
       };
-      newValue = currentValue + newValue;
-      if (newValue == 0) {
-        helper.setObject(sheet.getCharacter(), path, "");
-      } else {
-        helper.setObject(sheet.getCharacter(), path, newValue);
+      if (change == "positive") {
+        newValue = currentValue + newValue;
+      } else if (change == "negative") {
+        newValue = currentValue - newValue;
       };
+
+      if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
+        if (newValue <= 0) {
+          helper.setObject(sheet.getCharacter(), path, "");
+        } else {
+          helper.setObject(sheet.getCharacter(), path, newValue);
+        };
+      } else {
+        if (newValue == 0) {
+          helper.setObject(sheet.getCharacter(), path, "");
+        } else {
+          helper.setObject(sheet.getCharacter(), path, newValue);
+        };
+      };
+
     };
 
-    function _create_quickValueModal(type) {
+    function _create_quickValueModal() {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
@@ -142,7 +156,7 @@ var inputBlock = (function() {
       editBoxHead.setAttribute("class", "m-edit-box-head");
       var editBoxHeadTitle = document.createElement("h2");
       editBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      editBoxHeadTitle.textContent = "To add or subtract";
+      editBoxHeadTitle.textContent = "To apply";
       var editBoxBody = document.createElement("div");
       editBoxBody.setAttribute("class", "m-edit-box-body");
       var editBoxContent = document.createElement("div");
@@ -173,7 +187,6 @@ var inputBlock = (function() {
       editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
       editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
 
-      // editBoxContent.appendChild(_makeEditBoxItem("total", Count));
       editBoxContent.appendChild(editBoxGroup1);
       editBoxContent.appendChild(editBoxGroup2);
       editBoxContent.appendChild(editBoxGroup3);
@@ -182,48 +195,16 @@ var inputBlock = (function() {
       editBox.appendChild(editBoxHead);
       editBox.appendChild(editBoxBody);
 
-      // var healingEditBox = document.createElement("div");
-      // healingEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
-      // var healingEditBoxHead = document.createElement("div");
-      // healingEditBoxHead.setAttribute("class", "m-edit-box-head");
-      // var healingEditBoxHeadTitle = document.createElement("h2");
-      // healingEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      // healingEditBoxHeadTitle.textContent = "Healing to apply";
-      // var healingEditBoxBody = document.createElement("div");
-      // healingEditBoxBody.setAttribute("class", "m-edit-box-body");
-      // var healingEditBoxContent = document.createElement("div");
-      // healingEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      // var healingEditBoxGroup = document.createElement("div");
-      // healingEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group m-input-block-quick-value-button-group");
-      //
-      // var healingCount = document.createElement("p");
-      // healingCount.setAttribute("class", "m-edit-box-text js-input-block-quick-value-healing-count");
-      // healingCount.textContent = 0;
-      //
-      // healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 1, "icon-add", 1, false, "healing")));
-      // healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 3, "icon-add", 3, false, "healing")));
-      // healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 5, "icon-add", 5, false, "healing")));
-      // healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, 10, "icon-add", 10, false, "healing")));
-      // healingEditBoxGroup.appendChild(_makeEditBoxItem("button-small", _makeButton(quickValueControl, false, "icon-close", 0, "large", "healing")));
-      //
-      // healingEditBoxContent.appendChild(_makeEditBoxItem("total", healingCount));
-      // healingEditBoxContent.appendChild(healingEditBoxGroup);
-      // healingEditBoxBody.appendChild(healingEditBoxContent);
-      // healingEditBoxHead.appendChild(healingEditBoxHeadTitle);
-      // healingEditBox.appendChild(healingEditBoxHead);
-      // healingEditBox.appendChild(healingEditBoxBody);
-
       quickValueControl.appendChild(editBox);
-      // quickValueControl.appendChild(healingEditBox);
 
       return quickValueControl;
     };
 
-    var modalContent = _create_quickValueModal(type);
+    var modalContent = _create_quickValueModal();
 
     modal.render(heading, modalContent, "Apply", function() {
       var defenceSection = helper.e(".js-section-defense");
-      _update_value(this);
+      _update_value(this, change);
       sheet.storeCharacters();
       render(helper.e("#" + this.dataset.valueTarget));
       totalBlock.render();
@@ -243,18 +224,28 @@ var inputBlock = (function() {
       oldValue = 0;
     };
     var newValue;
-    if (increment == "add") {
+    if (increment == "addition") {
       newValue = oldValue + 1;
-    } else if (increment == "minus") {
+    } else if (increment == "subtraction") {
       newValue = oldValue - 1;
     } else if (increment == "clear") {
       newValue = 0;
     };
-    if (newValue != 0) {
-      helper.setObject(sheet.getCharacter(), path, newValue);
+
+    if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
+      if (newValue <= 0) {
+        helper.setObject(sheet.getCharacter(), path, "");
+      } else {
+        helper.setObject(sheet.getCharacter(), path, newValue);
+      };
     } else {
-      helper.setObject(sheet.getCharacter(), path, "");
+      if (newValue == 0) {
+        helper.setObject(sheet.getCharacter(), path, "");
+      } else {
+        helper.setObject(sheet.getCharacter(), path, newValue);
+      };
     };
+
     _render_inputBlock(inputBlock);
     sheet.storeCharacters();
     totalBlock.render();
