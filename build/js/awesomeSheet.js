@@ -9489,7 +9489,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-tip="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-clone="true" data-tip="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
@@ -9620,7 +9620,7 @@ var clone = (function() {
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-button">' +
+        '            <div class="m-edit-box-item-button-small">' +
         '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '            </div>' +
         '          </div>' +
@@ -11433,7 +11433,7 @@ var inputBlock = (function() {
     var type = inputBlockField.dataset.type;
     var data;
     if (type == "integer") {
-      data = parseInt(element.value, 10 || 0);
+      data = parseInt(element.value, 10);
       if (isNaN(data) && type == "integer") {
         data = "";
       };
@@ -11486,18 +11486,233 @@ var inputBlock = (function() {
     };
   };
 
+  function _update_quickValueControls(button) {
+    var target = button.dataset.quickValueTarget;
+    var change = button.dataset.quickValueChange;
+    var heading = button.dataset.modalHeading;
+    var inputBlockField = helper.e("#" + target);
+    var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    var path = inputBlockField.dataset.path;
+
+    function _render_count(quickValueControl) {
+      var currentValue = parseInt(quickValueControl.dataset.quickValue, 10);
+      var inputBlockQuickValue = quickValueControl.querySelector(".js-input-block-quick-value");
+      inputBlockQuickValue.textContent = currentValue;
+    };
+
+    function _store_data(quickValueControl, value) {
+      var currentValue = parseInt(quickValueControl.dataset.quickValue, 10);
+      if (value == 0) {
+        quickValueControl.dataset.quickValue = 0;
+      } else {
+        quickValueControl.dataset.quickValue = currentValue + value;
+      };
+    };
+
+    function _makeButton(quickValueControl, text, icon, value, large) {
+      var button = document.createElement("button");
+      if (large) {
+        button.setAttribute("class", "button button-icon button-large u-inline-with-input");
+      } else {
+        button.setAttribute("class", "button button-icon u-inline-with-input");
+      };
+      if (icon) {
+        var buttonIcon = document.createElement("span");
+        buttonIcon.setAttribute("class", icon);
+        button.appendChild(buttonIcon);
+      };
+      if (text) {
+        var buttonText = document.createElement("span");
+        buttonText.setAttribute("class", "button-text");
+        buttonText.textContent = text;
+        button.appendChild(buttonText);
+      };
+      button.addEventListener("click", function() {
+        _store_data(quickValueControl, value);
+        _render_count(quickValueControl);
+      }, false);
+      return button;
+    };
+
+    function _makeEditBoxItem(size, child) {
+      var editBoxItem = document.createElement("div");
+      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      if (child) {
+        editBoxItem.appendChild(child);
+      };
+      return editBoxItem;
+    };
+
+    function _update_value(quickValueControl) {
+      var newValue = parseInt(quickValueControl.dataset.quickValue, 10);
+      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      if (isNaN(currentValue)) {
+        currentValue = 0;
+      };
+      if (change == "positive") {
+        newValue = currentValue + newValue;
+      } else if (change == "negative") {
+        newValue = currentValue - newValue;
+      };
+
+      if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
+        if (newValue <= 0) {
+          helper.setObject(sheet.getCharacter(), path, "");
+        } else {
+          helper.setObject(sheet.getCharacter(), path, newValue);
+        };
+      } else {
+        if (newValue == 0) {
+          helper.setObject(sheet.getCharacter(), path, "");
+        } else {
+          helper.setObject(sheet.getCharacter(), path, newValue);
+        };
+      };
+
+    };
+
+    function _create_quickValueModal() {
+      var quickValueControl = document.createElement("div");
+      quickValueControl.setAttribute("class", "m-input-block-quick-value");
+      quickValueControl.setAttribute("data-quick-value", 0);
+
+      var editBox = document.createElement("div");
+      editBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      var editBoxHead = document.createElement("div");
+      editBoxHead.setAttribute("class", "m-edit-box-head");
+      var editBoxHeadTitle = document.createElement("h2");
+      editBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      editBoxHeadTitle.textContent = "To apply";
+      var editBoxBody = document.createElement("div");
+      editBoxBody.setAttribute("class", "m-edit-box-body");
+      var editBoxContent = document.createElement("div");
+      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var editBoxGroup1 = document.createElement("div");
+      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var editBoxGroup2 = document.createElement("div");
+      editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
+      var editBoxGroup3 = document.createElement("div");
+      editBoxGroup3.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
+
+      var Count = document.createElement("p");
+      Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
+      Count.textContent = 0;
+
+      editBoxGroup1.appendChild(_makeEditBoxItem("total", Count));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
+      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
+
+      editBoxContent.appendChild(editBoxGroup1);
+      editBoxContent.appendChild(editBoxGroup2);
+      editBoxContent.appendChild(editBoxGroup3);
+      editBoxBody.appendChild(editBoxContent);
+      editBoxHead.appendChild(editBoxHeadTitle);
+      editBox.appendChild(editBoxHead);
+      editBox.appendChild(editBoxBody);
+
+      quickValueControl.appendChild(editBox);
+
+      return quickValueControl;
+    };
+
+    var modalContent = _create_quickValueModal();
+
+    modal.render(heading, modalContent, "Apply", function() {
+      var defenceSection = helper.e(".js-section-defense");
+      _update_value(this, change);
+      sheet.storeCharacters();
+      render(helper.e("#" + this.dataset.valueTarget));
+      totalBlock.render();
+      display.clear(defenceSection);
+      display.render(defenceSection);
+    }.bind(modalContent));
+  };
+
+  function _increment(button) {
+    var increment = button.dataset.increment;
+    var target = button.dataset.incrementTarget;
+    var inputBlockField = helper.e("#" + target);
+    var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    var path = inputBlockField.dataset.path;
+    var oldValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    if (isNaN(oldValue)) {
+      oldValue = 0;
+    };
+    var newValue;
+    if (increment == "addition") {
+      newValue = oldValue + 1;
+    } else if (increment == "subtraction") {
+      newValue = oldValue - 1;
+    } else if (increment == "clear") {
+      newValue = 0;
+    };
+
+    if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
+      if (newValue <= 0) {
+        helper.setObject(sheet.getCharacter(), path, "");
+      } else {
+        helper.setObject(sheet.getCharacter(), path, newValue);
+      };
+    } else {
+      if (newValue == 0) {
+        helper.setObject(sheet.getCharacter(), path, "");
+      } else {
+        helper.setObject(sheet.getCharacter(), path, newValue);
+      };
+    };
+
+    _render_inputBlock(inputBlock);
+    sheet.storeCharacters();
+    totalBlock.render();
+  };
+
   function bind(inputBlock) {
     if (inputBlock) {
       _bind_inputBlock(inputBlock);
     } else {
-      var all_inputBlock = helper.eA(".js-input-block");
-      for (var i = 0; i < all_inputBlock.length; i++) {
-        if (all_inputBlock[i].dataset.clone != "true") {
-          _bind_inputBlock(all_inputBlock[i]);
-        };
+      _bind_all_inputBlock();
+      _bind_inputBlockIncrement();
+      _bind_inputBlockQuickValue();
+      _bind_name();
+    };
+  };
+
+  function _bind_inputBlockIncrement() {
+    var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
+    for (var i = 0; i < all_inputBlockIncrement.length; i++) {
+      all_inputBlockIncrement[i].addEventListener("click", function() {
+        _increment(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockQuickValue() {
+    var all_inputBlockQuickValues = helper.eA(".js-input-block-quick-value");
+    for (var i = 0; i < all_inputBlockQuickValues.length; i++) {
+      all_inputBlockQuickValues[i].addEventListener("click", function() {
+        _update_quickValueControls(this);
+      }, false);
+    };
+  };
+
+  function _bind_all_inputBlock() {
+    var all_inputBlock = helper.eA(".js-input-block");
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      if (all_inputBlock[i].dataset.clone != "true") {
+        _bind_inputBlock(all_inputBlock[i]);
       };
     };
-    _bind_name();
   };
 
   function _bind_inputBlock(inputBlock) {
@@ -13793,10 +14008,9 @@ var spells = (function() {
       if (spellObject.note == " " || spellObject.note == "&nbsp;" || spellObject.note == "<br/>" || spellObject.note == "<br>") {
         spellObject.note = "";
       };
-      sheet.storeCharacters();
     };
 
-    function _create_spellModal() {
+    function _create_spellControlModal() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
       spellControl.setAttribute("data-spell-level", spellLevel);
@@ -13844,20 +14058,20 @@ var spells = (function() {
       var preparedEditBoxContent = document.createElement("div");
       preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
       var preparedEditBoxContentItem1 = document.createElement("div");
       preparedEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
       var preparedEditBoxContentItem2 = document.createElement("div");
-      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-button-large");
       var preparedEditBoxContentItem3 = document.createElement("div");
-      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-button-large");
       var preparedEditBoxContentItem4 = document.createElement("div");
-      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
+      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-button-large");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-edit-box-text js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedPlus.setAttribute("tabindex", "1");
       var preparedPlusIcon = document.createElement("span");
       preparedPlusIcon.setAttribute("class", "icon-add");
@@ -13866,7 +14080,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedMinus.setAttribute("tabindex", "1");
       var preparedMinusIcon = document.createElement("span");
       preparedMinusIcon.setAttribute("class", "icon-remove");
@@ -13875,7 +14089,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedClear.setAttribute("tabindex", "1");
       var preparedClearIcon = document.createElement("span");
       preparedClearIcon.setAttribute("class", "icon-close");
@@ -13885,13 +14099,13 @@ var spells = (function() {
       }, false);
 
       preparedEditBoxContentItem1.appendChild(preparedCount);
-      preparedPlus.appendChild(preparedPlusIcon);
-      preparedEditBoxContentItem2.appendChild(preparedPlus);
       preparedMinus.appendChild(preparedMinusIcon);
-      preparedEditBoxContentItem3.appendChild(preparedMinus);
+      preparedEditBoxContentItem2.appendChild(preparedMinus);
+      preparedPlus.appendChild(preparedPlusIcon);
+      preparedEditBoxContentItem3.appendChild(preparedPlus);
       preparedClear.appendChild(preparedClearIcon);
       preparedEditBoxContentItem4.appendChild(preparedClear);
-      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem1);
+      preparedEditBoxContent.appendChild(preparedEditBoxContentItem1);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem2);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem3);
       preparedEditBoxGroup.appendChild(preparedEditBoxContentItem4);
@@ -13913,20 +14127,20 @@ var spells = (function() {
       var castEditBoxContent = document.createElement("div");
       castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
       var castEditBoxContentItem1 = document.createElement("div");
       castEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
       var castEditBoxContentItem2 = document.createElement("div");
-      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-button-large");
       var castEditBoxContentItem3 = document.createElement("div");
-      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-button-large");
       var castEditBoxContentItem4 = document.createElement("div");
-      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-control");
+      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-button-large");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-edit-box-text js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castPlus.setAttribute("tabindex", "1");
       var castPlusIcon = document.createElement("span");
       castPlusIcon.setAttribute("class", "icon-add");
@@ -13935,7 +14149,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castMinus.setAttribute("tabindex", "1");
       var castMinusIcon = document.createElement("span");
       castMinusIcon.setAttribute("class", "icon-remove");
@@ -13944,7 +14158,7 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
       var castClear = document.createElement("button");
-      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon button-secondary");
+      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castClear.setAttribute("tabindex", "1");
       var castClearIcon = document.createElement("span");
       castClearIcon.setAttribute("class", "icon-close");
@@ -13954,13 +14168,13 @@ var spells = (function() {
       }, false);
 
       castEditBoxContentItem1.appendChild(castCount);
-      castPlus.appendChild(castPlusIcon);
-      castEditBoxContentItem2.appendChild(castPlus);
       castMinus.appendChild(castMinusIcon);
-      castEditBoxContentItem3.appendChild(castMinus);
+      castEditBoxContentItem2.appendChild(castMinus);
+      castPlus.appendChild(castPlusIcon);
+      castEditBoxContentItem3.appendChild(castPlus);
       castClear.appendChild(castClearIcon);
       castEditBoxContentItem4.appendChild(castClear);
-      castEditBoxGroup.appendChild(castEditBoxContentItem1);
+      castEditBoxContent.appendChild(castEditBoxContentItem1);
       castEditBoxGroup.appendChild(castEditBoxContentItem2);
       castEditBoxGroup.appendChild(castEditBoxContentItem3);
       castEditBoxGroup.appendChild(castEditBoxContentItem4);
@@ -14046,12 +14260,13 @@ var spells = (function() {
     };
 
     if (spellState == "false" || force) {
-      var modalContent = _create_spellModal();
+      var modalContent = _create_spellControlModal();
 
       modal.render(spellObject.name, modalContent, "Save", function() {
         var spellSection = helper.e(".js-section-spells");
         _update_spellObject(this);
         _update_spellButton(button, true);
+        sheet.storeCharacters();
         display.clear(spellSection);
         display.render(spellSection);
       }.bind(modalContent));
@@ -15408,6 +15623,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.10.0",
+    list: [
+      "Improved Damage, Temp and Non Leathal HP controls."
+    ]
+  }, {
     version: "3.9.1",
     list: [
       "Update print styles to use columns."

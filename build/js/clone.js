@@ -81,7 +81,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-tip="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-clone="true" data-tip="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
@@ -212,7 +212,7 @@ var clone = (function() {
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-button">' +
+        '            <div class="m-edit-box-item-button-small">' +
         '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '            </div>' +
         '          </div>' +
