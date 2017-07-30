@@ -2,10 +2,7 @@
 // edit box
 // --------------------------------------------------
 .m-edit-box {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: stretch;
+  display: block;
   width: 100%;
   position: relative;
   box-sizing: border-box;
@@ -16,9 +13,9 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
+  max-width: 100%;
 }
 .m-edit-box-body {
-  flex: 1 1 100%;
   margin-left: 2em;
   max-width: 100%;
 }
@@ -376,23 +373,23 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-edit-box {
+    display: flex;
     flex-flow: row nowrap;
-    align-items: flex-start;
-  }
-  // --------------------------------------------------
-  // edit end
-  // --------------------------------------------------
-  .m-edit-box-content {
-    &.m-edit-box-content-end {
-      justify-content: flex-end;
-    }
+    justify-content: flex-start;
+    align-items: stretch;
   }
   .m-edit-box-body {
+    flex: 1 1 auto;
     margin-left: 0;
   }
   .m-edit-box-labels {
     .m-edit-box-title {
       margin-top: 1.25em;
+    }
+  }
+  .m-edit-box-content {
+    &.m-edit-box-content-end {
+      justify-content: flex-end;
     }
   }
   .m-edit-box-outline {
@@ -410,6 +407,11 @@
   .m-edit-box-head-large {
     .m-edit-box-head {
       flex: 0 0 50%;
+    }
+  }
+  .m-edit-box-head-extra-large {
+    .m-edit-box-head {
+      flex: 0 0 70%;
     }
   }
   .m-edit-box-item-stat {

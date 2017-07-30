@@ -24,6 +24,7 @@ var blank = (function() {
         size_modifier_stealth: 0
       },
       alignment: "",
+      deity: "",
       xp: "",
       height: "",
       weight: "",

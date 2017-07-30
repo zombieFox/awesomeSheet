@@ -2772,21 +2772,7 @@ label {
     display: none; } }
 
 .m-edit-box {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column wrap;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  display: block;
   width: 100%;
   position: relative;
   box-sizing: border-box;
@@ -2808,13 +2794,10 @@ label {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
-          align-items: flex-start; }
+          align-items: flex-start;
+  max-width: 100%; }
 
 .m-edit-box-body {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 100%;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
   margin-left: 2em;
   max-width: 100%; }
 
@@ -3231,22 +3214,34 @@ label {
 
 @media (min-width: 550px) {
   .m-edit-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-flex-flow: row nowrap;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start; }
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch; }
+  .m-edit-box-body {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    margin-left: 0; }
+  .m-edit-box-labels .m-edit-box-title {
+    margin-top: 1.25em; }
   .m-edit-box-content.m-edit-box-content-end {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
             justify-content: flex-end; }
-  .m-edit-box-body {
-    margin-left: 0; }
-  .m-edit-box-labels .m-edit-box-title {
-    margin-top: 1.25em; }
   .m-edit-box-outline.m-edit-box-labels .m-edit-box-title {
     margin-top: 2.25em; }
   .m-edit-box-head-small .m-edit-box-head {
@@ -3259,6 +3254,11 @@ label {
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
+  .m-edit-box-head-extra-large .m-edit-box-head {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 70%;
+        -ms-flex: 0 0 70%;
+            flex: 0 0 70%; }
   .m-edit-box-item-stat {
     -webkit-box-flex: 0;
     -webkit-flex: 0 1 20%;

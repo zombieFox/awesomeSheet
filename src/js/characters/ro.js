@@ -24,6 +24,7 @@ var ro = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Lawful Evil",
+      deity: "",
       xp: "29,090",
       height: "6'0",
       weight: "",

@@ -433,7 +433,7 @@ var totalBlock = (function() {
 
     function _create_editBox(headTitle, nodes) {
       var editBox = document.createElement("div");
-      editBox.setAttribute("class", "m-edit-box m-edit-box-head-large");
+      editBox.setAttribute("class", "m-edit-box m-edit-box-head-extra-large");
       var editBoxHead = document.createElement("div");
       editBoxHead.setAttribute("class", "m-edit-box-head");
       var editBoxHeadTitle = document.createElement("h2");

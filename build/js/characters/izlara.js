@@ -24,6 +24,7 @@ var izlara = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Neutral Good",
+      deity: "",
       xp: "220,000",
       height: "5.5ft",
       weight: "95lbs",

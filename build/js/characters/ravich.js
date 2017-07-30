@@ -33,6 +33,7 @@ var ravich = (function() {
         size_modifier_stealth: 12
       },
       alignment: "Chaotic Neutral",
+      deity: "",
       xp: "23,000",
       height: "6ft",
       weight: "134lbs",

@@ -24,6 +24,7 @@ var nefi = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Neutral",
+      deity: "",
       xp: "155,000",
       height: "6'2",
       weight: "202 lbs",

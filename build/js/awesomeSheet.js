@@ -380,6 +380,7 @@ var blank = (function() {
         size_modifier_stealth: 0
       },
       alignment: "",
+      deity: "",
       xp: "",
       height: "",
       weight: "",
@@ -1490,6 +1491,7 @@ var izlara = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Neutral Good",
+      deity: "",
       xp: "220,000",
       height: "5.5ft",
       weight: "95lbs",
@@ -3366,6 +3368,7 @@ var ravich = (function() {
         size_modifier_stealth: 12
       },
       alignment: "Chaotic Neutral",
+      deity: "",
       xp: "23,000",
       height: "6ft",
       weight: "134lbs",
@@ -4583,6 +4586,7 @@ var marika = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Chaotic Neutral",
+      deity: "",
       xp: "76,000",
       height: "5’3",
       weight: "98 lb",
@@ -5772,6 +5776,7 @@ var nefi = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Neutral",
+      deity: "",
       xp: "155,000",
       height: "6'2",
       weight: "202 lbs",
@@ -6939,6 +6944,7 @@ var nif = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Lawful Neutral",
+      deity: "",
       xp: "51,330",
       height: "6'0",
       weight: "136 lbs",
@@ -8593,6 +8599,7 @@ var orrin = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Lawful Evil",
+      deity: "",
       xp: "68,881",
       height: "6'0",
       weight: "206 lbs",
@@ -9812,6 +9819,7 @@ var ro = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Lawful Evil",
+      deity: "",
       xp: "29,090",
       height: "6'0",
       weight: "",
@@ -11276,6 +11284,7 @@ var vos = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Chaotic Neutral",
+      deity: "",
       xp: "51,000",
       height: "5'0",
       weight: "190 lbs",
@@ -18802,7 +18811,7 @@ var totalBlock = (function() {
 
     function _create_editBox(headTitle, nodes) {
       var editBox = document.createElement("div");
-      editBox.setAttribute("class", "m-edit-box m-edit-box-head-large");
+      editBox.setAttribute("class", "m-edit-box m-edit-box-head-extra-large");
       var editBoxHead = document.createElement("div");
       editBoxHead.setAttribute("class", "m-edit-box-head");
       var editBoxHeadTitle = document.createElement("h2");

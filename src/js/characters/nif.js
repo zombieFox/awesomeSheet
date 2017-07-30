@@ -24,6 +24,7 @@ var nif = (function() {
         size_modifier_stealth: 0
       },
       alignment: "Lawful Neutral",
+      deity: "",
       xp: "51,330",
       height: "6'0",
       weight: "136 lbs",
