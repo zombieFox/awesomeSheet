@@ -24,7 +24,7 @@ var tip = (function() {
       tip.addEventListener("blur", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 300, this);
+        destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
     if (showOn == "hover") {
@@ -34,7 +34,7 @@ var tip = (function() {
       tip.addEventListener("mouseout", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 300, this);
+        destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
   };
@@ -71,6 +71,8 @@ var tip = (function() {
     tipWrapper.destroy = function() {
       helper.removeClass(tipWrapper, "is-opaque");
       helper.addClass(tipWrapper, "is-transparent");
+      helper.removeClass(tipWrapper, "m-tip-intro");
+      helper.addClass(tipWrapper, "m-tip-outro");
     };
     tipWrapper.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
@@ -137,6 +139,7 @@ var tip = (function() {
     getComputedStyle(tipWrapper).opacity;
     helper.removeClass(tipWrapper, "is-transparent");
     helper.addClass(tipWrapper, "is-opaque");
+    helper.addClass(tipWrapper, "m-tip-intro");
   };
 
   // exposed methods
