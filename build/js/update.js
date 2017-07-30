@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.14.0",
+    list: [
+      "Improved Total Bonus modal layout."
+    ]
+  }, {
     version: "3.13.1",
     list: [
       "Adding more Tips.",

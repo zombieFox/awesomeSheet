@@ -1554,8 +1554,14 @@ var izlara = (function() {
           cast: 0,
           note: ""
         }, {
+          name: "Fireball",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
           name: "Fly",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""

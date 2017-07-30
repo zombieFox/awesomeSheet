@@ -186,7 +186,7 @@ var spells = (function() {
       };
     };
 
-    function _makeEditBoxItem(size, child) {
+    function _create_editBoxItem(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
       if (child) {
@@ -222,7 +222,7 @@ var spells = (function() {
       nameEditBoxBodyInput.setAttribute("tabindex", "1");
       nameEditBoxBodyInput.value = spellObject.name;
 
-      nameEditBoxContent.appendChild(_makeEditBoxItem("max", nameEditBoxBodyInput));
+      nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
       nameEditBoxBody.appendChild(nameEditBoxContent);
       nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
       nameEditBox.appendChild(nameEditBoxHead);
@@ -276,11 +276,11 @@ var spells = (function() {
       preparedPlus.appendChild(preparedPlusIcon);
       preparedClear.appendChild(preparedClearIcon);
 
-      preparedEditBoxGroup.appendChild(_makeEditBoxItem("button-large", preparedMinus));
-      preparedEditBoxGroup.appendChild(_makeEditBoxItem("max", preparedCount));
-      preparedEditBoxGroup.appendChild(_makeEditBoxItem("button-large", preparedPlus));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
       preparedEditBoxContent.appendChild(preparedEditBoxGroup);
-      preparedEditBoxContent.appendChild(_makeEditBoxItem("button-large", preparedClear));
+      preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
       preparedEditBoxBody.appendChild(preparedEditBoxContent);
       preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
       preparedEditBox.appendChild(preparedEditBoxHead);
@@ -334,11 +334,11 @@ var spells = (function() {
       castPlus.appendChild(castPlusIcon);
       castClear.appendChild(castClearIcon);
 
-      castEditBoxGroup.appendChild(_makeEditBoxItem("button-large", castMinus));
-      castEditBoxGroup.appendChild(_makeEditBoxItem("max", castCount));
-      castEditBoxGroup.appendChild(_makeEditBoxItem("button-large", castPlus));
+      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
+      castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
+      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
       castEditBoxContent.appendChild(castEditBoxGroup);
-      castEditBoxContent.appendChild(_makeEditBoxItem("button-large", castClear));
+      castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
       castEditBoxBody.appendChild(castEditBoxContent);
       castEditBoxHead.appendChild(castEditBoxHeadTitle);
       castEditBox.appendChild(castEditBoxHead);
@@ -372,7 +372,7 @@ var spells = (function() {
 
       activeCheck.appendChild(activeInput);
       activeCheck.appendChild(activeIcon);
-      activeEditBoxContent.appendChild(_makeEditBoxItem("button-large", activeCheck));
+      activeEditBoxContent.appendChild(_create_editBoxItem("button-large", activeCheck));
       activeEditBoxBody.appendChild(activeEditBoxContent);
       activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
       activeEditBox.appendChild(activeEditBoxHead);
@@ -398,7 +398,7 @@ var spells = (function() {
         helper.pasteStrip(event);
       });
 
-      noteEditBoxContent.appendChild(_makeEditBoxItem("max", noteTextarea));
+      noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
       noteEditBoxBody.appendChild(noteEditBoxContent);
       noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
       noteEditBox.appendChild(noteEditBoxHead);

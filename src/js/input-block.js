@@ -83,7 +83,7 @@ var inputBlock = (function() {
       };
     };
 
-    function _makeButton(quickValueControl, text, icon, value, large) {
+    function _create_button(quickValueControl, text, icon, value, large) {
       var button = document.createElement("button");
       if (large) {
         button.setAttribute("class", "button button-icon button-large u-inline-with-input");
@@ -108,7 +108,7 @@ var inputBlock = (function() {
       return button;
     };
 
-    function _makeEditBoxItem(size, child) {
+    function _create_editBoxItem(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
       if (child) {
@@ -142,7 +142,6 @@ var inputBlock = (function() {
           helper.setObject(sheet.getCharacter(), path, newValue);
         };
       };
-
     };
 
     function _create_quickValueModal() {
@@ -162,7 +161,7 @@ var inputBlock = (function() {
       var editBoxContent = document.createElement("div");
       editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var editBoxGroup1 = document.createElement("div");
-      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
       var editBoxGroup2 = document.createElement("div");
       editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
@@ -170,21 +169,21 @@ var inputBlock = (function() {
       Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
       Count.textContent = 0;
 
-      editBoxContent.appendChild(_makeEditBoxItem("total", Count));
-      editBoxContent.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxContent.appendChild(_create_editBoxItem("total", Count));
+      editBoxContent.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, false, "icon-close", 0, "large")));
 
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-add", 1, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-add", 2, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-add", 3, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-add", 5, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-add", 10, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-add", 20, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-remove", -1, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-remove", -2, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-remove", -3, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-remove", -5, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-remove", -10, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-remove", -20, false)));
 
       editBoxContent.appendChild(editBoxGroup1);
       editBoxContent.appendChild(editBoxGroup2);

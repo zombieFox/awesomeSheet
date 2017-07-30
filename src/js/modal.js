@@ -29,7 +29,7 @@ var modal = (function() {
     };
   };
 
-  function render(heading, modalBodyContent, actionText, action) {
+  function render(heading, modalBodyContent, actionText, action, size) {
 
     prompt.destroy();
     var body = helper.e("body");
@@ -45,7 +45,13 @@ var modal = (function() {
     modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
 
     var modal = document.createElement("div");
-    modal.setAttribute("class", "m-modal js-modal");
+    if (size == "large") {
+      modal.setAttribute("class", "m-modal m-modal-large js-modal");
+    } else if (size == "small") {
+      modal.setAttribute("class", "m-modal m-modal-small js-modal");
+    } else {
+      modal.setAttribute("class", "m-modal js-modal");
+    };
     modal.destroy = function() {
       helper.removeClass(modalWrapper, "is-unrotate-in");
       helper.addClass(modalWrapper, "is-dropped-out");

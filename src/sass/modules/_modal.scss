@@ -23,6 +23,12 @@
   perspective: 1000px;
   transition: all $transition-ease-fast;
 }
+.m-modal-large {
+  width: 65em;
+}
+.m-modal-small {
+  width: 25em;
+}
 .m-modal-wrapper {
   box-sizing: border-box;
   transition: all $transition-ease-fast;
@@ -37,6 +43,7 @@
   max-height: calc(80vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
+  z-index: 1;
   .m-modal-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;
@@ -47,6 +54,7 @@
 }
 .m-modal-controls {
   position: relative;
+  z-index: 2;
   border-radius: 0 0 $border-radius-large $border-radius-large;
   .button {
     margin: 0;

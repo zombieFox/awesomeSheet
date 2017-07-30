@@ -3020,8 +3020,14 @@ var izlara = (function() {
           cast: 0,
           note: ""
         }, {
+          name: "Fireball",
+          prepared: 1,
+          active: false,
+          cast: 0,
+          note: ""
+        }, {
           name: "Fly",
-          prepared: 2,
+          prepared: 1,
           active: false,
           cast: 0,
           note: ""
@@ -14752,7 +14758,7 @@ var inputBlock = (function() {
       };
     };
 
-    function _makeButton(quickValueControl, text, icon, value, large) {
+    function _create_button(quickValueControl, text, icon, value, large) {
       var button = document.createElement("button");
       if (large) {
         button.setAttribute("class", "button button-icon button-large u-inline-with-input");
@@ -14777,7 +14783,7 @@ var inputBlock = (function() {
       return button;
     };
 
-    function _makeEditBoxItem(size, child) {
+    function _create_editBoxItem(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
       if (child) {
@@ -14811,7 +14817,6 @@ var inputBlock = (function() {
           helper.setObject(sheet.getCharacter(), path, newValue);
         };
       };
-
     };
 
     function _create_quickValueModal() {
@@ -14831,7 +14836,7 @@ var inputBlock = (function() {
       var editBoxContent = document.createElement("div");
       editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var editBoxGroup1 = document.createElement("div");
-      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
       var editBoxGroup2 = document.createElement("div");
       editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
@@ -14839,21 +14844,21 @@ var inputBlock = (function() {
       Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
       Count.textContent = 0;
 
-      editBoxContent.appendChild(_makeEditBoxItem("total", Count));
-      editBoxContent.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxContent.appendChild(_create_editBoxItem("total", Count));
+      editBoxContent.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, false, "icon-close", 0, "large")));
 
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-add", 1, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-add", 2, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-add", 3, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-add", 5, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-add", 10, false)));
+      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-add", 20, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-remove", -1, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-remove", -2, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-remove", -3, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-remove", -5, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-remove", -10, false)));
+      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-remove", -20, false)));
 
       editBoxContent.appendChild(editBoxGroup1);
       editBoxContent.appendChild(editBoxGroup2);
@@ -15306,7 +15311,7 @@ var modal = (function() {
     };
   };
 
-  function render(heading, modalBodyContent, actionText, action) {
+  function render(heading, modalBodyContent, actionText, action, size) {
 
     prompt.destroy();
     var body = helper.e("body");
@@ -15322,7 +15327,13 @@ var modal = (function() {
     modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
 
     var modal = document.createElement("div");
-    modal.setAttribute("class", "m-modal js-modal");
+    if (size == "large") {
+      modal.setAttribute("class", "m-modal m-modal-large js-modal");
+    } else if (size == "small") {
+      modal.setAttribute("class", "m-modal m-modal-small js-modal");
+    } else {
+      modal.setAttribute("class", "m-modal js-modal");
+    };
     modal.destroy = function() {
       helper.removeClass(modalWrapper, "is-unrotate-in");
       helper.addClass(modalWrapper, "is-dropped-out");
@@ -17254,7 +17265,7 @@ var spells = (function() {
       };
     };
 
-    function _makeEditBoxItem(size, child) {
+    function _create_editBoxItem(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
       if (child) {
@@ -17290,7 +17301,7 @@ var spells = (function() {
       nameEditBoxBodyInput.setAttribute("tabindex", "1");
       nameEditBoxBodyInput.value = spellObject.name;
 
-      nameEditBoxContent.appendChild(_makeEditBoxItem("max", nameEditBoxBodyInput));
+      nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
       nameEditBoxBody.appendChild(nameEditBoxContent);
       nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
       nameEditBox.appendChild(nameEditBoxHead);
@@ -17344,11 +17355,11 @@ var spells = (function() {
       preparedPlus.appendChild(preparedPlusIcon);
       preparedClear.appendChild(preparedClearIcon);
 
-      preparedEditBoxGroup.appendChild(_makeEditBoxItem("button-large", preparedMinus));
-      preparedEditBoxGroup.appendChild(_makeEditBoxItem("max", preparedCount));
-      preparedEditBoxGroup.appendChild(_makeEditBoxItem("button-large", preparedPlus));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
       preparedEditBoxContent.appendChild(preparedEditBoxGroup);
-      preparedEditBoxContent.appendChild(_makeEditBoxItem("button-large", preparedClear));
+      preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
       preparedEditBoxBody.appendChild(preparedEditBoxContent);
       preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
       preparedEditBox.appendChild(preparedEditBoxHead);
@@ -17402,11 +17413,11 @@ var spells = (function() {
       castPlus.appendChild(castPlusIcon);
       castClear.appendChild(castClearIcon);
 
-      castEditBoxGroup.appendChild(_makeEditBoxItem("button-large", castMinus));
-      castEditBoxGroup.appendChild(_makeEditBoxItem("max", castCount));
-      castEditBoxGroup.appendChild(_makeEditBoxItem("button-large", castPlus));
+      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
+      castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
+      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
       castEditBoxContent.appendChild(castEditBoxGroup);
-      castEditBoxContent.appendChild(_makeEditBoxItem("button-large", castClear));
+      castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
       castEditBoxBody.appendChild(castEditBoxContent);
       castEditBoxHead.appendChild(castEditBoxHeadTitle);
       castEditBox.appendChild(castEditBoxHead);
@@ -17440,7 +17451,7 @@ var spells = (function() {
 
       activeCheck.appendChild(activeInput);
       activeCheck.appendChild(activeIcon);
-      activeEditBoxContent.appendChild(_makeEditBoxItem("button-large", activeCheck));
+      activeEditBoxContent.appendChild(_create_editBoxItem("button-large", activeCheck));
       activeEditBoxBody.appendChild(activeEditBoxContent);
       activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
       activeEditBox.appendChild(activeEditBoxHead);
@@ -17466,7 +17477,7 @@ var spells = (function() {
         helper.pasteStrip(event);
       });
 
-      noteEditBoxContent.appendChild(_makeEditBoxItem("max", noteTextarea));
+      noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
       noteEditBoxBody.appendChild(noteEditBoxContent);
       noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
       noteEditBox.appendChild(noteEditBoxHead);
@@ -18657,7 +18668,7 @@ var totalBlock = (function() {
 
     if (totalObject) {
       // if ("current" in totalObject) {
-        totalObject.current = grandTotal;
+      totalObject.current = grandTotal;
       // };
     };
 
@@ -18675,17 +18686,17 @@ var totalBlock = (function() {
 
   function _bonusTextLable(bonusType) {
     if (bonusType == "str-bonus" || bonusType == "str_bonus") {
-      return "Str Bonus";
+      return "STR Bonus";
     } else if (bonusType == "dex-bonus" || bonusType == "dex_bonus") {
-      return "Dex Bonus";
+      return "DEX Bonus";
     } else if (bonusType == "con-bonus" || bonusType == "con_bonus") {
-      return "Con Bonus";
+      return "CON Bonus";
     } else if (bonusType == "int-bonus" || bonusType == "int_bonus") {
-      return "Int Bonus";
+      return "INT Bonus";
     } else if (bonusType == "wis-bonus" || bonusType == "wis_bonus") {
-      return "Wis Bonus";
+      return "WIS Bonus";
     } else if (bonusType == "cha-bonus" || bonusType == "cha_bonus") {
-      return "Cha Bonus";
+      return "CHA Bonus";
     } else if (bonusType == "bab") {
       return "Base Attack Bonus";
     } else if (bonusType == "size") {
@@ -18703,15 +18714,15 @@ var totalBlock = (function() {
     } else if (bonusType == "plus-ten" || bonusType == "plus_ten") {
       return "Plus 10";
     } else if (bonusType == "ac-armor" || bonusType == "ac_armor") {
-      return "Armor";
+      return "Armor Bonus";
     } else if (bonusType == "ac-shield" || bonusType == "ac_shield") {
-      return "Shield";
+      return "Shield Bonus";
     } else if (bonusType == "ac-deflect" || bonusType == "ac_deflect") {
-      return "Deflect";
+      return "Deflect Bonus";
     } else if (bonusType == "ac-dodge" || bonusType == "ac_dodge") {
-      return "Dodge";
+      return "Dodge Bonus";
     } else if (bonusType == "ac-natural" || bonusType == "ac_natural") {
-      return "Natural Armor";
+      return "Natural Armor Bonus";
     } else if (bonusType == "class-skill" || bonusType == "class_skill") {
       return "Class Skill";
     } else if (bonusType == "check-penalty" || bonusType == "check_penalty") {
@@ -18723,73 +18734,184 @@ var totalBlock = (function() {
     };
   };
 
-  function _totalBlockModalContent(element) {
+  function _update_totalBlockControls(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
+    var totalPath = totalBlock.dataset.totalPath;
+    var cloneCount = totalBlock.dataset.cloneCount || false;
+    // collect all bonuses which should apply to this total block
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
     var totalBonusesInclude = false;
     if (totalBonuses) {
       totalBonusesInclude = totalBlock.dataset.totalBonusesInclude.split(",");
     };
-    var totalPath = totalBlock.dataset.totalPath;
-    var cloneCount = totalBlock.dataset.cloneCount || false;
+    // get the right total object or clone total object
     var object;
     if (totalPath && cloneCount) {
       object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
+    // if a key is not in the object bonuses add it
     if (totalBonusesInclude.length > 0) {
       for (var i = 0; i < totalBonusesInclude.length; i++) {
-        if (totalBonusesInclude[i] in object.bonuses) {
-          // console.log(1, "found", totalBonusesInclude[i]);
-        } else {
-          // console.log(2, "not found", totalBonusesInclude[i]);
+        if (!(totalBonusesInclude[i] in object.bonuses)) {
           object.bonuses[totalBonusesInclude[i]] = false;
         };
       };
     };
-    var heading = element.dataset.modalHeading || "Bonuses to add to this ability";
-    var totalBlockControl = document.createElement("div");
-    totalBlockControl.setAttribute("class", "js-total-block-control");
-    totalBlockControl.setAttribute("data-total-path", totalPath);
-    if (element.dataset.clone == "true") {
-      totalBlockControl.setAttribute("data-clone", "true");
-      totalBlockControl.setAttribute("data-clone-count", helper.getClosest(element, ".js-clone").dataset.cloneCount);
-    };
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    var row = document.createElement("div");
-    row.setAttribute("class", "row");
-    if (object) {
-      for (var key in object.bonuses) {
-        // console.log(key, object.bonuses[key]);
-        var col = document.createElement("div");
-        col.setAttribute("class", "col-xs-6 col-xl-4");
-        var div = document.createElement("div");
-        div.setAttribute("class", "js-total-block-toggle");
-        var input = document.createElement("input");
-        input.setAttribute("id", key.replace(/_+/g, "-"));
-        input.setAttribute("class", "m-total-block-toggle-check");
-        input.setAttribute("data-bonus-type", key.replace(/_+/g, "-"));
-        input.setAttribute("type", "checkbox");
-        input.setAttribute("tabindex", "1");
-        input.checked = object.bonuses[key];
-        var label = document.createElement("label");
-        label.setAttribute("for", key.replace(/_+/g, "-"));
-        label.setAttribute("class", "label-left u-full-width");
-        label.textContent = _bonusTextLable(key);
-        div.appendChild(input);
-        div.appendChild(label);
-        col.appendChild(div);
-        row.appendChild(col);
-        _bind_bonusCheck(input);
-      };
-    };
-    container.appendChild(row);
-    totalBlockControl.appendChild(container);
-    modal.render(heading, totalBlockControl, "Done");
-  };
 
+    // get heading
+    var heading = element.dataset.modalHeading || "Bonuses to add to this ability";
+
+    function _update_objectBonuses(totalBlockControls) {
+      var storedBonuses = JSON.parse(totalBlockControls.dataset.bonuses);
+      object.bonuses = storedBonuses;
+    };
+
+    function _store_data(totalBlockControls, input, key) {
+      var storedBonuses = JSON.parse(totalBlockControls.dataset.bonuses);
+      storedBonuses[key] = input.checked;
+      totalBlockControls.dataset.bonuses = JSON.stringify(storedBonuses);
+    };
+
+    function _create_check(totalBlockControls, key) {
+      var checkBlock = document.createElement("div");
+      checkBlock.setAttribute("class", "m-check-block");
+      var checkBlockCheck = document.createElement("input");
+      checkBlockCheck.setAttribute("class", "m-check-block-check");
+      checkBlockCheck.setAttribute("type", "checkbox");
+      checkBlockCheck.checked = object.bonuses[key];
+      var checkBlockCheckIcon = document.createElement("span");
+      checkBlockCheckIcon.setAttribute("class", "m-check-block-check-icon");
+      checkBlock.appendChild(checkBlockCheck);
+      checkBlock.appendChild(checkBlockCheckIcon);
+      checkBlockCheck.addEventListener("change", function() {
+        _store_data(totalBlockControls, this, key);
+      }, false);
+      return checkBlock;
+    };
+
+    function _create_editBoxItem(size, child) {
+      var editBoxItem = document.createElement("div");
+      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      if (child) {
+        editBoxItem.appendChild(child);
+      };
+      return editBoxItem;
+    };
+
+    function _create_editBox(headTitle, nodes) {
+      var editBox = document.createElement("div");
+      editBox.setAttribute("class", "m-edit-box m-edit-box-head-large");
+      var editBoxHead = document.createElement("div");
+      editBoxHead.setAttribute("class", "m-edit-box-head");
+      var editBoxHeadTitle = document.createElement("h2");
+      editBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      editBoxHeadTitle.textContent = headTitle;
+      var editBoxBody = document.createElement("div");
+      editBoxBody.setAttribute("class", "m-edit-box-body");
+      var editBoxContent = document.createElement("div");
+      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-end m-edit-box-content-margin-large");
+      editBoxContent.appendChild(nodes);
+      editBoxBody.appendChild(editBoxContent);
+      editBoxHead.appendChild(editBoxHeadTitle);
+      editBox.appendChild(editBoxHead);
+      editBox.appendChild(editBoxBody);
+      return editBox;
+    };
+
+    function _create_totalBlockControls() {
+      var totalBlockControls = document.createElement("div");
+      totalBlockControls.setAttribute("data-bonuses", JSON.stringify(object.bonuses));
+      if (object) {
+        // order the bonuses for rendering in modal
+        var orderedBonuses = [];
+        if ("str_bonus" in object.bonuses) {
+          orderedBonuses.push({"str_bonus": object.bonuses["str_bonus"]})
+        };
+        if ("dex_bonus" in object.bonuses) {
+          orderedBonuses.push({"dex_bonus": object.bonuses["dex_bonus"]})
+        };
+        if ("con_bonus" in object.bonuses) {
+          orderedBonuses.push({"con_bonus": object.bonuses["con_bonus"]})
+        };
+        if ("int_bonus" in object.bonuses) {
+          orderedBonuses.push({"int_bonus": object.bonuses["int_bonus"]})
+        };
+        if ("wis_bonus" in object.bonuses) {
+          orderedBonuses.push({"wis_bonus": object.bonuses["wis_bonus"]})
+        };
+        if ("cha_bonus" in object.bonuses) {
+          orderedBonuses.push({"cha_bonus": object.bonuses["cha_bonus"]})
+        };
+        if ("bab" in object.bonuses) {
+          orderedBonuses.push({"bab": object.bonuses["bab"]})
+        };
+        if ("level" in object.bonuses) {
+          orderedBonuses.push({"level": object.bonuses["level"]})
+        };
+        if ("half_level" in object.bonuses) {
+          orderedBonuses.push({"half_level": object.bonuses["half_level"]})
+        };
+        if ("class_skill" in object.bonuses) {
+          orderedBonuses.push({"class_skill": object.bonuses["class_skill"]})
+        };
+        if ("max_dex" in object.bonuses) {
+          orderedBonuses.push({"max_dex": object.bonuses["max_dex"]})
+        };
+        if ("check_penalty" in object.bonuses) {
+          orderedBonuses.push({"check_penalty": object.bonuses["check_penalty"]})
+        };
+        if ("plus_ten" in object.bonuses) {
+          orderedBonuses.push({"plus_ten": object.bonuses["plus_ten"]})
+        };
+        if ("ac_armor" in object.bonuses) {
+          orderedBonuses.push({"ac_armor": object.bonuses["ac_armor"]})
+        };
+        if ("ac_shield" in object.bonuses) {
+          orderedBonuses.push({"ac_shield": object.bonuses["ac_shield"]})
+        };
+        if ("ac_deflect" in object.bonuses) {
+          orderedBonuses.push({"ac_deflect": object.bonuses["ac_deflect"]})
+        };
+        if ("ac_dodge" in object.bonuses) {
+          orderedBonuses.push({"ac_dodge": object.bonuses["ac_dodge"]})
+        };
+        if ("ac_natural" in object.bonuses) {
+          orderedBonuses.push({"ac_natural": object.bonuses["ac_natural"]})
+        };
+        if ("size" in object.bonuses) {
+          orderedBonuses.push({"size": object.bonuses["size"]})
+        };
+        if ("special_size" in object.bonuses) {
+          orderedBonuses.push({"special_size": object.bonuses["special_size"]})
+        };
+        if ("size_modifier_fly" in object.bonuses) {
+          orderedBonuses.push({"size_modifier_fly": object.bonuses["size_modifier_fly"]})
+        };
+        if ("size_modifier_stealth" in object.bonuses) {
+          orderedBonuses.push({"size_modifier_stealth": object.bonuses["size_modifier_stealth"]})
+        };
+        for (var i = 0; i < orderedBonuses.length; i++) {
+          for (var key in orderedBonuses[i]) {
+            var title = _bonusTextLable(key);
+            totalBlockControls.appendChild(_create_editBox(title, _create_editBoxItem("check", _create_check(totalBlockControls, key))));
+          };
+        };
+      };
+      return totalBlockControls;
+    };
+
+    var modalContent = _create_totalBlockControls();
+
+    modal.render(heading, modalContent, "Apply", function() {
+      _update_objectBonuses(this);
+      sheet.storeCharacters();
+      render();
+      display.clear();
+      display.render();
+    }.bind(modalContent), "small");
+  };
 
   function bind(totalBlock) {
     if (totalBlock) {
@@ -18827,7 +18949,7 @@ var totalBlock = (function() {
     button.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      _totalBlockModalContent(this);
+      _update_totalBlockControls(this);
     }, false);
   };
 
@@ -18871,6 +18993,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.14.0",
+    list: [
+      "Improved Total Bonus modal layout."
+    ]
+  }, {
     version: "3.13.1",
     list: [
       "Adding more Tips.",
