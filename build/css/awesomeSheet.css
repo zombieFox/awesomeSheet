@@ -3686,6 +3686,7 @@ label {
           transition: background-color 0.2s ease-in-out; }
 
 .m-quick-nav-hamburger {
+  background-color: rgba(0, 0, 0, 0.25);
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 11.1111111111%;
       -ms-flex: 0 1 11.1111111111%;
@@ -3846,7 +3847,7 @@ label {
 
 @media (min-height: 700px) and (min-width: 900px) {
   .m-quick-nav-list {
-    max-height: 60%; } }
+    max-height: 75%; } }
 
 @media print {
   .m-quick-nav {

@@ -18739,7 +18739,7 @@ var totalBlock = (function() {
     var totalPath = totalBlock.dataset.totalPath;
     var cloneCount = totalBlock.dataset.cloneCount || false;
     // collect all bonuses which should apply to this total block
-    var totalBonuses = (totalBlock.dataset.totalBonuses == "true") || false;
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
     var totalBonusesInclude = false;
     if (totalBonuses) {
       totalBonusesInclude = totalBlock.dataset.totalBonusesInclude.split(",");
