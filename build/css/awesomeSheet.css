@@ -1728,6 +1728,12 @@ label {
 .icon-lostD20:before {
   content: "\e913"; }
 
+.icon-sort-az:before {
+  content: "\e917"; }
+
+.icon-sort:before {
+  content: "\e918"; }
+
 @-webkit-keyframes new-flash-center {
   0% {
     width: 0;

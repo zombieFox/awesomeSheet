@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.15.0",
+    list: [
+      "Added alphabetical Spell sort."
+    ]
+  }, {
     version: "3.14.0",
     list: [
       "Improved Total Bonus modal layout."

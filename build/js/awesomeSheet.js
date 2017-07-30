@@ -219,6 +219,24 @@ var helper = (function() {
     );
   };
 
+  function sortObject(object, key) {
+    object.sort(function(a, b) {
+      // console.log(a);
+      // console.log(b);
+      var textA = a[key].toUpperCase();
+      var textB = b[key].toUpperCase();
+      if (textA < textB) {
+        return -1;
+      } else if (textA > textB) {
+        return 1;
+      } else {
+        return 0;
+      };
+      // return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+    return object;
+  };
+
   // exposed methods
   return {
     store: store,
@@ -242,7 +260,8 @@ var helper = (function() {
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip,
-    inViewport: inViewport
+    inViewport: inViewport,
+    sortObject: sortObject
   };
 
 })();
@@ -17095,6 +17114,7 @@ var spells = (function() {
     var spellActiveButton = helper.e(".js-spell-active");
     var spellRemoveButton = helper.e(".js-spell-remove");
     var spellResetButton = helper.e(".js-spell-reset");
+    var spellSort = helper.e(".js-spells-sort");
     var all_newSpellAdd = helper.eA(".js-new-spell-add");
     for (var i = 0; i < all_newSpellAdd.length; i++) {
       var spellBook = helper.getClosest(all_newSpellAdd[i], ".js-spell-book");
@@ -17127,6 +17147,20 @@ var spells = (function() {
     spellRemoveButton.addEventListener("click", function() {
       _change_spellState(this);
     }, false);
+    spellSort.addEventListener("click", function() {
+      prompt.render("Sort Spells", "Sort all Spells in alphabetical order?", "Sort", _spellsSort);
+    }, false);
+  };
+
+  function _spellsSort() {
+    for (var i in sheet.getCharacter().spells.book) {
+      for (var j in sheet.getCharacter().spells.book[i]) {
+        helper.sortObject(sheet.getCharacter().spells.book[i][j], "name");
+      };
+    };
+    sheet.storeCharacters();
+    clear();
+    render();
   };
 
   function _addNewSpell(element) {
@@ -17224,7 +17258,7 @@ var spells = (function() {
       var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
       var currentCastCount = parseInt(spellControl.dataset.spellCast, 10);
       if (type == "prepared") {
-        if (action == "plus" && currentPreparedCount < 30) {
+        if (action == "plus" && currentPreparedCount < 50) {
           spellControl.dataset.spellPrepared = currentPreparedCount + 1;
         } else if (action == "minus" && currentPreparedCount > 0) {
           spellControl.dataset.spellPrepared = currentPreparedCount - 1;
@@ -17236,7 +17270,7 @@ var spells = (function() {
         };
       };
       if (type == "cast") {
-        if (action == "plus" && currentCastCount < 30) {
+        if (action == "plus" && currentCastCount < 50) {
           spellControl.dataset.spellCast = currentCastCount + 1;
         } else if (action == "minus" && currentCastCount > 0) {
           spellControl.dataset.spellCast = currentCastCount - 1;
@@ -17574,7 +17608,7 @@ var spells = (function() {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     if (spellState == "prepare") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 30) {
+      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 50) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
@@ -17587,7 +17621,7 @@ var spells = (function() {
       };
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "cast") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 30) {
+      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 50) {
         sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
       };
       if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
@@ -17733,9 +17767,6 @@ var spells = (function() {
     //   helper.removeClass(spellRemoveButton, "button-primary");
     //   helper.addClass(spellRemoveButton, "button-secondary");
     // };
-
-
-
     // if (spellsFound) {
     //   // if this button is active
     //   if (spellRoot.dataset.spellState != button.dataset.state) {
@@ -19002,6 +19033,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.15.0",
+    list: [
+      "Added alphabetical Spell sort."
+    ]
+  }, {
     version: "3.14.0",
     list: [
       "Improved Total Bonus modal layout."

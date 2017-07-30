@@ -217,6 +217,24 @@ var helper = (function() {
     );
   };
 
+  function sortObject(object, key) {
+    object.sort(function(a, b) {
+      // console.log(a);
+      // console.log(b);
+      var textA = a[key].toUpperCase();
+      var textB = b[key].toUpperCase();
+      if (textA < textB) {
+        return -1;
+      } else if (textA > textB) {
+        return 1;
+      } else {
+        return 0;
+      };
+      // return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+    return object;
+  };
+
   // exposed methods
   return {
     store: store,
@@ -240,7 +258,8 @@ var helper = (function() {
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip,
-    inViewport: inViewport
+    inViewport: inViewport,
+    sortObject: sortObject
   };
 
 })();
