@@ -1650,14 +1650,14 @@ var izlara = (function() {
         item: "Rod of Metamagic Extend Lesser",
         current: "",
         total: 3,
-        used: ""
+        used: 1
       }, {
         item: "Rod of Metamagic Silent Lesser",
         current: "",
         total: 3,
         used: ""
       }, {
-        item: "Rod of Metamaic Quicken Lesser",
+        item: "Rod of Metamagic Quicken Lesser",
         current: "",
         total: 3,
         used: ""
