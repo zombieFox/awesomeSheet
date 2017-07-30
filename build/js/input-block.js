@@ -165,31 +165,29 @@ var inputBlock = (function() {
       editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       var editBoxGroup2 = document.createElement("div");
       editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
-      var editBoxGroup3 = document.createElement("div");
-      editBoxGroup3.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
       var Count = document.createElement("p");
       Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
       Count.textContent = 0;
 
-      editBoxGroup1.appendChild(_makeEditBoxItem("total", Count));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
+      editBoxContent.appendChild(_makeEditBoxItem("total", Count));
+      editBoxContent.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
 
       editBoxContent.appendChild(editBoxGroup1);
       editBoxContent.appendChild(editBoxGroup2);
-      editBoxContent.appendChild(editBoxGroup3);
       editBoxBody.appendChild(editBoxContent);
       editBoxHead.appendChild(editBoxHeadTitle);
       editBox.appendChild(editBoxHead);

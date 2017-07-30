@@ -414,7 +414,7 @@ var totalBlock = (function() {
         input.setAttribute("class", "m-total-block-toggle-check");
         input.setAttribute("data-bonus-type", key.replace(/_+/g, "-"));
         input.setAttribute("type", "checkbox");
-        input.setAttribute("tabindex", "3");
+        input.setAttribute("tabindex", "1");
         input.checked = object.bonuses[key];
         var label = document.createElement("label");
         label.setAttribute("for", key.replace(/_+/g, "-"));

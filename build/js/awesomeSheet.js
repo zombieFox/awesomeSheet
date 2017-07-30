@@ -14834,31 +14834,29 @@ var inputBlock = (function() {
       editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       var editBoxGroup2 = document.createElement("div");
       editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
-      var editBoxGroup3 = document.createElement("div");
-      editBoxGroup3.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
       var Count = document.createElement("p");
       Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
       Count.textContent = 0;
 
-      editBoxGroup1.appendChild(_makeEditBoxItem("total", Count));
-      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
-      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
-      editBoxGroup3.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
+      editBoxContent.appendChild(_makeEditBoxItem("total", Count));
+      editBoxContent.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, false, "icon-close", 0, "large")));
+
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-add", 1, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-add", 2, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-add", 3, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-add", 5, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-add", 10, false)));
+      editBoxGroup1.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-add", 20, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 1, "icon-remove", -1, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 2, "icon-remove", -2, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 3, "icon-remove", -3, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 5, "icon-remove", -5, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 10, "icon-remove", -10, false)));
+      editBoxGroup2.appendChild(_makeEditBoxItem("button-large", _makeButton(quickValueControl, 20, "icon-remove", -20, false)));
 
       editBoxContent.appendChild(editBoxGroup1);
       editBoxContent.appendChild(editBoxGroup2);
-      editBoxContent.appendChild(editBoxGroup3);
       editBoxBody.appendChild(editBoxContent);
       editBoxHead.appendChild(editBoxHeadTitle);
       editBox.appendChild(editBoxHead);
@@ -15082,7 +15080,7 @@ var log = (function() {
     };
 
     var logHeading = document.createElement("h1");
-    logHeading.setAttribute("tabindex", "3");
+    logHeading.setAttribute("tabindex", "1");
     logHeading.setAttribute("class", "m-log-heading");
     logHeading.textContent = heading;
 
@@ -15094,7 +15092,7 @@ var log = (function() {
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("tabindex", "1");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
 
@@ -15333,7 +15331,7 @@ var modal = (function() {
     };
 
     var modalHeading = document.createElement("h1");
-    modalHeading.setAttribute("tabindex", "3");
+    modalHeading.setAttribute("tabindex", "1");
     modalHeading.setAttribute("class", "m-modal-heading");
     modalHeading.textContent = heading;
 
@@ -15345,7 +15343,7 @@ var modal = (function() {
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("tabindex", "1");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
 
@@ -15996,7 +15994,7 @@ var prompt = (function() {
     promptbody.setAttribute("class", "m-prompt-body");
 
     var promptHeading = document.createElement("h1");
-    promptHeading.setAttribute("tabindex", "3");
+    promptHeading.setAttribute("tabindex", "1");
     promptHeading.setAttribute("class", "m-prompt-heading");
     promptHeading.textContent = heading;
 
@@ -16009,13 +16007,13 @@ var prompt = (function() {
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("tabindex", "1");
     actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
     actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
     cancelButton.setAttribute("href", "javascript:void(0)");
-    cancelButton.setAttribute("tabindex", "3");
+    cancelButton.setAttribute("tabindex", "1");
     cancelButton.setAttribute("class", "button button-large");
     cancelButton.textContent = "Cancel";
 
@@ -16683,7 +16681,7 @@ var sheet = (function() {
     input.setAttribute("type", "file");
     input.setAttribute("class", "m-import-select-input js-import-select-input");
     var label = document.createElement("label");
-    label.setAttribute("tabindex", "3");
+    label.setAttribute("tabindex", "1");
     label.setAttribute("for", "import-select");
     label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
     var labelText = document.createElement("span");
@@ -17256,6 +17254,15 @@ var spells = (function() {
       };
     };
 
+    function _makeEditBoxItem(size, child) {
+      var editBoxItem = document.createElement("div");
+      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      if (child) {
+        editBoxItem.appendChild(child);
+      };
+      return editBoxItem;
+    };
+
     function _create_spellControlModal() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
@@ -17276,17 +17283,14 @@ var spells = (function() {
       var nameEditBoxBody = document.createElement("div");
       nameEditBoxBody.setAttribute("class", "m-edit-box-body");
       var nameEditBoxContent = document.createElement("div");
-      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var nameEditBoxContentItem = document.createElement("div");
-      nameEditBoxContentItem.setAttribute("class", "m-edit-box-item-large");
+      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var nameEditBoxBodyInput = document.createElement("input");
       nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
       nameEditBoxBodyInput.setAttribute("type", "text");
       nameEditBoxBodyInput.setAttribute("tabindex", "1");
       nameEditBoxBodyInput.value = spellObject.name;
 
-      nameEditBoxContentItem.appendChild(nameEditBoxBodyInput);
-      nameEditBoxContent.appendChild(nameEditBoxContentItem);
+      nameEditBoxContent.appendChild(_makeEditBoxItem("max", nameEditBoxBodyInput));
       nameEditBoxBody.appendChild(nameEditBoxContent);
       nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
       nameEditBox.appendChild(nameEditBoxHead);
@@ -17302,17 +17306,9 @@ var spells = (function() {
       var preparedEditBoxBody = document.createElement("div");
       preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
       var preparedEditBoxContent = document.createElement("div");
-      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
-      var preparedEditBoxContentItem1 = document.createElement("div");
-      preparedEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
-      var preparedEditBoxContentItem2 = document.createElement("div");
-      preparedEditBoxContentItem2.setAttribute("class", "m-edit-box-item-button-large");
-      var preparedEditBoxContentItem3 = document.createElement("div");
-      preparedEditBoxContentItem3.setAttribute("class", "m-edit-box-item-button-large");
-      var preparedEditBoxContentItem4 = document.createElement("div");
-      preparedEditBoxContentItem4.setAttribute("class", "m-edit-box-item-button-large");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-edit-box-text js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
@@ -17344,18 +17340,15 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
 
-      preparedEditBoxContentItem1.appendChild(preparedCount);
       preparedMinus.appendChild(preparedMinusIcon);
-      preparedEditBoxContentItem2.appendChild(preparedMinus);
       preparedPlus.appendChild(preparedPlusIcon);
-      preparedEditBoxContentItem3.appendChild(preparedPlus);
       preparedClear.appendChild(preparedClearIcon);
-      preparedEditBoxContentItem4.appendChild(preparedClear);
-      preparedEditBoxContent.appendChild(preparedEditBoxContentItem1);
-      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem2);
-      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem3);
-      preparedEditBoxGroup.appendChild(preparedEditBoxContentItem4);
+
+      preparedEditBoxGroup.appendChild(_makeEditBoxItem("button-large", preparedMinus));
+      preparedEditBoxGroup.appendChild(_makeEditBoxItem("max", preparedCount));
+      preparedEditBoxGroup.appendChild(_makeEditBoxItem("button-large", preparedPlus));
       preparedEditBoxContent.appendChild(preparedEditBoxGroup);
+      preparedEditBoxContent.appendChild(_makeEditBoxItem("button-large", preparedClear));
       preparedEditBoxBody.appendChild(preparedEditBoxContent);
       preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
       preparedEditBox.appendChild(preparedEditBoxHead);
@@ -17371,17 +17364,9 @@ var spells = (function() {
       var castEditBoxBody = document.createElement("div");
       castEditBoxBody.setAttribute("class", "m-edit-box-body");
       var castEditBoxContent = document.createElement("div");
-      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item-large m-edit-box-group");
-      var castEditBoxContentItem1 = document.createElement("div");
-      castEditBoxContentItem1.setAttribute("class", "m-edit-box-item-total");
-      var castEditBoxContentItem2 = document.createElement("div");
-      castEditBoxContentItem2.setAttribute("class", "m-edit-box-item-button-large");
-      var castEditBoxContentItem3 = document.createElement("div");
-      castEditBoxContentItem3.setAttribute("class", "m-edit-box-item-button-large");
-      var castEditBoxContentItem4 = document.createElement("div");
-      castEditBoxContentItem4.setAttribute("class", "m-edit-box-item-button-large");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-edit-box-text js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
@@ -17413,18 +17398,15 @@ var spells = (function() {
         _render_count(spellControl);
       }, false);
 
-      castEditBoxContentItem1.appendChild(castCount);
       castMinus.appendChild(castMinusIcon);
-      castEditBoxContentItem2.appendChild(castMinus);
       castPlus.appendChild(castPlusIcon);
-      castEditBoxContentItem3.appendChild(castPlus);
       castClear.appendChild(castClearIcon);
-      castEditBoxContentItem4.appendChild(castClear);
-      castEditBoxContent.appendChild(castEditBoxContentItem1);
-      castEditBoxGroup.appendChild(castEditBoxContentItem2);
-      castEditBoxGroup.appendChild(castEditBoxContentItem3);
-      castEditBoxGroup.appendChild(castEditBoxContentItem4);
+
+      castEditBoxGroup.appendChild(_makeEditBoxItem("button-large", castMinus));
+      castEditBoxGroup.appendChild(_makeEditBoxItem("max", castCount));
+      castEditBoxGroup.appendChild(_makeEditBoxItem("button-large", castPlus));
       castEditBoxContent.appendChild(castEditBoxGroup);
+      castEditBoxContent.appendChild(_makeEditBoxItem("button-large", castClear));
       castEditBoxBody.appendChild(castEditBoxContent);
       castEditBoxHead.appendChild(castEditBoxHeadTitle);
       castEditBox.appendChild(castEditBoxHead);
@@ -17440,9 +17422,7 @@ var spells = (function() {
       var activeEditBoxBody = document.createElement("div");
       activeEditBoxBody.setAttribute("class", "m-edit-box-body");
       var activeEditBoxContent = document.createElement("div");
-      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var activeEditBoxContentItem1 = document.createElement("div");
-      activeEditBoxContentItem1.setAttribute("class", "m-edit-box-item-check");
+      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var activeCheck = document.createElement("div");
       activeCheck.setAttribute("class", "m-check-block");
       var activeInput = document.createElement("input");
@@ -17460,8 +17440,7 @@ var spells = (function() {
 
       activeCheck.appendChild(activeInput);
       activeCheck.appendChild(activeIcon);
-      activeEditBoxContentItem1.appendChild(activeCheck);
-      activeEditBoxContent.appendChild(activeEditBoxContentItem1);
+      activeEditBoxContent.appendChild(_makeEditBoxItem("button-large", activeCheck));
       activeEditBoxBody.appendChild(activeEditBoxContent);
       activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
       activeEditBox.appendChild(activeEditBoxHead);
@@ -17477,9 +17456,7 @@ var spells = (function() {
       var noteEditBoxBody = document.createElement("div");
       noteEditBoxBody.setAttribute("class", "m-edit-box-body");
       var noteEditBoxContent = document.createElement("div");
-      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var noteEditBoxContentItem1 = document.createElement("div");
-      noteEditBoxContentItem1.setAttribute("class", "m-edit-box-item-max");
+      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var noteTextarea = document.createElement("div");
       noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
       noteTextarea.setAttribute("contenteditable", "true");
@@ -17489,8 +17466,7 @@ var spells = (function() {
         helper.pasteStrip(event);
       });
 
-      noteEditBoxContentItem1.appendChild(noteTextarea);
-      noteEditBoxContent.appendChild(noteEditBoxContentItem1);
+      noteEditBoxContent.appendChild(_makeEditBoxItem("max", noteTextarea));
       noteEditBoxBody.appendChild(noteEditBoxContent);
       noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
       noteEditBox.appendChild(noteEditBoxHead);
@@ -18796,7 +18772,7 @@ var totalBlock = (function() {
         input.setAttribute("class", "m-total-block-toggle-check");
         input.setAttribute("data-bonus-type", key.replace(/_+/g, "-"));
         input.setAttribute("type", "checkbox");
-        input.setAttribute("tabindex", "3");
+        input.setAttribute("tabindex", "1");
         input.checked = object.bonuses[key];
         var label = document.createElement("label");
         label.setAttribute("for", key.replace(/_+/g, "-"));

@@ -150,7 +150,7 @@ var sheet = (function() {
     input.setAttribute("type", "file");
     input.setAttribute("class", "m-import-select-input js-import-select-input");
     var label = document.createElement("label");
-    label.setAttribute("tabindex", "3");
+    label.setAttribute("tabindex", "1");
     label.setAttribute("for", "import-select");
     label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
     var labelText = document.createElement("span");

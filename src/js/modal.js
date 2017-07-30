@@ -54,7 +54,7 @@ var modal = (function() {
     };
 
     var modalHeading = document.createElement("h1");
-    modalHeading.setAttribute("tabindex", "3");
+    modalHeading.setAttribute("tabindex", "1");
     modalHeading.setAttribute("class", "m-modal-heading");
     modalHeading.textContent = heading;
 
@@ -66,7 +66,7 @@ var modal = (function() {
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("tabindex", "1");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
 

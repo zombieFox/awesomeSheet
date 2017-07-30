@@ -41,7 +41,7 @@ var log = (function() {
     };
 
     var logHeading = document.createElement("h1");
-    logHeading.setAttribute("tabindex", "3");
+    logHeading.setAttribute("tabindex", "1");
     logHeading.setAttribute("class", "m-log-heading");
     logHeading.textContent = heading;
 
@@ -53,7 +53,7 @@ var log = (function() {
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("tabindex", "1");
     actionButton.setAttribute("class", "button button-primary button-block button-large");
     actionButton.textContent = actionText || "Ok";
 

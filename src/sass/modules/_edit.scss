@@ -31,6 +31,12 @@
   align-items: stretch;
 }
 // --------------------------------------------------
+// edit no wrap
+// --------------------------------------------------
+.m-edit-box-content-nowrap {
+  flex-wrap: nowrap;
+}
+// --------------------------------------------------
 // edit outline
 // --------------------------------------------------
 .m-edit-box-content-outline {
@@ -53,20 +59,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }

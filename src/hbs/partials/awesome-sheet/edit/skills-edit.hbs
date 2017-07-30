@@ -1424,14 +1424,17 @@
     <div class="m-edit-box-body">
       <div class="m-edit-box-content">
         <div class="m-edit-box-item-max m-edit-box-group">
-          <div class="m-edit-box-item-small">
-            <p class="m-edit-box-total js-tip" data-tip-show-on="hover" data-tip-message="Total Skill Ranks from all Classes + (INT bonus x Total Levels).">
-              <span class="js-skill-spent-ranks-total" data-path="skills.ranks.spent.current"></span>/<span class="js-text-block" data-path="skills.ranks.total"></span>
-            </p>
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Spent</p>
+            <p class="m-edit-box-text js-skill-spent-ranks-total" data-path="skills.ranks.spent.current"></p>
+          </div>
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total Skill Ranks from all Classes + (INT bonus x Total Levels)." data-path="skills.ranks.total" data-path="skills.ranks.total"></p>
           </div>
           <div class="m-edit-box-item-small">
             <div class="m-check-block js-skill-spent-ranks-toggle">
-              <label for="skill-spent-ranks-toggle" class="m-check-block-label">Include spent custom skill ranks</label>
+              <label for="skill-spent-ranks-toggle" class="m-check-block-label">Include Custom Skill</label>
               <input id="skill-spent-ranks-toggle" class="m-check-block-check m-check-block-check-with-label js-skill-spent-ranks-input" data-path="skills.ranks.spent.include_custom" type="checkbox" tabindex="1">
               <span class="m-check-block-check-icon"></span>
             </div>

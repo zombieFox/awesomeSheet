@@ -57,7 +57,7 @@ var prompt = (function() {
     promptbody.setAttribute("class", "m-prompt-body");
 
     var promptHeading = document.createElement("h1");
-    promptHeading.setAttribute("tabindex", "3");
+    promptHeading.setAttribute("tabindex", "1");
     promptHeading.setAttribute("class", "m-prompt-heading");
     promptHeading.textContent = heading;
 
@@ -70,13 +70,13 @@ var prompt = (function() {
 
     var actionButton = document.createElement("a");
     actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "3");
+    actionButton.setAttribute("tabindex", "1");
     actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
     actionButton.textContent = actionText || "Ok";
 
     var cancelButton = document.createElement("a");
     cancelButton.setAttribute("href", "javascript:void(0)");
-    cancelButton.setAttribute("tabindex", "3");
+    cancelButton.setAttribute("tabindex", "1");
     cancelButton.setAttribute("class", "button button-large");
     cancelButton.textContent = "Cancel";
 
