@@ -462,7 +462,7 @@ var izlara = (function() {
         }
       },
       appraise: {
-        ranks: 4,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {

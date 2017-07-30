@@ -1928,7 +1928,7 @@ var izlara = (function() {
         }
       },
       appraise: {
-        ranks: 4,
+        ranks: 8,
         misc: "",
         current: "",
         bonuses: {
@@ -12718,7 +12718,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-small">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
-        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="level" data-type="integer" data-clone="true" data-tip="Total number of Levels in this Class." type="text" tabindex="1">' +
+        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="level" data-type="integer" data-clone="true" data-tip-show-on="focus" data-tip-message="Total number of Levels in this Class." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -12726,19 +12726,19 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
-        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="hp" data-type="integer" data-clone="true" data-tip="HP for all Levels in this Class, (CON bonuses will be automatically added)." type="text" tabindex="1">' +
+        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="hp" data-type="integer" data-clone="true" data-tip-show-on="focus" data-tip-message="HP for all Levels in this Class, (CON bonuses will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-clone="true" data-tip="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="bab" data-type="integer" data-clone="true" data-tip-show-on="focus" data-tip-message="The highest BAB for this Class (additional attacks will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
-        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="ranks" data-type="integer" data-clone="true" data-tip="Skill Ranks for all Levels in this Class, (INT bonuses will be automatically added)." type="text" tabindex="1">' +
+        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-path="basics.classes" data-path-clone-key="ranks" data-type="integer" data-clone="true" data-tip-show-on="focus" data-tip-message="Skill Ranks for all Levels in this Class, (INT bonuses will be automatically added)." type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -18250,13 +18250,39 @@ var tip = (function() {
   };
 
   function _bind_tip(tip) {
-    tip.addEventListener("focus", function() {
-      render(tip);
-    }, false);
-    tip.addEventListener("blur", function() {
-      destroy();
-    }, false);
+    var showOn = tip.dataset.tipShowOn;
+    if (showOn == "focus") {
+      tip.addEventListener("focus", function() {
+        render(tip);
+      }, false);
+      tip.addEventListener("blur", function() {
+        destroy();
+        clearTimeout(destroyTimer);
+        destroyTimer = setTimeout(delayDestroy, 300, this);
+      }, false);
+    };
+    if (showOn == "hover") {
+      tip.addEventListener("mouseover", function() {
+        render(tip);
+      }, false);
+      tip.addEventListener("mouseout", function() {
+        destroy();
+        clearTimeout(destroyTimer);
+        destroyTimer = setTimeout(delayDestroy, 300, this);
+      }, false);
+    };
   };
+
+  function delayDestroy() {
+    var all_tipBox = helper.eA(".js-tip-box");
+    for (var i = 0; i < all_tipBox.length; i++) {
+      if (!all_tipBox[i].classList.contains("is-opaque")) {
+        all_tipBox[i].parentElement.removeChild(all_tipBox[i]);
+      };
+    };
+  };
+
+  var destroyTimer = null;
 
   function destroy() {
     var all_tipBox = helper.eA(".js-tip-box");
@@ -18275,7 +18301,7 @@ var tip = (function() {
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
     var tipMessage = document.createElement("p");
     tipMessage.setAttribute("class", "m-tip-message");
-    tipMessage.textContent = tip.dataset.tip;
+    tipMessage.textContent = tip.dataset.tipMessage;
     tipWrapper.destroy = function() {
       helper.removeClass(tipWrapper, "is-opaque");
       helper.addClass(tipWrapper, "is-transparent");
@@ -18869,10 +18895,16 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.13.1",
+    list: [
+      "Adding more Tips.",
+      "Fixing bug where Tips would not be removed from the DOM."
+    ]
+  }, {
     version: "3.12.0",
     list: [
       "Added Caster Level Check support.",
-      "Updated demo PCs"
+      "Updated demo PCs."
     ]
   }, {
     version: "3.10.0",

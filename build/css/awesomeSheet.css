@@ -4314,10 +4314,10 @@ label {
   left: 0;
   top: 0;
   font-size: 1rem;
-  opacity: 0;
+  opacity: 1;
   z-index: 3000;
-  -webkit-transition: opacity 0.2s ease-in-out;
-          transition: opacity 0.2s ease-in-out; }
+  -webkit-transition: opacity 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out; }
 
 .m-tip-push-left {
   left: 20%;
@@ -4345,7 +4345,7 @@ label {
   text-align: center;
   position: relative;
   display: block;
-  z-index: 2;
+  z-index: 1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 30px rgba(0, 0, 0, 0.1); }
   .m-tip-message:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
@@ -4359,10 +4359,16 @@ label {
   top: 100%;
   left: 50%;
   display: block;
-  z-index: 1;
+  z-index: 2;
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0); }
+
+.is-night-mode .m-tip-message {
+  background-color: rgba(41, 125, 208, 0.95); }
+
+.is-night-mode .m-tip-arrow {
+  border-top-color: rgba(41, 125, 208, 0.95); }
 
 .m-display-box {
   display: -webkit-box;

@@ -1,10 +1,16 @@
 var update = (function() {
 
   var history = [{
+    version: "3.13.1",
+    list: [
+      "Adding more Tips.",
+      "Fixing bug where Tips would not be removed from the DOM."
+    ]
+  }, {
     version: "3.12.0",
     list: [
       "Added Caster Level Check support.",
-      "Updated demo PCs"
+      "Updated demo PCs."
     ]
   }, {
     version: "3.10.0",

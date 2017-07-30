@@ -16,13 +16,39 @@ var tip = (function() {
   };
 
   function _bind_tip(tip) {
-    tip.addEventListener("focus", function() {
-      render(tip);
-    }, false);
-    tip.addEventListener("blur", function() {
-      destroy();
-    }, false);
+    var showOn = tip.dataset.tipShowOn;
+    if (showOn == "focus") {
+      tip.addEventListener("focus", function() {
+        render(tip);
+      }, false);
+      tip.addEventListener("blur", function() {
+        destroy();
+        clearTimeout(destroyTimer);
+        destroyTimer = setTimeout(delayDestroy, 300, this);
+      }, false);
+    };
+    if (showOn == "hover") {
+      tip.addEventListener("mouseover", function() {
+        render(tip);
+      }, false);
+      tip.addEventListener("mouseout", function() {
+        destroy();
+        clearTimeout(destroyTimer);
+        destroyTimer = setTimeout(delayDestroy, 300, this);
+      }, false);
+    };
   };
+
+  function delayDestroy() {
+    var all_tipBox = helper.eA(".js-tip-box");
+    for (var i = 0; i < all_tipBox.length; i++) {
+      if (!all_tipBox[i].classList.contains("is-opaque")) {
+        all_tipBox[i].parentElement.removeChild(all_tipBox[i]);
+      };
+    };
+  };
+
+  var destroyTimer = null;
 
   function destroy() {
     var all_tipBox = helper.eA(".js-tip-box");
@@ -41,7 +67,7 @@ var tip = (function() {
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
     var tipMessage = document.createElement("p");
     tipMessage.setAttribute("class", "m-tip-message");
-    tipMessage.textContent = tip.dataset.tip;
+    tipMessage.textContent = tip.dataset.tipMessage;
     tipWrapper.destroy = function() {
       helper.removeClass(tipWrapper, "is-opaque");
       helper.addClass(tipWrapper, "is-transparent");
