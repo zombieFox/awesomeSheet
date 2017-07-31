@@ -16,7 +16,6 @@
   max-width: 100%;
 }
 .m-edit-box-body {
-  margin-left: 2em;
   max-width: 100%;
 }
 .m-edit-box-content {
@@ -26,6 +25,14 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: stretch;
+}
+// --------------------------------------------------
+// edit body indent
+// --------------------------------------------------
+.m-edit-box-indent {
+  .m-edit-box-body {
+    margin-left: 2em;
+  }
 }
 // --------------------------------------------------
 // edit end
@@ -64,20 +71,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -385,8 +392,8 @@
     border-color: $gray-06;
     color: $gray-18;
   }
-  .m-edit-box-text,
-  .m-edit-box-check-label {
+  .m-edit-box-check-label,
+  .m-edit-box-text {
     background-color: $gray-03;
     border-color: $gray-04;
     color: $gray-18;
@@ -408,7 +415,11 @@
   }
   .m-edit-box-body {
     flex: 1 1 auto;
-    margin-left: 0;
+  }
+  .m-edit-box-indent {
+    .m-edit-box-body {
+      margin-left: 0;
+    }
   }
   .m-edit-box-labels {
     .m-edit-box-title {

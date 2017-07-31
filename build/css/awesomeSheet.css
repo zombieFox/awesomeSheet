@@ -2821,7 +2821,6 @@ label {
   max-width: 100%; }
 
 .m-edit-box-body {
-  margin-left: 2em;
   max-width: 100%; }
 
 .m-edit-box-content {
@@ -2839,6 +2838,9 @@ label {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch; }
+
+.m-edit-box-indent .m-edit-box-body {
+  margin-left: 2em; }
 
 .m-edit-box-content.m-edit-box-content-end {
   -webkit-justify-content: flex-end;
@@ -2864,16 +2866,16 @@ label {
 [class^="m-edit-box-content-margin"].m-edit-box-content-outline {
   padding-bottom: 0; }
 
-.m-edit-box-content-margin-large > [class*="m-edit-box-item"],
-.m-edit-box-content-margin-large > [class^="m-edit-box-item"] {
+.m-edit-box-content-margin-large > [class^="m-edit-box-item"],
+.m-edit-box-content-margin-large > [class*="m-edit-box-item"] {
   margin-bottom: 1em; }
 
-.m-edit-box-content-margin-medium > [class*="m-edit-box-item"],
-.m-edit-box-content-margin-medium > [class^="m-edit-box-item"] {
+.m-edit-box-content-margin-medium > [class^="m-edit-box-item"],
+.m-edit-box-content-margin-medium > [class*="m-edit-box-item"] {
   margin-bottom: 0.5em; }
 
-.m-edit-box-content-margin-small > [class*="m-edit-box-item"],
-.m-edit-box-content-margin-small > [class^="m-edit-box-item"] {
+.m-edit-box-content-margin-small > [class^="m-edit-box-item"],
+.m-edit-box-content-margin-small > [class*="m-edit-box-item"] {
   margin-bottom: 4px; }
 
 .m-edit-box [class*="m-edit-box-item"],
@@ -3226,8 +3228,8 @@ label {
   border-color: #474747;
   color: #e0e0e0; }
 
-.is-night-mode .m-edit-box-text,
-.is-night-mode .m-edit-box-check-label {
+.is-night-mode .m-edit-box-check-label,
+.is-night-mode .m-edit-box-text {
   background-color: #212121;
   border-color: #2e2e2e;
   color: #e0e0e0; }
@@ -3253,7 +3255,8 @@ label {
   .m-edit-box-body {
     -webkit-flex: 1 1 auto;
         -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+            flex: 1 1 auto; }
+  .m-edit-box-indent .m-edit-box-body {
     margin-left: 0; }
   .m-edit-box-labels .m-edit-box-title {
     margin-top: 1.25em; }
