@@ -14869,7 +14869,7 @@ var inputBlock = (function() {
       editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
       var Count = document.createElement("p");
-      Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
+      Count.setAttribute("class", "m-edit-box-total js-input-block-quick-value");
       Count.textContent = 0;
 
       editBoxContent.appendChild(_create_editBoxItem("total", Count));
@@ -17364,7 +17364,7 @@ var spells = (function() {
       var preparedEditBoxGroup = document.createElement("div");
       preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       var preparedCount = document.createElement("p");
-      preparedCount.setAttribute("class", "m-edit-box-text js-spell-control-prepared-count");
+      preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
       var preparedPlus = document.createElement("button");
       preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
@@ -17422,7 +17422,7 @@ var spells = (function() {
       var castEditBoxGroup = document.createElement("div");
       castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       var castCount = document.createElement("p");
-      castCount.setAttribute("class", "m-edit-box-text js-spell-control-cast-count");
+      castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;
       var castPlus = document.createElement("button");
       castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");

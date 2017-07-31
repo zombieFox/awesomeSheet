@@ -15,7 +15,7 @@ input[type="submit"] {
   text-decoration: none;
   white-space: nowrap;
   font-size: $font-size-100;
-  line-height: $line-height-160;
+  line-height: $line-height-200;
   font-family: $open-sans-semi-bold;
   cursor: pointer;
   box-sizing: border-box;
@@ -69,7 +69,7 @@ input[type="submit"] {
 .button-small {
   padding: 0 0.6em;
   font-size: $font-size-100;
-  line-height: $line-height-160;
+  line-height: $line-height-200;
   .button-text {
     font-size: 0.8em;
   }
@@ -82,7 +82,7 @@ input[type="submit"] {
 .button-medium {
   padding: 0.25em 1em;
   font-size: $font-size-100;
-  line-height: $line-height-160;
+  line-height: $line-height-200;
   .button-text {
     font-size: 1em;
   }
@@ -95,7 +95,7 @@ input[type="submit"] {
 .button-large {
   padding: 1em 2em;
   font-size: $font-size-100;
-  line-height: $line-height-160;
+  line-height: $line-height-200;
   text-transform: uppercase;
   .button-text {
     font-size: 1.2em;
@@ -427,7 +427,24 @@ label {
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .button,
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    line-height: $line-height-160;
+  }
+  .button-small {
+    line-height: $line-height-160;
+  }
+  .button-medium {
+    line-height: $line-height-160;
+  }
+  .button-large {
+    line-height: $line-height-160;
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

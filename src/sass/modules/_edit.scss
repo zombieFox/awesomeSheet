@@ -28,6 +28,14 @@
   align-items: stretch;
 }
 // --------------------------------------------------
+// edit end
+// --------------------------------------------------
+.m-edit-box-content {
+  &.m-edit-box-content-end {
+    justify-content: flex-end;
+  }
+}
+// --------------------------------------------------
 // edit no wrap
 // --------------------------------------------------
 .m-edit-box-content-nowrap {
@@ -56,20 +64,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+   > [class^="m-edit-box-item"],
+  > [class*="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -136,7 +144,7 @@
   flex: 0 1 30%;
 }
 .m-edit-box-item-medium {
-  flex: 0.5 1 35%;
+  flex: 1 1 35%;
 }
 .m-edit-box-item-large {
   flex: 1 1 40%;
@@ -288,10 +296,10 @@
   background-color: $gray-19;
   padding: 0 1em;
   margin: 0;
-  height: 2.5em;
   font-size: $font-size-100;
-  line-height: $line-height-250;
   font-family: $open-sans-bold;
+  line-height: $line-height-300;
+  height: 3em;
   box-sizing: border-box;
   border-radius: $border-radius-large;
   border: 0;
@@ -307,10 +315,10 @@
   background-color: $white;
   padding: 0 0.8em;
   margin: 0;
-  height: 2.5em;
   font-size: $font-size-100;
-  line-height: $line-height-250;
   font-family: $open-sans-semi-bold;
+  line-height: $line-height-300;
+  height: 3em;
   box-sizing: border-box;
   border-radius: $border-radius-large;
   border: 0;
@@ -387,11 +395,6 @@
       margin-top: 1.25em;
     }
   }
-  .m-edit-box-content {
-    &.m-edit-box-content-end {
-      justify-content: flex-end;
-    }
-  }
   .m-edit-box-outline {
     &.m-edit-box-labels {
       .m-edit-box-title {
@@ -423,6 +426,9 @@
   .m-edit-box-item-small {
     flex: 0 1 20%;
   }
+  .m-edit-box-item-medium {
+    flex: 0.6 1 35%;
+  }
   .m-edit-box-title {
     margin-right: 1em;
   }
@@ -435,7 +441,14 @@
   .m-edit-box-item-button-small {
     flex: 0 0 2em;
   }
-  .m-edit-box-item-button-large {}
+  .m-edit-box-text {
+    line-height: $line-height-250;
+    height: 2.5em;
+  }
+  .m-edit-box-total {
+    line-height: $line-height-250;
+    height: 2.5em;
+  }
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {

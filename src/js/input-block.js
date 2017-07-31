@@ -166,7 +166,7 @@ var inputBlock = (function() {
       editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
 
       var Count = document.createElement("p");
-      Count.setAttribute("class", "m-edit-box-text js-input-block-quick-value");
+      Count.setAttribute("class", "m-edit-box-total js-input-block-quick-value");
       Count.textContent = 0;
 
       editBoxContent.appendChild(_create_editBoxItem("total", Count));
