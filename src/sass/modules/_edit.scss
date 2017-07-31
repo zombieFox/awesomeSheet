@@ -64,20 +64,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -330,6 +330,25 @@
     margin-bottom: 0;
   }
 }
+.m-edit-box-check-label {
+  background-color: $white;
+  padding: 0 0.8em;
+  margin: 0;
+  font-size: $font-size-100;
+  font-family: $open-sans-semi-bold;
+  line-height: $line-height-300;
+  height: 3em;
+  box-sizing: border-box;
+  border-radius: $border-radius-large;
+  border: 0;
+  border: $border;
+  border-color: $gray-16;
+  color: $base-color;
+  cursor: pointer;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
 // --------------------------------------------------
 // edit controls
 // --------------------------------------------------
@@ -366,7 +385,8 @@
     border-color: $gray-06;
     color: $gray-18;
   }
-  .m-edit-box-text {
+  .m-edit-box-text,
+  .m-edit-box-check-label {
     background-color: $gray-03;
     border-color: $gray-04;
     color: $gray-18;
@@ -442,6 +462,10 @@
     flex: 0 0 2em;
   }
   .m-edit-box-text {
+    line-height: $line-height-250;
+    height: 2.5em;
+  }
+  .m-edit-box-check-label {
     line-height: $line-height-250;
     height: 2.5em;
   }

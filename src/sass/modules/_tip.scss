@@ -1,10 +1,10 @@
 .m-tip {
   position: absolute;
   max-width: 20em;
-  margin: 1em;
+  margin: 0.5em;
   left: 0;
   top: 0;
-  font-size: $font-size-root-100;
+  font-size: $font-size-root-125;
   opacity: 1;
   z-index: $tip;
   transition: opacity $transition-ease-fast;
@@ -32,7 +32,7 @@
 }
 .m-tip-message {
   padding: 0.5em 1em;
-  background-color: $dark-alpha-05;
+  background-color: $dark-alpha-04;
   border-radius: $border-radius-large;
   color: $white;
   font-size: 0.8em;
@@ -41,14 +41,14 @@
   position: relative;
   display: block;
   z-index: 1;
-  box-shadow: $shadow-large;
+  // box-shadow: $shadow-large;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
 }
 .m-tip-arrow {
-  border: 0.5em solid transparent;
-  border-top-color: $dark-alpha-05;
+  border: 0.4em solid transparent;
+  border-top-color: $dark-alpha-04;
   position: absolute;
   width: 0;
   height: 0;

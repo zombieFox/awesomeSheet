@@ -411,6 +411,7 @@ var totalBlock = (function() {
       var checkBlockCheck = document.createElement("input");
       checkBlockCheck.setAttribute("class", "m-check-block-check");
       checkBlockCheck.setAttribute("type", "checkbox");
+      checkBlockCheck.setAttribute("id", key);
       checkBlockCheck.checked = object.bonuses[key];
       var checkBlockCheckIcon = document.createElement("span");
       checkBlockCheckIcon.setAttribute("class", "m-check-block-check-icon");
@@ -422,6 +423,14 @@ var totalBlock = (function() {
       return checkBlock;
     };
 
+    function _create_checkLabel(text, key) {
+      var editBoxText = document.createElement("label");
+      editBoxText.setAttribute("class", "m-edit-box-check-label");
+      editBoxText.setAttribute("for", key);
+      editBoxText.textContent = text;
+      return editBoxText;
+    };
+
     function _create_editBoxItem(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
@@ -431,22 +440,22 @@ var totalBlock = (function() {
       return editBoxItem;
     };
 
-    function _create_editBox(headTitle, nodes) {
+    function _create_editBox(nodes) {
       var editBox = document.createElement("div");
-      editBox.setAttribute("class", "m-edit-box m-edit-box-head-extra-large");
+      editBox.setAttribute("class", "m-edit-box");
       var editBoxHead = document.createElement("div");
       editBoxHead.setAttribute("class", "m-edit-box-head");
-      var editBoxHeadTitle = document.createElement("h2");
-      editBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      editBoxHeadTitle.textContent = headTitle;
       var editBoxBody = document.createElement("div");
       editBoxBody.setAttribute("class", "m-edit-box-body");
       var editBoxContent = document.createElement("div");
-      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-end m-edit-box-content-margin-large");
-      editBoxContent.appendChild(nodes);
+      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var editBoxGroup = document.createElement("div");
+      editBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      for (var i = 0; i < arguments.length; i++) {
+        editBoxGroup.appendChild(arguments[i]);
+      };
+      editBoxContent.appendChild(editBoxGroup);
       editBoxBody.appendChild(editBoxContent);
-      editBoxHead.appendChild(editBoxHeadTitle);
-      editBox.appendChild(editBoxHead);
       editBox.appendChild(editBoxBody);
       return editBox;
     };
@@ -526,7 +535,12 @@ var totalBlock = (function() {
         for (var i = 0; i < orderedBonuses.length; i++) {
           for (var key in orderedBonuses[i]) {
             var title = _bonusTextLable(key);
-            totalBlockControls.appendChild(_create_editBox(title, _create_editBoxItem("check", _create_check(totalBlockControls, key))));
+            var check = _create_check(totalBlockControls, key);
+            var label = _create_checkLabel(title, key);
+            var editBoxItem1 = _create_editBoxItem("large", label);
+            var editBoxItem2 = _create_editBoxItem("check", check);
+            var editBox = _create_editBox(editBoxItem1, editBoxItem2);
+            totalBlockControls.appendChild(editBox);
           };
         };
       };

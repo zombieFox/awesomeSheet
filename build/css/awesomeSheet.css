@@ -1898,16 +1898,16 @@ label {
 
 @-webkit-keyframes grow {
   0% {
-    -webkit-transform: translate(0, 0.4em) scale(0.8);
-            transform: translate(0, 0.4em) scale(0.8); }
+    -webkit-transform: translate(0, -0.4em) scale(1.05);
+            transform: translate(0, -0.4em) scale(1.05); }
   100% {
     -webkit-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); } }
 
 @keyframes grow {
   0% {
-    -webkit-transform: translate(0, 0.4em) scale(0.8);
-            transform: translate(0, 0.4em) scale(0.8); }
+    -webkit-transform: translate(0, -0.4em) scale(1.05);
+            transform: translate(0, -0.4em) scale(1.05); }
   100% {
     -webkit-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); } }
@@ -1917,16 +1917,16 @@ label {
     -webkit-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
   100% {
-    -webkit-transform: translate(0, 0.4em) scale(0.8);
-            transform: translate(0, 0.4em) scale(0.8); } }
+    -webkit-transform: translate(0, -0.4em) scale(1.05);
+            transform: translate(0, -0.4em) scale(1.05); } }
 
 @keyframes shirnk {
   0% {
     -webkit-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
   100% {
-    -webkit-transform: translate(0, 0.4em) scale(0.8);
-            transform: translate(0, 0.4em) scale(0.8); } }
+    -webkit-transform: translate(0, -0.4em) scale(1.05);
+            transform: translate(0, -0.4em) scale(1.05); } }
 
 .u-full-width {
   width: 100%; }
@@ -2864,16 +2864,16 @@ label {
 [class^="m-edit-box-content-margin"].m-edit-box-content-outline {
   padding-bottom: 0; }
 
-.m-edit-box-content-margin-large > [class^="m-edit-box-item"],
-.m-edit-box-content-margin-large > [class*="m-edit-box-item"] {
+.m-edit-box-content-margin-large > [class*="m-edit-box-item"],
+.m-edit-box-content-margin-large > [class^="m-edit-box-item"] {
   margin-bottom: 1em; }
 
-.m-edit-box-content-margin-medium > [class^="m-edit-box-item"],
-.m-edit-box-content-margin-medium > [class*="m-edit-box-item"] {
+.m-edit-box-content-margin-medium > [class*="m-edit-box-item"],
+.m-edit-box-content-margin-medium > [class^="m-edit-box-item"] {
   margin-bottom: 0.5em; }
 
-.m-edit-box-content-margin-small > [class^="m-edit-box-item"],
-.m-edit-box-content-margin-small > [class*="m-edit-box-item"] {
+.m-edit-box-content-margin-small > [class*="m-edit-box-item"],
+.m-edit-box-content-margin-small > [class^="m-edit-box-item"] {
   margin-bottom: 4px; }
 
 .m-edit-box [class*="m-edit-box-item"],
@@ -3181,6 +3181,24 @@ label {
   .m-edit-box-text:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
 
+.m-edit-box-check-label {
+  background-color: #ffffff;
+  padding: 0 0.8em;
+  margin: 0;
+  font-size: 1em;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  line-height: 3;
+  height: 3em;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 0;
+  border: 1px solid transparent;
+  border-color: #c7c7c7;
+  color: #2e2e2e;
+  cursor: pointer; }
+  .m-edit-box-check-label:not(:only-child):not(:last-child) {
+    margin-bottom: 0; }
+
 .m-edit-controls {
   margin: 0 0 1em; }
   .m-edit-controls .button-group {
@@ -3208,7 +3226,8 @@ label {
   border-color: #474747;
   color: #e0e0e0; }
 
-.is-night-mode .m-edit-box-text {
+.is-night-mode .m-edit-box-text,
+.is-night-mode .m-edit-box-check-label {
   background-color: #212121;
   border-color: #2e2e2e;
   color: #e0e0e0; }
@@ -3279,6 +3298,9 @@ label {
         -ms-flex: 0 0 2em;
             flex: 0 0 2em; }
   .m-edit-box-text {
+    line-height: 2.5;
+    height: 2.5em; }
+  .m-edit-box-check-label {
     line-height: 2.5;
     height: 2.5em; }
   .m-edit-box-total {
@@ -4280,10 +4302,10 @@ label {
 .m-tip {
   position: absolute;
   max-width: 20em;
-  margin: 1em;
+  margin: 0.5em;
   left: 0;
   top: 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
   opacity: 1;
   z-index: 3000;
   transition: opacity 0.2s ease-in-out;
@@ -4317,7 +4339,7 @@ label {
 
 .m-tip-message {
   padding: 0.5em 1em;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 4px;
   color: #ffffff;
   font-size: 0.8em;
@@ -4325,14 +4347,13 @@ label {
   text-align: center;
   position: relative;
   display: block;
-  z-index: 1;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 30px rgba(0, 0, 0, 0.1); }
+  z-index: 1; }
   .m-tip-message:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
 
 .m-tip-arrow {
-  border: 0.5em solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.8);
+  border: 0.4em solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   width: 0;
   height: 0;
