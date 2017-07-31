@@ -118,15 +118,23 @@ var inputBlock = (function() {
     };
 
     function _update_value(quickValueControl) {
-      var newValue = parseInt(quickValueControl.dataset.quickValue, 10);
+      var storedValue = parseInt(quickValueControl.dataset.quickValue, 10);
       var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      var newValue;
       if (isNaN(currentValue)) {
         currentValue = 0;
       };
+
+      // if negative healing is applied
+      if (path == "defense.hp.damage" && change == "negative" && storedValue <= 0) {
+        // console.log("negative healing found", " | stored", storedValue, " | old", currentValue);
+        storedValue = 0;
+      };
+
       if (change == "positive") {
-        newValue = currentValue + newValue;
+        newValue = currentValue + storedValue;
       } else if (change == "negative") {
-        newValue = currentValue - newValue;
+        newValue = currentValue - storedValue;
       };
 
       if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
