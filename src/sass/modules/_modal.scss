@@ -61,9 +61,14 @@
     border-radius: 0 0 $border-radius-large $border-radius-large;
   }
 }
+.is-display-mode {
+  &.m-modal-shade {
+    background-color: rgba($primary-color-03, 0.8);
+  }
+}
 .is-night-mode {
   .m-modal-shade {
-    background-color: $dark-alpha-08;
+    background-color: $dark-alpha-05;
   }
   .m-modal {
     .m-modal-body {

@@ -249,9 +249,14 @@
     margin-bottom: 0;
   }
 }
+.is-display-mode {
+  &.m-nav-shade {
+    background-color: rgba($primary-color-03, 0.8);
+  }
+}
 .is-night-mode {
   .m-nav-shade {
-    background-color: $dark-alpha-08;
+    background-color: $dark-alpha-05;
   }
   .m-nav {
     background-color: $base-color;
