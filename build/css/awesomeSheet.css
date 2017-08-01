@@ -2714,7 +2714,7 @@ label {
     margin-bottom: 0; }
 
 .is-display-mode.m-nav-shade {
-  background-color: rgba(74, 0, 19, 0.8); }
+  background-color: rgba(23, 0, 6, 0.8); }
 
 .is-night-mode .m-nav-shade {
   background-color: rgba(0, 0, 0, 0.8); }
@@ -4093,7 +4093,7 @@ label {
   white-space: pre-wrap; }
 
 .is-display-mode.m-prompt-shade {
-  background-color: rgba(74, 0, 19, 0.8); }
+  background-color: rgba(23, 0, 6, 0.8); }
 
 .is-night-mode .m-prompt-shade {
   background-color: rgba(0, 0, 0, 0.8); }
@@ -4177,7 +4177,7 @@ label {
     border-radius: 0 0 4px 4px; }
 
 .is-display-mode.m-modal-shade {
-  background-color: rgba(74, 0, 19, 0.8); }
+  background-color: rgba(23, 0, 6, 0.8); }
 
 .is-night-mode .m-modal-shade {
   background-color: rgba(0, 0, 0, 0.8); }

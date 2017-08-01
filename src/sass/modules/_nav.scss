@@ -251,7 +251,7 @@
 }
 .is-display-mode {
   &.m-nav-shade {
-    background-color: rgba($primary-color-03, 0.8);
+    background-color: rgba(darken($primary-color-03, 10), 0.8);
   }
 }
 .is-night-mode {
