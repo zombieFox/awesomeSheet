@@ -30,12 +30,15 @@ var prompt = (function() {
   };
 
   function render(heading, message, actionText, action, actionUrl, actionAttributeKey, actionAttributeValue) {
-
     modal.destroy();
     var body = helper.e("body");
+    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
 
     var promptShade = document.createElement("div");
     promptShade.setAttribute("class", "m-prompt-shade js-prompt-shade");
+    if (displayMode) {
+      helper.addClass(promptShade, "is-display-mode");
+    };
     promptShade.destroy = function() {
       helper.removeClass(promptShade, "is-opaque");
       helper.addClass(promptShade, "is-transparent");
@@ -149,7 +152,6 @@ var prompt = (function() {
     helper.removeClass(promptShade, "is-transparent");
     helper.addClass(promptShade, "is-opaque");
     promptHeading.focus(this);
-
   };
 
   // exposed methods

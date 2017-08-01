@@ -30,12 +30,15 @@ var modal = (function() {
   };
 
   function render(heading, modalBodyContent, actionText, action, size) {
-
     prompt.destroy();
     var body = helper.e("body");
+    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
 
     var modalShade = document.createElement("div");
     modalShade.setAttribute("class", "m-modal-shade js-modal-shade");
+    if (displayMode) {
+      helper.addClass(modalShade, "is-display-mode");
+    };
     modalShade.destroy = function() {
       helper.removeClass(modalShade, "is-opaque");
       helper.addClass(modalShade, "is-transparent");
@@ -148,7 +151,6 @@ var modal = (function() {
     helper.removeClass(modalShade, "is-transparent");
     helper.addClass(modalShade, "is-opaque");
     modalHeading.focus(this);
-
   };
 
   // exposed methods

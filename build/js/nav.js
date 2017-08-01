@@ -12,12 +12,15 @@ var nav = (function() {
   };
 
   function _render_navShade() {
-
     var nav = helper.e(".js-nav");
     var body = helper.e("body");
-
+    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
     var navShade = document.createElement("div");
+
     navShade.setAttribute("class", "m-nav-shade js-nav-shade");
+    if (displayMode) {
+      helper.addClass(navShade, "is-display-mode");
+    };
     navShade.destroy = function() {
       helper.removeClass(navShade, "is-opaque");
       helper.addClass(navShade, "is-transparent");
@@ -46,7 +49,6 @@ var nav = (function() {
 
     helper.removeClass(navShade, "is-transparent");
     helper.addClass(navShade, "is-opaque");
-
   };
 
   function scrollToTop() {
