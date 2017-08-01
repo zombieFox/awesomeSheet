@@ -824,6 +824,12 @@ var clone = (function() {
     };
   };
 
+  function _add_cloneObject(cloneType) {
+    if (_get_cloneCount(cloneType) < 200) {
+      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
+    };
+  };
+
   function _render_clone(cloneType) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
@@ -890,18 +896,35 @@ var clone = (function() {
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };
   };
 
-  function _get_allInputBlocks(cloneType) {
+  function _update_all_clones(cloneType) {
     var target = _get_cloneTarget(cloneType);
-    var all_inputBlocks = target.querySelectorAll(".js-input-block");
-    for (var i = 0; i < all_inputBlocks.length; i++) {
-      inputBlock.render(all_inputBlocks[i]);
-    }
+    if (cloneType == "class") {
+      console.log(1);
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+      classes.render();
+    };
+    if (cloneType == "consumable" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      console.log(2);
+      var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        textareaBlock.render(all_textareaBlock[i]);
+      };
+    };
+    if (cloneType == "note-story" || cloneType == "note-character") {
+      console.log(3);
+      var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        textareaBlock.render(all_textareaBlock[i]);
+      };
+    };
   };
 
   function _remove_clone(button, cloneType) {
@@ -909,14 +932,7 @@ var clone = (function() {
     _remove_cloneObject(cloneType, cloneIndex);
     clear(cloneType);
     _render_all_clones(cloneType);
-    _get_allInputBlocks(cloneType);
-    // inputBlock.clear();
-    // inputBlock.render();
-    // textareaBlock.clear();
-    // textareaBlock.render();
-    if (cloneType == "class") {
-      classes.render();
-    };
+    _update_all_clones(cloneType);
     textBlock.render();
     totalBlock.render();
     _update_clonePlaceholder(cloneType);
@@ -931,13 +947,7 @@ var clone = (function() {
     _restore_cloneObject(undoData.cloneType, undoData.index, undoData.clone);
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
-    inputBlock.clear();
-    inputBlock.render();
-    textareaBlock.clear();
-    textareaBlock.render();
-    if (undoData.cloneType == "class") {
-      classes.render();
-    };
+    _update_all_clones(undoData.cloneType);
     textBlock.render();
     totalBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
@@ -1049,12 +1059,6 @@ var clone = (function() {
       for (var i = 0; i < all_removeButtons.length; i++) {
         all_removeButtons[i].setAttribute("tabindex", "-1");
       };
-    };
-  };
-
-  function _add_cloneObject(cloneType) {
-    if (_get_cloneCount(cloneType) < 200) {
-      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
     };
   };
 

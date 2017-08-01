@@ -223,28 +223,42 @@ var totalBlock = (function() {
       check.checked = object[bonusType];
     };
 
+    // the total render target
     var totalElement = totalBlock.querySelector(".js-total-block-total");
+    // prefix or suffix type
     var totalType = totalBlock.dataset.totalType;
+    // total variable location
     var totalPath = totalBlock.dataset.totalPath;
+    // is this a clone
     var cloneCount = totalBlock.dataset.cloneCount || false;
+    // are we totalling variable from multiple clones
     var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
+    // check to see if there are total bonuses to include
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
+    // are there exposed bonuses with checkboxes
     var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
+    // the variles to add
     var totalPathAddition = false;
     if (totalBlock.dataset.totalPathAddition) {
       totalPathAddition = totalBlock.dataset.totalPathAddition.split(",");
     };
+    // the variles to subtract
     var totalPathSubtraction = false;
     if (totalBlock.dataset.totalPathSubtraction) {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
+
     var totalObject = _get_totalObject(sheet.getCharacter(), totalPath, cloneCount, totalCloneSet);
     var toSum = [];
     var grandTotal;
 
     if (all_bonusCheck.length > 0) {
       for (var i = 0; i < all_bonusCheck.length; i++) {
-        _updateCheck(all_bonusCheck[i], totalObject.bonuses);
+        if (totalObject.length > 0) {
+          _updateCheck(all_bonusCheck[i], totalObject[0].bonuses);
+        } else {
+          _updateCheck(all_bonusCheck[i], totalObject.bonuses);
+        };
       };
     };
 
