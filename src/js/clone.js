@@ -855,7 +855,7 @@ var clone = (function() {
     _bind_cloneRemoveButton(cloneBlockDelete, cloneType);
   };
 
-  function _render_all_clones(cloneType, bind) {
+  function _render_all_clones(cloneType) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
     for (var i = 0; i < cloneLength; i++) {
@@ -896,15 +896,24 @@ var clone = (function() {
     };
   };
 
+  function _get_allInputBlocks(cloneType) {
+    var target = _get_cloneTarget(cloneType);
+    var all_inputBlocks = target.querySelectorAll(".js-input-block");
+    for (var i = 0; i < all_inputBlocks.length; i++) {
+      inputBlock.render(all_inputBlocks[i]);
+    }
+  };
+
   function _remove_clone(button, cloneType) {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
     _remove_cloneObject(cloneType, cloneIndex);
     clear(cloneType);
-    _render_all_clones(cloneType, true);
-    inputBlock.clear();
-    inputBlock.render();
-    textareaBlock.clear();
-    textareaBlock.render();
+    _render_all_clones(cloneType);
+    _get_allInputBlocks(cloneType);
+    // inputBlock.clear();
+    // inputBlock.render();
+    // textareaBlock.clear();
+    // textareaBlock.render();
     if (cloneType == "class") {
       classes.render();
     };
