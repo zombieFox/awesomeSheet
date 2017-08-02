@@ -99,17 +99,21 @@
 }
 @keyframes grow {
   0% {
-    transform: translate(0, -0.4em) scale(1.05);
+    transform: translate(0, -0.2em) scale(0.95);
+    clip-path: circle(0% at 50% 100%);
   }
   100% {
     transform: translate(0, 0) scale(1);
+    clip-path: circle(100% at 50% 100%);
   }
 }
 @keyframes shirnk {
   0% {
     transform: translate(0, 0) scale(1);
+    clip-path: circle(100% at 50% 100%);
   }
   100% {
-    transform: translate(0, -0.4em) scale(1.05);
+    transform: translate(0, -0.2em) scale(0.95);
+    clip-path: circle(0% at 50% 100%);
   }
 }

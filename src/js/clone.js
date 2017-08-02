@@ -904,7 +904,6 @@ var clone = (function() {
   function _update_all_clones(cloneType) {
     var target = _get_cloneTarget(cloneType);
     if (cloneType == "class") {
-      console.log(1);
       var all_inputBlocks = target.querySelectorAll(".js-input-block");
       for (var i = 0; i < all_inputBlocks.length; i++) {
         inputBlock.render(all_inputBlocks[i]);
@@ -912,14 +911,12 @@ var clone = (function() {
       classes.render();
     };
     if (cloneType == "consumable" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
-      console.log(2);
       var all_inputBlocks = target.querySelectorAll(".js-input-block");
       for (var i = 0; i < all_inputBlocks.length; i++) {
         inputBlock.render(all_inputBlocks[i]);
       };
     };
     if (cloneType == "note-story" || cloneType == "note-character") {
-      console.log(3);
       var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
         textareaBlock.render(all_textareaBlock[i]);
