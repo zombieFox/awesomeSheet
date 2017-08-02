@@ -158,7 +158,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
         '    <div class="m-edit-box-item-max m-edit-box-group">' +
-        '      <div class="m-edit-box-item-large">' +
+        '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="1">' +
         '        </div>' +

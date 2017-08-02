@@ -343,17 +343,17 @@ var inputBlock = (function() {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     if (path) {
-      console.log(inputBlock);
+      // console.log(inputBlock);
       if (inputBlock.dataset.clone == "true") {
-        console.log("clone", path);
+        // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
         var cloneCount = inputBlock.dataset.cloneCount;
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
         inputBlockField.value = object[pathCloneKey];
       } else {
-        console.log("not clone", path);
-        console.log(inputBlock.dataset.cloneCount);
+        // console.log("not clone", path);
+        // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
         inputBlockField.value = content;
       };

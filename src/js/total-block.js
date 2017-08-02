@@ -229,6 +229,7 @@ var totalBlock = (function() {
     var totalType = totalBlock.dataset.totalType;
     // total variable location
     var totalPath = totalBlock.dataset.totalPath;
+    console.log(totalPath);
     // is this a clone
     var cloneCount = totalBlock.dataset.cloneCount || false;
     // are we totalling variable from multiple clones
@@ -237,28 +238,30 @@ var totalBlock = (function() {
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
     // are there exposed bonuses with checkboxes
     var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
-    // the variles to add
+    // the paths to add
     var totalPathAddition = false;
     if (totalBlock.dataset.totalPathAddition) {
       totalPathAddition = totalBlock.dataset.totalPathAddition.split(",");
     };
-    // the variles to subtract
+    // the paths to subtract
     var totalPathSubtraction = false;
     if (totalBlock.dataset.totalPathSubtraction) {
       totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
     };
 
     var totalObject = _get_totalObject(sheet.getCharacter(), totalPath, cloneCount, totalCloneSet);
+    // console.log(totalObject);
     var toSum = [];
     var grandTotal;
 
     if (all_bonusCheck.length > 0) {
       for (var i = 0; i < all_bonusCheck.length; i++) {
-        if (totalObject.length > 0) {
-          _updateCheck(all_bonusCheck[i], totalObject[0].bonuses);
-        } else {
-          _updateCheck(all_bonusCheck[i], totalObject.bonuses);
-        };
+        _updateCheck(all_bonusCheck[i], totalObject.bonuses);
+        // if (totalObject.length > 0) {
+        //   _updateCheck(all_bonusCheck[i], totalObject[0].bonuses);
+        // } else {
+        //   _updateCheck(all_bonusCheck[i], totalObject.bonuses);
+        // };
       };
     };
 
@@ -274,7 +277,9 @@ var totalBlock = (function() {
       };
     };
 
+    // if adding
     if (totalPathAddition && totalCloneSet) {
+      // if adding a set of clones
       for (var i = 0; i < totalObject.length; i++) {
         for (var j = 0; j < totalPathAddition.length; j++) {
           toSum.push(parseFloat(totalObject[i][totalPathAddition[j]]) || 0);
@@ -286,7 +291,9 @@ var totalBlock = (function() {
       };
     };
 
+    // if subtracting
     if (totalPathSubtraction && totalCloneSet) {
+      // if subtracting a set of clones
       for (var i = 0; i < totalObject.length; i++) {
         for (var j = 0; j < totalPathSubtraction.length; j++) {
           toSum.push(parseFloat(-totalObject[i][totalPathSubtraction[j]]) || 0);
@@ -298,7 +305,7 @@ var totalBlock = (function() {
       };
     };
 
-    // console.log("\t\t\t", toSum);
+    console.log("\t\t\t", toSum);
 
     if (toSum.length > 0) {
       grandTotal = toSum.reduce(function(a, b) {
@@ -319,7 +326,7 @@ var totalBlock = (function() {
 
     totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);
 
-    // console.log("------------------------------");
+    console.log("------------------------------");
   };
 
   function _render_all_totalBlock() {
