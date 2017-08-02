@@ -9,7 +9,7 @@ var textareaBlock = (function() {
     if (path) {
       if (textareaBlock.dataset.clone == "true") {
         var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
-        var cloneCount = textareaBlock.dataset.cloneCount;
+        var cloneCount = parseInt(textareaBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         object[pathCloneKey] = data;
       } else {
@@ -88,7 +88,7 @@ var textareaBlock = (function() {
       if (textareaBlock.dataset.clone == "true") {
         // console.log("clone", path);
         var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
-        var cloneCount = textareaBlock.dataset.cloneCount;
+        var cloneCount = parseInt(textareaBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         textareaBlockField.innerHTML = object[pathCloneKey];
         // console.log("found clone input", path, pathCloneKey, textareaBlock.dataset.cloneCount, textareaBlock);

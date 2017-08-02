@@ -198,11 +198,15 @@ var totalBlock = (function() {
     };
     var _get_totalObject = function(character, totalPath, cloneCount, totalCloneSet) {
       var object;
-      if (totalPath && cloneCount) {
+      // console.log(cloneCount);
+      if (totalPath && !isNaN(cloneCount) ) {
+        // console.log(1);
         object = helper.getObject(character, totalPath, cloneCount);
       } else if (totalPath && totalCloneSet) {
+        // console.log(2);
         object = helper.getObject(character, totalPath);
       } else if (totalPath) {
+        // console.log(3);
         object = helper.getObject(character, totalPath);
       };
       return object;
@@ -229,9 +233,8 @@ var totalBlock = (function() {
     var totalType = totalBlock.dataset.totalType;
     // total variable location
     var totalPath = totalBlock.dataset.totalPath;
-    console.log(totalPath);
     // is this a clone
-    var cloneCount = totalBlock.dataset.cloneCount || false;
+    var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10);
     // are we totalling variable from multiple clones
     var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
     // check to see if there are total bonuses to include
@@ -258,8 +261,10 @@ var totalBlock = (function() {
       for (var i = 0; i < all_bonusCheck.length; i++) {
         _updateCheck(all_bonusCheck[i], totalObject.bonuses);
         // if (totalObject.length > 0) {
+        //   // console.log(totalObject.length);
         //   _updateCheck(all_bonusCheck[i], totalObject[0].bonuses);
         // } else {
+        //   // console.log(totalObject);
         //   _updateCheck(all_bonusCheck[i], totalObject.bonuses);
         // };
       };
@@ -305,7 +310,7 @@ var totalBlock = (function() {
       };
     };
 
-    console.log("\t\t\t", toSum);
+    // console.log("\t\t\t", toSum);
 
     if (toSum.length > 0) {
       grandTotal = toSum.reduce(function(a, b) {
@@ -326,7 +331,7 @@ var totalBlock = (function() {
 
     totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);
 
-    console.log("------------------------------");
+    // console.log("------------------------------");
   };
 
   function _render_all_totalBlock() {

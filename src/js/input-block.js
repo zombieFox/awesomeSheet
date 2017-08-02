@@ -22,7 +22,7 @@ var inputBlock = (function() {
     if (path) {
       if (inputBlock.dataset.clone == "true") {
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         object[pathCloneKey] = data;
       } else {
@@ -347,7 +347,7 @@ var inputBlock = (function() {
       if (inputBlock.dataset.clone == "true") {
         // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
         inputBlockField.value = object[pathCloneKey];
