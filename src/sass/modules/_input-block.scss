@@ -27,13 +27,8 @@
   }
 }
 .m-input-block-quick-value-button-group {
-  .m-edit-box-item-button-large {
-    flex-shrink: 1;
-  }
   .button,
   button {
-    padding-left: 0;
-    padding-right: 0;
     [class*=" icon-"],
     [class^="icon-"] {
       &:not(:only-child):not(:last-child) {
