@@ -22,7 +22,7 @@ var inputBlock = (function() {
     if (path) {
       if (inputBlock.dataset.clone == "true") {
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         object[pathCloneKey] = data;
       } else {
@@ -83,12 +83,14 @@ var inputBlock = (function() {
       };
     };
 
-    function _create_button(quickValueControl, text, icon, value, large) {
+    function _create_button(quickValueControl, text, icon, value, size) {
       var button = document.createElement("button");
-      if (large) {
-        button.setAttribute("class", "button button-icon button-large u-inline-with-input");
-      } else {
-        button.setAttribute("class", "button button-icon u-inline-with-input");
+      if (size == "large") {
+        button.setAttribute("class", "button button-icon button-large");
+      } else if (size == "medium") {
+        button.setAttribute("class", "button button-icon");
+      } else if (size == "small") {
+        button.setAttribute("class", "button button-icon button-small");
       };
       if (icon) {
         var buttonIcon = document.createElement("span");
@@ -156,6 +158,7 @@ var inputBlock = (function() {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
+      quickValueControl.setAttribute("data-value-target", target);
 
       var editBox = document.createElement("div");
       editBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
@@ -168,33 +171,44 @@ var inputBlock = (function() {
       editBoxBody.setAttribute("class", "m-edit-box-body");
       var editBoxContent = document.createElement("div");
       editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var editBoxGroup1 = document.createElement("div");
-      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
-      var editBoxGroup2 = document.createElement("div");
-      editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
+      var buttonGroup1 = document.createElement("div");
+      buttonGroup1.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
+      var buttonGroup2 = document.createElement("div");
+      buttonGroup2.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
 
       var Count = document.createElement("p");
       Count.setAttribute("class", "m-edit-box-total js-input-block-quick-value");
       Count.textContent = 0;
 
+
+      var clearButton = document.createElement("button");
+      clearButton.setAttribute("class", "button button-icon u-inline-with-input");
+      var clearButtonIcon = document.createElement("span");
+      clearButtonIcon.setAttribute("class", "icon-close");
+      clearButton.appendChild(clearButtonIcon);
+      clearButton.addEventListener("click", function() {
+        _store_data(quickValueControl, 0);
+        _render_count(quickValueControl);
+      }, false);
+
       editBoxContent.appendChild(_create_editBoxItem("total", Count));
-      editBoxContent.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxContent.appendChild(_create_editBoxItem("button-large", clearButton));
 
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-add", 1, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-add", 2, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-add", 3, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-add", 5, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-add", 10, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-add", 20, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-remove", -1, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-remove", -2, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-remove", -3, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-remove", -5, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-remove", -10, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-remove", -20, false)));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 1, "icon-add", 1, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 2, "icon-add", 2, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 3, "icon-add", 3, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 5, "icon-add", 5, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 10, "icon-add", 10, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 20, "icon-add", 20, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 1, "icon-remove", -1, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 2, "icon-remove", -2, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 3, "icon-remove", -3, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 5, "icon-remove", -5, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 10, "icon-remove", -10, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 20, "icon-remove", -20, "large"));
 
-      editBoxContent.appendChild(editBoxGroup1);
-      editBoxContent.appendChild(editBoxGroup2);
+      editBoxContent.appendChild(_create_editBoxItem("max", buttonGroup1));
+      editBoxContent.appendChild(_create_editBoxItem("max", buttonGroup2));
       editBoxBody.appendChild(editBoxContent);
       editBoxHead.appendChild(editBoxHeadTitle);
       editBox.appendChild(editBoxHead);
@@ -211,7 +225,7 @@ var inputBlock = (function() {
       var defenceSection = helper.e(".js-section-defense");
       _update_value(this, change);
       sheet.storeCharacters();
-      render(helper.e("#" + this.dataset.valueTarget));
+      render(inputBlock);
       totalBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
@@ -251,7 +265,7 @@ var inputBlock = (function() {
       };
     };
 
-    _render_inputBlock(inputBlock);
+    render(inputBlock);
     sheet.storeCharacters();
     totalBlock.render();
   };
@@ -338,16 +352,21 @@ var inputBlock = (function() {
   };
 
   function _render_inputBlock(inputBlock) {
+    // console.log(inputBlock);
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     if (path) {
+      // console.log(inputBlock);
       if (inputBlock.dataset.clone == "true") {
+        // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
         inputBlockField.value = object[pathCloneKey];
       } else {
+        // console.log("not clone", path);
+        // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
         inputBlockField.value = content;
       };

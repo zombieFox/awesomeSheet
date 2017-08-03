@@ -158,7 +158,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
         '    <div class="m-edit-box-item-max m-edit-box-group">' +
-        '      <div class="m-edit-box-item-large">' +
+        '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="1">' +
         '        </div>' +
@@ -824,6 +824,12 @@ var clone = (function() {
     };
   };
 
+  function _add_cloneObject(cloneType) {
+    if (_get_cloneCount(cloneType) < 200) {
+      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
+    };
+  };
+
   function _render_clone(cloneType) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
@@ -855,7 +861,7 @@ var clone = (function() {
     _bind_cloneRemoveButton(cloneBlockDelete, cloneType);
   };
 
-  function _render_all_clones(cloneType, bind) {
+  function _render_all_clones(cloneType) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
     for (var i = 0; i < cloneLength; i++) {
@@ -890,9 +896,31 @@ var clone = (function() {
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
+    };
+  };
+
+  function _update_all_clones(cloneType) {
+    var target = _get_cloneTarget(cloneType);
+    if (cloneType == "class") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+      classes.render();
+    };
+    if (cloneType == "consumable" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+    };
+    if (cloneType == "note-story" || cloneType == "note-character") {
+      var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        textareaBlock.render(all_textareaBlock[i]);
+      };
     };
   };
 
@@ -900,14 +928,8 @@ var clone = (function() {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
     _remove_cloneObject(cloneType, cloneIndex);
     clear(cloneType);
-    _render_all_clones(cloneType, true);
-    inputBlock.clear();
-    inputBlock.render();
-    textareaBlock.clear();
-    textareaBlock.render();
-    if (cloneType == "class") {
-      classes.render();
-    };
+    _render_all_clones(cloneType);
+    _update_all_clones(cloneType);
     textBlock.render();
     totalBlock.render();
     _update_clonePlaceholder(cloneType);
@@ -922,13 +944,7 @@ var clone = (function() {
     _restore_cloneObject(undoData.cloneType, undoData.index, undoData.clone);
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
-    inputBlock.clear();
-    inputBlock.render();
-    textareaBlock.clear();
-    textareaBlock.render();
-    if (undoData.cloneType == "class") {
-      classes.render();
-    };
+    _update_all_clones(undoData.cloneType);
     textBlock.render();
     totalBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
@@ -1040,12 +1056,6 @@ var clone = (function() {
       for (var i = 0; i < all_removeButtons.length; i++) {
         all_removeButtons[i].setAttribute("tabindex", "-1");
       };
-    };
-  };
-
-  function _add_cloneObject(cloneType) {
-    if (_get_cloneCount(cloneType) < 200) {
-      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
     };
   };
 

@@ -107,12 +107,18 @@ var helper = (function() {
     };
     var finalKey = address.shift();
     if (finalKey in object) {
-      if (arrayIndex) {
+      if (arrayIndex !== undefined && typeof arrayIndex == "number") {
+        // if arrayIndex return index of array
+        // console.log("returning array", 1);
         return object[finalKey][arrayIndex];
       } else {
+        // return value
+        // console.log("returning value", 2);
         return object[finalKey];
       };
     } else {
+      // if nothing found set empty value and then return
+      // console.log("set value and returning value", 3);
       object[finalKey] = "";
       return object[finalKey];
     };
@@ -12843,7 +12849,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
         '    <div class="m-edit-box-item-max m-edit-box-group">' +
-        '      <div class="m-edit-box-item-large">' +
+        '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="1">' +
         '        </div>' +
@@ -13509,6 +13515,12 @@ var clone = (function() {
     };
   };
 
+  function _add_cloneObject(cloneType) {
+    if (_get_cloneCount(cloneType) < 200) {
+      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
+    };
+  };
+
   function _render_clone(cloneType) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
@@ -13540,7 +13552,7 @@ var clone = (function() {
     _bind_cloneRemoveButton(cloneBlockDelete, cloneType);
   };
 
-  function _render_all_clones(cloneType, bind) {
+  function _render_all_clones(cloneType) {
     var cloneTarget = _get_cloneTarget(cloneType);
     var cloneLength = _get_cloneCount(cloneType);
     for (var i = 0; i < cloneLength; i++) {
@@ -13575,9 +13587,31 @@ var clone = (function() {
     if (cloneCount == 0) {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
+    };
+  };
+
+  function _update_all_clones(cloneType) {
+    var target = _get_cloneTarget(cloneType);
+    if (cloneType == "class") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+      classes.render();
+    };
+    if (cloneType == "consumable" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+    };
+    if (cloneType == "note-story" || cloneType == "note-character") {
+      var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
+      for (var i = 0; i < all_textareaBlock.length; i++) {
+        textareaBlock.render(all_textareaBlock[i]);
+      };
     };
   };
 
@@ -13585,14 +13619,8 @@ var clone = (function() {
     var cloneIndex = parseInt(helper.getClosest(button, ".js-clone").dataset.cloneCount, 10);
     _remove_cloneObject(cloneType, cloneIndex);
     clear(cloneType);
-    _render_all_clones(cloneType, true);
-    inputBlock.clear();
-    inputBlock.render();
-    textareaBlock.clear();
-    textareaBlock.render();
-    if (cloneType == "class") {
-      classes.render();
-    };
+    _render_all_clones(cloneType);
+    _update_all_clones(cloneType);
     textBlock.render();
     totalBlock.render();
     _update_clonePlaceholder(cloneType);
@@ -13607,13 +13635,7 @@ var clone = (function() {
     _restore_cloneObject(undoData.cloneType, undoData.index, undoData.clone);
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
-    inputBlock.clear();
-    inputBlock.render();
-    textareaBlock.clear();
-    textareaBlock.render();
-    if (undoData.cloneType == "class") {
-      classes.render();
-    };
+    _update_all_clones(undoData.cloneType);
     textBlock.render();
     totalBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
@@ -13725,12 +13747,6 @@ var clone = (function() {
       for (var i = 0; i < all_removeButtons.length; i++) {
         all_removeButtons[i].setAttribute("tabindex", "-1");
       };
-    };
-  };
-
-  function _add_cloneObject(cloneType) {
-    if (_get_cloneCount(cloneType) < 200) {
-      _get_cloneObjects(cloneType).push(new _get_newCloneObject(cloneType));
     };
   };
 
@@ -14725,7 +14741,7 @@ var inputBlock = (function() {
     if (path) {
       if (inputBlock.dataset.clone == "true") {
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         object[pathCloneKey] = data;
       } else {
@@ -14786,12 +14802,14 @@ var inputBlock = (function() {
       };
     };
 
-    function _create_button(quickValueControl, text, icon, value, large) {
+    function _create_button(quickValueControl, text, icon, value, size) {
       var button = document.createElement("button");
-      if (large) {
-        button.setAttribute("class", "button button-icon button-large u-inline-with-input");
-      } else {
-        button.setAttribute("class", "button button-icon u-inline-with-input");
+      if (size == "large") {
+        button.setAttribute("class", "button button-icon button-large");
+      } else if (size == "medium") {
+        button.setAttribute("class", "button button-icon");
+      } else if (size == "small") {
+        button.setAttribute("class", "button button-icon button-small");
       };
       if (icon) {
         var buttonIcon = document.createElement("span");
@@ -14859,6 +14877,7 @@ var inputBlock = (function() {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
+      quickValueControl.setAttribute("data-value-target", target);
 
       var editBox = document.createElement("div");
       editBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
@@ -14871,33 +14890,44 @@ var inputBlock = (function() {
       editBoxBody.setAttribute("class", "m-edit-box-body");
       var editBoxContent = document.createElement("div");
       editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
-      var editBoxGroup1 = document.createElement("div");
-      editBoxGroup1.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
-      var editBoxGroup2 = document.createElement("div");
-      editBoxGroup2.setAttribute("class", "m-edit-box-item-max m-edit-box-group m-input-block-quick-value-button-group");
+      var buttonGroup1 = document.createElement("div");
+      buttonGroup1.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
+      var buttonGroup2 = document.createElement("div");
+      buttonGroup2.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
 
       var Count = document.createElement("p");
       Count.setAttribute("class", "m-edit-box-total js-input-block-quick-value");
       Count.textContent = 0;
 
+
+      var clearButton = document.createElement("button");
+      clearButton.setAttribute("class", "button button-icon u-inline-with-input");
+      var clearButtonIcon = document.createElement("span");
+      clearButtonIcon.setAttribute("class", "icon-close");
+      clearButton.appendChild(clearButtonIcon);
+      clearButton.addEventListener("click", function() {
+        _store_data(quickValueControl, 0);
+        _render_count(quickValueControl);
+      }, false);
+
       editBoxContent.appendChild(_create_editBoxItem("total", Count));
-      editBoxContent.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, false, "icon-close", 0, "large")));
+      editBoxContent.appendChild(_create_editBoxItem("button-large", clearButton));
 
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-add", 1, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-add", 2, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-add", 3, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-add", 5, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-add", 10, false)));
-      editBoxGroup1.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-add", 20, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 1, "icon-remove", -1, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 2, "icon-remove", -2, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 3, "icon-remove", -3, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 5, "icon-remove", -5, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 10, "icon-remove", -10, false)));
-      editBoxGroup2.appendChild(_create_editBoxItem("button-large", _create_button(quickValueControl, 20, "icon-remove", -20, false)));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 1, "icon-add", 1, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 2, "icon-add", 2, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 3, "icon-add", 3, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 5, "icon-add", 5, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 10, "icon-add", 10, "large"));
+      buttonGroup1.appendChild(_create_button(quickValueControl, 20, "icon-add", 20, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 1, "icon-remove", -1, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 2, "icon-remove", -2, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 3, "icon-remove", -3, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 5, "icon-remove", -5, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 10, "icon-remove", -10, "large"));
+      buttonGroup2.appendChild(_create_button(quickValueControl, 20, "icon-remove", -20, "large"));
 
-      editBoxContent.appendChild(editBoxGroup1);
-      editBoxContent.appendChild(editBoxGroup2);
+      editBoxContent.appendChild(_create_editBoxItem("max", buttonGroup1));
+      editBoxContent.appendChild(_create_editBoxItem("max", buttonGroup2));
       editBoxBody.appendChild(editBoxContent);
       editBoxHead.appendChild(editBoxHeadTitle);
       editBox.appendChild(editBoxHead);
@@ -14914,7 +14944,7 @@ var inputBlock = (function() {
       var defenceSection = helper.e(".js-section-defense");
       _update_value(this, change);
       sheet.storeCharacters();
-      render(helper.e("#" + this.dataset.valueTarget));
+      render(inputBlock);
       totalBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
@@ -14954,7 +14984,7 @@ var inputBlock = (function() {
       };
     };
 
-    _render_inputBlock(inputBlock);
+    render(inputBlock);
     sheet.storeCharacters();
     totalBlock.render();
   };
@@ -15041,16 +15071,21 @@ var inputBlock = (function() {
   };
 
   function _render_inputBlock(inputBlock) {
+    // console.log(inputBlock);
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     if (path) {
+      // console.log(inputBlock);
       if (inputBlock.dataset.clone == "true") {
+        // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
         inputBlockField.value = object[pathCloneKey];
       } else {
+        // console.log("not clone", path);
+        // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
         inputBlockField.value = content;
       };
@@ -18137,7 +18172,7 @@ var textareaBlock = (function() {
     if (path) {
       if (textareaBlock.dataset.clone == "true") {
         var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
-        var cloneCount = textareaBlock.dataset.cloneCount;
+        var cloneCount = parseInt(textareaBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         object[pathCloneKey] = data;
       } else {
@@ -18214,12 +18249,14 @@ var textareaBlock = (function() {
     var path = textareaBlockField.dataset.path;
     if (path) {
       if (textareaBlock.dataset.clone == "true") {
+        // console.log("clone", path);
         var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
-        var cloneCount = textareaBlock.dataset.cloneCount;
+        var cloneCount = parseInt(textareaBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         textareaBlockField.innerHTML = object[pathCloneKey];
         // console.log("found clone input", path, pathCloneKey, textareaBlock.dataset.cloneCount, textareaBlock);
       } else {
+        // console.log("not clone", path);
         var content = helper.getObject(sheet.getCharacter(), path);
         textareaBlockField.innerHTML = content;
       };
@@ -18624,14 +18661,33 @@ var totalBlock = (function() {
     };
     var _get_totalObject = function(character, totalPath, cloneCount, totalCloneSet) {
       var object;
-      if (totalPath && cloneCount) {
+      // console.log(cloneCount);
+      if (totalPath && !isNaN(cloneCount) ) {
+        // console.log(1);
         object = helper.getObject(character, totalPath, cloneCount);
       } else if (totalPath && totalCloneSet) {
+        // console.log(2);
         object = helper.getObject(character, totalPath);
       } else if (totalPath) {
+        // console.log(3);
         object = helper.getObject(character, totalPath);
       };
       return object;
+    };
+    var _get_all_additionSubtractionPaths = function(addOrMinus) {
+      if (addOrMinus == "add") {
+        if (totalBlock.dataset.totalPathAddition) {
+          return totalBlock.dataset.totalPathAddition.split(",");
+        } else {
+          return false;
+        };
+      } else if (addOrMinus == "minus"); {
+        if (totalBlock.dataset.totalPathSubtraction) {
+          return totalBlock.dataset.totalPathSubtraction.split(",");
+        } else {
+          return false;
+        };
+      };
     };
     var _addPrefixSuffix = function(grandTotal, totalType) {
       var total;
@@ -18648,45 +18704,63 @@ var totalBlock = (function() {
       var bonusType = check.dataset.bonusType.replace(/-+/g, "_");
       check.checked = object[bonusType];
     };
-
-    var totalElement = totalBlock.querySelector(".js-total-block-total");
-    var totalType = totalBlock.dataset.totalType;
-    var totalPath = totalBlock.dataset.totalPath;
-    var cloneCount = totalBlock.dataset.cloneCount || false;
-    var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
-    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
-    var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
-    var totalPathAddition = false;
-    if (totalBlock.dataset.totalPathAddition) {
-      totalPathAddition = totalBlock.dataset.totalPathAddition.split(",");
-    };
-    var totalPathSubtraction = false;
-    if (totalBlock.dataset.totalPathSubtraction) {
-      totalPathSubtraction = totalBlock.dataset.totalPathSubtraction.split(",");
-    };
-    var totalObject = _get_totalObject(sheet.getCharacter(), totalPath, cloneCount, totalCloneSet);
-    var toSum = [];
-    var grandTotal;
-
-    if (all_bonusCheck.length > 0) {
-      for (var i = 0; i < all_bonusCheck.length; i++) {
-        _updateCheck(all_bonusCheck[i], totalObject.bonuses);
+    var _updateAllCheck = function(allCheck, totalObject) {
+      if (allCheck.length > 0) {
+        for (var i = 0; i < allCheck.length; i++) {
+          _updateCheck(allCheck[i], totalObject.bonuses);
+          // if (totalObject.length > 0) {
+          //   // console.log(totalObject.length);
+          //   _updateCheck(allCheck[i], totalObject[0].bonuses);
+          // } else {
+          //   // console.log(totalObject);
+          //   _updateCheck(allCheck[i], totalObject.bonuses);
+          // };
+        };
       };
     };
 
-    // console.log("\t", totalPath);
-    // console.log("\t\ttotalObject = ", totalObject);
+    // the total render target
+    var totalElement = totalBlock.querySelector(".js-total-block-total");
+    // prefix or suffix type
+    var totalType = totalBlock.dataset.totalType;
+    // total variable location
+    var totalPath = totalBlock.dataset.totalPath;
+    // console.log(totalPath);
+    // is this a clone
+    var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10);
+    // are we totalling variable from multiple clones
+    var totalCloneSet = (totalBlock.dataset.totalCloneSet == "true");
+    // check to see if there are total bonuses to include
+    var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
+    // console.log("bonuses", totalBonuses);
+    // are there exposed bonuses with checkboxes
+    var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
+    // the paths to add
+    var totalPathAddition = _get_all_additionSubtractionPaths("add");
+    // the paths to subtract
+    var totalPathSubtraction = _get_all_additionSubtractionPaths("false");
 
+    var totalObject = _get_totalObject(sheet.getCharacter(), totalPath, cloneCount, totalCloneSet);
+    // console.log(totalObject);
+    var toSum = [];
+    var grandTotal;
+
+    _updateAllCheck(all_bonusCheck, totalObject);
+
+    // push all external bonuses to sum array
     if (totalBonuses) {
       for (var key in totalObject.bonuses) {
-        // console.log("\t\t\t", key, totalObject.bonuses[key]);
+        // max dex is not a bonus too add or subtract but a value to limit the dex modifier
         if (totalObject.bonuses[key] && key != "max_dex") {
+          // console.log("\t\t\t  adding:", key, totalObject.bonuses[key]);
           toSum.push(_get_externalBonus(key, totalObject));
         };
       };
     };
 
+    // if adding
     if (totalPathAddition && totalCloneSet) {
+      // if adding a set of clones
       for (var i = 0; i < totalObject.length; i++) {
         for (var j = 0; j < totalPathAddition.length; j++) {
           toSum.push(parseFloat(totalObject[i][totalPathAddition[j]]) || 0);
@@ -18698,7 +18772,9 @@ var totalBlock = (function() {
       };
     };
 
+    // if subtracting
     if (totalPathSubtraction && totalCloneSet) {
+      // if subtracting a set of clones
       for (var i = 0; i < totalObject.length; i++) {
         for (var j = 0; j < totalPathSubtraction.length; j++) {
           toSum.push(parseFloat(-totalObject[i][totalPathSubtraction[j]]) || 0);
@@ -18730,7 +18806,6 @@ var totalBlock = (function() {
     };
 
     totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);
-
     // console.log("------------------------------");
   };
 
