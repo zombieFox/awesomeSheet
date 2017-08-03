@@ -87,14 +87,12 @@ var helper = (function() {
   };
 
   function getObject(object, path, arrayIndex) {
-    console.log(path);
     // split path into array items
     var address = path.split(".");
     // while aeeay has more than 1 item
     while (address.length > 1) {
       // shift off and store the first key
       var currentKey = address.shift();
-      console.log(currentKey);
       // copy the object
       var parentObject = object;
       // drill down the object with the first key
@@ -106,19 +104,20 @@ var helper = (function() {
       };
     };
     var finalKey = address.shift();
-    console.log(finalKey);
     if (finalKey in object) {
       if (arrayIndex !== undefined && typeof arrayIndex == "number") {
-        console.log("clone found, arrayIndex", arrayIndex);
-        console.log(1);
+        // if arrayIndex return index of array
+        // console.log("returning array", 1);
         return object[finalKey][arrayIndex];
       } else {
-        console.log(2);
+        // return value
+        // console.log("returning value", 2);
         return object[finalKey];
       };
     } else {
+      // if nothing found set empty value and then return
+      // console.log("set value and returning value", 3);
       object[finalKey] = "";
-      console.log(3);
       return object[finalKey];
     };
   };
