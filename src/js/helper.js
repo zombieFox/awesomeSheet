@@ -105,12 +105,18 @@ var helper = (function() {
     };
     var finalKey = address.shift();
     if (finalKey in object) {
-      if (arrayIndex) {
+      if (arrayIndex !== undefined && typeof arrayIndex == "number") {
+        // if arrayIndex return index of array
+        // console.log("returning array", 1);
         return object[finalKey][arrayIndex];
       } else {
+        // return value
+        // console.log("returning value", 2);
         return object[finalKey];
       };
     } else {
+      // if nothing found set empty value and then return
+      // console.log("set value and returning value", 3);
       object[finalKey] = "";
       return object[finalKey];
     };

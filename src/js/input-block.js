@@ -22,7 +22,7 @@ var inputBlock = (function() {
     if (path) {
       if (inputBlock.dataset.clone == "true") {
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         object[pathCloneKey] = data;
       } else {
@@ -156,6 +156,7 @@ var inputBlock = (function() {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
+      quickValueControl.setAttribute("data-value-target", target);
 
       var editBox = document.createElement("div");
       editBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
@@ -211,7 +212,7 @@ var inputBlock = (function() {
       var defenceSection = helper.e(".js-section-defense");
       _update_value(this, change);
       sheet.storeCharacters();
-      render(helper.e("#" + this.dataset.valueTarget));
+      render(inputBlock);
       totalBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
@@ -251,7 +252,7 @@ var inputBlock = (function() {
       };
     };
 
-    _render_inputBlock(inputBlock);
+    render(inputBlock);
     sheet.storeCharacters();
     totalBlock.render();
   };
@@ -338,16 +339,21 @@ var inputBlock = (function() {
   };
 
   function _render_inputBlock(inputBlock) {
+    // console.log(inputBlock);
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     if (path) {
+      // console.log(inputBlock);
       if (inputBlock.dataset.clone == "true") {
+        // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
-        var cloneCount = inputBlock.dataset.cloneCount;
+        var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
         // console.log("found clone input", path, pathCloneKey, inputBlock.dataset.cloneCount, inputBlock);
         inputBlockField.value = object[pathCloneKey];
       } else {
+        // console.log("not clone", path);
+        // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
         inputBlockField.value = content;
       };

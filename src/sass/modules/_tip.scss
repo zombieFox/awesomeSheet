@@ -7,14 +7,14 @@
   font-size: $font-size-root-125;
   opacity: 1;
   z-index: $tip;
-  transition: opacity $transition-ease-fast;
+  transition: opacity $transition-ease-medium;
   transform-origin: bottom center;
 }
 .m-tip-intro {
-  animation: grow $transition-ease-fast 1;
+  animation: grow $transition-ease-medium 1;
 }
 .m-tip-outro {
-  animation: shirnk $transition-ease-fast 1;
+  animation: shirnk $transition-ease-medium 1;
 }
 .m-tip-push-left {
   left: 20%;
@@ -69,7 +69,11 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-tip {
+    font-size: $font-size-root-100;
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
