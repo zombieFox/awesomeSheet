@@ -58,7 +58,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
         '    <div class="m-edit-box-item-max m-edit-box-group">' +
-        '      <div class="m-edit-box-item-large">' +
+        '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Classname</label>' +
         '          <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.classes" data-path-clone-key="classname" type="text" tabindex="1">' +
@@ -121,37 +121,39 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
-        '        <div class="m-edit-box-item-large">' +
+        '    <div class="m-edit-box-content m-edit-box-content-margin-small">' +
+        '      <div class="m-edit-box-item-max m-edit-box-group">' +
+        '        <div class="m-edit-box-item-max">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
-
         '        <div class="m-edit-box-item-total">' +
         '          <p class="m-edit-box-total js-total-block-total">0</p>' +
         '        </div>' +
-
-        '        <div class="m-edit-box-item-small">' +
+        '        <div class="m-edit-box-item-total">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
-
-        '        <div class="m-edit-box-item-small">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-total">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
-
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
         '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
-        '</div>';
+        '</div>'
     };
     if (cloneType == "item") {
       cloneString =
