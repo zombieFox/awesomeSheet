@@ -118,11 +118,11 @@
 // --------------------------------------------------
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
-  flex: 0 0 auto;
+  flex: 1;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  min-width: 2em;
+  // min-width: 2em;
   transition: margin $transition-ease-medium;
 }
 .m-edit-box-item-text {
@@ -141,16 +141,19 @@
   flex: 0 0 4em;
 }
 .m-edit-box-item-small {
-  flex: 0 1 30%;
+  flex: 0 1 7em;
+  width: 7em;
 }
 .m-edit-box-item-medium {
   flex: 1 1 35%;
 }
 .m-edit-box-item-large {
-  flex: 1 1 40%;
+  flex: 0 1 3em;
+  width: 3em;
 }
 .m-edit-box-item-max {
-  flex: 1 1 100%;
+  flex: 1 1 20em;
+  width: 20em;
 }
 [class*="m-edit-box-item-button"],
 [class^="m-edit-box-item-button"] {
@@ -198,6 +201,7 @@
   justify-content: flex-start;
   align-items: stretch;
   z-index: 1;
+  flex: 0 0 0;
   [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
     margin-right: 0;
@@ -283,6 +287,10 @@
         }
       }
     }
+  }
+  &.m-edit-box-item-max {
+    flex: 1 1 100%;
+    width: 100%;
   }
 }
 // --------------------------------------------------
@@ -454,16 +462,19 @@
     }
   }
   .m-edit-box-item-stat {
-    flex: 0 1 20%;
+    // flex: 0 1 20%;
   }
   .m-edit-box-item-modifier {
-    flex: 0 0 4em;
+    // flex: 0 0 4em;
   }
   .m-edit-box-item-small {
-    flex: 0 1 20%;
+    // flex: 0 1 20%;
   }
   .m-edit-box-item-medium {
-    flex: 0.6 1 35%;
+    // flex: 0.6 1 35%;
+  }
+  .m-edit-box-item-button-small {
+    // flex: 0 0 2em;
   }
   .m-edit-box-title {
     margin-right: 1em;
@@ -473,9 +484,6 @@
   }
   .m-edit-box-no-head-large {
     padding-left: 50%;
-  }
-  .m-edit-box-item-button-small {
-    flex: 0 0 2em;
   }
   .m-edit-box-text {
     line-height: $line-height-250;
