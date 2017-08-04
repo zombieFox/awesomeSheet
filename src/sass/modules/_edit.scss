@@ -35,14 +35,6 @@
   }
 }
 // --------------------------------------------------
-// edit end
-// --------------------------------------------------
-.m-edit-box-content {
-  &.m-edit-box-content-end {
-    justify-content: flex-end;
-  }
-}
-// --------------------------------------------------
 // edit no wrap
 // --------------------------------------------------
 .m-edit-box-content-nowrap {
@@ -71,20 +63,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -181,6 +173,18 @@
   .button {
     padding-left: 1em;
     padding-right: 1em;
+  }
+}
+// --------------------------------------------------
+// edit end
+// --------------------------------------------------
+.m-edit-box-content {
+  &.m-edit-box-content-end {
+    justify-content: flex-end;
+    [class*="m-edit-box-item"],
+    [class^="m-edit-box-item"] {
+      justify-content: flex-end;
+    }
   }
 }
 // --------------------------------------------------
