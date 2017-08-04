@@ -122,6 +122,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
+  min-width: 2em;
   transition: margin $transition-ease-medium;
 }
 .m-edit-box-item-text {
@@ -151,6 +152,36 @@
 .m-edit-box-item-max {
   flex: 1 1 100%;
 }
+.m-edit-box-item-10 {
+  flex-basis: 10%;
+}
+.m-edit-box-item-20 {
+  flex-basis: 20%;
+}
+.m-edit-box-item-30 {
+  flex-basis: 30%;
+}
+.m-edit-box-item-40 {
+  flex-basis: 40%;
+}
+.m-edit-box-item-50 {
+  flex-basis: 50%;
+}
+.m-edit-box-item-60 {
+  flex-basis: 60%;
+}
+.m-edit-box-item-70 {
+  flex-basis: 70%;
+}
+.m-edit-box-item-80 {
+  flex-basis: 80%;
+}
+.m-edit-box-item-90 {
+  flex-basis: 90%;
+}
+.m-edit-box-item-100 {
+  flex-basis: 100%;
+}
 [class*="m-edit-box-item-button"],
 [class^="m-edit-box-item-button"] {
   flex: 0 0 4em;
@@ -169,10 +200,10 @@
   }
 }
 .m-edit-box-item-button-large {
-  flex: 0 0 4em;
+  flex: 0 0 3em;
   .button {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 // --------------------------------------------------
