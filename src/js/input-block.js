@@ -5,6 +5,7 @@ var inputBlock = (function() {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     var type = inputBlockField.dataset.type;
+    var clone = (inputBlock.dataset.clone == "true");
     var data;
     if (type == "integer") {
       data = parseInt(element.value, 10);
@@ -20,7 +21,7 @@ var inputBlock = (function() {
       data = element.value;
     };
     if (path) {
-      if (inputBlock.dataset.clone == "true") {
+      if (clone) {
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
         var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
@@ -235,13 +236,31 @@ var inputBlock = (function() {
   function _increment(button) {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
+    var clone = (button.dataset.clone == "true");
+    var cloneCount;
+    var pathCloneKey;
+    if (clone) {
+      cloneCount = parseInt(button.dataset.cloneCount, 10);
+      pathCloneKey = button.dataset.pathCloneKey;
+    };
+    var minimum;
     var inputBlockField = helper.e("#" + target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    if (inputBlockField.dataset.minimum !== undefined) {
+      minimum = parseInt(inputBlockField.dataset.minimum, 10);
+    };
     var path = inputBlockField.dataset.path;
-    var oldValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    var oldValue;
+    if (clone) {
+      var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+      oldValue = parseInt(object[pathCloneKey], 10);
+    } else {
+      oldValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    };
     if (isNaN(oldValue)) {
       oldValue = 0;
     };
+
     var newValue;
     if (increment == "addition") {
       newValue = oldValue + 1;
@@ -250,19 +269,20 @@ var inputBlock = (function() {
     } else if (increment == "clear") {
       newValue = 0;
     };
+    if (typeof minimum == "number") {
+      if (newValue <= minimum) {
+        newValue = "";
+      };
+    };
+    if (newValue == 0) {
+      newValue = "";
+    };
 
-    if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
-      if (newValue <= 0) {
-        helper.setObject(sheet.getCharacter(), path, "");
-      } else {
-        helper.setObject(sheet.getCharacter(), path, newValue);
-      };
+    if (clone) {
+      var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+      object[pathCloneKey] = newValue;
     } else {
-      if (newValue == 0) {
-        helper.setObject(sheet.getCharacter(), path, "");
-      } else {
-        helper.setObject(sheet.getCharacter(), path, newValue);
-      };
+      helper.setObject(sheet.getCharacter(), path, newValue);
     };
 
     render(inputBlock);
@@ -275,19 +295,25 @@ var inputBlock = (function() {
       _bind_inputBlock(inputBlock);
     } else {
       _bind_all_inputBlock();
-      _bind_inputBlockIncrement();
+      _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
       _bind_name();
     };
   };
 
-  function _bind_inputBlockIncrement() {
+  function _bind_all_inputBlockIncrement() {
     var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
     for (var i = 0; i < all_inputBlockIncrement.length; i++) {
-      all_inputBlockIncrement[i].addEventListener("click", function() {
-        _increment(this);
-      }, false);
+      if (all_inputBlockIncrement[i].dataset.clone != "true") {
+        bind_inputBlockIncrement(all_inputBlockIncrement[i]);
+      };
     };
+  };
+
+  function bind_inputBlockIncrement(inputBlockIncrement) {
+    inputBlockIncrement.addEventListener("click", function() {
+      _increment(this);
+    }, false);
   };
 
   function _bind_inputBlockQuickValue() {
@@ -355,9 +381,10 @@ var inputBlock = (function() {
     // console.log(inputBlock);
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
+    var clone = (inputBlock.dataset.clone == "true");
     if (path) {
       // console.log(inputBlock);
-      if (inputBlock.dataset.clone == "true") {
+      if (clone) {
         // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
         var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
@@ -389,6 +416,7 @@ var inputBlock = (function() {
     render: render,
     bind: bind,
     bind_classLevel: bind_classLevel,
+    bind_inputBlockIncrement: bind_inputBlockIncrement,
     clear: clear
   };
 

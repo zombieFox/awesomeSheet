@@ -35,14 +35,6 @@
   }
 }
 // --------------------------------------------------
-// edit end
-// --------------------------------------------------
-.m-edit-box-content {
-  &.m-edit-box-content-end {
-    justify-content: flex-end;
-  }
-}
-// --------------------------------------------------
 // edit no wrap
 // --------------------------------------------------
 .m-edit-box-content-nowrap {
@@ -55,7 +47,7 @@
   background-color: $gray-20;
   border: $border;
   border-color: $gray-17;
-  border-radius: $border-radius-large;
+  border-radius: $border-radius-extra-large;
   padding: 1em 0.5em;
   margin-left: 0;
   margin-right: 0;
@@ -71,20 +63,20 @@
   }
 }
 .m-edit-box-content-margin-large {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -130,6 +122,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
+  min-width: 2em;
   transition: margin $transition-ease-medium;
 }
 .m-edit-box-item-text {
@@ -177,10 +170,22 @@
   }
 }
 .m-edit-box-item-button-large {
-  flex: 0 0 4em;
+  flex: 0 0 3em;
   .button {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+// --------------------------------------------------
+// edit end
+// --------------------------------------------------
+.m-edit-box-content {
+  &.m-edit-box-content-end {
+    justify-content: flex-end;
+    [class*="m-edit-box-item"],
+    [class^="m-edit-box-item"] {
+      justify-content: flex-end;
+    }
   }
 }
 // --------------------------------------------------
