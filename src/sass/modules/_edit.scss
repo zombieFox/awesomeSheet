@@ -47,7 +47,7 @@
   background-color: $gray-20;
   border: $border;
   border-color: $gray-17;
-  border-radius: $border-radius-large;
+  border-radius: $border-radius-extra-large;
   padding: 1em 0.5em;
   margin-left: 0;
   margin-right: 0;
@@ -151,36 +151,6 @@
 }
 .m-edit-box-item-max {
   flex: 1 1 100%;
-}
-.m-edit-box-item-10 {
-  flex-basis: 10%;
-}
-.m-edit-box-item-20 {
-  flex-basis: 20%;
-}
-.m-edit-box-item-30 {
-  flex-basis: 30%;
-}
-.m-edit-box-item-40 {
-  flex-basis: 40%;
-}
-.m-edit-box-item-50 {
-  flex-basis: 50%;
-}
-.m-edit-box-item-60 {
-  flex-basis: 60%;
-}
-.m-edit-box-item-70 {
-  flex-basis: 70%;
-}
-.m-edit-box-item-80 {
-  flex-basis: 80%;
-}
-.m-edit-box-item-90 {
-  flex-basis: 90%;
-}
-.m-edit-box-item-100 {
-  flex-basis: 100%;
 }
 [class*="m-edit-box-item-button"],
 [class^="m-edit-box-item-button"] {
