@@ -304,7 +304,9 @@ var inputBlock = (function() {
   function _bind_all_inputBlockIncrement() {
     var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
     for (var i = 0; i < all_inputBlockIncrement.length; i++) {
-      bind_inputBlockIncrement(all_inputBlockIncrement[i]);
+      if (all_inputBlockIncrement[i].dataset.clone != "true") {
+        bind_inputBlockIncrement(all_inputBlockIncrement[i]);
+      };
     };
   };
 
