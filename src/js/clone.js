@@ -137,7 +137,7 @@ var clone = (function() {
         '        <div class="m-edit-box-item-button-large">' +
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
-        '        <div class="m-edit-box-item-small">' +
+        '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + cloneIndex + '">Total</label>' +
         '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="1">' +
@@ -154,7 +154,7 @@ var clone = (function() {
         '        <div class="m-edit-box-item-button-large">' +
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
-        '        <div class="m-edit-box-item-small">' +
+        '        <div class="m-edit-box-item-medium">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + cloneIndex + '">Used</label>' +
         '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="1">' +
@@ -823,6 +823,7 @@ var clone = (function() {
     };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
     };
     if (cloneType == "consumable" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
@@ -1019,6 +1020,12 @@ var clone = (function() {
   function _bind_classLevelInputBlock(all_inputBlock) {
     for (var i = 0; i < all_inputBlock.length; i++) {
       inputBlock.bind_classLevel(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_inputBlockIncrement(all_inputBlockIncrement) {
+    for (var i = 0; i < all_inputBlockIncrement.length; i++) {
+      inputBlock.bind_inputBlockIncrement(all_inputBlockIncrement[i]);
     };
   };
 

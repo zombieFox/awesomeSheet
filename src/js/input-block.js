@@ -295,19 +295,23 @@ var inputBlock = (function() {
       _bind_inputBlock(inputBlock);
     } else {
       _bind_all_inputBlock();
-      _bind_inputBlockIncrement();
+      _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
       _bind_name();
     };
   };
 
-  function _bind_inputBlockIncrement() {
+  function _bind_all_inputBlockIncrement() {
     var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
     for (var i = 0; i < all_inputBlockIncrement.length; i++) {
-      all_inputBlockIncrement[i].addEventListener("click", function() {
-        _increment(this);
-      }, false);
+      bind_inputBlockIncrement(all_inputBlockIncrement[i]);
     };
+  };
+
+  function bind_inputBlockIncrement(inputBlockIncrement) {
+    inputBlockIncrement.addEventListener("click", function() {
+      _increment(this);
+    }, false);
   };
 
   function _bind_inputBlockQuickValue() {
@@ -410,6 +414,7 @@ var inputBlock = (function() {
     render: render,
     bind: bind,
     bind_classLevel: bind_classLevel,
+    bind_inputBlockIncrement: bind_inputBlockIncrement,
     clear: clear
   };
 
