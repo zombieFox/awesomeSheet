@@ -136,7 +136,7 @@ var clone = (function() {
 
         '      <div class="m-edit-box-item-shrink m-edit-box-group">' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button small button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
