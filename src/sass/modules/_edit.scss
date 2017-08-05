@@ -118,8 +118,6 @@
 // --------------------------------------------------
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
-  background-color: $primary-color-alpha-15;
-  // flex: 0 0 auto;
   flex: 1 1 auto;
   display: flex;
   flex-flow: column nowrap;
@@ -139,15 +137,15 @@
 }
 .m-edit-box-item-small {
   flex-grow: 0;
-  flex-basis: 6em;
+  flex-basis: 5em;
 }
 .m-edit-box-item-medium {
-  flex-grow: 0.5;
-  flex-basis: 12em;
+  flex-grow: 1;
+  flex-basis: 10em;
 }
 .m-edit-box-item-large {
   flex-grow: 1;
-  flex-basis: 18em;
+  flex-basis: 15em;
 }
 .m-edit-box-item-max {
   flex-grow: 1;
@@ -156,11 +154,6 @@
 [class*="m-edit-box-item-button"],
 [class^="m-edit-box-item-button"] {
   flex: 0 0 auto;
-  // flex-basis: 3em;
-  .button {
-    // margin: 0;
-    // width: 100%;
-  }
 }
 .m-edit-box-item-button-small {
   flex: 0 0 3em;
@@ -188,12 +181,10 @@
 // --------------------------------------------------
 [class*="m-edit-box-group"],
 [class^="m-edit-box-group"] {
-  background-color: $secondary-color-alpha-15;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  // flex: 0 0 0;
   z-index: 1;
   [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
@@ -201,7 +192,6 @@
     padding-left: 0;
     padding-right: 0;
     margin-left: -1px;
-    // flex: 1 1 auto;
     & > * {
       border-radius: 0;
       margin-bottom: 0;
@@ -282,30 +272,6 @@
       }
     }
   }
-  // .m-edit-box-item-small {
-  //   flex-basis: 5em;
-  // }
-  // .m-edit-box-item-medium {
-  //   flex-basis: 8em;
-  // }
-  // .m-edit-box-item-large {
-  //   flex-basis: 11em;
-  // }
-  // &.m-edit-box-item-small {
-  //   flex: 0 1 6em;
-  //   width: 6em;
-  // }
-  // &.m-edit-box-item-medium {
-  //   flex: 1 1 8em;
-  //   width: 8em;
-  // }
-  // &.m-edit-box-item-large {
-  //   flex: 1 1 10em;
-  //   width: 10em;
-  // }
-  // &.m-edit-box-item-max {
-  //   flex: 1 1 100%;
-  // }
 }
 // --------------------------------------------------
 // edit label
@@ -313,7 +279,6 @@
 .m-edit-box-label {
   margin: 0;
   padding: 0;
-  // display: inline-block;
   display: block;
   font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
