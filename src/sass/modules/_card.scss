@@ -75,8 +75,61 @@
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
   .is-minimise {
+    .m-card {
+      box-shadow: none;
+    }
     .m-card-head {
+      background-color: $gray-17;
       border-radius: $border-radius-large;
+      .button {
+        color: $gray-08;
+      }
+    }
+    .m-card-body {
+      padding-top: 0;
+      padding-bottom: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+  .is-night-mode {
+    .is-minimise {
+      .m-card-head {
+        background-color: $gray-05;
+        .button {
+          color: $gray-14;
+        }
+      }
+    }
+    .m-card {
+      background-color: $gray-03;
+    }
+  }
+  .is-display-mode {
+    .m-card-head {
+      background-color: $primary-color-06;
+    }
+  }
+  .is-minimise {
+    &.is-display-mode {
+      .m-card-head {
+        background-color: $gray-17;
+        .button {
+          color: $gray-08;
+        }
+      }
+    }
+  }
+  .is-night-mode {
+    .is-minimise {
+      &.is-display-mode {
+        .m-card-head {
+          background-color: $gray-05;
+          .button {
+            color: $gray-14;
+          }
+        }
+      }
     }
   }
 }

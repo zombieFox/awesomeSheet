@@ -354,7 +354,7 @@ var display = (function() {
         percentageBar.setAttribute("class", "m-display-list-item-percentage");
         percentageBar.setAttribute("style", "width: " + percentage + "%;");
         displayListItem.appendChild(percentageBar);
-        console.log(object.item, object.total, object.used, percentage);
+        // console.log(object.item, object.total, object.used, percentage);
       };
 
       if (cloneType == "item") {
