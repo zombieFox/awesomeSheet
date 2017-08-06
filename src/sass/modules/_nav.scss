@@ -1,6 +1,6 @@
 .m-nav {
   background-color: $white;
-  padding: 4.5em 0 50vh;
+  padding: 4em 0 50vh;
   position: fixed;
   right: 0;
   top: 0;
@@ -346,7 +346,7 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .m-nav {
-    padding: 4.5em 0 50vh;
+    padding: 4em 0 50vh;
     right: 0;
     width: 400px;
     transform: translate(400px, 0);
@@ -364,7 +364,7 @@
     left: 0;
     transform: translate(-100%, 0);
     &.is-open {
-      transform: translate(4.5em, 0);
+      transform: translate(4em, 0);
     }
   }
 }

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 4.5em;
+  height: 4em;
   font-size: $font-size-root-100;
   z-index: $quick-nav;
 }
@@ -119,7 +119,7 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-quick-nav {
-    width: 4.5em;
+    width: 4em;
     height: 100%;
   }
   .m-quick-nav-bar {
