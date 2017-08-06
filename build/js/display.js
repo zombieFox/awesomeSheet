@@ -346,6 +346,15 @@ var display = (function() {
             };
           };
         };
+        var percentage = ((object.total - object.used) / object.total) * 100;
+        if (percentage < 0) {
+          percentage = 0;
+        };
+        var percentageBar = document.createElement("span");
+        percentageBar.setAttribute("class", "m-display-list-item-percentage");
+        percentageBar.setAttribute("style", "width: " + percentage + "%;");
+        displayListItem.appendChild(percentageBar);
+        console.log(object.item, object.total, object.used, percentage);
       };
 
       if (cloneType == "item") {

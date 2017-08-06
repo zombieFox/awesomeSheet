@@ -285,6 +285,7 @@
   padding-top: 0.75em;
   padding-bottom: 0.75em;
   border-bottom: 2px solid $gray-18;
+  position: relative;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -298,6 +299,13 @@
     line-height: 1;
     margin-bottom: 0;
   }
+}
+.m-display-list-item-percentage {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: $primary-color-08;
 }
 .m-display-list-line {
   .m-display-list-item {

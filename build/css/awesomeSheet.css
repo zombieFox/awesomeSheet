@@ -4679,7 +4679,8 @@ label {
 .m-display-list-item {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
-  border-bottom: 2px solid #e0e0e0; }
+  border-bottom: 2px solid #e0e0e0;
+  position: relative; }
   .m-display-list-item:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
 
@@ -4691,6 +4692,13 @@ label {
   .m-display-list-item-value h2 {
     line-height: 1;
     margin-bottom: 0; }
+
+.m-display-list-item-percentage {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: #ca0035; }
 
 .m-display-list-line .m-display-list-item {
   display: -webkit-flex;
