@@ -122,9 +122,9 @@ var display = (function() {
     update();
   };
 
-  function toggle(section) {
+  function toggle(section, boolean) {
     if (section) {
-      _toggle_singleSection(section);
+      _toggle_singleSection(section, boolean);
     } else {
       _toggle_allSection();
     };

@@ -10,7 +10,6 @@ body {
   font-family: $base-font;
   font-size: $font-size-root-100;
   line-height: $line-height-160;
-  // transition: background-color $transition-ease-medium;
   &.is-display-mode {
     background: $gray-18;
   }

@@ -309,6 +309,7 @@ var card = (function() {
         event.stopPropagation();
         event.preventDefault();
         _toggle(this);
+        // _unminimise(this);
       }, false);
     };
   };
@@ -347,18 +348,27 @@ var card = (function() {
     display.update();
   };
 
+  function _unminimise(element) {
+    var section = helper.getClosest(element, ".js-section");
+    var display = (section.dataset.displayMode == "true");
+    var minimise = (section.dataset.minimise == "true");
+    if (minimise && display) {
+      _minimise(element);
+    };
+  };
+
   function _minimise(element) {
     var section = helper.getClosest(element, ".js-section");
     var icon = section.querySelector(".js-card-minimise-icon");
 
-    function _minimise() {
+    var _minimise = function() {
       section.dataset.minimise = "true";
       helper.addClass(section, "is-minimise");
       helper.addClass(icon, "icon-unfold-more");
       helper.removeClass(icon, "icon-unfold-less");
     };
 
-    function _maximise() {
+    var _maximise = function() {
       section.dataset.minimise = "false";
       helper.removeClass(section, "is-minimise");
       helper.removeClass(icon, "icon-unfold-more");
@@ -13973,9 +13983,9 @@ var display = (function() {
     update();
   };
 
-  function toggle(section) {
+  function toggle(section, boolean) {
     if (section) {
-      _toggle_singleSection(section);
+      _toggle_singleSection(section, boolean);
     } else {
       _toggle_allSection();
     };

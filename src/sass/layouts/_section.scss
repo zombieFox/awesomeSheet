@@ -1,8 +1,5 @@
 .l-section {
   width: 100%;
-  &:last-child {
-    box-shadow: $shadow-small;
-  }
 }
 .l-section-wrapper {
   margin: 4em 0 0;
@@ -18,9 +15,6 @@
   .l-section {
     margin: 2em 0 0;
     width: 90%;
-    &:last-child {
-      box-shadow: none;
-    }
   }
 }
 @media (min-width: $screen-md) {

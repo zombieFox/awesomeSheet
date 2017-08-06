@@ -3,11 +3,11 @@
   position: relative;
   box-sizing: border-box;
   width: 100%;
+  transition: background-color $transition-ease-medium;
 }
 .m-card-head {
   position: relative;
   background-color: $secondary-color-06;
-  border: $border;
   transition: background-color $transition-ease-medium;
 }
 .m-card-head-controls {
@@ -17,6 +17,7 @@
     flex: 1 1 auto;
     text-align: left;
     justify-content: flex-start;
+    position: relative;
   }
   .button {
     padding-left: 1.5em;
@@ -38,9 +39,44 @@
   padding: 2em;
   position: relative;
 }
-.is-minimise {
+.is-display-mode {
   .m-card-head {
-    background-color: $secondary-color-05;
+    background-color: $primary-color-06;
+  }
+}
+.is-night-mode {
+  .m-card {
+    background-color: $gray-03;
+  }
+  .is-minimise {
+    .m-card {
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .m-card-body {
+      padding-top: 0;
+      padding-bottom: 0;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    .m-card-head {
+      background: $gray-05;
+      .button {
+        color: $gray-18;
+      }
+    }
+    &.is-display-mode {
+      .m-card-head {
+        border-radius: $border-radius-large;
+      }
+    }
+  }
+}
+.is-minimise {
+  .m-card {
+    background-color: transparent;
+    box-shadow: none;
   }
   .m-card-body {
     padding-top: 0;
@@ -49,19 +85,10 @@
     overflow: hidden;
     visibility: hidden;
   }
-}
-.is-night-mode {
-  .m-card {
-    background-color: $gray-03;
-  }
-}
-.is-display-mode {
   .m-card-head {
-    background-color: $primary-color-06;
-  }
-  &.is-minimise {
-    .m-card-head {
-      background-color: $primary-color-05;
+    background: $gray-17;
+    .button {
+      color: $gray-05;
     }
   }
 }
@@ -77,59 +104,8 @@
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
   .is-minimise {
-    .m-card {
-      box-shadow: none;
-    }
     .m-card-head {
-      background-color: $gray-17;
-      border-color: $gray-15;
       border-radius: $border-radius-large;
-      .button {
-        color: $gray-05;
-      }
-    }
-  }
-  .is-night-mode {
-    .is-minimise {
-      .m-card-head {
-        background-color: $gray-05;
-        border-color: $gray-07;
-        .button {
-          color: $gray-18;
-        }
-      }
-    }
-    .m-card {
-      background-color: $gray-03;
-    }
-  }
-  .is-display-mode {
-    .m-card-head {
-      background-color: $primary-color-06;
-    }
-  }
-  .is-minimise {
-    &.is-display-mode {
-      .m-card-head {
-        background-color: $gray-17;
-        border-color: $gray-15;
-        .button {
-          color: $gray-05;
-        }
-      }
-    }
-  }
-  .is-night-mode {
-    .is-minimise {
-      &.is-display-mode {
-        .m-card-head {
-          background-color: $gray-05;
-          border-color: $gray-07;
-          .button {
-            color: $gray-18;
-          }
-        }
-      }
     }
   }
 }
