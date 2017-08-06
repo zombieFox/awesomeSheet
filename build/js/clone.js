@@ -133,7 +133,7 @@ var clone = (function() {
         '          <p class="m-edit-box-total js-total-block-total">0</p>' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item m-edit-box-group">' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
         '        <div class="m-edit-box-item-button-large">' +
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
@@ -150,7 +150,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="clear" tabindex="1"><span class="icon-close"></span></a>' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item m-edit-box-group">' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
         '        <div class="m-edit-box-item-button-large">' +
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +

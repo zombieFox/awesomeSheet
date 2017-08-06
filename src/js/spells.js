@@ -221,7 +221,7 @@ var spells = (function() {
       spellControl.setAttribute("data-spell-cast", spellObject.cast);
 
       var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var nameEditBoxHead = document.createElement("div");
       nameEditBoxHead.setAttribute("class", "m-edit-box-head");
       var nameEditBoxHeadTitle = document.createElement("h2");
@@ -244,7 +244,7 @@ var spells = (function() {
       nameEditBox.appendChild(nameEditBoxBody);
 
       var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var preparedEditBoxHead = document.createElement("div");
       preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
       var preparedEditBoxHeadTitle = document.createElement("h2");
@@ -302,7 +302,7 @@ var spells = (function() {
       preparedEditBox.appendChild(preparedEditBoxBody);
 
       var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var castEditBoxHead = document.createElement("div");
       castEditBoxHead.setAttribute("class", "m-edit-box-head");
       var castEditBoxHeadTitle = document.createElement("h2");
@@ -360,7 +360,7 @@ var spells = (function() {
       castEditBox.appendChild(castEditBoxBody);
 
       var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var activeEditBoxHead = document.createElement("div");
       activeEditBoxHead.setAttribute("class", "m-edit-box-head");
       var activeEditBoxHeadTitle = document.createElement("h2");
@@ -394,7 +394,7 @@ var spells = (function() {
       activeEditBox.appendChild(activeEditBoxBody);
 
       var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var noteEditBoxHead = document.createElement("div");
       noteEditBoxHead.setAttribute("class", "m-edit-box-head");
       var noteEditBoxHeadTitle = document.createElement("h2");

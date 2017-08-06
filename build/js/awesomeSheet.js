@@ -8100,7 +8100,7 @@ var nif = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.",
       per_day: {
         level_0: 4,
         level_1: 7,
@@ -8581,7 +8581,7 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.<br><strong>Dimensional Steps (Sp)</strong> At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.<br><strong>Dimensional Steps (Sp)</strong> At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
       }],
@@ -12833,7 +12833,7 @@ var clone = (function() {
         '          <p class="m-edit-box-total js-total-block-total">0</p>' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item m-edit-box-group">' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
         '        <div class="m-edit-box-item-button-large">' +
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
@@ -12850,7 +12850,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="clear" tabindex="1"><span class="icon-close"></span></a>' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item m-edit-box-group">' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
         '        <div class="m-edit-box-item-button-large">' +
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
@@ -14939,7 +14939,7 @@ var inputBlock = (function() {
 
 
       var clearButton = document.createElement("button");
-      clearButton.setAttribute("class", "button button-icon u-inline-with-input");
+      clearButton.setAttribute("class", "button button-icon button-large button-slim u-inline-with-input");
       var clearButtonIcon = document.createElement("span");
       clearButtonIcon.setAttribute("class", "icon-close");
       clearButton.appendChild(clearButtonIcon);
@@ -17442,7 +17442,7 @@ var spells = (function() {
       spellControl.setAttribute("data-spell-cast", spellObject.cast);
 
       var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var nameEditBoxHead = document.createElement("div");
       nameEditBoxHead.setAttribute("class", "m-edit-box-head");
       var nameEditBoxHeadTitle = document.createElement("h2");
@@ -17465,7 +17465,7 @@ var spells = (function() {
       nameEditBox.appendChild(nameEditBoxBody);
 
       var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var preparedEditBoxHead = document.createElement("div");
       preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
       var preparedEditBoxHeadTitle = document.createElement("h2");
@@ -17523,7 +17523,7 @@ var spells = (function() {
       preparedEditBox.appendChild(preparedEditBoxBody);
 
       var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var castEditBoxHead = document.createElement("div");
       castEditBoxHead.setAttribute("class", "m-edit-box-head");
       var castEditBoxHeadTitle = document.createElement("h2");
@@ -17581,7 +17581,7 @@ var spells = (function() {
       castEditBox.appendChild(castEditBoxBody);
 
       var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var activeEditBoxHead = document.createElement("div");
       activeEditBoxHead.setAttribute("class", "m-edit-box-head");
       var activeEditBoxHeadTitle = document.createElement("h2");
@@ -17615,7 +17615,7 @@ var spells = (function() {
       activeEditBox.appendChild(activeEditBoxBody);
 
       var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
+      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
       var noteEditBoxHead = document.createElement("div");
       noteEditBoxHead.setAttribute("class", "m-edit-box-head");
       var noteEditBoxHeadTitle = document.createElement("h2");

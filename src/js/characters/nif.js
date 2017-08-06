@@ -1150,7 +1150,7 @@ var nif = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.",
       per_day: {
         level_0: 4,
         level_1: 7,
@@ -1631,7 +1631,7 @@ var nif = (function() {
     },
     notes: {
       character: [{
-        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Arcane schools</strong> Conjuration (Teleportation).<br><strong>Opposition arcane school</strong> Enchantment, Necromancy.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.<br><strong>Dimensional Steps (Sp)</strong> At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you."
+        note: "<strong>Resilient</strong> (+1 trait bonus on Fortitude saves)<br><strong>Arcane bond (Su)</strong> Rat Bower, +2 Fortitude save.<br><strong>Bonus feats</strong>.<br><strong>Cantrips</strong>.<br><strong>Elven Immunities (Ex)</strong> Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.<br><strong>Elven Magic (Ex)</strong> +2 caster level checks made to overcome SR. +2 Spellcraft check to identify properties of magic items.<br><strong>Keen Senses (Ex)</strong> +2 Perception checks.<br><strong>Low-Light Vision (Ex)</strong> See x2 as far as humans in low illumination.<br><strong>Shift (Su)</strong> Teleport 15 feet 9 times per day.<br><strong>Summoner's Charm (Su)</strong> +3 rounds duration for Conjuration (Summoning) spells.<br><strong>Weapon Familiarity (Ex)</strong> Proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), treat weapon with \"elven\" in name as a martial weapon.<br><strong>Dimensional Steps (Sp)</strong> At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you."
       }, {
         note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
       }],

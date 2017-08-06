@@ -183,7 +183,7 @@ var inputBlock = (function() {
 
 
       var clearButton = document.createElement("button");
-      clearButton.setAttribute("class", "button button-icon u-inline-with-input");
+      clearButton.setAttribute("class", "button button-icon button-large button-slim u-inline-with-input");
       var clearButtonIcon = document.createElement("span");
       clearButtonIcon.setAttribute("class", "icon-close");
       clearButton.appendChild(clearButtonIcon);
