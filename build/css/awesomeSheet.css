@@ -2414,6 +2414,7 @@ label {
 .m-card-head {
   position: relative;
   background-color: #214a72;
+  border: 1px solid transparent;
   transition: background-color 0.3s ease-in-out; }
 
 .m-card-head-controls {
@@ -2451,7 +2452,8 @@ label {
   padding-top: 0;
   padding-bottom: 0;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  visibility: hidden; }
 
 .is-night-mode .m-card {
   background-color: #212121; }
@@ -2472,16 +2474,13 @@ label {
     box-shadow: none; }
   .is-minimise .m-card-head {
     background-color: #d4d4d4;
+    border-color: #bababa;
     border-radius: 5px; }
     .is-minimise .m-card-head .button {
       color: #616161; }
-  .is-minimise .m-card-body {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 0;
-    overflow: hidden; }
   .is-night-mode .is-minimise .m-card-head {
-    background-color: #3b3b3b; }
+    background-color: #3b3b3b;
+    border-color: #545454; }
     .is-night-mode .is-minimise .m-card-head .button {
       color: #adadad; }
   .is-night-mode .m-card {
@@ -2489,11 +2488,13 @@ label {
   .is-display-mode .m-card-head {
     background-color: #970027; }
   .is-minimise.is-display-mode .m-card-head {
-    background-color: #d4d4d4; }
+    background-color: #d4d4d4;
+    border-color: #bababa; }
     .is-minimise.is-display-mode .m-card-head .button {
       color: #616161; }
   .is-night-mode .is-minimise.is-display-mode .m-card-head {
-    background-color: #3b3b3b; }
+    background-color: #3b3b3b;
+    border-color: #545454; }
     .is-night-mode .is-minimise.is-display-mode .m-card-head .button {
       color: #adadad; } }
 

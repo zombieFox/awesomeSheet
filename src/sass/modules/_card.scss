@@ -7,6 +7,7 @@
 .m-card-head {
   position: relative;
   background-color: $secondary-color-06;
+  border: $border;
   transition: background-color $transition-ease-medium;
 }
 .m-card-head-controls {
@@ -46,6 +47,7 @@
     padding-bottom: 0;
     height: 0;
     overflow: hidden;
+    visibility: hidden;
   }
 }
 .is-night-mode {
@@ -80,22 +82,18 @@
     }
     .m-card-head {
       background-color: $gray-17;
+      border-color: $gray-15;
       border-radius: $border-radius-large;
       .button {
         color: $gray-08;
       }
-    }
-    .m-card-body {
-      padding-top: 0;
-      padding-bottom: 0;
-      height: 0;
-      overflow: hidden;
     }
   }
   .is-night-mode {
     .is-minimise {
       .m-card-head {
         background-color: $gray-05;
+        border-color: $gray-07;
         .button {
           color: $gray-14;
         }
@@ -114,6 +112,7 @@
     &.is-display-mode {
       .m-card-head {
         background-color: $gray-17;
+        border-color: $gray-15;
         .button {
           color: $gray-08;
         }
@@ -125,6 +124,7 @@
       &.is-display-mode {
         .m-card-head {
           background-color: $gray-05;
+          border-color: $gray-07;
           .button {
             color: $gray-14;
           }
