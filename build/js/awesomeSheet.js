@@ -12709,7 +12709,6 @@ var clone = (function() {
     _update_clonePlaceholder("note-character");
     _update_clonePlaceholder("note-story");
     _update_clonePrefix("item");
-    _update_clonePrefix("consumable");
     _update_cloneSuffix("item");
   };
 
@@ -12748,7 +12747,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-large">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Classname</label>' +
@@ -12762,7 +12761,7 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
@@ -12782,7 +12781,7 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-fortitude-' + cloneIndex + '">Base Fortitude</label>' +
@@ -12812,43 +12811,65 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="js-total-block" data-total-path="equipment.consumable" data-total-path-addition="total" data-total-path-subtraction="used" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
+        '      <div class="m-edit-box-item-max m-edit-box-group">' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '            <label class="m-input-block-label js-input-block-label" for="consumable-item-' + cloneIndex + '">Consumables</label>' +
         '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="item" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
-
         '        <div class="m-edit-box-item-total">' +
+        '          <p class="m-edit-box-label">Remaining</p>' +
         '          <p class="m-edit-box-total js-total-block-total">0</p>' +
         '        </div>' +
-
-        '        <div class="m-edit-box-item-small">' +
+        '      </div>' +
+        '      <div class="m-edit-box-item m-edit-box-group">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" type="text" tabindex="1">' +
+        '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + cloneIndex + '">Total</label>' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.consumable" data-path-clone-key="total" data-type="integer" data-minimum="0" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
-
-        '        <div class="m-edit-box-item-small">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="total" data-increment-target="consumable-total-' + cloneIndex + '" data-increment="clear" tabindex="1"><span class="icon-close"></span></a>' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item m-edit-box-group">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
-        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" type="text" tabindex="1">' +
+        '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + cloneIndex + '">Used</label>' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-total="subtract" data-path="equipment.consumable" data-path-clone-key="used" data-type="integer" data-minimum="0" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
-
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-clone="true" data-clone-count="' + cloneIndex + '" data-path-clone-key="used" data-increment-target="consumable-used-' + cloneIndex + '" data-increment="clear" tabindex="1"><span class="icon-close"></span></a>' +
+        '        </div>' +
         '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
         '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
-        '</div>';
+        '</div>'
     };
     if (cloneType == "item") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-max">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.item" data-path-clone-key="name" type="text" tabindex="1">' +
@@ -12883,7 +12904,7 @@ var clone = (function() {
         '      </div>' +
         '      <div class="m-edit-box-body">' +
         '        <div class="m-edit-box-content">' +
-        '          <div class="m-edit-box-item-max m-edit-box-group">' +
+        '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-total js-total-block-total">0</p>' +
         '            </div>' +
@@ -12904,7 +12925,7 @@ var clone = (function() {
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-button-small">' +
-        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
+        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-clone="true" data-modal-heading="Custom Skill bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '            </div>' +
         '          </div>' +
         '        </div>' +
@@ -12926,7 +12947,7 @@ var clone = (function() {
         '        <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="weapon" type="text" tabindex="1">' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-melee-attack-' + cloneIndex + '">Attack</label>' +
@@ -12962,7 +12983,7 @@ var clone = (function() {
         '        <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="weapon" type="text" tabindex="1">' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-attack-' + cloneIndex + '">Attack</label>' +
@@ -12976,7 +12997,7 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box-item-max m-edit-box-group">' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-critical-' + cloneIndex + '">Critical</label>' +
@@ -13493,6 +13514,7 @@ var clone = (function() {
     };
     if (cloneType == "consumable" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
+      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
     };
     if (cloneType == "consumable" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
@@ -13689,6 +13711,12 @@ var clone = (function() {
   function _bind_classLevelInputBlock(all_inputBlock) {
     for (var i = 0; i < all_inputBlock.length; i++) {
       inputBlock.bind_classLevel(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_inputBlockIncrement(all_inputBlockIncrement) {
+    for (var i = 0; i < all_inputBlockIncrement.length; i++) {
+      inputBlock.bind_inputBlockIncrement(all_inputBlockIncrement[i]);
     };
   };
 
@@ -14724,6 +14752,7 @@ var inputBlock = (function() {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     var type = inputBlockField.dataset.type;
+    var clone = (inputBlock.dataset.clone == "true");
     var data;
     if (type == "integer") {
       data = parseInt(element.value, 10);
@@ -14739,7 +14768,7 @@ var inputBlock = (function() {
       data = element.value;
     };
     if (path) {
-      if (inputBlock.dataset.clone == "true") {
+      if (clone) {
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
         var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
         var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
@@ -14954,13 +14983,31 @@ var inputBlock = (function() {
   function _increment(button) {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
+    var clone = (button.dataset.clone == "true");
+    var cloneCount;
+    var pathCloneKey;
+    if (clone) {
+      cloneCount = parseInt(button.dataset.cloneCount, 10);
+      pathCloneKey = button.dataset.pathCloneKey;
+    };
+    var minimum;
     var inputBlockField = helper.e("#" + target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    if (inputBlockField.dataset.minimum !== undefined) {
+      minimum = parseInt(inputBlockField.dataset.minimum, 10);
+    };
     var path = inputBlockField.dataset.path;
-    var oldValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    var oldValue;
+    if (clone) {
+      var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+      oldValue = parseInt(object[pathCloneKey], 10);
+    } else {
+      oldValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    };
     if (isNaN(oldValue)) {
       oldValue = 0;
     };
+
     var newValue;
     if (increment == "addition") {
       newValue = oldValue + 1;
@@ -14969,19 +15016,20 @@ var inputBlock = (function() {
     } else if (increment == "clear") {
       newValue = 0;
     };
+    if (typeof minimum == "number") {
+      if (newValue <= minimum) {
+        newValue = "";
+      };
+    };
+    if (newValue == 0) {
+      newValue = "";
+    };
 
-    if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
-      if (newValue <= 0) {
-        helper.setObject(sheet.getCharacter(), path, "");
-      } else {
-        helper.setObject(sheet.getCharacter(), path, newValue);
-      };
+    if (clone) {
+      var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
+      object[pathCloneKey] = newValue;
     } else {
-      if (newValue == 0) {
-        helper.setObject(sheet.getCharacter(), path, "");
-      } else {
-        helper.setObject(sheet.getCharacter(), path, newValue);
-      };
+      helper.setObject(sheet.getCharacter(), path, newValue);
     };
 
     render(inputBlock);
@@ -14994,19 +15042,25 @@ var inputBlock = (function() {
       _bind_inputBlock(inputBlock);
     } else {
       _bind_all_inputBlock();
-      _bind_inputBlockIncrement();
+      _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
       _bind_name();
     };
   };
 
-  function _bind_inputBlockIncrement() {
+  function _bind_all_inputBlockIncrement() {
     var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
     for (var i = 0; i < all_inputBlockIncrement.length; i++) {
-      all_inputBlockIncrement[i].addEventListener("click", function() {
-        _increment(this);
-      }, false);
+      if (all_inputBlockIncrement[i].dataset.clone != "true") {
+        bind_inputBlockIncrement(all_inputBlockIncrement[i]);
+      };
     };
+  };
+
+  function bind_inputBlockIncrement(inputBlockIncrement) {
+    inputBlockIncrement.addEventListener("click", function() {
+      _increment(this);
+    }, false);
   };
 
   function _bind_inputBlockQuickValue() {
@@ -15074,9 +15128,10 @@ var inputBlock = (function() {
     // console.log(inputBlock);
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
+    var clone = (inputBlock.dataset.clone == "true");
     if (path) {
       // console.log(inputBlock);
-      if (inputBlock.dataset.clone == "true") {
+      if (clone) {
         // console.log("clone", path);
         var pathCloneKey = inputBlockField.dataset.pathCloneKey;
         var cloneCount = parseInt(inputBlock.dataset.cloneCount, 10);
@@ -15108,6 +15163,7 @@ var inputBlock = (function() {
     render: render,
     bind: bind,
     bind_classLevel: bind_classLevel,
+    bind_inputBlockIncrement: bind_inputBlockIncrement,
     clear: clear
   };
 
