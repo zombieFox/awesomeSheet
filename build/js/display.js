@@ -346,7 +346,7 @@ var display = (function() {
             };
           };
         };
-        var percentage = ((object.total - object.used) / object.total) * 100;
+        var percentage = parseFloat(((object.total - object.used) / object.total) * 100).toFixed(2);
         if (percentage < 0) {
           percentage = 0;
         };

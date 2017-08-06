@@ -255,7 +255,7 @@ var spells = (function() {
       var preparedEditBoxContent = document.createElement("div");
       preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
       preparedCount.textContent = spellObject.prepared;
@@ -313,7 +313,7 @@ var spells = (function() {
       var castEditBoxContent = document.createElement("div");
       castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
       castCount.textContent = spellObject.cast;

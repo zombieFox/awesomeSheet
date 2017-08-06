@@ -404,7 +404,7 @@
     background-color: $secondary-color-04;
   }
   .m-edit-box-label {
-    color: $secondary-color-08;
+    color: $secondary-color-16;
   }
   .m-edit-box-total {
     background-color: $gray-05;
@@ -466,18 +466,6 @@
     .m-edit-box-head {
       flex: 0 0 70%;
     }
-  }
-  .m-edit-box-item-stat {
-    // flex: 0 1 20%;
-  }
-  .m-edit-box-item-modifier {
-    // flex: 0 0 4em;
-  }
-  .m-edit-box-item-small {
-    // flex: 0 1 20%;
-  }
-  .m-edit-box-item-medium {
-    // flex: 0.6 1 35%;
   }
   .m-edit-box-item-button-small {
     flex-basis: 2em;

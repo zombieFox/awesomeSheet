@@ -957,7 +957,7 @@ input[type="checkbox"]:checked + label:before {
     box-shadow: inset 0 0 0 0 transparent, 0 0 0 3px rgba(253, 0, 66, 0.8); }
 
 .is-night-mode label {
-  color: #2763a0; }
+  color: #9cc9f7; }
 
 .is-night-mode input[type="checkbox"] + label, .is-night-mode input[type="radio"] + label {
   color: #ffffff; }
@@ -2477,12 +2477,12 @@ label {
     border-color: #bababa;
     border-radius: 5px; }
     .is-minimise .m-card-head .button {
-      color: #616161; }
+      color: #3b3b3b; }
   .is-night-mode .is-minimise .m-card-head {
     background-color: #3b3b3b;
     border-color: #545454; }
     .is-night-mode .is-minimise .m-card-head .button {
-      color: #adadad; }
+      color: #e0e0e0; }
   .is-night-mode .m-card {
     background-color: #212121; }
   .is-display-mode .m-card-head {
@@ -2491,12 +2491,12 @@ label {
     background-color: #d4d4d4;
     border-color: #bababa; }
     .is-minimise.is-display-mode .m-card-head .button {
-      color: #616161; }
+      color: #3b3b3b; }
   .is-night-mode .is-minimise.is-display-mode .m-card-head {
     background-color: #3b3b3b;
     border-color: #545454; }
     .is-night-mode .is-minimise.is-display-mode .m-card-head .button {
-      color: #adadad; } }
+      color: #e0e0e0; } }
 
 @media print {
   .m-card {
@@ -3305,7 +3305,7 @@ label {
   background-color: #193048; }
 
 .is-night-mode .m-edit-box-label {
-  color: #2763a0; }
+  color: #9cc9f7; }
 
 .is-night-mode .m-edit-box-total {
   background-color: #3b3b3b;
@@ -3582,7 +3582,7 @@ label {
   margin-right: 0; }
 
 .is-night-mode .m-input-block-label {
-  color: #2763a0; }
+  color: #9cc9f7; }
 
 .m-select-block {
   position: relative;
@@ -3610,7 +3610,7 @@ label {
   font-size: 1.5em; }
 
 .is-night-mode .m-select-block-label {
-  color: #2763a0; }
+  color: #9cc9f7; }
 
 .m-check-block {
   position: relative;
@@ -3742,7 +3742,7 @@ label {
   font-size: 1.5em; }
 
 .is-night-mode .m-textarea-block-label {
-  color: #2763a0; }
+  color: #9cc9f7; }
 
 .m-quick-nav {
   position: fixed;
@@ -4626,7 +4626,7 @@ label {
   color: #adadad; }
 
 .is-night-mode .m-display-box-accent {
-  color: #ff648c; }
+  color: #ff97b2; }
 
 .is-night-mode .m-display-box-item-stat:nth-child(1):before, .is-night-mode .m-display-box-item-stat:nth-child(2):before, .is-night-mode .m-display-box-item-stat:nth-child(3):before {
   background-color: #474747; }
@@ -4635,7 +4635,7 @@ label {
   background-color: #474747; }
 
 .is-night-mode .m-display-box-title {
-  color: #ca0035; }
+  color: #ff97b2; }
 
 .m-display-block:not(:only-child):not(:last-child) {
   margin-bottom: 1.5em;
@@ -4780,7 +4780,7 @@ label {
   border-color: rgba(255, 255, 255, 0.1); }
 
 .is-night-mode .m-display-list-item-value {
-  color: #ff648c; }
+  color: #ff97b2; }
 
 .m-display-list-item-attack-melee {
   display: -webkit-flex;
@@ -4836,7 +4836,7 @@ label {
   border-color: rgba(255, 255, 255, 0.1); }
 
 .is-night-mode .m-display-list-item-attack-melee-attack {
-  color: #ff648c; }
+  color: #ff97b2; }
 
 .m-display-list-item-attack-ranged {
   display: -webkit-flex;
@@ -4898,7 +4898,7 @@ label {
   border-color: rgba(255, 255, 255, 0.1); }
 
 .is-night-mode .m-display-list-item-attack-ranged-attack {
-  color: #ff648c; }
+  color: #ff97b2; }
 
 .m-display-list-item-spell {
   display: -webkit-flex;
