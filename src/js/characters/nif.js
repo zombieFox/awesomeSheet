@@ -1150,6 +1150,7 @@ var nif = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: 4,
         level_1: 7,

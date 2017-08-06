@@ -1100,6 +1100,7 @@ var ro = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: 6,
         level_1: 5,

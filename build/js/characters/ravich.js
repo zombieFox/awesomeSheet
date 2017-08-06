@@ -1154,6 +1154,7 @@ var ravich = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",

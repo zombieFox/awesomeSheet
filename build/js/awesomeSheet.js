@@ -1419,6 +1419,7 @@ var blank = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",
@@ -2625,6 +2626,7 @@ var izlara = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: 4,
         level_1: 7,
@@ -4514,6 +4516,7 @@ var ravich = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",
@@ -5696,6 +5699,7 @@ var marika = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",
@@ -6862,6 +6866,7 @@ var nefi = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",
@@ -8095,6 +8100,7 @@ var nif = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: 4,
         level_1: 7,
@@ -9739,6 +9745,7 @@ var orrin = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",
@@ -10920,6 +10927,7 @@ var ro = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: 6,
         level_1: 5,
@@ -12418,6 +12426,7 @@ var vos = (function() {
           half_level: false
         }
       },
+      spell_notes: "",
       per_day: {
         level_0: "",
         level_1: "",
