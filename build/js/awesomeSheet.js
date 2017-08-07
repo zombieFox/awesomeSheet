@@ -14813,6 +14813,7 @@ var inputBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     sheet.storeCharacters();
+    textBlock.render();
     totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();
@@ -16616,6 +16617,7 @@ var selectBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     sheet.storeCharacters();
+    textBlock.render();
     totalBlock.render();
     if (body.dataset.displayMode == "true") {
       display.clear();

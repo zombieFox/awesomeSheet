@@ -11,70 +11,6 @@
   </div>
 </div>
 
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmb" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">CMB</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="offense.cmb.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
-            <input id="offense-cmb-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
-            <input id="offense-cmb-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMB bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmd" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">CMD</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="offense.cmd.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
-            <input id="offense-cmd-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
-            <input id="offense-cmd-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMD bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.melee_attack" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,size,level,half_level"
   data-total-type="bonus">
   <div class="m-edit-box-head">
@@ -98,6 +34,10 @@
             <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-temp">Temp</label>
             <input id="offense-melee-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" data-type="integer" type="text" tabindex="1">
           </div>
+        </div>
+        <div class="m-edit-box-item-text">
+          <p class="m-edit-box-label">Size Mod</p>
+          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Size Modifier defined by Size (Basics)." data-path="basics.size.size_modifier"></p>
         </div>
         <div class="m-edit-box-item-button-small">
           <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Melee bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
@@ -131,8 +71,84 @@
             <input id="offense-ranged-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" data-type="integer" type="text" tabindex="1">
           </div>
         </div>
+        <div class="m-edit-box-item-text">
+          <p class="m-edit-box-label">Size Mod</p>
+          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Size Modifier defined by Size (Basics)." data-path="basics.size.size_modifier"></p>
+        </div>
         <div class="m-edit-box-item-button-small">
           <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Ranged bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmb" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
+  data-total-type="bonus">
+  <div class="m-edit-box-head">
+    <p class="m-edit-box-title">CMB</p>
+  </div>
+  <div class="m-edit-box-body">
+    <div class="m-edit-box-content m-edit-box-content-margin-large">
+      <div class="m-edit-box-item m-edit-box-group">
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Total</p>
+          <p class="m-edit-box-total js-total-block-total" data-path="offense.cmb.current"></p>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
+            <input id="offense-cmb-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-type="integer" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
+            <input id="offense-cmb-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-type="integer" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-text">
+          <p class="m-edit-box-label">Sp Size Mod</p>
+          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Special Size Modifier defined by Size (Basics)." data-path="basics.size.special_size_modifier"></p>
+        </div>
+        <div class="m-edit-box-item-button-small">
+          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMB bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmd" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
+  data-total-type="bonus">
+  <div class="m-edit-box-head">
+    <p class="m-edit-box-title">CMD</p>
+  </div>
+  <div class="m-edit-box-body">
+    <div class="m-edit-box-content m-edit-box-content-margin-large">
+      <div class="m-edit-box-item m-edit-box-group">
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Total</p>
+          <p class="m-edit-box-total js-total-block-total" data-path="offense.cmd.current"></p>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
+            <input id="offense-cmd-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-type="integer" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
+            <input id="offense-cmd-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-type="integer" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-text">
+          <p class="m-edit-box-label">Sp Size Mod</p>
+          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Special Size Modifier defined by Size (Basics)." data-path="basics.size.special_size_modifier"></p>
+        </div>
+        <div class="m-edit-box-item-button-small">
+          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMD bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
         </div>
       </div>
     </div>
