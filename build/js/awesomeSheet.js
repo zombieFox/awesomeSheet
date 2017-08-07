@@ -14725,14 +14725,19 @@ var encumbrance = (function() {
     var lightUpper = parseInt(maxLoad / 3).toLocaleString();
     var mediumUpper = parseInt((2 * maxLoad) / 3).toLocaleString();
     var mediumLower = (parseInt(maxLoad / 3) + 1).toLocaleString();
-    var heavyUpper = maxLoad;
+    var heavyUpper = maxLoad.toLocaleString();
     var heavyLower = (parseInt((2 * maxLoad) / 3) + 1).toLocaleString();
     var lift = parseInt(2 * maxLoad).toLocaleString();
     var drag = parseInt(5 * maxLoad).toLocaleString();
+    // console.log("light Upper", lightUpper);
+    // console.log("medium Upper", mediumUpper);
+    // console.log("medium Lower", mediumLower);
+    // console.log("heavy Upper", heavyUpper);
+    // console.log("heavy Lower", heavyLower);
 
     allEncumbrance.light = lightUpper + " lbs. or less";
     allEncumbrance.medium = mediumLower + " - " + mediumUpper + " lbs.";
-    allEncumbrance.heavy = heavyLower + " - " + maxLoad + " lbs.";
+    allEncumbrance.heavy = heavyLower + " - " + heavyUpper + " lbs.";
     allEncumbrance.lift = lift + " lbs.";
     allEncumbrance.drag = drag + " lbs.";
     // console.log(allEncumbrance);
