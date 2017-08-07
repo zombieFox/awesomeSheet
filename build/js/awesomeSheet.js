@@ -342,9 +342,9 @@ var card = (function() {
 
   function _toggle(element) {
     var section = helper.getClosest(element, ".js-section");
-    display.toggle(section);
     display.clear(section);
     display.render(section);
+    display.toggle(section);
     display.update();
   };
 
@@ -492,7 +492,9 @@ var blank = (function() {
       encumbrance: {
         light: "",
         medium: "",
-        heavy: ""
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "",
@@ -1638,9 +1640,11 @@ var izlara = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "33 lbs or less",
-        medium: "34–66 lbs",
-        heavy: "67–100 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "",
@@ -3504,9 +3508,11 @@ var ravich = (function() {
         weight: 1
       }],
       encumbrance: {
-        light: "100 lbs or less",
-        medium: "101–200 lbs",
-        heavy: "201–300 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +1",
@@ -4699,9 +4705,11 @@ var marika = (function() {
       magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
       item: [],
       encumbrance: {
-        light: "43 lbs or less",
-        medium: "44–86 lbs",
-        heavy: "87–130 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Leather +2",
@@ -5890,9 +5898,11 @@ var nefi = (function() {
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
       item: [],
       encumbrance: {
-        light: "173 lbs or less",
-        medium: "174–346 lbs",
-        heavy: "347–520 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Full Plate +2",
@@ -7103,9 +7113,11 @@ var nif = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "26 lbs or less",
-        medium: "27–53 lbs",
-        heavy: "54–80 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "",
@@ -8715,9 +8727,11 @@ var orrin = (function() {
       magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
       item: [],
       encumbrance: {
-        light: "50 lbs or less",
-        medium: "51–100 lbs",
-        heavy: "101–150 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +2",
@@ -9936,9 +9950,11 @@ var ro = (function() {
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       item: [],
       encumbrance: {
-        light: "43 lbs or less",
-        medium: "44–86 lbs",
-        heavy: "87–130 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +1",
@@ -12927,12 +12943,12 @@ var clone = (function() {
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-total js-total-block-total">0</p>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-medium">' +
+        '            <div class="m-edit-box-item-small">' +
         '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-medium">' +
+        '            <div class="m-edit-box-item-small">' +
         '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
         '              </div>' +
@@ -13889,6 +13905,20 @@ var display = (function() {
     var all_section = helper.eA(".js-section");
     var anySectionDisplay = false;
     var allSectionDisplay = 0;
+    var _displayOn = function() {
+      helper.addClass(fabIcon, "icon-edit");
+      helper.removeClass(fabIcon, "icon-reader-mode");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
+      helper.addClass(quickNav, "is-display-mode");
+    };
+    var _displayOff = function() {
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
+      helper.addClass(fabButton, "button-primary");
+      helper.removeClass(fabButton, "button-secondary");
+      helper.removeClass(quickNav, "is-display-mode");
+    };
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
         anySectionDisplay = true;
@@ -13896,41 +13926,28 @@ var display = (function() {
       };
     };
     if (anySectionDisplay) {
-      helper.addClass(fabIcon, "icon-edit");
-      helper.removeClass(fabIcon, "icon-reader-mode");
-      helper.removeClass(fabButton, "button-primary");
-      helper.addClass(fabButton, "button-secondary");
-      helper.addClass(quickNav, "is-display-mode");
-      themeColor.update();
+      if (allSectionDisplay == all_section.length) {
+        fab.dataset.displayMode = true;
+        fab.dataset.displayModeAll = true;
+        _displayOn();
+      } else {
+        fab.dataset.displayMode = true;
+        fab.dataset.displayModeAll = false;
+        _displayOff();
+      };
     } else {
-      fab.dataset.displayMode = "false";
-      helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader-mode");
-      helper.addClass(fabButton, "button-primary");
-      helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
-    };
-    if (allSectionDisplay == all_section.length) {
-      fab.dataset.displayMode = "true";
-      themeColor.update();
-    } else {
-      fab.dataset.displayMode = "false";
-      helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader-mode");
-      helper.addClass(fabButton, "button-primary");
-      helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
-      themeColor.update();
+      fab.dataset.displayMode = false;
+      fab.dataset.displayModeAll = false;
+      _displayOff();
     };
   };
 
-  function _toggle_singleSection(element, forceToggle) {
+  function _toggle_section(element, forceToggle) {
     var icon = element.querySelector(".js-card-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
     var all_display = section.querySelectorAll(".js-display");
-
-    function _displayOn() {
+    var _displayOn = function() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
@@ -13940,8 +13957,7 @@ var display = (function() {
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader-mode");
     };
-
-    function _displayOff() {
+    var _displayOff = function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
@@ -13966,18 +13982,18 @@ var display = (function() {
 
   };
 
-  function _toggle_allSection() {
+  function _toggle_all_section() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
     if (fab.dataset.displayMode == "true") {
       fab.dataset.displayMode = "false";
       for (var i = 0; i < all_section.length; i++) {
-        _toggle_singleSection(all_section[i], false);
+        _toggle_section(all_section[i], false);
       };
     } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
       fab.dataset.displayMode = "true";
       for (var i = 0; i < all_section.length; i++) {
-        _toggle_singleSection(all_section[i], true);
+        _toggle_section(all_section[i], true);
       };
     };
     update();
@@ -13985,9 +14001,9 @@ var display = (function() {
 
   function toggle(section, boolean) {
     if (section) {
-      _toggle_singleSection(section, boolean);
+      _toggle_section(section, boolean);
     } else {
-      _toggle_allSection();
+      _toggle_all_section();
     };
   };
 
@@ -14342,7 +14358,7 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayListItem;
     if (typeof data != "undefined" && data != "") {
-      if (valueType == "bonus") {
+      if (valueType == "bonus" && data > 0) {
         data = "+" + data;
       };
       displayListItem = document.createElement("li");
@@ -14489,7 +14505,7 @@ var display = (function() {
       displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-text-snippet-value");
-      if (valueType == "bonus") {
+      if (valueType == "bonus" && data > 0) {
         data = "+" + data;
       };
       value.innerHTML = data;
@@ -14641,13 +14657,92 @@ var display = (function() {
     _update_displayPlaceholder(section);
   };
 
+  function _get_displayState(anyOrSingle) {
+    var fab = helper.e(".js-fab");
+    if (anyOrSingle == "all") {
+      return (fab.dataset.displayModeAll == "true");
+    } else if (anyOrSingle == "any" || !anyOrSingle) {
+      return (fab.dataset.displayMode == "true");
+    };
+  };
+
   // exposed methods
   return {
     toggle: toggle,
     bind: bind,
     update: update,
     render: render,
-    clear: clear
+    clear: clear,
+    state: _get_displayState
+  };
+
+})();
+
+var encumbrance = (function() {
+
+  var changeEncumbranceTimer = null;
+
+  function bind(input) {
+    var statsStrScore = helper.e("#statistics-stats-str-score");
+    var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
+    statsStrScore.addEventListener("input", function() {
+      clearTimeout(changeEncumbranceTimer);
+      changeEncumbranceTimer = setTimeout(update, 350);
+    }, false);
+    statsStrTempScore.addEventListener("input", function() {
+      clearTimeout(changeEncumbranceTimer);
+      changeEncumbranceTimer = setTimeout(update, 350);
+    }, false);
+  };
+
+  function update() {
+    render();
+    totalBlock.render();
+    textBlock.render();
+    if (display.state()) {
+      display.clear();
+      display.render();
+    };
+  };
+
+  function render() {
+    var object = _create_encumbranceObject(stats.getScore("str"));
+    helper.setObject(sheet.getCharacter(), "equipment.encumbrance", object);
+    sheet.storeCharacters();
+  };
+
+  function _create_encumbranceObject(str) {
+    var allEncumbrance = {};
+    var maxLoad;
+    var base = [25, 28.75, 32.5, 37.5, 43.75, 50, 57.5, 65, 75, 87.5];
+    if (str <= 10) {
+      maxLoad = 10 * str;
+    } else {
+      var index = (1 + str - 10 * parseInt(str / 10)) - 1;
+      maxLoad = base[index] * Math.pow(4, parseInt(str / 10));
+    };
+
+    var lightUpper = parseInt(maxLoad / 3).toLocaleString();
+    var mediumUpper = parseInt((2 * maxLoad) / 3).toLocaleString();
+    var mediumLower = (parseInt(maxLoad / 3) + 1).toLocaleString();
+    var heavyUpper = maxLoad;
+    var heavyLower = (parseInt((2 * maxLoad) / 3) + 1).toLocaleString();
+    var lift = parseInt(2 * maxLoad).toLocaleString();
+    var drag = parseInt(5 * maxLoad).toLocaleString();
+
+    allEncumbrance.light = lightUpper + " lbs. or less";
+    allEncumbrance.medium = mediumLower + " - " + mediumUpper + " lbs.";
+    allEncumbrance.heavy = heavyLower + " - " + maxLoad + " lbs.";
+    allEncumbrance.lift = lift + " lbs.";
+    allEncumbrance.drag = drag + " lbs.";
+    // console.log(allEncumbrance);
+    return allEncumbrance;
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render
   };
 
 })();
@@ -14815,7 +14910,7 @@ var inputBlock = (function() {
     sheet.storeCharacters();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
@@ -16609,7 +16704,6 @@ var selectBlock = (function() {
     if (path) {
       helper.setObject(sheet.getCharacter(), path, data);
     };
-    // console.log(sheet.getCharacter().basics.size);
   };
 
   var storeDropdownTimer = null;
@@ -16619,7 +16713,7 @@ var selectBlock = (function() {
     sheet.storeCharacters();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
@@ -16652,15 +16746,6 @@ var selectBlock = (function() {
         };
       };
     };
-    _bind_size();
-  };
-
-  function _bind_size() {
-    var size = helper.e(".js-size");
-    var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
-    selectBlockDropdown.addEventListener("change", function() {
-      totalBlock.size(selectBlockDropdown.selectedIndex);
-    }, false);
   };
 
   function _bind_selectBlock(selectBlock) {
@@ -16986,14 +17071,15 @@ var sheet = (function() {
     stats.render();
     clone.render();
     classes.render();
-    textBlock.render();
     inputBlock.render();
     selectBlock.render();
     textareaBlock.render();
     skills.render();
     spells.render();
-    totalBlock.size();
     totalBlock.render();
+    textBlock.render();
+    encumbrance.render();
+    size.render();
     display.render();
   };
 
@@ -17009,6 +17095,8 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     totalBlock.bind();
+    encumbrance.bind();
+    size.bind();
     display.bind();
     card.bind();
     tip.bind();
@@ -17060,6 +17148,64 @@ var sheet = (function() {
     render: render,
     bind: bind,
     switch: switchCharacter
+  };
+
+})();
+
+var size = (function() {
+
+  var changeSizeTimer = null;
+
+  function bind(input) {
+    var size = helper.e(".js-size");
+    var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
+    selectBlockDropdown.addEventListener("change", function() {
+      clearTimeout(changeSizeTimer);
+      changeSizeTimer = setTimeout(update, 300, this);
+    }, false);
+  };
+
+  function update() {
+    render();
+    totalBlock.render();
+    textBlock.render();
+    if (display.state()) {
+      display.clear();
+      display.render();
+    };
+  };
+
+  function render() {
+    var size = helper.e(".js-size");
+    var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
+    var index = selectBlockDropdown.selectedIndex;
+    var object = _create_sizeObject(index);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier", object.size_modifier);
+    helper.setObject(sheet.getCharacter(), "basics.size.special_size_modifier", object.special_size_modifier);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_fly", object.size_modifier_fly);
+    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", object.size_modifier_stealth);
+    sheet.storeCharacters();
+  };
+
+  function _create_sizeObject(index) {
+    var allSize = {};
+    var all_size_modifier = [0, 8, 4, 2, 1, 0, -1, -2, -4, -8];
+    var all_special_size_modifier = [0, -8, -4, -2, -1, 0, 1, 2, 4, 8];
+    var all_size_modifier_fly = [0, 8, 6, 4, 2, 0, -2, -4, -6, -8];
+    var all_size_modifier_stealth = [0, 16, 12, 8, 4, 0, -4, -8, -12, -16];
+    allSize.size_modifier = all_size_modifier[index];
+    allSize.special_size_modifier = all_special_size_modifier[index];
+    allSize.size_modifier_fly = all_size_modifier_fly[index];
+    allSize.size_modifier_stealth = all_size_modifier_stealth[index];
+    return allSize;
+  };
+
+  function _create_encumbranceObject(str) {};
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render
   };
 
 })();
@@ -17982,7 +18128,7 @@ var spells = (function() {
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
       sheet.storeCharacters();
     };
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
@@ -18148,7 +18294,7 @@ var stats = (function() {
     helper.setObject(sheet.getCharacter(), path, modifier);
     // add a + if greater than 0
     if (modifier > 0) {
-      modifier =  "+" + modifier
+      modifier = "+" + modifier
     };
     // render modifier
     totalElement.textContent = modifier;
@@ -18169,13 +18315,17 @@ var stats = (function() {
     classes.render();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
   };
 
   function bind() {
+    _bind_all_stats();
+  };
+
+  function _bind_all_stats() {
     var score = helper.eA(".js-stats-score");
     var tempScore = helper.eA(".js-stats-temp-score");
     for (var i = 0; i < score.length; i++) {
@@ -18192,6 +18342,16 @@ var stats = (function() {
     };
   };
 
+  function get_score(key) {
+    var value = 0;
+    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
+      value = sheet.getCharacter().statistics.stats[key].temp_score;
+    } else {
+      value = sheet.getCharacter().statistics.stats[key].score;
+    };
+    return value;
+  };
+
   function get_mod(key) {
     var value = 0;
     if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
@@ -18206,7 +18366,8 @@ var stats = (function() {
   return {
     render: render,
     bind: bind,
-    getMod: get_mod
+    getMod: get_mod,
+    getScore: get_score,
   };
 
 })();
@@ -18273,7 +18434,7 @@ var textareaBlock = (function() {
     _store(element);
     sheet.storeCharacters();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
@@ -18372,15 +18533,14 @@ var textareaBlock = (function() {
 var themeColor = (function() {
 
   function update() {
-    var fab = helper.e(".js-fab");
     var themeMeta = document.getElementsByTagName("meta");
-    if (fab.dataset.displayMode == "true") {
+    if (display.state("all")) {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
           themeMeta[i].setAttribute("content", "#b0002e");
         };
       };
-    } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
+    } else {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
           themeMeta[i].setAttribute("content", "#2a5d84");
@@ -18549,74 +18709,6 @@ var tip = (function() {
 
 var totalBlock = (function() {
 
-  function sizeModifierCalculate(index) {
-    if (!index) {
-      var size = helper.e(".js-size");
-      var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
-      index = selectBlockDropdown.selectedIndex;
-    };
-    // console.log(index);
-    var size_modifier;
-    var special_size_modifier;
-    var size_modifier_fly;
-    var size_modifier_stealth;
-    if (index == 1) {
-      size_modifier = 8;
-      special_size_modifier = -8;
-      size_modifier_fly = 8;
-      size_modifier_stealth = 16;
-    } else if (index == 2) {
-      size_modifier = 4;
-      special_size_modifier = -4;
-      size_modifier_fly = 6;
-      size_modifier_stealth = 12;
-    } else if (index == 3) {
-      size_modifier = 2;
-      special_size_modifier = -2;
-      size_modifier_fly = 4;
-      size_modifier_stealth = 8;
-    } else if (index == 4) {
-      size_modifier = 1;
-      special_size_modifier = -1;
-      size_modifier_fly = 2;
-      size_modifier_stealth = 4;
-    } else if (index == 5) {
-      size_modifier = 0;
-      special_size_modifier = 0;
-      size_modifier_fly = 0;
-      size_modifier_stealth = 0;
-    } else if (index == 6) {
-      size_modifier = -1;
-      special_size_modifier = 1;
-      size_modifier_fly = -2;
-      size_modifier_stealth = -4;
-    } else if (index == 7) {
-      size_modifier = -2;
-      special_size_modifier = 2;
-      size_modifier_fly = -4;
-      size_modifier_stealth = -8;
-    } else if (index == 8) {
-      size_modifier = -4;
-      special_size_modifier = 4;
-      size_modifier_fly = -6;
-      size_modifier_stealth = -12;
-    } else if (index == 9) {
-      size_modifier = -8;
-      special_size_modifier = 8;
-      size_modifier_fly = -8;
-      size_modifier_stealth = -16;
-    } else if (index == 0 || !index) {
-      size_modifier = 0;
-      special_size_modifier = 0;
-      size_modifier_fly = 0;
-      size_modifier_stealth = 0;
-    };
-    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier", size_modifier);
-    helper.setObject(sheet.getCharacter(), "basics.size.special_size_modifier", special_size_modifier);
-    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_fly", size_modifier_fly);
-    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", size_modifier_stealth);
-  };
-
   function render(totalBlock) {
     if (totalBlock) {
       _render_totalBlock(totalBlock);
@@ -18748,7 +18840,7 @@ var totalBlock = (function() {
     var _get_totalObject = function(character, totalPath, cloneCount, totalCloneSet) {
       var object;
       // console.log(cloneCount);
-      if (totalPath && !isNaN(cloneCount) ) {
+      if (totalPath && !isNaN(cloneCount)) {
         // console.log(1);
         object = helper.getObject(character, totalPath, cloneCount);
       } else if (totalPath && totalCloneSet) {
@@ -18779,8 +18871,8 @@ var totalBlock = (function() {
       var total;
       if (totalType == "bonus" && grandTotal > 0) {
         total = grandTotal = "+" + grandTotal;
-      } else if (totalType == "weight" && grandTotal > 0) {
-        total = grandTotal = grandTotal + "lbs";
+      } else if (totalType == "weight" && parseInt(grandTotal, 10) > 0) {
+        total = grandTotal + " lbs";
       } else {
         total = grandTotal;
       };
@@ -18878,8 +18970,13 @@ var totalBlock = (function() {
       grandTotal = toSum.reduce(function(a, b) {
         return a + b;
       });
+      // if not an integer
       if (grandTotal != parseInt(grandTotal, 10)) {
-        grandTotal = parseFloat(grandTotal).toFixed(2);
+        grandTotal = grandTotal.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        // parseFloat(grandTotal).toFixed(2);
       };
     } else {
       grandTotal = 0;
@@ -19054,70 +19151,114 @@ var totalBlock = (function() {
         // order the bonuses for rendering in modal
         var orderedBonuses = [];
         if ("str_bonus" in object.bonuses) {
-          orderedBonuses.push({"str_bonus": object.bonuses["str_bonus"]})
+          orderedBonuses.push({
+            "str_bonus": object.bonuses["str_bonus"]
+          })
         };
         if ("dex_bonus" in object.bonuses) {
-          orderedBonuses.push({"dex_bonus": object.bonuses["dex_bonus"]})
+          orderedBonuses.push({
+            "dex_bonus": object.bonuses["dex_bonus"]
+          })
         };
         if ("con_bonus" in object.bonuses) {
-          orderedBonuses.push({"con_bonus": object.bonuses["con_bonus"]})
+          orderedBonuses.push({
+            "con_bonus": object.bonuses["con_bonus"]
+          })
         };
         if ("int_bonus" in object.bonuses) {
-          orderedBonuses.push({"int_bonus": object.bonuses["int_bonus"]})
+          orderedBonuses.push({
+            "int_bonus": object.bonuses["int_bonus"]
+          })
         };
         if ("wis_bonus" in object.bonuses) {
-          orderedBonuses.push({"wis_bonus": object.bonuses["wis_bonus"]})
+          orderedBonuses.push({
+            "wis_bonus": object.bonuses["wis_bonus"]
+          })
         };
         if ("cha_bonus" in object.bonuses) {
-          orderedBonuses.push({"cha_bonus": object.bonuses["cha_bonus"]})
+          orderedBonuses.push({
+            "cha_bonus": object.bonuses["cha_bonus"]
+          })
         };
         if ("bab" in object.bonuses) {
-          orderedBonuses.push({"bab": object.bonuses["bab"]})
+          orderedBonuses.push({
+            "bab": object.bonuses["bab"]
+          })
         };
         if ("level" in object.bonuses) {
-          orderedBonuses.push({"level": object.bonuses["level"]})
+          orderedBonuses.push({
+            "level": object.bonuses["level"]
+          })
         };
         if ("half_level" in object.bonuses) {
-          orderedBonuses.push({"half_level": object.bonuses["half_level"]})
+          orderedBonuses.push({
+            "half_level": object.bonuses["half_level"]
+          })
         };
         if ("class_skill" in object.bonuses) {
-          orderedBonuses.push({"class_skill": object.bonuses["class_skill"]})
+          orderedBonuses.push({
+            "class_skill": object.bonuses["class_skill"]
+          })
         };
         if ("max_dex" in object.bonuses) {
-          orderedBonuses.push({"max_dex": object.bonuses["max_dex"]})
+          orderedBonuses.push({
+            "max_dex": object.bonuses["max_dex"]
+          })
         };
         if ("check_penalty" in object.bonuses) {
-          orderedBonuses.push({"check_penalty": object.bonuses["check_penalty"]})
+          orderedBonuses.push({
+            "check_penalty": object.bonuses["check_penalty"]
+          })
         };
         if ("plus_ten" in object.bonuses) {
-          orderedBonuses.push({"plus_ten": object.bonuses["plus_ten"]})
+          orderedBonuses.push({
+            "plus_ten": object.bonuses["plus_ten"]
+          })
         };
         if ("ac_armor" in object.bonuses) {
-          orderedBonuses.push({"ac_armor": object.bonuses["ac_armor"]})
+          orderedBonuses.push({
+            "ac_armor": object.bonuses["ac_armor"]
+          })
         };
         if ("ac_shield" in object.bonuses) {
-          orderedBonuses.push({"ac_shield": object.bonuses["ac_shield"]})
+          orderedBonuses.push({
+            "ac_shield": object.bonuses["ac_shield"]
+          })
         };
         if ("ac_deflect" in object.bonuses) {
-          orderedBonuses.push({"ac_deflect": object.bonuses["ac_deflect"]})
+          orderedBonuses.push({
+            "ac_deflect": object.bonuses["ac_deflect"]
+          })
         };
         if ("ac_dodge" in object.bonuses) {
-          orderedBonuses.push({"ac_dodge": object.bonuses["ac_dodge"]})
+          orderedBonuses.push({
+            "ac_dodge": object.bonuses["ac_dodge"]
+          })
         };
         if ("ac_natural" in object.bonuses) {
-          orderedBonuses.push({"ac_natural": object.bonuses["ac_natural"]})
+          orderedBonuses.push({
+            "ac_natural": object.bonuses["ac_natural"]
+          })
         };
         if ("size" in object.bonuses) {
-          orderedBonuses.push({"size": object.bonuses["size"]})
+          orderedBonuses.push({
+            "size": object.bonuses["size"]
+          })
         };
         if ("special_size" in object.bonuses) {
-          orderedBonuses.push({"special_size": object.bonuses["special_size"]})
+          orderedBonuses.push({
+            "special_size": object.bonuses["special_size"]
+          })
         };
         if ("size_modifier_fly" in object.bonuses) {
-          orderedBonuses.push({"size_modifier_fly": object.bonuses["size_modifier_fly"]})
+          orderedBonuses.push({
+            "size_modifier_fly": object.bonuses["size_modifier_fly"]
+          })
         };
         if ("size_modifier_stealth" in object.bonuses) {
-          orderedBonuses.push({"size_modifier_stealth": object.bonuses["size_modifier_stealth"]})
+          orderedBonuses.push({
+            "size_modifier_stealth": object.bonuses["size_modifier_stealth"]
+          })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {
           for (var key in orderedBonuses[i]) {
@@ -19214,7 +19355,6 @@ var totalBlock = (function() {
 
   // exposed methods
   return {
-    size: sizeModifierCalculate,
     clear: clear,
     bind: bind,
     render: render
@@ -19225,6 +19365,14 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.16.1",
+    list: [
+      "*Added automatic Encumbrance calculation.",
+      "Improved Display layout.",
+      "Added more Tips.",
+      "General refactoring and UI fixes."
+    ]
+  }, {
     version: "3.15.0",
     list: [
       "Added alphabetical Spell sort."

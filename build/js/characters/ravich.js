@@ -132,9 +132,11 @@ var ravich = (function() {
         weight: 1
       }],
       encumbrance: {
-        light: "100 lbs or less",
-        medium: "101–200 lbs",
-        heavy: "201–300 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +1",

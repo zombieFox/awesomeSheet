@@ -1,73 +1,5 @@
 var totalBlock = (function() {
 
-  function sizeModifierCalculate(index) {
-    if (!index) {
-      var size = helper.e(".js-size");
-      var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
-      index = selectBlockDropdown.selectedIndex;
-    };
-    // console.log(index);
-    var size_modifier;
-    var special_size_modifier;
-    var size_modifier_fly;
-    var size_modifier_stealth;
-    if (index == 1) {
-      size_modifier = 8;
-      special_size_modifier = -8;
-      size_modifier_fly = 8;
-      size_modifier_stealth = 16;
-    } else if (index == 2) {
-      size_modifier = 4;
-      special_size_modifier = -4;
-      size_modifier_fly = 6;
-      size_modifier_stealth = 12;
-    } else if (index == 3) {
-      size_modifier = 2;
-      special_size_modifier = -2;
-      size_modifier_fly = 4;
-      size_modifier_stealth = 8;
-    } else if (index == 4) {
-      size_modifier = 1;
-      special_size_modifier = -1;
-      size_modifier_fly = 2;
-      size_modifier_stealth = 4;
-    } else if (index == 5) {
-      size_modifier = 0;
-      special_size_modifier = 0;
-      size_modifier_fly = 0;
-      size_modifier_stealth = 0;
-    } else if (index == 6) {
-      size_modifier = -1;
-      special_size_modifier = 1;
-      size_modifier_fly = -2;
-      size_modifier_stealth = -4;
-    } else if (index == 7) {
-      size_modifier = -2;
-      special_size_modifier = 2;
-      size_modifier_fly = -4;
-      size_modifier_stealth = -8;
-    } else if (index == 8) {
-      size_modifier = -4;
-      special_size_modifier = 4;
-      size_modifier_fly = -6;
-      size_modifier_stealth = -12;
-    } else if (index == 9) {
-      size_modifier = -8;
-      special_size_modifier = 8;
-      size_modifier_fly = -8;
-      size_modifier_stealth = -16;
-    } else if (index == 0 || !index) {
-      size_modifier = 0;
-      special_size_modifier = 0;
-      size_modifier_fly = 0;
-      size_modifier_stealth = 0;
-    };
-    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier", size_modifier);
-    helper.setObject(sheet.getCharacter(), "basics.size.special_size_modifier", special_size_modifier);
-    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_fly", size_modifier_fly);
-    helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", size_modifier_stealth);
-  };
-
   function render(totalBlock) {
     if (totalBlock) {
       _render_totalBlock(totalBlock);
@@ -199,7 +131,7 @@ var totalBlock = (function() {
     var _get_totalObject = function(character, totalPath, cloneCount, totalCloneSet) {
       var object;
       // console.log(cloneCount);
-      if (totalPath && !isNaN(cloneCount) ) {
+      if (totalPath && !isNaN(cloneCount)) {
         // console.log(1);
         object = helper.getObject(character, totalPath, cloneCount);
       } else if (totalPath && totalCloneSet) {
@@ -230,8 +162,8 @@ var totalBlock = (function() {
       var total;
       if (totalType == "bonus" && grandTotal > 0) {
         total = grandTotal = "+" + grandTotal;
-      } else if (totalType == "weight" && grandTotal > 0) {
-        total = grandTotal = grandTotal + "lbs";
+      } else if (totalType == "weight" && parseInt(grandTotal, 10) > 0) {
+        total = grandTotal + " lbs";
       } else {
         total = grandTotal;
       };
@@ -329,8 +261,13 @@ var totalBlock = (function() {
       grandTotal = toSum.reduce(function(a, b) {
         return a + b;
       });
+      // if not an integer
       if (grandTotal != parseInt(grandTotal, 10)) {
-        grandTotal = parseFloat(grandTotal).toFixed(2);
+        grandTotal = grandTotal.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        // parseFloat(grandTotal).toFixed(2);
       };
     } else {
       grandTotal = 0;
@@ -505,70 +442,114 @@ var totalBlock = (function() {
         // order the bonuses for rendering in modal
         var orderedBonuses = [];
         if ("str_bonus" in object.bonuses) {
-          orderedBonuses.push({"str_bonus": object.bonuses["str_bonus"]})
+          orderedBonuses.push({
+            "str_bonus": object.bonuses["str_bonus"]
+          })
         };
         if ("dex_bonus" in object.bonuses) {
-          orderedBonuses.push({"dex_bonus": object.bonuses["dex_bonus"]})
+          orderedBonuses.push({
+            "dex_bonus": object.bonuses["dex_bonus"]
+          })
         };
         if ("con_bonus" in object.bonuses) {
-          orderedBonuses.push({"con_bonus": object.bonuses["con_bonus"]})
+          orderedBonuses.push({
+            "con_bonus": object.bonuses["con_bonus"]
+          })
         };
         if ("int_bonus" in object.bonuses) {
-          orderedBonuses.push({"int_bonus": object.bonuses["int_bonus"]})
+          orderedBonuses.push({
+            "int_bonus": object.bonuses["int_bonus"]
+          })
         };
         if ("wis_bonus" in object.bonuses) {
-          orderedBonuses.push({"wis_bonus": object.bonuses["wis_bonus"]})
+          orderedBonuses.push({
+            "wis_bonus": object.bonuses["wis_bonus"]
+          })
         };
         if ("cha_bonus" in object.bonuses) {
-          orderedBonuses.push({"cha_bonus": object.bonuses["cha_bonus"]})
+          orderedBonuses.push({
+            "cha_bonus": object.bonuses["cha_bonus"]
+          })
         };
         if ("bab" in object.bonuses) {
-          orderedBonuses.push({"bab": object.bonuses["bab"]})
+          orderedBonuses.push({
+            "bab": object.bonuses["bab"]
+          })
         };
         if ("level" in object.bonuses) {
-          orderedBonuses.push({"level": object.bonuses["level"]})
+          orderedBonuses.push({
+            "level": object.bonuses["level"]
+          })
         };
         if ("half_level" in object.bonuses) {
-          orderedBonuses.push({"half_level": object.bonuses["half_level"]})
+          orderedBonuses.push({
+            "half_level": object.bonuses["half_level"]
+          })
         };
         if ("class_skill" in object.bonuses) {
-          orderedBonuses.push({"class_skill": object.bonuses["class_skill"]})
+          orderedBonuses.push({
+            "class_skill": object.bonuses["class_skill"]
+          })
         };
         if ("max_dex" in object.bonuses) {
-          orderedBonuses.push({"max_dex": object.bonuses["max_dex"]})
+          orderedBonuses.push({
+            "max_dex": object.bonuses["max_dex"]
+          })
         };
         if ("check_penalty" in object.bonuses) {
-          orderedBonuses.push({"check_penalty": object.bonuses["check_penalty"]})
+          orderedBonuses.push({
+            "check_penalty": object.bonuses["check_penalty"]
+          })
         };
         if ("plus_ten" in object.bonuses) {
-          orderedBonuses.push({"plus_ten": object.bonuses["plus_ten"]})
+          orderedBonuses.push({
+            "plus_ten": object.bonuses["plus_ten"]
+          })
         };
         if ("ac_armor" in object.bonuses) {
-          orderedBonuses.push({"ac_armor": object.bonuses["ac_armor"]})
+          orderedBonuses.push({
+            "ac_armor": object.bonuses["ac_armor"]
+          })
         };
         if ("ac_shield" in object.bonuses) {
-          orderedBonuses.push({"ac_shield": object.bonuses["ac_shield"]})
+          orderedBonuses.push({
+            "ac_shield": object.bonuses["ac_shield"]
+          })
         };
         if ("ac_deflect" in object.bonuses) {
-          orderedBonuses.push({"ac_deflect": object.bonuses["ac_deflect"]})
+          orderedBonuses.push({
+            "ac_deflect": object.bonuses["ac_deflect"]
+          })
         };
         if ("ac_dodge" in object.bonuses) {
-          orderedBonuses.push({"ac_dodge": object.bonuses["ac_dodge"]})
+          orderedBonuses.push({
+            "ac_dodge": object.bonuses["ac_dodge"]
+          })
         };
         if ("ac_natural" in object.bonuses) {
-          orderedBonuses.push({"ac_natural": object.bonuses["ac_natural"]})
+          orderedBonuses.push({
+            "ac_natural": object.bonuses["ac_natural"]
+          })
         };
         if ("size" in object.bonuses) {
-          orderedBonuses.push({"size": object.bonuses["size"]})
+          orderedBonuses.push({
+            "size": object.bonuses["size"]
+          })
         };
         if ("special_size" in object.bonuses) {
-          orderedBonuses.push({"special_size": object.bonuses["special_size"]})
+          orderedBonuses.push({
+            "special_size": object.bonuses["special_size"]
+          })
         };
         if ("size_modifier_fly" in object.bonuses) {
-          orderedBonuses.push({"size_modifier_fly": object.bonuses["size_modifier_fly"]})
+          orderedBonuses.push({
+            "size_modifier_fly": object.bonuses["size_modifier_fly"]
+          })
         };
         if ("size_modifier_stealth" in object.bonuses) {
-          orderedBonuses.push({"size_modifier_stealth": object.bonuses["size_modifier_stealth"]})
+          orderedBonuses.push({
+            "size_modifier_stealth": object.bonuses["size_modifier_stealth"]
+          })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {
           for (var key in orderedBonuses[i]) {
@@ -665,7 +646,6 @@ var totalBlock = (function() {
 
   // exposed methods
   return {
-    size: sizeModifierCalculate,
     clear: clear,
     bind: bind,
     render: render

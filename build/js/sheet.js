@@ -281,14 +281,15 @@ var sheet = (function() {
     stats.render();
     clone.render();
     classes.render();
-    textBlock.render();
     inputBlock.render();
     selectBlock.render();
     textareaBlock.render();
     skills.render();
     spells.render();
-    totalBlock.size();
     totalBlock.render();
+    textBlock.render();
+    encumbrance.render();
+    size.render();
     display.render();
   };
 
@@ -304,6 +305,8 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     totalBlock.bind();
+    encumbrance.bind();
+    size.bind();
     display.bind();
     card.bind();
     tip.bind();

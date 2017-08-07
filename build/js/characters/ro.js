@@ -99,9 +99,11 @@ var ro = (function() {
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       item: [],
       encumbrance: {
-        light: "43 lbs or less",
-        medium: "44–86 lbs",
-        heavy: "87–130 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +1",

@@ -99,9 +99,11 @@ var orrin = (function() {
       magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Potion of Cure Light Wounds (4), Potion of Endure Elements (1), Potion of Bless Weapon (1), Potion of Greese (1), Potion of Reduce Person (1), Potion of Stabilise (1), Potion of Cure Light Wounds (1), Potion of Jump (1), Potion of Protection from Good (1), Potion of Protection from Law (1), Potion of Remove Fear (1), Potion of Remove Sickness (1), Rapier +1",
       item: [],
       encumbrance: {
-        light: "50 lbs or less",
-        medium: "51–100 lbs",
-        heavy: "101–150 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +2",

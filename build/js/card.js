@@ -68,9 +68,9 @@ var card = (function() {
 
   function _toggle(element) {
     var section = helper.getClosest(element, ".js-section");
-    display.toggle(section);
     display.clear(section);
     display.render(section);
+    display.toggle(section);
     display.update();
   };
 

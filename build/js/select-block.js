@@ -8,7 +8,6 @@ var selectBlock = (function() {
     if (path) {
       helper.setObject(sheet.getCharacter(), path, data);
     };
-    // console.log(sheet.getCharacter().basics.size);
   };
 
   var storeDropdownTimer = null;
@@ -18,7 +17,7 @@ var selectBlock = (function() {
     sheet.storeCharacters();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
@@ -51,15 +50,6 @@ var selectBlock = (function() {
         };
       };
     };
-    _bind_size();
-  };
-
-  function _bind_size() {
-    var size = helper.e(".js-size");
-    var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
-    selectBlockDropdown.addEventListener("change", function() {
-      totalBlock.size(selectBlockDropdown.selectedIndex);
-    }, false);
   };
 
   function _bind_selectBlock(selectBlock) {

@@ -217,12 +217,12 @@ var clone = (function() {
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-total js-total-block-total">0</p>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-medium">' +
+        '            <div class="m-edit-box-item-small">' +
         '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-medium">' +
+        '            <div class="m-edit-box-item-small">' +
         '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
         '              </div>' +

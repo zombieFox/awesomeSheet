@@ -38,7 +38,7 @@ html {
 body {
   background: #e0e0e0;
   margin: 0;
-  padding: 0 0 calc(95vh - 4.5em);
+  padding: 0 0 calc(100vh - 5em);
   font-weight: normal;
   color: #2e2e2e;
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
@@ -60,7 +60,7 @@ body {
 
 @media (min-width: 900px) {
   body {
-    padding-bottom: 95vh; } }
+    padding-bottom: 98vh; } }
 
 @media print {
   html {
