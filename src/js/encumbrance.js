@@ -7,19 +7,29 @@ var encumbrance = (function() {
     var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
     statsStrScore.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(render, 350);
+      changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
     statsStrTempScore.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(render, 350);
+      changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
   };
 
+  function update() {
+    render();
+    totalBlock.render();
+    textBlock.render();
+    if (display.state()) {
+      display.clear();
+      display.render();
+    };
+  };
+
   function render() {
+    console.log("encumbrance");
     var object = _create_encumbranceObject(stats.getScore("str"));
     helper.setObject(sheet.getCharacter(), "equipment.encumbrance", object);
     sheet.storeCharacters();
-    textBlock.render();
   };
 
   function _create_encumbranceObject(str) {
@@ -32,11 +42,20 @@ var encumbrance = (function() {
       var index = (1 + str - 10 * parseInt(str / 10)) - 1;
       maxLoad = base[index] * Math.pow(4, parseInt(str / 10));
     };
-    allEncumbrance.light = parseInt(maxLoad / 3) + " lbs. or less";
-    allEncumbrance.medium = parseInt(maxLoad / 3) + 1 + " - " + parseInt((2 * maxLoad) / 3) + " lbs.";
-    allEncumbrance.heavy = parseInt((2 * maxLoad) / 3) + 1 + " - " + maxLoad + " lbs.";
-    allEncumbrance.lift = parseInt(2 * maxLoad) + " lbs.";
-    allEncumbrance.drag = parseInt(5 * maxLoad) + " lbs.";
+
+    var lightUpper = parseInt(maxLoad / 3).toLocaleString();
+    var mediumUpper = parseInt((2 * maxLoad) / 3).toLocaleString();
+    var mediumLower = (parseInt(maxLoad / 3) + 1).toLocaleString();
+    var heavyUpper = maxLoad;
+    var heavyLower = (parseInt((2 * maxLoad) / 3) + 1).toLocaleString();
+    var lift = parseInt(2 * maxLoad).toLocaleString();
+    var drag = parseInt(5 * maxLoad).toLocaleString();
+
+    allEncumbrance.light = lightUpper + " lbs. or less";
+    allEncumbrance.medium = mediumLower + " - " + mediumUpper + " lbs.";
+    allEncumbrance.heavy = heavyLower + " - " + maxLoad + " lbs.";
+    allEncumbrance.lift = lift + " lbs.";
+    allEncumbrance.drag = drag + " lbs.";
     // console.log(allEncumbrance);
     return allEncumbrance;
   };

@@ -7,11 +7,22 @@ var size = (function() {
     var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
     selectBlockDropdown.addEventListener("change", function() {
       clearTimeout(changeSizeTimer);
-      changeSizeTimer = setTimeout(render, 300, this);
+      changeSizeTimer = setTimeout(update, 300, this);
     }, false);
   };
 
+  function update() {
+    render();
+    totalBlock.render();
+    textBlock.render();
+    if (display.state()) {
+      display.clear();
+      display.render();
+    };
+  };
+
   function render() {
+    console.log("size");
     var size = helper.e(".js-size");
     var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
     var index = selectBlockDropdown.selectedIndex;
@@ -21,8 +32,6 @@ var size = (function() {
     helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_fly", object.size_modifier_fly);
     helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", object.size_modifier_stealth);
     sheet.storeCharacters();
-    totalBlock.render();
-    textBlock.render();
   };
 
   function _create_sizeObject(index) {

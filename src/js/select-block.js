@@ -17,7 +17,7 @@ var selectBlock = (function() {
     sheet.storeCharacters();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };

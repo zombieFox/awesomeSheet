@@ -44,7 +44,7 @@ var stats = (function() {
     classes.render();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
