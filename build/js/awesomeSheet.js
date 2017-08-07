@@ -14711,17 +14711,23 @@ var encumbrance = (function() {
     sheet.storeCharacters();
   };
 
-  function _create_encumbranceObject(str) {
+  function _create_encumbranceObject(value) {
+    if (!isNaN(value)) {
+      var str = parseInt(value, 10);
+    } else {
+      str = value;
+    };
     var allEncumbrance = {};
     var maxLoad;
     var base = [25, 28.75, 32.5, 37.5, 43.75, 50, 57.5, 65, 75, 87.5];
-    if (str <= 10) {
+    if (parseInt(str, 10) <= 10) {
       maxLoad = 10 * str;
     } else {
       var index = (1 + str - 10 * parseInt(str / 10)) - 1;
       maxLoad = base[index] * Math.pow(4, parseInt(str / 10));
     };
 
+    // console.log("maxLoad", maxLoad);
     var lightUpper = parseInt(maxLoad / 3).toLocaleString();
     var mediumUpper = parseInt((2 * maxLoad) / 3).toLocaleString();
     var mediumLower = (parseInt(maxLoad / 3) + 1).toLocaleString();
@@ -14729,11 +14735,6 @@ var encumbrance = (function() {
     var heavyLower = (parseInt((2 * maxLoad) / 3) + 1).toLocaleString();
     var lift = parseInt(2 * maxLoad).toLocaleString();
     var drag = parseInt(5 * maxLoad).toLocaleString();
-    // console.log("light Upper", lightUpper);
-    // console.log("medium Upper", mediumUpper);
-    // console.log("medium Lower", mediumLower);
-    // console.log("heavy Upper", heavyUpper);
-    // console.log("heavy Lower", heavyLower);
 
     allEncumbrance.light = lightUpper + " lbs. or less";
     allEncumbrance.medium = mediumLower + " - " + mediumUpper + " lbs.";
