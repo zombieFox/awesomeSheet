@@ -17076,10 +17076,10 @@ var sheet = (function() {
     textareaBlock.render();
     skills.render();
     spells.render();
-    totalBlock.render();
-    textBlock.render();
     encumbrance.render();
     size.render();
+    totalBlock.render();
+    textBlock.render();
     display.render();
   };
 
@@ -17094,9 +17094,9 @@ var sheet = (function() {
     clone.bind();
     spells.bind();
     skills.bind();
-    totalBlock.bind();
     encumbrance.bind();
     size.bind();
+    totalBlock.bind();
     display.bind();
     card.bind();
     tip.bind();
