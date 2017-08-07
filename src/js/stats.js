@@ -38,7 +38,6 @@ var stats = (function() {
   };
 
   var changeModiferTimer = null;
-  var changeEncumbranceTimer = null;
 
   function delayUpdate(element) {
     _render_stat(element);
@@ -51,48 +50,16 @@ var stats = (function() {
     };
   };
 
-  function delayUpdateEncumbrance() {
-    console.log(_encumbrance(get_score("str")));
-    helper.setObject(sheet.getCharacter(), "equipment.encumbrance", _encumbrance(get_score("str")));
-    sheet.storeCharacters();
-    textBlock.render();
-    console.log(sheet.getCharacter().equipment.encumbrance);
-  };
-
   function bind() {
     _bind_all_stats();
     _bind_str();
   };
 
-  function _encumbrance(str) {
-    var allEncumbrance = {};
-    var lightLoad;
-    var mediumLoad;
-    var heavyLoad;
-    var base = [25, 28.75, 32.5, 37.5, 43.75, 50, 57.5, 65, 75, 87.5];
-    if (str <= 10) {
-      heavyLoad = 10 * str;
-    } else {
-      var index = (1 + str - 10 * parseInt(str / 10)) - 1;
-      heavyLoad = base[index] * Math.pow(4, parseInt(str / 10));
-    };
-    allEncumbrance.light = parseInt(heavyLoad / 3) + " lbs. or less";
-    allEncumbrance.medium = parseInt(heavyLoad/3) + 1 + " - " + parseInt((2 * heavyLoad) / 3) + " lbs.";
-    allEncumbrance.heavy = parseInt((2 * heavyLoad) / 3) + 1 + " - " + heavyLoad + " lbs.";
-    return allEncumbrance;
-  };
-
   function _bind_str() {
     var statsStrScore = helper.e("#statistics-stats-str-score");
     var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
-    statsStrScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(delayUpdateEncumbrance, 350);
-    }, false);
-    statsStrTempScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(delayUpdateEncumbrance, 350);
-    }, false);
+    encumbrance.bind(statsStrScore);
+    encumbrance.bind(statsStrTempScore);
   };
 
   function _bind_all_stats() {

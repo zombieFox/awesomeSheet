@@ -281,6 +281,7 @@ var sheet = (function() {
     stats.render();
     clone.render();
     classes.render();
+    encumbrance.render();
     textBlock.render();
     inputBlock.render();
     selectBlock.render();
