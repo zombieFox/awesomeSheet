@@ -53,6 +53,10 @@ var stats = (function() {
 
   function delayUpdateEncumbrance() {
     console.log(_encumbrance(get_score("str")));
+    helper.setObject(sheet.getCharacter(), "equipment.encumbrance", _encumbrance(get_score("str")));
+    sheet.storeCharacters();
+    textBlock.render();
+    console.log(sheet.getCharacter().equipment.encumbrance);
   };
 
   function bind() {
@@ -61,7 +65,7 @@ var stats = (function() {
   };
 
   function _encumbrance(str) {
-    var allCapacity = [];
+    var allEncumbrance = {};
     var lightLoad;
     var mediumLoad;
     var heavyLoad;
@@ -72,10 +76,10 @@ var stats = (function() {
       var index = (1 + str - 10 * parseInt(str / 10)) - 1;
       heavyLoad = base[index] * Math.pow(4, parseInt(str / 10));
     };
-    allCapacity.push(parseInt(heavyLoad / 3) + " lbs. or less");
-    allCapacity.push(parseInt(heavyLoad/3) + 1 + " - " + parseInt((2 * heavyLoad) / 3) + " lbs.");
-    allCapacity.push(parseInt((2 * heavyLoad) / 3) + 1 + " - " + heavyLoad + " lbs.");
-    return allCapacity;
+    allEncumbrance.light = parseInt(heavyLoad / 3) + " lbs. or less";
+    allEncumbrance.medium = parseInt(heavyLoad/3) + 1 + " - " + parseInt((2 * heavyLoad) / 3) + " lbs.";
+    allEncumbrance.heavy = parseInt((2 * heavyLoad) / 3) + 1 + " - " + heavyLoad + " lbs.";
+    return allEncumbrance;
   };
 
   function _bind_str() {
