@@ -22,6 +22,7 @@ var size = (function() {
     helper.setObject(sheet.getCharacter(), "basics.size.size_modifier_stealth", object.size_modifier_stealth);
     sheet.storeCharacters();
     totalBlock.render();
+    textBlock.render();
   };
 
   function _create_sizeObject(index) {
