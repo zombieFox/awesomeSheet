@@ -52,14 +52,6 @@ var stats = (function() {
 
   function bind() {
     _bind_all_stats();
-    _bind_str();
-  };
-
-  function _bind_str() {
-    var statsStrScore = helper.e("#statistics-stats-str-score");
-    var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
-    encumbrance.bind(statsStrScore);
-    encumbrance.bind(statsStrTempScore);
   };
 
   function _bind_all_stats() {
@@ -79,22 +71,22 @@ var stats = (function() {
     };
   };
 
-  function get_mod(key) {
-    var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
-      value = sheet.getCharacter().statistics.stats[key].temp_modifier;
-    } else {
-      value = sheet.getCharacter().statistics.stats[key].modifier;
-    };
-    return value;
-  };
-
   function get_score(key) {
     var value = 0;
     if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
       value = sheet.getCharacter().statistics.stats[key].temp_score;
     } else {
       value = sheet.getCharacter().statistics.stats[key].score;
+    };
+    return value;
+  };
+
+  function get_mod(key) {
+    var value = 0;
+    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
+      value = sheet.getCharacter().statistics.stats[key].temp_modifier;
+    } else {
+      value = sheet.getCharacter().statistics.stats[key].modifier;
     };
     return value;
   };

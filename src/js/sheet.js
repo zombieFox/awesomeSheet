@@ -288,7 +288,7 @@ var sheet = (function() {
     textareaBlock.render();
     skills.render();
     spells.render();
-    totalBlock.size();
+    size.render();
     totalBlock.render();
     display.render();
   };
@@ -305,6 +305,8 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     totalBlock.bind();
+    size.bind();
+    encumbrance.bind();
     display.bind();
     card.bind();
     tip.bind();

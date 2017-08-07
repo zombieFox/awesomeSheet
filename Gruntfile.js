@@ -88,6 +88,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/repair.js',
           '<%= folders.build %>/js/select-block.js',
           '<%= folders.build %>/js/sheet.js',
+          '<%= folders.build %>/js/size.js',
           '<%= folders.build %>/js/skills.js',
           '<%= folders.build %>/js/snack.js',
           '<%= folders.build %>/js/spells.js',

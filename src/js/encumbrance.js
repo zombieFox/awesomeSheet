@@ -3,18 +3,25 @@ var encumbrance = (function() {
   var changeEncumbranceTimer = null;
 
   function bind(input) {
-    input.addEventListener("input", function() {
+    console.log('encumbrance bind');
+    var statsStrScore = helper.e("#statistics-stats-str-score");
+    var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
+    statsStrScore.addEventListener("input", function() {
+      clearTimeout(changeEncumbranceTimer);
+      changeEncumbranceTimer = setTimeout(render, 350);
+    }, false);
+    statsStrTempScore.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(render, 350);
     }, false);
   };
 
   function render() {
+    console.log('encumbrance render');
     var object = _create_encumbranceObject(stats.getScore("str"));
     helper.setObject(sheet.getCharacter(), "equipment.encumbrance", object);
     sheet.storeCharacters();
     textBlock.render();
-    // console.log(object);
   };
 
   function _create_encumbranceObject(str) {
