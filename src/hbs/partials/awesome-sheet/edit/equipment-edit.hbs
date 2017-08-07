@@ -63,7 +63,7 @@
 
         <div class="js-clone-block-suffix-item">
           <div class="m-edit-box-content m-edit-box-content-end">
-            <div class="m-edit-box-item-total">
+            <div class="m-edit-box-item-shrink">
               <p class="m-edit-box-label">Total</p>
               <p class="m-edit-box-total js-total-block-total"></p>
             </div>
@@ -214,25 +214,25 @@
   </div>
   <div class="m-edit-box-body">
     <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-large">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="equipment-encumbrance-light">Light Load</label>
-            <input id="equipment-encumbrance-light" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.encumbrance.light" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-large">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="equipment-encumbrance-medium">Medium Load</label>
-            <input id="equipment-encumbrance-medium" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.encumbrance.medium" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-large">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="equipment-encumbrance-heavy">Heavy Load</label>
-            <input id="equipment-encumbrance-heavy" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.encumbrance.heavy" type="text" tabindex="1">
-          </div>
-        </div>
+      <div class="m-edit-box-item-shrink">
+        <p class="m-edit-box-label">Light Load</p>
+        <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Light Load calculated from STR." data-path="equipment.encumbrance.light"></p>
+      </div>
+      <div class="m-edit-box-item-shrink">
+        <p class="m-edit-box-label">Medium Load</p>
+        <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Medium Load calculated from STR." data-path="equipment.encumbrance.medium"></p>
+      </div>
+      <div class="m-edit-box-item-shrink">
+        <p class="m-edit-box-label">Heavy Load</p>
+        <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Heavy Load calculated from STR." data-path="equipment.encumbrance.heavy"></p>
+      </div>
+      <div class="m-edit-box-item-shrink">
+        <p class="m-edit-box-label">Lift</p>
+        <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Lift (Heavy Load x 2) calculated from STR." data-path="equipment.encumbrance.lift"></p>
+      </div>
+      <div class="m-edit-box-item-shrink">
+        <p class="m-edit-box-label">Drag</p>
+        <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Drag (Heavy Load x 5) calculated from STR." data-path="equipment.encumbrance.drag"></p>
       </div>
     </div>
   </div>

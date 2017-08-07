@@ -135,9 +135,11 @@ var izlara = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "33 lbs or less",
-        medium: "34–66 lbs",
-        heavy: "67–100 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "",

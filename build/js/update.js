@@ -1,6 +1,14 @@
 var update = (function() {
 
   var history = [{
+    version: "3.16.1",
+    list: [
+      "*Added automatic Encumbrance calculation.",
+      "Improved Display layout.",
+      "Added more Tips.",
+      "General refactoring and UI fixes."
+    ]
+  }, {
     version: "3.15.0",
     list: [
       "Added alphabetical Spell sort."

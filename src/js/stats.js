@@ -23,7 +23,7 @@ var stats = (function() {
     helper.setObject(sheet.getCharacter(), path, modifier);
     // add a + if greater than 0
     if (modifier > 0) {
-      modifier =  "+" + modifier
+      modifier = "+" + modifier
     };
     // render modifier
     totalElement.textContent = modifier;
@@ -44,13 +44,17 @@ var stats = (function() {
     classes.render();
     textBlock.render();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
   };
 
   function bind() {
+    _bind_all_stats();
+  };
+
+  function _bind_all_stats() {
     var score = helper.eA(".js-stats-score");
     var tempScore = helper.eA(".js-stats-temp-score");
     for (var i = 0; i < score.length; i++) {
@@ -67,6 +71,16 @@ var stats = (function() {
     };
   };
 
+  function get_score(key) {
+    var value = 0;
+    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
+      value = sheet.getCharacter().statistics.stats[key].temp_score;
+    } else {
+      value = sheet.getCharacter().statistics.stats[key].score;
+    };
+    return value;
+  };
+
   function get_mod(key) {
     var value = 0;
     if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
@@ -81,7 +95,8 @@ var stats = (function() {
   return {
     render: render,
     bind: bind,
-    getMod: get_mod
+    getMod: get_mod,
+    getScore: get_score,
   };
 
 })();

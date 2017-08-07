@@ -99,9 +99,11 @@ var nefi = (function() {
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
       item: [],
       encumbrance: {
-        light: "173 lbs or less",
-        medium: "174–346 lbs",
-        heavy: "347–520 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "Full Plate +2",

@@ -24,7 +24,7 @@ var textareaBlock = (function() {
     _store(element);
     sheet.storeCharacters();
     totalBlock.render();
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };

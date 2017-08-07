@@ -28,6 +28,20 @@ var display = (function() {
     var all_section = helper.eA(".js-section");
     var anySectionDisplay = false;
     var allSectionDisplay = 0;
+    var _displayOn = function() {
+      helper.addClass(fabIcon, "icon-edit");
+      helper.removeClass(fabIcon, "icon-reader-mode");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
+      helper.addClass(quickNav, "is-display-mode");
+    };
+    var _displayOff = function() {
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader-mode");
+      helper.addClass(fabButton, "button-primary");
+      helper.removeClass(fabButton, "button-secondary");
+      helper.removeClass(quickNav, "is-display-mode");
+    };
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
         anySectionDisplay = true;
@@ -35,41 +49,28 @@ var display = (function() {
       };
     };
     if (anySectionDisplay) {
-      helper.addClass(fabIcon, "icon-edit");
-      helper.removeClass(fabIcon, "icon-reader-mode");
-      helper.removeClass(fabButton, "button-primary");
-      helper.addClass(fabButton, "button-secondary");
-      helper.addClass(quickNav, "is-display-mode");
-      themeColor.update();
+      if (allSectionDisplay == all_section.length) {
+        fab.dataset.displayMode = true;
+        fab.dataset.displayModeAll = true;
+        _displayOn();
+      } else {
+        fab.dataset.displayMode = true;
+        fab.dataset.displayModeAll = false;
+        _displayOff();
+      };
     } else {
-      fab.dataset.displayMode = "false";
-      helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader-mode");
-      helper.addClass(fabButton, "button-primary");
-      helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
-    };
-    if (allSectionDisplay == all_section.length) {
-      fab.dataset.displayMode = "true";
-      themeColor.update();
-    } else {
-      fab.dataset.displayMode = "false";
-      helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader-mode");
-      helper.addClass(fabButton, "button-primary");
-      helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
-      themeColor.update();
+      fab.dataset.displayMode = false;
+      fab.dataset.displayModeAll = false;
+      _displayOff();
     };
   };
 
-  function _toggle_singleSection(element, forceToggle) {
+  function _toggle_section(element, forceToggle) {
     var icon = element.querySelector(".js-card-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
     var all_display = section.querySelectorAll(".js-display");
-
-    function _displayOn() {
+    var _displayOn = function() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
@@ -79,8 +80,7 @@ var display = (function() {
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader-mode");
     };
-
-    function _displayOff() {
+    var _displayOff = function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
@@ -105,18 +105,18 @@ var display = (function() {
 
   };
 
-  function _toggle_allSection() {
+  function _toggle_all_section() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
     if (fab.dataset.displayMode == "true") {
       fab.dataset.displayMode = "false";
       for (var i = 0; i < all_section.length; i++) {
-        _toggle_singleSection(all_section[i], false);
+        _toggle_section(all_section[i], false);
       };
     } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
       fab.dataset.displayMode = "true";
       for (var i = 0; i < all_section.length; i++) {
-        _toggle_singleSection(all_section[i], true);
+        _toggle_section(all_section[i], true);
       };
     };
     update();
@@ -124,9 +124,9 @@ var display = (function() {
 
   function toggle(section, boolean) {
     if (section) {
-      _toggle_singleSection(section, boolean);
+      _toggle_section(section, boolean);
     } else {
-      _toggle_allSection();
+      _toggle_all_section();
     };
   };
 
@@ -481,7 +481,7 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayListItem;
     if (typeof data != "undefined" && data != "") {
-      if (valueType == "bonus") {
+      if (valueType == "bonus" && data > 0) {
         data = "+" + data;
       };
       displayListItem = document.createElement("li");
@@ -628,7 +628,7 @@ var display = (function() {
       displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
       value.setAttribute("class", "m-display-item-text-snippet-value");
-      if (valueType == "bonus") {
+      if (valueType == "bonus" && data > 0) {
         data = "+" + data;
       };
       value.innerHTML = data;
@@ -780,13 +780,23 @@ var display = (function() {
     _update_displayPlaceholder(section);
   };
 
+  function _get_displayState(anyOrSingle) {
+    var fab = helper.e(".js-fab");
+    if (anyOrSingle == "all") {
+      return (fab.dataset.displayModeAll == "true");
+    } else if (anyOrSingle == "any" || !anyOrSingle) {
+      return (fab.dataset.displayMode == "true");
+    };
+  };
+
   // exposed methods
   return {
     toggle: toggle,
     bind: bind,
     update: update,
     render: render,
-    clear: clear
+    clear: clear,
+    state: _get_displayState
   };
 
 })();

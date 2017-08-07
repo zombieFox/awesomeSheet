@@ -101,7 +101,9 @@ var blank = (function() {
       encumbrance: {
         light: "",
         medium: "",
-        heavy: ""
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "",

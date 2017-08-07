@@ -143,9 +143,11 @@ var nif = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "26 lbs or less",
-        medium: "27–53 lbs",
-        heavy: "54–80 lbs"
+        light: "",
+        medium: "",
+        heavy: "",
+        lift: "",
+        drag: ""
       },
       armor: {
         armor: "",

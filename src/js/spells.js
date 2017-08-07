@@ -740,7 +740,7 @@ var spells = (function() {
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
       sheet.storeCharacters();
     };
-    if (body.dataset.displayMode == "true") {
+    if (display.state()) {
       display.clear();
       display.render();
     };
