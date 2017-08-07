@@ -3,7 +3,6 @@ var encumbrance = (function() {
   var changeEncumbranceTimer = null;
 
   function bind(input) {
-    console.log('encumbrance bind');
     var statsStrScore = helper.e("#statistics-stats-str-score");
     var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
     statsStrScore.addEventListener("input", function() {
@@ -17,7 +16,6 @@ var encumbrance = (function() {
   };
 
   function render() {
-    console.log('encumbrance render');
     var object = _create_encumbranceObject(stats.getScore("str"));
     helper.setObject(sheet.getCharacter(), "equipment.encumbrance", object);
     sheet.storeCharacters();
