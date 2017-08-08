@@ -14222,6 +14222,9 @@ var display = (function() {
             if (typeof data != "undefined" && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              if (typeof object.total != "undefined" && object.total != "") {
+                data = data + "/" + object.total;
+              };
               displayListItemValue.textContent = data;
               displayListItem.appendChild(displayListItemValue);
             };
@@ -14511,6 +14514,11 @@ var display = (function() {
       value.setAttribute("class", "m-display-item-text-snippet-value");
       if (valueType == "bonus" && data > 0) {
         data = "+" + data;
+      } else if (valueType == "currency" && data > 0) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
       };
       value.innerHTML = data;
       if (prefix) {
@@ -19395,6 +19403,13 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.17.0",
+    list: [
+      "*Added Wealth totaling.",
+      "Improved Display layout.",
+      "General UI fixes to Card design."
+    ]
+  }, {
     version: "3.16.1",
     list: [
       "*Added automatic Encumbrance calculation.",

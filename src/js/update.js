@@ -1,6 +1,13 @@
 var update = (function() {
 
   var history = [{
+    version: "3.17.0",
+    list: [
+      "*Added Wealth totaling.",
+      "Improved Display layout.",
+      "General UI fixes to Card design."
+    ]
+  }, {
     version: "3.16.1",
     list: [
       "*Added automatic Encumbrance calculation.",

@@ -363,7 +363,7 @@
 .m-display-list-item-attack-melee {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
   border-bottom: 2px solid $gray-18;
@@ -383,7 +383,7 @@
 }
 .m-display-list-item-attack-melee-weapon {
   font-family: $open-sans-semi-bold;
-  flex: 0 1 100%;
+  flex: 1 1 100%;
 }
 .m-display-list-item-attack-melee-attack {
   flex: 1 0 auto;
@@ -391,7 +391,7 @@
   margin: 0;
   color: $primary-color-06;
   &:not(:only-child):not(:first-child) {
-    padding-left: 0.5em;
+    padding-left: 1em;
   }
 }
 .m-display-list-item-attack-melee-critical,
@@ -412,7 +412,7 @@
 .m-display-list-item-attack-ranged {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
   border-bottom: 2px solid $gray-18;
@@ -434,7 +434,7 @@
 }
 .m-display-list-item-attack-ranged-weapon {
   font-family: $open-sans-semi-bold;
-  flex: 0 1 100%;
+  flex: 1 1 100%;
 }
 .m-display-list-item-attack-ranged-attack {
   flex: 1 0 auto;
@@ -442,7 +442,7 @@
   margin: 0;
   color: $primary-color-06;
   &:not(:only-child):not(:first-child) {
-    padding-left: 0.5em;
+    padding-left: 1em;
   }
 }
 .m-display-list-item-attack-ranged-ammo,
