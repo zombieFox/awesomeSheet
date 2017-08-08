@@ -99,6 +99,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/tip.js',
           '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/update.js',
+          '<%= folders.build %>/js/wealth.js',
           '<%= folders.build %>/js/vendor-options.js',
           '<%= folders.build %>/js/init.js' // invoke calls
         ],

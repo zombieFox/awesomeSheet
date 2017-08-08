@@ -9,10 +9,20 @@ var textBlock = (function() {
 
   function _render_textBlock(textBlock) {
     var path = textBlock.dataset.path;
+    var textType = textBlock.dataset.textType;
+    var content;
     if (path) {
-      var content = helper.getObject(sheet.getCharacter(), path);
-      textBlock.textContent = content;
+      content = helper.getObject(sheet.getCharacter(), path);
     };
+    if (textType) {
+      if (textType == "currency") {
+        content = parseFloat(content).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }) + " gp";
+      };
+    };
+    textBlock.textContent = content;
   };
 
   function render(textBlock) {

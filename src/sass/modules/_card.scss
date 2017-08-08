@@ -44,35 +44,6 @@
     background-color: $primary-color-06;
   }
 }
-.is-night-mode {
-  .m-card {
-    background-color: $gray-03;
-  }
-  .is-minimise {
-    .m-card {
-      background-color: transparent;
-      box-shadow: none;
-    }
-    .m-card-body {
-      padding-top: 0;
-      padding-bottom: 0;
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
-    }
-    .m-card-head {
-      background: $gray-05;
-      .button {
-        color: $gray-18;
-      }
-    }
-    &.is-display-mode {
-      .m-card-head {
-        border-radius: $border-radius-large;
-      }
-    }
-  }
-}
 .is-minimise {
   .m-card {
     background-color: transparent;
@@ -86,10 +57,17 @@
     visibility: hidden;
   }
   .m-card-head {
-    background: $gray-17;
-    .button {
-      color: $gray-05;
+    background-color: $secondary-color-04;
+  }
+  &.is-display-mode {
+    .m-card-head {
+      background-color: $primary-color-04;
     }
+  }
+}
+.is-night-mode {
+  .m-card {
+    background-color: $gray-03;
   }
 }
 // --------------------------------------------------
@@ -105,7 +83,40 @@
   }
   .is-minimise {
     .m-card-head {
+      background-color: $gray-17;
       border-radius: $border-radius-large;
+      .button {
+        color: $gray-05;
+      }
+    }
+    &.is-display-mode {
+      .m-card-head {
+        background-color: $gray-17;
+        .button {
+          color: $gray-05;
+        }
+      }
+    }
+  }
+  .is-night-mode {
+    .m-card {
+      box-shadow: none;
+    }
+    .is-minimise {
+      .m-card-head {
+        background-color: $gray-05;
+        .button {
+          color: $white;
+        }
+      }
+      &.is-display-mode {
+        .m-card-head {
+          background-color: $gray-05;
+          .button {
+            color: $white;
+          }
+        }
+      }
     }
   }
 }
