@@ -288,6 +288,7 @@ var sheet = (function() {
     spells.render();
     encumbrance.render();
     size.render();
+    wealth.render();
     totalBlock.render();
     textBlock.render();
     display.render();
@@ -306,6 +307,7 @@ var sheet = (function() {
     skills.bind();
     encumbrance.bind();
     size.bind();
+    wealth.bind();
     totalBlock.bind();
     display.bind();
     card.bind();
