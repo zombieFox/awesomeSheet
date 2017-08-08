@@ -33,6 +33,7 @@ var orrin = (function() {
       speed: "30ft",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",

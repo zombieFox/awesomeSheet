@@ -424,6 +424,7 @@ var blank = (function() {
       speed: "",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",
@@ -1508,7 +1509,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: true,
     basics: {
-      name: "Izlara Datrel",
+      name: "Izlara Drell",
       race: "Elf",
       level: 12,
       classes: [{
@@ -1538,6 +1539,7 @@ var izlara = (function() {
       speed: "30",
       hero_points: "1",
       luck_points: "3",
+      character_description: "A responsible woman with a pragmatic outlook on life. A little taller than average, tanned dark-brown skin, diamond-shape face, hazel-green, deep-set eyes.",
       initiative: {
         misc: 2,
         temp: "",
@@ -3418,6 +3420,7 @@ var ravich = (function() {
       speed: "30",
       hero_points: "1",
       luck_points: "1",
+      character_description: "A sneaky man with a realistic outlook on life. Tall, slim build, sallow dark-brown skin, long face, sunken cheeks, light blue, wide-set eyes, bushy eyebrows.",
       initiative: {
         misc: "",
         temp: "",
@@ -4639,6 +4642,7 @@ var marika = (function() {
       speed: "30ft",
       hero_points: "1",
       luck_points: "2",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",
@@ -5832,6 +5836,7 @@ var nefi = (function() {
       speed: "30ft",
       hero_points: "1",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "2",
         temp: "",
@@ -7003,6 +7008,7 @@ var nif = (function() {
       speed: "30ft",
       hero_points: "1",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",
@@ -8661,6 +8667,7 @@ var orrin = (function() {
       speed: "30ft",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",
@@ -9884,6 +9891,7 @@ var ro = (function() {
       speed: "30ft",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",
@@ -11352,6 +11360,7 @@ var vos = (function() {
       speed: "50ft",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",

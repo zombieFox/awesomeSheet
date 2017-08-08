@@ -33,6 +33,7 @@ var nif = (function() {
       speed: "30ft",
       hero_points: "1",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",

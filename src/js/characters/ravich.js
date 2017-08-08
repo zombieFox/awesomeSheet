@@ -42,6 +42,7 @@ var ravich = (function() {
       speed: "30",
       hero_points: "1",
       luck_points: "1",
+      character_description: "A sneaky man with a realistic outlook on life. Tall, slim build, sallow dark-brown skin, long face, sunken cheeks, light blue, wide-set eyes, bushy eyebrows.",
       initiative: {
         misc: "",
         temp: "",

@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: true,
     basics: {
-      name: "Izlara Datrel",
+      name: "Izlara Drell",
       race: "Elf",
       level: 12,
       classes: [{
@@ -33,6 +33,7 @@ var izlara = (function() {
       speed: "30",
       hero_points: "1",
       luck_points: "3",
+      character_description: "A responsible woman with a pragmatic outlook on life. A little taller than average, tanned dark-brown skin, diamond-shape face, hazel-green, deep-set eyes.",
       initiative: {
         misc: 2,
         temp: "",

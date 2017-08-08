@@ -33,6 +33,7 @@ var vos = (function() {
       speed: "50ft",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",

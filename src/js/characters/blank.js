@@ -33,6 +33,7 @@ var blank = (function() {
       speed: "",
       hero_points: "",
       luck_points: "",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",

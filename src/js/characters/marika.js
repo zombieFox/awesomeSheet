@@ -33,6 +33,7 @@ var marika = (function() {
       speed: "30ft",
       hero_points: "1",
       luck_points: "2",
+      character_description: "",
       initiative: {
         misc: "",
         temp: "",
