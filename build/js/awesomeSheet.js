@@ -19412,6 +19412,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.18.0",
+    list: [
+      "Added Character Description."
+    ]
+  }, {
     version: "3.17.0",
     list: [
       "*Added Wealth totaling.",
@@ -19429,7 +19434,7 @@ var update = (function() {
   }, {
     version: "3.15.0",
     list: [
-      "Added alphabetical Spell sort."
+      "Added Alphabetical Spell sort."
     ]
   }, {
     version: "3.14.0",
@@ -19439,7 +19444,7 @@ var update = (function() {
   }, {
     version: "3.13.1",
     list: [
-      "Adding more Tips.",
+      "Added more Tips.",
       "Fixing bug where Tips would not be removed from the DOM."
     ]
   }, {
@@ -19480,7 +19485,7 @@ var update = (function() {
   }, {
     version: "3.6.1",
     list: [
-      "Adding Feat and Trait inputs to Saves, removing Racial inputs on Saves.",
+      "Added Feat and Trait inputs to Saves, removing Racial inputs on Saves.",
       "*Added Size categories with auto calculation and Alignment dropdown. You may need to re-enter you size and Alignment.",
       "Moved Armor and Shield to Equipment section."
     ]
