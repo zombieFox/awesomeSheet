@@ -3039,6 +3039,11 @@ label {
       -ms-flex-positive: 0;
           flex-grow: 0; }
 
+.m-edit-box-item-grow {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
 .m-edit-box-content.m-edit-box-content-end {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;

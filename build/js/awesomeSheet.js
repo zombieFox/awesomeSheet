@@ -12941,20 +12941,24 @@ var clone = (function() {
         '        <div class="m-edit-box-content">' +
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
+        '              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Total</p>' +
         '              <p class="m-edit-box-total js-total-block-total">0</p>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small">' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Ranks</p>' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" data-path="skills.custom" data-path-clone-key="ranks" data-type="integer" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small">' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Misc</p>' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" data-path="skills.custom" data-path-clone-key="misc" data-type="integer" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
         '              <div class="m-check-block">' +
+        '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Class Skill</p>' +
         '                <input class="m-check-block-check js-total-block-bonus-check" data-path="skills.custom" data-path-array="true" data-bonus-type="class-skill" type="checkbox" tabindex="1">' +
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
