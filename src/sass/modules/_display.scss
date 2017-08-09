@@ -281,6 +281,16 @@
     margin-bottom: 2em;
   }
 }
+.m-display-block {
+  .m-display-list {
+    margin-bottom: 1em;
+  }
+}
+.m-display-block-last {
+  .m-display-list {
+    margin-bottom: 0;
+  }
+}
 .m-display-list-item {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
