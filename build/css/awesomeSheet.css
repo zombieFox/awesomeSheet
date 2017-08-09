@@ -4931,7 +4931,10 @@ label {
   margin-right: 0.5em;
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
-          flex: 1 1 auto; }
+          flex: 1 1 auto;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 .m-display-list-item-spell-count {
   -webkit-flex: 1 1 auto;

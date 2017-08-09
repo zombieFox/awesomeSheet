@@ -486,6 +486,9 @@
 .m-display-list-item-spell-name {
   margin-right: 0.5em;
   flex: 1 1 auto;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .m-display-list-item-spell-count {
   flex: 1 1 auto;
