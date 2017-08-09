@@ -11,7 +11,7 @@ var themeColor = (function() {
     } else {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
-          themeMeta[i].setAttribute("content", "#2a5d84");
+          themeMeta[i].setAttribute("content", "#245689");
         };
       };
     };

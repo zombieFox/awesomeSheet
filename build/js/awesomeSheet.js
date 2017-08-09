@@ -346,16 +346,17 @@ var card = (function() {
     display.render(section);
     display.toggle(section);
     display.update();
+    themeColor.update();
   };
 
-  function _unminimise(element) {
-    var section = helper.getClosest(element, ".js-section");
-    var display = (section.dataset.displayMode == "true");
-    var minimise = (section.dataset.minimise == "true");
-    if (minimise && display) {
-      _minimise(element);
-    };
-  };
+  // function _unminimise(element) {
+  //   var section = helper.getClosest(element, ".js-section");
+  //   var display = (section.dataset.displayMode == "true");
+  //   var minimise = (section.dataset.minimise == "true");
+  //   if (minimise && display) {
+  //     _minimise(element);
+  //   };
+  // };
 
   function _minimise(element) {
     var section = helper.getClosest(element, ".js-section");
@@ -18601,7 +18602,7 @@ var themeColor = (function() {
     } else {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
-          themeMeta[i].setAttribute("content", "#2a5d84");
+          themeMeta[i].setAttribute("content", "#245689");
         };
       };
     };
