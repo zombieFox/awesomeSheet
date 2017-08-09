@@ -5068,7 +5068,8 @@ label {
     .m-display-list-responsive .m-display-list-item {
       -webkit-flex: 0 0 30%;
           -ms-flex: 0 0 30%;
-              flex: 0 0 30%; }
+              flex: 0 0 30%;
+      max-width: 30%; }
       .m-display-list-responsive .m-display-list-item:nth-child(odd) {
         margin-right: 0; }
       .m-display-list-responsive .m-display-list-item:nth-child(3n+1), .m-display-list-responsive .m-display-list-item:nth-child(3n+2) {

@@ -617,6 +617,7 @@
     justify-content: flex-start;
     .m-display-list-item {
       flex: 0 0 30%;
+      max-width: 30%;
       &:nth-child(odd) {
         margin-right: 0;
       }
