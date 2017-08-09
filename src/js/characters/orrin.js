@@ -107,16 +107,12 @@ var orrin = (function() {
         quantity: 2,
         weight: 8
       }, {
-        name: "Bag of bread rolls",
-        quantity: 6,
-        weight: 2
-      }, {
         name: "Flat Bread",
         quantity: 10,
         weight: 2
       }, {
         name: "Bedrolls",
-        quantity: 10,
+        quantity: 6,
         weight: 2
       }],
       encumbrance: {
