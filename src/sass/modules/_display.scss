@@ -57,6 +57,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   transition: margin $transition-ease-medium;
+  max-width: 100%;
 }
 .m-display-box-item-stat {
   flex: 1 1 33%;
@@ -302,6 +303,9 @@
 }
 .m-display-list-item-prefix {
   margin-right: 0.5em;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .m-display-list-item-value {
   color: $primary-color-06;
@@ -549,6 +553,7 @@
     justify-content: flex-start;
     .m-display-list-item {
       flex: 0 0 46%;
+      max-width: 46%;
       &:nth-child(odd) {
         margin-right: 8%;
       }
@@ -560,6 +565,7 @@
     justify-content: flex-start;
     .m-display-list-item {
       flex: 0 0 30%;
+      max-width: 30%;
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
         margin-right: 5%;
