@@ -225,9 +225,9 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
     if (nav) {
-      helper.addClass(body, "is-nav-open");
+      helper.addClass(body, "is-scrolll-disabled");
     } else {
-      helper.removeClass(body, "is-nav-open");
+      helper.removeClass(body, "is-scrolll-disabled");
     };
   };
 
@@ -235,16 +235,20 @@ var nav = (function() {
     helper.removeClass(helper.e(".js-nav"), "is-open");
     helper.removeClass(helper.e(".js-nav"), "js-is-open");
     helper.removeClass(helper.e(".js-hamburger"), "is-open");
-    _checkBodyForOpenNav();
+    helper.e("body").dataset.nav = false;
+    // _checkBodyForOpenNav();
     _destroy_navShade();
+    page.update();
   };
 
   function navOpen() {
     helper.addClass(helper.e(".js-nav"), "is-open");
     helper.addClass(helper.e(".js-nav"), "js-is-open");
     helper.addClass(helper.e(".js-hamburger"), "is-open");
-    _checkBodyForOpenNav();
+    helper.e("body").dataset.nav = true;
+    // _checkBodyForOpenNav();
     _render_navShade();
+    page.update();
   };
 
   function toggle_nav() {
@@ -253,14 +257,18 @@ var nav = (function() {
       helper.removeClass(helper.e(".js-nav"), "is-open");
       helper.removeClass(helper.e(".js-nav"), "js-is-open");
       helper.removeClass(helper.e(".js-hamburger"), "is-open");
-      _checkBodyForOpenNav();
+      helper.e("body").dataset.nav = false;
+      // _checkBodyForOpenNav();
       _destroy_navShade();
+      page.update();
     } else {
       helper.addClass(helper.e(".js-nav"), "is-open");
       helper.addClass(helper.e(".js-nav"), "js-is-open");
       helper.addClass(helper.e(".js-hamburger"), "is-open");
-      _checkBodyForOpenNav();
+      helper.e("body").dataset.nav = true;
+      // _checkBodyForOpenNav();
       _render_navShade();
+      page.update();
     };
   };
 
@@ -393,17 +401,17 @@ var nav = (function() {
       // ctrl+alt+delete
       if (event.ctrlKey && event.altKey && event.keyCode == 8) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        navClose();
+        // navClose();
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
-        navClose();
+        // navClose();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
-        navClose();
+        // navClose();
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {

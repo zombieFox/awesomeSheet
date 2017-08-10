@@ -1,76 +1,55 @@
 .is-hidden {
   display: none !important;
 }
-
 .is-inline-block {
   display: inline-block !important;
 }
-
 .is-block {
   display: block !important;
 }
-
 .is-transparent {
   opacity: 0 !important;
 }
-
 .is-opaque {
   opacity: 1 !important;
 }
-
 .is-invisible {
   visibility: hidden !important;
 }
-
 .is-visible {
   visibility: visible !important;
 }
-
-.is-nav-open {
+.is-scrolll-disabled {
   overflow: hidden !important;
 }
-
 .is-unrotate-out {
   transform-origin: bottom center !important;
   transform: translate(0, 10px) scale(1.05) rotateX(-15deg) !important;
 }
-
 .is-unrotate-in {
   transform-origin: bottom center !important;
   // including rotate(0deg) here would cause the element to be blury
   transform: translate(0, 0) scale(1) !important;
 }
-
 .is-dropped-out {
   transform-origin: bottom center !important;
   transform: translate(0, 10px) scale(0.95) rotateX(15deg) !important;
 }
-
 .is-small {
   transform: scale(0.5) !important;
 }
-
 .is-large {
   transform: scale(1.5) !important;
 }
-
 .is-night-mode {
   p {
     color: $white;
   }
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .is-nav-open {
-    overflow: auto !important;
-  }
-}
-
+@media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
-
 @media (min-width: $screen-lg) {}
-
 @media (min-width: $screen-xl) {}

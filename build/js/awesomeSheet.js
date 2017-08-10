@@ -15591,6 +15591,15 @@ var modal = (function() {
     }, false);
   };
 
+  function checkForModal() {
+    var modal = helper.e(".js-modal");
+    if (modal) {
+      body.dataset.modal = true;
+    } else {
+      body.dataset.modal = false;
+    };
+  };
+
   function destroy() {
     var modal = helper.e(".js-modal");
     var modalShade = helper.e(".js-modal-shade");
@@ -15685,12 +15694,16 @@ var modal = (function() {
     modal.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForModal();
+        page.update();
       };
     }.bind(modal), false);
 
     modalShade.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForModal();
+        page.update();
       };
     }.bind(modalShade), false);
 
@@ -15731,6 +15744,8 @@ var modal = (function() {
     helper.removeClass(modalShade, "is-transparent");
     helper.addClass(modalShade, "is-opaque");
     modalHeading.focus(this);
+    checkForModal();
+    page.update();
   };
 
   // exposed methods
@@ -15969,9 +15984,9 @@ var nav = (function() {
     var body = helper.e("body");
     var nav = helper.e(".js-is-open");
     if (nav) {
-      helper.addClass(body, "is-nav-open");
+      helper.addClass(body, "is-scrolll-disabled");
     } else {
-      helper.removeClass(body, "is-nav-open");
+      helper.removeClass(body, "is-scrolll-disabled");
     };
   };
 
@@ -15979,16 +15994,20 @@ var nav = (function() {
     helper.removeClass(helper.e(".js-nav"), "is-open");
     helper.removeClass(helper.e(".js-nav"), "js-is-open");
     helper.removeClass(helper.e(".js-hamburger"), "is-open");
-    _checkBodyForOpenNav();
+    helper.e("body").dataset.nav = false;
+    // _checkBodyForOpenNav();
     _destroy_navShade();
+    page.update();
   };
 
   function navOpen() {
     helper.addClass(helper.e(".js-nav"), "is-open");
     helper.addClass(helper.e(".js-nav"), "js-is-open");
     helper.addClass(helper.e(".js-hamburger"), "is-open");
-    _checkBodyForOpenNav();
+    helper.e("body").dataset.nav = true;
+    // _checkBodyForOpenNav();
     _render_navShade();
+    page.update();
   };
 
   function toggle_nav() {
@@ -15997,14 +16016,18 @@ var nav = (function() {
       helper.removeClass(helper.e(".js-nav"), "is-open");
       helper.removeClass(helper.e(".js-nav"), "js-is-open");
       helper.removeClass(helper.e(".js-hamburger"), "is-open");
-      _checkBodyForOpenNav();
+      helper.e("body").dataset.nav = false;
+      // _checkBodyForOpenNav();
       _destroy_navShade();
+      page.update();
     } else {
       helper.addClass(helper.e(".js-nav"), "is-open");
       helper.addClass(helper.e(".js-nav"), "js-is-open");
       helper.addClass(helper.e(".js-hamburger"), "is-open");
-      _checkBodyForOpenNav();
+      helper.e("body").dataset.nav = true;
+      // _checkBodyForOpenNav();
       _render_navShade();
+      page.update();
     };
   };
 
@@ -16137,17 +16160,17 @@ var nav = (function() {
       // ctrl+alt+delete
       if (event.ctrlKey && event.altKey && event.keyCode == 8) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        navClose();
+        // navClose();
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
-        navClose();
+        // navClose();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
-        navClose();
+        // navClose();
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
@@ -16248,6 +16271,39 @@ var night = (function() {
 
 })();
 
+var page = (function() {
+
+  function update() {
+    var body = helper.e("body");
+    var modal = (body.dataset.modal == "true");
+    var prompt = (body.dataset.prompt == "true");
+    var nav = (body.dataset.nav == "true");
+    if (modal || prompt || nav) {
+      helper.addClass(body, "is-scrolll-disabled");
+    } else {
+      helper.removeClass(body, "is-scrolll-disabled");
+    };
+  };
+
+  function lock() {
+    var body = helper.e("body");
+    helper.addClass(body, "is-scrolll-disabled");
+  };
+
+  function unlock() {
+    var body = helper.e("body");
+    helper.removeClass(body, "is-scrolll-disabled");
+  };
+
+  // exposed methods
+  return {
+    lock: lock,
+    unlock: unlock,
+    update: update
+  };
+
+})();
+
 var prompt = (function() {
 
   var previousPrompt = null;
@@ -16259,6 +16315,15 @@ var prompt = (function() {
         destroy();
       };
     }, false);
+  };
+
+  function checkForPrompt() {
+    var prompt = helper.e(".js-prompt");
+    if (prompt) {
+      body.dataset.prompt = true;
+    } else {
+      body.dataset.prompt = false;
+    };
   };
 
   function destroy() {
@@ -16349,12 +16414,16 @@ var prompt = (function() {
     prompt.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForPrompt();
+        page.update();
       };
     }.bind(prompt), false);
 
     promptShade.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForPrompt();
+        page.update();
       };
     }.bind(promptShade), false);
 
@@ -16402,6 +16471,8 @@ var prompt = (function() {
     helper.removeClass(promptShade, "is-transparent");
     helper.addClass(promptShade, "is-opaque");
     promptHeading.focus(this);
+    checkForPrompt();
+    page.update();
   };
 
   // exposed methods

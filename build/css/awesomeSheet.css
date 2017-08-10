@@ -5442,7 +5442,7 @@ label {
 .is-visible {
   visibility: visible !important; }
 
-.is-nav-open {
+.is-scrolll-disabled {
   overflow: hidden !important; }
 
 .is-unrotate-out {
@@ -5479,7 +5479,3 @@ label {
 
 .is-night-mode p {
   color: #ffffff; }
-
-@media (min-width: 550px) {
-  .is-nav-open {
-    overflow: auto !important; } }

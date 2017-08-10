@@ -11,6 +11,15 @@ var prompt = (function() {
     }, false);
   };
 
+  function checkForPrompt() {
+    var prompt = helper.e(".js-prompt");
+    if (prompt) {
+      body.dataset.prompt = true;
+    } else {
+      body.dataset.prompt = false;
+    };
+  };
+
   function destroy() {
     var prompt = helper.e(".js-prompt");
     var promptShade = helper.e(".js-prompt-shade");
@@ -99,12 +108,16 @@ var prompt = (function() {
     prompt.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForPrompt();
+        page.update();
       };
     }.bind(prompt), false);
 
     promptShade.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForPrompt();
+        page.update();
       };
     }.bind(promptShade), false);
 
@@ -152,6 +165,8 @@ var prompt = (function() {
     helper.removeClass(promptShade, "is-transparent");
     helper.addClass(promptShade, "is-opaque");
     promptHeading.focus(this);
+    checkForPrompt();
+    page.update();
   };
 
   // exposed methods

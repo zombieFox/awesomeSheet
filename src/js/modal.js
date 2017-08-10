@@ -11,6 +11,15 @@ var modal = (function() {
     }, false);
   };
 
+  function checkForModal() {
+    var modal = helper.e(".js-modal");
+    if (modal) {
+      body.dataset.modal = true;
+    } else {
+      body.dataset.modal = false;
+    };
+  };
+
   function destroy() {
     var modal = helper.e(".js-modal");
     var modalShade = helper.e(".js-modal-shade");
@@ -105,12 +114,16 @@ var modal = (function() {
     modal.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForModal();
+        page.update();
       };
     }.bind(modal), false);
 
     modalShade.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
         this.parentElement.removeChild(this);
+        checkForModal();
+        page.update();
       };
     }.bind(modalShade), false);
 
@@ -151,6 +164,8 @@ var modal = (function() {
     helper.removeClass(modalShade, "is-transparent");
     helper.addClass(modalShade, "is-opaque");
     modalHeading.focus(this);
+    checkForModal();
+    page.update();
   };
 
   // exposed methods
