@@ -38,7 +38,7 @@ var encumbrance = (function() {
       str = value;
     };
     var allEncumbrance = {};
-    if (str <= 200) {
+    if (str > 0 && str <= 200) {
       var maxLoad;
       var base = [25, 28.75, 32.5, 37.5, 43.75, 50, 57.5, 65, 75, 87.5];
       if (parseInt(str, 10) <= 10) {
@@ -47,7 +47,6 @@ var encumbrance = (function() {
         var index = (1 + str - 10 * parseInt(str / 10)) - 1;
         maxLoad = base[index] * Math.pow(4, parseInt(str / 10));
       };
-
       // console.log("maxLoad", maxLoad);
       var lightUpper = parseInt(maxLoad / 3).toLocaleString();
       var mediumUpper = parseInt((2 * maxLoad) / 3).toLocaleString();
@@ -56,13 +55,17 @@ var encumbrance = (function() {
       var heavyLower = (parseInt((2 * maxLoad) / 3) + 1).toLocaleString();
       var lift = parseInt(2 * maxLoad).toLocaleString();
       var drag = parseInt(5 * maxLoad).toLocaleString();
-
       allEncumbrance.light = lightUpper + " lbs. or less";
       allEncumbrance.medium = mediumLower + " - " + mediumUpper + " lbs.";
       allEncumbrance.heavy = heavyLower + " - " + heavyUpper + " lbs.";
       allEncumbrance.lift = lift + " lbs.";
       allEncumbrance.drag = drag + " lbs.";
-      // console.log(allEncumbrance);
+    } else if (isNaN(str) || str <= 0) {
+      allEncumbrance.light = 0;
+      allEncumbrance.medium = 0;
+      allEncumbrance.heavy = 0;
+      allEncumbrance.lift = 0;
+      allEncumbrance.drag = 0;
     } else {
       allEncumbrance.light = "STR exceeds maximum calculation";
       allEncumbrance.medium = "STR exceeds maximum calculation";

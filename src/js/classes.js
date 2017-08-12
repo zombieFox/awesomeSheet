@@ -17,12 +17,20 @@ var classes = (function() {
           totalBab = totalBab - 5;
         };
       } else {
-        allBab.push("+" + totalBab);
+        if (totalBab > 0) {
+          allBab.push("+" + totalBab);
+        } else {
+          allBab.push(totalBab);
+        };
       };
     } else {
       allBab.push("BAB exceeds maximum calculation");
     };
-    allBab = allBab.join(" / ");
+    if (allBab.length > 1) {
+      allBab = allBab.join(" / ");
+    } else {
+      allBab = allBab[0];
+    };
     return allBab;
   };
 

@@ -16,10 +16,12 @@ var textBlock = (function() {
     };
     if (textType) {
       if (textType == "currency") {
-        content = parseFloat(content).toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        }) + " gp";
+        if (content != "") {
+          content = parseFloat(content).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }) + " gp";
+        };
       };
     };
     textBlock.textContent = content;
