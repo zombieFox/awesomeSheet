@@ -6,8 +6,8 @@ var spells = (function() {
     var spellCastButton = helper.e(".js-spell-cast");
     var spellActiveButton = helper.e(".js-spell-active");
     var spellRemoveButton = helper.e(".js-spell-remove");
-    var spellResetButton = helper.e(".js-spell-reset");
-    var spellSort = helper.e(".js-spells-sort");
+    var spellReset = helper.e(".js-spell-reset");
+    var spellSort = helper.e(".js-spell-sort");
     var all_newSpellAdd = helper.eA(".js-new-spell-add");
     for (var i = 0; i < all_newSpellAdd.length; i++) {
       var spellBook = helper.getClosest(all_newSpellAdd[i], ".js-spell-book");
@@ -33,19 +33,38 @@ var spells = (function() {
     spellActiveButton.addEventListener("click", function() {
       _change_spellState(this);
     }, false);
-    spellResetButton.addEventListener("click", function() {
-      _change_spellState(this);
-      _resetAllSpells();
-    }, false);
     spellRemoveButton.addEventListener("click", function() {
       _change_spellState(this);
     }, false);
+    spellReset.addEventListener("click", function() {
+      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetAllSpells);
+    }, false);
     spellSort.addEventListener("click", function() {
-      prompt.render("Sort Spells", "Sort all Spells in alphabetical order?", "Sort", _spellsSort);
+      prompt.render("Sort Spells", "Sort all Spells in alphabetical order?", "Sort", _sortAllSpells);
     }, false);
   };
 
-  function _spellsSort() {
+  function _resetAllSpells() {
+    var all_spells = helper.eA(".js-spell");
+    if (all_spells.length > 0) {
+      for (var i in sheet.getCharacter().spells.book) {
+        for (var j in sheet.getCharacter().spells.book[i]) {
+          for (var k in sheet.getCharacter().spells.book[i][j]) {
+            sheet.getCharacter().spells.book[i][j][k].prepared = 0;
+            sheet.getCharacter().spells.book[i][j][k].cast = 0;
+            sheet.getCharacter().spells.book[i][j][k].active = false;
+            // console.log(sheet.getCharacter().spells.book[i][j][k]);
+          };
+        };
+      };
+      clear();
+      render();
+      sheet.storeCharacters();
+      snack.render("All spells reset.");
+    };
+  };
+
+  function _sortAllSpells() {
     for (var i in sheet.getCharacter().spells.book) {
       for (var j in sheet.getCharacter().spells.book[i]) {
         helper.sortObject(sheet.getCharacter().spells.book[i][j], "name");
@@ -54,6 +73,7 @@ var spells = (function() {
     sheet.storeCharacters();
     clear();
     render();
+    snack.render("All spells alphabetically sorted.");
   };
 
   function _addNewSpell(element) {
@@ -75,29 +95,6 @@ var spells = (function() {
     var keystroke = event.keyCode || event.which;
     if (keystroke == 13) {
       _addNewSpell(element);
-    };
-  };
-
-  function _resetAllSpells() {
-    var all_spells = helper.eA(".js-spell");
-    if (all_spells.length > 0) {
-      var _resetSpells = function() {
-        for (var i in sheet.getCharacter().spells.book) {
-          for (var j in sheet.getCharacter().spells.book[i]) {
-            for (var k in sheet.getCharacter().spells.book[i][j]) {
-              sheet.getCharacter().spells.book[i][j][k].prepared = 0;
-              sheet.getCharacter().spells.book[i][j][k].cast = 0;
-              sheet.getCharacter().spells.book[i][j][k].active = false;
-              // console.log(sheet.getCharacter().spells.book[i][j][k]);
-            };
-          };
-        };
-        clear();
-        render();
-        sheet.storeCharacters();
-        snack.render("All spells reset.");
-      };
-      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetSpells, false, false, false);
     };
   };
 
@@ -640,72 +637,6 @@ var spells = (function() {
       helper.removeClass(spellRemoveButton, "button-primary");
       helper.addClass(spellRemoveButton, "button-secondary");
     };
-
-    // // if there are spells
-    // if (spellsFound) {
-    //   if (button.dataset.state != spellRoot.dataset.spellState) {
-    //     for (var i = 0; i < all_spellStateControls.length; i++) {
-    //       helper.removeClass(all_spellStateControls[i], "is-live");
-    //     };
-    //     helper.addClass(button, "is-live");
-    //   };
-    // } else {
-    //   spellRoot.dataset.spellState = "false";
-    //   helper.removeClass(button, "is-live");
-    //   helper.removeClass(spellRoot, "is-state-prepare");
-    //   helper.removeClass(spellRoot, "is-state-unprepare");
-    //   helper.removeClass(spellRoot, "is-state-cast");
-    //   helper.removeClass(spellRoot, "is-state-active");
-    //   helper.removeClass(spellRoot, "is-state-remove");
-    //   helper.removeClass(spellRemoveButton, "button-primary");
-    //   helper.addClass(spellRemoveButton, "button-secondary");
-    // };
-    // if (spellsFound) {
-    //   // if this button is active
-    //   if (spellRoot.dataset.spellState != button.dataset.state) {
-    //     helper.removeClass(button, "is-active");
-    //     helper.removeClass(spellRoot, "is-state-prepare");
-    //     helper.removeClass(spellRoot, "is-state-unprepare");
-    //     helper.removeClass(spellRoot, "is-state-cast");
-    //     helper.removeClass(spellRoot, "is-state-active");
-    //     helper.removeClass(spellRoot, "is-state-remove");
-    //     helper.addClass(spellRoot, "is-state-" + button.dataset.state);
-    //     spellRoot.dataset.spellState = button.dataset.state;
-    //     for (var i = 0; i < all_spellStateControls.length; i++) {
-    //       helper.removeClass(all_spellStateControls[i], "is-active");
-    //     };
-    //     if (!button.classList.contains("js-spell-reset")) {
-    //       helper.addClass(button, "is-active");
-    //     };
-    //     if (spellRoot.dataset.spellState == "remove") {
-    //       helper.addClass(spellRemoveButton, "button-primary");
-    //       helper.removeClass(spellRemoveButton, "button-secondary");
-    //     } else {
-    //       helper.removeClass(spellRemoveButton, "button-primary");
-    //       helper.addClass(spellRemoveButton, "button-secondary");
-    //     };
-    //   } else {
-    //     spellRoot.dataset.spellState = "false";
-    //     helper.removeClass(button, "is-active");
-    //     helper.removeClass(spellRoot, "is-state-prepare");
-    //     helper.removeClass(spellRoot, "is-state-unprepare");
-    //     helper.removeClass(spellRoot, "is-state-cast");
-    //     helper.removeClass(spellRoot, "is-state-active");
-    //     helper.removeClass(spellRoot, "is-state-remove");
-    //     helper.removeClass(spellRemoveButton, "button-primary");
-    //     helper.addClass(spellRemoveButton, "button-secondary");
-    //   };
-    // } else {
-    //   spellRoot.dataset.spellState = "false";
-    //   helper.removeClass(button, "is-active");
-    //   helper.removeClass(spellRoot, "is-state-prepare");
-    //   helper.removeClass(spellRoot, "is-state-unprepare");
-    //   helper.removeClass(spellRoot, "is-state-cast");
-    //   helper.removeClass(spellRoot, "is-state-active");
-    //   helper.removeClass(spellRoot, "is-state-remove");
-    //   helper.removeClass(spellRemoveButton, "button-primary");
-    //   helper.addClass(spellRemoveButton, "button-secondary");
-    // };
   };
 
   function _checkSpellState() {
