@@ -94,6 +94,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/snack.js',
           '<%= folders.build %>/js/spells.js',
           '<%= folders.build %>/js/stats.js',
+          '<%= folders.build %>/js/tabs.js',
           '<%= folders.build %>/js/text-block.js',
           '<%= folders.build %>/js/textarea-block.js',
           '<%= folders.build %>/js/theme-color.js',

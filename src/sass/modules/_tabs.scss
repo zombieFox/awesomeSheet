@@ -13,9 +13,9 @@
   background-color: transparent;
   color: $secondary-color-16;
   padding: 0.25em 1em;
-  margin: 0 0 0 -1px;
+  margin: 0;
   border: 0;
-  border-bottom: 4px solid transparent;
+  border-bottom: 6px solid transparent;
   border-radius: 0;
   box-shadow: none;
   z-index: 1;
@@ -24,7 +24,7 @@
   &:visited {
     background-color: transparent;
     border: 0;
-    border-bottom: 4px solid transparent;
+    border-bottom: 6px solid transparent;
     color: $secondary-color-16;
   }
   &:focus,
@@ -45,26 +45,15 @@
     text-decoration: none;
     box-shadow: none;
   }
-  // &:first-of-type {
-  //   border-radius: $border-radius-large 0 0 0;
-  // }
-  // &:last-of-type {
-  //   border-radius: 0 $border-radius-large 0 0;
-  // }
-  // &:first-of-type:last-of-type {
-  //   border-radius: $border-radius-large;
-  // }
   &.is-active {
     background-color: transparent;
-    border-bottom-color: $secondary-color-16;
+    background-color: $secondary-color-07;
+    border-bottom-color: $white;
     color: $white;
     box-shadow: none;
     z-index: 2;
-    .m-tab-text {
-      font-size: 0.9em;
-    }
   }
 }
 .m-tab-text {
-  font-size: $font-size-075;
+  font-size: 0.9em;
 }
