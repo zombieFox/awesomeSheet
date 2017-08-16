@@ -13,12 +13,15 @@ var tabs = (function() {
   };
 
   function _switchTab(tab) {
+    var tabTarget = helper.e("." + tab.dataset.tabTarget);
     var tabGroup = helper.getClosest(tab, ".js-tab-group");
     var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
     for (var i = 0; i < all_tabItem.length; i++) {
       helper.removeClass(all_tabItem[i], "is-active");
+      helper.addClass(helper.e("." + all_tabItem[i].dataset.tabTarget), "is-hidden");
     };
     helper.addClass(tab, "is-active");
+    helper.removeClass(tabTarget, "is-hidden");
   };
 
   // exposed methods

@@ -1,204 +1,224 @@
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">Character</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item-large">
-        <div class="m-input-block m-input-block-large js-input-block js-basics-name">
-          <label class="m-input-block-label js-input-block-label" for="basics-name">Name</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-name" data-path="basics.name" type="text" tabindex="1">
+<div class="m-tab-panel js-tab-panel js-tab-panel-character-details">
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">Character</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-large">
+          <div class="m-input-block m-input-block-large js-input-block js-basics-name">
+            <label class="m-input-block-label js-input-block-label" for="basics-name">Name</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-name" data-path="basics.name" type="text" tabindex="1">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div class="m-clone-block js-clone-block-class">
-  <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-class">
-    <div class="button-group button-group-right js-clone-controls">
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-add-class" tabindex="1"><span class="icon-add"></span><span class="button-text">Class</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-  </div>
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
     <div class="m-edit-box-head">
-      <h2 class="m-edit-box-title">Classes</h2>
+      <p class="m-edit-box-title">Details</p>
     </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Level</p>
+          <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total Level from all Classes." data-path="basics.level"></p>
+        </div>
+        <div class="m-edit-box-item-medium">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-xp">XP</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-xp" data-path="basics.xp" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-medium">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-race">Race</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-race" data-path="basics.race" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-medium">
+          <div class="m-select-block js-select-block">
+            <p class="m-select-block-label js-select-block-label">Alignment</p>
+            <select class="m-select-block-dropdown u-full-width js-select-block-dropdown" data-path="basics.alignment" tabindex="1">
+              <option></option>
+              <option value="Lawful Good">Lawful Good</option>
+              <option value="Lawful Neutral">Lawful Neutral</option>
+              <option value="Lawful Evil">Lawful Evil</option>
+              <option value="Neutral Good">Neutral Good</option>
+              <option value="Neutral">Neutral</option>
+              <option value="Neutral Evil">Neutral Evil</option>
+              <option value="Chaotic Good">Chaotic Good</option>
+              <option value="Chaotic Neutral">Chaotic Neutral</option>
+              <option value="Chaotic Evil">Chaotic Evil</option>
+            </select>
+          </div>
+        </div>
+        <div class="m-edit-box-item-medium">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-deity">Deity</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-deity" data-path="basics.deity" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-medium">
+          <div class="m-select-block js-select-block js-size">
+            <p class="m-select-block-label js-select-block-label">Size</p>
+            <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-tip" data-tip-show-on="hover" data-tip-message="Size Modifiers are automatically applied to Attacks, Armor Class, Combat Maneuver Bonus, Combat Maneuver Defense, Fly and Stealth skills."
+              data-path="basics.size.category" tabindex="1">
+            <option></option>
+            <option value="Fine">Fine</option>
+            <option value="Diminutive">Diminutive</option>
+            <option value="Tiny">Tiny</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="Huge">Huge</option>
+            <option value="Gargantuan">Gargantuan</option>
+            <option value="Colossal">Colossal</option>
+          </select>
+          </div>
+        </div>
+        <div class="m-edit-box-item-medium">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-gender">Gender</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-gender" data-path="basics.gender" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-age">Age</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-age" data-path="basics.age" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-height">Height</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-height" data-path="basics.height" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-weight">Weight</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-weight" data-path="basics.weight" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-luck-points">Luck Points</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-luck-points" data-path="basics.luck_points" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-input-block js-input-block">
+            <label class="m-input-block-label js-input-block-label" for="basics-hero-points">Hero Points</label>
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-hero-points" data-path="basics.hero_points" type="text" tabindex="1">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
     <div class="m-edit-box-body">
       <div class="m-edit-box-content">
         <div class="m-edit-box-item-max">
-          <div class="m-placeholder js-placeholder-clone-class">
-            <p class="m-placeholder-description u-muted-text">You dont have any Classes, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Class</strong>.</p>
+          <div class="m-textarea-block js-textarea-block">
+            <label class="m-textarea-block-label js-textarea-block-label" for="basics-character-description">Character Description</label>
+            <div id="basics-character-description" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="basics.character_description" contentEditable="true" tabindex="1"></div>
           </div>
         </div>
       </div>
-      <div class="m-clone-block-target js-clone-block-target js-clone-block-target-class"></div>
     </div>
   </div>
+
 </div>
 
-<hr>
+<div class="m-tab-panel js-tab-panel js-tab-panel-classes is-hidden">
 
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">Details</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item-total">
-        <p class="m-edit-box-label">Level</p>
-        <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total Level from all Classes." data-path="basics.level"></p>
+  <div class="m-clone-block js-clone-block-class">
+    <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-class">
+      <div class="button-group button-group-right js-clone-controls">
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-add-class" tabindex="1"><span class="icon-add"></span><span class="button-text">Class</span></button>
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
       </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-xp">XP</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-xp" data-path="basics.xp" type="text" tabindex="1">
-        </div>
+    </div>
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Classes</h2>
       </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-race">Race</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-race" data-path="basics.race" type="text" tabindex="1">
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content">
+          <div class="m-edit-box-item-max">
+            <div class="m-placeholder js-placeholder-clone-class">
+              <p class="m-placeholder-description u-muted-text">You dont have any Classes, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Class</strong>.</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-select-block js-select-block">
-          <p class="m-select-block-label js-select-block-label">Alignment</p>
-          <select class="m-select-block-dropdown u-full-width js-select-block-dropdown" data-path="basics.alignment" tabindex="1">
-          <option></option>
-          <option value="Lawful Good">Lawful Good</option>
-          <option value="Lawful Neutral">Lawful Neutral</option>
-          <option value="Lawful Evil">Lawful Evil</option>
-          <option value="Neutral Good">Neutral Good</option>
-          <option value="Neutral">Neutral</option>
-          <option value="Neutral Evil">Neutral Evil</option>
-          <option value="Chaotic Good">Chaotic Good</option>
-          <option value="Chaotic Neutral">Chaotic Neutral</option>
-          <option value="Chaotic Evil">Chaotic Evil</option>
-        </select>
-        </div>
-      </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-deity">Deity</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-deity" data-path="basics.deity" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-select-block js-select-block js-size">
-          <p class="m-select-block-label js-select-block-label">Size</p>
-          <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-tip" data-tip-show-on="hover" data-tip-message="Size Modifiers are automatically applied to Attacks, Armor Class, Combat Maneuver Bonus, Combat Maneuver Defense, Fly and Stealth skills." data-path="basics.size.category" tabindex="1">
-          <option></option>
-          <option value="Fine">Fine</option>
-          <option value="Diminutive">Diminutive</option>
-          <option value="Tiny">Tiny</option>
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
-          <option value="Huge">Huge</option>
-          <option value="Gargantuan">Gargantuan</option>
-          <option value="Colossal">Colossal</option>
-        </select>
-        </div>
-      </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-speed">Speed</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed" data-path="basics.speed" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-medium">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-gender">Gender</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-gender" data-path="basics.gender" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-small">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-age">Age</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-age" data-path="basics.age" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-small">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-height">Height</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-height" data-path="basics.height" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-small">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-weight">Weight</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-weight" data-path="basics.weight" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-small">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-luck-points">Luck Points</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-luck-points" data-path="basics.luck_points" type="text" tabindex="1">
-        </div>
-      </div>
-      <div class="m-edit-box-item-small">
-        <div class="m-input-block js-input-block">
-          <label class="m-input-block-label js-input-block-label" for="basics-hero-points">Hero Points</label>
-          <input class="m-input-block-field u-full-width js-input-block-field" id="basics-hero-points" data-path="basics.hero_points" type="text" tabindex="1">
-        </div>
+        <div class="m-clone-block-target js-clone-block-target js-clone-block-target-class"></div>
       </div>
     </div>
   </div>
+
 </div>
 
-<div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content">
-      <div class="m-edit-box-item-max">
-        <div class="m-textarea-block js-textarea-block">
-          <label class="m-textarea-block-label js-textarea-block-label" for="basics-character-description">Character Description</label>
-          <div id="basics-character-description" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="basics.character_description" contentEditable="true" tabindex="1"></div>
+<div class="m-tab-panel js-tab-panel js-tab-panel-initiative-speed is-hidden">
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="basics.initiative" data-total-path-addition="misc,temp,feat" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level"
+    data-total-type="bonus">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">Initiative</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-total-block-total" data-path="basics.initiative.current"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+              <input id="basics-Initiative-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.misc" type="text" data-type="integer" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+              <input id="basics-Initiative-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.temp" type="text" data-type="integer" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+              <input id="basics-Initiative-feat" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.feat" type="text" data-type="integer" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Initiative bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="basics.initiative" data-total-path-addition="misc,temp,feat" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">Initiative</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="basics.initiative.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">Speed</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content">
+        <div class="m-edit-box-item-medium">
           <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
-            <input id="basics-Initiative-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.misc" type="text" data-type="integer" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed" data-path="basics.speed" type="text" tabindex="1">
           </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
-            <input id="basics-Initiative-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.temp" type="text" data-type="integer" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
-            <input id="basics-Initiative-feat" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.feat" type="text" data-type="integer" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Initiative bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
         </div>
       </div>
     </div>
   </div>
+
 </div>
