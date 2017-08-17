@@ -8,6 +8,7 @@
   background-color: $secondary-color-06;
   max-width: 100%;
   overflow: auto;
+  box-shadow: $shadow-small;
 }
 .m-tab-item {
   background-color: transparent;
@@ -47,7 +48,7 @@
   }
   &.is-active {
     background-color: transparent;
-    background-color: $secondary-color-07;
+    // background-color: $secondary-color-07;
     border-bottom-color: $white;
     color: $white;
     box-shadow: none;

@@ -75,7 +75,9 @@ var display = (function() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
-      helper.addClass(editTabs, "is-hidden");
+      if (editTabs) {
+        helper.addClass(editTabs, "is-hidden");
+      };
       for (var i = 0; i < all_display.length; i++) {
         helper.removeClass(all_display[i], "is-hidden");
       };
@@ -86,7 +88,9 @@ var display = (function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
-      helper.removeClass(editTabs, "is-hidden");
+      if (editTabs) {
+        helper.removeClass(editTabs, "is-hidden");
+      };
       for (var i = 0; i < all_display.length; i++) {
         helper.addClass(all_display[i], "is-hidden");
       };
