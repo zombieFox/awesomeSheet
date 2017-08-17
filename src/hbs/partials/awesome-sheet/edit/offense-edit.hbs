@@ -1,216 +1,222 @@
-<div class="m-edit-box m-edit-box-indent box m-edit-box-head-small">
-<div class="m-edit-box-head">
-  <p class="m-edit-box-title">Base Attack Bonus</p>
-</div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item-shrink">
-        <p class="m-edit-box-total js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total BAB from all Classes." data-path="offense.base_attack_bonuses"></p>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="m-tab-panel js-tab-panel js-tab-panel-offense-stats">
 
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.melee_attack" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,size,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">Melee</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="offense.melee_attack.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-misc">Misc</label>
-            <input id="offense-melee-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.misc" data-total="addition" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-temp">Temp</label>
-            <input id="offense-melee-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-text">
-          <p class="m-edit-box-label">Size Mod</p>
-          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Size Modifier defined by Size (Basics)." data-path="basics.size.size_modifier"></p>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Melee bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.ranged_attack" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,size,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">Ranged</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="offense.ranged_attack.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-misc">Misc</label>
-            <input id="offense-ranged-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.misc" data-total="addition" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-temp">Temp</label>
-            <input id="offense-ranged-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-text">
-          <p class="m-edit-box-label">Size Mod</p>
-          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Size Modifier defined by Size (Basics)." data-path="basics.size.size_modifier"></p>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Ranged bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmb" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">CMB</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="offense.cmb.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
-            <input id="offense-cmb-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
-            <input id="offense-cmb-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-text">
-          <p class="m-edit-box-label">Sp Size Mod</p>
-          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Special Size Modifier defined by Size (Basics)." data-path="basics.size.special_size_modifier"></p>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMB bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmd" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
-  data-total-type="bonus">
-  <div class="m-edit-box-head">
-    <p class="m-edit-box-title">CMD</p>
-  </div>
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content m-edit-box-content-margin-large">
-      <div class="m-edit-box-item m-edit-box-group">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-total js-total-block-total" data-path="offense.cmd.current"></p>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
-            <input id="offense-cmd-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
-            <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
-            <input id="offense-cmd-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-type="integer" type="text" tabindex="1">
-          </div>
-        </div>
-        <div class="m-edit-box-item-text">
-          <p class="m-edit-box-label">Sp Size Mod</p>
-          <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Special Size Modifier defined by Size (Basics)." data-path="basics.size.special_size_modifier"></p>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMD bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
-  <div class="m-edit-box-body">
-    <div class="m-edit-box-content">
-      <div class="m-edit-box-item-max">
-        <div class="m-textarea-block js-textarea-block">
-          <label class="m-textarea-block-label js-textarea-block-label" for="offense-attack-notes">Attack Notes</label>
-          <div id="offense-attack-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="offense.attack_notes" contentEditable="true" tabindex="1"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr>
-
-<div class="m-clone-block js-clone-block-attack">
-  <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-attack">
-    <div class="button-group button-group-right js-clone-controls">
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-add-melee" tabindex="1"><span class="icon-add"></span><span class="button-text">Melee</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-add-ranged" tabindex="1"><span class="icon-add"></span><span class="button-text">Ranged</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-  </div>
-
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+  <div class="m-edit-box m-edit-box-indent box m-edit-box-head-small">
     <div class="m-edit-box-head">
-      <h2 class="m-edit-box-title">Melee Attacks</h2>
+      <p class="m-edit-box-title">Base Attack Bonus</p>
     </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-shrink">
+          <p class="m-edit-box-total js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total BAB from all Classes." data-path="offense.base_attack_bonuses"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.melee_attack" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,size,level,half_level"
+    data-total-type="bonus">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">Melee</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-total-block-total" data-path="offense.melee_attack.current"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-misc">Misc</label>
+              <input id="offense-melee-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.misc" data-total="addition" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-melee-attack-temp">Temp</label>
+              <input id="offense-melee-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.melee_attack.temp" data-total="addition" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-text">
+            <p class="m-edit-box-label">Size Mod</p>
+            <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Size Modifier defined by Size (Basics)." data-path="basics.size.size_modifier"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Melee bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.ranged_attack" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,size,level,half_level"
+    data-total-type="bonus">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">Ranged</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-total-block-total" data-path="offense.ranged_attack.current"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-misc">Misc</label>
+              <input id="offense-ranged-attack-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.misc" data-total="addition" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-ranged-attack-temp">Temp</label>
+              <input id="offense-ranged-attack-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.ranged_attack.temp" data-total="addition" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-text">
+            <p class="m-edit-box-label">Size Mod</p>
+            <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Size Modifier defined by Size (Basics)." data-path="basics.size.size_modifier"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Ranged bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmb" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
+    data-total-type="bonus">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">CMB</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-total-block-total" data-path="offense.cmb.current"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-cmb-misc">Misc</label>
+              <input id="offense-cmb-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.misc" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-cmb-temp">Temp</label>
+              <input id="offense-cmb-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmb.temp" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-text">
+            <p class="m-edit-box-label">Sp Size Mod</p>
+            <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Special Size Modifier defined by Size (Basics)." data-path="basics.size.special_size_modifier"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMB bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="offense.cmd" data-total-path-addition="misc,temp,size" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,bab,special_size,level,half_level"
+    data-total-type="bonus">
+    <div class="m-edit-box-head">
+      <p class="m-edit-box-title">CMD</p>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-total-block-total" data-path="offense.cmd.current"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-cmd-misc">Misc</label>
+              <input id="offense-cmd-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.misc" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="offense-cmd-temp">Temp</label>
+              <input id="offense-cmd-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.cmd.temp" data-type="integer" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-text">
+            <p class="m-edit-box-label">Sp Size Mod</p>
+            <p class="m-edit-box-text js-text-block js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Special Size Modifier defined by Size (Basics)." data-path="basics.size.special_size_modifier"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="CMD bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
     <div class="m-edit-box-body">
       <div class="m-edit-box-content">
         <div class="m-edit-box-item-max">
-          <div class="m-placeholder js-placeholder-clone-attack-melee">
-            <p class="m-placeholder-description u-muted-text">You dont have any Melee Attacks, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Melee</strong>.</p>
+          <div class="m-textarea-block js-textarea-block">
+            <label class="m-textarea-block-label js-textarea-block-label" for="offense-attack-notes">Attack Notes</label>
+            <div id="offense-attack-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" data-path="offense.attack_notes" contentEditable="true" tabindex="1"></div>
           </div>
         </div>
       </div>
-      <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-melee"></div>
     </div>
   </div>
 
-  <hr>
+</div>
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
-    <div class="m-edit-box-head">
-      <h2 class="m-edit-box-title">Ranged Attacks</h2>
+<div class="m-tab-panel js-tab-panel js-tab-panel-armor-attacks is-hidden">
+
+  <div class="m-clone-block js-clone-block-attack">
+    <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-attack">
+      <div class="button-group button-group-right js-clone-controls">
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-add-melee" tabindex="1"><span class="icon-add"></span><span class="button-text">Melee</span></button>
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-add-ranged" tabindex="1"><span class="icon-add"></span><span class="button-text">Ranged</span></button>
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
+      </div>
     </div>
-    <div class="m-edit-box-body">
-      <div class="m-edit-box-content">
-        <div class="m-edit-box-item-max">
-          <div class="m-placeholder js-placeholder-clone-attack-ranged">
-            <p class="m-placeholder-description u-muted-text">You dont have any Ranged Attacks, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Ranged</strong>.</p>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Melee Attacks</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content">
+          <div class="m-edit-box-item-max">
+            <div class="m-placeholder js-placeholder-clone-attack-melee">
+              <p class="m-placeholder-description u-muted-text">You dont have any Melee Attacks, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Melee</strong>.</p>
+            </div>
           </div>
         </div>
+        <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-melee"></div>
       </div>
-      <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-ranged"></div>
     </div>
+
+    <hr>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Ranged Attacks</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content">
+          <div class="m-edit-box-item-max">
+            <div class="m-placeholder js-placeholder-clone-attack-ranged">
+              <p class="m-placeholder-description u-muted-text">You dont have any Ranged Attacks, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Ranged</strong>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="m-clone-block-target js-clone-block-target js-clone-block-target-attack-ranged"></div>
+      </div>
+    </div>
+
   </div>
 
 </div>
