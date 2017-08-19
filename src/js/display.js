@@ -69,28 +69,30 @@ var display = (function() {
     var icon = element.querySelector(".js-card-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
     var edit = section.querySelector(".js-edit");
-    var editTabs = section.querySelector(".js-edit-tabs");
+    // var cardTabs = section.querySelector(".js-card-tabs");
     var all_display = section.querySelectorAll(".js-display");
+
     var _displayOn = function() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
-      if (editTabs) {
-        helper.addClass(editTabs, "is-hidden");
-      };
+      // if (cardTabs) {
+      //   helper.addClass(cardTabs, "is-hidden");
+      // };
       for (var i = 0; i < all_display.length; i++) {
         helper.removeClass(all_display[i], "is-hidden");
       };
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader-mode");
     };
+
     var _displayOff = function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
-      if (editTabs) {
-        helper.removeClass(editTabs, "is-hidden");
-      };
+      // if (cardTabs) {
+      //   helper.removeClass(cardTabs, "is-hidden");
+      // };
       for (var i = 0; i < all_display.length; i++) {
         helper.addClass(all_display[i], "is-hidden");
       };

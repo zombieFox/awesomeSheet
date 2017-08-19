@@ -8,7 +8,7 @@
   background-color: $secondary-color-06;
   max-width: 100%;
   overflow: auto;
-  box-shadow: $shadow-small;
+  // box-shadow: $shadow-small;
 }
 .m-tab-item {
   background-color: transparent;
@@ -16,7 +16,7 @@
   padding: 0.25em 2em;
   margin: 0;
   border: 0;
-  border-bottom: 6px solid transparent;
+  border-color: transparent;
   border-radius: 0;
   box-shadow: none;
   z-index: 1;
@@ -25,13 +25,13 @@
   &:visited {
     background-color: transparent;
     border: 0;
-    border-bottom: 6px solid transparent;
+    border-color: transparent;
     color: $secondary-color-16;
   }
   &:focus,
   &:hover {
-    background-color: transparent;
-    border-bottom-color: $secondary-color-12;
+    background-color: $secondary-color-07;
+    border-color: transparent;
     color: $secondary-color-18;
     outline: 0;
     text-decoration: none;
@@ -39,20 +39,26 @@
     z-index: 2;
   }
   &:active {
-    background-color: transparent;
-    border-bottom-color: $secondary-color-16;
+    background-color: $secondary-color-08;
+    border-color: transparent;
     color: $white;
     outline: 0;
     text-decoration: none;
     box-shadow: none;
   }
   &.is-active {
-    background-color: transparent;
-    // background-color: $secondary-color-07;
-    border-bottom-color: $white;
-    color: $white;
+    background-color: $white;
+    border-color: transparent;
+    border-radius: $border-radius-small $border-radius-small 0 0;
+    color: $base-color;
     box-shadow: none;
     z-index: 2;
+    &:first-of-type {
+      border-radius: 0 $border-radius-small 0 0 ;
+    }
+    &:last-of-type {
+      border-radius: $border-radius-small 0 0 0;
+    }
   }
 }
 .m-tab-text {
