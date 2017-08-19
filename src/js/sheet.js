@@ -292,6 +292,7 @@ var sheet = (function() {
     totalBlock.render();
     textBlock.render();
     display.render();
+    tabs.render();
   };
 
   function bind() {

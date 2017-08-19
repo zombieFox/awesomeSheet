@@ -1,14 +1,21 @@
 .m-tab-group {
+  background-color: $secondary-color-06;
+  font-size: $font-size-100;
+  max-width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  font-size: $font-size-100;
-  padding: 0;
-  background-color: $secondary-color-06;
-  max-width: 100%;
+}
+.m-tab-row {
+  width: 100%;
   overflow: auto;
-  // box-shadow: $shadow-small;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
 }
 .m-tab-item {
   background-color: transparent;
@@ -53,12 +60,24 @@
     color: $base-color;
     box-shadow: none;
     z-index: 2;
-    &:first-of-type {
-      border-radius: 0 $border-radius-small 0 0 ;
-    }
-    &:last-of-type {
-      border-radius: $border-radius-small 0 0 0;
-    }
+    // &:first-of-type {
+    //   border-radius: 0 $border-radius-small 0 0;
+    // }
+    // &:last-of-type {
+    //   border-radius: $border-radius-small 0 0 0;
+    // }
+  }
+}
+.m-tab-arrow {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: 1.4em;
   }
 }
 .m-tab-text {
