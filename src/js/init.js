@@ -4,6 +4,8 @@
   sheet.bind();
   nav.bind();
   nav.render();
+  tabs.render();
+  tabs.bind();
   log.bind();
   log.render();
   night.update();

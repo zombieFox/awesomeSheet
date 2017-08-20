@@ -292,7 +292,6 @@ var sheet = (function() {
     totalBlock.render();
     textBlock.render();
     display.render();
-    tabs.render();
   };
 
   function bind() {
@@ -312,7 +311,6 @@ var sheet = (function() {
     totalBlock.bind();
     display.bind();
     card.bind();
-    tabs.bind();
     tip.bind();
     registerServiceWorker.bind();
   };
