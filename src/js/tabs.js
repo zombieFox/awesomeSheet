@@ -6,7 +6,7 @@ var tabs = (function() {
       var all_tabItem = all_tabGroups[i].querySelectorAll(".js-tab-item");
       for (var j = 0; j < all_tabItem.length; j++) {
         all_tabItem[j].addEventListener("click", function() {
-          _switchTab(this);
+          _switchTabPanel(this);
         }, false);
       };
     };
@@ -45,7 +45,7 @@ var tabs = (function() {
     helper.addClass(all_tabItem[newIndex], "is-active");
     all_tabItem[newIndex].dataset.tabActive = true;
     _scrollTabInToView(tabRow, all_tabItem[newIndex]);
-    _switchTab(all_tabItem[newIndex]);
+    _switchTabPanel(all_tabItem[newIndex]);
   };
 
   function _scrollTabInToView(tabRow, tab) {
@@ -60,7 +60,7 @@ var tabs = (function() {
     };
   };
 
-  function _switchTab(tab) {
+  function _switchTabPanel(tab) {
     var tabTarget = helper.e("." + tab.dataset.tabTarget);
     var tabGroup = helper.getClosest(tab, ".js-tab-group");
     var tabRow = tabGroup.querySelector(".js-tab-row");
