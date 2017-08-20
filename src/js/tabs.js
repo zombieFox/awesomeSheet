@@ -12,13 +12,13 @@ var tabs = (function() {
     };
   };
 
-  function _tabLeftRight(arrow) {
+  function _tabLeftRight(arrowButton) {
     var direction;
-    var tabGroup = helper.getClosest(arrow, ".js-tab-group");
+    var tabGroup = helper.getClosest(arrowButton, ".js-tab-group");
     var tabRow = tabGroup.querySelector(".js-tab-row");
-    if (arrow.classList.contains("js-tab-left")) {
+    if (arrowButton.classList.contains("js-tab-left")) {
       direction = "left";
-    } else if (arrow.classList.contains("js-tab-right")) {
+    } else if (arrowButton.classList.contains("js-tab-right")) {
       direction = "right";
     };
     var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
@@ -87,22 +87,21 @@ var tabs = (function() {
     var all_tabGroup = helper.eA(".js-tab-group");
     for (var i = 0; i < all_tabGroup.length; i++) {
       var tabRow = all_tabGroup[i].querySelector(".js-tab-row");
-      // console.log(tabRow.scrollWidth > tabRow.clientWidth);
       if (tabRow.scrollWidth > tabRow.clientWidth) {
         var tabLeft = document.createElement("button");
         tabLeft.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-left");
         var tabLeftIcon = document.createElement("span");
         tabLeftIcon.setAttribute("class", "icon-chevron-left");
+        tabLeft.appendChild(tabLeftIcon);
+        tabLeft.addEventListener("click", function() {
+          _tabLeftRight(this);
+        }, false);
+
         var tabRight = document.createElement("button");
         tabRight.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-right");
         var tabRightIcon = document.createElement("span");
         tabRightIcon.setAttribute("class", "icon-chevron-right");
-        tabLeft.appendChild(tabLeftIcon);
         tabRight.appendChild(tabRightIcon);
-
-        tabLeft.addEventListener("click", function() {
-          _tabLeftRight(this);
-        }, false);
         tabRight.addEventListener("click", function() {
           _tabLeftRight(this);
         }, false);
