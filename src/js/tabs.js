@@ -12,22 +12,74 @@ var tabs = (function() {
     };
   };
 
-  function _scrollTabRow(arrow) {
+  function _tabLeftRight(arrow) {
     var direction;
-    var tabGroups = helper.getClosest(arrow, ".js-tab-group");
-    var tabRow = tabGroups.querySelector(".js-tab-row");
+    var tabGroup = helper.getClosest(arrow, ".js-tab-group");
+    var tabRow = tabGroup.querySelector(".js-tab-row");
     if (arrow.classList.contains("js-tab-left")) {
-      direction = -100;
+      direction = "left";
     } else if (arrow.classList.contains("js-tab-right")) {
-      direction = 100;
+      direction = "right";
     };
-    tabRow.scrollLeft = tabRow.scrollLeft + direction;
+    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
+    var currentIndex;
+    var newIndex;
+    for (var i = 0; i < all_tabItem.length; i++) {
+      if (all_tabItem[i].dataset.tabActive == "true") {
+        currentIndex = i;
+      };
+      helper.removeClass(all_tabItem[i], "is-active");
+      all_tabItem[i].dataset.tabActive = false;
+    };
+    if (direction == "right") {
+      newIndex = currentIndex + 1;
+      if (newIndex > all_tabItem.length - 1) {
+        newIndex = 0;
+      };
+    } else if (direction == "left") {
+      newIndex = currentIndex - 1;
+      if (newIndex < 0) {
+        newIndex = all_tabItem.length - 1;
+      };
+    };
+    helper.addClass(all_tabItem[newIndex], "is-active");
+    all_tabItem[newIndex].dataset.tabActive = true;
+    _scrollTabInToView(tabRow, all_tabItem[newIndex]);
+    _switchTab(all_tabItem[newIndex]);
+  };
+
+  function _scrollTabInToView(tabRow, tab) {
+    var tabRowArea = tabRow.getBoundingClientRect();
+    var tabArea = tab.getBoundingClientRect();
+    if (tabArea.left < tabRowArea.left) {
+      var left = tab.offsetLeft;
+      tabRow.scrollLeft = left;
+    } else if (tabArea.right > tabRowArea.right) {
+      var right = tab.offsetLeft - tabRowArea.width + tabArea.width;
+      tabRow.scrollLeft = right;
+    };
+  };
+
+  function _switchTab(tab) {
+    var tabTarget = helper.e("." + tab.dataset.tabTarget);
+    var tabGroup = helper.getClosest(tab, ".js-tab-group");
+    var tabRow = tabGroup.querySelector(".js-tab-row");
+    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
+    for (var i = 0; i < all_tabItem.length; i++) {
+      helper.removeClass(all_tabItem[i], "is-active");
+      helper.addClass(helper.e("." + all_tabItem[i].dataset.tabTarget), "is-hidden");
+      all_tabItem[i].dataset.tabActive = false;
+    };
+    helper.addClass(tab, "is-active");
+    helper.removeClass(tabTarget, "is-hidden");
+    tab.dataset.tabActive = true;
+    _scrollTabInToView(tabRow, tab);
   };
 
   function render() {
-    var all_tabGroups = helper.eA(".js-tab-group");
-    for (var i = 0; i < all_tabGroups.length; i++) {
-      var tabRow = all_tabGroups[i].querySelector(".js-tab-row");
+    var all_tabGroup = helper.eA(".js-tab-group");
+    for (var i = 0; i < all_tabGroup.length; i++) {
+      var tabRow = all_tabGroup[i].querySelector(".js-tab-row");
       // console.log(tabRow.scrollWidth > tabRow.clientWidth);
       if (tabRow.scrollWidth > tabRow.clientWidth) {
         var tabLeft = document.createElement("button");
@@ -42,28 +94,16 @@ var tabs = (function() {
         tabRight.appendChild(tabRightIcon);
 
         tabLeft.addEventListener("click", function() {
-          _scrollTabRow(this);
+          _tabLeftRight(this);
         }, false);
         tabRight.addEventListener("click", function() {
-          _scrollTabRow(this);
+          _tabLeftRight(this);
         }, false);
 
-        all_tabGroups[i].insertBefore(tabLeft, all_tabGroups[i].firstChild);
-        all_tabGroups[i].insertBefore(tabRight, all_tabGroups[i].lastChild);
+        all_tabGroup[i].insertBefore(tabLeft, all_tabGroup[i].firstChild);
+        all_tabGroup[i].insertBefore(tabRight, all_tabGroup[i].lastChild);
       };
     };
-  };
-
-  function _switchTab(tab) {
-    var tabTarget = helper.e("." + tab.dataset.tabTarget);
-    var tabGroup = helper.getClosest(tab, ".js-tab-group");
-    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    for (var i = 0; i < all_tabItem.length; i++) {
-      helper.removeClass(all_tabItem[i], "is-active");
-      helper.addClass(helper.e("." + all_tabItem[i].dataset.tabTarget), "is-hidden");
-    };
-    helper.addClass(tab, "is-active");
-    helper.removeClass(tabTarget, "is-hidden");
   };
 
   // exposed methods
