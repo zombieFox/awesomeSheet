@@ -61,17 +61,24 @@ var tabs = (function() {
   };
 
   function _switchTabPanel(tab) {
-    var tabTarget = helper.e("." + tab.dataset.tabTarget);
+    var all_targetToReveal = tab.dataset.tabTarget.split(",");
     var tabGroup = helper.getClosest(tab, ".js-tab-group");
     var tabRow = tabGroup.querySelector(".js-tab-row");
     var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
     for (var i = 0; i < all_tabItem.length; i++) {
+      var all_targetToHide = all_tabItem[i].dataset.tabTarget.split(",");
+      for (var j = 0; j < all_targetToHide.length; j++) {
+        var target = helper.e("." + all_targetToHide[j]);
+        helper.addClass(target, "is-hidden");
+      };
       helper.removeClass(all_tabItem[i], "is-active");
-      helper.addClass(helper.e("." + all_tabItem[i].dataset.tabTarget), "is-hidden");
       all_tabItem[i].dataset.tabActive = false;
     };
     helper.addClass(tab, "is-active");
-    helper.removeClass(tabTarget, "is-hidden");
+    for (var i = 0; i < all_targetToReveal.length; i++) {
+      var target = helper.e("." + all_targetToReveal[i]);
+      helper.removeClass(target, "is-hidden");
+    };
     tab.dataset.tabActive = true;
     _scrollTabInToView(tabRow, tab);
   };
