@@ -78,6 +78,41 @@
 .m-tab-text {
   font-size: 0.9em;
 }
+.is-night-mode {
+  .m-tab-group {
+    background-color: $secondary-color-04;
+  }
+  .m-tab-item {
+    background-color: transparent;
+    color: $secondary-color-16;
+    border-color: transparent;
+    &:link,
+    &:visited {
+      background-color: transparent;
+      border-color: transparent;
+      color: $secondary-color-16;
+    }
+    &:focus,
+    &:hover {
+      background-color: $secondary-color-05;
+      border-color: transparent;
+      color: $secondary-color-18;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: $secondary-color-06;
+      border-color: transparent;
+      color: $white;
+      box-shadow: none;
+    }
+    &.is-active {
+      background-color: $gray-03;
+      border-color: transparent;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+}
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------

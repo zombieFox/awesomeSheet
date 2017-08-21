@@ -3809,6 +3809,33 @@ label {
 .m-tab-text {
   font-size: 0.9em; }
 
+.is-night-mode .m-tab-group {
+  background-color: #193048; }
+
+.is-night-mode .m-tab-item {
+  background-color: transparent;
+  color: #9cc9f7;
+  border-color: transparent; }
+  .is-night-mode .m-tab-item:link, .is-night-mode .m-tab-item:visited {
+    background-color: transparent;
+    border-color: transparent;
+    color: #9cc9f7; }
+  .is-night-mode .m-tab-item:focus, .is-night-mode .m-tab-item:hover {
+    background-color: #1d3d5d;
+    border-color: transparent;
+    color: #c9e3fc;
+    box-shadow: none; }
+  .is-night-mode .m-tab-item:active {
+    background-color: #214a72;
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: none; }
+  .is-night-mode .m-tab-item.is-active {
+    background-color: #212121;
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: none; }
+
 @media (min-width: 700px) {
   .m-tab-item {
     line-height: inherit; } }
