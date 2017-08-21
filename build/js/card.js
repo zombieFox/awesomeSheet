@@ -88,13 +88,14 @@ var card = (function() {
     var section = helper.getClosest(element, ".js-section");
     var icon = section.querySelector(".js-card-minimise-icon");
     var cardTabs = section.querySelector(".js-card-tabs");
+    var display = (section.dataset.displayMode == "true");
 
     var _minimise = function() {
       section.dataset.minimise = "true";
       helper.addClass(section, "is-minimise");
       helper.addClass(icon, "icon-unfold-more");
       helper.removeClass(icon, "icon-unfold-less");
-      if (cardTabs) {
+      if (cardTabs && !display) {
         helper.addClass(cardTabs, "is-hidden");
       };
     };
@@ -104,7 +105,7 @@ var card = (function() {
       helper.removeClass(section, "is-minimise");
       helper.removeClass(icon, "icon-unfold-more");
       helper.addClass(icon, "icon-unfold-less");
-      if (cardTabs) {
+      if (cardTabs && !display) {
         helper.removeClass(cardTabs, "is-hidden");
       };
     };
