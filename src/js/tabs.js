@@ -55,7 +55,7 @@ var tabs = (function() {
       var left = tab.offsetLeft;
       tabRow.scrollLeft = left;
     } else if (tabArea.right > tabRowArea.right) {
-      var right = tab.offsetLeft - tabRowArea.width + tabArea.width;
+      var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
       tabRow.scrollLeft = right;
     };
   };
