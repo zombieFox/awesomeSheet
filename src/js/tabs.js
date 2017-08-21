@@ -1,6 +1,11 @@
 var tabs = (function() {
 
   function bind() {
+    _bind_tabGroup();
+    _bind_tabArrow();
+  };
+
+  function _bind_tabGroup() {
     var all_tabGroups = helper.eA(".js-tab-group");
     for (var i = 0; i < all_tabGroups.length; i++) {
       var all_tabItem = all_tabGroups[i].querySelectorAll(".js-tab-item");
@@ -9,6 +14,21 @@ var tabs = (function() {
           _switchTabPanel(this);
         }, false);
       };
+    };
+  };
+
+  function _bind_tabArrow() {
+    var all_tabLeft = helper.eA(".js-tab-left");
+    var all_tabRight = helper.eA(".js-tab-right");
+    for (var i = 0; i < all_tabLeft.length; i++) {
+      all_tabLeft[i].addEventListener("click", function() {
+        _tabLeftRight(this);
+      }, false);
+    };
+    for (var i = 0; i < all_tabRight.length; i++) {
+      all_tabRight[i].addEventListener("click", function() {
+        _tabLeftRight(this);
+      }, false);
     };
   };
 
@@ -83,39 +103,38 @@ var tabs = (function() {
     _scrollTabInToView(tabRow, tab);
   };
 
-  function render() {
-    var all_tabGroup = helper.eA(".js-tab-group");
-    for (var i = 0; i < all_tabGroup.length; i++) {
-      var tabRow = all_tabGroup[i].querySelector(".js-tab-row");
-      if (tabRow.scrollWidth > tabRow.clientWidth) {
-        var tabLeft = document.createElement("button");
-        tabLeft.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-left");
-        var tabLeftIcon = document.createElement("span");
-        tabLeftIcon.setAttribute("class", "icon-chevron-left");
-        tabLeft.appendChild(tabLeftIcon);
-        tabLeft.addEventListener("click", function() {
-          _tabLeftRight(this);
-        }, false);
-
-        var tabRight = document.createElement("button");
-        tabRight.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-right");
-        var tabRightIcon = document.createElement("span");
-        tabRightIcon.setAttribute("class", "icon-chevron-right");
-        tabRight.appendChild(tabRightIcon);
-        tabRight.addEventListener("click", function() {
-          _tabLeftRight(this);
-        }, false);
-
-        all_tabGroup[i].insertBefore(tabLeft, all_tabGroup[i].firstChild);
-        all_tabGroup[i].insertBefore(tabRight, all_tabGroup[i].lastChild);
-      };
-    };
-  };
+  // function render() {
+  //   var all_tabGroup = helper.eA(".js-tab-group");
+  //   for (var i = 0; i < all_tabGroup.length; i++) {
+  //     var tabRow = all_tabGroup[i].querySelector(".js-tab-row");
+  //     if (tabRow.scrollWidth > tabRow.clientWidth) {
+  //     var tabLeft = document.createElement("button");
+  //     tabLeft.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-left");
+  //     var tabLeftIcon = document.createElement("span");
+  //     tabLeftIcon.setAttribute("class", "icon-chevron-left");
+  //     tabLeft.appendChild(tabLeftIcon);
+  //     tabLeft.addEventListener("click", function() {
+  //       _tabLeftRight(this);
+  //     }, false);
+  //
+  //     var tabRight = document.createElement("button");
+  //     tabRight.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-right");
+  //     var tabRightIcon = document.createElement("span");
+  //     tabRightIcon.setAttribute("class", "icon-chevron-right");
+  //     tabRight.appendChild(tabRightIcon);
+  //     tabRight.addEventListener("click", function() {
+  //       _tabLeftRight(this);
+  //     }, false);
+  //
+  //     all_tabGroup[i].insertBefore(tabLeft, all_tabGroup[i].firstChild);
+  //     all_tabGroup[i].insertBefore(tabRight, all_tabGroup[i].lastChild);
+  //     };
+  //   };
+  // };
 
   // exposed methods
   return {
-    bind: bind,
-    render: render
+    bind: bind
   };
 
 })();
