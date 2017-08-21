@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.19.0",
+    list: [
+      "Introduced Tabs to improve Edit layout."
+    ]
+  }, {
     version: "3.18.0",
     list: [
       "Added Character Description."

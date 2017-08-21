@@ -10,7 +10,7 @@
   background-color: $secondary-color-06;
   transition: background-color $transition-ease-medium;
 }
-.m-card-head-controls {
+.m-card-controls {
   margin: 0;
   box-sizing: border-box;
   .m-card-title {
@@ -29,12 +29,12 @@
     }
   }
 }
-.m-card-head-controls-button-group {
-  margin-bottom: 0;
-  .button {
-    font-size: $font-size-125;
-  }
-}
+// .m-card-controls-button-group {
+//   margin-bottom: 0;
+//   .button {
+//     font-size: $font-size-125;
+//   }
+// }
 .m-card-body {
   padding: 2em;
   position: relative;
@@ -134,7 +134,7 @@
   .m-card-body {
     padding: 2em 0;
   }
-  .m-card-head-controls {
+  .m-card-controls {
     .button {
       display: none;
     }

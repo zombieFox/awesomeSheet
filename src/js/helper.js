@@ -89,7 +89,7 @@ var helper = (function() {
   function getObject(object, path, arrayIndex) {
     // split path into array items
     var address = path.split(".");
-    // while aeeay has more than 1 item
+    // while array has more than 1 item
     while (address.length > 1) {
       // shift off and store the first key
       var currentKey = address.shift();
@@ -100,7 +100,8 @@ var helper = (function() {
       // if there is not object there make one
       if (!object || typeof object != "object") {
         object = parentObject;
-        object = object[currentKey] = {};
+        // object = object[currentKey] = {};
+        object[currentKey] = {};
       };
     };
     var finalKey = address.shift();

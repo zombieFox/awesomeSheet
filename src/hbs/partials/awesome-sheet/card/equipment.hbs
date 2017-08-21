@@ -1,7 +1,7 @@
 <section id="equipment" class="l-section js-section js-section-equipment" data-display-mode="false">
   <div class="m-card">
     <div class="m-card-head">
-      <div class="m-card-head-controls button-group">
+      <div class="m-card-controls button-group">
         <button class="m-card-title button button-tertiary button-medium button-icon js-card-title" tabindex="1">
           <span class="icon-bottle"></span>
           <span class="button-text">Equipment</span>
@@ -12,6 +12,19 @@
         <button class="button button-tertiary button-medium button-icon js-card-toggle" tabindex="1">
           <span class="icon-reader-mode js-card-toggle-icon"></span>
         </button>
+      </div>
+      <div class="m-card-tabs m-tab-group js-tab-group js-edit-tabs js-card-tabs">
+        <button class="m-tab-arrow button button-tertiary button-icon js-tab-left"><span class="icon-chevron-left"></span></button>
+        <div class="m-tab-row js-tab-row">
+          <button class="m-tab-item js-tab-item is-active" data-tab-active="true" data-tab-target="js-tab-panel-possessions"><span class="m-tab-text">Possessions</span></button>
+          <button class="m-tab-item js-tab-item" data-tab-active="false" data-tab-target="js-tab-panel-items"><span class="m-tab-text">Items</span></button>
+          <button class="m-tab-item js-tab-item" data-tab-active="false" data-tab-target="js-tab-panel-armor"><span class="m-tab-text">Armor</span></button>
+          <button class="m-tab-item js-tab-item" data-tab-active="false" data-tab-target="js-tab-panel-body-slots"><span class="m-tab-text">Body Slots</span></button>
+          <button class="m-tab-item js-tab-item" data-tab-active="false" data-tab-target="js-tab-panel-encumbrance"><span class="m-tab-text">Encumbrance</span></button>
+          <button class="m-tab-item js-tab-item" data-tab-active="false" data-tab-target="js-tab-panel-wealth"><span class="m-tab-text">Wealth</span></button>
+          <button class="m-tab-item js-tab-item" data-tab-active="false" data-tab-target="js-tab-panel-consumables"><span class="m-tab-text">Consumables</span></button>
+        </div>
+        <button class="m-tab-arrow button button-tertiary button-icon js-tab-right"><span class="icon-chevron-right"></span></button>
       </div>
     </div>
     <div class="m-card-body">

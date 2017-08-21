@@ -1,0 +1,91 @@
+.m-tab-group {
+  background-color: $secondary-color-05;
+  font-size: $font-size-100;
+  max-width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.m-tab-row {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+.m-tab-item {
+  background-color: transparent;
+  color: $secondary-color-16;
+  padding: 0.25em 2em;
+  line-height: 2.5;
+  margin: 0;
+  border: 0;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 1;
+  flex: 1 1 auto;
+  &:link,
+  &:visited {
+    background-color: transparent;
+    border: 0;
+    border-color: transparent;
+    color: $secondary-color-16;
+  }
+  &:focus,
+  &:hover {
+    background-color: $secondary-color-07;
+    border-color: transparent;
+    color: $secondary-color-18;
+    outline: 0;
+    text-decoration: none;
+    box-shadow: none;
+    z-index: 2;
+  }
+  &:active {
+    background-color: $secondary-color-08;
+    border-color: transparent;
+    color: $white;
+    outline: 0;
+    text-decoration: none;
+    box-shadow: none;
+  }
+  &.is-active {
+    background-color: $white;
+    border-color: transparent;
+    border-radius: $border-radius-small $border-radius-small 0 0;
+    color: $base-color;
+    box-shadow: none;
+    z-index: 2;
+  }
+}
+.m-tab-arrow {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: 1.4em;
+  }
+}
+.m-tab-text {
+  font-size: 0.9em;
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {
+  .m-tab-item {
+    line-height: inherit;
+  }
+}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}

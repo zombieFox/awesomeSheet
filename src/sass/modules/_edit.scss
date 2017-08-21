@@ -152,7 +152,7 @@
   flex-basis: 5em;
 }
 .m-edit-box-item-medium {
-  flex-grow: 1;
+  flex-grow: 0.4;
   flex-basis: 10em;
 }
 .m-edit-box-item-large {
@@ -178,6 +178,7 @@
 }
 .m-edit-box-item-shrink {
   flex-grow: 0;
+  min-width: 5em;
 }
 .m-edit-box-item-grow {
   flex-grow: 1;
