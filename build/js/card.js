@@ -87,12 +87,16 @@ var card = (function() {
   function _minimise(element) {
     var section = helper.getClosest(element, ".js-section");
     var icon = section.querySelector(".js-card-minimise-icon");
+    var cardTabs = section.querySelector(".js-card-tabs");
 
     var _minimise = function() {
       section.dataset.minimise = "true";
       helper.addClass(section, "is-minimise");
       helper.addClass(icon, "icon-unfold-more");
       helper.removeClass(icon, "icon-unfold-less");
+      if (cardTabs) {
+        helper.addClass(cardTabs, "is-hidden");
+      };
     };
 
     var _maximise = function() {
@@ -100,6 +104,9 @@ var card = (function() {
       helper.removeClass(section, "is-minimise");
       helper.removeClass(icon, "icon-unfold-more");
       helper.addClass(icon, "icon-unfold-less");
+      if (cardTabs) {
+        helper.removeClass(cardTabs, "is-hidden");
+      };
     };
 
     if (section.dataset.minimise == "true") {

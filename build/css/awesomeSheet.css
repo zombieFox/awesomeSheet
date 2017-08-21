@@ -2413,10 +2413,10 @@ label {
   background-color: #214a72;
   transition: background-color 0.3s ease-in-out; }
 
-.m-card-head-controls {
+.m-card-controls {
   margin: 0;
   box-sizing: border-box; }
-  .m-card-head-controls .m-card-title {
+  .m-card-controls .m-card-title {
     -webkit-flex: 1 1 auto;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
@@ -2425,18 +2425,13 @@ label {
         -ms-flex-pack: start;
             justify-content: flex-start;
     position: relative; }
-  .m-card-head-controls .button {
+  .m-card-controls .button {
     padding-left: 1.5em;
     padding-right: 1.5em;
     line-height: 2.5; }
-    .m-card-head-controls .button [class*=" icon-"],
-    .m-card-head-controls .button [class^="icon-"] {
+    .m-card-controls .button [class*=" icon-"],
+    .m-card-controls .button [class^="icon-"] {
       font-size: 1.4em; }
-
-.m-card-head-controls-button-group {
-  margin-bottom: 0; }
-  .m-card-head-controls-button-group .button {
-    font-size: 1.25em; }
 
 .m-card-body {
   padding: 2em;
@@ -2499,15 +2494,15 @@ label {
     border-bottom: 2px solid #141414; }
   .m-card-body {
     padding: 2em 0; }
-  .m-card-head-controls .button {
+  .m-card-controls .button {
     display: none; }
-  .m-card-head-controls .m-card-title {
+  .m-card-controls .m-card-title {
     padding-left: 0;
     padding-right: 0;
     color: #000000;
     display: block; }
-    .m-card-head-controls .m-card-title [class*=" icon-"],
-    .m-card-head-controls .m-card-title [class^="icon-"] {
+    .m-card-controls .m-card-title [class*=" icon-"],
+    .m-card-controls .m-card-title [class^="icon-"] {
       display: none; }
   .is-display-mode .m-card-head {
     background-color: transparent; }
@@ -2991,9 +2986,9 @@ label {
           flex-basis: 5em; }
 
 .m-edit-box-item-medium {
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -webkit-flex-grow: 0.4;
+      -ms-flex-positive: 0.4;
+          flex-grow: 0.4;
   -webkit-flex-basis: 10em;
       -ms-flex-preferred-size: 10em;
           flex-basis: 10em; }
@@ -3036,7 +3031,8 @@ label {
 .m-edit-box-item-shrink {
   -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
-          flex-grow: 0; }
+          flex-grow: 0;
+  min-width: 5em; }
 
 .m-edit-box-item-grow {
   -webkit-flex-grow: 1;
@@ -3719,6 +3715,103 @@ label {
   .m-check-block-check[type="checkbox"] + .m-check-block-check-icon {
     line-height: 2.5;
     height: 2.5em; } }
+
+.m-tab-group {
+  background-color: #1d3d5d;
+  font-size: 1em;
+  max-width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+
+.m-tab-row {
+  width: 100%;
+  overflow: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  position: relative;
+  z-index: 1; }
+
+.m-tab-item {
+  background-color: transparent;
+  color: #9cc9f7;
+  padding: 0.25em 2em;
+  line-height: 2.5;
+  margin: 0;
+  border: 0;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
+  .m-tab-item:link, .m-tab-item:visited {
+    background-color: transparent;
+    border: 0;
+    border-color: transparent;
+    color: #9cc9f7; }
+  .m-tab-item:focus, .m-tab-item:hover {
+    background-color: #245789;
+    border-color: transparent;
+    color: #c9e3fc;
+    outline: 0;
+    text-decoration: none;
+    box-shadow: none;
+    z-index: 2; }
+  .m-tab-item:active {
+    background-color: #2763a0;
+    border-color: transparent;
+    color: #ffffff;
+    outline: 0;
+    text-decoration: none;
+    box-shadow: none; }
+  .m-tab-item.is-active {
+    background-color: #ffffff;
+    border-color: transparent;
+    border-radius: 3px 3px 0 0;
+    color: #2e2e2e;
+    box-shadow: none;
+    z-index: 2; }
+
+.m-tab-arrow {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-bottom: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  z-index: 2; }
+  .m-tab-arrow [class*=" icon-"],
+  .m-tab-arrow [class^="icon-"] {
+    font-size: 1.4em; }
+
+.m-tab-text {
+  font-size: 0.9em; }
+
+@media (min-width: 700px) {
+  .m-tab-item {
+    line-height: inherit; } }
 
 .m-textarea-block {
   position: relative;

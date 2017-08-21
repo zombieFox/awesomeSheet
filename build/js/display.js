@@ -68,22 +68,32 @@ var display = (function() {
   function _toggle_section(element, forceToggle) {
     var icon = element.querySelector(".js-card-toggle-icon");
     var section = helper.getClosest(element, ".js-section");
+    var minimise = (section.dataset.minimise == "true");
     var edit = section.querySelector(".js-edit");
+    var cardTabs = section.querySelector(".js-card-tabs");
     var all_display = section.querySelectorAll(".js-display");
+
     var _displayOn = function() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
+      if (cardTabs && !minimise) {
+        helper.addClass(cardTabs, "is-hidden");
+      };
       for (var i = 0; i < all_display.length; i++) {
         helper.removeClass(all_display[i], "is-hidden");
       };
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader-mode");
     };
+
     var _displayOff = function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
+      if (cardTabs && !minimise) {
+        helper.removeClass(cardTabs, "is-hidden");
+      };
       for (var i = 0; i < all_display.length; i++) {
         helper.addClass(all_display[i], "is-hidden");
       };
