@@ -4,10 +4,18 @@
   box-sizing: border-box;
   width: 100%;
   transition: background-color $transition-ease-medium;
+  &:hover {
+    .m-card-head {
+      background-color: $secondary-color-07;
+    }
+    .m-card-tabs {
+      background-color: $secondary-color-06;
+    }
+  }
 }
 .m-card-head {
-  position: relative;
   background-color: $secondary-color-06;
+  position: relative;
   transition: background-color $transition-ease-medium;
 }
 .m-card-controls {
@@ -29,17 +37,22 @@
     }
   }
 }
-// .m-card-controls-button-group {
-//   margin-bottom: 0;
-//   .button {
-//     font-size: $font-size-125;
-//   }
-// }
+.m-card-tabs {
+  background-color: $secondary-color-05;
+  transition: background-color $transition-ease-medium;
+}
 .m-card-body {
   padding: 2em;
   position: relative;
 }
 .is-display-mode {
+  .m-card {
+    &:hover {
+      .m-card-head {
+        background-color: $primary-color-07;
+      }
+    }
+  }
   .m-card-head {
     background-color: $primary-color-06;
   }
@@ -82,6 +95,14 @@
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
   .is-minimise {
+    .m-card {
+      &:hover {
+        .m-card-head,
+        .m-card-tabs {
+          background-color: $gray-16;
+        }
+      }
+    }
     .m-card-head {
       background-color: $gray-17;
       border-radius: $border-radius-large;
@@ -103,6 +124,14 @@
       box-shadow: none;
     }
     .is-minimise {
+      .m-card {
+        &:hover {
+          .m-card-head,
+          .m-card-tabs {
+            background-color: $gray-06;
+          }
+        }
+      }
       .m-card-head {
         background-color: $gray-05;
         .button {

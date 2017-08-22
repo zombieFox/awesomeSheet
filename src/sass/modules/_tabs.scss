@@ -1,6 +1,6 @@
 .m-tab-group {
-  background-color: $secondary-color-05;
   font-size: $font-size-100;
+  padding-top: 4px;
   max-width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -9,7 +9,8 @@
 }
 .m-tab-row {
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -19,47 +20,53 @@
 }
 .m-tab-item {
   background-color: transparent;
-  color: $secondary-color-16;
-  padding: 0.25em 2em;
-  line-height: 2.5;
   margin: 0;
+  padding: 0.25em 2em;
+  color: $white;
   border: 0;
   border-color: transparent;
+  border-bottom: 4px solid transparent;
   border-radius: 0;
+  line-height: 2.5;
   box-shadow: none;
+  position: relative;
+  top: 4px;
   z-index: 1;
   flex: 1 1 auto;
   &:link,
   &:visited {
     background-color: transparent;
+    color: $white;
     border: 0;
     border-color: transparent;
-    color: $secondary-color-16;
   }
   &:focus,
   &:hover {
-    background-color: $secondary-color-07;
+    background-color: $light-alpha-18;
     border-color: transparent;
-    color: $secondary-color-18;
+    color: $white;
     outline: 0;
     text-decoration: none;
     box-shadow: none;
     z-index: 2;
   }
   &:active {
-    background-color: $secondary-color-08;
+    background-color: $light-alpha-14;
     border-color: transparent;
     color: $white;
     outline: 0;
     text-decoration: none;
     box-shadow: none;
+    top: 2px;
   }
   &.is-active {
     background-color: $white;
+    border-bottom: 0;
     border-color: transparent;
     border-radius: $border-radius-small $border-radius-small 0 0;
     color: $base-color;
     box-shadow: none;
+    top: 0;
     z-index: 2;
   }
 }
@@ -79,28 +86,26 @@
   font-size: 0.9em;
 }
 .is-night-mode {
-  .m-tab-group {
-    background-color: $secondary-color-04;
-  }
   .m-tab-item {
     background-color: transparent;
-    color: $secondary-color-16;
+    color: $white;
     border-color: transparent;
+    box-shadow: none;
     &:link,
     &:visited {
       background-color: transparent;
+      color: $white;
       border-color: transparent;
-      color: $secondary-color-16;
     }
     &:focus,
     &:hover {
-      background-color: $secondary-color-05;
+      background-color: $dark-alpha-18;
       border-color: transparent;
-      color: $secondary-color-18;
+      color: $white;
       box-shadow: none;
     }
     &:active {
-      background-color: $secondary-color-06;
+      background-color: $dark-alpha-14;
       border-color: transparent;
       color: $white;
       box-shadow: none;

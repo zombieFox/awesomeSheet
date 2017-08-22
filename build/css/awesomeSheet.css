@@ -2407,10 +2407,14 @@ label {
   box-sizing: border-box;
   width: 100%;
   transition: background-color 0.3s ease-in-out; }
+  .m-card:hover .m-card-head {
+    background-color: #245789; }
+  .m-card:hover .m-card-tabs {
+    background-color: #214a72; }
 
 .m-card-head {
-  position: relative;
   background-color: #214a72;
+  position: relative;
   transition: background-color 0.3s ease-in-out; }
 
 .m-card-controls {
@@ -2433,9 +2437,16 @@ label {
     .m-card-controls .button [class^="icon-"] {
       font-size: 1.4em; }
 
+.m-card-tabs {
+  background-color: #1d3d5d;
+  transition: background-color 0.3s ease-in-out; }
+
 .m-card-body {
   padding: 2em;
   position: relative; }
+
+.is-display-mode .m-card:hover .m-card-head {
+  background-color: #b0002e; }
 
 .is-display-mode .m-card-head {
   background-color: #970027; }
@@ -2466,6 +2477,9 @@ label {
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 2px rgba(0, 0, 0, 0.1); }
   .m-card-head {
     border-radius: 5px 5px 0 0; }
+  .is-minimise .m-card:hover .m-card-head,
+  .is-minimise .m-card:hover .m-card-tabs {
+    background-color: #c7c7c7; }
   .is-minimise .m-card-head {
     background-color: #d4d4d4;
     border-radius: 5px; }
@@ -2477,6 +2491,9 @@ label {
       color: #3b3b3b; }
   .is-night-mode .m-card {
     box-shadow: none; }
+  .is-night-mode .is-minimise .m-card:hover .m-card-head,
+  .is-night-mode .is-minimise .m-card:hover .m-card-tabs {
+    background-color: #474747; }
   .is-night-mode .is-minimise .m-card-head {
     background-color: #3b3b3b; }
     .is-night-mode .is-minimise .m-card-head .button {
@@ -3717,8 +3734,8 @@ label {
     height: 2.5em; } }
 
 .m-tab-group {
-  background-color: #1d3d5d;
   font-size: 1em;
+  padding-top: 4px;
   max-width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3735,7 +3752,8 @@ label {
 
 .m-tab-row {
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -3753,44 +3771,50 @@ label {
 
 .m-tab-item {
   background-color: transparent;
-  color: #9cc9f7;
-  padding: 0.25em 2em;
-  line-height: 2.5;
   margin: 0;
+  padding: 0.25em 2em;
+  color: #ffffff;
   border: 0;
   border-color: transparent;
+  border-bottom: 4px solid transparent;
   border-radius: 0;
+  line-height: 2.5;
   box-shadow: none;
+  position: relative;
+  top: 4px;
   z-index: 1;
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto; }
   .m-tab-item:link, .m-tab-item:visited {
     background-color: transparent;
+    color: #ffffff;
     border: 0;
-    border-color: transparent;
-    color: #9cc9f7; }
+    border-color: transparent; }
   .m-tab-item:focus, .m-tab-item:hover {
-    background-color: #245789;
+    background-color: rgba(255, 255, 255, 0.15);
     border-color: transparent;
-    color: #c9e3fc;
+    color: #ffffff;
     outline: 0;
     text-decoration: none;
     box-shadow: none;
     z-index: 2; }
   .m-tab-item:active {
-    background-color: #2763a0;
+    background-color: rgba(255, 255, 255, 0.35);
     border-color: transparent;
     color: #ffffff;
     outline: 0;
     text-decoration: none;
-    box-shadow: none; }
+    box-shadow: none;
+    top: 2px; }
   .m-tab-item.is-active {
     background-color: #ffffff;
+    border-bottom: 0;
     border-color: transparent;
     border-radius: 3px 3px 0 0;
     color: #2e2e2e;
     box-shadow: none;
+    top: 0;
     z-index: 2; }
 
 .m-tab-arrow {
@@ -3809,24 +3833,22 @@ label {
 .m-tab-text {
   font-size: 0.9em; }
 
-.is-night-mode .m-tab-group {
-  background-color: #193048; }
-
 .is-night-mode .m-tab-item {
   background-color: transparent;
-  color: #9cc9f7;
-  border-color: transparent; }
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: none; }
   .is-night-mode .m-tab-item:link, .is-night-mode .m-tab-item:visited {
     background-color: transparent;
-    border-color: transparent;
-    color: #9cc9f7; }
+    color: #ffffff;
+    border-color: transparent; }
   .is-night-mode .m-tab-item:focus, .is-night-mode .m-tab-item:hover {
-    background-color: #1d3d5d;
+    background-color: rgba(0, 0, 0, 0.15);
     border-color: transparent;
-    color: #c9e3fc;
+    color: #ffffff;
     box-shadow: none; }
   .is-night-mode .m-tab-item:active {
-    background-color: #214a72;
+    background-color: rgba(0, 0, 0, 0.35);
     border-color: transparent;
     color: #ffffff;
     box-shadow: none; }
