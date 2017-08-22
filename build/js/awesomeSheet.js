@@ -665,7 +665,42 @@ var blank = (function() {
           half_level: false
         }
       },
-      save_notes: ""
+      save_notes: "",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
@@ -1846,7 +1881,42 @@ var izlara = (function() {
           half_level: false
         }
       },
-      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
+      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: 6,
@@ -3695,7 +3765,42 @@ var ravich = (function() {
           half_level: false
         }
       },
-      save_notes: "+1 bonus on Reflex saves made to avoid traps."
+      save_notes: "+1 bonus on Reflex saves made to avoid traps.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: 5,
@@ -4888,7 +4993,42 @@ var marika = (function() {
           half_level: false
         }
       },
-      save_notes: "+3 bonus on Reflex saves made to avoid traps."
+      save_notes: "+3 bonus on Reflex saves made to avoid traps.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
@@ -5769,13 +5909,21 @@ var marika = (function() {
         level_9: ""
       },
       book: [{
-        level_0: [
-          { name: "Mage Hand", prepared: 3, active: false, cast: 0, note: "" }
-        ]
+        level_0: [{
+          name: "Mage Hand",
+          prepared: 3,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
       }, {
-        level_1: [
-          { name: "Unseen Servant", prepared: 2, active: false, cast: 0, note: "" }
-        ]
+        level_1: [{
+          name: "Unseen Servant",
+          prepared: 2,
+          active: false,
+          cast: 0,
+          note: ""
+        }]
       }, {
         level_2: []
       }, {
@@ -6077,7 +6225,42 @@ var nefi = (function() {
           half_level: false
         }
       },
-      save_notes: "+3 bonus on Will saves against fear."
+      save_notes: "+3 bonus on Will saves against fear.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
@@ -7333,7 +7516,42 @@ var nif = (function() {
           half_level: false
         }
       },
-      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
+      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "+4",
@@ -8944,7 +9162,42 @@ var orrin = (function() {
           half_level: false
         }
       },
-      save_notes: "+3 bonus on Reflex saves made to avoid traps."
+      save_notes: "+3 bonus on Reflex saves made to avoid traps.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
@@ -10163,7 +10416,42 @@ var ro = (function() {
           half_level: false
         }
       },
-      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
+      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
@@ -11656,7 +11944,42 @@ var vos = (function() {
           half_level: false
         }
       },
-      save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
+      save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
@@ -19225,6 +19548,10 @@ var totalBlock = (function() {
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
+    // if no bonuses object found
+    if (!object.bonuses) {
+      object.bonuses = {};
+    };
     // if a key is not in the object bonuses add it
     if (totalBonusesInclude.length > 0) {
       for (var i = 0; i < totalBonusesInclude.length; i++) {
@@ -19524,6 +19851,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.20.0",
+    list: [
+      "Adding SR, DR and Energy Resistance."
+    ]
+  }, {
     version: "3.19.2",
     list: [
       "Refactor Nav open and close logic and performance."

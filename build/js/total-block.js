@@ -357,6 +357,10 @@ var totalBlock = (function() {
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
     };
+    // if no bonuses object found
+    if (!object.bonuses) {
+      object.bonuses = {};
+    };
     // if a key is not in the object bonuses add it
     if (totalBonusesInclude.length > 0) {
       for (var i = 0; i < totalBonusesInclude.length; i++) {

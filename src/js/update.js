@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.20.0",
+    list: [
+      "Adding SR, DR and Energy Resistance."
+    ]
+  }, {
     version: "3.19.2",
     list: [
       "Refactor Nav open and close logic and performance."
