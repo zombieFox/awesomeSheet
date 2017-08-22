@@ -330,7 +330,42 @@ var izlara = (function() {
           half_level: false
         }
       },
-      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects."
+      save_notes: "Immune to magic sleep effects. +2 saving throw against enchantment spells and effects.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: 6,

@@ -264,7 +264,42 @@ var nefi = (function() {
           half_level: false
         }
       },
-      save_notes: "+3 bonus on Will saves against fear."
+      save_notes: "+3 bonus on Will saves against fear.",
+      dr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      sr: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        }
+      },
+      resist_notes: ""
     },
     offense: {
       base_attack: "",
