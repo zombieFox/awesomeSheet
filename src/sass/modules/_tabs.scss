@@ -27,7 +27,6 @@
   border-color: transparent;
   border-bottom: 4px solid transparent;
   border-radius: 0;
-  line-height: 2.5;
   box-shadow: none;
   position: relative;
   top: 4px;
@@ -122,10 +121,6 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {
-  .m-tab-item {
-    line-height: inherit;
-  }
-}
+@media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

@@ -3778,7 +3778,6 @@ label {
   border-color: transparent;
   border-bottom: 4px solid transparent;
   border-radius: 0;
-  line-height: 2.5;
   box-shadow: none;
   position: relative;
   top: 4px;
@@ -3857,10 +3856,6 @@ label {
     border-color: transparent;
     color: #ffffff;
     box-shadow: none; }
-
-@media (min-width: 700px) {
-  .m-tab-item {
-    line-height: inherit; } }
 
 .m-textarea-block {
   position: relative;
