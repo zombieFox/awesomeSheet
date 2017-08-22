@@ -2408,12 +2408,12 @@ label {
   width: 100%;
   transition: background-color 0.3s ease-in-out; }
   .m-card:hover .m-card-head {
-    background-color: #245789; }
-  .m-card:hover .m-card-tabs {
     background-color: #214a72; }
+  .m-card:hover .m-card-tabs {
+    background-color: #1d3d5d; }
 
 .m-card-head {
-  background-color: #214a72;
+  background-color: #1d3d5d;
   position: relative;
   transition: background-color 0.3s ease-in-out; }
 
@@ -2438,7 +2438,7 @@ label {
       font-size: 1.4em; }
 
 .m-card-tabs {
-  background-color: #1d3d5d;
+  background-color: #193048;
   transition: background-color 0.3s ease-in-out; }
 
 .m-card-body {
@@ -2446,10 +2446,10 @@ label {
   position: relative; }
 
 .is-display-mode .m-card:hover .m-card-head {
-  background-color: #b0002e; }
+  background-color: #970027; }
 
 .is-display-mode .m-card-head {
-  background-color: #970027; }
+  background-color: #7d0021; }
 
 .is-minimise .m-card {
   background-color: transparent;
