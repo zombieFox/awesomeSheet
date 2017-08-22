@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.19.2",
+    list: [
+      "Refactor Nav open and close logic and performance."
+    ]
+  }, {
     version: "3.19.1",
     list: [
       "Fix bug where invisible line breaks would cause empty Textarea Blocks to render in Display mode."

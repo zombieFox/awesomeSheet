@@ -16010,52 +16010,42 @@ var nav = (function() {
     return navCharacter;
   };
 
-  function _checkBodyForOpenNav() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-is-open");
-    if (nav) {
-      helper.addClass(body, "is-scrolll-disabled");
-    } else {
-      helper.removeClass(body, "is-scrolll-disabled");
-    };
-  };
-
   function navClose() {
-    helper.removeClass(helper.e(".js-nav"), "is-open");
-    helper.removeClass(helper.e(".js-nav"), "js-is-open");
-    helper.removeClass(helper.e(".js-hamburger"), "is-open");
-    helper.e("body").dataset.nav = false;
-    // _checkBodyForOpenNav();
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    var hamburger = helper.e(".js-hamburger");
+    helper.removeClass(nav, "is-open");
+    helper.removeClass(hamburger, "is-open");
+    body.dataset.navOpen = false;
     _destroy_navShade();
     page.update();
   };
 
   function navOpen() {
-    helper.addClass(helper.e(".js-nav"), "is-open");
-    helper.addClass(helper.e(".js-nav"), "js-is-open");
-    helper.addClass(helper.e(".js-hamburger"), "is-open");
-    helper.e("body").dataset.nav = true;
-    // _checkBodyForOpenNav();
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    var hamburger = helper.e(".js-hamburger");
+    helper.addClass(nav, "is-open");
+    helper.addClass(hamburger, "is-open");
+    body.dataset.navOpen = true;
     _render_navShade();
     page.update();
   };
 
-  function toggle_nav() {
+  function toggle() {
+    var body = helper.e("body");
     var nav = helper.e(".js-nav");
-    if (nav.classList.contains("is-open")) {
-      helper.removeClass(helper.e(".js-nav"), "is-open");
-      helper.removeClass(helper.e(".js-nav"), "js-is-open");
-      helper.removeClass(helper.e(".js-hamburger"), "is-open");
-      helper.e("body").dataset.nav = false;
-      // _checkBodyForOpenNav();
+    var hamburger = helper.e(".js-hamburger");
+    if (body.dataset.navOpen == "true") {
+      helper.removeClass(nav, "is-open");
+      helper.removeClass(hamburger, "is-open");
+      body.dataset.navOpen = false;
       _destroy_navShade();
       page.update();
     } else {
-      helper.addClass(helper.e(".js-nav"), "is-open");
-      helper.addClass(helper.e(".js-nav"), "js-is-open");
-      helper.addClass(helper.e(".js-hamburger"), "is-open");
-      helper.e("body").dataset.nav = true;
-      // _checkBodyForOpenNav();
+      helper.addClass(nav, "is-open");
+      helper.addClass(hamburger, "is-open");
+      body.dataset.navOpen = true;
       _render_navShade();
       page.update();
     };
@@ -16105,7 +16095,7 @@ var nav = (function() {
     navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      toggle_nav();
+      toggle();
     }, false);
 
     fullscreenModeToggle.addEventListener("click", function(event) {
@@ -16204,7 +16194,7 @@ var nav = (function() {
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
-        toggle_nav();
+        toggle();
         helper.e(".js-nav-title").focus(this);
       };
       // ctrl+alt+d
@@ -16252,7 +16242,7 @@ var nav = (function() {
     update: updateNavCharacters,
     open: navOpen,
     close: navClose,
-    toggle: toggle_nav,
+    toggle: toggle,
     scrollToTop: scrollToTop
   }
 
@@ -16307,7 +16297,7 @@ var page = (function() {
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");
-    var nav = (body.dataset.nav == "true");
+    var nav = (body.dataset.navOpen == "true");
     if (modal || prompt || nav) {
       helper.addClass(body, "is-scrolll-disabled");
     } else {
@@ -19603,6 +19593,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.19.2",
+    list: [
+      "Refactor Nav open and close logic and performance."
+    ]
+  }, {
     version: "3.19.1",
     list: [
       "Fix bug where invisible line breaks would cause empty Textarea Blocks to render in Display mode."

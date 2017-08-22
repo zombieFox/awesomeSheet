@@ -4,7 +4,7 @@ var page = (function() {
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");
-    var nav = (body.dataset.nav == "true");
+    var nav = (body.dataset.navOpen == "true");
     if (modal || prompt || nav) {
       helper.addClass(body, "is-scrolll-disabled");
     } else {
