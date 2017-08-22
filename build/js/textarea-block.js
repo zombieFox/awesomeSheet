@@ -6,6 +6,10 @@ var textareaBlock = (function() {
     var path = textareaBlockField.dataset.path;
     var type = textareaBlockField.dataset.type;
     var data = element.innerHTML;
+    if (data == "<div><br></div>" || data == "<br>" || data == "<br><br>" || data == "<br><br><br>") {
+      console.log("found");
+      data = "";
+    };
     if (path) {
       if (textareaBlock.dataset.clone == "true") {
         var pathCloneKey = textareaBlockField.dataset.pathCloneKey;

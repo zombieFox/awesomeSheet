@@ -18650,6 +18650,10 @@ var textareaBlock = (function() {
     var path = textareaBlockField.dataset.path;
     var type = textareaBlockField.dataset.type;
     var data = element.innerHTML;
+    if (data == "<div><br></div>" || data == "<br>" || data == "<br><br>" || data == "<br><br><br>") {
+      console.log("found");
+      data = "";
+    };
     if (path) {
       if (textareaBlock.dataset.clone == "true") {
         var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
@@ -19599,6 +19603,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.19.1",
+    list: [
+      "Fix bug where invisible line breaks would cause empty Textarea Blocks to render in Display mode."
+    ]
+  }, {
     version: "3.19.0",
     list: [
       "Introduced Tabs to improve Edit layout."
