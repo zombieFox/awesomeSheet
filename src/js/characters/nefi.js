@@ -131,7 +131,8 @@ var nefi = (function() {
         platinum: "",
         gold: "870",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: []
     },
@@ -208,7 +209,7 @@ var nefi = (function() {
       },
       ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
       fortitude: {
-        base: 6,
+        base: "",
         resistance: 3,
         feat: 2,
         trait: 1,
@@ -227,7 +228,7 @@ var nefi = (function() {
         }
       },
       reflex: {
-        base: 3,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -246,7 +247,7 @@ var nefi = (function() {
         }
       },
       will: {
-        base: 2,
+        base: "",
         resistance: 3,
         feat: 2,
         trait: "",

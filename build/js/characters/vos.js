@@ -161,7 +161,8 @@ var vos = (function() {
         platinum: "",
         gold: "2,155",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Ki Pool",

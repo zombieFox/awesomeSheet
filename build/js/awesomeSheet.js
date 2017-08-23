@@ -532,7 +532,8 @@ var blank = (function() {
         platinum: "",
         gold: "",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: []
     },
@@ -1718,7 +1719,8 @@ var izlara = (function() {
         platinum: "45",
         gold: "8,405",
         silver: "102",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Boots of Teleportation",
@@ -1754,7 +1756,7 @@ var izlara = (function() {
     },
     defense: {
       hp: {
-        total: 86,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -1825,7 +1827,7 @@ var izlara = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 4,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -1844,7 +1846,7 @@ var izlara = (function() {
         }
       },
       reflex: {
-        base: 4,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -1863,7 +1865,7 @@ var izlara = (function() {
         }
       },
       will: {
-        base: 8,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -1919,8 +1921,8 @@ var izlara = (function() {
       resist_notes: ""
     },
     offense: {
-      base_attack: 6,
-      base_attack_bonuses: "+6 / +1",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -2010,7 +2012,7 @@ var izlara = (function() {
     },
     skills: {
       ranks: {
-        total: 132,
+        total: "",
         spent: {
           include_custom: false,
           current: ""
@@ -3622,7 +3624,8 @@ var ravich = (function() {
         platinum: "12",
         gold: "2,391",
         silver: "22",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Wand of Cure Light Wounds",
@@ -3638,7 +3641,7 @@ var ravich = (function() {
     },
     defense: {
       hp: {
-        total: 51,
+        total: "",
         temp: "",
         damage: 5,
         non_lethal_damage: "",
@@ -3709,7 +3712,7 @@ var ravich = (function() {
       },
       ac_notes: "+1 dodge bonus to AC against attacks made by traps. +1 damage when flanking.",
       fortitude: {
-        base: 4,
+        base: "",
         resistance: 1,
         feat: 2,
         trait: 1,
@@ -3728,7 +3731,7 @@ var ravich = (function() {
         }
       },
       reflex: {
-        base: 4,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -3747,7 +3750,7 @@ var ravich = (function() {
         }
       },
       will: {
-        base: 2,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -3803,8 +3806,8 @@ var ravich = (function() {
       resist_notes: ""
     },
     offense: {
-      base_attack: 5,
-      base_attack_bonuses: "+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -3904,7 +3907,7 @@ var ravich = (function() {
     },
     skills: {
       ranks: {
-        total: 42,
+        total: "",
         spent: {
           include_custom: false,
           current: ""
@@ -4855,7 +4858,8 @@ var marika = (function() {
         platinum: "21",
         gold: "763",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Slippers of Spider Climbing",
@@ -4937,7 +4941,7 @@ var marika = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
-        base: 3,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -4956,7 +4960,7 @@ var marika = (function() {
         }
       },
       reflex: {
-        base: 6,
+        base: "",
         resistance: 3,
         feat: "",
         trait: 1,
@@ -4975,7 +4979,7 @@ var marika = (function() {
         }
       },
       will: {
-        base: 3,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -6092,7 +6096,8 @@ var nefi = (function() {
         platinum: "",
         gold: "870",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: []
     },
@@ -6169,7 +6174,7 @@ var nefi = (function() {
       },
       ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
       fortitude: {
-        base: 6,
+        base: "",
         resistance: 3,
         feat: 2,
         trait: 1,
@@ -6188,7 +6193,7 @@ var nefi = (function() {
         }
       },
       reflex: {
-        base: 3,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -6207,7 +6212,7 @@ var nefi = (function() {
         }
       },
       will: {
-        base: 2,
+        base: "",
         resistance: 3,
         feat: 2,
         trait: "",
@@ -7343,7 +7348,8 @@ var nif = (function() {
         platinum: "",
         gold: "1,027",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Wand of Lightning Bolt",
@@ -7460,7 +7466,7 @@ var nif = (function() {
       },
       ac_notes: "Mage Armor active, 3 Mirror Images active",
       fortitude: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: 1,
@@ -7479,7 +7485,7 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -7498,7 +7504,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -7554,7 +7560,8 @@ var nif = (function() {
       resist_notes: ""
     },
     offense: {
-      base_attack: "+4",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -8959,7 +8966,7 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
-      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (1), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Remove Fear (1), Remove Sickness (1).",
+      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (1), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)<br><br>Oils:<br>Dispel Magic",
       item: [{
         name: "Flask of Oil",
         quantity: 1,
@@ -9009,7 +9016,8 @@ var orrin = (function() {
         platinum: "3",
         gold: "3,309",
         silver: "5",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Gloves of Reconnaissance",
@@ -9025,11 +9033,16 @@ var orrin = (function() {
         item: "Wand of Cure Light Wounds",
         current: "",
         total: 50,
-        used: ""
+        used: 1
       }, {
         item: "Knock-Out Blow",
         current: "",
         total: 1,
+        used: ""
+      }, {
+        item: "Wand of Entangle",
+        current: "",
+        total: 50,
         used: ""
       }]
     },
@@ -9104,7 +9117,7 @@ var orrin = (function() {
           max_dex: true
         }
       },
-      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+4 Dodge to AC for 1 round after Sneak Attack.",
+      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+5 Dodge to AC for 1 round after Sneak Attack.",
       fortitude: {
         base: "",
         resistance: 2,
@@ -9278,13 +9291,13 @@ var orrin = (function() {
           damage: "1d6+3",
           critical: "18–20/×2"
         }, {
-          weapon: "Short sword +1",
+          weapon: "Short Sword +1",
           attack: "+15",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
-          weapon: "Mithral Rapier +2, Short sword +1",
-          attack: "+15/+15/87/+8",
+          weapon: "Mithral Rapier +2, Short Sword +1",
+          attack: "+15/+15/+8/+8",
           damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
@@ -9307,6 +9320,11 @@ var orrin = (function() {
           attack: "+15/+15/+9/+9",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
+        }, {
+          weapon: "Rapier +1 Shocking",
+          attack: "+15",
+          damage: "1d6+2 + 1d6 Electrical",
+          critical: "18-20/x2"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
@@ -10263,7 +10281,8 @@ var ro = (function() {
         platinum: "",
         gold: "1,570",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Arcane Pool",
@@ -10360,7 +10379,7 @@ var ro = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 6,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -10379,7 +10398,7 @@ var ro = (function() {
         }
       },
       reflex: {
-        base: 2,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -10398,7 +10417,7 @@ var ro = (function() {
         }
       },
       will: {
-        base: 6,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -11797,7 +11816,8 @@ var vos = (function() {
         platinum: "",
         gold: "2,155",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Ki Pool",

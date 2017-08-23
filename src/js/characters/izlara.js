@@ -167,7 +167,8 @@ var izlara = (function() {
         platinum: "45",
         gold: "8,405",
         silver: "102",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Boots of Teleportation",
@@ -203,7 +204,7 @@ var izlara = (function() {
     },
     defense: {
       hp: {
-        total: 86,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -274,7 +275,7 @@ var izlara = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 4,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -293,7 +294,7 @@ var izlara = (function() {
         }
       },
       reflex: {
-        base: 4,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -312,7 +313,7 @@ var izlara = (function() {
         }
       },
       will: {
-        base: 8,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -368,8 +369,8 @@ var izlara = (function() {
       resist_notes: ""
     },
     offense: {
-      base_attack: 6,
-      base_attack_bonuses: "+6 / +1",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -459,7 +460,7 @@ var izlara = (function() {
     },
     skills: {
       ranks: {
-        total: 132,
+        total: "",
         spent: {
           include_custom: false,
           current: ""

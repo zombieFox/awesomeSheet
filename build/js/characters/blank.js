@@ -131,7 +131,8 @@ var blank = (function() {
         platinum: "",
         gold: "",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: []
     },

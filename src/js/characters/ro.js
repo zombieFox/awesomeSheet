@@ -131,7 +131,8 @@ var ro = (function() {
         platinum: "",
         gold: "1,570",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Arcane Pool",
@@ -228,7 +229,7 @@ var ro = (function() {
       },
       ac_notes: "",
       fortitude: {
-        base: 6,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -247,7 +248,7 @@ var ro = (function() {
         }
       },
       reflex: {
-        base: 2,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -266,7 +267,7 @@ var ro = (function() {
         }
       },
       will: {
-        base: 6,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",

@@ -175,7 +175,8 @@ var nif = (function() {
         platinum: "",
         gold: "1,027",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Wand of Lightning Bolt",
@@ -292,7 +293,7 @@ var nif = (function() {
       },
       ac_notes: "Mage Armor active, 3 Mirror Images active",
       fortitude: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: 1,
@@ -311,7 +312,7 @@ var nif = (function() {
         }
       },
       reflex: {
-        base: 2,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -330,7 +331,7 @@ var nif = (function() {
         }
       },
       will: {
-        base: 6,
+        base: "",
         resistance: 2,
         feat: "",
         trait: "",
@@ -386,7 +387,8 @@ var nif = (function() {
       resist_notes: ""
     },
     offense: {
-      base_attack: "+4",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",

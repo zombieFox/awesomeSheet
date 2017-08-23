@@ -131,7 +131,8 @@ var marika = (function() {
         platinum: "21",
         gold: "763",
         silver: "",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Slippers of Spider Climbing",
@@ -213,7 +214,7 @@ var marika = (function() {
       },
       ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
       fortitude: {
-        base: 3,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",
@@ -232,7 +233,7 @@ var marika = (function() {
         }
       },
       reflex: {
-        base: 6,
+        base: "",
         resistance: 3,
         feat: "",
         trait: 1,
@@ -251,7 +252,7 @@ var marika = (function() {
         }
       },
       will: {
-        base: 3,
+        base: "",
         resistance: 3,
         feat: "",
         trait: "",

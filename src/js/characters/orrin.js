@@ -97,7 +97,7 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
-      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (1), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Remove Fear (1), Remove Sickness (1).",
+      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (1), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)<br><br>Oils:<br>Dispel Magic",
       item: [{
         name: "Flask of Oil",
         quantity: 1,
@@ -147,7 +147,8 @@ var orrin = (function() {
         platinum: "3",
         gold: "3,309",
         silver: "5",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Gloves of Reconnaissance",
@@ -163,11 +164,16 @@ var orrin = (function() {
         item: "Wand of Cure Light Wounds",
         current: "",
         total: 50,
-        used: ""
+        used: 1
       }, {
         item: "Knock-Out Blow",
         current: "",
         total: 1,
+        used: ""
+      }, {
+        item: "Wand of Entangle",
+        current: "",
+        total: 50,
         used: ""
       }]
     },
@@ -242,7 +248,7 @@ var orrin = (function() {
           max_dex: true
         }
       },
-      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+4 Dodge to AC for 1 round after Sneak Attack.",
+      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+5 Dodge to AC for 1 round after Sneak Attack.",
       fortitude: {
         base: "",
         resistance: 2,
@@ -416,13 +422,13 @@ var orrin = (function() {
           damage: "1d6+3",
           critical: "18–20/×2"
         }, {
-          weapon: "Short sword +1",
+          weapon: "Short Sword +1",
           attack: "+15",
           damage: "1d6+2",
           critical: "19–20/×2"
         }, {
-          weapon: "Mithral Rapier +2, Short sword +1",
-          attack: "+15/+15/87/+8",
+          weapon: "Mithral Rapier +2, Short Sword +1",
+          attack: "+15/+15/+8/+8",
           damage: "1d6+3, 1d6+2",
           critical: "18–20/×2, 19–20/×2"
         }, {
@@ -445,6 +451,11 @@ var orrin = (function() {
           attack: "+15/+15/+9/+9",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
+        }, {
+          weapon: "Rapier +1 Shocking",
+          attack: "+15",
+          damage: "1d6+2 + 1d6 Electrical",
+          critical: "18-20/x2"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",

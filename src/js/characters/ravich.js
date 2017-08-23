@@ -164,7 +164,8 @@ var ravich = (function() {
         platinum: "12",
         gold: "2,391",
         silver: "22",
-        copper: ""
+        copper: "",
+        total: ""
       },
       consumable: [{
         item: "Wand of Cure Light Wounds",
@@ -180,7 +181,7 @@ var ravich = (function() {
     },
     defense: {
       hp: {
-        total: 51,
+        total: "",
         temp: "",
         damage: 5,
         non_lethal_damage: "",
@@ -251,7 +252,7 @@ var ravich = (function() {
       },
       ac_notes: "+1 dodge bonus to AC against attacks made by traps. +1 damage when flanking.",
       fortitude: {
-        base: 4,
+        base: "",
         resistance: 1,
         feat: 2,
         trait: 1,
@@ -270,7 +271,7 @@ var ravich = (function() {
         }
       },
       reflex: {
-        base: 4,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -289,7 +290,7 @@ var ravich = (function() {
         }
       },
       will: {
-        base: 2,
+        base: "",
         resistance: 1,
         feat: "",
         trait: "",
@@ -345,8 +346,8 @@ var ravich = (function() {
       resist_notes: ""
     },
     offense: {
-      base_attack: 5,
-      base_attack_bonuses: "+5",
+      base_attack: "",
+      base_attack_bonuses: "",
       cmb: {
         misc: "",
         temp: "",
@@ -446,7 +447,7 @@ var ravich = (function() {
     },
     skills: {
       ranks: {
-        total: 42,
+        total: "",
         spent: {
           include_custom: false,
           current: ""
