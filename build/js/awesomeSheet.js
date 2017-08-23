@@ -9291,6 +9291,11 @@ var orrin = (function() {
           damage: "1d6+3",
           critical: "18–20/×2"
         }, {
+          weapon: "Rapier +1 Shocking",
+          attack: "+15",
+          damage: "1d6+2 + 1d6 Electrical",
+          critical: "18-20/x2"
+        }, {
           weapon: "Short Sword +1",
           attack: "+15",
           damage: "1d6+2",
@@ -9320,11 +9325,6 @@ var orrin = (function() {
           attack: "+15/+15/+9/+9",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3"
-        }, {
-          weapon: "Rapier +1 Shocking",
-          attack: "+15",
-          damage: "1d6+2 + 1d6 Electrical",
-          critical: "18-20/x2"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
