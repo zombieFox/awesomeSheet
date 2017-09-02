@@ -25,13 +25,13 @@
   color: $white;
   border: 0;
   border-color: transparent;
-  border-bottom: 4px solid transparent;
   border-radius: 0;
   box-shadow: none;
   position: relative;
-  top: 4px;
+  top: 2px;
   z-index: 1;
   flex: 1 1 auto;
+  transition: all $transition-ease-medium;
   &:link,
   &:visited {
     background-color: transparent;
@@ -56,11 +56,9 @@
     outline: 0;
     text-decoration: none;
     box-shadow: none;
-    top: 2px;
   }
   &.is-active {
     background-color: $white;
-    border-bottom: 0;
     border-color: transparent;
     border-radius: $border-radius-small $border-radius-small 0 0;
     color: $base-color;
@@ -82,7 +80,7 @@
   }
 }
 .m-tab-text {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 .is-night-mode {
   .m-tab-item {

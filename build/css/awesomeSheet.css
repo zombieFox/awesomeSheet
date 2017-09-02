@@ -3776,15 +3776,15 @@ label {
   color: #ffffff;
   border: 0;
   border-color: transparent;
-  border-bottom: 4px solid transparent;
   border-radius: 0;
   box-shadow: none;
   position: relative;
-  top: 4px;
+  top: 2px;
   z-index: 1;
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
-          flex: 1 1 auto; }
+          flex: 1 1 auto;
+  transition: all 0.3s ease-in-out; }
   .m-tab-item:link, .m-tab-item:visited {
     background-color: transparent;
     color: #ffffff;
@@ -3804,11 +3804,9 @@ label {
     color: #ffffff;
     outline: 0;
     text-decoration: none;
-    box-shadow: none;
-    top: 2px; }
+    box-shadow: none; }
   .m-tab-item.is-active {
     background-color: #ffffff;
-    border-bottom: 0;
     border-color: transparent;
     border-radius: 3px 3px 0 0;
     color: #2e2e2e;
@@ -3830,7 +3828,7 @@ label {
     font-size: 1.4em; }
 
 .m-tab-text {
-  font-size: 0.9em; }
+  font-size: 0.8em; }
 
 .is-night-mode .m-tab-item {
   background-color: transparent;
