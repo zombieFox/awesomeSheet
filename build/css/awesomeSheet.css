@@ -3662,7 +3662,7 @@ label {
   .m-check-block-check[type="checkbox"] + .m-check-block-check-icon {
     background-color: #ffffff;
     border: 1px solid transparent;
-    border-color: #d4d4d4;
+    border-color: #c7c7c7;
     line-height: 3;
     height: 3em;
     padding: 0;
