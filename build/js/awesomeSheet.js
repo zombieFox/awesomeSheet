@@ -19874,6 +19874,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.20.1",
+    list: [
+      "Fixed an issue causing Clone Skills Bonuses not applying correctly."
+    ]
+  }, {
     version: "3.20.0",
     list: [
       "Adding SR, DR and Energy Resistance."
