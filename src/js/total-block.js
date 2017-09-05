@@ -346,7 +346,7 @@ var totalBlock = (function() {
   function _update_totalBlockControls(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var totalPath = totalBlock.dataset.totalPath;
-    var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10) || false;
+    var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10);
     // collect all bonuses which should apply to this total block
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
     var totalBonusesInclude = false;
@@ -355,7 +355,7 @@ var totalBlock = (function() {
     };
     // get the right total object or clone total object
     var object;
-    if (totalPath && cloneCount) {
+    if (totalPath && !isNaN(cloneCount)) {
       object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
     } else if (totalPath) {
       object = helper.getObject(sheet.getCharacter(), totalPath);
