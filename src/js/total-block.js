@@ -194,7 +194,6 @@ var totalBlock = (function() {
     var totalType = totalBlock.dataset.totalType;
     // total variable location
     var totalPath = totalBlock.dataset.totalPath;
-    // console.log(totalPath);
     // is this a clone
     var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10);
     // are we totalling variable from multiple clones
@@ -343,7 +342,7 @@ var totalBlock = (function() {
   function _update_totalBlockControls(element) {
     var totalBlock = helper.getClosest(element, ".js-total-block");
     var totalPath = totalBlock.dataset.totalPath;
-    var cloneCount = totalBlock.dataset.cloneCount || false;
+    var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10) || false;
     // collect all bonuses which should apply to this total block
     var totalBonuses = (totalBlock.dataset.totalBonuses == "true");
     var totalBonusesInclude = false;
@@ -630,7 +629,7 @@ var totalBlock = (function() {
     var object;
     if (totalBlock.dataset.clone == "true") {
       // console.log(1);
-      var cloneCount = totalBlock.dataset.cloneCount;
+      var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10);
       object = helper.getObject(sheet.getCharacter(), totalPath, cloneCount);
       object.bonuses[bonusType] = input.checked;
     } else {
