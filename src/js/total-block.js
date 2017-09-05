@@ -9,6 +9,7 @@ var totalBlock = (function() {
   };
 
   function _render_totalBlock(totalBlock) {
+    // console.log("---------------------------------------------------");
     // console.log(totalBlock);
     var _checkValue = function(data) {
       var value;
@@ -130,17 +131,19 @@ var totalBlock = (function() {
     };
     var _get_totalObject = function(character, totalPath, cloneCount, totalCloneSet) {
       var object;
-      // console.log(cloneCount);
+      // console.log("cloneCount = ", cloneCount);
+      // console.log("totalCloneSet = ", totalCloneSet);
       if (totalPath && !isNaN(cloneCount)) {
-        // console.log(1);
+        // console.log("route ", 1);
         object = helper.getObject(character, totalPath, cloneCount);
       } else if (totalPath && totalCloneSet) {
-        // console.log(2);
+        // console.log("route ", 2);
         object = helper.getObject(character, totalPath);
       } else if (totalPath) {
-        // console.log(3);
+        // console.log("route ", 3);
         object = helper.getObject(character, totalPath);
       };
+      // console.log(object);
       return object;
     };
     var _get_all_additionSubtractionPaths = function(addOrMinus) {
@@ -176,6 +179,7 @@ var totalBlock = (function() {
     var _updateAllCheck = function(allCheck, totalObject) {
       if (allCheck.length > 0) {
         for (var i = 0; i < allCheck.length; i++) {
+          // console.log(totalObject, totalObject.bonuses);
           _updateCheck(allCheck[i], totalObject.bonuses);
           // if (totalObject.length > 0) {
           //   // console.log(totalObject.length);
