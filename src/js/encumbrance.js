@@ -5,11 +5,16 @@ var encumbrance = (function() {
   function bind(input) {
     var statsStrScore = helper.e("#statistics-stats-str-score");
     var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
+    var equipmentEncumbranceEncumbranceStr = helper.e("#equipment-encumbrance-encumbrance-str");
     statsStrScore.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
     statsStrTempScore.addEventListener("input", function() {
+      clearTimeout(changeEncumbranceTimer);
+      changeEncumbranceTimer = setTimeout(update, 350);
+    }, false);
+    equipmentEncumbranceEncumbranceStr.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
@@ -27,11 +32,15 @@ var encumbrance = (function() {
 
   function render() {
     var object = _create_encumbranceObject(stats.getScore("str"));
-    helper.setObject(sheet.getCharacter(), "equipment.encumbrance", object);
+    helper.setObject(sheet.getCharacter(), "equipment.encumbrance.carry_move", object);
     sheet.storeCharacters();
   };
 
   function _create_encumbranceObject(value) {
+    var encumbranceStr = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
+    if (sheet.getCharacter().equipment.encumbrance.encumbrance_str != "" && !isNaN(sheet.getCharacter().equipment.encumbrance.encumbrance_str)) {
+      value = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
+    };
     if (!isNaN(value)) {
       var str = parseInt(value, 10);
     } else {

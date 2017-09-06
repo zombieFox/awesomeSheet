@@ -133,11 +133,14 @@ var ravich = (function() {
         weight: 1
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Mithral Chain Shirt +1",

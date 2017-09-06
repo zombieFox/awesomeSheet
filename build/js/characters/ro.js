@@ -100,11 +100,14 @@ var ro = (function() {
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       item: [],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Mithral Chain Shirt +1",

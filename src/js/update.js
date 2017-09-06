@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.21.0",
+    list: [
+      "Added alternative STR score to calculation Encumbrance."
+    ]
+  }, {
     version: "3.20.1",
     list: [
       "Fixed an issue causing Clone Skills Bonuses not applying correctly."

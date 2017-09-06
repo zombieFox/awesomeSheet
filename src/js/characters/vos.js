@@ -132,9 +132,14 @@ var vos = (function() {
         weight: ""
       }],
       encumbrance: {
-        light: "76 lbs or less",
-        medium: "77–153 lbs",
-        heavy: "154–230 lbs"
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "",

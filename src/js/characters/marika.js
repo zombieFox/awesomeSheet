@@ -100,11 +100,14 @@ var marika = (function() {
       magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
       item: [],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Leather +2",

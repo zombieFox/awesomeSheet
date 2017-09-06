@@ -144,11 +144,14 @@ var nif = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "",

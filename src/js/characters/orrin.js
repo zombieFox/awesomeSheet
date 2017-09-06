@@ -116,11 +116,14 @@ var orrin = (function() {
         weight: 2
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Mithral Chain Shirt +2",

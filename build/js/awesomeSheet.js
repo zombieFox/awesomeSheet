@@ -501,11 +501,14 @@ var blank = (function() {
       magic_gear: "",
       item: [],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "",
@@ -1688,11 +1691,14 @@ var izlara = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "",
@@ -3593,11 +3599,14 @@ var ravich = (function() {
         weight: 1
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Mithral Chain Shirt +1",
@@ -4827,11 +4836,14 @@ var marika = (function() {
       magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
       item: [],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Leather +2",
@@ -6065,11 +6077,14 @@ var nefi = (function() {
       magic_gear: "Potion of Cure Light Wounds (4) Potion of Cure Moderate Wounds (5), Potion of Cure Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1), Ioun Stone (Dusty rose), Feather Token (Tree)",
       item: [],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Full Plate +2",
@@ -7317,11 +7332,14 @@ var nif = (function() {
         weight: 0.5
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "",
@@ -8985,11 +9003,14 @@ var orrin = (function() {
         weight: 2
       }],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Mithral Chain Shirt +2",
@@ -10250,11 +10271,14 @@ var ro = (function() {
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       item: [],
       encumbrance: {
-        light: "",
-        medium: "",
-        heavy: "",
-        lift: "",
-        drag: ""
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "Mithral Chain Shirt +1",
@@ -11787,9 +11811,14 @@ var vos = (function() {
         weight: ""
       }],
       encumbrance: {
-        light: "76 lbs or less",
-        medium: "77–153 lbs",
-        heavy: "154–230 lbs"
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
       },
       armor: {
         armor: "",
@@ -15088,11 +15117,16 @@ var encumbrance = (function() {
   function bind(input) {
     var statsStrScore = helper.e("#statistics-stats-str-score");
     var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
+    var equipmentEncumbranceEncumbranceStr = helper.e("#equipment-encumbrance-encumbrance-str");
     statsStrScore.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
     statsStrTempScore.addEventListener("input", function() {
+      clearTimeout(changeEncumbranceTimer);
+      changeEncumbranceTimer = setTimeout(update, 350);
+    }, false);
+    equipmentEncumbranceEncumbranceStr.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
@@ -15110,11 +15144,15 @@ var encumbrance = (function() {
 
   function render() {
     var object = _create_encumbranceObject(stats.getScore("str"));
-    helper.setObject(sheet.getCharacter(), "equipment.encumbrance", object);
+    helper.setObject(sheet.getCharacter(), "equipment.encumbrance.carry_move", object);
     sheet.storeCharacters();
   };
 
   function _create_encumbranceObject(value) {
+    var encumbranceStr = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
+    if (sheet.getCharacter().equipment.encumbrance.encumbrance_str != "" && !isNaN(sheet.getCharacter().equipment.encumbrance.encumbrance_str)) {
+      value = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
+    };
     if (!isNaN(value)) {
       var str = parseInt(value, 10);
     } else {
@@ -19874,6 +19912,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.21.0",
+    list: [
+      "Added alternative STR score to calculation Encumbrance."
+    ]
+  }, {
     version: "3.20.1",
     list: [
       "Fixed an issue causing Clone Skills Bonuses not applying correctly."
