@@ -2,6 +2,14 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // udpate encumbrance
+    if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
+      delete characterObject.equipment.encumbrance.light;
+      delete characterObject.equipment.encumbrance.medium;
+      delete characterObject.equipment.encumbrance.heavy;
+      delete characterObject.equipment.encumbrance.lift;
+      delete characterObject.equipment.encumbrance.drag;
+    };
     // update caster level check
     if (!characterObject.spells.caster_level_check) {
       // console.log("--------\t\tupdate caster level check");
