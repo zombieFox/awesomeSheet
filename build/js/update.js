@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.21.1",
+    list: [
+      "Added missing 512x512 icon to manifest file."
+    ]
+  }, {
     version: "3.21.0",
     list: [
       "Added alternative STR score to calculation Encumbrance."
