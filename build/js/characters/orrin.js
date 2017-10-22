@@ -25,7 +25,7 @@ var orrin = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: "85,948",
+      xp: "90,148",
       height: "6'0",
       weight: "206 lbs",
       age: "26",
