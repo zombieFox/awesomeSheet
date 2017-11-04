@@ -2,6 +2,10 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // udpate xp
+    if (typeof characterObject.basics.xp == "string" && !characterObject.basics.xp == "") {
+      characterObject.basics.xp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+    };
     // udpate encumbrance
     if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
       delete characterObject.equipment.encumbrance.light;

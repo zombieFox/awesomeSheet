@@ -234,6 +234,46 @@ var inputBlock = (function() {
     }.bind(modalContent));
   };
 
+  function _update_applyInput(input) {
+    var path = input.dataset.applyPath;
+    var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
+    _applyGivenValue(path, valueToApply);
+    input.value = "";
+  };
+
+  function _update_applyButton(button) {
+    var source = button.dataset.source;
+    var path = button.dataset.path;
+    var input = helper.e("#" + source);
+    var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
+    _applyGivenValue(path, valueToApply);
+    input.value = "";
+  };
+
+  function _applyGivenValue(path, value) {
+    if (path && !isNaN(value)) {
+      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      if (isNaN(currentValue)) {
+        currentValue = 0;
+      };
+      var newValue = currentValue + value;
+      helper.setObject(sheet.getCharacter(), path, newValue);
+      sheet.storeCharacters();
+      textBlock.render();
+      if (value >= 0) {
+        snack.render("+" + value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " XP");
+      } else {
+        snack.render(value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " XP");
+      };
+    };
+  };
+
   function _increment(button) {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
@@ -298,6 +338,8 @@ var inputBlock = (function() {
       _bind_all_inputBlock();
       _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
+      _bind_inputBlockApplyButton();
+      _bind_inputBlockApplyInput();
       _bind_name();
     };
   };
@@ -322,6 +364,27 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockQuickValues.length; i++) {
       all_inputBlockQuickValues[i].addEventListener("click", function() {
         _update_quickValueControls(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockApplyInput() {
+    var all_inputBlockApplyinput = helper.eA(".js-input-block-apply-input");
+    for (var i = 0; i < all_inputBlockApplyinput.length; i++) {
+      all_inputBlockApplyinput[i].addEventListener("keydown", function(event) {
+        // if enter
+        if (event.keyCode == 13) {
+          _update_applyInput(this);
+        };
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockApplyButton() {
+    var all_inputBlockApplyButton = helper.eA(".js-input-block-apply-button");
+    for (var i = 0; i < all_inputBlockApplyButton.length; i++) {
+      all_inputBlockApplyButton[i].addEventListener("click", function() {
+        _update_applyButton(this);
       }, false);
     };
   };
