@@ -44,25 +44,25 @@ var wealth = (function() {
   function _create_goldTotal(wealth) {
     var wealthInGp = [];
     if ("platinum" in wealth) {
-      var platinum = parseFloat(wealth.platinum.replace(/[^0-9\.]+/g, ""), 10) * 10;
+      var platinum = parseInt(wealth.platinum, 10) * 10;
       if (!isNaN(platinum)) {
         wealthInGp.push(platinum);
       };
     };
     if ("gold" in wealth) {
-      var gold = parseFloat(wealth.gold.replace(/[^0-9\.]+/g, ""), 10);
+      var gold = parseInt(wealth.gold, 10);
       if (!isNaN(gold)) {
         wealthInGp.push(gold);
       };
     };
     if ("silver" in wealth) {
-      var silver = parseFloat(wealth.silver.replace(/[^0-9\.]+/g, ""), 10) / 10;
+      var silver = parseInt(wealth.silver, 10) / 10;
       if (!isNaN(silver)) {
         wealthInGp.push(silver);
       };
     };
     if ("copper" in wealth) {
-      var copper = parseFloat(wealth.copper.replace(/[^0-9\.]+/g, ""), 10) / 100;
+      var copper = parseInt(wealth.copper, 10) / 100;
       if (!isNaN(copper)) {
         wealthInGp.push(copper);
       };
@@ -82,6 +82,7 @@ var wealth = (function() {
   // exposed methods
   return {
     bind: bind,
+    update: update,
     render: render,
   };
 

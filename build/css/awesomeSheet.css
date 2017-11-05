@@ -2916,24 +2916,24 @@ label {
 [class^="m-edit-box-content-margin"].m-edit-box-content-outline {
   padding-bottom: 0; }
 
-.m-edit-box-content-margin-large > [class^="m-edit-box-item"].u-no-margin,
 .m-edit-box-content-margin-large > [class*="m-edit-box-item"].u-no-margin,
-.m-edit-box-content-margin-medium > [class^="m-edit-box-item"].u-no-margin,
+.m-edit-box-content-margin-large > [class^="m-edit-box-item"].u-no-margin,
 .m-edit-box-content-margin-medium > [class*="m-edit-box-item"].u-no-margin,
-.m-edit-box-content-margin-small > [class^="m-edit-box-item"].u-no-margin,
-.m-edit-box-content-margin-small > [class*="m-edit-box-item"].u-no-margin {
+.m-edit-box-content-margin-medium > [class^="m-edit-box-item"].u-no-margin,
+.m-edit-box-content-margin-small > [class*="m-edit-box-item"].u-no-margin,
+.m-edit-box-content-margin-small > [class^="m-edit-box-item"].u-no-margin {
   margin-bottom: 0; }
 
-.m-edit-box-content-margin-large > [class^="m-edit-box-item"],
-.m-edit-box-content-margin-large > [class*="m-edit-box-item"] {
+.m-edit-box-content-margin-large > [class*="m-edit-box-item"],
+.m-edit-box-content-margin-large > [class^="m-edit-box-item"] {
   margin-bottom: 1em; }
 
-.m-edit-box-content-margin-medium > [class^="m-edit-box-item"],
-.m-edit-box-content-margin-medium > [class*="m-edit-box-item"] {
+.m-edit-box-content-margin-medium > [class*="m-edit-box-item"],
+.m-edit-box-content-margin-medium > [class^="m-edit-box-item"] {
   margin-bottom: 0.5em; }
 
-.m-edit-box-content-margin-small > [class^="m-edit-box-item"],
-.m-edit-box-content-margin-small > [class*="m-edit-box-item"] {
+.m-edit-box-content-margin-small > [class*="m-edit-box-item"],
+.m-edit-box-content-margin-small > [class^="m-edit-box-item"] {
   margin-bottom: 4px; }
 
 .m-edit-box [class*="m-edit-box-item"],
@@ -3225,6 +3225,11 @@ label {
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
+  .m-edit-box-group-control-set [class*="m-edit-box-item-button"],
+  .m-edit-box-group-control-set [class^="m-edit-box-item-button"] {
+    -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0; }
   .m-edit-box-group-control-set .m-edit-box-item-button-large {
     -webkit-flex-basis: 3em;
         -ms-flex-preferred-size: 3em;

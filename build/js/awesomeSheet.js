@@ -1580,7 +1580,7 @@ var izlara = (function() {
       },
       alignment: "Neutral Good",
       deity: "",
-      xp: "220,000",
+      xp: 220000,
       height: "5.5ft",
       weight: "95lbs",
       age: "118",
@@ -3500,7 +3500,7 @@ var ravich = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: "23,000",
+      xp: 23000,
       height: "6ft",
       weight: "134lbs",
       age: "24",
@@ -4761,7 +4761,7 @@ var marika = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: "76,000",
+      xp: 76000,
       height: "5’3",
       weight: "98 lb",
       age: "23",
@@ -6002,7 +6002,7 @@ var nefi = (function() {
       },
       alignment: "Neutral",
       deity: "",
-      xp: "155,000",
+      xp: 155000,
       height: "6'2",
       weight: "202 lbs",
       age: "28",
@@ -7213,7 +7213,7 @@ var nif = (function() {
       },
       alignment: "Lawful Neutral",
       deity: "",
-      xp: "51,330",
+      xp: 51330,
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -8912,7 +8912,7 @@ var orrin = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: "90,148",
+      xp: 90148,
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -10196,7 +10196,7 @@ var ro = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: "29,090",
+      xp: 29090,
       height: "6'0",
       weight: "",
       age: "120",
@@ -11704,7 +11704,7 @@ var vos = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: "51,000",
+      xp: 51000,
       height: "5'0",
       weight: "190 lbs",
       age: "40",
@@ -14939,6 +14939,11 @@ var display = (function() {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         });
+      } else if (valueType == "number" && data > 0) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        })
       };
       value.innerHTML = data;
       if (prefix) {
@@ -15493,6 +15498,58 @@ var inputBlock = (function() {
     }.bind(modalContent));
   };
 
+  function _update_aggregateInput(input) {
+    var path = input.dataset.aggregatePath;
+    var message = input.dataset.aggregateSnackMessage;
+    var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
+    _aggregateGivenValue(path, valueToApply, message);
+    input.value = "";
+  };
+
+  function _update_aggregateButton(button) {
+    var source = button.dataset.source;
+    var path = button.dataset.aggregatePath;
+    var message = button.dataset.aggregateSnackMessage;
+    var input = helper.e("#" + source);
+    var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
+    _aggregateGivenValue(path, valueToApply, message);
+    input.value = "";
+  };
+
+  function _update_aggregateClear(button) {
+    var path = button.dataset.aggregatePath;
+    var message = button.dataset.aggregateSnackMessage;
+    helper.setObject(sheet.getCharacter(), path, "");
+    wealth.update();
+    textBlock.render();
+    snack.render(message);
+  };
+
+  function _aggregateGivenValue(path, value, message) {
+    if (path && !isNaN(value)) {
+      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      if (isNaN(currentValue)) {
+        currentValue = 0;
+      };
+      var newValue = currentValue + value;
+      helper.setObject(sheet.getCharacter(), path, newValue);
+      sheet.storeCharacters();
+      wealth.update();
+      textBlock.render();
+      if (value >= 0) {
+        snack.render("+" + value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message);
+      } else {
+        snack.render(value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message);
+      };
+    };
+  };
+
   function _increment(button) {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
@@ -15557,6 +15614,9 @@ var inputBlock = (function() {
       _bind_all_inputBlock();
       _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
+      _bind_inputBlockAggregateButton();
+      _bind_inputBlockAggregateInput();
+      _bind_inputBlockAggregateClear();
       _bind_name();
     };
   };
@@ -15581,6 +15641,41 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockQuickValues.length; i++) {
       all_inputBlockQuickValues[i].addEventListener("click", function() {
         _update_quickValueControls(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateInput() {
+    var all_inputBlockAggregateinput = helper.eA(".js-input-block-aggregate-input");
+    for (var i = 0; i < all_inputBlockAggregateinput.length; i++) {
+      all_inputBlockAggregateinput[i].addEventListener("keydown", function(event) {
+        // if enter
+        if (event.keyCode == 13) {
+          _update_aggregateInput(this);
+        };
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateButton() {
+    var all_inputBlockAggregateButton = helper.eA(".js-input-block-aggregate-button");
+    for (var i = 0; i < all_inputBlockAggregateButton.length; i++) {
+      all_inputBlockAggregateButton[i].addEventListener("click", function() {
+        _update_aggregateButton(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateClear() {
+    var all_inputBlockAggregateClear = helper.eA(".js-input-block-aggregate-clear");
+    for (var i = 0; i < all_inputBlockAggregateClear.length; i++) {
+      all_inputBlockAggregateClear[i].addEventListener("click", function() {
+        var button = this;
+        var heading = this.dataset.aggregatePromptHeading;
+        var message = this.dataset.aggregatePromptMessage;
+        prompt.render(heading, message, "Clear", function() {
+          _update_aggregateClear(button);
+        });
       }, false);
     };
   };
@@ -16875,6 +16970,23 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // udpate wealth
+    if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
+      characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);
+    };
+    if (typeof characterObject.equipment.wealth.gold == "string" && !characterObject.equipment.wealth.gold == "") {
+      characterObject.equipment.wealth.gold = parseInt(characterObject.equipment.wealth.gold.replace(/,/g, ""), 10);
+    };
+    if (typeof characterObject.equipment.wealth.silver == "string" && !characterObject.equipment.wealth.silver == "") {
+      characterObject.equipment.wealth.silver = parseInt(characterObject.equipment.wealth.silver.replace(/,/g, ""), 10);
+    };
+    if (typeof characterObject.equipment.wealth.copper == "string" && !characterObject.equipment.wealth.copper == "") {
+      characterObject.equipment.wealth.copper = parseInt(characterObject.equipment.wealth.copper.replace(/,/g, ""), 10);
+    };
+    // udpate xp
+    if (typeof characterObject.basics.xp == "string" && !characterObject.basics.xp == "") {
+      characterObject.basics.xp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+    };
     // udpate encumbrance
     if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
       delete characterObject.equipment.encumbrance.light;
@@ -18928,6 +19040,15 @@ var textBlock = (function() {
             maximumFractionDigits: 2
           }) + " gp";
         };
+      } else if (textType == "number") {
+        if (content != "") {
+          content = parseFloat(content).toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+        } else {
+          content = 0;
+        };
       };
     };
     textBlock.textContent = content;
@@ -19920,6 +20041,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.22.0",
+    list: [
+      "Added apply and clearing to XP and Wealth counts."
+    ]
+  }, {
     version: "3.21.1",
     list: [
       "Added missing 512x512 icon to manifest file."
@@ -20140,25 +20266,25 @@ var wealth = (function() {
   function _create_goldTotal(wealth) {
     var wealthInGp = [];
     if ("platinum" in wealth) {
-      var platinum = parseFloat(wealth.platinum.replace(/[^0-9\.]+/g, ""), 10) * 10;
+      var platinum = parseInt(wealth.platinum, 10) * 10;
       if (!isNaN(platinum)) {
         wealthInGp.push(platinum);
       };
     };
     if ("gold" in wealth) {
-      var gold = parseFloat(wealth.gold.replace(/[^0-9\.]+/g, ""), 10);
+      var gold = parseInt(wealth.gold, 10);
       if (!isNaN(gold)) {
         wealthInGp.push(gold);
       };
     };
     if ("silver" in wealth) {
-      var silver = parseFloat(wealth.silver.replace(/[^0-9\.]+/g, ""), 10) / 10;
+      var silver = parseInt(wealth.silver, 10) / 10;
       if (!isNaN(silver)) {
         wealthInGp.push(silver);
       };
     };
     if ("copper" in wealth) {
-      var copper = parseFloat(wealth.copper.replace(/[^0-9\.]+/g, ""), 10) / 100;
+      var copper = parseInt(wealth.copper, 10) / 100;
       if (!isNaN(copper)) {
         wealthInGp.push(copper);
       };
@@ -20178,6 +20304,7 @@ var wealth = (function() {
   // exposed methods
   return {
     bind: bind,
+    update: update,
     render: render,
   };
 

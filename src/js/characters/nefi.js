@@ -25,7 +25,7 @@ var nefi = (function() {
       },
       alignment: "Neutral",
       deity: "",
-      xp: "155,000",
+      xp: 155000,
       height: "6'2",
       weight: "202 lbs",
       age: "28",

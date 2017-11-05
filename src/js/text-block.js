@@ -22,6 +22,15 @@ var textBlock = (function() {
             maximumFractionDigits: 2
           }) + " gp";
         };
+      } else if (textType == "number") {
+        if (content != "") {
+          content = parseFloat(content).toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+        } else {
+          content = 0;
+        };
       };
     };
     textBlock.textContent = content;

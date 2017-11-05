@@ -25,7 +25,7 @@ var marika = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: "76,000",
+      xp: 76000,
       height: "5’3",
       weight: "98 lb",
       age: "23",

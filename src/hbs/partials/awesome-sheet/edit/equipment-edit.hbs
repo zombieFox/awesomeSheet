@@ -2,7 +2,7 @@
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
-      <p class="m-edit-box-title">Gear</p>
+      <h2 class="m-edit-box-title">Gear</h2>
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
@@ -17,7 +17,7 @@
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
-      <p class="m-edit-box-title">Magic Gear</p>
+      <h2 class="m-edit-box-title">Magic Gear</h2>
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
@@ -290,38 +290,133 @@
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
     <div class="m-edit-box-head">
-      <h2 class="m-edit-box-title">Wealth</h2>
+      <h2 class="m-edit-box-title">Platinum</h2>
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-large">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-platinum">Platinum</label>
-              <input id="equipment-wealth-platinum" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.wealth.platinum" type="text" tabindex="1">
-            </div>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.platinum" data-text-type="number"></p>
           </div>
-          <div class="m-edit-box-item-large">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-gold">Gold</label>
-              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.wealth.gold" type="text" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-large">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-silver">Silver</label>
-              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.wealth.silver" type="text" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-large">
-            <div class="m-input-block js-input-block">
-              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-copper">Copper</label>
-              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width js-input-block-field" data-path="equipment.wealth.copper" type="text" tabindex="1">
-            </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum cleared." data-aggregate-prompt-heading="Clear Platinum?"
+              data-aggregate-prompt-message="Are you sure you want to clear the current Platinum total?" tabindex="1"><span class="icon-close"></span></a>
           </div>
         </div>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-large">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-platinum">Coin to add/remove</label>
+              <input id="equipment-wealth-platinum" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-large">
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-platinum" data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum" tabindex="1">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box-head">
+      <h2 class="m-edit-box-title">Gold</h2>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.gold" data-text-type="number"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold cleared." data-aggregate-prompt-heading="Clear Gold?"
+              data-aggregate-prompt-message="Are you sure you want to clear the current Gold total?" tabindex="1"><span class="icon-close"></span></a>
+          </div>
+        </div>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-large">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-gold">Coin to add/remove</label>
+              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-large">
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-gold" data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold" tabindex="1">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box-head">
+      <h2 class="m-edit-box-title">Silver</h2>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.silver" data-text-type="number"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver cleared." data-aggregate-prompt-heading="Clear Silver?"
+              data-aggregate-prompt-message="Are you sure you want to clear the current Silver total?" tabindex="1"><span class="icon-close"></span></a>
+          </div>
+        </div>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-large">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-silver">Coin to add/remove</label>
+              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-large">
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-silver" data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver" tabindex="1">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box-head">
+      <h2 class="m-edit-box-title">Copper</h2>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.copper" data-text-type="number"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper cleared." data-aggregate-prompt-heading="Clear Copper?"
+              data-aggregate-prompt-message="Are you sure you want to clear the current Copper total?" tabindex="1"><span class="icon-close"></span></a>
+          </div>
+        </div>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-large">
+            <div class="m-input-block js-input-block">
+              <label class="m-input-block-label js-input-block-label" for="equipment-wealth-copper">Coin to add/remove</label>
+              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper" type="text" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-large">
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-copper" data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper" tabindex="1">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
-          <p class="m-edit-box-label">Total</p>
+          <p class="m-edit-box-label">Total Wealth</p>
           <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total given in the most common coin, gold pieces." data-path="equipment.wealth.total" data-text-type="currency"></p>
         </div>
       </div>

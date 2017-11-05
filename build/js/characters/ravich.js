@@ -34,7 +34,7 @@ var ravich = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: "23,000",
+      xp: 23000,
       height: "6ft",
       weight: "134lbs",
       age: "24",
