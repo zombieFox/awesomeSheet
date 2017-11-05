@@ -648,6 +648,11 @@ var display = (function() {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         });
+      } else if (valueType == "number" && data > 0) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        })
       };
       value.innerHTML = data;
       if (prefix) {

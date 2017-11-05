@@ -25,7 +25,7 @@ var vos = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: "51,000",
+      xp: 51000,
       height: "5'0",
       weight: "190 lbs",
       age: "40",
