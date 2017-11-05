@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.22.0",
+    list: [
+      "Added apply and clearing to XP and Wealth counts."
+    ]
+  }, {
     version: "3.21.1",
     list: [
       "Added missing 512x512 icon to manifest file."
