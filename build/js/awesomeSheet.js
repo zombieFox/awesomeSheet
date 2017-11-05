@@ -19038,7 +19038,7 @@ var textBlock = (function() {
           content = parseFloat(content).toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
-          }) + " gp";
+          }) + " GP";
         };
       } else if (textType == "number") {
         if (content != "") {
