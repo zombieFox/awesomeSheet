@@ -236,28 +236,32 @@ var inputBlock = (function() {
 
   function _update_aggregateInput(input) {
     var path = input.dataset.aggregatePath;
+    var message = input.dataset.aggregateSnackMessage;
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _applyGivenValue(path, valueToApply);
+    _aggregateGivenValue(path, valueToApply, message);
     input.value = "";
   };
 
   function _update_aggregateButton(button) {
     var source = button.dataset.source;
     var path = button.dataset.aggregatePath;
+    var message = button.dataset.aggregateSnackMessage;
     var input = helper.e("#" + source);
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _applyGivenValue(path, valueToApply);
+    _aggregateGivenValue(path, valueToApply, message);
     input.value = "";
   };
 
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
+    var message = button.dataset.aggregateSnackMessage;
     helper.setObject(sheet.getCharacter(), path, "");
+    wealth.update();
     textBlock.render();
-    snack.render("XP cleared.");
+    snack.render(message);
   };
 
-  function _applyGivenValue(path, value) {
+  function _aggregateGivenValue(path, value, message) {
     if (path && !isNaN(value)) {
       var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
       if (isNaN(currentValue)) {
@@ -266,17 +270,18 @@ var inputBlock = (function() {
       var newValue = currentValue + value;
       helper.setObject(sheet.getCharacter(), path, newValue);
       sheet.storeCharacters();
+      wealth.update();
       textBlock.render();
       if (value >= 0) {
         snack.render("+" + value.toLocaleString(undefined, {
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        }) + " XP");
+        }) + " " + message);
       } else {
         snack.render(value.toLocaleString(undefined, {
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        }) + " XP");
+        }) + " " + message);
       };
     };
   };
@@ -402,7 +407,9 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockAggregateClear.length; i++) {
       all_inputBlockAggregateClear[i].addEventListener("click", function() {
         var button = this;
-        prompt.render("Clear XP?", "Are you sure you want to clear the current XP toal?", "Clear", function() {
+        var heading = this.dataset.aggregatePromptHeading;
+        var message = this.dataset.aggregatePromptMessage;
+        prompt.render(heading, message, "Clear", function() {
           _update_aggregateClear(button);
         });
       }, false);
