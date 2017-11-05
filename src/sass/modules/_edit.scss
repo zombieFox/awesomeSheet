@@ -65,28 +65,28 @@
 .m-edit-box-content-margin-large,
 .m-edit-box-content-margin-medium,
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     &.u-no-margin {
       margin-bottom: 0;
     }
   }
 }
 .m-edit-box-content-margin-large {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class^="m-edit-box-item"],
-  > [class*="m-edit-box-item"] {
+   > [class*="m-edit-box-item"],
+  > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -298,6 +298,10 @@
   [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
     flex-grow: 1;
+  }
+  [class*="m-edit-box-item-button"],
+  [class^="m-edit-box-item-button"] {
+    flex-grow: 0;
   }
   .m-edit-box-item-button-large {
     flex-basis: 3em;

@@ -234,20 +234,27 @@ var inputBlock = (function() {
     }.bind(modalContent));
   };
 
-  function _update_applyInput(input) {
-    var path = input.dataset.applyPath;
+  function _update_aggregateInput(input) {
+    var path = input.dataset.aggregatePath;
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _applyGivenValue(path, valueToApply);
     input.value = "";
   };
 
-  function _update_applyButton(button) {
+  function _update_aggregateButton(button) {
     var source = button.dataset.source;
-    var path = button.dataset.path;
+    var path = button.dataset.aggregatePath;
     var input = helper.e("#" + source);
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _applyGivenValue(path, valueToApply);
     input.value = "";
+  };
+
+  function _update_aggregateClear(button) {
+    var path = button.dataset.aggregatePath;
+    helper.setObject(sheet.getCharacter(), path, "");
+    textBlock.render();
+    snack.render("XP cleared.");
   };
 
   function _applyGivenValue(path, value) {
@@ -338,8 +345,9 @@ var inputBlock = (function() {
       _bind_all_inputBlock();
       _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
-      _bind_inputBlockApplyButton();
-      _bind_inputBlockApplyInput();
+      _bind_inputBlockAggregateButton();
+      _bind_inputBlockAggregateInput();
+      _bind_inputBlockAggregateClear();
       _bind_name();
     };
   };
@@ -368,23 +376,35 @@ var inputBlock = (function() {
     };
   };
 
-  function _bind_inputBlockApplyInput() {
-    var all_inputBlockApplyinput = helper.eA(".js-input-block-apply-input");
-    for (var i = 0; i < all_inputBlockApplyinput.length; i++) {
-      all_inputBlockApplyinput[i].addEventListener("keydown", function(event) {
+  function _bind_inputBlockAggregateInput() {
+    var all_inputBlockAggregateinput = helper.eA(".js-input-block-aggregate-input");
+    for (var i = 0; i < all_inputBlockAggregateinput.length; i++) {
+      all_inputBlockAggregateinput[i].addEventListener("keydown", function(event) {
         // if enter
         if (event.keyCode == 13) {
-          _update_applyInput(this);
+          _update_aggregateInput(this);
         };
       }, false);
     };
   };
 
-  function _bind_inputBlockApplyButton() {
-    var all_inputBlockApplyButton = helper.eA(".js-input-block-apply-button");
-    for (var i = 0; i < all_inputBlockApplyButton.length; i++) {
-      all_inputBlockApplyButton[i].addEventListener("click", function() {
-        _update_applyButton(this);
+  function _bind_inputBlockAggregateButton() {
+    var all_inputBlockAggregateButton = helper.eA(".js-input-block-aggregate-button");
+    for (var i = 0; i < all_inputBlockAggregateButton.length; i++) {
+      all_inputBlockAggregateButton[i].addEventListener("click", function() {
+        _update_aggregateButton(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateClear() {
+    var all_inputBlockAggregateClear = helper.eA(".js-input-block-aggregate-clear");
+    for (var i = 0; i < all_inputBlockAggregateClear.length; i++) {
+      all_inputBlockAggregateClear[i].addEventListener("click", function() {
+        var button = this;
+        prompt.render("Clear XP?", "Are you sure you want to clear the current XP toal?", "Clear", function() {
+          _update_aggregateClear(button);
+        });
       }, false);
     };
   };

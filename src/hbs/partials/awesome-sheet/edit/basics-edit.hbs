@@ -128,23 +128,25 @@
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content">
-        <div class="m-edit-box-item-total">
-          <p class="m-edit-box-label">Total</p>
-          <p class="m-edit-box-text js-text-block" data-path="basics.xp" data-text-type="number"></p>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-text js-text-block" data-path="basics.xp" data-text-type="number"></p>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="basics.xp" tabindex="1"><span class="icon-close"></span></a>
+          </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="basics-xp">XP to add/remove</label>
-              <input id="basics-xp" class="m-input-block-field u-full-width js-input-block-field js-input-block-apply-input" data-apply-path="basics.xp" type="text" tabindex="1">
+              <input id="basics-xp" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="basics.xp" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-apply-button" data-source="basics-xp" data-path="basics.xp" tabindex="1">Apply</a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="basics-xp" data-aggregate-path="basics.xp" tabindex="1">Apply</a>
           </div>
-        </div>
-        <div class="m-edit-box-item-button-small">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-apply-clear" data-path="basics.xp" tabindex="1"><span class="icon-close"></span></a>
         </div>
       </div>
     </div>
