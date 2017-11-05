@@ -234,6 +234,58 @@ var inputBlock = (function() {
     }.bind(modalContent));
   };
 
+  function _update_aggregateInput(input) {
+    var path = input.dataset.aggregatePath;
+    var message = input.dataset.aggregateSnackMessage;
+    var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
+    _aggregateGivenValue(path, valueToApply, message);
+    input.value = "";
+  };
+
+  function _update_aggregateButton(button) {
+    var source = button.dataset.source;
+    var path = button.dataset.aggregatePath;
+    var message = button.dataset.aggregateSnackMessage;
+    var input = helper.e("#" + source);
+    var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
+    _aggregateGivenValue(path, valueToApply, message);
+    input.value = "";
+  };
+
+  function _update_aggregateClear(button) {
+    var path = button.dataset.aggregatePath;
+    var message = button.dataset.aggregateSnackMessage;
+    helper.setObject(sheet.getCharacter(), path, "");
+    wealth.update();
+    textBlock.render();
+    snack.render(message);
+  };
+
+  function _aggregateGivenValue(path, value, message) {
+    if (path && !isNaN(value)) {
+      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      if (isNaN(currentValue)) {
+        currentValue = 0;
+      };
+      var newValue = currentValue + value;
+      helper.setObject(sheet.getCharacter(), path, newValue);
+      sheet.storeCharacters();
+      wealth.update();
+      textBlock.render();
+      if (value >= 0) {
+        snack.render("+" + value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message);
+      } else {
+        snack.render(value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message);
+      };
+    };
+  };
+
   function _increment(button) {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
@@ -298,6 +350,9 @@ var inputBlock = (function() {
       _bind_all_inputBlock();
       _bind_all_inputBlockIncrement();
       _bind_inputBlockQuickValue();
+      _bind_inputBlockAggregateButton();
+      _bind_inputBlockAggregateInput();
+      _bind_inputBlockAggregateClear();
       _bind_name();
     };
   };
@@ -322,6 +377,41 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockQuickValues.length; i++) {
       all_inputBlockQuickValues[i].addEventListener("click", function() {
         _update_quickValueControls(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateInput() {
+    var all_inputBlockAggregateinput = helper.eA(".js-input-block-aggregate-input");
+    for (var i = 0; i < all_inputBlockAggregateinput.length; i++) {
+      all_inputBlockAggregateinput[i].addEventListener("keydown", function(event) {
+        // if enter
+        if (event.keyCode == 13) {
+          _update_aggregateInput(this);
+        };
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateButton() {
+    var all_inputBlockAggregateButton = helper.eA(".js-input-block-aggregate-button");
+    for (var i = 0; i < all_inputBlockAggregateButton.length; i++) {
+      all_inputBlockAggregateButton[i].addEventListener("click", function() {
+        _update_aggregateButton(this);
+      }, false);
+    };
+  };
+
+  function _bind_inputBlockAggregateClear() {
+    var all_inputBlockAggregateClear = helper.eA(".js-input-block-aggregate-clear");
+    for (var i = 0; i < all_inputBlockAggregateClear.length; i++) {
+      all_inputBlockAggregateClear[i].addEventListener("click", function() {
+        var button = this;
+        var heading = this.dataset.aggregatePromptHeading;
+        var message = this.dataset.aggregatePromptMessage;
+        prompt.render(heading, message, "Clear", function() {
+          _update_aggregateClear(button);
+        });
       }, false);
     };
   };
