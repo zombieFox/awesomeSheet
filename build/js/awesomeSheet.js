@@ -15504,7 +15504,6 @@ var inputBlock = (function() {
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _aggregateGivenValue(path, valueToApply, message);
     input.value = "";
-    console.log(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
   };
 
   function _update_aggregateButton(button) {
@@ -15515,7 +15514,6 @@ var inputBlock = (function() {
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _aggregateGivenValue(path, valueToApply, message);
     input.value = "";
-    console.log(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
   };
 
   function _update_aggregateClear(button) {
@@ -15525,7 +15523,6 @@ var inputBlock = (function() {
     wealth.update();
     textBlock.render();
     snack.render(message);
-    console.log(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
   };
 
   function _aggregateGivenValue(path, value, message) {
