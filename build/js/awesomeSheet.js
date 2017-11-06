@@ -15504,6 +15504,7 @@ var inputBlock = (function() {
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _aggregateGivenValue(path, valueToApply, message);
     input.value = "";
+    console.log(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
   };
 
   function _update_aggregateButton(button) {
@@ -15514,6 +15515,7 @@ var inputBlock = (function() {
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _aggregateGivenValue(path, valueToApply, message);
     input.value = "";
+    console.log(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
   };
 
   function _update_aggregateClear(button) {
@@ -15523,6 +15525,7 @@ var inputBlock = (function() {
     wealth.update();
     textBlock.render();
     snack.render(message);
+    console.log(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
   };
 
   function _aggregateGivenValue(path, value, message) {
@@ -17667,7 +17670,6 @@ var sheet = (function() {
     skills.bind();
     encumbrance.bind();
     size.bind();
-    wealth.bind();
     totalBlock.bind();
     display.bind();
     card.bind();
@@ -20222,31 +20224,6 @@ var update = (function() {
 
 var wealth = (function() {
 
-  var changeWealthTimer = null;
-
-  function bind() {
-    var equipmentWealthPlatinum = helper.e("#equipment-wealth-platinum");
-    var equipmentWealthGold = helper.e("#equipment-wealth-gold");
-    var equipmentWealthSilver = helper.e("#equipment-wealth-silver");
-    var equipmentWealthCopper = helper.e("#equipment-wealth-copper");
-    equipmentWealthPlatinum.addEventListener("input", function() {
-      clearTimeout(changeWealthTimer);
-      changeWealthTimer = setTimeout(update, 350);
-    }, false);
-    equipmentWealthGold.addEventListener("input", function() {
-      clearTimeout(changeWealthTimer);
-      changeWealthTimer = setTimeout(update, 350);
-    }, false);
-    equipmentWealthSilver.addEventListener("input", function() {
-      clearTimeout(changeWealthTimer);
-      changeWealthTimer = setTimeout(update, 350);
-    }, false);
-    equipmentWealthCopper.addEventListener("input", function() {
-      clearTimeout(changeWealthTimer);
-      changeWealthTimer = setTimeout(update, 350);
-    }, false);
-  };
-
   function update() {
     render();
     totalBlock.render();
@@ -20266,25 +20243,25 @@ var wealth = (function() {
   function _create_goldTotal(wealth) {
     var wealthInGp = [];
     if ("platinum" in wealth) {
-      var platinum = parseInt(wealth.platinum, 10) * 10;
+      var platinum = wealth.platinum * 10;
       if (!isNaN(platinum)) {
         wealthInGp.push(platinum);
       };
     };
     if ("gold" in wealth) {
-      var gold = parseInt(wealth.gold, 10);
+      var gold = wealth.gold;
       if (!isNaN(gold)) {
         wealthInGp.push(gold);
       };
     };
     if ("silver" in wealth) {
-      var silver = parseInt(wealth.silver, 10) / 10;
+      var silver = wealth.silver / 10;
       if (!isNaN(silver)) {
         wealthInGp.push(silver);
       };
     };
     if ("copper" in wealth) {
-      var copper = parseInt(wealth.copper, 10) / 100;
+      var copper = wealth.copper / 100;
       if (!isNaN(copper)) {
         wealthInGp.push(copper);
       };
@@ -20303,7 +20280,6 @@ var wealth = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     update: update,
     render: render,
   };

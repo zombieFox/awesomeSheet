@@ -307,7 +307,6 @@ var sheet = (function() {
     skills.bind();
     encumbrance.bind();
     size.bind();
-    wealth.bind();
     totalBlock.bind();
     display.bind();
     card.bind();
