@@ -962,7 +962,7 @@ var clone = (function() {
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
-    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 8000, _remove_lastRemovedClone);
+    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 8000);
   };
 
   function _restore_lastRemovedClone() {

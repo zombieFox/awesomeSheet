@@ -264,7 +264,6 @@ var inputBlock = (function() {
 
   function _aggregateGivenValue(action, path, value, message) {
     if (!isNaN(value)) {
-      console.log(value);
       var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
       if (isNaN(currentValue)) {
         currentValue = 0;
@@ -291,7 +290,7 @@ var inputBlock = (function() {
       textBlock.render();
       sheet.storeCharacters();
       _store_lastAggregate(path, currentValue);
-      snack.render(message, "Undo", _restore_lastAggregate, 6000, _remove_lastRemovedAggregate);
+      snack.render(message, "Undo", _restore_lastAggregate, 8000);
     };
   };
 

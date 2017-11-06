@@ -530,7 +530,7 @@ var spells = (function() {
       var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
       _store_lastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
-      snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restore_lastRemovedSpell, 6000, _remove_lastRemovedSpell);
+      snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restore_lastRemovedSpell, 8000);
     };
     // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     sheet.storeCharacters();
