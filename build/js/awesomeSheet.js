@@ -15502,7 +15502,7 @@ var inputBlock = (function() {
     var path = input.dataset.aggregatePath;
     var message = input.dataset.aggregateSnackMessage;
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _aggregateGivenValue(path, valueToApply, message);
+    _aggregateGivenValue("aggregate", path, valueToApply, message);
     input.value = "";
   };
 
@@ -15512,42 +15512,71 @@ var inputBlock = (function() {
     var message = button.dataset.aggregateSnackMessage;
     var input = helper.e("#" + source);
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _aggregateGivenValue(path, valueToApply, message);
+    _aggregateGivenValue("aggregate", path, valueToApply, message);
     input.value = "";
   };
 
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
     var message = button.dataset.aggregateSnackMessage;
-    helper.setObject(sheet.getCharacter(), path, "");
-    wealth.update();
-    textBlock.render();
-    snack.render(message);
+    _aggregateGivenValue("clear", path, false, message);
   };
 
-  function _aggregateGivenValue(path, value, message) {
-    if (path && !isNaN(value)) {
+  function _aggregateGivenValue(action, path, value, message) {
+    if (!isNaN(value)) {
       var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
       if (isNaN(currentValue)) {
         currentValue = 0;
       };
-      var newValue = currentValue + value;
+      var newValue;
+      if (action == "aggregate") {
+        newValue = currentValue + value;
+        if (value >= 0) {
+          message = "+" + value.toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          }) + " " + message;
+        } else {
+          message = value.toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          }) + " " + message;
+        };
+      } else if (action == "clear") {
+        newValue = "";
+      };
       helper.setObject(sheet.getCharacter(), path, newValue);
-      sheet.storeCharacters();
       wealth.update();
       textBlock.render();
-      if (value >= 0) {
-        snack.render("+" + value.toLocaleString(undefined, {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0
-        }) + " " + message);
-      } else {
-        snack.render(value.toLocaleString(undefined, {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0
-        }) + " " + message);
-      };
+      sheet.storeCharacters();
+      _store_lastAggregate(path, currentValue);
+      snack.render(message, "Undo", _restore_lastAggregate, 8000);
     };
+  };
+
+  function _store_lastAggregate(path, oldValue) {
+    var object = {
+      path: path,
+      oldValue: oldValue
+    };
+    helper.store("lastAggregate", JSON.stringify(object));
+  };
+
+  function _restore_lastAggregate() {
+    var undoData = JSON.parse(helper.read("lastAggregate"));
+    _restore_aggregate(undoData.path, undoData.oldValue);
+    _remove_lastRemovedAggregate();
+  };
+
+  function _remove_lastRemovedAggregate() {
+    helper.remove("lastAggregate");
+  };
+
+  function _restore_aggregate(path, oldValue) {
+    helper.setObject(sheet.getCharacter(), path, oldValue);
+    wealth.update();
+    textBlock.render();
+    sheet.storeCharacters();
   };
 
   function _increment(button) {
@@ -18487,15 +18516,15 @@ var spells = (function() {
     } else if (spellState == "remove") {
       // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
-      _storeLastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      _store_lastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
-      snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restoreLastRemovedSpell, 6000);
+      snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restore_lastRemovedSpell, 8000);
     };
     // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     sheet.storeCharacters();
   };
 
-  function _storeLastRemovedSpell(spellLevel, spellCount, spell) {
+  function _store_lastRemovedSpell(spellLevel, spellCount, spell) {
     var object = {
       spellLevel: spellLevel,
       spellCount: spellCount,
@@ -18504,18 +18533,18 @@ var spells = (function() {
     helper.store("lastRemovedSpell", JSON.stringify(object));
   };
 
-  function _removeLastRemovedSpell() {
+  function _remove_lastRemovedSpell() {
     helper.remove("lastRemovedSpell");
   };
 
-  function _restoreLastRemovedSpell() {
+  function _restore_lastRemovedSpell() {
     var undoData = JSON.parse(helper.read("lastRemovedSpell"));
-    _restoreSpellObject(undoData.spellLevel, undoData.spellCount, undoData.spell);
-    _removeLastRemovedSpell();
+    _restore_spellObject(undoData.spellLevel, undoData.spellCount, undoData.spell);
+    _remove_lastRemovedSpell();
     _checkSpellState();
   };
 
-  function _restoreSpellObject(spellLevel, spellCount, spell) {
+  function _restore_spellObject(spellLevel, spellCount, spell) {
     sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
     _destroy_spellBook(spellLevel);
     _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
@@ -18552,13 +18581,13 @@ var spells = (function() {
       };
     };
 
-    var _removeStateSpellItems = function() {
+    var _remove_stateSpellItems = function() {
       for (var i = 0; i < all_spellBookItem.length; i++) {
         helper.addClass(all_spellBookItem[i], "button-primary");
       };
     };
 
-    var _resetAllControls = function() {
+    var _reset_allControls = function() {
       for (var i = 0; i < all_spellStateControls.length; i++) {
         helper.removeClass(all_spellStateControls[i], "is-live");
       };
@@ -18568,20 +18597,20 @@ var spells = (function() {
     if (spellsFound) {
       if (button.dataset.state != spellRoot.dataset.spellState) {
         spellRoot.dataset.spellState = button.dataset.state;
-        _resetAllControls();
+        _reset_allControls();
         if (button.dataset.state == "prepare" || button.dataset.state == "unprepare" || button.dataset.state == "cast" || button.dataset.state == "active") {
           helper.addClass(button, "is-live");
         };
       } else {
         spellRoot.dataset.spellState = false;
-        _resetAllControls();
+        _reset_allControls();
       };
     };
 
     // change spells to reflect state
     if (spellRoot.dataset.spellState == "remove") {
       _normalStateSpellItems();
-      _removeStateSpellItems();
+      _remove_stateSpellItems();
       helper.addClass(spellRoot, "is-state-remove");
       helper.addClass(spellRemoveButton, "button-primary");
       helper.removeClass(spellRemoveButton, "button-secondary");
