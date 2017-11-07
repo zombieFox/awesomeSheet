@@ -255,10 +255,6 @@ var inputBlock = (function() {
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
     var message = button.dataset.aggregateSnackMessage;
-    // helper.setObject(sheet.getCharacter(), path, "");
-    // wealth.update();
-    // textBlock.render();
-    // snack.render(message);
     _aggregateGivenValue("clear", path, false, message);
   };
 
