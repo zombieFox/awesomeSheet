@@ -1142,7 +1142,8 @@ var blank = (function() {
     notes: {
       character: [],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods

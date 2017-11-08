@@ -1251,7 +1251,8 @@ var vos = (function() {
       }, {
         note: "Prince's Wolves scarf, a toke to proof."
       }]
-    }
+    },
+    events: []
   };
 
   // exposed methods

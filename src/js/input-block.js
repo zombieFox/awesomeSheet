@@ -240,6 +240,11 @@ var inputBlock = (function() {
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _aggregateGivenValue("aggregate", path, valueToApply, message);
     input.value = "";
+    var type = path.split(".")[path.split(".").length -1];
+    var eventObject = {
+      aggregateValue: valueToApply
+    };
+    events.store(type, eventObject);
   };
 
   function _update_aggregateButton(button) {
@@ -250,12 +255,22 @@ var inputBlock = (function() {
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
     _aggregateGivenValue("aggregate", path, valueToApply, message);
     input.value = "";
+    var type = path.split(".")[path.split(".").length -1];
+    var eventObject = {
+      aggregateValue: valueToApply
+    };
+    events.store(type, eventObject);
   };
 
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
     var message = button.dataset.aggregateSnackMessage;
     _aggregateGivenValue("clear", path, false, message);
+    var type = path.split(".")[path.split(".").length -1];
+    var eventObject = {
+      aggregateValue: "clear"
+    };
+    events.store(type, eventObject);
   };
 
   function _aggregateGivenValue(action, path, value, message) {

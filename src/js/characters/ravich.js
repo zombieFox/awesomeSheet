@@ -1258,7 +1258,8 @@ var ravich = (function() {
     notes: {
       character: [],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
