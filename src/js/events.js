@@ -1,5 +1,14 @@
 var events = (function() {
 
+  function bind() {
+    var eventXp = helper.e(".js-evets-xp");
+    eventXp.addEventListener("click", function(){
+      event.stopPropagation();
+      event.preventDefault();
+      render();
+    }, false)
+  };
+
   function _event(type, eventObject) {
     var newEvent = {
       type: type,
@@ -11,7 +20,7 @@ var events = (function() {
 
   function store(type, eventObject) {
     sheet.getCharacter().events.push(_event(type, eventObject));
-    console.log(sheet.getCharacter().events);
+    // console.log(sheet.getCharacter().events);
   };
 
   function render() {
@@ -46,9 +55,13 @@ var events = (function() {
         };
       };
       table.appendChild(tbody);
-      modal.render(heading, table, false, false, "small");
+      modal.render(heading, table, "Close", false, "small");
     };
   };
+
+  function _xpWealthString() {
+
+  }
 
   function _timestampString(timestamp) {
     var _prefixMinutes = function(minutes) {
@@ -71,6 +84,7 @@ var events = (function() {
 
   // exposed methods
   return {
+    bind: bind,
     render: render,
     store: store
   };
