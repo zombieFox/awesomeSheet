@@ -1911,7 +1911,7 @@ var izlara = (function() {
         year: 2017,
         hours: 18,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 32,
         month: 0,
         seconds: 15
       }
@@ -1926,7 +1926,7 @@ var izlara = (function() {
         year: 2017,
         hours: 12,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 11,
         month: 0,
         seconds: 34
       }
@@ -1941,7 +1941,7 @@ var izlara = (function() {
         year: 2017,
         hours: 15,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 2,
         month: 0,
         seconds: 21
       }
@@ -1956,7 +1956,7 @@ var izlara = (function() {
         year: 2017,
         hours: 20,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 20,
         month: 0,
         seconds: 22
       }
@@ -1986,7 +1986,7 @@ var izlara = (function() {
         year: 2017,
         hours: 22,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 55,
         month: 1,
         seconds: 44
       }
@@ -2001,7 +2001,7 @@ var izlara = (function() {
         year: 2017,
         hours: 12,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 21,
         month: 1,
         seconds: 59
       }
@@ -2031,7 +2031,7 @@ var izlara = (function() {
         year: 2017,
         hours: 23,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 4,
         month: 2,
         seconds: 11
       }
@@ -2061,7 +2061,7 @@ var izlara = (function() {
         year: 2017,
         hours: 13,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 40,
         month: 2,
         seconds: 23
       }
@@ -2076,7 +2076,7 @@ var izlara = (function() {
         year: 2017,
         hours: 18,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 59,
         month: 2,
         seconds: 14
       }
@@ -2091,7 +2091,7 @@ var izlara = (function() {
         year: 2017,
         hours: 20,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 9,
         month: 3,
         seconds: 52
       }
@@ -2106,7 +2106,7 @@ var izlara = (function() {
         year: 2017,
         hours: 18,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 38,
         month: 3,
         seconds: 55
       }
@@ -2121,7 +2121,7 @@ var izlara = (function() {
         year: 2017,
         hours: 14,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 27,
         month: 3,
         seconds: 11
       }
@@ -2136,7 +2136,7 @@ var izlara = (function() {
         year: 2017,
         hours: 18,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 19,
         month: 3,
         seconds: 4
       }
@@ -2151,7 +2151,7 @@ var izlara = (function() {
         year: 2017,
         hours: 21,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 44,
         month: 3,
         seconds: 42
       }
@@ -2166,7 +2166,7 @@ var izlara = (function() {
         year: 2017,
         hours: 22,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 10,
         month: 4,
         seconds: 37
       }
@@ -2181,7 +2181,7 @@ var izlara = (function() {
         year: 2017,
         hours: 14,
         milliseconds: 200,
-        minutes: 30,
+        minutes: 6,
         month: 4,
         seconds: 51
       }

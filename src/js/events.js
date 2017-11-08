@@ -16,23 +16,16 @@ var events = (function() {
 
   function render() {
     var heading = "XP log";
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-
-    if (sheet.getCharacter().events.length > 0) {
-      for (var i in sheet.getCharacter().events) {
-        var eventObject = sheet.getCharacter().events[i];
+    var table = document.createElement("table");
+    var tbody = document.createElement("tbody");
+    var all_events = JSON.parse(JSON.stringify(sheet.getCharacter().events)).reverse();
+    if (all_events.length > 0) {
+      for (var i in all_events) {
+        var eventObject = all_events[i];
         if (eventObject.type == "xp") {
-          var row = document.createElement("div");
-          row.setAttribute("class", "row");
-
-          var col4 = document.createElement("div");
-          col4.setAttribute("class", "col-xs-12 col-sm-6");
-
-          var col8 = document.createElement("div");
-          col8.setAttribute("class", "col-xs-12 col-sm-6");
-
-          var hr = document.createElement("hr");
+          var tr = document.createElement("tr");
+          var td1 = document.createElement("td");
+          var td2 = document.createElement("td");
 
           var type = document.createElement("p");
           if (eventObject.event.aggregateValue > 0) {
@@ -42,30 +35,38 @@ var events = (function() {
           };
 
           var date = document.createElement("p");
-          var days = ["Sun", "Mon", "Tue", 'Wed', "Thu", "Fri", "Sat"];
-          var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-          date.textContent =
-          eventObject.timestamp.hours +
-          ":" +
-          eventObject.timestamp.minutes +
-          ", " +
-          days[eventObject.timestamp.day] +
-          " " +
-          eventObject.timestamp.date +
-          " " +
-          months[eventObject.timestamp.month] +
-          " " +
-          eventObject.timestamp.year;
+          date.setAttribute("class", "u-small-text");
+          date.textContent = _timestampString(eventObject.timestamp);
 
-          col8.appendChild(type);
-          col4.appendChild(date);
-          row.appendChild(col8);
-          row.appendChild(col4);
-          container.appendChild(row);
+          td2.appendChild(type);
+          td1.appendChild(date);
+          tr.appendChild(td2);
+          tr.appendChild(td1);
+          tbody.appendChild(tr);
         };
       };
-      modal.render(heading, container);
+      table.appendChild(tbody);
+      modal.render(heading, table, false, false, "small");
     };
+  };
+
+  function _timestampString(timestamp) {
+    var _prefixMinutes = function(minutes) {
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      };
+      return minutes;
+    };
+    var days = ["Sun", "Mon", "Tue", 'Wed', "Thu", "Fri", "Sat"];
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var timestampString =
+      timestamp.hours + ":" +
+      _prefixMinutes(timestamp.minutes) + ", " +
+      days[timestamp.day] + ", " +
+      timestamp.date + " " +
+      months[timestamp.month] + " " +
+      timestamp.year;
+    return timestampString;
   };
 
   // exposed methods
