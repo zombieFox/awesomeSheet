@@ -2,10 +2,16 @@ var events = (function() {
 
   function bind() {
     var eventXp = helper.e(".js-evets-xp");
-    eventXp.addEventListener("click", function(){
+    var eventWealth = helper.e(".js-evets-wealth");
+    eventXp.addEventListener("click", function() {
       event.stopPropagation();
       event.preventDefault();
-      render();
+      render("xp");
+    }, false)
+    eventWealth.addEventListener("click", function() {
+      event.stopPropagation();
+      event.preventDefault();
+      render("wealth");
     }, false)
   };
 
@@ -23,45 +29,114 @@ var events = (function() {
     // console.log(sheet.getCharacter().events);
   };
 
-  function render() {
-    var heading = "XP log";
+  function _create_eventTable(eventLogType) {
     var table = document.createElement("table");
     var tbody = document.createElement("tbody");
     var all_events = JSON.parse(JSON.stringify(sheet.getCharacter().events)).reverse();
-    if (all_events.length > 0) {
-      for (var i in all_events) {
-        var eventObject = all_events[i];
-        if (eventObject.type == "xp") {
-          var tr = document.createElement("tr");
+    var all_eventsToRender = [];
+    if (eventLogType == "xp") {
+      all_events.forEach(function(object) {
+        if (object.type == "xp") {
+          all_eventsToRender.push(object);
+        };
+      });
+    } else if (eventLogType == "wealth") {
+      all_events.forEach(function(object) {
+        if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+          all_eventsToRender.push(object);
+        };
+      });
+    };
+    // console.log("all_eventsToRender", all_eventsToRender);
+    if (all_eventsToRender.length > 0) {
+      for (var i in all_eventsToRender) {
+        var tr = document.createElement("tr");
+        if (eventLogType == "xp") {
           var td1 = document.createElement("td");
           var td2 = document.createElement("td");
-
           var type = document.createElement("p");
-          if (eventObject.event.aggregateValue > 0) {
-            type.textContent = "+" + eventObject.event.aggregateValue + " XP"
+          var number = all_eventsToRender[i].event.aggregateValue.toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+          if (all_eventsToRender[i].event.aggregateValue > 0) {
+            type.textContent = "+" + number + " XP";
           } else {
-            type.textContent = eventObject.event.aggregateValue + " XP"
+            type.textContent = number + " XP";
           };
-
           var date = document.createElement("p");
           date.setAttribute("class", "u-small-text");
-          date.textContent = _timestampString(eventObject.timestamp);
-
+          date.textContent = _timestampString(all_eventsToRender[i].timestamp);
           td2.appendChild(type);
           td1.appendChild(date);
           tr.appendChild(td2);
           tr.appendChild(td1);
-          tbody.appendChild(tr);
+        } else if (eventLogType == "wealth") {
+          var td1 = document.createElement("td");
+          var td2 = document.createElement("td");
+          var type = document.createElement("p");
+          var number = all_eventsToRender[i].event.aggregateValue.toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+          var wealthCoin;
+          if (all_eventsToRender[i].type == "platinum") {
+            wealthCoin = "PP";
+          } else if (all_eventsToRender[i].type == "gold") {
+            wealthCoin = "GP";
+          } else if (all_eventsToRender[i].type == "silver") {
+            wealthCoin = "SP";
+          } else if (all_eventsToRender[i].type == "copper") {
+            wealthCoin = "CP";
+          };
+          if (all_eventsToRender[i].event.aggregateValue > 0) {
+            type.textContent = "+" + number + " " + wealthCoin;
+          } else {
+            type.textContent = number + " " + wealthCoin;
+          };
+          var date = document.createElement("p");
+          date.setAttribute("class", "u-small-text");
+          date.textContent = _timestampString(all_eventsToRender[i].timestamp);
+          td2.appendChild(type);
+          td1.appendChild(date);
+          tr.appendChild(td2);
+          tr.appendChild(td1);
         };
+        tbody.appendChild(tr);
       };
-      table.appendChild(tbody);
-      modal.render(heading, table, "Close", false, "small");
+    } else {
+      var table = document.createElement("table");
+      var tbody = document.createElement("tbody");
+      var tr = document.createElement("tr");
+      var td = document.createElement("td");
+      var message = document.createElement("p");
+      if (eventLogType == "xp") {
+        message.textContent = "No XP logged yet. Why not add some?";
+      } else if (eventLogType == "wealth") {
+        message.textContent = "No wealth logged yet. Why not add some?";
+      };
+      td.appendChild(message);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
     };
+    table.appendChild(tbody);
+    return table;
   };
 
-  function _xpWealthString() {
+  function render(eventLogType) {
+    var heading;
+    if (eventLogType == "xp") {
+      heading = "XP log";
+    } else if (eventLogType == "wealth") {
+      heading = "Wealth log";
+    };
+    var body = _create_eventTable(eventLogType);
+    modal.render(heading, body, "Close", false, "small");
+  };
 
-  }
+  function pop() {
+    sheet.getCharacter().events.pop();
+  };
 
   function _timestampString(timestamp) {
     var _prefixMinutes = function(minutes) {
@@ -86,7 +161,8 @@ var events = (function() {
   return {
     bind: bind,
     render: render,
-    store: store
+    store: store,
+    pop: pop
   };
 
 })();

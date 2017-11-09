@@ -1961,6 +1961,21 @@ var izlara = (function() {
         seconds: 22
       }
     }, {
+      type: "gold",
+      event: {
+        aggregateValue: 1000
+      },
+      timestamp: {
+        date: 28,
+        day: 6,
+        year: 2017,
+        hours: 20,
+        milliseconds: 200,
+        minutes: 30,
+        month: 0,
+        seconds: 22
+      }
+    }, {
       type: "xp",
       event: {
         aggregateValue: 6000
@@ -1972,6 +1987,21 @@ var izlara = (function() {
         hours: 18,
         milliseconds: 200,
         minutes: 30,
+        month: 1,
+        seconds: 1
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 2500
+      },
+      timestamp: {
+        date: 4,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 40,
         month: 1,
         seconds: 1
       }
@@ -2006,6 +2036,21 @@ var izlara = (function() {
         seconds: 59
       }
     }, {
+      type: "silver",
+      event: {
+        aggregateValue: 100
+      },
+      timestamp: {
+        date: 18,
+        day: 6,
+        year: 2017,
+        hours: 12,
+        milliseconds: 200,
+        minutes: 31,
+        month: 1,
+        seconds: 59
+      }
+    }, {
       type: "xp",
       event: {
         aggregateValue: 9000
@@ -2017,6 +2062,21 @@ var izlara = (function() {
         hours: 19,
         milliseconds: 200,
         minutes: 30,
+        month: 1,
+        seconds: 33
+      }
+    }, {
+      type: "platinum",
+      event: {
+        aggregateValue: 20
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 19,
+        milliseconds: 200,
+        minutes: 40,
         month: 1,
         seconds: 33
       }
@@ -2051,6 +2111,21 @@ var izlara = (function() {
         seconds: 45
       }
     }, {
+      type: "gold",
+      event: {
+        aggregateValue: 4500
+      },
+      timestamp: {
+        date: 11,
+        day: 6,
+        year: 2017,
+        hours: 16,
+        milliseconds: 200,
+        minutes: 40,
+        month: 2,
+        seconds: 45
+      }
+    }, {
       type: "xp",
       event: {
         aggregateValue: 20100
@@ -2081,6 +2156,36 @@ var izlara = (function() {
         seconds: 14
       }
     }, {
+      type: "silver",
+      event: {
+        aggregateValue: 40
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 39,
+        month: 2,
+        seconds: 14
+      }
+    }, {
+      type: "silver",
+      event: {
+        aggregateValue: -38
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 49,
+        month: 2,
+        seconds: 14
+      }
+    }, {
       type: "xp",
       event: {
         aggregateValue: 6000
@@ -2107,6 +2212,21 @@ var izlara = (function() {
         hours: 18,
         milliseconds: 200,
         minutes: 38,
+        month: 3,
+        seconds: 55
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 2000
+      },
+      timestamp: {
+        date: 8,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 48,
         month: 3,
         seconds: 55
       }
@@ -2156,6 +2276,21 @@ var izlara = (function() {
         seconds: 42
       }
     }, {
+      type: "gold",
+      event: {
+        aggregateValue: -1595
+      },
+      timestamp: {
+        date: 29,
+        day: 6,
+        year: 2017,
+        hours: 21,
+        milliseconds: 200,
+        minutes: 34,
+        month: 3,
+        seconds: 42
+      }
+    }, {
       type: "xp",
       event: {
         aggregateValue: 40000
@@ -2167,6 +2302,21 @@ var izlara = (function() {
         hours: 22,
         milliseconds: 200,
         minutes: 10,
+        month: 4,
+        seconds: 37
+      }
+    }, {
+      type: "platinum",
+      event: {
+        aggregateValue: 35
+      },
+      timestamp: {
+        date: 6,
+        day: 6,
+        year: 2017,
+        hours: 22,
+        milliseconds: 200,
+        minutes: 20,
         month: 4,
         seconds: 37
       }

@@ -238,13 +238,16 @@ var inputBlock = (function() {
     var path = input.dataset.aggregatePath;
     var message = input.dataset.aggregateSnackMessage;
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _aggregateGivenValue("aggregate", path, valueToApply, message);
-    input.value = "";
-    var type = path.split(".")[path.split(".").length -1];
-    var eventObject = {
-      aggregateValue: valueToApply
+    // if the value in the input is a number
+    if (!isNaN(valueToApply)) {
+      _aggregateGivenValue("aggregate", path, valueToApply, message);
+      input.value = "";
+      var type = path.split(".")[path.split(".").length - 1];
+      var eventObject = {
+        aggregateValue: valueToApply
+      };
+      events.store(type, eventObject);
     };
-    events.store(type, eventObject);
   };
 
   function _update_aggregateButton(button) {
@@ -253,20 +256,23 @@ var inputBlock = (function() {
     var message = button.dataset.aggregateSnackMessage;
     var input = helper.e("#" + source);
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _aggregateGivenValue("aggregate", path, valueToApply, message);
-    input.value = "";
-    var type = path.split(".")[path.split(".").length -1];
-    var eventObject = {
-      aggregateValue: valueToApply
+    // if the value in the input is a number
+    if (!isNaN(valueToApply)) {
+      _aggregateGivenValue("aggregate", path, valueToApply, message);
+      input.value = "";
+      var type = path.split(".")[path.split(".").length - 1];
+      var eventObject = {
+        aggregateValue: valueToApply
+      };
+      events.store(type, eventObject);
     };
-    events.store(type, eventObject);
   };
 
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
     var message = button.dataset.aggregateSnackMessage;
     _aggregateGivenValue("clear", path, false, message);
-    var type = path.split(".")[path.split(".").length -1];
+    var type = path.split(".")[path.split(".").length - 1];
     var eventObject = {
       aggregateValue: "clear"
     };
@@ -274,35 +280,33 @@ var inputBlock = (function() {
   };
 
   function _aggregateGivenValue(action, path, value, message) {
-    if (!isNaN(value)) {
-      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
-      if (isNaN(currentValue)) {
-        currentValue = 0;
-      };
-      var newValue;
-      if (action == "aggregate") {
-        newValue = currentValue + value;
-        if (value >= 0) {
-          message = "+" + value.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }) + " " + message;
-        } else {
-          message = value.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }) + " " + message;
-        };
-      } else if (action == "clear") {
-        newValue = "";
-      };
-      helper.setObject(sheet.getCharacter(), path, newValue);
-      wealth.update();
-      textBlock.render();
-      sheet.storeCharacters();
-      _store_lastAggregate(path, currentValue);
-      snack.render(message, "Undo", _restore_lastAggregate, 8000);
+    var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    if (isNaN(currentValue)) {
+      currentValue = 0;
     };
+    var newValue;
+    if (action == "aggregate") {
+      newValue = currentValue + value;
+      if (value >= 0) {
+        message = "+" + value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message;
+      } else {
+        message = value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message;
+      };
+    } else if (action == "clear") {
+      newValue = "";
+    };
+    helper.setObject(sheet.getCharacter(), path, newValue);
+    wealth.update();
+    textBlock.render();
+    sheet.storeCharacters();
+    _store_lastAggregate(path, currentValue);
+    snack.render(message, "Undo", _restore_lastAggregate, 8000);
   };
 
   function _store_lastAggregate(path, oldValue) {
@@ -315,6 +319,7 @@ var inputBlock = (function() {
 
   function _restore_lastAggregate() {
     var undoData = JSON.parse(helper.read("lastAggregate"));
+    events.pop();
     _restore_aggregate(undoData.path, undoData.oldValue);
     _remove_lastRemovedAggregate();
   };
