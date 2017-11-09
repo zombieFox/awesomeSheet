@@ -273,8 +273,20 @@ var inputBlock = (function() {
     var message = button.dataset.aggregateSnackMessage;
     _aggregateGivenValue("clear", path, false, message);
     var type = path.split(".")[path.split(".").length - 1];
+    var note;
+    if (type == "xp") {
+      note = "XP Cleared";
+    } else if (type == "platinum") {
+      note = "PP Cleared";
+    } else if (type == "gold") {
+      note = "GP Cleared";
+    } else if (type == "silver") {
+      note = "SP Cleared";
+    } else if (type == "copper") {
+      note = "CP Cleared";
+    };
     var eventObject = {
-      note: "Clear"
+      note: note
     };
     events.store(type, eventObject);
   };
@@ -302,8 +314,6 @@ var inputBlock = (function() {
       newValue = "";
     };
     helper.setObject(sheet.getCharacter(), path, newValue);
-    wealth.update();
-    textBlock.render();
     sheet.storeCharacters();
     _store_lastAggregate(path, currentValue);
     snack.render(message, "Undo", _restore_lastAggregate, 8000);
@@ -318,8 +328,8 @@ var inputBlock = (function() {
   };
 
   function _restore_lastAggregate() {
-    var undoData = JSON.parse(helper.read("lastAggregate"));
     events.pop();
+    var undoData = JSON.parse(helper.read("lastAggregate"));
     _restore_aggregate(undoData.path, undoData.oldValue);
     _remove_lastRemovedAggregate();
   };
@@ -437,6 +447,8 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _update_aggregateInput(this);
+          wealth.update();
+          textBlock.render();
         };
       }, false);
     };
@@ -447,6 +459,8 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockAggregateButton.length; i++) {
       all_inputBlockAggregateButton[i].addEventListener("click", function() {
         _update_aggregateButton(this);
+        wealth.update();
+        textBlock.render();
       }, false);
     };
   };
@@ -460,6 +474,8 @@ var inputBlock = (function() {
         var message = this.dataset.aggregatePromptMessage;
         prompt.render(heading, message, "Clear", function() {
           _update_aggregateClear(button);
+          wealth.update();
+          textBlock.render();
         });
       }, false);
     };

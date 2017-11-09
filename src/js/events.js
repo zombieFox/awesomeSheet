@@ -15,7 +15,7 @@ var events = (function() {
     }, false)
   };
 
-  function _event(type, eventObject) {
+  function _create_event(type, eventObject) {
     var newEvent = {
       type: type,
       event: eventObject,
@@ -25,8 +25,27 @@ var events = (function() {
   };
 
   function store(type, eventObject) {
-    sheet.getCharacter().events.push(_event(type, eventObject));
-    // console.log(sheet.getCharacter().events);
+    sheet.getCharacter().events.push(_create_event(type, eventObject));
+    sheet.storeCharacters();
+  };
+
+  function _timestampString(timestamp) {
+    var _prefixMinutes = function(minutes) {
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      };
+      return minutes;
+    };
+    var days = ["Sun", "Mon", "Tue", 'Wed', "Thu", "Fri", "Sat"];
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var timestampString =
+      timestamp.hours + ":" +
+      _prefixMinutes(timestamp.minutes) + ", " +
+      days[timestamp.day] + ", " +
+      timestamp.date + " " +
+      months[timestamp.month] + " " +
+      timestamp.year;
+    return timestampString;
   };
 
   function _create_eventTr(eventLogType, eventObject) {
@@ -44,25 +63,25 @@ var events = (function() {
       if (eventObject.event.aggregateValue > 0) {
         data = "+" + data;
       };
+      if (eventLogType == "xp") {
+        data = data + " XP";
+      } else if (eventLogType == "wealth") {
+        if (eventObject.type == "platinum") {
+          data = data + " PP";
+        } else if (eventObject.type == "gold") {
+          data = data + " GP";
+        } else if (eventObject.type == "silver") {
+          data = data + " SP";
+        } else if (eventObject.type == "copper") {
+          data = data + " CP";
+        };
+      };
     } else if ("note" in eventObject.event) {
       data = eventObject.event.note;
     };
-    if (eventLogType == "xp") {
-      data = data + " XP";
-    } else if (eventLogType == "wealth") {
-      if (eventObject.type == "platinum") {
-        data = data + " PP";
-      } else if (eventObject.type == "gold") {
-        data = data + " GP";
-      } else if (eventObject.type == "silver") {
-        data = data + " SP";
-      } else if (eventObject.type == "copper") {
-        data = data + " CP";
-      };
-    };
     para.textContent = data;
     var timestamp = document.createElement("p");
-    timestamp.setAttribute("class", "u-small-text");
+    timestamp.setAttribute("class", "u-small-text u-text-right");
     timestamp.textContent = _timestampString(eventObject.timestamp);
     td2.appendChild(para);
     td1.appendChild(timestamp);
@@ -126,26 +145,8 @@ var events = (function() {
   };
 
   function pop() {
+    console.log("event pop invoke");
     sheet.getCharacter().events.pop();
-  };
-
-  function _timestampString(timestamp) {
-    var _prefixMinutes = function(minutes) {
-      if (minutes < 10) {
-        minutes = "0" + minutes;
-      };
-      return minutes;
-    };
-    var days = ["Sun", "Mon", "Tue", 'Wed', "Thu", "Fri", "Sat"];
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    var timestampString =
-      timestamp.hours + ":" +
-      _prefixMinutes(timestamp.minutes) + ", " +
-      days[timestamp.day] + ", " +
-      timestamp.date + " " +
-      months[timestamp.month] + " " +
-      timestamp.year;
-    return timestampString;
   };
 
   // exposed methods
