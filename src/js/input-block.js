@@ -274,7 +274,7 @@ var inputBlock = (function() {
     _aggregateGivenValue("clear", path, false, message);
     var type = path.split(".")[path.split(".").length - 1];
     var eventObject = {
-      aggregateValue: "clear"
+      note: "Clear"
     };
     events.store(type, eventObject);
   };

@@ -29,6 +29,48 @@ var events = (function() {
     // console.log(sheet.getCharacter().events);
   };
 
+  function _create_eventTr(eventLogType, eventObject) {
+    // console.log(eventLogType, eventObject);
+    var tr = document.createElement("tr");
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var para = document.createElement("p");
+    var data;
+    if ("aggregateValue" in eventObject.event) {
+      data = eventObject.event.aggregateValue.toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+      if (eventObject.event.aggregateValue > 0) {
+        data = "+" + data;
+      };
+    } else if ("note" in eventObject.event) {
+      data = eventObject.event.note;
+    };
+    if (eventLogType == "xp") {
+      data = data + " XP";
+    } else if (eventLogType == "wealth") {
+      if (eventObject.type == "platinum") {
+        data = data + " PP";
+      } else if (eventObject.type == "gold") {
+        data = data + " GP";
+      } else if (eventObject.type == "silver") {
+        data = data + " SP";
+      } else if (eventObject.type == "copper") {
+        data = data + " CP";
+      };
+    };
+    para.textContent = data;
+    var timestamp = document.createElement("p");
+    timestamp.setAttribute("class", "u-small-text");
+    timestamp.textContent = _timestampString(eventObject.timestamp);
+    td2.appendChild(para);
+    td1.appendChild(timestamp);
+    tr.appendChild(td2);
+    tr.appendChild(td1);
+    return tr;
+  };
+
   function _create_eventTable(eventLogType) {
     var table = document.createElement("table");
     var tbody = document.createElement("tbody");
@@ -50,58 +92,7 @@ var events = (function() {
     // console.log("all_eventsToRender", all_eventsToRender);
     if (all_eventsToRender.length > 0) {
       for (var i in all_eventsToRender) {
-        var tr = document.createElement("tr");
-        if (eventLogType == "xp") {
-          var td1 = document.createElement("td");
-          var td2 = document.createElement("td");
-          var type = document.createElement("p");
-          var number = all_eventsToRender[i].event.aggregateValue.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          });
-          if (all_eventsToRender[i].event.aggregateValue > 0) {
-            type.textContent = "+" + number + " XP";
-          } else {
-            type.textContent = number + " XP";
-          };
-          var date = document.createElement("p");
-          date.setAttribute("class", "u-small-text");
-          date.textContent = _timestampString(all_eventsToRender[i].timestamp);
-          td2.appendChild(type);
-          td1.appendChild(date);
-          tr.appendChild(td2);
-          tr.appendChild(td1);
-        } else if (eventLogType == "wealth") {
-          var td1 = document.createElement("td");
-          var td2 = document.createElement("td");
-          var type = document.createElement("p");
-          var number = all_eventsToRender[i].event.aggregateValue.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          });
-          var wealthCoin;
-          if (all_eventsToRender[i].type == "platinum") {
-            wealthCoin = "PP";
-          } else if (all_eventsToRender[i].type == "gold") {
-            wealthCoin = "GP";
-          } else if (all_eventsToRender[i].type == "silver") {
-            wealthCoin = "SP";
-          } else if (all_eventsToRender[i].type == "copper") {
-            wealthCoin = "CP";
-          };
-          if (all_eventsToRender[i].event.aggregateValue > 0) {
-            type.textContent = "+" + number + " " + wealthCoin;
-          } else {
-            type.textContent = number + " " + wealthCoin;
-          };
-          var date = document.createElement("p");
-          date.setAttribute("class", "u-small-text");
-          date.textContent = _timestampString(all_eventsToRender[i].timestamp);
-          td2.appendChild(type);
-          td1.appendChild(date);
-          tr.appendChild(td2);
-          tr.appendChild(td1);
-        };
+        var tr = _create_eventTr(eventLogType, all_eventsToRender[i]);
         tbody.appendChild(tr);
       };
     } else {
