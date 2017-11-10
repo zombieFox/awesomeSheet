@@ -144,8 +144,8 @@ var events = (function() {
     modal.render(heading, body, "Close", false, "small");
   };
 
-  function pop() {
-    sheet.getCharacter().events.pop();
+  function undo() {
+    sheet.getCharacter().events.shift();
   };
 
   // exposed methods
@@ -153,7 +153,7 @@ var events = (function() {
     bind: bind,
     render: render,
     store: store,
-    pop: pop
+    undo: undo
   };
 
 })();

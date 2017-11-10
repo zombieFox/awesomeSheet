@@ -16298,8 +16298,8 @@ var events = (function() {
     modal.render(heading, body, "Close", false, "small");
   };
 
-  function pop() {
-    sheet.getCharacter().events.pop();
+  function undo() {
+    sheet.getCharacter().events.shift();
   };
 
   // exposed methods
@@ -16307,7 +16307,7 @@ var events = (function() {
     bind: bind,
     render: render,
     store: store,
-    pop: pop
+    undo: undo
   };
 
 })();
@@ -16703,7 +16703,7 @@ var inputBlock = (function() {
   };
 
   function _restore_lastAggregate() {
-    events.pop();
+    events.undo();
     var undoData = JSON.parse(helper.read("lastAggregate"));
     helper.setObject(sheet.getCharacter(), undoData.path, undoData.oldValue);
     wealth.update();

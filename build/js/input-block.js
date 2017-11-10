@@ -337,7 +337,7 @@ var inputBlock = (function() {
   };
 
   function _restore_lastAggregate() {
-    events.pop();
+    events.undo();
     var undoData = JSON.parse(helper.read("lastAggregate"));
     helper.setObject(sheet.getCharacter(), undoData.path, undoData.oldValue);
     wealth.update();
