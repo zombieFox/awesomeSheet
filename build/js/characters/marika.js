@@ -280,6 +280,7 @@ var marika = (function() {
         misc: "",
         temp: "",
         current: "",
+        overcome: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
