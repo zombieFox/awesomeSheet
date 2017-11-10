@@ -244,6 +244,23 @@ var helper = (function() {
     return object;
   };
 
+  function getDateTime() {
+    var dateStamp = new Date();
+    var object = {
+      // string: dateStamp.constructor(),
+      // time: dateStamp.getTime()
+      date: dateStamp.getDate(),
+      day: dateStamp.getDay(),
+      year: dateStamp.getFullYear(),
+      hours: dateStamp.getHours(),
+      milliseconds: dateStamp.getMilliseconds(),
+      minutes: dateStamp.getMinutes(),
+      month: dateStamp.getMonth(),
+      seconds: dateStamp.getSeconds()
+    }
+    return object;
+  };
+
   // exposed methods
   return {
     store: store,
@@ -268,7 +285,8 @@ var helper = (function() {
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip,
     inViewport: inViewport,
-    sortObject: sortObject
+    sortObject: sortObject,
+    getDateTime: getDateTime
   };
 
 })();
@@ -1543,7 +1561,8 @@ var blank = (function() {
     notes: {
       character: [],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -3454,7 +3473,443 @@ var izlara = (function() {
         note: "Wizard familiar: Dako. Rat, white hair, tiny."
       }],
       story: []
-    }
+    },
+    events: [{
+      type: "xp",
+      event: {
+        aggregateValue: 60000
+      },
+      timestamp: {
+        date: 13,
+        day: 6,
+        year: 2017,
+        hours: 14,
+        milliseconds: 200,
+        minutes: 6,
+        month: 4,
+        seconds: 51
+      }
+    }, {
+      type: "platinum",
+      event: {
+        aggregateValue: 35
+      },
+      timestamp: {
+        date: 6,
+        day: 6,
+        year: 2017,
+        hours: 22,
+        milliseconds: 200,
+        minutes: 20,
+        month: 4,
+        seconds: 37
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 40000
+      },
+      timestamp: {
+        date: 6,
+        day: 6,
+        year: 2017,
+        hours: 22,
+        milliseconds: 200,
+        minutes: 10,
+        month: 4,
+        seconds: 37
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -1595
+      },
+      timestamp: {
+        date: 29,
+        day: 6,
+        year: 2017,
+        hours: 21,
+        milliseconds: 200,
+        minutes: 34,
+        month: 3,
+        seconds: 42
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 6000
+      },
+      timestamp: {
+        date: 29,
+        day: 6,
+        year: 2017,
+        hours: 21,
+        milliseconds: 200,
+        minutes: 44,
+        month: 3,
+        seconds: 42
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 9900
+      },
+      timestamp: {
+        date: 22,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 19,
+        month: 3,
+        seconds: 4
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 20050
+      },
+      timestamp: {
+        date: 15,
+        day: 6,
+        year: 2017,
+        hours: 14,
+        milliseconds: 200,
+        minutes: 27,
+        month: 3,
+        seconds: 11
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 2000
+      },
+      timestamp: {
+        date: 8,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 48,
+        month: 3,
+        seconds: 55
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 8050
+      },
+      timestamp: {
+        date: 8,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 38,
+        month: 3,
+        seconds: 55
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 6000
+      },
+      timestamp: {
+        date: 1,
+        day: 6,
+        year: 2017,
+        hours: 20,
+        milliseconds: 200,
+        minutes: 9,
+        month: 3,
+        seconds: 52
+      }
+    }, {
+      type: "silver",
+      event: {
+        aggregateValue: -38
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 49,
+        month: 2,
+        seconds: 14
+      }
+    }, {
+      type: "silver",
+      event: {
+        aggregateValue: 40
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 39,
+        month: 2,
+        seconds: 14
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 2000
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 59,
+        month: 2,
+        seconds: 14
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 20100
+      },
+      timestamp: {
+        date: 18,
+        day: 6,
+        year: 2017,
+        hours: 13,
+        milliseconds: 200,
+        minutes: 40,
+        month: 2,
+        seconds: 23
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 4500
+      },
+      timestamp: {
+        date: 11,
+        day: 6,
+        year: 2017,
+        hours: 16,
+        milliseconds: 200,
+        minutes: 40,
+        month: 2,
+        seconds: 45
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 10900
+      },
+      timestamp: {
+        date: 11,
+        day: 6,
+        year: 2017,
+        hours: 16,
+        milliseconds: 200,
+        minutes: 30,
+        month: 2,
+        seconds: 45
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 4000
+      },
+      timestamp: {
+        date: 4,
+        day: 6,
+        year: 2017,
+        hours: 23,
+        milliseconds: 200,
+        minutes: 4,
+        month: 2,
+        seconds: 11
+      }
+    }, {
+      type: "platinum",
+      event: {
+        aggregateValue: 20
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 19,
+        milliseconds: 200,
+        minutes: 40,
+        month: 1,
+        seconds: 33
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 9000
+      },
+      timestamp: {
+        date: 25,
+        day: 6,
+        year: 2017,
+        hours: 19,
+        milliseconds: 200,
+        minutes: 30,
+        month: 1,
+        seconds: 33
+      }
+    }, {
+      type: "silver",
+      event: {
+        aggregateValue: 100
+      },
+      timestamp: {
+        date: 18,
+        day: 6,
+        year: 2017,
+        hours: 12,
+        milliseconds: 200,
+        minutes: 31,
+        month: 1,
+        seconds: 59
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 5500
+      },
+      timestamp: {
+        date: 18,
+        day: 6,
+        year: 2017,
+        hours: 12,
+        milliseconds: 200,
+        minutes: 21,
+        month: 1,
+        seconds: 59
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 2500
+      },
+      timestamp: {
+        date: 11,
+        day: 6,
+        year: 2017,
+        hours: 22,
+        milliseconds: 200,
+        minutes: 55,
+        month: 1,
+        seconds: 44
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 2500
+      },
+      timestamp: {
+        date: 4,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 40,
+        month: 1,
+        seconds: 1
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 6000
+      },
+      timestamp: {
+        date: 4,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 30,
+        month: 1,
+        seconds: 1
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 1000
+      },
+      timestamp: {
+        date: 28,
+        day: 6,
+        year: 2017,
+        hours: 20,
+        milliseconds: 200,
+        minutes: 30,
+        month: 0,
+        seconds: 22
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 3000
+      },
+      timestamp: {
+        date: 28,
+        day: 6,
+        year: 2017,
+        hours: 20,
+        milliseconds: 200,
+        minutes: 20,
+        month: 0,
+        seconds: 22
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 4500
+      },
+      timestamp: {
+        date: 21,
+        day: 6,
+        year: 2017,
+        hours: 15,
+        milliseconds: 200,
+        minutes: 2,
+        month: 0,
+        seconds: 21
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 2000
+      },
+      timestamp: {
+        date: 14,
+        day: 6,
+        year: 2017,
+        hours: 12,
+        milliseconds: 200,
+        minutes: 11,
+        month: 0,
+        seconds: 34
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 500
+      },
+      timestamp: {
+        date: 7,
+        day: 6,
+        year: 2017,
+        hours: 18,
+        milliseconds: 200,
+        minutes: 32,
+        month: 0,
+        seconds: 15
+      }
+    }]
   };
 
   // exposed methods
@@ -3630,9 +4085,9 @@ var ravich = (function() {
         wrist: ""
       },
       wealth: {
-        platinum: "12",
-        gold: "2,391",
-        silver: "22",
+        platinum: 120,
+        gold: 26302,
+        silver: 50,
         copper: "",
         total: ""
       },
@@ -4724,7 +5179,488 @@ var ravich = (function() {
     notes: {
       character: [],
       story: []
-    }
+    },
+    events: [{
+      type: "platinum",
+      event: {
+        aggregateValue: 90
+      },
+      timestamp: {
+        date: 13,
+        day: 4,
+        year: 2017,
+        hours: 14,
+        milliseconds: 700,
+        minutes: 16,
+        month: 6,
+        seconds: 32
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 7655
+      },
+      timestamp: {
+        date: 13,
+        day: 4,
+        year: 2017,
+        hours: 14,
+        milliseconds: 671,
+        minutes: 16,
+        month: 6,
+        seconds: 19
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 1210
+      },
+      timestamp: {
+        date: 13,
+        day: 4,
+        year: 2017,
+        hours: 14,
+        milliseconds: 937,
+        minutes: 16,
+        month: 6,
+        seconds: 12
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 5600
+      },
+      timestamp: {
+        date: 5,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 590,
+        minutes: 40,
+        month: 6,
+        seconds: 42
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 8700
+      },
+      timestamp: {
+        date: 28,
+        day: 3,
+        year: 2017,
+        hours: 23,
+        milliseconds: 951,
+        minutes: 25,
+        month: 5,
+        seconds: 59
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 3000
+      },
+      timestamp: {
+        date: 28,
+        day: 3,
+        year: 2017,
+        hours: 21,
+        milliseconds: 738,
+        minutes: 1,
+        month: 5,
+        seconds: 41
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -5000
+      },
+      timestamp: {
+        date: 21,
+        day: 3,
+        year: 2017,
+        hours: 6,
+        milliseconds: 633,
+        minutes: 31,
+        month: 5,
+        seconds: 54
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 90
+      },
+      timestamp: {
+        date: 21,
+        day: 3,
+        year: 2017,
+        hours: 5,
+        milliseconds: 199,
+        minutes: 26,
+        month: 5,
+        seconds: 46
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 3600
+      },
+      timestamp: {
+        date: 21,
+        day: 3,
+        year: 2017,
+        hours: 5,
+        milliseconds: 134,
+        minutes: 26,
+        month: 5,
+        seconds: 31
+      }
+    }, {
+      type: "silver",
+      event: {
+        aggregateValue: 50
+      },
+      timestamp: {
+        date: 14,
+        day: 3,
+        year: 2017,
+        hours: 7,
+        milliseconds: 87,
+        minutes: 40,
+        month: 5,
+        seconds: 45
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -3700
+      },
+      timestamp: {
+        date: 14,
+        day: 3,
+        year: 2017,
+        hours: 7,
+        milliseconds: 748,
+        minutes: 40,
+        month: 5,
+        seconds: 40
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 5440
+      },
+      timestamp: {
+        date: 14,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 921,
+        minutes: 20,
+        month: 5,
+        seconds: 28
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 4430
+      },
+      timestamp: {
+        date: 14,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 923,
+        minutes: 20,
+        month: 5,
+        seconds: 16
+      }
+    }, {
+      type: "platinum",
+      event: {
+        aggregateValue: 20
+      },
+      timestamp: {
+        date: 14,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 426,
+        minutes: 20,
+        month: 5,
+        seconds: 11
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -3500
+      },
+      timestamp: {
+        date: 31,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 802,
+        minutes: 53,
+        month: 4,
+        seconds: 23
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 3400
+      },
+      timestamp: {
+        date: 31,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 14,
+        minutes: 49,
+        month: 4,
+        seconds: 24
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 5327
+      },
+      timestamp: {
+        date: 31,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 604,
+        minutes: 49,
+        month: 4,
+        seconds: 3
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -400
+      },
+      timestamp: {
+        date: 24,
+        day: 3,
+        year: 2017,
+        hours: 16,
+        milliseconds: 193,
+        minutes: 9,
+        month: 4,
+        seconds: 2
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -1000
+      },
+      timestamp: {
+        date: 24,
+        day: 3,
+        year: 2017,
+        hours: 16,
+        milliseconds: 450,
+        minutes: 8,
+        month: 4,
+        seconds: 58
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 4500
+      },
+      timestamp: {
+        date: 24,
+        day: 3,
+        year: 2017,
+        hours: 15,
+        milliseconds: 939,
+        minutes: 59,
+        month: 4,
+        seconds: 48
+      }
+    }, {
+      type: "platinum",
+      event: {
+        aggregateValue: 10
+      },
+      timestamp: {
+        date: 24,
+        day: 3,
+        year: 2017,
+        hours: 15,
+        milliseconds: 521,
+        minutes: 59,
+        month: 4,
+        seconds: 41
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 3000
+      },
+      timestamp: {
+        date: 24,
+        day: 3,
+        year: 2017,
+        hours: 15,
+        milliseconds: 769,
+        minutes: 42,
+        month: 4,
+        seconds: 30
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -50
+      },
+      timestamp: {
+        date: 17,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 476,
+        minutes: 23,
+        month: 4,
+        seconds: 58
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -400
+      },
+      timestamp: {
+        date: 17,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 829,
+        minutes: 23,
+        month: 4,
+        seconds: 54
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -1000
+      },
+      timestamp: {
+        date: 17,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 363,
+        minutes: 23,
+        month: 4,
+        seconds: 53
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 3000
+      },
+      timestamp: {
+        date: 17,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 532,
+        minutes: 4,
+        month: 4,
+        seconds: 40
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 2000
+      },
+      timestamp: {
+        date: 17,
+        day: 3,
+        year: 2017,
+        hours: 17,
+        milliseconds: 668,
+        minutes: 55,
+        month: 4,
+        seconds: 31
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: -400
+      },
+      timestamp: {
+        date: 10,
+        day: 3,
+        year: 2017,
+        hours: 15,
+        milliseconds: 516,
+        minutes: 42,
+        month: 4,
+        seconds: 38
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 1050
+      },
+      timestamp: {
+        date: 10,
+        day: 3,
+        year: 2017,
+        hours: 15,
+        milliseconds: 941,
+        minutes: 40,
+        month: 4,
+        seconds: 27
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 2000
+      },
+      timestamp: {
+        date: 10,
+        day: 3,
+        year: 2017,
+        hours: 15,
+        milliseconds: 112,
+        minutes: 33,
+        month: 4,
+        seconds: 18
+      }
+    }, {
+      type: "gold",
+      event: {
+        aggregateValue: 450
+      },
+      timestamp: {
+        date: 3,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 83,
+        minutes: 40,
+        month: 4,
+        seconds: 4
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregateValue: 300
+      },
+      timestamp: {
+        date: 3,
+        day: 3,
+        year: 2017,
+        hours: 18,
+        milliseconds: 545,
+        minutes: 50,
+        month: 4,
+        seconds: 52
+      }
+    }]
   };
 
   // exposed methods
@@ -5965,7 +6901,8 @@ var marika = (function() {
         note: "<strong>Deft Hands</strong> +2 bonus on Disable Device and Sleight of Hand skill checks<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls.<br><strong>Two Weapon Fighting</strong> Penalties on attack rolls for fighting with two weapons are reduced.<br><strong>Improved Two Weapon Fighting</strong> In addition to the standard single extra attack you get with an off-hand weapon, get a second attack with it, albeit at a –5 penalty.<br><strong>Double Slice</strong> Add your Strength bonus to damage rolls made with your off-hand weapon.<br><strong>Extra Rogue Talent</strong> Gain one additional rogue talent"
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -7176,7 +8113,8 @@ var nefi = (function() {
         note: "Harrow point = +5 on all damage rolls for one combat"
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -8875,7 +9813,8 @@ var nif = (function() {
       }, {
         note: "Library reference: 957"
       }]
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -10159,7 +11098,8 @@ var orrin = (function() {
         note: "Headband of Vast Intelligence +4 Skills: Sense Motive, Spellcraft."
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -11667,7 +12607,8 @@ var ro = (function() {
         note: "Headband of Vast Intelligence +2 skill: Use Magic Device."
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -12930,7 +13871,8 @@ var vos = (function() {
       }, {
         note: "Prince's Wolves scarf, a toke to proof."
       }]
-    }
+    },
+    events: []
   };
 
   // exposed methods
@@ -15210,6 +16152,166 @@ var encumbrance = (function() {
 
 })();
 
+var events = (function() {
+
+  function bind() {
+    var eventXp = helper.e(".js-evets-xp");
+    var eventWealth = helper.e(".js-evets-wealth");
+    eventXp.addEventListener("click", function() {
+      event.stopPropagation();
+      event.preventDefault();
+      render("xp");
+    }, false)
+    eventWealth.addEventListener("click", function() {
+      event.stopPropagation();
+      event.preventDefault();
+      render("wealth");
+    }, false)
+  };
+
+  function _create_event(type, eventObject) {
+    var newEvent = {
+      type: type,
+      event: eventObject,
+      timestamp: helper.getDateTime()
+    }
+    return newEvent;
+  };
+
+  function store(type, eventObject) {
+    sheet.getCharacter().events.unshift(_create_event(type, eventObject));
+    sheet.storeCharacters();
+  };
+
+  function _timestampString(timestamp) {
+    var _prefixMinutes = function(minutes) {
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      };
+      return minutes;
+    };
+    var days = ["Sun", "Mon", "Tue", 'Wed', "Thu", "Fri", "Sat"];
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var timestampString =
+      timestamp.hours + ":" +
+      _prefixMinutes(timestamp.minutes) + ", " +
+      days[timestamp.day] + ", " +
+      timestamp.date + " " +
+      months[timestamp.month] + " " +
+      timestamp.year;
+    return timestampString;
+  };
+
+  function _create_eventTr(eventLogType, eventObject) {
+    // console.log(eventLogType, eventObject);
+    var tr = document.createElement("tr");
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var para = document.createElement("p");
+    var data;
+    if ("aggregateValue" in eventObject.event) {
+      data = eventObject.event.aggregateValue.toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+      if (eventObject.event.aggregateValue > 0) {
+        data = "+" + data;
+      };
+      if (eventLogType == "xp") {
+        data = data + " XP";
+      } else if (eventLogType == "wealth") {
+        if (eventObject.type == "platinum") {
+          data = data + " PP";
+        } else if (eventObject.type == "gold") {
+          data = data + " GP";
+        } else if (eventObject.type == "silver") {
+          data = data + " SP";
+        } else if (eventObject.type == "copper") {
+          data = data + " CP";
+        };
+      };
+    } else if ("note" in eventObject.event) {
+      data = eventObject.event.note;
+    };
+    para.textContent = data;
+    var timestamp = document.createElement("p");
+    timestamp.setAttribute("class", "u-small-text u-text-right");
+    timestamp.textContent = _timestampString(eventObject.timestamp);
+    td2.appendChild(para);
+    td1.appendChild(timestamp);
+    tr.appendChild(td2);
+    tr.appendChild(td1);
+    return tr;
+  };
+
+  function _create_eventTable(eventLogType) {
+    var table = document.createElement("table");
+    var tbody = document.createElement("tbody");
+    var all_events = helper.getObject(sheet.getCharacter(), "events");
+    var all_eventsToRender = [];
+    if (eventLogType == "xp") {
+      all_events.forEach(function(object) {
+        if (object.type == "xp") {
+          all_eventsToRender.push(object);
+        };
+      });
+    } else if (eventLogType == "wealth") {
+      all_events.forEach(function(object) {
+        if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+          all_eventsToRender.push(object);
+        };
+      });
+    };
+    // console.log("all_eventsToRender", all_eventsToRender);
+    if (all_eventsToRender.length > 0) {
+      for (var i in all_eventsToRender) {
+        var tr = _create_eventTr(eventLogType, all_eventsToRender[i]);
+        tbody.appendChild(tr);
+      };
+    } else {
+      var table = document.createElement("table");
+      var tbody = document.createElement("tbody");
+      var tr = document.createElement("tr");
+      var td = document.createElement("td");
+      var message = document.createElement("p");
+      if (eventLogType == "xp") {
+        message.textContent = "No XP logged yet. Why not add some?";
+      } else if (eventLogType == "wealth") {
+        message.textContent = "No wealth logged yet. Why not add some?";
+      };
+      td.appendChild(message);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    };
+    table.appendChild(tbody);
+    return table;
+  };
+
+  function render(eventLogType) {
+    var heading;
+    if (eventLogType == "xp") {
+      heading = "XP log";
+    } else if (eventLogType == "wealth") {
+      heading = "Wealth log";
+    };
+    var body = _create_eventTable(eventLogType);
+    modal.render(heading, body, "Close", false, "small");
+  };
+
+  function pop() {
+    sheet.getCharacter().events.pop();
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render,
+    store: store,
+    pop: pop
+  };
+
+})();
+
 var fireball = (function() {
 
   function render() {
@@ -15502,8 +16604,16 @@ var inputBlock = (function() {
     var path = input.dataset.aggregatePath;
     var message = input.dataset.aggregateSnackMessage;
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _aggregateGivenValue("aggregate", path, valueToApply, message);
-    input.value = "";
+    // if the value in the input is a number
+    if (!isNaN(valueToApply)) {
+      _aggregateGivenValue("aggregate", path, valueToApply, message);
+      input.value = "";
+      var type = path.split(".")[path.split(".").length - 1];
+      var eventObject = {
+        aggregateValue: valueToApply
+      };
+      events.store(type, eventObject);
+    };
   };
 
   function _update_aggregateButton(button) {
@@ -15512,46 +16622,76 @@ var inputBlock = (function() {
     var message = button.dataset.aggregateSnackMessage;
     var input = helper.e("#" + source);
     var valueToApply = parseInt(input.value.replace(/,/g, ""), 10);
-    _aggregateGivenValue("aggregate", path, valueToApply, message);
-    input.value = "";
+    // if the value in the input is a number
+    if (!isNaN(valueToApply)) {
+      _aggregateGivenValue("aggregate", path, valueToApply, message);
+      input.value = "";
+      var type = path.split(".")[path.split(".").length - 1];
+      var eventObject = {
+        aggregateValue: valueToApply
+      };
+      events.store(type, eventObject);
+    };
   };
 
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
-    var message = button.dataset.aggregateSnackMessage;
-    _aggregateGivenValue("clear", path, false, message);
+    var promptHeading = button.dataset.aggregatePromptHeading;
+    var promptMessage = button.dataset.aggregatePromptMessage;
+    var snackMessage = button.dataset.aggregateSnackMessage;
+    var clear = function() {
+      _aggregateGivenValue("clear", path, false, snackMessage);
+      var type = path.split(".")[path.split(".").length - 1];
+      var note;
+      if (type == "xp") {
+        note = "XP cleared";
+      } else if (type == "platinum") {
+        note = "PP cleared";
+      } else if (type == "gold") {
+        note = "GP cleared";
+      } else if (type == "silver") {
+        note = "SP cleared";
+      } else if (type == "copper") {
+        note = "CP cleared";
+      };
+      var eventObject = {
+        note: note
+      };
+      events.store(type, eventObject);
+      wealth.update();
+      textBlock.render();
+    };
+    prompt.render(promptHeading, promptMessage, "Clear", clear);
   };
 
   function _aggregateGivenValue(action, path, value, message) {
-    if (!isNaN(value)) {
-      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
-      if (isNaN(currentValue)) {
-        currentValue = 0;
-      };
-      var newValue;
-      if (action == "aggregate") {
-        newValue = currentValue + value;
-        if (value >= 0) {
-          message = "+" + value.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }) + " " + message;
-        } else {
-          message = value.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }) + " " + message;
-        };
-      } else if (action == "clear") {
-        newValue = "";
-      };
-      helper.setObject(sheet.getCharacter(), path, newValue);
-      wealth.update();
-      textBlock.render();
-      sheet.storeCharacters();
-      _store_lastAggregate(path, currentValue);
-      snack.render(message, "Undo", _restore_lastAggregate, 8000);
+    var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+    if (isNaN(currentValue)) {
+      currentValue = 0;
     };
+    var newValue;
+    if (action == "aggregate") {
+      newValue = currentValue + value;
+      if (value >= 0) {
+        message = "+" + value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message;
+      } else {
+        message = value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }) + " " + message;
+      };
+    } else if (action == "clear") {
+      newValue = "";
+    };
+    helper.setObject(sheet.getCharacter(), path, newValue);
+    sheet.storeCharacters();
+    _store_lastAggregate(path, currentValue);
+    snack.render(message, "Undo", _restore_lastAggregate, 8000);
+    wealth.update();
+    textBlock.render();
   };
 
   function _store_lastAggregate(path, oldValue) {
@@ -15563,20 +16703,17 @@ var inputBlock = (function() {
   };
 
   function _restore_lastAggregate() {
+    events.pop();
     var undoData = JSON.parse(helper.read("lastAggregate"));
-    _restore_aggregate(undoData.path, undoData.oldValue);
+    helper.setObject(sheet.getCharacter(), undoData.path, undoData.oldValue);
+    wealth.update();
+    textBlock.render();
+    sheet.storeCharacters();
     _remove_lastRemovedAggregate();
   };
 
   function _remove_lastRemovedAggregate() {
     helper.remove("lastAggregate");
-  };
-
-  function _restore_aggregate(path, oldValue) {
-    helper.setObject(sheet.getCharacter(), path, oldValue);
-    wealth.update();
-    textBlock.render();
-    sheet.storeCharacters();
   };
 
   function _increment(button) {
@@ -15699,12 +16836,7 @@ var inputBlock = (function() {
     var all_inputBlockAggregateClear = helper.eA(".js-input-block-aggregate-clear");
     for (var i = 0; i < all_inputBlockAggregateClear.length; i++) {
       all_inputBlockAggregateClear[i].addEventListener("click", function() {
-        var button = this;
-        var heading = this.dataset.aggregatePromptHeading;
-        var message = this.dataset.aggregatePromptMessage;
-        prompt.render(heading, message, "Clear", function() {
-          _update_aggregateClear(button);
-        });
+        _update_aggregateClear(this);
       }, false);
     };
   };
@@ -16999,6 +18131,10 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // add events array
+    if (!characterObject.hasOwnProperty("events")) {
+      characterObject.events = [];
+    };
     // udpate wealth
     if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
       characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);
@@ -17700,6 +18836,7 @@ var sheet = (function() {
     display.bind();
     card.bind();
     tip.bind();
+    events.bind();
     registerServiceWorker.bind();
   };
 
@@ -20069,6 +21206,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.23.0",
+    list: [
+      "*Newly added XP and Wealth is now tracked and can be viewd in logs."
+    ]
+  }, {
     version: "3.22.0",
     list: [
       "Added apply and clearing to XP and Wealth counts."

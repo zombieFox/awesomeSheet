@@ -1496,7 +1496,8 @@ var ro = (function() {
         note: "Headband of Vast Intelligence +2 skill: Use Magic Device."
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods
