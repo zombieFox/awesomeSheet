@@ -611,15 +611,19 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType) {
+  function _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
+      var dependency = false;
       var prefix = false;
       var suffix = false;
       var valueType = false;
       if (all_displayPrefix[i]) {
         prefix = all_displayPrefix[i];
+      };
+      if (all_displayDependency[i]) {
+        dependency = all_displayDependency[i];
       };
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
@@ -627,13 +631,13 @@ var display = (function() {
       if (displayValueType[i]) {
         valueType = displayValueType[i];
       };
-      all_node.push(_get_textSnippet(path, prefix, suffix, valueType));
+      all_node.push(_get_textSnippet(path, prefix, suffix, dependency, valueType));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_textSnippet(path, prefix, suffix, valueType) {
+  function _get_textSnippet(path, prefix, suffix, dependency, valueType) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayItem;
     if (typeof data != "undefined" && data != "") {
@@ -653,6 +657,9 @@ var display = (function() {
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
         })
+      };
+      if (dependency) {
+        data = data + " / " + helper.getObject(sheet.getCharacter(), dependency);
       };
       value.innerHTML = data;
       if (prefix) {
@@ -700,12 +707,16 @@ var display = (function() {
         // var display = helper.getClosest(all_displayBlockTarget[j], ".js-display");
         var displayType = all_displayBlockTarget[j].dataset.displayType;
         var all_displayPath;
+        var all_displayDependency = false;
         var all_displayPrefix = false;
         var all_displaySuffix = false;
         var displayValueType = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
+        };
+        if (all_displayBlockTarget[j].dataset.displayDependency) {
+          all_displayDependency = all_displayBlockTarget[j].dataset.displayDependency.split(",");
         };
         if (all_displayBlockTarget[j].dataset.displayPrefix) {
           all_displayPrefix = all_displayBlockTarget[j].dataset.displayPrefix.split(",");
@@ -723,7 +734,7 @@ var display = (function() {
         } else if (displayType == "modifier") {
           all_node = _get_all_modifier(all_displayPath, displayValueType);
         } else if (displayType == "text-snippet") {
-          all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType);
+          all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, displayValueType);
         } else if (displayType == "text-block") {
           all_node = _get_all_textBlock(all_displayPath);
         } else if (displayType == "list") {
