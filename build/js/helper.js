@@ -242,6 +242,23 @@ var helper = (function() {
     return object;
   };
 
+  function getDateTime() {
+    var dateStamp = new Date();
+    var object = {
+      // string: dateStamp.constructor(),
+      // time: dateStamp.getTime()
+      date: dateStamp.getDate(),
+      day: dateStamp.getDay(),
+      year: dateStamp.getFullYear(),
+      hours: dateStamp.getHours(),
+      milliseconds: dateStamp.getMilliseconds(),
+      minutes: dateStamp.getMinutes(),
+      month: dateStamp.getMonth(),
+      seconds: dateStamp.getSeconds()
+    }
+    return object;
+  };
+
   // exposed methods
   return {
     store: store,
@@ -266,7 +283,8 @@ var helper = (function() {
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip,
     inViewport: inViewport,
-    sortObject: sortObject
+    sortObject: sortObject,
+    getDateTime: getDateTime
   };
 
 })();

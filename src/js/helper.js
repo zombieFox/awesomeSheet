@@ -253,7 +253,7 @@ var helper = (function() {
       hours: dateStamp.getHours(),
       milliseconds: dateStamp.getMilliseconds(),
       minutes: dateStamp.getMinutes(),
-      month: dateStamp.getMonth() + 1,
+      month: dateStamp.getMonth(),
       seconds: dateStamp.getSeconds()
     }
     return object;

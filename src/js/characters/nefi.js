@@ -1199,7 +1199,8 @@ var nefi = (function() {
         note: "Harrow point = +5 on all damage rolls for one combat"
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods

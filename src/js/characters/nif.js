@@ -1687,7 +1687,8 @@ var nif = (function() {
       }, {
         note: "Library reference: 957"
       }]
-    }
+    },
+    events: []
   };
 
   // exposed methods

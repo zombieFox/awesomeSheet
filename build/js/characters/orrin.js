@@ -1272,7 +1272,8 @@ var orrin = (function() {
         note: "Headband of Vast Intelligence +4 Skills: Sense Motive, Spellcraft."
       }],
       story: []
-    }
+    },
+    events: []
   };
 
   // exposed methods

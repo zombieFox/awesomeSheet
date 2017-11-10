@@ -2,6 +2,10 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // add events array
+    if (!characterObject.hasOwnProperty("events")) {
+      characterObject.events = [];
+    };
     // udpate wealth
     if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
       characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);

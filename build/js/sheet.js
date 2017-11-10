@@ -311,6 +311,7 @@ var sheet = (function() {
     display.bind();
     card.bind();
     tip.bind();
+    events.bind();
     registerServiceWorker.bind();
   };
 
