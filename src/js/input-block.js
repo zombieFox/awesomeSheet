@@ -270,25 +270,32 @@ var inputBlock = (function() {
 
   function _update_aggregateClear(button) {
     var path = button.dataset.aggregatePath;
-    var message = button.dataset.aggregateSnackMessage;
-    _aggregateGivenValue("clear", path, false, message);
-    var type = path.split(".")[path.split(".").length - 1];
-    var note;
-    if (type == "xp") {
-      note = "XP Cleared";
-    } else if (type == "platinum") {
-      note = "PP Cleared";
-    } else if (type == "gold") {
-      note = "GP Cleared";
-    } else if (type == "silver") {
-      note = "SP Cleared";
-    } else if (type == "copper") {
-      note = "CP Cleared";
+    var promptHeading = button.dataset.aggregatePromptHeading;
+    var promptMessage = button.dataset.aggregatePromptMessage;
+    var snackMessage = button.dataset.aggregateSnackMessage;
+    var clear = function() {
+      _aggregateGivenValue("clear", path, false, snackMessage);
+      var type = path.split(".")[path.split(".").length - 1];
+      var note;
+      if (type == "xp") {
+        note = "XP cleared";
+      } else if (type == "platinum") {
+        note = "PP cleared";
+      } else if (type == "gold") {
+        note = "GP cleared";
+      } else if (type == "silver") {
+        note = "SP cleared";
+      } else if (type == "copper") {
+        note = "CP cleared";
+      };
+      var eventObject = {
+        note: note
+      };
+      events.store(type, eventObject);
+      wealth.update();
+      textBlock.render();
     };
-    var eventObject = {
-      note: note
-    };
-    events.store(type, eventObject);
+    prompt.render(promptHeading, promptMessage, "Clear", clear);
   };
 
   function _aggregateGivenValue(action, path, value, message) {
@@ -317,6 +324,8 @@ var inputBlock = (function() {
     sheet.storeCharacters();
     _store_lastAggregate(path, currentValue);
     snack.render(message, "Undo", _restore_lastAggregate, 8000);
+    wealth.update();
+    textBlock.render();
   };
 
   function _store_lastAggregate(path, oldValue) {
@@ -330,19 +339,15 @@ var inputBlock = (function() {
   function _restore_lastAggregate() {
     events.pop();
     var undoData = JSON.parse(helper.read("lastAggregate"));
-    _restore_aggregate(undoData.path, undoData.oldValue);
+    helper.setObject(sheet.getCharacter(), undoData.path, undoData.oldValue);
+    wealth.update();
+    textBlock.render();
+    sheet.storeCharacters();
     _remove_lastRemovedAggregate();
   };
 
   function _remove_lastRemovedAggregate() {
     helper.remove("lastAggregate");
-  };
-
-  function _restore_aggregate(path, oldValue) {
-    helper.setObject(sheet.getCharacter(), path, oldValue);
-    wealth.update();
-    textBlock.render();
-    sheet.storeCharacters();
   };
 
   function _increment(button) {
@@ -447,8 +452,6 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _update_aggregateInput(this);
-          wealth.update();
-          textBlock.render();
         };
       }, false);
     };
@@ -459,8 +462,6 @@ var inputBlock = (function() {
     for (var i = 0; i < all_inputBlockAggregateButton.length; i++) {
       all_inputBlockAggregateButton[i].addEventListener("click", function() {
         _update_aggregateButton(this);
-        wealth.update();
-        textBlock.render();
       }, false);
     };
   };
@@ -469,14 +470,7 @@ var inputBlock = (function() {
     var all_inputBlockAggregateClear = helper.eA(".js-input-block-aggregate-clear");
     for (var i = 0; i < all_inputBlockAggregateClear.length; i++) {
       all_inputBlockAggregateClear[i].addEventListener("click", function() {
-        var button = this;
-        var heading = this.dataset.aggregatePromptHeading;
-        var message = this.dataset.aggregatePromptMessage;
-        prompt.render(heading, message, "Clear", function() {
-          _update_aggregateClear(button);
-          wealth.update();
-          textBlock.render();
-        });
+        _update_aggregateClear(this);
       }, false);
     };
   };

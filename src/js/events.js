@@ -25,7 +25,7 @@ var events = (function() {
   };
 
   function store(type, eventObject) {
-    sheet.getCharacter().events.push(_create_event(type, eventObject));
+    sheet.getCharacter().events.unshift(_create_event(type, eventObject));
     sheet.storeCharacters();
   };
 
@@ -93,7 +93,7 @@ var events = (function() {
   function _create_eventTable(eventLogType) {
     var table = document.createElement("table");
     var tbody = document.createElement("tbody");
-    var all_events = JSON.parse(JSON.stringify(sheet.getCharacter().events)).reverse();
+    var all_events = helper.getObject(sheet.getCharacter(), "events");
     var all_eventsToRender = [];
     if (eventLogType == "xp") {
       all_events.forEach(function(object) {
@@ -145,7 +145,6 @@ var events = (function() {
   };
 
   function pop() {
-    console.log("event pop invoke");
     sheet.getCharacter().events.pop();
   };
 
