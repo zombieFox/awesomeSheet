@@ -21208,7 +21208,7 @@ var update = (function() {
   var history = [{
     version: "3.23.0",
     list: [
-      "*Newly added XP and Wealth is now tracked and can be viewd in logs."
+      "*XP and Wealth is now tracked and can be viewd in logs."
     ]
   }, {
     version: "3.22.0",
