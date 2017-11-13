@@ -25,7 +25,6 @@ var ro = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: 29090,
       height: "6'0",
       weight: "",
       age: "120",
@@ -49,6 +48,12 @@ var ro = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 29090,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

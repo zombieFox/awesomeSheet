@@ -25,7 +25,6 @@ var vos = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: 51000,
       height: "5'0",
       weight: "190 lbs",
       age: "40",
@@ -49,6 +48,12 @@ var vos = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 51000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

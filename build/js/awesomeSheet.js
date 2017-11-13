@@ -444,7 +444,6 @@ var blank = (function() {
       },
       alignment: "",
       deity: "",
-      xp: "",
       height: "",
       weight: "",
       age: "",
@@ -468,6 +467,12 @@ var blank = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: "",
+        advancement_speed: "",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -1600,7 +1605,6 @@ var izlara = (function() {
       },
       alignment: "Neutral Good",
       deity: "",
-      xp: 220000,
       height: "5.5ft",
       weight: "95lbs",
       age: "118",
@@ -1624,6 +1628,12 @@ var izlara = (function() {
           level: false,
           half_level: true
         }
+      },
+      xp: {
+        total: 220000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -3957,7 +3967,6 @@ var ravich = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: 23000,
       height: "6ft",
       weight: "134lbs",
       age: "24",
@@ -3981,6 +3990,12 @@ var ravich = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 23000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -5700,7 +5715,6 @@ var marika = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: 76000,
       height: "5’3",
       weight: "98 lb",
       age: "23",
@@ -5724,6 +5738,12 @@ var marika = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 76000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -6943,7 +6963,6 @@ var nefi = (function() {
       },
       alignment: "Neutral",
       deity: "",
-      xp: 155000,
       height: "6'2",
       weight: "202 lbs",
       age: "28",
@@ -6967,6 +6986,12 @@ var nefi = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 155000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -8156,7 +8181,6 @@ var nif = (function() {
       },
       alignment: "Lawful Neutral",
       deity: "",
-      xp: 51330,
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -8180,6 +8204,12 @@ var nif = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 51330,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -9857,7 +9887,6 @@ var orrin = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: 90148,
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -9881,6 +9910,12 @@ var orrin = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 90148,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -11143,7 +11178,6 @@ var ro = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: 29090,
       height: "6'0",
       weight: "",
       age: "120",
@@ -11167,6 +11201,12 @@ var ro = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 29090,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -12653,7 +12693,6 @@ var vos = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: 51000,
       height: "5'0",
       weight: "190 lbs",
       age: "40",
@@ -12677,6 +12716,12 @@ var vos = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 51000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
@@ -16628,7 +16673,7 @@ var inputBlock = (function() {
     if (!isNaN(valueToApply)) {
       _aggregateGivenValue("aggregate", path, valueToApply, message);
       input.value = "";
-      var type = path.split(".")[path.split(".").length - 1];
+      var type = input.dataset.eventType;
       var eventObject = {
         aggregateValue: valueToApply
       };
@@ -16646,7 +16691,7 @@ var inputBlock = (function() {
     if (!isNaN(valueToApply)) {
       _aggregateGivenValue("aggregate", path, valueToApply, message);
       input.value = "";
-      var type = path.split(".")[path.split(".").length - 1];
+      var type = button.dataset.eventType;
       var eventObject = {
         aggregateValue: valueToApply
       };
@@ -16661,7 +16706,7 @@ var inputBlock = (function() {
     var snackMessage = button.dataset.aggregateSnackMessage;
     var clear = function() {
       _aggregateGivenValue("clear", path, false, snackMessage);
-      var type = path.split(".")[path.split(".").length - 1];
+      var type = button.dataset.eventType;
       var note;
       if (type == "xp") {
         note = "XP cleared";
@@ -16679,6 +16724,7 @@ var inputBlock = (function() {
       };
       events.store(type, eventObject);
       wealth.update();
+      xp.render();
       textBlock.render();
     };
     prompt.render(promptHeading, promptMessage, "Clear", clear);
@@ -16711,6 +16757,7 @@ var inputBlock = (function() {
     _store_lastAggregate(path, currentValue);
     snack.render(message, "Undo", _restore_lastAggregate, 8000);
     wealth.update();
+    xp.render();
     textBlock.render();
   };
 
@@ -16727,6 +16774,7 @@ var inputBlock = (function() {
     var undoData = JSON.parse(helper.read("lastAggregate"));
     helper.setObject(sheet.getCharacter(), undoData.path, undoData.oldValue);
     wealth.update();
+    xp.render();
     textBlock.render();
     sheet.storeCharacters();
     _remove_lastRemovedAggregate();
@@ -18151,6 +18199,12 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update xp and next level
+    if (characterObject.basics.xp != "" && !characterObject.basics.xp.hasOwnProperty("total")) {
+      var oldXp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+      characterObject.basics.xp = {};
+      characterObject.basics.xp.total = oldXp;
+    };
     // add events array
     if (!characterObject.hasOwnProperty("events")) {
       characterObject.events = [];
@@ -18833,6 +18887,7 @@ var sheet = (function() {
     spells.render();
     encumbrance.render();
     size.render();
+    xp.render();
     wealth.render();
     totalBlock.render();
     textBlock.render();
@@ -18857,6 +18912,7 @@ var sheet = (function() {
     card.bind();
     tip.bind();
     events.bind();
+    xp.bind();
     registerServiceWorker.bind();
   };
 
@@ -21430,29 +21486,38 @@ var wealth = (function() {
     var wealthInGp = [];
     if ("platinum" in wealth) {
       var platinum = wealth.platinum * 10;
-      if (!isNaN(platinum)) {
+      if (!isNaN(platinum) && platinum != "") {
         wealthInGp.push(platinum);
+      } else {
+        wealthInGp.push(0);
       };
     };
     if ("gold" in wealth) {
       var gold = wealth.gold;
-      if (!isNaN(gold)) {
+      if (!isNaN(gold) && gold != "") {
         wealthInGp.push(gold);
+      } else {
+        wealthInGp.push(0);
       };
     };
     if ("silver" in wealth) {
       var silver = wealth.silver / 10;
-      if (!isNaN(silver)) {
+      if (!isNaN(silver) && silver != "") {
         wealthInGp.push(silver);
+      } else {
+        wealthInGp.push(0);
       };
     };
     if ("copper" in wealth) {
       var copper = wealth.copper / 100;
-      if (!isNaN(copper)) {
+      if (!isNaN(copper) && copper != "") {
         wealthInGp.push(copper);
+      } else {
+        wealthInGp.push(0);
       };
     };
     var grandTotal;
+    console.log(wealthInGp);
     if (wealthInGp.length > 0) {
       grandTotal = wealthInGp.reduce(function(a, b) {
         return a + b;
@@ -21468,6 +21533,82 @@ var wealth = (function() {
   return {
     update: update,
     render: render,
+  };
+
+})();
+
+var xp = (function() {
+
+  var renderTimer = null;
+
+  function bind() {
+    var advancementSpeed = helper.e(".js-advancement-speed");
+    advancementSpeed.addEventListener("change", function() {
+      clearTimeout(renderTimer);
+      renderTimer = setTimeout(delayUpdate, 300, this);
+    }, false);
+  };
+
+  function delayUpdate(element) {
+    render();
+    sheet.storeCharacters();
+    textBlock.render();
+  };
+
+  function render() {
+    var trackSlow = [0, 3000, 7500, 14000, 23000, 35000, 53000, 77000, 115000, 160000, 235000, 330000, 475000, 665000, 955000, 1350000, 1900000, 2700000, 3850000, 5350000];
+    var trackMedium = [0, 2000, 5000, 9000, 15000, 23000, 35000, 51000, 75000, 105000, 155000, 220000, 315000, 445000, 635000, 890000, 1300000, 1800000, 2550000, 3600000];
+    var trackFast = [0, 1300, 3300, 6000, 10000, 15000, 23000, 34000, 50000, 71000, 105000, 145000, 210000, 295000, 425000, 600000, 850000, 1200000, 1700000, 2400000];
+    var selectedTrack = false;
+    var speed = helper.getObject(sheet.getCharacter(), "basics.xp.advancement_speed");
+    var nextLevel;
+    var nextLevelXpMileStone;
+    var nextLevelXpNeeded;
+    var nextLevelIndex;
+    var currentXp = helper.getObject(sheet.getCharacter(), "basics.xp.total");
+    if (speed == "Slow") {
+      selectedTrack = trackSlow;
+    } else if (speed == "Medium") {
+      selectedTrack = trackMedium;
+    } else if (speed == "Fast") {
+      selectedTrack = trackFast;
+    };
+    var _render_nextXp = function() {
+      if (selectedTrack) {
+        selectedTrack.forEach(function(item, index, array) {
+          if (selectedTrack[index] <= currentXp) {
+            nextLevelIndex = (index + 1);
+          };
+        });
+        nextLevelXpMileStone = selectedTrack[nextLevelIndex];
+        nextLevelXpNeeded = nextLevelXpMileStone - helper.getObject(sheet.getCharacter(), "basics.xp.total");
+        if (nextLevelXpMileStone == undefined || isNaN(nextLevelXpMileStone)) {
+          nextLevelXpMileStone = "";
+          nextLevelXpNeeded = "";
+        };
+        helper.setObject(sheet.getCharacter(), "basics.xp.next_level", nextLevelXpMileStone);
+        helper.setObject(sheet.getCharacter(), "basics.xp.needed", nextLevelXpNeeded);
+      } else {
+        helper.setObject(sheet.getCharacter(), "basics.xp.next_level", "");
+        helper.setObject(sheet.getCharacter(), "basics.xp.needed", "");
+      };
+    };
+    var _clear_nextXp = function() {
+      helper.setObject(sheet.getCharacter(), "basics.xp.next_level", "");
+      helper.setObject(sheet.getCharacter(), "basics.xp.needed", "");
+    };
+    // if xp is less than level 20 for any advancement speed
+    if (currentXp <= selectedTrack[selectedTrack.length - 1]) {
+      _render_nextXp();
+    } else {
+      _clear_nextXp();
+    };
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render
   };
 
 })();
