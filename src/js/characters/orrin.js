@@ -25,7 +25,6 @@ var orrin = (function() {
       },
       alignment: "Lawful Evil",
       deity: "",
-      xp: 90148,
       height: "6'0",
       weight: "206 lbs",
       age: "26",
@@ -49,6 +48,12 @@ var orrin = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 90148,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

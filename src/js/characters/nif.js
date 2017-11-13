@@ -25,7 +25,6 @@ var nif = (function() {
       },
       alignment: "Lawful Neutral",
       deity: "",
-      xp: 51330,
       height: "6'0",
       weight: "136 lbs",
       age: "120",
@@ -49,6 +48,12 @@ var nif = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 51330,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
