@@ -17,31 +17,31 @@ var xp = (function() {
   };
 
   function render() {
-    var xpSlow = [0, 3000, 7500, 14000, 23000, 35000, 53000, 77000, 115000, 160000, 235000, 330000, 475000, 665000, 955000, 1350000, 1900000, 2700000, 3850000, 5350000];
-    var xpMedium = [0, 2000, 5000, 9000, 15000, 23000, 35000, 51000, 75000, 105000, 155000, 220000, 315000, 445000, 635000, 890000, 1300000, 1800000, 2550000, 3600000];
-    var xpFast = [0, 1300, 3300, 6000, 10000, 15000, 23000, 34000, 50000, 71000, 105000, 145000, 210000, 295000, 425000, 600000, 850000, 1200000, 1700000, 2400000];
+    var trackSlow = [0, 3000, 7500, 14000, 23000, 35000, 53000, 77000, 115000, 160000, 235000, 330000, 475000, 665000, 955000, 1350000, 1900000, 2700000, 3850000, 5350000];
+    var trackMedium = [0, 2000, 5000, 9000, 15000, 23000, 35000, 51000, 75000, 105000, 155000, 220000, 315000, 445000, 635000, 890000, 1300000, 1800000, 2550000, 3600000];
+    var trackFast = [0, 1300, 3300, 6000, 10000, 15000, 23000, 34000, 50000, 71000, 105000, 145000, 210000, 295000, 425000, 600000, 850000, 1200000, 1700000, 2400000];
+    var selectedTrack = false;
     var speed = helper.getObject(sheet.getCharacter(), "basics.xp.advancement_speed");
-    var track = false;
     var nextLevel;
     var nextLevelXpMileStone;
     var nextLevelXpNeeded;
     var nextLevelIndex;
     var currentXp = helper.getObject(sheet.getCharacter(), "basics.xp.total");
     if (speed == "Slow") {
-      track = xpSlow;
+      selectedTrack = trackSlow;
     } else if (speed == "Medium") {
-      track = xpMedium;
+      selectedTrack = trackMedium;
     } else if (speed == "Fast") {
-      track = xpFast;
+      selectedTrack = trackFast;
     };
     var _render_nextXp = function() {
-      if (track) {
-        track.forEach(function(item, index, array) {
-          if (track[index] <= currentXp) {
+      if (selectedTrack) {
+        selectedTrack.forEach(function(item, index, array) {
+          if (selectedTrack[index] <= currentXp) {
             nextLevelIndex = (index + 1);
           };
         });
-        nextLevelXpMileStone = track[nextLevelIndex];
+        nextLevelXpMileStone = selectedTrack[nextLevelIndex];
         nextLevelXpNeeded = nextLevelXpMileStone - helper.getObject(sheet.getCharacter(), "basics.xp.total");
         if (nextLevelXpMileStone == undefined || isNaN(nextLevelXpMileStone)) {
           nextLevelXpMileStone = "";
@@ -59,7 +59,7 @@ var xp = (function() {
       helper.setObject(sheet.getCharacter(), "basics.xp.needed", "");
     };
     // if xp is less than level 20 for any advancement speed
-    if (currentXp <= track[track.length - 1]) {
+    if (currentXp <= selectedTrack[selectedTrack.length - 1]) {
       _render_nextXp();
     } else {
       _clear_nextXp();

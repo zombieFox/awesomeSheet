@@ -242,7 +242,7 @@ var inputBlock = (function() {
     if (!isNaN(valueToApply)) {
       _aggregateGivenValue("aggregate", path, valueToApply, message);
       input.value = "";
-      var type = path.split(".")[path.split(".").length - 1];
+      var type = input.dataset.eventType;
       var eventObject = {
         aggregateValue: valueToApply
       };
@@ -260,7 +260,7 @@ var inputBlock = (function() {
     if (!isNaN(valueToApply)) {
       _aggregateGivenValue("aggregate", path, valueToApply, message);
       input.value = "";
-      var type = path.split(".")[path.split(".").length - 1];
+      var type = button.dataset.eventType;
       var eventObject = {
         aggregateValue: valueToApply
       };
@@ -275,7 +275,7 @@ var inputBlock = (function() {
     var snackMessage = button.dataset.aggregateSnackMessage;
     var clear = function() {
       _aggregateGivenValue("clear", path, false, snackMessage);
-      var type = path.split(".")[path.split(".").length - 1];
+      var type = button.dataset.eventType;
       var note;
       if (type == "xp") {
         note = "XP cleared";
