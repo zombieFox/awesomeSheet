@@ -51,7 +51,6 @@ var wealth = (function() {
       };
     };
     var grandTotal;
-    console.log(wealthInGp);
     if (wealthInGp.length > 0) {
       grandTotal = wealthInGp.reduce(function(a, b) {
         return a + b;

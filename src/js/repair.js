@@ -3,8 +3,13 @@ var repair = (function() {
   function render(characterObject) {
     // console.log("fire repair update");
     // update xp and next level
-    if (characterObject.basics.xp != "" && !characterObject.basics.xp.hasOwnProperty("total")) {
-      var oldXp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+    if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
+      var oldXp;
+      if (typeof characterObject.basics.xp == "number") {
+        oldXp = characterObject.basics.xp;
+      } else if (typeof characterObject.basics.xp == "string") {
+        oldXp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+      };
       characterObject.basics.xp = {};
       characterObject.basics.xp.total = oldXp;
     };
