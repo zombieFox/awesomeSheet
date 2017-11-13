@@ -34,7 +34,6 @@ var ravich = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: 23000,
       height: "6ft",
       weight: "134lbs",
       age: "24",
@@ -58,6 +57,12 @@ var ravich = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 23000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

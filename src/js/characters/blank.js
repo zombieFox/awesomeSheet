@@ -25,7 +25,6 @@ var blank = (function() {
       },
       alignment: "",
       deity: "",
-      xp: "",
       height: "",
       weight: "",
       age: "",
@@ -49,6 +48,12 @@ var blank = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: "",
+        advancement_speed: "",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

@@ -2,6 +2,12 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update xp and next level
+    if (characterObject.basics.xp != "" && !characterObject.basics.xp.hasOwnProperty("total")) {
+      var oldXp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+      characterObject.basics.xp = {};
+      characterObject.basics.xp.total = oldXp;
+    };
     // add events array
     if (!characterObject.hasOwnProperty("events")) {
       characterObject.events = [];

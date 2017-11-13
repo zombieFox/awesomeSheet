@@ -25,7 +25,6 @@ var marika = (function() {
       },
       alignment: "Chaotic Neutral",
       deity: "",
-      xp: 76000,
       height: "5’3",
       weight: "98 lb",
       age: "23",
@@ -49,6 +48,12 @@ var marika = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 76000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

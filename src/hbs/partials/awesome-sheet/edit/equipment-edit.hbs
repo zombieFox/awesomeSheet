@@ -297,7 +297,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.platinum" data-text-type="number"></p>
+            <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="1 PP = 10 GP" data-path="equipment.wealth.platinum" data-text-type="number"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum cleared." data-aggregate-prompt-heading="Clear Platinum?"
@@ -308,11 +308,11 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-platinum">PP to add/remove</label>
-              <input id="equipment-wealth-platinum" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to remove Platinum. Eg: Apply '-100' to remove 100 PP." data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum" type="text" tabindex="1">
+              <input id="equipment-wealth-platinum" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Platinum. Eg: Apply '-100' to remove 100 PP." data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum" data-event-type="platinum" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-platinum" data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum" tabindex="1"><span class="button-text">Apply</span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-platinum" data-aggregate-path="equipment.wealth.platinum" data-aggregate-snack-message="Platinum" data-event-type="platinum" tabindex="1"><span class="button-text">Apply</span></a>
           </div>
         </div>
       </div>
@@ -339,11 +339,11 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-gold">GP to add/remove</label>
-              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to remove Gold. Eg: Apply '-100' to remove 100 GP." data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold" type="text" tabindex="1">
+              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Gold. Eg: Apply '-100' to remove 100 GP." data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold" data-event-type="gold" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-gold" data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold" tabindex="1"><span class="button-text">Apply</span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-gold" data-aggregate-path="equipment.wealth.gold" data-aggregate-snack-message="Gold" data-event-type="gold" tabindex="1"><span class="button-text">Apply</span></a>
           </div>
         </div>
       </div>
@@ -359,7 +359,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.silver" data-text-type="number"></p>
+            <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="10 SP = 1 GP" data-path="equipment.wealth.silver" data-text-type="number"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver cleared." data-aggregate-prompt-heading="Clear Silver?"
@@ -370,11 +370,11 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-silver">SP to add/remove</label>
-              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to remove Silver. Eg: Apply '-100' to remove 100 SP." data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver" type="text" tabindex="1">
+              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Silver. Eg: Apply '-100' to remove 100 SP." data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver" data-event-type="silver" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-silver" data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver" tabindex="1"><span class="button-text">Apply</span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-silver" data-aggregate-path="equipment.wealth.silver" data-aggregate-snack-message="Silver" data-event-type="silver" tabindex="1"><span class="button-text">Apply</span></a>
           </div>
         </div>
       </div>
@@ -390,7 +390,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block" data-path="equipment.wealth.copper" data-text-type="number"></p>
+            <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="100 CP = 1 GP" data-path="equipment.wealth.copper" data-text-type="number"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper cleared." data-aggregate-prompt-heading="Clear Copper?"
@@ -401,11 +401,11 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-copper">CP to add/remove</label>
-              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to remove Copper. Eg: Apply '-100' to remove 100 CP." data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper" type="text" tabindex="1">
+              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Copper. Eg: Apply '-100' to remove 100 CP." data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper" data-event-type="copper" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-copper" data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper" tabindex="1"><span class="button-text">Apply</span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="equipment-wealth-copper" data-aggregate-path="equipment.wealth.copper" data-aggregate-snack-message="Copper" data-event-type="copper" tabindex="1"><span class="button-text">Apply</span></a>
           </div>
         </div>
       </div>

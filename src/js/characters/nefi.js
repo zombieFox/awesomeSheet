@@ -25,7 +25,6 @@ var nefi = (function() {
       },
       alignment: "Neutral",
       deity: "",
-      xp: 155000,
       height: "6'2",
       weight: "202 lbs",
       age: "28",
@@ -49,6 +48,12 @@ var nefi = (function() {
           level: false,
           half_level: false
         }
+      },
+      xp: {
+        total: 155000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {

@@ -25,7 +25,6 @@ var izlara = (function() {
       },
       alignment: "Neutral Good",
       deity: "",
-      xp: 220000,
       height: "5.5ft",
       weight: "95lbs",
       age: "118",
@@ -49,6 +48,12 @@ var izlara = (function() {
           level: false,
           half_level: true
         }
+      },
+      xp: {
+        total: 220000,
+        advancement_speed: "Medium",
+        next_level: "",
+        needed: ""
       }
     },
     statistics: {
