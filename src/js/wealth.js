@@ -20,29 +20,38 @@ var wealth = (function() {
     var wealthInGp = [];
     if ("platinum" in wealth) {
       var platinum = wealth.platinum * 10;
-      if (!isNaN(platinum)) {
+      if (!isNaN(platinum) && platinum != "") {
         wealthInGp.push(platinum);
+      } else {
+        wealthInGp.push(0);
       };
     };
     if ("gold" in wealth) {
       var gold = wealth.gold;
-      if (!isNaN(gold)) {
+      if (!isNaN(gold) && gold != "") {
         wealthInGp.push(gold);
+      } else {
+        wealthInGp.push(0);
       };
     };
     if ("silver" in wealth) {
       var silver = wealth.silver / 10;
-      if (!isNaN(silver)) {
+      if (!isNaN(silver) && silver != "") {
         wealthInGp.push(silver);
+      } else {
+        wealthInGp.push(0);
       };
     };
     if ("copper" in wealth) {
       var copper = wealth.copper / 100;
-      if (!isNaN(copper)) {
+      if (!isNaN(copper) && copper != "") {
         wealthInGp.push(copper);
+      } else {
+        wealthInGp.push(0);
       };
     };
     var grandTotal;
+    console.log(wealthInGp);
     if (wealthInGp.length > 0) {
       grandTotal = wealthInGp.reduce(function(a, b) {
         return a + b;
