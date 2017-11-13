@@ -293,6 +293,7 @@ var inputBlock = (function() {
       };
       events.store(type, eventObject);
       wealth.update();
+      xp.render();
       textBlock.render();
     };
     prompt.render(promptHeading, promptMessage, "Clear", clear);
@@ -325,6 +326,7 @@ var inputBlock = (function() {
     _store_lastAggregate(path, currentValue);
     snack.render(message, "Undo", _restore_lastAggregate, 8000);
     wealth.update();
+    xp.render();
     textBlock.render();
   };
 
@@ -341,6 +343,7 @@ var inputBlock = (function() {
     var undoData = JSON.parse(helper.read("lastAggregate"));
     helper.setObject(sheet.getCharacter(), undoData.path, undoData.oldValue);
     wealth.update();
+    xp.render();
     textBlock.render();
     sheet.storeCharacters();
     _remove_lastRemovedAggregate();

@@ -2,6 +2,37 @@
   position: relative;
   z-index: 1;
   font-size: $font-size-root-100;
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0.5em;
+    transform: translate(0, 50%);
+    z-index: 4;
+    pointer-events: none;
+    transition: bottom $transition-ease-extra-fast;
+  }
+  &:before {
+    border: 0.3em solid transparent;
+    border-top-color: $secondary-color-06;
+    transform: translate(0, 50%);
+    bottom: 1em;
+  }
+  &:after {
+    border: 0.3em solid transparent;
+    border-bottom-color: $secondary-color-06;
+    bottom: 2em;
+  }
+  &:hover {
+    &:before {
+      bottom: 0.9em;
+    }
+    &:after {
+      bottom: 2.1em;
+    }
+  }
 }
 .m-select-block-label {
   margin: 0;
@@ -19,7 +50,7 @@
 }
 .m-select-block-dropdown {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 .m-select-block-large {
   .m-select-block-large {
@@ -27,6 +58,14 @@
   }
 }
 .is-night-mode {
+  .m-select-block {
+    &:after {
+      border-bottom-color: $secondary-color-16;
+    }
+    &:before {
+      border-top-color: $secondary-color-16;
+    }
+  }
   .m-select-block-label {
     color: $secondary-color-16;
   }
@@ -34,7 +73,24 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-select-block {
+    &:before {
+      bottom: 0.7em;
+    }
+    &:after {
+      bottom: 1.7em;
+    }
+    &:hover {
+      &:before {
+        bottom: 0.6em;
+      }
+      &:after {
+        bottom: 1.8em;
+      }
+    }
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

@@ -61,17 +61,17 @@
             <p class="m-select-block-label js-select-block-label">Size</p>
             <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-tip" data-tip-show-on="hover" data-tip-message="Size Modifiers are automatically applied to Attack Stats, Armor Class, Combat Maneuver Bonus, Combat Maneuver Defense, Fly and Stealth skills."
               data-path="basics.size.category" tabindex="1">
-            <option></option>
-            <option value="Fine">Fine</option>
-            <option value="Diminutive">Diminutive</option>
-            <option value="Tiny">Tiny</option>
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-            <option value="Huge">Huge</option>
-            <option value="Gargantuan">Gargantuan</option>
-            <option value="Colossal">Colossal</option>
-          </select>
+              <option></option>
+              <option value="Fine">Fine</option>
+              <option value="Diminutive">Diminutive</option>
+              <option value="Tiny">Tiny</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="Huge">Huge</option>
+              <option value="Gargantuan">Gargantuan</option>
+              <option value="Colossal">Colossal</option>
+            </select>
           </div>
         </div>
         <div class="m-edit-box-item-medium">
@@ -131,25 +131,47 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block" data-path="basics.xp" data-text-type="number"></p>
+            <p class="m-edit-box-text js-text-block" data-path="basics.xp.total" data-text-type="number"></p>
           </div>
           <div class="m-edit-box-item-button-small">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="basics.xp" data-aggregate-snack-message="XP cleared." data-aggregate-prompt-heading="Clear XP?" data-aggregate-prompt-message="Are you sure you want to clear the current XP total?" tabindex="1"><span class="icon-close"></span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="basics.xp.total" data-aggregate-snack-message="XP cleared." data-aggregate-prompt-heading="Clear XP?"
+              data-aggregate-prompt-message="Are you sure you want to clear the current XP total?" tabindex="1"><span class="icon-close"></span></a>
           </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block">
               <label class="m-input-block-label js-input-block-label" for="basics-xp">XP to add/remove</label>
-              <input id="basics-xp" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="basics.xp" data-aggregate-snack-message="XP" type="text" tabindex="1">
+              <input id="basics-xp" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="basics.xp.total" data-aggregate-snack-message="XP" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="basics-xp" data-aggregate-path="basics.xp" data-aggregate-snack-message="XP" tabindex="1">Apply</a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="basics-xp" data-aggregate-path="basics.xp.total" data-aggregate-snack-message="XP" tabindex="1">Apply</a>
           </div>
         </div>
         <div class="m-edit-box-item-button-small">
           <a href="javascript:void(0)" class="u-inline-with-input button js-evets-xp" tabindex="1">XP Log</a>
+        </div>
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-large">
+            <div class="m-select-block js-select-block js-size">
+              <p class="m-select-block-label js-select-block-label">Advancement Speed</p>
+              <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-advancement-speed" data-path="basics.xp.advancement_speed" tabindex="1">
+                <option></option>
+                <option value="Slow">Slow</option>
+                <option value="Medium">Medium</option>
+                <option value="Fast">Fast</option>
+              </select>
+            </div>
+          </div>
+          <div class="m-edit-box-item-large">
+            <p class="m-edit-box-label">Next Level</p>
+            <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="Total XP needed to level up." data-path="basics.xp.next_level" data-text-type="number"></p>
+          </div>
+          <div class="m-edit-box-item-large">
+            <p class="m-edit-box-label">XP Needed</p>
+            <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="The ammount of XP needed to level up." data-path="basics.xp.needed" data-text-type="number"></p>
+          </div>
         </div>
       </div>
     </div>

@@ -288,6 +288,7 @@ var sheet = (function() {
     spells.render();
     encumbrance.render();
     size.render();
+    xp.render();
     wealth.render();
     totalBlock.render();
     textBlock.render();
@@ -312,6 +313,7 @@ var sheet = (function() {
     card.bind();
     tip.bind();
     events.bind();
+    xp.bind();
     registerServiceWorker.bind();
   };
 

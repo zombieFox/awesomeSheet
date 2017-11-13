@@ -254,6 +254,11 @@
           border-radius: $border-radius-large 0 0 $border-radius-large;
         }
       }
+      .m-select-block {
+        .m-select-block-dropdown {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+      }
       .m-input-block {
         .m-input-block-field {
           border-radius: $border-radius-large 0 0 $border-radius-large;
@@ -269,6 +274,11 @@
           border-radius: 0 $border-radius-large $border-radius-large 0;
         }
       }
+      .m-select-block {
+        .m-select-block-dropdown {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
       .m-input-block {
         .m-input-block-field {
           border-radius: 0 $border-radius-large $border-radius-large 0;
@@ -281,6 +291,11 @@
       }
       .m-check-block {
         .m-check-block-check-icon {
+          border-radius: $border-radius-large;
+        }
+      }
+      .m-select-block {
+        .m-select-block-dropdown {
           border-radius: $border-radius-large;
         }
       }
