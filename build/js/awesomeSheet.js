@@ -21285,6 +21285,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.24.0",
+    list: [
+      "Added XP advancement speed and next level counts."
+    ]
+  }, {
     version: "3.23.0",
     list: [
       "*XP and Wealth is now tracked and can be viewd in logs."
