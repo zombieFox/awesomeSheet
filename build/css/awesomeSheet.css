@@ -3252,14 +3252,13 @@ label {
             flex-basis: 3em; }
 
 .m-edit-box-label {
-  margin: 0;
+  margin: 0 1em 0 0;
   padding: 0;
   display: block;
   font-size: 0.75em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   color: #214a72;
-  box-sizing: border-box;
-  width: 100%; }
+  box-sizing: border-box; }
   .m-edit-box-label:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
 
@@ -3594,7 +3593,7 @@ label {
   font-size: 1rem; }
 
 .m-input-block-label {
-  margin: 0;
+  margin: 0 1em 0 0;
   padding: 0;
   display: block;
   z-index: 2;
@@ -3655,7 +3654,7 @@ label {
     bottom: 2.1em; }
 
 .m-select-block-label {
-  margin: 0;
+  margin: 0 1em 0 0;
   padding: 0;
   display: block;
   z-index: 2;
@@ -3925,7 +3924,7 @@ label {
   font-size: 1rem; }
 
 .m-textarea-block-label {
-  margin: 0;
+  margin: 0 1em 0 0;
   padding: 0;
   display: block;
   z-index: 2;

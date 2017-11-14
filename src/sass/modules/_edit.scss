@@ -326,14 +326,13 @@
 // edit label
 // --------------------------------------------------
 .m-edit-box-label {
-  margin: 0;
+  margin: 0 1em 0 0;
   padding: 0;
   display: block;
   font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
   color: $secondary-color-06;
   box-sizing: border-box;
-  width: 100%;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }

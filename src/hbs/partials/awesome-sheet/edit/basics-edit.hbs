@@ -35,8 +35,8 @@
         </div>
         <div class="m-edit-box-item-medium">
           <div class="m-select-block js-select-block">
-            <p class="m-select-block-label js-select-block-label">Alignment</p>
-            <select class="m-select-block-dropdown u-full-width js-select-block-dropdown" data-path="basics.alignment" tabindex="1">
+            <label class="m-select-block-label js-select-block-label" for="basics-alignment">Alignment</label>
+            <select class="m-select-block-dropdown u-full-width js-select-block-dropdown" id="basics-alignment" data-path="basics.alignment" tabindex="1">
               <option></option>
               <option value="Lawful Good">Lawful Good</option>
               <option value="Lawful Neutral">Lawful Neutral</option>
@@ -58,8 +58,8 @@
         </div>
         <div class="m-edit-box-item-medium">
           <div class="m-select-block js-select-block js-size">
-            <p class="m-select-block-label js-select-block-label">Size</p>
-            <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-tip" data-tip-show-on="hover" data-tip-message="Size Modifiers are automatically applied to Attack Stats, Armor Class, Combat Maneuver Bonus, Combat Maneuver Defense, Fly and Stealth skills."
+            <label class="m-select-block-label js-select-block-label" for="basics-size">Size</label>
+            <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-tip" id="basics-size" data-tip-show-on="hover" data-tip-message="Size Modifiers are automatically applied to Attack Stats, Armor Class, Combat Maneuver Bonus, Combat Maneuver Defense, Fly and Stealth skills."
               data-path="basics.size.category" tabindex="1">
               <option></option>
               <option value="Fine">Fine</option>
@@ -153,10 +153,10 @@
           <a href="javascript:void(0)" class="u-inline-with-input button js-evets-xp" tabindex="1">XP Log</a>
         </div>
         <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-large">
+          <div class="m-edit-box-item-small">
             <div class="m-select-block js-select-block js-size">
-              <p class="m-select-block-label js-select-block-label">Advancement Speed</p>
-              <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-advancement-speed" data-path="basics.xp.advancement_speed" tabindex="1">
+              <label class="m-select-block-label js-select-block-label" for="basics-xp-advancement-speed">Advancement Speed</label>
+              <select class="m-select-block-dropdown u-full-width js-select-block-dropdown js-advancement-speed" id="basics-xp-advancement-speed" data-path="basics.xp.advancement_speed" tabindex="1">
                 <option></option>
                 <option value="Slow">Slow</option>
                 <option value="Medium">Medium</option>
@@ -164,11 +164,11 @@
               </select>
             </div>
           </div>
-          <div class="m-edit-box-item-large">
+          <div class="m-edit-box-item-small">
             <p class="m-edit-box-label">Next Level</p>
             <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="The total XP for the next level." data-path="basics.xp.next_level" data-text-type="number"></p>
           </div>
-          <div class="m-edit-box-item-large">
+          <div class="m-edit-box-item-small">
             <p class="m-edit-box-label">XP Needed</p>
             <p class="m-edit-box-text js-text-block js-tip" data-tip-show-on="hover" data-tip-message="The XP needed to level up." data-path="basics.xp.needed" data-text-type="number"></p>
           </div>
