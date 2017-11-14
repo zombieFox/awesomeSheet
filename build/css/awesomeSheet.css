@@ -1735,17 +1735,20 @@ label {
 .icon-more-vertical:before {
   content: "\e916"; }
 
-.icon-awesomSheet:before {
-  content: "\e914"; }
-
-.icon-lostD20:before {
-  content: "\e913"; }
-
 .icon-sort-az:before {
   content: "\e917"; }
 
 .icon-sort:before {
   content: "\e918"; }
+
+.icon-feedback:before {
+  content: "\e919"; }
+
+.icon-awesomSheet:before {
+  content: "\e914"; }
+
+.icon-lostD20:before {
+  content: "\e913"; }
 
 @-webkit-keyframes new-flash-center {
   0% {

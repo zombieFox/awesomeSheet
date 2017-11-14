@@ -21285,6 +21285,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.25.0",
+    list: [
+      "*Added a Feedback link. If you find a problem, issue or just have suggestions use the link in the Nav."
+    ]
+  }, {
     version: "3.24.0",
     list: [
       "Added XP advancement speed and next level counts."
