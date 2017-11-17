@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.26.0",
+    list: [
+      "*Added new Speed options: fly, swim, climb and burrow."
+    ]
+  }, {
     version: "3.25.0",
     list: [
       "*Added a Feedback link. If you find a problem, issue or just have suggestions use the link in the Nav."

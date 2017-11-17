@@ -448,9 +448,15 @@ var blank = (function() {
       weight: "",
       age: "",
       gender: "",
-      speed: "",
+      speed: {
+        land: "",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",
@@ -1609,9 +1615,15 @@ var izlara = (function() {
       weight: "95lbs",
       age: "118",
       gender: "Female",
-      speed: "30",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "3",
       character_description: "A responsible woman with a pragmatic outlook on life. A little taller than average, tanned dark-brown skin, diamond-shape face, hazel-green, deep-set eyes.",
       initiative: {
         misc: 2,
@@ -3971,9 +3983,15 @@ var ravich = (function() {
       weight: "134lbs",
       age: "24",
       gender: "Male",
-      speed: "30",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "1",
       character_description: "A sneaky man with a realistic outlook on life. Tall, slim build, sallow dark-brown skin, long face, sunken cheeks, light blue, wide-set eyes, bushy eyebrows.",
       initiative: {
         misc: "",
@@ -5719,9 +5737,15 @@ var marika = (function() {
       weight: "98 lb",
       age: "23",
       gender: "Female",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "2",
       character_description: "",
       initiative: {
         misc: "",
@@ -6967,9 +6991,15 @@ var nefi = (function() {
       weight: "202 lbs",
       age: "28",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "2",
@@ -8185,9 +8215,15 @@ var nif = (function() {
       weight: "136 lbs",
       age: "120",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",
@@ -9891,9 +9927,15 @@ var orrin = (function() {
       weight: "206 lbs",
       age: "26",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "A energetic overweight man. Reddened medium-brown skin, round face, blue-green, wrinkled eyes, a double chin and wavy light brown hair. Very good reflexes and exceptional dexterity and coordination.",
       initiative: {
         misc: "",
@@ -11182,9 +11224,15 @@ var ro = (function() {
       weight: "",
       age: "120",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",
@@ -12697,9 +12745,15 @@ var vos = (function() {
       weight: "190 lbs",
       age: "40",
       gender: "Male",
-      speed: "50ft",
+      speed: {
+        land: "50ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",
@@ -18199,6 +18253,12 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update speed
+    if (typeof characterObject.basics.speed == "string"|| typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
+      var oldSpeed = characterObject.basics.speed;
+      characterObject.basics.speed = {};
+      characterObject.basics.speed.land = oldSpeed;
+    };
     // update xp and next level
     if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
       var oldXp;
@@ -18568,6 +18628,12 @@ var selectBlock = (function() {
       selectBlockDropdown.addEventListener("change", function() {
         clearTimeout(storeDropdownTimer);
         storeDropdownTimer = setTimeout(delayUpdate, 300, this);
+      }, false);
+      selectBlockDropdown.addEventListener("focus", function() {
+        _focus(this);
+      }, false);
+      selectBlockDropdown.addEventListener("blur", function() {
+        _focus(this);
       }, false);
     };
   };
@@ -21285,6 +21351,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.26.0",
+    list: [
+      "*Added new Speed options: fly, swim, climb and burrow."
+    ]
+  }, {
     version: "3.25.0",
     list: [
       "*Added a Feedback link. If you find a problem, issue or just have suggestions use the link in the Nav."

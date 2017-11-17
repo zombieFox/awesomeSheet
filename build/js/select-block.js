@@ -59,6 +59,12 @@ var selectBlock = (function() {
         clearTimeout(storeDropdownTimer);
         storeDropdownTimer = setTimeout(delayUpdate, 300, this);
       }, false);
+      selectBlockDropdown.addEventListener("focus", function() {
+        _focus(this);
+      }, false);
+      selectBlockDropdown.addEventListener("blur", function() {
+        _focus(this);
+      }, false);
     };
   };
 
