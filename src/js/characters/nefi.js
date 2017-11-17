@@ -29,9 +29,15 @@ var nefi = (function() {
       weight: "202 lbs",
       age: "28",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "2",
