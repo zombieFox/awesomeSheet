@@ -29,9 +29,15 @@ var izlara = (function() {
       weight: "95lbs",
       age: "118",
       gender: "Female",
-      speed: "30",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "3",
       character_description: "A responsible woman with a pragmatic outlook on life. A little taller than average, tanned dark-brown skin, diamond-shape face, hazel-green, deep-set eyes.",
       initiative: {
         misc: 2,

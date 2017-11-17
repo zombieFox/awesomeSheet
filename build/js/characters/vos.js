@@ -29,9 +29,15 @@ var vos = (function() {
       weight: "190 lbs",
       age: "40",
       gender: "Male",
-      speed: "50ft",
+      speed: {
+        land: "50ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",

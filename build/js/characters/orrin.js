@@ -29,9 +29,15 @@ var orrin = (function() {
       weight: "206 lbs",
       age: "26",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "A energetic overweight man. Reddened medium-brown skin, round face, blue-green, wrinkled eyes, a double chin and wavy light brown hair. Very good reflexes and exceptional dexterity and coordination.",
       initiative: {
         misc: "",

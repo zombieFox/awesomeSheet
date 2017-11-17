@@ -29,9 +29,15 @@ var ro = (function() {
       weight: "",
       age: "120",
       gender: "Male",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",

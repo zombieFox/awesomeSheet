@@ -29,9 +29,15 @@ var marika = (function() {
       weight: "98 lb",
       age: "23",
       gender: "Female",
-      speed: "30ft",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "2",
       character_description: "",
       initiative: {
         misc: "",

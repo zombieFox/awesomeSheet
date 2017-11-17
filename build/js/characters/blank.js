@@ -29,9 +29,15 @@ var blank = (function() {
       weight: "",
       age: "",
       gender: "",
-      speed: "",
+      speed: {
+        land: "",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "",
-      luck_points: "",
       character_description: "",
       initiative: {
         misc: "",

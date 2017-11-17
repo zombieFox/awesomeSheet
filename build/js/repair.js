@@ -2,6 +2,12 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update speed
+    if (typeof characterObject.basics.speed == "string"|| typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
+      var oldSpeed = characterObject.basics.speed;
+      characterObject.basics.speed = {};
+      characterObject.basics.speed.land = oldSpeed;
+    };
     // update xp and next level
     if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
       var oldXp;

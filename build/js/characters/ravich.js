@@ -38,9 +38,15 @@ var ravich = (function() {
       weight: "134lbs",
       age: "24",
       gender: "Male",
-      speed: "30",
+      speed: {
+        land: "30ft",
+        fly: "",
+        maneuverability: "",
+        swim: "",
+        climb: "",
+        burrow: ""
+      },
       hero_points: "1",
-      luck_points: "1",
       character_description: "A sneaky man with a realistic outlook on life. Tall, slim build, sallow dark-brown skin, long face, sunken cheeks, light blue, wide-set eyes, bushy eyebrows.",
       initiative: {
         misc: "",

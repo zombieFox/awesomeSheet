@@ -152,7 +152,7 @@
   flex-basis: 5em;
 }
 .m-edit-box-item-medium {
-  flex-grow: 0.4;
+  flex-grow: 0.5;
   flex-basis: 10em;
 }
 .m-edit-box-item-large {
@@ -227,12 +227,14 @@
       }
     }
     .m-check-block,
+    .m-select-block,
     .m-input-block {
       z-index: 2;
       &.is-focus {
         z-index: 3;
       }
       .m-check-block-check-icon,
+      .m-select-block-dropdown,
       .m-input-block-field {
         border-radius: 0;
         &:focus {
@@ -241,7 +243,9 @@
       }
     }
     &:hover {
-      .m-input-block {
+      .m-input-block,
+      .m-select-block,
+      .m-select-block {
         z-index: 3;
       }
     }

@@ -3007,9 +3007,9 @@ label {
           flex-basis: 5em; }
 
 .m-edit-box-item-medium {
-  -webkit-flex-grow: 0.4;
-      -ms-flex-positive: 0.4;
-          flex-grow: 0.4;
+  -webkit-flex-grow: 0.5;
+      -ms-flex-positive: 0.5;
+          flex-grow: 0.5;
   -webkit-flex-basis: 10em;
       -ms-flex-preferred-size: 10em;
           flex-basis: 10em; }
@@ -3115,61 +3115,117 @@ label {
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .button {
       z-index: 3; }
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block,
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block {
       z-index: 2; }
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block.is-focus,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block.is-focus,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block.is-focus,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block.is-focus,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block.is-focus,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block.is-focus {
         z-index: 3; }
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field {
         border-radius: 0; }
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field:focus {
           z-index: 3; }
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-input-block,
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-select-block,
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-select-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-block,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-select-block,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-select-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-input-block,
-    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-block {
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-select-block,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-select-block,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-block,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-select-block,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-select-block {
       z-index: 3; }
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type > *,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type > *,
@@ -4818,7 +4874,7 @@ label {
   padding: 0.5em 0;
   color: #64001a;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
-  font-size: 0.75em; }
+  font-size: 1em; }
 
 .m-display-box-recess {
   margin-left: 2em;
