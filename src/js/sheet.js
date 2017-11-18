@@ -249,7 +249,6 @@ var sheet = (function() {
       } else {
         snack.render("Not a JSON file.", false, false);
       };
-
     };
 
     readFile.readAsText(fileList.item(0));
@@ -292,6 +291,7 @@ var sheet = (function() {
     wealth.render();
     totalBlock.render();
     textBlock.render();
+    characterImage.render();
     display.render();
   };
 
@@ -314,6 +314,7 @@ var sheet = (function() {
     tip.bind();
     events.bind();
     xp.bind();
+    characterImage.bind();
     registerServiceWorker.bind();
   };
 

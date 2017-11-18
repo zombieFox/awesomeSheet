@@ -1,0 +1,11 @@
+.m-character-image {
+  background-color: $gray-20;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -2em -2em 2em;
+  min-height: 30vh;
+  width: calc(100% + 4em);
+  font-size: $font-size-root-100;
+  box-sizing: border-box;
+}
