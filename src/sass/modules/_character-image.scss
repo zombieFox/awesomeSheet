@@ -1,11 +1,24 @@
 .m-character-image {
-  background-color: $gray-20;
+  background-color: $gray-19;
+  background-color: $secondary-color-20;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  margin: -2em -2em 2em;
-  min-height: 30vh;
-  width: calc(100% + 4em);
+  background-size: contain;
+  margin: 0 0 2em;
+  min-height: 50vh;
+  width: 100%;
   font-size: $font-size-root-100;
   box-sizing: border-box;
+  border-radius: $border-radius-medium;
+  border: $border;
+  border-color: $gray-16;
+  box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}
+@media print {}

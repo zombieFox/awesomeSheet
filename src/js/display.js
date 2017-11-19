@@ -682,6 +682,29 @@ var display = (function() {
     return displayItem;
   };
 
+  function _get_all_image(all_displayPath) {
+    var all_node = [];
+    for (var i = 0; i < all_displayPath.length; i++) {
+      var path = all_displayPath[i];
+      all_node.push(_get_image(path));
+    };
+    // console.log("all_node", all_node);
+    return all_node;
+  };
+
+  function _get_image(path) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    var displayImage;
+    if (typeof data != "undefined" && data != "") {
+      displayImage = document.createElement("div");
+      displayImage.setAttribute("style", "background-image: url(" + data + ")");
+      displayImage.setAttribute("class", "m-display-item-image");
+    } else {
+      displayImage = false;
+    };
+    return displayImage;
+  };
+
   function _render_displayBlock(section) {
     // find all display blocks
     var all_displayBlock;
@@ -733,6 +756,8 @@ var display = (function() {
           all_node = _get_all_stat(all_displayPath);
         } else if (displayType == "modifier") {
           all_node = _get_all_modifier(all_displayPath, displayValueType);
+        } else if (displayType == "image") {
+          all_node = _get_all_image(all_displayPath);
         } else if (displayType == "text-snippet") {
           all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, displayValueType);
         } else if (displayType == "text-block") {

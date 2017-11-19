@@ -208,6 +208,21 @@
   }
 }
 // --------------------------------------------------
+// display image
+// --------------------------------------------------
+.m-display-item-image {
+  background-color: $gray-19;
+  background-color: $secondary-color-20;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -2em -2em 0 -2em;
+  min-height: 50vh;
+  width: calc(100% + 4em);
+  font-size: $font-size-root-100;
+  box-sizing: border-box;
+}
+// --------------------------------------------------
 // display snippet
 // --------------------------------------------------
 .m-display-item-text-snippet {
