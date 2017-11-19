@@ -326,6 +326,7 @@ var sheet = (function() {
     inputBlock.clear();
     selectBlock.clear();
     textareaBlock.clear();
+    characterImage.clear();
     spells.clear();
     display.clear();
   };
