@@ -183,15 +183,29 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-character-image">
 
-
-  <div class="m-character-image-input">
-    <input id="character-image" type="file" class="m-character-image-input js-character-image-input">
-    <label class="m-character-image-label button button-icon button-medium" for="character-image" tabindex="1">
-      <span class="icon-file-upload"></span><span class="button-text">Select an image</span>
-    </label>
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box-head">
+      <h2 class="m-edit-box-title">Character Image</h2>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-max">
+          <div class="m-character-image-preview js-character-image"></div>
+        </div>
+        <div class="m-edit-box-item-small">
+          <div class="m-character-image">
+            <input id="character-image" type="file" class="m-character-image-input js-character-image-input">
+            <label class="m-character-image-label button button-icon button-medium" for="character-image" tabindex="1">
+              <span class="icon-file-upload"></span><span class="button-text">Select an image</span>
+            </label>
+          </div>
+        </div>
+        <div class="m-edit-box-item-max">
+          <p class="u-small-text">Max image size 500KB, max width 2000px, max height 2000px.</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="m-character-image js-character-image"></div>
 
 </div>
 
