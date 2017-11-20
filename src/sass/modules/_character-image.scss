@@ -1,18 +1,21 @@
 .m-character-image-preview {
   background-color: $gray-20;
-  border: $border;
-  border-color: $gray-17;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  border: 2px solid $secondary-color-06;
   border-radius: $border-radius-large;
-  margin: 0;
-  min-height: 20em;
-  width: 100%;
+  margin: 0 auto;
+  width: 18em;
+  height: 18em;
+  max-width: 70vw;
+  max-height: 70vw;
+  border-radius: 50%;
   font-size: $font-size-root-100;
   box-sizing: border-box;
 }
 .m-character-image {
+  margin: 0 auto;
   position: relative;
   cursor: pointer;
   display: inline-block;

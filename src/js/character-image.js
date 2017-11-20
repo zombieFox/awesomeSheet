@@ -55,6 +55,12 @@ var characterImage = (function() {
     characterImage.removeAttribute("style");
   };
 
+  function destroy() {
+    helper.setObject(sheet.getCharacter(), "basics.profile_image.image", "");
+    sheet.storeCharacters();
+    clear();
+  };
+
   function render() {
     var characterImage = helper.e(".js-character-image");
     var imageBase64;
@@ -68,6 +74,7 @@ var characterImage = (function() {
   return {
     bind: bind,
     clear: clear,
+    destroy: destroy,
     render: render
   };
 

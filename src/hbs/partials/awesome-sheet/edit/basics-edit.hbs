@@ -192,16 +192,21 @@
         <div class="m-edit-box-item-max">
           <div class="m-character-image-preview js-character-image"></div>
         </div>
-        <div class="m-edit-box-item-small">
-          <div class="m-character-image">
-            <input id="character-image" type="file" class="m-character-image-input js-character-image-input">
-            <label class="m-character-image-label button button-icon button-medium" for="character-image" tabindex="1">
-              <span class="icon-file-upload"></span><span class="button-text">Select an image</span>
-            </label>
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item">
+            <div class="m-character-image">
+              <input id="character-image" type="file" class="m-character-image-input js-character-image-input">
+              <label class="m-character-image-label button button-icon button-medium" for="character-image" tabindex="1">
+                <span class="icon-file-upload"></span><span class="button-text">Select an image</span>
+              </label>
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim" tabindex="1"><span class="icon-close"></span></a>
           </div>
         </div>
         <div class="m-edit-box-item-max">
-          <p class="u-small-text">Max image size 500KB, max width 2000px, max height 2000px.</p>
+          <p class="u-small-text u-text-center">Max width 2000px, max height 2000px. Max image size 500KB, (due to browser local storage limits).</p>
         </div>
       </div>
     </div>

@@ -207,18 +207,30 @@
     }
   }
 }
+.m-display-block-image-name-class {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.m-display-block-image {
+  // margin-right: 2em;
+}
+.m-display-block-name-class {}
 // --------------------------------------------------
 // display image
 // --------------------------------------------------
 .m-display-item-image {
-  background-color: $gray-19;
-  background-color: $secondary-color-20;
+  background-color: $gray-20;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: -2em -2em 0 -2em;
-  min-height: 30vh;
-  width: calc(100% + 4em);
+  border: 2px solid $primary-color-06;
+  border-radius: $border-radius-large;
+  margin: 0;
+  width: 12em;
+  height: 12em;
+  border-radius: 50%;
   font-size: $font-size-root-100;
   box-sizing: border-box;
 }
