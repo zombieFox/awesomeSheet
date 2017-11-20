@@ -1,18 +1,16 @@
 .m-character-image-preview {
-  background-color: $gray-19;
-  background-color: $secondary-color-20;
+  background-color: $gray-20;
+  border: $border;
+  border-color: $gray-17;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: $border-radius-large;
   margin: 0;
   min-height: 20em;
   width: 100%;
   font-size: $font-size-root-100;
   box-sizing: border-box;
-  border-radius: $border-radius-medium;
-  border: $border;
-  border-color: $gray-16;
-  box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 .m-character-image {
   position: relative;
