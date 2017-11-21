@@ -1,11 +1,40 @@
 var characterImage = (function() {
 
+  var renderInputTimer = null;
+
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
+    var characterImageClear = helper.e(".js-character-image-clear");
+    var characterImageScaleInput = helper.e(".js-character-image-scale-input");
+    var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
+    var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
-      _clearInput(this);
+      _clearInput();
     }, false);
+    characterImageClear.addEventListener("click", function() {
+      _removeCharacterImage();
+      render();
+    }, false);
+    characterImageScaleInput.addEventListener("input", function() {
+      renderInputTimer = setTimeout(delayRender, 300, this);
+    }, false);
+    characterImageScaleDecrease.addEventListener("click", function() {
+      render();
+    }, false);
+    characterImageScaleIncrease.addEventListener("click", function() {
+      render();
+    }, false);
+  };
+
+  function delayRender(element) {
+    render();
+  };
+
+  function _removeCharacterImage() {
+    if (helper.getObject(sheet.getCharacter(), "basics.profile_image.image") != "") {
+      prompt.render("Remove Character Image?", "This can not be undone.", "Remove", destroy);
+    };
   };
 
   function _handleFiles(input) {
@@ -47,12 +76,14 @@ var characterImage = (function() {
   };
 
   function _clearInput(input) {
-    input.value = "";
+    var characterImageInput = helper.e(".js-character-image-input");
+    characterImageInput.value = "";
   };
 
   function clear() {
     var characterImage = helper.e(".js-character-image");
     characterImage.removeAttribute("style");
+    helper.removeClass(characterImage, "m-character-image-preview-empty");
   };
 
   function destroy() {
@@ -67,6 +98,12 @@ var characterImage = (function() {
     if (helper.getObject(sheet.getCharacter(), "basics.profile_image.image")) {
       imageBase64 = helper.getObject(sheet.getCharacter(), "basics.profile_image.image");
       characterImage.style.backgroundImage = "url(" + imageBase64 + ")";
+      helper.addClass(characterImage, "m-character-image-preview-empty");
+    };
+    if (helper.getObject(sheet.getCharacter(), "basics.profile_image.scale")) {
+      characterImage.style.backgroundSize = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale") + "%";
+    } else {
+      characterImage.style.backgroundSize = "cover";
     };
   };
 

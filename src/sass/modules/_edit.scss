@@ -228,14 +228,16 @@
     }
     .m-check-block,
     .m-select-block,
-    .m-input-block {
+    .m-input-block,
+    .m-input-file-block {
       z-index: 2;
       &.is-focus {
         z-index: 3;
       }
       .m-check-block-check-icon,
       .m-select-block-dropdown,
-      .m-input-block-field {
+      .m-input-block-field,
+      .m-input-file-block-field {
         border-radius: 0;
         &:focus {
           z-index: 3;
@@ -268,6 +270,11 @@
           border-radius: $border-radius-large 0 0 $border-radius-large;
         }
       }
+      .m-input-file-block {
+        .m-input-file-block-label {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+      }
     }
     &:last-of-type {
       & > * {
@@ -288,6 +295,11 @@
           border-radius: 0 $border-radius-large $border-radius-large 0;
         }
       }
+      .m-input-file-block {
+        .m-input-file-block-label {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
     }
     &:first-of-type:last-of-type {
       & > * {
@@ -305,6 +317,11 @@
       }
       .m-input-block {
         .m-input-block-field {
+          border-radius: $border-radius-large;
+        }
+      }
+      .m-input-file-block {
+        .m-input-file-block-label {
           border-radius: $border-radius-large;
         }
       }
