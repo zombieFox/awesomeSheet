@@ -544,6 +544,7 @@ var inputBlock = (function() {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     var clone = (inputBlock.dataset.clone == "true");
+    var type = inputBlockField.dataset.type;
     if (path) {
       // console.log(inputBlock);
       if (clone) {
@@ -557,6 +558,9 @@ var inputBlock = (function() {
         // console.log("not clone", path);
         // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
+        if (type == "integer" && typeof content == "string") {
+          content = "";
+        };
         inputBlockField.value = content;
       };
     };
