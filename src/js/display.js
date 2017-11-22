@@ -682,23 +682,35 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_image(all_displayPath) {
+  function _get_all_image(all_displayPath, all_displayScale) {
     var all_node = [];
+    var scale = false;
     for (var i = 0; i < all_displayPath.length; i++) {
+      if (all_displayScale[i]) {
+        scale = all_displayScale[i];
+      };
       var path = all_displayPath[i];
-      all_node.push(_get_image(path));
+      all_node.push(_get_image(path, scale));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_image(path) {
+  function _get_image(path, scale) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayImage;
     if (typeof data != "undefined" && data != "") {
       displayImage = document.createElement("div");
       displayImage.setAttribute("style", "background-image: url(" + data + ")");
       displayImage.setAttribute("class", "m-display-item-image");
+      if (scale) {
+        var percentage = helper.getObject(sheet.getCharacter(), scale);
+        if (percentage && !isNaN(percentage)) {
+          displayImage.style.backgroundSize = percentage + "%";
+        } else {
+          displayImage.style.backgroundSize = "cover";
+        };
+      };
     } else {
       displayImage = false;
     };
