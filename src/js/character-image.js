@@ -8,7 +8,7 @@ var characterImage = (function() {
     var characterImageScaleInput = helper.e(".js-character-image-scale-input");
     var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
     var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
-    var characterImageScaleFill = helper.e(".js-character-image-scale-fill");
+    var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
       _clearInput();
@@ -26,7 +26,7 @@ var characterImage = (function() {
     characterImageScaleIncrease.addEventListener("click", function() {
       _resizeCharacterImage();
     }, false);
-    characterImageScaleFill.addEventListener("click", function() {
+    characterImageScaleCover.addEventListener("click", function() {
       _restoreCharacterImage();
     }, false);
   };
@@ -85,9 +85,8 @@ var characterImage = (function() {
   };
 
   function clear() {
-    var characterImage = helper.e(".js-character-image");
-    characterImage.removeAttribute("style");
-    helper.removeClass(characterImage, "m-character-image-preview-empty");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    characterImagePreview.removeAttribute("style");
   };
 
   function destroy() {
@@ -101,30 +100,67 @@ var characterImage = (function() {
   };
 
   function _resizeCharacterImage() {
-    var characterImage = helper.e(".js-character-image");
+    var characterImagePreview = helper.e(".js-character-image-preview");
     var size = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale");
     if (size && !isNaN(size)) {
-      characterImage.style.backgroundSize = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale") + "%";
+      characterImagePreview.style.backgroundSize = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale") + "%";
     } else {
-      characterImage.style.backgroundSize = "cover";
+      characterImagePreview.style.backgroundSize = "cover";
     };
   };
 
   function _restoreCharacterImage() {
-    var characterImage = helper.e(".js-character-image");
+    var characterImagePreview = helper.e(".js-character-image-preview");
     helper.setObject(sheet.getCharacter(), "basics.profile_image.scale", "");
-    characterImage.style.backgroundSize = "cover";
+    characterImagePreview.style.backgroundSize = "cover";
   };
 
   function render() {
-    var characterImage = helper.e(".js-character-image");
+    var characterImagePreview = helper.e(".js-character-image-preview");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.profile_image.image");
     if (imageBase64) {
-      characterImage.style.backgroundImage = "url(" + imageBase64 + ")";
-      helper.addClass(characterImage, "m-character-image-preview-empty");
+      characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
     };
     _resizeCharacterImage();
+    // _getScalePercentage();
   };
+
+
+  // function _getScalePercentage() {
+  //
+  //   var backgroundImage = new Image();
+  //   var characterImagePreview = helper.e(".js-character-image-preview");
+  //   backgroundImage.src = characterImagePreview.style.backgroundImage.replace(/"/g, "").replace(/url\(|\)$/ig, "");
+  //
+  //   backgroundImage.onload = function() {
+  //     var width = this.width;
+  //     var height = this.height;
+  //     console.log(width);
+  //     console.log(height);
+  //
+  //     // var object = characterImagePreview;
+  //
+  //     /* Step 1 - Get the ratio of the div + the image */
+  //     var imageRatio = width / height;
+  //     var coverRatio = characterImagePreview.getBoundingClientRect().width / characterImagePreview.getBoundingClientRect().height;
+  //
+  //     /* Step 2 - Work out which ratio is greater */
+  //     if (imageRatio >= coverRatio) {
+  //       /* The Height is our constant */
+  //       var coverHeight = characterImagePreview.getBoundingClientRect().height;
+  //       var scale = (coverHeight / height);
+  //       var coverWidth = width * scale;
+  //     } else {
+  //       /* The Width is our constant */
+  //       var coverWidth = characterImagePreview.getBoundingClientRect().width;
+  //       var scale = (coverWidth / width);
+  //       var coverHeight = height * scale;
+  //     }
+  //     var cover = coverWidth + 'px ' + coverHeight + 'px';
+  //     console.log('scale: ' + scale + ', width: ' + coverWidth + ', height: ' + coverHeight + ', cover property: ' + cover);
+  //   };
+  //
+  // };
 
   // exposed methods
   return {
