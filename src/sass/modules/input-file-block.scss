@@ -77,7 +77,21 @@
 }
 .is-night-mode {
   .m-input-file-block-label {
-    // color: $secondary-color-16;
+    background-color: $gray-04;
+    border-color: $gray-06;
+    color: $white;
+    &:focus,
+    &:hover {
+      background-color: $gray-06;
+      border-color: $gray-08;
+      box-shadow: 0 0 0 3px $light-alpha-10;
+      color: $white;
+    }
+    &:active {
+      background-color: $gray-08;
+      border-color: $gray-10;
+      color: $white;
+    }
   }
 }
 // --------------------------------------------------
