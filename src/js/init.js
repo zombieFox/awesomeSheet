@@ -10,6 +10,6 @@
   night.update();
   checkUrl.render();
 
-  // display.toggle();
+  display.toggle();
 
 })();

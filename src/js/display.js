@@ -704,9 +704,11 @@ var display = (function() {
       displayImage.setAttribute("style", "background-image: url(" + data + ")");
       displayImage.setAttribute("class", "m-display-item-image");
       if (scale) {
-        var percentage = helper.getObject(sheet.getCharacter(), scale);
-        if (percentage && !isNaN(percentage)) {
-          displayImage.style.backgroundSize = percentage + "%";
+        var value = helper.getObject(sheet.getCharacter(), scale);
+        if (value && !isNaN(value)) {
+          displayImage.style.backgroundSize = value + "%";
+        } else if (value && typeof value == "string" && value != "") {
+          displayImage.style.backgroundSize = value;
         } else {
           displayImage.style.backgroundSize = "cover";
         };

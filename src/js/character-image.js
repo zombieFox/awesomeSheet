@@ -9,6 +9,7 @@ var characterImage = (function() {
     var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
     var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
+    var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
       _clearInput();
@@ -27,7 +28,10 @@ var characterImage = (function() {
       _resizeCharacterImage();
     }, false);
     characterImageScaleCover.addEventListener("click", function() {
-      _restoreCharacterImage();
+      _characterImageSizePreset("cover");
+    }, false);
+    characterImageScaleContain.addEventListener("click", function() {
+      _characterImageSizePreset("contain");
     }, false);
   };
 
@@ -36,7 +40,7 @@ var characterImage = (function() {
   };
 
   function _removeCharacterImage() {
-    if (helper.getObject(sheet.getCharacter(), "basics.profile_image.image") != "") {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.image") != "") {
       prompt.render("Remove Character Image?", "This can not be undone.", "Remove", destroy);
     };
   };
@@ -57,7 +61,7 @@ var characterImage = (function() {
       tempImage.onload = function() {
         // check width and height
         if (tempImage.width <= 2000 || tempImage.height <= 2000) {
-          helper.setObject(sheet.getCharacter(), "basics.profile_image.image", reader.result);
+          helper.setObject(sheet.getCharacter(), "basics.character_image.image", reader.result);
           sheet.storeCharacters();
           render();
         } else {
@@ -92,8 +96,8 @@ var characterImage = (function() {
   function destroy() {
     var input = helper.e(".js-character-image-scale-input");
     var inputBlockElement = helper.getClosest(input, ".js-input-block");
-    helper.setObject(sheet.getCharacter(), "basics.profile_image.image", "");
-    helper.setObject(sheet.getCharacter(), "basics.profile_image.scale", "");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.image", "");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", "");
     sheet.storeCharacters();
     clear();
     inputBlock.render(inputBlockElement);
@@ -101,23 +105,26 @@ var characterImage = (function() {
 
   function _resizeCharacterImage() {
     var characterImagePreview = helper.e(".js-character-image-preview");
-    var size = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale");
-    if (size && !isNaN(size)) {
-      characterImagePreview.style.backgroundSize = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale") + "%";
+    var value = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+    if (value && !isNaN(value)) {
+      characterImagePreview.style.backgroundSize = value + "%";
+    } else if (value && typeof value == "string" && value != "") {
+      characterImagePreview.style.backgroundSize = value;
     } else {
       characterImagePreview.style.backgroundSize = "cover";
     };
   };
 
-  function _restoreCharacterImage() {
+  function _characterImageSizePreset(value) {
     var characterImagePreview = helper.e(".js-character-image-preview");
-    helper.setObject(sheet.getCharacter(), "basics.profile_image.scale", "");
-    characterImagePreview.style.backgroundSize = "cover";
+    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", value);
+    characterImagePreview.style.backgroundSize = value;
+    sheet.storeCharacters();
   };
 
   function render() {
     var characterImagePreview = helper.e(".js-character-image-preview");
-    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.profile_image.image");
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     if (imageBase64) {
       characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
     };
