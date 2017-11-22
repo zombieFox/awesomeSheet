@@ -228,11 +228,14 @@
   border: 2px solid $primary-color-06;
   border-radius: $border-radius-large;
   margin: 0;
-  width: 12em;
-  height: 12em;
+  width: 25em;
+  height: 25em;
   border-radius: 50%;
   font-size: $font-size-root-100;
   box-sizing: border-box;
+  position: relative;
+  left: -4em;
+  box-shadow: 0 0 0 0.5em $primary-color-alpha-16, 0 0 0 1em $primary-color-alpha-18;
 }
 // --------------------------------------------------
 // display snippet

@@ -8,6 +8,7 @@ var characterImage = (function() {
     var characterImageScaleInput = helper.e(".js-character-image-scale-input");
     var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
     var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
+    var characterImageScaleFill = helper.e(".js-character-image-scale-fill");
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
       _clearInput();
@@ -20,15 +21,18 @@ var characterImage = (function() {
       renderInputTimer = setTimeout(delayRender, 300, this);
     }, false);
     characterImageScaleDecrease.addEventListener("click", function() {
-      render();
+      _resizeCharacterImage();
     }, false);
     characterImageScaleIncrease.addEventListener("click", function() {
-      render();
+      _resizeCharacterImage();
+    }, false);
+    characterImageScaleFill.addEventListener("click", function() {
+      _restoreCharacterImage();
     }, false);
   };
 
   function delayRender(element) {
-    render();
+    _resizeCharacterImage();
   };
 
   function _removeCharacterImage() {
@@ -87,24 +91,39 @@ var characterImage = (function() {
   };
 
   function destroy() {
+    var input = helper.e(".js-character-image-scale-input");
+    var inputBlockElement = helper.getClosest(input, ".js-input-block");
     helper.setObject(sheet.getCharacter(), "basics.profile_image.image", "");
+    helper.setObject(sheet.getCharacter(), "basics.profile_image.scale", "");
     sheet.storeCharacters();
     clear();
+    inputBlock.render(inputBlockElement);
   };
 
-  function render() {
+  function _resizeCharacterImage() {
     var characterImage = helper.e(".js-character-image");
-    var imageBase64;
-    if (helper.getObject(sheet.getCharacter(), "basics.profile_image.image")) {
-      imageBase64 = helper.getObject(sheet.getCharacter(), "basics.profile_image.image");
-      characterImage.style.backgroundImage = "url(" + imageBase64 + ")";
-      helper.addClass(characterImage, "m-character-image-preview-empty");
-    };
-    if (helper.getObject(sheet.getCharacter(), "basics.profile_image.scale")) {
+    var size = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale");
+    if (size && !isNaN(size)) {
       characterImage.style.backgroundSize = helper.getObject(sheet.getCharacter(), "basics.profile_image.scale") + "%";
     } else {
       characterImage.style.backgroundSize = "cover";
     };
+  };
+
+  function _restoreCharacterImage() {
+    var characterImage = helper.e(".js-character-image");
+    helper.setObject(sheet.getCharacter(), "basics.profile_image.scale", "");
+    characterImage.style.backgroundSize = "cover";
+  };
+
+  function render() {
+    var characterImage = helper.e(".js-character-image");
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.profile_image.image");
+    if (imageBase64) {
+      characterImage.style.backgroundImage = "url(" + imageBase64 + ")";
+      helper.addClass(characterImage, "m-character-image-preview-empty");
+    };
+    _resizeCharacterImage();
   };
 
   // exposed methods

@@ -245,9 +245,10 @@
       }
     }
     &:hover {
-      .m-input-block,
+      .m-check-block,
       .m-select-block,
-      .m-select-block {
+      .m-input-block,
+      .m-input-file-block {
         z-index: 3;
       }
     }

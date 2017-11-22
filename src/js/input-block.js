@@ -353,7 +353,8 @@ var inputBlock = (function() {
     helper.remove("lastAggregate");
   };
 
-  function _increment(button) {
+  function _increment(button, event) {
+    var shift = event.shiftKey;
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
     var clone = (button.dataset.clone == "true");
@@ -383,9 +384,17 @@ var inputBlock = (function() {
 
     var newValue;
     if (increment == "addition") {
-      newValue = oldValue + 1;
+      if (shift) {
+        newValue = oldValue + 10;
+      } else {
+        newValue = oldValue + 1;
+      };
     } else if (increment == "subtraction") {
-      newValue = oldValue - 1;
+      if (shift) {
+        newValue = oldValue - 10;
+      } else {
+        newValue = oldValue - 1;
+      };
     } else if (increment == "clear") {
       newValue = 0;
     };
@@ -435,7 +444,7 @@ var inputBlock = (function() {
 
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function() {
-      _increment(this);
+      _increment(this, event);
     }, false);
   };
 
