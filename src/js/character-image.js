@@ -103,18 +103,6 @@ var characterImage = (function() {
     inputBlock.render(inputBlockElement);
   };
 
-  function _resizeCharacterImage() {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var value = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
-    if (value && !isNaN(value)) {
-      characterImagePreview.style.backgroundSize = value + "%";
-    } else if (value && typeof value == "string" && value != "") {
-      characterImagePreview.style.backgroundSize = value;
-    } else {
-      characterImagePreview.style.backgroundSize = "cover";
-    };
-  };
-
   function _characterImageSizePreset(value) {
     var characterImagePreview = helper.e(".js-character-image-preview");
     helper.setObject(sheet.getCharacter(), "basics.character_image.scale", value);
@@ -129,45 +117,50 @@ var characterImage = (function() {
       characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
     };
     _resizeCharacterImage();
-    // _getScalePercentage();
   };
 
+  function _resizeCharacterImage() {
+    _calculateCoverSize();
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var value = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+    if (value && !isNaN(value)) {
+      characterImagePreview.style.backgroundSize = value + "%";
+    } else if (value && typeof value == "string" && value != "") {
+      characterImagePreview.style.backgroundSize = value;
+    } else {
+      characterImagePreview.style.backgroundSize = "cover";
+    };
+  };
 
-  // function _getScalePercentage() {
-  //
-  //   var backgroundImage = new Image();
-  //   var characterImagePreview = helper.e(".js-character-image-preview");
-  //   backgroundImage.src = characterImagePreview.style.backgroundImage.replace(/"/g, "").replace(/url\(|\)$/ig, "");
-  //
-  //   backgroundImage.onload = function() {
-  //     var width = this.width;
-  //     var height = this.height;
-  //     console.log(width);
-  //     console.log(height);
-  //
-  //     // var object = characterImagePreview;
-  //
-  //     /* Step 1 - Get the ratio of the div + the image */
-  //     var imageRatio = width / height;
-  //     var coverRatio = characterImagePreview.getBoundingClientRect().width / characterImagePreview.getBoundingClientRect().height;
-  //
-  //     /* Step 2 - Work out which ratio is greater */
-  //     if (imageRatio >= coverRatio) {
-  //       /* The Height is our constant */
-  //       var coverHeight = characterImagePreview.getBoundingClientRect().height;
-  //       var scale = (coverHeight / height);
-  //       var coverWidth = width * scale;
-  //     } else {
-  //       /* The Width is our constant */
-  //       var coverWidth = characterImagePreview.getBoundingClientRect().width;
-  //       var scale = (coverWidth / width);
-  //       var coverHeight = height * scale;
-  //     }
-  //     var cover = coverWidth + 'px ' + coverHeight + 'px';
-  //     console.log('scale: ' + scale + ', width: ' + coverWidth + ', height: ' + coverHeight + ', cover property: ' + cover);
-  //   };
-  //
-  // };
+  function _calculateCoverSize() {
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var tempImage = new Image;
+    var size = {
+      w: 0,
+      h: 0,
+      bigW: 0,
+      bigH: 0
+    }
+    var landscapeOrPortrait;
+    tempImage.onload = function() {
+      size.w = this.width;
+      size.h = this.height;
+      size.bigW = characterImagePreview.getBoundingClientRect().width;
+      size.bigH = characterImagePreview.getBoundingClientRect().height;
+      if (size.w > size.h) {
+        landscapeOrPortrait = "landscape";
+      } else if (size.w == size.h) {
+        landscapeOrPortrait = "portrait";
+      } else {
+        landscapeOrPortrait = "square";
+      };
+      console.log("preview: ", "\t\tW: " + size.bigW, "\t\tH: " + size.bigH);
+      console.log("image: ", "\t\tw: " + size.w, "\t\t\th: " + size.h, "\t\t" + landscapeOrPortrait);
+      console.log((size.bigH / ((size.bigW / size.w) * size.h)) * 100);
+    };
+    tempImage.src = imageBase64;
+  };
 
   // exposed methods
   return {
