@@ -28,10 +28,10 @@ var characterImage = (function() {
       _resize();
     }, false);
     characterImageScaleCover.addEventListener("click", function() {
-      _characterImageSizePreset("cover");
+      _resize("cover");
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      _characterImageSizePreset("contain");
+      _resize("contain");
     }, false);
   };
 
@@ -86,40 +86,50 @@ var characterImage = (function() {
     var characterImagePreview = helper.e(".js-character-image-preview");
     var tempImage = new Image;
     var size = {
-      w: 0,
-      h: 0,
-      bigW: 0,
-      bigH: 0
+      imageWidth: 0,
+      imageHeight: 0,
+      containerWidth: 0,
+      containerHeight: 0
     }
     var landscapeOrPortrait;
     tempImage.onload = function() {
       console.log("onload fire");
-      size.w = this.width;
-      size.h = this.height;
-      size.bigW = characterImagePreview.getBoundingClientRect().width;
-      size.bigH = characterImagePreview.getBoundingClientRect().height;
-      if (size.w > size.h) {
+      size.imageWidth = this.width;
+      size.imageHeight = this.height;
+      size.containerWidth = characterImagePreview.getBoundingClientRect().width;
+      size.containerHeight = characterImagePreview.getBoundingClientRect().height;
+      if (size.imageWidth > size.imageHeight) {
         landscapeOrPortrait = "landscape";
-      } else if (size.w == size.h) {
+      } else if (size.imageWidth == size.imageHeight) {
         landscapeOrPortrait = "portrait";
       } else {
         landscapeOrPortrait = "square";
       };
-      // console.log("preview: ", "\t\tW: " + size.bigW, "\t\tH: " + size.bigH);
-      // console.log("image: ", "\t\tw: " + size.w, "\t\t\th: " + size.h, "\t\t" + landscapeOrPortrait);
-      // console.log((size.bigH / ((size.bigW / size.w) * size.h)) * 100);
-      scale = (size.bigH / ((size.bigW / size.w) * size.h)) * 100;
-      _storeLoadedImage(imageBase64, scale);
+      // console.log("preview: ", "\t\tW: " + size.containerWidth, "\t\tH: " + size.containerHeight);
+      // console.log("image: ", "\t\tw: " + size.imageWidth, "\t\t\th: " + size.imageHeight, "\t\t" + landscapeOrPortrait);
+      // console.log((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100);
+      scale = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
+      _storeLoadedImage(imageBase64);
+      _storeScale(scale);
+      _storeCover(scale);
+      _resize();
     };
     tempImage.src = imageBase64;
   };
 
-  function _storeLoadedImage(imageBase64, scale) {
+  function _storeLoadedImage(imageBase64) {
     console.log("store fire");
     helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
-    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", parseInt(scale, 10) + 1);
     sheet.storeCharacters();
     render();
+  };
+
+  function _storeScale(scale) {
+    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
+  };
+
+  function _storeCover(cover) {
+    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
   };
 
   function render() {
@@ -127,22 +137,31 @@ var characterImage = (function() {
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     if (imageBase64) {
       characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
+      _resize();
     };
-    _resize();
   };
 
-  function _resize() {
+  function _resize(preset) {
     console.log("resize");
     var characterImagePreview = helper.e(".js-character-image-preview");
-    var scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+    var scale;
+    var input = helper.e(".js-character-image-scale-input");
+    var inputBlockElement = helper.getClosest(input, ".js-input-block");
+    if (preset) {
+      if (preset == "contain") {
+        scale = 100;
+      } else if (preset == "cover") {
+        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
+      };
+      _storeScale(scale);
+    } else {
+      scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+    };
+    if (scale == "") {
+      scale = 100;
+    };
     characterImagePreview.style.backgroundSize = scale + "%";
-    // if (value && !isNaN(value)) {
-    //   characterImagePreview.style.backgroundSize = value + "%";
-    // } else if (value && typeof value == "string" && value != "") {
-    //   characterImagePreview.style.backgroundSize = value;
-    // } else {
-    //   characterImagePreview.style.backgroundSize = "cover";
-    // };
+    inputBlock.render(inputBlockElement);
   };
 
   function _clearInput(input) {
@@ -160,6 +179,7 @@ var characterImage = (function() {
     var inputBlockElement = helper.getClosest(input, ".js-input-block");
     helper.setObject(sheet.getCharacter(), "basics.character_image.image", "");
     helper.setObject(sheet.getCharacter(), "basics.character_image.scale", "");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", "");
     sheet.storeCharacters();
     clear();
     inputBlock.render(inputBlockElement);
