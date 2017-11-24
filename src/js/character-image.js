@@ -59,7 +59,7 @@ var characterImage = (function() {
       tempImage.onload = function() {
         // check width and height
         if (tempImage.width <= 2000 || tempImage.height <= 2000) {
-          _calculateCoverSize(reader.result);
+          _calculateSizes(reader.result);
           _clearInput();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
@@ -80,7 +80,7 @@ var characterImage = (function() {
     };
   };
 
-  function _calculateCoverSize(imageBase64) {
+  function _calculateSizes(imageBase64) {
     var scale;
     var cover;
     var contain;
@@ -105,8 +105,6 @@ var characterImage = (function() {
       } else if (size.imageWidth < size.imageHeight) {
         cover = 100;
         contain = parseInt((size.containerWidth / ((size.containerHeight / size.imageHeight) * size.imageWidth)) * 100, 10) + 1;
-        console.log(size);
-        console.log(contain);
         orientation = "portrait";
       } else {
         cover = 100;
@@ -116,20 +114,20 @@ var characterImage = (function() {
       scale = cover;
       // console.log("preview: ", "\t\tW: " + size.containerWidth, "\t\tH: " + size.containerHeight);
       // console.log((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100);
-      _storeLoadedImage(imageBase64);
+      _storeImage(imageBase64);
       _storeScale(scale);
       _storeCover(cover);
       _storeContain(contain);
       _storeOrientation(orientation)
+      render();
       _resize();
     };
     tempImage.src = imageBase64;
   };
 
-  function _storeLoadedImage(imageBase64) {
+  function _storeImage(imageBase64) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
     sheet.storeCharacters();
-    render();
   };
 
   function _storeScale(scale) {
@@ -151,14 +149,15 @@ var characterImage = (function() {
   function render() {
     var characterImagePreview = helper.e(".js-character-image-preview");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    var scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
     if (imageBase64) {
       characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
-      _resize();
+      characterImagePreview.style.backgroundSize = scale + "%";
     };
   };
 
   function _resize(preset) {
-    console.log("resize");
+    console.log("resize", preset);
     var characterImagePreview = helper.e(".js-character-image-preview");
     var scale;
     var input = helper.e(".js-character-image-scale-input");
