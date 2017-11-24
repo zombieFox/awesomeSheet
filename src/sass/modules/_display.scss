@@ -228,7 +228,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 2px solid $primary-color-06;
+  // border: 2px solid $primary-color-06;
   border-radius: $border-radius-large;
   margin: 0 0 1em;
   width: 12em;
@@ -237,7 +237,9 @@
   font-size: $font-size-root-100;
   box-sizing: border-box;
   position: relative;
-  box-shadow: 0 0 0 0.5em $primary-color-alpha-18;
+  // box-shadow: 0 0 0 0.5em $primary-color-alpha-18;
+  box-shadow: $shadow-large;
+  }
 }
 // --------------------------------------------------
 // display snippet
@@ -652,7 +654,7 @@
     left: -2.5em;
     width: 15em;
     height: 15em;
-    box-shadow: 0 0 0 0.5em $primary-color-alpha-16, 0 0 0 1em $primary-color-alpha-18;
+    // box-shadow: 0 0 0 0.5em $primary-color-alpha-16, 0 0 0 1em $primary-color-alpha-18;
   }
 }
 @media (min-width: $screen-md) {}
