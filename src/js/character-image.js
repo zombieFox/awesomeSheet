@@ -93,7 +93,6 @@ var characterImage = (function() {
     }
     var landscapeOrPortrait;
     tempImage.onload = function() {
-      console.log("onload fire");
       size.imageWidth = this.width;
       size.imageHeight = this.height;
       size.containerWidth = characterImagePreview.getBoundingClientRect().width;
@@ -118,7 +117,6 @@ var characterImage = (function() {
   };
 
   function _storeLoadedImage(imageBase64) {
-    console.log("store fire");
     helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
     sheet.storeCharacters();
     render();
