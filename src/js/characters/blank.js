@@ -60,6 +60,13 @@ var blank = (function() {
         advancement_speed: "",
         next_level: "",
         needed: ""
+      },
+      character_image: {
+        contain: "",
+        cover: "",
+        image: "",
+        orientation: "",
+        scale: ""
       }
     },
     statistics: {
