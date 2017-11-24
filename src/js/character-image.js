@@ -15,7 +15,6 @@ var characterImage = (function() {
     }, false);
     characterImageClear.addEventListener("click", function() {
       _removeCharacterImage();
-      render();
     }, false);
     characterImageScaleInput.addEventListener("input", function() {
       renderInputTimer = setTimeout(delayRender, 300, this);
@@ -104,8 +103,10 @@ var characterImage = (function() {
         contain = 100;
         orientation = "landscape";
       } else if (size.imageWidth < size.imageHeight) {
-        cover = parseInt((size.containerWdith / ((size.containerheight / size.imageHeight) * size.imageWdith)) * 100, 10) + 1;
-        contain = 100;
+        cover = 100;
+        contain = parseInt((size.containerWdith / ((size.containerHeight / size.imageHeight) * size.imageWdith)) * 100, 10) + 1;
+        console.log(size);
+        console.log(contain);
         orientation = "portrait";
       } else {
         cover = 100;
@@ -190,11 +191,16 @@ var characterImage = (function() {
   };
 
   function destroy() {
+    var object = {
+      contain: "",
+      cover: "",
+      image: "",
+      orientation: "",
+      scale: ""
+    };
     var input = helper.e(".js-character-image-scale-input");
     var inputBlockElement = helper.getClosest(input, ".js-input-block");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.image", "");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", "");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", "");
+    helper.setObject(sheet.getCharacter(), "basics.character_image", object);
     sheet.storeCharacters();
     clear();
     inputBlock.render(inputBlockElement);
