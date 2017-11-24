@@ -104,7 +104,7 @@ var characterImage = (function() {
         orientation = "landscape";
       } else if (size.imageWidth < size.imageHeight) {
         cover = 100;
-        contain = parseInt((size.containerWidth / ((size.containerHeight / size.imageHeight) * size.imageWidth)) * 100, 10) + 1;
+        contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
         orientation = "portrait";
       } else {
         cover = 100;
@@ -157,7 +157,6 @@ var characterImage = (function() {
   };
 
   function _resize(preset) {
-    console.log("resize", preset);
     var characterImagePreview = helper.e(".js-character-image-preview");
     var scale;
     var input = helper.e(".js-character-image-scale-input");
@@ -177,6 +176,7 @@ var characterImage = (function() {
     };
     characterImagePreview.style.backgroundSize = scale + "%";
     inputBlock.render(inputBlockElement);
+    sheet.storeCharacters();
   };
 
   function _clearInput(input) {
