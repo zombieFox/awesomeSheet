@@ -104,7 +104,7 @@ var characterImage = (function() {
         orientation = "landscape";
       } else if (size.imageWidth < size.imageHeight) {
         cover = 100;
-        contain = parseInt((size.containerWdith / ((size.containerHeight / size.imageHeight) * size.imageWdith)) * 100, 10) + 1;
+        contain = parseInt((size.containerWidth / ((size.containerHeight / size.imageHeight) * size.imageWidth)) * 100, 10) + 1;
         console.log(size);
         console.log(contain);
         orientation = "portrait";
