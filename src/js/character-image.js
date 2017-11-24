@@ -12,7 +12,6 @@ var characterImage = (function() {
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
-      _clearInput();
     }, false);
     characterImageClear.addEventListener("click", function() {
       _removeCharacterImage();
@@ -62,6 +61,7 @@ var characterImage = (function() {
         // check width and height
         if (tempImage.width <= 2000 || tempImage.height <= 2000) {
           _calculateCoverSize(reader.result);
+          _clearInput();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
         };
@@ -83,6 +83,9 @@ var characterImage = (function() {
 
   function _calculateCoverSize(imageBase64) {
     var scale;
+    var cover;
+    var contain;
+    var orientation;
     var characterImagePreview = helper.e(".js-character-image-preview");
     var tempImage = new Image;
     var size = {
@@ -91,26 +94,32 @@ var characterImage = (function() {
       containerWidth: 0,
       containerHeight: 0
     }
-    var landscapeOrPortrait;
     tempImage.onload = function() {
       size.imageWidth = this.width;
       size.imageHeight = this.height;
       size.containerWidth = characterImagePreview.getBoundingClientRect().width;
       size.containerHeight = characterImagePreview.getBoundingClientRect().height;
       if (size.imageWidth > size.imageHeight) {
-        landscapeOrPortrait = "landscape";
-      } else if (size.imageWidth == size.imageHeight) {
-        landscapeOrPortrait = "portrait";
+        cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
+        contain = 100;
+        orientation = "landscape";
+      } else if (size.imageWidth < size.imageHeight) {
+        cover = parseInt((size.containerWdith / ((size.containerheight / size.imageHeight) * size.imageWdith)) * 100, 10) + 1;
+        contain = 100;
+        orientation = "portrait";
       } else {
-        landscapeOrPortrait = "square";
+        cover = 100;
+        contain = 100;
+        orientation = "square";
       };
+      scale = cover;
       // console.log("preview: ", "\t\tW: " + size.containerWidth, "\t\tH: " + size.containerHeight);
-      // console.log("image: ", "\t\tw: " + size.imageWidth, "\t\t\th: " + size.imageHeight, "\t\t" + landscapeOrPortrait);
       // console.log((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100);
-      scale = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
       _storeLoadedImage(imageBase64);
       _storeScale(scale);
-      _storeCover(scale);
+      _storeCover(cover);
+      _storeContain(contain);
+      _storeOrientation(orientation)
       _resize();
     };
     tempImage.src = imageBase64;
@@ -130,6 +139,14 @@ var characterImage = (function() {
     helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
   };
 
+  function _storeContain(contain) {
+    helper.setObject(sheet.getCharacter(), "basics.character_image.contain", contain);
+  };
+
+  function _storeOrientation(orientation) {
+    helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
+  };
+
   function render() {
     var characterImagePreview = helper.e(".js-character-image-preview");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
@@ -147,7 +164,7 @@ var characterImage = (function() {
     var inputBlockElement = helper.getClosest(input, ".js-input-block");
     if (preset) {
       if (preset == "contain") {
-        scale = 100;
+        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.contain");
       } else if (preset == "cover") {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
       };
@@ -156,7 +173,7 @@ var characterImage = (function() {
       scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
     };
     if (scale == "") {
-      scale = 100;
+      scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
     };
     characterImagePreview.style.backgroundSize = scale + "%";
     inputBlock.render(inputBlockElement);
