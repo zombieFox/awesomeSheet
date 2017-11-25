@@ -62,11 +62,19 @@ var blank = (function() {
         needed: ""
       },
       character_image: {
+        color: {
+          r: "",
+          g: "",
+          b: ""
+        },
         contain: "",
         cover: "",
         image: "",
         orientation: "",
-        color: "",
+        position: {
+          x: "",
+          y: ""
+        },
         scale: ""
       }
     },

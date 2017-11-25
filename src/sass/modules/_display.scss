@@ -228,12 +228,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  // border: 2px solid $primary-color-06;
-  border-radius: $border-radius-large;
+  border-radius: 50%;
   margin: 0 0 1em;
   width: 12em;
   height: 12em;
-  border-radius: 50%;
   font-size: $font-size-root-100;
   box-sizing: border-box;
   position: relative;

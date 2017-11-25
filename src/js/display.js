@@ -682,25 +682,29 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_image(all_displayPath, all_displayScale, all_displayColor) {
+  function _get_all_image(all_displayPath, all_displayScale, all_displayPosition, all_displayColor) {
     var all_node = [];
     var scale = false;
+    var position = false;
     var color = false;
     for (var i = 0; i < all_displayPath.length; i++) {
       if (all_displayScale[i]) {
         scale = all_displayScale[i];
       };
+      if (all_displayPosition[i]) {
+        position = all_displayPosition[i];
+      };
       if (all_displayColor[i]) {
         color = all_displayColor[i];
       };
       var path = all_displayPath[i];
-      all_node.push(_get_image(path, scale, color));
+      all_node.push(_get_image(path, scale, position, color));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_image(path, scale, color) {
+  function _get_image(path, scale, position, color) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayImage;
     if (typeof data != "undefined" && data != "") {
@@ -711,15 +715,19 @@ var display = (function() {
         var value = helper.getObject(sheet.getCharacter(), scale);
         if (value && !isNaN(value)) {
           displayImage.style.backgroundSize = value + "%";
-        } else if (value && typeof value == "string" && value != "") {
-          displayImage.style.backgroundSize = value;
         } else {
           displayImage.style.backgroundSize = "cover";
         };
       };
+      if (position) {
+        var position = helper.getObject(sheet.getCharacter(), position);
+        if (position && "x" in position && "y" in position) {
+          displayImage.style.backgroundPosition = position.x + "% " + position.y + "%";
+        };
+      };
       if (color) {
-        var rgb = helper.getObject(sheet.getCharacter(), color);
-        displayImage.style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
+        var color = helper.getObject(sheet.getCharacter(), color);
+        displayImage.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
       };
     } else {
       displayImage = false;
@@ -775,6 +783,9 @@ var display = (function() {
         if (all_displayBlockTarget[j].dataset.displayScale) {
           all_displayScale = all_displayBlockTarget[j].dataset.displayScale.split(",");
         };
+        if (all_displayBlockTarget[j].dataset.displayPosition) {
+          all_displayPosition = all_displayBlockTarget[j].dataset.displayPosition.split(",");
+        };
         if (all_displayBlockTarget[j].dataset.displayColor) {
           all_displayColor = all_displayBlockTarget[j].dataset.displayColor.split(",");
         };
@@ -785,7 +796,7 @@ var display = (function() {
         } else if (displayType == "modifier") {
           all_node = _get_all_modifier(all_displayPath, all_displayValueType);
         } else if (displayType == "image") {
-          all_node = _get_all_image(all_displayPath, all_displayScale, all_displayColor);
+          all_node = _get_all_image(all_displayPath, all_displayScale, all_displayPosition, all_displayColor);
         } else if (displayType == "text-snippet") {
           all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, all_displayValueType);
         } else if (displayType == "text-block") {

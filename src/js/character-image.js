@@ -5,19 +5,31 @@ var characterImage = (function() {
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
     var characterImageClear = helper.e(".js-character-image-clear");
+
     var characterImageScaleInput = helper.e(".js-character-image-scale-input");
     var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
     var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
+
+    var characterImagePositionXInput = helper.e(".js-character-image-position-x-input");
+    var characterImagePositionXDecrease = helper.e(".js-character-image-position-x-decrease");
+    var characterImagePositionXIncrease = helper.e(".js-character-image-position-x-increase");
+
+    var characterImagePositionYInput = helper.e(".js-character-image-position-y-input");
+    var characterImagePositionYDecrease = helper.e(".js-character-image-position-y-decrease");
+    var characterImagePositionYIncrease = helper.e(".js-character-image-position-y-increase");
+
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
+
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
     }, false);
     characterImageClear.addEventListener("click", function() {
       _removeCharacterImage();
     }, false);
+
     characterImageScaleInput.addEventListener("input", function() {
-      renderInputTimer = setTimeout(delayRender, 300, this);
+      renderInputTimer = setTimeout(_delayResize, 300, this);
     }, false);
     characterImageScaleDecrease.addEventListener("click", function() {
       _resize();
@@ -25,17 +37,48 @@ var characterImage = (function() {
     characterImageScaleIncrease.addEventListener("click", function() {
       _resize();
     }, false);
+
+    characterImagePositionXInput.addEventListener("input", function() {
+      renderInputTimer = setTimeout(_delayPreposition, 300, this);
+    }, false);
+    characterImagePositionXDecrease.addEventListener("click", function() {
+      _reposition();
+    }, false);
+    characterImagePositionXIncrease.addEventListener("click", function() {
+      _reposition();
+    }, false);
+
+    characterImagePositionYInput.addEventListener("input", function() {
+      renderInputTimer = setTimeout(_delayPreposition, 300, this);
+    }, false);
+    characterImagePositionYDecrease.addEventListener("click", function() {
+      _reposition();
+    }, false);
+    characterImagePositionYIncrease.addEventListener("click", function() {
+      _reposition();
+    }, false);
+
     characterImageScaleCover.addEventListener("click", function() {
       _resize("cover");
+      _reposition("center");
+      _update_all_input();
+      sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
       _resize("contain");
+      _reposition("center");
+      _update_all_input();
+      sheet.storeCharacters();
     }, false);
   };
 
-  function delayRender(element) {
+  function _delayResize() {
     _resize();
   };
+  function _delayPreposition() {
+    _reposition();
+  };
+
 
   function _removeCharacterImage() {
     if (helper.getObject(sheet.getCharacter(), "basics.character_image.image") != "") {
@@ -120,22 +163,30 @@ var characterImage = (function() {
       _storeContain(contain);
       _storeOrientation(orientation);
       _storeColor(helper.getAverageColor(imageBase64));
+      _storePosition(50, 50);
       render();
       _resize();
+      _reposition();
+      _update_all_input();
+      sheet.storeCharacters();
     };
     tempImage.src = imageBase64;
   };
 
+  function _storePosition(axisX, axisY) {
+    var position = {
+      x: axisX,
+      y: axisY
+    };
+    helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
+  };
+
   function _storeColor(color) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
-    sheet.storeCharacters();
-    console.log(color);
-    // document.body.style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
   };
 
   function _storeImage(imageBase64) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
-    sheet.storeCharacters();
   };
 
   function _storeScale(scale) {
@@ -158,17 +209,44 @@ var characterImage = (function() {
     var characterImagePreview = helper.e(".js-character-image-preview");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     var scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+    var position = helper.getObject(sheet.getCharacter(), "basics.character_image.position");
     if (imageBase64) {
       characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
+      characterImagePreview.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      characterImagePreview.style.backgroundPosition = position.x + "% " + position.y + "%";
       characterImagePreview.style.backgroundSize = scale + "%";
     };
+  };
+
+  function _reposition(preset) {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var x;
+    var y;
+    if (preset) {
+      if (preset == "center") {
+        x = 50;
+        y = 50;
+      };
+      _storePosition(x, y);
+    } else {
+      x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+      y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+    };
+    if (x == "" && x != 0) {
+      console.log("x 50");
+      x = 50;
+    };
+    if (y == "" && y != 0) {
+      console.log("y 50");
+      y = 50;
+    };
+    characterImagePreview.style.backgroundPosition = x + "% " + y + "%";
   };
 
   function _resize(preset) {
     var characterImagePreview = helper.e(".js-character-image-preview");
     var scale;
-    var input = helper.e(".js-character-image-scale-input");
-    var inputBlockElement = helper.getClosest(input, ".js-input-block");
     if (preset) {
       if (preset == "contain") {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.contain");
@@ -183,8 +261,17 @@ var characterImage = (function() {
       scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
     };
     characterImagePreview.style.backgroundSize = scale + "%";
+  };
+
+  function _update_all_input() {
+    _update_input(helper.e(".js-character-image-scale-input"));
+    _update_input(helper.e(".js-character-image-position-x-input"));
+    _update_input(helper.e(".js-character-image-position-y-input"));
+  };
+
+  function _update_input(input) {
+    var inputBlockElement = helper.getClosest(input, ".js-input-block");
     inputBlock.render(inputBlockElement);
-    sheet.storeCharacters();
   };
 
   function _clearInput(input) {
@@ -199,26 +286,25 @@ var characterImage = (function() {
 
   function destroy() {
     var object = {
+      color: {
+        r: "",
+        g: "",
+        b: ""
+      },
       contain: "",
       cover: "",
       image: "",
       orientation: "",
-      color: "",
+      position: {
+        x: "",
+        y: ""
+      },
       scale: ""
     };
-    var input = helper.e(".js-character-image-scale-input");
-    var inputBlockElement = helper.getClosest(input, ".js-input-block");
     helper.setObject(sheet.getCharacter(), "basics.character_image", object);
     sheet.storeCharacters();
+    _update_all_input();
     clear();
-    inputBlock.render(inputBlockElement);
-  };
-
-  function _characterImageSizePreset(value) {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", value);
-    characterImagePreview.style.backgroundSize = value;
-    sheet.storeCharacters();
   };
 
   // exposed methods

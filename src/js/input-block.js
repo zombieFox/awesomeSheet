@@ -403,9 +403,9 @@ var inputBlock = (function() {
         newValue = "";
       };
     };
-    if (newValue == 0) {
-      newValue = "";
-    };
+    // if (newValue == 0) {
+    //   newValue = "";
+    // };
 
     if (clone) {
       var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
