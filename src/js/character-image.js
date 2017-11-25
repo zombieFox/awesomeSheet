@@ -118,11 +118,19 @@ var characterImage = (function() {
       _storeScale(scale);
       _storeCover(cover);
       _storeContain(contain);
-      _storeOrientation(orientation)
+      _storeOrientation(orientation);
+      _storeColor(helper.getAverageColor(imageBase64));
       render();
       _resize();
     };
     tempImage.src = imageBase64;
+  };
+
+  function _storeColor(color) {
+    helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
+    sheet.storeCharacters();
+    console.log(color);
+    // document.body.style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
   };
 
   function _storeImage(imageBase64) {
@@ -195,6 +203,7 @@ var characterImage = (function() {
       cover: "",
       image: "",
       orientation: "",
+      color: "",
       scale: ""
     };
     var input = helper.e(".js-character-image-scale-input");

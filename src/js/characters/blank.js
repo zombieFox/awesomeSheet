@@ -66,6 +66,7 @@ var blank = (function() {
         cover: "",
         image: "",
         orientation: "",
+        color: "",
         scale: ""
       }
     },

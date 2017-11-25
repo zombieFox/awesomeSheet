@@ -682,21 +682,25 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_image(all_displayPath, all_displayScale) {
+  function _get_all_image(all_displayPath, all_displayScale, all_displayColor) {
     var all_node = [];
     var scale = false;
+    var color = false;
     for (var i = 0; i < all_displayPath.length; i++) {
       if (all_displayScale[i]) {
         scale = all_displayScale[i];
       };
+      if (all_displayColor[i]) {
+        color = all_displayColor[i];
+      };
       var path = all_displayPath[i];
-      all_node.push(_get_image(path, scale));
+      all_node.push(_get_image(path, scale, color));
     };
     // console.log("all_node", all_node);
     return all_node;
   };
 
-  function _get_image(path, scale) {
+  function _get_image(path, scale, color) {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayImage;
     if (typeof data != "undefined" && data != "") {
@@ -712,6 +716,10 @@ var display = (function() {
         } else {
           displayImage.style.backgroundSize = "cover";
         };
+      };
+      if (color) {
+        var rgb = helper.getObject(sheet.getCharacter(), color);
+        displayImage.style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
       };
     } else {
       displayImage = false;
@@ -767,6 +775,9 @@ var display = (function() {
         if (all_displayBlockTarget[j].dataset.displayScale) {
           all_displayScale = all_displayBlockTarget[j].dataset.displayScale.split(",");
         };
+        if (all_displayBlockTarget[j].dataset.displayColor) {
+          all_displayColor = all_displayBlockTarget[j].dataset.displayColor.split(",");
+        };
 
         // get an array of nodes using the array of paths
         if (displayType == "stat") {
@@ -774,7 +785,7 @@ var display = (function() {
         } else if (displayType == "modifier") {
           all_node = _get_all_modifier(all_displayPath, all_displayValueType);
         } else if (displayType == "image") {
-          all_node = _get_all_image(all_displayPath, all_displayScale);
+          all_node = _get_all_image(all_displayPath, all_displayScale, all_displayColor);
         } else if (displayType == "text-snippet") {
           all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, all_displayValueType);
         } else if (displayType == "text-block") {
