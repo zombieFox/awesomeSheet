@@ -21,6 +21,7 @@ var characterImage = (function() {
 
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
+    var characterImageScaleCenter = helper.e(".js-character-image-scale-center");
 
     var characterBasicsImageScaleAverage = helper.e(".js-basics-character-image-background-average");
     var characterBasicsImageScaleBlack = helper.e(".js-basics-character-image-background-black");
@@ -70,6 +71,11 @@ var characterImage = (function() {
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
       _resize("contain", "center");
+      _update_all_input();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleCenter.addEventListener("click", function() {
+      _resize(false, "center");
       _update_all_input();
       sheet.storeCharacters();
     }, false);
@@ -184,7 +190,7 @@ var characterImage = (function() {
     _store_cover(cover);
     _store_contain(contain);
     _store_scale(scale);
-    _store_position(0, 0);
+    _store_position(50, 50);
   };
 
   function _create_image() {
@@ -290,8 +296,8 @@ var characterImage = (function() {
       };
       if (presetPosition) {
         if (presetPosition == "center") {
-          x = 0;
-          y = 0;
+          x = 50;
+          y = 50;
         };
         _store_position(x, y);
       } else {
@@ -302,10 +308,10 @@ var characterImage = (function() {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
       };
       if (x == "" && x != 0) {
-        x = -50;
+        x = 50;
       };
       if (y == "" && y != 0) {
-        y = -50;
+        y = 50;
       };
       // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
       characterImage.style.width = scale + "%";

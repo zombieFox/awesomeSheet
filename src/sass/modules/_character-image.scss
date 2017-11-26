@@ -21,14 +21,15 @@
     height: 100%;
     border-radius: 50%;
     border: 2px solid $white;
-    box-shadow: 0 0 0 10em $dark-alpha-10;
+    box-shadow: 0 0 0 10em rgba($secondary-color-04, 0.75);
     box-sizing: border-box;
   }
 }
 .m-character-image {
   position: absolute;
-  top: 0%;
-  left: 0%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transform-origin: top left;
 }
 .m-character-image-input {
