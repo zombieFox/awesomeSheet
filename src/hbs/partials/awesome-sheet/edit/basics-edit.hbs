@@ -1,4 +1,4 @@
-<div class="m-tab-panel js-tab-panel js-tab-panel-character-details is-hidden">
+<div class="m-tab-panel js-tab-panel js-tab-panel-character-details">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
@@ -301,7 +301,7 @@
 
 </div>
 
-<div class="m-tab-panel js-tab-panel js-tab-panel-character-image">
+<div class="m-tab-panel js-tab-panel js-tab-panel-character-image is-hidden">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
@@ -354,11 +354,13 @@
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment js-character-image-scale-increase" data-increment-target="basics-character-image-scale" data-increment="addition" tabindex="1"><span class="icon-add"></span></a>
           </div>
         </div>
-        <div class="m-edit-box-item-button-large">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium button-slim js-input-block-increment js-character-image-scale-cover" data-increment-target="basics-character-image-scale" data-increment="clear" tabindex="1"><span class="button-text"></span>Cover</a>
-        </div>
-        <div class="m-edit-box-item-button-large">
-          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium button-slim js-input-block-increment js-character-image-scale-contain" data-increment-target="basics-character-image-scale" data-increment="clear" tabindex="1"><span class="button-text"></span>Contain</a>
+        <div class="m-edit-box-item m-edit-box-group-control-set">
+          <div class="m-edit-box-item-button-large">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium button-slim js-input-block-increment js-character-image-scale-cover js-tip" data-tip-show-on="hover" data-tip-message="Scale and clip the image to fill the area." data-increment-target="basics-character-image-scale" data-increment="clear" tabindex="1"><span class="button-text"></span>Cover</a>
+          </div>
+          <div class="m-edit-box-item-button-large">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium button-slim js-input-block-increment js-character-image-scale-contain js-tip" data-tip-show-on="hover" data-tip-message="Scale the image to show it all." data-increment-target="basics-character-image-scale" data-increment="clear" tabindex="1"><span class="button-text"></span>Contain</a>
+          </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-button-large">
@@ -402,23 +404,23 @@
       <div class="m-edit-box-content">
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-small">
-            <div class="m-radio-block">
+            <div class="m-radio-block js-radio-block">
               <p class="m-edit-box-label">Average</p>
-              <input class="m-radio-block-radio js-character-image-background-average" type="radio" name="character-image-background" value="average" tabindex="1" checked>
+              <input class="m-radio-block-radio js-basics-character-image-background-average js-radio-block-input" type="radio" data-path="basics.character_image.background" name="basics-character-image-background" value="average" tabindex="1" checked>
               <span class="m-radio-block-radio-icon"></span>
             </div>
           </div>
           <div class="m-edit-box-item-small">
-            <div class="m-radio-block">
+            <div class="m-radio-block js-radio-block">
               <p class="m-edit-box-label">Black</p>
-              <input class="m-radio-block-radio js-character-image-background-black" type="radio" name="character-image-background" value="black" tabindex="1">
+              <input class="m-radio-block-radio js-basics-character-image-background-black js-radio-block-input" type="radio" data-path="basics.character_image.background" name="basics-character-image-background" value="black" tabindex="1">
               <span class="m-radio-block-radio-icon"></span>
             </div>
           </div>
           <div class="m-edit-box-item-small">
-            <div class="m-radio-block">
+            <div class="m-radio-block js-radio-block">
               <p class="m-edit-box-label">White</p>
-              <input class="m-radio-block-radio js-character-image-background-white" type="radio" name="character-image-background" value="white" tabindex="1">
+              <input class="m-radio-block-radio js-basics-character-image-background-white js-radio-block-input" type="radio" data-path="basics.character_image.background" name="basics-character-image-background" value="white" tabindex="1">
               <span class="m-radio-block-radio-icon"></span>
             </div>
           </div>

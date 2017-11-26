@@ -169,7 +169,7 @@
 @media (min-width: $screen-sm) {
   .m-radio-block-radio {
     &[type="radio"] {
-      & + .m-radio-block-check-icon {
+      & + .m-radio-block-radio-icon {
         line-height: $line-height-250;
         height: 2.5em;
       }

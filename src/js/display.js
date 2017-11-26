@@ -728,16 +728,18 @@ var display = (function() {
         };
       };
       if (color) {
-        var color = helper.getObject(sheet.getCharacter(), color);
-      } else {
-        color = {
-          r: 255,
-          g: 255,
-          b: 255
+        var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
+        var color;
+        if (background == "black") {
+          color = "rgb(0,0,0)";
+        } else if (background == "white") {
+          color = "rgb(255,255,255)";
+        } else if (background == "average") {
+          color = helper.getObject(sheet.getCharacter(), color);
+          color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
         };
       };
-      // displayImage.style.transform = "scale(" + scale + ") translate(" + position.x + "%, " + position.y + "%)";
-      displayImage.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      displayImage.style.backgroundColor = color;
       displayImageItem.style.width = scale + "%";
       displayImageItem.style.left = position.x + "%";
       displayImageItem.style.top = position.y + "%";

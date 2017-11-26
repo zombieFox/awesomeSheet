@@ -282,6 +282,7 @@ var sheet = (function() {
     classes.render();
     inputBlock.render();
     selectBlock.render();
+    radioBlock.render();
     textareaBlock.render();
     skills.render();
     spells.render();
@@ -302,6 +303,7 @@ var sheet = (function() {
     stats.bind();
     inputBlock.bind();
     selectBlock.bind();
+    radioBlock.bind();
     textareaBlock.bind();
     clone.bind();
     spells.bind();
@@ -325,6 +327,7 @@ var sheet = (function() {
     textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
+    radioBlock.clear();
     textareaBlock.clear();
     characterImage.clear();
     spells.clear();

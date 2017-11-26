@@ -1,6 +1,7 @@
 var characterImage = (function() {
 
-  var resizeInputTimer = null;
+  var resizeTimer = null;
+  var backgroundTimer = null;
 
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
@@ -21,9 +22,9 @@ var characterImage = (function() {
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
 
-    var characterImageScaleAverage = helper.e(".js-character-image-background-average");
-    var characterImageScaleBlack = helper.e(".js-character-image-background-black");
-    var characterImageScaleWhite = helper.e(".js-character-image-background-white");
+    var characterBasicsImageScaleAverage = helper.e(".js-basics-character-image-background-average");
+    var characterBasicsImageScaleBlack = helper.e(".js-basics-character-image-background-black");
+    var characterBasicsImageScaleWhite = helper.e(".js-basics-character-image-background-white");
 
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
@@ -33,7 +34,7 @@ var characterImage = (function() {
     }, false);
 
     characterImageScaleInput.addEventListener("input", function() {
-      resizeInputTimer = setTimeout(_delayResize, 300, this);
+      resizeTimer = setTimeout(_delayResize, 350, this);
     }, false);
     characterImageScaleDecrease.addEventListener("click", function() {
       _resize();
@@ -43,7 +44,7 @@ var characterImage = (function() {
     }, false);
 
     characterImagePositionXInput.addEventListener("input", function() {
-      resizeInputTimer = setTimeout(_delayResize, 300, this);
+      resizeTimer = setTimeout(_delayResize, 350, this);
     }, false);
     characterImagePositionXDecrease.addEventListener("click", function() {
       _resize();
@@ -53,7 +54,7 @@ var characterImage = (function() {
     }, false);
 
     characterImagePositionYInput.addEventListener("input", function() {
-      resizeInputTimer = setTimeout(_delayResize, 300, this);
+      resizeTimer = setTimeout(_delayResize, 350, this);
     }, false);
     characterImagePositionYDecrease.addEventListener("click", function() {
       _resize();
@@ -73,19 +74,23 @@ var characterImage = (function() {
       sheet.storeCharacters();
     }, false);
 
-    characterImageScaleAverage.addEventListener("click", function() {
-      console.log(this.value);
+    characterBasicsImageScaleAverage.addEventListener("click", function() {
+      backgroundTimer = setTimeout(_delayBakcground, 350, this);
     }, false);
-    characterImageScaleBlack.addEventListener("click", function() {
-      console.log(this.value);
+    characterBasicsImageScaleBlack.addEventListener("click", function() {
+      backgroundTimer = setTimeout(_delayBakcground, 350, this);
     }, false);
-    characterImageScaleWhite.addEventListener("click", function() {
-      console.log(this.value);
+    characterBasicsImageScaleWhite.addEventListener("click", function() {
+      backgroundTimer = setTimeout(_delayBakcground, 350, this);
     }, false);
   };
 
   function _delayResize() {
     _resize();
+  };
+
+  function _delayBakcground() {
+    _render_background();
   };
 
   function _removeCharacterImage() {
@@ -115,9 +120,11 @@ var characterImage = (function() {
           _store_background("average");
           _store_color(helper.getAverageColor(reader.result));
           _create_image();
+          _render_background();
           _calculateSizes();
           _resize();
           _update_all_input();
+          _update_all_radio();
           _clearInput();
           sheet.storeCharacters();
         } else {
@@ -203,24 +210,29 @@ var characterImage = (function() {
 
   function render() {
     var characterImagePreview = helper.e(".js-character-image-preview");
-    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
-    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     if (imageBase64) {
       var image = new Image;
       image.setAttribute("class", "m-character-image js-character-image");
       image.src = imageBase64;
-      if (background == "black") {
-        color = "rgb(0,0,0)";
-      } else if (background == "white") {
-        color = "rgb(255,255,255)";
-      } else if (background == "average") {
-        color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-      };
-      characterImagePreview.style.backgroundColor = color;
       characterImagePreview.appendChild(image);
       _resize();
+      _render_background();
     };
+  };
+
+  function _render_background() {
+    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
+    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    if (background == "black") {
+      color = "rgb(0,0,0)";
+    } else if (background == "white") {
+      color = "rgb(255,255,255)";
+    } else if (background == "average") {
+      color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+    };
+    characterImagePreview.style.backgroundColor = color;
   };
 
   function _store_position(axisX, axisY) {
@@ -313,6 +325,17 @@ var characterImage = (function() {
     inputBlock.render(inputBlockElement);
   };
 
+  function _update_all_radio() {
+    _update_radio(helper.e(".js-basics-character-image-background-average"));
+    _update_radio(helper.e(".js-basics-character-image-background-black"));
+    _update_radio(helper.e(".js-basics-character-image-background-white"));
+  };
+
+  function _update_radio(radio) {
+    var radioBlockElement = helper.getClosest(radio, ".js-radio-block");
+    radioBlock.render(radioBlockElement);
+  };
+
   function _clearInput(input) {
     var characterImageInput = helper.e(".js-character-image-input");
     characterImageInput.value = "";
@@ -347,6 +370,7 @@ var characterImage = (function() {
     helper.setObject(sheet.getCharacter(), "basics.character_image", object);
     sheet.storeCharacters();
     _update_all_input();
+    _update_all_radio();
     clear();
   };
 
