@@ -1,9 +1,9 @@
-.m-check-block {
+.m-radio-block {
   position: relative;
   z-index: 1;
   font-size: $font-size-root-100;
 }
-.m-check-block-label {
+.m-radio-block-label {
   margin: 0;
   padding: 0;
   display: block;
@@ -13,8 +13,8 @@
   box-sizing: border-box;
   white-space: nowrap;
 }
-.m-check-block-check {
-  &[type="checkbox"] {
+.m-radio-block-radio {
+  &[type="radio"] {
     position: relative;
     z-index: 1;
     cursor: pointer;
@@ -24,11 +24,11 @@
     height: 100%;
     position: absolute;
     transform: none;
-    &.m-check-block-check-with-label {
+    &.m-radio-block-radio-with-label {
       top: 1.25em;
       height: calc(100% - 1.25em);
     }
-    & + .m-check-block-check-icon {
+    & + .m-radio-block-radio-icon {
       background-color: $white;
       border: $border;
       border-color: $gray-16;
@@ -60,14 +60,14 @@
       }
     }
     &:hover {
-      & + .m-check-block-check-icon {
+      & + .m-radio-block-radio-icon {
         &:before {
           color: $secondary-color-10;
         }
       }
     }
     &:focus {
-      & + .m-check-block-check-icon {
+      & + .m-radio-block-radio-icon {
         &:before {
           color: $primary-color-10;
         }
@@ -75,30 +75,30 @@
     }
     &:checked {
       &:hover {
-        & + .m-check-block-check-icon {
+        & + .m-radio-block-radio-icon {
           &:before {
             color: $secondary-color-10;
           }
         }
       }
       &:focus {
-        & + .m-check-block-check-icon {
+        & + .m-radio-block-radio-icon {
           &:before {
             color: $primary-color-10;
           }
         }
       }
     }
-    &[type="checkbox"] {
-      & + .m-check-block-check-icon {
+    &[type="radio"] {
+      & + .m-radio-block-radio-icon {
         &:before {
-          content: "\e25d";
+          content: "\e25e";
         }
       }
       &:checked {
-        & + .m-check-block-check-icon {
+        & + .m-radio-block-radio-icon {
           &:before {
-            content: "\e25c";
+            content: "\e25f";
           }
         }
       }
@@ -106,9 +106,9 @@
   }
 }
 .is-night-mode {
-  .m-check-block-check {
-    &[type="checkbox"] {
-      & + .m-check-block-check-icon {
+  .m-radio-block-radio {
+    &[type="radio"] {
+      & + .m-radio-block-radio-icon {
         background-color: $gray-03;
         border-color: $gray-04;
         color: $gray-18;
@@ -117,14 +117,14 @@
         }
       }
       &:hover {
-        & + .m-check-block-check-icon {
+        & + .m-radio-block-radio-icon {
           &:before {
             color: $secondary-color-10;
           }
         }
       }
       &:focus {
-        & + .m-check-block-check-icon {
+        & + .m-radio-block-radio-icon {
           &:before {
             color: $primary-color-10;
           }
@@ -132,30 +132,30 @@
       }
       &:checked {
         &:hover {
-          & + .m-check-block-check-icon {
+          & + .m-radio-block-radio-icon {
             &:before {
               color: $secondary-color-10;
             }
           }
         }
         &:focus {
-          & + .m-check-block-check-icon {
+          & + .m-radio-block-radio-icon {
             &:before {
               color: $primary-color-10;
             }
           }
         }
       }
-      &[type="checkbox"] {
-        & + .m-check-block-check-icon {
+      &[type="radio"] {
+        & + .m-radio-block-radio-icon {
           &:before {
-            content: "\e25d";
+            content: "\e25e";
           }
         }
         &:checked {
-          & + .m-check-block-check-icon {
+          & + .m-radio-block-radio-icon {
             &:before {
-              content: "\e25c";
+              content: "\e25f";
             }
           }
         }
@@ -167,9 +167,9 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-check-block-check {
-    &[type="checkbox"] {
-      & + .m-check-block-check-icon {
+  .m-radio-block-radio {
+    &[type="radio"] {
+      & + .m-radio-block-check-icon {
         line-height: $line-height-250;
         height: 2.5em;
       }

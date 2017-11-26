@@ -401,7 +401,7 @@ var inputBlock = (function() {
     };
     if (typeof minimum == "number") {
       if (newValue <= minimum) {
-        newValue = "";
+        newValue = minimum;
       };
     };
     if (noZero) {

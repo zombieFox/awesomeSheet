@@ -1,6 +1,6 @@
 var characterImage = (function() {
 
-  var renderInputTimer = null;
+  var resizeInputTimer = null;
 
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
@@ -21,6 +21,10 @@ var characterImage = (function() {
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
 
+    var characterImageScaleAverage = helper.e(".js-character-image-background-average");
+    var characterImageScaleBlack = helper.e(".js-character-image-background-black");
+    var characterImageScaleWhite = helper.e(".js-character-image-background-white");
+
     characterImageInput.addEventListener("change", function() {
       _handleFiles(this);
     }, false);
@@ -29,7 +33,7 @@ var characterImage = (function() {
     }, false);
 
     characterImageScaleInput.addEventListener("input", function() {
-      renderInputTimer = setTimeout(_delayResize, 300, this);
+      resizeInputTimer = setTimeout(_delayResize, 300, this);
     }, false);
     characterImageScaleDecrease.addEventListener("click", function() {
       _resize();
@@ -39,7 +43,7 @@ var characterImage = (function() {
     }, false);
 
     characterImagePositionXInput.addEventListener("input", function() {
-      renderInputTimer = setTimeout(_delayPreposition, 300, this);
+      resizeInputTimer = setTimeout(_delayResize, 300, this);
     }, false);
     characterImagePositionXDecrease.addEventListener("click", function() {
       _resize();
@@ -49,7 +53,7 @@ var characterImage = (function() {
     }, false);
 
     characterImagePositionYInput.addEventListener("input", function() {
-      renderInputTimer = setTimeout(_delayPreposition, 300, this);
+      resizeInputTimer = setTimeout(_delayResize, 300, this);
     }, false);
     characterImagePositionYDecrease.addEventListener("click", function() {
       _resize();
@@ -68,16 +72,21 @@ var characterImage = (function() {
       _update_all_input();
       sheet.storeCharacters();
     }, false);
+
+    characterImageScaleAverage.addEventListener("click", function() {
+      console.log(this.value);
+    }, false);
+    characterImageScaleBlack.addEventListener("click", function() {
+      console.log(this.value);
+    }, false);
+    characterImageScaleWhite.addEventListener("click", function() {
+      console.log(this.value);
+    }, false);
   };
 
   function _delayResize() {
     _resize();
   };
-
-  function _delayPreposition() {
-    _reposition();
-  };
-
 
   function _removeCharacterImage() {
     if (helper.getObject(sheet.getCharacter(), "basics.character_image.image") != "") {
@@ -246,9 +255,6 @@ var characterImage = (function() {
       } else {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
       };
-      if (scale == "") {
-        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
-      };
       if (presetPosition) {
         if (presetPosition == "center") {
           x = 0;
@@ -259,12 +265,13 @@ var characterImage = (function() {
         x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
         y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
       };
+      if (scale == "" && scale != 0) {
+        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
+      };
       if (x == "" && x != 0) {
-        console.log("x 50");
         x = -50;
       };
       if (y == "" && y != 0) {
-        console.log("y 50");
         y = -50;
       };
       // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
@@ -292,6 +299,7 @@ var characterImage = (function() {
 
   function clear() {
     var characterImagePreview = helper.e(".js-character-image-preview");
+    characterImagePreview.removeAttribute("style");
     while (characterImagePreview.lastChild) {
       characterImagePreview.removeChild(characterImagePreview.lastChild);
     };

@@ -227,6 +227,7 @@
       }
     }
     .m-check-block,
+    .m-radio-block,
     .m-select-block,
     .m-input-block,
     .m-input-file-block {
@@ -235,6 +236,7 @@
         z-index: 3;
       }
       .m-check-block-check-icon,
+      .m-radio-block-radio-icon,
       .m-select-block-dropdown,
       .m-input-block-field,
       .m-input-file-block-field {
@@ -246,6 +248,7 @@
     }
     &:hover {
       .m-check-block,
+      .m-radio-block,
       .m-select-block,
       .m-input-block,
       .m-input-file-block {
@@ -258,6 +261,11 @@
       }
       .m-check-block {
         .m-check-block-check-icon {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+      }
+      .m-radio-block {
+        .m-radio-block-radio-icon {
           border-radius: $border-radius-large 0 0 $border-radius-large;
         }
       }
@@ -286,6 +294,11 @@
           border-radius: 0 $border-radius-large $border-radius-large 0;
         }
       }
+      .m-radio-block {
+        .m-radio-block-radio-icon {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
       .m-select-block {
         .m-select-block-dropdown {
           border-radius: 0 $border-radius-large $border-radius-large 0;
@@ -308,6 +321,11 @@
       }
       .m-check-block {
         .m-check-block-check-icon {
+          border-radius: $border-radius-large;
+        }
+      }
+      .m-radio-block {
+        .m-radio-block-radio-icon {
           border-radius: $border-radius-large;
         }
       }
@@ -400,7 +418,8 @@
     margin-bottom: 0;
   }
 }
-.m-edit-box-check-label {
+.m-edit-box-check-label,
+.m-edit-box-radio-label {
   background-color: $white;
   padding: 0 0.8em;
   margin: 0;
@@ -456,6 +475,7 @@
     color: $gray-18;
   }
   .m-edit-box-check-label,
+  .m-edit-box-radio-label,
   .m-edit-box-text {
     background-color: $gray-03;
     border-color: $gray-04;
@@ -536,7 +556,8 @@
     line-height: $line-height-250;
     height: 2.5em;
   }
-  .m-edit-box-check-label {
+  .m-edit-box-check-label,
+  .m-edit-box-radio-label {
     line-height: $line-height-250;
     height: 2.5em;
   }
