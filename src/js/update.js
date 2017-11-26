@@ -3,7 +3,7 @@ var update = (function() {
   var history = [{
     version: "3.27.0",
     list: [
-      "*Added Character Image options. Usefule for head shots."
+      "*Added Character Image options."
     ]
   }, {
     version: "3.26.0",
