@@ -112,6 +112,7 @@ var characterImage = (function() {
         if (tempImage.width <= 2000 || tempImage.height <= 2000) {
           destroy();
           _store_image(reader.result);
+          _store_background("average");
           _store_color(helper.getAverageColor(reader.result));
           _create_image();
           _calculateSizes();
@@ -181,27 +182,43 @@ var characterImage = (function() {
 
   function _create_image() {
     var characterImagePreview = helper.e(".js-character-image-preview");
+    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
     var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     if (imageBase64) {
       var image = new Image;
       image.setAttribute("class", "m-character-image js-character-image");
       image.src = imageBase64;
-      characterImagePreview.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      if (background == "black") {
+        color = "rgb(0,0,0)";
+      } else if (background == "white") {
+        color = "rgb(255,255,255)";
+      } else if (background == "average") {
+        color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      };
+      characterImagePreview.style.backgroundColor = color;
       characterImagePreview.appendChild(image);
     };
   };
 
   function render() {
     var characterImagePreview = helper.e(".js-character-image-preview");
+    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
     var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     if (imageBase64) {
       var image = new Image;
       image.setAttribute("class", "m-character-image js-character-image");
       image.src = imageBase64;
+      if (background == "black") {
+        color = "rgb(0,0,0)";
+      } else if (background == "white") {
+        color = "rgb(255,255,255)";
+      } else if (background == "average") {
+        color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      };
+      characterImagePreview.style.backgroundColor = color;
       characterImagePreview.appendChild(image);
-      characterImagePreview.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
       _resize();
     };
   };
@@ -212,6 +229,10 @@ var characterImage = (function() {
       y: axisY
     };
     helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
+  };
+
+  function _store_background(background) {
+    helper.setObject(sheet.getCharacter(), "basics.character_image.background", background);
   };
 
   function _store_color(color) {
@@ -307,6 +328,7 @@ var characterImage = (function() {
 
   function destroy() {
     var object = {
+      background: "",
       color: {
         r: "",
         g: "",

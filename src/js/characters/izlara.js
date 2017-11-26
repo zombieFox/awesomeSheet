@@ -62,6 +62,7 @@ var izlara = (function() {
         needed: ""
       },
       character_image: {
+        background: "",
         color: {
           r: "",
           g: "",
