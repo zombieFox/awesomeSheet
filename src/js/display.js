@@ -708,27 +708,40 @@ var display = (function() {
     var data = helper.getObject(sheet.getCharacter(), path);
     var displayImage;
     if (typeof data != "undefined" && data != "") {
-      displayImage = document.createElement("div");
-      displayImage.setAttribute("style", "background-image: url(" + data + ")");
-      displayImage.setAttribute("class", "m-display-item-image");
+      var displayImage = document.createElement("div");
+      displayImage.setAttribute("class", "m-display-item-image-wrapper");
+      var displayImageItem = new Image;
+      // displayImage.setAttribute("class", "m-character-image js-character-image");
+      displayImageItem.setAttribute("class", "m-display-item-image");
+      displayImageItem.src = data;
       if (scale) {
-        var value = helper.getObject(sheet.getCharacter(), scale);
-        if (value && !isNaN(value)) {
-          displayImage.style.backgroundSize = value + "%";
-        } else {
-          displayImage.style.backgroundSize = "cover";
-        };
+        var scale = helper.getObject(sheet.getCharacter(), scale);
+      } else {
+        scale = 1;
       };
       if (position) {
         var position = helper.getObject(sheet.getCharacter(), position);
-        if (position && "x" in position && "y" in position) {
-          displayImage.style.backgroundPosition = position.x + "% " + position.y + "%";
+      } else {
+        position = {
+          x: 0,
+          y: 0
         };
       };
       if (color) {
         var color = helper.getObject(sheet.getCharacter(), color);
-        displayImage.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      } else {
+        color = {
+          r: 255,
+          g: 255,
+          b: 255
+        };
       };
+      // displayImage.style.transform = "scale(" + scale + ") translate(" + position.x + "%, " + position.y + "%)";
+      displayImage.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      displayImageItem.style.width = scale + "%";
+      displayImageItem.style.left = position.x + "%";
+      displayImageItem.style.top = position.y + "%";
+      displayImage.appendChild(displayImageItem);
     } else {
       displayImage = false;
     };

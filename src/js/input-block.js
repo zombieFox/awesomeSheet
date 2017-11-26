@@ -358,6 +358,7 @@ var inputBlock = (function() {
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
     var clone = (button.dataset.clone == "true");
+    var noZero = (button.dataset.noZero);
     var cloneCount;
     var pathCloneKey;
     if (clone) {
@@ -403,9 +404,11 @@ var inputBlock = (function() {
         newValue = "";
       };
     };
-    // if (newValue == 0) {
-    //   newValue = "";
-    // };
+    if (noZero) {
+      if (newValue == 0) {
+        newValue = "";
+      };
+    };
 
     if (clone) {
       var object = helper.getObject(sheet.getCharacter(), path, cloneCount);

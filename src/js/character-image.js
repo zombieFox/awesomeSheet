@@ -42,31 +42,29 @@ var characterImage = (function() {
       renderInputTimer = setTimeout(_delayPreposition, 300, this);
     }, false);
     characterImagePositionXDecrease.addEventListener("click", function() {
-      _reposition();
+      _resize();
     }, false);
     characterImagePositionXIncrease.addEventListener("click", function() {
-      _reposition();
+      _resize();
     }, false);
 
     characterImagePositionYInput.addEventListener("input", function() {
       renderInputTimer = setTimeout(_delayPreposition, 300, this);
     }, false);
     characterImagePositionYDecrease.addEventListener("click", function() {
-      _reposition();
+      _resize();
     }, false);
     characterImagePositionYIncrease.addEventListener("click", function() {
-      _reposition();
+      _resize();
     }, false);
 
     characterImageScaleCover.addEventListener("click", function() {
-      _resize("cover");
-      _reposition("center");
+      _resize("cover", "center");
       _update_all_input();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      _resize("contain");
-      _reposition("center");
+      _resize("contain", "center");
       _update_all_input();
       sheet.storeCharacters();
     }, false);
@@ -75,6 +73,7 @@ var characterImage = (function() {
   function _delayResize() {
     _resize();
   };
+
   function _delayPreposition() {
     _reposition();
   };
@@ -102,8 +101,15 @@ var characterImage = (function() {
       tempImage.onload = function() {
         // check width and height
         if (tempImage.width <= 2000 || tempImage.height <= 2000) {
-          _calculateSizes(reader.result);
+          destroy();
+          _store_image(reader.result);
+          _store_color(helper.getAverageColor(reader.result));
+          _create_image();
+          _calculateSizes();
+          _resize();
+          _update_all_input();
           _clearInput();
+          sheet.storeCharacters();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
         };
@@ -123,57 +129,75 @@ var characterImage = (function() {
     };
   };
 
-  function _calculateSizes(imageBase64) {
+  function _calculateSizes() {
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
     var scale;
     var cover;
     var contain;
     var orientation;
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var tempImage = new Image;
     var size = {
       imageWidth: 0,
       imageHeight: 0,
       containerWidth: 0,
       containerHeight: 0
     }
-    tempImage.onload = function() {
-      size.imageWidth = this.width;
-      size.imageHeight = this.height;
-      size.containerWidth = characterImagePreview.getBoundingClientRect().width;
-      size.containerHeight = characterImagePreview.getBoundingClientRect().height;
-      if (size.imageWidth > size.imageHeight) {
-        cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
-        contain = 100;
-        orientation = "landscape";
-      } else if (size.imageWidth < size.imageHeight) {
-        cover = 100;
-        contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
-        orientation = "portrait";
-      } else {
-        cover = 100;
-        contain = 100;
-        orientation = "square";
-      };
-      scale = cover;
-      // console.log("preview: ", "\t\tW: " + size.containerWidth, "\t\tH: " + size.containerHeight);
-      // console.log((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100);
-      _storeImage(imageBase64);
-      _storeScale(scale);
-      _storeCover(cover);
-      _storeContain(contain);
-      _storeOrientation(orientation);
-      _storeColor(helper.getAverageColor(imageBase64));
-      _storePosition(50, 50);
-      render();
-      _resize();
-      _reposition();
-      _update_all_input();
-      sheet.storeCharacters();
+    size.imageWidth = characterImage.width;
+    size.imageHeight = characterImage.height;
+    size.containerWidth = characterImagePreview.getBoundingClientRect().width;
+    size.containerHeight = characterImagePreview.getBoundingClientRect().height;
+    if (size.imageWidth > size.imageHeight) {
+      orientation = "landscape";
+      cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
+      contain = 100;
+    } else if (size.imageWidth < size.imageHeight) {
+      orientation = "portrait";
+      cover = 100;
+      contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
+    } else {
+      orientation = "square";
+      cover = 100;
+      contain = 100;
     };
-    tempImage.src = imageBase64;
+    scale = cover;
+    // console.log(size);
+    // console.log("scale = ", scale, "cover = ", cover, "contain = ", contain, "orientation = ", orientation);
+    _store_orientation(orientation);
+    _store_cover(cover);
+    _store_contain(contain);
+    _store_scale(scale);
+    _store_position(0, 0);
   };
 
-  function _storePosition(axisX, axisY) {
+  function _create_image() {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    if (imageBase64) {
+      var image = new Image;
+      image.setAttribute("class", "m-character-image js-character-image");
+      image.src = imageBase64;
+      characterImagePreview.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      characterImagePreview.appendChild(image);
+    };
+  };
+
+  function render() {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    if (imageBase64) {
+      var image = new Image;
+      image.setAttribute("class", "m-character-image js-character-image");
+      image.src = imageBase64;
+      characterImagePreview.appendChild(image);
+      characterImagePreview.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      _resize();
+    };
+  };
+
+  function _store_position(axisX, axisY) {
     var position = {
       x: axisX,
       y: axisY
@@ -181,86 +205,73 @@ var characterImage = (function() {
     helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
   };
 
-  function _storeColor(color) {
+  function _store_color(color) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
   };
 
-  function _storeImage(imageBase64) {
+  function _store_image(imageBase64) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
   };
 
-  function _storeScale(scale) {
+  function _store_scale(scale) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
   };
 
-  function _storeCover(cover) {
+  function _store_cover(cover) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
   };
 
-  function _storeContain(contain) {
+  function _store_contain(contain) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.contain", contain);
   };
 
-  function _storeOrientation(orientation) {
+  function _store_orientation(orientation) {
     helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
   };
 
-  function render() {
-    var characterImagePreview = helper.e(".js-character-image-preview");
+  function _resize(presetSize, presetPosition) {
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    var scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
-    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
-    var position = helper.getObject(sheet.getCharacter(), "basics.character_image.position");
-    if (imageBase64) {
-      characterImagePreview.style.backgroundImage = "url(" + imageBase64 + ")";
-      characterImagePreview.style.backgroundColor = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-      characterImagePreview.style.backgroundPosition = position.x + "% " + position.y + "%";
-      characterImagePreview.style.backgroundSize = scale + "%";
-    };
-  };
-
-  function _reposition(preset) {
-    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    var scale;
     var x;
     var y;
-    if (preset) {
-      if (preset == "center") {
-        x = 50;
-        y = 50;
+    if (imageBase64) {
+      if (presetSize) {
+        if (presetSize == "contain") {
+          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.contain");
+        } else if (presetSize == "cover") {
+          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
+        };
+        _store_scale(scale);
+      } else {
+        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
       };
-      _storePosition(x, y);
-    } else {
-      x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-      y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-    };
-    if (x == "" && x != 0) {
-      console.log("x 50");
-      x = 50;
-    };
-    if (y == "" && y != 0) {
-      console.log("y 50");
-      y = 50;
-    };
-    characterImagePreview.style.backgroundPosition = x + "% " + y + "%";
-  };
-
-  function _resize(preset) {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var scale;
-    if (preset) {
-      if (preset == "contain") {
-        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.contain");
-      } else if (preset == "cover") {
+      if (scale == "") {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
       };
-      _storeScale(scale);
-    } else {
-      scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+      if (presetPosition) {
+        if (presetPosition == "center") {
+          x = 0;
+          y = 0;
+        };
+        _store_position(x, y);
+      } else {
+        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+      };
+      if (x == "" && x != 0) {
+        console.log("x 50");
+        x = -50;
+      };
+      if (y == "" && y != 0) {
+        console.log("y 50");
+        y = -50;
+      };
+      // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
+      characterImage.style.width = scale + "%";
+      characterImage.style.left = x + "%";
+      characterImage.style.top = y + "%";
     };
-    if (scale == "") {
-      scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
-    };
-    characterImagePreview.style.backgroundSize = scale + "%";
   };
 
   function _update_all_input() {
@@ -281,7 +292,9 @@ var characterImage = (function() {
 
   function clear() {
     var characterImagePreview = helper.e(".js-character-image-preview");
-    characterImagePreview.removeAttribute("style");
+    while (characterImagePreview.lastChild) {
+      characterImagePreview.removeChild(characterImagePreview.lastChild);
+    };
   };
 
   function destroy() {

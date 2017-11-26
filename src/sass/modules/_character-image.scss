@@ -26,10 +26,10 @@
   }
 }
 .m-character-image {
-  margin: 0 auto;
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform-origin: top left;
 }
 .m-character-image-input {
   position: absolute;
