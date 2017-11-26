@@ -226,7 +226,7 @@
 .m-display-item-image-wrapper {
   background-color: $white;
   border-radius: 50%;
-  margin: 0;
+  margin: -3em 0 0 0;
   width: 12em;
   height: 12em;
   font-size: $font-size-root-100;
@@ -651,7 +651,7 @@
     width: initial;
   }
   .m-display-item-image-wrapper {
-    margin-bottom: 1em;
+    margin: 0 -1em 0 0;
     width: 15em;
     height: 15em;
     left: -3em;
@@ -679,7 +679,7 @@
     }
   }
   .m-display-item-image-wrapper {
-    margin-bottom: 0;
+    margin: 0 -3em 0 0;
     left: -5em;
     width: 20em;
     height: 20em;
@@ -687,6 +687,7 @@
 }
 @media (min-width: $screen-xl) {
   .m-display-item-image-wrapper {
+    margin: 0px -6em 0 0;
     left: -8em;
     width: 22em;
     height: 22em;
