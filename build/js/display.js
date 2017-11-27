@@ -779,6 +779,9 @@ var display = (function() {
         var all_displayPrefix = false;
         var all_displaySuffix = false;
         var all_displayValueType = false;
+        var all_displayScale = false;
+        var all_displayPosition = false;
+        var all_displayColor = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
