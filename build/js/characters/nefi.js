@@ -411,42 +411,50 @@ var nefi = (function() {
           weapon: "Guisarme +1 Keen",
           attack: "+21/+16/+11",
           damage: "2d4+12",
-          critical: "19-20/x3"
+          critical: "19-20/x3",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
           attack: "+18/+13/+8",
           damage: "2d4+18",
-          critical: "19-20/x3"
+          critical: "19-20/x3",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Guisarme +1 Trip",
           attack: "+24",
           damage: "",
-          critical: ""
+          critical: "",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Greatsword MW",
           attack: "+18/+13/+8",
           damage: "1d10+8",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Greatsword MW Power Attack",
           attack: "+15/+10/+5",
           damage: "1d10+14",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Halberd MW",
           attack: "+19/+14/+9",
           damage: "1d8+10",
-          critical: "x3"
+          critical: "x3",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Halberd MW Power Attack",
           attack: "+16/+10/+5",
           damage: "1d8+16",
-          critical: "x3"
+          critical: "x3",
+          type: "Piercing/Slashing"
         }, {
-          weapon: "Earthbreaker +1 Frost",
+          weapon: "Earth Breaker +1 Frost",
           attack: "+17/+12/+7",
           damage: "2d6+8 1d6 (cold)",
-          critical: "x3"
+          critical: "x3",
+          type: "Bludgeoning"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
@@ -454,7 +462,8 @@ var nefi = (function() {
           damage: "1d8+5",
           critical: "x3",
           range: "100 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "+2 bonus to CMD against trip."

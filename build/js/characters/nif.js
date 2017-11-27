@@ -478,7 +478,8 @@ var nif = (function() {
           weapon: "Dagger (Master Work)",
           attack: "+4",
           damage: "1d6+1",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing/Piercing"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -486,7 +487,8 @@ var nif = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: ""

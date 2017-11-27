@@ -419,7 +419,7 @@ var display = (function() {
         displayListItem = document.createElement("li");
         displayListItem.setAttribute("class", "m-display-list-item-" + cloneType);
         for (var i in object) {
-          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
+          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "type" || i == "ammo") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var displayListItemPrefix = document.createElement("span");

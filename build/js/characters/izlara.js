@@ -477,7 +477,8 @@ var izlara = (function() {
           weapon: "Dagger +1",
           attack: "+7",
           damage: "1d4+1",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing/Piercing"
         }],
         ranged: [{
           weapon: "Shortbow +1",
@@ -485,7 +486,8 @@ var izlara = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60ft",
-          ammo: "30 normal, 5 silver"
+          ammo: "30 normal, 5 silver",
+          type: "Piercing"
         }]
       },
       attack_notes: ""

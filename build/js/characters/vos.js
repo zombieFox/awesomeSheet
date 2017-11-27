@@ -457,27 +457,32 @@ var vos = (function() {
           weapon: "Flurry of Blows",
           attack: "+11/+11/+8/+8",
           damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2"
+          critical: "20x2",
+          type: "Bludgeoning"
         }, {
           weapon: "Grapple",
           attack: "+14",
           damage: "1d10+4",
-          critical: "20x2"
+          critical: "20x2",
+          type: ""
         }, {
-          weapon: "Disarm ",
+          weapon: "Disarm",
           attack: "+14",
           damage: "",
-          critical: ""
+          critical: "",
+          type: ""
         }, {
           weapon: "Stunning Fist",
           attack: "+11",
           damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2"
+          critical: "20x2",
+          type: "Bludgeoning"
         }, {
           weapon: "Unarmed Strike",
           attack: "+11",
           damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2"
+          critical: "20x2",
+          type: "Bludgeoning"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -485,7 +490,8 @@ var vos = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude."

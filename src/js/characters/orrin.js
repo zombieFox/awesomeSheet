@@ -452,42 +452,50 @@ var orrin = (function() {
           weapon: "Mithral Rapier +2",
           attack: "+17",
           damage: "1d6+3",
-          critical: "18–20/×2"
+          critical: "18–20/×2",
+          type: "Piercing"
         }, {
           weapon: "Rapier +1 Shocking",
           attack: "+15",
           damage: "1d6+2 + 1d6 Electrical",
-          critical: "18-20/x2"
+          critical: "18-20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +1",
           attack: "+15",
           damage: "1d6+2",
-          critical: "19–20/×2"
+          critical: "19–20/×2",
+          type: "Piercing"
         }, {
           weapon: "Mithral Rapier +2, Short Sword +1",
           attack: "+15/+15/+8/+8",
           damage: "1d6+3, 1d6+2",
-          critical: "18–20/×2, 19–20/×2"
+          critical: "18–20/×2, 19–20/×2",
+          type: "Piercing, Piercing"
         }, {
           weapon: "Silver Dagger",
           attack: "+14",
           damage: "1d6+1",
-          critical: "19–20/×2"
+          critical: "19–20/×2",
+          type: "Piercing"
         }, {
           weapon: "Sap",
           attack: "+14",
           damage: "1d6+1",
-          critical: "x2"
+          critical: "x2",
+          type: "Bludgeoning"
         }, {
           weapon: "Punching Dagger +2 Shocking",
           attack: "+16",
           damage: "1d4+3 + 1d6 Electrical",
-          critical: "x3"
+          critical: "x3",
+          type: "Piercing"
         }, {
           weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
           attack: "+15/+15/+9/+9",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
-          critical: "18–20/×2, x3"
+          critical: "18–20/×2, x3",
+          type: "Piercing, Piercing"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
@@ -495,7 +503,8 @@ var orrin = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "+5d6 Sneak attack.<br>Knock-Out Blow DC 18."

@@ -2,6 +2,21 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update attack types
+    if (characterObject.offense.attack.melee.length > 0) {
+      for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
+        if (!characterObject.offense.attack.melee[i].type) {
+          characterObject.offense.attack.melee[i].type = "";
+        };
+      };
+    };
+    if (characterObject.offense.attack.ranged.length > 0) {
+      for (var i = 0; i < characterObject.offense.attack.ranged.length; i++) {
+        if (!characterObject.offense.attack.ranged[i].type) {
+          characterObject.offense.attack.ranged[i].type = "";
+        };
+      };
+    };
     // update character image
     if (!characterObject.basics.character_image) {
       characterObject.basics.character_image = {

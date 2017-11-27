@@ -5194,11 +5194,13 @@ label {
 
 .m-display-list-item-attack-melee-attack,
 .m-display-list-item-attack-melee-critical,
+.m-display-list-item-attack-melee-type,
 .m-display-list-item-attack-melee-damage,
 .m-display-list-item-attack-melee-weapon {
   box-sizing: border-box; }
   .m-display-list-item-attack-melee-attack:not(:only-child):not(:first-child),
   .m-display-list-item-attack-melee-critical:not(:only-child):not(:first-child),
+  .m-display-list-item-attack-melee-type:not(:only-child):not(:first-child),
   .m-display-list-item-attack-melee-damage:not(:only-child):not(:first-child),
   .m-display-list-item-attack-melee-weapon:not(:only-child):not(:first-child) {
     padding-left: 1.5em;
@@ -5245,6 +5247,7 @@ label {
 .m-display-list-item-attack-ranged-ammo,
 .m-display-list-item-attack-ranged-attack,
 .m-display-list-item-attack-ranged-critical,
+.m-display-list-item-attack-ranged-type,
 .m-display-list-item-attack-ranged-damage,
 .m-display-list-item-attack-ranged-range,
 .m-display-list-item-attack-ranged-weapon {
@@ -5252,6 +5255,7 @@ label {
   .m-display-list-item-attack-ranged-ammo:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-attack:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-critical:not(:only-child):not(:first-child),
+  .m-display-list-item-attack-ranged-type:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-damage:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-range:not(:only-child):not(:first-child),
   .m-display-list-item-attack-ranged-weapon:not(:only-child):not(:first-child) {

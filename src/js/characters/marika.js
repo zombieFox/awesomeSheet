@@ -416,27 +416,32 @@ var marika = (function() {
           weapon: "Rapier +2",
           attack: "+16",
           damage: "1d6+3",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Rapier +2 Powerful Sneak",
           attack: "+13",
           damage: "1d6+3",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +2",
           attack: "+16",
           damage: "1d6+3",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +2 Powerful Sneak",
           attack: "+13",
           damage: "1d6+3",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Full Attack Rapier +2 / Short Sword +2",
           attack: "+14/+9/+14/+9",
           damage: "1d6+3",
-          critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2"
+          critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2",
+          type: "Piercing"
         }],
         ranged: [{
           weapon: "Shortbow +1",
@@ -444,7 +449,8 @@ var marika = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: ""

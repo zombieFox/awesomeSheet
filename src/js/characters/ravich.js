@@ -454,17 +454,20 @@ var ravich = (function() {
           weapon: "Rapier +1 Flaming",
           attack: "+11",
           damage: "1d6+4, 1d6 fire",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +1",
           attack: "+10",
           damage: "1d6+4",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Rapier +1 Flaming, Short Sword +1",
           attack: "+9/+8",
           damage: "1d6+4, 1d6 fire/1d6+4",
-          critical: "18–20/x2, 19–20/x2"
+          critical: "18–20/x2, 19–20/x2",
+          type: "Piercing"
         }],
         ranged: [{
           weapon: "Shortbow +1",
@@ -472,7 +475,8 @@ var ravich = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60ft",
-          ammo: "30 nornal"
+          ammo: "30 nornal",
+          type: "Piercing"
         }]
       },
       attack_notes: "Sneak Attack +2d6"

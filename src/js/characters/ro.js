@@ -431,37 +431,44 @@ var ro = (function() {
           weapon: "Shortsword +1",
           attack: "+11",
           damage: "1d6+2",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Black Blade Scimitar +2",
           attack: "+13",
           damage: "1d6+7",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Spellstrike",
           attack: "+13",
           damage: "1d6+7",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Black Blade Scimitar +2/Spell Strike",
           attack: "+11/+11",
           damage: "1d6+7/Spell Effect",
-          critical: "18–20/x2, 18–20/x2"
+          critical: "18–20/x2, 18–20/x2",
+          type: "Slashing, Slashing"
         }, {
           weapon: "Black Blade Scimitar +3 Keen",
           attack: "+14",
           damage: "1d6+8",
-          critical: "15-20x2"
+          critical: "15-20x2",
+          type: "Slashing"
         }, {
           weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
           attack: "+12/+12",
           damage: "1d6+8/Spell Effect",
-          critical: "15-20x2,  15-20x2"
+          critical: "15-20x2,  15-20x2",
+          type: "Slashing"
         }, {
           weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
           attack: "+16/+16",
           damage: "1d6+8/Spell Effect",
-          critical: "15-20x2,  15-20x2"
+          critical: "15-20x2,  15-20x2",
+          type: "Slashing"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -469,7 +476,8 @@ var ro = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen"

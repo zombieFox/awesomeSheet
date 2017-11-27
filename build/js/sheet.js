@@ -274,9 +274,10 @@ var sheet = (function() {
   };
 
   function render() {
-    for (var i = 0; i < allCharacters.length; i++) {
-      repair.render(allCharacters[i]);
-    };
+    repair.render(getCharacter(getIndex()));
+    // for (var i = 0; i < allCharacters.length; i++) {
+    //   repair.render(allCharacters[i]);
+    // };
     stats.render();
     clone.render();
     classes.render();

@@ -2125,7 +2125,8 @@ var izlara = (function() {
           weapon: "Dagger +1",
           attack: "+7",
           damage: "1d4+1",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing/Piercing"
         }],
         ranged: [{
           weapon: "Shortbow +1",
@@ -2133,7 +2134,8 @@ var izlara = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60ft",
-          ammo: "30 normal, 5 silver"
+          ammo: "30 normal, 5 silver",
+          type: "Piercing"
         }]
       },
       attack_notes: ""
@@ -4478,17 +4480,20 @@ var ravich = (function() {
           weapon: "Rapier +1 Flaming",
           attack: "+11",
           damage: "1d6+4, 1d6 fire",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +1",
           attack: "+10",
           damage: "1d6+4",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Rapier +1 Flaming, Short Sword +1",
           attack: "+9/+8",
           damage: "1d6+4, 1d6 fire/1d6+4",
-          critical: "18–20/x2, 19–20/x2"
+          critical: "18–20/x2, 19–20/x2",
+          type: "Piercing"
         }],
         ranged: [{
           weapon: "Shortbow +1",
@@ -4496,7 +4501,8 @@ var ravich = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60ft",
-          ammo: "30 nornal"
+          ammo: "30 nornal",
+          type: "Piercing"
         }]
       },
       attack_notes: "Sneak Attack +2d6"
@@ -6220,27 +6226,32 @@ var marika = (function() {
           weapon: "Rapier +2",
           attack: "+16",
           damage: "1d6+3",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Rapier +2 Powerful Sneak",
           attack: "+13",
           damage: "1d6+3",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +2",
           attack: "+16",
           damage: "1d6+3",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +2 Powerful Sneak",
           attack: "+13",
           damage: "1d6+3",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Full Attack Rapier +2 / Short Sword +2",
           attack: "+14/+9/+14/+9",
           damage: "1d6+3",
-          critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2"
+          critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2",
+          type: "Piercing"
         }],
         ranged: [{
           weapon: "Shortbow +1",
@@ -6248,7 +6259,8 @@ var marika = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: ""
@@ -7486,42 +7498,50 @@ var nefi = (function() {
           weapon: "Guisarme +1 Keen",
           attack: "+21/+16/+11",
           damage: "2d4+12",
-          critical: "19-20/x3"
+          critical: "19-20/x3",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Guisarme +1 Keen Power Attack",
           attack: "+18/+13/+8",
           damage: "2d4+18",
-          critical: "19-20/x3"
+          critical: "19-20/x3",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Guisarme +1 Trip",
           attack: "+24",
           damage: "",
-          critical: ""
+          critical: "",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Greatsword MW",
           attack: "+18/+13/+8",
           damage: "1d10+8",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Greatsword MW Power Attack",
           attack: "+15/+10/+5",
           damage: "1d10+14",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Halberd MW",
           attack: "+19/+14/+9",
           damage: "1d8+10",
-          critical: "x3"
+          critical: "x3",
+          type: "Piercing/Slashing"
         }, {
           weapon: "Halberd MW Power Attack",
           attack: "+16/+10/+5",
           damage: "1d8+16",
-          critical: "x3"
+          critical: "x3",
+          type: "Piercing/Slashing"
         }, {
-          weapon: "Earthbreaker +1 Frost",
+          weapon: "Earth Breaker +1 Frost",
           attack: "+17/+12/+7",
           damage: "2d6+8 1d6 (cold)",
-          critical: "x3"
+          critical: "x3",
+          type: "Bludgeoning"
         }],
         ranged: [{
           weapon: "Composite Longbow MW",
@@ -7529,7 +7549,8 @@ var nefi = (function() {
           damage: "1d8+5",
           critical: "x3",
           range: "100 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "+2 bonus to CMD against trip."
@@ -8794,7 +8815,8 @@ var nif = (function() {
           weapon: "Dagger (Master Work)",
           attack: "+4",
           damage: "1d6+1",
-          critical: "19–20/x2"
+          critical: "19–20/x2",
+          type: "Slashing/Piercing"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -8802,7 +8824,8 @@ var nif = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: ""
@@ -10480,42 +10503,50 @@ var orrin = (function() {
           weapon: "Mithral Rapier +2",
           attack: "+17",
           damage: "1d6+3",
-          critical: "18–20/×2"
+          critical: "18–20/×2",
+          type: "Piercing"
         }, {
           weapon: "Rapier +1 Shocking",
           attack: "+15",
           damage: "1d6+2 + 1d6 Electrical",
-          critical: "18-20/x2"
+          critical: "18-20/x2",
+          type: "Piercing"
         }, {
           weapon: "Short Sword +1",
           attack: "+15",
           damage: "1d6+2",
-          critical: "19–20/×2"
+          critical: "19–20/×2",
+          type: "Piercing"
         }, {
           weapon: "Mithral Rapier +2, Short Sword +1",
           attack: "+15/+15/+8/+8",
           damage: "1d6+3, 1d6+2",
-          critical: "18–20/×2, 19–20/×2"
+          critical: "18–20/×2, 19–20/×2",
+          type: "Piercing, Piercing"
         }, {
           weapon: "Silver Dagger",
           attack: "+14",
           damage: "1d6+1",
-          critical: "19–20/×2"
+          critical: "19–20/×2",
+          type: "Piercing"
         }, {
           weapon: "Sap",
           attack: "+14",
           damage: "1d6+1",
-          critical: "x2"
+          critical: "x2",
+          type: "Bludgeoning"
         }, {
           weapon: "Punching Dagger +2 Shocking",
           attack: "+16",
           damage: "1d4+3 + 1d6 Electrical",
-          critical: "x3"
+          critical: "x3",
+          type: "Piercing"
         }, {
           weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
           attack: "+15/+15/+9/+9",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
-          critical: "18–20/×2, x3"
+          critical: "18–20/×2, x3",
+          type: "Piercing, Piercing"
         }],
         ranged: [{
           weapon: "Shortbow (MW)",
@@ -10523,7 +10554,8 @@ var orrin = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "+5d6 Sneak attack.<br>Knock-Out Blow DC 18."
@@ -11773,37 +11805,44 @@ var ro = (function() {
           weapon: "Shortsword +1",
           attack: "+11",
           damage: "1d6+2",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Piercing"
         }, {
           weapon: "Black Blade Scimitar +2",
           attack: "+13",
           damage: "1d6+7",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Spellstrike",
           attack: "+13",
           damage: "1d6+7",
-          critical: "18–20/x2"
+          critical: "18–20/x2",
+          type: "Slashing"
         }, {
           weapon: "Black Blade Scimitar +2/Spell Strike",
           attack: "+11/+11",
           damage: "1d6+7/Spell Effect",
-          critical: "18–20/x2, 18–20/x2"
+          critical: "18–20/x2, 18–20/x2",
+          type: "Slashing, Slashing"
         }, {
           weapon: "Black Blade Scimitar +3 Keen",
           attack: "+14",
           damage: "1d6+8",
-          critical: "15-20x2"
+          critical: "15-20x2",
+          type: "Slashing"
         }, {
           weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
           attack: "+12/+12",
           damage: "1d6+8/Spell Effect",
-          critical: "15-20x2,  15-20x2"
+          critical: "15-20x2,  15-20x2",
+          type: "Slashing"
         }, {
           weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
           attack: "+16/+16",
           damage: "1d6+8/Spell Effect",
-          critical: "15-20x2,  15-20x2"
+          critical: "15-20x2,  15-20x2",
+          type: "Slashing"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -11811,7 +11850,8 @@ var ro = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen"
@@ -13337,27 +13377,32 @@ var vos = (function() {
           weapon: "Flurry of Blows",
           attack: "+11/+11/+8/+8",
           damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2"
+          critical: "20x2",
+          type: "Bludgeoning"
         }, {
           weapon: "Grapple",
           attack: "+14",
           damage: "1d10+4",
-          critical: "20x2"
+          critical: "20x2",
+          type: ""
         }, {
-          weapon: "Disarm ",
+          weapon: "Disarm",
           attack: "+14",
           damage: "",
-          critical: ""
+          critical: "",
+          type: ""
         }, {
           weapon: "Stunning Fist",
           attack: "+11",
           damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2"
+          critical: "20x2",
+          type: "Bludgeoning"
         }, {
           weapon: "Unarmed Strike",
           attack: "+11",
           damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2"
+          critical: "20x2",
+          type: "Bludgeoning"
         }],
         ranged: [{
           weapon: "Shortbow",
@@ -13365,7 +13410,8 @@ var vos = (function() {
           damage: "1d6",
           critical: "x3",
           range: "60 ft",
-          ammo: "50"
+          ammo: "50",
+          type: "Piercing"
         }]
       },
       attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude."
@@ -15032,10 +15078,18 @@ var clone = (function() {
         '          <input id="attack-melee-damage-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="damage" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
+        '    </div>' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-melee-critical-' + cloneIndex + '">Critical</label>' +
         '          <input id="attack-melee-critical-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="critical" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-type-' + cloneIndex + '">Type</label>' +
+        '          <input id="attack-melee-type-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.melee" data-path-clone-key="type" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -15082,10 +15136,18 @@ var clone = (function() {
         '          <input id="attack-ranged-range-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="range" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
+        '    </div>' +
+        '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
         '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-ammo-' + cloneIndex + '">Ammo</label>' +
         '          <input id="attack-ranged-ammo-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="ammo" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-clone="true" data-clone-count="' + cloneIndex + '">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-type-' + cloneIndex + '">Type</label>' +
+        '          <input id="attack-ranged-type-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" data-path="offense.attack.ranged" data-path-clone-key="type" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -15381,7 +15443,8 @@ var clone = (function() {
         weapon: "",
         attack: "",
         damage: "",
-        critical: ""
+        critical: "",
+        type: ""
       };
     };
     if (cloneType == "attack-ranged") {
@@ -15391,7 +15454,8 @@ var clone = (function() {
         damage: "",
         critical: "",
         range: "",
-        ammo: ""
+        ammo: "",
+        type: ""
       };
     };
     if (cloneType == "consumable") {
@@ -16333,7 +16397,7 @@ var display = (function() {
         displayListItem = document.createElement("li");
         displayListItem.setAttribute("class", "m-display-list-item-" + cloneType);
         for (var i in object) {
-          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "ammo") {
+          if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "type" || i == "ammo") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var displayListItemPrefix = document.createElement("span");
@@ -19005,6 +19069,21 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update attack types
+    if (characterObject.offense.attack.melee.length > 0) {
+      for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
+        if (!characterObject.offense.attack.melee[i].type) {
+          characterObject.offense.attack.melee[i].type = "";
+        };
+      };
+    };
+    if (characterObject.offense.attack.ranged.length > 0) {
+      for (var i = 0; i < characterObject.offense.attack.ranged.length; i++) {
+        if (!characterObject.offense.attack.ranged[i].type) {
+          characterObject.offense.attack.ranged[i].type = "";
+        };
+      };
+    };
     // update character image
     if (!characterObject.basics.character_image) {
       characterObject.basics.character_image = {
@@ -19716,9 +19795,10 @@ var sheet = (function() {
   };
 
   function render() {
-    for (var i = 0; i < allCharacters.length; i++) {
-      repair.render(allCharacters[i]);
-    };
+    repair.render(getCharacter(getIndex()));
+    // for (var i = 0; i < allCharacters.length; i++) {
+    //   repair.render(allCharacters[i]);
+    // };
     stats.render();
     clone.render();
     classes.render();
@@ -22128,6 +22208,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.28.0",
+    list: [
+      "*Added Weapon Type to each attack block."
+    ]
+  }, {
     version: "3.27.0",
     list: [
       "*Added Character Image options."
