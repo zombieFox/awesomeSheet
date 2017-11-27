@@ -2,6 +2,10 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update character image
+    if (!"character_image" in characterObject.basics) {
+      console.log("fire");
+    };
     // update speed
     if (typeof characterObject.basics.speed == "string"|| typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
       var oldSpeed = characterObject.basics.speed;

@@ -70,13 +70,13 @@ var blank = (function() {
         },
         contain: "",
         cover: "",
-        image: "",
         orientation: "",
         position: {
           x: "",
           y: ""
         },
-        scale: ""
+        scale: "",
+        image: ""
       }
     },
     statistics: {

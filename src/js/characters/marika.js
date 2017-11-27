@@ -60,6 +60,23 @@ var marika = (function() {
         advancement_speed: "Medium",
         next_level: "",
         needed: ""
+      },
+      character_image: {
+        background: "",
+        color: {
+          r: "",
+          g: "",
+          b: ""
+        },
+        contain: "",
+        cover: "",
+        orientation: "",
+        position: {
+          x: "",
+          y: ""
+        },
+        scale: "",
+        image: ""
       }
     },
     statistics: {
