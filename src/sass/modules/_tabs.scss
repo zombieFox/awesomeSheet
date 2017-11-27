@@ -20,15 +20,14 @@
 }
 .m-tab-item {
   background-color: transparent;
-  margin: 0;
-  padding: 0.25em 2em;
+  margin: 0.1em 0 0 0;
+  padding:  0.25em 2em 0.15em 2em;
   color: $white;
   border: 0;
   border-color: transparent;
-  border-radius: 0;
+  border-radius: $border-radius-small $border-radius-small 0 0;
   box-shadow: none;
   position: relative;
-  top: 2px;
   z-index: 1;
   flex: 1 1 auto;
   transition: all $transition-ease-medium;
@@ -63,7 +62,8 @@
     border-radius: $border-radius-small $border-radius-small 0 0;
     color: $base-color;
     box-shadow: none;
-    top: 0;
+    margin: 0;
+    padding: 0.25em 2em;
     z-index: 2;
   }
 }
