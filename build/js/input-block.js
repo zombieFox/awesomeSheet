@@ -353,10 +353,12 @@ var inputBlock = (function() {
     helper.remove("lastAggregate");
   };
 
-  function _increment(button) {
+  function _increment(button, event) {
+    var shift = event.shiftKey;
     var increment = button.dataset.increment;
     var target = button.dataset.incrementTarget;
     var clone = (button.dataset.clone == "true");
+    var noZero = (button.dataset.noZero);
     var cloneCount;
     var pathCloneKey;
     if (clone) {
@@ -383,19 +385,29 @@ var inputBlock = (function() {
 
     var newValue;
     if (increment == "addition") {
-      newValue = oldValue + 1;
+      if (shift) {
+        newValue = oldValue + 10;
+      } else {
+        newValue = oldValue + 1;
+      };
     } else if (increment == "subtraction") {
-      newValue = oldValue - 1;
+      if (shift) {
+        newValue = oldValue - 10;
+      } else {
+        newValue = oldValue - 1;
+      };
     } else if (increment == "clear") {
       newValue = 0;
     };
     if (typeof minimum == "number") {
       if (newValue <= minimum) {
-        newValue = "";
+        newValue = minimum;
       };
     };
-    if (newValue == 0) {
-      newValue = "";
+    if (noZero) {
+      if (newValue == 0) {
+        newValue = "";
+      };
     };
 
     if (clone) {
@@ -435,7 +447,7 @@ var inputBlock = (function() {
 
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function() {
-      _increment(this);
+      _increment(this, event);
     }, false);
   };
 
@@ -535,6 +547,7 @@ var inputBlock = (function() {
     var inputBlockField = inputBlock.querySelector(".js-input-block-field");
     var path = inputBlockField.dataset.path;
     var clone = (inputBlock.dataset.clone == "true");
+    var type = inputBlockField.dataset.type;
     if (path) {
       // console.log(inputBlock);
       if (clone) {
@@ -548,6 +561,9 @@ var inputBlock = (function() {
         // console.log("not clone", path);
         // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
+        if (type == "integer" && typeof content == "string") {
+          content = "";
+        };
         inputBlockField.value = content;
       };
     };

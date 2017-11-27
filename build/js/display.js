@@ -469,7 +469,7 @@ var display = (function() {
 
   };
 
-  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType) {
+  function _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
@@ -482,8 +482,8 @@ var display = (function() {
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      if (displayValueType[i]) {
-        valueType = displayValueType[i];
+      if (all_displayValueType[i]) {
+        valueType = all_displayValueType[i];
       };
       all_node.push(_get_list(path, prefix, suffix, valueType));
     };
@@ -521,16 +521,16 @@ var display = (function() {
     return displayListItem;
   };
 
-  function _get_all_modifier(all_displayPath, displayValueType) {
+  function _get_all_modifier(all_displayPath, all_displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
-      all_node.push(_get_modifier(path, displayValueType));
+      all_node.push(_get_modifier(path, all_displayValueType));
     };
     return all_node;
   };
 
-  function _get_modifier(path, displayValueType) {
+  function _get_modifier(path, all_displayValueType) {
     var displayItem;
     var data;
     var modifierPath = path.split(".");
@@ -541,8 +541,8 @@ var display = (function() {
     };
     if (typeof data != "undefined" && data != "") {
       displayItem = document.createElement("span");
-      if (displayValueType) {
-        if (displayValueType == "bonus" && data > 0) {
+      if (all_displayValueType) {
+        if (all_displayValueType == "bonus" && data > 0) {
           data = "+" + data;
         };
       };
@@ -611,7 +611,7 @@ var display = (function() {
     return displayItem;
   };
 
-  function _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, displayValueType) {
+  function _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, all_displayValueType) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var path = all_displayPath[i];
@@ -628,8 +628,8 @@ var display = (function() {
       if (all_displaySuffix[i]) {
         suffix = all_displaySuffix[i];
       };
-      if (displayValueType[i]) {
-        valueType = displayValueType[i];
+      if (all_displayValueType[i]) {
+        valueType = all_displayValueType[i];
       };
       all_node.push(_get_textSnippet(path, prefix, suffix, dependency, valueType));
     };
@@ -682,6 +682,74 @@ var display = (function() {
     return displayItem;
   };
 
+  function _get_all_image(all_displayPath, all_displayScale, all_displayPosition, all_displayColor) {
+    var all_node = [];
+    var scale = false;
+    var position = false;
+    var color = false;
+    for (var i = 0; i < all_displayPath.length; i++) {
+      if (all_displayScale[i]) {
+        scale = all_displayScale[i];
+      };
+      if (all_displayPosition[i]) {
+        position = all_displayPosition[i];
+      };
+      if (all_displayColor[i]) {
+        color = all_displayColor[i];
+      };
+      var path = all_displayPath[i];
+      all_node.push(_get_image(path, scale, position, color));
+    };
+    // console.log("all_node", all_node);
+    return all_node;
+  };
+
+  function _get_image(path, scale, position, color) {
+    var data = helper.getObject(sheet.getCharacter(), path);
+    var displayImage;
+    if (typeof data != "undefined" && data != "") {
+      var displayImage = document.createElement("div");
+      displayImage.setAttribute("class", "m-display-item-image-wrapper");
+      var displayImageItem = new Image;
+      // displayImage.setAttribute("class", "m-character-image js-character-image");
+      displayImageItem.setAttribute("class", "m-display-item-image");
+      displayImageItem.src = data;
+      if (scale) {
+        var scale = helper.getObject(sheet.getCharacter(), scale);
+      } else {
+        scale = 1;
+      };
+      if (position) {
+        var position = helper.getObject(sheet.getCharacter(), position);
+      } else {
+        position = {
+          x: 0,
+          y: 0
+        };
+      };
+      if (color) {
+        var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
+        var color;
+        if (background == "black") {
+          color = "rgb(0,0,0)";
+        } else if (background == "white") {
+          color = "rgb(255,255,255)";
+        } else if (background == "average") {
+          color = helper.getObject(sheet.getCharacter(), color);
+          color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+        };
+      };
+      displayImage.style.backgroundColor = color;
+      displayImageItem.style.width = scale + "%";
+      displayImageItem.style.left = position.x + "%";
+      displayImageItem.style.top = position.y + "%";
+      displayImage.appendChild(displayImageItem);
+    } else {
+      displayImage = false;
+    };
+    return displayImage;
+  };
+
   function _render_displayBlock(section) {
     // find all display blocks
     var all_displayBlock;
@@ -710,7 +778,7 @@ var display = (function() {
         var all_displayDependency = false;
         var all_displayPrefix = false;
         var all_displaySuffix = false;
-        var displayValueType = false;
+        var all_displayValueType = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
@@ -725,20 +793,31 @@ var display = (function() {
           all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
         };
         if (all_displayBlockTarget[j].dataset.displayValueType) {
-          displayValueType = all_displayBlockTarget[j].dataset.displayValueType.split(",");
+          all_displayValueType = all_displayBlockTarget[j].dataset.displayValueType.split(",");
+        };
+        if (all_displayBlockTarget[j].dataset.displayScale) {
+          all_displayScale = all_displayBlockTarget[j].dataset.displayScale.split(",");
+        };
+        if (all_displayBlockTarget[j].dataset.displayPosition) {
+          all_displayPosition = all_displayBlockTarget[j].dataset.displayPosition.split(",");
+        };
+        if (all_displayBlockTarget[j].dataset.displayColor) {
+          all_displayColor = all_displayBlockTarget[j].dataset.displayColor.split(",");
         };
 
         // get an array of nodes using the array of paths
         if (displayType == "stat") {
           all_node = _get_all_stat(all_displayPath);
         } else if (displayType == "modifier") {
-          all_node = _get_all_modifier(all_displayPath, displayValueType);
+          all_node = _get_all_modifier(all_displayPath, all_displayValueType);
+        } else if (displayType == "image") {
+          all_node = _get_all_image(all_displayPath, all_displayScale, all_displayPosition, all_displayColor);
         } else if (displayType == "text-snippet") {
-          all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, displayValueType);
+          all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, all_displayValueType);
         } else if (displayType == "text-block") {
           all_node = _get_all_textBlock(all_displayPath);
         } else if (displayType == "list") {
-          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, displayValueType);
+          all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayValueType);
         } else if (displayType == "clone") {
           all_node = _get_all_clone(all_displayPath);
         } else if (displayType == "skill") {

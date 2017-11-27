@@ -249,7 +249,6 @@ var sheet = (function() {
       } else {
         snack.render("Not a JSON file.", false, false);
       };
-
     };
 
     readFile.readAsText(fileList.item(0));
@@ -283,6 +282,7 @@ var sheet = (function() {
     classes.render();
     inputBlock.render();
     selectBlock.render();
+    radioBlock.render();
     textareaBlock.render();
     skills.render();
     spells.render();
@@ -292,6 +292,7 @@ var sheet = (function() {
     wealth.render();
     totalBlock.render();
     textBlock.render();
+    characterImage.render();
     display.render();
   };
 
@@ -302,6 +303,7 @@ var sheet = (function() {
     stats.bind();
     inputBlock.bind();
     selectBlock.bind();
+    radioBlock.bind();
     textareaBlock.bind();
     clone.bind();
     spells.bind();
@@ -314,6 +316,7 @@ var sheet = (function() {
     tip.bind();
     events.bind();
     xp.bind();
+    characterImage.bind();
     registerServiceWorker.bind();
   };
 
@@ -324,7 +327,9 @@ var sheet = (function() {
     textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
+    radioBlock.clear();
     textareaBlock.clear();
+    characterImage.clear();
     spells.clear();
     display.clear();
   };

@@ -1179,14 +1179,22 @@
           <textarea id="style-guide-textarea" class="textarea-large u-full-width" placeholder="Placeholder"></textarea>
           <label for="style-guide-textarea-div">Textarea Div</label>
           <div id="style-guide-textarea-div" class="textarea textarea-large u-full-width" contentEditable="true">Placeholder</div>
-          <select class="u-full-width">
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
-            <option value="Option 3">Option 3</option>
-            <option value="Option 4">Option 4</option>
-          </select>
+          <div class="m-select-block js-select-block">
+            <select class="m-select-block-dropdown u-full-width">
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+              <option value="Option 3">Option 3</option>
+              <option value="Option 4">Option 4</option>
+            </select>
+          </div>
           <input type="reset">
           <input type="submit">
+          <div class="m-input-file-block">
+            <label class="m-input-file-block-label" for="style-guide-input-file-1" tabindex="1">
+              <span class="icon-file-upload"></span><span class="m-input-file-block-label-text">Select an image</span>
+            </label>
+            <input id="style-guide-input-file-1" type="file" class="m-input-file-block-field">
+          </div>
         </div>
         <div class="col-xs-12 col-md-6">
           <div class="row">

@@ -2,8 +2,28 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update character image
+    if (!characterObject.basics.character_image) {
+      characterObject.basics.character_image = {
+        background: "",
+        color: {
+          r: "",
+          g: "",
+          b: ""
+        },
+        contain: "",
+        cover: "",
+        image: "",
+        orientation: "",
+        position: {
+          x: "",
+          y: ""
+        },
+        scale: ""
+      };
+    };
     // update speed
-    if (typeof characterObject.basics.speed == "string"|| typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
+    if (typeof characterObject.basics.speed == "string" || typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
       var oldSpeed = characterObject.basics.speed;
       characterObject.basics.speed = {};
       characterObject.basics.speed.land = oldSpeed;
