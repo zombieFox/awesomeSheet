@@ -22210,7 +22210,7 @@ var update = (function() {
   var history = [{
     version: "3.28.0",
     list: [
-      "*Added Weapon Type to each attack block."
+      "Added Weapon Type to each attack block."
     ]
   }, {
     version: "3.27.0",
