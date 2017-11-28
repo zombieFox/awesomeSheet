@@ -51,6 +51,7 @@ var stats = (function() {
   function delayUpdate(element) {
     _render_stat(element);
     _render_modifer(element);
+    encumbrance.render();
     classes.render();
     textBlock.render();
     totalBlock.render();
