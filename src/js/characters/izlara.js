@@ -82,40 +82,58 @@ var izlara = (function() {
     statistics: {
       stats: {
         str: {
-          score: 12,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 10,
+          enhancement: 2,
+          misc: "",
+          racial: "",
+          temp: ""
         },
         dex: {
-          score: 16,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 12,
+          enhancement: 2,
+          misc: "",
+          racial: 2,
+          temp: ""
         },
         con: {
-          score: 14,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 14,
+          enhancement: 2,
+          misc: "",
+          racial: -2,
+          temp: ""
         },
         int: {
-          score: 28,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 22,
+          enhancement: 4,
+          misc: "",
+          racial: 2,
+          temp: ""
         },
         wis: {
-          score: 16,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 12,
+          enhancement: 4,
+          misc: "",
+          racial: "",
+          temp: ""
         },
         cha: {
-          score: 16,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 12,
+          enhancement: 4,
+          misc: "",
+          racial: "",
+          temp: ""
         }
       },
       feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",

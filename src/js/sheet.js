@@ -16,7 +16,7 @@ var sheet = (function() {
 
   var setCurrentCharacterIndex = (function() {
     if (helper.read("charactersIndex")) {
-      currentCharacterIndex = helper.read("charactersIndex");
+      currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
     };
   })();
 
@@ -275,9 +275,6 @@ var sheet = (function() {
 
   function render() {
     repair.render(getCharacter(getIndex()));
-    // for (var i = 0; i < allCharacters.length; i++) {
-    //   repair.render(allCharacters[i]);
-    // };
     stats.render();
     clone.render();
     classes.render();
@@ -322,7 +319,6 @@ var sheet = (function() {
   };
 
   function clear() {
-    stats.render();
     totalBlock.clear();
     clone.clear();
     textBlock.clear();

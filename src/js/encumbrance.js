@@ -3,17 +3,23 @@ var encumbrance = (function() {
   var changeEncumbranceTimer = null;
 
   function bind(input) {
-    var statsStrScore = helper.e("#statistics-stats-str-score");
-    var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
+    // var statisticsStatsStrBase = helper.e("#statistics-stats-str-base");
+    // var statisticsStatsStrRacial = helper.e("#statistics-stats-str-racial");
+    // var statisticsStatsStrEnhancement = helper.e("#statistics-stats-str-enhancement");
+    // var statisticsStatsStrTemp = helper.e("#statistics-stats-str-temp");
+    // var statisticsStatsStrMisc = helper.e("#statistics-stats-str-misc");
+
+    // var statsStrScore = helper.e("#statistics-stats-str-score");
+    // var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
     var equipmentEncumbranceEncumbranceStr = helper.e("#equipment-encumbrance-encumbrance-str");
-    statsStrScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
-    }, false);
-    statsStrTempScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
-    }, false);
+    // statsStrScore.addEventListener("input", function() {
+    //   clearTimeout(changeEncumbranceTimer);
+    //   changeEncumbranceTimer = setTimeout(update, 350);
+    // }, false);
+    // statsStrTempScore.addEventListener("input", function() {
+    //   clearTimeout(changeEncumbranceTimer);
+    //   changeEncumbranceTimer = setTimeout(update, 350);
+    // }, false);
     equipmentEncumbranceEncumbranceStr.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);
