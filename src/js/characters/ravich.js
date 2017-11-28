@@ -91,40 +91,58 @@ var ravich = (function() {
     statistics: {
       stats: {
         str: {
-          score: 18,
-          modifier: 4,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 16,
+          enhancement: 2,
+          misc: "",
+          racial: "",
+          temp: ""
         },
         dex: {
-          score: 20,
-          modifier: 5,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 16,
+          enhancement: 2,
+          misc: "",
+          racial: 2,
+          temp: ""
         },
         con: {
-          score: 13,
-          modifier: 1,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 13,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         int: {
-          score: 13,
-          modifier: 1,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 13,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: 1,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 12,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: -2
         },
         cha: {
-          score: 10,
-          modifier: 0,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 10,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         }
       },
       feats: "Weapon Finesse, Weapon Focus (Rapier), Improved Initiative, Deft Hands, Acrobatic, Toughness, Two-Weapon Fighting, Magical Aptitude, Great Fortitude",

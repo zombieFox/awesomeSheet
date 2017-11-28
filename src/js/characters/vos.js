@@ -82,40 +82,58 @@ var vos = (function() {
     statistics: {
       stats: {
         str: {
-          score: 19,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 4,
+          base: 17,
+          current: 19,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 14,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 2,
+          base: 14,
+          current: 14,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 10,
+          current: 12,
+          racial: 2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 18,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 4,
+          base: 14,
+          current: 18,
+          racial: 2,
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 7,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -2,
+          base: 9,
+          current: 7,
+          racial: -2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Focus (Unarmed Strike), Improved Grapple, Dodge, Extra Ki, Improved Disarm, Extra Ki, Combat Reflexes, Great Fortitude",

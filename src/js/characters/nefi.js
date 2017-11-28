@@ -82,40 +82,58 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: 21,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 5,
+          base: 15,
+          current: 21,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 16,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 3,
+          base: 14,
+          current: 16,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 13,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 13,
+          current: 13,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 10,
+          current: 12,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 8,
+          current: 10,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Focus (Guisarme), Iron Will, Great Fortitude, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Weapon Specialization (Guisarme), Furious Focus",

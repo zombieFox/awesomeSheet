@@ -65,40 +65,58 @@ var nif = (function() {
     statistics: {
       stats: {
         str: {
-          score: 8,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -1,
+          base: 8,
+          current: 8,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 17,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 3,
+          base: 15,
+          current: 17,
+          racial: 2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 14,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 2,
+          base: 16,
+          current: 14,
+          racial: -2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 26,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 8,
+          base: 20,
+          current: 26,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",

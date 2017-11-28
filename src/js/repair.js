@@ -2,6 +2,26 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update stats
+    if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
+      console.log("- repair stats");
+      console.log(characterObject.basics.name);
+      for (var key in characterObject.statistics.stats) {
+        var score = parseInt(characterObject.statistics.stats[key].score, 10);
+        console.log(key, characterObject.statistics.stats[key].score, "score", score);
+        var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
+        var newTempScore;
+        characterObject.statistics.stats[key].base = score;
+        if (!isNaN(tempScore)) {
+          newTempScore = tempScore - score;
+          characterObject.statistics.stats[key].temp = newTempScore;
+        };
+        delete characterObject.statistics.stats[key].score;
+        delete characterObject.statistics.stats[key].temp_score;
+        delete characterObject.statistics.stats[key].temp_modifier;
+      };
+      console.log("=============================================");
+    };
     // update attack types
     if (characterObject.offense.attack.melee.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {

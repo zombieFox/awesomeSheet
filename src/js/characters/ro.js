@@ -82,40 +82,58 @@ var ro = (function() {
     statistics: {
       stats: {
         str: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 21,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 5,
+          base: 17,
+          current: 21,
+          racial: 2,
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 12,
+          current: 10,
+          racial: -2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 18,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 4,
+          base: 14,
+          current: 18,
+          racial: 2,
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 7,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -2,
+          base: 7,
+          current: 7,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
