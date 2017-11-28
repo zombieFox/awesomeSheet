@@ -4,11 +4,10 @@ var repair = (function() {
     // console.log("fire repair update");
     // update stats
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
-      console.log("- repair stats");
-      console.log(characterObject.basics.name);
+      // console.log(characterObject.basics.name);
       for (var key in characterObject.statistics.stats) {
         var score = parseInt(characterObject.statistics.stats[key].score, 10);
-        console.log(key, characterObject.statistics.stats[key].score, "score", score);
+        // console.log(key, characterObject.statistics.stats[key].score, "score", score);
         var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
         var newTempScore;
         characterObject.statistics.stats[key].base = score;
@@ -20,7 +19,6 @@ var repair = (function() {
         delete characterObject.statistics.stats[key].temp_score;
         delete characterObject.statistics.stats[key].temp_modifier;
       };
-      console.log("=============================================");
     };
     // update attack types
     if (characterObject.offense.attack.melee.length > 0) {
@@ -70,6 +68,9 @@ var repair = (function() {
         oldXp = characterObject.basics.xp;
       } else if (typeof characterObject.basics.xp == "string") {
         oldXp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+      };
+      if (isNaN(oldXp)) {
+        oldXp = "";
       };
       characterObject.basics.xp = {};
       characterObject.basics.xp.total = oldXp;
