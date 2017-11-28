@@ -82,40 +82,58 @@ var blank = (function() {
     statistics: {
       stats: {
         str: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         dex: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         con: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         int: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         wis: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         cha: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         }
       },
       feats: "",
