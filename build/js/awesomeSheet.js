@@ -546,40 +546,58 @@ var blank = (function() {
     statistics: {
       stats: {
         str: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         dex: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         con: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         int: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         wis: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         cha: {
-          score: "",
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: "",
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         }
       },
       feats: "",
@@ -1730,40 +1748,58 @@ var izlara = (function() {
     statistics: {
       stats: {
         str: {
-          score: 12,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 10,
+          enhancement: 2,
+          misc: "",
+          racial: "",
+          temp: ""
         },
         dex: {
-          score: 16,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 12,
+          enhancement: 2,
+          misc: "",
+          racial: 2,
+          temp: ""
         },
         con: {
-          score: 14,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 14,
+          enhancement: 2,
+          misc: "",
+          racial: -2,
+          temp: ""
         },
         int: {
-          score: 28,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 22,
+          enhancement: 4,
+          misc: "",
+          racial: 2,
+          temp: ""
         },
         wis: {
-          score: 16,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 12,
+          enhancement: 4,
+          misc: "",
+          racial: "",
+          temp: ""
         },
         cha: {
-          score: 16,
+          current: "",
           modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          base: 12,
+          enhancement: 4,
+          misc: "",
+          racial: "",
+          temp: ""
         }
       },
       feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
@@ -4117,40 +4153,58 @@ var ravich = (function() {
     statistics: {
       stats: {
         str: {
-          score: 18,
-          modifier: 4,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 16,
+          enhancement: 2,
+          misc: "",
+          racial: "",
+          temp: ""
         },
         dex: {
-          score: 20,
-          modifier: 5,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 16,
+          enhancement: 2,
+          misc: "",
+          racial: 2,
+          temp: ""
         },
         con: {
-          score: 13,
-          modifier: 1,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 13,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         int: {
-          score: 13,
-          modifier: 1,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 13,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: 1,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 12,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: -2
         },
         cha: {
-          score: 10,
-          modifier: 0,
-          temp_score: "",
-          temp_modifier: ""
+          current: "",
+          modifier: "",
+          base: 10,
+          enhancement: "",
+          misc: "",
+          racial: "",
+          temp: ""
         }
       },
       feats: "Weapon Finesse, Weapon Focus (Rapier), Improved Initiative, Deft Hands, Acrobatic, Toughness, Two-Weapon Fighting, Magical Aptitude, Great Fortitude",
@@ -5892,40 +5946,58 @@ var marika = (function() {
     statistics: {
       stats: {
         str: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 26,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 8,
+          base: 20,
+          current: 26,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 9,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -1,
+          base: 9,
+          current: 9,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",
@@ -7169,40 +7241,58 @@ var nefi = (function() {
     statistics: {
       stats: {
         str: {
-          score: 21,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 5,
+          base: 15,
+          current: 21,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 16,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 3,
+          base: 14,
+          current: 16,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 13,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 13,
+          current: 13,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 10,
+          current: 12,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 8,
+          current: 10,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Focus (Guisarme), Iron Will, Great Fortitude, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Weapon Specialization (Guisarme), Furious Focus",
@@ -8402,40 +8492,58 @@ var nif = (function() {
     statistics: {
       stats: {
         str: {
-          score: 8,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -1,
+          base: 8,
+          current: 8,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 17,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 3,
+          base: 15,
+          current: 17,
+          racial: 2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 14,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 2,
+          base: 16,
+          current: 14,
+          racial: -2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 26,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 8,
+          base: 20,
+          current: 26,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
@@ -10133,40 +10241,58 @@ var orrin = (function() {
     statistics: {
       stats: {
         str: {
-          score: 13,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 13,
+          current: 13,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 24,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 7,
+          base: 18,
+          current: 24,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 16,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 3,
+          base: 12,
+          current: 16,
+          racial: "",
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 7,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -2,
+          base: 7,
+          current: 7,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude, Iron Will",
@@ -11456,40 +11582,58 @@ var ro = (function() {
     statistics: {
       stats: {
         str: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 21,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 5,
+          base: 17,
+          current: 21,
+          racial: 2,
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 12,
+          current: 10,
+          racial: -2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 18,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 4,
+          base: 14,
+          current: 18,
+          racial: 2,
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 7,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -2,
+          base: 7,
+          current: 7,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
@@ -13002,40 +13146,58 @@ var vos = (function() {
     statistics: {
       stats: {
         str: {
-          score: 19,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 4,
+          base: 17,
+          current: 19,
+          racial: "",
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 14,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 2,
+          base: 14,
+          current: 14,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 10,
+          current: 12,
+          racial: 2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 18,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 4,
+          base: 14,
+          current: 18,
+          racial: 2,
+          enhancement: 2,
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 7,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -2,
+          base: 9,
+          current: 7,
+          racial: -2,
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Focus (Unarmed Strike), Improved Grapple, Dodge, Extra Ki, Improved Disarm, Extra Ki, Combat Reflexes, Great Fortitude",
@@ -16900,17 +17062,7 @@ var encumbrance = (function() {
   var changeEncumbranceTimer = null;
 
   function bind(input) {
-    var statsStrScore = helper.e("#statistics-stats-str-score");
-    var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
     var equipmentEncumbranceEncumbranceStr = helper.e("#equipment-encumbrance-encumbrance-str");
-    statsStrScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
-    }, false);
-    statsStrTempScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
-    }, false);
     equipmentEncumbranceEncumbranceStr.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);
@@ -17766,7 +17918,10 @@ var inputBlock = (function() {
         // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
         if (type == "integer" && typeof content == "string") {
-          content = "";
+          content = parseInt(content, 10);
+          if (isNaN(content)) {
+            content = "";
+          };
         };
         inputBlockField.value = content;
       };
@@ -18285,10 +18440,8 @@ var nav = (function() {
   };
 
   function _switch_character(characterLink) {
-    var newIndex = characterLink.dataset.characterIndex;
-    sheet.setIndex(newIndex);
-    sheet.clear();
-    sheet.render();
+    var newIndex = parseInt(characterLink.dataset.characterIndex, 10);
+    sheet.switch(newIndex);
     var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
       name = "New character";
@@ -19069,6 +19222,24 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update stats
+    if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
+      console.log(characterObject.basics.name);
+      for (var key in characterObject.statistics.stats) {
+        var score = parseInt(characterObject.statistics.stats[key].score, 10);
+        var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
+        console.log(key, "new score = ", score, "\t\ttempScore = ", tempScore);
+        characterObject.statistics.stats[key].base = score;
+        if (!isNaN(tempScore)) {
+          characterObject.statistics.stats[key].temp = (tempScore - score);
+        } else {
+          characterObject.statistics.stats[key].temp = "";
+        };
+        delete characterObject.statistics.stats[key].score;
+        delete characterObject.statistics.stats[key].temp_score;
+        delete characterObject.statistics.stats[key].temp_modifier;
+      };
+    };
     // update attack types
     if (characterObject.offense.attack.melee.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
@@ -19117,6 +19288,9 @@ var repair = (function() {
         oldXp = characterObject.basics.xp;
       } else if (typeof characterObject.basics.xp == "string") {
         oldXp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
+      };
+      if (isNaN(oldXp)) {
+        oldXp = "";
       };
       characterObject.basics.xp = {};
       characterObject.basics.xp.total = oldXp;
@@ -19537,7 +19711,7 @@ var sheet = (function() {
 
   var setCurrentCharacterIndex = (function() {
     if (helper.read("charactersIndex")) {
-      currentCharacterIndex = helper.read("charactersIndex");
+      currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
     };
   })();
 
@@ -19563,9 +19737,6 @@ var sheet = (function() {
   };
 
   function addCharacter(newCharacter) {
-    if (newCharacter) {
-      newCharacter = repair.render(newCharacter);
-    };
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
     var newIndex = getAllCharacters().length - 1;
@@ -19796,9 +19967,6 @@ var sheet = (function() {
 
   function render() {
     repair.render(getCharacter(getIndex()));
-    // for (var i = 0; i < allCharacters.length; i++) {
-    //   repair.render(allCharacters[i]);
-    // };
     stats.render();
     clone.render();
     classes.render();
@@ -19843,7 +20011,6 @@ var sheet = (function() {
   };
 
   function clear() {
-    stats.render();
     totalBlock.clear();
     clone.clear();
     textBlock.clear();
@@ -20947,29 +21114,38 @@ var stats = (function() {
     var stats = helper.eA(".js-stats");
     for (var i = 0; i < stats.length; i++) {
       _render_stat(stats[i]);
+      _render_modifer(stats[i]);
     };
   };
 
   function _render_stat(element) {
-    var statsScore = element.querySelector(".js-stats-score");
-    var statsModifier = element.querySelector(".js-stats-modifier");
-    var statsTempScore = element.querySelector(".js-stats-temp-score");
-    var statsTempModifier = element.querySelector(".js-stats-temp-modifier");
-    _changeModifer(statsScore, statsModifier);
-    _changeModifer(statsTempScore, statsTempModifier);
+    var path = element.dataset.path;
+    var totalObject = helper.getObject(sheet.getCharacter(), path);
+    var grandTotal;
+    var toSum = [];
+    for (var key in totalObject) {
+      if (key == "base" || key == "enhancement" || key == "misc" || key == "racial" || key == "temp") {
+        if (totalObject[key] != "") {
+          toSum.push(totalObject[key]);
+        };
+      };
+    };
+    if (toSum.length > 0) {
+      grandTotal = toSum.reduce(function(a, b) {
+        return a + b;
+      });
+    } else {
+      grandTotal = 0;
+    };
+    path = path + ".current";
+    helper.setObject(sheet.getCharacter(), path, grandTotal);
   };
 
-  function _changeModifer(scoreElement, totalElement) {
-    var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), scoreElement.dataset.path));
-    var path = totalElement.dataset.path;
-    // store the modifier
-    helper.setObject(sheet.getCharacter(), path, modifier);
-    // add a + if greater than 0
-    if (modifier > 0) {
-      modifier = "+" + modifier
-    };
-    // render modifier
-    totalElement.textContent = modifier;
+  function _render_modifer(element) {
+    var path = element.dataset.path + ".current";
+    var modifierPath = element.dataset.path + ".modifier";
+    var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), path));
+    helper.setObject(sheet.getCharacter(), modifierPath, modifier);
   };
 
   function _calculateModifer(value) {
@@ -20980,10 +21156,12 @@ var stats = (function() {
     return modifier;
   };
 
-  var changeModiferTimer = null;
+  var renderTimer = null;
 
   function delayUpdate(element) {
     _render_stat(element);
+    _render_modifer(element);
+    encumbrance.render();
     classes.render();
     textBlock.render();
     totalBlock.render();
@@ -20994,41 +21172,30 @@ var stats = (function() {
   };
 
   function bind() {
-    _bind_all_stats();
+    _bind_all_statField();
   };
 
-  function _bind_all_stats() {
-    var score = helper.eA(".js-stats-score");
-    var tempScore = helper.eA(".js-stats-temp-score");
-    for (var i = 0; i < score.length; i++) {
-      score[i].addEventListener("input", function() {
-        clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
-      }, false);
-    };
-    for (var i = 0; i < tempScore.length; i++) {
-      tempScore[i].addEventListener("input", function() {
-        clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
+  function _bind_all_statField() {
+    var all_statsField = helper.eA(".js-stats-field");
+    for (var i = 0; i < all_statsField.length; i++) {
+      all_statsField[i].addEventListener("input", function() {
+        clearTimeout(renderTimer);
+        renderTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
   };
 
   function get_score(key) {
     var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
-      value = sheet.getCharacter().statistics.stats[key].temp_score;
-    } else {
-      value = sheet.getCharacter().statistics.stats[key].score;
+    if (sheet.getCharacter().statistics.stats[key].current != "") {
+      value = sheet.getCharacter().statistics.stats[key].current;
     };
     return value;
   };
 
   function get_mod(key) {
     var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
-      value = sheet.getCharacter().statistics.stats[key].temp_modifier;
-    } else {
+    if (sheet.getCharacter().statistics.stats[key].modifier != "") {
       value = sheet.getCharacter().statistics.stats[key].modifier;
     };
     return value;
@@ -21217,6 +21384,10 @@ var textBlock = (function() {
           });
         } else {
           content = 0;
+        };
+      } else if (textType == "bonus") {
+        if (content != "" && content > 0) {
+          content = "+" + content;
         };
       };
     };
@@ -22208,6 +22379,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.29.0",
+    list: [
+      "*Improved the Stat and Modifier inputs. You may have to review your stats as new options for Racial, Enhancement and Misc modifiers are now available."
+    ]
+  }, {
     version: "3.28.0",
     list: [
       "Added Weapon Type to each attack block."

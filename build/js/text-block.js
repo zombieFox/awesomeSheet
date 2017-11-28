@@ -31,6 +31,10 @@ var textBlock = (function() {
         } else {
           content = 0;
         };
+      } else if (textType == "bonus") {
+        if (content != "" && content > 0) {
+          content = "+" + content;
+        };
       };
     };
     textBlock.textContent = content;

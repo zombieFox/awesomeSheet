@@ -4,29 +4,38 @@ var stats = (function() {
     var stats = helper.eA(".js-stats");
     for (var i = 0; i < stats.length; i++) {
       _render_stat(stats[i]);
+      _render_modifer(stats[i]);
     };
   };
 
   function _render_stat(element) {
-    var statsScore = element.querySelector(".js-stats-score");
-    var statsModifier = element.querySelector(".js-stats-modifier");
-    var statsTempScore = element.querySelector(".js-stats-temp-score");
-    var statsTempModifier = element.querySelector(".js-stats-temp-modifier");
-    _changeModifer(statsScore, statsModifier);
-    _changeModifer(statsTempScore, statsTempModifier);
+    var path = element.dataset.path;
+    var totalObject = helper.getObject(sheet.getCharacter(), path);
+    var grandTotal;
+    var toSum = [];
+    for (var key in totalObject) {
+      if (key == "base" || key == "enhancement" || key == "misc" || key == "racial" || key == "temp") {
+        if (totalObject[key] != "") {
+          toSum.push(totalObject[key]);
+        };
+      };
+    };
+    if (toSum.length > 0) {
+      grandTotal = toSum.reduce(function(a, b) {
+        return a + b;
+      });
+    } else {
+      grandTotal = 0;
+    };
+    path = path + ".current";
+    helper.setObject(sheet.getCharacter(), path, grandTotal);
   };
 
-  function _changeModifer(scoreElement, totalElement) {
-    var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), scoreElement.dataset.path));
-    var path = totalElement.dataset.path;
-    // store the modifier
-    helper.setObject(sheet.getCharacter(), path, modifier);
-    // add a + if greater than 0
-    if (modifier > 0) {
-      modifier = "+" + modifier
-    };
-    // render modifier
-    totalElement.textContent = modifier;
+  function _render_modifer(element) {
+    var path = element.dataset.path + ".current";
+    var modifierPath = element.dataset.path + ".modifier";
+    var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), path));
+    helper.setObject(sheet.getCharacter(), modifierPath, modifier);
   };
 
   function _calculateModifer(value) {
@@ -37,10 +46,12 @@ var stats = (function() {
     return modifier;
   };
 
-  var changeModiferTimer = null;
+  var renderTimer = null;
 
   function delayUpdate(element) {
     _render_stat(element);
+    _render_modifer(element);
+    encumbrance.render();
     classes.render();
     textBlock.render();
     totalBlock.render();
@@ -51,41 +62,30 @@ var stats = (function() {
   };
 
   function bind() {
-    _bind_all_stats();
+    _bind_all_statField();
   };
 
-  function _bind_all_stats() {
-    var score = helper.eA(".js-stats-score");
-    var tempScore = helper.eA(".js-stats-temp-score");
-    for (var i = 0; i < score.length; i++) {
-      score[i].addEventListener("input", function() {
-        clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
-      }, false);
-    };
-    for (var i = 0; i < tempScore.length; i++) {
-      tempScore[i].addEventListener("input", function() {
-        clearTimeout(changeModiferTimer);
-        changeModiferTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
+  function _bind_all_statField() {
+    var all_statsField = helper.eA(".js-stats-field");
+    for (var i = 0; i < all_statsField.length; i++) {
+      all_statsField[i].addEventListener("input", function() {
+        clearTimeout(renderTimer);
+        renderTimer = setTimeout(delayUpdate, 350, helper.getClosest(this, ".js-stats"));
       }, false);
     };
   };
 
   function get_score(key) {
     var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
-      value = sheet.getCharacter().statistics.stats[key].temp_score;
-    } else {
-      value = sheet.getCharacter().statistics.stats[key].score;
+    if (sheet.getCharacter().statistics.stats[key].current != "") {
+      value = sheet.getCharacter().statistics.stats[key].current;
     };
     return value;
   };
 
   function get_mod(key) {
     var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].temp_score != "") {
-      value = sheet.getCharacter().statistics.stats[key].temp_modifier;
-    } else {
+    if (sheet.getCharacter().statistics.stats[key].modifier != "") {
       value = sheet.getCharacter().statistics.stats[key].modifier;
     };
     return value;
