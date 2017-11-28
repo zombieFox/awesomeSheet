@@ -1,8 +1,8 @@
 # awesomeSheet - Pathfinder Character Sheet
 **A dynamic character sheet which auto calculates many scores and bonuses.**
-### [See it in action](http://zombiefox.github.io/awesomeSheet/)
+### [See it in action](https://zombiefox.github.io/awesomeSheet/)
 
-[<img src="https://github.com/zombieFox/awesomeSheet/raw/master/screenshots/demo.gif">](http://zombiefox.github.io/awesomeSheet/)
+[<img src="https://github.com/zombieFox/awesomeSheet/raw/master/screenshots/demo.gif">](https://zombiefox.github.io/awesomeSheet/)
 
 ## Features
 
