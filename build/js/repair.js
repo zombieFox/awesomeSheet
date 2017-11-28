@@ -4,11 +4,11 @@ var repair = (function() {
     // console.log("fire repair update");
     // update stats
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
-      console.log(characterObject.basics.name);
+      // console.log(characterObject.basics.name);
       for (var key in characterObject.statistics.stats) {
         var score = parseInt(characterObject.statistics.stats[key].score, 10);
         var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
-        console.log(key, "new score = ", score, "\t\ttempScore = ", tempScore);
+        // console.log(key, "new score = ", score, "\t\ttempScore = ", tempScore);
         characterObject.statistics.stats[key].base = score;
         if (!isNaN(tempScore)) {
           characterObject.statistics.stats[key].temp = (tempScore - score);
