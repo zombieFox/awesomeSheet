@@ -562,7 +562,10 @@ var inputBlock = (function() {
         // console.log(inputBlock.dataset.cloneCount);
         var content = helper.getObject(sheet.getCharacter(), path);
         if (type == "integer" && typeof content == "string") {
-          content = "";
+          content = parseInt(content, 10);
+          if (isNaN(content)) {
+            content = "";
+          };
         };
         inputBlockField.value = content;
       };

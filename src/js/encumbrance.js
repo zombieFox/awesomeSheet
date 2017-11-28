@@ -3,17 +3,7 @@ var encumbrance = (function() {
   var changeEncumbranceTimer = null;
 
   function bind(input) {
-    var statsStrScore = helper.e("#statistics-stats-str-score");
-    var statsStrTempScore = helper.e("#statistics-stats-str-temp-score");
     var equipmentEncumbranceEncumbranceStr = helper.e("#equipment-encumbrance-encumbrance-str");
-    statsStrScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
-    }, false);
-    statsStrTempScore.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
-    }, false);
     equipmentEncumbranceEncumbranceStr.addEventListener("input", function() {
       clearTimeout(changeEncumbranceTimer);
       changeEncumbranceTimer = setTimeout(update, 350);

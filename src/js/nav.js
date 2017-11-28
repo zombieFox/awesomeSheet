@@ -71,10 +71,8 @@ var nav = (function() {
   };
 
   function _switch_character(characterLink) {
-    var newIndex = characterLink.dataset.characterIndex;
-    sheet.setIndex(newIndex);
-    sheet.clear();
-    sheet.render();
+    var newIndex = parseInt(characterLink.dataset.characterIndex, 10);
+    sheet.switch(newIndex);
     var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
       name = "New character";

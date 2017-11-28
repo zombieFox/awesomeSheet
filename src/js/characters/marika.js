@@ -82,40 +82,58 @@ var marika = (function() {
     statistics: {
       stats: {
         str: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 26,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 8,
+          base: 20,
+          current: 26,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 10,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 0,
+          base: 10,
+          current: 10,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 9,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -1,
+          base: 9,
+          current: 9,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",

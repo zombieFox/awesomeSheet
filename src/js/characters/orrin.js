@@ -82,40 +82,58 @@ var orrin = (function() {
     statistics: {
       stats: {
         str: {
-          score: 13,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 13,
+          current: 13,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         dex: {
-          score: 24,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 7,
+          base: 18,
+          current: 24,
+          racial: 2,
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         con: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         int: {
-          score: 16,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 3,
+          base: 12,
+          current: 16,
+          racial: "",
+          enhancement: 4,
+          misc: "",
+          temp: ""
         },
         wis: {
-          score: 12,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: 1,
+          base: 12,
+          current: 12,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         },
         cha: {
-          score: 7,
-          modifier: "",
-          temp_score: "",
-          temp_modifier: ""
+          modifier: -2,
+          base: 7,
+          current: 7,
+          racial: "",
+          enhancement: "",
+          misc: "",
+          temp: ""
         }
       },
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude, Iron Will",
