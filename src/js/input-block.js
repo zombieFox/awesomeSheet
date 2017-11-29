@@ -244,7 +244,7 @@ var inputBlock = (function() {
       input.value = "";
       var type = input.dataset.eventType;
       var eventObject = {
-        aggregateValue: valueToApply
+        aggregate_value: valueToApply
       };
       events.store(type, eventObject);
     };
@@ -262,7 +262,7 @@ var inputBlock = (function() {
       input.value = "";
       var type = button.dataset.eventType;
       var eventObject = {
-        aggregateValue: valueToApply
+        aggregate_value: valueToApply
       };
       events.store(type, eventObject);
     };
