@@ -9,5 +9,6 @@
   log.render();
   night.update();
   checkUrl.render();
+  checkUrl.checkHttps();
 
 })();

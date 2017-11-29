@@ -14823,6 +14823,13 @@ var characterImage = (function() {
 
 var checkUrl = (function() {
 
+  function checkHttps() {
+    var host = "zombiefox.github.io"
+    if (window.location.host == host && window.location.protocol != "https:") {
+      window.location.protocol = "https:"
+    };
+  };
+
   function render() {
     if (helper.getUrlParameter("sheet")) {
       _reset();
@@ -14863,7 +14870,8 @@ var checkUrl = (function() {
 
   // exposed methods
   return {
-    render: render
+    render: render,
+    checkHttps: checkHttps,
   };
 
 })();
@@ -22756,5 +22764,6 @@ var xp = (function() {
   log.render();
   night.update();
   checkUrl.render();
+  checkUrl.checkHttps();
 
 })();
