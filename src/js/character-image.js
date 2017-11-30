@@ -38,44 +38,44 @@ var characterImage = (function() {
       resizeTimer = setTimeout(_delayResize, 350, this);
     }, false);
     characterImageScaleDecrease.addEventListener("click", function() {
-      _resize();
+      resize();
     }, false);
     characterImageScaleIncrease.addEventListener("click", function() {
-      _resize();
+      resize();
     }, false);
 
     characterImagePositionXInput.addEventListener("input", function() {
       resizeTimer = setTimeout(_delayResize, 350, this);
     }, false);
     characterImagePositionXDecrease.addEventListener("click", function() {
-      _resize();
+      resize();
     }, false);
     characterImagePositionXIncrease.addEventListener("click", function() {
-      _resize();
+      resize();
     }, false);
 
     characterImagePositionYInput.addEventListener("input", function() {
       resizeTimer = setTimeout(_delayResize, 350, this);
     }, false);
     characterImagePositionYDecrease.addEventListener("click", function() {
-      _resize();
+      resize();
     }, false);
     characterImagePositionYIncrease.addEventListener("click", function() {
-      _resize();
+      resize();
     }, false);
 
     characterImageScaleCover.addEventListener("click", function() {
-      _resize("cover", "center");
+      resize("cover", "center");
       _update_all_input();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      _resize("contain", "center");
+      resize("contain", "center");
       _update_all_input();
       sheet.storeCharacters();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
-      _resize(false, "center");
+      resize(false, "center");
       _update_all_input();
       sheet.storeCharacters();
     }, false);
@@ -92,7 +92,7 @@ var characterImage = (function() {
   };
 
   function _delayResize() {
-    _resize();
+    resize();
   };
 
   function _delayBakcground() {
@@ -128,7 +128,7 @@ var characterImage = (function() {
           _create_image();
           _render_background();
           _calculateSizes();
-          _resize();
+          resize();
           _update_all_input();
           _update_all_radio();
           _clearInput();
@@ -222,7 +222,7 @@ var characterImage = (function() {
       image.setAttribute("class", "m-character-image js-character-image");
       image.src = imageBase64;
       characterImagePreview.appendChild(image);
-      _resize();
+      resize();
       _render_background();
     };
   };
@@ -277,7 +277,7 @@ var characterImage = (function() {
     helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
   };
 
-  function _resize(presetSize, presetPosition) {
+  function resize(presetSize, presetPosition) {
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     var characterImage = helper.e(".js-character-image");
     var scale;
@@ -382,6 +382,7 @@ var characterImage = (function() {
 
   // exposed methods
   return {
+    resize: resize,
     bind: bind,
     clear: clear,
     destroy: destroy,
