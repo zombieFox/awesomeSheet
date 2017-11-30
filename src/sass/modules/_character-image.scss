@@ -25,6 +25,25 @@
     box-sizing: border-box;
   }
 }
+.m-character-image-control-scale {
+  margin-bottom: 1em;
+}
+.m-character-image-control-horizontal {
+  margin-top: 1em;
+}
+.m-character-image-control-vertical {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .m-input-range-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-90deg) translate(-50%, -50%);
+    width: 15em;
+    transform-origin: top left;
+  }
+}
 .m-character-image {
   position: absolute;
   top: 50%;
