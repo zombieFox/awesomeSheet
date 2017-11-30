@@ -19236,7 +19236,7 @@ var repair = (function() {
         if (characterObject.events[i].event.aggregateValue) {
           characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
           delete characterObject.events[i].event.aggregateValue;
-          console.log(characterObject.events[i].event);
+          // console.log(characterObject.events[i].event);
         };
       };
     };
