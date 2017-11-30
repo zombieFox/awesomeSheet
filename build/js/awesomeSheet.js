@@ -3618,7 +3618,7 @@ var izlara = (function() {
     events: [{
       type: "xp",
       event: {
-        aggregateValue: 60000
+        aggregate_value: 60000
       },
       timestamp: {
         date: 13,
@@ -3633,7 +3633,7 @@ var izlara = (function() {
     }, {
       type: "platinum",
       event: {
-        aggregateValue: 35
+        aggregate_value: 35
       },
       timestamp: {
         date: 6,
@@ -3648,7 +3648,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 40000
+        aggregate_value: 40000
       },
       timestamp: {
         date: 6,
@@ -3663,7 +3663,7 @@ var izlara = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -1595
+        aggregate_value: -1595
       },
       timestamp: {
         date: 29,
@@ -3678,7 +3678,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 6000
+        aggregate_value: 6000
       },
       timestamp: {
         date: 29,
@@ -3693,7 +3693,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 9900
+        aggregate_value: 9900
       },
       timestamp: {
         date: 22,
@@ -3708,7 +3708,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 20050
+        aggregate_value: 20050
       },
       timestamp: {
         date: 15,
@@ -3723,7 +3723,7 @@ var izlara = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 8,
@@ -3738,7 +3738,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 8050
+        aggregate_value: 8050
       },
       timestamp: {
         date: 8,
@@ -3753,7 +3753,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 6000
+        aggregate_value: 6000
       },
       timestamp: {
         date: 1,
@@ -3768,7 +3768,7 @@ var izlara = (function() {
     }, {
       type: "silver",
       event: {
-        aggregateValue: -38
+        aggregate_value: -38
       },
       timestamp: {
         date: 25,
@@ -3783,7 +3783,7 @@ var izlara = (function() {
     }, {
       type: "silver",
       event: {
-        aggregateValue: 40
+        aggregate_value: 40
       },
       timestamp: {
         date: 25,
@@ -3798,7 +3798,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 25,
@@ -3813,7 +3813,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 20100
+        aggregate_value: 20100
       },
       timestamp: {
         date: 18,
@@ -3828,7 +3828,7 @@ var izlara = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 4500
+        aggregate_value: 4500
       },
       timestamp: {
         date: 11,
@@ -3843,7 +3843,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 10900
+        aggregate_value: 10900
       },
       timestamp: {
         date: 11,
@@ -3858,7 +3858,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 4000
+        aggregate_value: 4000
       },
       timestamp: {
         date: 4,
@@ -3873,7 +3873,7 @@ var izlara = (function() {
     }, {
       type: "platinum",
       event: {
-        aggregateValue: 20
+        aggregate_value: 20
       },
       timestamp: {
         date: 25,
@@ -3888,7 +3888,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 9000
+        aggregate_value: 9000
       },
       timestamp: {
         date: 25,
@@ -3903,7 +3903,7 @@ var izlara = (function() {
     }, {
       type: "silver",
       event: {
-        aggregateValue: 100
+        aggregate_value: 100
       },
       timestamp: {
         date: 18,
@@ -3918,7 +3918,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 5500
+        aggregate_value: 5500
       },
       timestamp: {
         date: 18,
@@ -3933,7 +3933,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 2500
+        aggregate_value: 2500
       },
       timestamp: {
         date: 11,
@@ -3948,7 +3948,7 @@ var izlara = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 2500
+        aggregate_value: 2500
       },
       timestamp: {
         date: 4,
@@ -3963,7 +3963,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 6000
+        aggregate_value: 6000
       },
       timestamp: {
         date: 4,
@@ -3978,7 +3978,7 @@ var izlara = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 1000
+        aggregate_value: 1000
       },
       timestamp: {
         date: 28,
@@ -3993,7 +3993,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 28,
@@ -4008,7 +4008,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 4500
+        aggregate_value: 4500
       },
       timestamp: {
         date: 21,
@@ -4023,7 +4023,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 14,
@@ -4038,7 +4038,7 @@ var izlara = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 500
+        aggregate_value: 500
       },
       timestamp: {
         date: 7,
@@ -5375,7 +5375,7 @@ var ravich = (function() {
     events: [{
       type: "platinum",
       event: {
-        aggregateValue: 90
+        aggregate_value: 90
       },
       timestamp: {
         date: 13,
@@ -5390,7 +5390,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 7655
+        aggregate_value: 7655
       },
       timestamp: {
         date: 13,
@@ -5405,7 +5405,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 1210
+        aggregate_value: 1210
       },
       timestamp: {
         date: 13,
@@ -5420,7 +5420,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 5600
+        aggregate_value: 5600
       },
       timestamp: {
         date: 5,
@@ -5435,7 +5435,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 8700
+        aggregate_value: 8700
       },
       timestamp: {
         date: 28,
@@ -5450,7 +5450,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 28,
@@ -5465,7 +5465,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -5000
+        aggregate_value: -5000
       },
       timestamp: {
         date: 21,
@@ -5480,7 +5480,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 90
+        aggregate_value: 90
       },
       timestamp: {
         date: 21,
@@ -5495,7 +5495,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3600
+        aggregate_value: 3600
       },
       timestamp: {
         date: 21,
@@ -5510,7 +5510,7 @@ var ravich = (function() {
     }, {
       type: "silver",
       event: {
-        aggregateValue: 50
+        aggregate_value: 50
       },
       timestamp: {
         date: 14,
@@ -5525,7 +5525,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -3700
+        aggregate_value: -3700
       },
       timestamp: {
         date: 14,
@@ -5540,7 +5540,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 5440
+        aggregate_value: 5440
       },
       timestamp: {
         date: 14,
@@ -5555,7 +5555,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 4430
+        aggregate_value: 4430
       },
       timestamp: {
         date: 14,
@@ -5570,7 +5570,7 @@ var ravich = (function() {
     }, {
       type: "platinum",
       event: {
-        aggregateValue: 20
+        aggregate_value: 20
       },
       timestamp: {
         date: 14,
@@ -5585,7 +5585,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -3500
+        aggregate_value: -3500
       },
       timestamp: {
         date: 31,
@@ -5600,7 +5600,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3400
+        aggregate_value: 3400
       },
       timestamp: {
         date: 31,
@@ -5615,7 +5615,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 5327
+        aggregate_value: 5327
       },
       timestamp: {
         date: 31,
@@ -5630,7 +5630,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -400
+        aggregate_value: -400
       },
       timestamp: {
         date: 24,
@@ -5645,7 +5645,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -1000
+        aggregate_value: -1000
       },
       timestamp: {
         date: 24,
@@ -5660,7 +5660,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 4500
+        aggregate_value: 4500
       },
       timestamp: {
         date: 24,
@@ -5675,7 +5675,7 @@ var ravich = (function() {
     }, {
       type: "platinum",
       event: {
-        aggregateValue: 10
+        aggregate_value: 10
       },
       timestamp: {
         date: 24,
@@ -5690,7 +5690,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 24,
@@ -5705,7 +5705,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -50
+        aggregate_value: -50
       },
       timestamp: {
         date: 17,
@@ -5720,7 +5720,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -400
+        aggregate_value: -400
       },
       timestamp: {
         date: 17,
@@ -5735,7 +5735,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -1000
+        aggregate_value: -1000
       },
       timestamp: {
         date: 17,
@@ -5750,7 +5750,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 17,
@@ -5765,7 +5765,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 17,
@@ -5780,7 +5780,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -400
+        aggregate_value: -400
       },
       timestamp: {
         date: 10,
@@ -5795,7 +5795,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 1050
+        aggregate_value: 1050
       },
       timestamp: {
         date: 10,
@@ -5810,7 +5810,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 10,
@@ -5825,7 +5825,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 450
+        aggregate_value: 450
       },
       timestamp: {
         date: 3,
@@ -5840,7 +5840,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 300
+        aggregate_value: 300
       },
       timestamp: {
         date: 3,
@@ -17172,7 +17172,7 @@ var events = (function() {
       type: type,
       event: eventObject,
       timestamp: helper.getDateTime()
-    }
+    };
     return newEvent;
   };
 
@@ -17207,12 +17207,12 @@ var events = (function() {
     var td2 = document.createElement("td");
     var para = document.createElement("p");
     var data;
-    if ("aggregateValue" in eventObject.event) {
-      data = eventObject.event.aggregateValue.toLocaleString(undefined, {
+    if ("aggregate_value" in eventObject.event) {
+      data = eventObject.event.aggregate_value.toLocaleString(undefined, {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
       });
-      if (eventObject.event.aggregateValue > 0) {
+      if (eventObject.event.aggregate_value > 0) {
         data = "+" + data;
       };
       if (eventLogType == "xp") {
@@ -17608,7 +17608,7 @@ var inputBlock = (function() {
       input.value = "";
       var type = input.dataset.eventType;
       var eventObject = {
-        aggregateValue: valueToApply
+        aggregate_value: valueToApply
       };
       events.store(type, eventObject);
     };
@@ -17626,7 +17626,7 @@ var inputBlock = (function() {
       input.value = "";
       var type = button.dataset.eventType;
       var eventObject = {
-        aggregateValue: valueToApply
+        aggregate_value: valueToApply
       };
       events.store(type, eventObject);
     };
@@ -19230,6 +19230,16 @@ var repair = (function() {
 
   function render(characterObject) {
     // console.log("fire repair update");
+    // update events
+    if (characterObject.events.length > 0) {
+      for (var i = 0; i < characterObject.events.length; i++) {
+        if (characterObject.events[i].event.aggregateValue) {
+          characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
+          delete characterObject.events[i].event.aggregateValue;
+          console.log(characterObject.events[i].event);
+        };
+      };
+    };
     // update stats
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
       // console.log(characterObject.basics.name);
@@ -22387,6 +22397,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.30.0",
+    list: [
+      "Improved Event logger."
+    ]
+  }, {
     version: "3.29.0",
     list: [
       "*Improved the Stat and Modifier inputs. You may have to review your stats as new options for Racial, Enhancement and Misc modifiers are now available."

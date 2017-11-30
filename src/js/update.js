@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.30.0",
+    list: [
+      "Improved Event logger."
+    ]
+  }, {
     version: "3.29.0",
     list: [
       "*Improved the Stat and Modifier inputs. You may have to review your stats as new options for Racial, Enhancement and Misc modifiers are now available."

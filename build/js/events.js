@@ -20,7 +20,7 @@ var events = (function() {
       type: type,
       event: eventObject,
       timestamp: helper.getDateTime()
-    }
+    };
     return newEvent;
   };
 
@@ -55,12 +55,12 @@ var events = (function() {
     var td2 = document.createElement("td");
     var para = document.createElement("p");
     var data;
-    if ("aggregateValue" in eventObject.event) {
-      data = eventObject.event.aggregateValue.toLocaleString(undefined, {
+    if ("aggregate_value" in eventObject.event) {
+      data = eventObject.event.aggregate_value.toLocaleString(undefined, {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
       });
-      if (eventObject.event.aggregateValue > 0) {
+      if (eventObject.event.aggregate_value > 0) {
         data = "+" + data;
       };
       if (eventLogType == "xp") {

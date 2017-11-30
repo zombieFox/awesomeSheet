@@ -1313,7 +1313,7 @@ var ravich = (function() {
     events: [{
       type: "platinum",
       event: {
-        aggregateValue: 90
+        aggregate_value: 90
       },
       timestamp: {
         date: 13,
@@ -1328,7 +1328,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 7655
+        aggregate_value: 7655
       },
       timestamp: {
         date: 13,
@@ -1343,7 +1343,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 1210
+        aggregate_value: 1210
       },
       timestamp: {
         date: 13,
@@ -1358,7 +1358,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 5600
+        aggregate_value: 5600
       },
       timestamp: {
         date: 5,
@@ -1373,7 +1373,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 8700
+        aggregate_value: 8700
       },
       timestamp: {
         date: 28,
@@ -1388,7 +1388,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 28,
@@ -1403,7 +1403,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -5000
+        aggregate_value: -5000
       },
       timestamp: {
         date: 21,
@@ -1418,7 +1418,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 90
+        aggregate_value: 90
       },
       timestamp: {
         date: 21,
@@ -1433,7 +1433,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3600
+        aggregate_value: 3600
       },
       timestamp: {
         date: 21,
@@ -1448,7 +1448,7 @@ var ravich = (function() {
     }, {
       type: "silver",
       event: {
-        aggregateValue: 50
+        aggregate_value: 50
       },
       timestamp: {
         date: 14,
@@ -1463,7 +1463,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -3700
+        aggregate_value: -3700
       },
       timestamp: {
         date: 14,
@@ -1478,7 +1478,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 5440
+        aggregate_value: 5440
       },
       timestamp: {
         date: 14,
@@ -1493,7 +1493,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 4430
+        aggregate_value: 4430
       },
       timestamp: {
         date: 14,
@@ -1508,7 +1508,7 @@ var ravich = (function() {
     }, {
       type: "platinum",
       event: {
-        aggregateValue: 20
+        aggregate_value: 20
       },
       timestamp: {
         date: 14,
@@ -1523,7 +1523,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -3500
+        aggregate_value: -3500
       },
       timestamp: {
         date: 31,
@@ -1538,7 +1538,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3400
+        aggregate_value: 3400
       },
       timestamp: {
         date: 31,
@@ -1553,7 +1553,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 5327
+        aggregate_value: 5327
       },
       timestamp: {
         date: 31,
@@ -1568,7 +1568,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -400
+        aggregate_value: -400
       },
       timestamp: {
         date: 24,
@@ -1583,7 +1583,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -1000
+        aggregate_value: -1000
       },
       timestamp: {
         date: 24,
@@ -1598,7 +1598,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 4500
+        aggregate_value: 4500
       },
       timestamp: {
         date: 24,
@@ -1613,7 +1613,7 @@ var ravich = (function() {
     }, {
       type: "platinum",
       event: {
-        aggregateValue: 10
+        aggregate_value: 10
       },
       timestamp: {
         date: 24,
@@ -1628,7 +1628,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 24,
@@ -1643,7 +1643,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -50
+        aggregate_value: -50
       },
       timestamp: {
         date: 17,
@@ -1658,7 +1658,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -400
+        aggregate_value: -400
       },
       timestamp: {
         date: 17,
@@ -1673,7 +1673,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -1000
+        aggregate_value: -1000
       },
       timestamp: {
         date: 17,
@@ -1688,7 +1688,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 3000
+        aggregate_value: 3000
       },
       timestamp: {
         date: 17,
@@ -1703,7 +1703,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 17,
@@ -1718,7 +1718,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: -400
+        aggregate_value: -400
       },
       timestamp: {
         date: 10,
@@ -1733,7 +1733,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 1050
+        aggregate_value: 1050
       },
       timestamp: {
         date: 10,
@@ -1748,7 +1748,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 2000
+        aggregate_value: 2000
       },
       timestamp: {
         date: 10,
@@ -1763,7 +1763,7 @@ var ravich = (function() {
     }, {
       type: "gold",
       event: {
-        aggregateValue: 450
+        aggregate_value: 450
       },
       timestamp: {
         date: 3,
@@ -1778,7 +1778,7 @@ var ravich = (function() {
     }, {
       type: "xp",
       event: {
-        aggregateValue: 300
+        aggregate_value: 300
       },
       timestamp: {
         date: 3,
