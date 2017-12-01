@@ -380,6 +380,43 @@ var characterImage = (function() {
     clear();
   };
 
+  // var img_ele = null,
+  //   x_cursor = 0,
+  //   y_cursor = 0,
+  //   x_img_ele = 0,
+  //   y_img_ele = 0;
+  //
+  // function start_drag() {
+  //   img_ele = this;
+  //   x_img_ele = window.event.clientX - helper.e('.js-character-image').offsetLeft;
+  //   y_img_ele = window.event.clientY - helper.e('.js-character-image').offsetTop;
+  //
+  // }
+  //
+  // function stop_drag() {
+  //   img_ele = null;
+  // }
+  //
+  // function while_drag() {
+  //   var x_cursor = window.event.clientX;
+  //   var y_cursor = window.event.clientY;
+  //   if (img_ele !== null) {
+  //     img_ele.style.left = (x_cursor - x_img_ele) + 'px';
+  //     img_ele.style.top = (window.event.clientY - y_img_ele) + 'px';
+  //     helper.setObject(sheet.getCharacter(), "basics.character_image.position.x", (x_cursor - x_img_ele));
+  //     helper.setObject(sheet.getCharacter(), "basics.character_image.position.y", (window.event.clientY - y_img_ele));
+  //     console.log(img_ele.style.left+' - '+img_ele.style.top);
+  //   }
+  // }
+  //
+  // helper.e('.js-character-image').addEventListener('mousedown', start_drag);
+  // helper.e('body').addEventListener('mousemove', while_drag);
+  // helper.e('body').addEventListener('mouseup', stop_drag);
+  //
+  //
+  //
+  // // -webkit-user-drag: none;
+
   // exposed methods
   return {
     resize: resize,
