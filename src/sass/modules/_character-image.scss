@@ -23,6 +23,7 @@
     border: 2px solid $white;
     box-shadow: 0 0 0 10em rgba($secondary-color-04, 0.75);
     box-sizing: border-box;
+    pointer-events: none;
   }
 }
 .m-character-image-control-scale {
@@ -46,10 +47,11 @@
 }
 .m-character-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   transform: translate(-50%, -50%);
-  transform-origin: top left;
+  transform-origin: center center;
+  -webkit-user-drag: none;
 }
 .m-character-image-input {
   position: absolute;

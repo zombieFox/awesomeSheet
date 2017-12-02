@@ -224,6 +224,7 @@ var characterImage = (function() {
       characterImagePreview.appendChild(image);
       resize();
       _render_background();
+      _bind_drag();
     };
   };
 
@@ -380,42 +381,35 @@ var characterImage = (function() {
     clear();
   };
 
-  // var img_ele = null,
-  //   x_cursor = 0,
-  //   y_cursor = 0,
-  //   x_img_ele = 0,
-  //   y_img_ele = 0;
-  //
-  // function start_drag() {
-  //   img_ele = this;
-  //   x_img_ele = window.event.clientX - helper.e('.js-character-image').offsetLeft;
-  //   y_img_ele = window.event.clientY - helper.e('.js-character-image').offsetTop;
-  //
-  // }
-  //
-  // function stop_drag() {
-  //   img_ele = null;
-  // }
-  //
-  // function while_drag() {
-  //   var x_cursor = window.event.clientX;
-  //   var y_cursor = window.event.clientY;
-  //   if (img_ele !== null) {
-  //     img_ele.style.left = (x_cursor - x_img_ele) + 'px';
-  //     img_ele.style.top = (window.event.clientY - y_img_ele) + 'px';
-  //     helper.setObject(sheet.getCharacter(), "basics.character_image.position.x", (x_cursor - x_img_ele));
-  //     helper.setObject(sheet.getCharacter(), "basics.character_image.position.y", (window.event.clientY - y_img_ele));
-  //     console.log(img_ele.style.left+' - '+img_ele.style.top);
-  //   }
-  // }
-  //
-  // helper.e('.js-character-image').addEventListener('mousedown', start_drag);
-  // helper.e('body').addEventListener('mousemove', while_drag);
-  // helper.e('body').addEventListener('mouseup', stop_drag);
-  //
-  //
-  //
-  // // -webkit-user-drag: none;
+  function _bind_drag() {
+    var image = null;
+    var cursorX = 0;
+    var cursorY = 0;
+    var imageX = 0;
+    var imageY = 0;
+    var dragStart = function() {
+      image = this;
+      imageX = window.event.clientX - helper.e('.js-character-image').offsetLeft;
+      imageY = window.event.clientY - helper.e('.js-character-image').offsetTop;
+    };
+    var dragStop = function() {
+      image = null;
+    };
+    var dragging = function() {
+      var cursorX = window.event.clientX;
+      var cursorY = window.event.clientY;
+      if (image !== null) {
+        image.style.left = (cursorX - imageX) + 'px';
+        image.style.top = (window.event.clientY - imageY) + 'px';
+        helper.setObject(sheet.getCharacter(), "basics.character_image.position.x", (cursorX - imageX));
+        helper.setObject(sheet.getCharacter(), "basics.character_image.position.y", (window.event.clientY - imageY));
+        console.log(image.style.left + ' - ' + image.style.top);
+      }
+    };
+    helper.e('.js-character-image').addEventListener('mousedown', dragStart);
+    helper.e('body').addEventListener('mousemove', dragging);
+    helper.e('body').addEventListener('mouseup', dragStop);
+  };
 
   // exposed methods
   return {
