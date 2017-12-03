@@ -2,6 +2,7 @@ var characterImage = (function() {
 
   var resizeTimer = null;
   var backgroundTimer = null;
+  var storeTimer = null;
 
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
@@ -190,7 +191,7 @@ var characterImage = (function() {
     _store_cover(cover);
     _store_contain(contain);
     _store_scale(scale);
-    _store_position(50, 50);
+    _store_position(0, 0);
   };
 
   function _create_image() {
@@ -297,8 +298,8 @@ var characterImage = (function() {
       };
       if (presetPosition) {
         if (presetPosition == "center") {
-          x = 50;
-          y = 50;
+          x = 0;
+          y = 0;
         };
         _store_position(x, y);
       } else {
@@ -309,15 +310,15 @@ var characterImage = (function() {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
       };
       if (x == "" && x != 0) {
-        x = 50;
+        x = 0;
       };
       if (y == "" && y != 0) {
-        y = 50;
+        y = 0;
       };
       // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
       characterImage.style.width = scale + "%";
-      characterImage.style.left = x + "%";
-      characterImage.style.top = y + "%";
+      characterImage.style.left = x + "px";
+      characterImage.style.top = y + "px";
     };
   };
 
@@ -387,28 +388,50 @@ var characterImage = (function() {
     var cursorY = 0;
     var imageX = 0;
     var imageY = 0;
-    var dragStart = function() {
-      image = this;
-      imageX = window.event.clientX - helper.e('.js-character-image').offsetLeft;
-      imageY = window.event.clientY - helper.e('.js-character-image').offsetTop;
+    var dragStart = function(x, y) {
+      image = helper.e('.js-character-image');
+      imageX = x - helper.e('.js-character-image').offsetLeft;
+      imageY = y - helper.e('.js-character-image').offsetTop;
     };
     var dragStop = function() {
       image = null;
+      sheet.storeCharacters();
     };
-    var dragging = function() {
-      var cursorX = window.event.clientX;
-      var cursorY = window.event.clientY;
+    var dragging = function(x, y) {
       if (image !== null) {
-        image.style.left = (cursorX - imageX) + 'px';
-        image.style.top = (window.event.clientY - imageY) + 'px';
-        helper.setObject(sheet.getCharacter(), "basics.character_image.position.x", (cursorX - imageX));
-        helper.setObject(sheet.getCharacter(), "basics.character_image.position.y", (window.event.clientY - imageY));
-        console.log(image.style.left + ' - ' + image.style.top);
-      }
+        var x = (x - imageX);
+        var y = (y - imageY);
+        image.style.left = x + 'px';
+        image.style.top = y + 'px';
+        helper.setObject(sheet.getCharacter(), "basics.character_image.position.x", x);
+        helper.setObject(sheet.getCharacter(), "basics.character_image.position.y", y);
+        console.log("x", x, "y", y);
+      };
     };
-    helper.e('.js-character-image').addEventListener('mousedown', dragStart);
-    helper.e('body').addEventListener('mousemove', dragging);
-    helper.e('body').addEventListener('mouseup', dragStop);
+    helper.e('.js-character-image-preview').addEventListener('mousedown', function(event) {
+      dragStart(window.event.clientX, window.event.clientY);
+      // dragStart(event);
+      // if (helper.getClosest(event.target, ".js-character-image-preview")) {
+      //   console.log(true);
+      // } else {
+      //   console.log(false);
+      // };
+    });
+    helper.e('body').addEventListener('mousemove', function(event) {
+      dragging(window.event.clientX, window.event.clientY);
+    });
+    helper.e('body').addEventListener('mouseup', function(event) {
+      dragStop(event, window.event.clientX, window.event.clientY);
+    });
+    helper.e('.js-character-image-preview').addEventListener('touchstart', function(event) {
+      dragStart(event.touches[0].clientX, event.touches[0].clientY);
+    });
+    helper.e('.js-character-image-preview').addEventListener('touchmove', function(event) {
+      dragging(event.touches[0].clientX, event.touches[0].clientY);
+    });
+    helper.e('.js-character-image-preview').addEventListener('touchend', function(event) {
+      dragStop();
+    });
   };
 
   // exposed methods

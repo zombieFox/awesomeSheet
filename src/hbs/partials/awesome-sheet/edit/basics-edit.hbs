@@ -1,4 +1,4 @@
-<div class="m-tab-panel js-tab-panel js-tab-panel-character-details">
+<div class="m-tab-panel js-tab-panel js-tab-panel-character-details is-hidden">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
@@ -301,7 +301,7 @@
 
 </div>
 
-<div class="m-tab-panel js-tab-panel js-tab-panel-character-image is-hidden">
+<div class="m-tab-panel js-tab-panel js-tab-panel-character-image">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
@@ -310,37 +310,13 @@
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-small">
-
-          <div class="m-character-image-control-vertical">
-            <div class="m-input-range-block js-input-range-block">
-              <label class="m-input-range-block-label js-input-range-block-label" for="basics-character-image-position-y">Vertical (%)</label>
-              <input class="m-input-range-block-field u-full-width js-input-range-block-field" id="basics-character-image-position-y" data-path="basics.character_image.position.y" data-type="integer" type="range" min="-200" max="200" tabindex="1">
-            </div>
-          </div>
-
-        </div>
-        <div class="m-edit-box-item-small">
-
+          <div class="m-character-image-preview js-character-image-preview"></div>
           <div class="m-character-image-control-scale">
             <div class="m-input-range-block js-input-range-block">
               <label class="m-input-range-block-label js-input-range-block-label" for="basics-character-image-scale">Scale (%)</label>
-              <input class="m-input-range-block-field u-full-width js-input-range-block-field" id="basics-character-image-scale" data-path="basics.character_image.scale" data-type="integer" type="range" min="10" max="400" tabindex="1">
+              <input class="m-input-range-block-field u-full-width js-input-range-block-field" id="basics-character-image-scale" data-path="basics.character_image.scale" data-type="integer" type="range" min="50" max="300" tabindex="1">
             </div>
           </div>
-
-          <div class="m-character-image-preview js-character-image-preview"></div>
-
-          <div class="m-character-image-control-horizontal">
-            <div class="m-input-range-block js-input-range-block">
-              <input class="m-input-range-block-field u-full-width js-input-range-block-field" id="basics-character-image-position-x" data-path="basics.character_image.position.x" data-type="integer" type="range" min="-200" max="200" tabindex="1">
-              <label class="m-input-range-block-label js-input-range-block-label" for="basics-character-image-position-x">Horizontal (%)</label>
-            </div>
-          </div>
-
-        </div>
-        <div class="m-edit-box-item-medium">
-        </div>
-        <div class="m-edit-box-item-medium">
         </div>
         <div class="m-edit-box-item-small m-edit-box-group">
           <div class="m-edit-box-item-small">
