@@ -1,7 +1,7 @@
 var repair = (function() {
 
   function render(characterObject) {
-    console.log("Repair update fired");
+    // console.log("Repair update fired");
     // --------------------------------------------------
     // add spell notes
     if (characterObject.spells.book) {
@@ -10,7 +10,7 @@ var repair = (function() {
           if (characterObject.spells.book[i][j].length > 0) {
             for (var k in characterObject.spells.book[i][j]) {
               if (!("note" in characterObject.spells.book[i][j][k]) && typeof characterObject.spells.book[i][j][k].note != "string") {
-                console.log("\t\tspell notes not found");
+                // console.log("\tspell notes not found");
                 characterObject.spells.book[i][j][k].note = "";
               };
             };
@@ -21,26 +21,26 @@ var repair = (function() {
     // --------------------------------------------------
     // add item array
     if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
-      console.log("\t\tadd item array");
+      // console.log("\tadd item array");
       characterObject.equipment.item = [];
     };
     // --------------------------------------------------
     // add note array
     if (typeof characterObject.notes.character == "string" || typeof characterObject.notes.story == "string") {
-      console.log("\t\tadd note array");
+      // console.log("\tadd note array");
       characterObject.notes.character = [];
       characterObject.notes.story = [];
     };
     // --------------------------------------------------
     // add custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
-      console.log("\t\tadd custom skills array");
+      // console.log("\tadd custom skills array");
       characterObject.skills.custom = [];
     };
     // --------------------------------------------------
     // move custom skills to new custom skills
     if ("custom_1" in characterObject.skills || "custom_2" in characterObject.skills || "custom_3" in characterObject.skills || "custom_4" in characterObject.skills || "custom_5" in characterObject.skills || "custom_6" in characterObject.skills || "custom_7" in characterObject.skills || "custom_8" in characterObject.skills) {
-      console.log("\t\tmove custom skills to new custom skills");
+      // console.log("\tmove custom skills to new custom skills");
       var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
       for (var i = 0; i < skillKeys.length; i++) {
         if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
@@ -53,7 +53,7 @@ var repair = (function() {
     // --------------------------------------------------
     // add concentration bonus object
     if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
-      console.log("\t\tadd concentration bonus object");
+      // console.log("\tadd concentration bonus object");
       characterObject.spells.concentration.bonuses = {
         str_bonus: false,
         dex_bonus: false,
@@ -68,7 +68,7 @@ var repair = (function() {
     // --------------------------------------------------
     // add initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
-      console.log("\t\tadd initiative object");
+      // console.log("\tadd initiative object");
       characterObject.basics.initiative = {
         misc: "",
         temp: "",
@@ -89,7 +89,7 @@ var repair = (function() {
     // --------------------------------------------------
     // add size object
     if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
-      console.log("\t\tadd size object");
+      // console.log("\tadd size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
         size = "Medium";
@@ -152,7 +152,7 @@ var repair = (function() {
     // --------------------------------------------------
     // update armor
     if (typeof characterObject.equipment.armor != "object") {
-      console.log("\t\tupdate armor");
+      // console.log("\tupdate armor");
       characterObject.equipment.armor = {
         armor: "",
         check_penalty: "",
@@ -180,13 +180,13 @@ var repair = (function() {
     // remove racial save bonuses
     function ifRacial(key, object) {
       if (key in object) {
-        console.log("\t\tremove racial save bonuses");
+        // console.log("\tremove racial save bonuses");
         if (object.racial != "" && !isNaN(object.racial)) {
           console.log("racial found");
-          // console.log(object, object.racial);
+          console.log(object, object.racial);
           if (object.misc != "" && !isNaN(object.misc)) {
             console.log("misc found");
-            // console.log(object.misc);
+            console.log(object.misc);
             object.misc = object.misc + object.racial;
           } else {
             object.misc = object.racial;
@@ -201,7 +201,7 @@ var repair = (function() {
     // --------------------------------------------------
     // update classes
     if (!characterObject.basics.classes) {
-      console.log("\t\tupdate classes");
+      // console.log("\tupdate classes");
       characterObject.basics.classes = [{
         classname: "",
         level: "",
@@ -254,7 +254,7 @@ var repair = (function() {
     // --------------------------------------------------
     // update caster level check
     if (!characterObject.spells.caster_level_check) {
-      console.log("\t\tupdate caster level check");
+      // console.log("\tupdate caster level check");
       characterObject.spells.caster_level_check = {
         current: "",
         misc: "",
@@ -367,11 +367,10 @@ var repair = (function() {
     // --------------------------------------------------
     // update stats
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
-      // console.log(characterObject.basics.name);
       for (var key in characterObject.statistics.stats) {
         var score = parseInt(characterObject.statistics.stats[key].score, 10);
         var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
-        // console.log(key, "new score = ", score, "\t\ttempScore = ", tempScore);
+        // console.log("\t" + key, "new score = ", score, "\ttempScore = ", tempScore);
         characterObject.statistics.stats[key].base = score;
         if (!isNaN(tempScore)) {
           characterObject.statistics.stats[key].temp = (tempScore - score);
@@ -391,7 +390,6 @@ var repair = (function() {
           if (characterObject.events[i].event.aggregateValue) {
             characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
             delete characterObject.events[i].event.aggregateValue;
-            // console.log(characterObject.events[i].event);
           };
         };
       };
