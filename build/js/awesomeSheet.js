@@ -19231,14 +19231,18 @@ var repair = (function() {
   function render(characterObject) {
     // console.log("fire repair update");
     // update events
-    if (characterObject.events.length > 0) {
-      for (var i = 0; i < characterObject.events.length; i++) {
-        if (characterObject.events[i].event.aggregateValue) {
-          characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
-          delete characterObject.events[i].event.aggregateValue;
-          // console.log(characterObject.events[i].event);
+    if ("events" in characterObject) {
+      if (characterObject.events.length > 0) {
+        for (var i = 0; i < characterObject.events.length; i++) {
+          if (characterObject.events[i].event.aggregateValue) {
+            characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
+            delete characterObject.events[i].event.aggregateValue;
+            // console.log(characterObject.events[i].event);
+          };
         };
       };
+    } else {
+      characterObject.events = [];
     };
     // update stats
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
