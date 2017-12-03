@@ -19,23 +19,22 @@ var inputRangeBlock = (function() {
     };
     if (path) {
       helper.setObject(sheet.getCharacter(), path, data);
-      console.log(typeof helper.getObject(sheet.getCharacter(), path), helper.getObject(sheet.getCharacter(), path));
+      // console.log(typeof helper.getObject(sheet.getCharacter(), path), helper.getObject(sheet.getCharacter(), path));
     };
   };
 
-  var storeInputTimer = null;
+  // var storeInputTimer = null;
 
-  function delayUpdate(element) {
-    _store(element);
-    characterImage.resize();
-    sheet.storeCharacters();
-    textBlock.render();
-    totalBlock.render();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
-  };
+  // function delayUpdate(element) {
+  //   _store(element);
+  //   sheet.storeCharacters();
+  //   textBlock.render();
+  //   totalBlock.render();
+  //   if (display.state()) {
+  //     display.clear();
+  //     display.render();
+  //   };
+  // };
 
   function bind(inputRangeBlock) {
     if (inputRangeBlock) {
@@ -58,7 +57,6 @@ var inputRangeBlock = (function() {
       input.addEventListener("input", function() {
         // storeInputTimer = setTimeout(delayUpdate, 300, this);
         _store(this);
-        characterImage.resize();
         sheet.storeCharacters();
       }, false);
     };

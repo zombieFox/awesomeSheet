@@ -12,6 +12,8 @@ var characterImage = (function() {
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
     var characterImageScaleCenter = helper.e(".js-character-image-scale-center");
 
+    var characterImageScaleInput = helper.e(".js-character-image-scale-input");
+
     var characterBasicsImageScaleAverage = helper.e(".js-basics-character-image-background-average");
     var characterBasicsImageScaleBlack = helper.e(".js-basics-character-image-background-black");
     var characterBasicsImageScaleWhite = helper.e(".js-basics-character-image-background-white");
@@ -24,19 +26,27 @@ var characterImage = (function() {
     }, false);
 
     characterImageScaleCover.addEventListener("click", function() {
-      resize("cover", "center");
+      _resize("cover");
+      _reposition("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      resize("contain", "center");
+      _resize("contain");
+      _reposition("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
-      resize(false, "center");
+      _resize();
+      _reposition("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
+    }, false);
+
+    characterImageScaleInput.addEventListener("input", function() {
+      _resize();
+      _reposition();
     }, false);
 
     characterBasicsImageScaleAverage.addEventListener("click", function() {
@@ -83,7 +93,8 @@ var characterImage = (function() {
           _create_image();
           _render_background();
           _calculateSizes();
-          resize();
+          _resize();
+          _reposition();
           _update_all_inputRangeBlock();
           _update_all_radio();
           _clearInput();
@@ -177,7 +188,8 @@ var characterImage = (function() {
       image.setAttribute("class", "m-character-image js-character-image");
       image.src = imageBase64;
       characterImagePreview.appendChild(image);
-      resize();
+      _reposition();
+      _resize();
       _render_background();
       _bind_drag();
     };
@@ -233,12 +245,45 @@ var characterImage = (function() {
     helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
   };
 
-  function resize(presetSize, presetPosition) {
+  function _reposition(presetPosition) {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    var x;
+    var y;
+    if (presetPosition) {
+      if (presetPosition == "center") {
+        x = 0;
+        y = 0;
+      };
+      _store_position(x, y);
+    } else {
+      x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+      y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+    };
+    if (x == "" && x != 0) {
+      x = 0;
+    };
+    if (y == "" && y != 0) {
+      y = 0;
+    };
+    if (x > (characterImagePreview.getBoundingClientRect().width) -50) {
+      x = (characterImagePreview.getBoundingClientRect().width) -50;
+    } else if (x < -(characterImage.width - 50)) {
+      x = -(characterImage.width - 50);
+    };
+    if (y > (characterImagePreview.getBoundingClientRect().height) -50) {
+      y = (characterImagePreview.getBoundingClientRect().height) -50;
+    } else if (y < -(characterImage.height - 50)) {
+      y = -(characterImage.height - 50);
+    };
+    characterImage.style.left = x + "px";
+    characterImage.style.top = y + "px";
+  };
+
+  function _resize(presetSize) {
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     var characterImage = helper.e(".js-character-image");
     var scale;
-    var x;
-    var y;
     if (imageBase64) {
       if (presetSize) {
         if (presetSize == "contain") {
@@ -250,29 +295,11 @@ var characterImage = (function() {
       } else {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
       };
-      if (presetPosition) {
-        if (presetPosition == "center") {
-          x = 0;
-          y = 0;
-        };
-        _store_position(x, y);
-      } else {
-        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-      };
       if (scale == "" && scale != 0) {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
       };
-      if (x == "" && x != 0) {
-        x = 0;
-      };
-      if (y == "" && y != 0) {
-        y = 0;
-      };
       // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
       characterImage.style.width = scale + "%";
-      characterImage.style.left = x + "px";
-      characterImage.style.top = y + "px";
     };
   };
 
@@ -351,8 +378,20 @@ var characterImage = (function() {
     };
     var dragging = function(x, y) {
       if (image !== null) {
-        var x = (x - imageX);
-        var y = (y - imageY);
+        var characterImagePreview = helper.e(".js-character-image-preview");
+        var characterImage = helper.e(".js-character-image");
+        x = (x - imageX);
+        y = (y - imageY);
+        if (x > (characterImagePreview.getBoundingClientRect().width) -50) {
+          x = (characterImagePreview.getBoundingClientRect().width) -50;
+        } else if (x < -(characterImage.width - 50)) {
+          x = -(characterImage.width - 50);
+        };
+        if (y > (characterImagePreview.getBoundingClientRect().height) -50) {
+          y = (characterImagePreview.getBoundingClientRect().height) -50;
+        } else if (y < -(characterImage.height - 50)) {
+          y = -(characterImage.height - 50);
+        };
         image.style.left = x + 'px';
         image.style.top = y + 'px';
         helper.setObject(sheet.getCharacter(), "basics.character_image.position.x", x);
@@ -388,7 +427,6 @@ var characterImage = (function() {
 
   // exposed methods
   return {
-    resize: resize,
     bind: bind,
     clear: clear,
     destroy: destroy,
