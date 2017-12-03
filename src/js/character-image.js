@@ -8,18 +8,6 @@ var characterImage = (function() {
     var characterImageInput = helper.e(".js-character-image-input");
     var characterImageClear = helper.e(".js-character-image-clear");
 
-    var characterImageScaleInput = helper.e(".js-character-image-scale-input");
-    var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
-    var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
-
-    var characterImagePositionXInput = helper.e(".js-character-image-position-x-input");
-    var characterImagePositionXDecrease = helper.e(".js-character-image-position-x-decrease");
-    var characterImagePositionXIncrease = helper.e(".js-character-image-position-x-increase");
-
-    var characterImagePositionYInput = helper.e(".js-character-image-position-y-input");
-    var characterImagePositionYDecrease = helper.e(".js-character-image-position-y-decrease");
-    var characterImagePositionYIncrease = helper.e(".js-character-image-position-y-increase");
-
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
     var characterImageScaleCenter = helper.e(".js-character-image-scale-center");
@@ -35,49 +23,19 @@ var characterImage = (function() {
       _removeCharacterImage();
     }, false);
 
-    characterImageScaleInput.addEventListener("input", function() {
-      resizeTimer = setTimeout(_delayResize, 350, this);
-    }, false);
-    characterImageScaleDecrease.addEventListener("click", function() {
-      resize();
-    }, false);
-    characterImageScaleIncrease.addEventListener("click", function() {
-      resize();
-    }, false);
-
-    characterImagePositionXInput.addEventListener("input", function() {
-      resizeTimer = setTimeout(_delayResize, 350, this);
-    }, false);
-    characterImagePositionXDecrease.addEventListener("click", function() {
-      resize();
-    }, false);
-    characterImagePositionXIncrease.addEventListener("click", function() {
-      resize();
-    }, false);
-
-    characterImagePositionYInput.addEventListener("input", function() {
-      resizeTimer = setTimeout(_delayResize, 350, this);
-    }, false);
-    characterImagePositionYDecrease.addEventListener("click", function() {
-      resize();
-    }, false);
-    characterImagePositionYIncrease.addEventListener("click", function() {
-      resize();
-    }, false);
-
     characterImageScaleCover.addEventListener("click", function() {
       resize("cover", "center");
-      _update_all_input();
+      _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
       resize("contain", "center");
-      _update_all_input();
+      _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
       resize(false, "center");
-      _update_all_input();
+      _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
 
@@ -90,10 +48,6 @@ var characterImage = (function() {
     characterBasicsImageScaleWhite.addEventListener("click", function() {
       backgroundTimer = setTimeout(_delayBakcground, 350, this);
     }, false);
-  };
-
-  function _delayResize() {
-    resize();
   };
 
   function _delayBakcground() {
@@ -130,7 +84,7 @@ var characterImage = (function() {
           _render_background();
           _calculateSizes();
           resize();
-          _update_all_input();
+          _update_all_inputRangeBlock();
           _update_all_radio();
           _clearInput();
           sheet.storeCharacters();
@@ -322,15 +276,13 @@ var characterImage = (function() {
     };
   };
 
-  function _update_all_input() {
-    _update_input(helper.e(".js-character-image-scale-input"));
-    _update_input(helper.e(".js-character-image-position-x-input"));
-    _update_input(helper.e(".js-character-image-position-y-input"));
+  function _update_all_inputRangeBlock() {
+    _update_inputRangeBlock(helper.e(".js-character-image-scale-input"));
   };
 
-  function _update_input(input) {
-    var inputBlockElement = helper.getClosest(input, ".js-input-block");
-    inputBlock.render(inputBlockElement);
+  function _update_inputRangeBlock(input) {
+    var inputBlockElement = helper.getClosest(input, ".js-input-range-block");
+    inputRangeBlock.render(inputBlockElement);
   };
 
   function _update_all_radio() {
@@ -377,7 +329,7 @@ var characterImage = (function() {
     };
     helper.setObject(sheet.getCharacter(), "basics.character_image", object);
     sheet.storeCharacters();
-    _update_all_input();
+    _update_all_inputRangeBlock();
     _update_all_radio();
     clear();
   };
