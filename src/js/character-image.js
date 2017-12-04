@@ -126,7 +126,7 @@ var characterImage = (function() {
         image.style.left = x + "px";
         image.style.top = y + "px";
         _store_position(x, y);
-        // console.log("x", x, "y", y);
+        // console.log("image.x", x, "image.y", y);
       };
     };
     helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {
@@ -252,22 +252,22 @@ var characterImage = (function() {
     var characterImage = helper.e(".js-character-image");
     var x;
     var y;
-    if (characterImage) {
+    var moveImage = function(image) {
       if (presetPosition) {
         if (presetPosition == "center") {
-          x = -parseInt(((characterImage.width - characterImagePreview.getBoundingClientRect().width) / 2), 10);
-          y = -parseInt(((characterImage.height - characterImagePreview.getBoundingClientRect().height) / 2), 10);
+          x = -parseInt(((image.width - characterImagePreview.getBoundingClientRect().width) / 2), 10);
+          y = -parseInt(((image.height - characterImagePreview.getBoundingClientRect().height) / 2), 10);
         } else if (presetPosition == "top") {
           x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
           y = 0;
         } else if (presetPosition == "bottom") {
           x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-          y = -parseInt((characterImage.height - characterImagePreview.getBoundingClientRect().height), 10);
+          y = -parseInt((image.height - characterImagePreview.getBoundingClientRect().height), 10);
         } else if (presetPosition == "left") {
           x = 0;
           y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
         } else if (presetPosition == "right") {
-          x = -parseInt((characterImage.width - characterImagePreview.getBoundingClientRect().width), 10);
+          x = -parseInt((image.width - characterImagePreview.getBoundingClientRect().width), 10);
           y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
         };
         _store_position(x, y);
@@ -277,16 +277,25 @@ var characterImage = (function() {
       };
       if (x > (characterImagePreview.getBoundingClientRect().width) - 50) {
         x = (characterImagePreview.getBoundingClientRect().width) - 50;
-      } else if (x < -(characterImage.width - 50)) {
-        x = -(characterImage.width - 50);
+      } else if (x < -(image.width - 50)) {
+        x = -(image.width - 50);
       };
       if (y > (characterImagePreview.getBoundingClientRect().height) - 50) {
         y = (characterImagePreview.getBoundingClientRect().height) - 50;
-      } else if (y < -(characterImage.height - 50)) {
-        y = -(characterImage.height - 50);
+      } else if (y < -(image.height - 50)) {
+        y = -(image.height - 50);
       };
-      characterImage.style.left = x + "px";
-      characterImage.style.top = y + "px";
+      image.style.left = x + "px";
+      image.style.top = y + "px";
+    };
+    if (characterImage) {
+      if (characterImage.complete && characterImage.height > 0) {
+        moveImage(characterImage);
+      } else {
+        characterImage.onload = function(event) {
+          moveImage(characterImage);
+        };
+      };
     };
   };
 
@@ -308,8 +317,8 @@ var characterImage = (function() {
       if (scale == "" && scale != 0) {
         scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
       };
-      // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
       characterImage.style.width = scale + "%";
+      console.log("image.width", characterImage.width, "image.height", characterImage.height);
     };
   };
 
