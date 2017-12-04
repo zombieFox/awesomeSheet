@@ -130,13 +130,13 @@ var characterImage = (function() {
       };
     };
     helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {
-      dragStart(window.event.clientX, window.event.clientY);
+      dragStart(event.clientX, event.clientY);
     });
     helper.e("body").addEventListener("mousemove", function(event) {
-      dragging(window.event.clientX, window.event.clientY);
+      dragging(event.clientX, event.clientY);
     });
     helper.e("body").addEventListener("mouseup", function(event) {
-      dragStop(event, window.event.clientX, window.event.clientY);
+      dragStop(event, event.clientX, event.clientY);
     });
     helper.e(".js-character-image-preview").addEventListener("touchstart", function(event) {
       dragStart(event.touches[0].clientX, event.touches[0].clientY);
@@ -374,8 +374,8 @@ var characterImage = (function() {
 
   function render() {
     _render_image();
-    _reposition();
     _resize();
+    _reposition();
     _render_background();
   };
 

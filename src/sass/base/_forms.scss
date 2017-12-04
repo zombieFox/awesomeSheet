@@ -232,6 +232,138 @@ input {
     }
   }
 }
+input {
+  &[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3em;
+    position: relative;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:after {
+      content: "";
+      background-color: $gray-16;
+      position: absolute;
+      top: 50%;
+      left: 1.5em;
+      height: 1px;
+      width: calc(100% - 3em);
+      z-index: 1;
+      display: block;
+    }
+    &::-webkit-slider-runnable-track {
+      background-color: $gray-20;
+      margin: 0;
+      padding: 0 1em;
+      border: 0;
+      border: $border;
+      border-color: $gray-16;
+      border-radius: $border-radius-large;
+      font-size: $font-size-100;
+      height: 3em;
+      font-family: $open-sans-semi-bold;
+      position: relative;
+      cursor: pointer;
+      box-sizing: border-box;
+      box-shadow: none;
+      transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
+      display: inline-block;
+    }
+    &::-webkit-slider-thumb {
+      background-color: $gray-20;
+      color: $base-color;
+      padding: 0;
+      border: 0;
+      border: 2px solid $secondary-color-04;
+      border-radius: 100%;
+      margin: 0 0 1em;
+      position: relative;
+      top: 0.75em;
+      height: 1.5em;
+      width: 1.5em;
+      cursor: pointer;
+      box-sizing: border-box;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+      transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
+      z-index: 2;
+      -webkit-appearance: none;
+      &:focus,
+      &:hover {
+        background-color: $gray-18;
+        border-color: $secondary-color-10;
+        color: $base-color;
+        outline: 0;
+        text-decoration: none;
+        box-shadow: 0 0 0 3px $dark-alpha-20;
+      }
+      &:active {
+        background-color: $gray-16;
+        border-color: $primary-color-10;
+        color: $base-color;
+        outline: 0;
+        text-decoration: none;
+        box-shadow: 0 0 0 3px $dark-alpha-19;
+      }
+    }
+    &::-moz-range-track {
+      background-color: $gray-20;
+      margin: 0;
+      padding: 0 1em;
+      border: 0;
+      border: $border;
+      border-color: $gray-16;
+      border-radius: $border-radius-large;
+      font-size: $font-size-100;
+      height: 3em;
+      font-family: $open-sans-semi-bold;
+      position: relative;
+      cursor: pointer;
+      box-sizing: border-box;
+      box-shadow: none;
+      transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
+      display: inline-block;
+    }
+    &::-moz-range-thumb {
+      background-color: $gray-20;
+      color: $base-color;
+      padding: 0;
+      border: 0;
+      border: 2px solid $secondary-color-04;
+      border-radius: 100%;
+      margin: 0 0 1em;
+      position: relative;
+      top: 0.75em;
+      height: 1.5em;
+      width: 1.5em;
+      cursor: pointer;
+      box-sizing: border-box;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+      transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
+      z-index: 2;
+      -webkit-appearance: none;
+      &:focus,
+      &:hover {
+        background-color: $gray-18;
+        border-color: $secondary-color-10;
+        color: $base-color;
+        outline: 0;
+        text-decoration: none;
+        box-shadow: 0 0 0 3px $dark-alpha-20;
+      }
+      &:active {
+        background-color: $gray-16;
+        border-color: $primary-color-10;
+        color: $base-color;
+        outline: 0;
+        text-decoration: none;
+        box-shadow: 0 0 0 3px $dark-alpha-19;
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
 .is-night-mode {
   select {
     background-color: $gray-02;
@@ -384,6 +516,25 @@ input {
       & + label {
         height: 2.5em;
         line-height: $line-height-250;
+      }
+    }
+  }
+  input {
+    &[type="range"] {
+      height: 2.5em;
+      &::-webkit-slider-runnable-track {
+        height: 2.5em;
+      }
+      &::-webkit-slider-thumb {
+        border-width: 3px;
+        top: 0.45em;
+      }
+      &::-moz-range-track {
+        height: 2.5em;
+      }
+      &::-moz-range-thumb {
+        border-width: 3px;
+        top: 0.2em;
       }
     }
   }
