@@ -234,8 +234,6 @@ input {
 }
 input {
   &[type="range"] {
-    position: relative;
-    z-index: 1;
     background-color: $gray-20;
     padding: 0;
     border: 0;
