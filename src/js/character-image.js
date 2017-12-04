@@ -184,7 +184,7 @@ var characterImage = (function() {
           _bind_drag();
           _calculateSizes();
           _resize();
-          _reposition();
+          _reposition("center");
           _update_all_inputRangeBlock();
           _update_all_radio();
           _clearUploadInput();
