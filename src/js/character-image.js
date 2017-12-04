@@ -179,15 +179,14 @@ var characterImage = (function() {
           _store_image(reader.result);
           _store_background("average");
           _store_color(helper.getAverageColor(reader.result));
-          _create_image();
+          _render_image();
           _render_background();
-          _bind_drag();
           _calculateSizes();
           _resize();
           _reposition("center");
           _update_all_inputRangeBlock();
           _update_all_radio();
-          _clearUploadInput();
+          _clearInputUpload();
           sheet.storeCharacters();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
@@ -240,82 +239,12 @@ var characterImage = (function() {
       contain = 100;
     };
     scale = cover;
-    // console.log(size);
     // console.log("scale = ", scale, "cover = ", cover, "contain = ", contain, "orientation = ", orientation);
     _store_orientation(orientation);
     _store_cover(cover);
     _store_contain(contain);
     _store_scale(scale);
     _store_position(0, 0);
-  };
-
-  function _create_image() {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    if (imageBase64) {
-      var image = new Image;
-      image.setAttribute("class", "m-character-image js-character-image");
-      image.src = imageBase64;
-      characterImagePreview.appendChild(image);
-    };
-  };
-
-  function render() {
-    _create_image();
-    _reposition();
-    _resize();
-    _render_background();
-    _bind_drag();
-  };
-
-  function _render_background() {
-    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
-    var characterImageBackground = helper.e(".js-character-image-background");
-    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
-    if (background == "black") {
-      color = "rgb(0,0,0)";
-    } else if (background == "white") {
-      color = "rgb(255,255,255)";
-    } else if (background == "average") {
-      color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-    };
-    characterImageBackground.style.backgroundColor = color;
-  };
-
-  function _store_position(axisX, axisY) {
-    var position = {
-      x: axisX,
-      y: axisY
-    };
-    helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
-  };
-
-  function _store_background(background) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.background", background);
-  };
-
-  function _store_color(color) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
-  };
-
-  function _store_image(imageBase64) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
-  };
-
-  function _store_scale(scale) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
-  };
-
-  function _store_cover(cover) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
-  };
-
-  function _store_contain(contain) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.contain", contain);
-  };
-
-  function _store_orientation(orientation) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
   };
 
   function _reposition(presetPosition) {
@@ -404,7 +333,7 @@ var characterImage = (function() {
     radioBlock.render(radioBlockElement);
   };
 
-  function _clearUploadInput(input) {
+  function _clearInputUpload(input) {
     var characterImageInput = helper.e(".js-character-image-input");
     characterImageInput.value = "";
   };
@@ -441,6 +370,83 @@ var characterImage = (function() {
     _update_all_inputRangeBlock();
     _update_all_radio();
     clear();
+  };
+
+  function render() {
+    _render_image();
+    _reposition();
+    _resize();
+    _render_background();
+  };
+
+  function _render_image() {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    if (imageBase64) {
+      var image = new Image;
+      image.setAttribute("class", "m-character-image js-character-image");
+      image.src = imageBase64;
+      characterImagePreview.appendChild(image);
+    };
+    _bind_drag();
+  };
+
+  function _render_background() {
+    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
+    var characterImageBackground = helper.e(".js-character-image-background");
+    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+    if (background == "black") {
+      color = "rgb(0,0,0)";
+    } else if (background == "white") {
+      color = "rgb(255,255,255)";
+    } else if (background == "average") {
+      color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+    };
+    characterImageBackground.style.backgroundColor = color;
+  };
+
+  function _store_position(axisX, axisY) {
+    // console.log("store position");
+    var position = {
+      x: axisX,
+      y: axisY
+    };
+    helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
+  };
+
+  function _store_background(background) {
+    // console.log("store background");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.background", background);
+  };
+
+  function _store_color(color) {
+    // console.log("store color");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
+  };
+
+  function _store_image(imageBase64) {
+    // console.log("store image");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
+  };
+
+  function _store_scale(scale) {
+    // console.log("store scale");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
+  };
+
+  function _store_cover(cover) {
+    // console.log("store cover");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
+  };
+
+  function _store_contain(contain) {
+    // console.log("store contain");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.contain", contain);
+  };
+
+  function _store_orientation(orientation) {
+    // console.log("store orientation");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
   };
 
   // exposed methods
