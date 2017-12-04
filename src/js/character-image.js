@@ -11,6 +11,10 @@ var characterImage = (function() {
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
     var characterImageScaleCenter = helper.e(".js-character-image-scale-center");
+    var characterImageScaleTop = helper.e(".js-character-image-scale-top");
+    var characterImageScaleBottom = helper.e(".js-character-image-scale-bottom");
+    var characterImageScaleLeft = helper.e(".js-character-image-scale-left");
+    var characterImageScaleRight = helper.e(".js-character-image-scale-right");
 
     var characterImageScaleInput = helper.e(".js-character-image-scale-input");
 
@@ -40,6 +44,30 @@ var characterImage = (function() {
     characterImageScaleCenter.addEventListener("click", function() {
       _resize();
       _reposition("center");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleTop.addEventListener("click", function() {
+      _resize();
+      _reposition("top");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleBottom.addEventListener("click", function() {
+      _resize();
+      _reposition("bottom");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleLeft.addEventListener("click", function() {
+      _resize();
+      _reposition("left");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleRight.addEventListener("click", function() {
+      _resize();
+      _reposition("right");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
@@ -159,7 +187,7 @@ var characterImage = (function() {
           _reposition();
           _update_all_inputRangeBlock();
           _update_all_radio();
-          _clearInput();
+          _clearUploadInput();
           sheet.storeCharacters();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
@@ -298,8 +326,20 @@ var characterImage = (function() {
     if (characterImage) {
       if (presetPosition) {
         if (presetPosition == "center") {
-          x = 0;
+          x = -parseInt(((characterImage.width - characterImagePreview.getBoundingClientRect().width) / 2), 10);
+          y = -parseInt(((characterImage.height - characterImagePreview.getBoundingClientRect().height) / 2), 10);
+        } else if (presetPosition == "top") {
+          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
           y = 0;
+        } else if (presetPosition == "bottom") {
+          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+          y = -parseInt((characterImage.height - characterImagePreview.getBoundingClientRect().height), 10);
+        } else if (presetPosition == "left") {
+          x = 0;
+          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+        } else if (presetPosition == "right") {
+          x = -parseInt((characterImage.width - characterImagePreview.getBoundingClientRect().width), 10);
+          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
         };
         _store_position(x, y);
       } else {
@@ -364,7 +404,7 @@ var characterImage = (function() {
     radioBlock.render(radioBlockElement);
   };
 
-  function _clearInput(input) {
+  function _clearUploadInput(input) {
     var characterImageInput = helper.e(".js-character-image-input");
     characterImageInput.value = "";
   };
