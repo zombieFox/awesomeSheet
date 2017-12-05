@@ -101,10 +101,6 @@ var characterImage = (function() {
         imageY = y - image.offsetTop;
       };
     };
-    var dragStop = function() {
-      image = null;
-      sheet.storeCharacters();
-    };
     var dragging = function(x, y) {
       if (image !== null) {
         var characterImagePreview = helper.e(".js-character-image-preview");
@@ -122,12 +118,25 @@ var characterImage = (function() {
         } else if (y < -(characterImage.height - 50)) {
           y = -(characterImage.height - 50);
         };
+        // convert x and y into percentages
+        x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
         // set and store position
-        image.style.left = x + "px";
-        image.style.top = y + "px";
+        image.style.left = x + "%";
+        image.style.top = y + "%";
         _store_position(x, y);
         console.log("image.x", x, "image.y", y);
       };
+    };
+    var dragStop = function() {
+      image = null;
+      sheet.storeCharacters();
     };
     helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {
       dragStart(event.clientX, event.clientY);
@@ -227,12 +236,12 @@ var characterImage = (function() {
     size.containerHeight = characterImagePreview.getBoundingClientRect().height;
     if (size.imageWidth > size.imageHeight) {
       orientation = "landscape";
-      cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
+      cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10);
       contain = 100;
     } else if (size.imageWidth < size.imageHeight) {
       orientation = "portrait";
       cover = 100;
-      contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
+      contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10);
     } else {
       orientation = "square";
       cover = 100;
@@ -270,6 +279,15 @@ var characterImage = (function() {
           x = -parseInt((image.width - characterImagePreview.getBoundingClientRect().width), 10);
           y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
         };
+        // convert x and y into percentages
+        x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
         _store_position(x, y);
       } else {
         x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
@@ -285,8 +303,8 @@ var characterImage = (function() {
       } else if (y < -(image.height - 50)) {
         y = -(image.height - 50);
       };
-      image.style.left = x + "px";
-      image.style.top = y + "px";
+      image.style.left = x + "%";
+      image.style.top = y + "%";
     };
     if (characterImage) {
       if (characterImage.complete && characterImage.height > 0) {

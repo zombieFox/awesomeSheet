@@ -741,8 +741,8 @@ var display = (function() {
       };
       displayImage.style.backgroundColor = color;
       displayImageItem.style.width = scale + "%";
-      displayImageItem.style.left = position.x + "px";
-      displayImageItem.style.top = position.y + "px";
+      displayImageItem.style.left = position.x + "%";
+      displayImageItem.style.top = position.y + "%";
       displayImage.appendChild(displayImageItem);
     } else {
       displayImage = false;
