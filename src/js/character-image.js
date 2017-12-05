@@ -395,6 +395,23 @@ var characterImage = (function() {
           x = -parseInt((image.width - characterImagePreview.getBoundingClientRect().width), 10);
           y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
         };
+        // convert x and y into percentages
+        x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        console.log("preset", x, y);
+      } else {
+        // console.log("-- position as stored values");
+        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+        // convert x and y into pixels
+        x = parseInt((x / 100) * characterImagePreview.getBoundingClientRect().width, 10);
+        y = parseInt((y / 100) * characterImagePreview.getBoundingClientRect().height, 10);
         // if image is outside the parent
         if (x > ((characterImagePreview.getBoundingClientRect().width) - 50)) {
           console.log("too far right");
@@ -419,10 +436,6 @@ var characterImage = (function() {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         });
-      } else {
-        // console.log("-- position as stored values");
-        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
       };
       image.style.left = x + "%";
       image.style.top = y + "%";
