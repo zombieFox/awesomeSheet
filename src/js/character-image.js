@@ -1,8 +1,6 @@
 var characterImage = (function() {
 
-  var resizeTimer = null;
   var backgroundTimer = null;
-  var storeTimer = null;
 
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
