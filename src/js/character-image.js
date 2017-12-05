@@ -126,7 +126,7 @@ var characterImage = (function() {
         image.style.left = x + "px";
         image.style.top = y + "px";
         _store_position(x, y);
-        // console.log("image.x", x, "image.y", y);
+        console.log("image.x", x, "image.y", y);
       };
     };
     helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {

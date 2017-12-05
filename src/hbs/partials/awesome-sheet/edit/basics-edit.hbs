@@ -315,13 +315,14 @@
             <span class="m-character-image-background js-character-image-background"></span>
             <span class="m-character-image-preview-guide"></span>
           </div>
-          <div class="m-character-image-control-scale">
-            <div class="m-input-range-block js-input-range-block">
-              <label class="m-input-range-block-label js-input-range-block-label" for="basics-character-image-scale">Scale (%)</label>
-              <input class="m-input-range-block-field u-full-width js-input-range-block-field js-character-image-scale-input" id="basics-character-image-scale" data-path="basics.character_image.scale" data-type="integer" type="range" min="50" max="400" tabindex="1">
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-small m-edit-box-group">
           <div class="m-edit-box-item-small">
             <div class="m-input-file-block">
@@ -335,19 +336,27 @@
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-character-image-clear" tabindex="1"><span class="icon-close"></span></a>
           </div>
         </div>
-        <div class="m-edit-box-item-max">
+        <div class="m-edit-box-item-large">
           <p class="u-small-text">Max width 2000px, max height 2000px. Max image size 500KB, (due to browser local storage limits).</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+  <div class="m-edit-box m-edit-box-labels m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
       <h2 class="m-edit-box-title">Size &amp; Position</h2>
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-large">
+          <div class="m-character-image-control-scale">
+            <div class="m-input-range-block js-input-range-block">
+              <label class="m-input-range-block-label js-input-range-block-label" for="basics-character-image-scale">Scale (%)</label>
+              <input class="m-input-range-block-field u-full-width js-input-range-block-field js-character-image-scale-input" id="basics-character-image-scale" data-path="basics.character_image.scale" data-type="integer" type="range" min="50" max="400" tabindex="1">
+            </div>
+          </div>
+        </div>
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-button-large">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium button-slim js-character-image-scale-cover js-tip" data-tip-show-on="hover" data-tip-message="Scale and clip the image to fill the preview." tabindex="1"><span class="button-text">Cover</span></a>

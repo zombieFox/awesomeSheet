@@ -249,7 +249,7 @@ input {
     box-sizing: border-box;
     box-shadow: none;
     transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
-    display: inline-block;
+    display: block;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-appearance: none;
     &:after {
