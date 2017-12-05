@@ -30,51 +30,46 @@ var characterImage = (function() {
     }, false);
 
     characterImageScaleCover.addEventListener("click", function() {
-      _resize("cover");
-      _reposition("center");
+      _render_resize("cover");
+      _render_position("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      _resize("contain");
-      _reposition("center");
+      _render_resize("contain");
+      _render_position("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
-      _resize();
-      _reposition("center");
+      _render_position("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleTop.addEventListener("click", function() {
-      _resize();
-      _reposition("top");
+      _render_position("top");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleBottom.addEventListener("click", function() {
-      _resize();
-      _reposition("bottom");
+      _render_position("bottom");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleLeft.addEventListener("click", function() {
-      _resize();
-      _reposition("left");
+      _render_position("left");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleRight.addEventListener("click", function() {
-      _resize();
-      _reposition("right");
+      _render_position("right");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
 
     characterImageScaleInput.addEventListener("input", function() {
-      _resize();
-      _reposition();
+      _render_resize();
+      _render_position();
     }, false);
 
     characterBasicsImageScaleAverage.addEventListener("click", function() {
@@ -94,6 +89,8 @@ var characterImage = (function() {
     var cursorY = 0;
     var imageX = 0;
     var imageY = 0;
+    var newX;
+    var newY;
     var dragStart = function(x, y) {
       image = helper.e(".js-character-image");
       if (image) {
@@ -109,13 +106,17 @@ var characterImage = (function() {
         y = (y - imageY);
         // if image is outside the parent
         if (x > ((characterImagePreview.getBoundingClientRect().width) - 50)) {
+          console.log("too far right");
           x = ((characterImagePreview.getBoundingClientRect().width) - 50);
         } else if (x < -(characterImage.width - 50)) {
+          console.log("too far left");
           x = -(characterImage.width - 50);
         };
         if (y > ((characterImagePreview.getBoundingClientRect().height) - 50)) {
+          console.log("too far bottom");
           y = ((characterImagePreview.getBoundingClientRect().height) - 50);
         } else if (y < -(characterImage.height - 50)) {
+          console.log("too far top");
           y = -(characterImage.height - 50);
         };
         // convert x and y into percentages
@@ -130,13 +131,18 @@ var characterImage = (function() {
         // set and store position
         image.style.left = x + "%";
         image.style.top = y + "%";
-        _store_position(x, y);
-        console.log("image.x", x, "image.y", y);
+        newX = x
+        newY = y
+        _store_position(newX, newY);
+        // console.log("image.x", x, "image.y", y);
       };
     };
     var dragStop = function() {
       image = null;
       sheet.storeCharacters();
+    };
+    var checkElement = function(event) {
+      return event.target.classList.contains("js-character-image-preview");
     };
     helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {
       dragStart(event.clientX, event.clientY);
@@ -145,7 +151,7 @@ var characterImage = (function() {
       dragging(event.clientX, event.clientY);
     });
     helper.e("body").addEventListener("mouseup", function(event) {
-      dragStop(event, event.clientX, event.clientY);
+      dragStop();
     });
     helper.e(".js-character-image-preview").addEventListener("touchstart", function(event) {
       dragStart(event.touches[0].clientX, event.touches[0].clientY);
@@ -187,15 +193,19 @@ var characterImage = (function() {
           destroy();
           _store_image(reader.result);
           _store_background("average");
-          _store_color(helper.getAverageColor(reader.result));
+          // _store_position(0, 0);
+          _calculate_color(reader.result);
+          _calculate_size(tempImage);
+          _calculate_orientation();
+          _calculate_scale();
           _render_image();
           _render_background();
-          _calculateSizes();
-          _resize();
-          _reposition("center");
+          _render_resize("cover");
+          _render_position("center");
           _update_all_inputRangeBlock();
           _update_all_radio();
-          _clearInputUpload();
+          _clear_inputUpload();
+          _store_uploaded(true);
           sheet.storeCharacters();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
@@ -216,128 +226,48 @@ var characterImage = (function() {
     };
   };
 
-  function _calculateSizes() {
-    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var characterImage = helper.e(".js-character-image");
-    var scale;
-    var cover;
-    var contain;
+  function _calculate_color(imageBase64) {
+    var color = helper.getAverageColor(imageBase64);
+    _store_color(color);
+  };
+
+  function _calculate_size(image) {
+    var width = image.width;
+    var height = image.height;
+    _store_size(width, height);
+  };
+
+  function _calculate_orientation() {
+    var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
+    var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
     var orientation;
-    var size = {
-      imageWidth: 0,
-      imageHeight: 0,
-      containerWidth: 0,
-      containerHeight: 0
-    };
-    size.imageWidth = characterImage.width;
-    size.imageHeight = characterImage.height;
-    size.containerWidth = characterImagePreview.getBoundingClientRect().width;
-    size.containerHeight = characterImagePreview.getBoundingClientRect().height;
-    if (size.imageWidth > size.imageHeight) {
+    if (imageWidth > imageHeight) {
       orientation = "landscape";
-      cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10);
-      contain = 100;
-    } else if (size.imageWidth < size.imageHeight) {
+    } else if (imageWidth < imageHeight) {
       orientation = "portrait";
-      cover = 100;
-      contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10);
     } else {
       orientation = "square";
-      cover = 100;
-      contain = 100;
     };
-    scale = cover;
-    // console.log("scale = ", scale, "cover = ", cover, "contain = ", contain, "orientation = ", orientation);
     _store_orientation(orientation);
-    _store_cover(cover);
-    _store_contain(contain);
-    _store_scale(scale);
-    _store_position(0, 0);
   };
 
-  function _reposition(presetPosition) {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var characterImage = helper.e(".js-character-image");
-    var x;
-    var y;
-    var moveImage = function(image) {
-      if (presetPosition) {
-        if (presetPosition == "center") {
-          x = -parseInt(((image.width - characterImagePreview.getBoundingClientRect().width) / 2), 10);
-          y = -parseInt(((image.height - characterImagePreview.getBoundingClientRect().height) / 2), 10);
-        } else if (presetPosition == "top") {
-          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-          y = 0;
-        } else if (presetPosition == "bottom") {
-          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-          y = -parseInt((image.height - characterImagePreview.getBoundingClientRect().height), 10);
-        } else if (presetPosition == "left") {
-          x = 0;
-          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-        } else if (presetPosition == "right") {
-          x = -parseInt((image.width - characterImagePreview.getBoundingClientRect().width), 10);
-          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-        };
-        // convert x and y into percentages
-        x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        });
-        y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        });
-        _store_position(x, y);
-      } else {
-        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-      };
-      if (x > (characterImagePreview.getBoundingClientRect().width) - 50) {
-        x = (characterImagePreview.getBoundingClientRect().width) - 50;
-      } else if (x < -(image.width - 50)) {
-        x = -(image.width - 50);
-      };
-      if (y > (characterImagePreview.getBoundingClientRect().height) - 50) {
-        y = (characterImagePreview.getBoundingClientRect().height) - 50;
-      } else if (y < -(image.height - 50)) {
-        y = -(image.height - 50);
-      };
-      image.style.left = x + "%";
-      image.style.top = y + "%";
-    };
-    if (characterImage) {
-      if (characterImage.complete && characterImage.height > 0) {
-        moveImage(characterImage);
-      } else {
-        characterImage.onload = function(event) {
-          moveImage(characterImage);
-        };
-      };
-    };
-  };
-
-  function _resize(presetSize) {
+  function _calculate_scale() {
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    var characterImage = helper.e(".js-character-image");
+    var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
+    var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
+    var orientation = helper.getObject(sheet.getCharacter(), "basics.character_image.orientation");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var containerWidth = characterImagePreview.getBoundingClientRect().width;
+    var containerHeight = characterImagePreview.getBoundingClientRect().height;
     var scale;
-    if (imageBase64 && characterImage) {
-      if (presetSize) {
-        if (presetSize == "contain") {
-          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.contain");
-        } else if (presetSize == "cover") {
-          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
-        };
-        _store_scale(scale);
-      } else {
-        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
-      };
-      if (scale == "" && scale != 0) {
-        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
-      };
-      characterImage.style.width = scale + "%";
-      console.log("image.width", characterImage.width, "image.height", characterImage.height);
+    // cover = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+    // contain = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+    if (orientation == "landscape") {
+      scale = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+    } else if (orientation == "portrait" || orientation == "square") {
+      scale = 100;
     };
+    _store_scale(scale);
   };
 
   function _update_all_inputRangeBlock() {
@@ -360,7 +290,7 @@ var characterImage = (function() {
     radioBlock.render(radioBlockElement);
   };
 
-  function _clearInputUpload(input) {
+  function _clear_inputUpload(input) {
     var characterImageInput = helper.e(".js-character-image-input");
     characterImageInput.value = "";
   };
@@ -376,6 +306,7 @@ var characterImage = (function() {
 
   function destroy() {
     var object = {
+      uploaded: false,
       background: "",
       color: {
         r: "",
@@ -390,6 +321,10 @@ var characterImage = (function() {
         x: "",
         y: ""
       },
+      size: {
+        width: "",
+        height: ""
+      },
       scale: ""
     };
     helper.setObject(sheet.getCharacter(), "basics.character_image", object);
@@ -400,13 +335,16 @@ var characterImage = (function() {
   };
 
   function render() {
-    _render_image();
-    _resize();
-    _reposition();
-    _render_background();
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      _render_image();
+      _render_resize();
+      _render_position();
+      _render_background();
+    };
   };
 
   function _render_image() {
+    // console.log("render image");
     var characterImagePreview = helper.e(".js-character-image-preview");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     if (imageBase64) {
@@ -419,6 +357,7 @@ var characterImage = (function() {
   };
 
   function _render_background() {
+    // console.log("render background");
     var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
     var characterImageBackground = helper.e(".js-character-image-background");
     var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
@@ -430,6 +369,112 @@ var characterImage = (function() {
       color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
     };
     characterImageBackground.style.backgroundColor = color;
+  };
+
+  function _render_position(presetPosition) {
+    // console.log("render position");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    var x;
+    var y;
+    var moveImage = function(image) {
+      if (presetPosition) {
+        // console.log("-- position preset passed");
+        if (presetPosition == "center") {
+          x = -parseInt(((image.width - characterImagePreview.getBoundingClientRect().width) / 2), 10);
+          y = -parseInt(((image.height - characterImagePreview.getBoundingClientRect().height) / 2), 10);
+        } else if (presetPosition == "top") {
+          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+          y = 0;
+        } else if (presetPosition == "bottom") {
+          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+          y = -parseInt((image.height - characterImagePreview.getBoundingClientRect().height), 10);
+        } else if (presetPosition == "left") {
+          x = 0;
+          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+        } else if (presetPosition == "right") {
+          x = -parseInt((image.width - characterImagePreview.getBoundingClientRect().width), 10);
+          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+        };
+        // if image is outside the parent
+        if (x > ((characterImagePreview.getBoundingClientRect().width) - 50)) {
+          console.log("too far right");
+          x = ((characterImagePreview.getBoundingClientRect().width) - 50);
+        } else if (x < -(characterImage.width - 50)) {
+          console.log("too far left");
+          x = -(characterImage.width - 50);
+        };
+        if (y > ((characterImagePreview.getBoundingClientRect().height) - 50)) {
+          console.log("too far bottom");
+          y = ((characterImagePreview.getBoundingClientRect().height) - 50);
+        } else if (y < -(characterImage.height - 50)) {
+          console.log("too far top");
+          y = -(characterImage.height - 50);
+        };
+        // convert x and y into percentages
+        x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+      } else {
+        // console.log("-- position as stored values");
+        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+      };
+      image.style.left = x + "%";
+      image.style.top = y + "%";
+      _store_position(x, y);
+    };
+    // if the image is ready move it or wait until it is loaded to move it
+    if (characterImage) {
+      if (characterImage.complete && characterImage.height > 0) {
+        moveImage(characterImage);
+      } else {
+        characterImage.onload = function(event) {
+          moveImage(characterImage);
+        };
+      };
+    };
+  };
+
+  function _render_resize(presetSize) {
+    // console.log("render resize");
+    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+    var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
+    var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
+    var orientation = helper.getObject(sheet.getCharacter(), "basics.character_image.orientation");
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var containerWidth = characterImagePreview.getBoundingClientRect().width;
+    var containerHeight = characterImagePreview.getBoundingClientRect().height;
+    var characterImage = helper.e(".js-character-image");
+    var scale;
+    if (imageBase64 && characterImage) {
+      if (presetSize) {
+        if (presetSize == "contain") {
+          if (orientation == "landscape") {
+            scale = 100;
+          } else if (orientation == "portrait" || orientation == "square") {
+            scale = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+          };
+        } else if (presetSize == "cover") {
+          if (orientation == "landscape") {
+            scale = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+          } else if (orientation == "portrait" || orientation == "square") {
+            scale = 100;
+          };
+        };
+        // _store_scale(scale);
+      } else {
+        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+      };
+      characterImage.style.width = scale + "%";
+      // console.log("image.width", characterImage.width, "image.height", characterImage.height);
+    };
   };
 
   function _store_position(axisX, axisY) {
@@ -461,19 +506,23 @@ var characterImage = (function() {
     helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
   };
 
-  function _store_cover(cover) {
-    // console.log("store cover");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
-  };
-
-  function _store_contain(contain) {
-    // console.log("store contain");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.contain", contain);
-  };
-
   function _store_orientation(orientation) {
     // console.log("store orientation");
     helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
+  };
+
+  function _store_size(imageWidth, imageHeight) {
+    // console.log("store size");
+    var size = {
+      width: imageWidth,
+      height: imageHeight
+    };
+    helper.setObject(sheet.getCharacter(), "basics.character_image.size", size);
+  };
+
+  function _store_uploaded(boolean) {
+    // console.log("store uploaded");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.uploaded", boolean);
   };
 
   // exposed methods
