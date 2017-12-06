@@ -1,27 +1,20 @@
 var characterImage = (function() {
 
-  var resizeTimer = null;
   var backgroundTimer = null;
 
   function bind() {
     var characterImageInput = helper.e(".js-character-image-input");
     var characterImageClear = helper.e(".js-character-image-clear");
 
-    var characterImageScaleInput = helper.e(".js-character-image-scale-input");
-    var characterImageScaleDecrease = helper.e(".js-character-image-scale-decrease");
-    var characterImageScaleIncrease = helper.e(".js-character-image-scale-increase");
-
-    var characterImagePositionXInput = helper.e(".js-character-image-position-x-input");
-    var characterImagePositionXDecrease = helper.e(".js-character-image-position-x-decrease");
-    var characterImagePositionXIncrease = helper.e(".js-character-image-position-x-increase");
-
-    var characterImagePositionYInput = helper.e(".js-character-image-position-y-input");
-    var characterImagePositionYDecrease = helper.e(".js-character-image-position-y-decrease");
-    var characterImagePositionYIncrease = helper.e(".js-character-image-position-y-increase");
-
     var characterImageScaleCover = helper.e(".js-character-image-scale-cover");
     var characterImageScaleContain = helper.e(".js-character-image-scale-contain");
     var characterImageScaleCenter = helper.e(".js-character-image-scale-center");
+    var characterImageScaleTop = helper.e(".js-character-image-scale-top");
+    var characterImageScaleBottom = helper.e(".js-character-image-scale-bottom");
+    var characterImageScaleLeft = helper.e(".js-character-image-scale-left");
+    var characterImageScaleRight = helper.e(".js-character-image-scale-right");
+
+    var characterImageScaleInput = helper.e(".js-character-image-scale-input");
 
     var characterBasicsImageScaleAverage = helper.e(".js-basics-character-image-background-average");
     var characterBasicsImageScaleBlack = helper.e(".js-basics-character-image-background-black");
@@ -34,68 +27,114 @@ var characterImage = (function() {
       _removeCharacterImage();
     }, false);
 
-    characterImageScaleInput.addEventListener("input", function() {
-      resizeTimer = setTimeout(_delayResize, 350, this);
-    }, false);
-    characterImageScaleDecrease.addEventListener("click", function() {
-      _resize();
-    }, false);
-    characterImageScaleIncrease.addEventListener("click", function() {
-      _resize();
-    }, false);
-
-    characterImagePositionXInput.addEventListener("input", function() {
-      resizeTimer = setTimeout(_delayResize, 350, this);
-    }, false);
-    characterImagePositionXDecrease.addEventListener("click", function() {
-      _resize();
-    }, false);
-    characterImagePositionXIncrease.addEventListener("click", function() {
-      _resize();
-    }, false);
-
-    characterImagePositionYInput.addEventListener("input", function() {
-      resizeTimer = setTimeout(_delayResize, 350, this);
-    }, false);
-    characterImagePositionYDecrease.addEventListener("click", function() {
-      _resize();
-    }, false);
-    characterImagePositionYIncrease.addEventListener("click", function() {
-      _resize();
-    }, false);
-
     characterImageScaleCover.addEventListener("click", function() {
-      _resize("cover", "center");
-      _update_all_input();
+      _render_size("cover");
+      _render_position("center");
+      _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      _resize("contain", "center");
-      _update_all_input();
+      _render_size("contain");
+      _render_position("center");
+      _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
-      _resize(false, "center");
-      _update_all_input();
+      _render_position("center");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleTop.addEventListener("click", function() {
+      _render_position("top");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleBottom.addEventListener("click", function() {
+      _render_position("bottom");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleLeft.addEventListener("click", function() {
+      _render_position("left");
+      _update_all_inputRangeBlock();
+      sheet.storeCharacters();
+    }, false);
+    characterImageScaleRight.addEventListener("click", function() {
+      _render_position("right");
+      _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
 
+    characterImageScaleInput.addEventListener("input", function() {
+      _render_size();
+      _calculate_positionXY();
+      _render_position();
+    }, false);
+
     characterBasicsImageScaleAverage.addEventListener("click", function() {
-      backgroundTimer = setTimeout(_delayBakcground, 350, this);
+      backgroundTimer = setTimeout(_delay_bakcground, 350, this);
     }, false);
     characterBasicsImageScaleBlack.addEventListener("click", function() {
-      backgroundTimer = setTimeout(_delayBakcground, 350, this);
+      backgroundTimer = setTimeout(_delay_bakcground, 350, this);
     }, false);
     characterBasicsImageScaleWhite.addEventListener("click", function() {
-      backgroundTimer = setTimeout(_delayBakcground, 350, this);
+      backgroundTimer = setTimeout(_delay_bakcground, 350, this);
     }, false);
   };
 
-  function _delayResize() {
-    _resize();
+  function _bind_image() {
+    var image = null;
+    var cursorX = 0;
+    var cursorY = 0;
+    var imageX = 0;
+    var imageY = 0;
+    // var newX;
+    // var newY;
+    var dragStart = function(x, y) {
+      image = helper.e(".js-character-image");
+      if (image) {
+        imageX = x - image.offsetLeft;
+        imageY = y - image.offsetTop;
+      };
+    };
+    var dragging = function(x, y) {
+      if (image !== null) {
+        var characterImagePreview = helper.e(".js-character-image-preview");
+        var characterImage = helper.e(".js-character-image");
+        x = (x - imageX);
+        y = (y - imageY);
+        _store_position(_calculate_positionX(x), _calculate_positionY(y));
+        _render_position();
+      };
+    };
+    var dragStop = function() {
+      image = null;
+      sheet.storeCharacters();
+    };
+    var checkElement = function(event) {
+      return event.target.classList.contains("js-character-image-preview");
+    };
+    helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {
+      dragStart(event.clientX, event.clientY);
+    });
+    helper.e("body").addEventListener("mousemove", function(event) {
+      dragging(event.clientX, event.clientY);
+    });
+    helper.e("body").addEventListener("mouseup", function(event) {
+      dragStop();
+    });
+    helper.e(".js-character-image-preview").addEventListener("touchstart", function(event) {
+      dragStart(event.touches[0].clientX, event.touches[0].clientY);
+    });
+    helper.e(".js-character-image-preview").addEventListener("touchmove", function(event) {
+      dragging(event.touches[0].clientX, event.touches[0].clientY);
+    });
+    helper.e(".js-character-image-preview").addEventListener("touchend", function(event) {
+      dragStop();
+    });
   };
 
-  function _delayBakcground() {
+  function _delay_bakcground() {
     _render_background();
   };
 
@@ -122,16 +161,20 @@ var characterImage = (function() {
         // check width and height
         if (tempImage.width <= 2000 || tempImage.height <= 2000) {
           destroy();
+          _store_uploaded(true);
           _store_image(reader.result);
           _store_background("average");
-          _store_color(helper.getAverageColor(reader.result));
-          _create_image();
+          _calculate_color(reader.result);
+          _calculate_size(tempImage);
+          _calculate_orientation();
+          _calculate_scale();
+          _render_image();
           _render_background();
-          _calculateSizes();
-          _resize();
-          _update_all_input();
+          _render_size("cover");
+          _render_position("center");
+          _update_all_inputRangeBlock();
           _update_all_radio();
-          _clearInput();
+          _clear_inputUpload();
           sheet.storeCharacters();
         } else {
           snack.render("Image too large, max 2000x2000px.", false, false);
@@ -152,183 +195,102 @@ var characterImage = (function() {
     };
   };
 
-  function _calculateSizes() {
-    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+  function _calculate_positionXY() {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      var characterImagePreview = helper.e(".js-character-image-preview");
+      var characterImage = helper.e(".js-character-image");
+      var x = characterImage.offsetLeft;
+      var y = characterImage.offsetTop;
+      _store_position(_calculate_positionX(x), _calculate_positionY(y));
+    };
+  };
+
+  function _calculate_positionX(x) {
     var characterImagePreview = helper.e(".js-character-image-preview");
     var characterImage = helper.e(".js-character-image");
-    var scale;
-    var cover;
-    var contain;
+    if (x < -(characterImage.width / 2) + 40) {
+      // console.log("too far left");
+      x = -(characterImage.width / 2) + 40;
+    } else if (x > ((characterImagePreview.getBoundingClientRect().width) + (characterImage.width / 2)) - 40) {
+      // console.log("too far right");
+      x = ((characterImagePreview.getBoundingClientRect().width) + (characterImage.width / 2)) - 40;
+    };
+    // convert x and y into percentages
+    x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    return x;
+  };
+
+  function _calculate_positionY(y) {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    if (y < -(characterImage.height / 2) + 40) {
+      // console.log("too far top");
+      y = -(characterImage.height / 2) + 40;
+    } else if (y > ((characterImagePreview.getBoundingClientRect().height) + (characterImage.height / 2)) - 40) {
+      // console.log("too far bottom");
+      y = ((characterImagePreview.getBoundingClientRect().height) + (characterImage.height / 2)) - 40;
+    };
+    y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    return y;
+  };
+
+  function _calculate_color(imageBase64) {
+    var color = helper.getAverageColor(imageBase64);
+    _store_color(color);
+  };
+
+  function _calculate_size(image) {
+    var width = image.width;
+    var height = image.height;
+    _store_size(width, height);
+  };
+
+  function _calculate_orientation() {
+    var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
+    var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
     var orientation;
-    var size = {
-      imageWidth: 0,
-      imageHeight: 0,
-      containerWidth: 0,
-      containerHeight: 0
-    }
-    size.imageWidth = characterImage.width;
-    size.imageHeight = characterImage.height;
-    size.containerWidth = characterImagePreview.getBoundingClientRect().width;
-    size.containerHeight = characterImagePreview.getBoundingClientRect().height;
-    if (size.imageWidth > size.imageHeight) {
+    if (imageWidth > imageHeight) {
       orientation = "landscape";
-      cover = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
-      contain = 100;
-    } else if (size.imageWidth < size.imageHeight) {
+    } else if (imageWidth < imageHeight) {
       orientation = "portrait";
-      cover = 100;
-      contain = parseInt((size.containerHeight / ((size.containerWidth / size.imageWidth) * size.imageHeight)) * 100, 10) + 1;
     } else {
       orientation = "square";
-      cover = 100;
-      contain = 100;
     };
-    scale = cover;
-    // console.log(size);
-    // console.log("scale = ", scale, "cover = ", cover, "contain = ", contain, "orientation = ", orientation);
     _store_orientation(orientation);
-    _store_cover(cover);
-    _store_contain(contain);
-    _store_scale(scale);
-    _store_position(50, 50);
   };
 
-  function _create_image() {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
-    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+  function _calculate_scale() {
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    if (imageBase64) {
-      var image = new Image;
-      image.setAttribute("class", "m-character-image js-character-image");
-      image.src = imageBase64;
-      if (background == "black") {
-        color = "rgb(0,0,0)";
-      } else if (background == "white") {
-        color = "rgb(255,255,255)";
-      } else if (background == "average") {
-        color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-      };
-      characterImagePreview.style.backgroundColor = color;
-      characterImagePreview.appendChild(image);
-    };
-  };
-
-  function render() {
+    var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
+    var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
+    var orientation = helper.getObject(sheet.getCharacter(), "basics.character_image.orientation");
     var characterImagePreview = helper.e(".js-character-image-preview");
-    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    if (imageBase64) {
-      var image = new Image;
-      image.setAttribute("class", "m-character-image js-character-image");
-      image.src = imageBase64;
-      characterImagePreview.appendChild(image);
-      _resize();
-      _render_background();
-    };
-  };
-
-  function _render_background() {
-    var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
-    var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    if (background == "black") {
-      color = "rgb(0,0,0)";
-    } else if (background == "white") {
-      color = "rgb(255,255,255)";
-    } else if (background == "average") {
-      color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-    };
-    characterImagePreview.style.backgroundColor = color;
-  };
-
-  function _store_position(axisX, axisY) {
-    var position = {
-      x: axisX,
-      y: axisY
-    };
-    helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
-  };
-
-  function _store_background(background) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.background", background);
-  };
-
-  function _store_color(color) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
-  };
-
-  function _store_image(imageBase64) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
-  };
-
-  function _store_scale(scale) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
-  };
-
-  function _store_cover(cover) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.cover", cover);
-  };
-
-  function _store_contain(contain) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.contain", contain);
-  };
-
-  function _store_orientation(orientation) {
-    helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
-  };
-
-  function _resize(presetSize, presetPosition) {
-    var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
-    var characterImage = helper.e(".js-character-image");
+    var containerWidth = characterImagePreview.getBoundingClientRect().width;
+    var containerHeight = characterImagePreview.getBoundingClientRect().height;
     var scale;
-    var x;
-    var y;
-    if (imageBase64) {
-      if (presetSize) {
-        if (presetSize == "contain") {
-          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.contain");
-        } else if (presetSize == "cover") {
-          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
-        };
-        _store_scale(scale);
-      } else {
-        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
-      };
-      if (presetPosition) {
-        if (presetPosition == "center") {
-          x = 50;
-          y = 50;
-        };
-        _store_position(x, y);
-      } else {
-        x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
-        y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-      };
-      if (scale == "" && scale != 0) {
-        scale = helper.getObject(sheet.getCharacter(), "basics.character_image.cover");
-      };
-      if (x == "" && x != 0) {
-        x = 50;
-      };
-      if (y == "" && y != 0) {
-        y = 50;
-      };
-      // characterImage.style.transform = "scale(" + scale + ") translate(" + x + "%, " + y + "%)";
-      characterImage.style.width = scale + "%";
-      characterImage.style.left = x + "%";
-      characterImage.style.top = y + "%";
+    // cover = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+    // contain = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+    if (orientation == "landscape") {
+      scale = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+    } else if (orientation == "portrait" || orientation == "square") {
+      scale = 100;
     };
+    _store_scale(scale);
   };
 
-  function _update_all_input() {
-    _update_input(helper.e(".js-character-image-scale-input"));
-    _update_input(helper.e(".js-character-image-position-x-input"));
-    _update_input(helper.e(".js-character-image-position-y-input"));
+  function _update_all_inputRangeBlock() {
+    _update_inputRangeBlock(helper.e(".js-character-image-scale-input"));
   };
 
-  function _update_input(input) {
-    var inputBlockElement = helper.getClosest(input, ".js-input-block");
-    inputBlock.render(inputBlockElement);
+  function _update_inputRangeBlock(input) {
+    var inputBlockElement = helper.getClosest(input, ".js-input-range-block");
+    inputRangeBlock.render(inputBlockElement);
   };
 
   function _update_all_radio() {
@@ -342,21 +304,23 @@ var characterImage = (function() {
     radioBlock.render(radioBlockElement);
   };
 
-  function _clearInput(input) {
+  function _clear_inputUpload(input) {
     var characterImageInput = helper.e(".js-character-image-input");
     characterImageInput.value = "";
   };
 
   function clear() {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    characterImagePreview.removeAttribute("style");
-    while (characterImagePreview.lastChild) {
-      characterImagePreview.removeChild(characterImagePreview.lastChild);
+    var characterImageBackground = helper.e(".js-character-image-background");
+    var characterImage = helper.e(".js-character-image");
+    if (characterImage) {
+      characterImageBackground.removeAttribute("style");
+      characterImage.remove();
     };
   };
 
   function destroy() {
     var object = {
+      uploaded: false,
       background: "",
       color: {
         r: "",
@@ -371,13 +335,200 @@ var characterImage = (function() {
         x: "",
         y: ""
       },
+      size: {
+        width: "",
+        height: ""
+      },
       scale: ""
     };
     helper.setObject(sheet.getCharacter(), "basics.character_image", object);
     sheet.storeCharacters();
-    _update_all_input();
+    _update_all_inputRangeBlock();
     _update_all_radio();
     clear();
+  };
+
+  function render() {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      _render_image();
+      _render_size();
+      _render_position();
+      _render_background();
+    };
+  };
+
+  function _render_image() {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      // console.log("render image");
+      var characterImagePreview = helper.e(".js-character-image-preview");
+      var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+      if (imageBase64) {
+        var image = new Image;
+        image.setAttribute("class", "m-character-image js-character-image");
+        image.src = imageBase64;
+        characterImagePreview.appendChild(image);
+      };
+      _bind_image();
+    };
+  };
+
+  function _render_background() {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      // console.log("render background");
+      var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
+      var characterImageBackground = helper.e(".js-character-image-background");
+      var color = helper.getObject(sheet.getCharacter(), "basics.character_image.color");
+      if (background == "black") {
+        color = "rgb(0,0,0)";
+      } else if (background == "white") {
+        color = "rgb(255,255,255)";
+      } else if (background == "average") {
+        color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+      };
+      characterImageBackground.style.backgroundColor = color;
+    };
+  };
+
+  function _render_position(presetPosition) {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      // console.log("render position");
+      var characterImagePreview = helper.e(".js-character-image-preview");
+      var characterImage = helper.e(".js-character-image");
+      var x;
+      var y;
+      var moveImage = function(image) {
+        if (presetPosition) {
+          if (presetPosition == "center") {
+            x = 50;
+            y = 50;
+          } else if (presetPosition == "top") {
+            x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+            y = ((image.height / 2) / characterImagePreview.getBoundingClientRect().height) * 100;
+          } else if (presetPosition == "bottom") {
+            x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+            y = ((characterImagePreview.getBoundingClientRect().height - (image.height / 2)) / characterImagePreview.getBoundingClientRect().height) * 100;
+          } else if (presetPosition == "left") {
+            x = ((image.width / 2) / characterImagePreview.getBoundingClientRect().width) * 100;
+            y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+          } else if (presetPosition == "right") {
+            x = ((characterImagePreview.getBoundingClientRect().width - (image.width / 2)) / characterImagePreview.getBoundingClientRect().width) * 100;
+            y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+          };
+          // // convert x and y into percentages
+          x = parseFloat(x).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+          y = parseFloat(y).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+        } else {
+          x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
+          y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
+        };
+        image.style.left = x + "%";
+        image.style.top = y + "%";
+        _store_position(x, y);
+      };
+      // if the image is ready move it or wait until it is loaded to move it
+      if (characterImage) {
+        if (characterImage.complete && characterImage.height > 0) {
+          moveImage(characterImage);
+        } else {
+          characterImage.onload = function(event) {
+            moveImage(characterImage);
+          };
+        };
+      };
+    };
+  };
+
+  function _render_size(presetSize) {
+    if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
+      // console.log("render resize");
+      var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+      var characterImage = helper.e(".js-character-image");
+      var characterImagePreview = helper.e(".js-character-image-preview");
+      if (sheet.getCharacter().basics.character_image.size.width == "" || sheet.getCharacter().basics.character_image.size.height == "") {
+        _calculate_size(characterImage);
+      };
+      var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
+      var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
+      var orientation = helper.getObject(sheet.getCharacter(), "basics.character_image.orientation");
+      var containerWidth = characterImagePreview.getBoundingClientRect().width;
+      var containerHeight = characterImagePreview.getBoundingClientRect().height;
+      var scale;
+      if (imageBase64 && characterImage) {
+        if (presetSize) {
+          if (presetSize == "contain") {
+            if (orientation == "landscape") {
+              scale = 100;
+            } else if (orientation == "portrait" || orientation == "square") {
+              scale = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+            };
+          } else if (presetSize == "cover") {
+            if (orientation == "landscape") {
+              scale = parseInt((containerHeight / ((containerWidth / imageWidth) * imageHeight)) * 100, 10);
+            } else if (orientation == "portrait" || orientation == "square") {
+              scale = 100;
+            };
+          };
+          _store_scale(scale);
+        } else {
+          scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
+        };
+        characterImage.style.width = scale + "%";
+      };
+    };
+  };
+
+  function _store_position(axisX, axisY) {
+    // console.log("store position");
+    var position = {
+      x: axisX,
+      y: axisY
+    };
+    helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
+  };
+
+  function _store_background(background) {
+    // console.log("store background");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.background", background);
+  };
+
+  function _store_color(color) {
+    // console.log("store color");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
+  };
+
+  function _store_image(imageBase64) {
+    // console.log("store image");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
+  };
+
+  function _store_scale(scale) {
+    // console.log("store scale");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
+  };
+
+  function _store_orientation(orientation) {
+    // console.log("store orientation");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
+  };
+
+  function _store_size(imageWidth, imageHeight) {
+    // console.log("store size");
+    var size = {
+      width: imageWidth,
+      height: imageHeight
+    };
+    helper.setObject(sheet.getCharacter(), "basics.character_image.size", size);
+  };
+
+  function _store_uploaded(boolean) {
+    // console.log("store uploaded");
+    helper.setObject(sheet.getCharacter(), "basics.character_image.uploaded", boolean);
   };
 
   // exposed methods

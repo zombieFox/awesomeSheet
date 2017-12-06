@@ -276,6 +276,7 @@ var sheet = (function() {
     clone.render();
     classes.render();
     inputBlock.render();
+    inputRangeBlock.render();
     selectBlock.render();
     radioBlock.render();
     textareaBlock.render();
@@ -297,6 +298,7 @@ var sheet = (function() {
     snack.bind();
     stats.bind();
     inputBlock.bind();
+    inputRangeBlock.bind();
     selectBlock.bind();
     radioBlock.bind();
     textareaBlock.bind();
