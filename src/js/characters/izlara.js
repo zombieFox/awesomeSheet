@@ -69,8 +69,6 @@ var izlara = (function() {
           g: 72,
           b: 34
         },
-        contain: 100,
-        cover: 100,
         orientation: "square",
         position: {
           x: "50.00",

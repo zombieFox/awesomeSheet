@@ -164,7 +164,6 @@ var characterImage = (function() {
           _store_uploaded(true);
           _store_image(reader.result);
           _store_background("average");
-          // _store_position(0, 0);
           _calculate_color(reader.result);
           _calculate_size(tempImage);
           _calculate_orientation();
@@ -449,13 +448,16 @@ var characterImage = (function() {
     if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
       // console.log("render resize");
       var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
+      var characterImage = helper.e(".js-character-image");
+      var characterImagePreview = helper.e(".js-character-image-preview");
+      if (sheet.getCharacter().basics.character_image.size.width == "" || sheet.getCharacter().basics.character_image.size.height == "") {
+        _calculate_size(characterImage);
+      };
       var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
       var imageHeight = helper.getObject(sheet.getCharacter(), "basics.character_image.size.height");
       var orientation = helper.getObject(sheet.getCharacter(), "basics.character_image.orientation");
-      var characterImagePreview = helper.e(".js-character-image-preview");
       var containerWidth = characterImagePreview.getBoundingClientRect().width;
       var containerHeight = characterImagePreview.getBoundingClientRect().height;
-      var characterImage = helper.e(".js-character-image");
       var scale;
       if (imageBase64 && characterImage) {
         if (presetSize) {
@@ -477,7 +479,6 @@ var characterImage = (function() {
           scale = helper.getObject(sheet.getCharacter(), "basics.character_image.scale");
         };
         characterImage.style.width = scale + "%";
-        // console.log("image.width", characterImage.width, "image.height", characterImage.height);
       };
     };
   };
