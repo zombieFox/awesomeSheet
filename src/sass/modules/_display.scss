@@ -237,7 +237,10 @@
 }
 .m-display-item-image {
   position: absolute;
-  transform-origin: top left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
 }
 // --------------------------------------------------
 // display snippet
