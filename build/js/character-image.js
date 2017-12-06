@@ -83,14 +83,15 @@ var characterImage = (function() {
   };
 
   function _bind_image() {
+    var body = helper.e("body");
+    var characterImagePreview = helper.e(".js-character-image-preview");
     var image = null;
     var cursorX = 0;
     var cursorY = 0;
     var imageX = 0;
     var imageY = 0;
-    // var newX;
-    // var newY;
     var dragStart = function(x, y) {
+      console.log("dragStart");
       image = helper.e(".js-character-image");
       if (image) {
         imageX = x - image.offsetLeft;
@@ -98,9 +99,8 @@ var characterImage = (function() {
       };
     };
     var dragging = function(x, y) {
+      console.log("dragging");
       if (image !== null) {
-        var characterImagePreview = helper.e(".js-character-image-preview");
-        var characterImage = helper.e(".js-character-image");
         x = (x - imageX);
         y = (y - imageY);
         _store_position(_calculate_positionX(x), _calculate_positionY(y));
@@ -108,28 +108,29 @@ var characterImage = (function() {
       };
     };
     var dragStop = function() {
+      console.log("dragStop");
       image = null;
       sheet.storeCharacters();
     };
-    var checkElement = function(event) {
-      return event.target.classList.contains("js-character-image-preview");
-    };
-    helper.e(".js-character-image-preview").addEventListener("mousedown", function(event) {
+    // var checkElement = function(event) {
+    //   return event.target.classList.contains("js-character-image-preview");
+    // };
+    characterImagePreview.addEventListener("mousedown", function(event) {
       dragStart(event.clientX, event.clientY);
     });
-    helper.e("body").addEventListener("mousemove", function(event) {
+    body.addEventListener("mousemove", function(event) {
       dragging(event.clientX, event.clientY);
     });
-    helper.e("body").addEventListener("mouseup", function(event) {
+    body.addEventListener("mouseup", function(event) {
       dragStop();
     });
-    helper.e(".js-character-image-preview").addEventListener("touchstart", function(event) {
+    characterImagePreview.addEventListener("touchstart", function(event) {
       dragStart(event.touches[0].clientX, event.touches[0].clientY);
     });
-    helper.e(".js-character-image-preview").addEventListener("touchmove", function(event) {
+    characterImagePreview.addEventListener("touchmove", function(event) {
       dragging(event.touches[0].clientX, event.touches[0].clientY);
     });
-    helper.e(".js-character-image-preview").addEventListener("touchend", function(event) {
+    characterImagePreview.addEventListener("touchend", function(event) {
       dragStop();
     });
   };
