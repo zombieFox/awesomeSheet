@@ -28,13 +28,13 @@ var characterImage = (function() {
     }, false);
 
     characterImageScaleCover.addEventListener("click", function() {
-      _render_resize("cover");
+      _render_size("cover");
       _render_position("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
-      _render_resize("contain");
+      _render_size("contain");
       _render_position("center");
       _update_all_inputRangeBlock();
       sheet.storeCharacters();
@@ -66,8 +66,8 @@ var characterImage = (function() {
     }, false);
 
     characterImageScaleInput.addEventListener("input", function() {
-      _render_resize();
-      xxx();
+      _render_size();
+      _calculate_positionXY();
       _render_position();
     }, false);
 
@@ -82,58 +82,14 @@ var characterImage = (function() {
     }, false);
   };
 
-  function xxx() {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var characterImage = helper.e(".js-character-image");
-    var x = characterImage.offsetLeft - (characterImage.width / 2);
-    var y = characterImage.offsetTop - (characterImage.height / 2);
-    _store_position(_calculate_positionX(x), _calculate_positionY(y));
-    console.log("x", x, "y", y);
-  };
-
-  function _calculate_positionX(x) {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var characterImage = helper.e(".js-character-image");
-    if (x < -(characterImage.width / 2) + 40) {
-      // console.log("too far left");
-      x = -(characterImage.width / 2) + 40;
-    } else if (x > ((characterImagePreview.getBoundingClientRect().width) + (characterImage.width / 2)) - 40) {
-      // console.log("too far right");
-      x = ((characterImagePreview.getBoundingClientRect().width) + (characterImage.width / 2)) - 40;
-    };
-    // convert x and y into percentages
-    x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-    return x;
-  };
-
-  function _calculate_positionY(y) {
-    var characterImagePreview = helper.e(".js-character-image-preview");
-    var characterImage = helper.e(".js-character-image");
-    if (y < -(characterImage.height / 2) + 40) {
-      // console.log("too far top");
-      y = -(characterImage.height / 2) + 40;
-    } else if (y > ((characterImagePreview.getBoundingClientRect().height) + (characterImage.height / 2)) - 40) {
-      // console.log("too far bottom");
-      y = ((characterImagePreview.getBoundingClientRect().height) + (characterImage.height / 2)) - 40;
-    };
-    y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-    return y;
-  };
-
   function _bind_image() {
     var image = null;
     var cursorX = 0;
     var cursorY = 0;
     var imageX = 0;
     var imageY = 0;
-    var newX;
-    var newY;
+    // var newX;
+    // var newY;
     var dragStart = function(x, y) {
       image = helper.e(".js-character-image");
       if (image) {
@@ -147,40 +103,8 @@ var characterImage = (function() {
         var characterImage = helper.e(".js-character-image");
         x = (x - imageX);
         y = (y - imageY);
-        // // if image is outside the parent
-        // if (x < -(image.width / 2) + 40) {
-        //   // console.log("too far left");
-        //   x = -(image.width / 2) + 40;
-        // } else if (x > ((characterImagePreview.getBoundingClientRect().width) + (image.width / 2)) - 40) {
-        //   // console.log("too far right");
-        //   x = ((characterImagePreview.getBoundingClientRect().width) + (image.width / 2)) - 40;
-        // };
-        // if (y < -(image.height / 2) + 40) {
-        //   // console.log("too far top");
-        //   y = -(image.height / 2) + 40;
-        // } else if (y > ((characterImagePreview.getBoundingClientRect().height) + (image.height / 2)) - 40) {
-        //   // console.log("too far bottom");
-        //   y = ((characterImagePreview.getBoundingClientRect().height) + (image.height / 2)) - 40;
-        // };
-        // // convert x and y into percentages
-        // x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
-        //   minimumFractionDigits: 2,
-        //   maximumFractionDigits: 2
-        // });
-        // y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
-        //   minimumFractionDigits: 2,
-        //   maximumFractionDigits: 2
-        // });
-        // set and store position
-        // image.style.left = x + "%";
-        // image.style.top = y + "%";
-        // image.style.left = _calculate_positionX(x) + "%";
-        // image.style.top = _calculate_positionY(y) + "%";
-        // newX = x;
-        // newY = y;
         _store_position(_calculate_positionX(x), _calculate_positionY(y));
         _render_position();
-        // console.log("image.x", x, "image.y", y);
       };
     };
     var dragStop = function() {
@@ -246,7 +170,7 @@ var characterImage = (function() {
           _calculate_scale();
           _render_image();
           _render_background();
-          _render_resize("cover");
+          _render_size("cover");
           _render_position("center");
           _update_all_inputRangeBlock();
           _update_all_radio();
@@ -270,6 +194,49 @@ var characterImage = (function() {
     } else {
       snack.render("File too big, max 500KB.", false, false);
     };
+  };
+
+  function _calculate_positionXY() {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    var x = characterImage.offsetLeft;
+    var y = characterImage.offsetTop;
+    _store_position(_calculate_positionX(x), _calculate_positionY(y));
+  };
+
+  function _calculate_positionX(x) {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    if (x < -(characterImage.width / 2) + 40) {
+      // console.log("too far left");
+      x = -(characterImage.width / 2) + 40;
+    } else if (x > ((characterImagePreview.getBoundingClientRect().width) + (characterImage.width / 2)) - 40) {
+      // console.log("too far right");
+      x = ((characterImagePreview.getBoundingClientRect().width) + (characterImage.width / 2)) - 40;
+    };
+    // convert x and y into percentages
+    x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    return x;
+  };
+
+  function _calculate_positionY(y) {
+    var characterImagePreview = helper.e(".js-character-image-preview");
+    var characterImage = helper.e(".js-character-image");
+    if (y < -(characterImage.height / 2) + 40) {
+      // console.log("too far top");
+      y = -(characterImage.height / 2) + 40;
+    } else if (y > ((characterImagePreview.getBoundingClientRect().height) + (characterImage.height / 2)) - 40) {
+      // console.log("too far bottom");
+      y = ((characterImagePreview.getBoundingClientRect().height) + (characterImage.height / 2)) - 40;
+    };
+    y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    return y;
   };
 
   function _calculate_color(imageBase64) {
@@ -383,7 +350,7 @@ var characterImage = (function() {
   function render() {
     if (helper.getObject(sheet.getCharacter(), "basics.character_image.uploaded")) {
       _render_image();
-      _render_resize();
+      _render_size();
       _render_position();
       _render_background();
     };
@@ -453,38 +420,10 @@ var characterImage = (function() {
       } else {
         x = helper.getObject(sheet.getCharacter(), "basics.character_image.position.x");
         y = helper.getObject(sheet.getCharacter(), "basics.character_image.position.y");
-        // convert x and y into pixels
-        // x = parseInt((x / 100) * characterImagePreview.getBoundingClientRect().width, 10);
-        // y = parseInt((y / 100) * characterImagePreview.getBoundingClientRect().height, 10);
-        // if image is outside the parent
-        // if (x > ((characterImagePreview.getBoundingClientRect().width) - 50)) {
-        //   console.log("too far right");
-        //   x = ((characterImagePreview.getBoundingClientRect().width) - 50);
-        // } else if (x < -(characterImage.width - 50)) {
-        //   console.log("too far left");
-        //   x = -(characterImage.width - 50);
-        // };
-        // if (y > ((characterImagePreview.getBoundingClientRect().height) - 50)) {
-        //   console.log("too far bottom");
-        //   y = ((characterImagePreview.getBoundingClientRect().height) - 50);
-        // } else if (y < -(characterImage.height - 50)) {
-        //   console.log("too far top");
-        //   y = -(characterImage.height - 50);
-        // };
-        // convert x and y into percentages
-        // x = parseFloat((x / characterImagePreview.getBoundingClientRect().width) * 100).toLocaleString(undefined, {
-        //   minimumFractionDigits: 2,
-        //   maximumFractionDigits: 2
-        // });
-        // y = parseFloat((y / characterImagePreview.getBoundingClientRect().height) * 100).toLocaleString(undefined, {
-        //   minimumFractionDigits: 2,
-        //   maximumFractionDigits: 2
-        // });
       };
       image.style.left = x + "%";
       image.style.top = y + "%";
       _store_position(x, y);
-      // console.log("x", x, "y", y);
     };
     // if the image is ready move it or wait until it is loaded to move it
     if (characterImage) {
@@ -498,7 +437,7 @@ var characterImage = (function() {
     };
   };
 
-  function _render_resize(presetSize) {
+  function _render_size(presetSize) {
     // console.log("render resize");
     var imageBase64 = helper.getObject(sheet.getCharacter(), "basics.character_image.image");
     var imageWidth = helper.getObject(sheet.getCharacter(), "basics.character_image.size.width");
