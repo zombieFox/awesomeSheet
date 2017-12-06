@@ -91,7 +91,7 @@ var characterImage = (function() {
     var imageX = 0;
     var imageY = 0;
     var dragStart = function(x, y) {
-      console.log("dragStart");
+      // console.log("dragStart");
       image = helper.e(".js-character-image");
       if (image) {
         imageX = x - image.offsetLeft;
@@ -99,7 +99,7 @@ var characterImage = (function() {
       };
     };
     var dragging = function(x, y) {
-      console.log("dragging");
+      // console.log("dragging");
       if (image !== null) {
         x = (x - imageX);
         y = (y - imageY);
@@ -108,7 +108,7 @@ var characterImage = (function() {
       };
     };
     var dragStop = function() {
-      console.log("dragStop");
+      // console.log("dragStop");
       image = null;
       sheet.storeCharacters();
     };
