@@ -117,6 +117,7 @@ input[type="submit"] {
 .button-text {
   display: block;
   position: relative;
+  pointer-events: none;
 }
 .button-block {
   width: 100%;

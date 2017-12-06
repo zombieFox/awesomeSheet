@@ -125,15 +125,17 @@
   .m-radio-block-radio {
     &[type="radio"] {
       & + .m-radio-block-radio-icon {
-        background-color: $gray-03;
-        border-color: $gray-04;
-        color: $gray-18;
+        background-color: $gray-04;
+        border-color: $gray-06;
         &:before {
           color: $white;
         }
       }
       &:hover {
         & + .m-radio-block-radio-icon {
+          background-color: $gray-06;
+          border-color: $gray-08;
+          box-shadow: 0 0 0 3px $light-alpha-10;
           &:before {
             color: $secondary-color-10;
           }
@@ -141,6 +143,9 @@
       }
       &:focus {
         & + .m-radio-block-radio-icon {
+          background-color: $gray-08;
+          border-color: $gray-10;
+          box-shadow: 0 0 0 3px $light-alpha-10;
           &:before {
             color: $primary-color-10;
           }
