@@ -61,6 +61,19 @@
     line-height: $line-height-160;
     color: $white;
   }
+  a {
+    color: $primary-color-16;
+    &:link,
+    &:visited {
+      color: $primary-color-16;
+    }
+    &:hover {
+      color: $primary-color-14;
+    }
+    &:active {
+      color: $primary-color-12;
+    }
+  }
 }
 .m-log-controls {
   border-radius: 0 0 $border-radius-medium $border-radius-medium;

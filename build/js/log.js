@@ -143,6 +143,13 @@ var log = (function() {
           var listItemIcon = document.createElement("span");
           listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
           listItem.textContent = update.history[i].list[j].substr(1);
+          if (update.history[i].link) {
+            var link = document.createElement("a");
+            link.textContent = update.history[i].link.text
+            link.setAttribute("target", "_blank");
+            link.href = update.history[i].link.url;
+            listItem.appendChild(link);
+          };
           listItem.appendChild(listItemIcon);
         } else {
           listItem.textContent = update.history[i].list[j];
@@ -168,7 +175,7 @@ var log = (function() {
     var all_breakingChanges = [];
     var all_breakingChangesVersion = [];
     var changeVersion;
-    var numberOfRecentChanges = 2;
+    var numberOfRecentChanges = 1;
     for (var i = 0; i < update.history.length; i++) {
       for (var j = 0; j < update.history[i].list.length; j++) {
         var asterisk = "*";
@@ -201,11 +208,18 @@ var log = (function() {
         var listItem = document.createElement("li");
         listItem.setAttribute("class", "m-log-list-item");
         listItem.textContent = all_breakingChanges[i];
+        if (update.history[i].link) {
+          var link = document.createElement("a");
+          link.textContent = update.history[i].link.text
+          link.setAttribute("target", "_blank");
+          link.href = update.history[i].link.url;
+          listItem.appendChild(link);
+        };
         list.appendChild(listItem);
       };
       var seeAll = document.createElement("button");
       seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
-      seeAll.textContent = "See complete Change Log"
+      seeAll.textContent = "See complete Change Log";
       seeAll.addEventListener("click", function(event) {
         _create_fullChangeLog();
         destroy();
@@ -215,7 +229,7 @@ var log = (function() {
       row.appendChild(col);
       container.appendChild(row);
       var heading = "Recent Changes";
-      _render_logMessage(heading, container, "Don't show this again", function(){
+      _render_logMessage(heading, container, "Don't show this again", function() {
         _store_confirmation(changeVersion);
       });
     };

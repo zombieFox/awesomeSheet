@@ -5940,6 +5940,14 @@ label {
   .m-log-list-short .m-log-list-item {
     line-height: 1.6666666667;
     color: #ffffff; }
+  .m-log-list-short a {
+    color: #ff97b2; }
+    .m-log-list-short a:link, .m-log-list-short a:visited {
+      color: #ff97b2; }
+    .m-log-list-short a:hover {
+      color: #ff648c; }
+    .m-log-list-short a:active {
+      color: #ff3166; }
 
 .m-log-controls {
   border-radius: 0 0 4px 4px; }

@@ -1,6 +1,15 @@
 var update = (function() {
 
   var history = [{
+    version: "3.30.2",
+    list: [
+      "*Missing characters? Please read this post: "
+    ],
+    link: {
+      text: "Github issues-115",
+      url: "https://github.com/zombieFox/awesomeSheet/issues/115"
+    }
+  }, {
     version: "3.30.1",
     list: [
       "*Disable HTTPS redirect as user data is not migrating. A fix is in the works. Until then users wont be redirected to HTTPS."
