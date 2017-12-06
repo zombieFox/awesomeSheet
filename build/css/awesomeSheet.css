@@ -4951,7 +4951,8 @@ label {
   z-index: 3000;
   transition: opacity 0.3s ease-in-out;
   -ms-transform-origin: bottom center;
-      transform-origin: bottom center; }
+      transform-origin: bottom center;
+  pointer-events: none; }
 
 .m-tip-intro {
   animation: grow 0.3s ease-in-out 1; }

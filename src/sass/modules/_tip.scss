@@ -9,6 +9,7 @@
   z-index: $tip;
   transition: opacity $transition-ease-medium;
   transform-origin: bottom center;
+  pointer-events: none;
 }
 .m-tip-intro {
   animation: grow $transition-ease-medium 1;
