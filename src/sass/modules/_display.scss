@@ -226,7 +226,7 @@
 .m-display-item-image-wrapper {
   background-color: $white;
   border-radius: 50%;
-  margin: -3em 0 0 0;
+  margin: -3em 0 0;
   width: 12em;
   height: 12em;
   font-size: $font-size-root-100;
@@ -240,7 +240,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transform-origin: top left;
+  transform-origin: center center;
 }
 // --------------------------------------------------
 // display snippet
@@ -422,8 +422,8 @@
 }
 .m-display-list-item-attack-melee-attack,
 .m-display-list-item-attack-melee-critical,
-.m-display-list-item-attack-melee-type,
 .m-display-list-item-attack-melee-damage,
+.m-display-list-item-attack-melee-type,
 .m-display-list-item-attack-melee-weapon {
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
@@ -473,9 +473,9 @@
 .m-display-list-item-attack-ranged-ammo,
 .m-display-list-item-attack-ranged-attack,
 .m-display-list-item-attack-ranged-critical,
-.m-display-list-item-attack-ranged-type,
 .m-display-list-item-attack-ranged-damage,
 .m-display-list-item-attack-ranged-range,
+.m-display-list-item-attack-ranged-type,
 .m-display-list-item-attack-ranged-weapon {
   box-sizing: border-box;
   &:not(:only-child):not(:first-child) {
@@ -687,14 +687,7 @@
     height: 20em;
   }
 }
-@media (min-width: $screen-xl) {
-  .m-display-item-image-wrapper {
-    margin: 0px -6em 0 0;
-    left: -8em;
-    width: 22em;
-    height: 22em;
-  }
-}
+@media (min-width: $screen-xl) {}
 @media print {
   .m-display-box {
     display: flex;

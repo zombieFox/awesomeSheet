@@ -24,10 +24,6 @@
     height: 100%;
     position: absolute;
     transform: none;
-    &.m-radio-block-radio-with-label {
-      top: 1.25em;
-      height: calc(100% - 1.25em);
-    }
     & + .m-radio-block-radio-icon {
       background-color: $white;
       border: $border;
@@ -40,6 +36,7 @@
       text-align: center;
       position: relative;
       display: block;
+      transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
       &:before {
         opacity: 1;
         font-family: "Icons" !important;
@@ -61,6 +58,12 @@
     }
     &:hover {
       & + .m-radio-block-radio-icon {
+        background-color: $gray-18;
+        border-color: $gray-14;
+        color: $base-color;
+        outline: 0;
+        text-decoration: none;
+        box-shadow: 0 0 0 3px $dark-alpha-20;
         &:before {
           color: $secondary-color-10;
         }
@@ -68,6 +71,19 @@
     }
     &:focus {
       & + .m-radio-block-radio-icon {
+        &:before {
+          color: $primary-color-10;
+        }
+      }
+    }
+    &:active {
+      & + .m-radio-block-radio-icon {
+        background-color: $gray-16;
+        border-color: $gray-12;
+        color: $base-color;
+        outline: 0;
+        text-decoration: none;
+        box-shadow: 0 0 0 3px $dark-alpha-19;
         &:before {
           color: $primary-color-10;
         }
