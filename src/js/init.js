@@ -9,6 +9,7 @@
   log.render();
   night.update();
   checkUrl.render();
-  checkUrl.checkHttps();
+  // disbaled for now
+  // checkUrl.checkHttps();
 
 })();

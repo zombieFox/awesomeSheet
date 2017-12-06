@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "3.30.1",
+    list: [
+      "*Disable HTTPS redirect as user data is not migrating. A fix is in the works. Until then users wont be redirected to HTTPS."
+    ]
+  }, {
     version: "3.30.0",
     list: [
       "Improved Event logger."
