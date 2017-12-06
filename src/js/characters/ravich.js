@@ -82,8 +82,8 @@ var ravich = (function() {
         cover: 100,
         orientation: "square",
         position: {
-          x: -120,
-          y: -40
+          x: "50.00",
+          y: "80.00"
         },
         scale: 190,
         size: {

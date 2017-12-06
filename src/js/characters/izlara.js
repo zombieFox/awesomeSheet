@@ -73,8 +73,8 @@ var izlara = (function() {
         cover: 100,
         orientation: "square",
         position: {
-          x: 0,
-          y: 0
+          x: "50.00",
+          y: "50.00"
         },
         scale: 100,
         size: {
