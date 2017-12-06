@@ -399,7 +399,7 @@ var repair = (function() {
     // --------------------------------------------------
     // update character image
     if ("image" in characterObject.basics.character_image && characterObject.basics.character_image.image != "") {
-      console.log("image found");
+      // console.log("image found");
       characterObject.basics.character_image.uploaded = true;
       if (!characterObject.basics.character_image.size) {
         characterObject.basics.character_image.size = {
