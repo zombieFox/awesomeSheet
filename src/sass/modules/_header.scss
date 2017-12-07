@@ -1,8 +1,8 @@
 .m-header {
-  background-color: $secondary-color-04;
+  background-color: $secondary-color-06;
   font-size: $font-size-root-100;
   height: 3em;
-  padding: 0 1em;
+  padding: 0 2em;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,10 +11,19 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   z-index: $header;
+  box-sizing: border-box;
+}
+.m-header-logo {
+  flex: 0 0 auto;
+}
+.m-header-dropdown {
+  flex: 1 1 auto;
+}
+.m-header-hamburger {
+  flex: 0 1 auto;
+  width: 6em;
 }
 .m-header-name {
-  margin-right: 2em;
-  padding: 0;
   font-size: 1em;
   font-family: $open-sans-bold;
   color: $secondary-color-08;
@@ -22,6 +31,11 @@
   flex: 0 0 auto;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
+  }
+}
+.is-display-mode {
+  &.m-header {
+    background-color: $primary-color-06;
   }
 }
 // --------------------------------------------------

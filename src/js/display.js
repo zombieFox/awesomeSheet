@@ -21,6 +21,7 @@ var display = (function() {
   };
 
   function _update_displayState() {
+    var header = helper.e(".js-header");
     var quickNav = helper.e(".js-quick-nav");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
@@ -34,6 +35,7 @@ var display = (function() {
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
       helper.addClass(quickNav, "is-display-mode");
+      helper.addClass(header, "is-display-mode");
     };
     var _displayOff = function() {
       helper.removeClass(fabIcon, "icon-edit");
@@ -41,6 +43,7 @@ var display = (function() {
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
       helper.removeClass(quickNav, "is-display-mode");
+      helper.removeClass(header, "is-display-mode");
     };
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {

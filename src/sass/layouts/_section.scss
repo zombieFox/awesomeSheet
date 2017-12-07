@@ -2,7 +2,7 @@
   width: 100%;
 }
 .l-section-wrapper {
-  margin: 4em 0 0;
+  margin: 6em 0 0;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
@@ -24,7 +24,7 @@
 }
 @media (min-width: $screen-lg) {
   .l-section-wrapper {
-    margin: 0 0 0 4em;
+    margin: 3em 0 0 4em;
   }
 }
 @media (min-width: $screen-xl) {
