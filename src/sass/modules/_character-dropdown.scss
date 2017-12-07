@@ -1,0 +1,24 @@
+.m-character-dropdown {
+  width: 40vw;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.m-character-dropdown-current {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-family: $open-sans-bold;
+  color: $white;
+  line-height: 3em;
+  flex: 0 0 auto;
+  z-index: 2;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-character-dropdown-list {
+  position: absolute;
+  top: 100%;
+  z-index: 3;
+}

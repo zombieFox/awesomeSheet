@@ -1,0 +1,34 @@
+.m-header {
+  background-color: $secondary-color-04;
+  font-size: $font-size-root-100;
+  height: 3em;
+  padding: 0 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  z-index: $header;
+}
+.m-header-name {
+  margin-right: 2em;
+  padding: 0;
+  font-size: 1em;
+  font-family: $open-sans-bold;
+  color: $secondary-color-08;
+  line-height: 3em;
+  flex: 0 0 auto;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}
+@media print {}

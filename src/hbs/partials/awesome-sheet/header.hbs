@@ -1,25 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#245689">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta name="author" content="zombieFox">
-  <meta name="description" content="An Pathfinder RPG online character sheet which auto calculates many scores and bonuses.">
-  <meta name="keywords" content="Pathfinder, RPG, Role Playing Game, Character Sheet, Pathfinder Character Sheet, Automatic Character Sheet">
-  <meta name="robots" content="index">
-  <title>awesomeSheet</title>
-  <link rel="icon" sizes="128x128" href="images/chrome-touch-icon-128x128.png">
-  <link rel="manifest" href="manifest.json">
-  <!-- build:css css/vendor.min.css -->
-  <link rel="stylesheet" href="css/vendor.css">
-  <!-- endbuild -->
-  <!-- build:css css/awesomeSheet.min.css -->
-  <link rel="stylesheet" href="css/awesomeSheet.css">
-  <!-- endbuild -->
-</head>
-
-<body id="body">
+<header class="m-header">
+  <h1 class="m-header-name">awesomeSheet</h1>
+  <div class="m-character-dropdown">
+    <h2 class="m-character-dropdown-current js-character-dropdown-current">Name</h2>
+    <ul class="m-character-dropdown-list">
+      <li>
+        <p class="m-nav-title js-nav-title" tabindex="10">Characters</p>
+      </li>
+      <li>
+        <ul class="m-nav-characters js-nav-characters"></ul>
+      </li>
+      <li class="m-nav-divide"></li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-character-add u-clearfix" tabindex="10">
+        <span class="icon-add"></span>
+        <span class="m-nav-link-name">Add</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-character-remove u-clearfix" tabindex="10">
+        <span class="icon-remove"></span>
+        <span class="m-nav-link-name">Remove</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-character-import u-clearfix" tabindex="10">
+        <span class="icon-file-upload"></span>
+        <span class="m-nav-link-name">Import</span>
+        <span class="m-nav-link-shortcut hidden-xs hidden-sm hidden-md u-small-text">ctrl + alt + i</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-character-export u-clearfix" tabindex="10">
+        <span class="icon-file-download"></span><span class="m-nav-link-name">Export</span>
+        <span class="m-nav-link-shortcut hidden-xs hidden-sm hidden-md u-small-text">ctrl + alt + e</span>
+      </a>
+      </li>
+      <li class="m-nav-divide"></li>
+      <li>
+        <p class="m-nav-title">Tools</p>
+      </li>
+      <li>
+        <a href="https://github.com/zombieFox/awesomeSheet/issues" class="m-nav-link u-clearfix" target="_blank" tabindex="10">
+        <span class="icon-feedback"></span>
+        <span class="m-nav-link-name">Feedback/Issues</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-chnage-log u-clearfix" tabindex="10">
+        <span class="icon-bookmark"></span>
+        <span class="m-nav-link-name">Change Log</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-night-mode u-clearfix" tabindex="10">
+        <span class="icon-moon"></span>
+        <span class="m-nav-link-name">Night Mode</span>
+        <span class="m-nav-link-shortcut hidden-xs hidden-sm hidden-md u-small-text">ctrl + alt + n</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-fullscreen-mode u-clearfix" tabindex="10">
+        <span class="icon-fullscreen js-icon-fullscreen"></span>
+        <span class="m-nav-link-name">Fullscreen</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-clear-all u-clearfix" tabindex="10">
+        <span class="icon-delete"></span>
+        <span class="m-nav-link-name">Clear All</span>
+        <span class="m-nav-link-shortcut hidden-xs hidden-sm hidden-md u-small-text">ctrl + alt + del</span>
+      </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="m-nav-link js-restore-demo-pcs u-clearfix" tabindex="10">
+        <span class="icon-renew"></span>
+        <span class="m-nav-link-name">Restore Demo PCs</span>
+      </a>
+      </li>
+    </ul>
+  </div>
+</header>
