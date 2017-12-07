@@ -21,7 +21,7 @@
 }
 .m-header-hamburger {
   flex: 0 1 auto;
-  width: 6em;
+  width: calc(100% / 8);
 }
 .m-header-name {
   font-size: 1em;
