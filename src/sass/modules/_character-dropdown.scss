@@ -1,7 +1,7 @@
 .m-character-dropdown {
-  width: 40vw;
+  width: 100%;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   z-index: 1;
 }
 .m-character-dropdown-current {
@@ -18,7 +18,11 @@
   }
 }
 .m-character-dropdown-list {
+  background-color: $white;
   position: absolute;
   top: 100%;
+  left:0;
+  width: 100%;
   z-index: 3;
+  box-shadow: $shadow-small;
 }

@@ -13,28 +13,32 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .l-section {
-    margin: 2em 0 0;
-    width: 90%;
+    margin: 1em auto 0;
+    width: calc(100% - 2em);
   }
 }
 @media (min-width: $screen-md) {
   .l-section {
-    width: 85%;
+    margin: 2em auto 0;
+    width: calc(100% - 4em);
   }
 }
 @media (min-width: $screen-lg) {
   .l-section-wrapper {
     margin: 3em 0 0 4em;
   }
+  .l-section {
+    width: 80%;
+  }
 }
 @media (min-width: $screen-xl) {
   .l-section {
-    width: 60%;
+    width: 70%;
   }
 }
 @media (min-width: 2000px) {
   .l-section {
-    width: 55%;
+    width: 60%;
   }
 }
 @media print {
