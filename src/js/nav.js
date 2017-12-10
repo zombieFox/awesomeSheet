@@ -59,45 +59,7 @@ var nav = (function() {
     };
   };
 
-  function _bind_characterOption(characterLink) {
-    var label = characterLink.querySelector(".js-nav-character-label");
-    var input = characterLink.querySelector(".js-nav-character-input");
-    input.addEventListener("change", function() {
-      _switch_character(label);
-      sheet.storeCharacters();
-      navClose();
-      scrollToTop();
-    }, false);
-  };
-
-  function _switch_character(characterLink) {
-    var newIndex = parseInt(characterLink.dataset.characterIndex, 10);
-    sheet.switch(newIndex);
-    var name = sheet.getCharacter().basics.name;
-    if (typeof name == "undefined" || name == "") {
-      name = "New character";
-    };
-    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
-    navClose();
-  };
-
-
-  function updateNavCharacters() {
-    nav.clear();
-    nav.render();
-  };
-
-  function clear() {
-    var all_navCharacters = helper.eA(".js-nav-characters");
-    for (var i = 0; i < all_navCharacters.length; i++) {
-      while (all_navCharacters[i].lastChild) {
-        all_navCharacters[i].removeChild(all_navCharacters[i].lastChild);
-      };
-    };
-  };
-
   function render() {
-    _createAllCharacter();
     _render_quickNav();
   };
 
@@ -155,68 +117,6 @@ var nav = (function() {
       };
 
     };
-  };
-
-  function _createAllCharacter() {
-    var characters = sheet.getAllCharacters();
-    var navCharacters = helper.e(".js-nav-characters");
-    for (var i in characters) {
-      navCharacters.appendChild(_createNavCharacterItem(characters[i], i));
-    };
-    var all_navCharacterInput = helper.eA(".js-nav-character-input");
-    all_navCharacterInput[sheet.getIndex()].checked = true;
-  };
-
-  function _get_name(characterObject) {
-    var characterName = characterObject.basics.name;
-    if (typeof characterName == "undefined" || characterName == "") {
-      characterName = "New Character";
-    };
-    return characterName;
-  };
-
-  function _createNavCharacterItem(characterObject, characterIndex) {
-    var classLevel = classes.getClassLevel(characterObject);
-    var characterName = _get_name(characterObject);
-
-    var uniqueId = helper.randomId(10);
-
-    var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character js-nav-character-" + characterIndex);
-
-    var input = document.createElement("input");
-    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    input.setAttribute("name", "js-nav-all-characters");
-    input.setAttribute("class", "js-nav-character-input");
-    input.setAttribute("type", "radio");
-    input.setAttribute("tabindex", 1);
-
-    var label = document.createElement("label");
-    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-nav-character-label");
-    label.setAttribute("data-character-index", characterIndex);
-
-    var detailsSpan = document.createElement("span");
-    detailsSpan.setAttribute("class", "m-nav-characters-details");
-
-    var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-nav-characters-name");
-    nameSpan.textContent = characterName;
-
-    var classLevelSpan = document.createElement("span");
-    classLevelSpan.setAttribute("class", "m-nav-characters-class-level");
-    classLevelSpan.textContent = classLevel;
-
-    // build module
-    detailsSpan.appendChild(nameSpan);
-    detailsSpan.appendChild(classLevelSpan);
-    label.appendChild(detailsSpan);
-    navCharacter.appendChild(input);
-    navCharacter.appendChild(label);
-
-    // bind
-    _bind_characterOption(navCharacter);
-    return navCharacter;
   };
 
   function navClose() {
@@ -288,18 +188,12 @@ var nav = (function() {
   };
 
   function _bind_navLinks() {
-
-    // var nav = helper.e(".js-nav");
     var navToggle = helper.e(".js-nav-toggle");
     var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
     var nightMode = helper.e(".js-night-mode");
     var chnageLog = helper.e(".js-chnage-log");
     var clearAll = helper.e(".js-clear-all");
     var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
-    var characterAdd = helper.e(".js-character-add");
-    var characterRemove = helper.e(".js-character-remove");
-    var characterImport = helper.e(".js-character-import");
-    var characterExport = helper.e(".js-character-export");
 
     navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -339,36 +233,6 @@ var nav = (function() {
       navClose();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
     }, false);
-
-    characterImport.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.import();
-    }, false);
-
-    characterExport.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.export();
-    }, false);
-
-    characterAdd.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.addCharacter();
-      snack.render("New character added.", false);
-    }, false);
-
-    characterRemove.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.removeCharacter();
-    }, false);
-
   };
 
   function _bind_quickNavLinks() {
@@ -446,9 +310,7 @@ var nav = (function() {
   // exposed methods
   return {
     bind: bind,
-    clear: clear,
     render: render,
-    update: updateNavCharacters,
     open: navOpen,
     close: navClose,
     toggle: toggle,

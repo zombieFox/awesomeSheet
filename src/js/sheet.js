@@ -49,8 +49,8 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
   };
 
@@ -76,8 +76,8 @@ var sheet = (function() {
     clear();
     render();
     storeCharacters();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
@@ -95,8 +95,8 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("All characters restored.", false, false);
   };
@@ -110,8 +110,8 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("Default characters restored.", false, false);
   };
@@ -125,8 +125,8 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("All characters cleared.", false, false);
   };
@@ -335,8 +335,8 @@ var sheet = (function() {
       setIndex(index);
       clear();
       render();
-      nav.clear();
-      nav.render();
+      characterSelect.clear();
+      characterSelect.render();
       var name = sheet.getCharacter().basics.name;
       snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
       nav.close();

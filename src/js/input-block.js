@@ -521,7 +521,7 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 300, this);
+      updateNavTimer = setTimeout(characterSelect.update, 300, this);
     }, false);
     // input.addEventListener("keydown", function(event) {
     //   // enter
@@ -538,7 +538,7 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 300, this);
+      updateNavTimer = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
