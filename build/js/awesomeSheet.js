@@ -10221,7 +10221,7 @@ var orrin = (function() {
         }
       },
       xp: {
-        total: 90148,
+        total: 102738,
         advancement_speed: "Medium",
         next_level: "",
         needed: ""
@@ -10241,7 +10241,8 @@ var orrin = (function() {
           y: ""
         },
         scale: "",
-        image: ""
+        image: "",
+        uploaded: ""
       }
     },
     statistics: {
@@ -10249,7 +10250,7 @@ var orrin = (function() {
         str: {
           modifier: 1,
           base: 13,
-          current: 13,
+          current: "",
           racial: "",
           enhancement: "",
           misc: "",
@@ -10258,7 +10259,7 @@ var orrin = (function() {
         dex: {
           modifier: 7,
           base: 18,
-          current: 24,
+          current: "",
           racial: 2,
           enhancement: 4,
           misc: "",
@@ -10267,7 +10268,7 @@ var orrin = (function() {
         con: {
           modifier: 1,
           base: 12,
-          current: 12,
+          current: "",
           racial: "",
           enhancement: "",
           misc: "",
@@ -10276,7 +10277,7 @@ var orrin = (function() {
         int: {
           modifier: 3,
           base: 12,
-          current: 16,
+          current: "",
           racial: "",
           enhancement: 4,
           misc: "",
@@ -10285,7 +10286,7 @@ var orrin = (function() {
         wis: {
           modifier: 1,
           base: 12,
-          current: 12,
+          current: "",
           racial: "",
           enhancement: "",
           misc: "",
@@ -10294,7 +10295,7 @@ var orrin = (function() {
         cha: {
           modifier: -2,
           base: 7,
-          current: 7,
+          current: "",
           racial: "",
           enhancement: "",
           misc: "",
@@ -10308,7 +10309,7 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
-      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)<br><br>Oils:<br>Dispel Magic",
+      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)<br><br>Oils:<br>Dispel Magic, Bless Weapon (4)",
       item: [{
         name: "Flask of Oil",
         quantity: 1,
@@ -10358,9 +10359,9 @@ var orrin = (function() {
         wrist: ""
       },
       wealth: {
-        platinum: "3",
-        gold: "13,009",
-        silver: "5",
+        platinum: 3,
+        gold: 13009,
+        silver: 5,
         copper: "",
         total: ""
       },
@@ -10368,7 +10369,7 @@ var orrin = (function() {
         item: "Gloves of Reconnaissance",
         current: "",
         total: 10,
-        used: 1
+        used: 2
       }, {
         item: "Wand of Magic Missile (CL5)",
         current: "",
@@ -10632,7 +10633,7 @@ var orrin = (function() {
       },
       attack: {
         melee: [{
-          weapon: "Mithral Rapier +2",
+          weapon: "Mithral Rapier +2 (Broken)",
           attack: "+17",
           damage: "1d6+3",
           critical: "18–20/×2",
@@ -10674,9 +10675,15 @@ var orrin = (function() {
           critical: "x3",
           type: "Piercing"
         }, {
-          weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
+          weapon: "Mithral Rapier +2 (Broken), Punching Dagger +2 Shocking",
           attack: "+15/+15/+9/+9",
           damage: "1d6+3, 1d4+3 + 1d6 Electrical",
+          critical: "18–20/×2, x3",
+          type: "Piercing, Piercing"
+        }, {
+          weapon: "Rapier +1 Shocking, Punching Dagger +2 Shocking",
+          attack: "+14/+14/+9/+9",
+          damage: "1d6+2 + 1d6 Electrical, 1d4+3 + 1d6 Electrical",
           critical: "18–20/×2, x3",
           type: "Piercing, Piercing"
         }],
@@ -10690,7 +10697,7 @@ var orrin = (function() {
           type: "Piercing"
         }]
       },
-      attack_notes: "+5d6 Sneak attack.<br>Knock-Out Blow DC 18."
+      attack_notes: "+5d6 Sneak attack, Knock-Out Blow DC 18."
     },
     skills: {
       ranks: {
@@ -11491,10 +11498,27 @@ var orrin = (function() {
         note: "<strong>Reactionary</strong> You were bullied often as a child, but never quite developed an offensive response. Instead, you became adept at anticipating sudden attacks and reacting to danger quickly. You gain a +2 trait bonus on Initiative checks.<br><strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves.<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Two-Weapon Fighting</strong> Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Combat.<br><strong>Weapon focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Deft hands</strong> You get a +2 bonus on Disable Device and Sleight of Hand skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws."
       }, {
         note: "Headband of Vast Intelligence +4 Skills: Sense Motive, Spellcraft."
+      }, {
+        note: "Active Spells: Stone skin, Res Fire 10, Bark skin +5, Haste, Greater Invisibility"
       }],
       story: []
     },
-    events: []
+    events: [{
+      type: "xp",
+      event: {
+        aggregate_value: 12590
+      },
+      timestamp: {
+        date: 6,
+        day: 3,
+        year: 2017,
+        hours: 23,
+        milliseconds: 741,
+        minutes: 55,
+        month: 11,
+        seconds: 18
+      }
+    }]
   };
 
   // exposed methods
