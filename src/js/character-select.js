@@ -17,10 +17,11 @@ var characterSelect = (function() {
       _switchCharacter(label);
       sheet.storeCharacters();
       nav.scrollToTop();
+      _toggle_characterSelect();
     }, false);
   };
 
-  function _bind_characterSelect() {
+  function _bind_characterSelectControls() {
     var characterSelectAdd = helper.e(".js-character-select-add");
     var characterSelectRemove = helper.e(".js-character-select-remove");
     var characterSelectImport = helper.e(".js-character-select-import");
@@ -30,6 +31,7 @@ var characterSelect = (function() {
       event.stopPropagation();
       event.preventDefault();
       sheet.addCharacter();
+      _toggle_characterSelect();
       snack.render("New character added.", false);
     }, false);
 
@@ -37,23 +39,46 @@ var characterSelect = (function() {
       event.stopPropagation();
       event.preventDefault();
       sheet.removeCharacter();
+      _toggle_characterSelect();
     }, false);
 
     characterSelectImport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       sheet.import();
+      _toggle_characterSelect();
     }, false);
 
     characterSelectExport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       sheet.export();
+      _toggle_characterSelect();
     }, false);
   }
 
   function bind() {
     _bind_characterSelect();
+    _bind_characterSelectControls();
+  };
+
+  function _bind_characterSelect() {
+    var characterSelect = helper.e(".js-character-select");
+    characterSelect.addEventListener("click", function(event) {
+      _toggle_characterSelect();
+    }, false);
+  };
+
+  function _toggle_characterSelect() {
+    var characterSelect = helper.e(".js-character-select");
+    var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
+    if (characterSelectOpen) {
+      characterSelect.dataset.characterSelectOpen = false;
+      helper.removeClass(characterSelect, "is-open");
+    } else {
+      characterSelect.dataset.characterSelectOpen = true;
+      helper.addClass(characterSelect, "is-open");
+    };
   };
 
   function update() {
@@ -70,7 +95,7 @@ var characterSelect = (function() {
     };
   };
 
-  function _render_allCharacter() {
+  function _render_allCharacterItems() {
     var characters = sheet.getAllCharacters();
     var characterSelectIndex = helper.e(".js-character-select-index");
     for (var i in characters) {
@@ -78,6 +103,12 @@ var characterSelect = (function() {
     };
     var all_navCharacterInput = helper.eA(".js-character-select-input");
     all_navCharacterInput[sheet.getIndex()].checked = true;
+  };
+
+  function _render_currentCharacter() {
+    var characterSelectCurrentTitle = helper.e(".js-character-select-current-title");
+    characterSelectCurrentTitle.textContent = _get_name(sheet.getCharacter());
+    // characterSelectCurrentTitle.textContent = _get_name(sheet.getCharacter()) + " -- " + classes.getClassLevel(sheet.getCharacter());
   };
 
   function _get_name(characterObject) {
@@ -95,7 +126,7 @@ var characterSelect = (function() {
     var uniqueId = helper.randomId(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-character-select js-character-select-" + characterIndex);
+    navCharacter.setAttribute("class", "m-character-select-item js-character-select-item-" + characterIndex);
 
     var input = document.createElement("input");
     input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
@@ -133,11 +164,13 @@ var characterSelect = (function() {
   };
 
   function render() {
-    _render_allCharacter();
+    _render_allCharacterItems();
+    _render_currentCharacter();
   };
 
   // exposed methods
   return {
+    toggle: _toggle_characterSelect,
     bind: bind,
     update: update,
     clear: clear,
