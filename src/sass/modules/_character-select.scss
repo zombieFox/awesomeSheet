@@ -115,7 +115,7 @@
           margin: 0 2em;
           display: flex;
           flex-flow: row nowrap;
-          justify-content: space-between;
+          justify-content: flex-start;
           align-items: center;
           width: calc(100% - 4em);
           height: 100%;
@@ -132,15 +132,13 @@
         .m-character-select-class-level {
           color: $secondary-color-08;
           font-size: $font-size-075;
-          flex: 0 0 auto;
-          max-width: 40%;
+          flex: 0 1 auto;
         }
         .m-character-select-name {
           color: $base-color;
           font-family: $open-sans-semi-bold;
-          flex: 0 0 auto;
+          flex: 0 1 auto;
           margin-right: 1em;
-          max-width: calc(60% - 1em);
         }
       }
       &:hover {
