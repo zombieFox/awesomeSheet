@@ -1,5 +1,5 @@
 .m-header {
-  background-color: $secondary-color-06;
+  background-color: $secondary-color-05;
   font-size: $font-size-root-100;
   height: 3em;
   padding: 0 2em;
@@ -10,18 +10,65 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  z-index: $header;
   box-sizing: border-box;
-}
-.m-header-logo {
-  flex: 0 0 auto;
+  z-index: $header;
 }
 .m-header-select {
   flex: 1 1 auto;
+  max-width: 40vw;
 }
-.m-header-hamburger {
-  flex: 0 1 auto;
-  width: calc(100% / 8);
+.m-header-control {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+.m-header-control-item {
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-header-control-button {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 1;
+  text-decoration: none;
+  color: $light-alpha-08;
+  transition: color $transition-ease-fast;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: $font-size-150;
+  }
+  &:link,
+  &:visited {
+    color: $light-alpha-08;
+  }
+  &:focus,
+  &:hover {
+    background-color: transparent;
+    color: $white;
+    text-decoration: none;
+    outline: 0;
+  }
+  &:active {
+    color: $white;
+  }
 }
 .m-header-name {
   font-size: 1em;
@@ -42,7 +89,14 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  .m-header {
+    padding: 0 4em;
+  }
+  .m-header-select {
+    max-width: 30vw;
+  }
+}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {}

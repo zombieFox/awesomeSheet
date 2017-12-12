@@ -4,22 +4,23 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  &.is-open {
-    &:after {
-      // transform: rotate(180deg);
-    }
-  }
+  font-size: $font-size-root-100;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .m-character-select-current-title {
   margin: 0;
-  padding: 0 1em;
+  padding: 0 4em 0 1em;
   font-size: 1em;
-  // font-family: $open-sans-bold;
+  font-family: $open-sans-bold;
   color: $white;
   line-height: 3em;
   flex: 0 0 auto;
   z-index: 2;
   transition: $transition-ease-fast;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
   cursor: pointer;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
@@ -34,8 +35,8 @@
 }
 .m-character-select-current-arrow {
   position: absolute;
-  top: 55%;
-  right: 3em;
+  top: 60%;
+  right: 2em;
   width: 0;
   height: 0;
   cursor: pointer;
@@ -46,43 +47,43 @@
     background-color: $white;
     position: absolute;
     width: 0.7em;
-    height: 3px;
+    height: 2px;
     top: 0;
     border-radius: 3px;
     z-index: 2;
     transition: $transition-ease-fast;
   }
   &:before {
-    right: -1px;
+    right: -0.5px;
     transform-origin: top right;
     transform: rotate(45deg) translateY(-50%);
   }
   &:after {
-    left: -1px;
+    left: -0.5px;
     transform-origin: top left;
     transform: rotate(-45deg) translateY(-50%);
   }
 }
 .m-character-select-list {
   background-color: $white;
-  padding: 0;
-  margin: 0;
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: calc(100vw - 4em);
+  max-height: 0;
   z-index: 3;
-  box-shadow: $shadow-small;
+  box-shadow: $shadow-medium;
+  border-radius: 0 0 $border-radius-large $border-radius-large;
+  overflow: scroll;
+  transition: $transition-ease-fast;
+}
+.m-character-select-index {
+  padding: 0.5em 0;
+  margin: 0;
   list-style-type: none;
-  display: none;
   li:not(:last-child) {
     margin-bottom: 0;
   }
-}
-.m-character-select-index {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
 }
 .m-character-select-item {
   padding: 0;
@@ -96,33 +97,29 @@
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
+  // &:nth-child(odd) {
+  //   background-color: $secondary-color-alpha-20;
+  // }
   input {
     &[type="checkbox"],
     &[type="radio"] {
       top: 50%;
       transform: translate(-50%, -50%);
       & + label {
-        height: 3.5em;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        overflow: hidden;
+        height: 3em;
+        display: block;
         &:before {
-          flex: 0 0 20%;
-          font-size: 1.4em;
-          line-height: 1;
-          display: inline-block;
-          color: $secondary-color-08;
-          text-align: center;
-          transition: none;
+          display: none;
         }
         .m-character-select-details {
-          flex: 0 0 80%;
+          margin: 0 2em;
           display: flex;
-          flex-flow: row wrap;
-          justify-content: flex-start;
-          width: 80%;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          width: calc(100% - 4em);
+          height: 100%;
+          box-sizing: border-box;
         }
         .m-character-select-class-level,
         .m-character-select-name {
@@ -135,14 +132,15 @@
         .m-character-select-class-level {
           color: $secondary-color-08;
           font-size: $font-size-075;
+          flex: 0 0 auto;
+          max-width: 40%;
         }
         .m-character-select-name {
           color: $base-color;
           font-family: $open-sans-semi-bold;
-          flex: 1 0 100%;
-        }
-        .m-character-select-class {
-          margin-right: $font-size-050;
+          flex: 0 0 auto;
+          margin-right: 1em;
+          max-width: calc(60% - 1em);
         }
       }
       &:hover {
@@ -160,9 +158,6 @@
         & + label {
           background-color: $primary-color-06;
           color: $white;
-          &:before {
-            color: $white;
-          }
           .m-character-select-class-level {
             color: $primary-color-17;
           }
@@ -175,9 +170,6 @@
         & + label {
           background-color: $primary-color-10;
           color: $white;
-          &:before {
-            color: $white;
-          }
           .m-character-select-class-level {
             color: $primary-color-17;
           }
@@ -190,18 +182,12 @@
           & + label {
             background-color: $primary-color-08;
             color: $white;
-            &:before {
-              color: $white;
-            }
           }
         }
         &:active {
           & + label {
             background-color: $primary-color-06;
             color: $white;
-            &:before {
-              color: $white;
-            }
             .m-character-select-class-level,
             .m-character-select-name {
               color: $white;
@@ -220,15 +206,160 @@
     background-color: $dark-alpha-16;
   }
   .m-character-select-list {
-    display: block;
+    max-height: calc(100vh - 6em);
   }
   .m-character-select-current-arrow {
-    top: 45%;
+    top: 40%;
     &:before {
       transform: rotate(-45deg) translateY(-50%);
     }
     &:after {
       transform: rotate(45deg) translateY(-50%);
     }
+  }
+}
+.is-night-mode {
+  .m-character-select-list {
+    background-color: $base-color;
+  }
+  .m-character-select-item {
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        & + label {
+          &:before {
+            color: $secondary-color-12;
+          }
+          .m-character-select-name {
+            color: $white;
+          }
+          .m-character-select-class-level {
+            color: $secondary-color-12;
+          }
+        }
+        &:hover {
+          & + label {
+            background-color: $gray-06;
+          }
+        }
+        &:focus {
+          & + label {
+            background-color: $gray-19;
+          }
+        }
+        &:checked {
+          & + label {
+            &:before {
+              color: $white;
+            }
+            .m-character-select-class-level {
+              color: $primary-color-17;
+            }
+            .m-character-select-name {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              background-color: $primary-color-08;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .m-character-select-list {
+    width: inherit;
+    min-width: 60vw;
+  }
+  .m-character-select-item {
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        & + label {
+          height: 4em;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+          align-items: center;
+          overflow: hidden;
+          &:before {
+            flex: 0 0 20%;
+            font-size: 1.4em;
+            line-height: 1;
+            display: inline-block;
+            color: $secondary-color-08;
+            text-align: center;
+            transition: none;
+          }
+          .m-character-select-details {
+            margin: 0;
+            flex: 0 0 auto;
+            flex-flow: column wrap;
+            align-items: flex-start;
+            width: calc(80% - 1em);
+            height: initial;
+          }
+          .m-character-select-class-level,
+          .m-character-select-name {
+            max-width: 100%;
+            flex: 1 0 100%;
+          }
+          .m-character-select-name {
+            margin-right: 0;
+          }
+        }
+        &:active {
+          & + label {
+            &:before {
+              color: $white;
+            }
+          }
+        }
+        &:checked {
+          & + label {
+            &:before {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              &:before {
+                color: $white;
+              }
+            }
+          }
+          &:active {
+            & + label {
+              &:before {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: $screen-md) {
+  .m-character-select-list {
+    min-width: 50vw;
+  }
+}
+@media (min-width: $screen-lg) {
+  .m-character-select-list {
+    min-width: 40vw;
+  }
+}
+@media (min-width: $screen-xl) {
+  .m-character-select-list {
+    min-width: 30vw;
   }
 }

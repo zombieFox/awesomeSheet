@@ -52,6 +52,7 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
+    snack.render("New character added.", false);
   };
 
   function removeCharacter() {

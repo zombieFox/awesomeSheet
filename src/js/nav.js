@@ -198,6 +198,7 @@ var nav = (function() {
     navToggle.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      characterSelect.close();
       toggle();
     }, false);
 

@@ -17,67 +17,102 @@ var characterSelect = (function() {
       _switchCharacter(label);
       sheet.storeCharacters();
       nav.scrollToTop();
-      _toggle_characterSelect();
+      toggle();
     }, false);
   };
 
   function _bind_characterSelectControls() {
-    var characterSelectAdd = helper.e(".js-character-select-add");
-    var characterSelectRemove = helper.e(".js-character-select-remove");
-    var characterSelectImport = helper.e(".js-character-select-import");
-    var characterSelectExport = helper.e(".js-character-select-export");
+    var headerControlButtonAdd = helper.e(".js-header-control-button-add");
+    var headerControlButtonRemove = helper.e(".js-header-control-button-remove");
+    var headerControlButtonImport = helper.e(".js-header-control-button-import");
+    var headerControlButtonExport = helper.e(".js-header-control-button-export");
 
-    characterSelectAdd.addEventListener("click", function(event) {
+    headerControlButtonAdd.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      nav.close();
+      close();
       sheet.addCharacter();
-      _toggle_characterSelect();
-      snack.render("New character added.", false);
     }, false);
 
-    characterSelectRemove.addEventListener("click", function(event) {
+    headerControlButtonRemove.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      nav.close();
+      close();
       sheet.removeCharacter();
-      _toggle_characterSelect();
     }, false);
 
-    characterSelectImport.addEventListener("click", function(event) {
+    headerControlButtonImport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      nav.close();
+      close();
       sheet.import();
-      _toggle_characterSelect();
     }, false);
 
-    characterSelectExport.addEventListener("click", function(event) {
+    headerControlButtonExport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      nav.close();
+      close();
       sheet.export();
-      _toggle_characterSelect();
     }, false);
   }
 
   function bind() {
     _bind_characterSelect();
     _bind_characterSelectControls();
+    _bind_shortcutKeys();
   };
 
   function _bind_characterSelect() {
     var characterSelect = helper.e(".js-character-select");
     characterSelect.addEventListener("click", function(event) {
-      _toggle_characterSelect();
+      nav.close();
+      toggle();
     }, false);
   };
 
-  function _toggle_characterSelect() {
+  function _bind_shortcutKeys() {
+    window.addEventListener("keydown", function(event) {
+      // esc
+      if (event.keyCode == 27) {
+        close();
+      };
+    }, false);
+  };
+
+  function toggle() {
+    var body = helper.e("body");
     var characterSelect = helper.e(".js-character-select");
     var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
     if (characterSelectOpen) {
-      characterSelect.dataset.characterSelectOpen = false;
-      helper.removeClass(characterSelect, "is-open");
+      close();
     } else {
+      open();
+    };
+  };
+
+  function open() {
+    var characterSelect = helper.e(".js-character-select");
+    var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
+    if (!characterSelectOpen) {
+      body.dataset.characterSelectOpen = true;
       characterSelect.dataset.characterSelectOpen = true;
       helper.addClass(characterSelect, "is-open");
+      page.update();
+    };
+  };
+
+  function close() {
+    var characterSelect = helper.e(".js-character-select");
+    var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
+    if (characterSelectOpen) {
+      body.dataset.characterSelectOpen = false;
+      characterSelect.dataset.characterSelectOpen = false;
+      helper.removeClass(characterSelect, "is-open");
+      page.update();
     };
   };
 
@@ -170,7 +205,9 @@ var characterSelect = (function() {
 
   // exposed methods
   return {
-    toggle: _toggle_characterSelect,
+    toggle: toggle,
+    open: open,
+    close: close,
     bind: bind,
     update: update,
     clear: clear,
