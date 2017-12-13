@@ -268,7 +268,15 @@ var sheet = (function() {
     if (classLevel != "") {
       fileName = fileName + ", " + classLevel;
     };
-    prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
+    prompt.render(
+      "Export " + characterName,
+      "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.",
+      "Download",
+      false,
+      "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      "download",
+      fileName + ".json"
+    );
   };
 
   function render() {
@@ -296,6 +304,7 @@ var sheet = (function() {
   function bind() {
     prompt.bind();
     modal.bind();
+    shade.bind();
     snack.bind();
     stats.bind();
     inputBlock.bind();

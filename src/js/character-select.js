@@ -80,39 +80,51 @@ var characterSelect = (function() {
       if (event.keyCode == 27) {
         close();
       };
+      // ctrl+alt+c
+      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
+        toggle();
+      };
     }, false);
   };
 
   function toggle() {
+    modal.destroy();
+    prompt.destroy();
+    nav.close();
     var body = helper.e("body");
     var characterSelect = helper.e(".js-character-select");
-    var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
-    if (characterSelectOpen) {
+    var state = (characterSelect.dataset.characterSelectOpen == "true");
+    if (state) {
       close();
+      shade.destroy();
     } else {
       open();
+      shade.render({
+        action: close
+      });
     };
+    page.update();
   };
 
   function open() {
+    var body = helper.e("body");
     var characterSelect = helper.e(".js-character-select");
     var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
     if (!characterSelectOpen) {
       body.dataset.characterSelectOpen = true;
       characterSelect.dataset.characterSelectOpen = true;
       helper.addClass(characterSelect, "is-open");
-      page.update();
     };
   };
 
   function close() {
+    var body = helper.e("body");
     var characterSelect = helper.e(".js-character-select");
     var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
     if (characterSelectOpen) {
       body.dataset.characterSelectOpen = false;
       characterSelect.dataset.characterSelectOpen = false;
       helper.removeClass(characterSelect, "is-open");
-      page.update();
     };
   };
 

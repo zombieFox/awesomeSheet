@@ -52,8 +52,10 @@ var tip = (function() {
 
   function destroy() {
     var all_tipBox = helper.eA(".js-tip-box");
-    for (var i = 0; i < all_tipBox.length; i++) {
-      all_tipBox[i].destroy();
+    if (all_tipBox[0]) {
+      for (var i = 0; i < all_tipBox.length; i++) {
+        all_tipBox[i].destroy();
+      };
     };
   };
 
@@ -69,10 +71,14 @@ var tip = (function() {
     tipMessage.setAttribute("class", "m-tip-message");
     tipMessage.textContent = tip.dataset.tipMessage;
     tipWrapper.destroy = function() {
-      helper.removeClass(tipWrapper, "is-opaque");
-      helper.addClass(tipWrapper, "is-transparent");
-      helper.removeClass(tipWrapper, "m-tip-intro");
-      helper.addClass(tipWrapper, "m-tip-outro");
+      if (tipWrapper.classList.contains("is-opaque")) {
+        helper.removeClass(tipWrapper, "is-opaque");
+        helper.addClass(tipWrapper, "is-transparent");
+        helper.removeClass(tipWrapper, "m-tip-intro");
+        helper.addClass(tipWrapper, "m-tip-outro");
+      } else {
+        tipWrapper.remove();
+      };
     };
     tipWrapper.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {

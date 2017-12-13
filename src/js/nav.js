@@ -1,56 +1,5 @@
 var nav = (function() {
 
-  var previousNavShade = null;
-
-  function _destroy_navShade() {
-    var navShade = helper.e(".js-nav-shade");
-    if (navShade) {
-      getComputedStyle(navShade).opacity;
-      helper.removeClass(navShade, "is-opaque");
-      helper.addClass(navShade, "is-transparent");
-    };
-  };
-
-  function _render_navShade() {
-    var nav = helper.e(".js-nav");
-    var body = helper.e("body");
-    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
-    var navShade = document.createElement("div");
-
-    navShade.setAttribute("class", "m-nav-shade js-nav-shade");
-    if (displayMode) {
-      helper.addClass(navShade, "is-display-mode");
-    };
-    navShade.destroy = function() {
-      helper.removeClass(navShade, "is-opaque");
-      helper.addClass(navShade, "is-transparent");
-    };
-
-    navShade.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
-      };
-    }.bind(navShade), false);
-
-    navShade.addEventListener("click", function() {
-      navClose();
-      _destroy_navShade();
-    }, false);
-
-    if (previousNavShade) {
-      previousNavShade.destroy();
-    };
-
-    previousNavShade = navShade;
-
-    body.insertBefore(navShade, nav);
-
-    getComputedStyle(navShade).opacity;
-
-    helper.removeClass(navShade, "is-transparent");
-    helper.addClass(navShade, "is-opaque");
-  };
-
   function scrollToTop() {
     if (window.innerWidth < 550) {
       window.scrollTo(0, 0);
@@ -119,45 +68,42 @@ var nav = (function() {
     };
   };
 
-  function navClose() {
+  function toggle() {
+    modal.destroy();
+    prompt.destroy();
+    characterSelect.close();
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    var hamburger = helper.e(".js-hamburger");
+    var state = (body.dataset.navOpen == "true");
+    if (state) {
+      close();
+      shade.destroy();
+    } else {
+      open();
+      shade.render({
+        action: close
+      });
+    };
+    page.update();
+  };
+
+  function close() {
     var body = helper.e("body");
     var nav = helper.e(".js-nav");
     var hamburger = helper.e(".js-hamburger");
     helper.removeClass(nav, "is-open");
     helper.removeClass(hamburger, "is-open");
     body.dataset.navOpen = false;
-    _destroy_navShade();
-    page.update();
   };
 
-  function navOpen() {
+  function open() {
     var body = helper.e("body");
     var nav = helper.e(".js-nav");
     var hamburger = helper.e(".js-hamburger");
     helper.addClass(nav, "is-open");
     helper.addClass(hamburger, "is-open");
     body.dataset.navOpen = true;
-    _render_navShade();
-    page.update();
-  };
-
-  function toggle() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    var hamburger = helper.e(".js-hamburger");
-    if (body.dataset.navOpen == "true") {
-      helper.removeClass(nav, "is-open");
-      helper.removeClass(hamburger, "is-open");
-      body.dataset.navOpen = false;
-      _destroy_navShade();
-      page.update();
-    } else {
-      helper.addClass(nav, "is-open");
-      helper.addClass(hamburger, "is-open");
-      body.dataset.navOpen = true;
-      _render_navShade();
-      page.update();
-    };
   };
 
   function _quickLinkSmoothScroll(element) {
@@ -183,7 +129,7 @@ var nav = (function() {
         offset: offset
       };
     };
-    navClose();
+    close();
     smoothScroll.animateScroll(null, id, options);
   };
 
@@ -217,21 +163,21 @@ var nav = (function() {
     chnageLog.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      navClose();
+      close();
       log.changeLog();
     }, false);
 
     clearAll.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      navClose();
+      close();
       prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
     }, false);
 
     restoreDemoPcs.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      navClose();
+      close();
       prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
     }, false);
   };
@@ -242,7 +188,7 @@ var nav = (function() {
       all_quickNavLink[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        navClose();
+        close();
         _quickLinkSmoothScroll(this);
       }, false);
     };
@@ -254,22 +200,21 @@ var nav = (function() {
       // ctrl+alt+delete
       if (event.ctrlKey && event.altKey && event.keyCode == 8) {
         prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        // navClose();
+        // close();
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
-        // navClose();
+        // close();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
-        // navClose();
+        // close();
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
         toggle();
-        helper.e(".js-nav-title").focus(this);
       };
       // ctrl+alt+d
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
@@ -283,13 +228,13 @@ var nav = (function() {
       };
       // esc
       if (event.keyCode == 27) {
-        navClose();
+        close();
       };
     }, false);
 
     // window.addEventListener('click', function(event) {
     //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
-    //     navClose();
+    //     close();
     //   };
     // }, false);
 
@@ -312,8 +257,8 @@ var nav = (function() {
   return {
     bind: bind,
     render: render,
-    open: navOpen,
-    close: navClose,
+    open: open,
+    close: close,
     toggle: toggle,
     scrollToTop: scrollToTop
   }

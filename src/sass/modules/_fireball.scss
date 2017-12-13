@@ -13,6 +13,7 @@
   z-index: $fireball;
   animation: fireball steps(30) 2s 1;
   transition: all ease;
+  pointer-events: none;
 }
 @keyframes fireball {
   1% {

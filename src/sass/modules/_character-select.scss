@@ -75,7 +75,7 @@
   box-shadow: $shadow-medium;
   border-radius: 0 0 $border-radius-large $border-radius-large;
   overflow: scroll;
-  transition: $transition-ease-fast;
+  transition: max-height $transition-ease-medium;
 }
 .m-character-select-index {
   padding: 0.5em 0;
