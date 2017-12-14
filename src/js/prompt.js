@@ -111,7 +111,7 @@ var prompt = (function() {
       promptHeading.focus(this);
     };
     modal.destroy();
-    nav.close();
+    menu.close();
     characterSelect.close();
     if (previousPrompt != null) {
       destroy();

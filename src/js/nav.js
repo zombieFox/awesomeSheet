@@ -9,21 +9,20 @@ var nav = (function() {
   };
 
   function render() {
-    _render_quickNav();
-  };
-
-  function _render_quickNav() {
     var body = helper.e("body");
     window.onscroll = function() {
 
-      var quickNav = helper.e(".js-quick-nav");
-      var all_quickNavLinks = helper.eA(".js-quick-nav-link");
+      var header = helper.e(".js-header");
+      var nav = helper.e(".js-nav");
+      var all_navLinks = helper.eA(".js-nav-link");
       var all_section = helper.eA(".js-section");
+      var offset;
 
-      var offset = parseInt(getComputedStyle(quickNav).height, 10);
       // if nav is on the left after 900px wide viewport
       if (document.documentElement.clientWidth >= 900) {
-        offset = 0;
+        offset = parseInt(getComputedStyle(header).height, 10);
+      } else {
+        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(header).height, 10);
       };
 
       var all_editControls = helper.eA(".js-edit-controls");
@@ -56,68 +55,32 @@ var nav = (function() {
       for (var i = 0; i < all_section.length; i++) {
         // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
         if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
-          for (var j = 0; j < all_quickNavLinks.length; j++) {
-            helper.removeClass(all_quickNavLinks[j], "is-active");
+          for (var j = 0; j < all_navLinks.length; j++) {
+            helper.removeClass(all_navLinks[j], "is-active");
           };
-          helper.addClass(all_quickNavLinks[i], "is-active");
+          helper.addClass(all_navLinks[i], "is-active");
         } else {
-          helper.removeClass(all_quickNavLinks[i], "is-active");
+          helper.removeClass(all_navLinks[i], "is-active");
         };
       };
 
     };
   };
 
-  function toggle() {
-    modal.destroy();
-    prompt.destroy();
-    characterSelect.close();
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    var hamburger = helper.e(".js-hamburger");
-    var state = (body.dataset.navOpen == "true");
-    if (state) {
-      close();
-      shade.destroy();
-    } else {
-      open();
-      shade.render({
-        action: close
-      });
-    };
-    page.update();
-  };
-
-  function close() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    var hamburger = helper.e(".js-hamburger");
-    helper.removeClass(nav, "is-open");
-    helper.removeClass(hamburger, "is-open");
-    body.dataset.navOpen = false;
-  };
-
-  function open() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    var hamburger = helper.e(".js-hamburger");
-    helper.addClass(nav, "is-open");
-    helper.addClass(hamburger, "is-open");
-    body.dataset.navOpen = true;
-  };
-
   function _quickLinkSmoothScroll(element) {
     var id = element.dataset.link;
+    var sectionWrapper = helper.e(".js-section-wrapper");
     var all_section = helper.eA(".js-section");
-    var quickNav = helper.e(".js-quick-nav");
+    var nav = helper.e(".js-nav");
     var offset;
     var options;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
-    } else {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
-    };
+    // // if nav is on the left after 900px wide viewport
+    // if (document.documentElement.clientWidth >= 900) {
+    //   offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
+    // } else {
+    //   offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(nav).height, 10);
+    // };
+    offset = parseInt(getComputedStyle(sectionWrapper).marginTop, 10) + parseInt(getComputedStyle(all_section[1]).marginTop, 10);
     if (window.innerWidth < 550) {
       options = {
         speed: 150,
@@ -129,137 +92,24 @@ var nav = (function() {
         offset: offset
       };
     };
-    close();
     smoothScroll.animateScroll(null, id, options);
   };
 
-  function _bind_navLinks() {
-    var navToggle = helper.e(".js-nav-toggle");
-    var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
-    var nightMode = helper.e(".js-night-mode");
-    var chnageLog = helper.e(".js-chnage-log");
-    var clearAll = helper.e(".js-clear-all");
-    var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
-
-    navToggle.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      characterSelect.close();
-      toggle();
-    }, false);
-
-    fullscreenModeToggle.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      fullscreen.toggle();
-    }, false);
-
-    nightMode.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      night.toggle();
-    }, false);
-
-    chnageLog.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      close();
-      log.changeLog();
-    }, false);
-
-    clearAll.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      close();
-      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
-    }, false);
-
-    restoreDemoPcs.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      close();
-      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-    }, false);
-  };
-
-  function _bind_quickNavLinks() {
-    var all_quickNavLink = helper.eA(".js-quick-nav-link");
-    for (var i = 0; i < all_quickNavLink.length; i++) {
-      all_quickNavLink[i].addEventListener("click", function(event) {
+  function bind() {
+    var all_navLink = helper.eA(".js-nav-link");
+    for (var i = 0; i < all_navLink.length; i++) {
+      all_navLink[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        close();
         _quickLinkSmoothScroll(this);
       }, false);
     };
-  };
-
-  function _bind_shortcutKeys() {
-
-    window.addEventListener("keydown", function(event) {
-      // ctrl+alt+delete
-      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
-        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        // close();
-      };
-      // ctrl+alt+i
-      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
-        sheet.import();
-        // close();
-      };
-      // ctrl+alt+e
-      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
-        sheet.export();
-        // close();
-      };
-      // ctrl+alt+m
-      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
-        toggle();
-      };
-      // ctrl+alt+d
-      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
-        display.clear();
-        display.render();
-        display.toggle();
-      };
-      // ctrl+alt+n
-      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
-        night.toggle();
-      };
-      // esc
-      if (event.keyCode == 27) {
-        close();
-      };
-    }, false);
-
-    // window.addEventListener('click', function(event) {
-    //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
-    //     close();
-    //   };
-    // }, false);
-
-    // key debugging
-    // window.addEventListener("keydown", function(event) {
-    //   console.log(event.keyCode);
-    //   console.log(event.metaKey);
-    //   console.log(event);
-    // });
-
-  };
-
-  function bind() {
-    _bind_navLinks();
-    _bind_shortcutKeys();
-    _bind_quickNavLinks();
   };
 
   // exposed methods
   return {
     bind: bind,
     render: render,
-    open: open,
-    close: close,
-    toggle: toggle,
     scrollToTop: scrollToTop
   }
 

@@ -281,6 +281,7 @@ var sheet = (function() {
 
   function render() {
     repair.render(getCharacter(getIndex()));
+    characterSelect.render();
     stats.render();
     clone.render();
     classes.render();
@@ -302,6 +303,8 @@ var sheet = (function() {
   };
 
   function bind() {
+    characterSelect.bind();
+    menu.bind();
     prompt.bind();
     modal.bind();
     shade.bind();
@@ -349,7 +352,7 @@ var sheet = (function() {
       characterSelect.render();
       var name = sheet.getCharacter().basics.name;
       snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
-      nav.close();
+      menu.close();
     } else {
       snack.render("No character with that index.", false);
     };

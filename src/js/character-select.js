@@ -11,13 +11,27 @@ var characterSelect = (function() {
   };
 
   function _bind_characterOption(characterLink) {
-    var label = characterLink.querySelector(".js-character-select-label");
-    var input = characterLink.querySelector(".js-character-select-input");
+    var label = characterLink.querySelector(".js-character-index-list-item-label");
+    var input = characterLink.querySelector(".js-character-index-list-item-input");
     input.addEventListener("change", function() {
       _switchCharacter(label);
       sheet.storeCharacters();
       nav.scrollToTop();
       toggle();
+    }, false);
+  };
+
+  function _bind_characterSelectToggle() {
+    var characterSelectCurrent = helper.e(".js-character-select-toggle");
+    characterSelectCurrent.addEventListener("click", function(event) {
+      menu.close();
+      toggle();
+    }, false);
+    characterSelectCurrent.addEventListener("keydown", function(event) {
+      // enter
+      if (event.keyCode == 13) {
+        toggle();
+      };
     }, false);
   };
 
@@ -30,7 +44,7 @@ var characterSelect = (function() {
     headerControlButtonAdd.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      nav.close();
+      menu.close();
       close();
       sheet.addCharacter();
     }, false);
@@ -38,7 +52,7 @@ var characterSelect = (function() {
     headerControlButtonRemove.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      nav.close();
+      menu.close();
       close();
       sheet.removeCharacter();
     }, false);
@@ -46,7 +60,7 @@ var characterSelect = (function() {
     headerControlButtonImport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      nav.close();
+      menu.close();
       close();
       sheet.import();
     }, false);
@@ -54,28 +68,15 @@ var characterSelect = (function() {
     headerControlButtonExport.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
-      nav.close();
+      menu.close();
       close();
       sheet.export();
     }, false);
   }
 
-  function bind() {
-    _bind_characterSelect();
-    _bind_characterSelectControls();
-    _bind_shortcutKeys();
-  };
-
-  function _bind_characterSelect() {
-    var characterSelect = helper.e(".js-character-select");
-    characterSelect.addEventListener("click", function(event) {
-      nav.close();
-      toggle();
-    }, false);
-  };
-
   function _bind_shortcutKeys() {
     window.addEventListener("keydown", function(event) {
+      // console.log(event.keyCode);
       // esc
       if (event.keyCode == 27) {
         close();
@@ -87,10 +88,16 @@ var characterSelect = (function() {
     }, false);
   };
 
+  function bind() {
+    _bind_characterSelectToggle();
+    _bind_characterSelectControls();
+    _bind_shortcutKeys();
+  };
+
   function toggle() {
     modal.destroy();
     prompt.destroy();
-    nav.close();
+    menu.close();
     var body = helper.e("body");
     var characterSelect = helper.e(".js-character-select");
     var state = (characterSelect.dataset.characterSelectOpen == "true");
@@ -108,24 +115,22 @@ var characterSelect = (function() {
 
   function open() {
     var body = helper.e("body");
+    var characterIndex = helper.e(".js-character-index");
     var characterSelect = helper.e(".js-character-select");
-    var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
-    if (!characterSelectOpen) {
-      body.dataset.characterSelectOpen = true;
-      characterSelect.dataset.characterSelectOpen = true;
-      helper.addClass(characterSelect, "is-open");
-    };
+    body.dataset.characterSelectOpen = true;
+    characterSelect.dataset.characterSelectOpen = true;
+    helper.addClass(characterSelect, "is-open");
+    helper.addClass(characterIndex, "is-open");
   };
 
   function close() {
     var body = helper.e("body");
+    var characterIndex = helper.e(".js-character-index");
     var characterSelect = helper.e(".js-character-select");
-    var characterSelectOpen = (characterSelect.dataset.characterSelectOpen == "true");
-    if (characterSelectOpen) {
-      body.dataset.characterSelectOpen = false;
-      characterSelect.dataset.characterSelectOpen = false;
-      helper.removeClass(characterSelect, "is-open");
-    };
+    body.dataset.characterSelectOpen = false;
+    characterSelect.dataset.characterSelectOpen = false;
+    helper.removeClass(characterSelect, "is-open");
+    helper.removeClass(characterIndex, "is-open");
   };
 
   function update() {
@@ -134,28 +139,27 @@ var characterSelect = (function() {
   };
 
   function clear() {
-    var characterSelectIndex = helper.eA(".js-character-select-index");
-    for (var i = 0; i < characterSelectIndex.length; i++) {
-      while (characterSelectIndex[i].lastChild) {
-        characterSelectIndex[i].removeChild(characterSelectIndex[i].lastChild);
+    var charactersIndexList = helper.eA(".js-character-index-list");
+    for (var i = 0; i < charactersIndexList.length; i++) {
+      while (charactersIndexList[i].lastChild) {
+        charactersIndexList[i].removeChild(charactersIndexList[i].lastChild);
       };
     };
   };
 
   function _render_allCharacterItems() {
-    var characters = sheet.getAllCharacters();
-    var characterSelectIndex = helper.e(".js-character-select-index");
-    for (var i in characters) {
-      characterSelectIndex.appendChild(_createCharacterItem(characters[i], i));
+    var character = sheet.getAllCharacters();
+    var characterIndexList = helper.e(".js-character-index-list");
+    for (var key in character) {
+      characterIndexList.appendChild(_createCharacterItem(character[key], key));
     };
-    var all_navCharacterInput = helper.eA(".js-character-select-input");
-    all_navCharacterInput[sheet.getIndex()].checked = true;
+    var all_characterIndexInput = helper.eA(".js-character-index-list-item-input");
+    all_characterIndexInput[sheet.getIndex()].checked = true;
   };
 
   function _render_currentCharacter() {
-    var characterSelectCurrentTitle = helper.e(".js-character-select-current-title");
-    characterSelectCurrentTitle.textContent = _get_name(sheet.getCharacter());
-    // characterSelectCurrentTitle.textContent = _get_name(sheet.getCharacter()) + " -- " + classes.getClassLevel(sheet.getCharacter());
+    var characterSelectTitle = helper.e(".js-character-select-title");
+    characterSelectTitle.textContent = _get_name(sheet.getCharacter());
   };
 
   function _get_name(characterObject) {
@@ -173,29 +177,29 @@ var characterSelect = (function() {
     var uniqueId = helper.randomId(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-character-select-item js-character-select-item-" + characterIndex);
+    navCharacter.setAttribute("class", "m-character-index-list-item js-character-index-list-item-" + characterIndex);
 
     var input = document.createElement("input");
     input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     input.setAttribute("name", "js-all-characters");
-    input.setAttribute("class", "js-character-select-input");
+    input.setAttribute("class", "js-character-index-list-item-input");
     input.setAttribute("type", "radio");
     input.setAttribute("tabindex", 1);
 
     var label = document.createElement("label");
     label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-character-select-label");
+    label.setAttribute("class", "u-full-width js-character-index-list-item-label");
     label.setAttribute("data-character-index", characterIndex);
 
     var detailsSpan = document.createElement("span");
-    detailsSpan.setAttribute("class", "m-character-select-details");
+    detailsSpan.setAttribute("class", "m-character-index-details");
 
     var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-character-select-name");
+    nameSpan.setAttribute("class", "m-character-index-name");
     nameSpan.textContent = characterName;
 
     var classLevelSpan = document.createElement("span");
-    classLevelSpan.setAttribute("class", "m-character-select-class-level");
+    classLevelSpan.setAttribute("class", "m-character-index-class-level");
     classLevelSpan.textContent = classLevel;
 
     // build module

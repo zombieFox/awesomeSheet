@@ -1,0 +1,236 @@
+.m-menu {
+  background-color: $white;
+  padding: 3em 0 30vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 70vw;
+  height: 100%;
+  font-size: $font-size-root-100;
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: $menu;
+  transition: transform $transition-ease-medium;
+  transform: translate(-70vw, 0);
+  .m-menu-list {
+    padding: 0;
+    margin: 1em 0;
+    width: 100%;
+    overflow-y: auto;
+    > li {
+      margin-bottom: 0;
+      text-align: left;
+      list-style-type: none;
+      &.m-menu-divide {
+        margin: 1em 0;
+        background-color: $gray-18;
+        height: 1px;
+      }
+    }
+  }
+  &.is-open {
+    transform: translate(3em, 0);
+  }
+}
+.m-menu-title {
+  padding: 1em 0;
+  margin-bottom: 0;
+  margin-left: 20%;
+  font-family: $open-sans-bold;
+  color: $gray-08;
+  width: 80%;
+  display: block;
+  text-transform: uppercase;
+  transition: none;
+  &:focus {
+    outline: 0;
+  }
+}
+.m-menu-link {
+  padding: 1em 0;
+  border: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: $font-size-100;
+  line-height: $line-height-160;
+  font-family: $open-sans-semi-bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  .m-menu-link-name {
+    color: $base-color;
+  }
+  .m-menu-link-shortcut {
+    margin-right: 1em;
+    flex: 1 0 auto;
+    text-align: right;
+    font-family: $open-sans-light;
+  }
+  [class*=" icon-"],
+  [class^="icon-"] {
+    flex: 0 0 20%;
+    font-size: 1.4em;
+    line-height: 1;
+    display: inline-block;
+    color: $secondary-color-08;
+    text-align: center;
+  }
+  &:focus,
+  &:hover {
+    background-color: $gray-19;
+    text-decoration: none;
+  }
+  &.is-active,
+  &:active {
+    background-color: $primary-color-10;
+    .m-menu-link-name,
+    .m-menu-link-shortcut,
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $white;
+    }
+  }
+  &.is-active {
+    &:focus,
+    &:hover {
+      background-color: $primary-color-08;
+    }
+  }
+}
+.m-menu-toggle {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  transition: background-color $transition-ease-fast;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus {
+    background-color: $dark-alpha-16;
+  }
+}
+.is-night-mode {
+  .m-menu {
+    background-color: $base-color;
+    .m-menu-list {
+      > li {
+        &.m-menu-divide {
+          background-color: $gray-06;
+        }
+      }
+    }
+    .m-menu-link {
+      .m-menu-link-name {
+        color: $white;
+      }
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $secondary-color-12;
+      }
+      &:focus,
+      &:hover {
+        background-color: $gray-06;
+      }
+      &.is-active,
+      &:active {
+        background-color: $primary-color-10;
+        .m-menu-link-name,
+        .m-menu-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+        &:focus,
+        &:hover {
+          background-color: $primary-color-08;
+        }
+      }
+    }
+  }
+  .m-menu-title {
+    color: $gray-12;
+  }
+  .m-menu-character {
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        & + label {
+          &:before {
+            color: $secondary-color-12;
+          }
+          .m-menu-characters-class-level {
+            color: $secondary-color-12;
+          }
+          .m-menu-characters-name {
+            color: $white;
+          }
+        }
+        &:hover {
+          & + label {
+            background-color: $gray-06;
+          }
+        }
+        &:checked {
+          & + label {
+            &:before {
+              color: $white;
+            }
+            .m-menu-characters-class-level {
+              color: $primary-color-17;
+            }
+            .m-menu-characters-name {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              background-color: $primary-color-08;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .m-menu {
+    padding: 3em 0 30vh;
+    width: 55vw;
+    transform: translate(-55vw, 0);
+  }
+}
+@media (min-width: $screen-md) {
+  .m-menu {
+    width: 45vw;
+    transform: translate(-45vw, 0);
+  }
+}
+@media (min-width: $screen-lg) {
+  .m-menu {
+    width: 35vw;
+    transform: translate(-35vw, 0);
+  }
+}
+@media (min-width: $screen-xl) {
+  .m-menu {
+    width: 25vw;
+    transform: translate(-25vw, 0);
+  }
+}
+@media print {
+  .m-menu {
+    display: none;
+  }
+}

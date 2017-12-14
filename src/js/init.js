@@ -3,8 +3,7 @@
   sheet.render();
   sheet.bind();
   nav.bind();
-  characterSelect.bind();
-  characterSelect.render();
+  nav.render();
   tabs.bind();
   log.bind();
   log.render();

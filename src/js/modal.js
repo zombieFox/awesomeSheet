@@ -104,7 +104,7 @@ var modal = (function() {
       helper.addClass(modalWrapper, "is-unrotate-in");
       modalHeading.focus(this);
     };
-    nav.close();
+    menu.close();
     prompt.destroy();
     characterSelect.close();
     if (previousModal != null) {

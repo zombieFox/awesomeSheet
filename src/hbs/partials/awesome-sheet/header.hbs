@@ -1,46 +1,50 @@
 <header class="m-header js-header">
-  <div class="m-header-select">
-    <div class="m-character-select js-character-select" data-character-select-open="false">
-      <div class="m-character-select-current">
-        <h2 class="m-character-select-current-title js-character-select-current-title"></h2>
-        <span class="m-character-select-current-arrow"></span>
+
+  <div class="m-header-hamburger">
+
+    <a href="javascript:void(0)" class="m-menu-toggle js-menu-toggle" tabindex="1">
+      <div class="m-hamburger js-hamburger">
+        <div class="m-hamburger-inner"></div>
       </div>
-      <div class="m-character-select-list">
-        <ul class="m-character-select-index js-character-select-index"></ul>
+    </a>
+
+  </div>
+
+  <div class="m-header-select">
+
+    <div class="m-character-select js-character-select" data-character-select-open="false">
+      <ul class="m-character-select-control">
+        <li class="m-character-select-control-item">
+          <a href="javascript:void(0)" class="m-character-select-button js-header-control-button-import u-clearfix" tabindex="1">
+            <span class="icon-file-upload"></span>
+            <span class="m-character-select-button-name hidden-xs hidden-sm hidden-md">Import</span>
+          </a>
+        </li>
+        <li class="m-character-select-control-item">
+          <a href="javascript:void(0)" class="m-character-select-button js-header-control-button-export u-clearfix" tabindex="1">
+            <span class="icon-file-download"></span>
+            <span class="m-character-select-button-name hidden-xs hidden-sm hidden-md">Export</span>
+          </a>
+        </li>
+        <li class="m-character-select-control-item">
+          <a href="javascript:void(0)" class="m-character-select-button js-header-control-button-add u-clearfix" tabindex="1">
+            <span class="icon-add"></span>
+            <span class="m-character-select-button-name hidden-xs hidden-sm hidden-md">Add</span>
+          </a>
+        </li>
+        <li class="m-character-select-control-item">
+          <a href="javascript:void(0)" class="m-character-select-button js-header-control-button-remove u-clearfix" tabindex="1">
+            <span class="icon-remove"></span>
+            <span class="m-character-select-button-name hidden-xs hidden-sm hidden-md">Remove</span>
+          </a>
+        </li>
+      </ul>
+      <div class="m-character-select-toggle js-character-select-toggle" tabindex="1">
+        <h2 class="m-character-select-title js-character-select-title"></h2>
+        <span class="m-character-select-arrow"></span>
       </div>
     </div>
+
   </div>
-  <ul class="m-header-control">
-    <li class="m-header-control-item">
-      <a href="javascript:void(0)" class="m-header-control-button js-header-control-button-add u-clearfix" tabindex="10">
-        <span class="icon-add"></span>
-        <span class="m-header-control-button-name hidden-xs hidden-sm hidden-md">Add</span>
-      </a>
-    </li>
-    <li class="m-header-control-item">
-      <a href="javascript:void(0)" class="m-header-control-button js-header-control-button-remove u-clearfix" tabindex="10">
-        <span class="icon-remove"></span>
-        <span class="m-header-control-button-name hidden-xs hidden-sm hidden-md">Remove</span>
-      </a>
-    </li>
-    <li class="m-header-control-item">
-      <a href="javascript:void(0)" class="m-header-control-button js-header-control-button-import u-clearfix" tabindex="10">
-        <span class="icon-file-upload"></span>
-        <span class="m-header-control-button-name hidden-xs hidden-sm hidden-md">Import</span>
-      </a>
-    </li>
-    <li class="m-header-control-item">
-      <a href="javascript:void(0)" class="m-header-control-button js-header-control-button-export u-clearfix" tabindex="10">
-        <span class="icon-file-download"></span>
-        <span class="m-header-control-button-name hidden-xs hidden-sm hidden-md">Export</span>
-      </a>
-    </li>
-    <li class="m-header-control-item">
-      <a href="javascript:void(0)" class="m-nav-toggle js-nav-toggle" tabindex="1">
-        <div class="m-hamburger js-hamburger">
-          <div class="m-hamburger-inner"></div>
-        </div>
-      </a>
-    </li>
-  </ul>
+
 </header>
