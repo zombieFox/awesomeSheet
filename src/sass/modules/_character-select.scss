@@ -73,7 +73,7 @@
   position: fixed;
   top: 0;
   right: 1em;
-  width: 70vw;
+  width: calc(100% - 2em);
   max-height: calc(100vh - 1em);
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
@@ -249,7 +249,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.m-character-select-name-title {;
+.m-character-select-name-title {
   display: none;
 }
 .m-character-select-name-text {
@@ -351,6 +351,9 @@
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
+  .m-character-select {
+    width: 60vw;
+  }
   .m-character-select-list-item {
     input {
       &[type="checkbox"],
@@ -432,20 +435,20 @@
   }
 }
 @media (min-width: $screen-md) {
-  .m-character-select-toggle,
-  .m-character-select {
+  .m-character-select,
+  .m-character-select-toggle {
     width: 50vw;
   }
 }
 @media (min-width: $screen-lg) {
-  .m-character-select-toggle,
-  .m-character-select {
+  .m-character-select,
+  .m-character-select-toggle {
     width: 40vw;
   }
 }
 @media (min-width: $screen-xl) {
-  .m-character-select-toggle,
-  .m-character-select {
+  .m-character-select,
+  .m-character-select-toggle {
     width: 30vw;
   }
 }

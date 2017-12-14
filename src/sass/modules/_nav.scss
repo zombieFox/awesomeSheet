@@ -97,13 +97,12 @@
   .m-nav {
     width: 4em;
     top: 3em;
-    height: calc(100% - 4em);
+    height: calc(100% - 3em);
   }
   .m-nav-bar {
     padding: 0;
     flex-flow: column nowrap;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
+    justify-content: center;
   }
   .m-nav-list {
     display: flex;
@@ -122,7 +121,7 @@
 }
 @media (min-height: 700px) and (min-width: $screen-lg) {
   .m-nav-list {
-    max-height: 75%;
+    max-height: 90%;
   }
 }
 @media (min-width: $screen-xl) {}
