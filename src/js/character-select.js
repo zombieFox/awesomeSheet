@@ -1,7 +1,7 @@
 var characterSelect = (function() {
 
-  function _switchCharacter(characterLink) {
-    var newIndex = parseInt(characterLink.dataset.characterIndex, 10);
+  function _switchCharacter(characterInput) {
+    var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
     sheet.switch(newIndex);
     var name = sheet.getCharacter().basics.name;
     if (typeof name == "undefined" || name == "") {
@@ -11,13 +11,10 @@ var characterSelect = (function() {
   };
 
   function _bind_characterOption(characterLink) {
-    var label = characterLink.querySelector(".js-character-index-list-item-label");
-    var input = characterLink.querySelector(".js-character-index-list-item-input");
+    var input = characterLink.querySelector(".js-character-select-list-item-input");
     input.addEventListener("change", function() {
-      _switchCharacter(label);
-      sheet.storeCharacters();
+      _switchCharacter(input);
       nav.scrollToTop();
-      toggle();
     }, false);
   };
 
@@ -100,7 +97,7 @@ var characterSelect = (function() {
     menu.close();
     var body = helper.e("body");
     var characterSelect = helper.e(".js-character-select");
-    var state = (characterSelect.dataset.characterSelectOpen == "true");
+    var state = (body.dataset.characterSelectOpen == "true");
     if (state) {
       close();
       shade.destroy();
@@ -110,27 +107,26 @@ var characterSelect = (function() {
         action: close
       });
     };
-    page.update();
   };
 
   function open() {
     var body = helper.e("body");
-    var characterIndex = helper.e(".js-character-index");
     var characterSelect = helper.e(".js-character-select");
+    var characterSelectToggle = helper.e(".js-character-select-toggle");
     body.dataset.characterSelectOpen = true;
-    characterSelect.dataset.characterSelectOpen = true;
     helper.addClass(characterSelect, "is-open");
-    helper.addClass(characterIndex, "is-open");
+    helper.addClass(characterSelectToggle, "is-active");
+    page.update();
   };
 
   function close() {
     var body = helper.e("body");
-    var characterIndex = helper.e(".js-character-index");
     var characterSelect = helper.e(".js-character-select");
+    var characterSelectToggle = helper.e(".js-character-select-toggle");
     body.dataset.characterSelectOpen = false;
-    characterSelect.dataset.characterSelectOpen = false;
     helper.removeClass(characterSelect, "is-open");
-    helper.removeClass(characterIndex, "is-open");
+    helper.removeClass(characterSelectToggle, "is-active");
+    page.update();
   };
 
   function update() {
@@ -139,27 +135,25 @@ var characterSelect = (function() {
   };
 
   function clear() {
-    var charactersIndexList = helper.eA(".js-character-index-list");
-    for (var i = 0; i < charactersIndexList.length; i++) {
-      while (charactersIndexList[i].lastChild) {
-        charactersIndexList[i].removeChild(charactersIndexList[i].lastChild);
-      };
+    var characterSelectList = helper.e(".js-character-select-list");
+    while (characterSelectList.lastChild) {
+      characterSelectList.removeChild(characterSelectList.lastChild);
     };
   };
 
   function _render_allCharacterItems() {
     var character = sheet.getAllCharacters();
-    var characterIndexList = helper.e(".js-character-index-list");
+    var characterSelectList = helper.e(".js-character-select-list");
     for (var key in character) {
-      characterIndexList.appendChild(_createCharacterItem(character[key], key));
+      characterSelectList.appendChild(_createCharacterItem(character[key], key));
     };
-    var all_characterIndexInput = helper.eA(".js-character-index-list-item-input");
+    var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
     all_characterIndexInput[sheet.getIndex()].checked = true;
   };
 
   function _render_currentCharacter() {
-    var characterSelectTitle = helper.e(".js-character-select-title");
-    characterSelectTitle.textContent = _get_name(sheet.getCharacter());
+    var characterSelectNameText = helper.e(".js-character-select-name-text");
+    characterSelectNameText.textContent = _get_name(sheet.getCharacter());
   };
 
   function _get_name(characterObject) {
@@ -174,32 +168,32 @@ var characterSelect = (function() {
     var classLevel = classes.getClassLevel(characterObject);
     var characterName = _get_name(characterObject);
 
-    var uniqueId = helper.randomId(10);
+    var uniqueId = helper.randomString(10);
 
     var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-character-index-list-item js-character-index-list-item-" + characterIndex);
+    navCharacter.setAttribute("class", "m-character-select-list-item js-character-select-list-item-" + characterIndex);
 
     var input = document.createElement("input");
     input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
     input.setAttribute("name", "js-all-characters");
-    input.setAttribute("class", "js-character-index-list-item-input");
+    input.setAttribute("class", "js-character-select-list-item-input");
     input.setAttribute("type", "radio");
     input.setAttribute("tabindex", 1);
+    input.setAttribute("data-character-select-index", characterIndex);
 
     var label = document.createElement("label");
     label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-character-index-list-item-label");
-    label.setAttribute("data-character-index", characterIndex);
+    label.setAttribute("class", "u-full-width js-character-select-list-item-label");
 
     var detailsSpan = document.createElement("span");
-    detailsSpan.setAttribute("class", "m-character-index-details");
+    detailsSpan.setAttribute("class", "m-character-select-list-item-details");
 
     var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-character-index-name");
+    nameSpan.setAttribute("class", "m-character-select-list-item-name");
     nameSpan.textContent = characterName;
 
     var classLevelSpan = document.createElement("span");
-    classLevelSpan.setAttribute("class", "m-character-index-class-level");
+    classLevelSpan.setAttribute("class", "m-character-select-list-item-class-level");
     classLevelSpan.textContent = classLevel;
 
     // build module

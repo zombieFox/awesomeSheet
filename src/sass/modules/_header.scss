@@ -1,17 +1,22 @@
 .m-header {
-  background-color: $secondary-color-05;
-  font-size: $font-size-root-100;
   height: 3em;
-  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  font-size: $font-size-root-100;
+  z-index: $header;
+}
+.m-header-bar {
+  background-color: $secondary-color-05;
+  padding: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
-  z-index: $header;
+  transition: background-color $transition-ease-fast;
 }
 .m-header-hamburger {
   flex: 0 0 auto;
@@ -20,6 +25,11 @@
 .m-header-select {
   flex: 0 0 auto;
   width: calc(100% - 4em);
+}
+.is-display-mode {
+  .m-header-bar {
+    background-color: $primary-color-05;
+  }
 }
 // --------------------------------------------------
 // media queries

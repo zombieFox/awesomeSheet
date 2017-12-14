@@ -29,7 +29,7 @@
     }
   }
   &.is-open {
-    transform: translate(3em, 0);
+    transform: translate(0, 0);
   }
 }
 .m-menu-title {
@@ -113,8 +113,15 @@
   cursor: pointer;
   transition: background-color $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:hover {
+    background-color: $dark-alpha-18;
+  }
   &:focus {
+    outline: none;
     background-color: $dark-alpha-16;
+  }
+  &.is-active {
+    background-color: $dark-alpha-14;
   }
 }
 .is-night-mode {

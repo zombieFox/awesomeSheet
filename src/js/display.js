@@ -22,7 +22,7 @@ var display = (function() {
 
   function _update_displayState() {
     var header = helper.e(".js-header");
-    var quickNav = helper.e(".js-quick-nav");
+    var nav = helper.e(".js-nav");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
@@ -34,7 +34,7 @@ var display = (function() {
       helper.removeClass(fabIcon, "icon-reader-mode");
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
-      helper.addClass(quickNav, "is-display-mode");
+      helper.addClass(nav, "is-display-mode");
       helper.addClass(header, "is-display-mode");
     };
     var _displayOff = function() {
@@ -42,7 +42,7 @@ var display = (function() {
       helper.addClass(fabIcon, "icon-reader-mode");
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
+      helper.removeClass(nav, "is-display-mode");
       helper.removeClass(header, "is-display-mode");
     };
     for (var i = 0; i < all_section.length; i++) {

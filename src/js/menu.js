@@ -17,25 +17,26 @@ var menu = (function() {
         action: close
       });
     };
-    page.update();
   };
 
   function close() {
     var body = helper.e("body");
     var menu = helper.e(".js-menu");
-    var hamburger = helper.e(".js-hamburger");
+    var menuToggle = helper.e(".js-menu-toggle");
     helper.removeClass(menu, "is-open");
-    helper.removeClass(hamburger, "is-open");
+    helper.removeClass(menuToggle, "is-active");
     body.dataset.menuOpen = false;
+    page.update();
   };
 
   function open() {
     var body = helper.e("body");
     var menu = helper.e(".js-menu");
-    var hamburger = helper.e(".js-hamburger");
+    var menuToggle = helper.e(".js-menu-toggle");
     helper.addClass(menu, "is-open");
-    helper.addClass(hamburger, "is-open");
+    helper.addClass(menuToggle, "is-active");
     body.dataset.menuOpen = true;
+    page.update();
   };
 
   function _bind_shortcutKeys() {
