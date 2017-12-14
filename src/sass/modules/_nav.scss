@@ -9,7 +9,7 @@
 }
 .m-nav-bar {
   background-color: $secondary-color-07;
-  padding: 0;
+  padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -96,7 +96,7 @@
 @media (min-width: $screen-lg) {
   .m-nav {
     width: 4em;
-    top: 4em;
+    top: 3em;
     height: calc(100% - 4em);
   }
   .m-nav-bar {

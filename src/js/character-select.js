@@ -14,6 +14,8 @@ var characterSelect = (function() {
     var input = characterLink.querySelector(".js-character-select-list-item-input");
     input.addEventListener("change", function() {
       _switchCharacter(input);
+      close();
+      shade.destroy();
       nav.scrollToTop();
     }, false);
   };
@@ -43,6 +45,7 @@ var characterSelect = (function() {
       event.preventDefault();
       menu.close();
       close();
+      shade.destroy();
       sheet.addCharacter();
     }, false);
 
@@ -51,6 +54,7 @@ var characterSelect = (function() {
       event.preventDefault();
       menu.close();
       close();
+      shade.destroy();
       sheet.removeCharacter();
     }, false);
 
@@ -59,6 +63,7 @@ var characterSelect = (function() {
       event.preventDefault();
       menu.close();
       close();
+      shade.destroy();
       sheet.import();
     }, false);
 
@@ -67,6 +72,7 @@ var characterSelect = (function() {
       event.preventDefault();
       menu.close();
       close();
+      shade.destroy();
       sheet.export();
     }, false);
   }

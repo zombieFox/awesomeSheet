@@ -9,7 +9,7 @@
 }
 .m-header-bar {
   background-color: $secondary-color-05;
-  padding: 0;
+  padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -36,6 +36,10 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {}
+@media (min-width: $screen-lg) {
+  .m-header-bar {
+    padding: 0 1em 0 0;
+  }
+}
 @media (min-width: $screen-xl) {}
 @media print {}
