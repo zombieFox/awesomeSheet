@@ -82,11 +82,8 @@
   0% {
     top: -10em;
   }
-  50% {
-    top: -10em;
-  }
   100% {
-    top: 5em;
+    top: 7em;
   }
 }
 @keyframes edit-controls-down-lg {
@@ -94,7 +91,7 @@
     top: -10em;
   }
   100% {
-    top: 0.5em;
+    top: 5em;
   }
 }
 @keyframes grow {

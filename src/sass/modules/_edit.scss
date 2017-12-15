@@ -451,7 +451,7 @@
   .m-edit-controls {
     margin: 0;
     position: fixed;
-    top: 5em;
+    top: 7em;
     z-index: $card-controls;
     animation: edit-controls-down-xs ease-in-out 0.6s;
   }
@@ -570,7 +570,7 @@
 @media (min-width: $screen-lg) {
   .is-pinned {
     .m-edit-controls {
-      top: 0.5em;
+      top: 5em;
       animation: edit-controls-down-lg ease-in-out 0.5s;
     }
   }

@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 3em;
   position: relative;
   font-size: $font-size-root-100;
   display: flex;
@@ -228,10 +229,10 @@
   margin: 0;
   padding: 0 4em 0 1em;
   font-size: 1em;
-  height: 3em;
-  flex: 0 0 auto;
   z-index: 2;
+  height: 100%;
   max-width: 100%;
+  flex: 0 0 auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -243,13 +244,13 @@
 }
 .m-character-select-name-text,
 .m-character-select-name-title {
-  font-size: $font-size-075;
   line-height: $line-height-160;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .m-character-select-name-title {
+  font-size: $font-size-075;
   display: none;
 }
 .m-character-select-name-text {
@@ -435,12 +436,27 @@
   }
 }
 @media (min-width: $screen-md) {
+  .m-character-select-name {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
   .m-character-select,
   .m-character-select-toggle {
     width: 50vw;
   }
+  .m-character-select-arrow {
+    &:after,
+    &:before {
+      width: 0.8em;
+      height: 3px;
+    }
+  }
 }
 @media (min-width: $screen-lg) {
+  .m-character-select-wrapper {
+    height: 4em;
+  }
   .m-character-select,
   .m-character-select-toggle {
     width: 40vw;
