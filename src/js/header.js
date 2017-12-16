@@ -7,7 +7,7 @@ var header = (function() {
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
     var currentPosition = window.pageYOffset;
-    if (currentPosition > 100) {
+    if (currentPosition > (window.innerHeight / 8)) {
       if (previousPosition > currentPosition) {
         helper.removeClass(header, "is-up");
         helper.removeClass(nav, "is-up");
