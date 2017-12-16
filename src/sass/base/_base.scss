@@ -10,9 +10,9 @@ body {
   font-family: $base-font;
   font-size: $font-size-root-100;
   line-height: $line-height-160;
-  &.is-display-mode {
-    background: $gray-18;
-  }
+  // &.is-display-mode {
+  //   background: $gray-18;
+  // }
   &.is-night-mode {
     background-color: $gray-04;
     color: $white;

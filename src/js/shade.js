@@ -45,6 +45,9 @@ var shade = (function() {
       if (defaultOptions.includeHeader) {
         helper.addClass(shade, "m-shade-top");
       };
+      if (display.state()) {
+        helper.addClass(shade, "is-display-mode");
+      };
       shade.destroy = function() {
         if (shade.classList.contains("is-opaque")) {
           helper.removeClass(shade, "is-opaque");

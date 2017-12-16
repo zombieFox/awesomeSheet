@@ -122,12 +122,12 @@ var display = (function() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
     if (fab.dataset.displayMode == "true") {
-      fab.dataset.displayMode = "false";
+      fab.dataset.displayMode = false;
       for (var i = 0; i < all_section.length; i++) {
         _toggle_section(all_section[i], false);
       };
     } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
-      fab.dataset.displayMode = "true";
+      fab.dataset.displayMode = true;
       for (var i = 0; i < all_section.length; i++) {
         _toggle_section(all_section[i], true);
       };
@@ -858,6 +858,11 @@ var display = (function() {
 
   };
 
+  function render(section) {
+    _render_displayBlock(section);
+    _update_displayPlaceholder(section);
+  };
+
   function _update_displayPlaceholder(section) {
     var all_display
     if (section) {
@@ -892,11 +897,6 @@ var display = (function() {
         helper.removeClass(placeholderDisplay, "is-hidden")
       };
     };
-  };
-
-  function render(section) {
-    _render_displayBlock(section);
-    _update_displayPlaceholder(section);
   };
 
   function _get_displayState(anyOrSingle) {

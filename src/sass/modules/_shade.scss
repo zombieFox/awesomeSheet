@@ -1,6 +1,6 @@
 .m-shade {
-  // background-color: $dark-alpha-08;
-  background-color: rgba($secondary-color-04, 0.8);
+
+  background-color: rgba($secondary-color-01, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +9,9 @@
   opacity: 0;
   z-index: $shade;
   transition: all $transition-ease-fast;
+  &.is-display-mode {
+    background-color: rgba($primary-color-01, 0.8);
+  }
 }
 .m-shade-top {
   z-index: $shade-top;
