@@ -16,7 +16,7 @@
   list-style-type: none;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: flex-end;
   flex: 1 1 auto;
   z-index: 2;
   &:not(:only-child):not(:last-child) {
@@ -26,7 +26,7 @@
 .m-character-select-control-item {
   margin: 0;
   padding: 0;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -210,7 +210,7 @@
 .m-character-select-toggle {
   position: relative;
   flex: 0 0 auto;
-  width: 40vw;
+  width: 30vw;
   z-index: 2;
   transition: $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -436,10 +436,8 @@
   }
 }
 @media (min-width: $screen-md) {
-  .m-character-select-name {
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: flex-start;
+  .m-character-select {
+    max-height: 80vh;
   }
   .m-character-select,
   .m-character-select-toggle {
@@ -455,11 +453,11 @@
 }
 @media (min-width: $screen-lg) {
   .m-character-select-wrapper {
-    height: 4em;
+    // height: 4em;
   }
   .m-character-select,
   .m-character-select-toggle {
-    width: 40vw;
+    width: 30vw;
   }
 }
 @media (min-width: $screen-xl) {

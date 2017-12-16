@@ -80,6 +80,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/events.js',
           '<%= folders.build %>/js/fireball.js',
           '<%= folders.build %>/js/fullscreen.js',
+          '<%= folders.build %>/js/header.js',
           '<%= folders.build %>/js/input-block.js',
           '<%= folders.build %>/js/input-range-block.js',
           '<%= folders.build %>/js/log.js',

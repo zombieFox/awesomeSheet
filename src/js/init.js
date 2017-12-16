@@ -2,8 +2,9 @@
 
   sheet.render();
   sheet.bind();
+  sheet.scroll();
   nav.bind();
-  nav.render();
+  // nav.render();
   tabs.bind();
   log.bind();
   log.render();

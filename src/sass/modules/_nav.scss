@@ -6,6 +6,11 @@
   height: 3em;
   font-size: $font-size-root-100;
   z-index: $nav;
+  transition: top $transition-bounce-slow;
+  &.is-up {
+    top: 0;
+    transition: top $transition-ease-fast;
+  }
 }
 .m-nav-bar {
   background-color: $secondary-color-07;
@@ -95,16 +100,18 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
   .m-nav {
-    width: 4em;
-    top: 4em;
-    height: calc(100% - 4em);
+    width: 3em;
+    top: 0;
+    height: 100%;
   }
   .m-nav-bar {
-    padding: 0;
+    padding: 3em 0 0;
     flex-flow: column nowrap;
     justify-content: center;
   }
   .m-nav-list {
+    max-height: 70vh;
+    flex: 1 1 auto;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -115,13 +122,8 @@
   .m-nav-link {
     [class*=" icon-"],
     [class^="icon-"] {
-      font-size: $font-size-200;
+      // font-size: $font-size-200;
     }
-  }
-}
-@media (min-height: 700px) and (min-width: $screen-lg) {
-  .m-nav-list {
-    max-height: 90%;
   }
 }
 @media (min-width: $screen-xl) {}

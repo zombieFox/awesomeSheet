@@ -224,7 +224,7 @@ var sheet = (function() {
     };
   };
 
-  var _readJsonFile = function() {
+  function _readJsonFile() {
     var fileList = helper.e(".js-import-select-input").files;
 
     // if no JSON file is selected
@@ -331,6 +331,13 @@ var sheet = (function() {
     registerServiceWorker.bind();
   };
 
+  function scroll() {
+    window.onscroll = function() {
+      nav.scroll();
+      header.scroll();
+    };
+  };
+
   function clear() {
     totalBlock.clear();
     clone.clear();
@@ -376,6 +383,7 @@ var sheet = (function() {
     export: exportJson,
     render: render,
     bind: bind,
+    scroll: scroll,
     switch: switchCharacter
   };
 
