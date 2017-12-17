@@ -7,7 +7,7 @@
   font-size: $font-size-root-100;
   z-index: $nav;
   transition: top $transition-bounce-slow;
-  &.is-up {
+  &.is-pinned {
     top: 0;
     transition: top $transition-ease-fast;
   }
@@ -105,7 +105,7 @@
     height: 100%;
   }
   .m-nav-bar {
-    padding: 3em 0 0;
+    padding: 0;
     flex-flow: column nowrap;
     justify-content: center;
   }

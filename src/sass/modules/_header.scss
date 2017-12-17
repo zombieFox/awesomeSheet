@@ -7,7 +7,7 @@
   font-size: $font-size-root-100;
   z-index: $header;
   transition: top $transition-bounce-slow;
-  &.is-up {
+  &.is-pinned {
     top: -4em;
     transition: top $transition-ease-fast;
   }

@@ -364,7 +364,7 @@
       &[type="checkbox"],
       &[type="radio"] {
         & + label {
-          height: 4em;
+          height: 3em;
           display: flex;
           flex-flow: row nowrap;
           justify-content: flex-start;
@@ -432,12 +432,6 @@
       }
     }
   }
-  .m-character-select-name-title {
-    margin: 0 1em 0 0;
-    color: $light-alpha-06;
-    flex: 0 0 auto;
-    display: block;
-  }
 }
 @media (min-width: $screen-md) {
   .m-character-select {
@@ -453,6 +447,12 @@
       width: 0.8em;
       height: 3px;
     }
+  }
+  .m-character-select-name-title {
+    margin: 0 1em 0 0;
+    color: $light-alpha-06;
+    flex: 0 0 auto;
+    display: block;
   }
 }
 @media (min-width: $screen-lg) {
