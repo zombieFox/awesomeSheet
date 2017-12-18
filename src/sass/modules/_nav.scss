@@ -6,10 +6,10 @@
   height: 3em;
   font-size: $font-size-root-100;
   z-index: $nav;
-  transition: top $transition-bounce-slow;
+  transition: top $transition-bounce-extra-slow;
   &.is-pinned {
     top: 0;
-    transition: top $transition-ease-slow;
+    transition: top $transition-ease-medium;
   }
 }
 .m-nav-bar {

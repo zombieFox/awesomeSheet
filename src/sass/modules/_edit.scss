@@ -445,8 +445,13 @@
   margin: 0 0 1em;
   top: 6em;
   transition: top $transition-ease-slow;
+  pointer-events: none;
   .button-group {
     margin-bottom: 0;
+    .button,
+    button {
+      pointer-events: all;
+    }
   }
 }
 .is-pinned {
