@@ -19,7 +19,9 @@ var header = (function() {
         // console.log("unpin");
         helper.removeClass(body, "is-header-pinned");
         helper.removeClass(header, "is-pinned");
-        helper.removeClass(nav, "is-pinned");
+        if (document.documentElement.clientWidth < 900) {
+          helper.removeClass(nav, "is-pinned");
+        };
         body.dataset.headerPinned = false;
         targetUp = null;
         targetDown = null;
@@ -34,7 +36,9 @@ var header = (function() {
         // console.log("pin");
         helper.addClass(body, "is-header-pinned");
         helper.addClass(header, "is-pinned");
-        helper.addClass(nav, "is-pinned");
+        if (document.documentElement.clientWidth < 900) {
+          helper.addClass(nav, "is-pinned");
+        };
         body.dataset.headerPinned = true;
         targetDown = null;
       };
