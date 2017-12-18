@@ -17,7 +17,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   z-index: 2;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
@@ -35,40 +35,30 @@
   }
 }
 .m-character-select-button {
-  background-color: transparent;
-  flex: 1 0 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: $light-alpha-08;
-  font-size: $font-size-100;
-  line-height: $line-height-200;
-  transition: background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  height: 100%;
+  box-shadow: none;
+  &:link,
+  &:visited {
+    background-color: $gray-20;
+    border-color: $gray-16;
+    color: $base-color;
+  }
+  &:focus,
+  &:hover {
+    box-shadow: none;
+  }
+  &:active {
+    box-shadow: none;
+  }
   [class*=" icon-"],
   [class^="icon-"] {
     font-size: $font-size-150;
-  }
-  &:link,
-  &:visited {
-    background-color: transparent;
-    color: $light-alpha-08;
-  }
-  &:hover {
-    background-color: $dark-alpha-18;
-    color: $white;
-    text-decoration: none;
-    outline: 0;
-  }
-  &:focus {
-    outline: none;
-    background-color: $dark-alpha-16;
-  }
-  &:active {
-    background-color: $dark-alpha-14;
-    color: $white;
+    &:not(:only-child):not(:last-child) {
+      margin-right: 0.4em;
+    }
   }
 }
 .m-character-select {
@@ -212,21 +202,20 @@
   }
 }
 .m-character-select-toggle {
+  background-color: transparent;
   position: relative;
-  flex: 0 0 auto;
-  width: 30vw;
+  flex: 1 1 auto;
   z-index: 2;
-  transition: $transition-ease-fast;
+  transition: all $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus,
   &:hover {
-    background-color: $dark-alpha-18;
-  }
-  &:focus {
+    background-color: $light-alpha-20;
     outline: none;
-    background-color: $dark-alpha-16;
   }
-  &.is-active {
-    background-color: $dark-alpha-14;
+  &.is-active,
+  &:active {
+    background-color: $light-alpha-18;
   }
 }
 .m-character-select-name {
@@ -268,7 +257,7 @@
   width: 0;
   height: 0;
   cursor: pointer;
-  transition: $transition-ease-fast;
+  transition: all $transition-ease-fast;
   &:after,
   &:before {
     content: "";
@@ -279,7 +268,7 @@
     top: 0;
     border-radius: 3px;
     z-index: 2;
-    transition: $transition-ease-fast;
+    transition: all $transition-ease-fast;
   }
   &:before {
     right: -0.5px;
@@ -431,6 +420,9 @@
         }
       }
     }
+  }
+  .m-character-select-toggle {
+    flex: 0 1 auto;
   }
 }
 @media (min-width: $screen-md) {

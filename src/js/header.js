@@ -1,7 +1,8 @@
 var header = (function() {
 
   var previousPosition = window.pageYOffset;
-  var target = null;
+  var targetUp = null;
+  var targetDown = null;
 
   function scroll() {
     var body = helper.e("body");
@@ -9,24 +10,37 @@ var header = (function() {
     var nav = helper.e(".js-nav");
     var currentPosition = window.pageYOffset;
     if (previousPosition > currentPosition) {
-      helper.removeClass(header, "is-pinned");
-      helper.removeClass(nav, "is-pinned");
-      body.dataset.headerPinned = false;
-      target = null;
-    } else {
-      if (target == null) {
-        if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-          target = window.pageYOffset + 199;
+      targetDown = null;
+      if (targetUp == null) {
+        if (body.dataset.headerPinned == "true") {
+          targetUp = window.pageYOffset - 29;
         };
-      } else if (currentPosition == target || currentPosition >= target) {
+      } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
+        // console.log("unpin");
+        helper.removeClass(body, "is-header-pinned");
+        helper.removeClass(header, "is-pinned");
+        helper.removeClass(nav, "is-pinned");
+        body.dataset.headerPinned = false;
+        targetUp = null;
+        targetDown = null;
+      };
+    } else {
+      targetUp = null;
+      if (targetDown == null) {
+        if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
+          targetDown = window.pageYOffset + 99;
+        };
+      } else if (currentPosition == targetDown || currentPosition >= targetDown) {
+        // console.log("pin");
+        helper.addClass(body, "is-header-pinned");
         helper.addClass(header, "is-pinned");
         helper.addClass(nav, "is-pinned");
         body.dataset.headerPinned = true;
-        target = null;
+        targetDown = null;
       };
     };
     previousPosition = currentPosition;
-    // console.log("previous", previousPosition, "target", target);
+    // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
   };
 
   // exposed methods

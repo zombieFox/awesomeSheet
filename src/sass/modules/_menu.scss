@@ -103,6 +103,7 @@
   }
 }
 .m-menu-toggle {
+  background-color: transparent;
   position: relative;
   margin: 0;
   padding: 0;
@@ -111,17 +112,16 @@
   height: 100%;
   display: block;
   cursor: pointer;
-  transition: background-color $transition-ease-fast;
+  transition: all $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus,
   &:hover {
-    background-color: $dark-alpha-18;
-  }
-  &:focus {
+    background-color: $light-alpha-20;
     outline: none;
-    background-color: $dark-alpha-16;
   }
-  &.is-active {
-    background-color: $dark-alpha-14;
+  &.is-active,
+  &:active {
+    background-color: $light-alpha-18;
   }
 }
 .is-night-mode {

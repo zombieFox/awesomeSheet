@@ -334,6 +334,7 @@ var sheet = (function() {
   function scroll() {
     window.onscroll = function() {
       nav.scroll();
+      edit.scroll();
       header.scroll();
     };
   };

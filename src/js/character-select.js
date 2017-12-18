@@ -41,38 +41,30 @@ var characterSelect = (function() {
     var headerControlButtonExport = helper.e(".js-header-control-button-export");
 
     headerControlButtonAdd.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
       menu.close();
-      close();
       shade.destroy();
+      close();
       sheet.addCharacter();
     }, false);
 
     headerControlButtonRemove.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
       menu.close();
-      close();
       shade.destroy();
+      close();
       sheet.removeCharacter();
     }, false);
 
     headerControlButtonImport.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
       menu.close();
-      close();
       shade.destroy();
+      close();
       sheet.import();
     }, false);
 
     headerControlButtonExport.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
       menu.close();
-      close();
       shade.destroy();
+      close();
       sheet.export();
     }, false);
   }

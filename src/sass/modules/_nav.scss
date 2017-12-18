@@ -9,7 +9,7 @@
   transition: top $transition-bounce-slow;
   &.is-pinned {
     top: 0;
-    transition: top $transition-ease-fast;
+    transition: top $transition-ease-slow;
   }
 }
 .m-nav-bar {

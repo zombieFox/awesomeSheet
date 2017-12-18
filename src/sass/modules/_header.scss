@@ -1,21 +1,21 @@
 .m-header {
   position: fixed;
-  top: -1em;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 4em;
+  height: 3em;
   font-size: $font-size-root-100;
   z-index: $header;
   transition: top $transition-bounce-slow;
   &.is-pinned {
     top: -4em;
-    transition: top $transition-ease-fast;
+    transition: top $transition-ease-slow;
   }
 }
 .m-header-bar {
-  background-color: $secondary-color-06;
   background-color: $secondary-color-04;
-  padding: 1em 1em 0;
+  // background-color: $dark-alpha-04;
+  padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -35,8 +35,8 @@
 }
 .is-display-mode {
   .m-header-bar {
-    background-color: $primary-color-06;
     background-color: $primary-color-04;
+    // background-color: $dark-alpha-04;
   }
 }
 // --------------------------------------------------
@@ -45,11 +45,8 @@
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
-  // .m-header {
-  //   height: 4em;
-  // }
   .m-header-bar {
-    padding: 1em 1em 0 0;
+    padding: 0 1em 0 0;
   }
 }
 @media (min-width: $screen-xl) {}
