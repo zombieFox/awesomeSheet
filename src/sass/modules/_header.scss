@@ -6,14 +6,14 @@
   height: 3em;
   font-size: $font-size-root-100;
   z-index: $header;
-  transition: top $transition-ease-extra-slow;
+  transition: top $transition-ease-slow;
   &.is-pinned {
     top: -3em;
-    transition: top $transition-ease-extra-slow;
+    transition: top $transition-ease-slow;
   }
 }
 .m-header-bar {
-  background-color: $secondary-color-04;
+  background-color: rgba($secondary-color-04, 0.9);
   padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
@@ -34,7 +34,7 @@
 }
 .is-display-mode {
   .m-header-bar {
-    background-color: $primary-color-04;
+    background-color: rgba($primary-color-04, 0.9);
   }
 }
 // --------------------------------------------------

@@ -159,7 +159,7 @@ var sheet = (function() {
     icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
-    message.textContent = "Import a previously exported character JSON file from another device.";
+    message.textContent = "Import a previously exported character JSON file from this or another device.";
     label.appendChild(icon);
     label.appendChild(labelText);
     importSelect.appendChild(input);

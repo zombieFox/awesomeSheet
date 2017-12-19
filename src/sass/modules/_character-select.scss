@@ -448,17 +448,14 @@
   }
 }
 @media (min-width: $screen-lg) {
-  .m-character-select-wrapper {
-    // height: 4em;
-  }
   .m-character-select,
   .m-character-select-toggle {
-    width: 30vw;
+    width: 40vw;
   }
 }
 @media (min-width: $screen-xl) {
   .m-character-select,
   .m-character-select-toggle {
-    width: 30vw;
+    width: 40vw;
   }
 }
