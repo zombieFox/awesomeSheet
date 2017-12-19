@@ -14,7 +14,10 @@ var menu = (function() {
     } else {
       open();
       shade.render({
-        action: close
+        action: function() {
+          close();
+          page.update();
+        }
       });
     };
   };
@@ -26,7 +29,6 @@ var menu = (function() {
     helper.removeClass(menu, "is-open");
     helper.removeClass(menuToggle, "is-active");
     body.dataset.menuOpen = false;
-    page.update();
   };
 
   function open() {
@@ -36,7 +38,6 @@ var menu = (function() {
     helper.addClass(menu, "is-open");
     helper.addClass(menuToggle, "is-active");
     body.dataset.menuOpen = true;
-    page.update();
   };
 
   function _bind_shortcutKeys() {
@@ -59,6 +60,7 @@ var menu = (function() {
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
         toggle();
+        page.update();
       };
       // ctrl+alt+d
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
@@ -123,6 +125,7 @@ var menu = (function() {
       event.preventDefault();
       characterSelect.close();
       toggle();
+      page.update();
     }, false);
   };
 

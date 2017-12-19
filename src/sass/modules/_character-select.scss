@@ -17,7 +17,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   z-index: 2;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
@@ -26,7 +26,7 @@
 .m-character-select-control-item {
   margin: 0;
   padding: 0;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -38,6 +38,7 @@
   border: 0;
   border-radius: 0;
   margin: 0;
+  width: 100%;
   height: 100%;
   box-shadow: none;
   &:link,
@@ -57,13 +58,13 @@
   [class^="icon-"] {
     font-size: $font-size-150;
     &:not(:only-child):not(:last-child) {
-      margin-right: 0.4em;
+      margin-right: 0;
     }
   }
 }
 .m-character-select {
   background-color: $white;
-  padding: 4em 0 1em;
+  padding: 3.5em 0 0.5em;
   margin: 0;
   position: fixed;
   top: 0;
@@ -73,7 +74,7 @@
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
   overflow: scroll;
-  transform: translate(0, -100vh);
+  transform: translate(0, -100%);
   transition: transform $transition-ease-medium;
   z-index: $character-select;
   box-sizing: border-box;
@@ -202,20 +203,30 @@
   }
 }
 .m-character-select-toggle {
-  background-color: transparent;
+  background-color: $secondary-color-alpha-20;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-left-color: $secondary-color-alpha-14;
+  border-right-color: $secondary-color-alpha-14;
   position: relative;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  width: 40%;
   z-index: 2;
+  box-sizing: border-box;
   transition: all $transition-ease-fast;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:focus,
   &:hover {
-    background-color: $light-alpha-20;
+    background-color: $secondary-color-alpha-18;
+    border-left-color: $secondary-color-alpha-12;
+    border-right-color: $secondary-color-alpha-12;
     outline: none;
   }
   &.is-active,
   &:active {
-    background-color: $light-alpha-18;
+    background-color: $secondary-color-alpha-16;
+    border-left-color: $secondary-color-alpha-10;
+    border-right-color: $secondary-color-alpha-10;
   }
 }
 .m-character-select-name {
@@ -291,6 +302,9 @@
       transform: rotate(45deg) translateY(-50%);
     }
   }
+  .m-character-select-name-text {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  }
 }
 .is-night-mode {
   .m-character-select-list-item {
@@ -338,6 +352,42 @@
           }
         }
       }
+    }
+  }
+  .m-character-select-toggle {
+    background-color: $primary-color-alpha-20;
+    border-left-color: $primary-color-alpha-14;
+    border-right-color: $primary-color-alpha-14;
+    &:focus,
+    &:hover {
+      background-color: $primary-color-alpha-18;
+      border-left-color: $primary-color-alpha-12;
+      border-right-color: $primary-color-alpha-12;
+    }
+    &.is-active,
+    &:active {
+      background-color: $primary-color-alpha-16;
+      border-left-color: $primary-color-alpha-10;
+      border-right-color: $primary-color-alpha-10;
+    }
+  }
+}
+.is-display-mode {
+  .m-character-select-toggle {
+    background-color: $primary-color-alpha-20;
+    border-left-color: $primary-color-alpha-14;
+    border-right-color: $primary-color-alpha-14;
+    &:focus,
+    &:hover {
+      background-color: $primary-color-alpha-18;
+      border-left-color: $primary-color-alpha-12;
+      border-right-color: $primary-color-alpha-12;
+    }
+    &.is-active,
+    &:active {
+      background-color: $primary-color-alpha-16;
+      border-left-color: $primary-color-alpha-10;
+      border-right-color: $primary-color-alpha-10;
     }
   }
 }
@@ -423,12 +473,13 @@
   }
   .m-character-select-toggle {
     flex: 0 1 auto;
+    width: 40vw;
+  }
+  .m-character-select-control {
+    padding-right: 1em;
   }
 }
 @media (min-width: $screen-md) {
-  .m-character-select {
-    max-height: 80vh;
-  }
   .m-character-select,
   .m-character-select-toggle {
     width: 50vw;
@@ -446,16 +497,35 @@
     flex: 0 0 auto;
     display: block;
   }
+  .m-character-select-control {
+    flex: 0 0 auto;
+  }
 }
 @media (min-width: $screen-lg) {
   .m-character-select,
   .m-character-select-toggle {
     width: 40vw;
   }
+  .m-character-select-button {
+    &:link,
+    &:visited {
+    }
+    &:focus,
+    &:hover {
+    }
+    &:active {
+    }
+    [class*=" icon-"],
+    [class^="icon-"] {
+      &:not(:only-child):not(:last-child) {
+        margin-right: 0.4em;
+      }
+    }
+  }
 }
 @media (min-width: $screen-xl) {
   .m-character-select,
   .m-character-select-toggle {
-    width: 40vw;
+    width: 30vw;
   }
 }

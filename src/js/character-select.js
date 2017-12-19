@@ -25,11 +25,13 @@ var characterSelect = (function() {
     characterSelectCurrent.addEventListener("click", function(event) {
       menu.close();
       toggle();
+      page.update();
     }, false);
     characterSelectCurrent.addEventListener("keydown", function(event) {
       // enter
       if (event.keyCode == 13) {
         toggle();
+        page.update();
       };
     }, false);
   };
@@ -45,6 +47,7 @@ var characterSelect = (function() {
       shade.destroy();
       close();
       sheet.addCharacter();
+      page.update();
     }, false);
 
     headerControlButtonRemove.addEventListener("click", function(event) {
@@ -52,6 +55,7 @@ var characterSelect = (function() {
       shade.destroy();
       close();
       sheet.removeCharacter();
+      page.update();
     }, false);
 
     headerControlButtonImport.addEventListener("click", function(event) {
@@ -59,6 +63,7 @@ var characterSelect = (function() {
       shade.destroy();
       close();
       sheet.import();
+      page.update();
     }, false);
 
     headerControlButtonExport.addEventListener("click", function(event) {
@@ -66,6 +71,7 @@ var characterSelect = (function() {
       shade.destroy();
       close();
       sheet.export();
+      page.update();
     }, false);
   }
 
@@ -79,6 +85,7 @@ var characterSelect = (function() {
       // ctrl+alt+c
       if (event.ctrlKey && event.altKey && event.keyCode == 67) {
         toggle();
+        page.update();
       };
     }, false);
   };
@@ -102,7 +109,10 @@ var characterSelect = (function() {
     } else {
       open();
       shade.render({
-        action: close
+        action: function() {
+          close();
+          page.update();
+        }
       });
     };
   };
@@ -114,7 +124,6 @@ var characterSelect = (function() {
     body.dataset.characterSelectOpen = true;
     helper.addClass(characterSelect, "is-open");
     helper.addClass(characterSelectToggle, "is-active");
-    page.update();
   };
 
   function close() {
@@ -124,7 +133,6 @@ var characterSelect = (function() {
     body.dataset.characterSelectOpen = false;
     helper.removeClass(characterSelect, "is-open");
     helper.removeClass(characterSelectToggle, "is-active");
-    page.update();
   };
 
   function update() {

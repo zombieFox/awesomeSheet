@@ -1,6 +1,7 @@
 var page = (function() {
 
   function update() {
+    // console.log("page update");
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");

@@ -13,7 +13,7 @@
   }
 }
 .m-header-bar {
-  background-color: rgba($secondary-color-04, 0.9);
+  background-color: $secondary-color-04;
   padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
@@ -31,10 +31,11 @@
 .m-header-select {
   flex: 1 1 auto;
   height: 100%;
+  max-width: calc(100% - 3em);
 }
 .is-display-mode {
   .m-header-bar {
-    background-color: rgba($primary-color-04, 0.9);
+    background-color: $primary-color-04;
   }
 }
 // --------------------------------------------------

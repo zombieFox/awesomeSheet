@@ -62,7 +62,7 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", destroyCharacter);
+    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone.", "Remove", destroyCharacter);
   };
 
   function destroyCharacter() {
@@ -336,9 +336,6 @@ var sheet = (function() {
       header.scroll();
       edit.scroll();
       nav.scroll();
-      // console.log("section top - margin:", helper.e("#statistics").getBoundingClientRect().top - parseInt(getComputedStyle(helper.e("#statistics")).marginTop, 10));
-      // helper.addClass(helper.e(".js-header"), "is-hidden");
-      // helper.addClass(helper.e(".js-nav"), "is-hidden");
     };
   };
 

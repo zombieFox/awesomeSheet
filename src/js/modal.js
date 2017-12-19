@@ -79,7 +79,6 @@ var modal = (function() {
       modal.addEventListener("transitionend", function(event, elapsed) {
         if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
           this.parentElement.removeChild(this);
-          page.update();
         };
       }.bind(modal), false);
       actionButton.addEventListener("click", function(event) {
@@ -87,13 +86,17 @@ var modal = (function() {
         event.preventDefault();
         this.destroy();
         shade.destroy();
+        page.update();
         if (action) {
           action();
         };
       }.bind(modal), false);
       previousModal = modal;
       shade.render({
-        action: modal.destroy,
+        action: function() {
+          modal.destroy();
+          page.update();
+        },
         includeHeader: true
       });
       body.appendChild(modal);
@@ -111,7 +114,6 @@ var modal = (function() {
       destroy();
     };
     makeModal();
-    page.update();
   };
 
   // exposed methods

@@ -73,7 +73,6 @@ var prompt = (function() {
       prompt.addEventListener("transitionend", function(event, elapsed) {
         if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
           this.parentElement.removeChild(this);
-          page.update();
         };
       }.bind(prompt), false);
       actionButton.addEventListener("click", function(event) {
@@ -84,6 +83,7 @@ var prompt = (function() {
         if (action) {
           action();
         };
+        page.update();
       }.bind(prompt), false);
       if (actionUrl) {
         actionButton.href = actionUrl;
@@ -96,10 +96,14 @@ var prompt = (function() {
         // event.preventDefault();
         this.destroy();
         shade.destroy();
+        page.update();
       }.bind(prompt), false);
       previousPrompt = prompt;
       shade.render({
-        action: prompt.destroy,
+        action: function() {
+          prompt.destroy();
+          page.update();
+        },
         includeHeader: true
       });
       body.appendChild(prompt);
@@ -117,7 +121,6 @@ var prompt = (function() {
       destroy();
     };
     makePrompt();
-    page.update();
   };
 
   // exposed methods
