@@ -4,7 +4,6 @@
   sheet.bind();
   sheet.scroll();
   nav.bind();
-  // nav.render();
   tabs.bind();
   log.bind();
   log.render();

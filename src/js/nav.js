@@ -43,7 +43,7 @@ var nav = (function() {
     };
   };
 
-  function _quickLinkSmoothScroll(element) {
+  function _quickLink(element) {
     var id = "#" + element.dataset.link;
     var section = helper.e(id);
     var sectionWrapper = helper.e(".js-section-wrapper");
@@ -110,7 +110,7 @@ var nav = (function() {
       all_navLink[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _quickLinkSmoothScroll(this);
+        _quickLink(this);
       }, false);
     };
   };
