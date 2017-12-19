@@ -16,6 +16,7 @@ var characterSelect = (function() {
       _switchCharacter(input);
       close();
       shade.destroy();
+      page.update();
       nav.scrollToTop();
     }, false);
   };

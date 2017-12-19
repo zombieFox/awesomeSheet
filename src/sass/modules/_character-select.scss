@@ -507,14 +507,6 @@
     width: 40vw;
   }
   .m-character-select-button {
-    &:link,
-    &:visited {
-    }
-    &:focus,
-    &:hover {
-    }
-    &:active {
-    }
     [class*=" icon-"],
     [class^="icon-"] {
       &:not(:only-child):not(:last-child) {
