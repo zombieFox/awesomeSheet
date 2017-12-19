@@ -17,9 +17,17 @@ var nav = (function() {
 
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(header).height, 10);
+      if (body.dataset.headerPinned == "true") {
+        offset = 0;
+      } else {
+        offset = parseInt(getComputedStyle(header).height, 10);
+      };
     } else {
-      offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(header).height, 10);
+      if (body.dataset.headerPinned == "true") {
+        offset = parseInt(getComputedStyle(header).height, 10);
+      } else {
+        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10);
+      };
     };
 
     for (var i = 0; i < all_section.length; i++) {
@@ -36,19 +44,52 @@ var nav = (function() {
   };
 
   function _quickLinkSmoothScroll(element) {
-    var id = element.dataset.link;
+    var id = "#" + element.dataset.link;
+    var section = helper.e(id);
     var sectionWrapper = helper.e(".js-section-wrapper");
-    var all_section = helper.eA(".js-section");
+    var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
     var offset;
     var options;
-    // // if nav is on the left after 900px wide viewport
-    // if (document.documentElement.clientWidth >= 900) {
-    //   offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
-    // } else {
-    //   offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(nav).height, 10);
-    // };
-    offset = parseInt(getComputedStyle(sectionWrapper).marginTop, 10) + parseInt(getComputedStyle(all_section[1]).marginTop, 10);
+
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+
+      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
+      if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) < -30) {
+        // console.log(1, "top", section.getBoundingClientRect().top);
+        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      } else if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) > 100) {
+        // console.log(2, "top", section.getBoundingClientRect().top);
+        offset = parseInt(getComputedStyle(section).marginTop, 10);
+      } else {
+        // console.log(3, "top", section.getBoundingClientRect().top);
+        if (body.dataset.headerPinned == "true") {
+          offset = parseInt(getComputedStyle(section).marginTop, 10);
+        } else {
+          offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+        };
+      };
+
+    } else {
+
+      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
+      if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) < -30) {
+        // console.log(1, "top", section.getBoundingClientRect().top);
+        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      } else if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) > 100) {
+        // console.log(2, "top", section.getBoundingClientRect().top);
+        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      } else {
+        // console.log(3, "top", section.getBoundingClientRect().top);
+        if (body.dataset.headerPinned == "true") {
+          offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+        } else {
+          offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+        };
+      };
+
+    };
     if (window.innerWidth < 550) {
       options = {
         speed: 150,

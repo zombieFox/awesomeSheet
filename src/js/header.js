@@ -47,8 +47,38 @@ var header = (function() {
     // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
   };
 
+  function unpin() {
+    var body = helper.e("body");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    if (body.dataset.headerPinned == "true") {
+      helper.removeClass(body, "is-header-pinned");
+      helper.removeClass(header, "is-pinned");
+      if (document.documentElement.clientWidth < 900) {
+        helper.removeClass(nav, "is-pinned");
+      };
+      body.dataset.headerPinned = false;
+    };
+  };
+
+  function pin() {
+    var body = helper.e("body");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
+      helper.addClass(body, "is-header-pinned");
+      helper.addClass(header, "is-pinned");
+      if (document.documentElement.clientWidth < 900) {
+        helper.addClass(nav, "is-pinned");
+      };
+      body.dataset.headerPinned = true;
+    };
+  };
+
   // exposed methods
   return {
+    pin: pin,
+    unpin: unpin,
     scroll: scroll
   };
 

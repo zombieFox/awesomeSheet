@@ -41,17 +41,27 @@ var card = (function() {
   };
 
   function _linkSelf(element) {
-    var id = "#" + helper.getClosest(element, ".js-section").id;
-    var all_section = helper.eA(".js-section");
+    var section = helper.getClosest(element, ".js-section");
+    var id = "#" + section.id;
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
     var offset;
     var options;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(all_section[0]).marginTop, 10);
+      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
+      if (body.dataset.headerPinned == "true" || (section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10) - parseInt(getComputedStyle(nav).height, 10)) > 100) {
+        offset = parseInt(getComputedStyle(section).marginTop, 10);
+      } else {
+        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      };
     } else {
-      offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(all_section[0]).marginTop, 10);
+      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
+      if (body.dataset.headerPinned == "true" || (section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10) - parseInt(getComputedStyle(nav).height, 10) - parseInt(getComputedStyle(header).height, 10)) > 100) {
+        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      } else {
+        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      };
     };
     if (window.innerWidth < 550) {
       options = {

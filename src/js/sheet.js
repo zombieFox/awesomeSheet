@@ -271,7 +271,7 @@ var sheet = (function() {
     };
     prompt.render(
       "Export " + characterName,
-      "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.",
+      "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
       "Download",
       false,
       "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
@@ -333,9 +333,12 @@ var sheet = (function() {
 
   function scroll() {
     window.onscroll = function() {
-      nav.scroll();
-      edit.scroll();
       header.scroll();
+      edit.scroll();
+      nav.scroll();
+      // console.log("section top - margin:", helper.e("#statistics").getBoundingClientRect().top - parseInt(getComputedStyle(helper.e("#statistics")).marginTop, 10));
+      // helper.addClass(helper.e(".js-header"), "is-hidden");
+      // helper.addClass(helper.e(".js-nav"), "is-hidden");
     };
   };
 
