@@ -3,9 +3,7 @@
   width: 1.5em;
   height: 100%;
   line-height: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-block;
+  display: block;
   .m-hamburger-inner {
     background-color: $white;
     position: absolute;

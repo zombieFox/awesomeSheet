@@ -22,13 +22,13 @@ var characterSelect = (function() {
   };
 
   function _bind_characterSelectToggle() {
-    var characterSelectCurrent = helper.e(".js-character-select-toggle");
-    characterSelectCurrent.addEventListener("click", function(event) {
+    var characterSelectToggle = helper.e(".js-character-select-toggle");
+    characterSelectToggle.addEventListener("click", function(event) {
       menu.close();
       toggle();
       page.update();
     }, false);
-    characterSelectCurrent.addEventListener("keydown", function(event) {
+    characterSelectToggle.addEventListener("keydown", function(event) {
       // enter
       if (event.keyCode == 13) {
         toggle();
@@ -159,8 +159,10 @@ var characterSelect = (function() {
   };
 
   function _render_currentCharacter() {
-    var characterSelectNameText = helper.e(".js-character-select-name-text");
-    characterSelectNameText.textContent = _get_name(sheet.getCharacter());
+    var characterSelectName = helper.e(".js-character-select-name");
+    var characterSelectClassLevel = helper.e(".js-character-select-class-level");
+    characterSelectName.textContent = _get_name(sheet.getCharacter());
+    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.getCharacter());
   };
 
   function _get_name(characterObject) {

@@ -23,6 +23,7 @@ var display = (function() {
   function _update_displayState() {
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
+    var menu = helper.e(".js-menu");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
@@ -35,6 +36,7 @@ var display = (function() {
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
       helper.addClass(nav, "is-display-mode");
+      helper.addClass(menu, "is-display-mode");
       helper.addClass(header, "is-display-mode");
     };
     var _displayOff = function() {
@@ -43,6 +45,7 @@ var display = (function() {
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
       helper.removeClass(nav, "is-display-mode");
+      helper.removeClass(menu, "is-display-mode");
       helper.removeClass(header, "is-display-mode");
     };
     for (var i = 0; i < all_section.length; i++) {

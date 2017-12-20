@@ -1,53 +1,34 @@
 <header class="m-header js-header">
   <div class="m-header-bar">
 
-    <div class="m-header-hamburger">
-
-      <a href="javascript:void(0)" class="m-menu-toggle js-menu-toggle" tabindex="1">
-        <div class="m-hamburger js-hamburger">
-          <div class="m-hamburger-inner"></div>
-        </div>
+    <div class="m-header-control">
+      <a href="javascript:void(0)" class="m-header-control-button js-menu-toggle" tabindex="1">
+        <span class="m-hamburger js-hamburger">
+          <span class="m-hamburger-inner"></span>
+        </span>
       </a>
-
     </div>
+
+    <!-- <div class="m-header-logo">
+      <h1 class="m-logo">
+        <span class="m-logo-icon icon-awesomSheet hidden-md hidden-lg hidden-xl"></span>
+        <span class="m-logo-text hidden-xs hidden-sm">awesomeSheet</span>
+      </h1>
+    </div> -->
+
     <div class="m-header-select">
+      <h2 class="m-character-select-toggle js-character-select-toggle" tabindex="1">
+        <span class="m-character-select-title hidden-xs hidden-sm">Current Character:</span>
+        <span class="m-character-select-name js-character-select-name"></span>
+        <span class="m-character-select-class-level hidden-xs js-character-select-class-level"></span>
+        <span class="m-character-select-arrow"></span>
+      </h2>
+    </div>
 
-      <div class="m-character-select-wrapper js-character-select-wrapper">
-        <div class="m-character-select-toggle js-character-select-toggle" tabindex="1">
-          <h2 class="m-character-select-name">
-            <span class="m-character-select-name-title">Character:</span>
-            <span class="m-character-select-name-text js-character-select-name-text"></span>
-          </h2>
-          <span class="m-character-select-arrow"></span>
-        </div>
-        <ul class="m-character-select-control">
-          <li class="m-character-select-control-item">
-            <button class="m-character-select-button button button-small button-tertiary button-icon js-header-control-button-import u-clearfix" tabindex="1">
-              <span class="icon-file-upload"></span>
-              <span class="m-character-select-button-name button-text hidden-xs hidden-sm hidden-md">Import</span>
-            </button>
-          </li>
-          <li class="m-character-select-control-item">
-            <button class="m-character-select-button button button-small button-tertiary button-icon js-header-control-button-export u-clearfix" tabindex="1">
-              <span class="icon-file-download"></span>
-              <span class="m-character-select-button-name button-text hidden-xs hidden-sm hidden-md">Export</span>
-            </button>
-          </li>
-          <li class="m-character-select-control-item">
-            <button class="m-character-select-button button button-small button-tertiary button-icon js-header-control-button-add u-clearfix" tabindex="1">
-              <span class="icon-add"></span>
-              <span class="m-character-select-button-name button-text hidden-xs hidden-sm hidden-md">Add</span>
-            </button>
-          </li>
-          <li class="m-character-select-control-item">
-            <button class="m-character-select-button button button-small button-tertiary button-icon js-header-control-button-remove u-clearfix" tabindex="1">
-              <span class="icon-remove"></span>
-              <span class="m-character-select-button-name button-text hidden-xs hidden-sm hidden-md">Remove</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-
+    <div class="m-header-control">
+      <a href="javascript:void(0)" class="m-header-control-button js-header-control-button-export" tabindex="1">
+        <span class="icon-file-download"></span>
+      </a>
     </div>
 
   </div>
