@@ -4,14 +4,14 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 70vw;
+  width: 80vw;
   height: 100%;
   font-size: $font-size-root-100;
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $menu;
   transition: transform $transition-ease-medium;
-  transform: translate(-70vw, 0);
+  transform: translate(-80vw, 0);
   .m-menu-list {
     padding: 0;
     margin: 1em 0;

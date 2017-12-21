@@ -4,7 +4,7 @@
   padding: 1em 0;
   width: 100%;
   height: 10vh;
-  min-height: 5em;
+  min-height: 7em;
   color: $white;
   font-size: $font-size-root-100;
   line-height: $line-height-160;
@@ -21,13 +21,14 @@
 }
 .m-logo-icon {
   color: $white;
-  font-size: $font-size-200;
+  font-size: $font-size-250;
   flex: 0 0 20%;
   text-align: center;
 }
 .m-logo-text {
   font-size: $font-size-150;
   font-family: $open-sans-bold;
+  font-family: $fjalla-one-regular;
 }
 .is-display-mode {
   .m-logo {

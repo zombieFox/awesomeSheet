@@ -180,18 +180,14 @@
   flex: 1 1 80%;
 }
 .m-character-select-toggle {
-  background-color: $secondary-color-alpha-18;
+  background-color: transparent;
   border: 0;
-  border-right: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right-color: $secondary-color-alpha-10;
-  border-left-color: $secondary-color-alpha-10;
   margin: 0;
   padding: 0 5em 0 2em;
   font-size: $font-size-root-100;
   position: relative;
-  width: 100%;
   height: 100%;
+  width: 100%;
   z-index: 2;
   display: flex;
   flex-flow: row nowrap;
@@ -215,22 +211,13 @@
   }
 }
 .m-character-select-class-level,
-.m-character-select-name,
-.m-character-select-title {
+.m-character-select-name {
+  color: $white;
+  font-family: $open-sans-bold;
   line-height: $line-height-160;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.m-character-select-title {
-  margin-right: 1em;
-  color: $light-alpha-06;
-  font-size: $font-size-075;
-  flex: 0 0 auto;
-}
-.m-character-select-name {
-  font-family: $open-sans-bold;
-  color: $white;
 }
 .m-character-select-class-level {
   margin-left: 1em;
@@ -335,8 +322,6 @@
 .is-display-mode {
   .m-character-select-toggle {
     background-color: $primary-color-alpha-18;
-    border-right-color: $primary-color-alpha-10;
-    border-left-color: $primary-color-alpha-10;
     &:focus,
     &:hover {
       background-color: $primary-color-alpha-18;
@@ -461,13 +446,13 @@
 }
 @media (min-width: $screen-md) {
   .m-character-select-toggle {
-    width: 70vw;
+    width: 50vw;
   }
   .m-character-select {
     top: 0;
     left: inherit;
     right: 3em;
-    width: 70vw;
+    width: 50vw;
     transform: translate(0, -100%);
     &.is-open {
       transform: translate(0, 0);
@@ -483,17 +468,17 @@
 }
 @media (min-width: $screen-lg) {
   .m-character-select-toggle {
-    width: 50vw;
+    width: 40vw;
   }
   .m-character-select {
-    width: 50vw;
+    width: 40vw;
   }
 }
 @media (min-width: $screen-xl) {
   .m-character-select-toggle {
-    width: 40vw;
+    width: 30vw;
   }
   .m-character-select {
-    width: 40vw;
+    width: 30vw;
   }
 }
