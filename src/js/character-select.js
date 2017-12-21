@@ -38,12 +38,13 @@ var characterSelect = (function() {
   };
 
   function _bind_characterSelectControls() {
-    var headerControlButtonAdd = helper.e(".js-header-control-button-add");
-    var headerControlButtonRemove = helper.e(".js-header-control-button-remove");
-    var headerControlButtonImport = helper.e(".js-header-control-button-import");
-    var headerControlButtonExport = helper.e(".js-header-control-button-export");
+    var characterSelectAdd = helper.e(".js-character-select-add");
+    var characterSelectRemove = helper.e(".js-character-select-remove");
+    var characterSelectImport = helper.e(".js-character-select-import");
+    var characterSelectExport = helper.e(".js-character-select-export");
+    var headerControlExport = helper.e(".js-header-control-export");
 
-    headerControlButtonAdd.addEventListener("click", function(event) {
+    characterSelectAdd.addEventListener("click", function(event) {
       menu.close();
       shade.destroy();
       close();
@@ -51,7 +52,7 @@ var characterSelect = (function() {
       page.update();
     }, false);
 
-    headerControlButtonRemove.addEventListener("click", function(event) {
+    characterSelectRemove.addEventListener("click", function(event) {
       menu.close();
       shade.destroy();
       close();
@@ -59,7 +60,7 @@ var characterSelect = (function() {
       page.update();
     }, false);
 
-    headerControlButtonImport.addEventListener("click", function(event) {
+    characterSelectImport.addEventListener("click", function(event) {
       menu.close();
       shade.destroy();
       close();
@@ -67,7 +68,15 @@ var characterSelect = (function() {
       page.update();
     }, false);
 
-    headerControlButtonExport.addEventListener("click", function(event) {
+    characterSelectExport.addEventListener("click", function(event) {
+      menu.close();
+      shade.destroy();
+      close();
+      sheet.export();
+      page.update();
+    }, false);
+
+    headerControlExport.addEventListener("click", function(event) {
       menu.close();
       shade.destroy();
       close();

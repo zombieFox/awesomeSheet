@@ -62,7 +62,7 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone.", "Remove", destroyCharacter);
+    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone. Have you backed up using Export?", "Remove", destroyCharacter);
   };
 
   function destroyCharacter() {
