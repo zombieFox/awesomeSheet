@@ -321,14 +321,13 @@
 }
 .is-display-mode {
   .m-character-select-toggle {
-    background-color: $primary-color-alpha-18;
     &:focus,
     &:hover {
-      background-color: $primary-color-alpha-18;
+      background-color: $primary-color-alpha-16;
     }
     &.is-active,
     &:active {
-      background-color: $primary-color-alpha-16;
+      background-color: $primary-color-alpha-14;
     }
   }
 }

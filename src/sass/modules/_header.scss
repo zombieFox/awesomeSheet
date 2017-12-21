@@ -102,18 +102,13 @@
     }
   }
   .m-header-control-button {
-    background-color: $primary-color-alpha-18;
-    &:link,
-    &:visited {
-      background-color: $primary-color-alpha-18;
-    }
     &:focus,
     &:hover {
-      background-color: $primary-color-alpha-18;
+      background-color: $primary-color-alpha-16;
     }
     &.is-active,
     &:active {
-      background-color: $primary-color-alpha-16;
+      background-color: $primary-color-alpha-14;
     }
   }
 }
