@@ -705,13 +705,6 @@ var clone = (function() {
     var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
     var targetBottom = cloneTarget.lastChild.getBoundingClientRect().bottom;
     var windowHeight = window.innerHeight;
-    var quickNavHeight;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      quickNavHeight = 0;
-    } else {
-      quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    };
     if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
       if (targetTop > (windowHeight - (windowHeight / 10)) || targetBottom <= 0) {
         var offset = (windowHeight - (windowHeight / 2));

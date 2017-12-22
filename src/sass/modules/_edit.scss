@@ -65,28 +65,28 @@
 .m-edit-box-content-margin-large,
 .m-edit-box-content-margin-medium,
 .m-edit-box-content-margin-small {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+  > [class*="m-edit-box-item"],
+   > [class^="m-edit-box-item"] {
     &.u-no-margin {
       margin-bottom: 0;
     }
   }
 }
 .m-edit-box-content-margin-large {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+  > [class*="m-edit-box-item"],
+   > [class^="m-edit-box-item"] {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-content-margin-medium {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+  > [class*="m-edit-box-item"],
+   > [class^="m-edit-box-item"] {
     margin-bottom: 0.5em;
   }
 }
 .m-edit-box-content-margin-small {
-   > [class*="m-edit-box-item"],
-  > [class^="m-edit-box-item"] {
+  > [class*="m-edit-box-item"],
+   > [class^="m-edit-box-item"] {
     margin-bottom: 4px;
   }
 }
@@ -227,19 +227,19 @@
       }
     }
     .m-check-block,
-    .m-radio-block,
-    .m-select-block,
     .m-input-block,
-    .m-input-file-block {
+    .m-input-file-block,
+    .m-radio-block,
+    .m-select-block {
       z-index: 2;
       &.is-focus {
         z-index: 3;
       }
       .m-check-block-check-icon,
-      .m-radio-block-radio-icon,
-      .m-select-block-dropdown,
       .m-input-block-field,
-      .m-input-file-block-field {
+      .m-input-file-block-field,
+      .m-radio-block-radio-icon,
+      .m-select-block-dropdown {
         border-radius: 0;
         &:focus {
           z-index: 3;
@@ -248,10 +248,10 @@
     }
     &:hover {
       .m-check-block,
-      .m-radio-block,
-      .m-select-block,
       .m-input-block,
-      .m-input-file-block {
+      .m-input-file-block,
+      .m-radio-block,
+      .m-select-block {
         z-index: 3;
       }
     }
@@ -442,18 +442,34 @@
 // edit controls
 // --------------------------------------------------
 .m-edit-controls {
-  margin: 0 0 1em;
+  margin: 0 0 1em 0;
+  top: 0;
+  transition: top $transition-ease-slow;
+  pointer-events: none;
   .button-group {
     margin-bottom: 0;
+    .button,
+    button {
+      pointer-events: all;
+    }
   }
 }
 .is-pinned {
   .m-edit-controls {
-    margin: 0;
+    margin-bottom: 0;
     position: fixed;
-    top: 5em;
+    top: 7em;
     z-index: $card-controls;
-    animation: edit-controls-down-xs ease-in-out 0.6s;
+  }
+}
+.is-header-pinned {
+  .m-edit-controls {
+    top: 0;
+  }
+  .is-pinned {
+    .m-edit-controls {
+      top: 4em;
+    }
   }
 }
 // --------------------------------------------------
@@ -568,10 +584,22 @@
 }
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {
+  .m-edit-controls {
+    top: 3em;
+  }
   .is-pinned {
     .m-edit-controls {
-      top: 0.5em;
-      animation: edit-controls-down-lg ease-in-out 0.5s;
+      top: 4em;
+    }
+  }
+  .is-header-pinned {
+    .m-edit-controls {
+      top: 0;
+    }
+    .is-pinned {
+      .m-edit-controls {
+        top: 1em;
+      }
     }
   }
 }

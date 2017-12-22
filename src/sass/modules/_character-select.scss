@@ -1,0 +1,726 @@
+.m-character-select {
+  background-color: $white;
+  padding: 3em 0 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: calc(100% - 8em);
+  max-height: calc(100vh - 3em);
+  font-size: $font-size-root-100;
+  border-radius: 0 0 $border-radius-large $border-radius-large;
+  overflow: scroll;
+  transform: translate(-50%, -100%);
+  transition: transform $transition-ease-medium;
+  z-index: $character-select;
+  box-sizing: border-box;
+  &.is-open {
+    transform: translate(-50%, 0);
+  }
+}
+.m-character-select-control,
+.m-character-select-list {
+  margin: 0;
+  padding: 0.5em 0;
+  list-style-type: none;
+  border-bottom: 1px solid transparent;
+  border-bottom-color: $gray-18;
+  &:last-child {
+    border-bottom: 0;
+  }
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.m-character-select-control-item,
+.m-character-select-list-item {
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  font-size: $font-size-100;
+  line-height: $line-height-160;
+  font-family: $open-sans-semi-bold;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  &:not(:last-child):not(:only-child) {
+    margin-bottom: 0;
+  }
+}
+.m-character-select-list-item {
+  input {
+    &[type="checkbox"],
+    &[type="radio"] {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      & + label {
+        height: 3em;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: hidden;
+        &:before {
+          flex: 0 0 20%;
+          font-size: 1.4em;
+          line-height: 1;
+          display: inline-block;
+          color: $secondary-color-08;
+          text-align: center;
+          transition: none;
+        }
+        .m-character-select-list-item-details {
+          padding: 0 1em 0 0;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+          align-items: center;
+          width: 80%;
+          height: 100%;
+          box-sizing: border-box;
+        }
+        .m-character-select-list-item-class-level,
+        .m-character-select-list-item-name {
+          white-space: nowrap;
+          display: inline-block;
+          line-height: $line-height-160;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .m-character-select-list-item-class-level {
+          color: $secondary-color-08;
+          font-size: $font-size-075;
+          flex: 0 1 auto;
+          min-width: 3em;
+          position: relative;
+          top: 0.1em;
+        }
+        .m-character-select-list-item-name {
+          color: $base-color;
+          font-family: $open-sans-semi-bold;
+          flex: 0 1 auto;
+          margin-right: 1em;
+        }
+      }
+      &:focus,
+      &:hover {
+        & + label {
+          background-color: $gray-19;
+          color: $base-color;
+        }
+      }
+      &:active {
+        & + label {
+          background-color: $primary-color-06;
+          color: $white;
+          &:before {
+            color: $white;
+          }
+          .m-character-select-list-item-class-level {
+            color: $white;
+          }
+          .m-character-select-list-item-name {
+            color: $white;
+          }
+        }
+      }
+      &:checked {
+        & + label {
+          background-color: $primary-color-10;
+          color: $white;
+          &:before {
+            color: $white;
+          }
+          .m-character-select-list-item-class-level {
+            color: $white;
+          }
+          .m-character-select-list-item-name {
+            color: $white;
+          }
+        }
+        &:focus,
+        &:hover {
+          & + label {
+            background-color: $primary-color-08;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+          }
+        }
+        &:active {
+          & + label {
+            background-color: $primary-color-06;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-character-select-list-item-class-level,
+            .m-character-select-list-item-name {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.m-character-select-control-link {
+  padding: 0 1em 0 0;
+  height: 3em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  color: $base-color;
+  text-decoration: none;
+  box-sizing: border-box;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    flex: 0 0 20%;
+    font-size: 1.4em;
+    line-height: 1;
+    display: block;
+    color: $secondary-color-08;
+    text-align: center;
+    transition: none;
+  }
+  &:link,
+  &:visited {
+    color: $base-color;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $secondary-color-08;
+    }
+  }
+  &:focus,
+  &:hover {
+    background-color: $gray-19;
+    color: $base-color;
+    text-decoration: none;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $secondary-color-08;
+    }
+  }
+  &.is-active,
+  &:active {
+    background-color: $primary-color-06;
+    color: $white;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $white;
+    }
+  }
+}
+.m-character-select-control-link-text {
+  flex: 1 1 80%;
+}
+.m-character-select-toggle {
+  background-color: transparent;
+  margin: 0;
+  padding: 0 5em 0 2em;
+  border: 1px solid transparent;
+  font-size: $font-size-root-100;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  transition: background-color $transition-ease-fast;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+  &:focus,
+  &:hover {
+    background-color: $secondary-color-alpha-18;
+    border-color: $secondary-color-14;
+    outline: none;
+  }
+  &.is-active,
+  &:active {
+    background-color: $secondary-color-alpha-12;
+    border-color: $secondary-color-12;
+  }
+}
+.m-character-select-class-level,
+.m-character-select-name {
+  color: $white;
+  font-family: $open-sans-bold;
+  line-height: $line-height-160;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.m-character-select-class-level {
+  margin: 0 0 0 1em;
+  color: $white;
+  font-size: $font-size-075;
+  position: relative;
+  top: 0.1em;
+}
+.m-character-select-arrow {
+  position: absolute;
+  top: 60%;
+  right: 2.5em;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  transition: all $transition-ease-fast;
+  &:after,
+  &:before {
+    content: "";
+    background-color: $white;
+    position: absolute;
+    width: 0.7em;
+    height: 2px;
+    top: 0;
+    border-radius: 3px;
+    z-index: 2;
+    transition: all $transition-ease-fast;
+  }
+  &:before {
+    right: -0.5px;
+    transform-origin: top right;
+    transform: rotate(45deg) translateY(-50%);
+  }
+  &:after {
+    left: -0.5px;
+    transform-origin: top left;
+    transform: rotate(-45deg) translateY(-50%);
+  }
+}
+.is-active {
+  .m-character-select-arrow {
+    top: 40%;
+    &:before {
+      transform: rotate(-45deg) translateY(-50%);
+    }
+    &:after {
+      transform: rotate(45deg) translateY(-50%);
+    }
+  }
+  .m-character-select-class-level,
+  .m-character-select-name {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+.is-night-mode {
+  .m-character-select {
+    background-color: $gray-04;
+  }
+  .m-character-select-list {
+    border-bottom-color: $gray-08;
+  }
+  .m-character-select-list-item {
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        & + label {
+          &:before {
+            color: $secondary-color-12;
+          }
+          .m-character-select-list-item-class-level {
+            color: $secondary-color-12;
+          }
+          .m-character-select-list-item-name {
+            color: $white;
+            font-family: $open-sans-semi-bold;
+          }
+        }
+        &:focus,
+        &:hover {
+          & + label {
+            background-color: $gray-05;
+            color: $white;
+          }
+        }
+        &:active {
+          & + label {
+            background-color: $primary-color-06;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+            .m-character-select-list-item-name {
+              color: $white;
+            }
+          }
+        }
+        &:checked {
+          & + label {
+            background-color: $primary-color-10;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+            .m-character-select-list-item-name {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              background-color: $primary-color-08;
+              color: $white;
+              &:before {
+                color: $white;
+              }
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+          }
+          &:active {
+            & + label {
+              background-color: $primary-color-06;
+              color: $white;
+              &:before {
+                color: $white;
+              }
+              .m-character-select-list-item-class-level,
+              .m-character-select-list-item-name {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .m-character-select-control-link {
+    color: $white;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $secondary-color-12;
+    }
+    &:link,
+    &:visited {
+      color: $white;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $secondary-color-12;
+      }
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-05;
+      color: $white;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $secondary-color-12;
+      }
+    }
+    &.is-active,
+    &:active {
+      background-color: $primary-color-06;
+      color: $white;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
+  }
+  .is-display-mode {
+    .m-character-select-list-item {
+      input {
+        &[type="checkbox"],
+        &[type="radio"] {
+          & + label {
+            &:before {
+              color: $primary-color-12;
+            }
+            .m-character-select-list-item-class-level {
+              color: $primary-color-12;
+            }
+            .m-character-select-list-item-name {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              background-color: $gray-05;
+              color: $white;
+            }
+          }
+          &:active {
+            & + label {
+              background-color: $secondary-color-06;
+              color: $white;
+              &:before {
+                color: $white;
+              }
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+              .m-character-select-list-item-name {
+                color: $white;
+              }
+            }
+          }
+          &:checked {
+            & + label {
+              background-color: $secondary-color-10;
+              color: $white;
+              &:before {
+                color: $white;
+              }
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+              .m-character-select-list-item-name {
+                color: $white;
+              }
+            }
+            &:focus,
+            &:hover {
+              & + label {
+                background-color: $secondary-color-08;
+                color: $white;
+                &:before {
+                  color: $white;
+                }
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+            }
+            &:active {
+              & + label {
+                background-color: $secondary-color-06;
+                color: $white;
+                &:before {
+                  color: $white;
+                }
+                .m-character-select-list-item-class-level,
+                .m-character-select-list-item-name {
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .m-character-select-control-link {
+      color: $white;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $primary-color-12;
+      }
+      &:link,
+      &:visited {
+        color: $white;
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $primary-color-12;
+        }
+      }
+      &:focus,
+      &:hover {
+        background-color: $gray-05;
+        color: $white;
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $primary-color-12;
+        }
+      }
+      &.is-active,
+      &:active {
+        background-color: $secondary-color-06;
+        color: $white;
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+.is-display-mode {
+  .m-character-select-list-item {
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        & + label {
+          &:before {
+            color: $primary-color-08;
+          }
+          .m-character-select-list-item-class-level {
+            color: $primary-color-08;
+          }
+          .m-character-select-list-item-name {
+            color: $base-color;
+          }
+        }
+        &:focus,
+        &:hover {
+          & + label {
+            background-color: $gray-19;
+            color: $base-color;
+          }
+        }
+        &:active {
+          & + label {
+            background-color: $secondary-color-06;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+            .m-character-select-list-item-name {
+              color: $white;
+            }
+          }
+        }
+        &:checked {
+          & + label {
+            background-color: $secondary-color-10;
+            color: $white;
+            &:before {
+              color: $white;
+            }
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+            .m-character-select-list-item-name {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              background-color: $secondary-color-08;
+              color: $white;
+              &:before {
+                color: $white;
+              }
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+          }
+          &:active {
+            & + label {
+              background-color: $secondary-color-06;
+              color: $white;
+              &:before {
+                color: $white;
+              }
+              .m-character-select-list-item-class-level,
+              .m-character-select-list-item-name {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .m-character-select-control-link {
+    color: $base-color;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $primary-color-08;
+    }
+    &:link,
+    &:visited {
+      color: $base-color;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $primary-color-08;
+      }
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-19;
+      color: $base-color;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $primary-color-08;
+      }
+    }
+    &.is-active,
+    &:active {
+      background-color: $secondary-color-06;
+      color: $white;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
+  }
+  .m-character-select-toggle {
+    &:focus,
+    &:hover {
+      background-color: $primary-color-alpha-18;
+      border-color: $primary-color-14;
+    }
+    &.is-active,
+    &:active {
+      background-color: $primary-color-alpha-12;
+      border-color: $primary-color-12;
+    }
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {
+  .m-character-select {
+    top: 0;
+    left: inherit;
+    right: 4em;
+    width: 50vw;
+    transform: translate(0, -100%);
+    &.is-open {
+      transform: translate(0, 0);
+    }
+  }
+  .m-character-select-toggle {
+    width: 50vw;
+  }
+  .m-character-select-arrow {
+    &:after,
+    &:before {
+      width: 0.8em;
+      height: 3px;
+    }
+  }
+}
+@media (min-width: $screen-lg) {
+  .m-character-select {
+    right: 3em;
+  }
+  .m-character-select,
+  .m-character-select-toggle {
+    width: 40vw;
+  }
+}
+@media (min-width: $screen-xl) {
+  .m-character-select,
+  .m-character-select-toggle {
+    width: 30vw;
+  }
+}

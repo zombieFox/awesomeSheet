@@ -1,11 +1,13 @@
 var page = (function() {
 
   function update() {
+    // console.log("page update");
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");
-    var nav = (body.dataset.navOpen == "true");
-    if (modal || prompt || nav) {
+    var menu = (body.dataset.menuOpen == "true");
+    var select = (body.dataset.characterSelectOpen == "true");
+    if (modal || prompt || menu || select) {
       helper.addClass(body, "is-scrolll-disabled");
     } else {
       helper.removeClass(body, "is-scrolll-disabled");

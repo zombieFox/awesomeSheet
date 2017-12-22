@@ -46,6 +46,9 @@
   -webkit-user-drag: none;
   z-index: 3;
   display: block;
+  &::selection {
+    background-color: transparent;
+  }
 }
 .m-character-image-preview-guide {
   position: absolute;

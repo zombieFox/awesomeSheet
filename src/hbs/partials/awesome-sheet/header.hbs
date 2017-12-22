@@ -1,25 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<header class="m-header js-header">
+  <div class="m-header-bar">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#245689">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <meta name="author" content="zombieFox">
-  <meta name="description" content="An Pathfinder RPG online character sheet which auto calculates many scores and bonuses.">
-  <meta name="keywords" content="Pathfinder, RPG, Role Playing Game, Character Sheet, Pathfinder Character Sheet, Automatic Character Sheet">
-  <meta name="robots" content="index">
-  <title>awesomeSheet</title>
-  <link rel="icon" sizes="128x128" href="images/chrome-touch-icon-128x128.png">
-  <link rel="manifest" href="manifest.json">
-  <!-- build:css css/vendor.min.css -->
-  <link rel="stylesheet" href="css/vendor.css">
-  <!-- endbuild -->
-  <!-- build:css css/awesomeSheet.min.css -->
-  <link rel="stylesheet" href="css/awesomeSheet.css">
-  <!-- endbuild -->
-</head>
+    <div class="m-header-control">
+      <a href="javascript:void(0)" class="m-header-control-button js-menu-toggle" tabindex="1">
+        <span class="m-hamburger js-hamburger">
+          <span class="m-hamburger-inner"></span>
+        </span>
+      </a>
+    </div>
 
-<body id="body">
+
+    <div class="m-header-select">
+      <p class="m-header-select-title hidden-xs hidden-sm">Current Character:</p>
+      <h2 class="m-character-select-toggle js-character-select-toggle" tabindex="1">
+        <span class="m-character-select-name js-character-select-name"></span>
+        <span class="m-character-select-class-level js-character-select-class-level"></span>
+        <span class="m-character-select-arrow"></span>
+      </h2>
+    </div>
+
+    <div class="m-header-control">
+      <a href="javascript:void(0)" class="m-header-control-button js-header-control-export" tabindex="1">
+        <span class="icon-file-download"></span>
+      </a>
+    </div>
+
+  </div>
+</header>

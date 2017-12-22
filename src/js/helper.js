@@ -153,7 +153,7 @@ var helper = (function() {
     return false;
   };
 
-  function randomId(stringLength) {
+  function randomString(stringLength) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (var i = 0; i < stringLength; i++)
@@ -321,7 +321,7 @@ var helper = (function() {
     getObject: getObject,
     truncate: truncateString,
     setDropdown: setDropdown,
-    randomId: randomId,
+    randomString: randomString,
     randomNumber: randomNumber,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,

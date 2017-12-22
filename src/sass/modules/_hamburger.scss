@@ -3,9 +3,7 @@
   width: 1.5em;
   height: 100%;
   line-height: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-block;
+  display: block;
   .m-hamburger-inner {
     background-color: $white;
     position: absolute;
@@ -36,7 +34,9 @@
       transform: rotate(0deg);
     }
   }
-  &.is-open {
+}
+.is-active {
+  .m-hamburger {
     .m-hamburger-inner {
       background-color: $white;
       transform: translatey(-50%) rotate(135deg);

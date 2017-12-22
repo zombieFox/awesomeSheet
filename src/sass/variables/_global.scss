@@ -8,25 +8,25 @@ $white:                               #ffffff;
 $background-color:                    #fafafa;
 
 $primary-color-01:                    #170006;
-$primary-color-02:                    saturate(lighten($primary-color-01, 5), 3);
-$primary-color-03:                    saturate(lighten($primary-color-01, 10), 6);
-$primary-color-04:                    saturate(lighten($primary-color-01, 15), 9);
-$primary-color-05:                    saturate(lighten($primary-color-01, 20), 12);
-$primary-color-06:                    saturate(lighten($primary-color-01, 25), 15);
-$primary-color-07:                    saturate(lighten($primary-color-01, 30), 18);
-$primary-color-08:                    saturate(lighten($primary-color-01, 35), 21);
-$primary-color-09:                    saturate(lighten($primary-color-01, 40), 24);
-$primary-color-10:                    saturate(lighten($primary-color-01, 45), 27);
-$primary-color-11:                    saturate(lighten($primary-color-01, 50), 30);
-$primary-color-12:                    saturate(lighten($primary-color-01, 55), 33);
-$primary-color-13:                    saturate(lighten($primary-color-01, 60), 36);
-$primary-color-14:                    saturate(lighten($primary-color-01, 65), 39);
-$primary-color-15:                    saturate(lighten($primary-color-01, 70), 42);
-$primary-color-16:                    saturate(lighten($primary-color-01, 75), 45);
-$primary-color-17:                    saturate(lighten($primary-color-01, 80), 47);
-$primary-color-18:                    saturate(lighten($primary-color-01, 85), 50);
-$primary-color-19:                    saturate(lighten($primary-color-01, 90), 53);
-$primary-color-20:                    saturate(lighten($primary-color-01, 95), 56);
+$primary-color-02:                    saturate(lighten($primary-color-01, 5), 4);
+$primary-color-03:                    saturate(lighten($primary-color-01, 10), 8);
+$primary-color-04:                    saturate(lighten($primary-color-01, 15), 12);
+$primary-color-05:                    saturate(lighten($primary-color-01, 20), 16);
+$primary-color-06:                    saturate(lighten($primary-color-01, 25), 20);
+$primary-color-07:                    saturate(lighten($primary-color-01, 30), 24);
+$primary-color-08:                    saturate(lighten($primary-color-01, 35), 28);
+$primary-color-09:                    saturate(lighten($primary-color-01, 40), 32);
+$primary-color-10:                    saturate(lighten($primary-color-01, 45), 36);
+$primary-color-11:                    saturate(lighten($primary-color-01, 50), 40);
+$primary-color-12:                    saturate(lighten($primary-color-01, 55), 44);
+$primary-color-13:                    saturate(lighten($primary-color-01, 60), 48);
+$primary-color-14:                    saturate(lighten($primary-color-01, 65), 52);
+$primary-color-15:                    saturate(lighten($primary-color-01, 70), 56);
+$primary-color-16:                    saturate(lighten($primary-color-01, 75), 60);
+$primary-color-17:                    saturate(lighten($primary-color-01, 80), 64);
+$primary-color-18:                    saturate(lighten($primary-color-01, 85), 68);
+$primary-color-19:                    saturate(lighten($primary-color-01, 90), 72);
+$primary-color-20:                    saturate(lighten($primary-color-01, 95), 76);
 
 $primary-color-alpha-01:              rgba($primary-color-10, 1);
 $primary-color-alpha-02:              rgba($primary-color-10, 0.95);
@@ -50,25 +50,25 @@ $primary-color-alpha-19:              rgba($primary-color-10, 0.10);
 $primary-color-alpha-20:              rgba($primary-color-10, 0.05);
 
 $secondary-color-01:                  #060a0e;
-$secondary-color-02:                  saturate(lighten($secondary-color-01, 5), 3);
-$secondary-color-03:                  saturate(lighten($secondary-color-01, 10), 6);
-$secondary-color-04:                  saturate(lighten($secondary-color-01, 15), 9);
-$secondary-color-05:                  saturate(lighten($secondary-color-01, 20), 12);
-$secondary-color-06:                  saturate(lighten($secondary-color-01, 25), 15);
-$secondary-color-07:                  saturate(lighten($secondary-color-01, 30), 18);
-$secondary-color-08:                  saturate(lighten($secondary-color-01, 35), 21);
-$secondary-color-09:                  saturate(lighten($secondary-color-01, 40), 24);
-$secondary-color-10:                  saturate(lighten($secondary-color-01, 45), 27);
-$secondary-color-11:                  saturate(lighten($secondary-color-01, 50), 30);
-$secondary-color-12:                  saturate(lighten($secondary-color-01, 55), 33);
-$secondary-color-13:                  saturate(lighten($secondary-color-01, 60), 36);
-$secondary-color-14:                  saturate(lighten($secondary-color-01, 65), 39);
-$secondary-color-15:                  saturate(lighten($secondary-color-01, 70), 42);
-$secondary-color-16:                  saturate(lighten($secondary-color-01, 75), 45);
-$secondary-color-17:                  saturate(lighten($secondary-color-01, 80), 47);
-$secondary-color-18:                  saturate(lighten($secondary-color-01, 85), 50);
-$secondary-color-19:                  saturate(lighten($secondary-color-01, 90), 53);
-$secondary-color-20:                  saturate(lighten($secondary-color-01, 95), 56);
+$secondary-color-02:                  saturate(lighten($secondary-color-01, 5), 4);
+$secondary-color-03:                  saturate(lighten($secondary-color-01, 10), 8);
+$secondary-color-04:                  saturate(lighten($secondary-color-01, 15), 12);
+$secondary-color-05:                  saturate(lighten($secondary-color-01, 20), 16);
+$secondary-color-06:                  saturate(lighten($secondary-color-01, 25), 20);
+$secondary-color-07:                  saturate(lighten($secondary-color-01, 30), 24);
+$secondary-color-08:                  saturate(lighten($secondary-color-01, 35), 28);
+$secondary-color-09:                  saturate(lighten($secondary-color-01, 40), 32);
+$secondary-color-10:                  saturate(lighten($secondary-color-01, 45), 36);
+$secondary-color-11:                  saturate(lighten($secondary-color-01, 50), 40);
+$secondary-color-12:                  saturate(lighten($secondary-color-01, 55), 44);
+$secondary-color-13:                  saturate(lighten($secondary-color-01, 60), 48);
+$secondary-color-14:                  saturate(lighten($secondary-color-01, 65), 52);
+$secondary-color-15:                  saturate(lighten($secondary-color-01, 70), 56);
+$secondary-color-16:                  saturate(lighten($secondary-color-01, 75), 60);
+$secondary-color-17:                  saturate(lighten($secondary-color-01, 80), 64);
+$secondary-color-18:                  saturate(lighten($secondary-color-01, 85), 68);
+$secondary-color-19:                  saturate(lighten($secondary-color-01, 90), 72);
+$secondary-color-20:                  saturate(lighten($secondary-color-01, 95), 76);
 
 $secondary-color-alpha-01:            rgba($secondary-color-10, 1);
 $secondary-color-alpha-02:            rgba($secondary-color-10, 0.95);
@@ -199,6 +199,8 @@ $open-sans-condensed-bold:            "Open Sans Condensed Bold", Helvetica, Ari
 $open-sans-condensed-light-italic:    "Open Sans Condensed Light Italic", Helvetica, Arial, sans-serif;
 $open-sans-condensed-light:           "Open Sans Condensed Light", Helvetica, Arial, sans-serif;
 
+$fjalla-one-regular:                  "Fjalla One Regular", Helvetica, Arial, sans-serif;
+
 $base-color:                          $gray-04;
 $base-font:                           $open-sans-regular;
 
@@ -273,10 +275,14 @@ $card-controls:                      4000;
 $log:                                5000;
 $fab:                                6000;
 $nav:                                7000;
-$snacks:                             9000;
-$quick-nav:                          10000;
-$prompt:                             11000;
-$modal:                              12000;
+$snacks:                             8000;
+$shade:                              9000;
+$menu:                               10000;
+$character-select:                   11000;
+$header:                             12000;
+$shade-top:                          13000;
+$prompt:                             14000;
+$modal:                              15000;
 
 // --------------------------------------------------
 // drop shadows

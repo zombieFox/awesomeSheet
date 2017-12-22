@@ -78,25 +78,6 @@
     background-color: transparent;
   }
 }
-@keyframes edit-controls-down-xs {
-  0% {
-    top: -10em;
-  }
-  50% {
-    top: -10em;
-  }
-  100% {
-    top: 5em;
-  }
-}
-@keyframes edit-controls-down-lg {
-  0% {
-    top: -10em;
-  }
-  100% {
-    top: 0.5em;
-  }
-}
 @keyframes grow {
   0% {
     transform: translate(0, 0.2em) scale(0.95);

@@ -1,0 +1,50 @@
+.m-logo {
+  background-color: $secondary-color-03;
+  margin: 0;
+  padding: 1em 0;
+  width: 100%;
+  height: 10vh;
+  min-height: 5em;
+  color: $white;
+  font-size: $font-size-root-100;
+  line-height: $line-height-160;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: default;
+  transition: color $transition-ease-fast;
+  &:not(:last-child):not(:only-child) {
+    margin-bottom: 0;
+  }
+}
+.m-logo-icon {
+  color: $white;
+  font-size: $font-size-250;
+  flex: 0 0 20%;
+  text-align: center;
+}
+.m-logo-text {
+  font-size: $font-size-150;
+  font-family: $open-sans-bold;
+  font-family: $fjalla-one-regular;
+}
+.is-display-mode {
+  .m-logo {
+    background-color: $primary-color-03;
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {
+  .m-logo-large,
+  .m-logo-small {
+    padding: 0 0.5em;
+    width: initial;
+  }
+}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}

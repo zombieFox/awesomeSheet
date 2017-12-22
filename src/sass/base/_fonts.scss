@@ -1,7 +1,6 @@
 // --------------------------------------------------
 // open sans
 // --------------------------------------------------
-
 @font-face {
   font-family: "Open Sans Bold";
   src: url("../fonts/open-sans/open-sans-bold.eot");
@@ -9,7 +8,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Regular";
   src: url("../fonts/open-sans/open-sans-regular.eot");
@@ -17,7 +15,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Light";
   src: url("../fonts/open-sans/open-sans-light.eot");
@@ -25,7 +22,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Bold Italic";
   src: url("../fonts/open-sans/open-sans-bold-italic.eot");
@@ -33,7 +29,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Italic";
   src: url("../fonts/open-sans/open-sans-italic.eot");
@@ -41,7 +36,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Light Italic";
   src: url("../fonts/open-sans/open-sans-light-italic.eot");
@@ -49,7 +43,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Semi Bold Italic";
   src: url("../fonts/open-sans/open-sans-semi-bold-italic.eot");
@@ -57,7 +50,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Semi Bold";
   src: url("../fonts/open-sans/open-sans-semi-bold.eot");
@@ -65,7 +57,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Condensed Bold";
   src: url("../fonts/open-sans/open-sans-condensed-bold.eot");
@@ -73,7 +64,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Condensed Light Italic";
   src: url("../fonts/open-sans/open-sans-condensed-light-italic.eot");
@@ -81,11 +71,19 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Open Sans Condensed Light";
   src: url("../fonts/open-sans/open-sans-condensed-light.eot");
   src: url("../fonts/open-sans/open-sans-condensed-light.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans/open-sans-condensed-light.woff2") format("woff2"), url("../fonts/open-sans/open-sans-condensed-light.woff") format("woff"), url("../fonts/open-sans/open-sans-condensed-light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+// --------------------------------------------------
+// fjalla one
+// --------------------------------------------------
+@font-face {
+  font-family: "Fjalla One Regular";
+  src: url("../fonts/fjalla-one/fjalla-one-regular.woff2") format("woff2"), url("../fonts/fjalla-one/fjalla-one-regular.woff") format("woff"), url("../fonts/fjalla-one/fjalla-one-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

@@ -92,12 +92,12 @@
   }
   .m-log-list {
     .m-log-list-item-alert {
-      background-color: $secondary-color-06;
+      background-color: $gray-03;
     }
   }
   .m-log-list-short {
     .m-log-list-item-alert {
-      background-color: $secondary-color-06;
+      background-color: $gray-03;
     }
   }
 }
@@ -116,7 +116,7 @@
 }
 @media (min-width: $screen-lg) {
   .m-log {
-    left: 5.5em;
+    left: 4em;
   }
 }
 @media (min-width: $screen-xl) {}

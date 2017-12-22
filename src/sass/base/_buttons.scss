@@ -58,7 +58,7 @@ input[type="submit"] {
   }
   [class*=" icon-"],
   [class^="icon-"] {
-    font-size: 1em;
+    font-size: $font-size-100;
     line-height: 1;
     display: inline-block;
     &:not(:only-child):not(:last-child) {

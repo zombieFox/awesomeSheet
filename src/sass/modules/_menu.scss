@@ -1,0 +1,315 @@
+.m-menu {
+  background-color: $white;
+  padding: 3em 0 30vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80vw;
+  height: 100%;
+  font-size: $font-size-root-100;
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: $menu;
+  transition: transform $transition-ease-medium;
+  transform: translate(-80vw, 0);
+  .m-menu-list {
+    padding: 0;
+    margin: 1em 0;
+    width: 100%;
+    overflow-y: auto;
+    > li {
+      margin-bottom: 0;
+      text-align: left;
+      list-style-type: none;
+      &.m-menu-divide {
+        margin: 1em 0;
+        background-color: $gray-18;
+        height: 1px;
+      }
+    }
+  }
+  &.is-open {
+    transform: translate(0, 0);
+  }
+}
+.m-menu-link {
+  background-color: transparent;
+  padding: 1em 0;
+  border: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: $font-size-100;
+  line-height: $line-height-160;
+  font-family: $open-sans-semi-bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  .m-menu-link-name {
+    color: $base-color;
+  }
+  .m-menu-link-shortcut {
+    margin-right: 1em;
+    flex: 1 0 auto;
+    text-align: right;
+    color: $secondary-color-08;
+    font-size: $font-size-075;
+    font-family: $open-sans-bold;
+  }
+  [class*=" icon-"],
+  [class^="icon-"] {
+    flex: 0 0 20%;
+    font-size: 1.4em;
+    line-height: 1;
+    display: inline-block;
+    color: $secondary-color-08;
+    text-align: center;
+  }
+  &:link,
+  &:visited {
+    background-color: transparent;
+    color: $base-color;
+  }
+  &:focus,
+  &:hover {
+    background-color: $gray-19;
+    color: $base-color;
+    text-decoration: none;
+  }
+  &:active {
+    background-color: $primary-color-06;
+    .m-menu-link-name,
+    .m-menu-link-shortcut,
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $white;
+    }
+  }
+  &.is-active {
+    background-color: $primary-color-10;
+    color: $white;
+    &:active,
+    &:focus,
+    &:hover,
+    &:link {
+      .m-menu-link-name,
+      .m-menu-link-shortcut,
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
+    &:focus,
+    &:hover {
+      background-color: $primary-color-08;
+    }
+    &:active {
+      background-color: $primary-color-06;
+    }
+  }
+}
+.is-night-mode {
+  .m-menu {
+    background-color: $gray-04;
+  }
+  .m-menu-link {
+    .m-menu-link-name {
+      color: $white;
+    }
+    .m-menu-link-shortcut {
+      color: $secondary-color-12;
+    }
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $secondary-color-12;
+    }
+    &:link,
+    &:visited {
+      background-color: transparent;
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-05;
+      color: $white;
+    }
+    &:active {
+      background-color: $primary-color-06;
+      .m-menu-link-name,
+      .m-menu-link-shortcut,
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
+    &.is-active {
+      background-color: $primary-color-10;
+      color: $white;
+      &:active,
+      &:focus,
+      &:hover,
+      &:link {
+        .m-menu-link-name,
+        .m-menu-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+      }
+      &:focus,
+      &:hover {
+        background-color: $primary-color-08;
+      }
+      &:active {
+        background-color: $primary-color-06;
+      }
+    }
+  }
+  .is-display-mode {
+    .m-menu-link {
+      .m-menu-link-name {
+        color: $white;
+      }
+      .m-menu-link-shortcut {
+        color: $primary-color-12;
+      }
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $primary-color-12;
+      }
+      &:link,
+      &:visited {
+        background-color: transparent;
+        color: $white;
+      }
+      &:focus,
+      &:hover {
+        background-color: $gray-05;
+        color: $white;
+      }
+      &:active {
+        background-color: $secondary-color-06;
+        .m-menu-link-name,
+        .m-menu-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+      }
+      &.is-active {
+        background-color: $secondary-color-10;
+        color: $white;
+        &:active,
+        &:focus,
+        &:hover,
+        &:link {
+          .m-menu-link-name,
+          .m-menu-link-shortcut,
+          [class*=" icon-"],
+          [class^="icon-"] {
+            color: $white;
+          }
+        }
+        &:focus,
+        &:hover {
+          background-color: $secondary-color-08;
+        }
+        &:active {
+          background-color: $secondary-color-06;
+        }
+      }
+    }
+  }
+}
+.is-display-mode {
+  .m-menu-link {
+    .m-menu-link-name {
+      color: $base-color;
+    }
+    .m-menu-link-shortcut {
+      color: $primary-color-08;
+    }
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $primary-color-08;
+    }
+    &:link,
+    &:visited {
+      background-color: transparent;
+      color: $base-color;
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-19;
+      color: $base-color;
+    }
+    &:active {
+      background-color: $secondary-color-06;
+      .m-menu-link-name,
+      .m-menu-link-shortcut,
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
+    &.is-active {
+      background-color: $secondary-color-10;
+      color: $white;
+      &:active,
+      &:focus,
+      &:hover,
+      &:link {
+        .m-menu-link-name,
+        .m-menu-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+      }
+      &:focus,
+      &:hover {
+        background-color: $secondary-color-08;
+      }
+      &:active {
+        background-color: $secondary-color-06;
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .m-menu {
+    padding: 3em 0 30vh;
+    width: 55vw;
+    transform: translate(-55vw, 0);
+  }
+}
+@media (min-width: $screen-md) {
+  .m-menu {
+    width: 45vw;
+    transform: translate(-45vw, 0);
+  }
+}
+@media (min-width: $screen-lg) {
+  .m-menu {
+    width: 35vw;
+    transform: translate(-35vw, 0);
+  }
+}
+@media (min-width: $screen-xl) {
+  .m-menu {
+    width: 25vw;
+    transform: translate(-25vw, 0);
+  }
+}
+@media print {
+  .m-menu {
+    display: none;
+  }
+}
