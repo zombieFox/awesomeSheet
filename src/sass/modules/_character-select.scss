@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: 50%;
-  width: calc(100% - 12em);
+  width: calc(100% - 8em);
   max-height: calc(100vh - 3em);
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
@@ -94,6 +94,8 @@
           font-size: $font-size-075;
           flex: 0 1 auto;
           min-width: 3em;
+          position: relative;
+          top: 0.1em;
         }
         .m-character-select-list-item-name {
           color: $base-color;
@@ -242,13 +244,13 @@
   }
   &:focus,
   &:hover {
-    background-color: $secondary-color-alpha-16;
+    background-color: $secondary-color-alpha-18;
     border-color: $secondary-color-14;
     outline: none;
   }
   &.is-active,
   &:active {
-    background-color: $secondary-color-alpha-14;
+    background-color: $secondary-color-alpha-12;
     border-color: $secondary-color-12;
   }
 }
@@ -262,9 +264,11 @@
   text-overflow: ellipsis;
 }
 .m-character-select-class-level {
-  margin-left: 1em;
+  margin: 0 0 0 1em;
   color: $white;
   font-size: $font-size-075;
+  position: relative;
+  top: 0.1em;
 }
 .m-character-select-arrow {
   position: absolute;
@@ -669,12 +673,12 @@
   .m-character-select-toggle {
     &:focus,
     &:hover {
-      background-color: $primary-color-alpha-16;
+      background-color: $primary-color-alpha-18;
       border-color: $primary-color-14;
     }
     &.is-active,
     &:active {
-      background-color: $primary-color-alpha-14;
+      background-color: $primary-color-alpha-12;
       border-color: $primary-color-12;
     }
   }
@@ -684,9 +688,6 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
-  .m-character-select-toggle {
-    width: 50vw;
-  }
   .m-character-select {
     top: 0;
     left: inherit;
@@ -696,6 +697,9 @@
     &.is-open {
       transform: translate(0, 0);
     }
+  }
+  .m-character-select-toggle {
+    width: 50vw;
   }
   .m-character-select-arrow {
     &:after,

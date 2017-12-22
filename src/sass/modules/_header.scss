@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  max-width: calc(100% - 12em);
+  max-width: calc(100% - 8em);
 }
 .m-header-select-title {
   margin-right: 1em;
@@ -45,7 +45,7 @@
 }
 .m-header-control {
   flex: 0 0 auto;
-  width: 6em;
+  width: 4em;
   height: 100%;
   box-sizing: border-box;
 }
@@ -73,14 +73,14 @@
   }
   &:focus,
   &:hover {
-    background-color: $secondary-color-alpha-16;
+    background-color: $secondary-color-alpha-18;
     border-color: $secondary-color-14;
     text-decoration: none;
     outline: none;
   }
   &.is-active,
   &:active {
-    background-color: $secondary-color-alpha-14;
+    background-color: $secondary-color-alpha-12;
     border-color: $secondary-color-12;
   }
   [class*=" icon-"],
@@ -106,12 +106,12 @@
   .m-header-control-button {
     &:focus,
     &:hover {
-      background-color: $primary-color-alpha-16;
+      background-color: $primary-color-alpha-18;
       border-color: $primary-color-14;
     }
     &.is-active,
     &:active {
-      background-color: $primary-color-alpha-14;
+      background-color: $primary-color-alpha-12;
       border-color: $primary-color-12;
     }
   }
@@ -119,14 +119,7 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-header-select {
-    max-width: calc(100% - 8em);
-  }
-  .m-header-control {
-    width: 4em;
-  }
-}
+@media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
   .m-header-select {
     justify-content: flex-end;
