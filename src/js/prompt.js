@@ -78,7 +78,6 @@ var prompt = (function() {
       }.bind(prompt), false);
       actionButton.addEventListener("click", function(event) {
         event.stopPropagation();
-        // event.preventDefault();
         this.destroy();
         shade.destroy();
         if (action) {
@@ -94,7 +93,6 @@ var prompt = (function() {
       };
       cancelButton.addEventListener("click", function(event) {
         event.stopPropagation();
-        // event.preventDefault();
         this.destroy();
         shade.destroy();
         page.update();

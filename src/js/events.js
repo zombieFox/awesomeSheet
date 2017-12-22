@@ -3,12 +3,12 @@ var events = (function() {
   function bind() {
     var eventXp = helper.e(".js-evets-xp");
     var eventWealth = helper.e(".js-evets-wealth");
-    eventXp.addEventListener("click", function() {
+    eventXp.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       render("xp");
     }, false)
-    eventWealth.addEventListener("click", function() {
+    eventWealth.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       render("wealth");
