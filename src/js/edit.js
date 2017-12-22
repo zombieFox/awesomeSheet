@@ -27,7 +27,7 @@ var edit = (function() {
 
       if (section.dataset.minimise == "false" || !section.dataset.minimise && section.dataset.displayMode == "false" || !section.dataset.displayMode) {
 
-        if (pinWatch.getBoundingClientRect().top <= (offset) && pinWatch.getBoundingClientRect().bottom >= (offset + fillHeight)) {
+        if ((pinWatch.getBoundingClientRect().top + fillHeight) <= (offset) && pinWatch.getBoundingClientRect().bottom >= (offset + fillHeight)) {
 
           // console.log("top: " + pinWatch.getBoundingClientRect().top, "botton: " + pinWatch.getBoundingClientRect().bottom);
 
