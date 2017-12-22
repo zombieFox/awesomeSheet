@@ -6,10 +6,11 @@
   height: 3em;
   font-size: $font-size-root-100;
   z-index: $header;
-  transition: top $transition-ease-slow;
+  transform: translate(0, 0);
+  transition: transform $transition-ease-slow;
   &.is-pinned {
-    top: -3em;
-    transition: top $transition-ease-slow;
+    transform: translate(0, -3em);
+    transition: transform $transition-ease-slow;
   }
 }
 .m-header-bar {
