@@ -32,21 +32,8 @@
     transform: translate(0, 0);
   }
 }
-.m-menu-title {
-  padding: 1em 0;
-  margin-bottom: 0;
-  margin-left: 20%;
-  font-family: $open-sans-bold;
-  color: $gray-08;
-  width: 80%;
-  display: block;
-  text-transform: uppercase;
-  transition: none;
-  &:focus {
-    outline: 0;
-  }
-}
 .m-menu-link {
+  background-color: transparent;
   padding: 1em 0;
   border: 0;
   text-decoration: none;
@@ -69,7 +56,9 @@
     margin-right: 1em;
     flex: 1 0 auto;
     text-align: right;
-    font-family: $open-sans-light;
+    color: $secondary-color-08;
+    font-size: $font-size-075;
+    font-family: $open-sans-bold;
   }
   [class*=" icon-"],
   [class^="icon-"] {
@@ -80,14 +69,19 @@
     color: $secondary-color-08;
     text-align: center;
   }
+  &:link,
+  &:visited {
+    background-color: transparent;
+    color: $base-color;
+  }
   &:focus,
   &:hover {
     background-color: $gray-19;
+    color: $base-color;
     text-decoration: none;
   }
-  &.is-active,
   &:active {
-    background-color: $primary-color-10;
+    background-color: $primary-color-06;
     .m-menu-link-name,
     .m-menu-link-shortcut,
     [class*=" icon-"],
@@ -96,92 +90,192 @@
     }
   }
   &.is-active {
+    background-color: $primary-color-10;
+    color: $white;
+    &:active,
+    &:focus,
+    &:hover,
+    &:link {
+      .m-menu-link-name,
+      .m-menu-link-shortcut,
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
     &:focus,
     &:hover {
       background-color: $primary-color-08;
+    }
+    &:active {
+      background-color: $primary-color-06;
     }
   }
 }
 .is-night-mode {
   .m-menu {
-    background-color: $base-color;
-    .m-menu-list {
-      > li {
-        &.m-menu-divide {
-          background-color: $gray-06;
-        }
-      }
+    background-color: $gray-04;
+  }
+  .m-menu-link {
+    .m-menu-link-name {
+      color: $white;
     }
-    .m-menu-link {
-      .m-menu-link-name {
-        color: $white;
-      }
+    .m-menu-link-shortcut {
+      color: $secondary-color-12;
+    }
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $secondary-color-12;
+    }
+    &:link,
+    &:visited {
+      background-color: transparent;
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-05;
+      color: $white;
+    }
+    &:active {
+      background-color: $primary-color-06;
+      .m-menu-link-name,
+      .m-menu-link-shortcut,
       [class*=" icon-"],
       [class^="icon-"] {
-        color: $secondary-color-12;
+        color: $white;
       }
+    }
+    &.is-active {
+      background-color: $primary-color-10;
+      color: $white;
+      &:active,
       &:focus,
-      &:hover {
-        background-color: $gray-06;
-      }
-      &.is-active,
-      &:active {
-        background-color: $primary-color-10;
+      &:hover,
+      &:link {
         .m-menu-link-name,
         .m-menu-link-shortcut,
         [class*=" icon-"],
         [class^="icon-"] {
           color: $white;
         }
+      }
+      &:focus,
+      &:hover {
+        background-color: $primary-color-08;
+      }
+      &:active {
+        background-color: $primary-color-06;
+      }
+    }
+  }
+  .is-display-mode {
+    .m-menu-link {
+      .m-menu-link-name {
+        color: $white;
+      }
+      .m-menu-link-shortcut {
+        color: $primary-color-12;
+      }
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $primary-color-12;
+      }
+      &:link,
+      &:visited {
+        background-color: transparent;
+        color: $white;
+      }
+      &:focus,
+      &:hover {
+        background-color: $gray-05;
+        color: $white;
+      }
+      &:active {
+        background-color: $secondary-color-06;
+        .m-menu-link-name,
+        .m-menu-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
+        }
+      }
+      &.is-active {
+        background-color: $secondary-color-10;
+        color: $white;
+        &:active,
+        &:focus,
+        &:hover,
+        &:link {
+          .m-menu-link-name,
+          .m-menu-link-shortcut,
+          [class*=" icon-"],
+          [class^="icon-"] {
+            color: $white;
+          }
+        }
         &:focus,
         &:hover {
-          background-color: $primary-color-08;
+          background-color: $secondary-color-08;
+        }
+        &:active {
+          background-color: $secondary-color-06;
         }
       }
     }
   }
-  .m-menu-title {
-    color: $gray-12;
-  }
-  .m-menu-character {
-    input {
-      &[type="checkbox"],
-      &[type="radio"] {
-        & + label {
-          &:before {
-            color: $secondary-color-12;
-          }
-          .m-menu-characters-class-level {
-            color: $secondary-color-12;
-          }
-          .m-menu-characters-name {
-            color: $white;
-          }
+}
+.is-display-mode {
+  .m-menu-link {
+    .m-menu-link-name {
+      color: $base-color;
+    }
+    .m-menu-link-shortcut {
+      color: $primary-color-08;
+    }
+    [class*=" icon-"],
+    [class^="icon-"] {
+      color: $primary-color-08;
+    }
+    &:link,
+    &:visited {
+      background-color: transparent;
+      color: $base-color;
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-19;
+      color: $base-color;
+    }
+    &:active {
+      background-color: $secondary-color-06;
+      .m-menu-link-name,
+      .m-menu-link-shortcut,
+      [class*=" icon-"],
+      [class^="icon-"] {
+        color: $white;
+      }
+    }
+    &.is-active {
+      background-color: $secondary-color-10;
+      color: $white;
+      &:active,
+      &:focus,
+      &:hover,
+      &:link {
+        .m-menu-link-name,
+        .m-menu-link-shortcut,
+        [class*=" icon-"],
+        [class^="icon-"] {
+          color: $white;
         }
-        &:hover {
-          & + label {
-            background-color: $gray-06;
-          }
-        }
-        &:checked {
-          & + label {
-            &:before {
-              color: $white;
-            }
-            .m-menu-characters-class-level {
-              color: $primary-color-17;
-            }
-            .m-menu-characters-name {
-              color: $white;
-            }
-          }
-          &:focus,
-          &:hover {
-            & + label {
-              background-color: $primary-color-08;
-            }
-          }
-        }
+      }
+      &:focus,
+      &:hover {
+        background-color: $secondary-color-08;
+      }
+      &:active {
+        background-color: $secondary-color-06;
       }
     }
   }

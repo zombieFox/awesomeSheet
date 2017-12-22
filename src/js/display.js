@@ -24,6 +24,8 @@ var display = (function() {
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
     var menu = helper.e(".js-menu");
+    var characterSelect = helper.e(".js-character-select");
+    var shade = helper.e(".js-shade");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
@@ -38,6 +40,10 @@ var display = (function() {
       helper.addClass(nav, "is-display-mode");
       helper.addClass(menu, "is-display-mode");
       helper.addClass(header, "is-display-mode");
+      helper.addClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.addClass(shade, "is-display-mode");
+      };
     };
     var _displayOff = function() {
       helper.removeClass(fabIcon, "icon-edit");
@@ -47,6 +53,10 @@ var display = (function() {
       helper.removeClass(nav, "is-display-mode");
       helper.removeClass(menu, "is-display-mode");
       helper.removeClass(header, "is-display-mode");
+      helper.removeClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.removeClass(shade, "is-display-mode");
+      };
     };
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {

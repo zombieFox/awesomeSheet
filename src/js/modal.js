@@ -6,6 +6,7 @@ var modal = (function() {
     window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27) {
         destroy();
+        page.update();
       };
     }, false);
   };

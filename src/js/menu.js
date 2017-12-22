@@ -42,20 +42,17 @@ var menu = (function() {
 
   function _bind_shortcutKeys() {
     window.addEventListener("keydown", function(event) {
-      // ctrl+alt+delete
-      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
-        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        // close();
+      // ctrl+alt+f
+      if (event.ctrlKey && event.altKey && event.keyCode == 70) {
+        fullscreen.toggle();
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
         sheet.import();
-        // close();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
         sheet.export();
-        // close();
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {

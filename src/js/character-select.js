@@ -91,6 +91,7 @@ var characterSelect = (function() {
       // esc
       if (event.keyCode == 27) {
         close();
+        page.update();
       };
       // ctrl+alt+c
       if (event.ctrlKey && event.altKey && event.keyCode == 67) {

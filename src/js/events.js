@@ -142,6 +142,7 @@ var events = (function() {
     };
     var body = _create_eventTable(eventLogType);
     modal.render(heading, body, "Close", false, "small");
+    page.update();
   };
 
   function undo() {

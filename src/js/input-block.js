@@ -232,6 +232,7 @@ var inputBlock = (function() {
       display.clear(defenceSection);
       display.render(defenceSection);
     }.bind(modalContent));
+    page.update();
   };
 
   function _update_aggregateInput(input) {

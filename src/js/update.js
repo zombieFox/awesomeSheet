@@ -1,6 +1,13 @@
 var update = (function() {
 
   var history = [{
+    version: "3.31.0",
+    list: [
+      "Added Header with new Character Select dropdown.",
+      "Improved Modal, Prompt and Menu design.",
+      "Added awesomeSheet Logo to Menu."
+    ]
+  }, {
     version: "3.30.2",
     list: [
       "*Missing characters? Please read this post: "
