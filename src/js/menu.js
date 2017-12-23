@@ -115,7 +115,7 @@ var menu = (function() {
       event.stopPropagation();
       event.preventDefault();
       close();
-      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      prompt.render("Restore Demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
     }, false);
     menuToggle.addEventListener("click", function(event) {
       event.stopPropagation();

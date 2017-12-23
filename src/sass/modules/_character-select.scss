@@ -11,7 +11,7 @@
   border-radius: 0 0 $border-radius-large $border-radius-large;
   overflow: scroll;
   transform: translate(-50%, -100%);
-  transition: transform $transition-ease-medium;
+  transition: transform $transition-ease-fast;
   z-index: $character-select;
   box-sizing: border-box;
   &.is-open {

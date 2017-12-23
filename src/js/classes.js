@@ -5,7 +5,8 @@ var classes = (function() {
     for (var i = 0; i < classObjects.length; i++) {
       currentTotal = currentTotal + classObjects[i][key];
     };
-    return parseInt(currentTotal, 10);
+    currentTotal = parseInt(currentTotal, 10);
+    return currentTotal
   };
 
   function _makeBaseAttackBonuses(totalBab) {
@@ -72,7 +73,7 @@ var classes = (function() {
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
-  function _get_allClassLevel(characterObject) {
+  function get_allClassLevel(characterObject) {
     var classAndLevel = "";
     var classes = characterObject.basics.classes;
     for (var i = 0; i < classes.length; i++) {
@@ -90,7 +91,7 @@ var classes = (function() {
   return {
     bind: bind,
     render: render,
-    getClassLevel: _get_allClassLevel
+    getClassLevel: get_allClassLevel
   };
 
 })();

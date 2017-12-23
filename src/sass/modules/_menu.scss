@@ -10,7 +10,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   z-index: $menu;
-  transition: transform $transition-ease-medium;
+  transition: transform $transition-ease-fast;
   transform: translate(-80vw, 0);
   .m-menu-list {
     padding: 0;

@@ -114,7 +114,7 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("Default characters restored.", false, false);
+    snack.render("Demo characters restored.", false, false);
   };
 
   function destroy() {
