@@ -43,65 +43,91 @@ var nav = (function() {
     };
   };
 
-  function _quickLink(element) {
-    var id = "#" + element.dataset.link;
+  function scrollToSection(id) {
     var section = helper.e(id);
-    var sectionWrapper = helper.e(".js-section-wrapper");
+    var sectionMargin = parseInt(getComputedStyle(section).marginTop, 10);
+    var sectionTop = section.getBoundingClientRect().top - sectionMargin;
     var header = helper.e(".js-header");
+    var headerHeight = parseInt(getComputedStyle(header).height, 10);
     var nav = helper.e(".js-nav");
+    var navHeight = parseInt(getComputedStyle(nav).height, 10);
+    var zeroPoint;
     var offset;
     var options;
-
+    var speed;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-
-      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
-      if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) < -30) {
-        // console.log(1, "top", section.getBoundingClientRect().top);
-        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-      } else if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) > 100) {
-        // console.log(2, "top", section.getBoundingClientRect().top);
-        offset = parseInt(getComputedStyle(section).marginTop, 10);
+      // is the header pinned
+      if (body.dataset.headerPinned == "true") {
+        zeroPoint = 0;
       } else {
-        // console.log(3, "top", section.getBoundingClientRect().top);
-        if (body.dataset.headerPinned == "true") {
-          offset = parseInt(getComputedStyle(section).marginTop, 10);
-        } else {
-          offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-        };
+        zeroPoint = headerHeight;
       };
-
+      // if the section top is above the zero point
+      if (sectionTop < zeroPoint) {
+        // if the section top is above the pin threshold above zero point
+        if (sectionTop <= zeroPoint - 30) {
+          offset = headerHeight + sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+        // if the section top is below the zero point
+      } else if (sectionTop > zeroPoint) {
+        // if the section top is above the unpin threshold below zero point
+        if (sectionTop >= zeroPoint + 100) {
+          offset = sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+      } else if (sectionTop == zeroPoint) {
+        offset = zeroPoint + sectionMargin;
+      } else {
+        offset = headerHeight + sectionMargin;
+      };
     } else {
-
-      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
-      if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) < -30) {
-        // console.log(1, "top", section.getBoundingClientRect().top);
-        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-      } else if ((section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10)) > 100) {
-        // console.log(2, "top", section.getBoundingClientRect().top);
-        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
+      // is the header pinned
+      if (body.dataset.headerPinned == "true") {
+        zeroPoint = navHeight;
       } else {
-        // console.log(3, "top", section.getBoundingClientRect().top);
-        if (body.dataset.headerPinned == "true") {
-          offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-        } else {
-          offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-        };
+        zeroPoint = headerHeight + navHeight;
       };
-
+      // if the section top is above the zero point
+      if (sectionTop < zeroPoint) {
+        // if the section top is above the pin threshold above zero point
+        if (sectionTop <= zeroPoint - 30) {
+          offset = headerHeight + navHeight + sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+        // if the section top is below the zero point
+      } else if (sectionTop > zeroPoint) {
+        // if the section top is above the unpin threshold below zero point
+        if (sectionTop >= zeroPoint + 100) {
+          offset = navHeight + sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+      } else if (sectionTop == zeroPoint) {
+        offset = zeroPoint + sectionMargin;
+      } else {
+        offset = headerHeight + navHeight + sectionMargin;
+      };
     };
     if (window.innerWidth < 550) {
-      options = {
-        speed: 150,
-        offset: offset
-      };
+      speed = 150;
     } else {
-      options = {
-        speed: 300,
-        offset: offset
-      };
+      speed = 300;
+    };
+    options = {
+      speed: speed,
+      offset: offset
     };
     smoothScroll.animateScroll(null, id, options);
+  };
+
+  function _navLink(element) {
+    var id = "#" + element.dataset.link;
+    scrollToSection(id);
   };
 
   function bind() {
@@ -110,7 +136,7 @@ var nav = (function() {
       all_navLink[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _quickLink(this);
+        _navLink(this);
       }, false);
     };
   };
@@ -119,7 +145,8 @@ var nav = (function() {
   return {
     bind: bind,
     scroll: scroll,
-    scrollToTop: scrollToTop
+    scrollToTop: scrollToTop,
+    scrollToSection: scrollToSection
   }
 
 })();

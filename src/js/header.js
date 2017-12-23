@@ -13,7 +13,7 @@ var header = (function() {
       targetDown = null;
       if (targetUp == null) {
         if (body.dataset.headerPinned == "true") {
-          targetUp = window.pageYOffset - 29;
+          targetUp = window.pageYOffset - 30;
         };
       } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
         // console.log("unpin");
@@ -30,7 +30,7 @@ var header = (function() {
       targetUp = null;
       if (targetDown == null) {
         if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-          targetDown = window.pageYOffset + 99;
+          targetDown = window.pageYOffset + 100;
         };
       } else if (currentPosition == targetDown || currentPosition >= targetDown) {
         // console.log("pin");

@@ -2,8 +2,8 @@ var card = (function() {
 
   function bind() {
     _bind_cardTitle();
-    _bind_toggle();
-    _bind_minimise();
+    _bind_displayToggle();
+    _bind_minimiseToggle();
   };
 
   function _bind_cardTitle() {
@@ -17,24 +17,24 @@ var card = (function() {
     };
   };
 
-  function _bind_minimise() {
+  function _bind_minimiseToggle() {
     var all_cardMinimise = helper.eA(".js-card-minimise");
     for (var i = 0; i < all_cardMinimise.length; i++) {
       all_cardMinimise[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _minimise(this);
+        _minimiseToggle(this);
       }, false);
     };
   };
 
-  function _bind_toggle() {
+  function _bind_displayToggle() {
     var all_cardDisplayToggle = helper.eA(".js-card-toggle");
     for (var i = 0; i < all_cardDisplayToggle.length; i++) {
       all_cardDisplayToggle[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _toggle(this);
+        _displayToggle(this);
         // _unminimise(this);
       }, false);
     };
@@ -43,41 +43,10 @@ var card = (function() {
   function _linkSelf(element) {
     var section = helper.getClosest(element, ".js-section");
     var id = "#" + section.id;
-    var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
-    var offset;
-    var options;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
-      if (body.dataset.headerPinned == "true" || (section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10) - parseInt(getComputedStyle(nav).height, 10)) > 100) {
-        offset = parseInt(getComputedStyle(section).marginTop, 10);
-      } else {
-        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-      };
-    } else {
-      // if the header is pinned or the section is outside the header threshold and will become pinned while the section scrolls up
-      if (body.dataset.headerPinned == "true" || (section.getBoundingClientRect().top - parseInt(getComputedStyle(section).marginTop, 10) - parseInt(getComputedStyle(nav).height, 10) - parseInt(getComputedStyle(header).height, 10)) > 100) {
-        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-      } else {
-        offset = parseInt(getComputedStyle(nav).height, 10) + parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(section).marginTop, 10);
-      };
-    };
-    if (window.innerWidth < 550) {
-      options = {
-        speed: 150,
-        offset: offset
-      };
-    } else {
-      options = {
-        speed: 300,
-        offset: offset
-      };
-    };
-    smoothScroll.animateScroll(null, id, options);
+    nav.scrollToSection(id);
   };
 
-  function _toggle(element) {
+  function _displayToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     display.clear(section);
     display.render(section);
@@ -86,16 +55,7 @@ var card = (function() {
     themeColor.update();
   };
 
-  // function _unminimise(element) {
-  //   var section = helper.getClosest(element, ".js-section");
-  //   var display = (section.dataset.displayMode == "true");
-  //   var minimise = (section.dataset.minimise == "true");
-  //   if (minimise && display) {
-  //     _minimise(element);
-  //   };
-  // };
-
-  function _minimise(element) {
+  function _minimiseToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     var icon = section.querySelector(".js-card-minimise-icon");
     var cardTabs = section.querySelector(".js-card-tabs");
