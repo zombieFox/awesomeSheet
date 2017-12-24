@@ -127,7 +127,7 @@
 }
 @media (min-width: $screen-lg) {
   .m-header-bar {
-    padding: 0;
+    padding: 0 calc(10% - 0.25em) 0 0;
   }
   .m-header-select {
     max-width: calc(100% - 6em);
@@ -136,5 +136,9 @@
     width: 3em;
   }
 }
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  .m-header-bar {
+    padding: 0 calc(15% - 0.5em) 0 0;
+  }
+}
 @media print {}

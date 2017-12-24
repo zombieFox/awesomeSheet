@@ -48,11 +48,15 @@ var menu = (function() {
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
+        shade.destroy();
         sheet.import();
+        page.update();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
+        shade.destroy();
         sheet.export();
+        page.update();
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {

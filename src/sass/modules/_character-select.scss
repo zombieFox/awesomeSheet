@@ -221,6 +221,14 @@
 .m-character-select-control-link-text {
   flex: 1 1 80%;
 }
+.m-character-select-control-link-shortcut {
+  margin-right: 1em;
+  flex: 0 0 auto;
+  text-align: right;
+  color: $secondary-color-08;
+  font-size: $font-size-075;
+  font-family: $open-sans-bold;
+}
 .m-character-select-toggle {
   background-color: transparent;
   margin: 0;
@@ -438,6 +446,9 @@
       }
     }
   }
+  .m-character-select-control-link-shortcut {
+    color: $secondary-color-12;
+  }
   .is-display-mode {
     .m-character-select-list-item {
       input {
@@ -552,6 +563,9 @@
           color: $white;
         }
       }
+    }
+    .m-character-select-control-link-shortcut {
+      color: $primary-color-12;
     }
   }
 }
@@ -670,6 +684,9 @@
       }
     }
   }
+  .m-character-select-control-link-shortcut {
+    color: $primary-color-08;
+  }
   .m-character-select-toggle {
     &:focus,
     &:hover {
@@ -711,7 +728,7 @@
 }
 @media (min-width: $screen-lg) {
   .m-character-select {
-    right: 3em;
+    right: calc(10% - -2.75em);
   }
   .m-character-select,
   .m-character-select-toggle {
@@ -719,6 +736,9 @@
   }
 }
 @media (min-width: $screen-xl) {
+  .m-character-select {
+    right: calc(15% - -2.5em);
+  }
   .m-character-select,
   .m-character-select-toggle {
     width: 30vw;

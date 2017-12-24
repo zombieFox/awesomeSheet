@@ -113,6 +113,7 @@ var prompt = (function() {
       helper.addClass(promptWrapper, "is-unrotate-in");
       promptHeading.focus(this);
     };
+    characterSelect.close();
     modal.destroy();
     menu.close();
     characterSelect.close();

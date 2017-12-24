@@ -53,7 +53,6 @@ var characterSelect = (function() {
     }, false);
 
     characterSelectRemove.addEventListener("click", function(event) {
-      menu.close();
       shade.destroy();
       close();
       sheet.removeCharacter();
@@ -61,7 +60,6 @@ var characterSelect = (function() {
     }, false);
 
     characterSelectImport.addEventListener("click", function(event) {
-      menu.close();
       shade.destroy();
       close();
       sheet.import();
@@ -69,7 +67,6 @@ var characterSelect = (function() {
     }, false);
 
     characterSelectExport.addEventListener("click", function(event) {
-      menu.close();
       shade.destroy();
       close();
       sheet.export();
@@ -77,7 +74,6 @@ var characterSelect = (function() {
     }, false);
 
     headerControlExport.addEventListener("click", function(event) {
-      menu.close();
       shade.destroy();
       close();
       sheet.export();
