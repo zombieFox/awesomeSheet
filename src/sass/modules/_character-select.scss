@@ -190,6 +190,17 @@
     text-align: center;
     transition: none;
   }
+  .m-character-select-control-link-text {
+    flex: 1 1 80%;
+  }
+  .m-character-select-control-link-shortcut {
+    margin-right: 1em;
+    flex: 0 0 auto;
+    text-align: right;
+    color: $secondary-color-08;
+    font-size: $font-size-075;
+    font-family: $open-sans-bold;
+  }
   &:link,
   &:visited {
     color: $base-color;
@@ -216,18 +227,10 @@
     [class^="icon-"] {
       color: $white;
     }
+    .m-character-select-control-link-shortcut {
+      color: $white;
+    }
   }
-}
-.m-character-select-control-link-text {
-  flex: 1 1 80%;
-}
-.m-character-select-control-link-shortcut {
-  margin-right: 1em;
-  flex: 0 0 auto;
-  text-align: right;
-  color: $secondary-color-08;
-  font-size: $font-size-075;
-  font-family: $open-sans-bold;
 }
 .m-character-select-toggle {
   background-color: transparent;
@@ -419,6 +422,9 @@
     [class^="icon-"] {
       color: $secondary-color-12;
     }
+    .m-character-select-control-link-shortcut {
+      color: $secondary-color-12;
+    }
     &:link,
     &:visited {
       color: $white;
@@ -444,10 +450,10 @@
       [class^="icon-"] {
         color: $white;
       }
+      .m-character-select-control-link-shortcut {
+        color: $white;
+      }
     }
-  }
-  .m-character-select-control-link-shortcut {
-    color: $secondary-color-12;
   }
   .is-display-mode {
     .m-character-select-list-item {
@@ -537,6 +543,9 @@
       [class^="icon-"] {
         color: $primary-color-12;
       }
+      .m-character-select-control-link-shortcut {
+        color: $primary-color-12;
+      }
       &:link,
       &:visited {
         color: $white;
@@ -562,10 +571,10 @@
         [class^="icon-"] {
           color: $white;
         }
+        .m-character-select-control-link-shortcut {
+          color: $white;
+        }
       }
-    }
-    .m-character-select-control-link-shortcut {
-      color: $primary-color-12;
     }
   }
 }
