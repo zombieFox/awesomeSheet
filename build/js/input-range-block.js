@@ -23,19 +23,6 @@ var inputRangeBlock = (function() {
     };
   };
 
-  // var storeInputTimer = null;
-
-  // function delayUpdate(element) {
-  //   _store(element);
-  //   sheet.storeCharacters();
-  //   textBlock.render();
-  //   totalBlock.render();
-  //   if (display.state()) {
-  //     display.clear();
-  //     display.render();
-  //   };
-  // };
-
   function bind(inputRangeBlock) {
     if (inputRangeBlock) {
       _bind_inputRangeBlock(inputRangeBlock);
@@ -55,7 +42,6 @@ var inputRangeBlock = (function() {
     var input = inputRangeBlock.querySelector(".js-input-range-block-field");
     if (input) {
       input.addEventListener("input", function() {
-        // storeInputTimer = setTimeout(delayUpdate, 300, this);
         _store(this);
         sheet.storeCharacters();
       }, false);

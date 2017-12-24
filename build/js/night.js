@@ -8,16 +8,16 @@ var night = (function() {
 
   function toggle() {
     var body = helper.e("body");
-    var nightMode = helper.e(".js-night-mode");
+    var menuLinkNightMode = helper.e(".js-menu-link-night-mode");
 
     function _nightModeOn() {
       helper.addClass(body, "is-night-mode");
-      helper.addClass(nightMode, "is-active");
+      helper.addClass(menuLinkNightMode, "is-active");
     };
 
     function _nightModeOff() {
       helper.removeClass(body, "is-night-mode");
-      helper.removeClass(nightMode, "is-active");
+      helper.removeClass(menuLinkNightMode, "is-active");
     };
 
     if (body.dataset.nightMode == "true") {

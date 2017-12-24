@@ -582,6 +582,7 @@ var totalBlock = (function() {
       display.clear();
       display.render();
     }.bind(modalContent), "small");
+    page.update();
   };
 
   function bind(totalBlock) {

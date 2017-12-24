@@ -3,12 +3,12 @@ var events = (function() {
   function bind() {
     var eventXp = helper.e(".js-evets-xp");
     var eventWealth = helper.e(".js-evets-wealth");
-    eventXp.addEventListener("click", function() {
+    eventXp.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       render("xp");
     }, false)
-    eventWealth.addEventListener("click", function() {
+    eventWealth.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       render("wealth");
@@ -142,6 +142,7 @@ var events = (function() {
     };
     var body = _create_eventTable(eventLogType);
     modal.render(heading, body, "Close", false, "small");
+    page.update();
   };
 
   function undo() {

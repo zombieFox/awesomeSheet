@@ -155,7 +155,7 @@ var helper = (function() {
     return false;
   };
 
-  function randomId(stringLength) {
+  function randomString(stringLength) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (var i = 0; i < stringLength; i++)
@@ -323,7 +323,7 @@ var helper = (function() {
     getObject: getObject,
     truncate: truncateString,
     setDropdown: setDropdown,
-    randomId: randomId,
+    randomString: randomString,
     randomNumber: randomNumber,
     getRadioValue: getRadioValue,
     getUrlParameter: getUrlParameter,
@@ -340,8 +340,8 @@ var card = (function() {
 
   function bind() {
     _bind_cardTitle();
-    _bind_toggle();
-    _bind_minimise();
+    _bind_displayToggle();
+    _bind_minimiseToggle();
   };
 
   function _bind_cardTitle() {
@@ -355,56 +355,36 @@ var card = (function() {
     };
   };
 
-  function _bind_minimise() {
+  function _bind_minimiseToggle() {
     var all_cardMinimise = helper.eA(".js-card-minimise");
     for (var i = 0; i < all_cardMinimise.length; i++) {
       all_cardMinimise[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _minimise(this);
+        _minimiseToggle(this);
       }, false);
     };
   };
 
-  function _bind_toggle() {
+  function _bind_displayToggle() {
     var all_cardDisplayToggle = helper.eA(".js-card-toggle");
     for (var i = 0; i < all_cardDisplayToggle.length; i++) {
       all_cardDisplayToggle[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _toggle(this);
+        _displayToggle(this);
         // _unminimise(this);
       }, false);
     };
   };
 
   function _linkSelf(element) {
-    var id = "#" + helper.getClosest(element, ".js-section").id;
-    var all_section = helper.eA(".js-section");
-    var quickNav = helper.e(".js-quick-nav");
-    var offset;
-    var options;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
-    } else {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
-    };
-    if (window.innerWidth < 550) {
-      options = {
-        speed: 150,
-        offset: offset
-      };
-    } else {
-      options = {
-        speed: 300,
-        offset: offset
-      };
-    };
-    smoothScroll.animateScroll(null, id, options);
+    var section = helper.getClosest(element, ".js-section");
+    var id = "#" + section.id;
+    nav.scrollToSection(id);
   };
 
-  function _toggle(element) {
+  function _displayToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     display.clear(section);
     display.render(section);
@@ -413,16 +393,7 @@ var card = (function() {
     themeColor.update();
   };
 
-  // function _unminimise(element) {
-  //   var section = helper.getClosest(element, ".js-section");
-  //   var display = (section.dataset.displayMode == "true");
-  //   var minimise = (section.dataset.minimise == "true");
-  //   if (minimise && display) {
-  //     _minimise(element);
-  //   };
-  // };
-
-  function _minimise(element) {
+  function _minimiseToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     var icon = section.querySelector(".js-card-minimise-icon");
     var cardTabs = section.querySelector(".js-card-tabs");
@@ -15003,6 +14974,249 @@ var characterImage = (function() {
 
 })();
 
+var characterSelect = (function() {
+
+  function _switchCharacter(characterInput) {
+    var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
+    sheet.switch(newIndex);
+    var name = sheet.getCharacter().basics.name;
+    if (typeof name == "undefined" || name == "") {
+      name = "New character";
+    };
+    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+  };
+
+  function _bind_characterOption(characterLink) {
+    var input = characterLink.querySelector(".js-character-select-list-item-input");
+    input.addEventListener("change", function() {
+      _switchCharacter(input);
+      close();
+      shade.destroy();
+      page.update();
+      nav.scrollToTop();
+    }, false);
+  };
+
+  function _bind_characterSelectToggle() {
+    var characterSelectToggle = helper.e(".js-character-select-toggle");
+    characterSelectToggle.addEventListener("click", function(event) {
+      menu.close();
+      toggle();
+      page.update();
+    }, false);
+    characterSelectToggle.addEventListener("keydown", function(event) {
+      // enter
+      if (event.keyCode == 13) {
+        toggle();
+        page.update();
+      };
+    }, false);
+  };
+
+  function _bind_characterSelectControls() {
+    var characterSelectAdd = helper.e(".js-character-select-add");
+    var characterSelectRemove = helper.e(".js-character-select-remove");
+    var characterSelectImport = helper.e(".js-character-select-import");
+    var characterSelectExport = helper.e(".js-character-select-export");
+    var headerControlExport = helper.e(".js-header-control-export");
+
+    characterSelectAdd.addEventListener("click", function(event) {
+      menu.close();
+      shade.destroy();
+      close();
+      sheet.addCharacter();
+      page.update();
+    }, false);
+
+    characterSelectRemove.addEventListener("click", function(event) {
+      shade.destroy();
+      close();
+      sheet.removeCharacter();
+      page.update();
+    }, false);
+
+    characterSelectImport.addEventListener("click", function(event) {
+      shade.destroy();
+      close();
+      sheet.import();
+      page.update();
+    }, false);
+
+    characterSelectExport.addEventListener("click", function(event) {
+      shade.destroy();
+      close();
+      sheet.export();
+      page.update();
+    }, false);
+
+    headerControlExport.addEventListener("click", function(event) {
+      shade.destroy();
+      close();
+      sheet.export();
+      page.update();
+    }, false);
+  }
+
+  function _bind_shortcutKeys() {
+    window.addEventListener("keydown", function(event) {
+      // console.log(event.keyCode);
+      // esc
+      if (event.keyCode == 27) {
+        close();
+        page.update();
+      };
+      // ctrl+alt+c
+      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
+        toggle();
+        page.update();
+      };
+    }, false);
+  };
+
+  function bind() {
+    _bind_characterSelectToggle();
+    _bind_characterSelectControls();
+    _bind_shortcutKeys();
+  };
+
+  function toggle() {
+    modal.destroy();
+    prompt.destroy();
+    menu.close();
+    var body = helper.e("body");
+    var characterSelect = helper.e(".js-character-select");
+    var state = (body.dataset.characterSelectOpen == "true");
+    if (state) {
+      close();
+      shade.destroy();
+    } else {
+      open();
+      shade.render({
+        action: function() {
+          close();
+          page.update();
+        }
+      });
+    };
+  };
+
+  function open() {
+    var body = helper.e("body");
+    var characterSelect = helper.e(".js-character-select");
+    var characterSelectToggle = helper.e(".js-character-select-toggle");
+    body.dataset.characterSelectOpen = true;
+    helper.addClass(characterSelect, "is-open");
+    helper.addClass(characterSelectToggle, "is-active");
+  };
+
+  function close() {
+    var body = helper.e("body");
+    var characterSelect = helper.e(".js-character-select");
+    var characterSelectToggle = helper.e(".js-character-select-toggle");
+    body.dataset.characterSelectOpen = false;
+    helper.removeClass(characterSelect, "is-open");
+    helper.removeClass(characterSelectToggle, "is-active");
+  };
+
+  function update() {
+    clear();
+    render();
+  };
+
+  function clear() {
+    var characterSelectList = helper.e(".js-character-select-list");
+    while (characterSelectList.lastChild) {
+      characterSelectList.removeChild(characterSelectList.lastChild);
+    };
+  };
+
+  function _render_allCharacterItems() {
+    var character = sheet.getAllCharacters();
+    var characterSelectList = helper.e(".js-character-select-list");
+    for (var key in character) {
+      characterSelectList.appendChild(_createCharacterItem(character[key], key));
+    };
+    var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
+    all_characterIndexInput[sheet.getIndex()].checked = true;
+  };
+
+  function _render_currentCharacter() {
+    var characterSelectName = helper.e(".js-character-select-name");
+    var characterSelectClassLevel = helper.e(".js-character-select-class-level");
+    characterSelectName.textContent = _get_name(sheet.getCharacter());
+    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.getCharacter());
+  };
+
+  function _get_name(characterObject) {
+    var characterName = characterObject.basics.name;
+    if (typeof characterName == "undefined" || characterName == "") {
+      characterName = "New Character";
+    };
+    return characterName;
+  };
+
+  function _createCharacterItem(characterObject, characterIndex) {
+    var classLevel = classes.getClassLevel(characterObject);
+    var characterName = _get_name(characterObject);
+
+    var uniqueId = helper.randomString(10);
+
+    var navCharacter = document.createElement("li");
+    navCharacter.setAttribute("class", "m-character-select-list-item js-character-select-list-item-" + characterIndex);
+
+    var input = document.createElement("input");
+    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
+    input.setAttribute("name", "js-all-characters");
+    input.setAttribute("class", "js-character-select-list-item-input");
+    input.setAttribute("type", "radio");
+    input.setAttribute("tabindex", 1);
+    input.setAttribute("data-character-select-index", characterIndex);
+
+    var label = document.createElement("label");
+    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
+    label.setAttribute("class", "u-full-width js-character-select-list-item-label");
+
+    var detailsSpan = document.createElement("span");
+    detailsSpan.setAttribute("class", "m-character-select-list-item-details");
+
+    var nameSpan = document.createElement("span");
+    nameSpan.setAttribute("class", "m-character-select-list-item-name");
+    nameSpan.textContent = characterName;
+
+    var classLevelSpan = document.createElement("span");
+    classLevelSpan.setAttribute("class", "m-character-select-list-item-class-level");
+    classLevelSpan.textContent = classLevel;
+
+    // build module
+    detailsSpan.appendChild(nameSpan);
+    detailsSpan.appendChild(classLevelSpan);
+    label.appendChild(detailsSpan);
+    navCharacter.appendChild(input);
+    navCharacter.appendChild(label);
+
+    // bind
+    _bind_characterOption(navCharacter);
+    return navCharacter;
+  };
+
+  function render() {
+    _render_allCharacterItems();
+    _render_currentCharacter();
+  };
+
+  // exposed methods
+  return {
+    toggle: toggle,
+    open: open,
+    close: close,
+    bind: bind,
+    update: update,
+    clear: clear,
+    render: render
+  };
+
+})();
+
 var checkUrl = (function() {
 
   function checkHttps() {
@@ -15065,7 +15279,8 @@ var classes = (function() {
     for (var i = 0; i < classObjects.length; i++) {
       currentTotal = currentTotal + classObjects[i][key];
     };
-    return parseInt(currentTotal, 10);
+    currentTotal = parseInt(currentTotal, 10);
+    return currentTotal
   };
 
   function _makeBaseAttackBonuses(totalBab) {
@@ -15132,7 +15347,7 @@ var classes = (function() {
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
-  function _get_allClassLevel(characterObject) {
+  function get_allClassLevel(characterObject) {
     var classAndLevel = "";
     var classes = characterObject.basics.classes;
     for (var i = 0; i < classes.length; i++) {
@@ -15150,7 +15365,7 @@ var classes = (function() {
   return {
     bind: bind,
     render: render,
-    getClassLevel: _get_allClassLevel
+    getClassLevel: get_allClassLevel
   };
 
 })();
@@ -15862,13 +16077,6 @@ var clone = (function() {
     var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
     var targetBottom = cloneTarget.lastChild.getBoundingClientRect().bottom;
     var windowHeight = window.innerHeight;
-    var quickNavHeight;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      quickNavHeight = 0;
-    } else {
-      quickNavHeight = parseInt(getComputedStyle(document.querySelector(".js-quick-nav")).height, 10);
-    };
     if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
       if (targetTop > (windowHeight - (windowHeight / 10)) || targetBottom <= 0) {
         var offset = (windowHeight - (windowHeight / 2));
@@ -16351,7 +16559,11 @@ var display = (function() {
   };
 
   function _update_displayState() {
-    var quickNav = helper.e(".js-quick-nav");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    var menu = helper.e(".js-menu");
+    var characterSelect = helper.e(".js-character-select");
+    var shade = helper.e(".js-shade");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
@@ -16363,14 +16575,26 @@ var display = (function() {
       helper.removeClass(fabIcon, "icon-reader-mode");
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
-      helper.addClass(quickNav, "is-display-mode");
+      helper.addClass(nav, "is-display-mode");
+      helper.addClass(menu, "is-display-mode");
+      helper.addClass(header, "is-display-mode");
+      helper.addClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.addClass(shade, "is-display-mode");
+      };
     };
     var _displayOff = function() {
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
+      helper.removeClass(nav, "is-display-mode");
+      helper.removeClass(menu, "is-display-mode");
+      helper.removeClass(header, "is-display-mode");
+      helper.removeClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.removeClass(shade, "is-display-mode");
+      };
     };
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
@@ -16449,12 +16673,12 @@ var display = (function() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
     if (fab.dataset.displayMode == "true") {
-      fab.dataset.displayMode = "false";
+      fab.dataset.displayMode = false;
       for (var i = 0; i < all_section.length; i++) {
         _toggle_section(all_section[i], false);
       };
     } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
-      fab.dataset.displayMode = "true";
+      fab.dataset.displayMode = true;
       for (var i = 0; i < all_section.length; i++) {
         _toggle_section(all_section[i], true);
       };
@@ -17185,6 +17409,11 @@ var display = (function() {
 
   };
 
+  function render(section) {
+    _render_displayBlock(section);
+    _update_displayPlaceholder(section);
+  };
+
   function _update_displayPlaceholder(section) {
     var all_display
     if (section) {
@@ -17221,11 +17450,6 @@ var display = (function() {
     };
   };
 
-  function render(section) {
-    _render_displayBlock(section);
-    _update_displayPlaceholder(section);
-  };
-
   function _get_displayState(anyOrSingle) {
     var fab = helper.e(".js-fab");
     if (anyOrSingle == "all") {
@@ -17243,6 +17467,69 @@ var display = (function() {
     render: render,
     clear: clear,
     state: _get_displayState
+  };
+
+})();
+
+var edit = (function() {
+
+  function scroll() {
+    var body = helper.e("body");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    var all_editControls = helper.eA(".js-edit-controls");
+    var offset;
+    var headerHeight;
+    if (body.dataset.headerPinned == "true") {
+      headerHeight = 0;
+    } else {
+      headerHeight = parseInt(getComputedStyle(header).height, 10);
+    };
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      offset = headerHeight;
+    } else {
+      offset = parseInt(getComputedStyle(nav).height, 10) + headerHeight;
+    };
+
+    for (var i = 0; i < all_editControls.length; i++) {
+      var pinWatch = helper.e("." + all_editControls[i].dataset.pinWatch);
+      var section = helper.getClosest(pinWatch, ".js-section");
+      var fillWidth = parseInt(getComputedStyle(all_editControls[i]).width, 10);
+      var fillHeight = parseInt(getComputedStyle(all_editControls[i]).height, 10) + parseInt(getComputedStyle(all_editControls[i]).marginTop, 10) + parseInt(getComputedStyle(all_editControls[i]).marginBottom, 10);
+
+      if (section.dataset.minimise == "false" || !section.dataset.minimise && section.dataset.displayMode == "false" || !section.dataset.displayMode) {
+
+        if ((pinWatch.getBoundingClientRect().top + fillHeight) <= (offset) && pinWatch.getBoundingClientRect().bottom >= (offset + fillHeight)) {
+
+          // console.log("top: " + pinWatch.getBoundingClientRect().top, "botton: " + pinWatch.getBoundingClientRect().bottom);
+
+          helper.addClass(pinWatch, "is-pinned");
+          if (!pinWatch.hasAttribute("style")) {
+            all_editControls[i].setAttribute("style", "width: " + fillWidth + "px");
+            pinWatch.setAttribute("style", "padding-top: " + fillHeight + "px");
+          };
+
+        } else {
+
+          helper.removeClass(pinWatch, "is-pinned");
+          pinWatch.removeAttribute("style");
+          all_editControls[i].removeAttribute("style");
+
+        };
+
+      } else if (section.dataset.minimise == "true" || section.dataset.minimise && section.dataset.displayMode == "true" || section.dataset.displayMode) {
+        helper.removeClass(pinWatch, "is-pinned");
+        pinWatch.removeAttribute("style");
+        all_editControls[i].removeAttribute("style");
+      };
+
+    };
+  };
+
+  // exposed methods
+  return {
+    scroll: scroll
   };
 
 })();
@@ -17337,12 +17624,12 @@ var events = (function() {
   function bind() {
     var eventXp = helper.e(".js-evets-xp");
     var eventWealth = helper.e(".js-evets-wealth");
-    eventXp.addEventListener("click", function() {
+    eventXp.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       render("xp");
     }, false)
-    eventWealth.addEventListener("click", function() {
+    eventWealth.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       render("wealth");
@@ -17476,6 +17763,7 @@ var events = (function() {
     };
     var body = _create_eventTable(eventLogType);
     modal.render(heading, body, "Close", false, "small");
+    page.update();
   };
 
   function undo() {
@@ -17518,28 +17806,114 @@ var fireball = (function() {
 var fullscreen = (function() {
 
   function toggle() {
-    var fullscreen = helper.e(".js-fullscreen-mode");
+    var menuLinkFullscreenMode = helper.e(".js-menu-link-fullscreen-mode");
     var root = window.document;
-    var iconFullscreen = fullscreen.querySelector(".js-icon-fullscreen");
+    var menuLinkFullscreenModeIcon = menuLinkFullscreenMode.querySelector(".js-menu-link-fullscreen-mode-icon");
     var rootElement = root.documentElement;
     var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
-      helper.toggleClass(fullscreen, "is-active");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen-exit");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen");
+      helper.toggleClass(menuLinkFullscreenMode, "is-active");
+      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen-exit");
+      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen");
     } else {
       cancelFullScreen.call(root);
-      helper.toggleClass(fullscreen, "is-active");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen-exit");
-      helper.toggleClass(iconFullscreen, "icon-fullscreen");
+      helper.toggleClass(menuLinkFullscreenMode, "is-active");
+      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen-exit");
+      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen");
     };
   };
 
   // exposed methods
   return {
     toggle: toggle
+  };
+
+})();
+
+var header = (function() {
+
+  var previousPosition = window.pageYOffset;
+  var targetUp = null;
+  var targetDown = null;
+
+  function scroll() {
+    var body = helper.e("body");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    var currentPosition = window.pageYOffset;
+    if (previousPosition > currentPosition) {
+      targetDown = null;
+      if (targetUp == null) {
+        if (body.dataset.headerPinned == "true") {
+          targetUp = window.pageYOffset - 30;
+        };
+      } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
+        // console.log("unpin");
+        helper.removeClass(body, "is-header-pinned");
+        helper.removeClass(header, "is-pinned");
+        if (document.documentElement.clientWidth < 900) {
+          helper.removeClass(nav, "is-pinned");
+        };
+        body.dataset.headerPinned = false;
+        targetUp = null;
+        targetDown = null;
+      };
+    } else {
+      targetUp = null;
+      if (targetDown == null) {
+        if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
+          targetDown = window.pageYOffset + 100;
+        };
+      } else if (currentPosition == targetDown || currentPosition >= targetDown) {
+        // console.log("pin");
+        helper.addClass(body, "is-header-pinned");
+        helper.addClass(header, "is-pinned");
+        if (document.documentElement.clientWidth < 900) {
+          helper.addClass(nav, "is-pinned");
+        };
+        body.dataset.headerPinned = true;
+        targetDown = null;
+      };
+    };
+    previousPosition = currentPosition;
+    // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
+  };
+
+  function unpin() {
+    var body = helper.e("body");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    if (body.dataset.headerPinned == "true") {
+      helper.removeClass(body, "is-header-pinned");
+      helper.removeClass(header, "is-pinned");
+      if (document.documentElement.clientWidth < 900) {
+        helper.removeClass(nav, "is-pinned");
+      };
+      body.dataset.headerPinned = false;
+    };
+  };
+
+  function pin() {
+    var body = helper.e("body");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
+      helper.addClass(body, "is-header-pinned");
+      helper.addClass(header, "is-pinned");
+      if (document.documentElement.clientWidth < 900) {
+        helper.addClass(nav, "is-pinned");
+      };
+      body.dataset.headerPinned = true;
+    };
+  };
+
+  // exposed methods
+  return {
+    pin: pin,
+    unpin: unpin,
+    scroll: scroll
   };
 
 })();
@@ -17778,6 +18152,7 @@ var inputBlock = (function() {
       display.clear(defenceSection);
       display.render(defenceSection);
     }.bind(modalContent));
+    page.update();
   };
 
   function _update_aggregateInput(input) {
@@ -18067,7 +18442,7 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 300, this);
+      updateNavTimer = setTimeout(characterSelect.update, 300, this);
     }, false);
     // input.addEventListener("keydown", function(event) {
     //   // enter
@@ -18084,7 +18459,7 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(nav.update, 300, this);
+      updateNavTimer = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
@@ -18165,19 +18540,6 @@ var inputRangeBlock = (function() {
     };
   };
 
-  // var storeInputTimer = null;
-
-  // function delayUpdate(element) {
-  //   _store(element);
-  //   sheet.storeCharacters();
-  //   textBlock.render();
-  //   totalBlock.render();
-  //   if (display.state()) {
-  //     display.clear();
-  //     display.render();
-  //   };
-  // };
-
   function bind(inputRangeBlock) {
     if (inputRangeBlock) {
       _bind_inputRangeBlock(inputRangeBlock);
@@ -18197,7 +18559,6 @@ var inputRangeBlock = (function() {
     var input = inputRangeBlock.querySelector(".js-input-range-block-field");
     if (input) {
       input.addEventListener("input", function() {
-        // storeInputTimer = setTimeout(delayUpdate, 300, this);
         _store(this);
         sheet.storeCharacters();
       }, false);
@@ -18492,592 +18853,70 @@ var log = (function() {
 
 })();
 
-var modal = (function() {
-
-  var previousModal = null;
-  var previousModalShade = null;
-
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
-  function checkForModal() {
-    var modal = helper.e(".js-modal");
-    if (modal) {
-      body.dataset.modal = true;
-    } else {
-      body.dataset.modal = false;
-    };
-  };
-
-  function destroy() {
-    var modal = helper.e(".js-modal");
-    var modalShade = helper.e(".js-modal-shade");
-    var modalWrapper = helper.e(".js-modal-wrapper");
-    if (modal) {
-      getComputedStyle(modal).opacity;
-      helper.removeClass(modalWrapper, "is-unrotate-in");
-      helper.addClass(modalWrapper, "is-dropped-out");
-      helper.removeClass(modal, "is-opaque");
-      helper.addClass(modal, "is-transparent");
-    };
-    if (modalShade) {
-      getComputedStyle(modalShade).opacity;
-      helper.removeClass(modalShade, "is-opaque");
-      helper.addClass(modalShade, "is-transparent");
-    };
-  };
-
-  function render(heading, modalBodyContent, actionText, action, size) {
-    prompt.destroy();
-    var body = helper.e("body");
-    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
-
-    var modalShade = document.createElement("div");
-    modalShade.setAttribute("class", "m-modal-shade js-modal-shade");
-    if (displayMode) {
-      helper.addClass(modalShade, "is-display-mode");
-    };
-    modalShade.destroy = function() {
-      helper.removeClass(modalShade, "is-opaque");
-      helper.addClass(modalShade, "is-transparent");
-    };
-
-    var modalWrapper = document.createElement("div");
-    modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
-
-    var modal = document.createElement("div");
-    if (size == "large") {
-      modal.setAttribute("class", "m-modal m-modal-large js-modal");
-    } else if (size == "small") {
-      modal.setAttribute("class", "m-modal m-modal-small js-modal");
-    } else {
-      modal.setAttribute("class", "m-modal js-modal");
-    };
-    modal.destroy = function() {
-      helper.removeClass(modalWrapper, "is-unrotate-in");
-      helper.addClass(modalWrapper, "is-dropped-out");
-      helper.removeClass(modal, "is-opaque");
-      helper.addClass(modal, "is-transparent");
-    };
-
-    var modalHeading = document.createElement("h1");
-    modalHeading.setAttribute("tabindex", "1");
-    modalHeading.setAttribute("class", "m-modal-heading");
-    modalHeading.textContent = heading;
-
-    var modalBody = document.createElement("div");
-    modalBody.setAttribute("class", "m-modal-body u-clearfix");
-
-    var modalControls = document.createElement("div");
-    modalControls.setAttribute("class", "m-modal-controls");
-
-    var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "1");
-    actionButton.setAttribute("class", "button button-primary button-block button-large");
-    actionButton.textContent = actionText || "Ok";
-
-    modalControls.appendChild(actionButton);
-
-    if (heading != false) {
-      modalBody.appendChild(modalHeading);
-    };
-
-    if (modalBodyContent) {
-      if (typeof modalBodyContent == "string") {
-        var container = document.createElement("div");
-        container.setAttribute("class", "container");
-        var para = document.createElement("p");
-        para.textContent = modalBodyContent;
-        container.appendChild(para);
-        modalBody.appendChild(container);
-      } else {
-        modalBody.appendChild(modalBodyContent);
-      };
-    };
-
-    modalWrapper.appendChild(modalBody);
-    modalWrapper.appendChild(modalControls);
-    modal.appendChild(modalWrapper);
-
-    modal.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
-        checkForModal();
-        page.update();
-      };
-    }.bind(modal), false);
-
-    modalShade.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
-        checkForModal();
-        page.update();
-      };
-    }.bind(modalShade), false);
-
-    modalShade.addEventListener("click", destroy, false);
-    actionButton.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      destroy();
-    }, false);
-    if (action) {
-      actionButton.addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        action();
-      }, false);
-    };
-
-    if (previousModal) {
-      previousModal.destroy();
-    };
-
-    if (previousModalShade) {
-      previousModalShade.destroy();
-    };
-
-    previousModal = modal;
-    previousModalShade = modalShade;
-
-    body.appendChild(modalShade);
-    body.appendChild(modal);
-
-    getComputedStyle(modal).opacity;
-    getComputedStyle(modalShade).opacity;
-    helper.removeClass(modal, "is-transparent");
-    helper.addClass(modal, "is-opaque");
-    helper.removeClass(modalWrapper, "is-unrotate-out");
-    helper.addClass(modalWrapper, "is-unrotate-in");
-    helper.removeClass(modalShade, "is-transparent");
-    helper.addClass(modalShade, "is-opaque");
-    modalHeading.focus(this);
-    checkForModal();
-    page.update();
-  };
-
-  // exposed methods
-  return {
-    bind: bind,
-    destroy: destroy,
-    render: render
-  };
-
-})();
-
-var nav = (function() {
-
-  var previousNavShade = null;
-
-  function _destroy_navShade() {
-    var navShade = helper.e(".js-nav-shade");
-    if (navShade) {
-      getComputedStyle(navShade).opacity;
-      helper.removeClass(navShade, "is-opaque");
-      helper.addClass(navShade, "is-transparent");
-    };
-  };
-
-  function _render_navShade() {
-    var nav = helper.e(".js-nav");
-    var body = helper.e("body");
-    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
-    var navShade = document.createElement("div");
-
-    navShade.setAttribute("class", "m-nav-shade js-nav-shade");
-    if (displayMode) {
-      helper.addClass(navShade, "is-display-mode");
-    };
-    navShade.destroy = function() {
-      helper.removeClass(navShade, "is-opaque");
-      helper.addClass(navShade, "is-transparent");
-    };
-
-    navShade.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
-      };
-    }.bind(navShade), false);
-
-    navShade.addEventListener("click", function() {
-      navClose();
-      _destroy_navShade();
-    }, false);
-
-    if (previousNavShade) {
-      previousNavShade.destroy();
-    };
-
-    previousNavShade = navShade;
-
-    body.insertBefore(navShade, nav);
-
-    getComputedStyle(navShade).opacity;
-
-    helper.removeClass(navShade, "is-transparent");
-    helper.addClass(navShade, "is-opaque");
-  };
-
-  function scrollToTop() {
-    if (window.innerWidth < 550) {
-      window.scrollTo(0, 0);
-    } else {
-      smoothScroll.animateScroll(null, "#body");
-    };
-  };
-
-  function _bind_characterOption(characterLink) {
-    var label = characterLink.querySelector(".js-nav-character-label");
-    var input = characterLink.querySelector(".js-nav-character-input");
-    input.addEventListener("change", function() {
-      _switch_character(label);
-      sheet.storeCharacters();
-      navClose();
-      scrollToTop();
-    }, false);
-  };
-
-  function _switch_character(characterLink) {
-    var newIndex = parseInt(characterLink.dataset.characterIndex, 10);
-    sheet.switch(newIndex);
-    var name = sheet.getCharacter().basics.name;
-    if (typeof name == "undefined" || name == "") {
-      name = "New character";
-    };
-    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
-    navClose();
-  };
-
-
-  function updateNavCharacters() {
-    nav.clear();
-    nav.render();
-  };
-
-  function clear() {
-    var all_navCharacters = helper.eA(".js-nav-characters");
-    for (var i = 0; i < all_navCharacters.length; i++) {
-      while (all_navCharacters[i].lastChild) {
-        all_navCharacters[i].removeChild(all_navCharacters[i].lastChild);
-      };
-    };
-  };
-
-  function render() {
-    _createAllCharacter();
-    _render_quickNav();
-  };
-
-  function _render_quickNav() {
-    var body = helper.e("body");
-    window.onscroll = function() {
-
-      var quickNav = helper.e(".js-quick-nav");
-      var all_quickNavLinks = helper.eA(".js-quick-nav-link");
-      var all_section = helper.eA(".js-section");
-
-      var offset = parseInt(getComputedStyle(quickNav).height, 10);
-      // if nav is on the left after 900px wide viewport
-      if (document.documentElement.clientWidth >= 900) {
-        offset = 0;
-      };
-
-      var all_editControls = helper.eA(".js-edit-controls");
-
-      for (var i = 0; i < all_editControls.length; i++) {
-        var pinWatch = helper.e("." + all_editControls[i].dataset.pinWatch);
-        var section = helper.getClosest(pinWatch, ".js-section");
-        var fillWidth = parseInt(getComputedStyle(all_editControls[i]).width, 10);
-        var fillHeight = parseInt(getComputedStyle(all_editControls[i]).height, 10) + parseInt(getComputedStyle(all_editControls[i]).marginTop, 10) + parseInt(getComputedStyle(all_editControls[i]).marginBottom, 10);
-        if (section.dataset.minimise == "false" || !section.dataset.minimise && section.dataset.displayMode == "false" || !section.dataset.displayMode) {
-          if (pinWatch.getBoundingClientRect().top <= (offset - fillHeight) && pinWatch.getBoundingClientRect().bottom >= (offset + fillHeight)) {
-            // console.log("fire", pinWatch);
-            helper.addClass(pinWatch, "is-pinned");
-            if (!pinWatch.hasAttribute("style")) {
-              all_editControls[i].setAttribute("style", "width: " + fillWidth + "px");
-              pinWatch.setAttribute("style", "padding-top: " + fillHeight + "px");
-            };
-          } else {
-            helper.removeClass(pinWatch, "is-pinned");
-            pinWatch.removeAttribute("style");
-            all_editControls[i].removeAttribute("style");
-          };
-        } else if (section.dataset.minimise == "true" || section.dataset.minimise && section.dataset.displayMode == "true" || section.dataset.displayMode) {
-          helper.removeClass(pinWatch, "is-pinned");
-          pinWatch.removeAttribute("style");
-          all_editControls[i].removeAttribute("style");
-        };
-      };
-
-      for (var i = 0; i < all_section.length; i++) {
-        // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
-        if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
-          for (var j = 0; j < all_quickNavLinks.length; j++) {
-            helper.removeClass(all_quickNavLinks[j], "is-active");
-          };
-          helper.addClass(all_quickNavLinks[i], "is-active");
-        } else {
-          helper.removeClass(all_quickNavLinks[i], "is-active");
-        };
-      };
-
-    };
-  };
-
-  function _createAllCharacter() {
-    var characters = sheet.getAllCharacters();
-    var navCharacters = helper.e(".js-nav-characters");
-    for (var i in characters) {
-      navCharacters.appendChild(_createNavCharacterItem(characters[i], i));
-    };
-    var all_navCharacterInput = helper.eA(".js-nav-character-input");
-    all_navCharacterInput[sheet.getIndex()].checked = true;
-  };
-
-  function _get_name(characterObject) {
-    var characterName = characterObject.basics.name;
-    if (typeof characterName == "undefined" || characterName == "") {
-      characterName = "New Character";
-    };
-    return characterName;
-  };
-
-  function _createNavCharacterItem(characterObject, characterIndex) {
-    var classLevel = classes.getClassLevel(characterObject);
-    var characterName = _get_name(characterObject);
-
-    var uniqueId = helper.randomId(10);
-
-    var navCharacter = document.createElement("li");
-    navCharacter.setAttribute("class", "m-nav-character js-nav-character-" + characterIndex);
-
-    var input = document.createElement("input");
-    input.setAttribute("id", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    input.setAttribute("name", "js-nav-all-characters");
-    input.setAttribute("class", "js-nav-character-input");
-    input.setAttribute("type", "radio");
-    input.setAttribute("tabindex", 1);
-
-    var label = document.createElement("label");
-    label.setAttribute("for", characterName.replace(/\s+/g, "-").toLowerCase() + "-" + uniqueId);
-    label.setAttribute("class", "u-full-width js-nav-character-label");
-    label.setAttribute("data-character-index", characterIndex);
-
-    var detailsSpan = document.createElement("span");
-    detailsSpan.setAttribute("class", "m-nav-characters-details");
-
-    var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "m-nav-characters-name");
-    nameSpan.textContent = characterName;
-
-    var classLevelSpan = document.createElement("span");
-    classLevelSpan.setAttribute("class", "m-nav-characters-class-level");
-    classLevelSpan.textContent = classLevel;
-
-    // build module
-    detailsSpan.appendChild(nameSpan);
-    detailsSpan.appendChild(classLevelSpan);
-    label.appendChild(detailsSpan);
-    navCharacter.appendChild(input);
-    navCharacter.appendChild(label);
-
-    // bind
-    _bind_characterOption(navCharacter);
-    return navCharacter;
-  };
-
-  function navClose() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    var hamburger = helper.e(".js-hamburger");
-    helper.removeClass(nav, "is-open");
-    helper.removeClass(hamburger, "is-open");
-    body.dataset.navOpen = false;
-    _destroy_navShade();
-    page.update();
-  };
-
-  function navOpen() {
-    var body = helper.e("body");
-    var nav = helper.e(".js-nav");
-    var hamburger = helper.e(".js-hamburger");
-    helper.addClass(nav, "is-open");
-    helper.addClass(hamburger, "is-open");
-    body.dataset.navOpen = true;
-    _render_navShade();
-    page.update();
-  };
+var menu = (function() {
 
   function toggle() {
+    modal.destroy();
+    prompt.destroy();
+    characterSelect.close();
     var body = helper.e("body");
-    var nav = helper.e(".js-nav");
+    var menu = helper.e(".js-menu");
     var hamburger = helper.e(".js-hamburger");
-    if (body.dataset.navOpen == "true") {
-      helper.removeClass(nav, "is-open");
-      helper.removeClass(hamburger, "is-open");
-      body.dataset.navOpen = false;
-      _destroy_navShade();
-      page.update();
+    var state = (body.dataset.menuOpen == "true");
+    if (state) {
+      close();
+      shade.destroy();
     } else {
-      helper.addClass(nav, "is-open");
-      helper.addClass(hamburger, "is-open");
-      body.dataset.navOpen = true;
-      _render_navShade();
-      page.update();
+      open();
+      shade.render({
+        action: function() {
+          close();
+          page.update();
+        }
+      });
     };
   };
 
-  function _quickLinkSmoothScroll(element) {
-    var id = element.dataset.link;
-    var all_section = helper.eA(".js-section");
-    var quickNav = helper.e(".js-quick-nav");
-    var offset;
-    var options;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
-    } else {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
-    };
-    if (window.innerWidth < 550) {
-      options = {
-        speed: 150,
-        offset: offset
-      };
-    } else {
-      options = {
-        speed: 300,
-        offset: offset
-      };
-    };
-    navClose();
-    smoothScroll.animateScroll(null, id, options);
+  function close() {
+    var body = helper.e("body");
+    var menu = helper.e(".js-menu");
+    var menuToggle = helper.e(".js-menu-toggle");
+    helper.removeClass(menu, "is-open");
+    helper.removeClass(menuToggle, "is-active");
+    body.dataset.menuOpen = false;
   };
 
-  function _bind_navLinks() {
-
-    // var nav = helper.e(".js-nav");
-    var navToggle = helper.e(".js-nav-toggle");
-    var fullscreenModeToggle = helper.e(".js-fullscreen-mode");
-    var nightMode = helper.e(".js-night-mode");
-    var chnageLog = helper.e(".js-chnage-log");
-    var clearAll = helper.e(".js-clear-all");
-    var restoreDemoPcs = helper.e(".js-restore-demo-pcs");
-    var characterAdd = helper.e(".js-character-add");
-    var characterRemove = helper.e(".js-character-remove");
-    var characterImport = helper.e(".js-character-import");
-    var characterExport = helper.e(".js-character-export");
-
-    navToggle.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      toggle();
-    }, false);
-
-    fullscreenModeToggle.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      fullscreen.toggle();
-    }, false);
-
-    nightMode.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      night.toggle();
-    }, false);
-
-    chnageLog.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      log.changeLog();
-    }, false);
-
-    clearAll.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
-    }, false);
-
-    restoreDemoPcs.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      prompt.render("Restore demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
-    }, false);
-
-    characterImport.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.import();
-    }, false);
-
-    characterExport.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.export();
-    }, false);
-
-    characterAdd.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.addCharacter();
-      snack.render("New character added.", false);
-    }, false);
-
-    characterRemove.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      navClose();
-      sheet.removeCharacter();
-    }, false);
-
-  };
-
-  function _bind_quickNavLinks() {
-    var all_quickNavLink = helper.eA(".js-quick-nav-link");
-    for (var i = 0; i < all_quickNavLink.length; i++) {
-      all_quickNavLink[i].addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        navClose();
-        _quickLinkSmoothScroll(this);
-      }, false);
-    };
+  function open() {
+    var body = helper.e("body");
+    var menu = helper.e(".js-menu");
+    var menuToggle = helper.e(".js-menu-toggle");
+    helper.addClass(menu, "is-open");
+    helper.addClass(menuToggle, "is-active");
+    body.dataset.menuOpen = true;
   };
 
   function _bind_shortcutKeys() {
-
     window.addEventListener("keydown", function(event) {
-      // ctrl+alt+delete
-      if (event.ctrlKey && event.altKey && event.keyCode == 8) {
-        prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Delete all", sheet.destroy);
-        // navClose();
+      // ctrl+alt+f
+      if (event.ctrlKey && event.altKey && event.keyCode == 70) {
+        fullscreen.toggle();
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
+        shade.destroy();
         sheet.import();
-        // navClose();
+        page.update();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
+        shade.destroy();
         sheet.export();
-        // navClose();
+        page.update();
       };
       // ctrl+alt+m
       if (event.ctrlKey && event.altKey && event.keyCode == 77) {
         toggle();
-        helper.e(".js-nav-title").focus(this);
+        page.update();
       };
       // ctrl+alt+d
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
@@ -19091,41 +18930,354 @@ var nav = (function() {
       };
       // esc
       if (event.keyCode == 27) {
-        navClose();
+        close();
       };
     }, false);
-
-    // window.addEventListener('click', function(event) {
-    //   if (event.target != nav && event.target != navToggle && helper.getClosest(event.target, ".js-nav") != nav && helper.getClosest(event.target, ".js-nav-toggle") != navToggle) {
-    //     navClose();
-    //   };
-    // }, false);
-
     // key debugging
     // window.addEventListener("keydown", function(event) {
     //   console.log(event.keyCode);
     //   console.log(event.metaKey);
     //   console.log(event);
     // });
+  };
 
+  function _bind_menuLinks() {
+    var menuToggle = helper.e(".js-menu-toggle");
+    var menuLinkChnageLog = helper.e(".js-menu-link-chnage-log");
+    var menuLinkNightMode = helper.e(".js-menu-link-night-mode");
+    var menuLinkFullscreenMode = helper.e(".js-menu-link-fullscreen-mode");
+    var menuLinkClearAll = helper.e(".js-menu-link-clear-all");
+    var menuLinkRestoreDemoPcs = helper.e(".js-menu-link-restore-demo-pcs");
+    menuLinkChnageLog.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      close();
+      log.changeLog();
+    }, false);
+    menuLinkNightMode.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      night.toggle();
+    }, false);
+    menuLinkFullscreenMode.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      fullscreen.toggle();
+    }, false);
+    menuLinkClearAll.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      close();
+      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
+    }, false);
+    menuLinkRestoreDemoPcs.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      close();
+      prompt.render("Restore Demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+    }, false);
+    menuToggle.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      characterSelect.close();
+      toggle();
+      page.update();
+    }, false);
   };
 
   function bind() {
-    _bind_navLinks();
+    _bind_menuLinks();
     _bind_shortcutKeys();
-    _bind_quickNavLinks();
   };
 
   // exposed methods
   return {
     bind: bind,
-    clear: clear,
-    render: render,
-    update: updateNavCharacters,
-    open: navOpen,
-    close: navClose,
-    toggle: toggle,
-    scrollToTop: scrollToTop
+    close: close,
+    open: open,
+    toggle: toggle
+  };
+
+})();
+
+var modal = (function() {
+
+  var previousModal = null;
+
+  function bind() {
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+        page.update();
+      };
+    }, false);
+  };
+
+  function destroy() {
+    var all_modal = helper.eA(".js-modal");
+    if (all_modal[0]) {
+      for (var i = 0; i < all_modal.length; i++) {
+        all_modal[i].destroy();
+      };
+    };
+  };
+
+  function render(heading, modalBodyContent, actionText, action, size) {
+    var makeModal = function() {
+      var body = helper.e("body");
+      body.dataset.modal = true;
+      var modalWrapper = document.createElement("div");
+      modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
+      var modal = document.createElement("div");
+      if (size == "large") {
+        modal.setAttribute("class", "m-modal m-modal-large js-modal");
+      } else if (size == "small") {
+        modal.setAttribute("class", "m-modal m-modal-small js-modal");
+      } else {
+        modal.setAttribute("class", "m-modal js-modal");
+      };
+      modal.destroy = function() {
+        if (modal.classList.contains("is-opaque") || modalWrapper.classList.contains("is-unrotate-in")) {
+          helper.removeClass(modal, "is-opaque");
+          helper.addClass(modal, "is-transparent");
+          helper.removeClass(modalWrapper, "is-unrotate-in");
+          helper.addClass(modalWrapper, "is-dropped-out");
+        } else {
+          modal.remove();
+        };
+        body.dataset.modal = false;
+      };
+      var modalHeading = document.createElement("h1");
+      modalHeading.setAttribute("tabindex", "1");
+      modalHeading.setAttribute("class", "m-modal-heading");
+      modalHeading.textContent = heading;
+      var modalBody = document.createElement("div");
+      modalBody.setAttribute("class", "m-modal-body u-clearfix");
+      var modalControls = document.createElement("div");
+      modalControls.setAttribute("class", "m-modal-controls");
+      var actionButton = document.createElement("a");
+      actionButton.setAttribute("href", "javascript:void(0)");
+      actionButton.setAttribute("tabindex", "1");
+      actionButton.setAttribute("class", "button button-primary button-block button-large");
+      actionButton.textContent = actionText || "Ok";
+      modalControls.appendChild(actionButton);
+      if (heading != false) {
+        modalBody.appendChild(modalHeading);
+      };
+      if (modalBodyContent) {
+        if (typeof modalBodyContent == "string") {
+          var container = document.createElement("div");
+          container.setAttribute("class", "container");
+          var para = document.createElement("p");
+          para.textContent = modalBodyContent;
+          container.appendChild(para);
+          modalBody.appendChild(container);
+        } else {
+          modalBody.appendChild(modalBodyContent);
+        };
+      };
+      modalWrapper.appendChild(modalBody);
+      modalWrapper.appendChild(modalControls);
+      modal.appendChild(modalWrapper);
+      modal.addEventListener("transitionend", function(event, elapsed) {
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
+          this.parentElement.removeChild(this);
+        };
+      }.bind(modal), false);
+      actionButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.destroy();
+        shade.destroy();
+        page.update();
+        if (action) {
+          action();
+        };
+      }.bind(modal), false);
+      previousModal = modal;
+      shade.render({
+        action: function() {
+          modal.destroy();
+          page.update();
+        },
+        includeHeader: true
+      });
+      body.appendChild(modal);
+      getComputedStyle(modal).opacity;
+      helper.removeClass(modal, "is-transparent");
+      helper.addClass(modal, "is-opaque");
+      helper.removeClass(modalWrapper, "is-unrotate-out");
+      helper.addClass(modalWrapper, "is-unrotate-in");
+      modalHeading.focus(this);
+    };
+    characterSelect.close();
+    menu.close();
+    prompt.destroy();
+    characterSelect.close();
+    if (previousModal != null) {
+      destroy();
+    };
+    makeModal();
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    destroy: destroy,
+    render: render
+  };
+
+})();
+
+var nav = (function() {
+
+  function scrollToTop() {
+    if (window.innerWidth < 550) {
+      window.scrollTo(0, 0);
+    } else {
+      smoothScroll.animateScroll(null, "#body");
+    };
+  };
+
+  function scroll() {
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    var all_navLinks = helper.eA(".js-nav-link");
+    var all_section = helper.eA(".js-section");
+    var offset;
+
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      if (body.dataset.headerPinned == "true") {
+        offset = 0;
+      } else {
+        offset = parseInt(getComputedStyle(header).height, 10);
+      };
+    } else {
+      if (body.dataset.headerPinned == "true") {
+        offset = parseInt(getComputedStyle(header).height, 10);
+      } else {
+        offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10);
+      };
+    };
+
+    for (var i = 0; i < all_section.length; i++) {
+      // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
+      if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
+        for (var j = 0; j < all_navLinks.length; j++) {
+          helper.removeClass(all_navLinks[j], "is-active");
+        };
+        helper.addClass(all_navLinks[i], "is-active");
+      } else {
+        helper.removeClass(all_navLinks[i], "is-active");
+      };
+    };
+  };
+
+  function scrollToSection(id) {
+    var section = helper.e(id);
+    var sectionMargin = parseInt(getComputedStyle(section).marginTop, 10);
+    var sectionTop = section.getBoundingClientRect().top - sectionMargin;
+    var header = helper.e(".js-header");
+    var headerHeight = parseInt(getComputedStyle(header).height, 10);
+    var nav = helper.e(".js-nav");
+    var navHeight = parseInt(getComputedStyle(nav).height, 10);
+    var zeroPoint;
+    var offset;
+    var options;
+    var speed;
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      // is the header pinned
+      if (body.dataset.headerPinned == "true") {
+        zeroPoint = 0;
+      } else {
+        zeroPoint = headerHeight;
+      };
+      // if the section top is above the zero point
+      if (sectionTop < zeroPoint) {
+        // if the section top is above the pin threshold above zero point
+        if (sectionTop <= zeroPoint - 30) {
+          offset = headerHeight + sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+        // if the section top is below the zero point
+      } else if (sectionTop > zeroPoint) {
+        // if the section top is above the unpin threshold below zero point
+        if (sectionTop >= zeroPoint + 100) {
+          offset = sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+      } else if (sectionTop == zeroPoint) {
+        offset = zeroPoint + sectionMargin;
+      } else {
+        offset = headerHeight + sectionMargin;
+      };
+    } else {
+      // is the header pinned
+      if (body.dataset.headerPinned == "true") {
+        zeroPoint = navHeight;
+      } else {
+        zeroPoint = headerHeight + navHeight;
+      };
+      // if the section top is above the zero point
+      if (sectionTop < zeroPoint) {
+        // if the section top is above the pin threshold above zero point
+        if (sectionTop <= zeroPoint - 30) {
+          offset = headerHeight + navHeight + sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+        // if the section top is below the zero point
+      } else if (sectionTop > zeroPoint) {
+        // if the section top is above the unpin threshold below zero point
+        if (sectionTop >= zeroPoint + 100) {
+          offset = navHeight + sectionMargin;
+        } else {
+          offset = zeroPoint + sectionMargin;
+        };
+      } else if (sectionTop == zeroPoint) {
+        offset = zeroPoint + sectionMargin;
+      } else {
+        offset = headerHeight + navHeight + sectionMargin;
+      };
+    };
+    if (window.innerWidth < 550) {
+      speed = 150;
+    } else {
+      speed = 300;
+    };
+    options = {
+      speed: speed,
+      offset: offset
+    };
+    smoothScroll.animateScroll(null, id, options);
+  };
+
+  function _navLink(element) {
+    var id = "#" + element.dataset.link;
+    scrollToSection(id);
+  };
+
+  function bind() {
+    var all_navLink = helper.eA(".js-nav-link");
+    for (var i = 0; i < all_navLink.length; i++) {
+      all_navLink[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        _navLink(this);
+      }, false);
+    };
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    scroll: scroll,
+    scrollToTop: scrollToTop,
+    scrollToSection: scrollToSection
   }
 
 })();
@@ -19140,16 +19292,16 @@ var night = (function() {
 
   function toggle() {
     var body = helper.e("body");
-    var nightMode = helper.e(".js-night-mode");
+    var menuLinkNightMode = helper.e(".js-menu-link-night-mode");
 
     function _nightModeOn() {
       helper.addClass(body, "is-night-mode");
-      helper.addClass(nightMode, "is-active");
+      helper.addClass(menuLinkNightMode, "is-active");
     };
 
     function _nightModeOff() {
       helper.removeClass(body, "is-night-mode");
-      helper.removeClass(nightMode, "is-active");
+      helper.removeClass(menuLinkNightMode, "is-active");
     };
 
     if (body.dataset.nightMode == "true") {
@@ -19176,11 +19328,13 @@ var night = (function() {
 var page = (function() {
 
   function update() {
+    // console.log("page update");
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");
-    var nav = (body.dataset.navOpen == "true");
-    if (modal || prompt || nav) {
+    var menu = (body.dataset.menuOpen == "true");
+    var select = (body.dataset.characterSelectOpen == "true");
+    if (modal || prompt || menu || select) {
       helper.addClass(body, "is-scrolll-disabled");
     } else {
       helper.removeClass(body, "is-scrolll-disabled");
@@ -19209,172 +19363,126 @@ var page = (function() {
 var prompt = (function() {
 
   var previousPrompt = null;
-  var previousPromptShade = null;
 
   function bind() {
     window.addEventListener("keydown", function(event) {
       if (event.keyCode == 27) {
         destroy();
+        page.update();
       };
     }, false);
   };
 
-  function checkForPrompt() {
-    var prompt = helper.e(".js-prompt");
-    if (prompt) {
-      body.dataset.prompt = true;
-    } else {
-      body.dataset.prompt = false;
-    };
-  };
-
   function destroy() {
-    var prompt = helper.e(".js-prompt");
-    var promptShade = helper.e(".js-prompt-shade");
-    var promptWrapper = helper.e(".js-prompt-wrapper");
-    if (prompt) {
-      getComputedStyle(prompt).opacity;
-      helper.removeClass(promptWrapper, "is-unrotate-in");
-      helper.addClass(promptWrapper, "is-dropped-out");
-      helper.removeClass(prompt, "is-opaque");
-      helper.addClass(prompt, "is-transparent");
-    };
-    if (promptShade) {
-      getComputedStyle(promptShade).opacity;
-      helper.removeClass(promptShade, "is-opaque");
-      helper.addClass(promptShade, "is-transparent");
+    var all_prompt = helper.eA(".js-prompt");
+    if (all_prompt[0]) {
+      for (var i = 0; i < all_prompt.length; i++) {
+        all_prompt[i].destroy();
+      };
     };
   };
 
   function render(heading, message, actionText, action, actionUrl, actionAttributeKey, actionAttributeValue) {
-    modal.destroy();
-    var body = helper.e("body");
-    var displayMode = (helper.e(".js-fab").dataset.displayMode == "true");
-
-    var promptShade = document.createElement("div");
-    promptShade.setAttribute("class", "m-prompt-shade js-prompt-shade");
-    if (displayMode) {
-      helper.addClass(promptShade, "is-display-mode");
-    };
-    promptShade.destroy = function() {
-      helper.removeClass(promptShade, "is-opaque");
-      helper.addClass(promptShade, "is-transparent");
-    };
-
-    var promptWrapper = document.createElement("div");
-    promptWrapper.setAttribute("class", "m-prompt-wrapper js-prompt-wrapper is-unrotate-out");
-
-    var prompt = document.createElement("div");
-    prompt.setAttribute("class", "m-prompt js-prompt");
-    prompt.destroy = function() {
-      helper.removeClass(promptWrapper, "is-unrotate-in");
-      helper.addClass(promptWrapper, "is-dropped-out");
-      helper.removeClass(prompt, "is-opaque");
-      helper.addClass(prompt, "is-transparent");
-    };
-
-    var promptbody = document.createElement("div");
-    promptbody.setAttribute("class", "m-prompt-body");
-
-    var promptHeading = document.createElement("h1");
-    promptHeading.setAttribute("tabindex", "1");
-    promptHeading.setAttribute("class", "m-prompt-heading");
-    promptHeading.textContent = heading;
-
-    var promptText = document.createElement("p");
-    promptText.setAttribute("class", "m-prompt-text");
-    promptText.textContent = message;
-
-    var promptControls = document.createElement("div");
-    promptControls.setAttribute("class", "m-prompt-controls button-group button-group-line button-group-equal");
-
-    var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "1");
-    actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
-    actionButton.textContent = actionText || "Ok";
-
-    var cancelButton = document.createElement("a");
-    cancelButton.setAttribute("href", "javascript:void(0)");
-    cancelButton.setAttribute("tabindex", "1");
-    cancelButton.setAttribute("class", "button button-large");
-    cancelButton.textContent = "Cancel";
-
-    promptControls.appendChild(cancelButton);
-    promptControls.appendChild(actionButton);
-    if (heading) {
-      promptbody.appendChild(promptHeading);
-    };
-    if (message) {
-      promptbody.appendChild(promptText);
-    };
-    promptWrapper.appendChild(promptbody);
-    promptWrapper.appendChild(promptControls);
-
-    prompt.appendChild(promptWrapper);
-
-    prompt.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
-        checkForPrompt();
-        page.update();
+    var makePrompt = function() {
+      var body = helper.e("body");
+      body.dataset.prompt = true;
+      var promptWrapper = document.createElement("div");
+      promptWrapper.setAttribute("class", "m-prompt-wrapper js-prompt-wrapper is-unrotate-out");
+      var prompt = document.createElement("div");
+      prompt.setAttribute("class", "m-prompt js-prompt");
+      prompt.destroy = function() {
+        if (prompt.classList.contains("is-opaque") || promptWrapper.classList.contains("is-unrotate-in")) {
+          helper.removeClass(prompt, "is-opaque");
+          helper.addClass(prompt, "is-transparent");
+          helper.removeClass(promptWrapper, "is-unrotate-in");
+          helper.addClass(promptWrapper, "is-dropped-out");
+        } else {
+          prompt.remove();
+        };
+        body.dataset.prompt = false;
       };
-    }.bind(prompt), false);
-
-    promptShade.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
-        checkForPrompt();
-        page.update();
+      var promptbody = document.createElement("div");
+      promptbody.setAttribute("class", "m-prompt-body");
+      var promptHeading = document.createElement("h1");
+      promptHeading.setAttribute("tabindex", "1");
+      promptHeading.setAttribute("class", "m-prompt-heading");
+      promptHeading.textContent = heading;
+      var promptText = document.createElement("p");
+      promptText.setAttribute("class", "m-prompt-text");
+      promptText.textContent = message;
+      var promptControls = document.createElement("div");
+      promptControls.setAttribute("class", "m-prompt-controls button-group button-group-line button-group-equal");
+      var actionButton = document.createElement("a");
+      actionButton.setAttribute("href", "javascript:void(0)");
+      actionButton.setAttribute("tabindex", "1");
+      actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
+      actionButton.textContent = actionText || "Ok";
+      var cancelButton = document.createElement("a");
+      cancelButton.setAttribute("href", "javascript:void(0)");
+      cancelButton.setAttribute("tabindex", "1");
+      cancelButton.setAttribute("class", "button button-large");
+      cancelButton.textContent = "Cancel";
+      promptControls.appendChild(cancelButton);
+      promptControls.appendChild(actionButton);
+      if (heading != false) {
+        promptbody.appendChild(promptHeading);
       };
-    }.bind(promptShade), false);
-
-    if (action) {
+      if (message != false) {
+        promptbody.appendChild(promptText);
+      };
+      promptWrapper.appendChild(promptbody);
+      promptWrapper.appendChild(promptControls);
+      prompt.appendChild(promptWrapper);
+      prompt.addEventListener("transitionend", function(event, elapsed) {
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
+          this.parentElement.removeChild(this);
+        };
+      }.bind(prompt), false);
       actionButton.addEventListener("click", function(event) {
         event.stopPropagation();
-        event.preventDefault();
-        action();
-      }, false);
+        this.destroy();
+        shade.destroy();
+        if (action) {
+          action();
+        };
+        page.update();
+      }.bind(prompt), false);
+      if (actionUrl) {
+        actionButton.href = actionUrl;
+      };
+      if (actionAttributeKey && actionAttributeValue) {
+        actionButton.setAttribute(actionAttributeKey, actionAttributeValue);
+      };
+      cancelButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        this.destroy();
+        shade.destroy();
+        page.update();
+      }.bind(prompt), false);
+      previousPrompt = prompt;
+      shade.render({
+        action: function() {
+          prompt.destroy();
+          page.update();
+        },
+        includeHeader: true
+      });
+      body.appendChild(prompt);
+      getComputedStyle(prompt).opacity;
+      helper.removeClass(prompt, "is-transparent");
+      helper.addClass(prompt, "is-opaque");
+      helper.removeClass(promptWrapper, "is-unrotate-out");
+      helper.addClass(promptWrapper, "is-unrotate-in");
+      promptHeading.focus(this);
     };
-    if (actionUrl) {
-      actionButton.href = actionUrl;
-    };
-    if (actionAttributeKey && actionAttributeValue) {
-      actionButton.setAttribute(actionAttributeKey, actionAttributeValue);
-    };
-    actionButton.addEventListener("click", destroy, false);
-    cancelButton.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
+    characterSelect.close();
+    modal.destroy();
+    menu.close();
+    characterSelect.close();
+    if (previousPrompt != null) {
       destroy();
-    }, false);
-    promptShade.addEventListener("click", destroy, false);
-
-    if (previousPrompt) {
-      previousPrompt.destroy();
     };
-
-    if (previousPromptShade) {
-      previousPromptShade.destroy();
-    };
-
-    previousPrompt = prompt;
-    previousPromptShade = promptShade;
-
-    body.appendChild(promptShade);
-    body.appendChild(prompt);
-
-    getComputedStyle(prompt).opacity;
-    getComputedStyle(promptShade).opacity;
-    helper.removeClass(prompt, "is-transparent");
-    helper.addClass(prompt, "is-opaque");
-    helper.removeClass(promptWrapper, "is-unrotate-out");
-    helper.addClass(promptWrapper, "is-unrotate-in");
-    helper.removeClass(promptShade, "is-transparent");
-    helper.addClass(promptShade, "is-opaque");
-    promptHeading.focus(this);
-    checkForPrompt();
-    page.update();
+    makePrompt();
   };
 
   // exposed methods
@@ -20097,9 +20205,10 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
+    snack.render("New character added.", false);
   };
 
   function removeCharacter() {
@@ -20109,7 +20218,7 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", destroyCharacter);
+    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone. Have you backed up using Export?", "Remove", destroyCharacter);
   };
 
   function destroyCharacter() {
@@ -20124,8 +20233,8 @@ var sheet = (function() {
     clear();
     render();
     storeCharacters();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
@@ -20143,8 +20252,8 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("All characters restored.", false, false);
   };
@@ -20158,23 +20267,24 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
-    snack.render("Default characters restored.", false, false);
+    snack.render("Demo characters restored.", false, false);
   };
 
   function destroy() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
+    shade.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("All characters cleared.", false, false);
   };
@@ -20205,7 +20315,7 @@ var sheet = (function() {
     icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
-    message.textContent = "Import a previously exported character JSON file from another device.";
+    message.textContent = "Import a previously exported character file (JSON) from this or another device.";
     label.appendChild(icon);
     label.appendChild(labelText);
     importSelect.appendChild(input);
@@ -20270,7 +20380,7 @@ var sheet = (function() {
     };
   };
 
-  var _readJsonFile = function() {
+  function _readJsonFile() {
     var fileList = helper.e(".js-import-select-input").files;
 
     // if no JSON file is selected
@@ -20315,11 +20425,20 @@ var sheet = (function() {
     if (classLevel != "") {
       fileName = fileName + ", " + classLevel;
     };
-    prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
+    prompt.render(
+      "Export " + characterName,
+      "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
+      "Download",
+      false,
+      "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      "download",
+      fileName + ".json"
+    );
   };
 
   function render() {
     repair.render(getCharacter(getIndex()));
+    characterSelect.render();
     stats.render();
     clone.render();
     classes.render();
@@ -20341,8 +20460,11 @@ var sheet = (function() {
   };
 
   function bind() {
+    characterSelect.bind();
+    menu.bind();
     prompt.bind();
     modal.bind();
+    shade.bind();
     snack.bind();
     stats.bind();
     inputBlock.bind();
@@ -20365,6 +20487,14 @@ var sheet = (function() {
     registerServiceWorker.bind();
   };
 
+  function scroll() {
+    window.onscroll = function() {
+      header.scroll();
+      edit.scroll();
+      nav.scroll();
+    };
+  };
+
   function clear() {
     totalBlock.clear();
     clone.clear();
@@ -20383,11 +20513,11 @@ var sheet = (function() {
       setIndex(index);
       clear();
       render();
-      nav.clear();
-      nav.render();
+      characterSelect.clear();
+      characterSelect.render();
       var name = sheet.getCharacter().basics.name;
       snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
-      nav.close();
+      menu.close();
     } else {
       snack.render("No character with that index.", false);
     };
@@ -20410,7 +20540,97 @@ var sheet = (function() {
     export: exportJson,
     render: render,
     bind: bind,
+    scroll: scroll,
     switch: switchCharacter
+  };
+
+})();
+
+var shade = (function() {
+
+  var previousShade = null;
+
+  function bind() {
+    window.addEventListener("keydown", function(event) {
+      if (event.keyCode == 27) {
+        destroy();
+      };
+    }, false);
+  };
+
+  function destroy() {
+    var all_shade = helper.eA(".js-shade");
+    if (all_shade[0]) {
+      for (var i = 0; i < all_shade.length; i++) {
+        all_shade[i].destroy();
+      };
+    };
+  };
+
+  function render(options) {
+    var defaultOptions = {
+      action: null,
+      includeHeader: false
+    };
+    var applyOptions = function() {
+      if (options) {
+        for (key in options) {
+          if (key in defaultOptions) {
+            defaultOptions[key] = options[key];
+          };
+        };
+      };
+    };
+    var destroyPrevious = function(){
+      if (previousShade != null) {
+        destroy();
+      };
+    };
+    var makeShade = function(action) {
+      var body = helper.e("body");
+      var shade = document.createElement("div");
+      shade.setAttribute("class", "m-shade js-shade");
+      if (defaultOptions.includeHeader) {
+        helper.addClass(shade, "m-shade-top");
+      };
+      if (display.state()) {
+        helper.addClass(shade, "is-display-mode");
+      };
+      shade.destroy = function() {
+        if (shade.classList.contains("is-opaque")) {
+          helper.removeClass(shade, "is-opaque");
+          helper.addClass(shade, "is-transparent");
+        } else {
+          shade.remove();
+        };
+      };
+      shade.addEventListener("transitionend", function(event, elapsed) {
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
+          this.parentElement.removeChild(this);
+        };
+      }.bind(shade), false);
+      shade.addEventListener("click", function() {
+        this.destroy();
+        if (defaultOptions.action) {
+          defaultOptions.action();
+        };
+      }, false);
+      previousShade = shade;
+      body.appendChild(shade);
+      getComputedStyle(shade).opacity;
+      helper.removeClass(shade, "is-transparent");
+      helper.addClass(shade, "is-opaque");
+    };
+    destroyPrevious();
+    applyOptions();
+    makeShade();
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    destroy: destroy,
+    render: render
   };
 
 })();
@@ -20570,7 +20790,7 @@ var snack = (function() {
 
     if (actionText) {
       var destroyAction = snackBar.destroy.bind(snackBar);
-      var actionButton = document.createElement("a");
+      var actionButton = document.createElement("button");
       actionButton.setAttribute("class", "button button-medium button-tertiary m-snack-bar-button");
       if (typeof actionText == "boolean") {
         helper.addClass(actionButton, "button-icon");
@@ -21087,6 +21307,7 @@ var spells = (function() {
         display.clear(spellSection);
         display.render(spellSection);
       }.bind(modalContent));
+      page.update();
     };
 
   };
@@ -21974,8 +22195,10 @@ var tip = (function() {
 
   function destroy() {
     var all_tipBox = helper.eA(".js-tip-box");
-    for (var i = 0; i < all_tipBox.length; i++) {
-      all_tipBox[i].destroy();
+    if (all_tipBox[0]) {
+      for (var i = 0; i < all_tipBox.length; i++) {
+        all_tipBox[i].destroy();
+      };
     };
   };
 
@@ -21991,10 +22214,14 @@ var tip = (function() {
     tipMessage.setAttribute("class", "m-tip-message");
     tipMessage.textContent = tip.dataset.tipMessage;
     tipWrapper.destroy = function() {
-      helper.removeClass(tipWrapper, "is-opaque");
-      helper.addClass(tipWrapper, "is-transparent");
-      helper.removeClass(tipWrapper, "m-tip-intro");
-      helper.addClass(tipWrapper, "m-tip-outro");
+      if (tipWrapper.classList.contains("is-opaque")) {
+        helper.removeClass(tipWrapper, "is-opaque");
+        helper.addClass(tipWrapper, "is-transparent");
+        helper.removeClass(tipWrapper, "m-tip-intro");
+        helper.addClass(tipWrapper, "m-tip-outro");
+      } else {
+        tipWrapper.remove();
+      };
     };
     tipWrapper.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
@@ -22653,6 +22880,7 @@ var totalBlock = (function() {
       display.clear();
       display.render();
     }.bind(modalContent), "small");
+    page.update();
   };
 
   function bind(totalBlock) {
@@ -22734,6 +22962,13 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "3.31.0",
+    list: [
+      "Added Header with new Character Select dropdown.",
+      "Improved Modal, Prompt and Menu design.",
+      "Added awesomeSheet Logo to Menu."
+    ]
+  }, {
     version: "3.30.2",
     list: [
       "*Missing characters? Please read this post: "
@@ -23123,8 +23358,8 @@ var xp = (function() {
 
   sheet.render();
   sheet.bind();
+  sheet.scroll();
   nav.bind();
-  nav.render();
   tabs.bind();
   log.bind();
   log.render();

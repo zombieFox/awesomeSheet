@@ -21,7 +21,11 @@ var display = (function() {
   };
 
   function _update_displayState() {
-    var quickNav = helper.e(".js-quick-nav");
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    var menu = helper.e(".js-menu");
+    var characterSelect = helper.e(".js-character-select");
+    var shade = helper.e(".js-shade");
     var fab = helper.e(".js-fab");
     var fabButton = helper.e(".js-fab-button");
     var fabIcon = helper.e(".js-fab-icon");
@@ -33,14 +37,26 @@ var display = (function() {
       helper.removeClass(fabIcon, "icon-reader-mode");
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
-      helper.addClass(quickNav, "is-display-mode");
+      helper.addClass(nav, "is-display-mode");
+      helper.addClass(menu, "is-display-mode");
+      helper.addClass(header, "is-display-mode");
+      helper.addClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.addClass(shade, "is-display-mode");
+      };
     };
     var _displayOff = function() {
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader-mode");
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(quickNav, "is-display-mode");
+      helper.removeClass(nav, "is-display-mode");
+      helper.removeClass(menu, "is-display-mode");
+      helper.removeClass(header, "is-display-mode");
+      helper.removeClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.removeClass(shade, "is-display-mode");
+      };
     };
     for (var i = 0; i < all_section.length; i++) {
       if (all_section[i].dataset.displayMode == "true") {
@@ -119,12 +135,12 @@ var display = (function() {
     var fab = helper.e(".js-fab");
     var all_section = helper.eA(".js-section");
     if (fab.dataset.displayMode == "true") {
-      fab.dataset.displayMode = "false";
+      fab.dataset.displayMode = false;
       for (var i = 0; i < all_section.length; i++) {
         _toggle_section(all_section[i], false);
       };
     } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
-      fab.dataset.displayMode = "true";
+      fab.dataset.displayMode = true;
       for (var i = 0; i < all_section.length; i++) {
         _toggle_section(all_section[i], true);
       };
@@ -855,6 +871,11 @@ var display = (function() {
 
   };
 
+  function render(section) {
+    _render_displayBlock(section);
+    _update_displayPlaceholder(section);
+  };
+
   function _update_displayPlaceholder(section) {
     var all_display
     if (section) {
@@ -889,11 +910,6 @@ var display = (function() {
         helper.removeClass(placeholderDisplay, "is-hidden")
       };
     };
-  };
-
-  function render(section) {
-    _render_displayBlock(section);
-    _update_displayPlaceholder(section);
   };
 
   function _get_displayState(anyOrSingle) {

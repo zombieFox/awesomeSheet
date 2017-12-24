@@ -49,9 +49,10 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
+    snack.render("New character added.", false);
   };
 
   function removeCharacter() {
@@ -61,7 +62,7 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Remove " + name + "?", "This can not be undone.", "Remove", destroyCharacter);
+    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone. Have you backed up using Export?", "Remove", destroyCharacter);
   };
 
   function destroyCharacter() {
@@ -76,8 +77,8 @@ var sheet = (function() {
     clear();
     render();
     storeCharacters();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     if (lastCharacterRemoved) {
       snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
     } else {
@@ -95,8 +96,8 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("All characters restored.", false, false);
   };
@@ -110,23 +111,24 @@ var sheet = (function() {
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
-    snack.render("Default characters restored.", false, false);
+    snack.render("Demo characters restored.", false, false);
   };
 
   function destroy() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
+    shade.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
     storeCharacters();
     clear();
     render();
-    nav.clear();
-    nav.render();
+    characterSelect.clear();
+    characterSelect.render();
     nav.scrollToTop();
     snack.render("All characters cleared.", false, false);
   };
@@ -157,7 +159,7 @@ var sheet = (function() {
     icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
     var message = document.createElement("p");
     message.setAttribute("class", "m-import-select-message");
-    message.textContent = "Import a previously exported character JSON file from another device.";
+    message.textContent = "Import a previously exported character file (JSON) from this or another device.";
     label.appendChild(icon);
     label.appendChild(labelText);
     importSelect.appendChild(input);
@@ -222,7 +224,7 @@ var sheet = (function() {
     };
   };
 
-  var _readJsonFile = function() {
+  function _readJsonFile() {
     var fileList = helper.e(".js-import-select-input").files;
 
     // if no JSON file is selected
@@ -267,11 +269,20 @@ var sheet = (function() {
     if (classLevel != "") {
       fileName = fileName + ", " + classLevel;
     };
-    prompt.render("Export " + characterName, "Download " + characterName + " as a JSON file. This file can later be imported on another deivce.", "Download", false, "data:" + "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "), "download", fileName + ".json");
+    prompt.render(
+      "Export " + characterName,
+      "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
+      "Download",
+      false,
+      "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      "download",
+      fileName + ".json"
+    );
   };
 
   function render() {
     repair.render(getCharacter(getIndex()));
+    characterSelect.render();
     stats.render();
     clone.render();
     classes.render();
@@ -293,8 +304,11 @@ var sheet = (function() {
   };
 
   function bind() {
+    characterSelect.bind();
+    menu.bind();
     prompt.bind();
     modal.bind();
+    shade.bind();
     snack.bind();
     stats.bind();
     inputBlock.bind();
@@ -317,6 +331,14 @@ var sheet = (function() {
     registerServiceWorker.bind();
   };
 
+  function scroll() {
+    window.onscroll = function() {
+      header.scroll();
+      edit.scroll();
+      nav.scroll();
+    };
+  };
+
   function clear() {
     totalBlock.clear();
     clone.clear();
@@ -335,11 +357,11 @@ var sheet = (function() {
       setIndex(index);
       clear();
       render();
-      nav.clear();
-      nav.render();
+      characterSelect.clear();
+      characterSelect.render();
       var name = sheet.getCharacter().basics.name;
       snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
-      nav.close();
+      menu.close();
     } else {
       snack.render("No character with that index.", false);
     };
@@ -362,6 +384,7 @@ var sheet = (function() {
     export: exportJson,
     render: render,
     bind: bind,
+    scroll: scroll,
     switch: switchCharacter
   };
 

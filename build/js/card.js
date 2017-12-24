@@ -2,8 +2,8 @@ var card = (function() {
 
   function bind() {
     _bind_cardTitle();
-    _bind_toggle();
-    _bind_minimise();
+    _bind_displayToggle();
+    _bind_minimiseToggle();
   };
 
   function _bind_cardTitle() {
@@ -17,56 +17,36 @@ var card = (function() {
     };
   };
 
-  function _bind_minimise() {
+  function _bind_minimiseToggle() {
     var all_cardMinimise = helper.eA(".js-card-minimise");
     for (var i = 0; i < all_cardMinimise.length; i++) {
       all_cardMinimise[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _minimise(this);
+        _minimiseToggle(this);
       }, false);
     };
   };
 
-  function _bind_toggle() {
+  function _bind_displayToggle() {
     var all_cardDisplayToggle = helper.eA(".js-card-toggle");
     for (var i = 0; i < all_cardDisplayToggle.length; i++) {
       all_cardDisplayToggle[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        _toggle(this);
+        _displayToggle(this);
         // _unminimise(this);
       }, false);
     };
   };
 
   function _linkSelf(element) {
-    var id = "#" + helper.getClosest(element, ".js-section").id;
-    var all_section = helper.eA(".js-section");
-    var quickNav = helper.e(".js-quick-nav");
-    var offset;
-    var options;
-    // if nav is on the left after 900px wide viewport
-    if (document.documentElement.clientWidth >= 900) {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10);
-    } else {
-      offset = parseInt(getComputedStyle(all_section[1]).marginTop, 10) + parseInt(getComputedStyle(quickNav).height, 10);
-    };
-    if (window.innerWidth < 550) {
-      options = {
-        speed: 150,
-        offset: offset
-      };
-    } else {
-      options = {
-        speed: 300,
-        offset: offset
-      };
-    };
-    smoothScroll.animateScroll(null, id, options);
+    var section = helper.getClosest(element, ".js-section");
+    var id = "#" + section.id;
+    nav.scrollToSection(id);
   };
 
-  function _toggle(element) {
+  function _displayToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     display.clear(section);
     display.render(section);
@@ -75,16 +55,7 @@ var card = (function() {
     themeColor.update();
   };
 
-  // function _unminimise(element) {
-  //   var section = helper.getClosest(element, ".js-section");
-  //   var display = (section.dataset.displayMode == "true");
-  //   var minimise = (section.dataset.minimise == "true");
-  //   if (minimise && display) {
-  //     _minimise(element);
-  //   };
-  // };
-
-  function _minimise(element) {
+  function _minimiseToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     var icon = section.querySelector(".js-card-minimise-icon");
     var cardTabs = section.querySelector(".js-card-tabs");
