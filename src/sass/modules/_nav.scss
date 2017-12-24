@@ -7,10 +7,9 @@
   font-size: $font-size-root-100;
   z-index: $nav;
   transform: translate(0, 0);
-  transition: transform $transition-ease-slow;
+  transition: transform $transition-ease-fast;
   &.is-pinned {
     transform: translate(0, -3em);
-    transition: transform $transition-ease-slow;
   }
 }
 .m-nav-bar {
