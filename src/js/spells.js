@@ -436,6 +436,7 @@ var spells = (function() {
         display.clear(spellSection);
         display.render(spellSection);
       }.bind(modalContent));
+      page.update();
     };
 
   };
