@@ -11,7 +11,7 @@
   box-sizing: border-box;
   z-index: $menu;
   transition: transform $transition-ease-fast;
-  transform: translate(-80vw, 0);
+  transform: translate(calc(-80vw - 1em), 0);
   .m-menu-list {
     padding: 0;
     margin: 1em 0;
@@ -287,25 +287,25 @@
   .m-menu {
     padding: 3em 0 30vh;
     width: 55vw;
-    transform: translate(-55vw, 0);
+    transform: translate(calc(-55vw - 1em), 0);
   }
 }
 @media (min-width: $screen-md) {
   .m-menu {
     width: 45vw;
-    transform: translate(-45vw, 0);
+    transform: translate(calc(-45vw - 1em), 0);
   }
 }
 @media (min-width: $screen-lg) {
   .m-menu {
     width: 35vw;
-    transform: translate(-35vw, 0);
+    transform: translate(calc(-35vw - 1em), 0);
   }
 }
 @media (min-width: $screen-xl) {
   .m-menu {
     width: 25vw;
-    transform: translate(-25vw, 0);
+    transform: translate(calc(-25vw - 1em), 0);
   }
 }
 @media print {

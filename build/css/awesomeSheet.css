@@ -2672,9 +2672,9 @@ label {
   z-index: 10000;
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
-  -webkit-transform: translate(-80vw, 0);
-      -ms-transform: translate(-80vw, 0);
-          transform: translate(-80vw, 0); }
+  -webkit-transform: translate(calc(-80vw - 1em), 0);
+      -ms-transform: translate(calc(-80vw - 1em), 0);
+          transform: translate(calc(-80vw - 1em), 0); }
   .m-menu .m-menu-list {
     padding: 0;
     margin: 1em 0;
@@ -2926,30 +2926,30 @@ label {
   .m-menu {
     padding: 3em 0 30vh;
     width: 55vw;
-    -webkit-transform: translate(-55vw, 0);
-        -ms-transform: translate(-55vw, 0);
-            transform: translate(-55vw, 0); } }
+    -webkit-transform: translate(calc(-55vw - 1em), 0);
+        -ms-transform: translate(calc(-55vw - 1em), 0);
+            transform: translate(calc(-55vw - 1em), 0); } }
 
 @media (min-width: 700px) {
   .m-menu {
     width: 45vw;
-    -webkit-transform: translate(-45vw, 0);
-        -ms-transform: translate(-45vw, 0);
-            transform: translate(-45vw, 0); } }
+    -webkit-transform: translate(calc(-45vw - 1em), 0);
+        -ms-transform: translate(calc(-45vw - 1em), 0);
+            transform: translate(calc(-45vw - 1em), 0); } }
 
 @media (min-width: 900px) {
   .m-menu {
     width: 35vw;
-    -webkit-transform: translate(-35vw, 0);
-        -ms-transform: translate(-35vw, 0);
-            transform: translate(-35vw, 0); } }
+    -webkit-transform: translate(calc(-35vw - 1em), 0);
+        -ms-transform: translate(calc(-35vw - 1em), 0);
+            transform: translate(calc(-35vw - 1em), 0); } }
 
 @media (min-width: 1300px) {
   .m-menu {
     width: 25vw;
-    -webkit-transform: translate(-25vw, 0);
-        -ms-transform: translate(-25vw, 0);
-            transform: translate(-25vw, 0); } }
+    -webkit-transform: translate(calc(-25vw - 1em), 0);
+        -ms-transform: translate(calc(-25vw - 1em), 0);
+            transform: translate(calc(-25vw - 1em), 0); } }
 
 @media print {
   .m-menu {
