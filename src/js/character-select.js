@@ -175,7 +175,7 @@ var characterSelect = (function() {
 
   function _get_name(characterObject) {
     var characterName = characterObject.basics.name;
-    if (typeof characterName == "undefined" || characterName == "") {
+    if (typeof characterName == "undefined" || characterName == "" || characterName == " ") {
       characterName = "New Character";
     };
     return characterName;

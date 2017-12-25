@@ -96,6 +96,8 @@
           min-width: 3em;
           position: relative;
           top: 0.1em;
+          min-width: 3em;
+          max-width: 70%;
         }
         .m-character-select-list-item-name {
           color: $base-color;
@@ -280,6 +282,8 @@
   font-size: $font-size-075;
   position: relative;
   top: 0.1em;
+  min-width: 3em;
+  max-width: 70%;
 }
 .m-character-select-arrow {
   position: absolute;

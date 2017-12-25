@@ -751,6 +751,7 @@ var clone = (function() {
 
     cloneAddClass.addEventListener("click", function() {
       _addNewClone("class");
+      characterSelect.update();
       sheet.storeCharacters();
     }, false);
 
@@ -827,6 +828,12 @@ var clone = (function() {
       _update_removeButtonTab(cloneType);
       sheet.storeCharacters();
     }, false);
+    if (cloneType == "class") {
+      button.addEventListener("click", function() {
+        console.log("click");
+        characterSelect.update();
+      }, false);
+    };
   };
 
   function _bind_clone(cloneType, newClone) {
@@ -997,6 +1004,9 @@ var clone = (function() {
     _update_cloneState(undoData.cloneType);
     _update_removeButtonTab(undoData.cloneType);
     _remove_lastRemovedClone();
+    if (undoData.cloneType == "class") {
+      characterSelect.update();
+    };
     sheet.storeCharacters();
   };
 
@@ -1073,14 +1083,12 @@ var clone = (function() {
       helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
       // change clone remove button
-      // helper.toggleClass(cloneRemoveButton, "is-active");
       helper.addClass(cloneRemoveButton, "button-primary");
       helper.removeClass(cloneRemoveButton, "button-secondary");
     } else {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
       // change clone remove button
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };
@@ -1089,7 +1097,6 @@ var clone = (function() {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
       // change clone remove button
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };
