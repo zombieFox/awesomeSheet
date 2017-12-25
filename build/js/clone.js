@@ -562,30 +562,30 @@ var clone = (function() {
   };
 
   function _get_maxCloneMessage(cloneType) {
-    var message = "Max 200, do you need that many";
+    var message = "Max 200";
     if (cloneType == "class") {
-      message = message + " Classes?";
+      message = message + " Classes.";
     };
     if (cloneType == "attack-melee") {
-      message = message + " Melee Attacks?";
+      message = message + " Melee Attacks.";
     };
     if (cloneType == "attack-ranged") {
-      message = message + " Ranged Attacks?";
+      message = message + " Ranged Attacks.";
     };
     if (cloneType == "consumable") {
-      message = message + " Consumables?";
+      message = message + " Consumables.";
     };
     if (cloneType == "item") {
-      message = message + " Items?";
+      message = message + " Items.";
     };
     if (cloneType == "skill") {
-      message = message + " Skills?";
+      message = message + " Skills.";
     };
     if (cloneType == "note-character") {
-      message = message + " Character Notes?";
+      message = message + " Character Notes.";
     };
     if (cloneType == "note-story") {
-      message = message + " Story Notes?";
+      message = message + " Story Notes.";
     };
     return message;
   };
@@ -751,6 +751,7 @@ var clone = (function() {
 
     cloneAddClass.addEventListener("click", function() {
       _addNewClone("class");
+      characterSelect.update();
       sheet.storeCharacters();
     }, false);
 
@@ -827,6 +828,11 @@ var clone = (function() {
       _update_removeButtonTab(cloneType);
       sheet.storeCharacters();
     }, false);
+    if (cloneType == "class") {
+      button.addEventListener("click", function() {
+        characterSelect.update();
+      }, false);
+    };
   };
 
   function _bind_clone(cloneType, newClone) {
@@ -921,7 +927,9 @@ var clone = (function() {
   };
 
   function _render_maxClonesSnack(cloneType) {
-    snack.render(_get_maxCloneMessage(cloneType));
+    snack.render({
+      message: _get_maxCloneMessage(cloneType)
+    });
   };
 
   function _update_cloneState(cloneType) {
@@ -973,7 +981,12 @@ var clone = (function() {
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
-    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 8000);
+    snack.render({
+      message: _get_undoRemoveCloneMessage(cloneType),
+      button: "Undo",
+      action: _restore_lastRemovedClone,
+      destroyDelay: 8000
+    });
   };
 
   function _restore_lastRemovedClone() {
@@ -990,6 +1003,9 @@ var clone = (function() {
     _update_cloneState(undoData.cloneType);
     _update_removeButtonTab(undoData.cloneType);
     _remove_lastRemovedClone();
+    if (undoData.cloneType == "class") {
+      characterSelect.update();
+    };
     sheet.storeCharacters();
   };
 
@@ -1066,14 +1082,12 @@ var clone = (function() {
       helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
       // change clone remove button
-      // helper.toggleClass(cloneRemoveButton, "is-active");
       helper.addClass(cloneRemoveButton, "button-primary");
       helper.removeClass(cloneRemoveButton, "button-secondary");
     } else {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
       // change clone remove button
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };
@@ -1082,7 +1096,6 @@ var clone = (function() {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
       // change clone remove button
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };

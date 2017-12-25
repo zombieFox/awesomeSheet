@@ -20,18 +20,28 @@ var modal = (function() {
     };
   };
 
-  function render(heading, modalBodyContent, actionText, action, size) {
+  function render(options) {
+    var defaultOptions = {
+      heading: "Heading",
+      content: "Body",
+      action: null,
+      actionText: "OK",
+      size: "medium"
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
     var makeModal = function() {
       var body = helper.e("body");
       body.dataset.modal = true;
       var modalWrapper = document.createElement("div");
       modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
       var modal = document.createElement("div");
-      if (size == "large") {
+      if (defaultOptions.size == "large") {
         modal.setAttribute("class", "m-modal m-modal-large js-modal");
-      } else if (size == "small") {
+      } else if (defaultOptions.size == "small") {
         modal.setAttribute("class", "m-modal m-modal-small js-modal");
-      } else {
+      } else if (defaultOptions.size) {
         modal.setAttribute("class", "m-modal js-modal");
       };
       modal.destroy = function() {
@@ -45,10 +55,6 @@ var modal = (function() {
         };
         body.dataset.modal = false;
       };
-      var modalHeading = document.createElement("h1");
-      modalHeading.setAttribute("tabindex", "1");
-      modalHeading.setAttribute("class", "m-modal-heading");
-      modalHeading.textContent = heading;
       var modalBody = document.createElement("div");
       modalBody.setAttribute("class", "m-modal-body u-clearfix");
       var modalControls = document.createElement("div");
@@ -57,21 +63,25 @@ var modal = (function() {
       actionButton.setAttribute("href", "javascript:void(0)");
       actionButton.setAttribute("tabindex", "1");
       actionButton.setAttribute("class", "button button-primary button-block button-large");
-      actionButton.textContent = actionText || "Ok";
+      actionButton.textContent = defaultOptions.actionText;
       modalControls.appendChild(actionButton);
-      if (heading != false) {
+      if (defaultOptions.heading != null) {
+        var modalHeading = document.createElement("h1");
+        modalHeading.setAttribute("tabindex", "1");
+        modalHeading.setAttribute("class", "m-modal-heading");
+        modalHeading.textContent = defaultOptions.heading;
         modalBody.appendChild(modalHeading);
       };
-      if (modalBodyContent) {
-        if (typeof modalBodyContent == "string") {
+      if (defaultOptions.content) {
+        if (typeof defaultOptions.content == "string") {
           var container = document.createElement("div");
           container.setAttribute("class", "container");
           var para = document.createElement("p");
-          para.textContent = modalBodyContent;
+          para.textContent = defaultOptions.content;
           container.appendChild(para);
           modalBody.appendChild(container);
         } else {
-          modalBody.appendChild(modalBodyContent);
+          modalBody.appendChild(defaultOptions.content);
         };
       };
       modalWrapper.appendChild(modalBody);
@@ -88,8 +98,8 @@ var modal = (function() {
         this.destroy();
         shade.destroy();
         page.update();
-        if (action) {
-          action();
+        if (defaultOptions.action) {
+          defaultOptions.action();
         };
       }.bind(modal), false);
       previousModal = modal;

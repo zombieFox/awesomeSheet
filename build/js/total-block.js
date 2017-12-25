@@ -575,13 +575,19 @@ var totalBlock = (function() {
 
     var modalContent = _create_totalBlockControls();
 
-    modal.render(heading, modalContent, "Apply", function() {
-      _update_objectBonuses(this);
-      sheet.storeCharacters();
-      render();
-      display.clear();
-      display.render();
-    }.bind(modalContent), "small");
+    modal.render({
+      heading: heading,
+      content: modalContent,
+      action: function() {
+        _update_objectBonuses(this);
+        sheet.storeCharacters();
+        render();
+        display.clear();
+        display.render();
+      }.bind(modalContent),
+      actionText: "Apply",
+      size: "small"
+    });
     page.update();
   };
 

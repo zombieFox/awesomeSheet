@@ -7,7 +7,9 @@ var characterSelect = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+    snack.render({
+      message: helper.truncate(name, 50, true) + " now in the game."
+    });
   };
 
   function _bind_characterOption(characterLink) {
@@ -173,7 +175,7 @@ var characterSelect = (function() {
 
   function _get_name(characterObject) {
     var characterName = characterObject.basics.name;
-    if (typeof characterName == "undefined" || characterName == "") {
+    if (typeof characterName == "undefined" || characterName == "" || characterName == " ") {
       characterName = "New Character";
     };
     return characterName;

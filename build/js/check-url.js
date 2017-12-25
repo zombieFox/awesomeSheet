@@ -40,7 +40,9 @@ var checkUrl = (function() {
       if (hardCodedCharacters.single()[characterParameter]) {
         sheet.addCharacter(hardCodedCharacters.single()[characterParameter]);
       } else {
-        snack.render("No character with that name.", false);
+        snack.render({
+          message: "No character with that name."
+        });
       };
     };
   }

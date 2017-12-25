@@ -52,7 +52,9 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("New character added.", false);
+    snack.render({
+      message: "New character added."
+    });
   };
 
   function removeCharacter() {
@@ -62,7 +64,12 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone. Have you backed up using Export?", "Remove", destroyCharacter);
+    prompt.render({
+      heading: "Remove " + name + "?",
+      message: "The current character will be removed. This can not be undone. Have you backed up your characters by Exporting?",
+      actionText: "Remove",
+      action: destroyCharacter
+    });
   };
 
   function destroyCharacter() {
@@ -80,10 +87,14 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     if (lastCharacterRemoved) {
-      snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
+      snack.render({
+        message: helper.truncate(name, 40, true) + " removed. New character added."
+      });
     } else {
       nav.scrollToTop();
-      snack.render(helper.truncate(name, 50, true) + " removed.", false, false);
+      snack.render({
+        message: helper.truncate(name, 50, true) + " removed."
+      });
     };
   };
 
@@ -99,7 +110,9 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("All characters restored.", false, false);
+    snack.render({
+      message: "All characters restored."
+    });
   };
 
   function restore() {
@@ -114,7 +127,9 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("Demo characters restored.", false, false);
+    snack.render({
+      message: "Demo characters restored."
+    });
   };
 
   function destroy() {
@@ -130,48 +145,11 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("All characters cleared.", false, false);
+    snack.render({
+      message: "All characters cleared."
+    });
   };
 
-  function _createImportModal() {
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    var row = document.createElement("div");
-    row.setAttribute("class", "row");
-    var col = document.createElement("div");
-    col.setAttribute("class", "col-xs-12");
-    var importSelectWrapper = document.createElement("div");
-    importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
-    var importSelect = document.createElement("div");
-    importSelect.setAttribute("class", "m-import-select");
-    var input = document.createElement("input");
-    input.setAttribute("id", "import-select");
-    input.setAttribute("type", "file");
-    input.setAttribute("class", "m-import-select-input js-import-select-input");
-    var label = document.createElement("label");
-    label.setAttribute("tabindex", "1");
-    label.setAttribute("for", "import-select");
-    label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
-    var labelText = document.createElement("span");
-    labelText.textContent = "Select a file";
-    labelText.setAttribute("class", "js-import-select-label-text");
-    var icon = document.createElement("span");
-    icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
-    var message = document.createElement("p");
-    message.setAttribute("class", "m-import-select-message");
-    message.textContent = "Import a previously exported character file (JSON) from this or another device.";
-    label.appendChild(icon);
-    label.appendChild(labelText);
-    importSelect.appendChild(input);
-    importSelect.appendChild(label);
-    importSelectWrapper.appendChild(importSelect);
-    col.appendChild(message);
-    col.appendChild(importSelectWrapper);
-    row.appendChild(col);
-    container.appendChild(row);
-    input.addEventListener("change", _handleFiles, false);
-    return container;
-  };
 
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
@@ -229,7 +207,9 @@ var sheet = (function() {
 
     // if no JSON file is selected
     if (fileList.length <= 0) {
-      snack.render("No file selected.", false, false);
+      snack.render({
+        message: "No file selected."
+      });
       return false;
     };
 
@@ -241,12 +221,18 @@ var sheet = (function() {
         if (data.awesomeSheet) {
           addCharacter(data);
           var name = allCharacters[getIndex()].basics.name || "New character";
-          snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+          snack.render({
+            message: helper.truncate(name, 40, true) + " imported and now in the game."
+          });
         } else {
-          snack.render("JSON file not recognised by awesomeSheet.", false, false);
+          snack.render({
+            message: "JSON file not recognised by awesomeSheet."
+          });
         };
       } else {
-        snack.render("Not a JSON file.", false, false);
+        snack.render({
+          message: "Not a JSON file."
+        });
       };
     };
 
@@ -254,7 +240,51 @@ var sheet = (function() {
   };
 
   function importJson() {
-    modal.render("Import character", _createImportModal(), "Import", _readJsonFile);
+    var modalContent = function() {
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col = document.createElement("div");
+      col.setAttribute("class", "col-xs-12");
+      var importSelectWrapper = document.createElement("div");
+      importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
+      var importSelect = document.createElement("div");
+      importSelect.setAttribute("class", "m-import-select");
+      var input = document.createElement("input");
+      input.setAttribute("id", "import-select");
+      input.setAttribute("type", "file");
+      input.setAttribute("class", "m-import-select-input js-import-select-input");
+      var label = document.createElement("label");
+      label.setAttribute("tabindex", "1");
+      label.setAttribute("for", "import-select");
+      label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
+      var labelText = document.createElement("span");
+      labelText.textContent = "Select a file";
+      labelText.setAttribute("class", "js-import-select-label-text");
+      var icon = document.createElement("span");
+      icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
+      var message = document.createElement("p");
+      message.setAttribute("class", "m-import-select-message");
+      message.textContent = "Import a previously exported character file (JSON) from this or another device.";
+      label.appendChild(icon);
+      label.appendChild(labelText);
+      importSelect.appendChild(input);
+      importSelect.appendChild(label);
+      importSelectWrapper.appendChild(importSelect);
+      col.appendChild(message);
+      col.appendChild(importSelectWrapper);
+      row.appendChild(col);
+      container.appendChild(row);
+      input.addEventListener("change", _handleFiles, false);
+      return container;
+    };
+    modal.render({
+      heading: "Import character",
+      content: modalContent(),
+      action: _readJsonFile,
+      actionText: "Import"
+    });
   };
 
   function exportJson() {
@@ -269,15 +299,16 @@ var sheet = (function() {
     if (classLevel != "") {
       fileName = fileName + ", " + classLevel;
     };
-    prompt.render(
-      "Export " + characterName,
-      "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
-      "Download",
-      false,
-      "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
-      "download",
-      fileName + ".json"
-    );
+    prompt.render({
+      heading: "Export " + characterName,
+      message: "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
+      actionText: "Download",
+      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      customAttribute: {
+        key: "download",
+        value: fileName + ".json"
+      }
+    });
   };
 
   function render() {
@@ -304,6 +335,8 @@ var sheet = (function() {
   };
 
   function bind() {
+    scroll();
+    resize();
     characterSelect.bind();
     menu.bind();
     prompt.bind();
@@ -339,6 +372,12 @@ var sheet = (function() {
     };
   };
 
+  function resize() {
+    window.onresize = function() {
+      header.resize();
+    };
+  };
+
   function clear() {
     totalBlock.clear();
     clone.clear();
@@ -353,18 +392,22 @@ var sheet = (function() {
   };
 
   function switchCharacter(index) {
-    if (index >= 0 && index <= getAllCharacters().length) {
+    var switcharoo = function(index) {
       setIndex(index);
       clear();
       render();
       characterSelect.clear();
       characterSelect.render();
       var name = sheet.getCharacter().basics.name;
-      snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+      snack.render({
+        message: helper.truncate(name, 50, true) + " now in the game."
+      });
       menu.close();
-    } else {
-      snack.render("No character with that index.", false);
     };
+    if (index < 0 || index > getAllCharacters().length) {
+      index = 0;
+    };
+    switcharoo(index);
   };
 
   // exposed methods

@@ -305,6 +305,21 @@ var helper = (function() {
     return rgb;
   };
 
+  function applyOptions(defaultOptions, options) {
+    if (defaultOptions && options) {
+      if (options) {
+        for (key in options) {
+          if (key in defaultOptions) {
+            defaultOptions[key] = options[key];
+          };
+        };
+      };
+      return defaultOptions;
+    } else {
+      return null;
+    };
+  };
+
   // exposed methods
   return {
     store: store,
@@ -331,7 +346,8 @@ var helper = (function() {
     inViewport: inViewport,
     sortObject: sortObject,
     getDateTime: getDateTime,
-    getAverageColor: getAverageColor
+    getAverageColor: getAverageColor,
+    applyOptions: applyOptions
   };
 
 })();
@@ -14573,7 +14589,12 @@ var characterImage = (function() {
 
   function _removeCharacterImage() {
     if (helper.getObject(sheet.getCharacter(), "basics.character_image.image") != "") {
-      prompt.render("Remove Character Image?", "This can not be undone.", "Remove", destroy);
+      prompt.render({
+        heading: "Remove Character Image?",
+        message: "This can not be undone.",
+        actionText: "Remove",
+        action: destroy
+      });
     };
   };
 
@@ -14610,7 +14631,9 @@ var characterImage = (function() {
           _clear_inputUpload();
           sheet.storeCharacters();
         } else {
-          snack.render("Image too large, max 2000x2000px.", false, false);
+          snack.render({
+            message: "Image too large, max 2000x2000px."
+          });
         };
       };
       tempImage.src = reader.result;
@@ -14621,10 +14644,14 @@ var characterImage = (function() {
       if (file.type == "image/jpeg" || file.type == "image/jpg" || file.type == "image/gif" || file.type == "image/png") {
         reader.readAsDataURL(file);
       } else {
-        snack.render("Not an image file.", false, false);
+        snack.render({
+          message: "Not an image file."
+        });
       };
     } else {
-      snack.render("File too big, max 500KB.", false, false);
+      snack.render({
+        message: "File too big, max 500KB."
+      });
     };
   };
 
@@ -14983,7 +15010,9 @@ var characterSelect = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+    snack.render({
+      message: helper.truncate(name, 50, true) + " now in the game."
+    });
   };
 
   function _bind_characterOption(characterLink) {
@@ -15149,7 +15178,7 @@ var characterSelect = (function() {
 
   function _get_name(characterObject) {
     var characterName = characterObject.basics.name;
-    if (typeof characterName == "undefined" || characterName == "") {
+    if (typeof characterName == "undefined" || characterName == "" || characterName == " ") {
       characterName = "New Character";
     };
     return characterName;
@@ -15259,7 +15288,9 @@ var checkUrl = (function() {
       if (hardCodedCharacters.single()[characterParameter]) {
         sheet.addCharacter(hardCodedCharacters.single()[characterParameter]);
       } else {
-        snack.render("No character with that name.", false);
+        snack.render({
+          message: "No character with that name."
+        });
       };
     };
   }
@@ -15934,30 +15965,30 @@ var clone = (function() {
   };
 
   function _get_maxCloneMessage(cloneType) {
-    var message = "Max 200, do you need that many";
+    var message = "Max 200";
     if (cloneType == "class") {
-      message = message + " Classes?";
+      message = message + " Classes.";
     };
     if (cloneType == "attack-melee") {
-      message = message + " Melee Attacks?";
+      message = message + " Melee Attacks.";
     };
     if (cloneType == "attack-ranged") {
-      message = message + " Ranged Attacks?";
+      message = message + " Ranged Attacks.";
     };
     if (cloneType == "consumable") {
-      message = message + " Consumables?";
+      message = message + " Consumables.";
     };
     if (cloneType == "item") {
-      message = message + " Items?";
+      message = message + " Items.";
     };
     if (cloneType == "skill") {
-      message = message + " Skills?";
+      message = message + " Skills.";
     };
     if (cloneType == "note-character") {
-      message = message + " Character Notes?";
+      message = message + " Character Notes.";
     };
     if (cloneType == "note-story") {
-      message = message + " Story Notes?";
+      message = message + " Story Notes.";
     };
     return message;
   };
@@ -16123,6 +16154,7 @@ var clone = (function() {
 
     cloneAddClass.addEventListener("click", function() {
       _addNewClone("class");
+      characterSelect.update();
       sheet.storeCharacters();
     }, false);
 
@@ -16199,6 +16231,11 @@ var clone = (function() {
       _update_removeButtonTab(cloneType);
       sheet.storeCharacters();
     }, false);
+    if (cloneType == "class") {
+      button.addEventListener("click", function() {
+        characterSelect.update();
+      }, false);
+    };
   };
 
   function _bind_clone(cloneType, newClone) {
@@ -16293,7 +16330,9 @@ var clone = (function() {
   };
 
   function _render_maxClonesSnack(cloneType) {
-    snack.render(_get_maxCloneMessage(cloneType));
+    snack.render({
+      message: _get_maxCloneMessage(cloneType)
+    });
   };
 
   function _update_cloneState(cloneType) {
@@ -16345,7 +16384,12 @@ var clone = (function() {
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
-    snack.render(_get_undoRemoveCloneMessage(cloneType), "Undo", _restore_lastRemovedClone, 8000);
+    snack.render({
+      message: _get_undoRemoveCloneMessage(cloneType),
+      button: "Undo",
+      action: _restore_lastRemovedClone,
+      destroyDelay: 8000
+    });
   };
 
   function _restore_lastRemovedClone() {
@@ -16362,6 +16406,9 @@ var clone = (function() {
     _update_cloneState(undoData.cloneType);
     _update_removeButtonTab(undoData.cloneType);
     _remove_lastRemovedClone();
+    if (undoData.cloneType == "class") {
+      characterSelect.update();
+    };
     sheet.storeCharacters();
   };
 
@@ -16438,14 +16485,12 @@ var clone = (function() {
       helper.addClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "true";
       // change clone remove button
-      // helper.toggleClass(cloneRemoveButton, "is-active");
       helper.addClass(cloneRemoveButton, "button-primary");
       helper.removeClass(cloneRemoveButton, "button-secondary");
     } else {
       helper.removeClass(cloneBlock, "is-delete-state");
       cloneBlock.dataset.deleteCloneState = "false";
       // change clone remove button
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };
@@ -16454,7 +16499,6 @@ var clone = (function() {
       cloneBlock.dataset.deleteCloneState = "false";
       helper.removeClass(cloneBlock, "is-delete-state");
       // change clone remove button
-      // helper.removeClass(cloneRemoveButton, "is-active");
       helper.removeClass(cloneRemoveButton, "button-primary");
       helper.addClass(cloneRemoveButton, "button-secondary");
     };
@@ -17450,11 +17494,17 @@ var display = (function() {
     };
   };
 
-  function _get_displayState(anyOrSingle) {
+  function _get_displayState(options) {
+    var defaultOptions = {
+      all: false
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
     var fab = helper.e(".js-fab");
-    if (anyOrSingle == "all") {
+    if (defaultOptions.all) {
       return (fab.dataset.displayModeAll == "true");
-    } else if (anyOrSingle == "any" || !anyOrSingle) {
+    } else {
       return (fab.dataset.displayMode == "true");
     };
   };
@@ -17762,7 +17812,12 @@ var events = (function() {
       heading = "Wealth log";
     };
     var body = _create_eventTable(eventLogType);
-    modal.render(heading, body, "Close", false, "small");
+    modal.render({
+      heading: heading,
+      content: body,
+      actionText: "Close",
+      size: "small"
+    });
     page.update();
   };
 
@@ -17838,47 +17893,66 @@ var header = (function() {
   var targetUp = null;
   var targetDown = null;
 
-  function scroll() {
-    var body = helper.e("body");
-    var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
-    var currentPosition = window.pageYOffset;
-    if (previousPosition > currentPosition) {
-      targetDown = null;
-      if (targetUp == null) {
-        if (body.dataset.headerPinned == "true") {
-          targetUp = window.pageYOffset - 30;
-        };
-      } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
-        // console.log("unpin");
+  function resize() {
+    if (document.documentElement.clientWidth >= 900) {
+      var body = helper.e("body");
+      var header = helper.e(".js-header");
+      var nav = helper.e(".js-nav");
+      if (body.dataset.headerPinned == "true") {
         helper.removeClass(body, "is-header-pinned");
         helper.removeClass(header, "is-pinned");
-        if (document.documentElement.clientWidth < 900) {
-          helper.removeClass(nav, "is-pinned");
-        };
+        helper.removeClass(nav, "is-pinned");
         body.dataset.headerPinned = false;
-        targetUp = null;
-        targetDown = null;
-      };
-    } else {
-      targetUp = null;
-      if (targetDown == null) {
-        if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-          targetDown = window.pageYOffset + 100;
-        };
-      } else if (currentPosition == targetDown || currentPosition >= targetDown) {
-        // console.log("pin");
-        helper.addClass(body, "is-header-pinned");
-        helper.addClass(header, "is-pinned");
-        if (document.documentElement.clientWidth < 900) {
-          helper.addClass(nav, "is-pinned");
-        };
-        body.dataset.headerPinned = true;
-        targetDown = null;
       };
     };
-    previousPosition = currentPosition;
-    // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
+  };
+
+  function scroll() {
+    // if nav is on the left after 900px wide viewport
+    if (document.documentElement.clientWidth >= 900) {
+      unpin();
+    } else {
+      var body = helper.e("body");
+      var header = helper.e(".js-header");
+      var nav = helper.e(".js-nav");
+      var currentPosition = window.pageYOffset;
+      if (previousPosition > currentPosition) {
+        targetDown = null;
+        if (targetUp == null) {
+          if (body.dataset.headerPinned == "true") {
+            targetUp = window.pageYOffset - 30;
+          };
+        } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
+          // console.log("unpin");
+          helper.removeClass(body, "is-header-pinned");
+          helper.removeClass(header, "is-pinned");
+          if (document.documentElement.clientWidth < 900) {
+            helper.removeClass(nav, "is-pinned");
+          };
+          body.dataset.headerPinned = false;
+          targetUp = null;
+          targetDown = null;
+        };
+      } else {
+        targetUp = null;
+        if (targetDown == null) {
+          if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
+            targetDown = window.pageYOffset + 100;
+          };
+        } else if (currentPosition == targetDown || currentPosition >= targetDown) {
+          // console.log("pin");
+          helper.addClass(body, "is-header-pinned");
+          helper.addClass(header, "is-pinned");
+          if (document.documentElement.clientWidth < 900) {
+            helper.addClass(nav, "is-pinned");
+          };
+          body.dataset.headerPinned = true;
+          targetDown = null;
+        };
+      };
+      previousPosition = currentPosition;
+      // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
+    };
   };
 
   function unpin() {
@@ -17913,7 +17987,8 @@ var header = (function() {
   return {
     pin: pin,
     unpin: unpin,
-    scroll: scroll
+    scroll: scroll,
+    resize: resize
   };
 
 })();
@@ -18143,15 +18218,21 @@ var inputBlock = (function() {
 
     var modalContent = _create_quickValueModal();
 
-    modal.render(heading, modalContent, "Apply", function() {
-      var defenceSection = helper.e(".js-section-defense");
-      _update_value(this, change);
-      sheet.storeCharacters();
-      render(inputBlock);
-      totalBlock.render();
-      display.clear(defenceSection);
-      display.render(defenceSection);
-    }.bind(modalContent));
+    modal.render({
+      heading: heading,
+      content: modalContent,
+      action: function() {
+        var defenceSection = helper.e(".js-section-defense");
+        _update_value(this, change);
+        sheet.storeCharacters();
+        render(inputBlock);
+        totalBlock.render();
+        display.clear(defenceSection);
+        display.render(defenceSection);
+      }.bind(modalContent),
+      actionText: "Apply",
+      size: "medium"
+    });
     page.update();
   };
 
@@ -18217,7 +18298,12 @@ var inputBlock = (function() {
       xp.render();
       textBlock.render();
     };
-    prompt.render(promptHeading, promptMessage, "Clear", clear);
+    prompt.render({
+      heading: promptHeading,
+      message: promptMessage,
+      actionText: "Clear",
+      action: clear
+    });
   };
 
   function _aggregateGivenValue(action, path, value, message) {
@@ -18245,7 +18331,12 @@ var inputBlock = (function() {
     helper.setObject(sheet.getCharacter(), path, newValue);
     sheet.storeCharacters();
     _store_lastAggregate(path, currentValue);
-    snack.render(message, "Undo", _restore_lastAggregate, 8000);
+    snack.render({
+      message: message,
+      button: "Undo",
+      action: _restore_lastAggregate,
+      destroyDelay: 8000
+    });
     wealth.update();
     xp.render();
     textBlock.render();
@@ -18719,59 +18810,65 @@ var log = (function() {
 
   };
 
-  function _create_fullChangeLogModal() {
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    for (var i = 0; i < update.history.length; i++) {
-      var row = document.createElement("div");
-      row.setAttribute("class", "row");
-      var col2 = document.createElement("div");
-      col2.setAttribute("class", "col-xs-2");
-      row.setAttribute("class", "row");
-      var col10 = document.createElement("div");
-      col10.setAttribute("class", "col-xs-10");
-      row.setAttribute("class", "row");
-      var hr = document.createElement("hr");
-      var version = document.createElement("p");
-      var versionNumber = document.createElement("strong");
-      versionNumber.textContent = update.history[i].version;
-      var list = document.createElement("ul");
-      list.setAttribute("class", "m-log-list");
-      for (var j = 0; j < update.history[i].list.length; j++) {
-        var asterisk = "*";
-        var listItem = document.createElement("li");
-        listItem.setAttribute("class", "m-log-list-item");
-        if (update.history[i].list[j].indexOf(asterisk) != -1) {
-          helper.addClass(listItem, "m-log-list-item-alert");
-          var listItemIcon = document.createElement("span");
-          listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
-          listItem.textContent = update.history[i].list[j].substr(1);
-          if (update.history[i].link) {
-            var link = document.createElement("a");
-            link.textContent = update.history[i].link.text
-            link.setAttribute("target", "_blank");
-            link.href = update.history[i].link.url;
-            listItem.appendChild(link);
-          };
-          listItem.appendChild(listItemIcon);
-        } else {
-          listItem.textContent = update.history[i].list[j];
-        };
-        list.appendChild(listItem);
-      };
-      version.appendChild(versionNumber);
-      col2.appendChild(version);
-      col10.appendChild(list);
-      row.appendChild(col2);
-      row.appendChild(col10);
-      container.appendChild(hr);
-      container.appendChild(row);
-    };
-    return container;
-  };
 
   function _create_fullChangeLog() {
-    modal.render("Change Log", _create_fullChangeLogModal(), "Close");
+    var modalContent = function() {
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      for (var i = 0; i < update.history.length; i++) {
+        var row = document.createElement("div");
+        row.setAttribute("class", "row");
+        var col2 = document.createElement("div");
+        col2.setAttribute("class", "col-xs-2");
+        row.setAttribute("class", "row");
+        var col10 = document.createElement("div");
+        col10.setAttribute("class", "col-xs-10");
+        row.setAttribute("class", "row");
+        var hr = document.createElement("hr");
+        var version = document.createElement("p");
+        var versionNumber = document.createElement("strong");
+        versionNumber.textContent = update.history[i].version;
+        var list = document.createElement("ul");
+        list.setAttribute("class", "m-log-list");
+        for (var j = 0; j < update.history[i].list.length; j++) {
+          var asterisk = "*";
+          var listItem = document.createElement("li");
+          listItem.setAttribute("class", "m-log-list-item");
+          if (update.history[i].list[j].indexOf(asterisk) != -1) {
+            helper.addClass(listItem, "m-log-list-item-alert");
+            var listItemIcon = document.createElement("span");
+            listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
+            listItem.textContent = update.history[i].list[j].substr(1);
+            if (update.history[i].link) {
+              var link = document.createElement("a");
+              link.textContent = update.history[i].link.text
+              link.setAttribute("target", "_blank");
+              link.href = update.history[i].link.url;
+              listItem.appendChild(link);
+            };
+            listItem.appendChild(listItemIcon);
+          } else {
+            listItem.textContent = update.history[i].list[j];
+          };
+          list.appendChild(listItem);
+        };
+        version.appendChild(versionNumber);
+        col2.appendChild(version);
+        col10.appendChild(list);
+        row.appendChild(col2);
+        row.appendChild(col10);
+        container.appendChild(hr);
+        container.appendChild(row);
+      };
+      return container;
+    };
+    modal.render({
+      heading: "Change Log",
+      content: modalContent(),
+      actionText: "Close",
+      size: "medium"
+    });
+    page.update();
   };
 
   function render() {
@@ -18947,7 +19044,7 @@ var menu = (function() {
     var menuLinkNightMode = helper.e(".js-menu-link-night-mode");
     var menuLinkFullscreenMode = helper.e(".js-menu-link-fullscreen-mode");
     var menuLinkClearAll = helper.e(".js-menu-link-clear-all");
-    var menuLinkRestoreDemoPcs = helper.e(".js-menu-link-restore-demo-pcs");
+    var menuLinkRestoreDemoCharacters = helper.e(".js-menu-link-restore-demo-characters");
     menuLinkChnageLog.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
@@ -18968,13 +19065,23 @@ var menu = (function() {
       event.stopPropagation();
       event.preventDefault();
       close();
-      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
+      prompt.render({
+        heading: "Clear All Characters?",
+        message: "All characters will be removed. This can not be undone. Have you backed up your characters by Exporting?",
+        actionText: "Remove all",
+        action: sheet.destroy
+      });
     }, false);
-    menuLinkRestoreDemoPcs.addEventListener("click", function(event) {
+    menuLinkRestoreDemoCharacters.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       close();
-      prompt.render("Restore Demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      prompt.render({
+        heading: "Restore Demo Characters?",
+        message: "All characters will be removed and the demo characters will be restored. This can not be undone. Have you backed up your characters by Exporting?",
+        actionText: "Restore",
+        action: sheet.restore
+      });
     }, false);
     menuToggle.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -19022,18 +19129,28 @@ var modal = (function() {
     };
   };
 
-  function render(heading, modalBodyContent, actionText, action, size) {
+  function render(options) {
+    var defaultOptions = {
+      heading: "Heading",
+      content: "Body",
+      action: null,
+      actionText: "OK",
+      size: "medium"
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
     var makeModal = function() {
       var body = helper.e("body");
       body.dataset.modal = true;
       var modalWrapper = document.createElement("div");
       modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
       var modal = document.createElement("div");
-      if (size == "large") {
+      if (defaultOptions.size == "large") {
         modal.setAttribute("class", "m-modal m-modal-large js-modal");
-      } else if (size == "small") {
+      } else if (defaultOptions.size == "small") {
         modal.setAttribute("class", "m-modal m-modal-small js-modal");
-      } else {
+      } else if (defaultOptions.size) {
         modal.setAttribute("class", "m-modal js-modal");
       };
       modal.destroy = function() {
@@ -19047,10 +19164,6 @@ var modal = (function() {
         };
         body.dataset.modal = false;
       };
-      var modalHeading = document.createElement("h1");
-      modalHeading.setAttribute("tabindex", "1");
-      modalHeading.setAttribute("class", "m-modal-heading");
-      modalHeading.textContent = heading;
       var modalBody = document.createElement("div");
       modalBody.setAttribute("class", "m-modal-body u-clearfix");
       var modalControls = document.createElement("div");
@@ -19059,21 +19172,25 @@ var modal = (function() {
       actionButton.setAttribute("href", "javascript:void(0)");
       actionButton.setAttribute("tabindex", "1");
       actionButton.setAttribute("class", "button button-primary button-block button-large");
-      actionButton.textContent = actionText || "Ok";
+      actionButton.textContent = defaultOptions.actionText;
       modalControls.appendChild(actionButton);
-      if (heading != false) {
+      if (defaultOptions.heading != null) {
+        var modalHeading = document.createElement("h1");
+        modalHeading.setAttribute("tabindex", "1");
+        modalHeading.setAttribute("class", "m-modal-heading");
+        modalHeading.textContent = defaultOptions.heading;
         modalBody.appendChild(modalHeading);
       };
-      if (modalBodyContent) {
-        if (typeof modalBodyContent == "string") {
+      if (defaultOptions.content) {
+        if (typeof defaultOptions.content == "string") {
           var container = document.createElement("div");
           container.setAttribute("class", "container");
           var para = document.createElement("p");
-          para.textContent = modalBodyContent;
+          para.textContent = defaultOptions.content;
           container.appendChild(para);
           modalBody.appendChild(container);
         } else {
-          modalBody.appendChild(modalBodyContent);
+          modalBody.appendChild(defaultOptions.content);
         };
       };
       modalWrapper.appendChild(modalBody);
@@ -19090,8 +19207,8 @@ var modal = (function() {
         this.destroy();
         shade.destroy();
         page.update();
-        if (action) {
-          action();
+        if (defaultOptions.action) {
+          defaultOptions.action();
         };
       }.bind(modal), false);
       previousModal = modal;
@@ -19148,11 +19265,7 @@ var nav = (function() {
 
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      if (body.dataset.headerPinned == "true") {
-        offset = 0;
-      } else {
-        offset = parseInt(getComputedStyle(header).height, 10);
-      };
+      offset = parseInt(getComputedStyle(header).height, 10);
     } else {
       if (body.dataset.headerPinned == "true") {
         offset = parseInt(getComputedStyle(header).height, 10);
@@ -19188,33 +19301,34 @@ var nav = (function() {
     var speed;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      // is the header pinned
-      if (body.dataset.headerPinned == "true") {
-        zeroPoint = 0;
-      } else {
-        zeroPoint = headerHeight;
-      };
-      // if the section top is above the zero point
-      if (sectionTop < zeroPoint) {
-        // if the section top is above the pin threshold above zero point
-        if (sectionTop <= zeroPoint - 30) {
-          offset = headerHeight + sectionMargin;
-        } else {
-          offset = zeroPoint + sectionMargin;
-        };
-        // if the section top is below the zero point
-      } else if (sectionTop > zeroPoint) {
-        // if the section top is above the unpin threshold below zero point
-        if (sectionTop >= zeroPoint + 100) {
-          offset = sectionMargin;
-        } else {
-          offset = zeroPoint + sectionMargin;
-        };
-      } else if (sectionTop == zeroPoint) {
-        offset = zeroPoint + sectionMargin;
-      } else {
-        offset = headerHeight + sectionMargin;
-      };
+      offset = headerHeight + sectionMargin;
+      // // is the header pinned
+      // if (body.dataset.headerPinned == "true") {
+      //   zeroPoint = 0;
+      // } else {
+      //   zeroPoint = headerHeight;
+      // };
+      // // if the section top is above the zero point
+      // if (sectionTop < zeroPoint) {
+      //   // if the section top is above the pin threshold above zero point
+      //   if (sectionTop <= zeroPoint - 30) {
+      //     offset = headerHeight + sectionMargin;
+      //   } else {
+      //     offset = zeroPoint + sectionMargin;
+      //   };
+      //   // if the section top is below the zero point
+      // } else if (sectionTop > zeroPoint) {
+      //   // if the section top is above the unpin threshold below zero point
+      //   if (sectionTop >= zeroPoint + 100) {
+      //     offset = sectionMargin;
+      //   } else {
+      //     offset = zeroPoint + sectionMargin;
+      //   };
+      // } else if (sectionTop == zeroPoint) {
+      //   offset = zeroPoint + sectionMargin;
+      // } else {
+      //   offset = headerHeight + sectionMargin;
+      // };
     } else {
       // is the header pinned
       if (body.dataset.headerPinned == "true") {
@@ -19382,7 +19496,22 @@ var prompt = (function() {
     };
   };
 
-  function render(heading, message, actionText, action, actionUrl, actionAttributeKey, actionAttributeValue) {
+  function render(options) {
+    var defaultOptions = {
+      heading: "Heading",
+      message: "Message",
+      actionText: "OK",
+      cancelText: "Cancel",
+      action: null,
+      actionUrl: null,
+      customAttribute: {
+        key: null,
+        value: null
+      }
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
     var makePrompt = function() {
       var body = helper.e("body");
       body.dataset.prompt = true;
@@ -19403,31 +19532,31 @@ var prompt = (function() {
       };
       var promptbody = document.createElement("div");
       promptbody.setAttribute("class", "m-prompt-body");
-      var promptHeading = document.createElement("h1");
-      promptHeading.setAttribute("tabindex", "1");
-      promptHeading.setAttribute("class", "m-prompt-heading");
-      promptHeading.textContent = heading;
-      var promptText = document.createElement("p");
-      promptText.setAttribute("class", "m-prompt-text");
-      promptText.textContent = message;
       var promptControls = document.createElement("div");
       promptControls.setAttribute("class", "m-prompt-controls button-group button-group-line button-group-equal");
       var actionButton = document.createElement("a");
       actionButton.setAttribute("href", "javascript:void(0)");
       actionButton.setAttribute("tabindex", "1");
       actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
-      actionButton.textContent = actionText || "Ok";
+      actionButton.textContent = defaultOptions.actionText;
       var cancelButton = document.createElement("a");
       cancelButton.setAttribute("href", "javascript:void(0)");
       cancelButton.setAttribute("tabindex", "1");
       cancelButton.setAttribute("class", "button button-large");
-      cancelButton.textContent = "Cancel";
+      cancelButton.textContent = defaultOptions.cancelText;
       promptControls.appendChild(cancelButton);
       promptControls.appendChild(actionButton);
-      if (heading != false) {
+      if (defaultOptions.heading != null) {
+        var promptHeading = document.createElement("h1");
+        promptHeading.setAttribute("tabindex", "1");
+        promptHeading.setAttribute("class", "m-prompt-heading");
+        promptHeading.textContent = defaultOptions.heading;
         promptbody.appendChild(promptHeading);
       };
-      if (message != false) {
+      if (defaultOptions.message != null) {
+        var promptText = document.createElement("p");
+        promptText.setAttribute("class", "m-prompt-text");
+        promptText.textContent = defaultOptions.message;
         promptbody.appendChild(promptText);
       };
       promptWrapper.appendChild(promptbody);
@@ -19442,16 +19571,16 @@ var prompt = (function() {
         event.stopPropagation();
         this.destroy();
         shade.destroy();
-        if (action) {
-          action();
+        if (defaultOptions.action) {
+          defaultOptions.action();
         };
         page.update();
       }.bind(prompt), false);
-      if (actionUrl) {
-        actionButton.href = actionUrl;
+      if (defaultOptions.actionUrl) {
+        actionButton.href = defaultOptions.actionUrl;
       };
-      if (actionAttributeKey && actionAttributeValue) {
-        actionButton.setAttribute(actionAttributeKey, actionAttributeValue);
+      if (defaultOptions.customAttribute.key && defaultOptions.customAttribute.value) {
+        actionButton.setAttribute(defaultOptions.customAttribute.key, defaultOptions.customAttribute.value);
       };
       cancelButton.addEventListener("click", function(event) {
         event.stopPropagation();
@@ -20208,7 +20337,9 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("New character added.", false);
+    snack.render({
+      message: "New character added."
+    });
   };
 
   function removeCharacter() {
@@ -20218,7 +20349,12 @@ var sheet = (function() {
     } else {
       name = "New character";
     };
-    prompt.render("Remove " + name + "?", "The current character will be deleted. This can not be undone. Have you backed up using Export?", "Remove", destroyCharacter);
+    prompt.render({
+      heading: "Remove " + name + "?",
+      message: "The current character will be removed. This can not be undone. Have you backed up your characters by Exporting?",
+      actionText: "Remove",
+      action: destroyCharacter
+    });
   };
 
   function destroyCharacter() {
@@ -20236,10 +20372,14 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     if (lastCharacterRemoved) {
-      snack.render(helper.truncate(name, 40, true) + " removed. New character added.", false, false);
+      snack.render({
+        message: helper.truncate(name, 40, true) + " removed. New character added."
+      });
     } else {
       nav.scrollToTop();
-      snack.render(helper.truncate(name, 50, true) + " removed.", false, false);
+      snack.render({
+        message: helper.truncate(name, 50, true) + " removed."
+      });
     };
   };
 
@@ -20255,7 +20395,9 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("All characters restored.", false, false);
+    snack.render({
+      message: "All characters restored."
+    });
   };
 
   function restore() {
@@ -20270,7 +20412,9 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("Demo characters restored.", false, false);
+    snack.render({
+      message: "Demo characters restored."
+    });
   };
 
   function destroy() {
@@ -20286,48 +20430,11 @@ var sheet = (function() {
     characterSelect.clear();
     characterSelect.render();
     nav.scrollToTop();
-    snack.render("All characters cleared.", false, false);
+    snack.render({
+      message: "All characters cleared."
+    });
   };
 
-  function _createImportModal() {
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    var row = document.createElement("div");
-    row.setAttribute("class", "row");
-    var col = document.createElement("div");
-    col.setAttribute("class", "col-xs-12");
-    var importSelectWrapper = document.createElement("div");
-    importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
-    var importSelect = document.createElement("div");
-    importSelect.setAttribute("class", "m-import-select");
-    var input = document.createElement("input");
-    input.setAttribute("id", "import-select");
-    input.setAttribute("type", "file");
-    input.setAttribute("class", "m-import-select-input js-import-select-input");
-    var label = document.createElement("label");
-    label.setAttribute("tabindex", "1");
-    label.setAttribute("for", "import-select");
-    label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
-    var labelText = document.createElement("span");
-    labelText.textContent = "Select a file";
-    labelText.setAttribute("class", "js-import-select-label-text");
-    var icon = document.createElement("span");
-    icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
-    var message = document.createElement("p");
-    message.setAttribute("class", "m-import-select-message");
-    message.textContent = "Import a previously exported character file (JSON) from this or another device.";
-    label.appendChild(icon);
-    label.appendChild(labelText);
-    importSelect.appendChild(input);
-    importSelect.appendChild(label);
-    importSelectWrapper.appendChild(importSelect);
-    col.appendChild(message);
-    col.appendChild(importSelectWrapper);
-    row.appendChild(col);
-    container.appendChild(row);
-    input.addEventListener("change", _handleFiles, false);
-    return container;
-  };
 
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
@@ -20385,7 +20492,9 @@ var sheet = (function() {
 
     // if no JSON file is selected
     if (fileList.length <= 0) {
-      snack.render("No file selected.", false, false);
+      snack.render({
+        message: "No file selected."
+      });
       return false;
     };
 
@@ -20397,12 +20506,18 @@ var sheet = (function() {
         if (data.awesomeSheet) {
           addCharacter(data);
           var name = allCharacters[getIndex()].basics.name || "New character";
-          snack.render(helper.truncate(name, 40, true) + " imported and now in the game.", false, false);
+          snack.render({
+            message: helper.truncate(name, 40, true) + " imported and now in the game."
+          });
         } else {
-          snack.render("JSON file not recognised by awesomeSheet.", false, false);
+          snack.render({
+            message: "JSON file not recognised by awesomeSheet."
+          });
         };
       } else {
-        snack.render("Not a JSON file.", false, false);
+        snack.render({
+          message: "Not a JSON file."
+        });
       };
     };
 
@@ -20410,7 +20525,51 @@ var sheet = (function() {
   };
 
   function importJson() {
-    modal.render("Import character", _createImportModal(), "Import", _readJsonFile);
+    var modalContent = function() {
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      var col = document.createElement("div");
+      col.setAttribute("class", "col-xs-12");
+      var importSelectWrapper = document.createElement("div");
+      importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
+      var importSelect = document.createElement("div");
+      importSelect.setAttribute("class", "m-import-select");
+      var input = document.createElement("input");
+      input.setAttribute("id", "import-select");
+      input.setAttribute("type", "file");
+      input.setAttribute("class", "m-import-select-input js-import-select-input");
+      var label = document.createElement("label");
+      label.setAttribute("tabindex", "1");
+      label.setAttribute("for", "import-select");
+      label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
+      var labelText = document.createElement("span");
+      labelText.textContent = "Select a file";
+      labelText.setAttribute("class", "js-import-select-label-text");
+      var icon = document.createElement("span");
+      icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
+      var message = document.createElement("p");
+      message.setAttribute("class", "m-import-select-message");
+      message.textContent = "Import a previously exported character file (JSON) from this or another device.";
+      label.appendChild(icon);
+      label.appendChild(labelText);
+      importSelect.appendChild(input);
+      importSelect.appendChild(label);
+      importSelectWrapper.appendChild(importSelect);
+      col.appendChild(message);
+      col.appendChild(importSelectWrapper);
+      row.appendChild(col);
+      container.appendChild(row);
+      input.addEventListener("change", _handleFiles, false);
+      return container;
+    };
+    modal.render({
+      heading: "Import character",
+      content: modalContent(),
+      action: _readJsonFile,
+      actionText: "Import"
+    });
   };
 
   function exportJson() {
@@ -20425,15 +20584,16 @@ var sheet = (function() {
     if (classLevel != "") {
       fileName = fileName + ", " + classLevel;
     };
-    prompt.render(
-      "Export " + characterName,
-      "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
-      "Download",
-      false,
-      "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
-      "download",
-      fileName + ".json"
-    );
+    prompt.render({
+      heading: "Export " + characterName,
+      message: "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
+      actionText: "Download",
+      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      customAttribute: {
+        key: "download",
+        value: fileName + ".json"
+      }
+    });
   };
 
   function render() {
@@ -20460,6 +20620,8 @@ var sheet = (function() {
   };
 
   function bind() {
+    scroll();
+    resize();
     characterSelect.bind();
     menu.bind();
     prompt.bind();
@@ -20495,6 +20657,12 @@ var sheet = (function() {
     };
   };
 
+  function resize() {
+    window.onresize = function() {
+      header.resize();
+    };
+  };
+
   function clear() {
     totalBlock.clear();
     clone.clear();
@@ -20509,18 +20677,22 @@ var sheet = (function() {
   };
 
   function switchCharacter(index) {
-    if (index >= 0 && index <= getAllCharacters().length) {
+    var switcharoo = function(index) {
       setIndex(index);
       clear();
       render();
       characterSelect.clear();
       characterSelect.render();
       var name = sheet.getCharacter().basics.name;
-      snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+      snack.render({
+        message: helper.truncate(name, 50, true) + " now in the game."
+      });
       menu.close();
-    } else {
-      snack.render("No character with that index.", false);
     };
+    if (index < 0 || index > getAllCharacters().length) {
+      index = 0;
+    };
+    switcharoo(index);
   };
 
   // exposed methods
@@ -20572,28 +20744,24 @@ var shade = (function() {
       action: null,
       includeHeader: false
     };
-    var applyOptions = function() {
-      if (options) {
-        for (key in options) {
-          if (key in defaultOptions) {
-            defaultOptions[key] = options[key];
-          };
-        };
-      };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    var destroyPrevious = function(){
+    var _destroy_previousShade = function() {
       if (previousShade != null) {
         destroy();
       };
     };
-    var makeShade = function(action) {
+    var _render_shade = function() {
       var body = helper.e("body");
       var shade = document.createElement("div");
       shade.setAttribute("class", "m-shade js-shade");
       if (defaultOptions.includeHeader) {
         helper.addClass(shade, "m-shade-top");
       };
-      if (display.state()) {
+      if (display.state({
+          all: true
+        })) {
         helper.addClass(shade, "is-display-mode");
       };
       shade.destroy = function() {
@@ -20621,9 +20789,8 @@ var shade = (function() {
       helper.removeClass(shade, "is-transparent");
       helper.addClass(shade, "is-opaque");
     };
-    destroyPrevious();
-    applyOptions();
-    makeShade();
+    _destroy_previousShade();
+    _render_shade();
   };
 
   // exposed methods
@@ -20769,12 +20936,26 @@ var snack = (function() {
 
   function destroy() {
     var all_snackBar = helper.eA(".js-snack-bar");
-    for (var i = 0; i < all_snackBar.length; i++) {
-      all_snackBar[i].destroy();
+    if (all_snackBar[0]) {
+      for (var i = 0; i < all_snackBar.length; i++) {
+        all_snackBar[i].destroy();
+      };
     };
   };
 
-  function render(message, actionText, action, destroyDelay, postSnack) {
+  // message, button, action, destroyDelay, postSnack
+
+  function render(options) {
+    var defaultOptions = {
+      message: "Message",
+      button: false,
+      action: null,
+      destroyDelay: 4000,
+      postSnack: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
 
     var body = helper.e("body");
 
@@ -20783,40 +20964,42 @@ var snack = (function() {
     snackBar.destroy = function() {
       helper.addClass(snackBar, "is-transparent");
     };
-    var text = document.createElement("p");
-    text.setAttribute("class", "m-snack-bar-message");
-    text.textContent = (message);
-    snackBar.appendChild(text);
+    if (defaultOptions.message != null) {
+      var text = document.createElement("p");
+      text.setAttribute("class", "m-snack-bar-message");
+      text.textContent = defaultOptions.message;
+      snackBar.appendChild(text);
+    };
 
-    if (actionText) {
+    if (defaultOptions.button) {
       var destroyAction = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("button");
       actionButton.setAttribute("class", "button button-medium button-tertiary m-snack-bar-button");
-      if (typeof actionText == "boolean") {
+      if (typeof defaultOptions.button == "boolean" && defaultOptions.button) {
         helper.addClass(actionButton, "button-icon");
         var icon = document.createElement("span");
         icon.setAttribute("class", "icon icon-close");
         actionButton.appendChild(icon);
-      } else if (typeof actionText == "string") {
-        actionButton.textContent = actionText;
+      } else {
+        actionButton.textContent = defaultOptions.button;
       };
       actionButton.addEventListener("click", destroyAction);
       snackBar.appendChild(actionButton);
-    };
-    if (action) {
-      actionButton.addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        action();
-      }, false);
+      if (defaultOptions.action) {
+        actionButton.addEventListener("click", function(event) {
+          event.stopPropagation();
+          event.preventDefault();
+          defaultOptions.action();
+        }, false);
+      };
     };
 
     snackBar.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && this.style.opacity == 0) {
         this.parentElement.removeChild(this);
         _checkBodyForSnack();
-        if (postSnack) {
-          postSnack();
+        if (defaultOptions.postSnack) {
+          defaultOptions.postSnack();
         };
       };
     }.bind(snackBar), false);
@@ -20831,7 +21014,7 @@ var snack = (function() {
       if (previousSnackBar === this) {
         previousSnackBar.destroy();
       };
-    }.bind(snackBar), destroyDelay || 4000);
+    }.bind(snackBar), defaultOptions.destroyDelay);
 
     body.appendChild(snackBar);
     getComputedStyle(snackBar).opacity;
@@ -20839,7 +21022,6 @@ var snack = (function() {
     getComputedStyle(snackBar).margin;
     helper.addClass(snackBar, "is-reveal");
     _checkBodyForSnack();
-
   };
 
   function bind() {
@@ -20908,10 +21090,22 @@ var spells = (function() {
       _change_spellState(this);
     }, false);
     spellReset.addEventListener("click", function() {
-      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetAllSpells);
+      prompt.render({
+        heading: "Reset all spells?",
+        message: "All Prepared, Cast and Active spells will be set to normal states.",
+        actionText: "Reset",
+        action: _resetAllSpells
+      });
+      page.update();
     }, false);
     spellSort.addEventListener("click", function() {
-      prompt.render("Sort Spells", "Sort all Spells in alphabetical order?", "Sort", _sortAllSpells);
+      prompt.render({
+        heading: "Sort Spells",
+        message: "Sort all Spells in alphabetical order?",
+        actionText: "Sort",
+        action: _sortAllSpells
+      });
+      page.update();
     }, false);
   };
 
@@ -20931,7 +21125,9 @@ var spells = (function() {
       clear();
       render();
       sheet.storeCharacters();
-      snack.render("All spells reset.");
+      snack.render({
+        message: "All spells reset."
+      });
     };
   };
 
@@ -20944,7 +21140,9 @@ var spells = (function() {
     sheet.storeCharacters();
     clear();
     render();
-    snack.render("All spells alphabetically sorted.");
+    snack.render({
+      message: "All spells alphabetically sorted."
+    });
   };
 
   function _addNewSpell(element) {
@@ -21299,14 +21497,20 @@ var spells = (function() {
     if (spellState == "false" || force) {
       var modalContent = _create_spellControlModal();
 
-      modal.render(spellObject.name, modalContent, "Save", function() {
-        var spellSection = helper.e(".js-section-spells");
-        _update_spellObject(this);
-        _update_spellButton(button, true);
-        sheet.storeCharacters();
-        display.clear(spellSection);
-        display.render(spellSection);
-      }.bind(modalContent));
+      modal.render({
+        heading: spellObject.name,
+        content: modalContent,
+        action: function() {
+          var spellSection = helper.e(".js-section-spells");
+          _update_spellObject(this);
+          _update_spellButton(button, true);
+          sheet.storeCharacters();
+          display.clear(spellSection);
+          display.render(spellSection);
+        }.bind(modalContent),
+        actionText: "Save",
+        size: "medium"
+      });
       page.update();
     };
 
@@ -21402,7 +21606,12 @@ var spells = (function() {
       var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
       _store_lastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
-      snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restore_lastRemovedSpell, 8000);
+      snack.render({
+        message: helper.truncate(spellName, 40, true) + " removed.",
+        button: "Undo",
+        action: _restore_lastRemovedSpell,
+        destroyDelay: 8000
+      });
     };
     // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     sheet.storeCharacters();
@@ -22119,7 +22328,9 @@ var themeColor = (function() {
 
   function update() {
     var themeMeta = document.getElementsByTagName("meta");
-    if (display.state("all")) {
+    if (display.state({
+        all: true
+      })) {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
           themeMeta[i].setAttribute("content", "#b0002e");
@@ -22873,13 +23084,19 @@ var totalBlock = (function() {
 
     var modalContent = _create_totalBlockControls();
 
-    modal.render(heading, modalContent, "Apply", function() {
-      _update_objectBonuses(this);
-      sheet.storeCharacters();
-      render();
-      display.clear();
-      display.render();
-    }.bind(modalContent), "small");
+    modal.render({
+      heading: heading,
+      content: modalContent,
+      action: function() {
+        _update_objectBonuses(this);
+        sheet.storeCharacters();
+        render();
+        display.clear();
+        display.render();
+      }.bind(modalContent),
+      actionText: "Apply",
+      size: "small"
+    });
     page.update();
   };
 
@@ -23358,7 +23575,6 @@ var xp = (function() {
 
   sheet.render();
   sheet.bind();
-  sheet.scroll();
   nav.bind();
   tabs.bind();
   log.bind();

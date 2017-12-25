@@ -912,11 +912,17 @@ var display = (function() {
     };
   };
 
-  function _get_displayState(anyOrSingle) {
+  function _get_displayState(options) {
+    var defaultOptions = {
+      all: false
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
     var fab = helper.e(".js-fab");
-    if (anyOrSingle == "all") {
+    if (defaultOptions.all) {
       return (fab.dataset.displayModeAll == "true");
-    } else if (anyOrSingle == "any" || !anyOrSingle) {
+    } else {
       return (fab.dataset.displayMode == "true");
     };
   };

@@ -223,15 +223,21 @@ var inputBlock = (function() {
 
     var modalContent = _create_quickValueModal();
 
-    modal.render(heading, modalContent, "Apply", function() {
-      var defenceSection = helper.e(".js-section-defense");
-      _update_value(this, change);
-      sheet.storeCharacters();
-      render(inputBlock);
-      totalBlock.render();
-      display.clear(defenceSection);
-      display.render(defenceSection);
-    }.bind(modalContent));
+    modal.render({
+      heading: heading,
+      content: modalContent,
+      action: function() {
+        var defenceSection = helper.e(".js-section-defense");
+        _update_value(this, change);
+        sheet.storeCharacters();
+        render(inputBlock);
+        totalBlock.render();
+        display.clear(defenceSection);
+        display.render(defenceSection);
+      }.bind(modalContent),
+      actionText: "Apply",
+      size: "medium"
+    });
     page.update();
   };
 
@@ -297,7 +303,12 @@ var inputBlock = (function() {
       xp.render();
       textBlock.render();
     };
-    prompt.render(promptHeading, promptMessage, "Clear", clear);
+    prompt.render({
+      heading: promptHeading,
+      message: promptMessage,
+      actionText: "Clear",
+      action: clear
+    });
   };
 
   function _aggregateGivenValue(action, path, value, message) {
@@ -325,7 +336,12 @@ var inputBlock = (function() {
     helper.setObject(sheet.getCharacter(), path, newValue);
     sheet.storeCharacters();
     _store_lastAggregate(path, currentValue);
-    snack.render(message, "Undo", _restore_lastAggregate, 8000);
+    snack.render({
+      message: message,
+      button: "Undo",
+      action: _restore_lastAggregate,
+      destroyDelay: 8000
+    });
     wealth.update();
     xp.render();
     textBlock.render();

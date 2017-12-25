@@ -17,11 +17,7 @@ var nav = (function() {
 
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      if (body.dataset.headerPinned == "true") {
-        offset = 0;
-      } else {
-        offset = parseInt(getComputedStyle(header).height, 10);
-      };
+      offset = parseInt(getComputedStyle(header).height, 10);
     } else {
       if (body.dataset.headerPinned == "true") {
         offset = parseInt(getComputedStyle(header).height, 10);
@@ -57,33 +53,34 @@ var nav = (function() {
     var speed;
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      // is the header pinned
-      if (body.dataset.headerPinned == "true") {
-        zeroPoint = 0;
-      } else {
-        zeroPoint = headerHeight;
-      };
-      // if the section top is above the zero point
-      if (sectionTop < zeroPoint) {
-        // if the section top is above the pin threshold above zero point
-        if (sectionTop <= zeroPoint - 30) {
-          offset = headerHeight + sectionMargin;
-        } else {
-          offset = zeroPoint + sectionMargin;
-        };
-        // if the section top is below the zero point
-      } else if (sectionTop > zeroPoint) {
-        // if the section top is above the unpin threshold below zero point
-        if (sectionTop >= zeroPoint + 100) {
-          offset = sectionMargin;
-        } else {
-          offset = zeroPoint + sectionMargin;
-        };
-      } else if (sectionTop == zeroPoint) {
-        offset = zeroPoint + sectionMargin;
-      } else {
-        offset = headerHeight + sectionMargin;
-      };
+      offset = headerHeight + sectionMargin;
+      // // is the header pinned
+      // if (body.dataset.headerPinned == "true") {
+      //   zeroPoint = 0;
+      // } else {
+      //   zeroPoint = headerHeight;
+      // };
+      // // if the section top is above the zero point
+      // if (sectionTop < zeroPoint) {
+      //   // if the section top is above the pin threshold above zero point
+      //   if (sectionTop <= zeroPoint - 30) {
+      //     offset = headerHeight + sectionMargin;
+      //   } else {
+      //     offset = zeroPoint + sectionMargin;
+      //   };
+      //   // if the section top is below the zero point
+      // } else if (sectionTop > zeroPoint) {
+      //   // if the section top is above the unpin threshold below zero point
+      //   if (sectionTop >= zeroPoint + 100) {
+      //     offset = sectionMargin;
+      //   } else {
+      //     offset = zeroPoint + sectionMargin;
+      //   };
+      // } else if (sectionTop == zeroPoint) {
+      //   offset = zeroPoint + sectionMargin;
+      // } else {
+      //   offset = headerHeight + sectionMargin;
+      // };
     } else {
       // is the header pinned
       if (body.dataset.headerPinned == "true") {

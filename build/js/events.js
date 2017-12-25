@@ -141,7 +141,12 @@ var events = (function() {
       heading = "Wealth log";
     };
     var body = _create_eventTable(eventLogType);
-    modal.render(heading, body, "Close", false, "small");
+    modal.render({
+      heading: heading,
+      content: body,
+      actionText: "Close",
+      size: "small"
+    });
     page.update();
   };
 
