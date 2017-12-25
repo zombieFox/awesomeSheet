@@ -830,7 +830,6 @@ var clone = (function() {
     }, false);
     if (cloneType == "class") {
       button.addEventListener("click", function() {
-        console.log("click");
         characterSelect.update();
       }, false);
     };
