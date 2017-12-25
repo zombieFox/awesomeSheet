@@ -308,7 +308,7 @@ var helper = (function() {
   function applyOptions(defaultOptions, options) {
     if (defaultOptions && options) {
       if (options) {
-        for (key in options) {
+        for (var key in options) {
           if (key in defaultOptions) {
             defaultOptions[key] = options[key];
           };
