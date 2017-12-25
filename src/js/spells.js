@@ -37,10 +37,22 @@ var spells = (function() {
       _change_spellState(this);
     }, false);
     spellReset.addEventListener("click", function() {
-      prompt.render("Reset all spells?", "All prepared, cast and active spells will be set to normal states.", "Reset", _resetAllSpells);
+      prompt.render({
+        heading: "Reset all spells?",
+        message: "All Prepared, Cast and Active spells will be set to normal states.",
+        actionText: "Reset",
+        action: _resetAllSpells
+      });
+      page.update();
     }, false);
     spellSort.addEventListener("click", function() {
-      prompt.render("Sort Spells", "Sort all Spells in alphabetical order?", "Sort", _sortAllSpells);
+      prompt.render({
+        heading: "Sort Spells",
+        message: "Sort all Spells in alphabetical order?",
+        actionText: "Sort",
+        action: _sortAllSpells
+      });
+      page.update();
     }, false);
   };
 
@@ -60,7 +72,9 @@ var spells = (function() {
       clear();
       render();
       sheet.storeCharacters();
-      snack.render("All spells reset.");
+      snack.render({
+        message: "All spells reset."
+      });
     };
   };
 
@@ -73,7 +87,9 @@ var spells = (function() {
     sheet.storeCharacters();
     clear();
     render();
-    snack.render("All spells alphabetically sorted.");
+    snack.render({
+      message: "All spells alphabetically sorted."
+    });
   };
 
   function _addNewSpell(element) {
@@ -428,14 +444,20 @@ var spells = (function() {
     if (spellState == "false" || force) {
       var modalContent = _create_spellControlModal();
 
-      modal.render(spellObject.name, modalContent, "Save", function() {
-        var spellSection = helper.e(".js-section-spells");
-        _update_spellObject(this);
-        _update_spellButton(button, true);
-        sheet.storeCharacters();
-        display.clear(spellSection);
-        display.render(spellSection);
-      }.bind(modalContent));
+      modal.render({
+        heading: spellObject.name,
+        content: modalContent,
+        action: function() {
+          var spellSection = helper.e(".js-section-spells");
+          _update_spellObject(this);
+          _update_spellButton(button, true);
+          sheet.storeCharacters();
+          display.clear(spellSection);
+          display.render(spellSection);
+        }.bind(modalContent),
+        actionText: "Save",
+        size: "medium"
+      });
       page.update();
     };
 
@@ -531,7 +553,12 @@ var spells = (function() {
       var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
       _store_lastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
       sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
-      snack.render(helper.truncate(spellName, 40, true) + " removed.", "Undo", _restore_lastRemovedSpell, 8000);
+      snack.render({
+        message: helper.truncate(spellName, 40, true) + " removed.",
+        button: "Undo",
+        action: _restore_lastRemovedSpell,
+        destroyDelay: 8000
+      });
     };
     // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     sheet.storeCharacters();

@@ -92,7 +92,7 @@ var menu = (function() {
     var menuLinkNightMode = helper.e(".js-menu-link-night-mode");
     var menuLinkFullscreenMode = helper.e(".js-menu-link-fullscreen-mode");
     var menuLinkClearAll = helper.e(".js-menu-link-clear-all");
-    var menuLinkRestoreDemoPcs = helper.e(".js-menu-link-restore-demo-pcs");
+    var menuLinkRestoreDemoCharacters = helper.e(".js-menu-link-restore-demo-characters");
     menuLinkChnageLog.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
@@ -113,13 +113,23 @@ var menu = (function() {
       event.stopPropagation();
       event.preventDefault();
       close();
-      prompt.render("Clear all characters?", "All characters will be removed. This can not be undone.", "Remove all", sheet.destroy);
+      prompt.render({
+        heading: "Clear All Characters?",
+        message: "All characters will be removed. This can not be undone. Have you backed up your characters by Exporting?",
+        actionText: "Remove all",
+        action: sheet.destroy
+      });
     }, false);
-    menuLinkRestoreDemoPcs.addEventListener("click", function(event) {
+    menuLinkRestoreDemoCharacters.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
       close();
-      prompt.render("Restore Demo PCs?", "All characters will be removed and the demo characters will be restored. Have you backed up your characters by Exporting?", "Restore", sheet.restore);
+      prompt.render({
+        heading: "Restore Demo Characters?",
+        message: "All characters will be removed and the demo characters will be restored. This can not be undone. Have you backed up your characters by Exporting?",
+        actionText: "Restore",
+        action: sheet.restore
+      });
     }, false);
     menuToggle.addEventListener("click", function(event) {
       event.stopPropagation();

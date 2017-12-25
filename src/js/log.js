@@ -116,59 +116,65 @@ var log = (function() {
 
   };
 
-  function _create_fullChangeLogModal() {
-    var container = document.createElement("div");
-    container.setAttribute("class", "container");
-    for (var i = 0; i < update.history.length; i++) {
-      var row = document.createElement("div");
-      row.setAttribute("class", "row");
-      var col2 = document.createElement("div");
-      col2.setAttribute("class", "col-xs-2");
-      row.setAttribute("class", "row");
-      var col10 = document.createElement("div");
-      col10.setAttribute("class", "col-xs-10");
-      row.setAttribute("class", "row");
-      var hr = document.createElement("hr");
-      var version = document.createElement("p");
-      var versionNumber = document.createElement("strong");
-      versionNumber.textContent = update.history[i].version;
-      var list = document.createElement("ul");
-      list.setAttribute("class", "m-log-list");
-      for (var j = 0; j < update.history[i].list.length; j++) {
-        var asterisk = "*";
-        var listItem = document.createElement("li");
-        listItem.setAttribute("class", "m-log-list-item");
-        if (update.history[i].list[j].indexOf(asterisk) != -1) {
-          helper.addClass(listItem, "m-log-list-item-alert");
-          var listItemIcon = document.createElement("span");
-          listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
-          listItem.textContent = update.history[i].list[j].substr(1);
-          if (update.history[i].link) {
-            var link = document.createElement("a");
-            link.textContent = update.history[i].link.text
-            link.setAttribute("target", "_blank");
-            link.href = update.history[i].link.url;
-            listItem.appendChild(link);
-          };
-          listItem.appendChild(listItemIcon);
-        } else {
-          listItem.textContent = update.history[i].list[j];
-        };
-        list.appendChild(listItem);
-      };
-      version.appendChild(versionNumber);
-      col2.appendChild(version);
-      col10.appendChild(list);
-      row.appendChild(col2);
-      row.appendChild(col10);
-      container.appendChild(hr);
-      container.appendChild(row);
-    };
-    return container;
-  };
 
   function _create_fullChangeLog() {
-    modal.render("Change Log", _create_fullChangeLogModal(), "Close");
+    var modalContent = function() {
+      var container = document.createElement("div");
+      container.setAttribute("class", "container");
+      for (var i = 0; i < update.history.length; i++) {
+        var row = document.createElement("div");
+        row.setAttribute("class", "row");
+        var col2 = document.createElement("div");
+        col2.setAttribute("class", "col-xs-2");
+        row.setAttribute("class", "row");
+        var col10 = document.createElement("div");
+        col10.setAttribute("class", "col-xs-10");
+        row.setAttribute("class", "row");
+        var hr = document.createElement("hr");
+        var version = document.createElement("p");
+        var versionNumber = document.createElement("strong");
+        versionNumber.textContent = update.history[i].version;
+        var list = document.createElement("ul");
+        list.setAttribute("class", "m-log-list");
+        for (var j = 0; j < update.history[i].list.length; j++) {
+          var asterisk = "*";
+          var listItem = document.createElement("li");
+          listItem.setAttribute("class", "m-log-list-item");
+          if (update.history[i].list[j].indexOf(asterisk) != -1) {
+            helper.addClass(listItem, "m-log-list-item-alert");
+            var listItemIcon = document.createElement("span");
+            listItemIcon.setAttribute("class", "m-log-list-item-alert-icon icon-error-outline");
+            listItem.textContent = update.history[i].list[j].substr(1);
+            if (update.history[i].link) {
+              var link = document.createElement("a");
+              link.textContent = update.history[i].link.text
+              link.setAttribute("target", "_blank");
+              link.href = update.history[i].link.url;
+              listItem.appendChild(link);
+            };
+            listItem.appendChild(listItemIcon);
+          } else {
+            listItem.textContent = update.history[i].list[j];
+          };
+          list.appendChild(listItem);
+        };
+        version.appendChild(versionNumber);
+        col2.appendChild(version);
+        col10.appendChild(list);
+        row.appendChild(col2);
+        row.appendChild(col10);
+        container.appendChild(hr);
+        container.appendChild(row);
+      };
+      return container;
+    };
+    modal.render({
+      heading: "Change Log",
+      content: modalContent(),
+      actionText: "Close",
+      size: "medium"
+    });
+    page.update();
   };
 
   function render() {

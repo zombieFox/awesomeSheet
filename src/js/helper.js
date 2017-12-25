@@ -303,6 +303,21 @@ var helper = (function() {
     return rgb;
   };
 
+  function applyOptions(defaultOptions, options) {
+    if (defaultOptions && options) {
+      if (options) {
+        for (key in options) {
+          if (key in defaultOptions) {
+            defaultOptions[key] = options[key];
+          };
+        };
+      };
+      return defaultOptions;
+    } else {
+      return null;
+    };
+  };
+
   // exposed methods
   return {
     store: store,
@@ -329,7 +344,8 @@ var helper = (function() {
     inViewport: inViewport,
     sortObject: sortObject,
     getDateTime: getDateTime,
-    getAverageColor: getAverageColor
+    getAverageColor: getAverageColor,
+    applyOptions: applyOptions
   };
 
 })();

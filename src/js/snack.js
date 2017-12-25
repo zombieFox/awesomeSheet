@@ -4,12 +4,26 @@ var snack = (function() {
 
   function destroy() {
     var all_snackBar = helper.eA(".js-snack-bar");
-    for (var i = 0; i < all_snackBar.length; i++) {
-      all_snackBar[i].destroy();
+    if (all_snackBar[0]) {
+      for (var i = 0; i < all_snackBar.length; i++) {
+        all_snackBar[i].destroy();
+      };
     };
   };
 
-  function render(message, actionText, action, destroyDelay, postSnack) {
+  // message, button, action, destroyDelay, postSnack
+
+  function render(options) {
+    var defaultOptions = {
+      message: "Message",
+      button: false,
+      action: null,
+      destroyDelay: 4000,
+      postSnack: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
 
     var body = helper.e("body");
 
@@ -18,40 +32,42 @@ var snack = (function() {
     snackBar.destroy = function() {
       helper.addClass(snackBar, "is-transparent");
     };
-    var text = document.createElement("p");
-    text.setAttribute("class", "m-snack-bar-message");
-    text.textContent = (message);
-    snackBar.appendChild(text);
+    if (defaultOptions.message != null) {
+      var text = document.createElement("p");
+      text.setAttribute("class", "m-snack-bar-message");
+      text.textContent = defaultOptions.message;
+      snackBar.appendChild(text);
+    };
 
-    if (actionText) {
+    if (defaultOptions.button) {
       var destroyAction = snackBar.destroy.bind(snackBar);
       var actionButton = document.createElement("button");
       actionButton.setAttribute("class", "button button-medium button-tertiary m-snack-bar-button");
-      if (typeof actionText == "boolean") {
+      if (typeof defaultOptions.button == "boolean" && defaultOptions.button) {
         helper.addClass(actionButton, "button-icon");
         var icon = document.createElement("span");
         icon.setAttribute("class", "icon icon-close");
         actionButton.appendChild(icon);
-      } else if (typeof actionText == "string") {
-        actionButton.textContent = actionText;
+      } else {
+        actionButton.textContent = defaultOptions.button;
       };
       actionButton.addEventListener("click", destroyAction);
       snackBar.appendChild(actionButton);
-    };
-    if (action) {
-      actionButton.addEventListener("click", function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-        action();
-      }, false);
+      if (defaultOptions.action) {
+        actionButton.addEventListener("click", function(event) {
+          event.stopPropagation();
+          event.preventDefault();
+          defaultOptions.action();
+        }, false);
+      };
     };
 
     snackBar.addEventListener("transitionend", function(event, elapsed) {
       if (event.propertyName === "opacity" && this.style.opacity == 0) {
         this.parentElement.removeChild(this);
         _checkBodyForSnack();
-        if (postSnack) {
-          postSnack();
+        if (defaultOptions.postSnack) {
+          defaultOptions.postSnack();
         };
       };
     }.bind(snackBar), false);
@@ -66,7 +82,7 @@ var snack = (function() {
       if (previousSnackBar === this) {
         previousSnackBar.destroy();
       };
-    }.bind(snackBar), destroyDelay || 4000);
+    }.bind(snackBar), defaultOptions.destroyDelay);
 
     body.appendChild(snackBar);
     getComputedStyle(snackBar).opacity;
@@ -74,7 +90,6 @@ var snack = (function() {
     getComputedStyle(snackBar).margin;
     helper.addClass(snackBar, "is-reveal");
     _checkBodyForSnack();
-
   };
 
   function bind() {

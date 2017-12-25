@@ -7,7 +7,9 @@ var characterSelect = (function() {
     if (typeof name == "undefined" || name == "") {
       name = "New character";
     };
-    snack.render(helper.truncate(name, 50, true) + " now in the game.", false);
+    snack.render({
+      message: helper.truncate(name, 50, true) + " now in the game."
+    });
   };
 
   function _bind_characterOption(characterLink) {

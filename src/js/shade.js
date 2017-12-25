@@ -24,28 +24,24 @@ var shade = (function() {
       action: null,
       includeHeader: false
     };
-    var applyOptions = function() {
-      if (options) {
-        for (key in options) {
-          if (key in defaultOptions) {
-            defaultOptions[key] = options[key];
-          };
-        };
-      };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    var destroyPrevious = function(){
+    var _destroy_previousShade = function() {
       if (previousShade != null) {
         destroy();
       };
     };
-    var makeShade = function(action) {
+    var _render_shade = function() {
       var body = helper.e("body");
       var shade = document.createElement("div");
       shade.setAttribute("class", "m-shade js-shade");
       if (defaultOptions.includeHeader) {
         helper.addClass(shade, "m-shade-top");
       };
-      if (display.state()) {
+      if (display.state({
+          all: true
+        })) {
         helper.addClass(shade, "is-display-mode");
       };
       shade.destroy = function() {
@@ -73,9 +69,8 @@ var shade = (function() {
       helper.removeClass(shade, "is-transparent");
       helper.addClass(shade, "is-opaque");
     };
-    destroyPrevious();
-    applyOptions();
-    makeShade();
+    _destroy_previousShade();
+    _render_shade();
   };
 
   // exposed methods

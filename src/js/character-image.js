@@ -141,7 +141,12 @@ var characterImage = (function() {
 
   function _removeCharacterImage() {
     if (helper.getObject(sheet.getCharacter(), "basics.character_image.image") != "") {
-      prompt.render("Remove Character Image?", "This can not be undone.", "Remove", destroy);
+      prompt.render({
+        heading: "Remove Character Image?",
+        message: "This can not be undone.",
+        actionText: "Remove",
+        action: destroy
+      });
     };
   };
 
@@ -178,7 +183,9 @@ var characterImage = (function() {
           _clear_inputUpload();
           sheet.storeCharacters();
         } else {
-          snack.render("Image too large, max 2000x2000px.", false, false);
+          snack.render({
+            message: "Image too large, max 2000x2000px."
+          });
         };
       };
       tempImage.src = reader.result;
@@ -189,10 +196,14 @@ var characterImage = (function() {
       if (file.type == "image/jpeg" || file.type == "image/jpg" || file.type == "image/gif" || file.type == "image/png") {
         reader.readAsDataURL(file);
       } else {
-        snack.render("Not an image file.", false, false);
+        snack.render({
+          message: "Not an image file."
+        });
       };
     } else {
-      snack.render("File too big, max 500KB.", false, false);
+      snack.render({
+        message: "File too big, max 500KB."
+      });
     };
   };
 
