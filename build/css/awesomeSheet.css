@@ -3885,7 +3885,7 @@ label {
   max-height: calc(100vh - 3em);
   font-size: 1rem;
   border-radius: 0 0 5px 5px;
-  overflow: scroll;
+  overflow-y: scroll;
   -webkit-transform: translate(-50%, -100%);
       -ms-transform: translate(-50%, -100%);
           transform: translate(-50%, -100%);

@@ -18812,7 +18812,7 @@ var log = (function() {
 
 
   function _create_fullChangeLog() {
-    var modalContent = function() {
+    var _modalContent = function() {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       for (var i = 0; i < update.history.length; i++) {
@@ -18864,7 +18864,7 @@ var log = (function() {
     };
     modal.render({
       heading: "Change Log",
-      content: modalContent(),
+      content: _modalContent(),
       actionText: "Close",
       size: "medium"
     });
@@ -18872,30 +18872,14 @@ var log = (function() {
   };
 
   function render() {
+
     var all_breakingChanges = [];
+    var all_breakingChangesLink = [];
     var all_breakingChangesVersion = [];
     var changeVersion;
-    var numberOfRecentChanges = 1;
-    for (var i = 0; i < update.history.length; i++) {
-      for (var j = 0; j < update.history[i].list.length; j++) {
-        var asterisk = "*";
-        if (update.history[i].list[j].indexOf(asterisk) != -1) {
-          all_breakingChanges.push(update.history[i].list[j].substr(1));
-          all_breakingChangesVersion.push(update.history[i].version);
-        };
-      };
-    };
-    for (var i = 0; i < numberOfRecentChanges; i++) {
-      if (typeof changeVersion == "undefined") {
-        changeVersion = all_breakingChangesVersion[i];
-      } else {
-        changeVersion = changeVersion + "/" + all_breakingChangesVersion[i];
-      };
-    };
-    if (all_breakingChanges.length < numberOfRecentChanges) {
-      numberOfRecentChanges = all_breakingChanges.length;
-    };
-    if (helper.read("latestVersionUpdate") != changeVersion) {
+    var changesToDisplay = 1;
+
+    var _modalContent = function() {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -18904,19 +18888,23 @@ var log = (function() {
       col.setAttribute("class", "col-xs-12");
       var list = document.createElement("ul");
       list.setAttribute("class", "m-log-list m-log-list-short");
-      for (var i = 0; i < numberOfRecentChanges; i++) {
+
+      for (var i = 0; i < changesToDisplay; i++) {
         var listItem = document.createElement("li");
         listItem.setAttribute("class", "m-log-list-item");
         listItem.textContent = all_breakingChanges[i];
-        if (update.history[i].link) {
+
+        if (all_breakingChangesLink[i]) {
           var link = document.createElement("a");
-          link.textContent = update.history[i].link.text
+          link.textContent = all_breakingChangesLink[i].text
           link.setAttribute("target", "_blank");
-          link.href = update.history[i].link.url;
+          link.href = all_breakingChangesLink[i].url;
           listItem.appendChild(link);
         };
+
         list.appendChild(listItem);
       };
+
       var seeAll = document.createElement("button");
       seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
       seeAll.textContent = "See complete Change Log";
@@ -18928,11 +18916,37 @@ var log = (function() {
       col.appendChild(seeAll);
       row.appendChild(col);
       container.appendChild(row);
-      var heading = "Recent Changes";
-      _render_logMessage(heading, container, "Don't show this again", function() {
+      return container;
+    };
+
+    for (var i = 0; i < update.history.length; i++) {
+      for (var j = 0; j < update.history[i].list.length; j++) {
+        var asterisk = "*";
+        if (update.history[i].list[j].indexOf(asterisk) != -1) {
+          if (update.history[i].link) {
+            all_breakingChangesLink.push(update.history[i].link);
+          };
+          all_breakingChanges.push(update.history[i].list[j].substr(1));
+          all_breakingChangesVersion.push(update.history[i].version);
+        };
+      };
+    };
+    for (var i = 0; i < changesToDisplay; i++) {
+      if (typeof changeVersion == "undefined") {
+        changeVersion = all_breakingChangesVersion[i];
+      } else {
+        changeVersion = changeVersion + "/" + all_breakingChangesVersion[i];
+      };
+    };
+    if (all_breakingChanges.length < changesToDisplay) {
+      changesToDisplay = all_breakingChanges.length;
+    };
+    if (helper.read("latestVersionUpdate") != changeVersion) {
+      _render_logMessage("Recent Changes", _modalContent(), "Don't show this again", function() {
         _store_confirmation(changeVersion);
       });
     };
+
   };
 
   function _store_confirmation(changeVersion) {
