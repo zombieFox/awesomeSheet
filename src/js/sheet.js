@@ -335,6 +335,8 @@ var sheet = (function() {
   };
 
   function bind() {
+    scroll();
+    resize();
     characterSelect.bind();
     menu.bind();
     prompt.bind();
@@ -367,6 +369,12 @@ var sheet = (function() {
       header.scroll();
       edit.scroll();
       nav.scroll();
+    };
+  };
+
+  function resize() {
+    window.onresize = function() {
+      header.resize();
     };
   };
 

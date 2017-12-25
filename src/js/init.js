@@ -2,7 +2,6 @@
 
   sheet.render();
   sheet.bind();
-  sheet.scroll();
   nav.bind();
   tabs.bind();
   log.bind();
