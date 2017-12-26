@@ -442,7 +442,7 @@
 // edit controls
 // --------------------------------------------------
 .m-edit-controls {
-  margin: 0 0 1em 0;
+  margin: 0 0 1em;
   top: 0;
   transition: top $transition-ease-slow;
   pointer-events: none;
@@ -458,7 +458,7 @@
   .m-edit-controls {
     margin-bottom: 0;
     position: fixed;
-    top: 7em;
+    top: 8em;
     z-index: $card-controls;
   }
 }
@@ -468,7 +468,7 @@
   }
   .is-pinned {
     .m-edit-controls {
-      top: 4em;
+      top: 4.5em;
     }
   }
 }
@@ -582,14 +582,10 @@
     height: 2.5em;
   }
 }
-@media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {
-  .m-edit-controls {
-    top: 3em;
-  }
+@media (min-width: $screen-md) {
   .is-pinned {
     .m-edit-controls {
-      top: 4em;
+      top: 7em;
     }
   }
   .is-header-pinned {
@@ -598,8 +594,18 @@
     }
     .is-pinned {
       .m-edit-controls {
-        top: 1em;
+        top: 4em;
       }
+    }
+  }
+}
+@media (min-width: $screen-lg) {
+  .m-edit-controls {
+    top: 0;
+  }
+  .is-pinned {
+    .m-edit-controls {
+      top: 4em;
     }
   }
 }

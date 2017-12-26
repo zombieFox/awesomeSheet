@@ -3,13 +3,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 3em;
+  height: 3.5em;
   font-size: $font-size-root-100;
   z-index: $header;
   transform: translate(0, 0);
   transition: transform $transition-ease-fast;
   &.is-pinned {
-    transform: translate(0, -3em);
+    transform: translate(0, -3.5em);
   }
 }
 .m-header-bar {
@@ -121,6 +121,12 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
+  .m-header {
+    height: 3em;
+    &.is-pinned {
+      transform: translate(0, -3em);
+    }
+  }
   .m-header-select {
     justify-content: flex-end;
   }

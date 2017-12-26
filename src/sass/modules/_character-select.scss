@@ -1,15 +1,15 @@
 .m-character-select {
   background-color: $white;
-  padding: 3em 0 0;
+  padding: 3.5em 0 0;
   margin: 0;
   position: fixed;
   top: 0;
   left: 50%;
   width: calc(100% - 8em);
-  max-height: calc(100vh - 3em);
+  max-height: calc(100vh - 10em);
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
-  overflow-y: scroll;
+  overflow-y: auto;
   transform: translate(-50%, -100%);
   transition: transform $transition-ease-fast;
   z-index: $character-select;
@@ -45,6 +45,7 @@
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:not(:last-child):not(:only-child) {
     margin-bottom: 0;
   }
@@ -182,6 +183,7 @@
   color: $base-color;
   text-decoration: none;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   [class*=" icon-"],
   [class^="icon-"] {
     flex: 0 0 20%;
@@ -719,10 +721,12 @@
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
   .m-character-select {
+    padding: 3em 0 0;
     top: 0;
     left: inherit;
     right: 4em;
     width: 50vw;
+    max-height: calc(100vh - 3em);
     transform: translate(0, -100%);
     &.is-open {
       transform: translate(0, 0);
