@@ -14,7 +14,8 @@ select {
   box-sizing: border-box;
   box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   transition: background-color $transition-ease-fast, box-shadow $transition-ease-fast;
-  -webkit-appearance: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   &:hover {
     background-color: $secondary-color-19;
     border-color: $secondary-color-06;
@@ -90,6 +91,11 @@ input {
     border-color: $gray-16;
     box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
     transition: background-color $transition-ease-fast, box-shadow $transition-ease-fast;
+    -moz-appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
     &:hover {
       background-color: $secondary-color-19;
       border-color: $secondary-color-06;
