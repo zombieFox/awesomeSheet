@@ -88,28 +88,36 @@ var nav = (function() {
       } else {
         zeroPoint = headerHeight + navHeight;
       };
+      console.log("sectionTop", sectionTop);
       // if the section top is above the zero point
       if (sectionTop < zeroPoint) {
         // if the section top is above the pin threshold above zero point
         if (sectionTop <= zeroPoint - 30) {
+          console.log("option", 1);
           offset = headerHeight + navHeight + sectionMargin;
         } else {
+          console.log("option", 2);
           offset = zeroPoint + sectionMargin;
         };
         // if the section top is below the zero point
       } else if (sectionTop > zeroPoint) {
         // if the section top is above the unpin threshold below zero point
         if (sectionTop >= zeroPoint + 100) {
+          console.log("option", 3);
           offset = navHeight + sectionMargin;
         } else {
+          console.log("option", 4);
           offset = zeroPoint + sectionMargin;
         };
       } else if (sectionTop == zeroPoint) {
+        console.log("option", 5);
         offset = zeroPoint + sectionMargin;
       } else {
+        console.log("option", 6);
         offset = headerHeight + navHeight + sectionMargin;
       };
     };
+    console.log("offset", offset);
     if (window.innerWidth < 550) {
       speed = 150;
     } else {

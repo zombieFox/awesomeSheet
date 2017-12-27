@@ -1,5 +1,6 @@
 var header = (function() {
 
+  var scrollingDelay;
   var previousPosition = window.pageYOffset;
   var targetUp = null;
   var targetDown = null;
@@ -19,85 +20,71 @@ var header = (function() {
   };
 
   function scroll() {
-    // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      unpin();
+      _unpin();
     } else {
-      var body = helper.e("body");
-      var header = helper.e(".js-header");
-      var nav = helper.e(".js-nav");
-      var currentPosition = window.pageYOffset;
-      if (previousPosition > currentPosition) {
-        targetDown = null;
-        if (targetUp == null) {
-          if (body.dataset.headerPinned == "true") {
-            targetUp = window.pageYOffset - 30;
-          };
-        } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
-          // console.log("unpin");
-          helper.removeClass(body, "is-header-pinned");
-          helper.removeClass(header, "is-pinned");
-          if (document.documentElement.clientWidth < 900) {
-            helper.removeClass(nav, "is-pinned");
-          };
-          body.dataset.headerPinned = false;
-          targetUp = null;
-          targetDown = null;
-        };
-      } else {
-        targetUp = null;
-        if (targetDown == null) {
-          if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-            targetDown = window.pageYOffset + 100;
-          };
-        } else if (currentPosition == targetDown || currentPosition >= targetDown) {
-          // console.log("pin");
-          helper.addClass(body, "is-header-pinned");
-          helper.addClass(header, "is-pinned");
-          if (document.documentElement.clientWidth < 900) {
-            helper.addClass(nav, "is-pinned");
-          };
-          body.dataset.headerPinned = true;
-          targetDown = null;
-        };
+      _update_position();
+    };
+  };
+
+  function _update_position() {
+    var currentPosition = window.pageYOffset;
+    if (previousPosition > currentPosition) {
+      // console.log("scroll up");
+      targetDown = null;
+      if (targetUp == null) {
+        targetUp = window.pageYOffset - 30;
+      } else if (currentPosition <= targetUp || currentPosition <= 0) {
+        // console.log("------ hit target up");
+        _unpin();
       };
-      previousPosition = currentPosition;
+    } else {
+      // console.log("scroll down");
+      targetUp = null;
+      if (targetDown == null) {
+        targetDown = window.pageYOffset + 100;
+      } else if (currentPosition >= targetDown) {
+        // console.log("------ hit target down");
+        _pin();
+      };
+    };
+    clearTimeout(scrollingDelay);
+    scrollingDelay = setTimeout(function() {
+      // console.log("stop scrolling");
+      targetDown = null;
+      targetUp = null;
       // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
-    };
+    }, 500);
+    previousPosition = currentPosition;
+    // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
   };
 
-  function unpin() {
+  function _unpin() {
     var body = helper.e("body");
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
-    if (body.dataset.headerPinned == "true") {
-      helper.removeClass(body, "is-header-pinned");
-      helper.removeClass(header, "is-pinned");
-      if (document.documentElement.clientWidth < 900) {
-        helper.removeClass(nav, "is-pinned");
-      };
-      body.dataset.headerPinned = false;
+    helper.removeClass(body, "is-header-pinned");
+    helper.removeClass(header, "is-pinned");
+    if (document.documentElement.clientWidth < 900) {
+      helper.removeClass(nav, "is-pinned");
     };
+    body.dataset.headerPinned = false;
   };
 
-  function pin() {
+  function _pin() {
     var body = helper.e("body");
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
-    if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-      helper.addClass(body, "is-header-pinned");
-      helper.addClass(header, "is-pinned");
-      if (document.documentElement.clientWidth < 900) {
-        helper.addClass(nav, "is-pinned");
-      };
-      body.dataset.headerPinned = true;
+    helper.addClass(body, "is-header-pinned");
+    helper.addClass(header, "is-pinned");
+    if (document.documentElement.clientWidth < 900) {
+      helper.addClass(nav, "is-pinned");
     };
+    body.dataset.headerPinned = true;
   };
 
   // exposed methods
   return {
-    pin: pin,
-    unpin: unpin,
     scroll: scroll,
     resize: resize
   };

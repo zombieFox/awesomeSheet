@@ -365,17 +365,17 @@ var sheet = (function() {
   };
 
   function scroll() {
-    window.onscroll = function() {
+    window.addEventListener("scroll", function(event) {
       header.scroll();
       edit.scroll();
       nav.scroll();
-    };
+    }, false);
   };
 
   function resize() {
-    window.onresize = function() {
+    window.addEventListener("resize", function(event) {
       header.resize();
-    };
+    }, false);
   };
 
   function clear() {
