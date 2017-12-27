@@ -3,6 +3,7 @@ var characterSelect = (function() {
   function _switchCharacter(characterInput) {
     var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
     sheet.switchCharacter(newIndex);
+    menu.close();
     snack.render({
       message: helper.truncate(_get_name(sheet.getCharacter()), 50, true) + " now in the game."
     });

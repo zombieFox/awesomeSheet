@@ -1,5 +1,7 @@
 var classes = (function() {
 
+  var delayUpdateTimer = null;
+
   function _total(classObjects, key) {
     var currentTotal = 0;
     for (var i = 0; i < classObjects.length; i++) {
@@ -40,8 +42,6 @@ var classes = (function() {
     textBlock.render();
     totalBlock.render();
   };
-
-  var delayUpdateTimer = null;
 
   function bind(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");

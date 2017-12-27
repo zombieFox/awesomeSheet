@@ -392,22 +392,17 @@ var sheet = (function() {
   };
 
   function switchCharacter(index) {
-    var switcharoo = function(index) {
+    var switcheroo = function(index) {
       setIndex(index);
       clear();
       render();
       characterSelect.clear();
       characterSelect.render();
-      var name = sheet.getCharacter().basics.name;
-      snack.render({
-        message: helper.truncate(name, 50, true) + " now in the game."
-      });
-      menu.close();
     };
-    if (index < 0 || index > getAllCharacters().length) {
+    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
       index = 0;
     };
-    switcharoo(index);
+    switcheroo(index);
   };
 
   // exposed methods

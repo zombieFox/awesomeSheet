@@ -1,6 +1,6 @@
 var header = (function() {
 
-  var scrollingTimer;
+  var delayScrollingTimer;
   var previousPosition = window.pageYOffset;
   var targetUp = null;
   var targetDown = null;
@@ -48,8 +48,8 @@ var header = (function() {
         _pin();
       };
     };
-    clearTimeout(scrollingTimer);
-    scrollingTimer = setTimeout(function() {
+    clearTimeout(delayScrollingTimer);
+    delayScrollingTimer = setTimeout(function() {
       // console.log("stop scrolling");
       targetDown = null;
       targetUp = null;
