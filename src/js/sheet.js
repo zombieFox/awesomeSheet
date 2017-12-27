@@ -414,11 +414,12 @@ var sheet = (function() {
   return {
     getAllCharacters: getAllCharacters,
     getCharacter: getCharacter,
+    storeCharacters: storeCharacters,
     addCharacter: addCharacter,
     removeCharacter: removeCharacter,
+    switchCharacter: switchCharacter,
     getIndex: getIndex,
     setIndex: setIndex,
-    storeCharacters: storeCharacters,
     destroy: destroy,
     clear: clear,
     all: all,
@@ -426,9 +427,7 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
-    bind: bind,
-    scroll: scroll,
-    switch: switchCharacter
+    bind: bind
   };
 
 })();
