@@ -7,21 +7,17 @@ var header = (function() {
 
   function resize() {
     if (document.documentElement.clientWidth >= 900) {
-      var body = helper.e("body");
-      var header = helper.e(".js-header");
-      var nav = helper.e(".js-nav");
-      if (body.dataset.headerPinned == "true") {
-        helper.removeClass(body, "is-header-pinned");
-        helper.removeClass(header, "is-pinned");
-        helper.removeClass(nav, "is-pinned");
-        body.dataset.headerPinned = false;
-      };
+      unpin();
+      nav.unpin();
     };
   };
 
   function scroll() {
     if (document.documentElement.clientWidth >= 900) {
-      _unpin();
+      if (body.dataset.headerPinned == "true") {
+        unpin();
+        nav.unpin();
+      };
     } else {
       _update_position();
     };
@@ -36,7 +32,8 @@ var header = (function() {
         targetUp = window.pageYOffset - 30;
       } else if (currentPosition <= targetUp || currentPosition <= 0) {
         // console.log("------ hit target up");
-        _unpin();
+        unpin();
+        nav.unpin();
       };
     } else {
       // console.log("scroll down");
@@ -45,7 +42,8 @@ var header = (function() {
         targetDown = window.pageYOffset + 100;
       } else if (currentPosition >= targetDown) {
         // console.log("------ hit target down");
-        _pin();
+        pin();
+        nav.pin();
       };
     };
     clearTimeout(delayScrollingTimer);
@@ -59,32 +57,26 @@ var header = (function() {
     // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
   };
 
-  function _unpin() {
+  function unpin() {
     var body = helper.e("body");
     var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
     helper.removeClass(body, "is-header-pinned");
     helper.removeClass(header, "is-pinned");
-    if (document.documentElement.clientWidth < 900) {
-      helper.removeClass(nav, "is-pinned");
-    };
     body.dataset.headerPinned = false;
   };
 
-  function _pin() {
+  function pin() {
     var body = helper.e("body");
     var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
     helper.addClass(body, "is-header-pinned");
     helper.addClass(header, "is-pinned");
-    if (document.documentElement.clientWidth < 900) {
-      helper.addClass(nav, "is-pinned");
-    };
     body.dataset.headerPinned = true;
   };
 
   // exposed methods
   return {
+    pin: pin,
+    unpin: unpin,
     scroll: scroll,
     resize: resize
   };
