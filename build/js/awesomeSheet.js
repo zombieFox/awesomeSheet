@@ -15005,13 +15005,10 @@ var characterSelect = (function() {
 
   function _switchCharacter(characterInput) {
     var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
-    sheet.switch(newIndex);
-    var name = sheet.getCharacter().basics.name;
-    if (typeof name == "undefined" || name == "") {
-      name = "New character";
-    };
+    sheet.switchCharacter(newIndex);
+    menu.close();
     snack.render({
-      message: helper.truncate(name, 50, true) + " now in the game."
+      message: helper.truncate(_get_name(sheet.getCharacter()), 50, true) + " now in the game."
     });
   };
 
@@ -15179,7 +15176,7 @@ var characterSelect = (function() {
   function _get_name(characterObject) {
     var characterName = characterObject.basics.name;
     if (typeof characterName == "undefined" || characterName == "" || characterName == " ") {
-      characterName = "New Character";
+      characterName = "New character";
     };
     return characterName;
   };
@@ -15283,7 +15280,7 @@ var checkUrl = (function() {
       };
     };
     if (typeof index !== "undefined") {
-      sheet.switch(index);
+      sheet.switchCharacter(index);
     } else {
       if (hardCodedCharacters.single()[characterParameter]) {
         sheet.addCharacter(hardCodedCharacters.single()[characterParameter]);
@@ -15304,6 +15301,8 @@ var checkUrl = (function() {
 })();
 
 var classes = (function() {
+
+  var delayUpdateTimer = null;
 
   function _total(classObjects, key) {
     var currentTotal = 0;
@@ -15346,8 +15345,6 @@ var classes = (function() {
     totalBlock.render();
   };
 
-  var delayUpdateTimer = null;
-
   function bind(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     if (input) {
@@ -15378,7 +15375,7 @@ var classes = (function() {
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
-  function get_allClassLevel(characterObject) {
+  function get_classLevel(characterObject) {
     var classAndLevel = "";
     var classes = characterObject.basics.classes;
     for (var i = 0; i < classes.length; i++) {
@@ -15396,7 +15393,7 @@ var classes = (function() {
   return {
     bind: bind,
     render: render,
-    getClassLevel: get_allClassLevel
+    getClassLevel: get_classLevel
   };
 
 })();
@@ -17889,98 +17886,77 @@ var fullscreen = (function() {
 
 var header = (function() {
 
+  var delayScrollingTimer;
   var previousPosition = window.pageYOffset;
   var targetUp = null;
   var targetDown = null;
 
   function resize() {
     if (document.documentElement.clientWidth >= 900) {
-      var body = helper.e("body");
-      var header = helper.e(".js-header");
-      var nav = helper.e(".js-nav");
-      if (body.dataset.headerPinned == "true") {
-        helper.removeClass(body, "is-header-pinned");
-        helper.removeClass(header, "is-pinned");
-        helper.removeClass(nav, "is-pinned");
-        body.dataset.headerPinned = false;
-      };
+      unpin();
+      nav.unpin();
     };
   };
 
   function scroll() {
-    // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
-      unpin();
-    } else {
-      var body = helper.e("body");
-      var header = helper.e(".js-header");
-      var nav = helper.e(".js-nav");
-      var currentPosition = window.pageYOffset;
-      if (previousPosition > currentPosition) {
-        targetDown = null;
-        if (targetUp == null) {
-          if (body.dataset.headerPinned == "true") {
-            targetUp = window.pageYOffset - 30;
-          };
-        } else if (currentPosition == targetUp || currentPosition <= targetUp || currentPosition <= 0) {
-          // console.log("unpin");
-          helper.removeClass(body, "is-header-pinned");
-          helper.removeClass(header, "is-pinned");
-          if (document.documentElement.clientWidth < 900) {
-            helper.removeClass(nav, "is-pinned");
-          };
-          body.dataset.headerPinned = false;
-          targetUp = null;
-          targetDown = null;
-        };
-      } else {
-        targetUp = null;
-        if (targetDown == null) {
-          if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-            targetDown = window.pageYOffset + 100;
-          };
-        } else if (currentPosition == targetDown || currentPosition >= targetDown) {
-          // console.log("pin");
-          helper.addClass(body, "is-header-pinned");
-          helper.addClass(header, "is-pinned");
-          if (document.documentElement.clientWidth < 900) {
-            helper.addClass(nav, "is-pinned");
-          };
-          body.dataset.headerPinned = true;
-          targetDown = null;
-        };
+      if (body.dataset.headerPinned == "true") {
+        unpin();
+        nav.unpin();
       };
-      previousPosition = currentPosition;
-      // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
+    } else {
+      _update_position();
     };
+  };
+
+  function _update_position() {
+    var currentPosition = window.pageYOffset;
+    if (previousPosition > currentPosition) {
+      // console.log("scroll up");
+      targetDown = null;
+      if (targetUp == null) {
+        targetUp = window.pageYOffset - 30;
+      } else if (currentPosition <= targetUp || currentPosition <= 0) {
+        // console.log("------ hit target up");
+        unpin();
+        nav.unpin();
+      };
+    } else {
+      // console.log("scroll down");
+      targetUp = null;
+      if (targetDown == null) {
+        targetDown = window.pageYOffset + 100;
+      } else if (currentPosition >= targetDown) {
+        // console.log("------ hit target down");
+        pin();
+        nav.pin();
+      };
+    };
+    clearTimeout(delayScrollingTimer);
+    delayScrollingTimer = setTimeout(function() {
+      // console.log("stop scrolling");
+      targetDown = null;
+      targetUp = null;
+      // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
+    }, 500);
+    previousPosition = currentPosition;
+    // console.log("previous", previousPosition, "targetDown", targetDown, "targetUp", targetUp);
   };
 
   function unpin() {
     var body = helper.e("body");
     var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
-    if (body.dataset.headerPinned == "true") {
-      helper.removeClass(body, "is-header-pinned");
-      helper.removeClass(header, "is-pinned");
-      if (document.documentElement.clientWidth < 900) {
-        helper.removeClass(nav, "is-pinned");
-      };
-      body.dataset.headerPinned = false;
-    };
+    helper.removeClass(body, "is-header-pinned");
+    helper.removeClass(header, "is-pinned");
+    body.dataset.headerPinned = false;
   };
 
   function pin() {
     var body = helper.e("body");
     var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
-    if (body.dataset.headerPinned == "false" || !body.dataset.headerPinned) {
-      helper.addClass(body, "is-header-pinned");
-      helper.addClass(header, "is-pinned");
-      if (document.documentElement.clientWidth < 900) {
-        helper.addClass(nav, "is-pinned");
-      };
-      body.dataset.headerPinned = true;
-    };
+    helper.addClass(body, "is-header-pinned");
+    helper.addClass(header, "is-pinned");
+    body.dataset.headerPinned = true;
   };
 
   // exposed methods
@@ -19281,7 +19257,7 @@ var nav = (function() {
     if (document.documentElement.clientWidth >= 900) {
       offset = parseInt(getComputedStyle(header).height, 10);
     } else {
-      if (body.dataset.headerPinned == "true") {
+      if (body.dataset.navPinned == "true") {
         offset = parseInt(getComputedStyle(header).height, 10);
       } else {
         offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10);
@@ -19316,8 +19292,8 @@ var nav = (function() {
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
       offset = headerHeight + sectionMargin;
-      // // is the header pinned
-      // if (body.dataset.headerPinned == "true") {
+      // // is the nav pinned
+      // if (body.dataset.navPinned == "true") {
       //   zeroPoint = 0;
       // } else {
       //   zeroPoint = headerHeight;
@@ -19344,34 +19320,42 @@ var nav = (function() {
       //   offset = headerHeight + sectionMargin;
       // };
     } else {
-      // is the header pinned
-      if (body.dataset.headerPinned == "true") {
+      // is the nav pinned
+      if (body.dataset.navPinned == "true") {
         zeroPoint = navHeight;
       } else {
         zeroPoint = headerHeight + navHeight;
       };
+      // console.log("sectionTop", sectionTop);
       // if the section top is above the zero point
       if (sectionTop < zeroPoint) {
         // if the section top is above the pin threshold above zero point
         if (sectionTop <= zeroPoint - 30) {
+          // console.log("option", 1);
           offset = headerHeight + navHeight + sectionMargin;
         } else {
+          // console.log("option", 2);
           offset = zeroPoint + sectionMargin;
         };
         // if the section top is below the zero point
       } else if (sectionTop > zeroPoint) {
         // if the section top is above the unpin threshold below zero point
         if (sectionTop >= zeroPoint + 100) {
+          // console.log("option", 3);
           offset = navHeight + sectionMargin;
         } else {
+          // console.log("option", 4);
           offset = zeroPoint + sectionMargin;
         };
       } else if (sectionTop == zeroPoint) {
+        // console.log("option", 5);
         offset = zeroPoint + sectionMargin;
       } else {
+        // console.log("option", 6);
         offset = headerHeight + navHeight + sectionMargin;
       };
     };
+    // console.log("offset", offset);
     if (window.innerWidth < 550) {
       speed = 150;
     } else {
@@ -19400,8 +19384,26 @@ var nav = (function() {
     };
   };
 
+  function unpin() {
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    helper.removeClass(body, "is-nav-pinned");
+    helper.removeClass(nav, "is-pinned");
+    body.dataset.navPinned = false;
+  };
+
+  function pin() {
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    helper.addClass(body, "is-nav-pinned");
+    helper.addClass(nav, "is-pinned");
+    body.dataset.navPinned = true;
+  };
+
   // exposed methods
   return {
+    pin: pin,
+    unpin: unpin,
     bind: bind,
     scroll: scroll,
     scrollToTop: scrollToTop,
@@ -20664,17 +20666,17 @@ var sheet = (function() {
   };
 
   function scroll() {
-    window.onscroll = function() {
+    window.addEventListener("scroll", function(event) {
       header.scroll();
       edit.scroll();
       nav.scroll();
-    };
+    }, false);
   };
 
   function resize() {
-    window.onresize = function() {
+    window.addEventListener("resize", function(event) {
       header.resize();
-    };
+    }, false);
   };
 
   function clear() {
@@ -20691,33 +20693,29 @@ var sheet = (function() {
   };
 
   function switchCharacter(index) {
-    var switcharoo = function(index) {
+    var switcheroo = function(index) {
       setIndex(index);
       clear();
       render();
       characterSelect.clear();
       characterSelect.render();
-      var name = sheet.getCharacter().basics.name;
-      snack.render({
-        message: helper.truncate(name, 50, true) + " now in the game."
-      });
-      menu.close();
     };
-    if (index < 0 || index > getAllCharacters().length) {
+    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
       index = 0;
     };
-    switcharoo(index);
+    switcheroo(index);
   };
 
   // exposed methods
   return {
     getAllCharacters: getAllCharacters,
     getCharacter: getCharacter,
+    storeCharacters: storeCharacters,
     addCharacter: addCharacter,
     removeCharacter: removeCharacter,
+    switchCharacter: switchCharacter,
     getIndex: getIndex,
     setIndex: setIndex,
-    storeCharacters: storeCharacters,
     destroy: destroy,
     clear: clear,
     all: all,
@@ -20725,9 +20723,7 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
-    bind: bind,
-    scroll: scroll,
-    switch: switchCharacter
+    bind: bind
   };
 
 })();

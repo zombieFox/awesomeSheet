@@ -1,5 +1,7 @@
 var classes = (function() {
 
+  var delayUpdateTimer = null;
+
   function _total(classObjects, key) {
     var currentTotal = 0;
     for (var i = 0; i < classObjects.length; i++) {
@@ -41,8 +43,6 @@ var classes = (function() {
     totalBlock.render();
   };
 
-  var delayUpdateTimer = null;
-
   function bind(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     if (input) {
@@ -73,7 +73,7 @@ var classes = (function() {
     helper.setObject(sheet.getCharacter(), "defense.will.base", totalWill);
   };
 
-  function get_allClassLevel(characterObject) {
+  function get_classLevel(characterObject) {
     var classAndLevel = "";
     var classes = characterObject.basics.classes;
     for (var i = 0; i < classes.length; i++) {
@@ -91,7 +91,7 @@ var classes = (function() {
   return {
     bind: bind,
     render: render,
-    getClassLevel: get_allClassLevel
+    getClassLevel: get_classLevel
   };
 
 })();

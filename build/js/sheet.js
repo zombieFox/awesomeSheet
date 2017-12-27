@@ -365,17 +365,17 @@ var sheet = (function() {
   };
 
   function scroll() {
-    window.onscroll = function() {
+    window.addEventListener("scroll", function(event) {
       header.scroll();
       edit.scroll();
       nav.scroll();
-    };
+    }, false);
   };
 
   function resize() {
-    window.onresize = function() {
+    window.addEventListener("resize", function(event) {
       header.resize();
-    };
+    }, false);
   };
 
   function clear() {
@@ -392,33 +392,29 @@ var sheet = (function() {
   };
 
   function switchCharacter(index) {
-    var switcharoo = function(index) {
+    var switcheroo = function(index) {
       setIndex(index);
       clear();
       render();
       characterSelect.clear();
       characterSelect.render();
-      var name = sheet.getCharacter().basics.name;
-      snack.render({
-        message: helper.truncate(name, 50, true) + " now in the game."
-      });
-      menu.close();
     };
-    if (index < 0 || index > getAllCharacters().length) {
+    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
       index = 0;
     };
-    switcharoo(index);
+    switcheroo(index);
   };
 
   // exposed methods
   return {
     getAllCharacters: getAllCharacters,
     getCharacter: getCharacter,
+    storeCharacters: storeCharacters,
     addCharacter: addCharacter,
     removeCharacter: removeCharacter,
+    switchCharacter: switchCharacter,
     getIndex: getIndex,
     setIndex: setIndex,
-    storeCharacters: storeCharacters,
     destroy: destroy,
     clear: clear,
     all: all,
@@ -426,9 +422,7 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
-    bind: bind,
-    scroll: scroll,
-    switch: switchCharacter
+    bind: bind
   };
 
 })();

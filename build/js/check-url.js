@@ -35,7 +35,7 @@ var checkUrl = (function() {
       };
     };
     if (typeof index !== "undefined") {
-      sheet.switch(index);
+      sheet.switchCharacter(index);
     } else {
       if (hardCodedCharacters.single()[characterParameter]) {
         sheet.addCharacter(hardCodedCharacters.single()[characterParameter]);

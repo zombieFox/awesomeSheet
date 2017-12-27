@@ -19,7 +19,7 @@ var nav = (function() {
     if (document.documentElement.clientWidth >= 900) {
       offset = parseInt(getComputedStyle(header).height, 10);
     } else {
-      if (body.dataset.headerPinned == "true") {
+      if (body.dataset.navPinned == "true") {
         offset = parseInt(getComputedStyle(header).height, 10);
       } else {
         offset = parseInt(getComputedStyle(header).height, 10) + parseInt(getComputedStyle(nav).height, 10);
@@ -54,8 +54,8 @@ var nav = (function() {
     // if nav is on the left after 900px wide viewport
     if (document.documentElement.clientWidth >= 900) {
       offset = headerHeight + sectionMargin;
-      // // is the header pinned
-      // if (body.dataset.headerPinned == "true") {
+      // // is the nav pinned
+      // if (body.dataset.navPinned == "true") {
       //   zeroPoint = 0;
       // } else {
       //   zeroPoint = headerHeight;
@@ -82,34 +82,42 @@ var nav = (function() {
       //   offset = headerHeight + sectionMargin;
       // };
     } else {
-      // is the header pinned
-      if (body.dataset.headerPinned == "true") {
+      // is the nav pinned
+      if (body.dataset.navPinned == "true") {
         zeroPoint = navHeight;
       } else {
         zeroPoint = headerHeight + navHeight;
       };
+      // console.log("sectionTop", sectionTop);
       // if the section top is above the zero point
       if (sectionTop < zeroPoint) {
         // if the section top is above the pin threshold above zero point
         if (sectionTop <= zeroPoint - 30) {
+          // console.log("option", 1);
           offset = headerHeight + navHeight + sectionMargin;
         } else {
+          // console.log("option", 2);
           offset = zeroPoint + sectionMargin;
         };
         // if the section top is below the zero point
       } else if (sectionTop > zeroPoint) {
         // if the section top is above the unpin threshold below zero point
         if (sectionTop >= zeroPoint + 100) {
+          // console.log("option", 3);
           offset = navHeight + sectionMargin;
         } else {
+          // console.log("option", 4);
           offset = zeroPoint + sectionMargin;
         };
       } else if (sectionTop == zeroPoint) {
+        // console.log("option", 5);
         offset = zeroPoint + sectionMargin;
       } else {
+        // console.log("option", 6);
         offset = headerHeight + navHeight + sectionMargin;
       };
     };
+    // console.log("offset", offset);
     if (window.innerWidth < 550) {
       speed = 150;
     } else {
@@ -138,8 +146,26 @@ var nav = (function() {
     };
   };
 
+  function unpin() {
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    helper.removeClass(body, "is-nav-pinned");
+    helper.removeClass(nav, "is-pinned");
+    body.dataset.navPinned = false;
+  };
+
+  function pin() {
+    var body = helper.e("body");
+    var nav = helper.e(".js-nav");
+    helper.addClass(body, "is-nav-pinned");
+    helper.addClass(nav, "is-pinned");
+    body.dataset.navPinned = true;
+  };
+
   // exposed methods
   return {
+    pin: pin,
+    unpin: unpin,
     bind: bind,
     scroll: scroll,
     scrollToTop: scrollToTop,

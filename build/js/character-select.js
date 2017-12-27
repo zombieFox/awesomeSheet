@@ -2,13 +2,10 @@ var characterSelect = (function() {
 
   function _switchCharacter(characterInput) {
     var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
-    sheet.switch(newIndex);
-    var name = sheet.getCharacter().basics.name;
-    if (typeof name == "undefined" || name == "") {
-      name = "New character";
-    };
+    sheet.switchCharacter(newIndex);
+    menu.close();
     snack.render({
-      message: helper.truncate(name, 50, true) + " now in the game."
+      message: helper.truncate(_get_name(sheet.getCharacter()), 50, true) + " now in the game."
     });
   };
 
@@ -176,7 +173,7 @@ var characterSelect = (function() {
   function _get_name(characterObject) {
     var characterName = characterObject.basics.name;
     if (typeof characterName == "undefined" || characterName == "" || characterName == " ") {
-      characterName = "New Character";
+      characterName = "New character";
     };
     return characterName;
   };
