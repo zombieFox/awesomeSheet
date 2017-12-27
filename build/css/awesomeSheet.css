@@ -743,7 +743,8 @@ select {
   box-sizing: border-box;
   box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  -webkit-appearance: inherit; }
+  -webkit-appearance: none;
+  -moz-appearance: none; }
   select:hover {
     background-color: #e0f0ff;
     border-color: #1e4a76;
@@ -809,7 +810,10 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
   border: 1px solid transparent;
   border-color: #c7c7c7;
   box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  -moz-appearance: textfield; }
+  input[type="email"]::-webkit-inner-spin-button, input[type="email"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button, input[type="password"]::-webkit-inner-spin-button, input[type="password"]::-webkit-outer-spin-button, input[type="search"]::-webkit-inner-spin-button, input[type="search"]::-webkit-outer-spin-button, input[type="tel"]::-webkit-inner-spin-button, input[type="tel"]::-webkit-outer-spin-button, input[type="text"]::-webkit-inner-spin-button, input[type="text"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; }
   input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover {
     background-color: #e0f0ff;
     border-color: #1e4a76;
@@ -4565,6 +4569,10 @@ label {
 @media (min-width: 1300px) {
   .m-header-bar {
     padding: 0 calc(15% - 0.5em) 0 0; } }
+
+@media (min-width: 2000px) {
+  .m-header-bar {
+    padding: 0 calc(20% - 0.5em) 0 0; } }
 
 .m-input-block {
   position: relative;
