@@ -147,4 +147,9 @@
     padding: 0 calc(15% - 0.5em) 0 0;
   }
 }
+@media (min-width: 2000px) {
+  .m-header-bar {
+    padding: 0 calc(20% - 0.5em) 0 0;
+  }
+}
 @media print {}
