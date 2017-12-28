@@ -1,7 +1,7 @@
 .m-fab {
   position: fixed;
-  bottom: 1.5em;
-  right: 1.5em;
+  bottom: 2em;
+  right: 2em;
   font-size: $font-size-root-100;
   z-index: $fab;
   transform: translate(0, 0);
@@ -10,25 +10,13 @@
 }
 .is-onscreen-snack {
   .m-fab {
-    transform: translate(0, -3.5em);
-  }
-}
-.is-nav-open {
-  .m-fab {
-    transform: scale(0);
-    transition: all $transition-ease-fast;
-  }
-  &.is-onscreen-snack {
-    .m-fab {
-      transform: scale(0);
-      transition: all $transition-ease-fast;
-    }
+    transform: translate(0, -3em);
   }
 }
 .m-fab-button {
-  width: 2.3em;
-  height: 2.3em;
-  font-size: $font-size-200;
+  width: 4.5em;
+  height: 4.5em;
+  font-size: 1em;
   margin: 0;
   padding: 0;
   border: 0;
@@ -43,6 +31,10 @@
   &:active {
     transform: scale(1.1);
     transition: all $transition-bounce-extra-fast;
+  }
+  [class*=" icon-"],
+  [class^="icon-"] {
+    font-size: 2.2em;
   }
 }
 .is-night-mode {
@@ -68,18 +60,8 @@
   }
 }
 @media (min-width: $screen-md) {
-  .m-fab {
-    bottom: 2em;
-    right: 2em;
-  }
   .m-fab-button {
-    font-size: $font-size-150;
-  }
-}
-@media (min-width: $screen-lg) {
-  .m-fab {
-    bottom: 3em;
-    right: 3em;
+    font-size: 0.8em;
   }
   .is-onscreen-snack {
     .m-fab {
@@ -87,6 +69,7 @@
     }
   }
 }
+@media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {
   .m-fab {

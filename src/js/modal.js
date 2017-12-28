@@ -22,7 +22,7 @@ var modal = (function() {
 
   function render(options) {
     var defaultOptions = {
-      heading: "Heading",
+      heading: "Modal",
       content: "Body",
       action: null,
       actionText: "OK",

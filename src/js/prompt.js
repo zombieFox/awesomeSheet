@@ -22,7 +22,7 @@ var prompt = (function() {
 
   function render(options) {
     var defaultOptions = {
-      heading: "Heading",
+      heading: "Prompt",
       message: "Message",
       actionText: "OK",
       cancelText: "Cancel",
