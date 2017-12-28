@@ -19121,7 +19121,7 @@ var modal = (function() {
 
   function render(options) {
     var defaultOptions = {
-      heading: "Heading",
+      heading: "Modal",
       content: "Body",
       action: null,
       actionText: "OK",
@@ -19514,7 +19514,7 @@ var prompt = (function() {
 
   function render(options) {
     var defaultOptions = {
-      heading: "Heading",
+      heading: "Prompt",
       message: "Message",
       actionText: "OK",
       cancelText: "Cancel",
@@ -20957,7 +20957,7 @@ var snack = (function() {
 
   function render(options) {
     var defaultOptions = {
-      message: "Message",
+      message: "Snack",
       button: false,
       action: null,
       destroyDelay: 4000,

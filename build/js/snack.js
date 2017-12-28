@@ -15,7 +15,7 @@ var snack = (function() {
 
   function render(options) {
     var defaultOptions = {
-      message: "Message",
+      message: "Snack",
       button: false,
       action: null,
       destroyDelay: 4000,
