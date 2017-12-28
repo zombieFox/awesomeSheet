@@ -45,7 +45,7 @@
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:not(:last-child):not(:only-child) {
     margin-bottom: 0;
   }
@@ -293,39 +293,43 @@
   right: 2.5em;
   width: 0;
   height: 0;
+  border: 1px solid $white;
+  border-radius: 2px;
   cursor: pointer;
-  transition: all $transition-ease-fast;
+  transition: top $transition-ease-fast;
+  transform: translate(0, -50%);
   &:after,
   &:before {
     content: "";
     background-color: $white;
     position: absolute;
-    width: 0.7em;
+    width: 0.8em;
     height: 2px;
-    top: 0;
-    border-radius: 3px;
+    top: -1px;
     z-index: 2;
-    transition: all $transition-ease-fast;
+    transition: transform $transition-ease-fast;
   }
   &:before {
-    right: -0.5px;
-    transform-origin: top right;
-    transform: rotate(45deg) translateY(-50%);
+    right: 0;
+    transform-origin: center right;
+    transform: rotate(45deg);
+    border-radius: 2px 0 0 2px;
   }
   &:after {
-    left: -0.5px;
-    transform-origin: top left;
-    transform: rotate(-45deg) translateY(-50%);
+    left: 0;
+    transform-origin: center left;
+    transform: rotate(-45deg);
+    border-radius: 0 2px 2px 0;
   }
 }
 .is-active {
   .m-character-select-arrow {
     top: 40%;
     &:before {
-      transform: rotate(-45deg) translateY(-50%);
+      transform: rotate(-45deg);
     }
     &:after {
-      transform: rotate(45deg) translateY(-50%);
+      transform: rotate(45deg);
     }
   }
   .m-character-select-class-level,
@@ -735,13 +739,22 @@
   .m-character-select-toggle {
     width: 50vw;
   }
-  .m-character-select-arrow {
-    &:after,
-    &:before {
-      width: 0.8em;
-      height: 3px;
-    }
-  }
+  // .m-character-select-arrow {
+  //   border-width: 2px;
+  //   border-radius: 4px;
+  //   &:after,
+  //   &:before {
+  //     width: 1em;
+  //     height: 4px;
+  //     top: -2px;
+  //   }
+  //   &:before {
+  //     border-radius: 4px 0 0 4px;
+  //   }
+  //   &:after {
+  //     border-radius: 0 4px 4px 0;
+  //   }
+  // }
 }
 @media (min-width: $screen-lg) {
   .m-character-select {

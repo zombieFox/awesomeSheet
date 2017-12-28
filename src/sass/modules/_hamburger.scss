@@ -61,22 +61,21 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
-  .m-hamburger {
-    // width: 30px;
-    .m-hamburger-inner {
-      height: 3px;
-      &:after,
-      &:before {
-        height: 3px;
-      }
-      &:before {
-        top: -7px;
-      }
-      &:after {
-        top: 7px;
-      }
-    }
-  }
+  // .m-hamburger {
+  //   .m-hamburger-inner {
+  //     height: 3px;
+  //     &:after,
+  //     &:before {
+  //       height: 3px;
+  //     }
+  //     &:before {
+  //       top: -7px;
+  //     }
+  //     &:after {
+  //       top: 7px;
+  //     }
+  //   }
+  // }
 }
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
