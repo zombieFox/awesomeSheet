@@ -224,6 +224,58 @@ var helper = (function() {
     );
   };
 
+  function makeObject(string) {
+    var _trueOrFalse = function(stringToTest) {
+      if (stringToTest == "true") {
+        return true;
+      } else if (stringToTest == "false") {
+        return false;
+      } else {
+        return "\"" + stringToTest + "\"";
+      };
+    };
+    // if argument is a string
+    if (typeof string == "string") {
+      // start building the object
+      var objectString = "{";
+      // split the string
+      var items = string.split(",");
+      // loop over each item
+      for (var i = 0; i < items.length; i++) {
+        // split each would be object key values pair
+        var kevValuePair = items[i].split(":");
+        // get the key
+        var key = "\"" + kevValuePair[0] + "\"";
+        // split the would be values
+        var all_value = kevValuePair[1].split("+");
+        var value;
+        // if there are multiple values make an array
+        if (all_value.length > 1) {
+          value = "["
+          for (var q = 0; q < all_value.length; q++) {
+            value += _trueOrFalse(all_value[q]) + ",";
+          };
+          // remove last comma
+          value = value.substr(0, value.length - 1);
+          // close array
+          value += "]"
+        } else {
+          // if the single value is true or false
+          value = _trueOrFalse(all_value[0]);
+        };
+        objectString += key + ":" + value + ",";
+      };
+      // remove last comma
+      objectString = objectString.substr(0, objectString.length - 1);
+      // close object
+      objectString += "}";
+      var object = JSON.parse(objectString);
+      return object;
+    } else {
+      return false;
+    };
+  };
+
   function sortObject(object, key) {
     object.sort(function(a, b) {
       // console.log(a);
@@ -269,8 +321,8 @@ var helper = (function() {
         g: 0,
         b: 0
       }, // for non-supporting envs
-      canvas = document.createElement('canvas'),
-      context = canvas.getContext && canvas.getContext('2d'),
+      canvas = document.createElement("canvas"),
+      context = canvas.getContext && canvas.getContext("2d"),
       data, width, height,
       i = -4,
       length,
@@ -342,6 +394,7 @@ var helper = (function() {
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip,
     inViewport: inViewport,
+    makeObject: makeObject,
     sortObject: sortObject,
     getDateTime: getDateTime,
     getAverageColor: getAverageColor,
