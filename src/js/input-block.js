@@ -20,7 +20,8 @@ var inputBlock = (function() {
   function _bind_all_inputBlock() {
     var all_inputBlock = helper.eA(".js-input-block");
     for (var i = 0; i < all_inputBlock.length; i++) {
-      if (all_inputBlock[i].dataset.clone != "true") {
+      var options = helper.makeObject(all_inputBlock[i].dataset.inputBlockOptions);
+      if (!options.clone) {
         _bind_inputBlock(all_inputBlock[i]);
       };
     };
@@ -46,7 +47,8 @@ var inputBlock = (function() {
   function _bind_all_inputBlockIncrement() {
     var all_inputBlockIncrement = helper.eA(".js-input-block-increment");
     for (var i = 0; i < all_inputBlockIncrement.length; i++) {
-      if (all_inputBlockIncrement[i].dataset.clone != "true") {
+      var options = helper.makeObject(all_inputBlockIncrement[i].dataset.inputBlockIncrementOptions);
+      if (!options.clone) {
         bind_inputBlockIncrement(all_inputBlockIncrement[i]);
       };
     };
@@ -347,7 +349,6 @@ var inputBlock = (function() {
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    console.log(options);
     var oldData;
     var newData;
     oldData = parseInt(helper.xxx_getObject({
