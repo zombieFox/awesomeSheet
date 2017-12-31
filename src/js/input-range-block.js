@@ -5,7 +5,6 @@ var inputRangeBlock = (function() {
     var inputRangeBlockField = inputRangeBlock.querySelector(".js-input-range-block-field");
     var path = inputRangeBlockField.dataset.path;
     var type = inputRangeBlockField.dataset.type;
-    var clone = (inputRangeBlock.dataset.clone == "true");
     var data;
     if (type == "integer") {
       data = parseInt(element.value, 10);

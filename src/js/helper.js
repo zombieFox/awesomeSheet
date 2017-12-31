@@ -72,6 +72,164 @@ var helper = (function() {
     };
   };
 
+  function replaceAt(string, index, newCharacter) {
+    if (index > string.length - 1) {
+      return string;
+    } else {
+      return string.substring(0, index) + newCharacter + string.substring(index + 1);
+    };
+  };
+
+  function makeObject(string) {
+    var _trueOrFalse = function(stringToTest) {
+      if (stringToTest == "true") {
+        return true;
+      } else if (stringToTest == "false") {
+        return false;
+      } else {
+        return "\"" + stringToTest + "\"";
+      };
+    };
+    // if argument is a string
+    if (typeof string == "string") {
+      // start building the object
+      var objectString = "{";
+      // split the string
+      var items = string.split(",");
+      // loop over each item
+      for (var i = 0; i < items.length; i++) {
+        // split each would be object key values pair
+        var kevValuePair = items[i].split(":");
+        // get the key
+        var key = "\"" + kevValuePair[0] + "\"";
+        // split the would be values
+        var all_value = kevValuePair[1].split("+");
+        var value;
+        // if there are multiple values make an array
+        if (all_value.length > 1) {
+          value = "["
+          for (var q = 0; q < all_value.length; q++) {
+            value += _trueOrFalse(all_value[q]) + ",";
+          };
+          // remove last comma
+          value = value.substr(0, value.length - 1);
+          // close array
+          value += "]"
+        } else {
+          // if the single value is true or false
+          value = _trueOrFalse(all_value[0]);
+        };
+        objectString += key + ":" + value + ",";
+      };
+      // remove last comma
+      objectString = objectString.substr(0, objectString.length - 1);
+      // close object
+      objectString += "}";
+      var object = JSON.parse(objectString);
+      return object;
+    } else {
+      return false;
+    };
+  };
+
+  function xxx_setObject(options) {
+    var defaultOptions = {
+      path: null,
+      object: null,
+      cloneIndex: null,
+      cloneKey: null,
+      newValue: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
+      // split path into array items
+      var address = defaultOptions.path.split(".");
+      // while array has more than 1 item
+      while (address.length > 1) {
+        // shift off and store the first key
+        var currentKey = address.shift();
+        // copy the object
+        var parentObject = defaultOptions.object;
+        // drill down the object with the first key
+        defaultOptions.object = defaultOptions.object[currentKey];
+        // if there is not object there make one
+        if (!defaultOptions.object || typeof defaultOptions.object != "object") {
+          defaultOptions.object = parentObject;
+          defaultOptions.object[currentKey] = {};
+        };
+      };
+      var finalKey = address.shift();
+      if (finalKey in defaultOptions.object) {
+        if (defaultOptions.cloneIndex != null) {
+          // if cloneIndex and cloneKey return index of array or value
+          if (defaultOptions.cloneKey != null) {
+            defaultOptions.object[finalKey][defaultOptions.cloneIndex][defaultOptions.cloneKey] = defaultOptions.newValue;
+          } else {
+            defaultOptions.object[finalKey][defaultOptions.cloneIndex] = defaultOptions.newValue;
+          };
+        } else {
+          defaultOptions.object[finalKey] = defaultOptions.newValue;
+        };
+      } else {
+        // if nothing found set new value
+        defaultOptions.object[finalKey] = defaultOptions.newValue;
+      };
+    } else {
+      return false;
+    };
+  };
+
+  function xxx_getObject(options) {
+    var defaultOptions = {
+      object: null,
+      path: null,
+      cloneIndex: null,
+      cloneKey: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.object != null && defaultOptions.path != null) {
+      // split path into array items
+      var address = defaultOptions.path.split(".");
+      // while array has more than 1 item
+      while (address.length > 1) {
+        // shift off and store the first key
+        var currentKey = address.shift();
+        // copy the object
+        var parentObject = defaultOptions.object;
+        // drill down the object with the first key
+        defaultOptions.object = defaultOptions.object[currentKey];
+        // if there is not object there make one
+        if (!defaultOptions.object || typeof defaultOptions.object != "object") {
+          defaultOptions.object = parentObject;
+          defaultOptions.object[currentKey] = {};
+        };
+      };
+      var finalKey = address.shift();
+      if (finalKey in defaultOptions.object) {
+        if (defaultOptions.cloneIndex != null) {
+          // if cloneIndex and cloneKey return index of array or value
+          if (defaultOptions.cloneKey != null) {
+            return defaultOptions.object[finalKey][defaultOptions.cloneIndex][defaultOptions.cloneKey];
+          } else {
+            return defaultOptions.object[finalKey][defaultOptions.cloneIndex];
+          };
+        } else {
+          return defaultOptions.object[finalKey];
+        };
+      } else {
+        // if nothing found set empty value and then return
+        defaultOptions.object[finalKey] = "";
+        return defaultOptions.object[finalKey];
+      };
+    } else {
+      return false;
+    };
+  };
+
   function setObject(object, path, newValue) {
     var address = path.split(".");
     while (address.length > 1) {
@@ -106,7 +264,7 @@ var helper = (function() {
     };
     var finalKey = address.shift();
     if (finalKey in object) {
-      if (arrayIndex !== undefined && typeof arrayIndex == "number") {
+      if (arrayIndex != undefined) {
         // if arrayIndex return index of array
         // console.log("returning array", 1);
         return object[finalKey][arrayIndex];
@@ -222,58 +380,6 @@ var helper = (function() {
     return (
       rectangle.top >= 0 && rectangle.left >= 0 && rectangle.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rectangle.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-  };
-
-  function makeObject(string) {
-    var _trueOrFalse = function(stringToTest) {
-      if (stringToTest == "true") {
-        return true;
-      } else if (stringToTest == "false") {
-        return false;
-      } else {
-        return "\"" + stringToTest + "\"";
-      };
-    };
-    // if argument is a string
-    if (typeof string == "string") {
-      // start building the object
-      var objectString = "{";
-      // split the string
-      var items = string.split(",");
-      // loop over each item
-      for (var i = 0; i < items.length; i++) {
-        // split each would be object key values pair
-        var kevValuePair = items[i].split(":");
-        // get the key
-        var key = "\"" + kevValuePair[0] + "\"";
-        // split the would be values
-        var all_value = kevValuePair[1].split("+");
-        var value;
-        // if there are multiple values make an array
-        if (all_value.length > 1) {
-          value = "["
-          for (var q = 0; q < all_value.length; q++) {
-            value += _trueOrFalse(all_value[q]) + ",";
-          };
-          // remove last comma
-          value = value.substr(0, value.length - 1);
-          // close array
-          value += "]"
-        } else {
-          // if the single value is true or false
-          value = _trueOrFalse(all_value[0]);
-        };
-        objectString += key + ":" + value + ",";
-      };
-      // remove last comma
-      objectString = objectString.substr(0, objectString.length - 1);
-      // close object
-      objectString += "}";
-      var object = JSON.parse(objectString);
-      return object;
-    } else {
-      return false;
-    };
   };
 
   function sortObject(object, key) {
@@ -398,7 +504,10 @@ var helper = (function() {
     sortObject: sortObject,
     getDateTime: getDateTime,
     getAverageColor: getAverageColor,
-    applyOptions: applyOptions
+    applyOptions: applyOptions,
+    replaceAt: replaceAt,
+    xxx_setObject: xxx_setObject,
+    xxx_getObject: xxx_getObject
   };
 
 })();

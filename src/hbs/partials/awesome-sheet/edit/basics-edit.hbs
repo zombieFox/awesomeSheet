@@ -7,8 +7,8 @@
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-large">
-          <div class="m-input-block m-input-block-large js-input-block js-basics-name">
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-name" data-path="basics.name" type="text" tabindex="1">
+          <div class="m-input-block m-input-block-large js-input-block js-basics-name" data-input-block-options="path:basics.name">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-name" type="text" tabindex="1">
           </div>
         </div>
       </div>
@@ -63,53 +63,53 @@
           </div>
         </div>
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.race">
             <label class="m-input-block-label js-input-block-label" for="basics-race">Race</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-race" data-path="basics.race" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-race" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.deity">
             <label class="m-input-block-label js-input-block-label" for="basics-deity">Deity</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-deity" data-path="basics.deity" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-deity" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.gender">
             <label class="m-input-block-label js-input-block-label" for="basics-gender">Gender</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-gender" data-path="basics.gender" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-gender" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.age">
             <label class="m-input-block-label js-input-block-label" for="basics-age">Age</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-age" data-path="basics.age" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-age" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.height">
             <label class="m-input-block-label js-input-block-label" for="basics-height">Height</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-height" data-path="basics.height" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-height" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-small">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.weight">
             <label class="m-input-block-label js-input-block-label" for="basics-weight">Weight</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-weight" data-path="basics.weight" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-weight" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-increment-target="basics-hero-points" data-increment="subtraction" tabindex="1"><span class="icon-remove"></span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="increment:subtraction,target:basics-hero-points" tabindex="1"><span class="icon-remove"></span></a>
           </div>
           <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.hero_points,type:integer,minimum:0,noZero:true">
               <label class="m-input-block-label js-input-block-label" for="basics-hero-points">Hero Points</label>
-              <input class="m-input-block-field u-full-width js-input-block-field" id="basics-hero-points" data-minimum="0" data-path="basics.hero_points" type="text" tabindex="1">
+              <input class="m-input-block-field u-full-width js-input-block-field" id="basics-hero-points" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-increment-target="basics-hero-points" data-increment="addition" tabindex="1"><span class="icon-add"></span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="increment:addition,target:basics-hero-points" tabindex="1"><span class="icon-add"></span></a>
           </div>
         </div>
         <div class="m-edit-box-item-max">
@@ -136,19 +136,19 @@
             <p class="m-edit-box-text js-text-block" data-path="basics.xp.total" data-text-type="number"></p>
           </div>
           <div class="m-edit-box-item-button-small">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-aggregate-path="basics.xp.total" data-aggregate-snack-message="XP cleared." data-aggregate-prompt-heading="Clear XP?"
-              data-aggregate-prompt-message="Are you sure you want to clear the current XP total?" data-event-type="xp" tabindex="1"><span class="icon-close"></span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear"
+            data-input-block-aggregate-options="target:basics-xp,action:clear,snackMessage:XP cleared.,promptHeading:Clear XP?,promptMessage:Are you sure you want to clear the current XP total?" tabindex="1"><span class="icon-close"></span></a>
           </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-large">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:basics.xp.total,action:aggregate,eventType:xp,snackMessage:XP.">
               <label class="m-input-block-label js-input-block-label" for="basics-xp">XP to add/remove</label>
-              <input id="basics-xp" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input" data-aggregate-path="basics.xp.total" data-aggregate-snack-message="XP" data-event-type="xp" type="text" tabindex="1">
+              <input id="basics-xp" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-button" data-source="basics-xp" data-aggregate-path="basics.xp.total" data-aggregate-snack-message="XP" data-event-type="xp" tabindex="1">Apply</a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-input-block-aggregate-control" data-input-block-aggregate-options="target:basics-xp,action:aggregate" tabindex="1">Apply</a>
           </div>
         </div>
         <div class="m-edit-box-item-button-small">
@@ -211,8 +211,7 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-initiative-speed is-hidden">
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-path="basics.initiative" data-total-path-addition="misc,temp,feat" data-total-bonuses="true" data-total-bonuses-include="str_bonus,dex_bonus,con_bonus,int_bonus,wis_bonus,cha_bonus,level,half_level"
-    data-total-type="bonus">
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:basics.initiative,addition:misc+temp+feat,bonuses:true,bonuses_include:str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level,type:bonus">
     <div class="m-edit-box-head">
       <h2 class="m-edit-box-title">Initiative</h2>
     </div>
@@ -224,21 +223,21 @@
             <p class="m-edit-box-total js-total-block-total" data-path="basics.initiative.current"></p>
           </div>
           <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.misc,type:integer">
               <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
-              <input id="basics-Initiative-misc" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.misc" type="text" data-type="integer" tabindex="1">
+              <input id="basics-Initiative-misc" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.temp,type:integer">
               <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
-              <input id="basics-Initiative-temp" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.temp" type="text" data-type="integer" tabindex="1">
+              <input id="basics-Initiative-temp" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.feat,type:integer">
               <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
-              <input id="basics-Initiative-feat" class="m-input-block-field u-full-width js-input-block-field" data-path="basics.initiative.feat" type="text" data-type="integer" tabindex="1">
+              <input id="basics-Initiative-feat" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-small">
@@ -258,40 +257,40 @@
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.speed.land">
             <label class="m-input-block-label js-input-block-label" for="basics-speed-land">Land</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-land" data-path="basics.speed.land" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-land" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.speed.swim">
             <label class="m-input-block-label js-input-block-label" for="basics-speed-swim">Swim</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-swim" data-path="basics.speed.swim" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-swim" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.speed.climb">
             <label class="m-input-block-label js-input-block-label" for="basics-speed-climb">Climb</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-climb" data-path="basics.speed.climb" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-climb" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-medium">
-          <div class="m-input-block js-input-block">
+          <div class="m-input-block js-input-block" data-input-block-options="path:basics.speed.burrow">
             <label class="m-input-block-label js-input-block-label" for="basics-speed-burrow">Burrow</label>
-            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-burrow" data-path="basics.speed.burrow" type="text" tabindex="1">
+            <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-burrow" type="text" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-medium m-edit-box-group">
           <div class="m-edit-box-item-medium">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.speed.fly">
               <label class="m-input-block-label js-input-block-label" for="basics-speed-fly">Fly</label>
-              <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-fly" data-path="basics.speed.fly" type="text" tabindex="1">
+              <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-fly" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-medium">
-            <div class="m-input-block js-input-block">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.speed.maneuverability">
               <label class="m-input-block-label js-input-block-label" for="basics-speed-maneuverability">Maneuverability</label>
-              <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-maneuverability" data-path="basics.speed.maneuverability" type="text" tabindex="1">
+              <input class="m-input-block-field u-full-width js-input-block-field" id="basics-speed-maneuverability" type="text" tabindex="1">
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ var ravich = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "1",
+      hero_points: 1,
       character_description: "A sneaky man with a realistic outlook on life. Tall, slim build, sallow pale skin, long scruffy face, sunken cheeks, light blue wide-set eyes, bushy eyebrows.",
       initiative: {
         misc: "",

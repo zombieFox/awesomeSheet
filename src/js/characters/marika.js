@@ -37,7 +37,7 @@ var marika = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "1",
+      hero_points: 1,
       character_description: "",
       initiative: {
         misc: "",

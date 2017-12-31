@@ -8,7 +8,75 @@ var totalBlock = (function() {
     };
   };
 
+  function _render_all_totalBlock() {
+    var all_totalBlock = helper.eA(".js-total-block");
+    for (var i = 0; i < all_totalBlock.length; i++) {
+      _render_totalBlock(all_totalBlock[i]);
+    };
+  };
+
   function _render_totalBlock(totalBlock) {
+    // console.log("---------------------------------------------------");
+    // console.log(totalBlock);
+    // make option object
+    var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
+    if (options) {
+      // console.log(options);
+
+      // prefix or suffix type
+      // options.type;
+
+      // total variable location
+      // options.path;
+
+      // is this a clone
+      // options.clone;
+
+      // what is the clone index
+      // options.clone_index;
+
+      // are we totalling variable from multiple clones
+      // options.clone_set;
+
+      // check to see if there are total bonuses to include
+      // options.bonuses;
+
+      // the paths to add
+      // options.addition;
+
+      // the paths to subtract
+      // options.subtraction;
+
+      // the total render target
+      var totalElement = totalBlock.querySelector(".js-total-block-total");
+      // are there exposed bonuses with checkboxes
+      var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-bonus-check");
+      // get the total object
+      // var totalObject = _get_totalObject(options.path, options.clone_index, options.clone_set);
+
+      // console.log(totalObject);
+      var toSum = [];
+      var grandTotal;
+    };
+
+  };
+
+  function _get_totalObject(path, cloneIndex, cloneSet) {
+    var object;
+    if (path && !isNaN(cloneIndex)) {
+      // console.log("route ", 1);
+      object = helper.getObject(sheet.getCharacter(), path, cloneIndex);
+    } else if (path && cloneSet) {
+      // console.log("route ", 2);
+      object = helper.getObject(sheet.getCharacter(), path);
+    } else if (path) {
+      // console.log("route ", 3);
+      object = helper.getObject(sheet.getCharacter(), path);
+    };
+    return object;
+  };
+
+  function xxxxxx_render_totalBlock(totalBlock) {
     // console.log("---------------------------------------------------");
     // console.log(totalBlock);
     var _checkValue = function(data) {
@@ -284,13 +352,6 @@ var totalBlock = (function() {
 
     totalElement.textContent = _addPrefixSuffix(grandTotal, totalType);
     // console.log("------------------------------");
-  };
-
-  function _render_all_totalBlock() {
-    var all_totalBlock = helper.eA(".js-total-block");
-    for (var i = 0; i < all_totalBlock.length; i++) {
-      _render_totalBlock(all_totalBlock[i]);
-    };
   };
 
   function _bonusTextLable(bonusType) {

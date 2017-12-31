@@ -37,7 +37,7 @@ var izlara = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "1",
+      hero_points: 1,
       character_description: "A responsible woman with a pragmatic outlook on life. Slim and a little taller than average, pale skin, diamond-shape face, hazel-green deep-set eyes.",
       initiative: {
         misc: 2,
