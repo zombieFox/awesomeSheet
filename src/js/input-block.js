@@ -12,7 +12,7 @@ var inputBlock = (function() {
       _bind_all_inputBlockAggregate();
       _bind_all_inputBlockAggregateControl();
       _bind_all_inputBlockAggregateClear();
-      _bind_inputBlockQuickValue();
+      _bind_all_inputBlockQuickValue();
       _bind_name();
     };
   };
@@ -119,10 +119,16 @@ var inputBlock = (function() {
     };
   };
 
-  function _bind_inputBlockQuickValue() {
+  function _bind_all_inputBlockQuickValue() {
     var all_inputBlockQuickValues = helper.eA(".js-input-block-quick-value");
     for (var i = 0; i < all_inputBlockQuickValues.length; i++) {
-      all_inputBlockQuickValues[i].addEventListener("click", function() {
+      _bind_inputBlockQuickValue(all_inputBlockQuickValues[i]);
+    };
+  };
+
+  function _bind_inputBlockQuickValue(inputBlockQuickValues) {
+    if (inputBlockQuickValues) {
+      inputBlockQuickValues.addEventListener("click", function() {
         _render_quickValueControls(this);
       }, false);
     };
@@ -417,12 +423,10 @@ var inputBlock = (function() {
   };
 
   function _render_quickValueControls(button) {
-    var target = button.dataset.quickValueTarget;
-    var change = button.dataset.quickValueChange;
-    var heading = button.dataset.modalHeading;
-    var inputBlockField = helper.e("#" + target);
+    var options = helper.makeObject(button.dataset.inputBlockQuickValueOptions);
+    var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
-    var path = inputBlockField.dataset.path;
+    var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
 
     function _render_count(quickValueControl) {
       var currentValue = parseInt(quickValueControl.dataset.quickValue, 10);
@@ -477,44 +481,41 @@ var inputBlock = (function() {
 
     function _update_value(quickValueControl) {
       var storedValue = parseInt(quickValueControl.dataset.quickValue, 10);
-      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), path), 10);
+      var currentValue = parseInt(helper.getObject(sheet.getCharacter(), inputBlockOptions.path), 10);
       var newValue;
       if (isNaN(currentValue)) {
         currentValue = 0;
       };
 
       // if negative healing is applied
-      if (path == "defense.hp.damage" && change == "negative" && storedValue <= 0) {
+      if (inputBlockOptions.path == "defense.hp.damage" && options.action == "negative" && storedValue <= 0) {
         // console.log("negative healing found", " | stored", storedValue, " | old", currentValue);
         storedValue = 0;
       };
 
-      if (change == "positive") {
+      if (options.action == "addition") {
         newValue = currentValue + storedValue;
-      } else if (change == "negative") {
+      } else if (options.action == "subtraction") {
         newValue = currentValue - storedValue;
       };
 
-      if (path == "defense.hp.damage" || path == "defense.hp.temp" || path == "defense.hp.non_lethal_damage") {
+      if (inputBlockOptions.path == "defense.hp.damage" || inputBlockOptions.path == "defense.hp.temp" || inputBlockOptions.path == "defense.hp.non_lethal_damage") {
         if (newValue <= 0) {
-          helper.setObject(sheet.getCharacter(), path, "");
-        } else {
-          helper.setObject(sheet.getCharacter(), path, newValue);
-        };
-      } else {
-        if (newValue == 0) {
-          helper.setObject(sheet.getCharacter(), path, "");
-        } else {
-          helper.setObject(sheet.getCharacter(), path, newValue);
+          newValue = "";
         };
       };
+      helper.xxx_setObject({
+        path: inputBlockOptions.path,
+        object: sheet.getCharacter(),
+        newValue: newValue
+      });
     };
 
     function _create_quickValueModal() {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
-      quickValueControl.setAttribute("data-value-target", target);
+      quickValueControl.setAttribute("data-value-target", options.target);
 
       var editBox = document.createElement("div");
       editBox.setAttribute("class", "m-edit-box m-edit-box-head-small");
@@ -576,19 +577,20 @@ var inputBlock = (function() {
     };
 
     var modalContent = _create_quickValueModal();
+    var modalAction = function() {
+      var defenceSection = helper.e(".js-section-defense");
+      _update_value(this);
+      sheet.storeCharacters();
+      render(inputBlock);
+      totalBlock.render();
+      display.clear(defenceSection);
+      display.render(defenceSection);
+    }.bind(modalContent);
 
     modal.render({
-      heading: heading,
+      heading: options.modalHeading,
       content: modalContent,
-      action: function() {
-        var defenceSection = helper.e(".js-section-defense");
-        _update_value(this, change);
-        sheet.storeCharacters();
-        render(inputBlock);
-        totalBlock.render();
-        display.clear(defenceSection);
-        display.render(defenceSection);
-      }.bind(modalContent),
+      action: modalAction,
       actionText: "Apply",
       size: "medium"
     });
