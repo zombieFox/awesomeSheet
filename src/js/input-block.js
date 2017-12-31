@@ -130,6 +130,7 @@ var inputBlock = (function() {
     if (inputBlockQuickValues) {
       inputBlockQuickValues.addEventListener("click", function() {
         _render_quickValueControls(this);
+        page.update();
       }, false);
     };
   };
@@ -594,7 +595,6 @@ var inputBlock = (function() {
       actionText: "Apply",
       size: "medium"
     });
-    page.update();
   };
 
   function _increment(button, event) {
