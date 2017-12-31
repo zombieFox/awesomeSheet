@@ -622,19 +622,19 @@ var inputBlock = (function() {
     if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
       oldData = 0;
     };
-    if (options.increment == "addition") {
+    if (options.action == "addition") {
       if (shift) {
         newData = oldData + 10;
       } else {
         newData = oldData + 1;
       };
-    } else if (options.increment == "subtraction") {
+    } else if (options.action == "subtraction") {
       if (shift) {
         newData = oldData - 10;
       } else {
         newData = oldData - 1;
       };
-    } else if (options.increment == "clear") {
+    } else if (options.action == "clear") {
       newData = 0;
     };
     if (inputBlockOptions.minimum != null) {

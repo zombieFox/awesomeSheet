@@ -135,7 +135,7 @@ var clone = (function() {
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,increment:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable,type:integer,minimum:0,noZero:true,clone:true,cloneIndex:' + cloneIndex + ',cloneKey:total">' +
@@ -144,15 +144,15 @@ var clone = (function() {
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,increment:addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,increment:clear" tabindex="1"><span class="icon-close"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:clear" tabindex="1"><span class="icon-close"></span></a>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,increment:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable,type:integer,minimum:0,noZero:true,clone:true,cloneIndex:' + cloneIndex + ',cloneKey:used">' +
@@ -161,10 +161,10 @@ var clone = (function() {
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,increment:addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,increment:clear" tabindex="1"><span class="icon-close"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:clear" tabindex="1"><span class="icon-close"></span></a>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
