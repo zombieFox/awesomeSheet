@@ -179,7 +179,7 @@ var totalBlock = (function() {
           };
         };
       };
-      var _push_externalValues = function(objectToTotal) {
+      var _push_externalValues = function() {
         // loop over bonuses in objectToTotal
         for (var key in objectToTotal.bonuses) {
           // if external bonuse is true
@@ -307,7 +307,6 @@ var totalBlock = (function() {
               externalBouns = 10;
             };
             toSum.push(externalBouns);
-            // console.log("added", key);
           };
         };
       };
@@ -333,7 +332,7 @@ var totalBlock = (function() {
         };
         return total;
       };
-      var _render_allCheck = function(objectToTotal) {
+      var _render_allCheck = function() {
         var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-check");
         if (all_bonusCheck.length > 0) {
           for (var i = 0; i < all_bonusCheck.length; i++) {
@@ -346,8 +345,8 @@ var totalBlock = (function() {
       _update_missingBonusKey();
       _push_internalValues(options.addition, "add");
       _push_internalValues(options.subtraction, "minus");
-      _push_externalValues(objectToTotal);
-      _render_allCheck(objectToTotal)
+      _push_externalValues();
+      _render_allCheck()
       var grandTotal = _reduceSum(toSum);
       if (totalElement) {
         totalElement.textContent = _addPrefixSuffix(grandTotal, options.type);
@@ -358,24 +357,25 @@ var totalBlock = (function() {
 
   function _render_totalBlockCheck(input) {
     var options = helper.makeObject(input.dataset.totalBlockCheckOptions);
-    var totalBlock = helper.getClosest(input, ".js-total-block") || helper.getClosest(input, ".js-total-block-control");
-    var bonusesObject;
+    var totalBlock = helper.getClosest(input, ".js-total-block");
+    var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
+    var totalObjectBonuses;
     var object;
-    if (totalBlock.dataset.clone == "true") {
-      var cloneCount = parseInt(totalBlock.dataset.cloneCount, 10);
-      object = helper.xxx_getObject({
+    if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
+      totalObjectBonuses = helper.xxx_getObject({
         object: sheet.getCharacter(),
-        path: options.path,
-        cloneIndex: options.cloneIndex,
-        cloneKey: options.cloneKey
+        path: options.path + ".bonuses",
+        cloneIndex: totalBlockOptions.cloneIndex,
+        cloneKey: totalBlockOptions.cloneKey
       });
-      object.bonuses[options.type] = input.checked;
     } else {
-      bonusesObject = helper.xxx_getObject({
+      totalObjectBonuses = helper.xxx_getObject({
         object: sheet.getCharacter(),
         path: options.path + ".bonuses"
       });
-      bonusesObject[options.type] = input.checked;
+    };
+    if (totalObjectBonuses) {
+      totalObjectBonuses[options.type] = input.checked;
     };
   };
 
