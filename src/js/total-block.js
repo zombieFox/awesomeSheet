@@ -193,12 +193,12 @@ var totalBlock = (function() {
               // if max dex is true
               if (objectToTotal.bonuses.max_dex) {
                 if (helper.xxx_getObject({
-                  object: sheet.getCharacter(),
-                  path: "equipment.armor.max_dex"
-                }) != "" && helper.xxx_getObject({
-                  object: sheet.getCharacter(),
-                  path: "equipment.armor.max_dex"
-                }) < _checkValue(stats.getMod("dex"))) {
+                    object: sheet.getCharacter(),
+                    path: "equipment.armor.max_dex"
+                  }) != "" && helper.xxx_getObject({
+                    object: sheet.getCharacter(),
+                    path: "equipment.armor.max_dex"
+                  }) < _checkValue(stats.getMod("dex"))) {
                   externalBouns = helper.xxx_getObject({
                     object: sheet.getCharacter(),
                     path: "equipment.armor.max_dex"
@@ -348,9 +348,10 @@ var totalBlock = (function() {
       _push_internalValues(options.subtraction, "minus");
       _push_externalValues(objectToTotal);
       _render_allCheck(objectToTotal)
-      var grandTotal = _addPrefixSuffix(_reduceSum(toSum), options.type);
+      var grandTotal = _reduceSum(toSum);
       if (totalElement) {
-        totalElement.textContent = grandTotal;
+        totalElement.textContent = _addPrefixSuffix(grandTotal, options.type);
+        objectToTotal.current = grandTotal;
       };
     };
   };
