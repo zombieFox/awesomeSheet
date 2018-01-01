@@ -1,4 +1,4 @@
-<div class="m-tab-panel js-tab-panel js-tab-panel-character-details">
+<div class="m-tab-panel js-tab-panel js-tab-panel-character-details is-hidden">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
@@ -209,9 +209,9 @@
 
 </div>
 
-<div class="m-tab-panel js-tab-panel js-tab-panel-initiative-speed is-hidden">
+<div class="m-tab-panel js-tab-panel js-tab-panel-initiative-speed">
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:basics.initiative,addition:misc+temp+feat,bonuses:true,bonuses_include:str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level,type:bonus">
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:basics.initiative,addition:+misc+feat,subtraction:+temp,bonuses:+zzzz+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level,type:bonus">
     <div class="m-edit-box-head">
       <h2 class="m-edit-box-title">Initiative</h2>
     </div>
@@ -240,8 +240,22 @@
               <input id="basics-Initiative-feat" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
             </div>
           </div>
+          <div class="m-edit-box-item-check">
+            <div class="m-check-block">
+              <p class="m-edit-box-label u-text-center">STR</p>
+              <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:basics.initiative,type:str_bonus" type="checkbox" tabindex="1">
+              <span class="m-check-block-check-icon"></span>
+            </div>
+          </div>
+          <div class="m-edit-box-item-check">
+            <div class="m-check-block">
+              <p class="m-edit-box-label u-text-center">DEX</p>
+              <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:basics.initiative,type:dex_bonus" type="checkbox" tabindex="1">
+              <span class="m-check-block-check-icon"></span>
+            </div>
+          </div>
           <div class="m-edit-box-item-button-small">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-modal-heading="Initiative bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="modalHeading:Initiative bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
       </div>

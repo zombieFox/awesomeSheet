@@ -102,11 +102,14 @@ var helper = (function() {
         var kevValuePair = items[i].split(":");
         // get the key
         var key = "\"" + kevValuePair[0] + "\"";
-        // split the would be values
-        var all_value = kevValuePair[1].split("+");
         var value;
-        // if there are multiple values make an array
-        if (all_value.length > 1) {
+        // if the value is supposed to be an array
+        if (kevValuePair[1].indexOf("+") != -1) {
+          // remove first + symbol
+          kevValuePair[1] = kevValuePair[1].substr(1, kevValuePair[1].length);
+          // split the would be values
+          var all_value = kevValuePair[1].split("+");
+          // if there are multiple values make an array
           value = "["
           for (var q = 0; q < all_value.length; q++) {
             value += _trueOrFalse(all_value[q]) + ",";
@@ -116,8 +119,7 @@ var helper = (function() {
           // close array
           value += "]"
         } else {
-          // if the single value is true or false
-          value = _trueOrFalse(all_value[0]);
+          value = _trueOrFalse(kevValuePair[1]);
         };
         objectString += key + ":" + value + ",";
       };
