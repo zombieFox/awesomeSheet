@@ -123,22 +123,19 @@ var totalBlock = (function() {
       var toSum = [];
       var _get_totalBlockObject = function() {
         var totalObject;
-        if (options.clone != null && options.cloneIndex != null && options.cloneSet != null) {
+        if (options.clone && options.cloneSet) {
           totalObject = helper.xxx_getObject({
             object: sheet.getCharacter(),
             path: options.path,
-            cloneIndex: options.cloneIndex,
+            clone: options.clone,
             cloneSet: options.cloneSet
           });
-        } else if (options.clone != null && options.cloneIndex != null) {
+        } else if (options.clone) {
           totalObject = helper.xxx_getObject({
             object: sheet.getCharacter(),
             path: options.path,
-            cloneIndex: options.cloneIndex,
+            clone: options.clone
           });
-          console.log("-----------------------");
-          console.log("clone total block");
-          console.log(totalObject);
         } else {
           totalObject = helper.xxx_getObject({
             object: sheet.getCharacter(),
@@ -372,11 +369,11 @@ var totalBlock = (function() {
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
     var totalBlockBonusesObject;
     var object;
-    if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
+    if (totalBlockOptions.clone) {
       totalBlockBonusesObject = helper.xxx_getObject({
         object: sheet.getCharacter(),
         path: options.path,
-        cloneIndex: totalBlockOptions.cloneIndex
+        clone: totalBlockOptions.clone
       });
       totalBlockBonusesObject = totalBlockBonusesObject;
     } else {
@@ -396,11 +393,11 @@ var totalBlock = (function() {
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
     var totalBlockBonusesObject;
     var _get_bonusObject = function() {
-      if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
+      if (totalBlockOptions.clone) {
         totalBlockBonusesObject = helper.xxx_getObject({
           object: sheet.getCharacter(),
           path: options.path,
-          cloneIndex: totalBlockOptions.cloneIndex
+          clone: totalBlockOptions.clone
         });
       } else {
         totalBlockBonusesObject = helper.xxx_getObject({
@@ -409,9 +406,6 @@ var totalBlock = (function() {
         });
       };
     };
-    console.log(options);
-    console.log(totalBlockOptions);
-    console.log(totalBlockBonusesObject);
     var _store_data = function(input, key) {
       totalBlockBonusesObject[key] = input.checked;
     };

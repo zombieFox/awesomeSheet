@@ -140,14 +140,13 @@ var helper = (function() {
     var defaultOptions = {
       path: null,
       object: null,
-      cloneIndex: null,
-      cloneKey: null,
+      clone: null,
       newValue: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
+    var _setData = function() {
       // split path into array items
       var address = defaultOptions.path.split(".");
       // while array has more than 1 item
@@ -166,19 +165,42 @@ var helper = (function() {
       };
       var finalKey = address.shift();
       if (finalKey in defaultOptions.object) {
-        if (defaultOptions.cloneIndex != null) {
-          // if cloneIndex and cloneKey return index of array or value
-          if (defaultOptions.cloneKey != null) {
-            defaultOptions.object[finalKey][defaultOptions.cloneIndex][defaultOptions.cloneKey] = defaultOptions.newValue;
-          } else {
-            defaultOptions.object[finalKey][defaultOptions.cloneIndex] = defaultOptions.newValue;
-          };
-        } else {
-          defaultOptions.object[finalKey] = defaultOptions.newValue;
-        };
-      } else {
-        // if nothing found set new value
         defaultOptions.object[finalKey] = defaultOptions.newValue;
+      };
+    };
+    var _setCloneData = function() {
+      var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
+      if (addressTwo[0] == "") {
+        addressTwo.shift();
+      };
+      if (addressOne.length > 0) {
+        while (addressOne.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressOne.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressOne.shift();
+        defaultOptions.object = defaultOptions.object[finalKey][index];
+      };
+      if (addressTwo.length > 0) {
+        while (addressTwo.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressTwo.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressTwo.shift();
+        defaultOptions.object[finalKey] = defaultOptions.newValue;
+      };
+    };
+    if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
+      if (defaultOptions.clone) {
+        _setCloneData();
+      } else {
+        _setData();
       };
     } else {
       return false;
@@ -189,13 +211,13 @@ var helper = (function() {
     var defaultOptions = {
       object: null,
       path: null,
-      cloneIndex: null,
+      clone: null,
       cloneKey: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.object != null && defaultOptions.path != null) {
+    var _getData = function() {
       // split path into array items
       var address = defaultOptions.path.split(".");
       // while array has more than 1 item
@@ -214,20 +236,47 @@ var helper = (function() {
       };
       var finalKey = address.shift();
       if (finalKey in defaultOptions.object) {
-        if (defaultOptions.cloneIndex != null) {
-          // if cloneIndex and cloneKey return index of array or value
-          if (defaultOptions.cloneKey != null) {
-            return defaultOptions.object[finalKey][defaultOptions.cloneIndex][defaultOptions.cloneKey];
-          } else {
-            return defaultOptions.object[finalKey][defaultOptions.cloneIndex];
-          };
-        } else {
-          return defaultOptions.object[finalKey];
-        };
+        return defaultOptions.object[finalKey];
       } else {
         // if nothing found set empty value and then return
         defaultOptions.object[finalKey] = "";
         return defaultOptions.object[finalKey];
+      };
+    };
+    var _getCloneData = function() {
+      var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
+      if (addressTwo[0] == "") {
+        addressTwo.shift();
+      };
+      if (addressOne.length > 0) {
+        while (addressOne.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressOne.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressOne.shift();
+        defaultOptions.object = defaultOptions.object[finalKey][index];
+      };
+      if (addressTwo.length > 0) {
+        while (addressTwo.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressTwo.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressTwo.shift();
+        defaultOptions.object = defaultOptions.object[finalKey];
+      };
+      return defaultOptions.object;
+    };
+    if (defaultOptions.object != null && defaultOptions.path != null) {
+      if (defaultOptions.clone) {
+        return _getCloneData();
+      } else {
+        return _getData();
       };
     } else {
       return false;

@@ -168,12 +168,11 @@ var inputBlock = (function() {
       };
     };
     if (options.path) {
-      if (options.clone != null && options.cloneIndex != null && options.cloneKey != null) {
+      if (options.clone) {
         helper.xxx_setObject({
           path: options.path,
           object: sheet.getCharacter(),
-          cloneIndex: options.cloneIndex,
-          cloneKey: options.cloneKey,
+          clone: options.clone,
           newValue: data
         });
       } else {
@@ -229,12 +228,11 @@ var inputBlock = (function() {
     var options = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var data;
     if (options.path) {
-      if (options.clone != null && options.cloneIndex != null && options.cloneKey != null) {
+      if (options.clone) {
         data = helper.xxx_getObject({
           object: sheet.getCharacter(),
           path: options.path,
-          cloneIndex: options.cloneIndex,
-          cloneKey: options.cloneKey
+          clone: options.clone
         });
       } else {
         data = helper.xxx_getObject({
@@ -606,12 +604,11 @@ var inputBlock = (function() {
     var newData;
     var shift = event.shiftKey;
     if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone && inputBlockOptions.cloneIndex && inputBlockOptions.cloneKey) {
+      if (inputBlockOptions.clone) {
         oldData = helper.xxx_getObject({
           object: sheet.getCharacter(),
           path: inputBlockOptions.path,
-          cloneIndex: parseInt(inputBlockOptions.cloneIndex, 10),
-          cloneKey: inputBlockOptions.cloneKey
+          clone: inputBlockOptions.clone
         });
       } else {
         oldData = helper.xxx_getObject({
@@ -650,12 +647,11 @@ var inputBlock = (function() {
       };
     };
     if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone && inputBlockOptions.cloneIndex && inputBlockOptions.cloneKey) {
+      if (inputBlockOptions.clone) {
         helper.xxx_setObject({
           path: inputBlockOptions.path,
           object: sheet.getCharacter(),
-          cloneIndex: inputBlockOptions.cloneIndex,
-          cloneKey: inputBlockOptions.cloneKey,
+          clone: inputBlockOptions.clone,
           newValue: newData
         });
       } else {
