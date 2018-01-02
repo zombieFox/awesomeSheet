@@ -62,18 +62,21 @@ var vos = (function() {
         needed: ""
       },
       character_image: {
+        uploaded: false,
         background: "",
         color: {
           r: "",
           g: "",
           b: ""
         },
-        contain: "",
-        cover: "",
         orientation: "",
         position: {
           x: "",
           y: ""
+        },
+        size: {
+          width: "",
+          height: ""
         },
         scale: "",
         image: ""

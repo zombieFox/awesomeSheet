@@ -60,6 +60,26 @@ var nif = (function() {
         advancement_speed: "Medium",
         next_level: "",
         needed: ""
+      },
+      character_image: {
+        uploaded: false,
+        background: "",
+        color: {
+          r: "",
+          g: "",
+          b: ""
+        },
+        orientation: "",
+        position: {
+          x: "",
+          y: ""
+        },
+        size: {
+          width: "",
+          height: ""
+        },
+        scale: "",
+        image: ""
       }
     },
     statistics: {

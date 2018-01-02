@@ -411,6 +411,13 @@ var repair = (function() {
       delete characterObject.basics.character_image.contain;
     };
     // --------------------------------------------------
+    // update character image
+    if ("image" in characterObject.basics.character_image && characterObject.basics.character_image.image != "") {
+      characterObject.basics.character_image.uploaded = true;
+    } else {
+      characterObject.basics.character_image.uploaded = false;
+    };
+    // --------------------------------------------------
     sheet.storeCharacters();
     return characterObject;
   };
