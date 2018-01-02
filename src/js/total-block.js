@@ -591,6 +591,8 @@ var totalBlock = (function() {
       return totalBlockControls;
     };
     _get_bonusObject();
+    console.log(options.path);
+    console.log(totalObjectBonuses);
     var modalContent = _render_totalBlockBonusesModal();
     var modalAction = function() {
       sheet.storeCharacters();
