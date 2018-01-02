@@ -4,7 +4,8 @@ var xp = (function() {
 
   function bind() {
     var advancementSpeed = helper.e(".js-advancement-speed");
-    advancementSpeed.addEventListener("change", function() {
+    var selectBlockDropdown = advancementSpeed.querySelector(".js-select-block-dropdown");
+    selectBlockDropdown.addEventListener("change", function() {
       clearTimeout(renderTimer);
       renderTimer = setTimeout(delayUpdate, 300, this);
     }, false);
