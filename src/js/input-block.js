@@ -168,7 +168,7 @@ var inputBlock = (function() {
       };
     };
     if (options.path) {
-      if (options.clone && options.cloneIndex && options.cloneKey) {
+      if (options.clone != null && options.cloneIndex != null && options.cloneKey != null) {
         helper.xxx_setObject({
           path: options.path,
           object: sheet.getCharacter(),
@@ -229,11 +229,11 @@ var inputBlock = (function() {
     var options = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var data;
     if (options.path) {
-      if (options.clone && options.cloneIndex && options.cloneKey) {
+      if (options.clone != null && options.cloneIndex != null && options.cloneKey != null) {
         data = helper.xxx_getObject({
           object: sheet.getCharacter(),
           path: options.path,
-          cloneIndex: parseInt(options.cloneIndex, 10),
+          cloneIndex: options.cloneIndex,
           cloneKey: options.cloneKey
         });
       } else {

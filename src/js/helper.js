@@ -81,11 +81,13 @@ var helper = (function() {
   };
 
   function makeObject(string) {
-    var _trueOrFalse = function(stringToTest) {
+    var _stringOrBooleanOrNumber = function(stringToTest) {
       if (stringToTest == "true") {
         return true;
       } else if (stringToTest == "false") {
         return false;
+      } else if (stringToTest.indexOf("#") != -1) {
+        return stringToTest.substr(1, kevValuePair[1].length);
       } else {
         return "\"" + stringToTest + "\"";
       };
@@ -112,14 +114,14 @@ var helper = (function() {
           // if there are multiple values make an array
           value = "["
           for (var q = 0; q < all_value.length; q++) {
-            value += _trueOrFalse(all_value[q]) + ",";
+            value += _stringOrBooleanOrNumber(all_value[q]) + ",";
           };
           // remove last comma
           value = value.substr(0, value.length - 1);
           // close array
           value += "]"
         } else {
-          value = _trueOrFalse(kevValuePair[1]);
+          value = _stringOrBooleanOrNumber(kevValuePair[1]);
         };
         objectString += key + ":" + value + ",";
       };
