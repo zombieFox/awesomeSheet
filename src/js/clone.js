@@ -233,12 +233,12 @@ var clone = (function() {
         '            <div class="m-edit-box-item-check">' +
         '              <div class="m-check-block">' +
         '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Class Skill</p>' +
-        '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom,type:class_skill,clone:true,cloneIndex:#' + cloneIndex + '" type="checkbox" tabindex="1">' +
+        '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom.bonuses,type:class_skill,clone:true,cloneIndex:#' + cloneIndex + '" type="checkbox" tabindex="1">' +
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-button-small">' +
-        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:skills.custom,modalHeading:Custom Skill bonuses,clone:true,cloneIndex:#' + cloneIndex + '" tabindex="1"><span class="icon-more-vertical"></span></a>' +
+        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:skills.custom.bonuses,modalHeading:Custom Skill bonuses,clone:true,cloneIndex:#' + cloneIndex + '" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '            </div>' +
         '          </div>' +
         '        </div>' +

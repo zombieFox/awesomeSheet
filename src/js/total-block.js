@@ -367,23 +367,23 @@ var totalBlock = (function() {
     var options = helper.makeObject(input.dataset.totalBlockCheckOptions);
     var totalBlock = helper.getClosest(input, ".js-total-block");
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalObjectBonuses;
+    var totalBonusesObject;
     var object;
     if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
-      totalObjectBonuses = helper.xxx_getObject({
+      totalBonusesObject = helper.xxx_getObject({
         object: sheet.getCharacter(),
         path: options.path,
         cloneIndex: totalBlockOptions.cloneIndex
       });
-      totalObjectBonuses = totalObjectBonuses["bonuses"];
+      totalBonusesObject = totalBonusesObject;
     } else {
-      totalObjectBonuses = helper.xxx_getObject({
+      totalBonusesObject = helper.xxx_getObject({
         object: sheet.getCharacter(),
-        path: options.path + ".bonuses"
+        path: options.path
       });
     };
-    if (totalObjectBonuses) {
-      totalObjectBonuses[options.type] = input.checked;
+    if (totalBonusesObject) {
+      totalBonusesObject[options.type] = input.checked;
     };
   };
 
@@ -391,24 +391,28 @@ var totalBlock = (function() {
     var options = helper.makeObject(button.dataset.totalBlockBonusesOptions);
     var totalBlock = helper.getClosest(button, ".js-total-block");
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalObjectBonuses;
+    var totalBonusesObject;
     var _get_bonusObject = function() {
       if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
-        totalObjectBonuses = helper.xxx_getObject({
+        console.log(1);
+        totalBonusesObject = helper.xxx_getObject({
           object: sheet.getCharacter(),
-          path: totalBlockOptions.path,
+          path: options.path,
           cloneIndex: totalBlockOptions.cloneIndex
         });
-        totalObjectBonuses = totalObjectBonuses["bonuses"];
       } else {
-        totalObjectBonuses = helper.xxx_getObject({
+        console.log(2);
+        totalBonusesObject = helper.xxx_getObject({
           object: sheet.getCharacter(),
-          path: totalBlockOptions.path + ".bonuses"
+          path: options.path
         });
       };
     };
+    console.log(options);
+    console.log(totalBlockOptions);
+    console.log(totalBonusesObject);
     var _store_data = function(input, key) {
-      totalObjectBonuses[key] = input.checked;
+      totalBonusesObject[key] = input.checked;
     };
     var _render_check = function(key) {
       var checkBlock = document.createElement("div");
@@ -417,7 +421,7 @@ var totalBlock = (function() {
       checkBlockCheck.setAttribute("class", "m-check-block-check");
       checkBlockCheck.setAttribute("type", "checkbox");
       checkBlockCheck.setAttribute("id", key);
-      checkBlockCheck.checked = totalObjectBonuses[key];
+      checkBlockCheck.checked = totalBonusesObject[key];
       var checkBlockCheckIcon = document.createElement("span");
       checkBlockCheckIcon.setAttribute("class", "m-check-block-check-icon");
       checkBlock.appendChild(checkBlockCheck);
@@ -463,117 +467,117 @@ var totalBlock = (function() {
     };
     var _render_totalBlockBonusesModal = function() {
       var totalBlockControls = document.createElement("div");
-      if (totalObjectBonuses) {
+      if (totalBonusesObject) {
         // order the bonuses for rendering in modal
         var orderedBonuses = [];
-        if ("str_bonus" in totalObjectBonuses) {
+        if ("str_bonus" in totalBonusesObject) {
           orderedBonuses.push({
-            "str_bonus": totalObjectBonuses["str_bonus"]
+            "str_bonus": totalBonusesObject["str_bonus"]
           })
         };
-        if ("dex_bonus" in totalObjectBonuses) {
+        if ("dex_bonus" in totalBonusesObject) {
           orderedBonuses.push({
-            "dex_bonus": totalObjectBonuses["dex_bonus"]
+            "dex_bonus": totalBonusesObject["dex_bonus"]
           })
         };
-        if ("con_bonus" in totalObjectBonuses) {
+        if ("con_bonus" in totalBonusesObject) {
           orderedBonuses.push({
-            "con_bonus": totalObjectBonuses["con_bonus"]
+            "con_bonus": totalBonusesObject["con_bonus"]
           })
         };
-        if ("int_bonus" in totalObjectBonuses) {
+        if ("int_bonus" in totalBonusesObject) {
           orderedBonuses.push({
-            "int_bonus": totalObjectBonuses["int_bonus"]
+            "int_bonus": totalBonusesObject["int_bonus"]
           })
         };
-        if ("wis_bonus" in totalObjectBonuses) {
+        if ("wis_bonus" in totalBonusesObject) {
           orderedBonuses.push({
-            "wis_bonus": totalObjectBonuses["wis_bonus"]
+            "wis_bonus": totalBonusesObject["wis_bonus"]
           })
         };
-        if ("cha_bonus" in totalObjectBonuses) {
+        if ("cha_bonus" in totalBonusesObject) {
           orderedBonuses.push({
-            "cha_bonus": totalObjectBonuses["cha_bonus"]
+            "cha_bonus": totalBonusesObject["cha_bonus"]
           })
         };
-        if ("bab" in totalObjectBonuses) {
+        if ("bab" in totalBonusesObject) {
           orderedBonuses.push({
-            "bab": totalObjectBonuses["bab"]
+            "bab": totalBonusesObject["bab"]
           })
         };
-        if ("level" in totalObjectBonuses) {
+        if ("level" in totalBonusesObject) {
           orderedBonuses.push({
-            "level": totalObjectBonuses["level"]
+            "level": totalBonusesObject["level"]
           })
         };
-        if ("half_level" in totalObjectBonuses) {
+        if ("half_level" in totalBonusesObject) {
           orderedBonuses.push({
-            "half_level": totalObjectBonuses["half_level"]
+            "half_level": totalBonusesObject["half_level"]
           })
         };
-        if ("class_skill" in totalObjectBonuses) {
+        if ("class_skill" in totalBonusesObject) {
           orderedBonuses.push({
-            "class_skill": totalObjectBonuses["class_skill"]
+            "class_skill": totalBonusesObject["class_skill"]
           })
         };
-        if ("max_dex" in totalObjectBonuses) {
+        if ("max_dex" in totalBonusesObject) {
           orderedBonuses.push({
-            "max_dex": totalObjectBonuses["max_dex"]
+            "max_dex": totalBonusesObject["max_dex"]
           })
         };
-        if ("check_penalty" in totalObjectBonuses) {
+        if ("check_penalty" in totalBonusesObject) {
           orderedBonuses.push({
-            "check_penalty": totalObjectBonuses["check_penalty"]
+            "check_penalty": totalBonusesObject["check_penalty"]
           })
         };
-        if ("plus_ten" in totalObjectBonuses) {
+        if ("plus_ten" in totalBonusesObject) {
           orderedBonuses.push({
-            "plus_ten": totalObjectBonuses["plus_ten"]
+            "plus_ten": totalBonusesObject["plus_ten"]
           })
         };
-        if ("ac_armor" in totalObjectBonuses) {
+        if ("ac_armor" in totalBonusesObject) {
           orderedBonuses.push({
-            "ac_armor": totalObjectBonuses["ac_armor"]
+            "ac_armor": totalBonusesObject["ac_armor"]
           })
         };
-        if ("ac_shield" in totalObjectBonuses) {
+        if ("ac_shield" in totalBonusesObject) {
           orderedBonuses.push({
-            "ac_shield": totalObjectBonuses["ac_shield"]
+            "ac_shield": totalBonusesObject["ac_shield"]
           })
         };
-        if ("ac_deflect" in totalObjectBonuses) {
+        if ("ac_deflect" in totalBonusesObject) {
           orderedBonuses.push({
-            "ac_deflect": totalObjectBonuses["ac_deflect"]
+            "ac_deflect": totalBonusesObject["ac_deflect"]
           })
         };
-        if ("ac_dodge" in totalObjectBonuses) {
+        if ("ac_dodge" in totalBonusesObject) {
           orderedBonuses.push({
-            "ac_dodge": totalObjectBonuses["ac_dodge"]
+            "ac_dodge": totalBonusesObject["ac_dodge"]
           })
         };
-        if ("ac_natural" in totalObjectBonuses) {
+        if ("ac_natural" in totalBonusesObject) {
           orderedBonuses.push({
-            "ac_natural": totalObjectBonuses["ac_natural"]
+            "ac_natural": totalBonusesObject["ac_natural"]
           })
         };
-        if ("size" in totalObjectBonuses) {
+        if ("size" in totalBonusesObject) {
           orderedBonuses.push({
-            "size": totalObjectBonuses["size"]
+            "size": totalBonusesObject["size"]
           })
         };
-        if ("special_size" in totalObjectBonuses) {
+        if ("special_size" in totalBonusesObject) {
           orderedBonuses.push({
-            "special_size": totalObjectBonuses["special_size"]
+            "special_size": totalBonusesObject["special_size"]
           })
         };
-        if ("size_modifier_fly" in totalObjectBonuses) {
+        if ("size_modifier_fly" in totalBonusesObject) {
           orderedBonuses.push({
-            "size_modifier_fly": totalObjectBonuses["size_modifier_fly"]
+            "size_modifier_fly": totalBonusesObject["size_modifier_fly"]
           })
         };
-        if ("size_modifier_stealth" in totalObjectBonuses) {
+        if ("size_modifier_stealth" in totalBonusesObject) {
           orderedBonuses.push({
-            "size_modifier_stealth": totalObjectBonuses["size_modifier_stealth"]
+            "size_modifier_stealth": totalBonusesObject["size_modifier_stealth"]
           })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {
@@ -591,8 +595,6 @@ var totalBlock = (function() {
       return totalBlockControls;
     };
     _get_bonusObject();
-    console.log(options.path);
-    console.log(totalObjectBonuses);
     var modalContent = _render_totalBlockBonusesModal();
     var modalAction = function() {
       sheet.storeCharacters();
