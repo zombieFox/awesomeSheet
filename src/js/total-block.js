@@ -392,6 +392,7 @@ var totalBlock = (function() {
     var totalBlock = helper.getClosest(button, ".js-total-block");
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
     var totalBlockBonusesObject;
+    var newBonusesObject;
     var _get_bonusObject = function() {
       if (totalBlockOptions.clone) {
         totalBlockBonusesObject = helper.xxx_getObject({
@@ -405,9 +406,18 @@ var totalBlock = (function() {
           path: options.path
         });
       };
+      // copy object
+      newBonusesObject = JSON.parse(JSON.stringify(totalBlockBonusesObject));
     };
-    var _store_data = function(input, key) {
-      totalBlockBonusesObject[key] = input.checked;
+    var _store_data = function() {
+      helper.xxx_setObject({
+        object: sheet.getCharacter(),
+        path: "basics.initiative.bonuses",
+        newValue: newBonusesObject
+      });
+    };
+    var _hold_data = function(input, key) {
+      newBonusesObject[key] = input.checked;
     };
     var _render_check = function(key) {
       var checkBlock = document.createElement("div");
@@ -422,7 +432,7 @@ var totalBlock = (function() {
       checkBlock.appendChild(checkBlockCheck);
       checkBlock.appendChild(checkBlockCheckIcon);
       checkBlockCheck.addEventListener("change", function() {
-        _store_data(this, key);
+        _hold_data(this, key);
       }, false);
       return checkBlock;
     };
@@ -592,6 +602,7 @@ var totalBlock = (function() {
     _get_bonusObject();
     var modalContent = _render_totalBlockBonusesModal();
     var modalAction = function() {
+      _store_data();
       sheet.storeCharacters();
       render();
       display.clear();
