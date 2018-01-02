@@ -54,7 +54,10 @@ var classes = (function() {
   };
 
   function render() {
-    var all_classes = helper.getObject(sheet.getCharacter(), "basics.classes");
+    var all_classes = helper.xxx_getObject({
+      object: sheet.getCharacter(),
+      path: "basics.classes"
+    });
     var totalLevels = _total(all_classes, "level");
     var totalHP = _total(all_classes, "hp") + (totalLevels * stats.getMod("con"));
     var totalBab = _total(all_classes, "bab");

@@ -1,16 +1,19 @@
 var radioBlock = (function() {
+  
+  var storeRadioTimer = null;
 
   function _store(element) {
     var radioBlock = helper.getClosest(element, ".js-radio-block");
-    var radioBlockInput = radioBlock.querySelector(".js-radio-block-input");
-    var path = element.dataset.path;
-    var value = element.value;
-    if (path) {
-      helper.setObject(sheet.getCharacter(), path, value);
+    var radioBlockOptions = helper.makeObject(radioBlock.dataset.radioBlockOptions);
+    var newValue = element.value;
+    if (radioBlockOptions.path) {
+      helper.xxx_setObject({
+        object: sheet.getCharacter(),
+        path: radioBlockOptions.path,
+        newValue: newValue
+      });
     };
   };
-
-  var storeRadioTimer = null;
 
   function delayUpdate(element) {
     _store(element);
@@ -59,11 +62,14 @@ var radioBlock = (function() {
   };
 
   function _render_radioBlock(radioBlock) {
+    var options = helper.makeObject(radioBlock.dataset.radioBlockOptions);
     var radioBlockInput = radioBlock.querySelector(".js-radio-block-input");
-    var path = radioBlockInput.dataset.path;
     var value = radioBlockInput.value;
-    if (path) {
-      var selection = helper.getObject(sheet.getCharacter(), path);
+    if (options.path) {
+      var selection = helper.xxx_getObject({
+        object: sheet.getCharacter(),
+        path: options.path
+      });
       if (selection == value) {
         radioBlockInput.checked = true;
       };
