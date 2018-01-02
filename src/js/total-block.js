@@ -118,14 +118,40 @@ var totalBlock = (function() {
   function _render_totalBlock(totalBlock) {
     if (totalBlock.dataset.totalBlockOptions) {
       var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-      var totalElement = totalBlock.querySelector(".js-total-block-total");
-      var objectToTotal;
+      var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
+      var totalBlockObject;
       var toSum = [];
+      var _get_totalBlockObject = function() {
+        var totalObject;
+        if (options.clone != null && options.cloneIndex != null && options.cloneSet != null) {
+          totalObject = helper.xxx_getObject({
+            object: sheet.getCharacter(),
+            path: options.path,
+            cloneIndex: options.cloneIndex,
+            cloneSet: options.cloneSet
+          });
+        } else if (options.clone != null && options.cloneIndex != null) {
+          totalObject = helper.xxx_getObject({
+            object: sheet.getCharacter(),
+            path: options.path,
+            cloneIndex: options.cloneIndex,
+          });
+          console.log("-----------------------");
+          console.log("clone total block");
+          console.log(totalObject);
+        } else {
+          totalObject = helper.xxx_getObject({
+            object: sheet.getCharacter(),
+            path: options.path
+          });
+        };
+        totalBlockObject = totalObject;
+      };
       var _update_missingBonusKey = function() {
         if (options.bonuses) {
           for (var i = 0; i < options.bonuses.length; i++) {
-            if (!(options.bonuses[i] in objectToTotal.bonuses)) {
-              objectToTotal.bonuses[options.bonuses[i]] = false;
+            if (!(options.bonuses[i] in totalBlockObject.bonuses)) {
+              totalBlockObject.bonuses[options.bonuses[i]] = false;
             };
           };
         };
@@ -151,55 +177,32 @@ var totalBlock = (function() {
         };
         return classSkill;
       };
-      var _get_objectToTotal = function() {
-        var totalObject;
-        if (options.clone != null && options.cloneIndex != null && options.cloneSet != null) {
-          totalObject = helper.xxx_getObject({
-            object: sheet.getCharacter(),
-            path: options.path,
-            cloneIndex: options.cloneIndex,
-            cloneSet: options.cloneSet
-          });
-        } else if (options.clone != null && options.cloneIndex != null) {
-          totalObject = helper.xxx_getObject({
-            object: sheet.getCharacter(),
-            path: options.path,
-            cloneIndex: options.cloneIndex,
-          });
-        } else {
-          totalObject = helper.xxx_getObject({
-            object: sheet.getCharacter(),
-            path: options.path
-          });
-        };
-        objectToTotal = totalObject;
-      };
       var _push_internalValues = function(array, addOrMinus) {
         if (array && array.length > 0) {
           for (var i = 0; i < array.length; i++) {
-            if (objectToTotal[array[i]] && objectToTotal[array[i]] != "" && !isNaN(objectToTotal[array[i]])) {
+            if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
               if (addOrMinus == "add") {
-                toSum.push(objectToTotal[array[i]]);
+                toSum.push(totalBlockObject[array[i]]);
               } else if (addOrMinus == "minus") {
-                toSum.push(-objectToTotal[array[i]]);
+                toSum.push(-totalBlockObject[array[i]]);
               };
             };
           };
         };
       };
       var _push_externalValues = function() {
-        // loop over bonuses in objectToTotal
-        for (var key in objectToTotal.bonuses) {
+        // loop over bonuses in totalBlockObject
+        for (var key in totalBlockObject.bonuses) {
           // if external bonuse is true
           // max dex is not a bonus too add or subtract but a value to limit the dex modifier
-          if (objectToTotal.bonuses[key] && key != "max_dex") {
+          if (totalBlockObject.bonuses[key] && key != "max_dex") {
             var externalBouns;
             if (key == "str_bonus") {
               externalBouns = _checkValue(stats.getMod("str"));
             };
             if (key == "dex_bonus") {
               // if max dex is true
-              if (objectToTotal.bonuses.max_dex) {
+              if (totalBlockObject.bonuses.max_dex) {
                 if (helper.xxx_getObject({
                     object: sheet.getCharacter(),
                     path: "equipment.armor.max_dex"
@@ -297,7 +300,7 @@ var totalBlock = (function() {
               }));
             };
             if (key == "class_skill") {
-              externalBouns = _checkClassSkill(objectToTotal);
+              externalBouns = _checkClassSkill(totalBlockObject);
             };
             if (key == "size_modifier_fly") {
               externalBouns = _checkValue(helper.xxx_getObject({
@@ -345,20 +348,20 @@ var totalBlock = (function() {
         if (all_bonusCheck.length > 0) {
           for (var i = 0; i < all_bonusCheck.length; i++) {
             var options = helper.makeObject(all_bonusCheck[i].dataset.totalBlockCheckOptions);
-            all_bonusCheck[i].checked = objectToTotal.bonuses[options.type];
+            all_bonusCheck[i].checked = totalBlockObject.bonuses[options.type];
           };
         };
       };
-      _get_objectToTotal();
+      _get_totalBlockObject();
       _update_missingBonusKey();
       _push_internalValues(options.addition, "add");
       _push_internalValues(options.subtraction, "minus");
       _push_externalValues();
       _render_allCheck()
       var grandTotal = _reduceSum(toSum);
-      if (totalElement) {
-        totalElement.textContent = _addPrefixSuffix(grandTotal, options.type);
-        objectToTotal.current = grandTotal;
+      if (totalBlockTotalElement) {
+        totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal, options.type);
+        totalBlockObject.current = grandTotal;
       };
     };
   };
@@ -367,23 +370,23 @@ var totalBlock = (function() {
     var options = helper.makeObject(input.dataset.totalBlockCheckOptions);
     var totalBlock = helper.getClosest(input, ".js-total-block");
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalBonusesObject;
+    var totalBlockBonusesObject;
     var object;
     if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
-      totalBonusesObject = helper.xxx_getObject({
+      totalBlockBonusesObject = helper.xxx_getObject({
         object: sheet.getCharacter(),
         path: options.path,
         cloneIndex: totalBlockOptions.cloneIndex
       });
-      totalBonusesObject = totalBonusesObject;
+      totalBlockBonusesObject = totalBlockBonusesObject;
     } else {
-      totalBonusesObject = helper.xxx_getObject({
+      totalBlockBonusesObject = helper.xxx_getObject({
         object: sheet.getCharacter(),
         path: options.path
       });
     };
-    if (totalBonusesObject) {
-      totalBonusesObject[options.type] = input.checked;
+    if (totalBlockBonusesObject) {
+      totalBlockBonusesObject[options.type] = input.checked;
     };
   };
 
@@ -391,18 +394,16 @@ var totalBlock = (function() {
     var options = helper.makeObject(button.dataset.totalBlockBonusesOptions);
     var totalBlock = helper.getClosest(button, ".js-total-block");
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalBonusesObject;
+    var totalBlockBonusesObject;
     var _get_bonusObject = function() {
       if (totalBlockOptions.clone != null && totalBlockOptions.cloneIndex != null) {
-        console.log(1);
-        totalBonusesObject = helper.xxx_getObject({
+        totalBlockBonusesObject = helper.xxx_getObject({
           object: sheet.getCharacter(),
           path: options.path,
           cloneIndex: totalBlockOptions.cloneIndex
         });
       } else {
-        console.log(2);
-        totalBonusesObject = helper.xxx_getObject({
+        totalBlockBonusesObject = helper.xxx_getObject({
           object: sheet.getCharacter(),
           path: options.path
         });
@@ -410,9 +411,9 @@ var totalBlock = (function() {
     };
     console.log(options);
     console.log(totalBlockOptions);
-    console.log(totalBonusesObject);
+    console.log(totalBlockBonusesObject);
     var _store_data = function(input, key) {
-      totalBonusesObject[key] = input.checked;
+      totalBlockBonusesObject[key] = input.checked;
     };
     var _render_check = function(key) {
       var checkBlock = document.createElement("div");
@@ -421,7 +422,7 @@ var totalBlock = (function() {
       checkBlockCheck.setAttribute("class", "m-check-block-check");
       checkBlockCheck.setAttribute("type", "checkbox");
       checkBlockCheck.setAttribute("id", key);
-      checkBlockCheck.checked = totalBonusesObject[key];
+      checkBlockCheck.checked = totalBlockBonusesObject[key];
       var checkBlockCheckIcon = document.createElement("span");
       checkBlockCheckIcon.setAttribute("class", "m-check-block-check-icon");
       checkBlock.appendChild(checkBlockCheck);
@@ -467,117 +468,117 @@ var totalBlock = (function() {
     };
     var _render_totalBlockBonusesModal = function() {
       var totalBlockControls = document.createElement("div");
-      if (totalBonusesObject) {
+      if (totalBlockBonusesObject) {
         // order the bonuses for rendering in modal
         var orderedBonuses = [];
-        if ("str_bonus" in totalBonusesObject) {
+        if ("str_bonus" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "str_bonus": totalBonusesObject["str_bonus"]
+            "str_bonus": totalBlockBonusesObject["str_bonus"]
           })
         };
-        if ("dex_bonus" in totalBonusesObject) {
+        if ("dex_bonus" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "dex_bonus": totalBonusesObject["dex_bonus"]
+            "dex_bonus": totalBlockBonusesObject["dex_bonus"]
           })
         };
-        if ("con_bonus" in totalBonusesObject) {
+        if ("con_bonus" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "con_bonus": totalBonusesObject["con_bonus"]
+            "con_bonus": totalBlockBonusesObject["con_bonus"]
           })
         };
-        if ("int_bonus" in totalBonusesObject) {
+        if ("int_bonus" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "int_bonus": totalBonusesObject["int_bonus"]
+            "int_bonus": totalBlockBonusesObject["int_bonus"]
           })
         };
-        if ("wis_bonus" in totalBonusesObject) {
+        if ("wis_bonus" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "wis_bonus": totalBonusesObject["wis_bonus"]
+            "wis_bonus": totalBlockBonusesObject["wis_bonus"]
           })
         };
-        if ("cha_bonus" in totalBonusesObject) {
+        if ("cha_bonus" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "cha_bonus": totalBonusesObject["cha_bonus"]
+            "cha_bonus": totalBlockBonusesObject["cha_bonus"]
           })
         };
-        if ("bab" in totalBonusesObject) {
+        if ("bab" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "bab": totalBonusesObject["bab"]
+            "bab": totalBlockBonusesObject["bab"]
           })
         };
-        if ("level" in totalBonusesObject) {
+        if ("level" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "level": totalBonusesObject["level"]
+            "level": totalBlockBonusesObject["level"]
           })
         };
-        if ("half_level" in totalBonusesObject) {
+        if ("half_level" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "half_level": totalBonusesObject["half_level"]
+            "half_level": totalBlockBonusesObject["half_level"]
           })
         };
-        if ("class_skill" in totalBonusesObject) {
+        if ("class_skill" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "class_skill": totalBonusesObject["class_skill"]
+            "class_skill": totalBlockBonusesObject["class_skill"]
           })
         };
-        if ("max_dex" in totalBonusesObject) {
+        if ("max_dex" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "max_dex": totalBonusesObject["max_dex"]
+            "max_dex": totalBlockBonusesObject["max_dex"]
           })
         };
-        if ("check_penalty" in totalBonusesObject) {
+        if ("check_penalty" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "check_penalty": totalBonusesObject["check_penalty"]
+            "check_penalty": totalBlockBonusesObject["check_penalty"]
           })
         };
-        if ("plus_ten" in totalBonusesObject) {
+        if ("plus_ten" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "plus_ten": totalBonusesObject["plus_ten"]
+            "plus_ten": totalBlockBonusesObject["plus_ten"]
           })
         };
-        if ("ac_armor" in totalBonusesObject) {
+        if ("ac_armor" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "ac_armor": totalBonusesObject["ac_armor"]
+            "ac_armor": totalBlockBonusesObject["ac_armor"]
           })
         };
-        if ("ac_shield" in totalBonusesObject) {
+        if ("ac_shield" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "ac_shield": totalBonusesObject["ac_shield"]
+            "ac_shield": totalBlockBonusesObject["ac_shield"]
           })
         };
-        if ("ac_deflect" in totalBonusesObject) {
+        if ("ac_deflect" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "ac_deflect": totalBonusesObject["ac_deflect"]
+            "ac_deflect": totalBlockBonusesObject["ac_deflect"]
           })
         };
-        if ("ac_dodge" in totalBonusesObject) {
+        if ("ac_dodge" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "ac_dodge": totalBonusesObject["ac_dodge"]
+            "ac_dodge": totalBlockBonusesObject["ac_dodge"]
           })
         };
-        if ("ac_natural" in totalBonusesObject) {
+        if ("ac_natural" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "ac_natural": totalBonusesObject["ac_natural"]
+            "ac_natural": totalBlockBonusesObject["ac_natural"]
           })
         };
-        if ("size" in totalBonusesObject) {
+        if ("size" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "size": totalBonusesObject["size"]
+            "size": totalBlockBonusesObject["size"]
           })
         };
-        if ("special_size" in totalBonusesObject) {
+        if ("special_size" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "special_size": totalBonusesObject["special_size"]
+            "special_size": totalBlockBonusesObject["special_size"]
           })
         };
-        if ("size_modifier_fly" in totalBonusesObject) {
+        if ("size_modifier_fly" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "size_modifier_fly": totalBonusesObject["size_modifier_fly"]
+            "size_modifier_fly": totalBlockBonusesObject["size_modifier_fly"]
           })
         };
-        if ("size_modifier_stealth" in totalBonusesObject) {
+        if ("size_modifier_stealth" in totalBlockBonusesObject) {
           orderedBonuses.push({
-            "size_modifier_stealth": totalBonusesObject["size_modifier_stealth"]
+            "size_modifier_stealth": totalBlockBonusesObject["size_modifier_stealth"]
           })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {
