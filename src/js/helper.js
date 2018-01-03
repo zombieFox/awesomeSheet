@@ -283,18 +283,34 @@ var helper = (function() {
     };
   };
 
-  function setObject(object, path, newValue) {
-    var address = path.split(".");
-    while (address.length > 1) {
-      var currentKey = address.shift();
-      var parentObject = object;
-      object = object[currentKey];
-      if (!object) {
-        object = parentObject;
-        object = object[currentKey] = {};
+  function getClosest(element, selector) {
+    var firstChar = selector.charAt(0);
+    // Get closest match
+    for (; element && element !== document; element = element.parentNode) {
+      // If selector is a class
+      if (firstChar === ".") {
+        if (element.classList.contains(selector.substr(1))) {
+          return element;
+        };
+      };
+      // If selector is an ID
+      if (firstChar === "#") {
+        if (element.id === selector.substr(1)) {
+          return element;
+        };
+      };
+      // If selector is a data attribute
+      if (firstChar === "[") {
+        if (element.hasAttribute(selector.substr(1, selector.length - 2))) {
+          return element;
+        };
+      };
+      // If selector is a tag
+      if (element.tagName.toLowerCase() === selector) {
+        return element;
       };
     };
-    object[address.shift()] = newValue;
+    return false;
   };
 
   function randomString(stringLength) {
@@ -491,9 +507,7 @@ var helper = (function() {
     getDateTime: getDateTime,
     getAverageColor: getAverageColor,
     applyOptions: applyOptions,
-    replaceAt: replaceAt,
-    xxx_setObject: xxx_setObject,
-    xxx_getObject: xxx_getObject
+    replaceAt: replaceAt
   };
 
 })();
