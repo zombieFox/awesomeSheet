@@ -117,6 +117,8 @@ var totalBlock = (function() {
 
   function _render_totalBlock(totalBlock) {
     var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
+    console.log(totalBlock);
+    console.log(options.path);
     var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
     var totalBlockObject;
     var toSum = [];

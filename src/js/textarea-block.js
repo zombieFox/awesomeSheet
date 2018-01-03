@@ -103,6 +103,7 @@ var textareaBlock = (function() {
   function _render_textareaBlock(textareaBlock) {
     var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
     var options = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
+    var data;
     if (options.path) {
       if (options.clone) {
         data = helper.xxx_getObject({
