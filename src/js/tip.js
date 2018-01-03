@@ -16,7 +16,6 @@ var tip = (function() {
 
   function _bind_tip(tip) {
     var options = helper.makeObject(tip.dataset.tipOptions);
-    console.log(options);
     if (options.state == "focus") {
       tip.addEventListener("focus", function() {
         render(tip);

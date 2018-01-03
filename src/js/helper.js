@@ -105,12 +105,12 @@ var helper = (function() {
         // get the key
         var key = "\"" + kevValuePair[0] + "\"";
         var value;
-        // if the value is supposed to be an array
-        if (kevValuePair[1].indexOf("+") != -1) {
+        // if the value has + with a space after it
+        if (/\+(?=\S)/.test(kevValuePair[1])) {
           // remove first + symbol
           kevValuePair[1] = kevValuePair[1].substr(1, kevValuePair[1].length);
           // split the would be values
-          var all_value = kevValuePair[1].split("|");
+          var all_value = kevValuePair[1].split(/\+(?=\S)/);
           // if there are multiple values make an array
           value = "["
           for (var q = 0; q < all_value.length; q++) {
