@@ -250,7 +250,7 @@ var display = (function() {
   };
 
   function _get_skill(path, prefix) {
-    var object = helper.xxx_getObject({
+    var object = helper.getObject({
       object: sheet.getCharacter(),
       path: path
     });
@@ -288,7 +288,7 @@ var display = (function() {
     var all_node = [];
 
     for (var i = 0; i < all_displayPath.length; i++) {
-      var all_clones = helper.xxx_getObject({
+      var all_clones = helper.getObject({
         object: sheet.getCharacter(),
         path: all_displayPath[i]
       });
@@ -513,7 +513,7 @@ var display = (function() {
   };
 
   function _get_list(path, prefix, suffix, valueType) {
-    var data = helper.xxx_getObject({
+    var data = helper.getObject({
       object: sheet.getCharacter(),
       path: path
     });
@@ -562,7 +562,7 @@ var display = (function() {
     if (sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
       data = sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
     } else {
-      data = helper.xxx_getObject({
+      data = helper.getObject({
         object: sheet.getCharacter(),
         path: path
       });
@@ -600,7 +600,7 @@ var display = (function() {
     if (sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
       data = sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score
     } else {
-      data = helper.xxx_getObject({
+      data = helper.getObject({
         object: sheet.getCharacter(),
         path: path
       });
@@ -627,7 +627,7 @@ var display = (function() {
   };
 
   function _get_textBlock(path, target) {
-    var data = helper.xxx_getObject({
+    var data = helper.getObject({
       object: sheet.getCharacter(),
       path: path
     });
@@ -672,7 +672,7 @@ var display = (function() {
   };
 
   function _get_textSnippet(path, prefix, suffix, dependency, valueType) {
-    var data = helper.xxx_getObject({
+    var data = helper.getObject({
       object: sheet.getCharacter(),
       path: path
     });
@@ -696,7 +696,7 @@ var display = (function() {
         })
       };
       if (dependency) {
-        data = data + " / " + helper.xxx_getObject({
+        data = data + " / " + helper.getObject({
           object: sheet.getCharacter(),
           path: dependency
         });
@@ -745,7 +745,7 @@ var display = (function() {
   };
 
   function _get_image(path, scale, position, color) {
-    var data = helper.xxx_getObject({
+    var data = helper.getObject({
       object: sheet.getCharacter(),
       path: path
     });
@@ -758,7 +758,7 @@ var display = (function() {
       displayImageItem.setAttribute("class", "m-display-item-image");
       displayImageItem.src = data;
       if (scale) {
-        var scale = helper.xxx_getObject({
+        var scale = helper.getObject({
           object: sheet.getCharacter(),
           path: scale
         });
@@ -766,7 +766,7 @@ var display = (function() {
         scale = 1;
       };
       if (position) {
-        var position = helper.xxx_getObject({
+        var position = helper.getObject({
           object: sheet.getCharacter(),
           path: position
         });
@@ -777,7 +777,7 @@ var display = (function() {
         };
       };
       if (color) {
-        var background = helper.xxx_getObject({
+        var background = helper.getObject({
           object: sheet.getCharacter(),
           path: "basics.character_image.background"
         });
@@ -787,7 +787,7 @@ var display = (function() {
         } else if (background == "white") {
           color = "rgb(255,255,255)";
         } else if (background == "average") {
-          color = helper.xxx_getObject({
+          color = helper.getObject({
             object: sheet.getCharacter(),
             path: color
           });

@@ -14,7 +14,7 @@ var stats = (function() {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var path = stats.dataset.path;
     var currentPath = options.path + ".current";
-    var statObject = helper.xxx_getObject({
+    var statObject = helper.getObject({
       object: sheet.getCharacter(),
       path: options.path
     });
@@ -39,7 +39,7 @@ var stats = (function() {
     };
     _push_internalValues();
     var grandTotal = _reduceSum(toSum);
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: currentPath,
       newValue: grandTotal
@@ -49,11 +49,11 @@ var stats = (function() {
   function _render_modifer(stats) {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var modifierPath = options.path + ".modifier";
-    var modifier = _calculateModifer(helper.xxx_getObject({
+    var modifier = _calculateModifer(helper.getObject({
       object: sheet.getCharacter(),
       path: options.path + ".current"
     }));
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: modifierPath,
       newValue: modifier
@@ -97,7 +97,7 @@ var stats = (function() {
 
   function get_score(key) {
     var value = 0;
-    var score = helper.xxx_getObject({
+    var score = helper.getObject({
       object: sheet.getCharacter(),
       path: "statistics.stats." + key + ".current"
     });
@@ -109,7 +109,7 @@ var stats = (function() {
 
   function get_mod(key) {
     var value = 0;
-    var mod = helper.xxx_getObject({
+    var mod = helper.getObject({
       object: sheet.getCharacter(),
       path: "statistics.stats." + key + ".modifier"
     });

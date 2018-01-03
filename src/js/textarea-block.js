@@ -11,14 +11,14 @@ var textareaBlock = (function() {
     };
     if (textareaBlockOptions.path) {
       if (textareaBlockOptions.clone) {
-        helper.xxx_setObject({
+        helper.setObject({
           path: textareaBlockOptions.path,
           object: sheet.getCharacter(),
           clone: textareaBlockOptions.clone,
           newValue: data
         });
       } else {
-        helper.xxx_setObject({
+        helper.setObject({
           path: textareaBlockOptions.path,
           object: sheet.getCharacter(),
           newValue: data
@@ -106,13 +106,13 @@ var textareaBlock = (function() {
     var data;
     if (options.path) {
       if (options.clone) {
-        data = helper.xxx_getObject({
+        data = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path,
           clone: options.clone
         });
       } else {
-        data = helper.xxx_getObject({
+        data = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path
         });

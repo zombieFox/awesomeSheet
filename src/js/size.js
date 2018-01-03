@@ -26,22 +26,22 @@ var size = (function() {
     var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
     var index = selectBlockDropdown.selectedIndex;
     var object = _create_sizeObject(index);
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.size.size_modifier",
       newValue: object.size_modifier
     });
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.size.special_size_modifier",
       newValue: object.special_size_modifier
     });
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.size.size_modifier_fly",
       newValue: object.size_modifier_fly
     });
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.size.size_modifier_stealth",
       newValue: object.size_modifier_stealth

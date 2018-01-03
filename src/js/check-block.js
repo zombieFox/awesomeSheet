@@ -33,7 +33,7 @@ var checkBlock = (function() {
     var checkBlockOptions = helper.makeObject(checkBlock.dataset.checkBlockOptions);
     var newValue = input.checked;
     if (checkBlockOptions.path) {
-      helper.xxx_setObject({
+      helper.setObject({
         object: sheet.getCharacter(),
         path: checkBlockOptions.path,
         newValue: newValue
@@ -56,7 +56,7 @@ var checkBlock = (function() {
     var options = helper.makeObject(checkBlock.dataset.checkBlockOptions);
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (options.path) {
-      var data = helper.xxx_getObject({
+      var data = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
       });

@@ -7,7 +7,7 @@ var radioBlock = (function() {
     var radioBlockOptions = helper.makeObject(radioBlock.dataset.radioBlockOptions);
     var newValue = input.value;
     if (radioBlockOptions.path) {
-      helper.xxx_setObject({
+      helper.setObject({
         object: sheet.getCharacter(),
         path: radioBlockOptions.path,
         newValue: newValue
@@ -64,7 +64,7 @@ var radioBlock = (function() {
     var radioBlockInput = radioBlock.querySelector(".js-radio-block-input");
     var value = radioBlockInput.value;
     if (options.path) {
-      var selection = helper.xxx_getObject({
+      var selection = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
       });

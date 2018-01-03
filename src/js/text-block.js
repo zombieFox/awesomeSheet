@@ -11,7 +11,7 @@ var textBlock = (function() {
     var options = helper.makeObject(textBlock.dataset.textBlockOptions);
     var data;
     if (options.path) {
-      data = helper.xxx_getObject({
+      data = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
       });

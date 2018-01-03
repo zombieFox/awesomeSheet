@@ -264,7 +264,7 @@ var characterImage = (function() {
   };
 
   function _calculate_orientation() {
-    var size = helper.xxx_getObject({
+    var size = helper.getObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.size"
     });
@@ -282,7 +282,7 @@ var characterImage = (function() {
   };
 
   function _calculate_scale() {
-    var characterImageObject = helper.xxx_getObject({
+    var characterImageObject = helper.getObject({
       object: sheet.getCharacter(),
       path: "basics.character_image"
     });
@@ -355,7 +355,7 @@ var characterImage = (function() {
       },
       scale: ""
     };
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image",
       newValue: object
@@ -379,7 +379,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render image");
       var characterImagePreview = helper.e(".js-character-image-preview");
-      var characterImageObject = helper.xxx_getObject({
+      var characterImageObject = helper.getObject({
         object: sheet.getCharacter(),
         path: "basics.character_image"
       });
@@ -394,7 +394,7 @@ var characterImage = (function() {
   function _render_background() {
     if (_get_uploadedState()) {
       // console.log("render background");
-      var characterImageObject = helper.xxx_getObject({
+      var characterImageObject = helper.getObject({
         object: sheet.getCharacter(),
         path: "basics.character_image"
       });
@@ -414,7 +414,7 @@ var characterImage = (function() {
   function _render_position(presetPosition) {
     if (_get_uploadedState()) {
       // console.log("render position");
-      var characterImageObject = helper.xxx_getObject({
+      var characterImageObject = helper.getObject({
         object: sheet.getCharacter(),
         path: "basics.character_image"
       });
@@ -473,7 +473,7 @@ var characterImage = (function() {
   function _render_size(presetSize) {
     if (_get_uploadedState()) {
       // console.log("render resize");
-      var characterImageObject = helper.xxx_getObject({
+      var characterImageObject = helper.getObject({
         object: sheet.getCharacter(),
         path: "basics.character_image"
       });
@@ -515,7 +515,7 @@ var characterImage = (function() {
       x: axisX,
       y: axisY
     };
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.position",
       newValue: position
@@ -524,7 +524,7 @@ var characterImage = (function() {
 
   function _store_background(background) {
     // console.log("store background");
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.background",
       newValue: background
@@ -533,7 +533,7 @@ var characterImage = (function() {
 
   function _store_color(color) {
     // console.log("store color");
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.color",
       newValue: color
@@ -542,7 +542,7 @@ var characterImage = (function() {
 
   function _store_image(imageBase64) {
     // console.log("store image");
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.image",
       newValue: imageBase64
@@ -551,7 +551,7 @@ var characterImage = (function() {
 
   function _store_scale(scale) {
     // console.log("store scale");
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.scale",
       newValue: scale
@@ -560,7 +560,7 @@ var characterImage = (function() {
 
   function _store_orientation(orientation) {
     // console.log("store orientation");
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.orientation",
       newValue: orientation
@@ -573,7 +573,7 @@ var characterImage = (function() {
       width: imageWidth,
       height: imageHeight
     };
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.size",
       newValue: size
@@ -582,7 +582,7 @@ var characterImage = (function() {
 
   function _store_uploaded(boolean) {
     // console.log("store uploaded");
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.uploaded",
       newValue: boolean
@@ -590,7 +590,7 @@ var characterImage = (function() {
   };
 
   function _get_uploadedState() {
-    var uploaded = helper.xxx_getObject({
+    var uploaded = helper.getObject({
       object: sheet.getCharacter(),
       path: "basics.character_image.uploaded"
     });

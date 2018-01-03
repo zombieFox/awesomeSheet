@@ -117,28 +117,26 @@ var totalBlock = (function() {
 
   function _render_totalBlock(totalBlock) {
     var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    console.log(totalBlock);
-    console.log(options.path);
     var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
     var totalBlockObject;
     var toSum = [];
     var _get_totalBlockObject = function() {
       var totalObject;
       if (options.clone && options.cloneSet) {
-        totalObject = helper.xxx_getObject({
+        totalObject = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path,
           clone: options.clone,
           cloneSet: options.cloneSet
         });
       } else if (options.clone) {
-        totalObject = helper.xxx_getObject({
+        totalObject = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path,
           clone: options.clone
         });
       } else {
-        totalObject = helper.xxx_getObject({
+        totalObject = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path
         });
@@ -201,14 +199,14 @@ var totalBlock = (function() {
           if (key == "dex_bonus") {
             // if max dex is true
             if (totalBlockObject.bonuses.max_dex) {
-              if (helper.xxx_getObject({
+              if (helper.getObject({
                   object: sheet.getCharacter(),
                   path: "equipment.armor.max_dex"
-                }) != "" && helper.xxx_getObject({
+                }) != "" && helper.getObject({
                   object: sheet.getCharacter(),
                   path: "equipment.armor.max_dex"
                 }) < _checkValue(stats.getMod("dex"))) {
-                externalBouns = helper.xxx_getObject({
+                externalBouns = helper.getObject({
                   object: sheet.getCharacter(),
                   path: "equipment.armor.max_dex"
                 });
@@ -232,67 +230,67 @@ var totalBlock = (function() {
             externalBouns = _checkValue(stats.getMod("cha"));
           };
           if (key == "bab") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "offense.base_attack"
             }));
           };
           if (key == "size") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.size.size_modifier"
             }));
           };
           if (key == "special_size") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.size.special_size_modifier"
             }));
           };
           if (key == "level") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
             }));
           };
           if (key == "half_level") {
-            externalBouns = Math.floor(_checkValue(helper.xxx_getObject({
+            externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
             }))) / 2;
           };
           if (key == "ac_armor") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "defense.ac.armor"
             }));
           };
           if (key == "ac_shield") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "defense.ac.shield"
             }));
           };
           if (key == "ac_deflect") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "defense.ac.deflect"
             }));
           };
           if (key == "ac_dodge") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "defense.ac.dodge"
             }));
           };
           if (key == "ac_natural") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "defense.ac.natural"
             }));
           };
           if (key == "check_penalty") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "equipment.armor.check_penalty"
             }));
@@ -301,13 +299,13 @@ var totalBlock = (function() {
             externalBouns = _checkClassSkill(totalBlockObject);
           };
           if (key == "size_modifier_fly") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.size.size_modifier_fly"
             }));
           };
           if (key == "size_modifier_stealth") {
-            externalBouns = _checkValue(helper.xxx_getObject({
+            externalBouns = _checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.size.size_modifier_stealth"
             }));
@@ -370,14 +368,14 @@ var totalBlock = (function() {
     var totalBlockBonusesObject;
     var object;
     if (totalBlockOptions.clone) {
-      totalBlockBonusesObject = helper.xxx_getObject({
+      totalBlockBonusesObject = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path,
         clone: totalBlockOptions.clone
       });
       totalBlockBonusesObject = totalBlockBonusesObject;
     } else {
-      totalBlockBonusesObject = helper.xxx_getObject({
+      totalBlockBonusesObject = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
       });
@@ -395,13 +393,13 @@ var totalBlock = (function() {
     var newBonusesObject;
     var _get_bonusObject = function() {
       if (totalBlockOptions.clone) {
-        totalBlockBonusesObject = helper.xxx_getObject({
+        totalBlockBonusesObject = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path,
           clone: totalBlockOptions.clone
         });
       } else {
-        totalBlockBonusesObject = helper.xxx_getObject({
+        totalBlockBonusesObject = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path
         });
@@ -411,14 +409,14 @@ var totalBlock = (function() {
     };
     var _store_data = function() {
       if (options.clone) {
-        helper.xxx_setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: options.path,
           clone: options.clone,
           newValue: newBonusesObject
         });
       } else {
-        helper.xxx_setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: options.path,
           newValue: newBonusesObject

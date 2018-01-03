@@ -93,7 +93,7 @@ var events = (function() {
   function _create_eventTable(eventLogType) {
     var table = document.createElement("table");
     var tbody = document.createElement("tbody");
-    var all_events = helper.xxx_getObject({
+    var all_events = helper.getObject({
       object: sheet.getCharacter(),
       path: "events"
     });

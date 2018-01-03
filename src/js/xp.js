@@ -22,7 +22,7 @@ var xp = (function() {
     var trackMedium = [0, 2000, 5000, 9000, 15000, 23000, 35000, 51000, 75000, 105000, 155000, 220000, 315000, 445000, 635000, 890000, 1300000, 1800000, 2550000, 3600000];
     var trackFast = [0, 1300, 3300, 6000, 10000, 15000, 23000, 34000, 50000, 71000, 105000, 145000, 210000, 295000, 425000, 600000, 850000, 1200000, 1700000, 2400000];
     var selectedTrack = false;
-    var speed = helper.xxx_getObject({
+    var speed = helper.getObject({
       object: sheet.getCharacter(),
       path: "basics.xp.advancement_speed"
     });
@@ -30,7 +30,7 @@ var xp = (function() {
     var nextLevelXpMileStone;
     var nextLevelXpNeeded;
     var nextLevelIndex;
-    var currentXp = helper.xxx_getObject({
+    var currentXp = helper.getObject({
       object: sheet.getCharacter(),
       path: "basics.xp.total"
     });
@@ -54,23 +54,23 @@ var xp = (function() {
           nextLevelXpMileStone = "";
           nextLevelXpNeeded = "";
         };
-        helper.xxx_setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: "basics.xp.next_level",
           newValue: nextLevelXpMileStone
         });
-        helper.xxx_setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: "basics.xp.needed",
           newValue: nextLevelXpNeeded
         });
       } else {
-        helper.xxx_setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: "basics.xp.next_level",
           newValue: ""
         });
-        helper.xxx_setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: "basics.xp.needed",
           newValue: ""
@@ -78,12 +78,12 @@ var xp = (function() {
       };
     };
     var _clear_nextXp = function() {
-      helper.xxx_setObject({
+      helper.setObject({
         object: sheet.getCharacter(),
         path: "basics.xp.next_level",
         newValue: ""
       });
-      helper.xxx_setObject({
+      helper.setObject({
         object: sheet.getCharacter(),
         path: "basics.xp.needed",
         newValue: ""

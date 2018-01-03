@@ -169,14 +169,14 @@ var inputBlock = (function() {
     };
     if (inputBlockOptions.path) {
       if (inputBlockOptions.clone) {
-        helper.xxx_setObject({
+        helper.setObject({
           path: inputBlockOptions.path,
           object: sheet.getCharacter(),
           clone: inputBlockOptions.clone,
           newValue: data
         });
       } else {
-        helper.xxx_setObject({
+        helper.setObject({
           path: inputBlockOptions.path,
           object: sheet.getCharacter(),
           newValue: data
@@ -229,13 +229,13 @@ var inputBlock = (function() {
     var data;
     if (options.path) {
       if (options.clone) {
-        data = helper.xxx_getObject({
+        data = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path,
           clone: options.clone
         });
       } else {
-        data = helper.xxx_getObject({
+        data = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path
         });
@@ -356,7 +356,7 @@ var inputBlock = (function() {
     };
     var oldData;
     var newData;
-    oldData = parseInt(helper.xxx_getObject({
+    oldData = parseInt(helper.getObject({
       object: sheet.getCharacter(),
       path: defaultOptions.path
     }), 10);
@@ -380,7 +380,7 @@ var inputBlock = (function() {
     } else if (defaultOptions.action == "clear") {
       newData = "";
     };
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: defaultOptions.path,
       newValue: newData
@@ -405,7 +405,7 @@ var inputBlock = (function() {
   function _restore_lastAggregate() {
     events.undo();
     var undoData = JSON.parse(helper.read("lastAggregate"));
-    helper.xxx_setObject({
+    helper.setObject({
       object: sheet.getCharacter(),
       path: undoData.path,
       newValue: undoData.oldData
@@ -428,7 +428,7 @@ var inputBlock = (function() {
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var newQuickValue = 0;
     var _store_data = function() {
-      var oldValue = helper.xxx_getObject({
+      var oldValue = helper.getObject({
         object: sheet.getCharacter(),
         path: inputBlockOptions.path
       });
@@ -448,7 +448,7 @@ var inputBlock = (function() {
         // console.log("negative healing found | stored", newQuickValue);
         newQuickValue = "";
       };
-      helper.xxx_setObject({
+      helper.setObject({
         object: sheet.getCharacter(),
         path: inputBlockOptions.path,
         newValue: newQuickValue
@@ -587,13 +587,13 @@ var inputBlock = (function() {
     var shift = event.shiftKey;
     if (inputBlockOptions.path) {
       if (inputBlockOptions.clone) {
-        oldData = helper.xxx_getObject({
+        oldData = helper.getObject({
           object: sheet.getCharacter(),
           path: inputBlockOptions.path,
           clone: inputBlockOptions.clone
         });
       } else {
-        oldData = helper.xxx_getObject({
+        oldData = helper.getObject({
           object: sheet.getCharacter(),
           path: inputBlockOptions.path
         });
@@ -630,14 +630,14 @@ var inputBlock = (function() {
     };
     if (inputBlockOptions.path) {
       if (inputBlockOptions.clone) {
-        helper.xxx_setObject({
+        helper.setObject({
           path: inputBlockOptions.path,
           object: sheet.getCharacter(),
           clone: inputBlockOptions.clone,
           newValue: newData
         });
       } else {
-        helper.xxx_setObject({
+        helper.setObject({
           path: inputBlockOptions.path,
           object: sheet.getCharacter(),
           newValue: newData

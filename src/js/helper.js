@@ -136,7 +136,7 @@ var helper = (function() {
     };
   };
 
-  function xxx_setObject(options) {
+  function setObject(options) {
     var defaultOptions = {
       path: null,
       object: null,
@@ -207,7 +207,7 @@ var helper = (function() {
     };
   };
 
-  function xxx_getObject(options) {
+  function getObject(options) {
     var defaultOptions = {
       object: null,
       path: null,
@@ -295,73 +295,6 @@ var helper = (function() {
       };
     };
     object[address.shift()] = newValue;
-  };
-
-  function getObject(object, path, arrayIndex) {
-    // split path into array items
-    var address = path.split(".");
-    // while array has more than 1 item
-    while (address.length > 1) {
-      // shift off and store the first key
-      var currentKey = address.shift();
-      // copy the object
-      var parentObject = object;
-      // drill down the object with the first key
-      object = object[currentKey];
-      // if there is not object there make one
-      if (!object || typeof object != "object") {
-        object = parentObject;
-        // object = object[currentKey] = {};
-        object[currentKey] = {};
-      };
-    };
-    var finalKey = address.shift();
-    if (finalKey in object) {
-      if (arrayIndex != undefined) {
-        // if arrayIndex return index of array
-        // console.log("returning array", 1);
-        return object[finalKey][arrayIndex];
-      } else {
-        // return value
-        // console.log("returning value", 2);
-        return object[finalKey];
-      };
-    } else {
-      // if nothing found set empty value and then return
-      // console.log("set value and returning value", 3);
-      object[finalKey] = "";
-      return object[finalKey];
-    };
-  };
-
-  function getClosest(element, selector) {
-    var firstChar = selector.charAt(0);
-    // Get closest match
-    for (; element && element !== document; element = element.parentNode) {
-      // If selector is a class
-      if (firstChar === ".") {
-        if (element.classList.contains(selector.substr(1))) {
-          return element;
-        };
-      };
-      // If selector is an ID
-      if (firstChar === "#") {
-        if (element.id === selector.substr(1)) {
-          return element;
-        };
-      };
-      // If selector is a data attribute
-      if (firstChar === "[") {
-        if (element.hasAttribute(selector.substr(1, selector.length - 2))) {
-          return element;
-        };
-      };
-      // If selector is a tag
-      if (element.tagName.toLowerCase() === selector) {
-        return element;
-      };
-    };
-    return false;
   };
 
   function randomString(stringLength) {

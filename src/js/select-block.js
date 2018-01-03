@@ -6,7 +6,7 @@ var selectBlock = (function() {
     var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
     var newValue = selectBlockDropdown.options[selectBlockDropdown.selectedIndex].value;
     if (selectBlockOptions.path) {
-      helper.xxx_setObject({
+      helper.setObject({
         path: selectBlockOptions.path,
         object: sheet.getCharacter(),
         newValue: newValue
@@ -78,7 +78,7 @@ var selectBlock = (function() {
     // var selected = selectBlockDropdown.options.selectedIndex;
     if (options.path) {
       var selection =
-        helper.xxx_getObject({
+        helper.getObject({
           object: sheet.getCharacter(),
           path: options.path
         });

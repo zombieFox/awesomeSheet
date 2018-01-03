@@ -16,7 +16,7 @@ var inputRangeBlock = (function() {
       data = 0;
     };
     if (inputRangeBlockOptions.path) {
-      helper.xxx_setObject({
+      helper.setObject({
         object: sheet.getCharacter(),
         path: inputRangeBlockOptions.path,
         newValue: data
@@ -64,7 +64,7 @@ var inputRangeBlock = (function() {
     var options = helper.makeObject(inputRangeBlock.dataset.inputRangeBlockOptions);
     var inputRangeBlockField = inputRangeBlock.querySelector(".js-input-range-block-field");
     if (options.path) {
-      var data = helper.xxx_getObject({
+      var data = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
       });
