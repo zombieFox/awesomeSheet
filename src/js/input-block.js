@@ -426,14 +426,165 @@ var inputBlock = (function() {
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
+    var newQuickValue = 0;
+    var _store_data = function() {
+      var oldValue = helper.xxx_getObject({
+        object: sheet.getCharacter(),
+        path: inputBlockOptions.path
+      });
+      if (oldValue == "") {
+        oldValue = 0;
+      };
+      if (options.action == "addition") {
+        newQuickValue = oldValue + newQuickValue;
+      } else if (options.action == "subtraction") {
+        newQuickValue = oldValue - newQuickValue;
+      };
+      if (newQuickValue == 0) {
+        newQuickValue = "";
+      };
+      helper.xxx_setObject({
+        object: sheet.getCharacter(),
+        path: inputBlockOptions.path,
+        newValue: newQuickValue
+      });
+    };
+    var _hold_data = function(value) {
+      if (value == "clear") {
+        newQuickValue = 0;
+      } else {
+        newQuickValue = newQuickValue + value;
+      };
+    };
+    var _render_count = function(total) {
+      total.textContent = newQuickValue;
+    };
+    var _render_button = function(text, icon, value, size, total) {
+      var button = document.createElement("button");
+      if (size == "large") {
+        button.setAttribute("class", "button button-icon button-large");
+      } else if (size == "medium") {
+        button.setAttribute("class", "button button-icon");
+      } else if (size == "small") {
+        button.setAttribute("class", "button button-icon button-small");
+      };
+      if (icon) {
+        var buttonIcon = document.createElement("span");
+        buttonIcon.setAttribute("class", icon);
+        button.appendChild(buttonIcon);
+      };
+      if (text) {
+        var buttonText = document.createElement("span");
+        buttonText.setAttribute("class", "button-text");
+        buttonText.textContent = text;
+        button.appendChild(buttonText);
+      };
+      button.addEventListener("click", function() {
+        _hold_data(value);
+        _render_count(total);
+      }, false);
+      return button;
+    };
+    var _render_editBoxItem = function(size, child) {
+      var editBoxItem = document.createElement("div");
+      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      if (child) {
+        editBoxItem.appendChild(child);
+      };
+      return editBoxItem;
+    };
+    var _render_quickValueModal = function() {
+      var quickValueControl = document.createElement("div");
+      quickValueControl.setAttribute("class", "m-input-block-quick-value");
 
-    function _render_count(quickValueControl) {
+      var editBox = document.createElement("div");
+      editBox.setAttribute("class", "m-edit-box");
+      var editBoxBody = document.createElement("div");
+      editBoxBody.setAttribute("class", "m-edit-box-body");
+      var editBoxBodyMessage = document.createElement("p");
+      editBoxBodyMessage.textContent = options.modalMessage;
+      var editBoxContent = document.createElement("div");
+      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      var editBoxGroup = document.createElement("div");
+      editBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      var buttonGroup1 = document.createElement("div");
+      buttonGroup1.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
+      var buttonGroup2 = document.createElement("div");
+      buttonGroup2.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
+
+      var quickValueTotal = document.createElement("p");
+      quickValueTotal.setAttribute("class", "m-edit-box-total js-input-block-quick-value");
+      quickValueTotal.textContent = 0;
+
+      var clearButton = document.createElement("button");
+      clearButton.setAttribute("class", "button button-icon button-large button-slim u-inline-with-input");
+      var clearButtonIcon = document.createElement("span");
+      clearButtonIcon.setAttribute("class", "icon-close");
+      clearButton.appendChild(clearButtonIcon);
+      clearButton.addEventListener("click", function() {
+        _hold_data("clear");
+        _render_count(quickValueTotal);
+      }, false);
+
+      editBoxGroup.appendChild(_render_editBoxItem("total", quickValueTotal));
+      editBoxGroup.appendChild(_render_editBoxItem("button-large", clearButton));
+
+      buttonGroup1.appendChild(_render_button(1, "icon-add", 1, "large", quickValueTotal));
+      buttonGroup1.appendChild(_render_button(2, "icon-add", 2, "large", quickValueTotal));
+      buttonGroup1.appendChild(_render_button(3, "icon-add", 3, "large", quickValueTotal));
+      buttonGroup1.appendChild(_render_button(5, "icon-add", 5, "large", quickValueTotal));
+      buttonGroup1.appendChild(_render_button(10, "icon-add", 10, "large", quickValueTotal));
+      buttonGroup1.appendChild(_render_button(20, "icon-add", 20, "large", quickValueTotal));
+      buttonGroup2.appendChild(_render_button(1, "icon-remove", -1, "large", quickValueTotal));
+      buttonGroup2.appendChild(_render_button(2, "icon-remove", -2, "large", quickValueTotal));
+      buttonGroup2.appendChild(_render_button(3, "icon-remove", -3, "large", quickValueTotal));
+      buttonGroup2.appendChild(_render_button(5, "icon-remove", -5, "large", quickValueTotal));
+      buttonGroup2.appendChild(_render_button(10, "icon-remove", -10, "large", quickValueTotal));
+      buttonGroup2.appendChild(_render_button(20, "icon-remove", -20, "large", quickValueTotal));
+
+      editBoxContent.appendChild(_render_editBoxItem("max", editBoxBodyMessage));
+      editBoxContent.appendChild(editBoxGroup);
+      editBoxContent.appendChild(_render_editBoxItem("max", buttonGroup1));
+      editBoxContent.appendChild(_render_editBoxItem("max", buttonGroup2));
+      editBoxBody.appendChild(editBoxContent);
+      editBox.appendChild(editBoxBody);
+
+      quickValueControl.appendChild(editBox);
+
+      return quickValueControl;
+    };
+    var modalContent = _render_quickValueModal();
+    var modalAction = function() {
+      var defenceSection = helper.e(".js-section-defense");
+      _store_data();
+      sheet.storeCharacters();
+      render(inputBlock);
+      totalBlock.render();
+      display.clear(defenceSection);
+      display.render(defenceSection);
+    };
+    modal.render({
+      heading: options.modalHeading,
+      content: modalContent,
+      action: modalAction,
+      actionText: "Apply",
+      size: "medium"
+    });
+  };
+
+  function xxx_render_quickValueControls(button) {
+    var options = helper.makeObject(button.dataset.inputBlockQuickValueOptions);
+    var inputBlockField = helper.e("#" + options.target);
+    var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
+    var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
+
+    var _render_count = function(quickValueControl) {
       var currentValue = parseInt(quickValueControl.dataset.quickValue, 10);
       var inputBlockQuickValue = quickValueControl.querySelector(".js-input-block-quick-value");
       inputBlockQuickValue.textContent = currentValue;
     };
 
-    function _store_data(quickValueControl, value) {
+    var _store_data = function(quickValueControl, value) {
       var currentValue = parseInt(quickValueControl.dataset.quickValue, 10);
       if (value == 0) {
         quickValueControl.dataset.quickValue = 0;
@@ -442,7 +593,7 @@ var inputBlock = (function() {
       };
     };
 
-    function _create_button(quickValueControl, text, icon, value, size) {
+    var _create_button = function(quickValueControl, text, icon, value, size) {
       var button = document.createElement("button");
       if (size == "large") {
         button.setAttribute("class", "button button-icon button-large");
@@ -469,7 +620,7 @@ var inputBlock = (function() {
       return button;
     };
 
-    function _create_editBoxItem(size, child) {
+    var _create_editBoxItem = function(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
       if (child) {
@@ -478,7 +629,7 @@ var inputBlock = (function() {
       return editBoxItem;
     };
 
-    function _update_value(quickValueControl) {
+    var _update_value = function(quickValueControl) {
       var storedValue = parseInt(quickValueControl.dataset.quickValue, 10);
       var currentValue = parseInt(helper.getObject(sheet.getCharacter(), inputBlockOptions.path), 10);
       var newValue;
@@ -510,7 +661,7 @@ var inputBlock = (function() {
       });
     };
 
-    function _create_quickValueModal() {
+    var _create_quickValueModal = function() {
       var quickValueControl = document.createElement("div");
       quickValueControl.setAttribute("class", "m-input-block-quick-value");
       quickValueControl.setAttribute("data-quick-value", 0);
