@@ -122,14 +122,7 @@ var totalBlock = (function() {
     var toSum = [];
     var _get_totalBlockObject = function() {
       var totalObject;
-      if (options.clone && options.cloneSet) {
-        totalObject = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone,
-          cloneSet: options.cloneSet
-        });
-      } else if (options.clone) {
+      if (options.clone) {
         totalObject = helper.getObject({
           object: sheet.getCharacter(),
           path: options.path,
@@ -174,13 +167,27 @@ var totalBlock = (function() {
       return classSkill;
     };
     var _push_internalValues = function(array, addOrMinus) {
-      if (array && array.length > 0) {
-        for (var i = 0; i < array.length; i++) {
-          if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
-            if (addOrMinus == "add") {
-              toSum.push(totalBlockObject[array[i]]);
-            } else if (addOrMinus == "minus") {
-              toSum.push(-totalBlockObject[array[i]]);
+      if (array) {
+        if (options.cloneSet) {
+          for (var i = 0; i < totalBlockObject.length; i++) {
+            for (var q = 0; q < array.length; q++) {
+              if (addOrMinus == "add") {
+                toSum.push(totalBlockObject[i][array[q]]);
+              } else if (addOrMinus == "minus") {
+                toSum.push(-totalBlockObject[i][array[q]]);
+              };
+            };
+          };
+        } else {
+          if (array && array.length > 0) {
+            for (var i = 0; i < array.length; i++) {
+              if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
+                if (addOrMinus == "add") {
+                  toSum.push(totalBlockObject[array[i]]);
+                } else if (addOrMinus == "minus") {
+                  toSum.push(-totalBlockObject[array[i]]);
+                };
+              };
             };
           };
         };
@@ -328,11 +335,11 @@ var totalBlock = (function() {
       };
       return total;
     };
-    var _addPrefixSuffix = function(grandTotal, type) {
+    var _addPrefixSuffix = function(grandTotal) {
       var total;
-      if (type == "bonus" && grandTotal > 0) {
+      if (options.type == "bonus" && grandTotal > 0) {
         total = grandTotal = "+" + grandTotal;
-      } else if (type == "weight" && parseInt(grandTotal, 10) > 0) {
+      } else if (options.type == "weight" && grandTotal > 0) {
         total = grandTotal + " lbs";
       } else {
         total = grandTotal;
@@ -356,7 +363,7 @@ var totalBlock = (function() {
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
     if (totalBlockTotalElement) {
-      totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal, options.type);
+      totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal);
       totalBlockObject.current = grandTotal;
     };
   };

@@ -211,8 +211,7 @@ var helper = (function() {
     var defaultOptions = {
       object: null,
       path: null,
-      clone: null,
-      cloneKey: null
+      clone: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
