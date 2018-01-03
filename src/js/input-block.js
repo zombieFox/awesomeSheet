@@ -154,30 +154,30 @@ var inputBlock = (function() {
 
   function _store(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
-    var options = helper.makeObject(inputBlock.dataset.inputBlockOptions);
+    var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var data = element.value;
-    if (options.type == "integer") {
+    if (inputBlockOptions.type == "integer") {
       data = parseInt(data, 10);
       if (isNaN(data)) {
         data = "";
       };
-    } else if (options.type == "float") {
+    } else if (inputBlockOptions.type == "float") {
       data = parseFloat(data);
       if (isNaN(data)) {
         data = "";
       };
     };
-    if (options.path) {
-      if (options.clone) {
+    if (inputBlockOptions.path) {
+      if (inputBlockOptions.clone) {
         helper.xxx_setObject({
-          path: options.path,
+          path: inputBlockOptions.path,
           object: sheet.getCharacter(),
-          clone: options.clone,
+          clone: inputBlockOptions.clone,
           newValue: data
         });
       } else {
         helper.xxx_setObject({
-          path: options.path,
+          path: inputBlockOptions.path,
           object: sheet.getCharacter(),
           newValue: data
         });
