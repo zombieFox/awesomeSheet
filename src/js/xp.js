@@ -22,12 +22,18 @@ var xp = (function() {
     var trackMedium = [0, 2000, 5000, 9000, 15000, 23000, 35000, 51000, 75000, 105000, 155000, 220000, 315000, 445000, 635000, 890000, 1300000, 1800000, 2550000, 3600000];
     var trackFast = [0, 1300, 3300, 6000, 10000, 15000, 23000, 34000, 50000, 71000, 105000, 145000, 210000, 295000, 425000, 600000, 850000, 1200000, 1700000, 2400000];
     var selectedTrack = false;
-    var speed = helper.getObject(sheet.getCharacter(), "basics.xp.advancement_speed");
+    var speed = helper.xxx_getObject({
+      object: sheet.getCharacter(),
+      path: "basics.xp.advancement_speed"
+    });
     var nextLevel;
     var nextLevelXpMileStone;
     var nextLevelXpNeeded;
     var nextLevelIndex;
-    var currentXp = helper.getObject(sheet.getCharacter(), "basics.xp.total");
+    var currentXp = helper.xxx_getObject({
+      object: sheet.getCharacter(),
+      path: "basics.xp.total"
+    });
     if (speed == "Slow") {
       selectedTrack = trackSlow;
     } else if (speed == "Medium") {
@@ -43,7 +49,7 @@ var xp = (function() {
           };
         });
         nextLevelXpMileStone = selectedTrack[nextLevelIndex];
-        nextLevelXpNeeded = nextLevelXpMileStone - helper.getObject(sheet.getCharacter(), "basics.xp.total");
+        nextLevelXpNeeded = nextLevelXpMileStone - currentXp;
         if (nextLevelXpMileStone == undefined || isNaN(nextLevelXpMileStone)) {
           nextLevelXpMileStone = "";
           nextLevelXpNeeded = "";
