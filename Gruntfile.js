@@ -72,6 +72,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/hardCodedCharacters.js',
           '<%= folders.build %>/js/character-image.js',
           '<%= folders.build %>/js/character-select.js',
+          '<%= folders.build %>/js/check-block.js',
           '<%= folders.build %>/js/check-url.js',
           '<%= folders.build %>/js/classes.js',
           '<%= folders.build %>/js/clone.js',

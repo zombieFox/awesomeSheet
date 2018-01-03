@@ -320,6 +320,7 @@ var sheet = (function() {
     inputBlock.render();
     inputRangeBlock.render();
     selectBlock.render();
+    checkBlock.render();
     radioBlock.render();
     textareaBlock.render();
     skills.render();
@@ -347,6 +348,7 @@ var sheet = (function() {
     inputBlock.bind();
     inputRangeBlock.bind();
     selectBlock.bind();
+    checkBlock.bind();
     radioBlock.bind();
     textareaBlock.bind();
     clone.bind();
@@ -384,6 +386,7 @@ var sheet = (function() {
     textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
+    checkBlock.clear();
     radioBlock.clear();
     textareaBlock.clear();
     characterImage.clear();

@@ -59,7 +59,8 @@ var textareaBlock = (function() {
     } else {
       var all_textareaBlock = helper.eA(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
-        if (all_textareaBlock[i].dataset.clone != "true") {
+        var options = helper.makeObject(all_textareaBlock[i].dataset.inputBlockOptions);
+        if (!options.clone) {
           _bind_textareaBlock(all_textareaBlock[i]);
         };
       };

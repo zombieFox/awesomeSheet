@@ -1,11 +1,11 @@
 var radioBlock = (function() {
-  
+
   var storeRadioTimer = null;
 
-  function _store(element) {
-    var radioBlock = helper.getClosest(element, ".js-radio-block");
+  function _store(input) {
+    var radioBlock = helper.getClosest(input, ".js-radio-block");
     var radioBlockOptions = helper.makeObject(radioBlock.dataset.radioBlockOptions);
-    var newValue = element.value;
+    var newValue = input.value;
     if (radioBlockOptions.path) {
       helper.xxx_setObject({
         object: sheet.getCharacter(),
@@ -15,8 +15,8 @@ var radioBlock = (function() {
     };
   };
 
-  function delayUpdate(element) {
-    _store(element);
+  function delayUpdate(input) {
+    _store(input);
     sheet.storeCharacters();
   };
 
@@ -33,9 +33,7 @@ var radioBlock = (function() {
     } else {
       var all_radioBlock = helper.eA(".js-radio-block");
       for (var i = 0; i < all_radioBlock.length; i++) {
-        if (all_radioBlock[i].dataset.clone != "true") {
-          _bind_radioBlock(all_radioBlock[i]);
-        };
+        _bind_radioBlock(all_radioBlock[i]);
       };
     };
   };
@@ -70,7 +68,7 @@ var radioBlock = (function() {
         object: sheet.getCharacter(),
         path: options.path
       });
-      if (selection == value) {
+      if (value == selection) {
         radioBlockInput.checked = true;
       };
     };
