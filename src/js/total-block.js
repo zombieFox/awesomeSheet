@@ -137,7 +137,13 @@ var totalBlock = (function() {
       totalBlockObject = totalObject;
     };
     var _update_missingBonusKey = function() {
+      // if the options has bonuses
       if (options.bonuses) {
+        // if the total block is missing bonuses
+        if (!totalBlockObject.bonuses) {
+          totalBlockObject.bonuses = {};
+        };
+        // loop over the options.bonuses and add them to totalBlockObject.bonuses
         for (var i = 0; i < options.bonuses.length; i++) {
           if (!(options.bonuses[i] in totalBlockObject.bonuses)) {
             totalBlockObject.bonuses[options.bonuses[i]] = false;
