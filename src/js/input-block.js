@@ -443,6 +443,11 @@ var inputBlock = (function() {
       if (newQuickValue == 0) {
         newQuickValue = "";
       };
+      // if negative healing is applied
+      if (inputBlockOptions.path == "defense.hp.damage" && options.action == "subtraction" && newQuickValue <= 0) {
+        // console.log("negative healing found | stored", newQuickValue);
+        newQuickValue = "";
+      };
       helper.xxx_setObject({
         object: sheet.getCharacter(),
         path: inputBlockOptions.path,
