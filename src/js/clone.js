@@ -974,7 +974,6 @@ var clone = (function() {
 
   function _update_cloneState(cloneType) {
     var cloneBlock = _get_cloneBlock(cloneType);
-    var cloneTarget = _get_cloneTarget(cloneType);
     var cloneCount = _get_cloneCount(cloneType, true);
     var cloneControls = cloneBlock.querySelector(".js-clone-controls");
     var cloneRemoveButton = cloneControls.querySelector(".js-clone-remove");
