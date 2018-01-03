@@ -147,6 +147,8 @@ var blank = (function() {
     equipment: {
       gear: "",
       magic_gear: "",
+      potion_viles_oils: "",
+      scrolls: "",
       item: [],
       encumbrance: {
         encumbrance_str: "",

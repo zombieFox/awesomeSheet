@@ -418,6 +418,16 @@ var repair = (function() {
       characterObject.basics.character_image.uploaded = false;
     };
     // --------------------------------------------------
+    // update equipment
+    if (!characterObject.equipment.potion_viles_oils && characterObject.equipment.potion_viles_oils != "") {
+      console.log("potion_viles_oils not found");
+      characterObject.equipment.potion_viles_oils = "";
+    };
+    if (!characterObject.equipment.scrolls && characterObject.equipment.scrolls != "") {
+      console.log("scrolls not found");
+      characterObject.equipment.scrolls = "";
+    };
+    // --------------------------------------------------
     sheet.storeCharacters();
     return characterObject;
   };

@@ -147,6 +147,8 @@ var ro = (function() {
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
+      potion_viles_oils: "",
+      scrolls: "",
       item: [],
       encumbrance: {
         encumbrance_str: "",

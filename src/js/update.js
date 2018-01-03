@@ -1,6 +1,12 @@
 var update = (function() {
 
   var history = [{
+    version: "4.0.0",
+    list: [
+      "*Rebuild of the storing and retrieving logic for better performance.",
+      "Added Potions and Scrolls area to Equipment."
+    ]
+  }, {
     version: "3.31.0",
     list: [
       "Added Header with new Character Select dropdown.",
