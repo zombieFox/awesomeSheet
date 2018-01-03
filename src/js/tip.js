@@ -6,18 +6,17 @@ var tip = (function() {
     } else {
       var all_tip = helper.eA(".js-tip");
       for (var i = 0; i < all_tip.length; i++) {
-        if (all_tip[i].dataset.clone != "true") {
-          if (all_tip[i].dataset.clone != "true") {
-            _bind_tip(all_tip[i]);
-          };
+        var options = helper.makeObject(all_tip[i].dataset.tipOptions);
+        if (!options.clone) {
+          _bind_tip(all_tip[i]);
         };
       };
     };
   };
 
   function _bind_tip(tip) {
-    var showOn = tip.dataset.tipShowOn;
-    if (showOn == "focus") {
+    var options = helper.makeObject(tip.dataset.tipOptions);
+    if (options.state == "focus") {
       tip.addEventListener("focus", function() {
         render(tip);
       }, false);
@@ -27,7 +26,7 @@ var tip = (function() {
         destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
-    if (showOn == "hover") {
+    if (options.state == "hover") {
       tip.addEventListener("mouseover", function() {
         render(tip);
       }, false);
@@ -61,6 +60,7 @@ var tip = (function() {
 
   function render(tip) {
     // console.log(tip.getBoundingClientRect());
+    var options = helper.makeObject(tip.dataset.tipOptions);
     var body = helper.e("body");
     var tipWrapper = document.createElement("div");
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
@@ -69,7 +69,7 @@ var tip = (function() {
     tipWrapper.setAttribute("class", "m-tip js-tip-box is-transparent");
     var tipMessage = document.createElement("p");
     tipMessage.setAttribute("class", "m-tip-message");
-    tipMessage.textContent = tip.dataset.tipMessage;
+    tipMessage.textContent = options.message;
     tipWrapper.destroy = function() {
       if (tipWrapper.classList.contains("is-opaque")) {
         helper.removeClass(tipWrapper, "is-opaque");

@@ -5,51 +5,44 @@ var skills = (function() {
   function bind() {
     var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
     var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
-    var skillSpentRanksTotal = helper.e(".js-skill-spent-ranks-total");
+
     skillSpentRanksInput.addEventListener("change", function() {
-      _store(skillSpentRanksInput, skillSpentRanksInput.checked);
-      _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
-      _render_rankTotal();
+      renderTimer = setTimeout(function() {
+        render();
+        textBlock.render();
+      }, 350, this);
     }, false);
+
     for (var i = 0; i < all_inputBlockFieldRanks.length; i++) {
       all_inputBlockFieldRanks[i].addEventListener("input", function() {
         clearTimeout(renderTimer);
         renderTimer = setTimeout(function() {
-          _store(skillSpentRanksTotal, parseInt(skillSpentRanksTotal.innerHTML, 10) || 0);
-          _render_rankTotal();
-        }, 400, this);
+          render();
+          textBlock.render();
+        }, 350, this);
       }, false);
     };
   };
 
-  function _store(element, value) {
-    var path = element.dataset.path;
-    helper.setObject(sheet.getCharacter(), path, value);
-    sheet.storeCharacters();
-  };
-
   function render() {
-    _render_includeCustomToggle();
-    _render_rankTotal();
-  };
-
-  function _render_includeCustomToggle(argument) {
-    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
-    var path = skillSpentRanksInput.dataset.path;
-    var state = helper.getObject(sheet.getCharacter(), path);
-    skillSpentRanksInput.checked = state;
-  };
-
-  function _render_rankTotal() {
-    var all_skills = helper.getObject(sheet.getCharacter(), "skills");
-    var all_customSkills = helper.getObject(sheet.getCharacter(), "skills.custom");
-    var skillSpentRanksTotal = helper.e(".js-skill-spent-ranks-total");
+    var includeCustom = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "skills.ranks.spent.include_custom"
+    });
+    var all_skills = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "skills"
+    });
+    var all_customSkills = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "skills.custom"
+    });
     var ranks = [];
     var ranksTotal;
     for (var i in all_skills) {
       ranks.push(parseInt(all_skills[i].ranks, 10) || 0);
     };
-    if (helper.getObject(sheet.getCharacter(), "skills.ranks.spent.include_custom")) {
+    if (includeCustom) {
       for (var i = 0; i < all_customSkills.length; i++) {
         ranks.push(parseInt(all_customSkills[i].ranks, 10) || 0);
       };
@@ -57,7 +50,11 @@ var skills = (function() {
     ranksTotal = ranks.reduce(function(a, b) {
       return a + b;
     });
-    skillSpentRanksTotal.textContent = ranksTotal;
+    helper.setObject({
+      object: sheet.getCharacter(),
+      path: "skills.ranks.spent.current",
+      newValue: ranksTotal
+    });
   };
 
   // exposed methods

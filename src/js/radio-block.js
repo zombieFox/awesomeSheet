@@ -1,19 +1,22 @@
 var radioBlock = (function() {
 
-  function _store(element) {
-    var radioBlock = helper.getClosest(element, ".js-radio-block");
-    var radioBlockInput = radioBlock.querySelector(".js-radio-block-input");
-    var path = element.dataset.path;
-    var value = element.value;
-    if (path) {
-      helper.setObject(sheet.getCharacter(), path, value);
+  var storeRadioTimer = null;
+
+  function _store(input) {
+    var radioBlock = helper.getClosest(input, ".js-radio-block");
+    var radioBlockOptions = helper.makeObject(radioBlock.dataset.radioBlockOptions);
+    var newValue = input.value;
+    if (radioBlockOptions.path) {
+      helper.setObject({
+        object: sheet.getCharacter(),
+        path: radioBlockOptions.path,
+        newValue: newValue
+      });
     };
   };
 
-  var storeRadioTimer = null;
-
-  function delayUpdate(element) {
-    _store(element);
+  function delayUpdate(input) {
+    _store(input);
     sheet.storeCharacters();
   };
 
@@ -30,9 +33,7 @@ var radioBlock = (function() {
     } else {
       var all_radioBlock = helper.eA(".js-radio-block");
       for (var i = 0; i < all_radioBlock.length; i++) {
-        if (all_radioBlock[i].dataset.clone != "true") {
-          _bind_radioBlock(all_radioBlock[i]);
-        };
+        _bind_radioBlock(all_radioBlock[i]);
       };
     };
   };
@@ -59,12 +60,15 @@ var radioBlock = (function() {
   };
 
   function _render_radioBlock(radioBlock) {
+    var options = helper.makeObject(radioBlock.dataset.radioBlockOptions);
     var radioBlockInput = radioBlock.querySelector(".js-radio-block-input");
-    var path = radioBlockInput.dataset.path;
     var value = radioBlockInput.value;
-    if (path) {
-      var selection = helper.getObject(sheet.getCharacter(), path);
-      if (selection == value) {
+    if (options.path) {
+      var selection = helper.getObject({
+        object: sheet.getCharacter(),
+        path: options.path
+      });
+      if (value == selection) {
         radioBlockInput.checked = true;
       };
     };

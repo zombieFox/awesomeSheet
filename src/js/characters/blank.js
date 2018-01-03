@@ -62,21 +62,24 @@ var blank = (function() {
         needed: ""
       },
       character_image: {
+        uploaded: false,
         background: "",
         color: {
           r: "",
           g: "",
           b: ""
         },
-        contain: "",
-        cover: "",
+        image: "",
         orientation: "",
         position: {
           x: "",
           y: ""
         },
-        scale: "",
-        image: ""
+        size: {
+          width: "",
+          height: ""
+        },
+        scale: ""
       }
     },
     statistics: {

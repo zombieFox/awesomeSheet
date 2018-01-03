@@ -1,5 +1,7 @@
 var stats = (function() {
 
+  var renderTimer = null;
+
   function render() {
     var stats = helper.eA(".js-stats");
     for (var i = 0; i < stats.length; i++) {
@@ -8,34 +10,54 @@ var stats = (function() {
     };
   };
 
-  function _render_stat(element) {
-    var path = element.dataset.path;
-    var totalObject = helper.getObject(sheet.getCharacter(), path);
-    var grandTotal;
+  function _render_stat(stats) {
+    var options = helper.makeObject(stats.dataset.statsOptions);
+    var path = stats.dataset.path;
+    var currentPath = options.path + ".current";
+    var statObject = helper.getObject({
+      object: sheet.getCharacter(),
+      path: options.path
+    });
     var toSum = [];
-    for (var key in totalObject) {
-      if (key == "base" || key == "enhancement" || key == "misc" || key == "racial" || key == "temp") {
-        if (totalObject[key] != "") {
-          toSum.push(totalObject[key]);
+    var _reduceSum = function(array) {
+      var total;
+      if (array.length > 0) {
+        total = array.reduce(function(a, b) {
+          return a + b;
+        });
+      } else {
+        total = 0;
+      };
+      return total;
+    };
+    var _push_internalValues = function() {
+      for (var i = 0; i < options.addition.length; i++) {
+        if (statObject[options.addition[i]] != "" && !isNaN(statObject[options.addition[i]])) {
+          toSum.push(statObject[options.addition[i]]);
         };
       };
     };
-    if (toSum.length > 0) {
-      grandTotal = toSum.reduce(function(a, b) {
-        return a + b;
-      });
-    } else {
-      grandTotal = 0;
-    };
-    path = path + ".current";
-    helper.setObject(sheet.getCharacter(), path, grandTotal);
+    _push_internalValues();
+    var grandTotal = _reduceSum(toSum);
+    helper.setObject({
+      object: sheet.getCharacter(),
+      path: currentPath,
+      newValue: grandTotal
+    });
   };
 
-  function _render_modifer(element) {
-    var path = element.dataset.path + ".current";
-    var modifierPath = element.dataset.path + ".modifier";
-    var modifier = _calculateModifer(helper.getObject(sheet.getCharacter(), path));
-    helper.setObject(sheet.getCharacter(), modifierPath, modifier);
+  function _render_modifer(stats) {
+    var options = helper.makeObject(stats.dataset.statsOptions);
+    var modifierPath = options.path + ".modifier";
+    var modifier = _calculateModifer(helper.getObject({
+      object: sheet.getCharacter(),
+      path: options.path + ".current"
+    }));
+    helper.setObject({
+      object: sheet.getCharacter(),
+      path: modifierPath,
+      newValue: modifier
+    });
   };
 
   function _calculateModifer(value) {
@@ -45,8 +67,6 @@ var stats = (function() {
     };
     return modifier;
   };
-
-  var renderTimer = null;
 
   function delayUpdate(element) {
     _render_stat(element);
@@ -77,16 +97,24 @@ var stats = (function() {
 
   function get_score(key) {
     var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].current != "") {
-      value = sheet.getCharacter().statistics.stats[key].current;
+    var score = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "statistics.stats." + key + ".current"
+    });
+    if (score != "" || !isNaN(score)) {
+      value = score;
     };
     return value;
   };
 
   function get_mod(key) {
     var value = 0;
-    if (sheet.getCharacter().statistics.stats[key].modifier != "") {
-      value = sheet.getCharacter().statistics.stats[key].modifier;
+    var mod = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "statistics.stats." + key + ".modifier"
+    });
+    if (mod != "" || !isNaN(mod)) {
+      value = mod;
     };
     return value;
   };

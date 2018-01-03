@@ -37,7 +37,7 @@ var nif = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "1",
+      hero_points: 1,
       character_description: "",
       initiative: {
         misc: "",
@@ -60,6 +60,26 @@ var nif = (function() {
         advancement_speed: "Medium",
         next_level: "",
         needed: ""
+      },
+      character_image: {
+        uploaded: false,
+        background: "",
+        color: {
+          r: "",
+          g: "",
+          b: ""
+        },
+        orientation: "",
+        position: {
+          x: "",
+          y: ""
+        },
+        size: {
+          width: "",
+          height: ""
+        },
+        scale: "",
+        image: ""
       }
     },
     statistics: {

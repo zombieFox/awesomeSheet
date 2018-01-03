@@ -250,7 +250,10 @@ var display = (function() {
   };
 
   function _get_skill(path, prefix) {
-    var object = helper.getObject(sheet.getCharacter(), path);
+    var object = helper.getObject({
+      object: sheet.getCharacter(),
+      path: path
+    });
     var displayListItem;
     if (typeof object != "undefined" && object != "") {
 
@@ -285,7 +288,10 @@ var display = (function() {
     var all_node = [];
 
     for (var i = 0; i < all_displayPath.length; i++) {
-      var all_clones = helper.getObject(sheet.getCharacter(), all_displayPath[i]);
+      var all_clones = helper.getObject({
+        object: sheet.getCharacter(),
+        path: all_displayPath[i]
+      });
       if (all_clones.length == 0) {
         all_node.push(false);
       } else {
@@ -507,7 +513,10 @@ var display = (function() {
   };
 
   function _get_list(path, prefix, suffix, valueType) {
-    var data = helper.getObject(sheet.getCharacter(), path);
+    var data = helper.getObject({
+      object: sheet.getCharacter(),
+      path: path
+    });
     var displayListItem;
     if (typeof data != "undefined" && data != "") {
       if (valueType == "bonus" && data > 0) {
@@ -553,7 +562,10 @@ var display = (function() {
     if (sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
       data = sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
     } else {
-      data = helper.getObject(sheet.getCharacter(), path);
+      data = helper.getObject({
+        object: sheet.getCharacter(),
+        path: path
+      });
     };
     if (typeof data != "undefined" && data != "") {
       displayItem = document.createElement("span");
@@ -588,7 +600,10 @@ var display = (function() {
     if (sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
       data = sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score
     } else {
-      data = helper.getObject(sheet.getCharacter(), path);
+      data = helper.getObject({
+        object: sheet.getCharacter(),
+        path: path
+      });
     };
     if (typeof data != "undefined" && data != "") {
       displayItem = document.createElement("span");
@@ -612,7 +627,10 @@ var display = (function() {
   };
 
   function _get_textBlock(path, target) {
-    var data = helper.getObject(sheet.getCharacter(), path);
+    var data = helper.getObject({
+      object: sheet.getCharacter(),
+      path: path
+    });
     var displayItem;
     if (typeof data != "undefined" && data != "") {
       displayItem = document.createElement("span");
@@ -654,7 +672,10 @@ var display = (function() {
   };
 
   function _get_textSnippet(path, prefix, suffix, dependency, valueType) {
-    var data = helper.getObject(sheet.getCharacter(), path);
+    var data = helper.getObject({
+      object: sheet.getCharacter(),
+      path: path
+    });
     var displayItem;
     if (typeof data != "undefined" && data != "") {
       displayItem = document.createElement("span");
@@ -675,7 +696,10 @@ var display = (function() {
         })
       };
       if (dependency) {
-        data = data + " / " + helper.getObject(sheet.getCharacter(), dependency);
+        data = data + " / " + helper.getObject({
+          object: sheet.getCharacter(),
+          path: dependency
+        });
       };
       value.innerHTML = data;
       if (prefix) {
@@ -721,7 +745,10 @@ var display = (function() {
   };
 
   function _get_image(path, scale, position, color) {
-    var data = helper.getObject(sheet.getCharacter(), path);
+    var data = helper.getObject({
+      object: sheet.getCharacter(),
+      path: path
+    });
     var displayImage;
     if (typeof data != "undefined" && data != "") {
       var displayImage = document.createElement("div");
@@ -731,12 +758,18 @@ var display = (function() {
       displayImageItem.setAttribute("class", "m-display-item-image");
       displayImageItem.src = data;
       if (scale) {
-        var scale = helper.getObject(sheet.getCharacter(), scale);
+        var scale = helper.getObject({
+          object: sheet.getCharacter(),
+          path: scale
+        });
       } else {
         scale = 1;
       };
       if (position) {
-        var position = helper.getObject(sheet.getCharacter(), position);
+        var position = helper.getObject({
+          object: sheet.getCharacter(),
+          path: position
+        });
       } else {
         position = {
           x: 0,
@@ -744,14 +777,20 @@ var display = (function() {
         };
       };
       if (color) {
-        var background = helper.getObject(sheet.getCharacter(), "basics.character_image.background");
+        var background = helper.getObject({
+          object: sheet.getCharacter(),
+          path: "basics.character_image.background"
+        });
         var color;
         if (background == "black") {
           color = "rgb(0,0,0)";
         } else if (background == "white") {
           color = "rgb(255,255,255)";
         } else if (background == "average") {
-          color = helper.getObject(sheet.getCharacter(), color);
+          color = helper.getObject({
+            object: sheet.getCharacter(),
+            path: color
+          });
           color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
         };
       };

@@ -22,7 +22,11 @@ var encumbrance = (function() {
 
   function render() {
     var object = _create_encumbranceObject(stats.getScore("str"));
-    helper.setObject(sheet.getCharacter(), "equipment.encumbrance.carry_move", object);
+    helper.setObject({
+      object: sheet.getCharacter(),
+      path: "equipment.encumbrance.carry_move",
+      newValue: object
+    });
     sheet.storeCharacters();
   };
 
