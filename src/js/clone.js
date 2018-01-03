@@ -66,7 +66,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-small">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-input-block-options="path:basics.classes[' + cloneIndex + ']level,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
-        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-show-on="focus" data-tip-message="Total number of Levels in this Class." type="text" tabindex="1">' +
+        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:Total number of Levels in this Class.,state:focus,clone:true" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -74,19 +74,19 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']hp,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
-        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-show-on="focus" data-tip-message="HP for all Levels in this Class, including favored class bonuses. CON bonuses will be automatically added." type="text" tabindex="1">' +
+        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:HP for all Levels in this Class, including favored class bonuses. CON bonuses will be automatically added.,state:focus,clone:true" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']bab,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-show-on="focus" data-tip-message="The highest BAB for this Class. Additional attacks will be automatically added." type="text" tabindex="1">' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:The highest BAB for this Class. Additional attacks will be automatically added.,state:focus,clone:true" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']ranks,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
-        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-show-on="focus" data-tip-message="Skill Ranks for all Levels in this Class, including favored class bonuses. INT bonuses will be automatically added." type="text" tabindex="1">' +
+        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:Skill Ranks for all Levels in this Class, including favored class bonuses. INT bonuses will be automatically added.,state:focus,clone:true" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +

@@ -237,7 +237,7 @@
         <div class="m-edit-box-item-small">
           <div class="m-input-block js-input-block" data-input-block-options="path:equipment.encumbrance.encumbrance_str,type:integer">
             <label class="m-input-block-label js-input-block-label" for="equipment-encumbrance-encumbrance-str">Score</label>
-            <input id="equipment-encumbrance-encumbrance-str" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-show-on="focus" data-tip-message="Use an alternative STR score to calculation Encumbrance." type="text" tabindex="1">
+            <input id="equipment-encumbrance-encumbrance-str" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:Use an alternative STR score to calculation Encumbrance.,state:focus" type="text" tabindex="1">
           </div>
         </div>
       </div>
@@ -252,15 +252,15 @@
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
           <p class="m-edit-box-label">Light Load</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.light" data-tip-show-on="hover" data-tip-message="Light Load calculated from STR."></p>
+          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.light" data-tip-options="message:Light Load calculated from STR.,state:hover"></p>
         </div>
         <div class="m-edit-box-item-shrink">
           <p class="m-edit-box-label">Medium Load</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.medium" data-tip-show-on="hover" data-tip-message="Medium Load calculated from STR."></p>
+          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.medium" data-tip-options="message:Medium Load calculated from STR.,state:hover"></p>
         </div>
         <div class="m-edit-box-item-shrink">
           <p class="m-edit-box-label">Heavy Load</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.heavy" data-tip-show-on="hover" data-tip-message="Heavy Load calculated from STR."></p>
+          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.heavy" data-tip-options="message:Heavy Load calculated from STR.,state:hover"></p>
         </div>
       </div>
     </div>
@@ -274,11 +274,11 @@
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
           <p class="m-edit-box-label">Lift Object</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.lift" data-tip-show-on="hover" data-tip-message="Lift (Heavy Load Max x 2) calculated from STR."></p>
+          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.lift" data-tip-options="message:Lift (Heavy Load Max x 2) calculated from STR.,state:hover"></p>
         </div>
         <div class="m-edit-box-item-shrink">
           <p class="m-edit-box-label">Drag Object</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.drag" data-tip-show-on="hover" data-tip-message="Drag (Heavy Load Max x 5) calculated from STR."></p>
+          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.encumbrance.carry_move.drag" data-tip-options="message:Drag (Heavy Load Max x 5) calculated from STR.,state:hover"></p>
         </div>
       </div>
     </div>
@@ -297,7 +297,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.platinum,type:number" data-tip-show-on="hover" data-tip-message="1 PP = 10 GP"></p>
+            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.platinum,type:number" data-tip-options="message:1 PP = 10 GP,state:hover"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-input-block-aggregate-options="target:equipment-wealth-platinum,action:clear,snackMessage:Platinum cleared.,promptHeading:Clear Platinum?,promptMessage:Are you sure you want to clear the current Platinum total?" tabindex="1"><span class="icon-close"></span></a>
@@ -307,7 +307,7 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.platinum,action:aggregate,eventType:platinum,snackMessage:Platinum.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-platinum">PP to add/remove</label>
-              <input id="equipment-wealth-platinum" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Platinum. Eg: Apply '-100' to remove 100 PP." type="text" tabindex="1">
+              <input id="equipment-wealth-platinum" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Platinum. Eg: Apply '-100' to remove 100 PP.,state:focus" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -337,7 +337,7 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.gold,action:aggregate,eventType:gold,snackMessage:Gold.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-gold">GP to add/remove</label>
-              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Gold. Eg: Apply '-100' to remove 100 GP." type="text" tabindex="1">
+              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Gold. Eg: Apply '-100' to remove 100 GP.,state:focus" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -357,7 +357,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.silver,type:number" data-tip-show-on="hover" data-tip-message="10 SP = 1 GP"></p>
+            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.silver,type:number" data-tip-options="message:10 SP = 1 GP,state:hover"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-input-block-aggregate-options="target:equipment-wealth-silver,action:clear,snackMessage:Silver cleared.,promptHeading:Clear Silver?,promptMessage:Are you sure you want to clear the current Silver total?" tabindex="1"><span class="icon-close"></span></a>
@@ -367,7 +367,7 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.silver,action:aggregate,eventType:silver,snackMessage:Silver.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-silver">SP to add/remove</label>
-              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Silver. Eg: Apply '-100' to remove 100 SP." type="text" tabindex="1">
+              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Silver. Eg: Apply '-100' to remove 100 SP.,state:focus" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -387,7 +387,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.copper,type:number" data-tip-show-on="hover" data-tip-message="100 CP = 1 GP"></p>
+            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.copper,type:number" data-tip-options="message:100 CP = 1 GP,state:hover"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-input-block-aggregate-options="target:equipment-wealth-copper,action:clear,snackMessage:Copper cleared.,promptHeading:Clear Copper?,promptMessage:Are you sure you want to clear the current Copper total?" tabindex="1"><span class="icon-close"></span></a>
@@ -397,7 +397,7 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.copper,action:aggregate,eventType:copper,snackMessage:Copper.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-copper">CP to add/remove</label>
-              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-show-on="focus" data-tip-message="Use negative numbers to spend Copper. Eg: Apply '-100' to remove 100 CP." type="text" tabindex="1">
+              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Copper. Eg: Apply '-100' to remove 100 CP.,state:focus" type="text" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -413,7 +413,7 @@
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
           <p class="m-edit-box-label">Total Wealth</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.total,type:currency" data-tip-show-on="hover" data-tip-message="Total given in the most common coin, GP."></p>
+          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:equipment.wealth.total,type:currency" data-tip-options="message:Total given in the most common coin, GP.,state:hover"></p>
         </div>
         <div class="m-edit-box-item-button-small">
           <a href="javascript:void(0)" class="u-inline-with-input button js-evets-wealth" tabindex="1">Wealth Log</a>
