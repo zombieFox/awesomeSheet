@@ -57,12 +57,12 @@ var xp = (function() {
         helper.xxx_setObject({
           object: sheet.getCharacter(),
           path: "basics.xp.next_level",
-          nextLevelXpMileStonewValue: ne
+          newValue: nextLevelXpMileStone
         });
         helper.xxx_setObject({
           object: sheet.getCharacter(),
           path: "basics.xp.needed",
-          nextLevelXpNeednewValue: d
+          newValue: nextLevelXpNeeded
         });
       } else {
         helper.xxx_setObject({
