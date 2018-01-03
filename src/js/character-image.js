@@ -355,7 +355,11 @@ var characterImage = (function() {
       },
       scale: ""
     };
-    helper.setObject(sheet.getCharacter(), "basics.character_image", object);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image",
+      newValue: object
+    });
     sheet.storeCharacters();
     _update_all_inputRangeBlock();
     _update_all_radio();
@@ -511,32 +515,56 @@ var characterImage = (function() {
       x: axisX,
       y: axisY
     };
-    helper.setObject(sheet.getCharacter(), "basics.character_image.position", position);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.position",
+      newValue: position
+    });
   };
 
   function _store_background(background) {
     // console.log("store background");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.background", background);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.background",
+      newValue: background
+    });
   };
 
   function _store_color(color) {
     // console.log("store color");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.color", color);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.color",
+      newValue: color
+    });
   };
 
   function _store_image(imageBase64) {
     // console.log("store image");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.image", imageBase64);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.image",
+      newValue: imageBase64
+    });
   };
 
   function _store_scale(scale) {
     // console.log("store scale");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.scale", scale);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.scale",
+      newValue: scale
+    });
   };
 
   function _store_orientation(orientation) {
     // console.log("store orientation");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.orientation", orientation);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.orientation",
+      newValue: orientation
+    });
   };
 
   function _store_size(imageWidth, imageHeight) {
@@ -545,12 +573,20 @@ var characterImage = (function() {
       width: imageWidth,
       height: imageHeight
     };
-    helper.setObject(sheet.getCharacter(), "basics.character_image.size", size);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.size",
+      newValue: size
+    });
   };
 
   function _store_uploaded(boolean) {
     // console.log("store uploaded");
-    helper.setObject(sheet.getCharacter(), "basics.character_image.uploaded", boolean);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "basics.character_image.uploaded",
+      newValue: boolean
+    });
   };
 
   function _get_uploadedState() {

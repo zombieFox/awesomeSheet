@@ -15,7 +15,11 @@ var wealth = (function() {
       object: sheet.getCharacter(),
       path: "equipment.wealth"
     }));
-    helper.setObject(sheet.getCharacter(), "equipment.wealth.total", total);
+    helper.xxx_setObject({
+      object: sheet.getCharacter(),
+      path: "equipment.wealth.total",
+      newValue: total
+    });
     sheet.storeCharacters();
   };
 

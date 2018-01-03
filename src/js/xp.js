@@ -54,16 +54,40 @@ var xp = (function() {
           nextLevelXpMileStone = "";
           nextLevelXpNeeded = "";
         };
-        helper.setObject(sheet.getCharacter(), "basics.xp.next_level", nextLevelXpMileStone);
-        helper.setObject(sheet.getCharacter(), "basics.xp.needed", nextLevelXpNeeded);
+        helper.xxx_setObject({
+          object: sheet.getCharacter(),
+          path: "basics.xp.next_level",
+          nextLevelXpMileStonewValue: ne
+        });
+        helper.xxx_setObject({
+          object: sheet.getCharacter(),
+          path: "basics.xp.needed",
+          nextLevelXpNeednewValue: d
+        });
       } else {
-        helper.setObject(sheet.getCharacter(), "basics.xp.next_level", "");
-        helper.setObject(sheet.getCharacter(), "basics.xp.needed", "");
+        helper.xxx_setObject({
+          object: sheet.getCharacter(),
+          path: "basics.xp.next_level",
+          newValue: ""
+        });
+        helper.xxx_setObject({
+          object: sheet.getCharacter(),
+          path: "basics.xp.needed",
+          newValue: ""
+        });
       };
     };
     var _clear_nextXp = function() {
-      helper.setObject(sheet.getCharacter(), "basics.xp.next_level", "");
-      helper.setObject(sheet.getCharacter(), "basics.xp.needed", "");
+      helper.xxx_setObject({
+        object: sheet.getCharacter(),
+        path: "basics.xp.next_level",
+        newValue: ""
+      });
+      helper.xxx_setObject({
+        object: sheet.getCharacter(),
+        path: "basics.xp.needed",
+        newValue: ""
+      });
     };
     // if xp is less than level 20 for any advancement speed
     if (currentXp <= selectedTrack[selectedTrack.length - 1]) {
