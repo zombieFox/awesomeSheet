@@ -408,14 +408,24 @@ var totalBlock = (function() {
       newBonusesObject = JSON.parse(JSON.stringify(totalBlockBonusesObject));
     };
     var _store_data = function() {
-      helper.xxx_setObject({
-        object: sheet.getCharacter(),
-        path: options.path,
-        newValue: newBonusesObject
-      });
+      if (options.clone) {
+        helper.xxx_setObject({
+          object: sheet.getCharacter(),
+          path: options.path,
+          clone: options.clone,
+          newValue: newBonusesObject
+        });
+      } else {
+        helper.xxx_setObject({
+          object: sheet.getCharacter(),
+          path: options.path,
+          newValue: newBonusesObject
+        });
+      };
     };
     var _hold_data = function(input, key) {
       newBonusesObject[key] = input.checked;
+      console.log(newBonusesObject);
     };
     var _render_check = function(key) {
       var checkBlock = document.createElement("div");
