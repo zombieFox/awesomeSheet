@@ -733,7 +733,6 @@
     transform: translate(0, calc(-100% - 1em));
     &.is-open {
       transform: translate(0, 0);
-      box-shadow: $shadow-extra-large;
     }
   }
   .m-character-select-toggle {
@@ -759,5 +758,10 @@
   .m-character-select,
   .m-character-select-toggle {
     width: 30vw;
+  }
+}
+@media (min-width: 2000px) {
+  .m-character-select {
+    right: calc(20% - -2.5em)
   }
 }
