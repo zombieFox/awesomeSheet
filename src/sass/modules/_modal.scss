@@ -22,7 +22,10 @@
   width: 25em;
 }
 .m-modal-wrapper {
+  background-color: $white;
+  border-radius: $border-radius-large;
   box-sizing: border-box;
+  position: relative;
   transition: all $transition-bounce-fast;
   .container {
     max-width: 100%;
@@ -34,13 +37,15 @@
   }
 }
 .m-modal-body {
-  background-color: $white;
-  border-radius: $border-radius-large $border-radius-large 0 0;
   padding: 2em;
   max-height: calc(80vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
   z-index: 1;
+  position: relative;
+  // transition: all $transition-bounce-fast;
+  // transform: translate(0, 0);
+  // transition-delay: 0.1s;
   .m-modal-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;
@@ -49,6 +54,26 @@
     }
   }
 }
+// .is-transition-end {
+//   .m-modal-body {
+//     transition: all $transition-ease-fast;
+//   }
+// }
+// .is-jumping-up {
+//   .m-modal-body {
+//     transform: translate(0, 4em);
+//   }
+// }
+// .is-sitting {
+//   .m-modal-body {
+//     transform: translate(0, 0);
+//   }
+// }
+// .is-droping-down {
+//   .m-modal-body {
+//     transform: translate(0, -2em);
+//   }
+// }
 .m-modal-controls {
   position: relative;
   z-index: 2;

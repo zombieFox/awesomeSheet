@@ -16,7 +16,10 @@
   }
 }
 .m-prompt-wrapper {
+  background-color: $white;
+  border-radius: $border-radius-large;
   box-sizing: border-box;
+  position: relative;
   transition: all $transition-bounce-fast;
 }
 .is-transition-end {
@@ -25,10 +28,12 @@
   }
 }
 .m-prompt-body {
-  background-color: $white;
-  border-radius: $border-radius-large $border-radius-large 0 0;
   padding: $font-size-200;
   z-index: 1;
+  position: relative;
+  // transition: all $transition-bounce-fast;
+  // transform: translate(0, 0);
+  // transition-delay: 0.1s;
   .m-prompt-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;
@@ -42,6 +47,26 @@
     }
   }
 }
+// .is-transition-end {
+//   .m-prompt-body {
+//     transition: all $transition-ease-fast;
+//   }
+// }
+// .is-jumping-up {
+//   .m-prompt-body {
+//     transform: translate(0, 4em);
+//   }
+// }
+// .is-sitting {
+//   .m-prompt-body {
+//     transform: translate(0, 0);
+//   }
+// }
+// .is-droping-down {
+//   .m-prompt-body {
+//     transform: translate(0, -2em);
+//   }
+// }
 .m-prompt-controls {
   margin: 0;
   position: relative;

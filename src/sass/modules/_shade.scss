@@ -9,7 +9,6 @@
   z-index: $shade;
   transition: opacity $transition-ease-medium;
   &.is-transition-end {
-    // transition-delay: 0.1s;
     transition: opacity $transition-ease-extra-slow;
   }
   &.is-display-mode {
