@@ -10,7 +10,10 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   perspective: 1000px;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-fast;
+  &.is-transition-end {
+    transition: opacity $transition-ease-medium;
+  }
 }
 .m-modal-large {
   width: 65em;
@@ -20,9 +23,14 @@
 }
 .m-modal-wrapper {
   box-sizing: border-box;
-  transition: all $transition-ease-fast;
+  transition: all $transition-bounce-fast;
   .container {
     max-width: 100%;
+  }
+}
+.is-transition-end {
+  .m-modal-wrapper {
+    transition: all $transition-ease-medium;
   }
 }
 .m-modal-body {

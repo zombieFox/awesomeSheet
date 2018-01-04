@@ -40,15 +40,15 @@ var prompt = (function() {
       var body = helper.e("body");
       body.dataset.prompt = true;
       var promptWrapper = document.createElement("div");
-      promptWrapper.setAttribute("class", "m-prompt-wrapper js-prompt-wrapper is-unrotate-out");
+      promptWrapper.setAttribute("class", "m-prompt-wrapper is-jumping-up");
       var prompt = document.createElement("div");
       prompt.setAttribute("class", "m-prompt js-prompt");
       prompt.destroy = function() {
-        if (prompt.classList.contains("is-opaque") || promptWrapper.classList.contains("is-unrotate-in")) {
+        if (prompt.classList.contains("is-opaque") || promptWrapper.classList.contains("is-sitting")) {
           helper.removeClass(prompt, "is-opaque");
           helper.addClass(prompt, "is-transparent");
-          helper.removeClass(promptWrapper, "is-unrotate-in");
-          helper.addClass(promptWrapper, "is-dropped-out");
+          helper.removeClass(promptWrapper, "is-sitting");
+          helper.addClass(promptWrapper, "is-droping-down");
         } else {
           prompt.remove();
         };
@@ -61,7 +61,7 @@ var prompt = (function() {
       var actionButton = document.createElement("a");
       actionButton.setAttribute("href", "javascript:void(0)");
       actionButton.setAttribute("tabindex", "1");
-      actionButton.setAttribute("class", "button button-primary button-large js-prompt-action");
+      actionButton.setAttribute("class", "button button-primary button-large");
       actionButton.textContent = defaultOptions.actionText;
       var cancelButton = document.createElement("a");
       cancelButton.setAttribute("href", "javascript:void(0)");
@@ -89,6 +89,9 @@ var prompt = (function() {
       prompt.addEventListener("transitionend", function(event, elapsed) {
         if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
           this.parentElement.removeChild(this);
+        };
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 1) {
+          helper.addClass(this, "is-transition-end");
         };
       }.bind(prompt), false);
       actionButton.addEventListener("click", function(event) {
@@ -124,8 +127,8 @@ var prompt = (function() {
       getComputedStyle(prompt).opacity;
       helper.removeClass(prompt, "is-transparent");
       helper.addClass(prompt, "is-opaque");
-      helper.removeClass(promptWrapper, "is-unrotate-out");
-      helper.addClass(promptWrapper, "is-unrotate-in");
+      helper.removeClass(promptWrapper, "is-jumping-up");
+      helper.addClass(promptWrapper, "is-sitting");
       promptHeading.focus(this);
     };
     characterSelect.close();

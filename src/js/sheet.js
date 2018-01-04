@@ -136,7 +136,6 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    shade.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
     storeCharacters();

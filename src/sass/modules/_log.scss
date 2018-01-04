@@ -9,7 +9,10 @@
   min-width: 200px;
   opacity: 0;
   perspective: 1000px;
-  transition: all $transition-ease-fast;
+  transition: opacity $transition-ease-fast;
+  &.is-transition-end {
+    transition: opacity $transition-ease-medium;
+  }
 }
 .is-onscreen-snack {
   .m-log {
@@ -18,7 +21,12 @@
 }
 .m-log-wrapper {
   box-sizing: border-box;
-  transition: all $transition-ease-fast;
+  transition: all $transition-bounce-fast;
+}
+.is-transition-end {
+  .m-log-wrapper {
+    transition: all $transition-ease-medium;
+  }
 }
 .m-log-body {
   background-color: $secondary-color-04;

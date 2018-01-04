@@ -742,9 +742,6 @@
 @media (min-width: $screen-lg) {
   .m-character-select {
     right: calc(10% - -2.75em);
-    &.is-open {
-      box-shadow: $shadow-extra-large;
-    }
   }
   .m-character-select,
   .m-character-select-toggle {

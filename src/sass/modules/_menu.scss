@@ -297,9 +297,6 @@
 @media (min-width: $screen-lg) {
   .m-menu {
     width: 35vw;
-    &.is-open {
-      box-shadow: $shadow-extra-large;
-    }
   }
 }
 @media (min-width: $screen-xl) {

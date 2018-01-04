@@ -52,28 +52,24 @@ var characterSelect = (function() {
     }, false);
 
     characterSelectRemove.addEventListener("click", function(event) {
-      shade.destroy();
       close();
       sheet.removeCharacter();
       page.update();
     }, false);
 
     characterSelectImport.addEventListener("click", function(event) {
-      shade.destroy();
       close();
       sheet.import();
       page.update();
     }, false);
 
     characterSelectExport.addEventListener("click", function(event) {
-      shade.destroy();
       close();
       sheet.export();
       page.update();
     }, false);
 
     headerControlExport.addEventListener("click", function(event) {
-      shade.destroy();
       close();
       sheet.export();
       page.update();
