@@ -23,7 +23,6 @@ var log = (function() {
   };
 
   function _render_logMessage(heading, logBodyContent, actionText, action) {
-
     prompt.destroy();
     modal.destroy();
     var body = helper.e("body");
@@ -115,7 +114,6 @@ var log = (function() {
     logHeading.focus(this);
 
   };
-
 
   function _create_fullChangeLog() {
     var _modalContent = function() {
@@ -225,11 +223,15 @@ var log = (function() {
       return container;
     };
 
-    for (var i = 0; i < update.history.length; i++) {
+    for (var i = 0; i < changesToDisplay; i++) {
+      // console.log(update.history[i]);
       for (var j = 0; j < update.history[i].list.length; j++) {
+        // console.log(update.history[i].list[j]);
         var asterisk = "*";
         if (update.history[i].list[j].indexOf(asterisk) != -1) {
+          // console.log(update.history[i].list[j]);
           if (update.history[i].link) {
+            // console.log(update.history[i].link);
             all_breakingChangesLink.push(update.history[i].link);
           };
           all_breakingChanges.push(update.history[i].list[j].substr(1));
