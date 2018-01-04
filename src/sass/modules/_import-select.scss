@@ -5,6 +5,7 @@
   position: relative;
   cursor: pointer;
   display: inline-block;
+  max-width: 100%;
 }
 .m-import-select-input {
   position: absolute;
@@ -34,6 +35,12 @@
       color: $primary-color-10;
     }
   }
+}
+.m-import-select-label-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 // --------------------------------------------------
 // media queries

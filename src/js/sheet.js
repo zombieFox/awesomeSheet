@@ -261,9 +261,9 @@ var sheet = (function() {
       label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
       var labelText = document.createElement("span");
       labelText.textContent = "Select a file";
-      labelText.setAttribute("class", "js-import-select-label-text");
+      labelText.setAttribute("class", "m-import-select-label-text js-import-select-label-text");
       var icon = document.createElement("span");
-      icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
+      icon.setAttribute("class", "icon-file-upload m-import-select-label-icon js-import-select-label-icon");
       var message = document.createElement("p");
       message.setAttribute("class", "m-import-select-message");
       message.textContent = "Import a previously exported character file (JSON) from this or another device.";
