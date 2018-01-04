@@ -23,7 +23,8 @@ var display = (function() {
   function _update_displayState() {
     var header = helper.e(".js-header");
     var nav = helper.e(".js-nav");
-    var menu = helper.e(".js-menu");
+    var menuElement = helper.e(".js-menu");
+    var menuItem = helper.e(".js-menu-link-display-mode");
     var characterSelect = helper.e(".js-character-select");
     var shade = helper.e(".js-shade");
     var fab = helper.e(".js-fab");
@@ -34,11 +35,11 @@ var display = (function() {
     var allSectionDisplay = 0;
     var _displayOn = function() {
       helper.addClass(fabIcon, "icon-edit");
-      helper.removeClass(fabIcon, "icon-reader-mode");
+      helper.removeClass(fabIcon, "icon-reader");
       helper.removeClass(fabButton, "button-primary");
       helper.addClass(fabButton, "button-secondary");
       helper.addClass(nav, "is-display-mode");
-      helper.addClass(menu, "is-display-mode");
+      helper.addClass(menuElement, "is-display-mode");
       helper.addClass(header, "is-display-mode");
       helper.addClass(characterSelect, "is-display-mode");
       if (shade) {
@@ -47,11 +48,11 @@ var display = (function() {
     };
     var _displayOff = function() {
       helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader-mode");
+      helper.addClass(fabIcon, "icon-reader");
       helper.addClass(fabButton, "button-primary");
       helper.removeClass(fabButton, "button-secondary");
       helper.removeClass(nav, "is-display-mode");
-      helper.removeClass(menu, "is-display-mode");
+      helper.removeClass(menuElement, "is-display-mode");
       helper.removeClass(header, "is-display-mode");
       helper.removeClass(characterSelect, "is-display-mode");
       if (shade) {
@@ -69,15 +70,27 @@ var display = (function() {
         fab.dataset.displayMode = true;
         fab.dataset.displayModeAll = true;
         _displayOn();
+        menu.toggleMenuItem({
+          menuItem: menuItem,
+          state: "active"
+        });
       } else {
         fab.dataset.displayMode = true;
         fab.dataset.displayModeAll = false;
         _displayOff();
+        menu.toggleMenuItem({
+          menuItem: menuItem,
+          state: "inactive"
+        });
       };
     } else {
       fab.dataset.displayMode = false;
       fab.dataset.displayModeAll = false;
       _displayOff();
+      menu.toggleMenuItem({
+        menuItem: menuItem,
+        state: "inactive"
+      });
     };
   };
 
@@ -88,7 +101,6 @@ var display = (function() {
     var edit = section.querySelector(".js-edit");
     var cardTabs = section.querySelector(".js-card-tabs");
     var all_display = section.querySelectorAll(".js-display");
-
     var _displayOn = function() {
       section.dataset.displayMode = "true";
       helper.addClass(section, "is-display-mode");
@@ -100,9 +112,8 @@ var display = (function() {
         helper.removeClass(all_display[i], "is-hidden");
       };
       helper.addClass(icon, "icon-edit");
-      helper.removeClass(icon, "icon-reader-mode");
+      helper.removeClass(icon, "icon-reader");
     };
-
     var _displayOff = function() {
       section.dataset.displayMode = "false";
       helper.removeClass(section, "is-display-mode");
@@ -114,9 +125,8 @@ var display = (function() {
         helper.addClass(all_display[i], "is-hidden");
       };
       helper.removeClass(icon, "icon-edit");
-      helper.addClass(icon, "icon-reader-mode");
+      helper.addClass(icon, "icon-reader");
     };
-
     if (forceToggle == true) {
       _displayOn();
     } else if (forceToggle == false) {
@@ -128,7 +138,6 @@ var display = (function() {
         _displayOn();
       };
     };
-
   };
 
   function _toggle_all_section() {
