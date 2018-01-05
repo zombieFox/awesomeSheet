@@ -200,7 +200,7 @@ var repair = (function() {
     ifRacial("racial", characterObject.defense.will);
     // --------------------------------------------------
     // update classes
-    if (!characterObject.basics.classes) {
+    if (!characterObject.basics.classes || typeof characterObject.basics.class == "string") {
       // console.log("\tupdate classes");
       characterObject.basics.classes = [{
         classname: "",
