@@ -368,8 +368,9 @@ var sheet = (function() {
   function scroll() {
     window.addEventListener("scroll", function(event) {
       header.scroll();
-      edit.scroll();
       nav.scroll();
+      // disabled in favour of position: sticky
+      // edit.scroll();
     }, false);
   };
 

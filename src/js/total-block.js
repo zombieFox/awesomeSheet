@@ -438,7 +438,6 @@ var totalBlock = (function() {
     };
     var _hold_data = function(input, key) {
       newBonusesObject[key] = input.checked;
-      console.log(newBonusesObject);
     };
     var _render_check = function(key) {
       var checkBlock = document.createElement("div");

@@ -443,33 +443,17 @@
 // --------------------------------------------------
 .m-edit-controls {
   margin: 0 0 1em;
-  top: 0;
-  transition: top $transition-ease-slow;
-  pointer-events: none;
+  position: sticky;
+  top: 8em;
+  transition: top $transition-ease-fast;
+  z-index: $edit-controls;
   .button-group {
     margin-bottom: 0;
-    .button,
-    button {
-      pointer-events: all;
-    }
-  }
-}
-.is-pinned {
-  .m-edit-controls {
-    margin-bottom: 0;
-    position: fixed;
-    top: 8em;
-    z-index: $card-controls;
   }
 }
 .is-header-pinned {
   .m-edit-controls {
-    top: 0;
-  }
-  .is-pinned {
-    .m-edit-controls {
-      top: 4.5em;
-    }
+    top: 4em;
   }
 }
 // --------------------------------------------------
@@ -583,30 +567,18 @@
   }
 }
 @media (min-width: $screen-md) {
-  .is-pinned {
-    .m-edit-controls {
-      top: 7em;
-    }
+  .m-edit-controls {
+    top: 7em;
   }
   .is-header-pinned {
     .m-edit-controls {
-      top: 0;
-    }
-    .is-pinned {
-      .m-edit-controls {
-        top: 4em;
-      }
+      top: 4em;
     }
   }
 }
 @media (min-width: $screen-lg) {
   .m-edit-controls {
-    top: 0;
-  }
-  .is-pinned {
-    .m-edit-controls {
-      top: 4em;
-    }
+    top: 4em;
   }
 }
 @media (min-width: $screen-xl) {}
