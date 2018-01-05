@@ -1,7 +1,7 @@
 var repair = (function() {
 
   function _repair(characterObject) {
-    // console.log("-- Repair update fired >>", characterObject.basics.name);
+    console.log("-- Repair update fired >>", characterObject.basics.name);
     // --------------------------------------------------
     // repair spell notes
     if (characterObject.spells.book) {
@@ -446,6 +446,96 @@ var repair = (function() {
     if (!characterObject.equipment.scrolls && characterObject.equipment.scrolls != "") {
       characterObject.equipment.scrolls = "";
     };
+    // --------------------------------------------------
+    // repair skills
+    // if (!characterObject.skills.acrobatics.feat || !characterObject.skills.acrobatics.racial || !characterObject.skills.acrobatics.trait) {
+      console.log("\trepair skills");
+
+      characterObject.skills.all = {};
+      characterObject.skills.all.acrobatics = characterObject.skills.acrobatics;
+      characterObject.skills.all.appraise = characterObject.skills.appraise;
+      characterObject.skills.all.bluff = characterObject.skills.bluff;
+      characterObject.skills.all.climb = characterObject.skills.climb;
+      characterObject.skills.all.craft_1 = characterObject.skills.craft_1;
+      characterObject.skills.all.craft_2 = characterObject.skills.craft_2;
+      characterObject.skills.all.diplomacy = characterObject.skills.diplomacy;
+      characterObject.skills.all.disable_device = characterObject.skills.disable_device;
+      characterObject.skills.all.disguise = characterObject.skills.disguise;
+      characterObject.skills.all.escape_artist = characterObject.skills.escape_artist;
+      characterObject.skills.all.fly = characterObject.skills.fly;
+      characterObject.skills.all.handle_animal = characterObject.skills.handle_animal;
+      characterObject.skills.all.heal = characterObject.skills.heal;
+      characterObject.skills.all.intimidate = characterObject.skills.intimidate;
+      characterObject.skills.all.knowledge_arcana = characterObject.skills.knowledge_arcana;
+      characterObject.skills.all.knowledge_dungeoneering = characterObject.skills.knowledge_dungeoneering;
+      characterObject.skills.all.knowledge_engineering = characterObject.skills.knowledge_engineering;
+      characterObject.skills.all.knowledge_geography = characterObject.skills.knowledge_geography;
+      characterObject.skills.all.knowledge_history = characterObject.skills.knowledge_history;
+      characterObject.skills.all.knowledge_local = characterObject.skills.knowledge_local;
+      characterObject.skills.all.knowledge_nature = characterObject.skills.knowledge_nature;
+      characterObject.skills.all.knowledge_nobility = characterObject.skills.knowledge_nobility;
+      characterObject.skills.all.knowledge_planes = characterObject.skills.knowledge_planes;
+      characterObject.skills.all.knowledge_religion = characterObject.skills.knowledge_religion;
+      characterObject.skills.all.linguistics = characterObject.skills.linguistics;
+      characterObject.skills.all.perception = characterObject.skills.perception;
+      characterObject.skills.all.perform_1 = characterObject.skills.perform_1;
+      characterObject.skills.all.perform_2 = characterObject.skills.perform_2;
+      characterObject.skills.all.profession_1 = characterObject.skills.profession_1;
+      characterObject.skills.all.profession_2 = characterObject.skills.profession_2;
+      characterObject.skills.all.ride = characterObject.skills.ride;
+      characterObject.skills.all.sense_motive = characterObject.skills.sense_motive;
+      characterObject.skills.all.sleight_of_hand = characterObject.skills.sleight_of_hand;
+      characterObject.skills.all.spellcraft = characterObject.skills.spellcraft;
+      characterObject.skills.all.stealth = characterObject.skills.stealth;
+      characterObject.skills.all.survival = characterObject.skills.survival;
+      characterObject.skills.all.swim = characterObject.skills.swim;
+      characterObject.skills.all.use_magic_device = characterObject.skills.use_magic_device;
+
+      delete characterObject.skills.acrobatics;
+      delete characterObject.skills.appraise;
+      delete characterObject.skills.bluff;
+      delete characterObject.skills.climb;
+      delete characterObject.skills.craft_1;
+      delete characterObject.skills.craft_2;
+      delete characterObject.skills.diplomacy;
+      delete characterObject.skills.disable_device;
+      delete characterObject.skills.disguise;
+      delete characterObject.skills.escape_artist;
+      delete characterObject.skills.fly;
+      delete characterObject.skills.handle_animal;
+      delete characterObject.skills.heal;
+      delete characterObject.skills.intimidate;
+      delete characterObject.skills.knowledge_arcana;
+      delete characterObject.skills.knowledge_dungeoneering;
+      delete characterObject.skills.knowledge_engineering;
+      delete characterObject.skills.knowledge_geography;
+      delete characterObject.skills.knowledge_history;
+      delete characterObject.skills.knowledge_local;
+      delete characterObject.skills.knowledge_nature;
+      delete characterObject.skills.knowledge_nobility;
+      delete characterObject.skills.knowledge_planes;
+      delete characterObject.skills.knowledge_religion;
+      delete characterObject.skills.linguistics;
+      delete characterObject.skills.perception;
+      delete characterObject.skills.perform_1;
+      delete characterObject.skills.perform_2;
+      delete characterObject.skills.profession_1;
+      delete characterObject.skills.profession_2;
+      delete characterObject.skills.ride;
+      delete characterObject.skills.sense_motive;
+      delete characterObject.skills.sleight_of_hand;
+      delete characterObject.skills.spellcraft;
+      delete characterObject.skills.stealth;
+      delete characterObject.skills.survival;
+      delete characterObject.skills.swim;
+      delete characterObject.skills.use_magic_device;
+
+      console.log(characterObject.skills);
+
+      // for (var i = 0; i < characterObject.skills.length; i++) {
+      //   console.log(characterObject.skills[i]);
+      // };
+    // };
     // --------------------------------------------------
     sheet.storeCharacters();
     return characterObject;

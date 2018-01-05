@@ -526,10 +526,10 @@
   }
   .m-edit-box-head-large {
     .m-edit-box-head {
-      flex: 0 0 50%;
+      flex: 0 0 40%;
     }
     .m-edit-box-body {
-      max-width: 50%;
+      max-width: 60%;
     }
   }
   .m-edit-box-head-extra-large {
@@ -550,7 +550,7 @@
     padding-left: 30%;
   }
   .m-edit-box-no-head-large {
-    padding-left: 50%;
+    padding-left: 40%;
   }
   .m-edit-box-text {
     line-height: $line-height-250;
