@@ -1,15 +1,16 @@
 var repair = (function() {
 
-  function render(characterObject) {
-    // console.log("Repair update fired");
+  function _repair(characterObject) {
+    // console.log("-- Repair update fired >>", characterObject.basics.name);
     // --------------------------------------------------
-    // add spell notes
+    // repair spell notes
     if (characterObject.spells.book) {
       for (var i in characterObject.spells.book) {
         for (var j in characterObject.spells.book[i]) {
           if (characterObject.spells.book[i][j].length > 0) {
             for (var k in characterObject.spells.book[i][j]) {
               if (!("note" in characterObject.spells.book[i][j][k]) && typeof characterObject.spells.book[i][j][k].note != "string") {
+                // console.log("\trepair spell notes");
                 // console.log("\tspell notes not found");
                 characterObject.spells.book[i][j][k].note = "";
               };
@@ -19,28 +20,28 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // add item array
+    // repair item array
     if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
-      // console.log("\tadd item array");
+      // console.log("\trepair item array");
       characterObject.equipment.item = [];
     };
     // --------------------------------------------------
-    // add note array
+    // repair note array
     if (typeof characterObject.notes.character == "string" || typeof characterObject.notes.story == "string") {
-      // console.log("\tadd note array");
+      // console.log("\trepair note array");
       characterObject.notes.character = [];
       characterObject.notes.story = [];
     };
     // --------------------------------------------------
-    // add custom skills array
+    // repair custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
-      // console.log("\tadd custom skills array");
+      // console.log("\trepair custom skills array");
       characterObject.skills.custom = [];
     };
     // --------------------------------------------------
-    // move custom skills to new custom skills
+    // repair custom skills
     if ("custom_1" in characterObject.skills || "custom_2" in characterObject.skills || "custom_3" in characterObject.skills || "custom_4" in characterObject.skills || "custom_5" in characterObject.skills || "custom_6" in characterObject.skills || "custom_7" in characterObject.skills || "custom_8" in characterObject.skills) {
-      // console.log("\tmove custom skills to new custom skills");
+      // console.log("\trepair custom skills");
       var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
       for (var i = 0; i < skillKeys.length; i++) {
         if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
@@ -51,9 +52,9 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // add concentration bonus object
+    // repair concentration bonus object
     if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
-      // console.log("\tadd concentration bonus object");
+      // console.log("\trepair concentration bonus object");
       characterObject.spells.concentration.bonuses = {
         str_bonus: false,
         dex_bonus: false,
@@ -66,9 +67,9 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // add initiative object
+    // repair initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
-      // console.log("\tadd initiative object");
+      // console.log("\trepair initiative object");
       characterObject.basics.initiative = {
         misc: "",
         temp: "",
@@ -87,9 +88,9 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // add size object
+    // repair size object
     if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
-      // console.log("\tadd size object");
+      // console.log("\trepair size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
         size = "Medium";
@@ -119,8 +120,9 @@ var repair = (function() {
       characterObject.skills.stealth.bonuses.size_modifier_stealth = true;
     };
     // --------------------------------------------------
-    // update alignment
+    // repair alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"].indexOf(characterObject.basics.alignment) === -1) {
+      // console.log("\trepair alignment");
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
         characterObject.basics.alignment = "Lawful Good";
       };
@@ -150,9 +152,9 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // update armor
+    // repair armor
     if (typeof characterObject.equipment.armor != "object") {
-      // console.log("\tupdate armor");
+      // console.log("\trepair armor");
       characterObject.equipment.armor = {
         armor: "",
         check_penalty: "",
@@ -177,16 +179,12 @@ var repair = (function() {
       delete characterObject.defense.ac.check_penalty;
     };
     // --------------------------------------------------
-    // remove racial save bonuses
+    // repair racial save bonuses
     function ifRacial(key, object) {
       if (key in object) {
-        // console.log("\tremove racial save bonuses");
         if (object.racial != "" && !isNaN(object.racial)) {
-          console.log("racial found");
-          console.log(object, object.racial);
           if (object.misc != "" && !isNaN(object.misc)) {
-            console.log("misc found");
-            console.log(object.misc);
+            // console.log("\trepair racial save bonuses");
             object.misc = object.misc + object.racial;
           } else {
             object.misc = object.racial;
@@ -199,9 +197,9 @@ var repair = (function() {
     ifRacial("racial", characterObject.defense.reflex);
     ifRacial("racial", characterObject.defense.will);
     // --------------------------------------------------
-    // update classes
-    if (!characterObject.basics.classes) {
-      // console.log("\tupdate classes");
+    // repair classes
+    if (!characterObject.basics.classes || typeof characterObject.basics.class == "string") {
+      // console.log("\trepair classes");
       characterObject.basics.classes = [{
         classname: "",
         level: "",
@@ -252,9 +250,9 @@ var repair = (function() {
       delete characterObject.basics.class;
     };
     // --------------------------------------------------
-    // update caster level check
+    // repair caster level check
     if (!characterObject.spells.caster_level_check) {
-      // console.log("\tupdate caster level check");
+      // console.log("\trepair caster level check");
       characterObject.spells.caster_level_check = {
         current: "",
         misc: "",
@@ -273,8 +271,9 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // udpate encumbrance
+    // repair encumbrance
     if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
+      // console.log("\trepair encumbrance");
       delete characterObject.equipment.encumbrance.light;
       delete characterObject.equipment.encumbrance.medium;
       delete characterObject.equipment.encumbrance.heavy;
@@ -282,32 +281,39 @@ var repair = (function() {
       delete characterObject.equipment.encumbrance.drag;
     };
     // --------------------------------------------------
-    // udpate xp
+    // repair xp
     if (typeof characterObject.basics.xp == "string" && !characterObject.basics.xp == "") {
+      // console.log("\trepair xp");
       characterObject.basics.xp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
-    // udpate wealth
+    // repair wealth
     if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
+      // console.log("\trepair wealth platinum");
       characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.gold == "string" && !characterObject.equipment.wealth.gold == "") {
+      // console.log("\trepair wealth gold");
       characterObject.equipment.wealth.gold = parseInt(characterObject.equipment.wealth.gold.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.silver == "string" && !characterObject.equipment.wealth.silver == "") {
+      // console.log("\trepair wealth silver");
       characterObject.equipment.wealth.silver = parseInt(characterObject.equipment.wealth.silver.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.copper == "string" && !characterObject.equipment.wealth.copper == "") {
+      // console.log("\trepair wealth copper");
       characterObject.equipment.wealth.copper = parseInt(characterObject.equipment.wealth.copper.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
-    // add events array
+    // repair events array
     if (!characterObject.hasOwnProperty("events")) {
+      // console.log("\trepair events array");
       characterObject.events = [];
     };
     // --------------------------------------------------
-    // update xp and next level
+    // repair xp and next level
     if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
+      // console.log("\trepair xp and next level");
       var oldXp;
       if (typeof characterObject.basics.xp == "number") {
         oldXp = characterObject.basics.xp;
@@ -321,15 +327,17 @@ var repair = (function() {
       characterObject.basics.xp.total = oldXp;
     };
     // --------------------------------------------------
-    // update speed
+    // repair speed
     if (typeof characterObject.basics.speed == "string" || typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
+      // console.log("\trepair speed");
       var oldSpeed = characterObject.basics.speed;
       characterObject.basics.speed = {};
       characterObject.basics.speed.land = oldSpeed;
     };
     // --------------------------------------------------
-    // update character image
+    // repair character image
     if (!characterObject.basics.character_image) {
+      // console.log("\trepair character image");
       characterObject.basics.character_image = {
         background: "",
         color: {
@@ -349,28 +357,31 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // update attack types
+    // repair attack types
     if (characterObject.offense.attack.melee.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
-        if (!characterObject.offense.attack.melee[i].type) {
+        if (!characterObject.offense.attack.melee[i].type && characterObject.offense.attack.melee[i].type != "") {
+          // console.log("\trepair attack types melee");
           characterObject.offense.attack.melee[i].type = "";
         };
       };
     };
     if (characterObject.offense.attack.ranged.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.ranged.length; i++) {
-        if (!characterObject.offense.attack.ranged[i].type) {
+        if (!characterObject.offense.attack.ranged[i].type && characterObject.offense.attack.ranged[i].type != "") {
+          // console.log("\trepair attack types ranged");
           characterObject.offense.attack.ranged[i].type = "";
         };
       };
     };
     // --------------------------------------------------
-    // update stats
+    // repair stats
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
+      // console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
         var score = parseInt(characterObject.statistics.stats[key].score, 10);
         var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
-        // console.log("\t" + key, "new score = ", score, "\ttempScore = ", tempScore);
+        // console.log("\t\t" + key, "new score = ", score, "\ttempScore = ", tempScore);
         characterObject.statistics.stats[key].base = score;
         if (!isNaN(tempScore)) {
           characterObject.statistics.stats[key].temp = (tempScore - score);
@@ -383,11 +394,12 @@ var repair = (function() {
       };
     };
     // --------------------------------------------------
-    // update events
+    // repair events
     if ("events" in characterObject) {
       if (characterObject.events.length > 0) {
         for (var i = 0; i < characterObject.events.length; i++) {
           if (characterObject.events[i].event.aggregateValue) {
+            // console.log("\trepair events");
             characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
             delete characterObject.events[i].event.aggregateValue;
           };
@@ -397,22 +409,50 @@ var repair = (function() {
       characterObject.events = [];
     };
     // --------------------------------------------------
-    // update character image
-    if ("image" in characterObject.basics.character_image && characterObject.basics.character_image.image != "") {
-      // console.log("image found");
-      characterObject.basics.character_image.uploaded = true;
-      if (!characterObject.basics.character_image.size) {
-        characterObject.basics.character_image.size = {
-          width: "",
-          height: ""
-        };
-      };
+    // repair character image cover and contain
+    if ("cover" in characterObject.basics.character_image || "contain" in characterObject.basics.character_image) {
+      // console.log("\trepair character image cover and contain");
       delete characterObject.basics.character_image.cover;
       delete characterObject.basics.character_image.contain;
     };
     // --------------------------------------------------
+    // repair character image size
+    if (!characterObject.basics.character_image.size) {
+      // console.log("\trepair character image size");
+      characterObject.basics.character_image.size = {
+        width: "",
+        height: ""
+      };
+    };
+    // --------------------------------------------------
+    // repair character image uploaded
+    if (!("uploaded" in sheet.getCharacter().basics.character_image)) {
+      // console.log("repair character image uploaded");
+      if (characterObject.equipment.potion_viles_oils != "") {
+          characterObject.basics.character_image.uploaded = true;
+      } else {
+        characterObject.basics.character_image.uploaded = false;
+      };
+    };
+    // --------------------------------------------------
+    // repair equipment
+    if (!characterObject.equipment.potion_viles_oils && characterObject.equipment.potion_viles_oils != "") {
+      // console.log("\trepair equipment");
+      characterObject.equipment.potion_viles_oils = "";
+    };
+    if (!characterObject.equipment.scrolls && characterObject.equipment.scrolls != "") {
+      characterObject.equipment.scrolls = "";
+    };
+    // --------------------------------------------------
     sheet.storeCharacters();
     return characterObject;
+  };
+
+  function render() {
+    var allCharacters = sheet.getAllCharacters();
+    for (var i = 0; i < allCharacters.length; i++) {
+      _repair(allCharacters[i]);
+    };
   };
 
   // exposed methods

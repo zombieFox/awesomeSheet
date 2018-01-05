@@ -62,22 +62,24 @@ var orrin = (function() {
         needed: ""
       },
       character_image: {
+        uploaded: false,
         background: "",
         color: {
           r: "",
           g: "",
           b: ""
         },
-        contain: "",
-        cover: "",
         orientation: "",
         position: {
           x: "",
           y: ""
         },
+        size: {
+          width: "",
+          height: ""
+        },
         scale: "",
-        image: "",
-        uploaded: ""
+        image: ""
       }
     },
     statistics: {
@@ -144,7 +146,9 @@ var orrin = (function() {
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
-      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br><br>Potions:<br>Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)<br><br>Oils:<br>Dispel Magic, Bless Weapon (4)",
+      magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1",
+      potion_viles_oils: "Dispel Magic, Bless Weapon (4), Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)",
+      scrolls: "",
       item: [{
         name: "Flask of Oil",
         quantity: 1,

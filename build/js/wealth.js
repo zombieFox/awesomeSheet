@@ -11,8 +11,15 @@ var wealth = (function() {
   };
 
   function render() {
-    var total = _create_goldTotal(helper.getObject(sheet.getCharacter(), "equipment.wealth"));
-    helper.setObject(sheet.getCharacter(), "equipment.wealth.total", total);
+    var total = _create_goldTotal(helper.getObject({
+      object: sheet.getCharacter(),
+      path: "equipment.wealth"
+    }));
+    helper.setObject({
+      object: sheet.getCharacter(),
+      path: "equipment.wealth.total",
+      newValue: total
+    });
     sheet.storeCharacters();
   };
 

@@ -136,7 +136,6 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    shade.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
     storeCharacters();
@@ -261,9 +260,9 @@ var sheet = (function() {
       label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
       var labelText = document.createElement("span");
       labelText.textContent = "Select a file";
-      labelText.setAttribute("class", "js-import-select-label-text");
+      labelText.setAttribute("class", "m-import-select-label-text js-import-select-label-text");
       var icon = document.createElement("span");
-      icon.setAttribute("class", "icon-file-upload js-import-select-label-icon");
+      icon.setAttribute("class", "icon-file-upload m-import-select-label-icon js-import-select-label-icon");
       var message = document.createElement("p");
       message.setAttribute("class", "m-import-select-message");
       message.textContent = "Import a previously exported character file (JSON) from this or another device.";
@@ -312,7 +311,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(getCharacter(getIndex()));
+    repair.render();
     characterSelect.render();
     stats.render();
     clone.render();
@@ -320,6 +319,7 @@ var sheet = (function() {
     inputBlock.render();
     inputRangeBlock.render();
     selectBlock.render();
+    checkBlock.render();
     radioBlock.render();
     textareaBlock.render();
     skills.render();
@@ -347,6 +347,7 @@ var sheet = (function() {
     inputBlock.bind();
     inputRangeBlock.bind();
     selectBlock.bind();
+    checkBlock.bind();
     radioBlock.bind();
     textareaBlock.bind();
     clone.bind();
@@ -367,8 +368,9 @@ var sheet = (function() {
   function scroll() {
     window.addEventListener("scroll", function(event) {
       header.scroll();
-      edit.scroll();
       nav.scroll();
+      // disabled in favour of position: sticky
+      // edit.scroll();
     }, false);
   };
 
@@ -384,6 +386,7 @@ var sheet = (function() {
     textBlock.clear();
     inputBlock.clear();
     selectBlock.clear();
+    checkBlock.clear();
     radioBlock.clear();
     textareaBlock.clear();
     characterImage.clear();

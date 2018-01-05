@@ -1,25 +1,26 @@
 var inputRangeBlock = (function() {
 
-  function _store(element) {
-    var inputRangeBlock = helper.getClosest(element, ".js-input-range-block");
+  function _store(input) {
+    var inputRangeBlock = helper.getClosest(input, ".js-input-range-block");
     var inputRangeBlockField = inputRangeBlock.querySelector(".js-input-range-block-field");
-    var path = inputRangeBlockField.dataset.path;
-    var type = inputRangeBlockField.dataset.type;
-    var clone = (inputRangeBlock.dataset.clone == "true");
+    var inputRangeBlockOptions = helper.makeObject(inputRangeBlock.dataset.inputRangeBlockOptions);
     var data;
-    if (type == "integer") {
-      data = parseInt(element.value, 10);
-    } else if (type == "float") {
-      data = parseFloat(element.value);
+    if (inputRangeBlockOptions.type == "integer") {
+      data = parseInt(input.value, 10);
+    } else if (inputRangeBlockOptions.type == "float") {
+      data = parseFloat(input.value);
     } else {
-      data = element.value;
+      data = input.value;
     };
     if (isNaN(data)) {
       data = 0;
     };
-    if (path) {
-      helper.setObject(sheet.getCharacter(), path, data);
-      // console.log(typeof helper.getObject(sheet.getCharacter(), path), helper.getObject(sheet.getCharacter(), path));
+    if (inputRangeBlockOptions.path) {
+      helper.setObject({
+        object: sheet.getCharacter(),
+        path: inputRangeBlockOptions.path,
+        newValue: data
+      });
     };
   };
 
@@ -60,19 +61,20 @@ var inputRangeBlock = (function() {
   };
 
   function _render_inputRangeBlock(inputRangeBlock) {
-    // console.log(inputRangeBlock);
+    var options = helper.makeObject(inputRangeBlock.dataset.inputRangeBlockOptions);
     var inputRangeBlockField = inputRangeBlock.querySelector(".js-input-range-block-field");
-    var path = inputRangeBlockField.dataset.path;
-    var type = inputRangeBlockField.dataset.type;
-    if (path) {
-      var content = helper.getObject(sheet.getCharacter(), path);
-      if (type == "integer" && typeof content == "string") {
-        content = parseInt(content, 10);
-        if (isNaN(content)) {
-          content = 0;
+    if (options.path) {
+      var data = helper.getObject({
+        object: sheet.getCharacter(),
+        path: options.path
+      });
+      if (options.type == "integer" && typeof data == "string") {
+        data = parseInt(data, 10);
+        if (isNaN(data)) {
+          data = 0;
         };
       };
-      inputRangeBlockField.value = content;
+      inputRangeBlockField.value = data;
     };
   };
 

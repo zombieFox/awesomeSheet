@@ -62,18 +62,21 @@ var vos = (function() {
         needed: ""
       },
       character_image: {
+        uploaded: false,
         background: "",
         color: {
           r: "",
           g: "",
           b: ""
         },
-        contain: "",
-        cover: "",
         orientation: "",
         position: {
           x: "",
           y: ""
+        },
+        size: {
+          width: "",
+          height: ""
         },
         scale: "",
         image: ""
@@ -142,8 +145,10 @@ var vos = (function() {
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)"
     },
     equipment: {
-      gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Rubbing Oils, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
+      gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
       magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
+      potion_viles_oils: "Rubbing Oils (5)",
+      scrolls: "",
       item: [{
         name: "Alchemist Fire",
         quantity: 3,

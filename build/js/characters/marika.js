@@ -37,7 +37,7 @@ var marika = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "1",
+      hero_points: 1,
       character_description: "",
       initiative: {
         misc: "",
@@ -62,18 +62,21 @@ var marika = (function() {
         needed: ""
       },
       character_image: {
+        uploaded: false,
         background: "",
         color: {
           r: "",
           g: "",
           b: ""
         },
-        contain: "",
-        cover: "",
         orientation: "",
         position: {
           x: "",
           y: ""
+        },
+        size: {
+          width: "",
+          height: ""
         },
         scale: "",
         image: ""
@@ -143,7 +146,9 @@ var marika = (function() {
     },
     equipment: {
       gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
-      magic_gear: "Potion of Cure Light Wounds (6) Potion of Cure Moderate Wounds (3), Potion of Cure Serious Wounds (2), Potion of BarkSkin (5), Potion of Shield of Faith (2), Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
+      magic_gear: "Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
+      potion_viles_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
+      scrolls: "",
       item: [],
       encumbrance: {
         encumbrance_str: "",

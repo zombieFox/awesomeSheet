@@ -18,11 +18,11 @@ var checkUrl = (function() {
 
   function _reset() {
     if (helper.getUrlParameter("sheet") == "restore") {
-      sheet.restore()
+      sheet.restore();
     } else if (helper.getUrlParameter("sheet") == "all") {
-      sheet.all()
+      sheet.all();
     } else if (helper.getUrlParameter("sheet") == "destroy") {
-      sheet.destroy()
+      sheet.destroy();
     };
   };
 

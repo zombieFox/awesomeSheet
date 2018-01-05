@@ -1,28 +1,31 @@
 var textareaBlock = (function() {
 
-  function _store(element) {
-    var textareaBlock = helper.getClosest(element, ".js-textarea-block");
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    var path = textareaBlockField.dataset.path;
-    var type = textareaBlockField.dataset.type;
-    var data = element.innerHTML;
+  var storeInputTimer = null;
+
+  function _store(textarea) {
+    var textareaBlock = helper.getClosest(textarea, ".js-textarea-block");
+    var textareaBlockOptions = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
+    var data = textarea.innerHTML;
     if (data == "<div><br></div>" || data == "<br>" || data == "<br><br>" || data == "<br><br><br>") {
-      console.log("found");
       data = "";
     };
-    if (path) {
-      if (textareaBlock.dataset.clone == "true") {
-        var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
-        var cloneCount = parseInt(textareaBlock.dataset.cloneCount, 10);
-        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-        object[pathCloneKey] = data;
+    if (textareaBlockOptions.path) {
+      if (textareaBlockOptions.clone) {
+        helper.setObject({
+          path: textareaBlockOptions.path,
+          object: sheet.getCharacter(),
+          clone: textareaBlockOptions.clone,
+          newValue: data
+        });
       } else {
-        helper.setObject(sheet.getCharacter(), path, data);
+        helper.setObject({
+          path: textareaBlockOptions.path,
+          object: sheet.getCharacter(),
+          newValue: data
+        });
       };
     };
   };
-
-  var storeInputTimer = null;
 
   function delayUpdate(element) {
     _store(element);
@@ -56,7 +59,8 @@ var textareaBlock = (function() {
     } else {
       var all_textareaBlock = helper.eA(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
-        if (all_textareaBlock[i].dataset.clone != "true") {
+        var options = helper.makeObject(all_textareaBlock[i].dataset.inputBlockOptions);
+        if (!options.clone) {
           _bind_textareaBlock(all_textareaBlock[i]);
         };
       };
@@ -85,25 +89,6 @@ var textareaBlock = (function() {
     };
   };
 
-  function _render_textareaBlock(textareaBlock) {
-    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
-    var path = textareaBlockField.dataset.path;
-    if (path) {
-      if (textareaBlock.dataset.clone == "true") {
-        // console.log("clone", path);
-        var pathCloneKey = textareaBlockField.dataset.pathCloneKey;
-        var cloneCount = parseInt(textareaBlock.dataset.cloneCount, 10);
-        var object = helper.getObject(sheet.getCharacter(), path, cloneCount);
-        textareaBlockField.innerHTML = object[pathCloneKey];
-        // console.log("found clone input", path, pathCloneKey, textareaBlock.dataset.cloneCount, textareaBlock);
-      } else {
-        // console.log("not clone", path);
-        var content = helper.getObject(sheet.getCharacter(), path);
-        textareaBlockField.innerHTML = content;
-      };
-    };
-  };
-
   function render(textareaBlock) {
     if (textareaBlock) {
       _render_textareaBlock(textareaBlock);
@@ -112,6 +97,27 @@ var textareaBlock = (function() {
       for (var i = 0; i < all_textareaBlock.length; i++) {
         _render_textareaBlock(all_textareaBlock[i]);
       };
+    };
+  };
+
+  function _render_textareaBlock(textareaBlock) {
+    var textareaBlockField = textareaBlock.querySelector(".js-textarea-block-field");
+    var options = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
+    var data;
+    if (options.path) {
+      if (options.clone) {
+        data = helper.getObject({
+          object: sheet.getCharacter(),
+          path: options.path,
+          clone: options.clone
+        });
+      } else {
+        data = helper.getObject({
+          object: sheet.getCharacter(),
+          path: options.path
+        });
+      };
+      textareaBlockField.innerHTML = data;
     };
   };
 

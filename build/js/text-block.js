@@ -8,36 +8,38 @@ var textBlock = (function() {
   };
 
   function _render_textBlock(textBlock) {
-    var path = textBlock.dataset.path;
-    var textType = textBlock.dataset.textType;
-    var content;
-    if (path) {
-      content = helper.getObject(sheet.getCharacter(), path);
+    var options = helper.makeObject(textBlock.dataset.textBlockOptions);
+    var data;
+    if (options.path) {
+      data = helper.getObject({
+        object: sheet.getCharacter(),
+        path: options.path
+      });
     };
-    if (textType) {
-      if (textType == "currency") {
-        if (content != "") {
-          content = parseFloat(content).toLocaleString(undefined, {
+    if (options.type) {
+      if (options.type == "currency") {
+        if (data != "") {
+          data = parseFloat(data).toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
           }) + " GP";
         };
-      } else if (textType == "number") {
-        if (content != "") {
-          content = parseFloat(content).toLocaleString(undefined, {
+      } else if (options.type == "number") {
+        if (data != "") {
+          data = parseFloat(data).toLocaleString(undefined, {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0
           });
         } else {
-          content = 0;
+          data = 0;
         };
-      } else if (textType == "bonus") {
-        if (content != "" && content > 0) {
-          content = "+" + content;
+      } else if (options.type == "bonus") {
+        if (data != "" && data > 0) {
+          data = "+" + data;
         };
       };
     };
-    textBlock.textContent = content;
+    textBlock.textContent = data;
   };
 
   function render(textBlock) {

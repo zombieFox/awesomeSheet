@@ -11,111 +11,101 @@ var log = (function() {
   };
 
   function destroy() {
-    var log = helper.e(".js-log");
-    var logWrapper = helper.e(".js-log-wrapper");
-    if (log) {
-      getComputedStyle(log).opacity;
-      helper.removeClass(logWrapper, "is-unrotate-in");
-      helper.addClass(logWrapper, "is-dropped-out");
-      helper.removeClass(log, "is-opaque");
-      helper.addClass(log, "is-transparent");
+    var all_log = helper.eA(".js-log");
+    if (all_log[0]) {
+      for (var i = 0; i < all_log.length; i++) {
+        all_log[i].destroy();
+      };
     };
   };
 
-  function _render_logMessage(heading, logBodyContent, actionText, action) {
-
-    prompt.destroy();
-    modal.destroy();
-    var body = helper.e("body");
-
-    var logWrapper = document.createElement("div");
-    logWrapper.setAttribute("class", "m-log-wrapper js-log-wrapper is-unrotate-out");
-
-    var log = document.createElement("div");
-    log.setAttribute("class", "m-log js-log");
-    log.destroy = function() {
-      helper.removeClass(logWrapper, "is-unrotate-in");
-      helper.addClass(logWrapper, "is-dropped-out");
-      helper.removeClass(log, "is-opaque");
-      helper.addClass(log, "is-transparent");
+  function _render_logMessage(options) {
+    var defaultOptions = {
+      heading: "Log",
+      content: "Body",
+      actionText: "Close",
+      action: null
     };
-
-    var logHeading = document.createElement("h1");
-    logHeading.setAttribute("tabindex", "1");
-    logHeading.setAttribute("class", "m-log-heading");
-    logHeading.textContent = heading;
-
-    var logBody = document.createElement("div");
-    logBody.setAttribute("class", "m-log-body u-clearfix");
-
-    var logControls = document.createElement("div");
-    logControls.setAttribute("class", "m-log-controls");
-
-    var actionButton = document.createElement("a");
-    actionButton.setAttribute("href", "javascript:void(0)");
-    actionButton.setAttribute("tabindex", "1");
-    actionButton.setAttribute("class", "button button-primary button-block button-large");
-    actionButton.textContent = actionText || "Ok";
-
-    logControls.appendChild(actionButton);
-
-    if (heading != false) {
-      logBody.appendChild(logHeading);
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-
-    if (logBodyContent) {
-      if (typeof logBodyContent == "string") {
-        var container = document.createElement("div");
-        container.setAttribute("class", "container");
-        var para = document.createElement("p");
-        para.textContent = logBodyContent;
-        container.appendChild(para);
-        logBody.appendChild(container);
-      } else {
-        logBody.appendChild(logBodyContent);
+    var _makeLog = function() {
+      var body = helper.e("body");
+      var logWrapper = document.createElement("div");
+      logWrapper.setAttribute("class", "m-log-wrapper js-log-wrapper is-jumping-up");
+      var log = document.createElement("div");
+      log.setAttribute("class", "m-log js-log");
+      log.destroy = function() {
+        if (log.classList.contains("is-opaque") || logWrapper.classList.contains("is-sitting")) {
+          helper.removeClass(log, "is-opaque");
+          helper.addClass(log, "is-transparent");
+          helper.removeClass(logWrapper, "is-sitting");
+          helper.addClass(logWrapper, "is-droping-down");
+        } else {
+          log.remove();
+        };
       };
-    };
-
-    logWrapper.appendChild(logBody);
-    logWrapper.appendChild(logControls);
-    log.appendChild(logWrapper);
-
-    log.addEventListener("transitionend", function(event, elapsed) {
-      if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
-        this.parentElement.removeChild(this);
+      var logBody = document.createElement("div");
+      logBody.setAttribute("class", "m-log-body u-clearfix");
+      var logControls = document.createElement("div");
+      logControls.setAttribute("class", "m-log-controls");
+      var actionButton = document.createElement("a");
+      actionButton.setAttribute("href", "javascript:void(0)");
+      actionButton.setAttribute("tabindex", "1");
+      actionButton.setAttribute("class", "button button-primary button-block button-large");
+      actionButton.textContent = defaultOptions.actionText;
+      logControls.appendChild(actionButton);
+      if (defaultOptions.heading != null) {
+        var logHeading = document.createElement("h1");
+        logHeading.setAttribute("tabindex", "1");
+        logHeading.setAttribute("class", "m-log-heading");
+        logHeading.textContent = defaultOptions.heading;
+        logBody.appendChild(logHeading);
       };
-    }.bind(log), false);
-
-    actionButton.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      destroy();
-    }, false);
-    if (action) {
+      if (defaultOptions.content) {
+        if (typeof defaultOptions.content == "string") {
+          var container = document.createElement("div");
+          container.setAttribute("class", "container");
+          var para = document.createElement("p");
+          para.textContent = defaultOptions.content;
+          container.appendChild(para);
+          logBody.appendChild(container);
+        } else {
+          logBody.appendChild(defaultOptions.content);
+        };
+      };
+      logWrapper.appendChild(logBody);
+      logWrapper.appendChild(logControls);
+      log.appendChild(logWrapper);
+      log.addEventListener("transitionend", function(event, elapsed) {
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
+          this.parentElement.removeChild(this);
+        };
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 1) {
+          helper.addClass(this, "is-transition-end");
+        };
+      }.bind(log), false);
       actionButton.addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        action();
-      }, false);
+        this.destroy();
+        if (defaultOptions.action) {
+          defaultOptions.action();
+        };
+      }.bind(log), false);
+      previousLog = log;
+      body.appendChild(log);
+      getComputedStyle(log).opacity;
+      helper.removeClass(log, "is-transparent");
+      helper.addClass(log, "is-opaque");
+      helper.removeClass(logWrapper, "is-jumping-up");
+      helper.addClass(logWrapper, "is-sitting");
     };
-
-    if (previousLog) {
-      previousLog.destroy();
+    if (previousLog != null) {
+      destroy();
     };
-
-    previousLog = log;
-
-    body.appendChild(log);
-
-    getComputedStyle(log).opacity;
-    helper.removeClass(log, "is-transparent");
-    helper.addClass(log, "is-opaque");
-    helper.removeClass(logWrapper, "is-unrotate-out");
-    helper.addClass(logWrapper, "is-unrotate-in");
-    logHeading.focus(this);
-
+    _makeLog();
   };
-
 
   function _create_fullChangeLog() {
     var _modalContent = function() {
@@ -178,13 +168,11 @@ var log = (function() {
   };
 
   function render() {
-
     var all_breakingChanges = [];
     var all_breakingChangesLink = [];
     var all_breakingChangesVersion = [];
     var changeVersion;
     var changesToDisplay = 1;
-
     var _modalContent = function() {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
@@ -224,35 +212,49 @@ var log = (function() {
       container.appendChild(row);
       return container;
     };
-
-    for (var i = 0; i < update.history.length; i++) {
-      for (var j = 0; j < update.history[i].list.length; j++) {
-        var asterisk = "*";
-        if (update.history[i].list[j].indexOf(asterisk) != -1) {
-          if (update.history[i].link) {
-            all_breakingChangesLink.push(update.history[i].link);
+    var _get_logData = function() {
+      for (var i = 0; i < changesToDisplay; i++) {
+        // console.log(update.history[i]);
+        for (var j = 0; j < update.history[i].list.length; j++) {
+          // console.log(update.history[i].list[j]);
+          var asterisk = "*";
+          if (update.history[i].list[j].indexOf(asterisk) != -1) {
+            // console.log(update.history[i].list[j]);
+            if (update.history[i].link) {
+              // console.log(update.history[i].link);
+              all_breakingChangesLink.push(update.history[i].link);
+            };
+            all_breakingChanges.push(update.history[i].list[j].substr(1));
+            all_breakingChangesVersion.push(update.history[i].version);
           };
-          all_breakingChanges.push(update.history[i].list[j].substr(1));
-          all_breakingChangesVersion.push(update.history[i].version);
         };
       };
-    };
-    for (var i = 0; i < changesToDisplay; i++) {
-      if (typeof changeVersion == "undefined") {
-        changeVersion = all_breakingChangesVersion[i];
-      } else {
-        changeVersion = changeVersion + "/" + all_breakingChangesVersion[i];
+      for (var i = 0; i < changesToDisplay; i++) {
+        if (typeof changeVersion == "undefined") {
+          changeVersion = all_breakingChangesVersion[i];
+        } else {
+          changeVersion = changeVersion + "/" + all_breakingChangesVersion[i];
+        };
+      };
+      if (all_breakingChanges.length < changesToDisplay) {
+        changesToDisplay = all_breakingChanges.length;
       };
     };
-    if (all_breakingChanges.length < changesToDisplay) {
-      changesToDisplay = all_breakingChanges.length;
+    var _render_log = function() {
+      if (helper.read("latestVersionUpdate") != changeVersion) {
+        var logAction = function() {
+          _store_confirmation(changeVersion);
+        };
+        _render_logMessage({
+          heading: "Recent Changes",
+          content: _modalContent(),
+          actionText: "Don't show this again",
+          action: logAction
+        });
+      };
     };
-    if (helper.read("latestVersionUpdate") != changeVersion) {
-      _render_logMessage("Recent Changes", _modalContent(), "Don't show this again", function() {
-        _store_confirmation(changeVersion);
-      });
-    };
-
+    _get_logData();
+    _render_log();
   };
 
   function _store_confirmation(changeVersion) {

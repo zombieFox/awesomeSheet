@@ -93,7 +93,10 @@ var events = (function() {
   function _create_eventTable(eventLogType) {
     var table = document.createElement("table");
     var tbody = document.createElement("tbody");
-    var all_events = helper.getObject(sheet.getCharacter(), "events");
+    var all_events = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "events"
+    });
     var all_eventsToRender = [];
     if (eventLogType == "xp") {
       all_events.forEach(function(object) {

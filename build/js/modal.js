@@ -35,7 +35,7 @@ var modal = (function() {
       var body = helper.e("body");
       body.dataset.modal = true;
       var modalWrapper = document.createElement("div");
-      modalWrapper.setAttribute("class", "m-modal-wrapper js-modal-wrapper is-unrotate-out");
+      modalWrapper.setAttribute("class", "m-modal-wrapper is-jumping-up");
       var modal = document.createElement("div");
       if (defaultOptions.size == "large") {
         modal.setAttribute("class", "m-modal m-modal-large js-modal");
@@ -45,11 +45,11 @@ var modal = (function() {
         modal.setAttribute("class", "m-modal js-modal");
       };
       modal.destroy = function() {
-        if (modal.classList.contains("is-opaque") || modalWrapper.classList.contains("is-unrotate-in")) {
+        if (modal.classList.contains("is-opaque") || modalWrapper.classList.contains("is-sitting")) {
           helper.removeClass(modal, "is-opaque");
           helper.addClass(modal, "is-transparent");
-          helper.removeClass(modalWrapper, "is-unrotate-in");
-          helper.addClass(modalWrapper, "is-dropped-out");
+          helper.removeClass(modalWrapper, "is-sitting");
+          helper.addClass(modalWrapper, "is-droping-down");
         } else {
           modal.remove();
         };
@@ -91,6 +91,9 @@ var modal = (function() {
         if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 0) {
           this.parentElement.removeChild(this);
         };
+        if (event.propertyName === "opacity" && getComputedStyle(this).opacity == 1) {
+          helper.addClass(this, "is-transition-end");
+        };
       }.bind(modal), false);
       actionButton.addEventListener("click", function(event) {
         event.stopPropagation();
@@ -114,8 +117,8 @@ var modal = (function() {
       getComputedStyle(modal).opacity;
       helper.removeClass(modal, "is-transparent");
       helper.addClass(modal, "is-opaque");
-      helper.removeClass(modalWrapper, "is-unrotate-out");
-      helper.addClass(modalWrapper, "is-unrotate-in");
+      helper.removeClass(modalWrapper, "is-jumping-up");
+      helper.addClass(modalWrapper, "is-sitting");
       modalHeading.focus(this);
     };
     characterSelect.close();

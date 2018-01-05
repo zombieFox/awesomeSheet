@@ -2,11 +2,15 @@ var selectBlock = (function() {
 
   function _store(element) {
     var selectBlock = helper.getClosest(element, ".js-select-block");
+    var selectBlockOptions = helper.makeObject(selectBlock.dataset.selectBlockOptions);
     var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
-    var path = selectBlockDropdown.dataset.path;
-    var data = selectBlockDropdown.options[selectBlockDropdown.selectedIndex].value;
-    if (path) {
-      helper.setObject(sheet.getCharacter(), path, data);
+    var newValue = selectBlockDropdown.options[selectBlockDropdown.selectedIndex].value;
+    if (selectBlockOptions.path) {
+      helper.setObject({
+        path: selectBlockOptions.path,
+        object: sheet.getCharacter(),
+        newValue: newValue
+      });
     };
   };
 
@@ -69,11 +73,15 @@ var selectBlock = (function() {
   };
 
   function _render_selectBlock(selectBlock) {
+    var options = helper.makeObject(selectBlock.dataset.selectBlockOptions);
     var selectBlockDropdown = selectBlock.querySelector(".js-select-block-dropdown");
-    var path = selectBlockDropdown.dataset.path;
-    var selected = selectBlockDropdown.options.selectedIndex;
-    if (path) {
-      var selection = helper.getObject(sheet.getCharacter(), path);
+    // var selected = selectBlockDropdown.options.selectedIndex;
+    if (options.path) {
+      var selection =
+        helper.getObject({
+          object: sheet.getCharacter(),
+          path: options.path
+        });
       helper.setDropdown(selectBlockDropdown, selection);
     };
   };

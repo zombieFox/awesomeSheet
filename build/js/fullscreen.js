@@ -1,22 +1,23 @@
 var fullscreen = (function() {
 
   function toggle() {
-    var menuLinkFullscreenMode = helper.e(".js-menu-link-fullscreen-mode");
     var root = window.document;
-    var menuLinkFullscreenModeIcon = menuLinkFullscreenMode.querySelector(".js-menu-link-fullscreen-mode-icon");
     var rootElement = root.documentElement;
     var requestFullScreen = rootElement.requestFullscreen || rootElement.mozRequestFullScreen || rootElement.webkitRequestFullScreen || rootElement.msRequestFullscreen;
     var cancelFullScreen = root.exitFullscreen || root.mozCancelFullScreen || root.webkitExitFullscreen || root.msExitFullscreen;
+    var menuItem = helper.e(".js-menu-link-fullscreen-mode");
     if (!root.fullscreenElement && !root.mozFullScreenElement && !root.webkitFullscreenElement && !root.msFullscreenElement) {
       requestFullScreen.call(rootElement);
-      helper.toggleClass(menuLinkFullscreenMode, "is-active");
-      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen-exit");
-      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen");
+      menu.toggleMenuItem({
+        menuItem: menuItem,
+        state: "active"
+      });
     } else {
       cancelFullScreen.call(root);
-      helper.toggleClass(menuLinkFullscreenMode, "is-active");
-      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen-exit");
-      helper.toggleClass(menuLinkFullscreenModeIcon, "icon-fullscreen");
+      menu.toggleMenuItem({
+        menuItem: menuItem,
+        state: "inactive"
+      });
     };
   };
 

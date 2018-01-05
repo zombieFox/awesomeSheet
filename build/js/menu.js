@@ -22,6 +22,65 @@ var menu = (function() {
     };
   };
 
+  function _toggleMenuItemOn(menuItem) {
+    var options = helper.makeObject(menuItem.dataset.menuItemOptions);
+    var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
+    var menuLinkText = menuItem.querySelector(".js-menu-link-text");
+    menuItem.dataset.active = true;
+    helper.addClass(menuItem, "is-active");
+    if (options.mode == "display") {
+      helper.addClass(menuLinkIcon, "icon-edit");
+      helper.removeClass(menuLinkIcon, "icon-reader");
+      menuLinkText.textContent = options.activeText;
+    } else if (options.mode == "night") {
+      helper.addClass(menuLinkIcon, "icon-sun");
+      helper.removeClass(menuLinkIcon, "icon-moon");
+      menuLinkText.textContent = options.activeText;
+    } else if (options.mode == "fullscreen") {
+      helper.addClass(menuLinkIcon, "icon-fullscreen-exit");
+      helper.removeClass(menuLinkIcon, "icon-fullscreen");
+      menuLinkText.textContent = options.activeText;
+    };
+  };
+
+  function _toggleMenuItemOff(menuItem) {
+    var options = helper.makeObject(menuItem.dataset.menuItemOptions);
+    var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
+    var menuLinkText = menuItem.querySelector(".js-menu-link-text");
+    menuItem.dataset.active = false;
+    helper.removeClass(menuItem, "is-active");
+    if (options.mode == "display") {
+      helper.addClass(menuLinkIcon, "icon-reader");
+      helper.removeClass(menuLinkIcon, "icon-edit");
+      menuLinkText.textContent = options.inactiveText;
+    } else if (options.mode == "night") {
+      helper.addClass(menuLinkIcon, "icon-moon");
+      helper.removeClass(menuLinkIcon, "icon-sun");
+      menuLinkText.textContent = options.inactiveText;
+    } else if (options.mode == "fullscreen") {
+      helper.addClass(menuLinkIcon, "icon-fullscreen");
+      helper.removeClass(menuLinkIcon, "icon-fullscreen-exit");
+      menuLinkText.textContent = options.inactiveText;
+    };
+  };
+
+  function toggleMenuItem(options) {
+    var defaultOptions = {
+      menuItem: null,
+      state: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.state != null) {
+      if (defaultOptions.state == "active") {
+        _toggleMenuItemOn(defaultOptions.menuItem);
+      } else if (defaultOptions.state == "inactive") {
+        _toggleMenuItemOff(defaultOptions.menuItem);
+      };
+    };
+  };
+
   function close() {
     var body = helper.e("body");
     var menu = helper.e(".js-menu");
@@ -48,13 +107,11 @@ var menu = (function() {
       };
       // ctrl+alt+i
       if (event.ctrlKey && event.altKey && event.keyCode == 73) {
-        shade.destroy();
         sheet.import();
         page.update();
       };
       // ctrl+alt+e
       if (event.ctrlKey && event.altKey && event.keyCode == 69) {
-        shade.destroy();
         sheet.export();
         page.update();
       };
@@ -90,6 +147,7 @@ var menu = (function() {
     var menuToggle = helper.e(".js-menu-toggle");
     var menuLinkChnageLog = helper.e(".js-menu-link-chnage-log");
     var menuLinkNightMode = helper.e(".js-menu-link-night-mode");
+    var menuLinkDisplayMode = helper.e(".js-menu-link-display-mode");
     var menuLinkFullscreenMode = helper.e(".js-menu-link-fullscreen-mode");
     var menuLinkClearAll = helper.e(".js-menu-link-clear-all");
     var menuLinkRestoreDemoCharacters = helper.e(".js-menu-link-restore-demo-characters");
@@ -103,6 +161,11 @@ var menu = (function() {
       event.stopPropagation();
       event.preventDefault();
       night.toggle();
+    }, false);
+    menuLinkDisplayMode.addEventListener("click", function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+      display.toggle();
     }, false);
     menuLinkFullscreenMode.addEventListener("click", function(event) {
       event.stopPropagation();
@@ -150,7 +213,8 @@ var menu = (function() {
     bind: bind,
     close: close,
     open: open,
-    toggle: toggle
+    toggle: toggle,
+    toggleMenuItem: toggleMenuItem
   };
 
 })();

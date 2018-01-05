@@ -72,54 +72,213 @@ var helper = (function() {
     };
   };
 
-  function setObject(object, path, newValue) {
-    var address = path.split(".");
-    while (address.length > 1) {
-      var currentKey = address.shift();
-      var parentObject = object;
-      object = object[currentKey];
-      if (!object) {
-        object = parentObject;
-        object = object[currentKey] = {};
-      };
+  function replaceAt(string, index, newCharacter) {
+    if (index > string.length - 1) {
+      return string;
+    } else {
+      return string.substring(0, index) + newCharacter + string.substring(index + 1);
     };
-    object[address.shift()] = newValue;
   };
 
-  function getObject(object, path, arrayIndex) {
-    // split path into array items
-    var address = path.split(".");
-    // while array has more than 1 item
-    while (address.length > 1) {
-      // shift off and store the first key
-      var currentKey = address.shift();
-      // copy the object
-      var parentObject = object;
-      // drill down the object with the first key
-      object = object[currentKey];
-      // if there is not object there make one
-      if (!object || typeof object != "object") {
-        object = parentObject;
-        // object = object[currentKey] = {};
-        object[currentKey] = {};
+  function makeObject(string) {
+    var _stringOrBooleanOrNumber = function(stringToTest) {
+      if (stringToTest == "true") {
+        return true;
+      } else if (stringToTest == "false") {
+        return false;
+      } else if (stringToTest.indexOf("#") != -1) {
+        return stringToTest.substr(1, kevValuePair[1].length);
+      } else {
+        return "\"" + stringToTest + "\"";
       };
     };
-    var finalKey = address.shift();
-    if (finalKey in object) {
-      if (arrayIndex !== undefined && typeof arrayIndex == "number") {
-        // if arrayIndex return index of array
-        // console.log("returning array", 1);
-        return object[finalKey][arrayIndex];
+    // if argument is a string
+    if (typeof string == "string") {
+      // start building the object
+      var objectString = "{";
+      // split the string on comma not followed by a space
+      var items = string.split(/,(?=\S)/);
+      // loop over each item
+      for (var i = 0; i < items.length; i++) {
+        // split each would be object key values pair
+        var kevValuePair = items[i].split(":");
+        // get the key
+        var key = "\"" + kevValuePair[0] + "\"";
+        var value;
+        // if the value has + with a space after it
+        if (/\+(?=\S)/.test(kevValuePair[1])) {
+          // remove first + symbol
+          kevValuePair[1] = kevValuePair[1].substr(1, kevValuePair[1].length);
+          // split the would be values
+          var all_value = kevValuePair[1].split(/\+(?=\S)/);
+          // if there are multiple values make an array
+          value = "["
+          for (var q = 0; q < all_value.length; q++) {
+            value += _stringOrBooleanOrNumber(all_value[q]) + ",";
+          };
+          // remove last comma
+          value = value.substr(0, value.length - 1);
+          // close array
+          value += "]"
+        } else {
+          value = _stringOrBooleanOrNumber(kevValuePair[1]);
+        };
+        objectString += key + ":" + value + ",";
+      };
+      // remove last comma
+      objectString = objectString.substr(0, objectString.length - 1);
+      // close object
+      objectString += "}";
+      var object = JSON.parse(objectString);
+      return object;
+    } else {
+      return false;
+    };
+  };
+
+  function setObject(options) {
+    var defaultOptions = {
+      path: null,
+      object: null,
+      clone: null,
+      newValue: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var _setData = function() {
+      // split path into array items
+      var address = defaultOptions.path.split(".");
+      // while array has more than 1 item
+      while (address.length > 1) {
+        // shift off and store the first key
+        var currentKey = address.shift();
+        // copy the object
+        var parentObject = defaultOptions.object;
+        // drill down the object with the first key
+        defaultOptions.object = defaultOptions.object[currentKey];
+        // if there is not object there make one
+        if (!defaultOptions.object || typeof defaultOptions.object != "object") {
+          defaultOptions.object = parentObject;
+          defaultOptions.object[currentKey] = {};
+        };
+      };
+      var finalKey = address.shift();
+      if (finalKey in defaultOptions.object) {
+        defaultOptions.object[finalKey] = defaultOptions.newValue;
+      };
+    };
+    var _setCloneData = function() {
+      var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
+      if (addressTwo[0] == "") {
+        addressTwo.shift();
+      };
+      if (addressOne.length > 0) {
+        while (addressOne.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressOne.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressOne.shift();
+        defaultOptions.object = defaultOptions.object[finalKey][index];
+      };
+      if (addressTwo.length > 0) {
+        while (addressTwo.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressTwo.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressTwo.shift();
+        defaultOptions.object[finalKey] = defaultOptions.newValue;
+      };
+    };
+    if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
+      if (defaultOptions.clone) {
+        _setCloneData();
       } else {
-        // return value
-        // console.log("returning value", 2);
-        return object[finalKey];
+        _setData();
       };
     } else {
-      // if nothing found set empty value and then return
-      // console.log("set value and returning value", 3);
-      object[finalKey] = "";
-      return object[finalKey];
+      return false;
+    };
+  };
+
+  function getObject(options) {
+    var defaultOptions = {
+      object: null,
+      path: null,
+      clone: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var _getData = function() {
+      // split path into array items
+      var address = defaultOptions.path.split(".");
+      // while array has more than 1 item
+      while (address.length > 1) {
+        // shift off and store the first key
+        var currentKey = address.shift();
+        // copy the object
+        var parentObject = defaultOptions.object;
+        // drill down the object with the first key
+        defaultOptions.object = defaultOptions.object[currentKey];
+        // if there is not object there make one
+        if (!defaultOptions.object || typeof defaultOptions.object != "object") {
+          defaultOptions.object = parentObject;
+          defaultOptions.object[currentKey] = {};
+        };
+      };
+      var finalKey = address.shift();
+      if (finalKey in defaultOptions.object) {
+        return defaultOptions.object[finalKey];
+      } else {
+        // if nothing found set empty value and then return
+        defaultOptions.object[finalKey] = "";
+        return defaultOptions.object[finalKey];
+      };
+    };
+    var _getCloneData = function() {
+      var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
+      if (addressTwo[0] == "") {
+        addressTwo.shift();
+      };
+      if (addressOne.length > 0) {
+        while (addressOne.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressOne.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressOne.shift();
+        defaultOptions.object = defaultOptions.object[finalKey][index];
+      };
+      if (addressTwo.length > 0) {
+        while (addressTwo.length > 1) {
+          // shift off and store the first key
+          var currentKey = addressTwo.shift();
+          // drill down the object with the first key
+          defaultOptions.object = defaultOptions.object[currentKey];
+        };
+        var finalKey = addressTwo.shift();
+        defaultOptions.object = defaultOptions.object[finalKey];
+      };
+      return defaultOptions.object;
+    };
+    if (defaultOptions.object != null && defaultOptions.path != null) {
+      if (defaultOptions.clone) {
+        return _getCloneData();
+      } else {
+        return _getData();
+      };
+    } else {
+      return false;
     };
   };
 
@@ -269,8 +428,8 @@ var helper = (function() {
         g: 0,
         b: 0
       }, // for non-supporting envs
-      canvas = document.createElement('canvas'),
-      context = canvas.getContext && canvas.getContext('2d'),
+      canvas = document.createElement("canvas"),
+      context = canvas.getContext && canvas.getContext("2d"),
       data, width, height,
       i = -4,
       length,
@@ -342,10 +501,12 @@ var helper = (function() {
     getUrlParameter: getUrlParameter,
     pasteStrip: pasteStrip,
     inViewport: inViewport,
+    makeObject: makeObject,
     sortObject: sortObject,
     getDateTime: getDateTime,
     getAverageColor: getAverageColor,
-    applyOptions: applyOptions
+    applyOptions: applyOptions,
+    replaceAt: replaceAt
   };
 
 })();

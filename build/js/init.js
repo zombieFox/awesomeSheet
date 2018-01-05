@@ -6,7 +6,6 @@
   tabs.bind();
   log.bind();
   log.render();
-  night.update();
   checkUrl.render();
   // disbaled for now
   // checkUrl.checkHttps();

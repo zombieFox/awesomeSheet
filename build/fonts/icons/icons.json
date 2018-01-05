@@ -35,7 +35,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "error_outline"
+          "error-outline"
         ],
         "defaultCode": 57345,
         "grid": 24
@@ -46,8 +46,8 @@
         "id": 1,
         "prevSize": 24,
         "code": 57345,
-        "name": "error_outline",
-        "ligatures": "error_outline"
+        "name": "error-outline",
+        "ligatures": "error-outline"
       },
       "setIdx": 0,
       "setId": 1,
@@ -61,7 +61,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "playlist_add"
+          "playlist-add"
         ],
         "defaultCode": 57374,
         "grid": 24
@@ -72,8 +72,8 @@
         "id": 30,
         "prevSize": 24,
         "code": 57374,
-        "name": "playlist_add",
-        "ligatures": "playlist_add"
+        "name": "playlist-add",
+        "ligatures": "playlist-add"
       },
       "setIdx": 0,
       "setId": 1,
@@ -87,7 +87,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "clear_all"
+          "clear-all"
         ],
         "defaultCode": 57415,
         "grid": 24
@@ -98,8 +98,8 @@
         "id": 71,
         "prevSize": 24,
         "code": 57415,
-        "name": "clear_all",
-        "ligatures": "clear_all"
+        "name": "clear-all",
+        "ligatures": "clear-all"
       },
       "setIdx": 0,
       "setId": 1,
@@ -139,7 +139,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "add_circle"
+          "add-circle"
         ],
         "defaultCode": 57451,
         "grid": 24
@@ -150,8 +150,8 @@
         "id": 107,
         "prevSize": 24,
         "code": 57451,
-        "name": "add_circle",
-        "ligatures": "add_circle"
+        "name": "add-circle",
+        "ligatures": "add-circle"
       },
       "setIdx": 0,
       "setId": 1,
@@ -165,7 +165,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "add_circle_outline"
+          "add-circle-outline"
         ],
         "defaultCode": 57452,
         "grid": 24
@@ -176,8 +176,8 @@
         "id": 108,
         "prevSize": 24,
         "code": 57452,
-        "name": "add_circle_outline",
-        "ligatures": "add_circle_outline"
+        "name": "add-circle-outline",
+        "ligatures": "add-circle-outline"
       },
       "setIdx": 0,
       "setId": 1,
@@ -217,7 +217,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "remove_circle"
+          "remove-circle"
         ],
         "defaultCode": 57472,
         "grid": 24
@@ -228,8 +228,8 @@
         "id": 128,
         "prevSize": 24,
         "code": 57472,
-        "name": "remove_circle",
-        "ligatures": "remove_circle"
+        "name": "remove-circle",
+        "ligatures": "remove-circle"
       },
       "setIdx": 0,
       "setId": 1,
@@ -243,7 +243,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "remove_circle_outline"
+          "remove-circle-outline"
         ],
         "defaultCode": 57473,
         "grid": 24
@@ -254,8 +254,8 @@
         "id": 129,
         "prevSize": 24,
         "code": 57473,
-        "name": "remove_circle_outline",
-        "ligatures": "remove_circle_outline"
+        "name": "remove-circle-outline",
+        "ligatures": "remove-circle-outline"
       },
       "setIdx": 0,
       "setId": 1,
@@ -295,7 +295,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "chevron_left"
+          "chevron-left"
         ],
         "defaultCode": 57863,
         "grid": 24
@@ -306,8 +306,8 @@
         "id": 519,
         "prevSize": 24,
         "code": 57863,
-        "name": "chevron_left",
-        "ligatures": "chevron_left"
+        "name": "chevron-left",
+        "ligatures": "chevron-left"
       },
       "setIdx": 0,
       "setId": 1,
@@ -321,7 +321,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "chevron_right"
+          "chevron-right"
         ],
         "defaultCode": 57864,
         "grid": 24
@@ -332,8 +332,8 @@
         "id": 520,
         "prevSize": 24,
         "code": 57864,
-        "name": "chevron_right",
-        "ligatures": "chevron_right"
+        "name": "chevron-right",
+        "ligatures": "chevron-right"
       },
       "setIdx": 0,
       "setId": 1,
@@ -373,7 +373,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "expand_less"
+          "expand-less"
         ],
         "defaultCode": 57866,
         "grid": 24
@@ -384,8 +384,8 @@
         "id": 522,
         "prevSize": 24,
         "code": 57866,
-        "name": "expand_less",
-        "ligatures": "expand_less"
+        "name": "expand-less",
+        "ligatures": "expand-less"
       },
       "setIdx": 0,
       "setId": 1,
@@ -399,7 +399,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "expand_more"
+          "expand-more"
         ],
         "defaultCode": 57867,
         "grid": 24
@@ -410,8 +410,8 @@
         "id": 523,
         "prevSize": 24,
         "code": 57867,
-        "name": "expand_more",
-        "ligatures": "expand_more"
+        "name": "expand-more",
+        "ligatures": "expand-more"
       },
       "setIdx": 0,
       "setId": 1,
@@ -451,7 +451,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "fullscreen_exit"
+          "fullscreen-exit"
         ],
         "defaultCode": 57869,
         "grid": 24
@@ -462,8 +462,8 @@
         "id": 525,
         "prevSize": 24,
         "code": 57869,
-        "name": "fullscreen_exit",
-        "ligatures": "fullscreen_exit"
+        "name": "fullscreen-exit",
+        "ligatures": "fullscreen-exit"
       },
       "setIdx": 0,
       "setId": 1,
@@ -477,7 +477,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "unfold_less"
+          "unfold-less"
         ],
         "defaultCode": 57874,
         "grid": 24
@@ -488,8 +488,8 @@
         "id": 530,
         "prevSize": 24,
         "code": 57874,
-        "name": "unfold_less",
-        "ligatures": "unfold_less"
+        "name": "unfold-less",
+        "ligatures": "unfold-less"
       },
       "setIdx": 0,
       "setId": 1,
@@ -503,7 +503,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "unfold_more"
+          "unfold-more"
         ],
         "defaultCode": 57875,
         "grid": 24
@@ -514,8 +514,8 @@
         "id": 531,
         "prevSize": 24,
         "code": 57875,
-        "name": "unfold_more",
-        "ligatures": "unfold_more"
+        "name": "unfold-more",
+        "ligatures": "unfold-more"
       },
       "setIdx": 0,
       "setId": 1,
@@ -529,7 +529,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "check_box"
+          "check-box"
         ],
         "defaultCode": 57948,
         "grid": 24
@@ -540,8 +540,8 @@
         "id": 604,
         "prevSize": 24,
         "code": 57948,
-        "name": "check_box",
-        "ligatures": "check_box"
+        "name": "check-box",
+        "ligatures": "check-box"
       },
       "setIdx": 0,
       "setId": 1,
@@ -555,7 +555,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "check_box_outline_blank"
+          "check-box-outline-blank"
         ],
         "defaultCode": 57949,
         "grid": 24
@@ -566,8 +566,8 @@
         "id": 605,
         "prevSize": 24,
         "code": 57949,
-        "name": "check_box_outline_blank",
-        "ligatures": "check_box_outline_blank"
+        "name": "check-box-outline-blank",
+        "ligatures": "check-box-outline-blank"
       },
       "setIdx": 0,
       "setId": 1,
@@ -581,7 +581,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "radio_button_unchecked"
+          "radio-button-unchecked"
         ],
         "defaultCode": 57950,
         "grid": 24
@@ -592,8 +592,8 @@
         "id": 606,
         "prevSize": 24,
         "code": 57950,
-        "name": "radio_button_unchecked",
-        "ligatures": "radio_button_unchecked"
+        "name": "radio-button-unchecked",
+        "ligatures": "radio-button-unchecked"
       },
       "setIdx": 0,
       "setId": 1,
@@ -607,7 +607,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "radio_button_checked"
+          "radio-button-checked"
         ],
         "defaultCode": 57951,
         "grid": 24
@@ -618,8 +618,8 @@
         "id": 607,
         "prevSize": 24,
         "code": 57951,
-        "name": "radio_button_checked",
-        "ligatures": "radio_button_checked"
+        "name": "radio-button-checked",
+        "ligatures": "radio-button-checked"
       },
       "setIdx": 0,
       "setId": 1,
@@ -659,7 +659,7 @@
         "attrs": [],
         "isMulticolor": false,
         "tags": [
-          "bookmark_outline"
+          "bookmark-outline"
         ],
         "defaultCode": 57980,
         "grid": 24
@@ -670,8 +670,8 @@
         "id": 636,
         "prevSize": 24,
         "code": 57980,
-        "name": "bookmark_outline",
-        "ligatures": "bookmark_outline"
+        "name": "bookmark-outline",
+        "ligatures": "bookmark-outline"
       },
       "setIdx": 0,
       "setId": 1,
@@ -736,7 +736,7 @@
         "isMulticolor": false,
         "grid": 24,
         "tags": [
-          "play_arrow"
+          "play-arrow"
         ],
         "colorPermutations": {}
       },
@@ -745,7 +745,7 @@
         "order": 40,
         "id": 639,
         "prevSize": 24,
-        "name": "play_arrow",
+        "name": "play-arrow",
         "code": 59650
       },
       "setIdx": 0,
@@ -761,7 +761,7 @@
         "isMulticolor": false,
         "grid": 24,
         "tags": [
-          "file_download"
+          "file-download"
         ],
         "colorPermutations": {}
       },
@@ -771,7 +771,7 @@
         "id": 640,
         "prevSize": 24,
         "code": 59651,
-        "name": "file_download"
+        "name": "file-download"
       },
       "setIdx": 0,
       "setId": 1,
@@ -786,7 +786,7 @@
         "isMulticolor": false,
         "grid": 24,
         "tags": [
-          "file_upload"
+          "file-upload"
         ],
         "colorPermutations": {}
       },
@@ -796,7 +796,7 @@
         "id": 641,
         "prevSize": 24,
         "code": 59652,
-        "name": "file_upload"
+        "name": "file-upload"
       },
       "setIdx": 0,
       "setId": 1,
@@ -811,7 +811,7 @@
         "isMulticolor": false,
         "grid": 24,
         "tags": [
-          "account_circle"
+          "account-circle"
         ],
         "colorPermutations": {}
       },
@@ -821,7 +821,7 @@
         "id": 649,
         "prevSize": 24,
         "code": 59653,
-        "name": "account_circle"
+        "name": "account-circle"
       },
       "setIdx": 0,
       "setId": 1,
@@ -1034,7 +1034,7 @@
         "isMulticolor": false,
         "grid": 24,
         "tags": [
-          "file_blank"
+          "file-blank"
         ],
         "colorPermutations": {}
       },
@@ -1044,7 +1044,7 @@
         "id": 653,
         "prevSize": 24,
         "code": 59662,
-        "name": "file_blank"
+        "name": "file-blank"
       },
       "setIdx": 0,
       "setId": 1,
@@ -1059,7 +1059,7 @@
         "isMulticolor": false,
         "grid": 24,
         "tags": [
-          "reader_mode"
+          "reader"
         ]
       },
       "attrs": [],
@@ -1068,7 +1068,7 @@
         "id": 654,
         "prevSize": 24,
         "code": 59663,
-        "name": "reader_mode"
+        "name": "reader"
       },
       "setIdx": 0,
       "setId": 1,
@@ -1158,7 +1158,7 @@
         "isMulticolor2": false,
         "grid": 24,
         "tags": [
-          "more_horizontal"
+          "more-horizontal"
         ]
       },
       "attrs": [
@@ -1167,7 +1167,7 @@
       "properties": {
         "order": 62,
         "id": 660,
-        "name": "more_horizontal",
+        "name": "more-horizontal",
         "prevSize": 24,
         "code": 59669
       },
@@ -1187,7 +1187,7 @@
         "isMulticolor2": false,
         "grid": 24,
         "tags": [
-          "more_vertical"
+          "more-vertical"
         ]
       },
       "attrs": [
@@ -1196,7 +1196,7 @@
       "properties": {
         "order": 63,
         "id": 661,
-        "name": "more_vertical",
+        "name": "more-vertical",
         "prevSize": 24,
         "code": 59670
       },
@@ -1216,7 +1216,7 @@
         "isMulticolor2": false,
         "grid": 24,
         "tags": [
-          "sort_az"
+          "sort-az"
         ]
       },
       "attrs": [
@@ -1225,7 +1225,7 @@
       "properties": {
         "order": 66,
         "id": 662,
-        "name": "sort_az",
+        "name": "sort-az",
         "prevSize": 24,
         "code": 59671
       },
@@ -1323,6 +1323,35 @@
     {
       "icon": {
         "paths": [
+          "M853.333 370.773v-200.107h-200.107l-141.227-141.227-141.227 141.227h-200.107v200.107l-141.227 141.227 141.227 141.227v200.107h200.107l141.227 141.227 141.227-141.227h200.107v-200.107l141.227-141.227-141.227-141.227zM512 768c-141.227 0-256-114.773-256-256s114.773-256 256-256 256 114.773 256 256-114.773 256-256 256zM512 341.333c-94.293 0-170.667 76.373-170.667 170.667s76.373 170.667 170.667 170.667 170.667-76.373 170.667-170.667-76.373-170.667-170.667-170.667z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 24,
+        "tags": [
+          "sun"
+        ]
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 70,
+        "id": 666,
+        "name": "sun",
+        "prevSize": 24,
+        "code": 59675
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 51
+    },
+    {
+      "icon": {
+        "paths": [
           "M512 30c65 0 128.2 12.8 187.6 37.8 57.4 24.2 109 59 153.2 103.4s79 95.8 103.4 153.2c25.2 59.4 37.8 122.6 37.8 187.6s-12.8 128.2-37.8 187.6c-24.2 57.4-59 109-103.4 153.2s-95.8 79-153.2 103.4c-59.4 25-122.6 37.8-187.6 37.8s-128.2-12.8-187.6-37.8c-57.4-24.2-109-59-153.2-103.4s-79-95.8-103.4-153.2c-25-59.4-37.8-122.6-37.8-187.6s12.8-128.2 37.8-187.6c24.2-57.4 59-109 103.4-153.2s95.8-79 153.2-103.4c59.4-25 122.6-37.8 187.6-37.8zM512 0c-282.8 0-512 229.2-512 512s229.2 512 512 512 512-229.2 512-512-229.2-512-512-512v0z",
           "M861.8 277.4l-320.2-186c-16.4-9.4-43-9.4-59.4 0l-320.2 186c-16.2 9.4-29.6 32.6-29.6 51.6v372c0 18.8 13.2 42.2 29.6 51.6l320.2 186c16.4 9.4 43 9.4 59.4 0l320.2-186c16.4-9.6 29.8-32.8 29.6-51.6v-372c0-18.8-13.2-42.2-29.6-51.6zM562.6 747l-14.6-104.6h-74l-15.8 104.6h-72.6l78.6-481.8h96.2l78.2 481.8h-76z",
           "M509.4 373l-26.4 201.2h55.8l-25-201.2z"
@@ -1353,7 +1382,7 @@
       },
       "setIdx": 0,
       "setId": 1,
-      "iconIdx": 51
+      "iconIdx": 52
     },
     {
       "icon": {
@@ -1388,7 +1417,7 @@
       },
       "setIdx": 0,
       "setId": 1,
-      "iconIdx": 52
+      "iconIdx": 53
     }
   ],
   "height": 1024,
