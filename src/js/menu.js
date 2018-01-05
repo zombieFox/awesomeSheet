@@ -166,6 +166,8 @@ var menu = (function() {
     menuLinkDisplayMode.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      display.clear();
+      display.render();
       display.toggle();
       themeColor.update();
     }, false);
