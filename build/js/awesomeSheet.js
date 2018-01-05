@@ -20726,19 +20726,22 @@ var repair = (function() {
     if (!characterObject.basics.character_image) {
       // console.log("\trepair character image");
       characterObject.basics.character_image = {
+        uploaded: false,
         background: "",
         color: {
           r: "",
           g: "",
           b: ""
         },
-        contain: "",
-        cover: "",
         image: "",
         orientation: "",
         position: {
           x: "",
           y: ""
+        },
+        size: {
+          width: "",
+          height: ""
         },
         scale: ""
       };
@@ -20813,7 +20816,7 @@ var repair = (function() {
     };
     // --------------------------------------------------
     // repair character image uploaded
-    if (!("uploaded" in sheet.getCharacter().basics.character_image)) {
+    if (!("uploaded" in characterObject.basics.character_image)) {
       // console.log("repair character image uploaded");
       if (characterObject.equipment.potion_viles_oils != "") {
           characterObject.basics.character_image.uploaded = true;
