@@ -311,7 +311,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(getCharacter(getIndex()));
+    repair.render();
     characterSelect.render();
     stats.render();
     clone.render();
