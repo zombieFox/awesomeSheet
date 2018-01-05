@@ -19611,6 +19611,7 @@ var menu = (function() {
         display.clear();
         display.render();
         display.toggle();
+        themeColor.update();
       };
       // ctrl+alt+n
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {
@@ -19651,7 +19652,10 @@ var menu = (function() {
     menuLinkDisplayMode.addEventListener("click", function(event) {
       event.stopPropagation();
       event.preventDefault();
+      display.clear();
+      display.render();
       display.toggle();
+      themeColor.update();
     }, false);
     menuLinkFullscreenMode.addEventListener("click", function(event) {
       event.stopPropagation();
