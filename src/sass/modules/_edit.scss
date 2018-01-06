@@ -365,7 +365,7 @@
 // --------------------------------------------------
 // edit label
 // --------------------------------------------------
-.m-edit-box-label {
+[class^="m-edit-box-label"] {
   margin: 0 1em 0 0;
   padding: 0;
   display: block;
@@ -373,9 +373,14 @@
   font-family: $open-sans-semi-bold;
   color: $secondary-color-06;
   box-sizing: border-box;
+  white-space: nowrap;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
+}
+.m-edit-box-label-center {
+  margin: 0;
+  text-align: center;
 }
 // --------------------------------------------------
 // edit text
@@ -505,15 +510,8 @@
     }
   }
   .m-edit-box-labels {
-    .m-edit-box-title {
-      margin-top: 1.25em;
-    }
-  }
-  .m-edit-box-outline {
-    &.m-edit-box-labels {
-      .m-edit-box-title {
-        margin-top: 2.25em;
-      }
+    .m-edit-box-head {
+      padding-top: 1.25em;
     }
   }
   .m-edit-box-head-small {

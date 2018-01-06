@@ -149,7 +149,6 @@ var sheet = (function() {
     });
   };
 
-
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
     var importSelectLabelText = helper.e(".js-import-select-label-text");
@@ -311,7 +310,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render();
+    repair.render(sheet.getCharacter());
     characterSelect.render();
     stats.render();
     clone.render();
