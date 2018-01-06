@@ -16001,42 +16001,42 @@ var clone = (function() {
         '        <div class="m-edit-box-content">' +
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
-        '              <p class="m-edit-box-label-center">Total</p>' +
+        '              <p class="m-edit-box-label">Total</p>' +
         '              <p class="m-edit-box-total js-total-block-total">0</p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label-center">Ranks</p>' +
-        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="text" tabindex="1">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-ranks">Ranks</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width js-input-block-field js-input-block-field-ranks" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label-center">Misc</p>' +
-        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']racial,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label-center">Racial</p>' +
-        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-racial">Racial</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-racial" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']feat,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label-center">Feat</p>' +
-        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-feat">Feat</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-feat" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label-center">Trait</p>' +
-        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-trait">Trait</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
         '              <div class="m-check-block">' +
-        '                <p class="m-edit-box-label-center">Class Skill</p>' +
+        '                <p class="m-edit-box-label">Class Skill</p>' +
         '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
