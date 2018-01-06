@@ -379,8 +379,8 @@ var repair = (function() {
     };
     // --------------------------------------------------
     // repair stats
-    if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
-      // console.log("\trepair stats");
+    if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
+      console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -616,18 +616,29 @@ var repair = (function() {
       // console.log(characterObject.skills.custom);
       for (var i = 0; i < characterObject.skills.custom.length; i++) {
         if (!("racial" in characterObject.skills.custom[i])) {
-          // console.log("\t\trepair custom skills");
+          // console.log("\t\t repair custom skills");
           characterObject.skills.custom[i].racial = "";
         };
         if (!("trait" in characterObject.skills.custom[i])) {
-          // console.log("\t\trepair custom skills");
+          // console.log("\t\t repair custom skills");
           characterObject.skills.custom[i].trait = "";
         };
         if (!("feat" in characterObject.skills.custom[i])) {
-          // console.log("\t\trepair custom skills");
+          // console.log("\t\t repair custom skills");
           characterObject.skills.custom[i].feat = "";
         };
       };
+    };
+    // --------------------------------------------------
+    // repair concentration stats
+    if (!("trait" in characterObject.spells.concentration)) {
+      // console.log("\t\t repair spell stats");
+      characterObject.spells.concentration.trait = "";
+    };
+    // repair caster level stats
+    if (!("trait" in characterObject.spells.caster_level_check)) {
+      // console.log("\t\t caster level stats");
+      characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
     // sheet.storeCharacters();
