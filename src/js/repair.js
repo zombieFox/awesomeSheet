@@ -382,9 +382,15 @@ var repair = (function() {
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
       // console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
+        characterObject.statistics.stats[key].current = "";
+        characterObject.statistics.stats[key].modifier = "";
+        characterObject.statistics.stats[key].base = "";
+        characterObject.statistics.stats[key].enhancement = "";
+        characterObject.statistics.stats[key].misc = "";
+        characterObject.statistics.stats[key].racial = "";
+        characterObject.statistics.stats[key].temp = "";
         var score = parseInt(characterObject.statistics.stats[key].score, 10);
         var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
-        // console.log("\t\t" + key, "new score = ", score, "\ttempScore = ", tempScore);
         characterObject.statistics.stats[key].base = score;
         if (!isNaN(tempScore)) {
           characterObject.statistics.stats[key].temp = (tempScore - score);

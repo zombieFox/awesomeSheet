@@ -44,14 +44,11 @@ var sheet = (function() {
   function addCharacter(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
-    var newIndex = getAllCharacters().length - 1;
-    setIndex(newIndex);
-    storeCharacters();
+    setIndex(getAllCharacters().length - 1);
     clear();
     render();
-    characterSelect.clear();
-    characterSelect.render();
     nav.scrollToTop();
+    storeCharacters();
     snack.render({
       message: "New character added."
     });
@@ -333,6 +330,21 @@ var sheet = (function() {
     display.render();
   };
 
+  function clear() {
+    characterSelect.clear();
+    totalBlock.clear();
+    clone.clear();
+    textBlock.clear();
+    inputBlock.clear();
+    selectBlock.clear();
+    checkBlock.clear();
+    radioBlock.clear();
+    textareaBlock.clear();
+    characterImage.clear();
+    spells.clear();
+    display.clear();
+  };
+
   function bind() {
     scroll();
     resize();
@@ -377,20 +389,6 @@ var sheet = (function() {
     window.addEventListener("resize", function(event) {
       header.resize();
     }, false);
-  };
-
-  function clear() {
-    totalBlock.clear();
-    clone.clear();
-    textBlock.clear();
-    inputBlock.clear();
-    selectBlock.clear();
-    checkBlock.clear();
-    radioBlock.clear();
-    textareaBlock.clear();
-    characterImage.clear();
-    spells.clear();
-    display.clear();
   };
 
   function switchCharacter(index) {

@@ -365,7 +365,7 @@
 // --------------------------------------------------
 // edit label
 // --------------------------------------------------
-[class^="m-edit-box-label"] {
+.m-edit-box-label {
   margin: 0 1em 0 0;
   padding: 0;
   display: block;
@@ -377,10 +377,6 @@
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
-}
-.m-edit-box-label-center {
-  margin: 0;
-  text-align: center;
 }
 // --------------------------------------------------
 // edit text
