@@ -15990,8 +15990,8 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,type:bonus,clone:true">' +
-        '    <div class="m-edit-box m-edit-box-indent m-edit-box-head-large m-edit-box-guides">' +
+        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,type:bonus,clone:true">' +
+        '    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels m-edit-box-guides">' +
         '      <div class="m-edit-box-head">' +
         '        <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,type:integer,clone:true">' +
         '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
@@ -16001,24 +16001,42 @@ var clone = (function() {
         '        <div class="m-edit-box-content">' +
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
-        '              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Total</p>' +
+        '              <p class="m-edit-box-label-center">Total</p>' +
         '              <p class="m-edit-box-total js-total-block-total">0</p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Ranks</p>' +
+        '                <p class="m-edit-box-label-center">Ranks</p>' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
-        '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Misc</p>' +
+        '                <p class="m-edit-box-label-center">Misc</p>' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']racial,type:integer,clone:true">' +
+        '                <p class="m-edit-box-label-center">Racial</p>' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']feat,type:integer,clone:true">' +
+        '                <p class="m-edit-box-label-center">Feat</p>' +
+        '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
+        '                <p class="m-edit-box-label-center">Trait</p>' +
         '                <input class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
         '              <div class="m-check-block">' +
-        '                <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl u-text-center">Class Skill</p>' +
+        '                <p class="m-edit-box-label-center">Class Skill</p>' +
         '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
@@ -16495,6 +16513,9 @@ var clone = (function() {
         name: "",
         ranks: "",
         misc: "",
+        racial: "",
+        feat: "",
+        trait: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -20773,9 +20794,15 @@ var repair = (function() {
     if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
       // console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
+        characterObject.statistics.stats[key].current = "";
+        characterObject.statistics.stats[key].modifier = "";
+        characterObject.statistics.stats[key].base = "";
+        characterObject.statistics.stats[key].enhancement = "";
+        characterObject.statistics.stats[key].misc = "";
+        characterObject.statistics.stats[key].racial = "";
+        characterObject.statistics.stats[key].temp = "";
         var score = parseInt(characterObject.statistics.stats[key].score, 10);
         var tempScore = parseInt(characterObject.statistics.stats[key].temp_score, 10);
-        // console.log("\t\t" + key, "new score = ", score, "\ttempScore = ", tempScore);
         characterObject.statistics.stats[key].base = score;
         if (!isNaN(tempScore)) {
           characterObject.statistics.stats[key].temp = (tempScore - score);
@@ -20823,7 +20850,7 @@ var repair = (function() {
     if (!("uploaded" in characterObject.basics.character_image)) {
       // console.log("repair character image uploaded");
       if (characterObject.equipment.potion_viles_oils != "") {
-          characterObject.basics.character_image.uploaded = true;
+        characterObject.basics.character_image.uploaded = true;
       } else {
         characterObject.basics.character_image.uploaded = false;
       };
@@ -20838,14 +20865,195 @@ var repair = (function() {
       characterObject.equipment.scrolls = "";
     };
     // --------------------------------------------------
-    sheet.storeCharacters();
+    // repair skills
+    if (!("all" in characterObject.skills)) {
+      // console.log("\trepair skills");
+      characterObject.skills.all = {};
+      if ("acrobatics" in characterObject.skills) {
+        characterObject.skills.all.acrobatics = characterObject.skills.acrobatics;
+      };
+      if ("appraise" in characterObject.skills) {
+        characterObject.skills.all.appraise = characterObject.skills.appraise;
+      };
+      if ("bluff" in characterObject.skills) {
+        characterObject.skills.all.bluff = characterObject.skills.bluff;
+      };
+      if ("climb" in characterObject.skills) {
+        characterObject.skills.all.climb = characterObject.skills.climb;
+      };
+      if ("craft_1" in characterObject.skills) {
+        characterObject.skills.all.craft_1 = characterObject.skills.craft_1;
+      };
+      if ("craft_2" in characterObject.skills) {
+        characterObject.skills.all.craft_2 = characterObject.skills.craft_2;
+      };
+      if ("diplomacy" in characterObject.skills) {
+        characterObject.skills.all.diplomacy = characterObject.skills.diplomacy;
+      };
+      if ("disable_device" in characterObject.skills) {
+        characterObject.skills.all.disable_device = characterObject.skills.disable_device;
+      };
+      if ("disguise" in characterObject.skills) {
+        characterObject.skills.all.disguise = characterObject.skills.disguise;
+      };
+      if ("escape_artist" in characterObject.skills) {
+        characterObject.skills.all.escape_artist = characterObject.skills.escape_artist;
+      };
+      if ("fly" in characterObject.skills) {
+        characterObject.skills.all.fly = characterObject.skills.fly;
+      };
+      if ("handle_animal" in characterObject.skills) {
+        characterObject.skills.all.handle_animal = characterObject.skills.handle_animal;
+      };
+      if ("heal" in characterObject.skills) {
+        characterObject.skills.all.heal = characterObject.skills.heal;
+      };
+      if ("intimidate" in characterObject.skills) {
+        characterObject.skills.all.intimidate = characterObject.skills.intimidate;
+      };
+      if ("knowledge_arcana" in characterObject.skills) {
+        characterObject.skills.all.knowledge_arcana = characterObject.skills.knowledge_arcana;
+      };
+      if ("knowledge_dungeoneering" in characterObject.skills) {
+        characterObject.skills.all.knowledge_dungeoneering = characterObject.skills.knowledge_dungeoneering;
+      };
+      if ("knowledge_engineering" in characterObject.skills) {
+        characterObject.skills.all.knowledge_engineering = characterObject.skills.knowledge_engineering;
+      };
+      if ("knowledge_geography" in characterObject.skills) {
+        characterObject.skills.all.knowledge_geography = characterObject.skills.knowledge_geography;
+      };
+      if ("knowledge_history" in characterObject.skills) {
+        characterObject.skills.all.knowledge_history = characterObject.skills.knowledge_history;
+      };
+      if ("knowledge_local" in characterObject.skills) {
+        characterObject.skills.all.knowledge_local = characterObject.skills.knowledge_local;
+      };
+      if ("knowledge_nature" in characterObject.skills) {
+        characterObject.skills.all.knowledge_nature = characterObject.skills.knowledge_nature;
+      };
+      if ("knowledge_nobility" in characterObject.skills) {
+        characterObject.skills.all.knowledge_nobility = characterObject.skills.knowledge_nobility;
+      };
+      if ("knowledge_planes" in characterObject.skills) {
+        characterObject.skills.all.knowledge_planes = characterObject.skills.knowledge_planes;
+      };
+      if ("knowledge_religion" in characterObject.skills) {
+        characterObject.skills.all.knowledge_religion = characterObject.skills.knowledge_religion;
+      };
+      if ("linguistics" in characterObject.skills) {
+        characterObject.skills.all.linguistics = characterObject.skills.linguistics;
+      };
+      if ("perception" in characterObject.skills) {
+        characterObject.skills.all.perception = characterObject.skills.perception;
+      };
+      if ("perform_1" in characterObject.skills) {
+        characterObject.skills.all.perform_1 = characterObject.skills.perform_1;
+      };
+      if ("perform_2" in characterObject.skills) {
+        characterObject.skills.all.perform_2 = characterObject.skills.perform_2;
+      };
+      if ("profession_1" in characterObject.skills) {
+        characterObject.skills.all.profession_1 = characterObject.skills.profession_1;
+      };
+      if ("profession_2" in characterObject.skills) {
+        characterObject.skills.all.profession_2 = characterObject.skills.profession_2;
+      };
+      if ("ride" in characterObject.skills) {
+        characterObject.skills.all.ride = characterObject.skills.ride;
+      };
+      if ("sense_motive" in characterObject.skills) {
+        characterObject.skills.all.sense_motive = characterObject.skills.sense_motive;
+      };
+      if ("sleight_of_hand" in characterObject.skills) {
+        characterObject.skills.all.sleight_of_hand = characterObject.skills.sleight_of_hand;
+      };
+      if ("spellcraft" in characterObject.skills) {
+        characterObject.skills.all.spellcraft = characterObject.skills.spellcraft;
+      };
+      if ("stealth" in characterObject.skills) {
+        characterObject.skills.all.stealth = characterObject.skills.stealth;
+      };
+      if ("survival" in characterObject.skills) {
+        characterObject.skills.all.survival = characterObject.skills.survival;
+      };
+      if ("swim" in characterObject.skills) {
+        characterObject.skills.all.swim = characterObject.skills.swim;
+      };
+      if ("use_magic_device" in characterObject.skills) {
+        characterObject.skills.all.use_magic_device = characterObject.skills.use_magic_device;
+      };
+      delete characterObject.skills.acrobatics;
+      delete characterObject.skills.appraise;
+      delete characterObject.skills.bluff;
+      delete characterObject.skills.climb;
+      delete characterObject.skills.craft_1;
+      delete characterObject.skills.craft_2;
+      delete characterObject.skills.diplomacy;
+      delete characterObject.skills.disable_device;
+      delete characterObject.skills.disguise;
+      delete characterObject.skills.escape_artist;
+      delete characterObject.skills.fly;
+      delete characterObject.skills.handle_animal;
+      delete characterObject.skills.heal;
+      delete characterObject.skills.intimidate;
+      delete characterObject.skills.knowledge_arcana;
+      delete characterObject.skills.knowledge_dungeoneering;
+      delete characterObject.skills.knowledge_engineering;
+      delete characterObject.skills.knowledge_geography;
+      delete characterObject.skills.knowledge_history;
+      delete characterObject.skills.knowledge_local;
+      delete characterObject.skills.knowledge_nature;
+      delete characterObject.skills.knowledge_nobility;
+      delete characterObject.skills.knowledge_planes;
+      delete characterObject.skills.knowledge_religion;
+      delete characterObject.skills.linguistics;
+      delete characterObject.skills.perception;
+      delete characterObject.skills.perform_1;
+      delete characterObject.skills.perform_2;
+      delete characterObject.skills.profession_1;
+      delete characterObject.skills.profession_2;
+      delete characterObject.skills.ride;
+      delete characterObject.skills.sense_motive;
+      delete characterObject.skills.sleight_of_hand;
+      delete characterObject.skills.spellcraft;
+      delete characterObject.skills.stealth;
+      delete characterObject.skills.survival;
+      delete characterObject.skills.swim;
+      delete characterObject.skills.use_magic_device;
+    };
+    // --------------------------------------------------
+    // repair custom skills
+    if (characterObject.skills.custom.length > 0) {
+      // console.log(characterObject.skills.custom);
+      for (var i = 0; i < characterObject.skills.custom.length; i++) {
+        if (!("racial" in characterObject.skills.custom[i])) {
+          // console.log("\t\trepair custom skills");
+          characterObject.skills.custom[i].racial = "";
+        };
+        if (!("trait" in characterObject.skills.custom[i])) {
+          // console.log("\t\trepair custom skills");
+          characterObject.skills.custom[i].trait = "";
+        };
+        if (!("feat" in characterObject.skills.custom[i])) {
+          // console.log("\t\trepair custom skills");
+          characterObject.skills.custom[i].feat = "";
+        };
+      };
+    };
+    // --------------------------------------------------
+    // sheet.storeCharacters();
     return characterObject;
   };
 
-  function render() {
-    var allCharacters = sheet.getAllCharacters();
-    for (var i = 0; i < allCharacters.length; i++) {
-      _repair(allCharacters[i]);
+  function render(characterObject) {
+    if (characterObject) {
+      _repair(characterObject)
+    } else {
+      var allCharacters = sheet.getAllCharacters();
+      for (var i = 0; i < allCharacters.length; i++) {
+        _repair(allCharacters[i]);
+      };
     };
   };
 
@@ -21010,14 +21218,11 @@ var sheet = (function() {
   function addCharacter(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
-    var newIndex = getAllCharacters().length - 1;
-    setIndex(newIndex);
-    storeCharacters();
+    setIndex(getAllCharacters().length - 1);
     clear();
     render();
-    characterSelect.clear();
-    characterSelect.render();
     nav.scrollToTop();
+    storeCharacters();
     snack.render({
       message: "New character added."
     });
@@ -21114,7 +21319,6 @@ var sheet = (function() {
       message: "All characters cleared."
     });
   };
-
 
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
@@ -21277,7 +21481,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render();
+    repair.render(sheet.getCharacter());
     characterSelect.render();
     stats.render();
     clone.render();
@@ -21298,6 +21502,21 @@ var sheet = (function() {
     textBlock.render();
     characterImage.render();
     display.render();
+  };
+
+  function clear() {
+    characterSelect.clear();
+    totalBlock.clear();
+    clone.clear();
+    textBlock.clear();
+    inputBlock.clear();
+    selectBlock.clear();
+    checkBlock.clear();
+    radioBlock.clear();
+    textareaBlock.clear();
+    characterImage.clear();
+    spells.clear();
+    display.clear();
   };
 
   function bind() {
@@ -21344,20 +21563,6 @@ var sheet = (function() {
     window.addEventListener("resize", function(event) {
       header.resize();
     }, false);
-  };
-
-  function clear() {
-    totalBlock.clear();
-    clone.clear();
-    textBlock.clear();
-    inputBlock.clear();
-    selectBlock.clear();
-    checkBlock.clear();
-    radioBlock.clear();
-    textareaBlock.clear();
-    characterImage.clear();
-    spells.clear();
-    display.clear();
   };
 
   function switchCharacter(index) {
@@ -21590,7 +21795,7 @@ var skills = (function() {
     });
     var all_skills = helper.getObject({
       object: sheet.getCharacter(),
-      path: "skills"
+      path: "skills.all"
     });
     var all_customSkills = helper.getObject({
       object: sheet.getCharacter(),
@@ -22602,7 +22807,6 @@ var stats = (function() {
   function _render_stat(stats) {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var path = stats.dataset.path;
-    var currentPath = options.path + ".current";
     var statObject = helper.getObject({
       object: sheet.getCharacter(),
       path: options.path
@@ -22630,7 +22834,7 @@ var stats = (function() {
     var grandTotal = _reduceSum(toSum);
     helper.setObject({
       object: sheet.getCharacter(),
-      path: currentPath,
+      path: options.path + ".current",
       newValue: grandTotal
     });
   };
@@ -23509,7 +23713,7 @@ var totalBlock = (function() {
             externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
-            }))) / 2;
+            }))/ 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({
@@ -24336,6 +24540,7 @@ var xp = (function() {
 
 (function() {
 
+  repair.render();
   sheet.render();
   sheet.bind();
   nav.bind();
@@ -24343,7 +24548,5 @@ var xp = (function() {
   log.bind();
   log.render();
   checkUrl.render();
-  // disbaled for now
-  // checkUrl.checkHttps();
 
 })();

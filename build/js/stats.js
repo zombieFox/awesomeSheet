@@ -13,7 +13,6 @@ var stats = (function() {
   function _render_stat(stats) {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var path = stats.dataset.path;
-    var currentPath = options.path + ".current";
     var statObject = helper.getObject({
       object: sheet.getCharacter(),
       path: options.path
@@ -41,7 +40,7 @@ var stats = (function() {
     var grandTotal = _reduceSum(toSum);
     helper.setObject({
       object: sheet.getCharacter(),
-      path: currentPath,
+      path: options.path + ".current",
       newValue: grandTotal
     });
   };

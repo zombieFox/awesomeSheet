@@ -1,5 +1,6 @@
 (function() {
 
+  repair.render();
   sheet.render();
   sheet.bind();
   nav.bind();
@@ -7,7 +8,5 @@
   log.bind();
   log.render();
   checkUrl.render();
-  // disbaled for now
-  // checkUrl.checkHttps();
 
 })();

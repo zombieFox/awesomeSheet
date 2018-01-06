@@ -270,7 +270,7 @@ var totalBlock = (function() {
             externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
-            }))) / 2;
+            }))/ 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({

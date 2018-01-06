@@ -31,7 +31,7 @@ var skills = (function() {
     });
     var all_skills = helper.getObject({
       object: sheet.getCharacter(),
-      path: "skills"
+      path: "skills.all"
     });
     var all_customSkills = helper.getObject({
       object: sheet.getCharacter(),
