@@ -15852,7 +15852,7 @@ var clone = (function() {
         '      <div class="m-edit-box-item-small">' +
         '        <div class="m-input-block js-input-block js-basics-class-level" data-input-block-options="path:basics.classes[' + cloneIndex + ']level,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
-        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:Total number of Levels in this Class.,state:focus,clone:true" type="text" tabindex="1">' +
+        '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Total number of Levels in this Class.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -15860,19 +15860,19 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']hp,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
-        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:HP for all Levels in this Class, including favored class bonuses. CON bonuses will be automatically added.,state:focus,clone:true" type="text" tabindex="1">' +
+        '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:HP for all Levels in this Class, including favored class bonuses. CON bonuses will be automatically added.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']bab,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
-        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:The highest BAB for this Class. Additional attacks will be automatically added.,state:focus,clone:true" type="text" tabindex="1">' +
+        '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:The highest BAB for this Class. Additional attacks will be automatically added.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']ranks,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
-        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:Skill Ranks for all Levels in this Class, including favored class bonuses. INT bonuses will be automatically added.,state:focus,clone:true" type="text" tabindex="1">' +
+        '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Skill Ranks for all Levels in this Class, including favored class bonuses. INT bonuses will be automatically added.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -15880,19 +15880,19 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']fortitude,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-fortitude-' + cloneIndex + '">Base Fortitude</label>' +
-        '          <input id="class-fortitude-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          <input id="class-fortitude-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']reflex,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-reflex-' + cloneIndex + '">Base Reflex</label>' +
-        '          <input id="class-reflex-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          <input id="class-reflex-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']will,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-will-' + cloneIndex + '">Base Will</label>' +
-        '          <input id="class-will-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          <input id="class-will-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -15926,7 +15926,7 @@ var clone = (function() {
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + cloneIndex + '">Total</label>' +
-        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
@@ -15943,7 +15943,7 @@ var clone = (function() {
         '        <div class="m-edit-box-item-large">' +
         '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + cloneIndex + '">Used</label>' +
-        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
@@ -15972,12 +15972,12 @@ var clone = (function() {
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']quantity,type:integer,clone:true">' +
-        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']weight,type:float,clone:true">' +
-        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -16007,31 +16007,31 @@ var clone = (function() {
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-ranks">Ranks</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width js-input-block-field js-input-block-field-ranks" type="text" tabindex="1">' +
+        '                <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']racial,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-racial">Racial</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-racial" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '                <input id="skills-custom-' + cloneIndex + '-racial" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']feat,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-feat">Feat</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-feat" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '                <input id="skills-custom-' + cloneIndex + '-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-trait">Trait</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '                <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
@@ -18179,18 +18179,14 @@ var encumbrance = (function() {
 var events = (function() {
 
   function bind() {
-    var eventXp = helper.e(".js-evets-xp");
-    var eventWealth = helper.e(".js-evets-wealth");
-    eventXp.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      render("xp");
-    }, false)
-    eventWealth.addEventListener("click", function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      render("wealth");
-    }, false)
+    var all_eventLogs = helper.eA(".js-evets-log");
+    for (var i = 0; i < all_eventLogs.length; i++) {
+      all_eventLogs[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        render(this);
+      }, false)
+    };
   };
 
   function _create_event(type, eventObject) {
@@ -18226,105 +18222,93 @@ var events = (function() {
     return timestampString;
   };
 
-  function _create_eventTr(eventLogType, eventObject) {
-    // console.log(eventLogType, eventObject);
-    var tr = document.createElement("tr");
-    var td1 = document.createElement("td");
-    var td2 = document.createElement("td");
-    var para = document.createElement("p");
-    var data;
-    if ("aggregate_value" in eventObject.event) {
-      data = eventObject.event.aggregate_value.toLocaleString(undefined, {
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-      });
-      if (eventObject.event.aggregate_value > 0) {
-        data = "+" + data;
-      };
-      if (eventLogType == "xp") {
-        data = data + " XP";
-      } else if (eventLogType == "wealth") {
-        if (eventObject.type == "platinum") {
-          data = data + " PP";
-        } else if (eventObject.type == "gold") {
-          data = data + " GP";
-        } else if (eventObject.type == "silver") {
-          data = data + " SP";
-        } else if (eventObject.type == "copper") {
-          data = data + " CP";
+  function render(button) {
+    var options = helper.makeObject(button.dataset.eventsOptions);
+    var _create_eventTr = function(eventObject) {
+      // console.log(eventLogType, eventObject);
+      var tr = document.createElement("tr");
+      var td1 = document.createElement("td");
+      var td2 = document.createElement("td");
+      var para = document.createElement("p");
+      var data;
+      if ("aggregate_value" in eventObject.event) {
+        data = eventObject.event.aggregate_value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        });
+        if (eventObject.event.aggregate_value > 0) {
+          data = "+" + data;
         };
+        if (options.type == "xp") {
+          data = data + " XP";
+        } else if (options.type == "wealth") {
+          if (eventObject.type == "platinum") {
+            data = data + " PP";
+          } else if (eventObject.type == "gold") {
+            data = data + " GP";
+          } else if (eventObject.type == "silver") {
+            data = data + " SP";
+          } else if (eventObject.type == "copper") {
+            data = data + " CP";
+          };
+        };
+      } else if ("note" in eventObject.event) {
+        data = eventObject.event.note;
       };
-    } else if ("note" in eventObject.event) {
-      data = eventObject.event.note;
+      para.textContent = data;
+      var timestamp = document.createElement("p");
+      timestamp.setAttribute("class", "u-small-text u-text-right");
+      timestamp.textContent = _timestampString(eventObject.timestamp);
+      td2.appendChild(para);
+      td1.appendChild(timestamp);
+      tr.appendChild(td2);
+      tr.appendChild(td1);
+      return tr;
     };
-    para.textContent = data;
-    var timestamp = document.createElement("p");
-    timestamp.setAttribute("class", "u-small-text u-text-right");
-    timestamp.textContent = _timestampString(eventObject.timestamp);
-    td2.appendChild(para);
-    td1.appendChild(timestamp);
-    tr.appendChild(td2);
-    tr.appendChild(td1);
-    return tr;
-  };
-
-  function _create_eventTable(eventLogType) {
-    var table = document.createElement("table");
-    var tbody = document.createElement("tbody");
-    var all_events = helper.getObject({
-      object: sheet.getCharacter(),
-      path: "events"
-    });
-    var all_eventsToRender = [];
-    if (eventLogType == "xp") {
-      all_events.forEach(function(object) {
-        if (object.type == "xp") {
-          all_eventsToRender.push(object);
-        };
-      });
-    } else if (eventLogType == "wealth") {
-      all_events.forEach(function(object) {
-        if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
-          all_eventsToRender.push(object);
-        };
-      });
-    };
-    // console.log("all_eventsToRender", all_eventsToRender);
-    if (all_eventsToRender.length > 0) {
-      for (var i in all_eventsToRender) {
-        var tr = _create_eventTr(eventLogType, all_eventsToRender[i]);
-        tbody.appendChild(tr);
-      };
-    } else {
+    var _create_eventTable = function() {
       var table = document.createElement("table");
       var tbody = document.createElement("tbody");
-      var tr = document.createElement("tr");
-      var td = document.createElement("td");
-      var message = document.createElement("p");
-      if (eventLogType == "xp") {
-        message.textContent = "No XP logged yet. Why not add some?";
-      } else if (eventLogType == "wealth") {
-        message.textContent = "No wealth logged yet. Why not add some?";
+      var all_events = helper.getObject({
+        object: sheet.getCharacter(),
+        path: "events"
+      });
+      var all_eventsToRender = [];
+      if (options.type == "xp") {
+        all_events.forEach(function(object) {
+          if (object.type == "xp") {
+            all_eventsToRender.push(object);
+          };
+        });
+      } else if (options.type == "wealth") {
+        all_events.forEach(function(object) {
+          if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+            all_eventsToRender.push(object);
+          };
+        });
       };
-      td.appendChild(message);
-      tr.appendChild(td);
-      tbody.appendChild(tr);
+      // console.log("all_eventsToRender", all_eventsToRender);
+      if (all_eventsToRender.length > 0) {
+        for (var i in all_eventsToRender) {
+          tbody.appendChild(_create_eventTr(all_eventsToRender[i]));
+        };
+      } else {
+        var table = document.createElement("table");
+        var tbody = document.createElement("tbody");
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        var para = document.createElement("p");
+        para.textContent = options.emptyMessage;
+        td.appendChild(para);
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+      };
+      table.appendChild(tbody);
+      return table;
     };
-    table.appendChild(tbody);
-    return table;
-  };
-
-  function render(eventLogType) {
-    var heading;
-    if (eventLogType == "xp") {
-      heading = "XP log";
-    } else if (eventLogType == "wealth") {
-      heading = "Wealth log";
-    };
-    var body = _create_eventTable(eventLogType);
+    var modalBody = _create_eventTable();
     modal.render({
-      heading: heading,
-      content: body,
+      heading: options.modalHeading,
+      content: modalBody,
       actionText: "Close",
       size: "small"
     });
@@ -18425,7 +18409,12 @@ var header = (function() {
 
   function _update_position() {
     var currentPosition = window.pageYOffset;
-    if (previousPosition > currentPosition) {
+    if (currentPosition < 10) {
+      targetDown = null;
+      targetUp == null;
+      unpin();
+      nav.unpin();
+    } else if (previousPosition > currentPosition) {
       // console.log("scroll up");
       targetDown = null;
       if (targetUp == null) {
@@ -20791,8 +20780,8 @@ var repair = (function() {
     };
     // --------------------------------------------------
     // repair stats
-    if (!characterObject.statistics.stats.str.enhancement && characterObject.statistics.stats.str.enhancement != "" || !characterObject.statistics.stats.dex.enhancement && characterObject.statistics.stats.dex.enhancement != "" || !characterObject.statistics.stats.con.enhancement && characterObject.statistics.stats.con.enhancement != "" || !characterObject.statistics.stats.int.enhancement && characterObject.statistics.stats.int.enhancement != "" || !characterObject.statistics.stats.wis.enhancement && characterObject.statistics.stats.wis.enhancement != "" || !characterObject.statistics.stats.cha.enhancement && characterObject.statistics.stats.cha.enhancement != "") {
-      // console.log("\trepair stats");
+    if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
+      console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -21028,18 +21017,29 @@ var repair = (function() {
       // console.log(characterObject.skills.custom);
       for (var i = 0; i < characterObject.skills.custom.length; i++) {
         if (!("racial" in characterObject.skills.custom[i])) {
-          // console.log("\t\trepair custom skills");
+          // console.log("\t\t repair custom skills");
           characterObject.skills.custom[i].racial = "";
         };
         if (!("trait" in characterObject.skills.custom[i])) {
-          // console.log("\t\trepair custom skills");
+          // console.log("\t\t repair custom skills");
           characterObject.skills.custom[i].trait = "";
         };
         if (!("feat" in characterObject.skills.custom[i])) {
-          // console.log("\t\trepair custom skills");
+          // console.log("\t\t repair custom skills");
           characterObject.skills.custom[i].feat = "";
         };
       };
+    };
+    // --------------------------------------------------
+    // repair concentration stats
+    if (!("trait" in characterObject.spells.concentration)) {
+      // console.log("\t\t repair spell stats");
+      characterObject.spells.concentration.trait = "";
+    };
+    // repair caster level stats
+    if (!("trait" in characterObject.spells.caster_level_check)) {
+      // console.log("\t\t caster level stats");
+      characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
     // sheet.storeCharacters();

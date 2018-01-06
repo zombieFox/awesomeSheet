@@ -25,7 +25,12 @@ var header = (function() {
 
   function _update_position() {
     var currentPosition = window.pageYOffset;
-    if (previousPosition > currentPosition) {
+    if (currentPosition < 10) {
+      targetDown = null;
+      targetUp == null;
+      unpin();
+      nav.unpin();
+    } else if (previousPosition > currentPosition) {
       // console.log("scroll up");
       targetDown = null;
       if (targetUp == null) {
