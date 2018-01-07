@@ -28,9 +28,8 @@
     position: relative;
   }
   .button {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    line-height: 2.5;
+    padding: 0 1.5em;
+    line-height: 3;
     [class*=" icon-"],
     [class^="icon-"] {
       font-size: 1.4em;
@@ -155,6 +154,14 @@
 @media print {
   .m-card {
     box-shadow: none;
+    &:hover {
+      .m-card-head {
+        background-color: transparent;
+      }
+      .m-card-tabs {
+        background-color: transparent;
+      }
+    }
   }
   .m-card-head {
     background-color: transparent;
@@ -179,6 +186,13 @@
     }
   }
   .is-display-mode {
+    .m-card {
+      &:hover {
+        .m-card-head {
+          background-color: transparent;
+        }
+      }
+    }
     .m-card-head {
       background-color: transparent;
     }

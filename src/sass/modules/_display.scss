@@ -766,7 +766,8 @@
   .m-display-list-responsive {
     display: block;
     .m-display-list-item {
-      display: block;
+      max-width: 100%;
+      flex-basis: auto;
       &:nth-child(odd) {
         margin-right: 0;
       }
@@ -784,6 +785,9 @@
       padding-bottom: 2px;
       border-bottom: 1px solid $gray-14;
     }
+  }
+  .m-display-list-item-percentage {
+    display: none;
   }
   .m-display-list-stack {
     display: block;

@@ -28,8 +28,8 @@
       background-color: $white;
       border: $border;
       border-color: $gray-16;
-      line-height: $line-height-300;
-      height: 3em;
+      height: 2.5em;
+      line-height: $line-height-250;
       padding: 0;
       box-sizing: border-box;
       border-radius: $border-radius-large;
@@ -187,16 +187,7 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-radio-block-radio {
-    &[type="radio"] {
-      & + .m-radio-block-radio-icon {
-        line-height: $line-height-250;
-        height: 2.5em;
-      }
-    }
-  }
-}
+@media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

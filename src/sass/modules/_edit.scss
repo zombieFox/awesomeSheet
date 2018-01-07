@@ -31,7 +31,7 @@
 // --------------------------------------------------
 .m-edit-box-indent {
   .m-edit-box-body {
-    margin-left: 2em;
+    margin-left: 1em;
   }
 }
 // --------------------------------------------------
@@ -171,10 +171,10 @@
   }
 }
 .m-edit-box-item-button-small {
-  flex: 0 0 3em;
+  flex: 0 0 2em;
 }
 .m-edit-box-item-button-large {
-  flex: 0 0 4em;
+  flex: 0 0 3em;
 }
 .m-edit-box-item-shrink {
   flex-grow: 0;
@@ -387,8 +387,8 @@
   margin: 0;
   font-size: $font-size-100;
   font-family: $open-sans-bold;
-  line-height: $line-height-300;
-  height: 3em;
+  line-height: $line-height-250;
+  height: 2.5em;
   box-sizing: border-box;
   border-radius: $border-radius-large;
   border: 0;
@@ -406,8 +406,8 @@
   margin: 0;
   font-size: $font-size-100;
   font-family: $open-sans-semi-bold;
-  line-height: $line-height-300;
-  height: 3em;
+  line-height: $line-height-250;
+  height: 2.5em;
   box-sizing: border-box;
   border-radius: $border-radius-large;
   border: 0;
@@ -426,8 +426,8 @@
   margin: 0;
   font-size: $font-size-100;
   font-family: $open-sans-semi-bold;
-  line-height: $line-height-300;
-  height: 3em;
+  line-height: $line-height-250;
+  height: 2.5em;
   box-sizing: border-box;
   border-radius: $border-radius-large;
   border: 0;
@@ -445,7 +445,7 @@
 .m-edit-controls {
   margin: 0 0 1em;
   position: sticky;
-  top: 8em;
+  top: 7em;
   transition: top $transition-ease-fast;
   z-index: $edit-controls;
   .button-group {
@@ -533,9 +533,6 @@
     .m-edit-box-body {
       max-width: 30%;
     }
-  }
-  .m-edit-box-item-button-small {
-    flex-basis: 2em;
   }
   .m-edit-box-title {
     margin-right: 1em;

@@ -479,7 +479,7 @@ var totalBlock = (function() {
       var editBoxBody = document.createElement("div");
       editBoxBody.setAttribute("class", "m-edit-box-body");
       var editBoxContent = document.createElement("div");
-      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
+      editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-small");
       var editBoxGroup = document.createElement("div");
       editBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
       for (var i = 0; i < arguments.length; i++) {

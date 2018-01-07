@@ -50,8 +50,6 @@
         .button {
           padding: 0 0.55em;
           margin: 0;
-          height: 3em;
-          line-height: $line-height-300;
           opacity: 0;
           // visibility: hidden;
           transform: scale(0.4);
@@ -61,6 +59,7 @@
       }
       .m-clone-block-delete-controls-skill {
         margin-top: 1.75em;
+        margin-top: 0.5em;
       }
       .m-clone-block-delete-controls-note {
         margin-top: 1.25em;
@@ -107,11 +106,8 @@
   .m-clone-block {
     .m-clone-block-target {
       .m-clone {
-        .m-clone-block-delete-controls {
-          .button {
-            height: 2.5em;
-            line-height: $line-height-250;
-          }
+        .m-clone-block-delete-controls-skill {
+          margin-top: 1.75em;
         }
       }
     }

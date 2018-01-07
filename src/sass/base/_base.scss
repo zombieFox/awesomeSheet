@@ -1,5 +1,6 @@
 html {
-  font-size: 75%; // 1rem = 12px
+  // font-size: 75%; // 1rem = 12px
+  font-size: 87.5%; // 1rem = 14px
 }
 body {
   background: $gray-18;
@@ -23,7 +24,8 @@ body {
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   html {
-    font-size: 87.5%; // 1rem = 14px
+    // font-size: 87.5%; // 1rem = 14px
+    // font-size: 100%; // 1rem = 16px
   }
 }
 @media (min-width: $screen-md) {
