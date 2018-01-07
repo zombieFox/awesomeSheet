@@ -8,8 +8,8 @@ select {
   padding: 0 1.5em 0 0.5em;
   color: $base-color;
   font-size: $font-size-100;
-  line-height: $line-height-300;
-  height: 3em;
+  line-height: $line-height-250;
+  height: 2.5em;
   font-family: $open-sans-regular;
   box-sizing: border-box;
   box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -82,8 +82,8 @@ input {
     margin: 0;
     font-size: $font-size-100;
     font-family: $open-sans-regular;
-    line-height: $line-height-300;
-    height: 3em;
+    line-height: $line-height-250;
+    height: 2.5em;
     box-sizing: border-box;
     border-radius: $border-radius-large;
     border: 0;
@@ -130,13 +130,13 @@ input {
     opacity: 0;
     display: block;
     font-size: $font-size-100;
-    line-height: $line-height-300;
+    line-height: $line-height-250;
     cursor: pointer;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     & + label {
-      height: 3em;
-      line-height: $line-height-300;
+      line-height: $line-height-250;
+      height: 2.5em;
       display: inline-block;
       cursor: pointer;
       color: $base-color;
@@ -248,7 +248,7 @@ input {
     border-radius: $border-radius-large;
     font-size: $font-size-100;
     width: 100%;
-    height: 3em;
+    height: 2.5em;
     font-family: $open-sans-semi-bold;
     position: relative;
     cursor: pointer;
@@ -529,34 +529,8 @@ input {
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  select {
-    line-height: $line-height-250;
-    height: 2.5em;
-  }
-  input {
-    &[type="email"],
-    &[type="number"],
-    &[type="password"],
-    &[type="search"],
-    &[type="tel"],
-    &[type="text"] {
-      line-height: $line-height-250;
-      height: 2.5em;
-    }
-  }
-  input {
-    &[type="checkbox"],
-    &[type="radio"] {
-      line-height: $line-height-250;
-      & + label {
-        height: 2.5em;
-        line-height: $line-height-250;
-      }
-    }
-  }
   input {
     &[type="range"] {
-      height: 2.5em;
       &::-webkit-slider-thumb {
         border-width: 3px;
       }

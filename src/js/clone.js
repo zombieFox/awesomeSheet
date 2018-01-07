@@ -113,7 +113,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "consumable") {
@@ -171,7 +171,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>'
     };
     if (cloneType == "item") {
@@ -198,7 +198,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "skill") {
@@ -250,7 +250,7 @@ var clone = (function() {
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
         '              <div class="m-check-block">' +
-        '                <p class="m-edit-box-label">Class Skill</p>' +
+        '                <p class="m-edit-box-label">Class<span class="hidden-xs hidden-sm hidden-md"> Skill</span></p>' +
         '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
@@ -265,7 +265,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-skill">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "attack-melee") {
@@ -309,7 +309,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "attack-ranged") {
@@ -367,7 +367,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "note-character") {
@@ -383,7 +383,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-note">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     if (cloneType == "note-story") {
@@ -399,7 +399,7 @@ var clone = (function() {
         '  </div>' +
         '</div>' +
         '<div class="m-clone-block-delete-controls m-clone-block-delete-controls-note">' +
-        '  <button class="button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>';
     };
     return cloneString;

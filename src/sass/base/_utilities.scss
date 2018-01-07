@@ -28,8 +28,8 @@
 .u-inline-with-input {
   padding-top: 0;
   padding-bottom: 0;
-  height: 3em;
-  line-height: 3;
+  height: 2.5em;
+  line-height: 2.5;
   box-sizing: border-box;
 }
 .u-margin-with-input {
@@ -93,12 +93,7 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .u-inline-with-input {
-    height: 2.5em;
-    line-height: 2.5;
-  }
-}
+@media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

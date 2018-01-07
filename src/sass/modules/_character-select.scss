@@ -759,6 +759,11 @@
 }
 @media (min-width: 2000px) {
   .m-character-select {
-    right: calc(20% - -2.5em)
+    right: calc(20% - -2.5em);
+  }
+}
+@media print {
+  .m-character-select {
+    display: none;
   }
 }
