@@ -2,6 +2,7 @@ var izlara = (function() {
 
   var data = {
     awesomeSheet: true,
+    demo: true,
     basics: {
       name: "Izlara Drell",
       race: "Elf",
