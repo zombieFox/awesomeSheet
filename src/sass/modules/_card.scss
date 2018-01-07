@@ -29,10 +29,10 @@
   }
   .button {
     padding: 0 1.5em;
-    line-height: 3;
+    line-height: 2.5;
     [class*=" icon-"],
     [class^="icon-"] {
-      font-size: 1.4em;
+      font-size: 1.2em;
     }
   }
 }
@@ -148,7 +148,17 @@
     }
   }
 }
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  .m-card-controls {
+    .button {
+      line-height: 3;
+      [class*=" icon-"],
+      [class^="icon-"] {
+        font-size: 1.4em;
+      }
+    }
+  }
+}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {

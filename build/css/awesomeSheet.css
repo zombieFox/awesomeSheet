@@ -2548,10 +2548,10 @@ label {
     position: relative; }
   .m-card-controls .button {
     padding: 0 1.5em;
-    line-height: 3; }
+    line-height: 2.5; }
     .m-card-controls .button [class*=" icon-"],
     .m-card-controls .button [class^="icon-"] {
-      font-size: 1.4em; }
+      font-size: 1.2em; }
 
 .m-card-tabs {
   background-color: #173049;
@@ -2618,6 +2618,13 @@ label {
     background-color: #3b3b3b; }
     .is-night-mode .is-minimise.is-display-mode .m-card-head .button {
       color: #ffffff; } }
+
+@media (min-width: 700px) {
+  .m-card-controls .button {
+    line-height: 3; }
+    .m-card-controls .button [class*=" icon-"],
+    .m-card-controls .button [class^="icon-"] {
+      font-size: 1.4em; } }
 
 @media print {
   .m-card {
