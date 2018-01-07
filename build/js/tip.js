@@ -1,4 +1,6 @@
 var tip = (function() {
+  
+  var destroyTimer = null;
 
   function bind(tip) {
     if (tip) {
@@ -46,8 +48,6 @@ var tip = (function() {
       };
     };
   };
-
-  var destroyTimer = null;
 
   function destroy() {
     var all_tipBox = helper.eA(".js-tip-box");
