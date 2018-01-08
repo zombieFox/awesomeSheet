@@ -167,7 +167,7 @@ var log = (function() {
     page.update();
   };
 
-  function render() {
+  function _create_changeLog() {
     var all_breakingChanges = [];
     var all_breakingChangesLink = [];
     var all_breakingChangesVersion = [];
@@ -243,7 +243,7 @@ var log = (function() {
     var _render_log = function() {
       if (helper.read("latestVersionUpdate") != changeVersion) {
         var logAction = function() {
-          _store_confirmation(changeVersion);
+          _store(changeVersion);
         };
         _render_logMessage({
           heading: "Recent Changes",
@@ -257,7 +257,14 @@ var log = (function() {
     _render_log();
   };
 
-  function _store_confirmation(changeVersion) {
+  function render() {
+    console.log(onboarding.state());
+    if (!onboarding.state()) {
+      _create_changeLog();
+    };
+  };
+
+  function _store(changeVersion) {
     helper.remove("latestVersionUpdate");
     helper.store("latestVersionUpdate", changeVersion);
   };

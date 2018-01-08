@@ -1,7 +1,6 @@
 var page = (function() {
 
   function update() {
-    // console.log("page update");
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");
@@ -24,16 +23,11 @@ var page = (function() {
     helper.removeClass(body, "is-scrolll-disabled");
   };
 
-  function _get_pageState() {
-
-  };
-
   // exposed methods
   return {
     lock: lock,
     unlock: unlock,
-    update: update,
-    state: state
+    update: update
   };
 
 })();

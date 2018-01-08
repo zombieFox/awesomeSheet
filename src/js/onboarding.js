@@ -1,14 +1,24 @@
 var onboarding = (function() {
 
+  var onboardingState = false;
+
+  function _get_onboardingState() {
+    return onboardingState;
+  };
+
+  function _resetState() {
+    onboardingState = false;
+  };
+
   function _store() {
     helper.store("onboarding", true)
   };
 
   function render() {
     if (helper.getObject({
-      object: sheet.getCharacter(),
-      path: "demo"
-    }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
+        object: sheet.getCharacter(),
+        path: "demo"
+      }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
 
       var _render_onboardingModal = function() {
         var onboardingModal = document.createElement("div");
@@ -44,21 +54,27 @@ var onboarding = (function() {
       };
 
       var modalContent = _render_onboardingModal();
+      var action = function() {
+        _store();
+        _resetState();
+      };
 
       modal.render({
         heading: "Hail fellow well met",
         content: modalContent,
-        action: _store,
+        action: action,
         actionText: "Roll initiative!",
         size: "small"
       });
+      onboardingState = true;
       page.update();
     };
   };
 
   // exposed methods
   return {
-    render: render
+    render: render,
+    state: _get_onboardingState
   };
 
 })();
