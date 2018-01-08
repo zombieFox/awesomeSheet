@@ -1821,6 +1821,7 @@ var izlara = (function() {
 
   var data = {
     awesomeSheet: true,
+    demo: true,
     basics: {
       name: "Izlara Drell",
       race: "Elf",
@@ -4222,6 +4223,7 @@ var ravich = (function() {
 
   var data = {
     awesomeSheet: true,
+    demo: true,
     basics: {
       name: "Ravich Swiftcloak",
       race: "Human",
@@ -19329,7 +19331,7 @@ var log = (function() {
     _makeLog();
   };
 
-  function _create_fullChangeLog() {
+  function _render_fullChangeLog() {
     var _modalContent = function() {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
@@ -19389,7 +19391,7 @@ var log = (function() {
     page.update();
   };
 
-  function render() {
+  function _render_changeLog() {
     var all_breakingChanges = [];
     var all_breakingChangesLink = [];
     var all_breakingChangesVersion = [];
@@ -19423,9 +19425,9 @@ var log = (function() {
 
       var seeAll = document.createElement("button");
       seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
-      seeAll.textContent = "See complete Change Log";
+      seeAll.textContent = "Change Log";
       seeAll.addEventListener("click", function(event) {
-        _create_fullChangeLog();
+        _render_fullChangeLog();
         destroy();
       }, false);
       col.appendChild(list);
@@ -19465,7 +19467,7 @@ var log = (function() {
     var _render_log = function() {
       if (helper.read("latestVersionUpdate") != changeVersion) {
         var logAction = function() {
-          _store_confirmation(changeVersion);
+          _store(changeVersion);
         };
         _render_logMessage({
           heading: "Recent Changes",
@@ -19479,14 +19481,20 @@ var log = (function() {
     _render_log();
   };
 
-  function _store_confirmation(changeVersion) {
+  function render() {
+    if (!onboarding.state()) {
+      _render_changeLog();
+    };
+  };
+
+  function _store(changeVersion) {
     helper.remove("latestVersionUpdate");
     helper.store("latestVersionUpdate", changeVersion);
   };
 
   // exposed methods
   return {
-    changeLog: _create_fullChangeLog,
+    changeLog: _render_fullChangeLog,
     render: render,
     bind: bind,
     destroy: destroy
@@ -20075,7 +20083,6 @@ var night = (function() {
 var page = (function() {
 
   function update() {
-    // console.log("page update");
     var body = helper.e("body");
     var modal = (body.dataset.modal == "true");
     var prompt = (body.dataset.prompt == "true");
@@ -21524,7 +21531,6 @@ var sheet = (function() {
     scroll();
     resize();
     characterSelect.bind();
-    menu.bind();
     prompt.bind();
     modal.bind();
     shade.bind();
@@ -24545,7 +24551,9 @@ var xp = (function() {
   repair.render();
   sheet.render();
   sheet.bind();
+  onboarding.render();
   nav.bind();
+  menu.bind();
   tabs.bind();
   log.bind();
   log.render();

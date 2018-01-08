@@ -5993,7 +5993,7 @@ label {
     margin: 0;
     border-radius: 0 0 5px 5px; }
 
-.is-night-mode .m-modal .m-modal-body {
+.is-night-mode .m-modal .m-modal-wrapper {
   background-color: #2e2e2e; }
 
 @media (min-width: 550px) {
@@ -6050,7 +6050,7 @@ label {
 
 .m-snack-bar {
   background-color: #141414;
-  padding: 1em 1.5em;
+  padding: 0.5em 1.2em;
   margin: 0;
   width: 100%;
   box-sizing: border-box;
@@ -6099,7 +6099,6 @@ label {
 @media (min-width: 550px) {
   .m-snack-bar {
     width: 80%;
-    padding: 0.5em 1.2em;
     margin-bottom: 0;
     margin-left: 1em;
     border-radius: 4px;
@@ -7237,7 +7236,7 @@ label {
     .m-log-controls .button.button {
       border-radius: 0 0 3px 3px; }
 
-.is-night-mode .m-log .m-log-body {
+.is-night-mode .m-log .m-log-wrapper {
   background-color: #0d1721; }
 
 .is-night-mode .m-log-list .m-log-list-item-alert {
@@ -7260,6 +7259,16 @@ label {
 
 @media print {
   .m-log {
+    display: none; } }
+
+.m-onboarding {
+  font-size: 1rem; }
+
+.m-onboarding-bold {
+  color: #2063a7; }
+
+@media print {
+  .m-onboarding {
     display: none; } }
 
 .is-hidden {
