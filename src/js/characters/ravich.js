@@ -2,6 +2,7 @@ var ravich = (function() {
 
   var data = {
     awesomeSheet: true,
+    demo: true,
     basics: {
       name: "Ravich Swiftcloak",
       race: "Human",

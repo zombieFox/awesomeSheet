@@ -1,0 +1,18 @@
+.m-onboarding {
+  font-size: $font-size-root-100;
+}
+.m-onboarding-bold {
+  color: $secondary-color-08;
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}
+@media print {
+  .m-onboarding {
+    display: none;
+  }
+}

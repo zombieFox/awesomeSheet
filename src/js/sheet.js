@@ -350,7 +350,6 @@ var sheet = (function() {
     scroll();
     resize();
     characterSelect.bind();
-    menu.bind();
     prompt.bind();
     modal.bind();
     shade.bind();
