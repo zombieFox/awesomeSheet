@@ -400,7 +400,7 @@ var spells = (function() {
 
       activeCheck.appendChild(activeInput);
       activeCheck.appendChild(activeIcon);
-      activeEditBoxContent.appendChild(_create_editBoxItem("button-large", activeCheck));
+      activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
       activeEditBoxBody.appendChild(activeEditBoxContent);
       activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
       activeEditBox.appendChild(activeEditBoxHead);

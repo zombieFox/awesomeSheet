@@ -3080,7 +3080,14 @@ label {
       -ms-flex-preferred-size: 5em;
           flex-basis: 5em; }
 
-.m-edit-box-item-check,
+.m-edit-box-item-check {
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-basis: 4em;
+      -ms-flex-preferred-size: 4em;
+          flex-basis: 4em; }
+
 .m-edit-box-item-small {
   -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
@@ -3128,9 +3135,9 @@ label {
           flex: 0 0 2em; }
 
 .m-edit-box-item-button-large {
-  -webkit-flex: 0 0 3em;
-      -ms-flex: 0 0 3em;
-          flex: 0 0 3em; }
+  -webkit-flex: 0 0 4em;
+      -ms-flex: 0 0 4em;
+          flex: 0 0 4em; }
 
 .m-edit-box-item-shrink {
   -webkit-flex-grow: 0;
@@ -4114,7 +4121,9 @@ label {
     background-color: rgba(30, 125, 220, 0.45);
     border-color: #3e96ee; }
 
-.m-character-select-class-level,
+.m-character-select-class-level {
+  display: none; }
+
 .m-character-select-name {
   color: #ffffff;
   font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
@@ -4122,15 +4131,6 @@ label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
-
-.m-character-select-class-level {
-  margin: 0 0 0 1em;
-  color: #ffffff;
-  font-size: 0.75em;
-  position: relative;
-  top: 0.1em;
-  min-width: 3em;
-  max-width: 70%; }
 
 .m-character-select-arrow {
   position: absolute;
@@ -4185,7 +4185,6 @@ label {
         -ms-transform: rotate(45deg);
             transform: rotate(45deg); }
 
-.is-active .m-character-select-class-level,
 .is-active .m-character-select-name {
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); }
 
@@ -4445,6 +4444,25 @@ label {
 .is-display-mode .m-character-select-toggle.is-active, .is-display-mode .m-character-select-toggle:active {
   background-color: rgba(253, 0, 66, 0.45);
   border-color: #ff3166; }
+
+@media (min-width: 550px) {
+  .m-character-select-class-level {
+    color: #ffffff;
+    font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
+    line-height: 1.6666666667;
+    margin: 0 0 0 1em;
+    color: #ffffff;
+    font-size: 0.75em;
+    position: relative;
+    top: 0.1em;
+    min-width: 3em;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block; }
+  .is-active .m-character-select-class-level {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); } }
 
 @media (min-width: 700px) {
   .m-character-select {
