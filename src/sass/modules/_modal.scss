@@ -43,9 +43,6 @@
   box-sizing: border-box;
   z-index: 1;
   position: relative;
-  // transition: all $transition-bounce-fast;
-  // transform: translate(0, 0);
-  // transition-delay: 0.1s;
   .m-modal-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;
@@ -54,26 +51,6 @@
     }
   }
 }
-// .is-transition-end {
-//   .m-modal-body {
-//     transition: all $transition-ease-fast;
-//   }
-// }
-// .is-jumping-up {
-//   .m-modal-body {
-//     transform: translate(0, 4em);
-//   }
-// }
-// .is-sitting {
-//   .m-modal-body {
-//     transform: translate(0, 0);
-//   }
-// }
-// .is-droping-down {
-//   .m-modal-body {
-//     transform: translate(0, -2em);
-//   }
-// }
 .m-modal-controls {
   position: relative;
   z-index: 2;
@@ -85,7 +62,7 @@
 }
 .is-night-mode {
   .m-modal {
-    .m-modal-body {
+    .m-modal-wrapper {
       background-color: $gray-04;
     }
   }

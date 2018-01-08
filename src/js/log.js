@@ -201,7 +201,7 @@ var log = (function() {
 
       var seeAll = document.createElement("button");
       seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
-      seeAll.textContent = "See complete Change Log";
+      seeAll.textContent = "Change Log";
       seeAll.addEventListener("click", function(event) {
         _create_fullChangeLog();
         destroy();
