@@ -24,11 +24,16 @@ var page = (function() {
     helper.removeClass(body, "is-scrolll-disabled");
   };
 
+  function _get_pageState() {
+
+  };
+
   // exposed methods
   return {
     lock: lock,
     unlock: unlock,
-    update: update
+    update: update,
+    state: state
   };
 
 })();

@@ -14,13 +14,13 @@ var onboarding = (function() {
         var onboardingModal = document.createElement("div");
         onboardingModal.setAttribute("class", "m-onboarding");
         var para1 = document.createElement("p");
-        para1.textContent = "Some advice before your next adventure -- awesomeSheet comes prepared with two example characters.";
+        para1.textContent = 'Some advice before your next adventure -- awesomeSheet comes prepared with two example characters.';
         var para2 = document.createElement("p");
-        para2.textContent = "Have a look around and learn what's possible. When you're ready, delete them and make your own.";
+        para2.textContent = 'Have a look around and learn what\'s possible. When you\'re ready, delete them and make your own.';
         var para3 = document.createElement("p");
-        para3.textContent = "Calistria keeps all knowledge entered here safe with the power of her 'Cache-of-the-Browser' spell, so be wary not to fall foul of her trickery by clearing the cache and losing your heros.";
+        para3.textContent = 'Calistria keeps all knowledge entered here safe with the power of her "Cache-of-the-Browser" spell, so be wary not to fall foul of her trickery by clearing the cache and losing your heros.';
         var para4 = document.createElement("p");
-        para4.textContent = "Cast 'Bigby's Export' every now and then to backup your heros.";
+        para4.textContent = 'Cast "Bigby\'s Export" every now and then to backup your heros.';
 
         var svg1 = document.createElement("svg");
         svg1.setAttribute("version", "1.1");
@@ -52,6 +52,7 @@ var onboarding = (function() {
         actionText: "Roll initiative!",
         size: "small"
       });
+      page.update();
     };
   };
 
