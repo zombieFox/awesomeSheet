@@ -354,10 +354,8 @@ var totalBlock = (function() {
       };
     };
     var _store = function(grandTotal) {
-      // console.log("-----------------------------------------------------");
       if (options.cloneSet) {
         // console.log("store option = ", 1);
-        // console.log(options.cloneSetStore);
         totalObject = helper.setObject({
           object: sheet.getCharacter(),
           path: options.cloneSetStore + ".current",
@@ -386,8 +384,11 @@ var totalBlock = (function() {
     _push_internalValues(options.subtraction, "minus");
     _push_externalValues();
     _render_allCheck()
-    // console.log(options.path, "\n", toSum);
     var grandTotal = _reduceSum(toSum);
+    if (options.path == "equipment.item.all") {
+      console.log(options.path, toSum);
+      console.log(grandTotal);
+    };
     _store(grandTotal);
   };
 

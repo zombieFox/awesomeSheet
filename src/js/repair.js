@@ -642,12 +642,11 @@ var repair = (function() {
     };
     // --------------------------------------------------
     // repair item
-    if (characterObject.equipment.item.length > 0) {
+    if (Array.isArray(characterObject.equipment.item)) {
       // console.log("repair item");
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
       characterObject.equipment.item.weight = {};
-      characterObject.equipment.item.value = {};
       characterObject.equipment.item.all = tempItems;
     };
     // --------------------------------------------------
