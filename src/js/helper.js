@@ -97,11 +97,13 @@ var helper = (function() {
       // start building the object
       var objectString = "{";
       // split the string on comma not followed by a space
+      // split on character if not followed by a space
       var items = string.split(/,(?=\S)/);
       // loop over each item
       for (var i = 0; i < items.length; i++) {
         // split each would be object key values pair
-        var kevValuePair = items[i].split(":");
+        // split on character if not followed by a space
+        var kevValuePair = items[i].split(/:(?=\S)/);
         // get the key
         var key = "\"" + kevValuePair[0] + "\"";
         var value;
@@ -110,6 +112,7 @@ var helper = (function() {
           // remove first + symbol
           kevValuePair[1] = kevValuePair[1].substr(1, kevValuePair[1].length);
           // split the would be values
+          // split on character if not followed by a space
           var all_value = kevValuePair[1].split(/\+(?=\S)/);
           // if there are multiple values make an array
           value = "["
