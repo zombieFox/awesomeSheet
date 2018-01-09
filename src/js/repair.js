@@ -649,11 +649,6 @@ var repair = (function() {
       characterObject.equipment.item.weight = {};
       characterObject.equipment.item.value = {};
       characterObject.equipment.item.all = tempItems;
-    } else {
-      characterObject.equipment.item = {};
-      characterObject.equipment.item.all = [];
-      characterObject.equipment.item.weight = {};
-      characterObject.equipment.item.value = {};
     };
     // --------------------------------------------------
     // sheet.storeCharacters();
