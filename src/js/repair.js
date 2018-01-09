@@ -643,18 +643,17 @@ var repair = (function() {
     // --------------------------------------------------
     // repair item
     if (characterObject.equipment.item.length > 0) {
-      // console.log(characterObject.equipment.item);
+      // console.log("repair item");
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
       characterObject.equipment.item.weight = {};
       characterObject.equipment.item.value = {};
       characterObject.equipment.item.all = tempItems;
-      //
-      // for (var i = 0; i < characterObject.equipment.item.length; i++) {
-      //   // console.log(characterObject.equipment.item[i]);
-      //   // characterObject.equipment.item.all[i] = characterObject.equipment.item[i];
-      //   // delete characterObject.equipment.item[i];
-      // };
+    } else {
+      characterObject.equipment.item = {};
+      characterObject.equipment.item.all = [];
+      characterObject.equipment.item.weight = {};
+      characterObject.equipment.item.value = {};
     };
     // --------------------------------------------------
     // sheet.storeCharacters();
