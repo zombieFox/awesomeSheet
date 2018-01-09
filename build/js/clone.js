@@ -250,7 +250,7 @@ var clone = (function() {
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
         '              <div class="m-check-block">' +
-        '                <p class="m-edit-box-label">Class<span class="hidden-xs hidden-sm hidden-md"> Skill</span></p>' +
+        '                <p class="m-edit-box-label">Class <span class="hidden-xs hidden-sm hidden-md">Skill</span></p>' +
         '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
         '                <span class="m-check-block-check-icon"></span>' +
         '              </div>' +
