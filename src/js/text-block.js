@@ -60,7 +60,7 @@ var textBlock = (function() {
         };
       };
     };
-    // console.log(options.path, typeof data, data, (data != ""));
+    // console.log(options.path, typeof data, data);
     textBlock.textContent = data;
   };
 

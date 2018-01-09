@@ -178,10 +178,12 @@ var totalBlock = (function() {
         if (options.cloneSet) {
           for (var i = 0; i < totalBlockObject.length; i++) {
             for (var q = 0; q < array.length; q++) {
-              if (addOrMinus == "add") {
-                toSum.push(totalBlockObject[i][array[q]]);
-              } else if (addOrMinus == "minus") {
-                toSum.push(-totalBlockObject[i][array[q]]);
+              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+                if (addOrMinus == "add") {
+                  toSum.push(totalBlockObject[i][array[q]]);
+                } else if (addOrMinus == "minus") {
+                  toSum.push(-totalBlockObject[i][array[q]]);
+                };
               };
             };
           };
@@ -351,17 +353,30 @@ var totalBlock = (function() {
         };
       };
     };
-    var _store = function() {
-      if (options.clone) {
-        totalObject = helper.getObject({
+    var _store = function(grandTotal) {
+      // console.log("-----------------------------------------------------");
+      if (options.cloneSet) {
+        // console.log("store option = ", 1);
+        // console.log(options.cloneSetStore);
+        totalObject = helper.setObject({
           object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone
+          path: options.cloneSetStore + ".current",
+          newValue: grandTotal
+        });
+      } else if (options.clone) {
+        // console.log("store option = ", 2);
+        totalObject = helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.path + ".current",
+          clone: options.clone,
+          newValue: grandTotal
         });
       } else {
-        totalObject = helper.getObject({
+        // console.log("store option = ", 3);
+        totalObject = helper.setObject({
           object: sheet.getCharacter(),
-          path: options.path
+          path: options.path + ".current",
+          newValue: grandTotal
         });
       };
     };
@@ -371,9 +386,9 @@ var totalBlock = (function() {
     _push_internalValues(options.subtraction, "minus");
     _push_externalValues();
     _render_allCheck()
+    // console.log(options.path, "\n", toSum);
     var grandTotal = _reduceSum(toSum);
-    console.log(options.path, grandTotal);
-    totalBlockObject.current = grandTotal;
+    _store(grandTotal);
   };
 
   function _render_totalBlockCheck(input) {

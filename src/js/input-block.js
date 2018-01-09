@@ -59,6 +59,7 @@ var inputBlock = (function() {
       _increment(this, event);
       sheet.storeCharacters();
       totalBlock.render();
+      textBlock.render();
     }, false);
   };
 

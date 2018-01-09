@@ -30,7 +30,7 @@ var clone = (function() {
       object = sheet.getCharacter().equipment.consumable;
     };
     if (cloneType == "item") {
-      object = sheet.getCharacter().equipment.item;
+      object = sheet.getCharacter().equipment.item.all;
     };
     if (cloneType == "skill") {
       object = sheet.getCharacter().skills.custom;
@@ -180,17 +180,17 @@ var clone = (function() {
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
         '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-max">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']name,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']name,clone:true">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']quantity,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
         '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']weight,type:float,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']weight,type:float,clone:true">' +
         '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
@@ -486,7 +486,7 @@ var clone = (function() {
     if (cloneType == "item") {
       cloneCount = helper.getObject({
         object: sheet.getCharacter(),
-        path: "equipment.item"
+        path: "equipment.item.all"
       }).length;
     };
     if (cloneType == "skill") {
