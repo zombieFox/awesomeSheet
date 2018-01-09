@@ -130,7 +130,7 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
         '          <p class="m-edit-box-label">Remaining</p>' +
-        '          <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.consumable[' + cloneIndex + ']current,clone:true"></p>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
@@ -216,7 +216,7 @@ var clone = (function() {
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-label">Total</p>' +
-        '              <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,clone:true"></p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +

@@ -88,6 +88,7 @@ var totalBlock = (function() {
     totalBlockCheck.addEventListener("change", function() {
       _render_totalBlockCheck(this);
       render();
+      textBlock.render();
       sheet.storeCharacters();
     }, false);
   };
@@ -117,7 +118,7 @@ var totalBlock = (function() {
 
   function _render_totalBlock(totalBlock) {
     var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
+    // var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
     var totalBlockObject;
     var toSum = [];
     var _get_totalBlockObject = function() {
@@ -341,17 +342,17 @@ var totalBlock = (function() {
       };
       return total;
     };
-    var _addPrefixSuffix = function(grandTotal) {
-      var total;
-      if (options.type == "bonus" && grandTotal > 0) {
-        total = grandTotal = "+" + grandTotal;
-      } else if (options.type == "weight" && grandTotal > 0) {
-        total = grandTotal + " lbs";
-      } else {
-        total = grandTotal;
-      };
-      return total;
-    };
+    // var _addPrefixSuffix = function(grandTotal) {
+    //   var total;
+    //   if (options.type == "bonus" && grandTotal > 0) {
+    //     total = grandTotal = "+" + grandTotal;
+    //   } else if (options.type == "weight" && grandTotal > 0) {
+    //     total = grandTotal + " lbs";
+    //   } else {
+    //     total = grandTotal;
+    //   };
+    //   return total;
+    // };
     var _render_allCheck = function() {
       var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-check");
       if (all_bonusCheck.length > 0) {
@@ -368,10 +369,10 @@ var totalBlock = (function() {
     _push_externalValues();
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
-    if (totalBlockTotalElement) {
-      totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal);
-      totalBlockObject.current = grandTotal;
-    };
+    totalBlockObject.current = grandTotal;
+    // if (totalBlockTotalElement) {
+    //   totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal);
+    // };
   };
 
   function _render_totalBlockCheck(input) {
@@ -623,10 +624,11 @@ var totalBlock = (function() {
     var modalContent = _render_totalBlockBonusesModal();
     var modalAction = function() {
       _store_data();
-      sheet.storeCharacters();
       render();
       display.clear();
       display.render();
+      textBlock.render();
+      sheet.storeCharacters();
     }.bind(modalContent);
     modal.render({
       heading: options.modalHeading,

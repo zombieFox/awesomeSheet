@@ -10,7 +10,13 @@ var textBlock = (function() {
   function _render_textBlock(textBlock) {
     var options = helper.makeObject(textBlock.dataset.textBlockOptions);
     var data;
-    if (options.path) {
+    if (options.clone) {
+      data = helper.getObject({
+        object: sheet.getCharacter(),
+        path: options.path,
+        clone: options.clone
+      });
+    } else {
       data = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
@@ -33,12 +39,20 @@ var textBlock = (function() {
         } else {
           data = 0;
         };
+      } else if (options.type == "weight") {
+        if (data != "") {
+          data = parseFloat(data).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }) + " lbs";
+        };
       } else if (options.type == "bonus") {
         if (data != "" && data > 0) {
           data = "+" + data;
         };
       };
     };
+    // console.log(options.path, typeof data, data, (data != ""));
     textBlock.textContent = data;
   };
 
