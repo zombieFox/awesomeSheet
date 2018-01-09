@@ -28,7 +28,11 @@ var textBlock = (function() {
           data = parseFloat(data).toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
-          }) + " GP";
+          });
+          if (data.indexOf(".00") !== -1) {
+            data = data.substr(0, data.indexOf("."));
+          };
+          data = data + " GP";
         };
       } else if (options.type == "number") {
         if (data != "") {
@@ -44,7 +48,11 @@ var textBlock = (function() {
           data = parseFloat(data).toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
-          }) + " lbs";
+          });
+          if (data.indexOf(".00") !== -1) {
+            data = data.substr(0, data.indexOf("."));
+          };
+          data = data + " lbs";
         };
       } else if (options.type == "bonus") {
         if (data != "" && data > 0) {

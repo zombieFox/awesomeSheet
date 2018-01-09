@@ -271,7 +271,7 @@ var totalBlock = (function() {
             externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
-            }))/ 2);
+            })) / 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({
@@ -342,17 +342,6 @@ var totalBlock = (function() {
       };
       return total;
     };
-    // var _addPrefixSuffix = function(grandTotal) {
-    //   var total;
-    //   if (options.type == "bonus" && grandTotal > 0) {
-    //     total = grandTotal = "+" + grandTotal;
-    //   } else if (options.type == "weight" && grandTotal > 0) {
-    //     total = grandTotal + " lbs";
-    //   } else {
-    //     total = grandTotal;
-    //   };
-    //   return total;
-    // };
     var _render_allCheck = function() {
       var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-check");
       if (all_bonusCheck.length > 0) {
@@ -362,6 +351,20 @@ var totalBlock = (function() {
         };
       };
     };
+    var _store = function() {
+      if (options.clone) {
+        totalObject = helper.getObject({
+          object: sheet.getCharacter(),
+          path: options.path,
+          clone: options.clone
+        });
+      } else {
+        totalObject = helper.getObject({
+          object: sheet.getCharacter(),
+          path: options.path
+        });
+      };
+    };
     _get_totalBlockObject();
     _update_missingBonusKey();
     _push_internalValues(options.addition, "add");
@@ -369,10 +372,8 @@ var totalBlock = (function() {
     _push_externalValues();
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
+    console.log(options.path, grandTotal);
     totalBlockObject.current = grandTotal;
-    // if (totalBlockTotalElement) {
-    //   totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal);
-    // };
   };
 
   function _render_totalBlockCheck(input) {
