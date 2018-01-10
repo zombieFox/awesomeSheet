@@ -21,7 +21,7 @@ var log = (function() {
 
   function _render_logMessage(options) {
     var defaultOptions = {
-      heading: "Log",
+      heading: false,
       content: "Body",
       actionText: "Close",
       action: null
@@ -52,7 +52,7 @@ var log = (function() {
       var actionButton = document.createElement("a");
       actionButton.setAttribute("href", "javascript:void(0)");
       actionButton.setAttribute("tabindex", "1");
-      actionButton.setAttribute("class", "button button-primary button-block button-large");
+      actionButton.setAttribute("class", "button button-primary button-block button-medium");
       actionButton.textContent = defaultOptions.actionText;
       logControls.appendChild(actionButton);
       if (defaultOptions.heading != null) {
@@ -199,21 +199,22 @@ var log = (function() {
         list.appendChild(listItem);
       };
 
-      var seeAll = document.createElement("button");
-      seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
-      seeAll.textContent = "Change Log";
-      seeAll.addEventListener("click", function(event) {
-        _render_fullChangeLog();
-        destroy();
-      }, false);
+      // var seeAll = document.createElement("button");
+      // seeAll.setAttribute("class", "button button-medium button-tertiary u-no-margin");
+      // seeAll.textContent = "Change Log";
+      // seeAll.addEventListener("click", function(event) {
+      //   _render_fullChangeLog();
+      //   destroy();
+      // }, false);
       col.appendChild(list);
-      col.appendChild(seeAll);
+      // col.appendChild(seeAll);
       row.appendChild(col);
       container.appendChild(row);
       return container;
     };
     var _get_logData = function() {
-      for (var i = 0; i < changesToDisplay; i++) {
+      for (var i = 0; i < update.history.length; i++) {
+        // console.log("----------------------------");
         // console.log(update.history[i]);
         for (var j = 0; j < update.history[i].list.length; j++) {
           // console.log(update.history[i].list[j]);
@@ -223,6 +224,8 @@ var log = (function() {
             if (update.history[i].link) {
               // console.log(update.history[i].link);
               all_breakingChangesLink.push(update.history[i].link);
+            } else {
+              all_breakingChangesLink.push(false);
             };
             all_breakingChanges.push(update.history[i].list[j].substr(1));
             all_breakingChangesVersion.push(update.history[i].version);
