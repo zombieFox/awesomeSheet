@@ -647,6 +647,7 @@ var repair = (function() {
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
       characterObject.equipment.item.weight = {};
+      characterObject.equipment.item.weight.current = "";
       characterObject.equipment.item.all = tempItems;
     };
     // --------------------------------------------------

@@ -355,14 +355,12 @@ var totalBlock = (function() {
     };
     var _store = function(grandTotal) {
       if (options.cloneSet) {
-        // console.log("store option = ", 1);
         totalObject = helper.setObject({
           object: sheet.getCharacter(),
-          path: options.cloneSetStore + ".current",
+          path: options.cloneSetPath + ".current",
           newValue: grandTotal
         });
       } else if (options.clone) {
-        // console.log("store option = ", 2);
         totalObject = helper.setObject({
           object: sheet.getCharacter(),
           path: options.path + ".current",
@@ -370,7 +368,6 @@ var totalBlock = (function() {
           newValue: grandTotal
         });
       } else {
-        // console.log("store option = ", 3);
         totalObject = helper.setObject({
           object: sheet.getCharacter(),
           path: options.path + ".current",
@@ -385,10 +382,6 @@ var totalBlock = (function() {
     _push_externalValues();
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
-    if (options.path == "equipment.item.all") {
-      console.log(options.path, toSum);
-      console.log(grandTotal);
-    };
     _store(grandTotal);
   };
 

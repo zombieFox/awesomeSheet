@@ -147,6 +147,104 @@ var sheet = (function() {
     });
   };
 
+  function render() {
+    repair.render(sheet.getCharacter());
+    characterSelect.render();
+    stats.render();
+    clone.render();
+    classes.render();
+    inputBlock.render();
+    inputRangeBlock.render();
+    selectBlock.render();
+    checkBlock.render();
+    radioBlock.render();
+    textareaBlock.render();
+    skills.render();
+    spells.render();
+    encumbrance.render();
+    size.render();
+    xp.render();
+    wealth.render();
+    totalBlock.render();
+    textBlock.render();
+    characterImage.render();
+    display.render();
+  };
+
+  function clear() {
+    characterSelect.clear();
+    totalBlock.clear();
+    clone.clear();
+    textBlock.clear();
+    inputBlock.clear();
+    selectBlock.clear();
+    checkBlock.clear();
+    radioBlock.clear();
+    textareaBlock.clear();
+    characterImage.clear();
+    spells.clear();
+    display.clear();
+  };
+
+  function bind() {
+    scroll();
+    resize();
+    characterSelect.bind();
+    prompt.bind();
+    modal.bind();
+    shade.bind();
+    snack.bind();
+    stats.bind();
+    inputBlock.bind();
+    inputRangeBlock.bind();
+    selectBlock.bind();
+    checkBlock.bind();
+    radioBlock.bind();
+    textareaBlock.bind();
+    clone.bind();
+    spells.bind();
+    skills.bind();
+    encumbrance.bind();
+    size.bind();
+    totalBlock.bind();
+    display.bind();
+    card.bind();
+    tip.bind();
+    events.bind();
+    xp.bind();
+    characterImage.bind();
+    registerServiceWorker.bind();
+  };
+
+  function scroll() {
+    window.addEventListener("scroll", function(event) {
+      header.scroll();
+      nav.scroll();
+      // disabled in favour of position: sticky
+      // edit.scroll();
+    }, false);
+  };
+
+  function resize() {
+    window.addEventListener("resize", function(event) {
+      header.resize();
+    }, false);
+  };
+
+  function switchCharacter(index) {
+    var switcheroo = function(index) {
+      setIndex(index);
+      clear();
+      render();
+      characterSelect.clear();
+      characterSelect.render();
+    };
+    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
+      index = 0;
+    };
+    switcheroo(index);
+  };
+
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
     var importSelectLabelText = helper.e(".js-import-select-label-text");
@@ -305,104 +403,6 @@ var sheet = (function() {
         value: fileName + ".json"
       }
     });
-  };
-
-  function render() {
-    repair.render(sheet.getCharacter());
-    characterSelect.render();
-    stats.render();
-    clone.render();
-    classes.render();
-    inputBlock.render();
-    inputRangeBlock.render();
-    selectBlock.render();
-    checkBlock.render();
-    radioBlock.render();
-    textareaBlock.render();
-    skills.render();
-    spells.render();
-    encumbrance.render();
-    size.render();
-    xp.render();
-    wealth.render();
-    totalBlock.render();
-    textBlock.render();
-    characterImage.render();
-    display.render();
-  };
-
-  function clear() {
-    characterSelect.clear();
-    totalBlock.clear();
-    clone.clear();
-    textBlock.clear();
-    inputBlock.clear();
-    selectBlock.clear();
-    checkBlock.clear();
-    radioBlock.clear();
-    textareaBlock.clear();
-    characterImage.clear();
-    spells.clear();
-    display.clear();
-  };
-
-  function bind() {
-    scroll();
-    resize();
-    characterSelect.bind();
-    prompt.bind();
-    modal.bind();
-    shade.bind();
-    snack.bind();
-    stats.bind();
-    inputBlock.bind();
-    inputRangeBlock.bind();
-    selectBlock.bind();
-    checkBlock.bind();
-    radioBlock.bind();
-    textareaBlock.bind();
-    clone.bind();
-    spells.bind();
-    skills.bind();
-    encumbrance.bind();
-    size.bind();
-    totalBlock.bind();
-    display.bind();
-    card.bind();
-    tip.bind();
-    events.bind();
-    xp.bind();
-    characterImage.bind();
-    registerServiceWorker.bind();
-  };
-
-  function scroll() {
-    window.addEventListener("scroll", function(event) {
-      header.scroll();
-      nav.scroll();
-      // disabled in favour of position: sticky
-      // edit.scroll();
-    }, false);
-  };
-
-  function resize() {
-    window.addEventListener("resize", function(event) {
-      header.resize();
-    }, false);
-  };
-
-  function switchCharacter(index) {
-    var switcheroo = function(index) {
-      setIndex(index);
-      clear();
-      render();
-      characterSelect.clear();
-      characterSelect.render();
-    };
-    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
-      index = 0;
-    };
-    switcheroo(index);
   };
 
   // exposed methods
