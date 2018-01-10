@@ -6682,7 +6682,7 @@ label {
   left: 1em;
   font-size: 1rem;
   z-index: 5000;
-  width: 20em;
+  width: 16em;
   max-width: calc(100% - 2em);
   min-width: 200px;
   opacity: 0;
@@ -6705,7 +6705,7 @@ label {
   transition: all 0.3s ease-in-out; }
 
 .m-log-body {
-  padding: 2em;
+  padding: 1.5em;
   max-height: calc(50vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
@@ -6715,7 +6715,7 @@ label {
 .m-log-heading {
   margin-bottom: 0.5em;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #ffffff; }
   .m-log-heading:focus {
     outline: 0; }
