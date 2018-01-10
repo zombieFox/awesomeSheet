@@ -153,6 +153,9 @@ var nefi = (function() {
         all: [],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

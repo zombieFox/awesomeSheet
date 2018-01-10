@@ -153,6 +153,9 @@ var ro = (function() {
         all: [],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

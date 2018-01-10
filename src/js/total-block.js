@@ -382,6 +382,7 @@ var totalBlock = (function() {
     _push_externalValues();
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
+    // console.log(options.path, toSum, grandTotal);
     _store(grandTotal);
   };
 

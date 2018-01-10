@@ -185,6 +185,9 @@ var vos = (function() {
         }],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

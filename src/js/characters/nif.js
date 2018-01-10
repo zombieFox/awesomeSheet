@@ -197,6 +197,9 @@ var nif = (function() {
         }],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

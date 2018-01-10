@@ -153,6 +153,9 @@ var marika = (function() {
         all: [],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

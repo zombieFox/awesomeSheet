@@ -169,6 +169,9 @@ var orrin = (function() {
         }],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

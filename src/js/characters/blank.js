@@ -153,6 +153,9 @@ var blank = (function() {
         all: [],
         weight: {
           current: ""
+        },
+        value: {
+          current: ""
         }
       },
       encumbrance: {

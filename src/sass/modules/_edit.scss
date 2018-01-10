@@ -399,6 +399,7 @@
   border-color: $gray-16;
   color: $base-color;
   text-align: center;
+  white-space: nowrap;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }

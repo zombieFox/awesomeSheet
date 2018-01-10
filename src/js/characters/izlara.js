@@ -154,41 +154,53 @@ var izlara = (function() {
         all: [{
           name: "Flask of Oil",
           quantity: 4,
-          weight: 4
+          weight: 4,
+          value: 0.4
         }, {
           name: "Sack",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: 0.1
         }, {
           name: "Waterskin",
           quantity: 1,
-          weight: 4
+          weight: 4,
+          value: 1
         }, {
           name: "Bedroll and Blanket",
           quantity: 1,
-          weight: 8
+          weight: 8,
+          value: 0.6
         }, {
           name: "Bloodblock",
           quantity: 2,
-          weight: 2
+          weight: 2,
+          value: 50
         }, {
           name: "Healer's Kit",
           quantity: 2,
-          weight: 2
+          weight: 2,
+          value: 100
         }, {
           name: "Silk Rope (50ft)",
           quantity: 1,
-          weight: 5
+          weight: 5,
+          value: 10
         }, {
           name: "Mirror",
           quantity: 1,
-          weight: 1
+          weight: 1,
+          value: 10
         }, {
           name: "Compass",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: 10
         }],
         weight: {
+          current: ""
+        },
+        value: {
           current: ""
         }
       },
