@@ -39,8 +39,8 @@ var classes = (function() {
 
   function delayUpdate(element) {
     render();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
   };
 
   function bind(inputBlock) {

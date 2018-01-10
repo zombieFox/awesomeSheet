@@ -149,51 +149,59 @@ var nif = (function() {
       magic_gear: "Handy Haversack",
       potion_viles_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)",
       scrolls: "Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (1), Interposing Hand (0), Elemental Body 2 (0), Wall of Fire (0), Haste (1), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 5,
-        weight: 5
-      }, {
-        name: "Sack",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Waterskin",
-        quantity: 1,
-        weight: 4
-      }, {
-        name: "Bedroll",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Blanket",
-        quantity: 1,
-        weight: 3
-      }, {
-        name: "Bloodblock",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Healer's Kit",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Rope (silk)",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Mirror",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Compass",
-        quantity: 1,
-        weight: 1
-      }, {
-        name: "Andorak spell book",
-        quantity: 1,
-        weight: 0.5
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 5,
+          weight: 5
+        }, {
+          name: "Sack",
+          quantity: 1,
+          weight: 0.5
+        }, {
+          name: "Waterskin",
+          quantity: 1,
+          weight: 4
+        }, {
+          name: "Bedroll",
+          quantity: 1,
+          weight: 5
+        }, {
+          name: "Blanket",
+          quantity: 1,
+          weight: 3
+        }, {
+          name: "Bloodblock",
+          quantity: 2,
+          weight: 2
+        }, {
+          name: "Healer's Kit",
+          quantity: 2,
+          weight: 2
+        }, {
+          name: "Rope (silk)",
+          quantity: 1,
+          weight: 5
+        }, {
+          name: "Mirror",
+          quantity: 1,
+          weight: 0.5
+        }, {
+          name: "Compass",
+          quantity: 1,
+          weight: 1
+        }, {
+          name: "Andorak spell book",
+          quantity: 1,
+          weight: 0.5
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

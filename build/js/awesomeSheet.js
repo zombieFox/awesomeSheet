@@ -175,7 +175,7 @@ var helper = (function() {
     };
     var _setCloneData = function() {
       var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
-      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), (defaultOptions.path.indexOf("]") - 1)), 10);
       var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
       if (addressTwo[0] == "") {
         addressTwo.shift();
@@ -248,8 +248,11 @@ var helper = (function() {
       };
     };
     var _getCloneData = function() {
+      console.log("----------------------------------------");
+      console.log(defaultOptions.path);
       var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
-      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), (defaultOptions.path.indexOf("]") - 1)), 10);
+      console.log("index = ", index);
       var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
       if (addressTwo[0] == "") {
         addressTwo.shift();
@@ -764,7 +767,15 @@ var blank = (function() {
       magic_gear: "",
       potion_viles_oils: "",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -1972,43 +1983,60 @@ var izlara = (function() {
       magic_gear: "Handy Haversack, Ioun Stones (Scarlet and Blue), lesser, Pearl of Power (1st) (1), Pearl of Power (2nd) (1), Pearl of Power (3rd) (1), Pearl of Power (4th) (1), Pearl of Power (5th) (1)",
       potion_viles_oils: "Antitoxin (2), Holy Water (1), Cure Light Wounds (4), Cure Moderate Wounds (2), Cure Serious Wounds (2), Protection from Evil (2), Displacement (2), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)",
       scrolls: "Create Pit (3), Spiked Pit (3), Hungry Pit (3), Acid Pit (3), Summon Monster III (3), Summon Monster IV (3), Summon Monster V (3), Summon Monster VI (2), Form of the Dragon I (2), Invisibility (5), Web (3), Stinking Cloud (2), Grease (2), Mirror Image (3), Fly (3), Interposing Hand (1), Elemental Body 2 (2), Wall of Fire (2), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (2), Gust of Wind (1), Animate Rope (2), False Life (2), Floating Disk (1), Erase (1), Detect Secret Doors (2), Black Tentacles (2), Mage Armor (2)",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 4,
-        weight: 4
-      }, {
-        name: "Sack",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Waterskin",
-        quantity: 1,
-        weight: 4
-      }, {
-        name: "Bedroll and Blanket",
-        quantity: 1,
-        weight: 8
-      }, {
-        name: "Bloodblock",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Healer's Kit",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Silk Rope (50ft)",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Mirror",
-        quantity: 1,
-        weight: 1
-      }, {
-        name: "Compass",
-        quantity: 1,
-        weight: 0.5
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 4,
+          weight: 4,
+          value: 0.4
+        }, {
+          name: "Sack",
+          quantity: 1,
+          weight: 0.5,
+          value: 0.1
+        }, {
+          name: "Waterskin",
+          quantity: 1,
+          weight: 4,
+          value: 1
+        }, {
+          name: "Bedroll and Blanket",
+          quantity: 1,
+          weight: 8,
+          value: 0.6
+        }, {
+          name: "Bloodblock",
+          quantity: 2,
+          weight: 2,
+          value: 50
+        }, {
+          name: "Healer's Kit",
+          quantity: 2,
+          weight: 2,
+          value: 100
+        }, {
+          name: "Silk Rope (50ft)",
+          quantity: 1,
+          weight: 5,
+          value: 10
+        }, {
+          name: "Mirror",
+          quantity: 1,
+          weight: 1,
+          value: 10
+        }, {
+          name: "Compass",
+          quantity: 1,
+          weight: 0.5,
+          value: 10
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -4383,31 +4411,45 @@ var ravich = (function() {
       magic_gear: "Ioun Stone (Dusty Rose), Feather Token (Tree)",
       potion_viles_oils: "Cure Light Wounds (4), Cure Moderate Wounds (5), Cure Serious Wounds (1), Resist Fire (1), Alchemist Fire (1), Lesser Restoration (1), Remove Disease (1)",
       scrolls: "",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Waterskin",
-        quantity: 1,
-        weight: 4
-      }, {
-        name: "Bedroll & Blanket",
-        quantity: 1,
-        weight: 8
-      }, {
-        name: "Rope (silk)",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Mirror",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Compass",
-        quantity: 1,
-        weight: 1
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 2,
+          weight: 2,
+          value: 0.2
+        }, {
+          name: "Waterskin",
+          quantity: 1,
+          weight: 4,
+          value: 1
+        }, {
+          name: "Bedroll & Blanket",
+          quantity: 1,
+          weight: 8,
+          value: 0.6
+        }, {
+          name: "Rope (silk)",
+          quantity: 1,
+          weight: 5,
+          value: 10
+        }, {
+          name: "Mirror",
+          quantity: 1,
+          weight: 0.5,
+          value: 10
+        }, {
+          name: "Compass",
+          quantity: 1,
+          weight: 1,
+          value: 10
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -6181,7 +6223,15 @@ var marika = (function() {
       magic_gear: "Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
       potion_viles_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -7481,7 +7531,15 @@ var nefi = (function() {
       magic_gear: "Ioun Stone (Dusty rose), Feather Token (Tree)",
       potion_viles_oils: "Light Wounds (4) Moderate Wounds (5), Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -8754,51 +8812,59 @@ var nif = (function() {
       magic_gear: "Handy Haversack",
       potion_viles_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (1), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)",
       scrolls: "Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (3), Spiked Pit (6), Fly (1), Interposing Hand (0), Elemental Body 2 (0), Wall of Fire (0), Haste (1), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (1), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 5,
-        weight: 5
-      }, {
-        name: "Sack",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Waterskin",
-        quantity: 1,
-        weight: 4
-      }, {
-        name: "Bedroll",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Blanket",
-        quantity: 1,
-        weight: 3
-      }, {
-        name: "Bloodblock",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Healer's Kit",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Rope (silk)",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Mirror",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Compass",
-        quantity: 1,
-        weight: 1
-      }, {
-        name: "Andorak spell book",
-        quantity: 1,
-        weight: 0.5
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 5,
+          weight: 5
+        }, {
+          name: "Sack",
+          quantity: 1,
+          weight: 0.5
+        }, {
+          name: "Waterskin",
+          quantity: 1,
+          weight: 4
+        }, {
+          name: "Bedroll",
+          quantity: 1,
+          weight: 5
+        }, {
+          name: "Blanket",
+          quantity: 1,
+          weight: 3
+        }, {
+          name: "Bloodblock",
+          quantity: 2,
+          weight: 2
+        }, {
+          name: "Healer's Kit",
+          quantity: 2,
+          weight: 2
+        }, {
+          name: "Rope (silk)",
+          quantity: 1,
+          weight: 5
+        }, {
+          name: "Mirror",
+          quantity: 1,
+          weight: 0.5
+        }, {
+          name: "Compass",
+          quantity: 1,
+          weight: 1
+        }, {
+          name: "Andorak spell book",
+          quantity: 1,
+          weight: 0.5
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -10508,23 +10574,31 @@ var orrin = (function() {
       magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1",
       potion_viles_oils: "Dispel Magic, Bless Weapon (4), Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)",
       scrolls: "",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 1,
-        weight: 1
-      }, {
-        name: "Tanglefoot bag",
-        quantity: 2,
-        weight: 8
-      }, {
-        name: "Flat Bread",
-        quantity: 10,
-        weight: 2
-      }, {
-        name: "Bedrolls",
-        quantity: 6,
-        weight: 2
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 1,
+          weight: 1
+        }, {
+          name: "Tanglefoot bag",
+          quantity: 2,
+          weight: 8
+        }, {
+          name: "Flat Bread",
+          quantity: 10,
+          weight: 2
+        }, {
+          name: "Bedrolls",
+          quantity: 6,
+          weight: 2
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -11877,7 +11951,15 @@ var ro = (function() {
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       potion_viles_oils: "",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -13446,39 +13528,47 @@ var vos = (function() {
       magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
       potion_viles_oils: "Rubbing Oils (5)",
       scrolls: "",
-      item: [{
-        name: "Alchemist Fire",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Flask Of Oil",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Potion of Cure Light Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Cure Moderate Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Cure Serious Wounds ",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Owls Wisdom",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Stabilise",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scented Oils",
-        quantity: 5,
-        weight: ""
-      }],
+      item: {
+        all: [{
+          name: "Alchemist Fire",
+          quantity: 3,
+          weight: ""
+        }, {
+          name: "Flask Of Oil",
+          quantity: 3,
+          weight: ""
+        }, {
+          name: "Potion of Cure Light Wounds",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Cure Moderate Wounds",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Cure Serious Wounds ",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Owls Wisdom",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Stabilise",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Scented Oils",
+          quantity: 5,
+          weight: ""
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {
@@ -15697,8 +15787,8 @@ var classes = (function() {
 
   function delayUpdate(element) {
     render();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
   };
 
   function bind(inputBlock) {
@@ -15821,7 +15911,7 @@ var clone = (function() {
       object = sheet.getCharacter().equipment.consumable;
     };
     if (cloneType == "item") {
-      object = sheet.getCharacter().equipment.item;
+      object = sheet.getCharacter().equipment.item.all;
     };
     if (cloneType == "skill") {
       object = sheet.getCharacter().skills.custom;
@@ -15921,7 +16011,7 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
         '          <p class="m-edit-box-label">Remaining</p>' +
-        '          <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.consumable[' + cloneIndex + ']current,clone:true"></p>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
@@ -15971,18 +16061,23 @@ var clone = (function() {
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
         '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-max">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']name,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']name,clone:true">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']quantity,type:integer,clone:true">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
         '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']weight,type:float,clone:true">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']weight,type:float,clone:true">' +
         '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']value,type:float,clone:true">' +
+        '          <input id="item-value-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -15995,7 +16090,7 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,type:bonus,clone:true">' +
+        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,clone:true">' +
         '    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels m-edit-box-guides">' +
         '      <div class="m-edit-box-head">' +
         '        <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,type:integer,clone:true">' +
@@ -16007,7 +16102,7 @@ var clone = (function() {
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-label">Total</p>' +
-        '              <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,clone:true"></p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
@@ -16277,7 +16372,7 @@ var clone = (function() {
     if (cloneType == "item") {
       cloneCount = helper.getObject({
         object: sheet.getCharacter(),
-        path: "equipment.item"
+        path: "equipment.item.all"
       }).length;
     };
     if (cloneType == "skill") {
@@ -16510,7 +16605,8 @@ var clone = (function() {
       object = {
         name: "",
         quantity: "",
-        weight: ""
+        weight: "",
+        value: ""
       };
     };
     if (cloneType == "skill") {
@@ -16826,8 +16922,8 @@ var clone = (function() {
     clear(cloneType);
     _render_all_clones(cloneType);
     _update_all_clones(cloneType);
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
@@ -16846,8 +16942,8 @@ var clone = (function() {
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
     _update_all_clones(undoData.cloneType);
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
     _update_cloneSuffix(undoData.cloneType);
@@ -17354,7 +17450,7 @@ var display = (function() {
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
-          if (all_displayPath[i] == "equipment.item") {
+          if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
           if (all_displayPath[i] == "skills.custom") {
@@ -17740,11 +17836,22 @@ var display = (function() {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         });
+        if (data.indexOf(".00") !== -1) {
+          data = data.substr(0, data.indexOf("."));
+        };
       } else if (valueType == "number" && data > 0) {
         data = parseFloat(data).toLocaleString(undefined, {
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        })
+        });
+      } else if (valueType == "weight" && data > 0) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        if (data.indexOf(".00") !== -1) {
+          data = data.substr(0, data.indexOf("."));
+        };
       };
       if (dependency) {
         data = data + " / " + helper.getObject({
@@ -18538,6 +18645,7 @@ var inputBlock = (function() {
       _increment(this, event);
       sheet.storeCharacters();
       totalBlock.render();
+      textBlock.render();
     }, false);
   };
 
@@ -18667,8 +18775,8 @@ var inputBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     sheet.storeCharacters();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     if (display.state()) {
       display.clear();
       display.render();
@@ -20876,7 +20984,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair stats
     if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
-      console.log("\trepair stats");
+      // console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -21137,6 +21245,24 @@ var repair = (function() {
       characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
+    // repair item
+    if (Array.isArray(characterObject.equipment.item)) {
+      // console.log("repair item");
+      var tempItems = characterObject.equipment.item.slice();
+      characterObject.equipment.item = {};
+      characterObject.equipment.item.all = tempItems;
+    };
+    if (!("weight" in characterObject.equipment.item)) {
+      // console.log("repair item weight");
+      characterObject.equipment.item.weight = {};
+      characterObject.equipment.item.weight.current = "";
+    };
+    if (!("value" in characterObject.equipment.item)) {
+      // console.log("repair item value");
+      characterObject.equipment.item.value = {};
+      characterObject.equipment.item.value.current = "";
+    };
+    // --------------------------------------------------
     // sheet.storeCharacters();
     return characterObject;
   };
@@ -21180,8 +21306,8 @@ var selectBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     sheet.storeCharacters();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     if (display.state()) {
       display.clear();
       display.render();
@@ -21416,6 +21542,104 @@ var sheet = (function() {
     });
   };
 
+  function render() {
+    repair.render(sheet.getCharacter());
+    characterSelect.render();
+    stats.render();
+    clone.render();
+    classes.render();
+    inputBlock.render();
+    inputRangeBlock.render();
+    selectBlock.render();
+    checkBlock.render();
+    radioBlock.render();
+    textareaBlock.render();
+    skills.render();
+    spells.render();
+    encumbrance.render();
+    size.render();
+    xp.render();
+    wealth.render();
+    totalBlock.render();
+    textBlock.render();
+    characterImage.render();
+    display.render();
+  };
+
+  function clear() {
+    characterSelect.clear();
+    totalBlock.clear();
+    clone.clear();
+    textBlock.clear();
+    inputBlock.clear();
+    selectBlock.clear();
+    checkBlock.clear();
+    radioBlock.clear();
+    textareaBlock.clear();
+    characterImage.clear();
+    spells.clear();
+    display.clear();
+  };
+
+  function bind() {
+    scroll();
+    resize();
+    characterSelect.bind();
+    prompt.bind();
+    modal.bind();
+    shade.bind();
+    snack.bind();
+    stats.bind();
+    inputBlock.bind();
+    inputRangeBlock.bind();
+    selectBlock.bind();
+    checkBlock.bind();
+    radioBlock.bind();
+    textareaBlock.bind();
+    clone.bind();
+    spells.bind();
+    skills.bind();
+    encumbrance.bind();
+    size.bind();
+    totalBlock.bind();
+    display.bind();
+    card.bind();
+    tip.bind();
+    events.bind();
+    xp.bind();
+    characterImage.bind();
+    registerServiceWorker.bind();
+  };
+
+  function scroll() {
+    window.addEventListener("scroll", function(event) {
+      header.scroll();
+      nav.scroll();
+      // disabled in favour of position: sticky
+      // edit.scroll();
+    }, false);
+  };
+
+  function resize() {
+    window.addEventListener("resize", function(event) {
+      header.resize();
+    }, false);
+  };
+
+  function switchCharacter(index) {
+    var switcheroo = function(index) {
+      setIndex(index);
+      clear();
+      render();
+      characterSelect.clear();
+      characterSelect.render();
+    };
+    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
+      index = 0;
+    };
+    switcheroo(index);
+  };
+
   function _handleFiles() {
     var importSelectLabel = helper.e(".js-import-select-label");
     var importSelectLabelText = helper.e(".js-import-select-label-text");
@@ -21574,104 +21798,6 @@ var sheet = (function() {
         value: fileName + ".json"
       }
     });
-  };
-
-  function render() {
-    repair.render(sheet.getCharacter());
-    characterSelect.render();
-    stats.render();
-    clone.render();
-    classes.render();
-    inputBlock.render();
-    inputRangeBlock.render();
-    selectBlock.render();
-    checkBlock.render();
-    radioBlock.render();
-    textareaBlock.render();
-    skills.render();
-    spells.render();
-    encumbrance.render();
-    size.render();
-    xp.render();
-    wealth.render();
-    totalBlock.render();
-    textBlock.render();
-    characterImage.render();
-    display.render();
-  };
-
-  function clear() {
-    characterSelect.clear();
-    totalBlock.clear();
-    clone.clear();
-    textBlock.clear();
-    inputBlock.clear();
-    selectBlock.clear();
-    checkBlock.clear();
-    radioBlock.clear();
-    textareaBlock.clear();
-    characterImage.clear();
-    spells.clear();
-    display.clear();
-  };
-
-  function bind() {
-    scroll();
-    resize();
-    characterSelect.bind();
-    prompt.bind();
-    modal.bind();
-    shade.bind();
-    snack.bind();
-    stats.bind();
-    inputBlock.bind();
-    inputRangeBlock.bind();
-    selectBlock.bind();
-    checkBlock.bind();
-    radioBlock.bind();
-    textareaBlock.bind();
-    clone.bind();
-    spells.bind();
-    skills.bind();
-    encumbrance.bind();
-    size.bind();
-    totalBlock.bind();
-    display.bind();
-    card.bind();
-    tip.bind();
-    events.bind();
-    xp.bind();
-    characterImage.bind();
-    registerServiceWorker.bind();
-  };
-
-  function scroll() {
-    window.addEventListener("scroll", function(event) {
-      header.scroll();
-      nav.scroll();
-      // disabled in favour of position: sticky
-      // edit.scroll();
-    }, false);
-  };
-
-  function resize() {
-    window.addEventListener("resize", function(event) {
-      header.resize();
-    }, false);
-  };
-
-  function switchCharacter(index) {
-    var switcheroo = function(index) {
-      setIndex(index);
-      clear();
-      render();
-      characterSelect.clear();
-      characterSelect.render();
-    };
-    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
-      index = 0;
-    };
-    switcheroo(index);
   };
 
   // exposed methods
@@ -22961,8 +23087,8 @@ var stats = (function() {
     _render_modifer(element);
     encumbrance.render();
     classes.render();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     if (display.state()) {
       display.clear();
       display.render();
@@ -23170,7 +23296,13 @@ var textBlock = (function() {
   function _render_textBlock(textBlock) {
     var options = helper.makeObject(textBlock.dataset.textBlockOptions);
     var data;
-    if (options.path) {
+    if (options.clone) {
+      data = helper.getObject({
+        object: sheet.getCharacter(),
+        path: options.path,
+        clone: options.clone
+      });
+    } else {
       data = helper.getObject({
         object: sheet.getCharacter(),
         path: options.path
@@ -23182,7 +23314,11 @@ var textBlock = (function() {
           data = parseFloat(data).toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
-          }) + " GP";
+          });
+          if (data.indexOf(".00") !== -1) {
+            data = data.substr(0, data.indexOf("."));
+          };
+          data = data + " GP";
         };
       } else if (options.type == "number") {
         if (data != "") {
@@ -23193,12 +23329,24 @@ var textBlock = (function() {
         } else {
           data = 0;
         };
+      } else if (options.type == "weight") {
+        if (data != "") {
+          data = parseFloat(data).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+          if (data.indexOf(".00") !== -1) {
+            data = data.substr(0, data.indexOf("."));
+          };
+          data = data + " lbs";
+        };
       } else if (options.type == "bonus") {
         if (data != "" && data > 0) {
           data = "+" + data;
         };
       };
     };
+    // console.log(options.path, typeof data, data);
     textBlock.textContent = data;
   };
 
@@ -23627,6 +23775,7 @@ var totalBlock = (function() {
     totalBlockCheck.addEventListener("change", function() {
       _render_totalBlockCheck(this);
       render();
+      textBlock.render();
       sheet.storeCharacters();
     }, false);
   };
@@ -23656,7 +23805,7 @@ var totalBlock = (function() {
 
   function _render_totalBlock(totalBlock) {
     var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
+    // var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
     var totalBlockObject;
     var toSum = [];
     var _get_totalBlockObject = function() {
@@ -23716,10 +23865,12 @@ var totalBlock = (function() {
         if (options.cloneSet) {
           for (var i = 0; i < totalBlockObject.length; i++) {
             for (var q = 0; q < array.length; q++) {
-              if (addOrMinus == "add") {
-                toSum.push(totalBlockObject[i][array[q]]);
-              } else if (addOrMinus == "minus") {
-                toSum.push(-totalBlockObject[i][array[q]]);
+              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+                if (addOrMinus == "add") {
+                  toSum.push(totalBlockObject[i][array[q]]);
+                } else if (addOrMinus == "minus") {
+                  toSum.push(-totalBlockObject[i][array[q]]);
+                };
               };
             };
           };
@@ -23809,7 +23960,7 @@ var totalBlock = (function() {
             externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
-            }))/ 2);
+            })) / 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({
@@ -23880,17 +24031,6 @@ var totalBlock = (function() {
       };
       return total;
     };
-    var _addPrefixSuffix = function(grandTotal) {
-      var total;
-      if (options.type == "bonus" && grandTotal > 0) {
-        total = grandTotal = "+" + grandTotal;
-      } else if (options.type == "weight" && grandTotal > 0) {
-        total = grandTotal + " lbs";
-      } else {
-        total = grandTotal;
-      };
-      return total;
-    };
     var _render_allCheck = function() {
       var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-check");
       if (all_bonusCheck.length > 0) {
@@ -23900,6 +24040,28 @@ var totalBlock = (function() {
         };
       };
     };
+    var _store = function(grandTotal) {
+      if (options.cloneSet) {
+        helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.cloneSetPath + ".current",
+          newValue: grandTotal
+        });
+      } else if (options.clone) {
+        helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.path + ".current",
+          clone: options.clone,
+          newValue: grandTotal
+        });
+      } else {
+        helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.path + ".current",
+          newValue: grandTotal
+        });
+      };
+    };
     _get_totalBlockObject();
     _update_missingBonusKey();
     _push_internalValues(options.addition, "add");
@@ -23907,10 +24069,8 @@ var totalBlock = (function() {
     _push_externalValues();
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
-    if (totalBlockTotalElement) {
-      totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal);
-      totalBlockObject.current = grandTotal;
-    };
+    // console.log(options.path, toSum, grandTotal);
+    _store(grandTotal);
   };
 
   function _render_totalBlockCheck(input) {
@@ -24162,10 +24322,11 @@ var totalBlock = (function() {
     var modalContent = _render_totalBlockBonusesModal();
     var modalAction = function() {
       _store_data();
-      sheet.storeCharacters();
       render();
       display.clear();
       display.render();
+      textBlock.render();
+      sheet.storeCharacters();
     }.bind(modalContent);
     modal.render({
       heading: options.modalHeading,
@@ -24198,6 +24359,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "4.0.1",
+    list: [
+      "Fixed Classes, Item, Consumables and Custom Skills not setting or recalling the correct data."
+    ]
+  }, {
     version: "4.0.0",
     list: [
       "*Rebuild of the storing and retrieving logic for better performance.",

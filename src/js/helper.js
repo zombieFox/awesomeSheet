@@ -173,7 +173,7 @@ var helper = (function() {
     };
     var _setCloneData = function() {
       var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
-      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), (defaultOptions.path.indexOf("]") - 1)), 10);
       var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
       if (addressTwo[0] == "") {
         addressTwo.shift();
@@ -246,8 +246,11 @@ var helper = (function() {
       };
     };
     var _getCloneData = function() {
+      console.log("----------------------------------------");
+      console.log(defaultOptions.path);
       var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
-      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), 1), 10);
+      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), (defaultOptions.path.indexOf("]") - 1)), 10);
+      console.log("index = ", index);
       var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
       if (addressTwo[0] == "") {
         addressTwo.shift();

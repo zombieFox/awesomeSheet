@@ -149,7 +149,15 @@ var ro = (function() {
       magic_gear: "Short Sword +1, Black Blade Scimitar +2",
       potion_viles_oils: "",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

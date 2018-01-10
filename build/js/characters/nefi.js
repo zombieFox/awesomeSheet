@@ -149,7 +149,15 @@ var nefi = (function() {
       magic_gear: "Ioun Stone (Dusty rose), Feather Token (Tree)",
       potion_viles_oils: "Light Wounds (4) Moderate Wounds (5), Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

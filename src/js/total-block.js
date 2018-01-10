@@ -355,20 +355,20 @@ var totalBlock = (function() {
     };
     var _store = function(grandTotal) {
       if (options.cloneSet) {
-        totalObject = helper.setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: options.cloneSetPath + ".current",
           newValue: grandTotal
         });
       } else if (options.clone) {
-        totalObject = helper.setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: options.path + ".current",
           clone: options.clone,
           newValue: grandTotal
         });
       } else {
-        totalObject = helper.setObject({
+        helper.setObject({
           object: sheet.getCharacter(),
           path: options.path + ".current",
           newValue: grandTotal

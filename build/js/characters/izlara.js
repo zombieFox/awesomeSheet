@@ -150,43 +150,60 @@ var izlara = (function() {
       magic_gear: "Handy Haversack, Ioun Stones (Scarlet and Blue), lesser, Pearl of Power (1st) (1), Pearl of Power (2nd) (1), Pearl of Power (3rd) (1), Pearl of Power (4th) (1), Pearl of Power (5th) (1)",
       potion_viles_oils: "Antitoxin (2), Holy Water (1), Cure Light Wounds (4), Cure Moderate Wounds (2), Cure Serious Wounds (2), Protection from Evil (2), Displacement (2), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)",
       scrolls: "Create Pit (3), Spiked Pit (3), Hungry Pit (3), Acid Pit (3), Summon Monster III (3), Summon Monster IV (3), Summon Monster V (3), Summon Monster VI (2), Form of the Dragon I (2), Invisibility (5), Web (3), Stinking Cloud (2), Grease (2), Mirror Image (3), Fly (3), Interposing Hand (1), Elemental Body 2 (2), Wall of Fire (2), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (2), Gust of Wind (1), Animate Rope (2), False Life (2), Floating Disk (1), Erase (1), Detect Secret Doors (2), Black Tentacles (2), Mage Armor (2)",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 4,
-        weight: 4
-      }, {
-        name: "Sack",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Waterskin",
-        quantity: 1,
-        weight: 4
-      }, {
-        name: "Bedroll and Blanket",
-        quantity: 1,
-        weight: 8
-      }, {
-        name: "Bloodblock",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Healer's Kit",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Silk Rope (50ft)",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Mirror",
-        quantity: 1,
-        weight: 1
-      }, {
-        name: "Compass",
-        quantity: 1,
-        weight: 0.5
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 4,
+          weight: 4,
+          value: 0.4
+        }, {
+          name: "Sack",
+          quantity: 1,
+          weight: 0.5,
+          value: 0.1
+        }, {
+          name: "Waterskin",
+          quantity: 1,
+          weight: 4,
+          value: 1
+        }, {
+          name: "Bedroll and Blanket",
+          quantity: 1,
+          weight: 8,
+          value: 0.6
+        }, {
+          name: "Bloodblock",
+          quantity: 2,
+          weight: 2,
+          value: 50
+        }, {
+          name: "Healer's Kit",
+          quantity: 2,
+          weight: 2,
+          value: 100
+        }, {
+          name: "Silk Rope (50ft)",
+          quantity: 1,
+          weight: 5,
+          value: 10
+        }, {
+          name: "Mirror",
+          quantity: 1,
+          weight: 1,
+          value: 10
+        }, {
+          name: "Compass",
+          quantity: 1,
+          weight: 0.5,
+          value: 10
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

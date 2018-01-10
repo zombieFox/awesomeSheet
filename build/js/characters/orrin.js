@@ -149,23 +149,31 @@ var orrin = (function() {
       magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1",
       potion_viles_oils: "Dispel Magic, Bless Weapon (4), Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1)",
       scrolls: "",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 1,
-        weight: 1
-      }, {
-        name: "Tanglefoot bag",
-        quantity: 2,
-        weight: 8
-      }, {
-        name: "Flat Bread",
-        quantity: 10,
-        weight: 2
-      }, {
-        name: "Bedrolls",
-        quantity: 6,
-        weight: 2
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 1,
+          weight: 1
+        }, {
+          name: "Tanglefoot bag",
+          quantity: 2,
+          weight: 8
+        }, {
+          name: "Flat Bread",
+          quantity: 10,
+          weight: 2
+        }, {
+          name: "Bedrolls",
+          quantity: 6,
+          weight: 2
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

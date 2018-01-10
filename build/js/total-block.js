@@ -88,6 +88,7 @@ var totalBlock = (function() {
     totalBlockCheck.addEventListener("change", function() {
       _render_totalBlockCheck(this);
       render();
+      textBlock.render();
       sheet.storeCharacters();
     }, false);
   };
@@ -117,7 +118,7 @@ var totalBlock = (function() {
 
   function _render_totalBlock(totalBlock) {
     var options = helper.makeObject(totalBlock.dataset.totalBlockOptions);
-    var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
+    // var totalBlockTotalElement = totalBlock.querySelector(".js-total-block-total");
     var totalBlockObject;
     var toSum = [];
     var _get_totalBlockObject = function() {
@@ -177,10 +178,12 @@ var totalBlock = (function() {
         if (options.cloneSet) {
           for (var i = 0; i < totalBlockObject.length; i++) {
             for (var q = 0; q < array.length; q++) {
-              if (addOrMinus == "add") {
-                toSum.push(totalBlockObject[i][array[q]]);
-              } else if (addOrMinus == "minus") {
-                toSum.push(-totalBlockObject[i][array[q]]);
+              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+                if (addOrMinus == "add") {
+                  toSum.push(totalBlockObject[i][array[q]]);
+                } else if (addOrMinus == "minus") {
+                  toSum.push(-totalBlockObject[i][array[q]]);
+                };
               };
             };
           };
@@ -270,7 +273,7 @@ var totalBlock = (function() {
             externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.getCharacter(),
               path: "basics.level"
-            }))/ 2);
+            })) / 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({
@@ -341,17 +344,6 @@ var totalBlock = (function() {
       };
       return total;
     };
-    var _addPrefixSuffix = function(grandTotal) {
-      var total;
-      if (options.type == "bonus" && grandTotal > 0) {
-        total = grandTotal = "+" + grandTotal;
-      } else if (options.type == "weight" && grandTotal > 0) {
-        total = grandTotal + " lbs";
-      } else {
-        total = grandTotal;
-      };
-      return total;
-    };
     var _render_allCheck = function() {
       var all_bonusCheck = totalBlock.querySelectorAll(".js-total-block-check");
       if (all_bonusCheck.length > 0) {
@@ -361,6 +353,28 @@ var totalBlock = (function() {
         };
       };
     };
+    var _store = function(grandTotal) {
+      if (options.cloneSet) {
+        helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.cloneSetPath + ".current",
+          newValue: grandTotal
+        });
+      } else if (options.clone) {
+        helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.path + ".current",
+          clone: options.clone,
+          newValue: grandTotal
+        });
+      } else {
+        helper.setObject({
+          object: sheet.getCharacter(),
+          path: options.path + ".current",
+          newValue: grandTotal
+        });
+      };
+    };
     _get_totalBlockObject();
     _update_missingBonusKey();
     _push_internalValues(options.addition, "add");
@@ -368,10 +382,8 @@ var totalBlock = (function() {
     _push_externalValues();
     _render_allCheck()
     var grandTotal = _reduceSum(toSum);
-    if (totalBlockTotalElement) {
-      totalBlockTotalElement.textContent = _addPrefixSuffix(grandTotal);
-      totalBlockObject.current = grandTotal;
-    };
+    // console.log(options.path, toSum, grandTotal);
+    _store(grandTotal);
   };
 
   function _render_totalBlockCheck(input) {
@@ -623,10 +635,11 @@ var totalBlock = (function() {
     var modalContent = _render_totalBlockBonusesModal();
     var modalAction = function() {
       _store_data();
-      sheet.storeCharacters();
       render();
       display.clear();
       display.render();
+      textBlock.render();
+      sheet.storeCharacters();
     }.bind(modalContent);
     modal.render({
       heading: options.modalHeading,

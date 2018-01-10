@@ -149,39 +149,47 @@ var vos = (function() {
       magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
       potion_viles_oils: "Rubbing Oils (5)",
       scrolls: "",
-      item: [{
-        name: "Alchemist Fire",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Flask Of Oil",
-        quantity: 3,
-        weight: ""
-      }, {
-        name: "Potion of Cure Light Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Cure Moderate Wounds",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Cure Serious Wounds ",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Owls Wisdom",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Potion of Stabilise",
-        quantity: 1,
-        weight: ""
-      }, {
-        name: "Scented Oils",
-        quantity: 5,
-        weight: ""
-      }],
+      item: {
+        all: [{
+          name: "Alchemist Fire",
+          quantity: 3,
+          weight: ""
+        }, {
+          name: "Flask Of Oil",
+          quantity: 3,
+          weight: ""
+        }, {
+          name: "Potion of Cure Light Wounds",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Cure Moderate Wounds",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Cure Serious Wounds ",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Owls Wisdom",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Potion of Stabilise",
+          quantity: 1,
+          weight: ""
+        }, {
+          name: "Scented Oils",
+          quantity: 5,
+          weight: ""
+        }],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

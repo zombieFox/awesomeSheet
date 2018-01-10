@@ -30,7 +30,7 @@ var clone = (function() {
       object = sheet.getCharacter().equipment.consumable;
     };
     if (cloneType == "item") {
-      object = sheet.getCharacter().equipment.item;
+      object = sheet.getCharacter().equipment.item.all;
     };
     if (cloneType == "skill") {
       object = sheet.getCharacter().skills.custom;
@@ -130,7 +130,7 @@ var clone = (function() {
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
         '          <p class="m-edit-box-label">Remaining</p>' +
-        '          <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.consumable[' + cloneIndex + ']current,clone:true"></p>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
@@ -180,18 +180,23 @@ var clone = (function() {
         '  <div class="m-edit-box-content m-edit-box-content-margin-small">' +
         '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-max">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']name,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']name,clone:true">' +
         '          <input id="item-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']quantity,type:integer,clone:true">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
         '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
-        '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item[' + cloneIndex + ']weight,type:float,clone:true">' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']weight,type:float,clone:true">' +
         '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']value,type:float,clone:true">' +
+        '          <input id="item-value-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -204,7 +209,7 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,type:bonus,clone:true">' +
+        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,clone:true">' +
         '    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels m-edit-box-guides">' +
         '      <div class="m-edit-box-head">' +
         '        <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,type:integer,clone:true">' +
@@ -216,7 +221,7 @@ var clone = (function() {
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-label">Total</p>' +
-        '              <p class="m-edit-box-total js-total-block-total">0</p>' +
+        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,clone:true"></p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
@@ -486,7 +491,7 @@ var clone = (function() {
     if (cloneType == "item") {
       cloneCount = helper.getObject({
         object: sheet.getCharacter(),
-        path: "equipment.item"
+        path: "equipment.item.all"
       }).length;
     };
     if (cloneType == "skill") {
@@ -719,7 +724,8 @@ var clone = (function() {
       object = {
         name: "",
         quantity: "",
-        weight: ""
+        weight: "",
+        value: ""
       };
     };
     if (cloneType == "skill") {
@@ -1035,8 +1041,8 @@ var clone = (function() {
     clear(cloneType);
     _render_all_clones(cloneType);
     _update_all_clones(cloneType);
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
@@ -1055,8 +1061,8 @@ var clone = (function() {
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
     _update_all_clones(undoData.cloneType);
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
     _update_cloneSuffix(undoData.cloneType);

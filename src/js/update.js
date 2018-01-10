@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "4.0.1",
+    list: [
+      "Fixed Classes, Item, Consumables and Custom Skills not setting or recalling the correct data."
+    ]
+  }, {
     version: "4.0.0",
     list: [
       "*Rebuild of the storing and retrieving logic for better performance.",

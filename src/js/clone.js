@@ -724,7 +724,8 @@ var clone = (function() {
       object = {
         name: "",
         quantity: "",
-        weight: ""
+        weight: "",
+        value: ""
       };
     };
     if (cloneType == "skill") {

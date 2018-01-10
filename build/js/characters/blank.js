@@ -149,7 +149,15 @@ var blank = (function() {
       magic_gear: "",
       potion_viles_oils: "",
       scrolls: "",
-      item: [],
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

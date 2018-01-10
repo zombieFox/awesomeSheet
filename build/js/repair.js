@@ -380,7 +380,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair stats
     if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
-      console.log("\trepair stats");
+      // console.log("\trepair stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -639,6 +639,24 @@ var repair = (function() {
     if (!("trait" in characterObject.spells.caster_level_check)) {
       // console.log("\t\t caster level stats");
       characterObject.spells.caster_level_check.trait = "";
+    };
+    // --------------------------------------------------
+    // repair item
+    if (Array.isArray(characterObject.equipment.item)) {
+      // console.log("repair item");
+      var tempItems = characterObject.equipment.item.slice();
+      characterObject.equipment.item = {};
+      characterObject.equipment.item.all = tempItems;
+    };
+    if (!("weight" in characterObject.equipment.item)) {
+      // console.log("repair item weight");
+      characterObject.equipment.item.weight = {};
+      characterObject.equipment.item.weight.current = "";
+    };
+    if (!("value" in characterObject.equipment.item)) {
+      // console.log("repair item value");
+      characterObject.equipment.item.value = {};
+      characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
     // sheet.storeCharacters();

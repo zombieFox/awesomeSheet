@@ -312,7 +312,7 @@ var display = (function() {
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
-          if (all_displayPath[i] == "equipment.item") {
+          if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
           if (all_displayPath[i] == "skills.custom") {
@@ -698,11 +698,22 @@ var display = (function() {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         });
+        if (data.indexOf(".00") !== -1) {
+          data = data.substr(0, data.indexOf("."));
+        };
       } else if (valueType == "number" && data > 0) {
         data = parseFloat(data).toLocaleString(undefined, {
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        })
+        });
+      } else if (valueType == "weight" && data > 0) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        if (data.indexOf(".00") !== -1) {
+          data = data.substr(0, data.indexOf("."));
+        };
       };
       if (dependency) {
         data = data + " / " + helper.getObject({
