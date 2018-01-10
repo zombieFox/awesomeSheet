@@ -159,31 +159,36 @@ var ravich = (function() {
       magic_gear: "Ioun Stone (Dusty Rose), Feather Token (Tree)",
       potion_viles_oils: "Cure Light Wounds (4), Cure Moderate Wounds (5), Cure Serious Wounds (1), Resist Fire (1), Alchemist Fire (1), Lesser Restoration (1), Remove Disease (1)",
       scrolls: "",
-      item: [{
-        name: "Flask of Oil",
-        quantity: 2,
-        weight: 2
-      }, {
-        name: "Waterskin",
-        quantity: 1,
-        weight: 4
-      }, {
-        name: "Bedroll & Blanket",
-        quantity: 1,
-        weight: 8
-      }, {
-        name: "Rope (silk)",
-        quantity: 1,
-        weight: 5
-      }, {
-        name: "Mirror",
-        quantity: 1,
-        weight: 0.5
-      }, {
-        name: "Compass",
-        quantity: 1,
-        weight: 1
-      }],
+      item: {
+        all: [{
+          name: "Flask of Oil",
+          quantity: 2,
+          weight: 2
+        }, {
+          name: "Waterskin",
+          quantity: 1,
+          weight: 4
+        }, {
+          name: "Bedroll & Blanket",
+          quantity: 1,
+          weight: 8
+        }, {
+          name: "Rope (silk)",
+          quantity: 1,
+          weight: 5
+        }, {
+          name: "Mirror",
+          quantity: 1,
+          weight: 0.5
+        }, {
+          name: "Compass",
+          quantity: 1,
+          weight: 1
+        }],
+        weight: {
+          current: ""
+        }
+      },
       encumbrance: {
         encumbrance_str: "",
         carry_move: {

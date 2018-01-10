@@ -641,6 +641,16 @@ var repair = (function() {
       characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
+    // repair item
+    if (Array.isArray(characterObject.equipment.item)) {
+      // console.log("repair item");
+      var tempItems = characterObject.equipment.item.slice();
+      characterObject.equipment.item = {};
+      characterObject.equipment.item.weight = {};
+      characterObject.equipment.item.weight.current = "";
+      characterObject.equipment.item.all = tempItems;
+    };
+    // --------------------------------------------------
     // sheet.storeCharacters();
     return characterObject;
   };

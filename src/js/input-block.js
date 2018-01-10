@@ -59,6 +59,7 @@ var inputBlock = (function() {
       _increment(this, event);
       sheet.storeCharacters();
       totalBlock.render();
+      textBlock.render();
     }, false);
   };
 
@@ -188,8 +189,8 @@ var inputBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     sheet.storeCharacters();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     if (display.state()) {
       display.clear();
       display.render();

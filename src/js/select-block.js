@@ -19,8 +19,8 @@ var selectBlock = (function() {
   function delayUpdate(element) {
     _store(element);
     sheet.storeCharacters();
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     if (display.state()) {
       display.clear();
       display.render();
