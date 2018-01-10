@@ -1035,8 +1035,8 @@ var clone = (function() {
     clear(cloneType);
     _render_all_clones(cloneType);
     _update_all_clones(cloneType);
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
@@ -1055,8 +1055,8 @@ var clone = (function() {
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
     _update_all_clones(undoData.cloneType);
-    textBlock.render();
     totalBlock.render();
+    textBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
     _update_cloneSuffix(undoData.cloneType);
