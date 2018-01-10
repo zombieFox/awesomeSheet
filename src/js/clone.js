@@ -1041,6 +1041,7 @@ var clone = (function() {
     clear(cloneType);
     _render_all_clones(cloneType);
     _update_all_clones(cloneType);
+    wealth.render();
     totalBlock.render();
     textBlock.render();
     _update_clonePlaceholder(cloneType);
@@ -1061,6 +1062,7 @@ var clone = (function() {
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
     _update_all_clones(undoData.cloneType);
+    wealth.render();
     totalBlock.render();
     textBlock.render();
     _update_clonePlaceholder(undoData.cloneType);

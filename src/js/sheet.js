@@ -204,6 +204,7 @@ var sheet = (function() {
     clone.bind();
     spells.bind();
     skills.bind();
+    wealth.bind();
     encumbrance.bind();
     size.bind();
     totalBlock.bind();

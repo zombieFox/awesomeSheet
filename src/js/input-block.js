@@ -57,9 +57,11 @@ var inputBlock = (function() {
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function() {
       _increment(this, event);
-      sheet.storeCharacters();
+      xp.render();
+      wealth.render();
       totalBlock.render();
       textBlock.render();
+      sheet.storeCharacters();
     }, false);
   };
 
@@ -77,10 +79,11 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
-          sheet.storeCharacters();
           xp.render();
-          wealth.update();
+          wealth.render();
+          totalBlock.render();
           textBlock.render();
+          sheet.storeCharacters();
         };
       }, false);
     };
@@ -97,10 +100,11 @@ var inputBlock = (function() {
     if (inputBlockAggregateControl) {
       inputBlockAggregateControl.addEventListener("click", function() {
         _render_aggregateControl(this);
-        sheet.storeCharacters();
         xp.render();
-        wealth.update();
+        wealth.render();
+        totalBlock.render();
         textBlock.render();
+        sheet.storeCharacters();
       }, false);
     };
   };
@@ -188,9 +192,11 @@ var inputBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    xp.render();
+    wealth.render();
     totalBlock.render();
     textBlock.render();
+    sheet.storeCharacters();
     if (display.state()) {
       display.clear();
       display.render();
@@ -316,10 +322,11 @@ var inputBlock = (function() {
         note: note
       };
       events.store(inputBlockOptions.eventType, eventObject);
-      sheet.storeCharacters();
       xp.render();
-      wealth.update();
+      wealth.render();
+      totalBlock.render();
       textBlock.render();
+      sheet.storeCharacters();
     };
     prompt.render({
       heading: options.promptHeading,
@@ -411,8 +418,9 @@ var inputBlock = (function() {
       path: undoData.path,
       newValue: undoData.oldData
     });
-    wealth.update();
     xp.render();
+    wealth.render();
+    totalBlock.render();
     textBlock.render();
     sheet.storeCharacters();
     _clear_lastRemovedAggregate();
