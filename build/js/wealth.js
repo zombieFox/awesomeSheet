@@ -1,13 +1,15 @@
 var wealth = (function() {
 
-  function update() {
-    render();
-    totalBlock.render();
-    textBlock.render();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+  var renderTimer = null;
+
+  function bind() {
+    var equipmentWealthIncludeItem = helper.e(".js-equipment-wealth-include-item");
+    equipmentWealthIncludeItem.addEventListener("change", function() {
+      renderTimer = setTimeout(function() {
+        render();
+        textBlock.render();
+      }, 350, this);
+    }, false);
   };
 
   function render() {
@@ -24,7 +26,17 @@ var wealth = (function() {
   };
 
   function _create_goldTotal(wealth) {
+    var includeItem = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "equipment.wealth.include_item"
+    });
     var wealthInGp = [];
+    if (includeItem) {
+      wealthInGp.push(helper.getObject({
+        object: sheet.getCharacter(),
+        path: "equipment.item.value.current"
+      }));
+    };
     if ("platinum" in wealth) {
       var platinum = wealth.platinum * 10;
       if (!isNaN(platinum) && platinum != "") {
@@ -62,7 +74,6 @@ var wealth = (function() {
       grandTotal = wealthInGp.reduce(function(a, b) {
         return a + b;
       });
-      grandTotal = parseFloat(grandTotal).toFixed(2);
     } else {
       grandTotal = 0;
     };
@@ -71,7 +82,7 @@ var wealth = (function() {
 
   // exposed methods
   return {
-    update: update,
+    bind: bind,
     render: render,
   };
 

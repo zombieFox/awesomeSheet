@@ -1,5 +1,7 @@
 var wealth = (function() {
 
+  var renderTimer = null;
+
   function bind() {
     var equipmentWealthIncludeItem = helper.e(".js-equipment-wealth-include-item");
     equipmentWealthIncludeItem.addEventListener("change", function() {

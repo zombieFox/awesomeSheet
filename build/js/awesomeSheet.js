@@ -16090,7 +16090,7 @@ var clone = (function() {
         '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,clone:true">' +
         '    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels m-edit-box-guides">' +
         '      <div class="m-edit-box-head">' +
-        '        <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,type:integer,clone:true">' +
+        '        <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,clone:true">' +
         '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
         '        </div>' +
         '      </div>' +
@@ -16797,6 +16797,9 @@ var clone = (function() {
     if (cloneType == "note-character" || cloneType == "note-story") {
       _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
+    if (cloneType == "item") {
+      _bind_wealth(newClone.querySelectorAll(".js-input-block"));
+    };
   };
 
   function _addNewClone(cloneType) {
@@ -16919,12 +16922,18 @@ var clone = (function() {
     clear(cloneType);
     _render_all_clones(cloneType);
     _update_all_clones(cloneType);
-    totalBlock.render();
-    textBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
+    totalBlock.render();
+    if (cloneType == "class") {
+      characterSelect.update();
+    };
+    if (cloneType == "item") {
+      wealth.render();
+    };
+    textBlock.render();
     snack.render({
       message: _get_undoRemoveCloneMessage(cloneType),
       button: "Undo",
@@ -16939,17 +16948,20 @@ var clone = (function() {
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
     _update_all_clones(undoData.cloneType);
-    totalBlock.render();
-    textBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
     _update_cloneSuffix(undoData.cloneType);
     _update_cloneState(undoData.cloneType);
     _update_removeButtonTab(undoData.cloneType);
     _remove_lastRemovedClone();
+    totalBlock.render();
     if (undoData.cloneType == "class") {
       characterSelect.update();
     };
+    if (undoData.cloneType == "item") {
+      wealth.render();
+    };
+    textBlock.render();
     sheet.storeCharacters();
   };
 
@@ -17025,6 +17037,12 @@ var clone = (function() {
   function _bind_textareaBlock(all_textareaBlock) {
     for (var i = 0; i < all_textareaBlock.length; i++) {
       textareaBlock.bind(all_textareaBlock[i]);
+    };
+  };
+
+  function _bind_wealth(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      inputBlock.bind_wealth(all_inputBlock[i]);
     };
   };
 
@@ -18585,6 +18603,7 @@ var inputBlock = (function() {
 
   var storeInputTimer = null;
   var updateNavTimer = null;
+  var updateWealthTimer = null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -18640,9 +18659,11 @@ var inputBlock = (function() {
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function() {
       _increment(this, event);
-      sheet.storeCharacters();
+      xp.render();
+      wealth.render();
       totalBlock.render();
       textBlock.render();
+      sheet.storeCharacters();
     }, false);
   };
 
@@ -18660,10 +18681,11 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
-          sheet.storeCharacters();
           xp.render();
-          wealth.update();
+          wealth.render();
+          totalBlock.render();
           textBlock.render();
+          sheet.storeCharacters();
         };
       }, false);
     };
@@ -18680,10 +18702,11 @@ var inputBlock = (function() {
     if (inputBlockAggregateControl) {
       inputBlockAggregateControl.addEventListener("click", function() {
         _render_aggregateControl(this);
-        sheet.storeCharacters();
         xp.render();
-        wealth.update();
+        wealth.render();
+        totalBlock.render();
         textBlock.render();
+        sheet.storeCharacters();
       }, false);
     };
   };
@@ -18736,6 +18759,17 @@ var inputBlock = (function() {
     }, false);
   };
 
+  function bind_wealth(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    input.addEventListener("input", function() {
+      clearTimeout(updateWealthTimer);
+      updateWealthTimer = setTimeout(function() {
+        wealth.render();
+        textBlock.render();
+      }, 300, this);
+    }, false);
+  };
+
   function _store(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
@@ -18771,9 +18805,11 @@ var inputBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    xp.render();
+    wealth.render();
     totalBlock.render();
     textBlock.render();
+    sheet.storeCharacters();
     if (display.state()) {
       display.clear();
       display.render();
@@ -18899,10 +18935,11 @@ var inputBlock = (function() {
         note: note
       };
       events.store(inputBlockOptions.eventType, eventObject);
-      sheet.storeCharacters();
       xp.render();
-      wealth.update();
+      wealth.render();
+      totalBlock.render();
       textBlock.render();
+      sheet.storeCharacters();
     };
     prompt.render({
       heading: options.promptHeading,
@@ -18994,8 +19031,9 @@ var inputBlock = (function() {
       path: undoData.path,
       newValue: undoData.oldData
     });
-    wealth.update();
     xp.render();
+    wealth.render();
+    totalBlock.render();
     textBlock.render();
     sheet.storeCharacters();
     _clear_lastRemovedAggregate();
@@ -19236,6 +19274,7 @@ var inputBlock = (function() {
     render: render,
     bind: bind,
     bind_classLevel: bind_classLevel,
+    bind_wealth: bind_wealth,
     bind_inputBlockIncrement: bind_inputBlockIncrement,
     clear: clear
   };
@@ -21599,6 +21638,7 @@ var sheet = (function() {
     clone.bind();
     spells.bind();
     skills.bind();
+    wealth.bind();
     encumbrance.bind();
     size.bind();
     totalBlock.bind();
@@ -21988,10 +22028,10 @@ var skills = (function() {
   var renderTimer = null;
 
   function bind() {
-    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
+    var skillsRanksSpentIncludeCustom = helper.e(".js-skills-ranks-spent-include-custom");
     var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
 
-    skillSpentRanksInput.addEventListener("change", function() {
+    skillsRanksSpentIncludeCustom.addEventListener("change", function() {
       renderTimer = setTimeout(function() {
         render();
         textBlock.render();
@@ -24613,14 +24653,16 @@ var update = (function() {
 
 var wealth = (function() {
 
-  function update() {
-    render();
-    totalBlock.render();
-    textBlock.render();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+  var renderTimer = null;
+
+  function bind() {
+    var equipmentWealthIncludeItem = helper.e(".js-equipment-wealth-include-item");
+    equipmentWealthIncludeItem.addEventListener("change", function() {
+      renderTimer = setTimeout(function() {
+        render();
+        textBlock.render();
+      }, 350, this);
+    }, false);
   };
 
   function render() {
@@ -24637,7 +24679,17 @@ var wealth = (function() {
   };
 
   function _create_goldTotal(wealth) {
+    var includeItem = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "equipment.wealth.include_item"
+    });
     var wealthInGp = [];
+    if (includeItem) {
+      wealthInGp.push(helper.getObject({
+        object: sheet.getCharacter(),
+        path: "equipment.item.value.current"
+      }));
+    };
     if ("platinum" in wealth) {
       var platinum = wealth.platinum * 10;
       if (!isNaN(platinum) && platinum != "") {
@@ -24675,7 +24727,6 @@ var wealth = (function() {
       grandTotal = wealthInGp.reduce(function(a, b) {
         return a + b;
       });
-      grandTotal = parseFloat(grandTotal).toFixed(2);
     } else {
       grandTotal = 0;
     };
@@ -24684,7 +24735,7 @@ var wealth = (function() {
 
   // exposed methods
   return {
-    update: update,
+    bind: bind,
     render: render,
   };
 
