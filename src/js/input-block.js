@@ -2,6 +2,7 @@ var inputBlock = (function() {
 
   var storeInputTimer = null;
   var updateNavTimer = null;
+  var updateWealthTimer = null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -57,9 +58,11 @@ var inputBlock = (function() {
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function() {
       _increment(this, event);
-      sheet.storeCharacters();
+      xp.render();
+      wealth.render();
       totalBlock.render();
       textBlock.render();
+      sheet.storeCharacters();
     }, false);
   };
 
@@ -77,10 +80,11 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
-          sheet.storeCharacters();
           xp.render();
-          wealth.update();
+          wealth.render();
+          totalBlock.render();
           textBlock.render();
+          sheet.storeCharacters();
         };
       }, false);
     };
@@ -97,10 +101,11 @@ var inputBlock = (function() {
     if (inputBlockAggregateControl) {
       inputBlockAggregateControl.addEventListener("click", function() {
         _render_aggregateControl(this);
-        sheet.storeCharacters();
         xp.render();
-        wealth.update();
+        wealth.render();
+        totalBlock.render();
         textBlock.render();
+        sheet.storeCharacters();
       }, false);
     };
   };
@@ -153,6 +158,17 @@ var inputBlock = (function() {
     }, false);
   };
 
+  function bind_wealth(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    input.addEventListener("input", function() {
+      clearTimeout(updateWealthTimer);
+      updateWealthTimer = setTimeout(function() {
+        wealth.render();
+        textBlock.render();
+      }, 300, this);
+    }, false);
+  };
+
   function _store(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
@@ -188,9 +204,11 @@ var inputBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    xp.render();
+    wealth.render();
     totalBlock.render();
     textBlock.render();
+    sheet.storeCharacters();
     if (display.state()) {
       display.clear();
       display.render();
@@ -316,10 +334,11 @@ var inputBlock = (function() {
         note: note
       };
       events.store(inputBlockOptions.eventType, eventObject);
-      sheet.storeCharacters();
       xp.render();
-      wealth.update();
+      wealth.render();
+      totalBlock.render();
       textBlock.render();
+      sheet.storeCharacters();
     };
     prompt.render({
       heading: options.promptHeading,
@@ -411,8 +430,9 @@ var inputBlock = (function() {
       path: undoData.path,
       newValue: undoData.oldData
     });
-    wealth.update();
     xp.render();
+    wealth.render();
+    totalBlock.render();
     textBlock.render();
     sheet.storeCharacters();
     _clear_lastRemovedAggregate();
@@ -653,6 +673,7 @@ var inputBlock = (function() {
     render: render,
     bind: bind,
     bind_classLevel: bind_classLevel,
+    bind_wealth: bind_wealth,
     bind_inputBlockIncrement: bind_inputBlockIncrement,
     clear: clear
   };

@@ -198,73 +198,73 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-items is-hidden">
 
-    <div class="m-clone-block js-clone-block-item">
+  <div class="m-clone-block js-clone-block-item">
 
-      <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-item">
-        <div class="button-group button-group-right js-clone-controls">
-          <button type="button" class="button button-medium button-secondary button-icon js-clone-add-item" tabindex="1"><span class="icon-add"></span><span class="button-text">Item</span></button>
-          <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
-        </div>
+    <div class="m-edit-controls js-edit-controls" data-pin-watch="js-clone-block-item">
+      <div class="button-group button-group-right js-clone-controls">
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-add-item" tabindex="1"><span class="icon-add"></span><span class="button-text">Item</span></button>
+        <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
       </div>
+    </div>
 
-      <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
-        <div class="m-edit-box-head">
-          <h2 class="m-edit-box-title">Items</h2>
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Items</h2>
+      </div>
+      <div class="m-edit-box-body">
+
+        <div class="m-placeholder js-placeholder-clone-item">
+          <div class="m-edit-box-content">
+            <div class="m-edit-box-item-max">
+              <p class="m-placeholder-description u-muted-text">You dont have any Items, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Item</strong>.</p>
+            </div>
+          </div>
         </div>
+
+        <div class="js-clone-block-prefix-item">
+          <div class="m-edit-box-content">
+            <div class="m-edit-box-item m-edit-box-group">
+              <div class="m-edit-box-item-max">
+                <p class="m-edit-box-label">Name</p>
+              </div>
+              <div class="m-edit-box-item-medium">
+                <p class="m-edit-box-label">Quantity</p>
+              </div>
+              <div class="m-edit-box-item-medium">
+                <p class="m-edit-box-label">Weight</p>
+              </div>
+              <div class="m-edit-box-item-medium">
+                <p class="m-edit-box-label">Value (GP)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-clone-block-target js-clone-block-target js-clone-block-target-item"></div>
+
+      </div>
+    </div>
+
+    <div class="js-clone-block-suffix-item">
+      <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
         <div class="m-edit-box-body">
 
-          <div class="m-placeholder js-placeholder-clone-item">
-            <div class="m-edit-box-content">
-              <div class="m-edit-box-item-max">
-                <p class="m-placeholder-description u-muted-text">You dont have any Items, add one using <strong class="m-placeholder-key"><span class="icon-add"></span> Item</strong>.</p>
-              </div>
+          <div class="m-edit-box-content m-edit-box-content-margin-small m-edit-box-content-end">
+            <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+weight,cloneSet:true,cloneSetPath:equipment.item.weight">
+              <p class="m-edit-box-label">Total Weight</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.weight.current,type:weight"></p>
+            </div>
+            <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+value,cloneSet:true,cloneSetPath:equipment.item.value">
+              <p class="m-edit-box-label">Total Value</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.value.current,type:currency"></p>
             </div>
           </div>
-
-          <div class="js-clone-block-prefix-item">
-            <div class="m-edit-box-content">
-              <div class="m-edit-box-item m-edit-box-group">
-                <div class="m-edit-box-item-max">
-                  <p class="m-edit-box-label">Name</p>
-                </div>
-                <div class="m-edit-box-item-medium">
-                  <p class="m-edit-box-label">Quantity</p>
-                </div>
-                <div class="m-edit-box-item-medium">
-                  <p class="m-edit-box-label">Weight</p>
-                </div>
-                <div class="m-edit-box-item-medium">
-                  <p class="m-edit-box-label">Value (GP)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="m-clone-block-target js-clone-block-target js-clone-block-target-item"></div>
 
         </div>
       </div>
-
-      <div class="js-clone-block-suffix-item">
-        <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
-          <div class="m-edit-box-body">
-
-            <div class="m-edit-box-content m-edit-box-content-margin-small m-edit-box-content-end">
-              <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+weight,cloneSet:true,cloneSetPath:equipment.item.weight">
-                <p class="m-edit-box-label">Total Weight</p>
-                <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.weight.current,type:weight"></p>
-              </div>
-              <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+value,cloneSet:true,cloneSetPath:equipment.item.value">
-                <p class="m-edit-box-label">Total Value</p>
-                <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.value.current,type:currency"></p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
     </div>
+
+  </div>
 
 </div>
 
@@ -492,9 +492,18 @@
   <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item-shrink">
-          <p class="m-edit-box-label">Total Wealth</p>
-          <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:equipment.wealth.total,type:currency" data-tip-options="message:Total given in the most common coin, GP.,state:hover"></p>
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total Wealth</p>
+            <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:equipment.wealth.total,type:currency" data-tip-options="message:Total given in the most common coin, GP.,state:hover"></p>
+          </div>
+          <div class="m-edit-box-item-check">
+            <div class="m-check-block js-check-block" data-check-block-options="path:equipment.wealth.include_item">
+              <label for="equipment-wealth-include-item" class="m-check-block-label">Include Item Wealth</label>
+              <input id="equipment-wealth-include-item" class="m-check-block-check m-check-block-check-with-label js-check-block-input js-equipment-wealth-include-item" type="checkbox" tabindex="1">
+              <span class="m-check-block-check-icon"></span>
+            </div>
+          </div>
         </div>
         <div class="m-edit-box-item-button-small">
           <a href="javascript:void(0)" class="u-inline-with-input button js-evets-log" data-events-options="type:wealth,emptyMessage:No wealth logged yet. Why not add some?,modalHeading:Wealth log." tabindex="1">Wealth Log</a>

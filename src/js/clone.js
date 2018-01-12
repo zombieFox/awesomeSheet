@@ -919,6 +919,9 @@ var clone = (function() {
     if (cloneType == "note-character" || cloneType == "note-story") {
       _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
+    if (cloneType == "item") {
+      _bind_wealth(newClone.querySelectorAll(".js-input-block"));
+    };
   };
 
   function _addNewClone(cloneType) {
@@ -1041,12 +1044,18 @@ var clone = (function() {
     clear(cloneType);
     _render_all_clones(cloneType);
     _update_all_clones(cloneType);
-    totalBlock.render();
-    textBlock.render();
     _update_clonePlaceholder(cloneType);
     _update_clonePrefix(cloneType);
     _update_cloneSuffix(cloneType);
     _update_cloneState(cloneType);
+    totalBlock.render();
+    if (cloneType == "class") {
+      characterSelect.update();
+    };
+    if (cloneType == "item") {
+      wealth.render();
+    };
+    textBlock.render();
     snack.render({
       message: _get_undoRemoveCloneMessage(cloneType),
       button: "Undo",
@@ -1061,17 +1070,20 @@ var clone = (function() {
     clear(undoData.cloneType);
     _render_all_clones(undoData.cloneType);
     _update_all_clones(undoData.cloneType);
-    totalBlock.render();
-    textBlock.render();
     _update_clonePlaceholder(undoData.cloneType);
     _update_clonePrefix(undoData.cloneType);
     _update_cloneSuffix(undoData.cloneType);
     _update_cloneState(undoData.cloneType);
     _update_removeButtonTab(undoData.cloneType);
     _remove_lastRemovedClone();
+    totalBlock.render();
     if (undoData.cloneType == "class") {
       characterSelect.update();
     };
+    if (undoData.cloneType == "item") {
+      wealth.render();
+    };
+    textBlock.render();
     sheet.storeCharacters();
   };
 
@@ -1147,6 +1159,12 @@ var clone = (function() {
   function _bind_textareaBlock(all_textareaBlock) {
     for (var i = 0; i < all_textareaBlock.length; i++) {
       textareaBlock.bind(all_textareaBlock[i]);
+    };
+  };
+
+  function _bind_wealth(all_inputBlock) {
+    for (var i = 0; i < all_inputBlock.length; i++) {
+      inputBlock.bind_wealth(all_inputBlock[i]);
     };
   };
 

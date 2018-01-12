@@ -3,10 +3,10 @@ var skills = (function() {
   var renderTimer = null;
 
   function bind() {
-    var skillSpentRanksInput = helper.e(".js-skill-spent-ranks-input");
+    var skillsRanksSpentIncludeCustom = helper.e(".js-skills-ranks-spent-include-custom");
     var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
 
-    skillSpentRanksInput.addEventListener("change", function() {
+    skillsRanksSpentIncludeCustom.addEventListener("change", function() {
       renderTimer = setTimeout(function() {
         render();
         textBlock.render();
